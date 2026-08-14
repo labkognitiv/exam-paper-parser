@@ -599,6 +599,11 @@ def write_question_json(
         "marks_validation_passed": mark_total_valid,
         "question_stem": stem,
         "question_image": f"question_{question.number:02d}.png",
+        "question_image_with_figures": (
+            f"question_{question.number:02d}_with_figures.png"
+            if (output_dir / f"question_{question.number:02d}_with_figures.png").exists()
+            else None
+        ),
         "question_text_file": text_path.name,
         "has_diagram": bool(figures),
         "figures": figures,
@@ -627,7 +632,7 @@ def write_question(
     *,
     dpi: int,
     extract_figure_images: bool,
-) -> tuple[Path, Path, int, list[Path]]:
+) -> tuple[Path, Path, Path | None, int, list[Path]]:
     bands: list[Band] = []
     for page_number in range(question.start_page, question.end_page + 1):
         bands.extend(content_bands(source[page_number], page_number))
@@ -649,10 +654,22 @@ def write_question(
         y += band.rect.height + band_gap
 
     png_path = output_dir / f"question_{question.number:02d}.png"
+    with_figures_path = output_dir / f"question_{question.number:02d}_with_figures.png"
     text_path = output_dir / f"question_{question.number:02d}.txt"
+    if with_figures_path.exists():
+        with_figures_path.unlink()
+    written_with_figures: Path | None = None
     figure_paths: list[Path] = []
     if extract_figure_images:
         figure_paths, diagram_rects = extract_figures(target, output_dir, dpi=dpi)
+        if diagram_rects:
+            temp_with_figures = with_figures_path.with_suffix(".tmp.png")
+            figure_pix = target.get_pixmap(
+                matrix=pymupdf.Matrix(dpi / 72, dpi / 72), alpha=False
+            )
+            figure_pix.save(temp_with_figures)
+            temp_with_figures.replace(with_figures_path)
+            written_with_figures = with_figures_path
         for diagram_rect in diagram_rects:
             target.add_redact_annot(diagram_rect, fill=(1, 1, 1))
         if diagram_rects:
@@ -674,7 +691,7 @@ def write_question(
     old_pdf = output_dir / f"question_{question.number:02d}.pdf"
     if old_pdf.exists():
         old_pdf.unlink()
-    return png_path, text_path, len(bands), figure_paths
+    return png_path, text_path, written_with_figures, len(bands), figure_paths
 
 
 def build_parser() -> argparse.ArgumentParser:
@@ -738,7 +755,7 @@ def process_pdf(input_pdf: Path, output_dir: Path, args: argparse.Namespace) -> 
     output_dir.mkdir(parents=True, exist_ok=True)
     sanitized = make_sanitized_copy(original, keep_answer_lines=args.keep_answer_lines)
     for question in questions:
-        png_path, text_path, band_count, figure_paths = write_question(
+        png_path, text_path, with_figures_path, band_count, figure_paths = write_question(
             sanitized,
             question,
             output_dir,
@@ -749,6 +766,8 @@ def process_pdf(input_pdf: Path, output_dir: Path, args: argparse.Namespace) -> 
             f"  wrote {png_path.name} and {text_path.name} "
             f"({band_count} content bands)"
         )
+        if with_figures_path:
+            print(f"  wrote {with_figures_path.name}")
         for figure_path in figure_paths:
             print(f"  wrote {figure_path.name}")
         json_path = write_question_json(

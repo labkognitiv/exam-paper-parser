@@ -34,9 +34,11 @@ The standard project layout is:
 input/
   paper/
   markscheme/
+  mcq/
 output/
   paper/
   markscheme/
+  mcq/
 ```
 
 Place question-paper PDFs in `input/paper` and run:
@@ -61,9 +63,14 @@ For a file named `9702_s25_qp_22.pdf`, the program automatically creates:
   question_02.txt
   question_02.json
   figure_2_1.png
-  figure_2_2.png
+figure_2_2.png
   ...
 ```
+
+When a question contains a detected figure, the output also includes two
+question-image variants: `question_02.png` with the figure removed and
+`question_02_with_figures.png` with the figure retained. The separately cropped
+`figure_2_1.png` file is still produced.
 
 You can also pass a PDF or directory from anywhere:
 
@@ -118,3 +125,19 @@ For example, `9702_s25_ms_22.pdf` creates matching `.txt` and `.json` files in
 such as `B1`, `C1`, `M1`, or `A1`, in a separate aligned column. The JSON groups
 continued rows under the latest question-part label, records alternative marks,
 and uses IDs compatible with the question JSON.
+
+## Multiple-choice papers
+
+Put Paper 1 multiple-choice PDFs in `input/mcq` and run:
+
+```bash
+paperscript mcq
+```
+
+The command writes one complete question crop and one JSON mapping per question
+to `output/mcq/<paper-code>/`. Diagrams, tables, equations, and the A-D choices
+remain inside the question image. Each JSON record has `answer_type` set to
+`multiple-choice`, one mark, and options A-D. A matching `_ms_` PDF may be put
+in the same `input/mcq` folder. The command validates its complete 40-answer
+table, writes `answer_key.json`, and fills `correct_answer` in every question
+JSON automatically.
