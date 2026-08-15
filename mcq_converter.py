@@ -181,6 +181,18 @@ def has_visual_content(page: pymupdf.Page, clip: pymupdf.Rect) -> bool:
     return False
 
 
+def extract_question_text(page: pymupdf.Page, clip: pymupdf.Rect) -> str:
+    """Extract the visible MCQ text within the same bounds as the question image."""
+    lines: list[str] = []
+    for block in page.get_text("dict", clip=clip, sort=True).get("blocks", []):
+        for line in block.get("lines", []):
+            text = "".join(str(span.get("text", "")) for span in line.get("spans", []))
+            text = text.strip()
+            if text:
+                lines.append(text)
+    return "\n".join(lines).strip()
+
+
 def convert_pdf(pdf: Path, output_root: Path, dpi: int = 150) -> list[Path]:
     paper = metadata(pdf)
     destination = output_root / pdf.stem
@@ -202,6 +214,12 @@ def convert_pdf(pdf: Path, output_root: Path, dpi: int = 150) -> list[Path]:
             pix.save(temp_image)
             temp_image.replace(image_path)
 
+            question_text = extract_question_text(page, clip)
+            text_path = destination / f"question_{question.number:02d}.txt"
+            temp_text = text_path.with_suffix(".tmp.txt")
+            temp_text.write_text(question_text + "\n", encoding="utf-8")
+            temp_text.replace(text_path)
+
             question_id = f"{paper['paper_code']}_q{question.number:02d}"
             payload = {
                 "schema_version": "1.0",
@@ -211,8 +229,19 @@ def convert_pdf(pdf: Path, output_root: Path, dpi: int = 150) -> list[Path]:
                 "question_num": question.number,
                 "source_pages": [question.page_number + 1],
                 "question_image": image_path.name,
+                "question_text": question_text,
+                "question_text_file": text_path.name,
+                "question_text_format": "plain-text",
                 "answer_type": "multiple-choice",
                 "options": ["A", "B", "C", "D"],
+                "response_schema": {
+                    "type": "single-choice",
+                    "required": True,
+                    "options": [
+                        {"id": option, "label": option}
+                        for option in ("A", "B", "C", "D")
+                    ],
+                },
                 "marks": 1,
                 "correct_answer": None,
                 "has_visual_content": has_visual_content(page, clip),
@@ -223,9 +252,9 @@ def convert_pdf(pdf: Path, output_root: Path, dpi: int = 150) -> list[Path]:
                 json.dumps(payload, indent=2, ensure_ascii=False) + "\n",
                 encoding="utf-8",
             )
-            written.extend((image_path, json_path))
+            written.extend((image_path, json_path, text_path))
 
-    print(f"{pdf.name}: wrote {len(written) // 2} MCQ PNG and JSON pairs to {destination}")
+    print(f"{pdf.name}: wrote {len(questions)} MCQ PNG, JSON, and TXT sets to {destination}")
     return written
 
 
