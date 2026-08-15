@@ -337,9 +337,14 @@ def question_text(page: pymupdf.Page) -> str:
                 if span["size"] < base_size * 0.9:
                     offset = span["origin"][1] - base_origin
                     if offset < -1:
-                        text = text.translate(superscripts)
+                        translated = text.translate(superscripts)
+                        # Unicode has no complete alphabetic super/subscript
+                        # set. Preserve the structure explicitly instead of
+                        # flattening E_K to EK when no glyph exists.
+                        text = translated if translated != text else f"^{{{text.strip()}}}"
                     elif offset > 1:
-                        text = text.translate(subscripts)
+                        translated = text.translate(subscripts)
+                        text = translated if translated != text else f"_{{{text.strip()}}}"
                 pieces.append(text)
             raw_lines.append("".join(pieces))
         if block_lines:
@@ -357,6 +362,413 @@ def question_text(page: pymupdf.Page) -> str:
                 previous_blank = True
             continue
         lines.append(line)
+        previous_blank = False
+    while lines and not lines[-1]:
+        lines.pop()
+    return "\n".join(lines) + "\n"
+
+
+LATEX_SYMBOLS = {
+    "×": r"\times ", "φ": r"\phi ", "ϕ": r"\phi ", "ρ": r"\rho ",
+    "ω": r"\omega ", "λ": r"\lambda ", "μ": r"\mu ", "σ": r"\sigma ",
+    "Δ": r"\Delta ", "∆": r"\Delta ", "ε": r"\epsilon ", "π": r"\pi ",
+    "±": r"\pm ", "Ω": r"\Omega ", "〈": r"\langle ", "〉": r"\rangle ",
+}
+UNIT_TOKEN_RE = re.compile(r"(?:kg|mol|min|rad|Hz|Bq|pm|ms|[mJsKCFVWANTΩμ°])")
+
+
+def _latex_script(text: str, *, subscript: bool) -> str:
+    clean = text.strip().replace("–", "-").replace("−", "-")
+    if clean.isalpha() and clean.isascii():
+        clean = rf"\mathrm{{{clean}}}"
+    return f"_{{{clean}}}" if subscript else f"^{{{clean}}}"
+
+
+def _latex_symbols(text: str) -> str:
+    for source, replacement in LATEX_SYMBOLS.items():
+        text = text.replace(source, replacement)
+    return text.replace("–", "-").replace("−", "-")
+
+
+SCRIPT_CONTENT = r"(?:\\mathrm\{[^}]+\}|[^{}])*"
+STACKED_FRACTION_RE = re.compile(
+    rf"\^\{{(?P<numerator>{SCRIPT_CONTENT})\}}\s*"
+    rf"_\{{(?P<denominator>{SCRIPT_CONTENT})\}}"
+)
+
+
+def replace_stacked_fractions(text: str) -> str:
+    """Convert any vertically stacked script pair, not specific values."""
+    previous = None
+    while previous != text:
+        previous = text
+        text = STACKED_FRACTION_RE.sub(
+            lambda match: rf"\frac{{{match.group('numerator')}}}{{{match.group('denominator')}}}",
+            text,
+        )
+    return text
+
+
+def replace_square_roots(text: str) -> str:
+    """Convert Unicode radical expressions while respecting nested brackets."""
+    output: list[str] = []
+    index = 0
+    while index < len(text):
+        if text[index] != "√":
+            output.append(text[index])
+            index += 1
+            continue
+        cursor = index + 1
+        while cursor < len(text) and text[cursor].isspace():
+            cursor += 1
+        if cursor < len(text) and text[cursor] in "({[":
+            opening = text[cursor]
+            closing = {"(": ")", "{": "}", "[": "]"}[opening]
+            depth = 1
+            end = cursor + 1
+            while end < len(text) and depth:
+                if text[end] == opening:
+                    depth += 1
+                elif text[end] == closing:
+                    depth -= 1
+                end += 1
+            if depth == 0:
+                inside = text[cursor + 1 : end - 1]
+                output.append(rf"\sqrt{{{inside}}}")
+                index = end
+                continue
+        token_match = re.match(r"[^\s,.;]+", text[cursor:])
+        if token_match:
+            output.append(rf"\sqrt{{{token_match.group(0)}}}")
+            index = cursor + token_match.end()
+        else:
+            output.append(r"\sqrt{}")
+            index = cursor
+    return "".join(output)
+
+
+def _read_braced(text: str, start: int) -> tuple[str, int] | None:
+    if start >= len(text) or text[start] != "{":
+        return None
+    depth = 1
+    cursor = start + 1
+    while cursor < len(text) and depth:
+        if text[cursor] == "{":
+            depth += 1
+        elif text[cursor] == "}":
+            depth -= 1
+        cursor += 1
+    if depth:
+        return None
+    return text[start + 1 : cursor - 1], cursor
+
+
+def plain_from_latex(text: str) -> str:
+    """Produce lossless readable text from the structured LaTeX rendition."""
+    output: list[str] = []
+    cursor = 0
+    while cursor < len(text):
+        if text.startswith(r"\frac", cursor):
+            first = _read_braced(text, cursor + len(r"\frac"))
+            second = _read_braced(text, first[1]) if first else None
+            if first and second:
+                output.append(f"({plain_from_latex(first[0])})/({plain_from_latex(second[0])})")
+                cursor = second[1]
+                continue
+        if text.startswith(r"\sqrt", cursor):
+            value = _read_braced(text, cursor + len(r"\sqrt"))
+            if value:
+                output.append(f"sqrt({plain_from_latex(value[0])})")
+                cursor = value[1]
+                continue
+        if text.startswith(r"\mathrm", cursor):
+            value = _read_braced(text, cursor + len(r"\mathrm"))
+            if value:
+                output.append(plain_from_latex(value[0]))
+                cursor = value[1]
+                continue
+        output.append(text[cursor])
+        cursor += 1
+    plain = "".join(output).replace("$", "").replace(r"\,", " ")
+    command_to_symbol = {
+        r"\times": "×", r"\phi": "φ", r"\rho": "ρ", r"\omega": "ω",
+        r"\lambda": "λ", r"\mu": "μ", r"\sigma": "σ", r"\Delta": "Δ",
+        r"\epsilon": "ε", r"\pi": "π", r"\pm": "±", r"\Omega": "Ω",
+        r"\langle": "〈", r"\rangle": "〉", r"\cos": "cos", r"\sin": "sin",
+    }
+    for command, symbol in command_to_symbol.items():
+        plain = plain.replace(command, symbol)
+    return re.sub(r"[ \t]{2,}", " ", plain)
+
+
+def latexify_line(line: str) -> str:
+    """Add inline math delimiters without moving math away from its prose."""
+    line = line.strip().replace("\u2009", "").replace("\u200a", "")
+    if not line:
+        return ""
+    if line.startswith("$") and line.endswith("$") and line.count("$") == 2:
+        return line
+
+    # Complete displayed equations are clearer and safer as one math region.
+    # A prose sentence may also contain t = 0; only a compact formula-like
+    # left-hand side qualifies for whole-line math wrapping.
+    display_equation = False
+    if "=" in line and len(line) <= 110 and not re.search(r"\.{5,}", line):
+        left = line.split("=", 1)[0].strip()
+        words = re.findall(r"[A-Za-zΑ-ωϕφ]+", left)
+        display_equation = (
+            bool(left)
+            and not left.startswith("(")
+            and not re.search(r"[,.;:]", left)
+            and 1 <= len(words) <= 3
+            and not (len(words) > 1 and words[0][:1].isupper())
+        )
+    if display_equation:
+        expression = _latex_symbols(line)
+        expression = replace_stacked_fractions(expression)
+        expression = replace_square_roots(expression)
+        expression = re.sub(r"\bcos\b", r"\\cos", expression)
+        expression = re.sub(r"\bsin\b", r"\\sin", expression)
+        expression = re.sub(r"\s+", " ", expression).strip()
+        return f"${expression}$"
+
+    # Scientific values remain attached to their following physical units.
+    scientific = re.compile(
+        r"(?P<number>\d+(?:\.\d+)?)\s*×\s*10(?P<power>\^\{[^}]+\})"
+        r"(?P<units>(?:\s+(?:kg|mol|min|rad|Hz|Bq|pm|ms|[mJsKCFVWANTΩμ°])(?:\^\{[^}]+\})?){0,4})"
+    )
+
+    def replace_scientific(match: re.Match[str]) -> str:
+        units = match.group("units").strip()
+        unit_latex = ""
+        if units:
+            pieces = []
+            for token in units.split():
+                unit_match = re.match(r"([^\^]+)(\^\{[^}]+\})?", token)
+                if unit_match:
+                    pieces.append(rf"\mathrm{{{_latex_symbols(unit_match.group(1)).strip()}}}{unit_match.group(2) or ''}")
+            unit_latex = r"\," + r"\,".join(pieces)
+        return f"${match.group('number')} \\times 10{match.group('power')}{unit_latex}$"
+
+    line = scientific.sub(replace_scientific, line)
+
+    def replace_angle_expression(match: re.Match[str]) -> str:
+        inside = _latex_symbols(match.group("inside"))
+        return f"$\\langle {inside}\\rangle$"
+
+    line = re.sub(r"〈(?P<inside>.*?)〉", replace_angle_expression, line)
+
+    # Scripted variables such as V_IN and E_K are converted at their location.
+    script_group = r"(?:_\{(?:\\mathrm\{[^}]+\}|[^{}]+)\}|\^\{(?:\\mathrm\{[^}]+\}|[^{}]+)\})"
+    scripted = re.compile(rf"(?<![$\\\w])([A-Za-zΑ-ωϕφ])((?:{script_group})+)")
+    segments = line.split("$")
+    for index in range(0, len(segments), 2):
+        segments[index] = scripted.sub(
+            lambda match: f"${_latex_symbols(match.group(1))}{match.group(2)}$",
+            segments[index],
+        )
+    line = "$".join(segments)
+
+    # Remaining standalone Greek/math symbols are also kept inline.
+    for symbol, command in LATEX_SYMBOLS.items():
+        if symbol == "×":
+            continue
+        segments = line.split("$")
+        for index in range(0, len(segments), 2):
+            segments[index] = segments[index].replace(symbol, f"${command.strip()}$")
+        line = "$".join(segments)
+    return line
+
+
+def _spans_latex(spans: list[dict[str, object]]) -> str:
+    if not spans:
+        return ""
+    ordered = sorted(spans, key=lambda span: (span["bbox"][0], span["origin"][1]))
+    base_size = max(float(span["size"]) for span in ordered)
+    base_origins = [float(span["origin"][1]) for span in ordered if float(span["size"]) >= base_size * 0.9]
+    baseline = max(base_origins) if base_origins else float(ordered[0]["origin"][1])
+    pieces = []
+    for span in ordered:
+        text = str(span["text"])
+        if float(span["size"]) < base_size * 0.9:
+            offset = float(span["origin"][1]) - baseline
+            if offset < -1:
+                text = _latex_script(text, subscript=False)
+            elif offset > 1:
+                text = _latex_script(text, subscript=True)
+        pieces.append(text)
+    return _latex_symbols("".join(pieces).strip())
+
+
+def detect_spatial_math(page: pymupdf.Page) -> list[tuple[pymupdf.Rect, str]]:
+    """Infer displayed fractions and radicals from glyph/drawing geometry."""
+    spans = [
+        span
+        for block in page.get_text("dict", sort=False)["blocks"]
+        for line in block.get("lines", [])
+        for span in line.get("spans", [])
+        if str(span.get("text", "")).strip()
+    ]
+    detections: list[tuple[pymupdf.Rect, str]] = []
+
+    for drawing in page.get_drawings():
+        rule = pymupdf.Rect(drawing["rect"])
+        horizontal_rule = 5 <= rule.width <= 160 and rule.height <= 1.2
+        line_items = sum(1 for item in drawing.get("items", []) if item[0] == "l")
+        radical_path = (
+            drawing.get("type") == "s"
+            and line_items >= 2
+            and 18 <= rule.width <= 120
+            and 8 <= rule.height <= 35
+        )
+        if not horizontal_rule and not radical_path:
+            continue
+
+        if horizontal_rule:
+            numerator = [
+                span for span in spans
+                if rule.x0 - 1 <= (span["bbox"][0] + span["bbox"][2]) / 2 <= rule.x1 + 1
+                and 0.5 <= rule.y0 - span["origin"][1] <= 24
+            ]
+            denominator = [
+                span for span in spans
+                if rule.x0 - 1 <= (span["bbox"][0] + span["bbox"][2]) / 2 <= rule.x1 + 1
+                and 0.5 <= span["origin"][1] - rule.y1 <= 28
+            ]
+            if not numerator or not denominator:
+                continue
+            top = _spans_latex(numerator)
+            bottom = _spans_latex(denominator)
+            if not top or not bottom or len(top) > 45 or len(bottom) > 45:
+                continue
+            baseline = min(float(span["origin"][1]) for span in denominator)
+            anchors = [
+                span for span in spans
+                if "=" in str(span["text"])
+                and span["bbox"][2] <= rule.x0 + 2
+                and rule.x0 - span["bbox"][2] <= 100
+                and abs(float(span["origin"][1]) - baseline) <= 14
+            ]
+            if not anchors:
+                continue
+            anchor = max(anchors, key=lambda span: span["bbox"][2])
+            anchor_y = float(anchor["origin"][1])
+            prefix_spans = [
+                span for span in spans
+                if span["bbox"][2] <= rule.x0 + 2
+                and rule.x0 - span["bbox"][2] <= 140
+                and abs(float(span["origin"][1]) - anchor_y) <= 6
+            ]
+            suffix_spans = [
+                span for span in spans
+                if span["bbox"][0] >= rule.x1 - 2
+                and span["bbox"][0] - rule.x1 <= 140
+                and abs(float(span["origin"][1]) - anchor_y) <= 6
+            ]
+            prefix = _spans_latex(prefix_spans)
+            suffix = _spans_latex(suffix_spans)
+            expression = f"{prefix}\\frac{{{top}}}{{{bottom}}}{suffix}"
+            involved = numerator + denominator + prefix_spans + suffix_spans
+        else:
+            inside = [
+                span for span in spans
+                if span["bbox"][0] >= rule.x0 + 3 and span["bbox"][2] <= rule.x1 + 3
+                and span["bbox"][1] >= rule.y0 - 3 and span["bbox"][3] <= rule.y1 + 4
+            ]
+            anchors = [
+                span for span in spans
+                if "=" in str(span["text"])
+                and span["bbox"][2] <= rule.x0 + 3
+                and rule.x0 - span["bbox"][2] <= 130
+                and abs(float(span["origin"][1]) - rule.y1) <= 16
+            ]
+            if not inside or not anchors:
+                continue
+            anchor = max(anchors, key=lambda span: span["bbox"][2])
+            anchor_y = float(anchor["origin"][1])
+            prefix_spans = [
+                span for span in spans
+                if span["bbox"][2] <= rule.x0 + 3
+                and rule.x0 - span["bbox"][2] <= 150
+                and abs(float(span["origin"][1]) - anchor_y) <= 6
+            ]
+            prefix = _spans_latex(prefix_spans)
+            expression = f"{prefix}\\sqrt{{{_spans_latex(inside)}}}"
+            involved = inside + prefix_spans
+
+        region = pymupdf.Rect(rule)
+        for span in involved:
+            region |= pymupdf.Rect(span["bbox"])
+        if re.search(r"[A-Za-z]{8,}", re.sub(r"\\[A-Za-z]+", "", expression)):
+            continue
+        detections.append((region, f"${replace_stacked_fractions(expression)}$"))
+    return detections
+
+
+def question_latex_text(page: pymupdf.Page) -> str:
+    spatial_math = detect_spatial_math(page)
+    emitted_spatial: set[int] = set()
+    raw_lines: list[str] = []
+    for block in page.get_text("dict", sort=True)["blocks"]:
+        block_lines = block.get("lines", [])
+        for line in block_lines:
+            spans = line.get("spans", [])
+            if not spans:
+                continue
+            line_rect = pymupdf.Rect(line["bbox"])
+            overlapping = [
+                index for index, (region, _latex) in enumerate(spatial_math)
+                if region.intersects(line_rect)
+            ]
+            if overlapping:
+                for index in overlapping:
+                    if index not in emitted_spatial:
+                        raw_lines.append(spatial_math[index][1])
+                        emitted_spatial.add(index)
+                continue
+            base_size = max(span["size"] for span in spans)
+            base_spans = [span for span in spans if span["size"] >= base_size * 0.9]
+            base_origin = max(span["origin"][1] for span in base_spans)
+            pieces: list[str] = []
+            for span in spans:
+                text = span["text"]
+                if span["size"] < base_size * 0.9:
+                    offset = span["origin"][1] - base_origin
+                    if offset < -1:
+                        text = _latex_script(text, subscript=False)
+                    elif offset > 1:
+                        text = _latex_script(text, subscript=True)
+                pieces.append(text)
+            raw_lines.append("".join(pieces))
+        if block_lines:
+            raw_lines.append("")
+
+    # PDF fraction components may be emitted as adjacent logical lines. Join
+    # a lowered denominator back to the preceding equality before rendering.
+    joined_raw: list[str] = []
+    for raw_line in raw_lines:
+        stripped = raw_line.strip()
+        previous_index = len(joined_raw) - 1
+        while previous_index >= 0 and not joined_raw[previous_index].strip():
+            previous_index -= 1
+        if stripped.startswith("_{") and previous_index >= 0 and "=" in joined_raw[previous_index]:
+            joined_raw[previous_index] = joined_raw[previous_index].rstrip() + " " + stripped
+        else:
+            joined_raw.append(raw_line)
+
+    lines: list[str] = []
+    previous_blank = False
+    for raw_line in joined_raw:
+        clean = DOTS_RE.sub("", raw_line).strip()
+        clean = re.sub(r"(\[\d+\])(?:\s*\1)+", r"\1", clean)
+        clean = re.sub(r"[ \t]{2,}", " ", clean)
+        rendered = latexify_line(clean)
+        if not rendered:
+            if lines and not previous_blank:
+                lines.append("")
+                previous_blank = True
+            continue
+        lines.append(rendered)
         previous_blank = False
     while lines and not lines[-1]:
         lines.pop()
@@ -516,12 +928,20 @@ def write_question_json(
     output_dir: Path,
     text_path: Path,
     figure_paths: list[Path],
+    plain_text: str,
+    latex_text: str,
 ) -> Path:
     metadata = paper_metadata(input_pdf)
     question_id = f"{metadata['paper_code']}_q{question.number:02d}"
     stem, parts, total_marks = parse_question_parts(
-        text_path.read_text(encoding="utf-8"), question_id=question_id
+        plain_text, question_id=question_id
     )
+    latex_stem, latex_parts, _latex_total = parse_question_parts(
+        latex_text, question_id=question_id
+    )
+    latex_by_path = {tuple(part["path"]): part["question_text"] for part in latex_parts}
+    for part in parts:
+        part["question_text_latex"] = latex_by_path.get(tuple(part["path"]), part["question_text"])
     # The compact question crop can omit a total printed at the extreme bottom
     # of a page. Read the authoritative total from the original source pages.
     for page_number in range(question.start_page, question.end_page + 1):
@@ -598,6 +1018,7 @@ def write_question_json(
         "detected_part_marks": detected_marks,
         "marks_validation_passed": mark_total_valid,
         "question_stem": stem,
+        "question_stem_latex": latex_stem,
         "question_image": f"question_{question.number:02d}.png",
         "question_image_with_figures": (
             f"question_{question.number:02d}_with_figures.png"
@@ -605,6 +1026,7 @@ def write_question_json(
             else None
         ),
         "question_text_file": text_path.name,
+        "question_text_format": "markdown-with-inline-latex",
         "has_diagram": bool(figures),
         "figures": figures,
         "parts": parts,
@@ -632,7 +1054,7 @@ def write_question(
     *,
     dpi: int,
     extract_figure_images: bool,
-) -> tuple[Path, Path, Path | None, int, list[Path]]:
+) -> tuple[Path, Path, Path | None, int, list[Path], str, str]:
     bands: list[Band] = []
     for page_number in range(question.start_page, question.end_page + 1):
         bands.extend(content_bands(source[page_number], page_number))
@@ -684,14 +1106,16 @@ def write_question(
     temp_text = text_path.with_suffix(".tmp.txt")
     pix = target.get_pixmap(matrix=pymupdf.Matrix(dpi / 72, dpi / 72), alpha=False)
     pix.save(temp_png)
-    temp_text.write_text(question_text(target), encoding="utf-8")
+    latex_text = question_latex_text(target)
+    plain_text = plain_from_latex(latex_text)
+    temp_text.write_text(latex_text, encoding="utf-8")
     output.close()
     temp_png.replace(png_path)
     temp_text.replace(text_path)
     old_pdf = output_dir / f"question_{question.number:02d}.pdf"
     if old_pdf.exists():
         old_pdf.unlink()
-    return png_path, text_path, written_with_figures, len(bands), figure_paths
+    return png_path, text_path, written_with_figures, len(bands), figure_paths, plain_text, latex_text
 
 
 def build_parser() -> argparse.ArgumentParser:
@@ -755,7 +1179,15 @@ def process_pdf(input_pdf: Path, output_dir: Path, args: argparse.Namespace) -> 
     output_dir.mkdir(parents=True, exist_ok=True)
     sanitized = make_sanitized_copy(original, keep_answer_lines=args.keep_answer_lines)
     for question in questions:
-        png_path, text_path, with_figures_path, band_count, figure_paths = write_question(
+        (
+            png_path,
+            text_path,
+            with_figures_path,
+            band_count,
+            figure_paths,
+            plain_text,
+            latex_text,
+        ) = write_question(
             sanitized,
             question,
             output_dir,
@@ -771,7 +1203,14 @@ def process_pdf(input_pdf: Path, output_dir: Path, args: argparse.Namespace) -> 
         for figure_path in figure_paths:
             print(f"  wrote {figure_path.name}")
         json_path = write_question_json(
-            input_pdf, original, question, output_dir, text_path, figure_paths
+            input_pdf,
+            original,
+            question,
+            output_dir,
+            text_path,
+            figure_paths,
+            plain_text,
+            latex_text,
         )
         print(f"  wrote {json_path.name}")
     sanitized.close()
