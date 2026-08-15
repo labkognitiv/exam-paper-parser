@@ -236,8 +236,8 @@ def pdfs_at(source: Path) -> list[Path]:
 
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description="Extract Cambridge mark schemes into question text files.")
-    parser.add_argument("source", nargs="?", default="markschemetoconvert", type=Path)
-    parser.add_argument("--output", type=Path, default=Path("output/markscheme"))
+    parser.add_argument("source", nargs="?", default=Path("input/physics/markscheme"), type=Path)
+    parser.add_argument("--output", type=Path, default=Path("output/physics/markscheme"))
     args = parser.parse_args(argv)
 
     pdfs = pdfs_at(args.source)

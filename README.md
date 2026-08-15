@@ -32,25 +32,27 @@ The standard project layout is:
 
 ```text
 input/
-  paper/
-  markscheme/
-  mcq/
+  physics/
+    paper/
+    markscheme/
+    mcq/
 output/
-  paper/
-  markscheme/
-  mcq/
+  physics/
+    paper/
+    markscheme/
+    mcq/
 ```
 
-Place question-paper PDFs in `input/paper` and run:
+Place Physics question-paper PDFs in `input/physics/paper` and run:
 
 ```bash
 cd /Users/usman.zafar/PaperScript
 paperscript paper
 ```
 
-These are written to `output/paper/<paper-code>/` automatically. For example,
-`input/paper/9702_s25_qp_22.pdf` produces
-`output/paper/9702_s25_qp_22/question_01.png`, and so on.
+These are written to `output/physics/paper/<paper-code>/` automatically. For example,
+`input/physics/paper/9702_s25_qp_22.pdf` produces
+`output/physics/paper/9702_s25_qp_22/question_01.png`, and so on.
 
 For a file named `9702_s25_qp_22.pdf`, the program automatically creates:
 
@@ -113,7 +115,7 @@ This is an MVP. Always review output before publishing or using it in assessment
 ## Mark schemes
 
 Mark schemes use a separate converter, so the question-paper extraction logic is
-not changed. Put mark-scheme PDFs in `input/markscheme` and run:
+not changed. Put Physics mark-scheme PDFs in `input/physics/markscheme` and run:
 
 ```bash
 cd /Users/usman.zafar/PaperScript
@@ -121,23 +123,23 @@ paperscript markscheme
 ```
 
 For example, `9702_s25_ms_22.pdf` creates matching `.txt` and `.json` files in
-`output/markscheme/9702_s25_ms_22/`. Each answer line retains its marking tag,
+`output/physics/markscheme/9702_s25_ms_22/`. Each answer line retains its marking tag,
 such as `B1`, `C1`, `M1`, or `A1`, in a separate aligned column. The JSON groups
 continued rows under the latest question-part label, records alternative marks,
 and uses IDs compatible with the question JSON.
 
 ## Multiple-choice papers
 
-Put Paper 1 multiple-choice PDFs in `input/mcq` and run:
+Put Physics Paper 1 multiple-choice PDFs in `input/physics/mcq` and run:
 
 ```bash
 paperscript mcq
 ```
 
 The command writes one complete question crop and one JSON mapping per question
-to `output/mcq/<paper-code>/`. Diagrams, tables, equations, and the A-D choices
+to `output/physics/mcq/<paper-code>/`. Diagrams, tables, equations, and the A-D choices
 remain inside the question image. Each JSON record has `answer_type` set to
 `multiple-choice`, one mark, and options A-D. A matching `_ms_` PDF may be put
-in the same `input/mcq` folder. The command validates its complete 40-answer
+in the same `input/physics/mcq` folder. The command validates its complete 40-answer
 table, writes `answer_key.json`, and fills `correct_answer` in every question
 JSON automatically.

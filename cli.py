@@ -6,12 +6,12 @@ from pathlib import Path
 from . import markscheme_converter, mcq_converter, question_compactor
 
 
-USAGE = """usage: paperscript {paper|markscheme} [options]
+USAGE = """usage: paperscript {paper|markscheme|mcq} [options]
 
 commands:
-  paper       read PDFs from input/paper and write to output/paper
-  markscheme  read PDFs from input/markscheme and write to output/markscheme
-  mcq         read PDFs from input/mcq and write to output/mcq
+  paper       read PDFs from input/physics/paper and write to output/physics/paper
+  markscheme  read PDFs from input/physics/markscheme and write to output/physics/markscheme
+  mcq         read PDFs from input/physics/mcq and write to output/physics/mcq
 """
 
 
@@ -24,23 +24,23 @@ def main(argv: list[str] | None = None) -> int:
     command, *options = arguments
     if command == "paper":
         return question_compactor.main([
-            "input/paper",
+            "input/physics/paper",
             "--output-dir",
-            "output/paper",
+            "output/physics/paper",
             *options,
         ])
     if command == "markscheme":
         return markscheme_converter.main([
-            "input/markscheme",
+            "input/physics/markscheme",
             "--output",
-            "output/markscheme",
+            "output/physics/markscheme",
             *options,
         ])
     if command == "mcq":
         return mcq_converter.main([
-            "input/mcq",
+            "input/physics/mcq",
             "--output",
-            "output/mcq",
+            "output/physics/mcq",
             *options,
         ])
 

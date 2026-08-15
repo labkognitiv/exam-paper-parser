@@ -260,8 +260,8 @@ def convert_pdf(pdf: Path, output_root: Path, dpi: int = 150) -> list[Path]:
 
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description="Crop multiple-choice exam questions.")
-    parser.add_argument("source", nargs="?", type=Path, default=Path("input/mcq"))
-    parser.add_argument("--output", type=Path, default=Path("output/mcq"))
+    parser.add_argument("source", nargs="?", type=Path, default=Path("input/physics/mcq"))
+    parser.add_argument("--output", type=Path, default=Path("output/physics/mcq"))
     parser.add_argument("--dpi", type=int, default=150)
     args = parser.parse_args(argv)
     if args.dpi < 72:
