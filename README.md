@@ -146,12 +146,9 @@ in the same `input/physics/mcq` folder. The command validates its complete 40-an
 table, writes `answer_key.json`, and fills `correct_answer` in every question
 JSON automatically.
 
-The complete question PNG remains the authoritative display asset. When vector,
-raster, table, graph, circuit, or other visual content is detected, the converter
-also writes `figure_<question>_01.png` with a 64-pixel white safety border. The
-question JSON lists these files, records whether the provisional display mode is
-`text_options`, `text_diagram_options`, or `image_question`, and keeps
-`rebuild_status` as `not_rebuilt` until a later reconstruction pass.
+The complete question PNG remains the authoritative display asset. Diagrams,
+tables, graphs, equations, and options stay inside that image; the P1 parser does
+not create separate diagram files.
 
 ## Syllabuses
 

@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Physics 9702 · 2025 JSON preview</title>
+  <style>
+    :root { --ink:#17201f; --muted:#65706d; --line:#d8ddda; --paper:#fff; --desk:#e9ece7; --accent:#b7422d; }
+    * { box-sizing:border-box; }
+    body { margin:0; color:var(--ink); background:var(--desk); font-family:Georgia, 'Times New Roman', serif; }
+    header { position:sticky; top:0; z-index:2; display:flex; align-items:center; justify-content:space-between; padding:18px 32px; background:#17201f; color:#fff; }
+    header h1 { margin:0; font-size:20px; font-weight:normal; letter-spacing:.02em; }
+    header p { margin:0; color:#c5cfcb; font:12px ui-monospace, SFMono-Regular, monospace; }
+    nav { display:flex; gap:8px; padding:18px 32px 0; max-width:1040px; margin:auto; }
+    button { border:1px solid #aeb7b3; background:#f5f6f3; color:var(--ink); padding:9px 15px; cursor:pointer; font:13px ui-monospace, SFMono-Regular, monospace; }
+    button.active { color:#fff; background:var(--accent); border-color:var(--accent); }
+    main { width:976px; margin:18px auto 60px; padding:46px 62px; background:var(--paper); box-shadow:0 12px 40px rgba(24,35,32,.12); }
+    .paper-head { display:flex; justify-content:space-between; align-items:end; padding-bottom:18px; border-bottom:2px solid var(--ink); }
+    .paper-head h2 { margin:0 0 5px; font-size:27px; font-weight:normal; }
+    .paper-head span, .meta { color:var(--muted); font:12px ui-monospace, SFMono-Regular, monospace; }
+    .part { display:grid; grid-template-columns:76px 1fr 50px; gap:18px; padding:25px 0; border-bottom:1px solid var(--line); }
+    .part.container { padding-bottom:10px; border-bottom:0; }
+    .label { font-weight:bold; }
+    .prompt { white-space:pre-line; font-size:16px; line-height:1.55; }
+    .marks { text-align:right; font-weight:bold; }
+    .answer { grid-column:2; margin-top:13px; }
+    input, textarea { width:100%; border:0; border-bottom:1px solid #7f8985; background:#fafbf8; padding:11px; color:var(--ink); font:15px Georgia, serif; }
+    textarea { min-height:88px; resize:vertical; border:1px solid #aeb7b3; }
+    .unit { display:flex; align-items:center; gap:10px; }
+    .unit input { flex:1; }
+    .unit strong { min-width:70px; font-weight:normal; }
+    .empty { padding:70px; text-align:center; color:var(--muted); }
+  </style>
+</head>
+<body>
+  <header><h1>Cambridge 9702 · question JSON preview</h1><p>DESKTOP PROTOTYPE · SUMMER 2025</p></header>
+  <nav id="tabs" aria-label="Question selector"></nav>
+  <main id="paper"><div class="empty">Loading question JSON…</div></main>
+  <script src="question-data.js"></script>
+  <script>
+    const questions = [
+      { label:'21 · Q7', data:window.QUESTION_DATA[0] },
+      { label:'22 · Q3', data:window.QUESTION_DATA[1] },
+      { label:'23 · Q4', data:window.QUESTION_DATA[2] },
+      { label:'24 · Q3', data:window.QUESTION_DATA[3] }
+    ];
+    const tabs = document.querySelector('#tabs');
+    const paper = document.querySelector('#paper');
+    const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+
+    function answerControl(part) {
+      if (!part.marks) return '';
+      if (part.answer_type === 'numeric-with-working') return `<div class="answer unit"><input aria-label="Answer for ${esc(part.label)}"><strong>${esc(part.unit || '')}</strong></div>`;
+      if (part.answer_type === 'graph' || part.answer_type === 'drawing') return `<div class="answer"><textarea aria-label="Drawing area for ${esc(part.label)}" placeholder="Drawing / graph response area"></textarea></div>`;
+      return `<div class="answer"><textarea aria-label="Answer for ${esc(part.label)}"></textarea></div>`;
+    }
+
+    function show(index) {
+      [...tabs.children].forEach((button, i) => button.classList.toggle('active', i === index));
+      const data = questions[index].data;
+      const questionNo = data.question_id.match(/q(\d+)$/)?.[1].replace(/^0/, '') || '?';
+      paper.innerHTML = `<div class="paper-head"><div><h2>Question ${questionNo}</h2><span>${esc(data.paper_code)}</span></div><strong>${data.total_marks} marks</strong></div>` +
+        data.parts.map(part => `<section class="part ${part.marks == null ? 'container' : ''}"><div class="label">${esc(part.label)}</div><div class="prompt">${esc(part.question_text)}</div><div class="marks">${part.marks == null ? '' : `[${part.marks}]`}</div>${answerControl(part)}</section>`).join('');
+    }
+
+    questions.forEach((question, index) => {
+      const button = document.createElement('button');
+      button.textContent = question.label;
+      button.addEventListener('click', () => show(index));
+      tabs.append(button);
+    });
+    show(0);
+  </script>
+</body>
+</html>

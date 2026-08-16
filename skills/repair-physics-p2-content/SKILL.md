@@ -19,6 +19,7 @@ Locate:
 - separate figure files referenced by the question JSON, for existence/link checks
 
 Read [answer-block-registry.md](references/answer-block-registry.md) before assigning a response schema, [question-content-flow.md](references/question-content-flow.md) before repairing content order, and [review-log.md](references/review-log.md) before making changes.
+Read [official-reconciliation.md](references/official-reconciliation.md) before representing immutable official-source identity, duplication, alias, or cross-question placement defects.
 
 ## Operating mode
 
@@ -43,6 +44,8 @@ Never infer authorization to leave `official_source_locked` merely because the v
 8. Record explicit figure dependencies and clear previous-part dependencies. Do not infer Physics concepts or enrichment.
 9. Compare the mark-scheme text and JSON. In `official_source_locked` mode, report but do not edit notation defects, exact duplicates or hierarchy conflicts. Outside locked mode, preserve official meaning and order while applying only explicitly authorized repairs.
 10. Reconcile each printed part mark against question JSON and mark-scheme JSON, then reconcile their sums against the printed question total. Do not accept total-only agreement when individual parts differ.
+    When an immutable official mark-scheme part demonstrably combines multiple separately printed question leaves, preserve those printed leaves and record `official_part_mapping` with one `markscheme_part_id` and the ordered `question_part_ids`; their printed marks must sum exactly to the locked official part mark.
+    When duplicate IDs, multiple official identities for one printed leaf, pseudo-parts, aliases, or cross-question placement make `official_part_mapping` insufficient, use the additive occurrence-aware `official_reconciliation` contract. Never combine the two mapping formats.
 11. Treat parenthesized mark codes and explicit `OR` routes as alternatives, not additional available marks.
 12. Run `scripts/validate_pair.py QUESTION_JSON MARKSCHEME_JSON`.
 13. Report every changed file and review-log entry.

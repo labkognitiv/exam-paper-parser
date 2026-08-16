@@ -45,10 +45,33 @@ def metadata(pdf: Path) -> dict:
     }
 
 
+def extract_split_answer_rows(lines: list[str]) -> dict[int, dict]:
+    """Read legacy keys with number/letter pairs split across lines or columns."""
+    answers: dict[int, dict] = {}
+    cleaned = [line.strip() for line in lines if line.strip()]
+    candidates: list[tuple[int, str]] = []
+    pair_re = re.compile(r"(?<!\S)([1-9]|[1-3]\d|40)\s+([A-D])(?=\s|$)")
+    for line in cleaned:
+        candidates.extend((int(match.group(1)), match.group(2)) for match in pair_re.finditer(line))
+    for index in range(len(cleaned) - 1):
+        if not re.fullmatch(r"(?:[1-9]|[1-3]\d|40)", cleaned[index]):
+            continue
+        if not re.fullmatch(r"[A-D]", cleaned[index + 1]):
+            continue
+        candidates.append((int(cleaned[index]), cleaned[index + 1]))
+    for number, answer in candidates:
+        if number in answers and answers[number]["answer"] != answer:
+            raise ValueError(f"Conflicting legacy answers for question {number}")
+        answers[number] = {"answer": answer, "marks": 1}
+    return answers
+
+
 def extract_answer_key(pdf: Path) -> dict[int, dict]:
     answers: dict[int, dict] = {}
+    text_lines: list[str] = []
     with pymupdf.open(pdf) as doc:
         for page in doc:
+            text_lines.extend(page.get_text("text", sort=True).splitlines())
             for block in page.get_text("blocks", sort=True):
                 row = " ".join(block[4].split())
                 match = ANSWER_ROW_RE.match(row)
@@ -62,6 +85,10 @@ def extract_answer_key(pdf: Path) -> dict[int, dict]:
                     "marks": int(match.group("marks")),
                 }
     expected = set(range(1, 41))
+    if set(answers) != expected:
+        legacy_answers = extract_split_answer_rows(text_lines)
+        if set(legacy_answers) == expected:
+            answers = legacy_answers
     found = set(answers)
     if found != expected:
         missing = sorted(expected - found)
@@ -181,93 +208,6 @@ def has_visual_content(page: pymupdf.Page, clip: pymupdf.Rect) -> bool:
     return False
 
 
-def visual_source_rect(page: pymupdf.Page, question_clip: pymupdf.Rect) -> pymupdf.Rect | None:
-    """Return one safe source region containing all intrinsic visual content."""
-    visual_rects: list[pymupdf.Rect] = []
-    for drawing in page.get_drawings():
-        rect = pymupdf.Rect(drawing["rect"]) & question_clip
-        if not rect.is_empty and (rect.width > 12 or rect.height > 12):
-            visual_rects.append(rect)
-    for block in page.get_text("dict").get("blocks", []):
-        if block.get("type") != 1:
-            continue
-        rect = pymupdf.Rect(block["bbox"]) & question_clip
-        if not rect.is_empty:
-            visual_rects.append(rect)
-    if not visual_rects:
-        return None
-
-    region = pymupdf.Rect(visual_rects[0])
-    for rect in visual_rects[1:]:
-        region |= rect
-
-    # Include labels, values, units and option letters immediately attached to
-    # a visual. The complete question crop remains the source of truth.
-    nearby = pymupdf.Rect(
-        max(question_clip.x0, region.x0 - 90),
-        max(question_clip.y0, region.y0 - 55),
-        min(question_clip.x1, region.x1 + 90),
-        min(question_clip.y1, region.y1 + 55),
-    )
-    for block in page.get_text("blocks", sort=True):
-        block_rect = pymupdf.Rect(block[:4]) & question_clip
-        if block_rect.is_empty or not block[4].strip():
-            continue
-        if not (block_rect & nearby).is_empty:
-            region |= block_rect
-
-    return pymupdf.Rect(
-        max(question_clip.x0, region.x0 - 8),
-        max(question_clip.y0, region.y0 - 8),
-        min(question_clip.x1, region.x1 + 8),
-        min(question_clip.y1, region.y1 + 8),
-    )
-
-
-def display_mode(page: pymupdf.Page, question_clip: pymupdf.Rect, visual: pymupdf.Rect | None) -> str:
-    if visual is None:
-        return "text_options"
-    option_positions: list[tuple[str, pymupdf.Rect]] = []
-    for block in page.get_text("dict", clip=question_clip, sort=True).get("blocks", []):
-        for line in block.get("lines", []):
-            text = "".join(str(span.get("text", "")) for span in line.get("spans", [])).strip()
-            match = re.match(r"^([A-D])(?:\s|$)", text)
-            if match:
-                option_positions.append((match.group(1), pymupdf.Rect(line["bbox"])))
-    if len(option_positions) == 4:
-        xs = [rect.x0 for _label, rect in option_positions]
-        overlaps_visual = any(rect.y0 <= visual.y1 and rect.y1 >= visual.y0 for _label, rect in option_positions)
-        if overlaps_visual or max(xs) - min(xs) > 90:
-            return "image_question"
-    return "text_diagram_options"
-
-
-def render_figure(
-    page: pymupdf.Page,
-    source_rect: pymupdf.Rect,
-    output_path: Path,
-    dpi: int,
-    border_pixels: int = 64,
-) -> None:
-    source = page.get_pixmap(
-        matrix=pymupdf.Matrix(dpi / 72, dpi / 72),
-        clip=source_rect,
-        colorspace=pymupdf.csRGB,
-        alpha=False,
-    )
-    canvas = pymupdf.Pixmap(
-        pymupdf.csRGB,
-        pymupdf.IRect(0, 0, source.width + 2 * border_pixels, source.height + 2 * border_pixels),
-        False,
-    )
-    canvas.clear_with(255)
-    source.set_origin(border_pixels, border_pixels)
-    canvas.copy(source, source.irect)
-    temporary = output_path.with_suffix(".tmp.png")
-    canvas.save(temporary)
-    temporary.replace(output_path)
-
-
 def extract_question_text(page: pymupdf.Page, clip: pymupdf.Rect) -> str:
     """Extract the visible MCQ text within the same bounds as the question image."""
     lines: list[str] = []
@@ -284,6 +224,10 @@ def convert_pdf(pdf: Path, output_root: Path, dpi: int = 150) -> list[Path]:
     paper = metadata(pdf)
     destination = output_root / pdf.stem
     destination.mkdir(parents=True, exist_ok=True)
+    # Rerunning an output created by the diagram-exporting parser should restore
+    # the simpler source-image package and remove its obsolete visual crops.
+    for stale_figure in destination.glob("figure_*.png"):
+        stale_figure.unlink()
     written: list[Path] = []
 
     with pymupdf.open(pdf) as doc:
@@ -306,23 +250,6 @@ def convert_pdf(pdf: Path, output_root: Path, dpi: int = 150) -> list[Path]:
             temp_text = text_path.with_suffix(".tmp.txt")
             temp_text.write_text(question_text + "\n", encoding="utf-8")
             temp_text.replace(text_path)
-
-            for stale_figure in destination.glob(f"figure_{question.number:02d}_*.png"):
-                stale_figure.unlink()
-            visual_rect = visual_source_rect(page, clip)
-            figures: list[dict] = []
-            if visual_rect is not None:
-                figure_path = destination / f"figure_{question.number:02d}_01.png"
-                render_figure(page, visual_rect, figure_path, dpi=dpi)
-                figures.append({
-                    "id": f"fig_{question.number:02d}_01",
-                    "file": figure_path.name,
-                    "source_page": question.page_number + 1,
-                    "source_bbox_points": [round(value, 2) for value in visual_rect],
-                    "canvas_border_pixels": 64,
-                    "extraction_method": "vector-raster-visual-bounds",
-                })
-                written.append(figure_path)
 
             question_id = f"{paper['paper_code']}_q{question.number:02d}"
             payload = {
@@ -348,12 +275,7 @@ def convert_pdf(pdf: Path, output_root: Path, dpi: int = 150) -> list[Path]:
                 },
                 "marks": 1,
                 "correct_answer": None,
-                "display_mode": display_mode(page, clip, visual_rect),
-                "display_source": "question_image",
-                "rebuild_status": "not_rebuilt",
-                "has_visual_content": visual_rect is not None,
-                "has_diagram": visual_rect is not None,
-                "figures": figures,
+                "has_visual_content": has_visual_content(page, clip),
                 "review_flags": [],
             }
             json_path = destination / f"question_{question.number:02d}.json"
@@ -363,11 +285,7 @@ def convert_pdf(pdf: Path, output_root: Path, dpi: int = 150) -> list[Path]:
             )
             written.extend((image_path, json_path, text_path))
 
-    figure_count = sum(1 for path in written if path.name.startswith("figure_"))
-    print(
-        f"{pdf.name}: wrote {len(questions)} MCQ PNG, JSON, and TXT sets "
-        f"with {figure_count} visual assets to {destination}"
-    )
+    print(f"{pdf.name}: wrote {len(questions)} MCQ PNG, JSON, and TXT sets to {destination}")
     return written
 
 

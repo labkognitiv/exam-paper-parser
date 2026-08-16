@@ -38,7 +38,7 @@ def main() -> int:
         errors.append("missing mark-scheme schema_version")
     if question.get("question_id") != markscheme.get("question_id"):
         errors.append("question_id mismatch")
-    if question.get("total_marks") != markscheme.get("total_marks"):
+    if question.get("total_marks") != markscheme.get("total_marks") and question.get("official_reconciliation") is None:
         errors.append("total_marks mismatch")
 
     stem = question.get("question_stem", "")
@@ -216,17 +216,57 @@ def main() -> int:
             if background_id and background_id not in figure_ids:
                 errors.append(f"unknown canvas background in {part.get('id')}: {background_id}")
 
+    reconciliation = question.get("official_reconciliation")
+    if reconciliation is not None:
+        if question.get("official_part_mapping"):
+            errors.append("official_reconciliation cannot be combined with official_part_mapping")
+        validate_official_reconciliation(
+            question, markscheme, reconciliation, args.markscheme_json, answerable, errors
+        )
+        if errors:
+            for error in errors:
+                print(f"FAIL: {error}")
+            return 1
+        print("PASS")
+        return 0
+
     ms_parts = markscheme.get("parts", [])
     ms_part_ids = [part.get("id", "") for part in ms_parts]
     unique(ms_part_ids, "mark-scheme part IDs", errors)
+    mappings = question.get("official_part_mapping", [])
+    mapped_ms_ids: set[str] = set()
+    mapped_question_ids: set[str] = set()
+    for mapping in mappings:
+        ms_id = mapping.get("markscheme_part_id")
+        question_ids = mapping.get("question_part_ids")
+        if ms_id not in ms_part_ids or not isinstance(question_ids, list) or len(question_ids) < 2:
+            errors.append("invalid official_part_mapping")
+            continue
+        if ms_id in mapped_ms_ids or any(qid in mapped_question_ids for qid in question_ids):
+            errors.append("overlapping official_part_mapping")
+            continue
+        if any(qid not in part_ids for qid in question_ids):
+            errors.append(f"unknown question part in official_part_mapping: {ms_id}")
+            continue
+        mapped_ms_ids.add(ms_id)
+        mapped_question_ids.update(question_ids)
     for part_id in ms_part_ids:
-        if part_id not in part_ids:
+        if part_id not in part_ids and part_id not in mapped_ms_ids:
             errors.append(f"mark-scheme part has no matching question part: {part_id}")
     question_marks = {part.get("id"): part.get("marks") for part in parts if part.get("marks") is not None}
     markscheme_marks = {part.get("id"): part.get("marks") for part in ms_parts}
     for part_id, marks in question_marks.items():
+        if part_id in mapped_question_ids:
+            continue
         if markscheme_marks.get(part_id) != marks:
             errors.append(f"part-mark mismatch for {part_id}: question={marks}, markscheme={markscheme_marks.get(part_id)}")
+    for mapping in mappings:
+        ms_id = mapping.get("markscheme_part_id")
+        question_ids = mapping.get("question_part_ids", [])
+        if ms_id in mapped_ms_ids:
+            mapped_total = sum(question_marks.get(qid, 0) for qid in question_ids)
+            if mapped_total != markscheme_marks.get(ms_id):
+                errors.append(f"mapped part-mark mismatch for {ms_id}: question={mapped_total}, markscheme={markscheme_marks.get(ms_id)}")
     point_ids = [point.get("id", "") for part in ms_parts for point in part.get("marking_points", [])]
     unique(point_ids, "marking-point IDs", errors)
     available = sum(part.get("marks", 0) for part in ms_parts)
@@ -259,6 +299,228 @@ def main() -> int:
         return 1
     print("PASS")
     return 0
+
+
+def validate_official_reconciliation(
+    question: dict,
+    local_markscheme: dict,
+    reconciliation: object,
+    local_path: Path,
+    answerable: set[str],
+    errors: list[str],
+) -> None:
+    """Validate occurrence-aware, question-side bindings to immutable official JSON."""
+    if not isinstance(reconciliation, dict) or reconciliation.get("version") != "0.1":
+        errors.append("invalid official_reconciliation version")
+        return
+    allowed = {"version", "part_bindings", "part_aliases", "part_transfers", "marking_point_aliases"}
+    if set(reconciliation) - allowed:
+        errors.append("unknown official_reconciliation field")
+
+    source_cache: dict[str, dict] = {local_path.name: local_markscheme}
+
+    def load_source(name: object) -> dict | None:
+        if not isinstance(name, str) or not name or Path(name).name != name:
+            errors.append("invalid official source filename")
+            return None
+        if name not in source_cache:
+            path = local_path.parent / name
+            if not path.is_file():
+                errors.append(f"missing official source: {name}")
+                return None
+            try:
+                source_cache[name] = json.loads(path.read_text())
+            except (OSError, json.JSONDecodeError):
+                errors.append(f"invalid official source: {name}")
+                return None
+        return source_cache[name]
+
+    def part_key(ref: object) -> tuple[str, str, int] | None:
+        if not isinstance(ref, dict):
+            errors.append("invalid official part reference")
+            return None
+        source = ref.get("source", local_path.name)
+        part_id = ref.get("part_id")
+        occurrence = ref.get("occurrence", 1)
+        ms = load_source(source)
+        if ms is None or not isinstance(part_id, str) or not isinstance(occurrence, int) or occurrence < 1:
+            errors.append("invalid official part reference")
+            return None
+        matches = [p for p in ms.get("parts", []) if p.get("id") == part_id]
+        if occurrence > len(matches):
+            errors.append(f"unknown official part occurrence: {source}:{part_id}#{occurrence}")
+            return None
+        return source, part_id, occurrence
+
+    def part_for(key: tuple[str, str, int]) -> dict:
+        source, part_id, occurrence = key
+        matches = [p for p in source_cache[source].get("parts", []) if p.get("id") == part_id]
+        return matches[occurrence - 1]
+
+    local_keys: list[tuple[str, str, int]] = []
+    counts: dict[str, int] = {}
+    for part in local_markscheme.get("parts", []):
+        pid = part.get("id", "")
+        counts[pid] = counts.get(pid, 0) + 1
+        local_keys.append((local_path.name, pid, counts[pid]))
+
+    consumed_parts: set[tuple[str, str, int]] = set()
+    bound_questions: set[str] = set()
+
+    def consume(key: tuple[str, str, int], kind: str) -> None:
+        if key in consumed_parts:
+            errors.append(f"official part occurrence used more than once: {key[0]}:{key[1]}#{key[2]}")
+        consumed_parts.add(key)
+
+    for binding in reconciliation.get("part_bindings", []):
+        if not isinstance(binding, dict):
+            errors.append("invalid official part binding")
+            continue
+        qids = binding.get("question_part_ids")
+        refs = binding.get("official_part_refs")
+        if not isinstance(qids, list) or not qids or not isinstance(refs, list) or not refs:
+            errors.append("invalid official part binding")
+            continue
+        if any(qid not in answerable for qid in qids):
+            errors.append("official binding references non-answerable question part")
+            continue
+        if any(qid in bound_questions for qid in qids):
+            errors.append("question part is bound more than once")
+            continue
+        keys = [part_key(ref) for ref in refs]
+        if any(key is None for key in keys):
+            continue
+        resolved = [key for key in keys if key is not None]
+        for key in resolved:
+            consume(key, "binding")
+        qmarks = sum(next(p["marks"] for p in question["parts"] if p.get("id") == qid) for qid in qids)
+        omarks = sum(part_for(key).get("marks", 0) for key in resolved)
+        if qmarks != omarks:
+            errors.append(f"official binding mark mismatch: question={qmarks}, official={omarks}")
+        bound_questions.update(qids)
+
+    alias_keys: set[tuple[str, str, int]] = set()
+    for alias in reconciliation.get("part_aliases", []):
+        if not isinstance(alias, dict) or not alias.get("reason"):
+            errors.append("invalid official part alias")
+            continue
+        key = part_key(alias.get("official_part_ref"))
+        target = part_key(alias.get("alias_of"))
+        if key is None or target is None:
+            continue
+        if key[0] != local_path.name:
+            errors.append("only local official parts may be declared aliases")
+        part = part_for(key)
+        if part.get("marks") != 0 or any(not p.get("is_alternative", False) for p in part.get("marking_points", [])):
+            errors.append("official part alias must be a zero-mark alternative-only occurrence")
+        consume(key, "alias")
+        alias_keys.add(key)
+
+    for transfer in reconciliation.get("part_transfers", []):
+        if not isinstance(transfer, dict) or not transfer.get("target_question_id") or not transfer.get("target_question_part_id"):
+            errors.append("invalid official part transfer")
+            continue
+        key = part_key(transfer.get("official_part_ref"))
+        if key is None:
+            continue
+        if key[0] != local_path.name:
+            errors.append("only local official parts may be transferred")
+        consume(key, "transfer")
+
+    # Unambiguous one-to-one IDs remain implicit, keeping additive metadata small.
+    for qid in sorted(answerable - bound_questions):
+        matches = [key for key in local_keys if key[1] == qid and key not in consumed_parts]
+        if len(matches) != 1:
+            errors.append(f"question part has no unique official binding: {qid}")
+            continue
+        key = matches[0]
+        qmark = next(p["marks"] for p in question["parts"] if p.get("id") == qid)
+        if qmark != part_for(key).get("marks"):
+            errors.append(f"part-mark mismatch for {qid}: question={qmark}, official={part_for(key).get('marks')}")
+            continue
+        consume(key, "implicit binding")
+        bound_questions.add(qid)
+
+    for key in local_keys:
+        if key not in consumed_parts:
+            errors.append(f"unconsumed official part occurrence: {key[0]}:{key[1]}#{key[2]}")
+    if bound_questions != answerable:
+        for qid in sorted(answerable - bound_questions):
+            errors.append(f"unbound question part: {qid}")
+
+    point_aliases: dict[tuple[str, str, int, str, int], tuple[str, str, int, str, int]] = {}
+
+    def point_key(ref: object) -> tuple[str, str, int, str, int] | None:
+        if not isinstance(ref, dict):
+            errors.append("invalid official marking-point reference")
+            return None
+        pk = part_key(ref.get("part_ref"))
+        point_id = ref.get("marking_point_id")
+        occurrence = ref.get("occurrence", 1)
+        if pk is None or not isinstance(point_id, str) or not isinstance(occurrence, int) or occurrence < 1:
+            errors.append("invalid official marking-point reference")
+            return None
+        matches = [p for p in part_for(pk).get("marking_points", []) if p.get("id") == point_id]
+        if occurrence > len(matches):
+            errors.append(f"unknown official marking-point occurrence: {point_id}#{occurrence}")
+            return None
+        return (*pk, point_id, occurrence)
+
+    def point_for(key: tuple[str, str, int, str, int]) -> dict:
+        pk = key[:3]
+        matches = [p for p in part_for(pk).get("marking_points", []) if p.get("id") == key[3]]
+        return matches[key[4] - 1]
+
+    for alias in reconciliation.get("marking_point_aliases", []):
+        if not isinstance(alias, dict) or alias.get("reason") != "exact_duplicate_alternative":
+            errors.append("invalid official marking-point alias")
+            continue
+        key = point_key(alias.get("official_marking_point_ref"))
+        target = point_key(alias.get("alias_of"))
+        if key is None or target is None:
+            continue
+        point = point_for(key)
+        target_point = point_for(target)
+        semantic_point = lambda value: {k: v for k, v in value.items() if k != "id"}
+        if key == target or semantic_point(point) != semantic_point(target_point) or not point.get("is_alternative", False):
+            errors.append("marking-point alias is not an exact duplicate alternative")
+            continue
+        if key in point_aliases:
+            errors.append("official marking-point occurrence aliased more than once")
+        point_aliases[key] = target
+
+    for source, ms in source_cache.items():
+        available = sum(part.get("marks", 0) for part in ms.get("parts", []))
+        if available != ms.get("total_marks"):
+            errors.append(f"official source part total {available} != total_marks in {source}")
+        part_counts: dict[str, int] = {}
+        for part in ms.get("parts", []):
+            pid = part.get("id", "")
+            part_counts[pid] = part_counts.get(pid, 0) + 1
+            pk = (source, pid, part_counts[pid])
+            point_total = 0
+            seen: dict[tuple[str, str, bool, int], tuple[str, str, int, str, int]] = {}
+            point_counts: dict[str, int] = {}
+            for point in part.get("marking_points", []):
+                mpid = point.get("id", "")
+                point_counts[mpid] = point_counts.get(mpid, 0) + 1
+                key = (*pk, mpid, point_counts[mpid])
+                if not mpid or not isinstance(point.get("text"), str) or not point.get("text"):
+                    errors.append(f"incomplete marking point in {pid}")
+                if not isinstance(point.get("tag"), str) or not point.get("tag"):
+                    errors.append(f"missing marking tag: {mpid}")
+                if not isinstance(point.get("marks"), int) or point.get("marks", 0) < 1:
+                    errors.append(f"invalid marking-point marks: {mpid}")
+                if not isinstance(point.get("is_alternative"), bool):
+                    errors.append(f"is_alternative must be boolean: {mpid}")
+                if not point.get("is_alternative", False):
+                    point_total += point.get("marks", 0)
+                signature = (point.get("text", ""), point.get("tag", ""), point.get("is_alternative", False), point.get("marks", 0))
+                if signature in seen and pk not in alias_keys and key not in point_aliases:
+                    errors.append(f"undeclared exact duplicate marking point: {source}:{pid}#{pk[2]}:{mpid}#{key[4]}")
+                seen[signature] = key
+            if point_total != part.get("marks"):
+                errors.append(f"marking-point total {point_total} != part marks {part.get('marks')} for {source}:{pid}#{pk[2]}")
 
 
 if __name__ == "__main__":

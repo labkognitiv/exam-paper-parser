@@ -11,6 +11,11 @@ import pymupdf
 
 
 START_RE = re.compile(r"^\s*(\d{1,2})\s+(?:\([a-z]\)|[A-Z])")
+ANSWER_PAGE_START_RE = re.compile(
+    r"Answer all the questions in the spaces provided\.\s*(\d{1,2})\s+\([a-z]\)",
+    re.IGNORECASE,
+)
+MID_PAGE_START_RE = re.compile(r"^\s*(\d{1,2})\s+\(a\)", re.IGNORECASE)
 TOTAL_RE = re.compile(r"\[\s*Total\s*:\s*\d+\s*\]", re.IGNORECASE)
 DOTS_RE = re.compile(r"\.{8,}")
 BLANK_RE = re.compile(r"^\s*BLANK PAGE\s*$", re.IGNORECASE)
@@ -31,6 +36,8 @@ class Question:
     number: int
     start_page: int
     end_page: int
+    start_y: float
+    end_y: float | None
 
 
 @dataclass(frozen=True)
@@ -44,36 +51,54 @@ def normalized(text: str) -> str:
 
 
 def detect_questions(doc: pymupdf.Document) -> list[Question]:
-    starts: list[tuple[int, int]] = []
+    starts: list[tuple[int, int, float]] = []
     for page_number, page in enumerate(doc):
         for block in page.get_text("blocks", sort=True):
             x0, y0, _x1, _y1, text = block[:5]
-            if x0 > 90 or y0 > 135:
+            if x0 > 90 or y0 > min(page.rect.height - 72, 770):
                 continue
-            match = START_RE.match(normalized(text))
+            block_text = normalized(text)
+            match = START_RE.match(block_text) if y0 <= 135 else MID_PAGE_START_RE.match(block_text)
+            if match is None and y0 <= 135:
+                match = ANSWER_PAGE_START_RE.search(block_text)
             if match:
                 number = int(match.group(1))
                 if not starts or number > starts[-1][0]:
-                    starts.append((number, page_number))
-                    break
+                    starts.append((number, page_number, max(60.0, y0 - 3)))
 
     if not starts:
         raise ValueError("No numbered questions were detected near page tops.")
 
     questions: list[Question] = []
-    for index, (number, start_page) in enumerate(starts):
-        next_start = starts[index + 1][1] if index + 1 < len(starts) else len(doc)
-        end_page = next_start - 1
-        for page_number in range(start_page, next_start):
-            if TOTAL_RE.search(page_text(doc[page_number])):
+    for index, (number, start_page, start_y) in enumerate(starts):
+        if index + 1 < len(starts):
+            _next_number, next_page, next_y = starts[index + 1]
+            shares_next_page = next_page == start_page or next_y > 135
+            end_page = next_page if shares_next_page else next_page - 1
+            end_y = next_y if shares_next_page else None
+        else:
+            end_page = len(doc) - 1
+            end_y = None
+        for page_number in range(start_page, end_page + 1):
+            page = doc[page_number]
+            clip_y0 = start_y if page_number == start_page else 0
+            clip_y1 = end_y if page_number == end_page and end_y is not None else page.rect.height
+            scoped_text = normalized(page.get_text("text", clip=pymupdf.Rect(0, clip_y0, page.rect.width, clip_y1)))
+            if TOTAL_RE.search(scoped_text):
                 end_page = page_number
                 break
-        questions.append(Question(number, start_page, end_page))
+        questions.append(Question(number, start_page, end_page, start_y, end_y))
     return questions
 
 
 def page_text(page: pymupdf.Page) -> str:
     return normalized(page.get_text("text", sort=True))
+
+
+def question_source_text(page: pymupdf.Page, question: Question, page_number: int) -> str:
+    y0 = question.start_y if page_number == question.start_page else 0
+    y1 = question.end_y if page_number == question.end_page and question.end_y is not None else page.rect.height
+    return normalized(page.get_text("text", clip=pymupdf.Rect(0, y0, page.rect.width, y1), sort=True))
 
 
 def make_sanitized_copy(
@@ -89,6 +114,18 @@ def make_sanitized_copy(
             x0, y0, x1, y1, text = block[:5]
             clean = normalized(text)
             if not DOTS_RE.search(clean):
+                continue
+            # A text block that contains a multi-line prompt as well as dotted
+            # response lines must not be masked as one rectangle: doing so
+            # deletes the prompt itself (including later subparts).
+            if text.count("\n") > 2:
+                continue
+            # Multiple dotted runs in one PDF text block can be integral to a
+            # printed prompt (for example missing nuclide numbers in an
+            # equation). Masking the whole block also erases its fixed symbols.
+            # Preserve these compound blocks; only isolated response-line
+            # blocks are safe to mask as a unit.
+            if len(DOTS_RE.findall(clean)) != 1:
                 continue
             # Mask the response line, but preserve an isolated mark allocation
             # by redrawing it at the right edge when present.
@@ -256,6 +293,7 @@ def extract_figures(
         pix = page.get_pixmap(
             matrix=pymupdf.Matrix(dpi / 72, dpi / 72),
             clip=clip,
+            colorspace=pymupdf.csRGB,
             alpha=False,
         )
         pix.save(temp_path)
@@ -947,7 +985,7 @@ def write_question_json(
     for page_number in range(question.start_page, question.end_page + 1):
         source_total = re.search(
             r"\[\s*Total\s*:\s*(\d+)\s*\]",
-            page_text(source_doc[page_number]),
+            question_source_text(source_doc[page_number], question, page_number),
             re.IGNORECASE,
         )
         if source_total:
@@ -1057,7 +1095,17 @@ def write_question(
 ) -> tuple[Path, Path, Path | None, int, list[Path], str, str]:
     bands: list[Band] = []
     for page_number in range(question.start_page, question.end_page + 1):
-        bands.extend(content_bands(source[page_number], page_number))
+        for band in content_bands(source[page_number], page_number):
+            y0 = question.start_y if page_number == question.start_page else band.rect.y0
+            y1 = question.end_y if page_number == question.end_page and question.end_y is not None else band.rect.y1
+            clipped = pymupdf.Rect(
+                band.rect.x0,
+                max(band.rect.y0, y0),
+                band.rect.x1,
+                min(band.rect.y1, y1),
+            )
+            if clipped.height >= 2:
+                bands.append(Band(page_number, clipped))
     if not bands:
         raise ValueError(f"Question {question.number} contains no printable bands.")
 
@@ -1087,7 +1135,9 @@ def write_question(
         if diagram_rects:
             temp_with_figures = with_figures_path.with_suffix(".tmp.png")
             figure_pix = target.get_pixmap(
-                matrix=pymupdf.Matrix(dpi / 72, dpi / 72), alpha=False
+                matrix=pymupdf.Matrix(dpi / 72, dpi / 72),
+                colorspace=pymupdf.csRGB,
+                alpha=False,
             )
             figure_pix.save(temp_with_figures)
             temp_with_figures.replace(with_figures_path)
@@ -1104,7 +1154,11 @@ def write_question(
 
     temp_png = png_path.with_suffix(".tmp.png")
     temp_text = text_path.with_suffix(".tmp.txt")
-    pix = target.get_pixmap(matrix=pymupdf.Matrix(dpi / 72, dpi / 72), alpha=False)
+    pix = target.get_pixmap(
+        matrix=pymupdf.Matrix(dpi / 72, dpi / 72),
+        colorspace=pymupdf.csRGB,
+        alpha=False,
+    )
     pix.save(temp_png)
     latex_text = question_latex_text(target)
     plain_text = plain_from_latex(latex_text)

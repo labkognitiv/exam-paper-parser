@@ -1,10 +1,7 @@
 import unittest
-import tempfile
 from pathlib import Path
 
-import pymupdf
-
-from mcq_converter import ANSWER_ROW_RE, display_mode, extract_question_text, metadata, render_figure
+from mcq_converter import ANSWER_ROW_RE, extract_question_text, extract_split_answer_rows, metadata
 
 
 class McqTests(unittest.TestCase):
@@ -17,6 +14,23 @@ class McqTests(unittest.TestCase):
         match = ANSWER_ROW_RE.match("40 B 1")
         self.assertIsNotNone(match)
         self.assertEqual(match.group("answer"), "B")
+
+    def test_legacy_split_answer_rows_in_two_columns(self) -> None:
+        lines = ["Question", "Number", "Key"]
+        for number in range(1, 21):
+            lines.extend((str(number), "ABCD"[(number - 1) % 4]))
+            lines.extend((str(number + 20), "DCBA"[(number - 1) % 4]))
+        answers = extract_split_answer_rows(lines)
+        self.assertEqual(len(answers), 40)
+        self.assertEqual(answers[1], {"answer": "A", "marks": 1})
+        self.assertEqual(answers[40], {"answer": "A", "marks": 1})
+
+    def test_legacy_two_column_rows_on_same_line(self) -> None:
+        lines = [f"{number} A {number + 20} D" for number in range(1, 21)]
+        answers = extract_split_answer_rows(lines)
+        self.assertEqual(len(answers), 40)
+        self.assertEqual(answers[1]["answer"], "A")
+        self.assertEqual(answers[40]["answer"], "D")
 
     def test_markscheme_metadata_matches_question_code(self) -> None:
         data = metadata(Path("9702_s25_ms_11.pdf"))
@@ -42,22 +56,6 @@ class McqTests(unittest.TestCase):
         result = extract_question_text(page, "clip")
         self.assertEqual(result, "1  What is X?\nA  first option")
         self.assertEqual(page.call, ("dict", "clip", True))
-
-    def test_display_mode_without_visual_is_text_options(self) -> None:
-        self.assertEqual(display_mode(None, None, None), "text_options")
-
-    def test_figure_render_has_white_border_and_visible_content(self) -> None:
-        with tempfile.TemporaryDirectory() as directory:
-            output = Path(directory) / "figure.png"
-            document = pymupdf.open()
-            page = document.new_page(width=200, height=200)
-            page.draw_rect(pymupdf.Rect(50, 50, 150, 150), color=(0, 0, 0), width=4)
-            render_figure(page, pymupdf.Rect(40, 40, 160, 160), output, dpi=72)
-            rendered = pymupdf.Pixmap(output)
-            self.assertEqual((rendered.width, rendered.height), (248, 248))
-            self.assertEqual(rendered.pixel(0, 0), (255, 255, 255))
-            self.assertNotEqual(rendered.pixel(74, 74), (255, 255, 255))
-            document.close()
 
 
 if __name__ == "__main__":
