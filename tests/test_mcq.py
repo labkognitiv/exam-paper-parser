@@ -1,7 +1,10 @@
 import unittest
+import tempfile
 from pathlib import Path
 
-from mcq_converter import ANSWER_ROW_RE, extract_question_text, metadata
+import pymupdf
+
+from mcq_converter import ANSWER_ROW_RE, display_mode, extract_question_text, metadata, render_figure
 
 
 class McqTests(unittest.TestCase):
@@ -39,6 +42,22 @@ class McqTests(unittest.TestCase):
         result = extract_question_text(page, "clip")
         self.assertEqual(result, "1  What is X?\nA  first option")
         self.assertEqual(page.call, ("dict", "clip", True))
+
+    def test_display_mode_without_visual_is_text_options(self) -> None:
+        self.assertEqual(display_mode(None, None, None), "text_options")
+
+    def test_figure_render_has_white_border_and_visible_content(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            output = Path(directory) / "figure.png"
+            document = pymupdf.open()
+            page = document.new_page(width=200, height=200)
+            page.draw_rect(pymupdf.Rect(50, 50, 150, 150), color=(0, 0, 0), width=4)
+            render_figure(page, pymupdf.Rect(40, 40, 160, 160), output, dpi=72)
+            rendered = pymupdf.Pixmap(output)
+            self.assertEqual((rendered.width, rendered.height), (248, 248))
+            self.assertEqual(rendered.pixel(0, 0), (255, 255, 255))
+            self.assertNotEqual(rendered.pixel(74, 74), (255, 255, 255))
+            document.close()
 
 
 if __name__ == "__main__":

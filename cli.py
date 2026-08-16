@@ -3,15 +3,16 @@ from __future__ import annotations
 import sys
 from pathlib import Path
 
-from . import markscheme_converter, mcq_converter, question_compactor
+from . import markscheme_converter, mcq_converter, question_compactor, syllabus_converter
 
 
-USAGE = """usage: paperscript {paper|markscheme|mcq} [options]
+USAGE = """usage: paperscript {paper|markscheme|mcq|syllabus} [options]
 
 commands:
   paper       read PDFs from input/physics/paper and write to output/physics/paper
   markscheme  read PDFs from input/physics/markscheme and write to output/physics/markscheme
   mcq         read PDFs from input/physics/mcq and write to output/physics/mcq
+  syllabus    read PDFs from input/physics/syllabus and write page-delimited text
 """
 
 
@@ -41,6 +42,13 @@ def main(argv: list[str] | None = None) -> int:
             "input/physics/mcq",
             "--output",
             "output/physics/mcq",
+            *options,
+        ])
+    if command == "syllabus":
+        return syllabus_converter.main([
+            "input/physics/syllabus",
+            "--output",
+            "output/physics/syllabus",
             *options,
         ])
 

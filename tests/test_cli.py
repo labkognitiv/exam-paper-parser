@@ -12,6 +12,7 @@ class CliTests(unittest.TestCase):
         )
         self.assertIn("paper", result.stdout)
         self.assertIn("markscheme", result.stdout)
+        self.assertIn("syllabus", result.stdout)
 
 
 if __name__ == "__main__":

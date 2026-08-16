@@ -36,11 +36,13 @@ input/
     paper/
     markscheme/
     mcq/
+    syllabus/
 output/
   physics/
     paper/
     markscheme/
     mcq/
+    syllabus/
 ```
 
 Place Physics question-paper PDFs in `input/physics/paper` and run:
@@ -143,3 +145,31 @@ remain inside the question image. Each JSON record has `answer_type` set to
 in the same `input/physics/mcq` folder. The command validates its complete 40-answer
 table, writes `answer_key.json`, and fills `correct_answer` in every question
 JSON automatically.
+
+The complete question PNG remains the authoritative display asset. When vector,
+raster, table, graph, circuit, or other visual content is detected, the converter
+also writes `figure_<question>_01.png` with a 64-pixel white safety border. The
+question JSON lists these files, records whether the provisional display mode is
+`text_options`, `text_diagram_options`, or `image_question`, and keeps
+`rebuild_status` as `not_rebuilt` until a later reconstruction pass.
+
+## Syllabuses
+
+Physics syllabuses use a separate text converter because their long-form sections,
+learning-objective lists, and tables differ from exam papers. Put born-digital
+syllabus PDFs in `input/physics/syllabus` and run:
+
+```bash
+paperscript syllabus
+```
+
+Each PDF produces one UTF-8 text file under
+`output/physics/syllabus/<syllabus-filename>/`. The text includes explicit page
+markers, preserves line and block boundaries, and removes repeating Cambridge
+page headers, page numbers, and “Back to contents” footer links. You can also
+parse a file or folder from anywhere:
+
+```bash
+syllabus-converter /path/to/syllabus.pdf
+syllabus-converter /path/to/syllabus-folder --output /path/to/text-output
+```
