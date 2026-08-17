@@ -1,0 +1,358 @@
+{
+  "schema_version": "9702_question_enrichment_v2",
+  "enrichment_id": "9702_s19_23_q06_enrichment",
+  "question_id": "9702_s19_23_q06",
+  "component": "P2",
+  "difficulty": 2,
+  "question_patterns": [
+    "circuit_analysis",
+    "definition",
+    "direct_calculation",
+    "multi_step_calculation"
+  ],
+  "mapping": {
+    "topic_ids": [
+      "9702_t09",
+      "9702_t10"
+    ],
+    "module_ids": [
+      "9702_t09_m01",
+      "9702_t09_m03",
+      "9702_t10_m01",
+      "9702_t10_m02"
+    ],
+    "outcome_ids": [
+      "9702_t09_m01_o04",
+      "9702_t09_m03_o01",
+      "9702_t09_m03_o06",
+      "9702_t10_m01_o05",
+      "9702_t10_m02_o01",
+      "9702_t10_m02_o07"
+    ]
+  },
+  "parts": [
+    {
+      "part_id": "9702_s19_23_q06_a",
+      "difficulty": 1,
+      "question_patterns": [
+        "definition"
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t09",
+        "primary_module_id": "9702_t09_m03",
+        "outcome_ids": [
+          "9702_t09_m03_o01"
+        ]
+      },
+      "skills": {
+        "primary_skill_id": "9702_skill_define_ohm",
+        "supporting_skill_ids": []
+      },
+      "knowledge_refs": {
+        "definition_ids": [
+          "9702_def_ohm"
+        ],
+        "formula_ids": []
+      },
+      "hints": [
+        "Express the unit of resistance using potential difference and current.",
+        "One ohm is one volt per ampere."
+      ],
+      "walkthrough": [
+        "Resistance is measured in ohms, with unit volt per ampere.",
+        "Therefore 1 Ω = 1 V A⁻¹.",
+        "Equivalently, an ohm is the resistance for which a potential difference of 1 V produces a current of 1 A."
+      ],
+      "checking": {
+        "mode": "ai",
+        "deterministic_checks": [],
+        "full_marks_if_all_deterministic_checks_pass": false,
+        "ai_rubric": [
+          {
+            "criterion_id": "9702_s19_23_q06_a_mp01",
+            "observable": "Defines the ohm as volt per ampere, or as the resistance for which 1 V produces 1 A."
+          }
+        ]
+      }
+    },
+    {
+      "part_id": "9702_s19_23_q06_b_i_1",
+      "difficulty": 1,
+      "question_patterns": [
+        "circuit_analysis"
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t10",
+        "primary_module_id": "9702_t10_m02",
+        "outcome_ids": [
+          "9702_t10_m02_o01"
+        ]
+      },
+      "skills": {
+        "primary_skill_id": "9702_skill_apply_kirchhoffs_first_law",
+        "supporting_skill_ids": []
+      },
+      "knowledge_refs": {
+        "definition_ids": [],
+        "formula_ids": [
+          "9702_formula_kirchhoff_first_law"
+        ]
+      },
+      "hints": [
+        "At the junction, the battery current divides between the branch containing X and the branch containing Y and Z.",
+        "Apply current conservation by adding the two given branch currents."
+      ],
+      "walkthrough": [
+        "The current in the battery is the total current before it divides between the two parallel branches.",
+        "By Kirchhoff's first law, I = 0.60 A + 1.8 A.",
+        "The battery current is 2.4 A."
+      ],
+      "checking": {
+        "mode": "hybrid",
+        "deterministic_checks": [
+          {
+            "field_id": "9702_s19_23_q06_b_i_1_field_02",
+            "type": "numeric_with_unit",
+            "accepted_value": 2.4,
+            "absolute_tolerance": 0.05,
+            "accepted_units": [
+              "A"
+            ]
+          }
+        ],
+        "full_marks_if_all_deterministic_checks_pass": true,
+        "ai_rubric": [
+          {
+            "criterion_id": "9702_s19_23_q06_b_i_mp01",
+            "observable": "Uses I = 1.8 A + 0.60 A to obtain 2.4 A."
+          }
+        ]
+      }
+    },
+    {
+      "part_id": "9702_s19_23_q06_b_i_2",
+      "difficulty": 2,
+      "question_patterns": [
+        "circuit_analysis"
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t10",
+        "primary_module_id": "9702_t10_m02",
+        "outcome_ids": [
+          "9702_t10_m02_o07"
+        ]
+      },
+      "skills": {
+        "primary_skill_id": "9702_skill_determine_parallel_branch_resistance",
+        "supporting_skill_ids": [
+          "9702_skill_apply_ohms_law"
+        ]
+      },
+      "knowledge_refs": {
+        "definition_ids": [],
+        "formula_ids": [
+          "9702_formula_ohms_law"
+        ]
+      },
+      "hints": [
+        "The branch containing X is in parallel with the branch containing Y and Z, so both branches have the same potential difference.",
+        "Find the potential difference across X, then use the 1.8 A branch current to find the total resistance of Y and Z."
+      ],
+      "walkthrough": [
+        "The potential difference across X is V = IR = 0.60 × 8.0 = 4.8 V.",
+        "The Y–Z branch has the same 4.8 V potential difference, so 4.8 = 1.8(2.0 + R_Z).",
+        "Thus 2.0 + R_Z = 4.8 / 1.8 = 2.67 Ω.",
+        "The resistance R_Z is 2.67 − 2.0 = 0.67 Ω."
+      ],
+      "checking": {
+        "mode": "hybrid",
+        "deterministic_checks": [
+          {
+            "field_id": "9702_s19_23_q06_b_i_2_field_02",
+            "type": "numeric_with_unit",
+            "accepted_value": 0.67,
+            "absolute_tolerance": 0.02,
+            "accepted_units": [
+              "Ω",
+              "ohm"
+            ]
+          }
+        ],
+        "full_marks_if_all_deterministic_checks_pass": true,
+        "ai_rubric": [
+          {
+            "criterion_id": "9702_s19_23_q06_b_i_mp02",
+            "observable": "Uses 8.0 × 0.60 = 1.8(2.0 + R_Z), or an equivalent shared-potential-difference equation."
+          },
+          {
+            "criterion_id": "9702_s19_23_q06_b_i_mp03",
+            "observable": "Obtains R_Z = 0.67 Ω."
+          }
+        ]
+      }
+    },
+    {
+      "part_id": "9702_s19_23_q06_b_i_3",
+      "difficulty": 2,
+      "question_patterns": [
+        "circuit_analysis"
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t10",
+        "primary_module_id": "9702_t10_m01",
+        "outcome_ids": [
+          "9702_t10_m01_o05",
+          "9702_t10_m02_o07"
+        ]
+      },
+      "skills": {
+        "primary_skill_id": "9702_skill_determine_emf_from_terminal_potential_difference",
+        "supporting_skill_ids": []
+      },
+      "knowledge_refs": {
+        "definition_ids": [],
+        "formula_ids": [
+          "9702_formula_terminal_potential_difference"
+        ]
+      },
+      "hints": [
+        "The potential difference across the external circuit is the terminal potential difference found from resistor X.",
+        "The e.m.f. is the terminal potential difference plus the voltage lost across the 1.5 Ω internal resistance."
+      ],
+      "walkthrough": [
+        "The terminal potential difference across the resistor network is V = 0.60 × 8.0 = 4.8 V.",
+        "The battery current is 2.4 A, so the internal voltage loss is Ir = 2.4 × 1.5 = 3.6 V.",
+        "For a source supplying current, ℰ = V + Ir = 4.8 + 3.6 = 8.4 V.",
+        "The e.m.f. E is 8.4 V."
+      ],
+      "checking": {
+        "mode": "hybrid",
+        "deterministic_checks": [
+          {
+            "field_id": "9702_s19_23_q06_b_i_3_field_02",
+            "type": "numeric_with_unit",
+            "accepted_value": 8.4,
+            "absolute_tolerance": 0.1,
+            "accepted_units": [
+              "V"
+            ]
+          }
+        ],
+        "full_marks_if_all_deterministic_checks_pass": true,
+        "ai_rubric": [
+          {
+            "criterion_id": "9702_s19_23_q06_b_i_mp04",
+            "observable": "Uses E − (2.4 × 1.5) = 0.60 × 8.0, or an equivalent terminal-potential-difference equation."
+          },
+          {
+            "criterion_id": "9702_s19_23_q06_b_i_mp05",
+            "observable": "Obtains E = 8.4 V."
+          }
+        ]
+      }
+    },
+    {
+      "part_id": "9702_s19_23_q06_b_ii_1",
+      "difficulty": 2,
+      "question_patterns": [
+        "direct_calculation"
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t09",
+        "primary_module_id": "9702_t09_m03",
+        "outcome_ids": [
+          "9702_t09_m03_o06"
+        ]
+      },
+      "skills": {
+        "primary_skill_id": "9702_skill_apply_resistivity",
+        "supporting_skill_ids": []
+      },
+      "knowledge_refs": {
+        "definition_ids": [],
+        "formula_ids": [
+          "9702_formula_resistivity"
+        ]
+      },
+      "hints": [
+        "The wires have the same material and length, so resistivity and length cancel in R = ρL / A.",
+        "For these two wires, resistance is inversely proportional to cross-sectional area."
+      ],
+      "walkthrough": [
+        "For each wire, R = ρL / A.",
+        "As ρ and L are the same for X and Y, A_X / A_Y = R_Y / R_X.",
+        "A_X / A_Y = 2.0 / 8.0 = 0.25.",
+        "The cross-sectional-area ratio X / Y is 0.25."
+      ],
+      "checking": {
+        "mode": "ai",
+        "deterministic_checks": [],
+        "full_marks_if_all_deterministic_checks_pass": false,
+        "ai_rubric": [
+          {
+            "criterion_id": "9702_s19_23_q06_b_ii_mp01",
+            "observable": "Uses R = ρL / A, or equivalently R ∝ 1 / A for wires of the same material and length."
+          },
+          {
+            "criterion_id": "9702_s19_23_q06_b_ii_mp02",
+            "observable": "Calculates the area ratio X / Y as R_Y / R_X = 2.0 / 8.0 = 0.25."
+          }
+        ]
+      }
+    },
+    {
+      "part_id": "9702_s19_23_q06_b_ii_2",
+      "difficulty": 2,
+      "question_patterns": [
+        "multi_step_calculation"
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t09",
+        "primary_module_id": "9702_t09_m01",
+        "outcome_ids": [
+          "9702_t09_m01_o04",
+          "9702_t09_m03_o06"
+        ]
+      },
+      "skills": {
+        "primary_skill_id": "9702_skill_apply_drift_current",
+        "supporting_skill_ids": [
+          "9702_skill_apply_resistivity"
+        ]
+      },
+      "knowledge_refs": {
+        "definition_ids": [],
+        "formula_ids": [
+          "9702_formula_current_drift",
+          "9702_formula_resistivity"
+        ]
+      },
+      "hints": [
+        "For wires of the same metal, number density and carrier charge are the same in I = Anvq.",
+        "Use the area ratio from part (ii)(1) to eliminate the area factor from the drift-speed ratio."
+      ],
+      "walkthrough": [
+        "For each wire, I = Anvq. The same metal gives equal n and q for X and Y.",
+        "Therefore I_X / I_Y = (A_X v_X) / (A_Y v_Y).",
+        "Rearranging gives v_X / v_Y = (I_X / I_Y)(A_Y / A_X).",
+        "Using I_X / I_Y = 0.60 / 1.8 and A_X / A_Y = 0.25 gives v_X / v_Y = (0.60 / 1.8)(1 / 0.25) = 1.3.",
+        "The average drift-speed ratio X / Y is 1.3."
+      ],
+      "checking": {
+        "mode": "ai",
+        "deterministic_checks": [],
+        "full_marks_if_all_deterministic_checks_pass": false,
+        "ai_rubric": [
+          {
+            "criterion_id": "9702_s19_23_q06_b_ii_mp03",
+            "observable": "Uses I ∝ Av, or forms I_X / I_Y = A_Xv_X / (A_Yv_Y)."
+          },
+          {
+            "criterion_id": "9702_s19_23_q06_b_ii_mp04",
+            "observable": "Uses (0.60 / 1.8)(1 / 0.25) to obtain a drift-speed ratio X / Y of 1.3."
+          }
+        ]
+      }
+    }
+  ]
+}

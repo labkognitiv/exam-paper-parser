@@ -1,0 +1,168 @@
+{
+  "schema_version": "9702_question_enrichment_v2",
+  "enrichment_id": "9702_s23_23_q06_enrichment",
+  "question_id": "9702_s23_23_q06",
+  "component": "P2",
+  "difficulty": 2,
+  "question_patterns": [
+    "definition",
+    "graph_interpretation",
+    "multi_step_calculation"
+  ],
+  "mapping": {
+    "topic_ids": [
+      "9702_t06"
+    ],
+    "module_ids": [
+      "9702_t06_m01"
+    ],
+    "outcome_ids": [
+      "9702_t06_m01_o02",
+      "9702_t06_m01_o05"
+    ]
+  },
+  "parts": [
+    {
+      "part_id": "9702_s23_23_q06_a",
+      "difficulty": 1,
+      "question_patterns": [
+        "definition"
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t06",
+        "primary_module_id": "9702_t06_m01",
+        "outcome_ids": [
+          "9702_t06_m01_o05"
+        ]
+      },
+      "skills": {
+        "primary_skill_id": "9702_skill_define_young_modulus",
+        "supporting_skill_ids": []
+      },
+      "knowledge_refs": {
+        "definition_ids": [
+          "9702_def_young_modulus"
+        ],
+        "formula_ids": [
+          "9702_formula_young_modulus"
+        ]
+      },
+      "hints": [
+        "Recall the ratio of the tensile stress to the tensile strain."
+      ],
+      "walkthrough": [
+        "Tensile stress is force divided by cross-sectional area, while tensile strain is extension divided by original length.",
+        "Young modulus is defined as tensile stress divided by tensile strain.",
+        "Therefore E = stress / strain."
+      ],
+      "checking": {
+        "mode": "ai",
+        "deterministic_checks": [],
+        "full_marks_if_all_deterministic_checks_pass": false,
+        "ai_rubric": [
+          {
+            "criterion_id": "9702_s23_23_q06_a_mp01",
+            "observable": "States that Young modulus is tensile stress divided by tensile strain."
+          }
+        ]
+      }
+    },
+    {
+      "part_id": "9702_s23_23_q06_b_i",
+      "difficulty": 1,
+      "question_patterns": [
+        "graph_interpretation"
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t06",
+        "primary_module_id": "9702_t06_m01",
+        "outcome_ids": [
+          "9702_t06_m01_o02"
+        ]
+      },
+      "skills": {
+        "primary_skill_id": "9702_skill_interpret_graphs",
+        "supporting_skill_ids": []
+      },
+      "knowledge_refs": {
+        "definition_ids": [],
+        "formula_ids": []
+      },
+      "hints": [
+        "The unstretched length is the wire length when no force is applied, so read the vertical intercept at F = 0."
+      ],
+      "walkthrough": [
+        "At F = 0, no load stretches the wire, so the graph's length value is the unstretched length.",
+        "Read the vertical-axis intercept of the plotted line at zero force.",
+        "The unstretched length is 1.9980 m."
+      ],
+      "checking": {
+        "mode": "ai",
+        "deterministic_checks": [],
+        "full_marks_if_all_deterministic_checks_pass": false,
+        "ai_rubric": [
+          {
+            "criterion_id": "9702_s23_23_q06_b_i_mp01",
+            "observable": "Reads the zero-force length as 1.9980 m."
+          }
+        ]
+      }
+    },
+    {
+      "part_id": "9702_s23_23_q06_b_ii",
+      "difficulty": 2,
+      "question_patterns": [
+        "multi_step_calculation"
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t06",
+        "primary_module_id": "9702_t06_m01",
+        "outcome_ids": [
+          "9702_t06_m01_o05"
+        ]
+      },
+      "skills": {
+        "primary_skill_id": "9702_skill_apply_stress",
+        "supporting_skill_ids": [
+          "9702_skill_apply_strain"
+        ]
+      },
+      "knowledge_refs": {
+        "definition_ids": [],
+        "formula_ids": [
+          "9702_formula_stress",
+          "9702_formula_strain"
+        ]
+      },
+      "hints": [
+        "Convert the cross-sectional area from 0.95 mm² to m² before using stress = force / area.",
+        "Read the wire length at 30 N from the graph, subtract the unstretched length, then divide that extension by the unstretched length."
+      ],
+      "walkthrough": [
+        "Convert the area: 0.95 mm² = 0.95 × 10⁻⁶ m² = 9.5 × 10⁻⁷ m².",
+        "The stress at 30 N is σ = F/A = 30 / (9.5 × 10⁻⁷) = 3.16... × 10⁷ Pa, so σ = 3.2 × 10⁷ Pa.",
+        "From the graph, the wire length at 30 N is 2.0030 m. Its extension is 2.0030 − 1.9980 = 0.0050 m.",
+        "The strain is ε = ΔL/L = 0.0050 / 1.9980 = 2.50... × 10⁻³, so ε = 2.5 × 10⁻³."
+      ],
+      "checking": {
+        "mode": "ai",
+        "deterministic_checks": [],
+        "full_marks_if_all_deterministic_checks_pass": false,
+        "ai_rubric": [
+          {
+            "criterion_id": "9702_s23_23_q06_b_ii_mp01",
+            "observable": "Uses stress = force divided by cross-sectional area."
+          },
+          {
+            "criterion_id": "9702_s23_23_q06_b_ii_mp02",
+            "observable": "Converts the area consistently and obtains a stress of 3.2 × 10⁷ Pa."
+          },
+          {
+            "criterion_id": "9702_s23_23_q06_b_ii_mp03",
+            "observable": "Uses the 0.0050 m extension and 1.9980 m original length to obtain a strain of 2.5 × 10⁻³."
+          }
+        ]
+      }
+    }
+  ]
+}

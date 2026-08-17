@@ -1,0 +1,249 @@
+{
+  "schema_version": "9702_question_enrichment_v2",
+  "enrichment_id": "9702_s16_23_q01_enrichment",
+  "question_id": "9702_s16_23_q01",
+  "component": "P2",
+  "difficulty": 3,
+  "question_patterns": [
+    "classification",
+    "vector_diagram_construction",
+    "multi_step_calculation"
+  ],
+  "mapping": {
+    "topic_ids": [
+      "9702_t01",
+      "9702_t02"
+    ],
+    "module_ids": [
+      "9702_t01_m04",
+      "9702_t02_m01"
+    ],
+    "outcome_ids": [
+      "9702_t01_m04_o01",
+      "9702_t01_m04_o02",
+      "9702_t02_m01_o01"
+    ]
+  },
+  "parts": [
+    {
+      "part_id": "9702_s16_23_q01_a",
+      "difficulty": 1,
+      "question_patterns": [
+        "classification"
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t01",
+        "primary_module_id": "9702_t01_m04",
+        "outcome_ids": [
+          "9702_t01_m04_o01"
+        ]
+      },
+      "skills": {
+        "primary_skill_id": "9702_skill_classify_scalars_vectors",
+        "supporting_skill_ids": []
+      },
+      "knowledge_refs": {
+        "definition_ids": [],
+        "formula_ids": []
+      },
+      "hints": [
+        "Classify a quantity by deciding whether a direction is needed as well as its magnitude.",
+        "Energy, power and time need no direction; momentum and weight each have a direction."
+      ],
+      "walkthrough": [
+        "A scalar is fully specified by magnitude alone, whereas a vector also needs a direction.",
+        "Energy, power and time are scalars because no direction is part of their specification.",
+        "Momentum and weight are vectors: momentum has the direction of motion, and weight acts toward the centre of the Earth."
+      ],
+      "checking": {
+        "mode": "deterministic",
+        "deterministic_checks": [
+          {
+            "field_id": "9702_s16_23_q01_a_energy_classification",
+            "type": "single_choice",
+            "accepted_answers": [
+              "scalar"
+            ]
+          },
+          {
+            "field_id": "9702_s16_23_q01_a_momentum_classification",
+            "type": "single_choice",
+            "accepted_answers": [
+              "vector"
+            ]
+          },
+          {
+            "field_id": "9702_s16_23_q01_a_power_classification",
+            "type": "single_choice",
+            "accepted_answers": [
+              "scalar"
+            ]
+          },
+          {
+            "field_id": "9702_s16_23_q01_a_time_classification",
+            "type": "single_choice",
+            "accepted_answers": [
+              "scalar"
+            ]
+          },
+          {
+            "field_id": "9702_s16_23_q01_a_weight_classification",
+            "type": "single_choice",
+            "accepted_answers": [
+              "vector"
+            ]
+          }
+        ],
+        "full_marks_if_all_deterministic_checks_pass": true,
+        "ai_rubric": [
+          {
+            "criterion_id": "9702_s16_23_q01_a_mp01",
+            "observable": "Classifies energy, power and time as scalars."
+          },
+          {
+            "criterion_id": "9702_s16_23_q01_a_mp02",
+            "observable": "Classifies momentum and weight as vectors."
+          }
+        ]
+      }
+    },
+    {
+      "part_id": "9702_s16_23_q01_b_i",
+      "difficulty": 1,
+      "question_patterns": [
+        "vector_diagram_construction"
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t01",
+        "primary_module_id": "9702_t01_m04",
+        "outcome_ids": [
+          "9702_t01_m04_o02"
+        ]
+      },
+      "skills": {
+        "primary_skill_id": "9702_skill_add_vectors",
+        "supporting_skill_ids": []
+      },
+      "knowledge_refs": {
+        "definition_ids": [],
+        "formula_ids": []
+      },
+      "hints": [
+        "Treat the 120 m north and 80 m east journeys as two head-to-tail displacement vectors.",
+        "Draw the 120 m arrow north, start the 80 m east arrow at its head, then draw R from the starting point to the final point."
+      ],
+      "walkthrough": [
+        "Draw a displacement arrow due north to represent the first 120 m run.",
+        "From the head of that arrow, draw the second displacement arrow due east, making a right angle between the two path vectors.",
+        "Join the initial point directly to the final point with an arrow in that direction and label this resultant displacement R."
+      ],
+      "checking": {
+        "mode": "ai",
+        "deterministic_checks": [],
+        "full_marks_if_all_deterministic_checks_pass": false,
+        "ai_rubric": [
+          {
+            "criterion_id": "9702_s16_23_q01_b_i_mp01",
+            "observable": "Draws the north and east path vectors head-to-tail at right angles, with correctly directed arrows, then draws and labels R from the start to the finish."
+          }
+        ]
+      }
+    },
+    {
+      "part_id": "9702_s16_23_q01_b_ii",
+      "difficulty": 3,
+      "question_patterns": [
+        "multi_step_calculation"
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t02",
+        "primary_module_id": "9702_t02_m01",
+        "outcome_ids": [
+          "9702_t02_m01_o01",
+          "9702_t01_m04_o02"
+        ]
+      },
+      "skills": {
+        "primary_skill_id": "9702_skill_calculate_average_speed_velocity",
+        "supporting_skill_ids": [
+          "9702_skill_add_vectors"
+        ]
+      },
+      "knowledge_refs": {
+        "definition_ids": [],
+        "formula_ids": [
+          "9702_formula_average_speed",
+          "9702_formula_average_velocity"
+        ]
+      },
+      "hints": [
+        "Use the complete 27 s for both averages, but distinguish total distance travelled from displacement.",
+        "The total distance is 120 + 80 m; the resultant displacement is the hypotenuse of a right triangle with 120 m and 80 m sides.",
+        "Divide each quantity by 27 s, then use tan⁻¹(80 / 120) to give the angle measured east of the initial northward path."
+      ],
+      "walkthrough": [
+        "The total time is 15 + 12 = 27 s and the total distance travelled is 120 + 80 = 200 m.",
+        "Average speed = total distance / total time = 200 / 27 = 7.41 m s⁻¹, so the average speed is 7.4 m s⁻¹.",
+        "For average velocity, use the displacement rather than the 200 m path length. The northward and eastward displacements are perpendicular.",
+        "Resultant displacement = √(120² + 80²) = 144 m.",
+        "Magnitude of average velocity = 144 / 27 = 5.33 m s⁻¹, so it is 5.3 m s⁻¹.",
+        "Measured from the initial northward direction, tan θ = 80 / 120, so θ = 33.7° ≈ 34° east of north."
+      ],
+      "checking": {
+        "mode": "hybrid",
+        "deterministic_checks": [
+          {
+            "field_id": "9702_s16_23_q01_b_ii_field_02",
+            "type": "numeric_with_unit",
+            "accepted_value": 7.4,
+            "absolute_tolerance": 0.1,
+            "accepted_units": [
+              "m s^-1",
+              "m s⁻¹"
+            ]
+          },
+          {
+            "field_id": "9702_s16_23_q01_b_ii_field_03",
+            "type": "numeric_with_unit",
+            "accepted_value": 5.33,
+            "absolute_tolerance": 0.1,
+            "accepted_units": [
+              "m s^-1",
+              "m s⁻¹"
+            ]
+          },
+          {
+            "field_id": "9702_s16_23_q01_b_ii_field_04",
+            "type": "numeric_with_unit",
+            "accepted_value": 34,
+            "absolute_tolerance": 1,
+            "accepted_units": [
+              "°",
+              "degree",
+              "degrees"
+            ]
+          }
+        ],
+        "full_marks_if_all_deterministic_checks_pass": true,
+        "ai_rubric": [
+          {
+            "criterion_id": "9702_s16_23_q01_b_ii_mp01",
+            "observable": "Determines average speed as total distance 200 m divided by the total time 27 s, giving 7.4 m s⁻¹."
+          },
+          {
+            "criterion_id": "9702_s16_23_q01_b_ii_mp02",
+            "observable": "Combines the perpendicular 120 m and 80 m displacements to obtain a resultant of 144 m."
+          },
+          {
+            "criterion_id": "9702_s16_23_q01_b_ii_mp03",
+            "observable": "Divides the 144 m displacement by 27 s to obtain an average-velocity magnitude of about 5.3 m s⁻¹."
+          },
+          {
+            "criterion_id": "9702_s16_23_q01_b_ii_mp04",
+            "observable": "Uses the perpendicular displacement components to obtain an angle of about 34° east of the initial northward path."
+          }
+        ]
+      }
+    }
+  ]
+}

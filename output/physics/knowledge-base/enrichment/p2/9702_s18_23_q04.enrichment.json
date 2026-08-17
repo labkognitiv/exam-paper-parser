@@ -1,0 +1,263 @@
+{
+  "schema_version": "9702_question_enrichment_v2",
+  "enrichment_id": "9702_s18_23_q04_enrichment",
+  "question_id": "9702_s18_23_q04",
+  "component": "P2",
+  "difficulty": 3,
+  "question_patterns": [
+    "definition",
+    "graph_interpretation",
+    "direct_calculation",
+    "multi_step_calculation",
+    "graph_construction"
+  ],
+  "mapping": {
+    "topic_ids": [
+      "9702_t06"
+    ],
+    "module_ids": [
+      "9702_t06_m01",
+      "9702_t06_m02"
+    ],
+    "outcome_ids": [
+      "9702_t06_m01_o05",
+      "9702_t06_m01_o03",
+      "9702_t06_m01_o04",
+      "9702_t06_m02_o02",
+      "9702_t06_m02_o04"
+    ]
+  },
+  "parts": [
+    {
+      "part_id": "9702_s18_23_q04_a",
+      "difficulty": 1,
+      "question_patterns": [
+        "definition"
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t06",
+        "primary_module_id": "9702_t06_m01",
+        "outcome_ids": [
+          "9702_t06_m01_o05"
+        ]
+      },
+      "skills": {
+        "primary_skill_id": "9702_skill_define_young_modulus",
+        "supporting_skill_ids": []
+      },
+      "knowledge_refs": {
+        "definition_ids": [
+          "9702_def_young_modulus"
+        ],
+        "formula_ids": [
+          "9702_formula_young_modulus"
+        ]
+      },
+      "hints": [
+        "Recall the two quantities that describe deformation per area and relative deformation."
+      ],
+      "walkthrough": [
+        "Stress is force per cross-sectional area, while strain is the fractional change in length.",
+        "Young modulus is defined as stress divided by strain: E = stress / strain."
+      ],
+      "checking": {
+        "mode": "ai",
+        "deterministic_checks": [],
+        "full_marks_if_all_deterministic_checks_pass": false,
+        "ai_rubric": [
+          {
+            "criterion_id": "9702_s18_23_q04_a_mp01",
+            "observable": "States that Young modulus is stress divided by strain."
+          }
+        ]
+      }
+    },
+    {
+      "part_id": "9702_s18_23_q04_b_i",
+      "difficulty": 2,
+      "question_patterns": [
+        "graph_interpretation",
+        "direct_calculation"
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t06",
+        "primary_module_id": "9702_t06_m01",
+        "outcome_ids": [
+          "9702_t06_m01_o03",
+          "9702_t06_m01_o04"
+        ]
+      },
+      "skills": {
+        "primary_skill_id": "9702_skill_apply_hookes_law",
+        "supporting_skill_ids": [
+          "9702_skill_interpret_graphs"
+        ]
+      },
+      "knowledge_refs": {
+        "definition_ids": [],
+        "formula_ids": [
+          "9702_formula_hookes_law"
+        ]
+      },
+      "hints": [
+        "Read the rod length at zero force and at 90 kN to find the magnitude of its compression.",
+        "Convert the compression from millimetres to metres, then use k = F / x."
+      ],
+      "walkthrough": [
+        "From the graph, the length decreases from 150 mm at zero force to 148 mm at 90 kN, so the compression is 2.0 mm = 2.0 × 10⁻³ m.",
+        "Use Hooke's-law form k = F / x.",
+        "k = (90 × 10³ N) / (2.0 × 10⁻³ m) = 4.5 × 10⁷ N m⁻¹."
+      ],
+      "checking": {
+        "mode": "hybrid",
+        "deterministic_checks": [
+          {
+            "field_id": "9702_s18_23_q04_b_i_field_02",
+            "type": "numeric_with_unit",
+            "accepted_value": 45000000,
+            "relative_tolerance": 0.03,
+            "accepted_units": [
+              "N m^-1",
+              "N m⁻¹",
+              "N/m"
+            ]
+          }
+        ],
+        "full_marks_if_all_deterministic_checks_pass": true,
+        "ai_rubric": [
+          {
+            "criterion_id": "9702_s18_23_q04_b_i_mp01",
+            "observable": "Uses k = F / ΔL, or the reciprocal gradient, with an extension read from the graph."
+          },
+          {
+            "criterion_id": "9702_s18_23_q04_b_i_mp02",
+            "observable": "Obtains k = 4.5 × 10⁷ N m⁻¹."
+          }
+        ]
+      }
+    },
+    {
+      "part_id": "9702_s18_23_q04_b_ii",
+      "difficulty": 3,
+      "question_patterns": [
+        "graph_interpretation",
+        "multi_step_calculation"
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t06",
+        "primary_module_id": "9702_t06_m02",
+        "outcome_ids": [
+          "9702_t06_m02_o02",
+          "9702_t06_m02_o04"
+        ]
+      },
+      "skills": {
+        "primary_skill_id": "9702_skill_apply_elastic_potential_energy",
+        "supporting_skill_ids": [
+          "9702_skill_interpret_graphs"
+        ]
+      },
+      "knowledge_refs": {
+        "definition_ids": [],
+        "formula_ids": [
+          "9702_formula_elastic_potential_energy"
+        ]
+      },
+      "hints": [
+        "Read the compression at 90 kN from the graph, then use the elastic-energy expression involving force and compression.",
+        "The stored energy is the triangular area under a linear force–compression graph: ½FΔL."
+      ],
+      "walkthrough": [
+        "At 90 kN, the graph shows a compression of 2.0 mm = 2.0 × 10⁻³ m.",
+        "For linear elastic compression, the stored strain energy is E = ½FΔL.",
+        "E = ½ × (90 × 10³ N) × (2.0 × 10⁻³ m) = 90 J."
+      ],
+      "checking": {
+        "mode": "hybrid",
+        "deterministic_checks": [
+          {
+            "field_id": "9702_s18_23_q04_b_ii_field_02",
+            "type": "numeric_with_unit",
+            "accepted_value": 90,
+            "absolute_tolerance": 2,
+            "accepted_units": [
+              "J",
+              "joule",
+              "joules"
+            ]
+          }
+        ],
+        "full_marks_if_all_deterministic_checks_pass": true,
+        "ai_rubric": [
+          {
+            "criterion_id": "9702_s18_23_q04_b_ii_mp01",
+            "observable": "Uses E = ½FΔL, E = ½k(ΔL)², or an equivalent elastic-energy relationship."
+          },
+          {
+            "criterion_id": "9702_s18_23_q04_b_ii_mp02",
+            "observable": "Substitutes the 90 kN force and 2.0 mm compression consistently in SI units."
+          },
+          {
+            "criterion_id": "9702_s18_23_q04_b_ii_mp03",
+            "observable": "Obtains a strain energy of 90 J."
+          }
+        ]
+      }
+    },
+    {
+      "part_id": "9702_s18_23_q04_c",
+      "difficulty": 3,
+      "question_patterns": [
+        "graph_construction"
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t06",
+        "primary_module_id": "9702_t06_m01",
+        "outcome_ids": [
+          "9702_t06_m01_o03",
+          "9702_t06_m01_o04",
+          "9702_t06_m01_o05"
+        ]
+      },
+      "skills": {
+        "primary_skill_id": "9702_skill_construct_graphs",
+        "supporting_skill_ids": [
+          "9702_skill_apply_young_modulus"
+        ]
+      },
+      "knowledge_refs": {
+        "definition_ids": [],
+        "formula_ids": [
+          "9702_formula_hookes_law",
+          "9702_formula_young_modulus"
+        ]
+      },
+      "hints": [
+        "For rods of equal original length, compare their stiffnesses using k = EA / L.",
+        "The new rod has twice E but one third A, so decide how its compression for a given force compares with the original before drawing the line."
+      ],
+      "walkthrough": [
+        "For a rod obeying Hooke's law, k = EA / L. The new stiffness is k_new = (2E)(A/3) / L = (2/3)k_original.",
+        "Compression is F/k, so the new compression at each force is 3/2 times the original compression.",
+        "Both rods start at the same original length, 150 mm, and the new graph is a straight line because it obeys Hooke's law.",
+        "At 90 kN the original compression is 2 mm, so the new compression is 3 mm and the new length is 147 mm.",
+        "Draw a straight line from (0 kN, 150 mm) to (90 kN, 147 mm), below the original line."
+      ],
+      "checking": {
+        "mode": "ai",
+        "deterministic_checks": [],
+        "full_marks_if_all_deterministic_checks_pass": false,
+        "ai_rubric": [
+          {
+            "criterion_id": "9702_s18_23_q04_c_mp01",
+            "observable": "Draws a straight line from (0 kN, 150 mm) below the original line."
+          },
+          {
+            "criterion_id": "9702_s18_23_q04_c_mp02",
+            "observable": "Makes the new line end at (90 kN, 147 mm)."
+          }
+        ]
+      }
+    }
+  ]
+}

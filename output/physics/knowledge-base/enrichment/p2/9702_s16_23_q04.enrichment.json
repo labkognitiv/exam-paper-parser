@@ -1,0 +1,138 @@
+{
+  "schema_version": "9702_question_enrichment_v2",
+  "enrichment_id": "9702_s16_23_q04_enrichment",
+  "question_id": "9702_s16_23_q04",
+  "component": "P2",
+  "difficulty": 3,
+  "question_patterns": [
+    "explanation",
+    "multi_step_calculation"
+  ],
+  "mapping": {
+    "topic_ids": [
+      "9702_t04"
+    ],
+    "module_ids": [
+      "9702_t04_m02",
+      "9702_t04_m03"
+    ],
+    "outcome_ids": [
+      "9702_t04_m02_o02",
+      "9702_t04_m03_o01",
+      "9702_t04_m03_o06"
+    ]
+  },
+  "parts": [
+    {
+      "part_id": "9702_s16_23_q04_a",
+      "difficulty": 1,
+      "question_patterns": [
+        "explanation"
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t04",
+        "primary_module_id": "9702_t04_m02",
+        "outcome_ids": [
+          "9702_t04_m02_o02"
+        ]
+      },
+      "skills": {
+        "primary_skill_id": "9702_skill_equilibrium",
+        "supporting_skill_ids": []
+      },
+      "knowledge_refs": {
+        "definition_ids": [],
+        "formula_ids": []
+      },
+      "hints": [
+        "Identify the downward weight and the two upward forces on the immersed cylinder.",
+        "For equilibrium, the upward tension plus upthrust must equal the downward weight."
+      ],
+      "walkthrough": [
+        "The cylinder has a downward weight of 5.3 N, while the thin wire pulls it upward with the spring-balance tension of 4.8 N and the oil provides an upward upthrust.",
+        "Because the cylinder is in equilibrium, its resultant force is zero.",
+        "Therefore weight = tension + upthrust, or equivalently 5.3 N − upthrust = 4.8 N."
+      ],
+      "checking": {
+        "mode": "ai",
+        "deterministic_checks": [],
+        "full_marks_if_all_deterministic_checks_pass": false,
+        "ai_rubric": [
+          {
+            "criterion_id": "9702_s16_23_q04_a_mp01",
+            "observable": "States that the resultant force is zero and relates the weight, upward wire tension and upthrust in a consistent equilibrium equation."
+          }
+        ]
+      }
+    },
+    {
+      "part_id": "9702_s16_23_q04_b",
+      "difficulty": 3,
+      "question_patterns": [
+        "multi_step_calculation"
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t04",
+        "primary_module_id": "9702_t04_m03",
+        "outcome_ids": [
+          "9702_t04_m03_o01",
+          "9702_t04_m03_o06"
+        ]
+      },
+      "skills": {
+        "primary_skill_id": "9702_skill_apply_archimedes_principle",
+        "supporting_skill_ids": [
+          "9702_skill_equilibrium"
+        ]
+      },
+      "knowledge_refs": {
+        "definition_ids": [],
+        "formula_ids": [
+          "9702_formula_upthrust"
+        ]
+      },
+      "hints": [
+        "Use the difference between the cylinder's weight and the spring-balance reading to find the upthrust from the oil.",
+        "The cylinder volume is its length times its cross-sectional area; convert 5.0 cm and 13 cm² into SI units first.",
+        "Use upthrust = ρgV and rearrange for ρ."
+      ],
+      "walkthrough": [
+        "The missing support is the upthrust: 5.3 N − 4.8 N = 0.50 N.",
+        "Convert the cylinder volume: V = (5.0 × 10⁻² m)(13 × 10⁻⁴ m²) = 6.5 × 10⁻⁵ m³.",
+        "Apply Archimedes' principle, F = ρgV, so ρ = F / (gV).",
+        "ρ = 0.50 / (9.81 × 6.5 × 10⁻⁵) = 784 kg m⁻³.",
+        "To two significant figures, the oil density is 7.8 × 10² kg m⁻³, or 780 kg m⁻³."
+      ],
+      "checking": {
+        "mode": "hybrid",
+        "deterministic_checks": [
+          {
+            "field_id": "9702_s16_23_q04_b_field_02",
+            "type": "numeric_with_unit",
+            "accepted_value": 784,
+            "absolute_tolerance": 15,
+            "accepted_units": [
+              "kg m^-3",
+              "kg m⁻³"
+            ]
+          }
+        ],
+        "full_marks_if_all_deterministic_checks_pass": true,
+        "ai_rubric": [
+          {
+            "criterion_id": "9702_s16_23_q04_b_mp01",
+            "observable": "Finds the 0.50 N upthrust from the difference between weight and spring-balance tension, and determines the immersed cylinder volume in cubic metres."
+          },
+          {
+            "criterion_id": "9702_s16_23_q04_b_mp02",
+            "observable": "Rearranges the upthrust relationship to form density as 0.50 divided by g times the converted cylinder volume."
+          },
+          {
+            "criterion_id": "9702_s16_23_q04_b_mp03",
+            "observable": "Obtains an oil density of about 780 kg m⁻³."
+          }
+        ]
+      }
+    }
+  ]
+}

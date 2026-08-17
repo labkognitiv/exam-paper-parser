@@ -1,0 +1,215 @@
+{
+  "schema_version": "9702_question_enrichment_v2",
+  "enrichment_id": "9702_m24_22_q03_enrichment",
+  "question_id": "9702_m24_22_q03",
+  "component": "P2",
+  "difficulty": 3,
+  "question_patterns": [
+    "multi_step_calculation",
+    "graph_construction"
+  ],
+  "mapping": {
+    "topic_ids": [
+      "9702_t06"
+    ],
+    "module_ids": [
+      "9702_t06_m01",
+      "9702_t06_m02"
+    ],
+    "outcome_ids": [
+      "9702_t06_m01_o05",
+      "9702_t06_m02_o04",
+      "9702_t06_m01_o03"
+    ]
+  },
+  "parts": [
+    {
+      "part_id": "9702_m24_22_q03_a_i",
+      "difficulty": 3,
+      "question_patterns": [
+        "multi_step_calculation"
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t06",
+        "primary_module_id": "9702_t06_m01",
+        "outcome_ids": [
+          "9702_t06_m01_o05"
+        ]
+      },
+      "skills": {
+        "primary_skill_id": "9702_skill_apply_stress",
+        "supporting_skill_ids": [
+          "9702_skill_interpret_graphs",
+          "9702_skill_apply_young_modulus"
+        ]
+      },
+      "knowledge_refs": {
+        "definition_ids": [],
+        "formula_ids": [
+          "9702_formula_stress",
+          "9702_formula_young_modulus"
+        ]
+      },
+      "hints": [
+        "Read the stress at the given strain from the straight-line graph, remembering that the vertical axis is in GPa.",
+        "The force is the stress multiplied by the circular cross-sectional area of the wire, using radius equal to half the stated diameter."
+      ],
+      "walkthrough": [
+        "At strain 5.4 × 10⁻³, the graph gives a stress of 0.72 GPa = 0.72 × 10⁹ Pa.",
+        "The wire radius is r = (1.2 × 10⁻³)/2 = 0.60 × 10⁻³ m, so its cross-sectional area is A = πr² = π(0.60 × 10⁻³)² = 1.13 × 10⁻⁶ m².",
+        "Use stress = force / area, so F = σA.",
+        "F = (0.72 × 10⁹)(1.13 × 10⁻⁶) = 8.14 × 10² N.",
+        "To two significant figures, the force exerted on the wire is 810 N."
+      ],
+      "checking": {
+        "mode": "ai",
+        "deterministic_checks": [],
+        "full_marks_if_all_deterministic_checks_pass": false,
+        "ai_rubric": [
+          {
+            "criterion_id": "9702_m24_22_q03_a_i_mp01",
+            "alternative_criterion_ids": [
+              "9702_m24_22_q03_a_i_mp04"
+            ],
+            "observable": "Either reads the stress as 0.72 × 10⁹ Pa, or determines the Young modulus from the graph gradient as about 1.33 × 10¹¹ Pa."
+          },
+          {
+            "criterion_id": "9702_m24_22_q03_a_i_mp02",
+            "alternative_criterion_ids": [
+              "9702_m24_22_q03_a_i_mp05"
+            ],
+            "observable": "Uses the circular area π(1.2 × 10⁻³/2)² m² with either F = σA or F = EεA."
+          },
+          {
+            "criterion_id": "9702_m24_22_q03_a_i_mp03",
+            "alternative_criterion_ids": [
+              "9702_m24_22_q03_a_i_mp06"
+            ],
+            "observable": "Obtains the force on the wire as 810 N."
+          }
+        ]
+      }
+    },
+    {
+      "part_id": "9702_m24_22_q03_a_ii",
+      "difficulty": 3,
+      "question_patterns": [
+        "multi_step_calculation"
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t06",
+        "primary_module_id": "9702_t06_m02",
+        "outcome_ids": [
+          "9702_t06_m02_o04",
+          "9702_t06_m01_o05"
+        ]
+      },
+      "skills": {
+        "primary_skill_id": "9702_skill_apply_elastic_potential_energy",
+        "supporting_skill_ids": [
+          "9702_skill_apply_strain",
+          "9702_skill_apply_young_modulus"
+        ]
+      },
+      "knowledge_refs": {
+        "definition_ids": [],
+        "formula_ids": [
+          "9702_formula_elastic_potential_energy",
+          "9702_formula_strain",
+          "9702_formula_young_modulus"
+        ]
+      },
+      "hints": [
+        "Use the force obtained in part (i) with the elastic-energy relationship to find the extension of the wire.",
+        "Once the extension is known, relate it to the given strain to recover the original length."
+      ],
+      "walkthrough": [
+        "The wire obeys Hooke's law, so its elastic potential energy is Eₚ = ½Fx.",
+        "Using the force from part (i), rearrange to x = 2Eₚ/F = (2 × 0.31)/810 = 7.65 × 10⁻⁴ m.",
+        "Strain is ε = x/L, so the original length is L = x/ε.",
+        "L = (7.65 × 10⁻⁴)/(5.4 × 10⁻³) = 0.142 m.",
+        "To two significant figures, the wire's original length is 0.14 m."
+      ],
+      "checking": {
+        "mode": "ai",
+        "deterministic_checks": [],
+        "full_marks_if_all_deterministic_checks_pass": false,
+        "ai_rubric": [
+          {
+            "criterion_id": "9702_m24_22_q03_a_ii_mp01",
+            "alternative_criterion_ids": [
+              "9702_m24_22_q03_a_ii_mp04"
+            ],
+            "observable": "Uses an accepted elastic-energy relationship, either Eₚ = ½Fx or Eₚ = ½kx² with the Young-modulus relation for k."
+          },
+          {
+            "criterion_id": "9702_m24_22_q03_a_ii_mp02",
+            "alternative_criterion_ids": [
+              "9702_m24_22_q03_a_ii_mp05"
+            ],
+            "observable": "Obtains an extension of approximately 7.7 × 10⁻⁴ m using either accepted route."
+          },
+          {
+            "criterion_id": "9702_m24_22_q03_a_ii_mp03",
+            "alternative_criterion_ids": [
+              "9702_m24_22_q03_a_ii_mp06"
+            ],
+            "observable": "Uses L = x/ε to obtain an original wire length of 0.14 m."
+          }
+        ]
+      }
+    },
+    {
+      "part_id": "9702_m24_22_q03_b",
+      "difficulty": 2,
+      "question_patterns": [
+        "graph_construction"
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t06",
+        "primary_module_id": "9702_t06_m01",
+        "outcome_ids": [
+          "9702_t06_m01_o03",
+          "9702_t06_m01_o05"
+        ]
+      },
+      "skills": {
+        "primary_skill_id": "9702_skill_apply_young_modulus",
+        "supporting_skill_ids": [
+          "9702_skill_construct_graphs"
+        ]
+      },
+      "knowledge_refs": {
+        "definition_ids": [],
+        "formula_ids": [
+          "9702_formula_young_modulus"
+        ]
+      },
+      "hints": [
+        "For a wire obeying Hooke's law, the stress–strain graph is a straight line through the origin and its gradient is the Young modulus.",
+        "Wire Y has twice the Young modulus of X, so use a line with twice the steepness of X on the same axes."
+      ],
+      "walkthrough": [
+        "For a wire in the proportional region, Young modulus is stress divided by strain, so it is the gradient of a stress–strain graph.",
+        "Because Y obeys Hooke's law, its graph is a straight line that passes through the origin.",
+        "Y has twice the Young modulus of X, so the gradient of Y's line must be twice the gradient of X's line.",
+        "Draw a straight line from the origin that is twice as steep as X; it reaches 1.0 GPa at a strain of about 3.75 × 10⁻³."
+      ],
+      "checking": {
+        "mode": "ai",
+        "deterministic_checks": [],
+        "full_marks_if_all_deterministic_checks_pass": false,
+        "ai_rubric": [
+          {
+            "criterion_id": "9702_m24_22_q03_b_mp01",
+            "observable": "Draws a straight line through the origin with a gradient greater than the line for X."
+          },
+          {
+            "criterion_id": "9702_m24_22_q03_b_mp02",
+            "observable": "Draws the line with twice the gradient of X, reaching 1.0 GPa at about 3.75 × 10⁻³ strain."
+          }
+        ]
+      }
+    }
+  ]
+}

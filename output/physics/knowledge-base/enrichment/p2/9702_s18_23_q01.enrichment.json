@@ -1,0 +1,282 @@
+{
+  "schema_version": "9702_question_enrichment_v2",
+  "enrichment_id": "9702_s18_23_q01_enrichment",
+  "question_id": "9702_s18_23_q01",
+  "component": "P2",
+  "difficulty": 2,
+  "question_patterns": [
+    "property_identification",
+    "direct_calculation",
+    "uncertainty_analysis"
+  ],
+  "mapping": {
+    "topic_ids": [
+      "9702_t01",
+      "9702_t09"
+    ],
+    "module_ids": [
+      "9702_t01_m03",
+      "9702_t09_m02"
+    ],
+    "outcome_ids": [
+      "9702_t01_m03_o01",
+      "9702_t09_m02_o03",
+      "9702_t01_m03_o03"
+    ]
+  },
+  "parts": [
+    {
+      "part_id": "9702_s18_23_q01_a_i",
+      "difficulty": 1,
+      "question_patterns": [
+        "property_identification"
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t01",
+        "primary_module_id": "9702_t01_m03",
+        "outcome_ids": [
+          "9702_t01_m03_o01"
+        ]
+      },
+      "skills": {
+        "primary_skill_id": "9702_skill_identify_systematic_error_sources",
+        "supporting_skill_ids": []
+      },
+      "knowledge_refs": {
+        "definition_ids": [
+          "9702_def_systematic_error"
+        ],
+        "formula_ids": []
+      },
+      "hints": [
+        "A systematic error makes repeated readings consistently too high or too low.",
+        "Consider a fault in the analogue voltmeter that is present before any reading is taken."
+      ],
+      "walkthrough": [
+        "A systematic error is a consistent bias, so it affects every measurement in a similar direction.",
+        "For an analogue voltmeter, a pointer that does not read zero when no potential difference is applied will offset every reading.",
+        "This zero error is therefore a valid example of a systematic error."
+      ],
+      "checking": {
+        "mode": "ai",
+        "deterministic_checks": [],
+        "full_marks_if_all_deterministic_checks_pass": false,
+        "ai_rubric": [
+          {
+            "criterion_id": "9702_s18_23_q01_a_i_mp01",
+            "observable": "Describes a consistent voltmeter fault, such as a zero offset or incorrect calibration, that biases every reading."
+          }
+        ]
+      }
+    },
+    {
+      "part_id": "9702_s18_23_q01_a_ii",
+      "difficulty": 1,
+      "question_patterns": [
+        "property_identification"
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t01",
+        "primary_module_id": "9702_t01_m03",
+        "outcome_ids": [
+          "9702_t01_m03_o01"
+        ]
+      },
+      "skills": {
+        "primary_skill_id": "9702_skill_identify_random_error_sources",
+        "supporting_skill_ids": []
+      },
+      "knowledge_refs": {
+        "definition_ids": [
+          "9702_def_random_error"
+        ],
+        "formula_ids": []
+      },
+      "hints": [
+        "A random error makes individual readings vary unpredictably rather than shifting them all in one direction.",
+        "For an analogue scale, consider what can vary when a person judges the needle position or reads it from a viewing angle."
+      ],
+      "walkthrough": [
+        "A random error causes a scatter in readings because its size or direction varies from one observation to another.",
+        "The apparent position of an analogue needle can change when the scale is viewed from different angles, producing a variable reading error.",
+        "Reading the scale from different angles is therefore a valid example of a random error."
+      ],
+      "checking": {
+        "mode": "ai",
+        "deterministic_checks": [],
+        "full_marks_if_all_deterministic_checks_pass": false,
+        "ai_rubric": [
+          {
+            "criterion_id": "9702_s18_23_q01_a_ii_mp01",
+            "observable": "Describes a variable analogue-scale reading error, such as parallax from changing viewing angle or inconsistent interpolation between divisions."
+          }
+        ]
+      }
+    },
+    {
+      "part_id": "9702_s18_23_q01_b_i",
+      "difficulty": 2,
+      "question_patterns": [
+        "direct_calculation"
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t09",
+        "primary_module_id": "9702_t09_m02",
+        "outcome_ids": [
+          "9702_t09_m02_o03"
+        ]
+      },
+      "skills": {
+        "primary_skill_id": "9702_skill_calculate_electrical_power",
+        "supporting_skill_ids": []
+      },
+      "knowledge_refs": {
+        "definition_ids": [],
+        "formula_ids": [
+          "9702_formula_electrical_power"
+        ]
+      },
+      "hints": [
+        "The known potential difference and resistance can be used directly; choose the power relationship containing both quantities.",
+        "Use P = V² / R, then substitute 5.0 V and 125 Ω with the voltage squared before division."
+      ],
+      "walkthrough": [
+        "Use the electrical-power relationship P = V² / R because the potential difference and resistance are given.",
+        "Substitute the values: P = (5.0 V)² / 125 Ω.",
+        "P = 25 / 125 W = 0.20 W."
+      ],
+      "checking": {
+        "mode": "hybrid",
+        "deterministic_checks": [
+          {
+            "field_id": "9702_s18_23_q01_b_i_field_02",
+            "type": "numeric_with_unit",
+            "accepted_value": 0.2,
+            "absolute_tolerance": 0.005,
+            "accepted_units": [
+              "W",
+              "watt",
+              "watts"
+            ]
+          }
+        ],
+        "full_marks_if_all_deterministic_checks_pass": true,
+        "ai_rubric": [
+          {
+            "criterion_id": "9702_s18_23_q01_b_i_mp01",
+            "observable": "Uses P = V² / R, or combines P = VI with V = IR, for the resistor."
+          },
+          {
+            "criterion_id": "9702_s18_23_q01_b_i_mp02",
+            "observable": "Evaluates the supplied values to obtain 0.20 W."
+          }
+        ]
+      }
+    },
+    {
+      "part_id": "9702_s18_23_q01_b_ii",
+      "difficulty": 2,
+      "question_patterns": [
+        "uncertainty_analysis"
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t01",
+        "primary_module_id": "9702_t01_m03",
+        "outcome_ids": [
+          "9702_t01_m03_o03"
+        ]
+      },
+      "skills": {
+        "primary_skill_id": "9702_skill_uncertainty",
+        "supporting_skill_ids": []
+      },
+      "knowledge_refs": {
+        "definition_ids": [],
+        "formula_ids": []
+      },
+      "hints": [
+        "First express the 0.1 V uncertainty as a percentage of the 5.0 V reading.",
+        "Power is proportional to V²/R, so the voltage percentage uncertainty contributes twice before the resistance percentage is added."
+      ],
+      "walkthrough": [
+        "The potential-difference percentage uncertainty is (0.1 / 5.0) × 100 = 2%.",
+        "For P = V²/R, the squared voltage contributes twice its percentage uncertainty: 2 × 2% = 4%.",
+        "Add the 3% resistance uncertainty: percentage uncertainty in P = 4% + 3% = 7%."
+      ],
+      "checking": {
+        "mode": "hybrid",
+        "deterministic_checks": [
+          {
+            "field_id": "9702_s18_23_q01_b_ii_field_02",
+            "type": "numeric_with_unit",
+            "accepted_value": 7,
+            "absolute_tolerance": 0.1,
+            "accepted_units": [
+              "%",
+              "percent",
+              "percentage"
+            ]
+          }
+        ],
+        "full_marks_if_all_deterministic_checks_pass": true,
+        "ai_rubric": [
+          {
+            "criterion_id": "9702_s18_23_q01_b_ii_mp01",
+            "observable": "Calculates the potential-difference percentage uncertainty as 2%, or gives the equivalent fraction 0.02."
+          },
+          {
+            "criterion_id": "9702_s18_23_q01_b_ii_mp02",
+            "observable": "Doubles the voltage contribution for V² and adds the 3% resistance uncertainty to obtain 7%."
+          }
+        ]
+      }
+    },
+    {
+      "part_id": "9702_s18_23_q01_b_iii",
+      "difficulty": 2,
+      "question_patterns": [
+        "uncertainty_analysis"
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t01",
+        "primary_module_id": "9702_t01_m03",
+        "outcome_ids": [
+          "9702_t01_m03_o03"
+        ]
+      },
+      "skills": {
+        "primary_skill_id": "9702_skill_uncertainty",
+        "supporting_skill_ids": []
+      },
+      "knowledge_refs": {
+        "definition_ids": [],
+        "formula_ids": []
+      },
+      "hints": [
+        "Use the 7% uncertainty from part (b)(ii) as a fraction of the unrounded 0.20 W power from part (b)(i).",
+        "After finding the absolute uncertainty, round it suitably and give the power to the same decimal place."
+      ],
+      "walkthrough": [
+        "Convert the 7% uncertainty to a fraction: 7% = 0.07.",
+        "Apply it to the calculated power: ΔP = 0.07 × 0.20 W = 0.014 W.",
+        "Round the absolute uncertainty to one significant figure: ΔP = 0.01 W.",
+        "Quote the central value to the same decimal place: P = 0.20 ± 0.01 W."
+      ],
+      "checking": {
+        "mode": "ai",
+        "deterministic_checks": [],
+        "full_marks_if_all_deterministic_checks_pass": false,
+        "ai_rubric": [
+          {
+            "criterion_id": "9702_s18_23_q01_b_iii_mp01",
+            "observable": "Uses 7% of 0.20 W to obtain an unrounded absolute uncertainty of 0.014 W."
+          },
+          {
+            "criterion_id": "9702_s18_23_q01_b_iii_mp02",
+            "observable": "Reports the result as 0.20 ± 0.01 W, or an equivalent correctly rounded standard-form expression."
+          }
+        ]
+      }
+    }
+  ]
+}

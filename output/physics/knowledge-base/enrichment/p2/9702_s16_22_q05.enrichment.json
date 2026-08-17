@@ -1,0 +1,145 @@
+{
+  "schema_version": "9702_question_enrichment_v2",
+  "enrichment_id": "9702_s16_22_q05_enrichment",
+  "question_id": "9702_s16_22_q05",
+  "component": "P2",
+  "difficulty": 2,
+  "question_patterns": [
+    "interference_analysis",
+    "multi_step_calculation"
+  ],
+  "mapping": {
+    "topic_ids": [
+      "9702_t08"
+    ],
+    "module_ids": [
+      "9702_t08_m03",
+      "9702_t08_m04"
+    ],
+    "outcome_ids": [
+      "9702_t08_m02_o01",
+      "9702_t08_m03_o01",
+      "9702_t08_m04_o01"
+    ]
+  },
+  "parts": [
+    {
+      "part_id": "9702_s16_22_q05_a",
+      "difficulty": 2,
+      "question_patterns": [
+        "interference_analysis"
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t08",
+        "primary_module_id": "9702_t08_m03",
+        "outcome_ids": [
+          "9702_t08_m02_o01",
+          "9702_t08_m03_o01"
+        ]
+      },
+      "skills": {
+        "primary_skill_id": "9702_skill_interference",
+        "supporting_skill_ids": [
+          "9702_skill_explain_diffraction"
+        ]
+      },
+      "knowledge_refs": {
+        "definition_ids": [],
+        "formula_ids": []
+      },
+      "hints": [
+        "Separate the spreading at each grating slit from the later overlap of waves from different slits.",
+        "For a first-order bright maximum, state the path difference between waves from adjacent slits."
+      ],
+      "walkthrough": [
+        "Light diffracts at each narrow slit, so the waves spread out.",
+        "The diffracted waves from the slits overlap and interfere.",
+        "At a first-order maximum, the path difference between waves from adjacent slits is one wavelength, so they arrive in phase and interfere constructively."
+      ],
+      "checking": {
+        "mode": "ai",
+        "deterministic_checks": [],
+        "full_marks_if_all_deterministic_checks_pass": false,
+        "ai_rubric": [
+          {
+            "criterion_id": "9702_s16_22_q05_a_mp01",
+            "observable": "States that light diffracts or spreads at each grating slit."
+          },
+          {
+            "criterion_id": "9702_s16_22_q05_a_mp02",
+            "observable": "States that waves from the slits overlap and interfere."
+          },
+          {
+            "criterion_id": "9702_s16_22_q05_a_mp03",
+            "observable": "Identifies a one-wavelength path difference, or equivalent 2π phase difference, for first-order constructive interference."
+          }
+        ]
+      }
+    },
+    {
+      "part_id": "9702_s16_22_q05_b",
+      "difficulty": 2,
+      "question_patterns": [
+        "multi_step_calculation"
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t08",
+        "primary_module_id": "9702_t08_m04",
+        "outcome_ids": [
+          "9702_t08_m04_o01"
+        ]
+      },
+      "skills": {
+        "primary_skill_id": "9702_skill_apply_diffraction_grating",
+        "supporting_skill_ids": []
+      },
+      "knowledge_refs": {
+        "definition_ids": [],
+        "formula_ids": [
+          "9702_formula_diffraction_grating"
+        ]
+      },
+      "hints": [
+        "The stated angle is between the two second-order maxima, so first find the angle from the central maximum to one side.",
+        "Use d sin θ = nλ for n = 2, then convert the grating spacing into lines per millimetre."
+      ],
+      "walkthrough": [
+        "The angle to one second-order maximum is θ = 59.4° / 2 = 29.7°.",
+        "Use d sin θ = nλ with n = 2 and λ = 486 × 10⁻⁹ m.",
+        "d = (2 × 486 × 10⁻⁹) / sin 29.7° = 1.96 × 10⁻⁶ m.",
+        "The number of lines per metre is 1 / d = 5.10 × 10⁵ m⁻¹.",
+        "Divide by 1000 to give 510 lines mm⁻¹."
+      ],
+      "checking": {
+        "mode": "hybrid",
+        "deterministic_checks": [
+          {
+            "field_id": "9702_s16_22_q05_b_field_02",
+            "type": "numeric_with_unit",
+            "accepted_value": 510,
+            "absolute_tolerance": 15,
+            "accepted_units": [
+              "mm^-1",
+              "mm⁻¹"
+            ]
+          }
+        ],
+        "full_marks_if_all_deterministic_checks_pass": true,
+        "ai_rubric": [
+          {
+            "criterion_id": "9702_s16_22_q05_b_mp01",
+            "observable": "Uses the diffraction-grating equation for the second order."
+          },
+          {
+            "criterion_id": "9702_s16_22_q05_b_mp02",
+            "observable": "Uses θ = 29.7° and obtains a grating spacing of about 1.96 × 10⁻⁶ m."
+          },
+          {
+            "criterion_id": "9702_s16_22_q05_b_mp03",
+            "observable": "Converts the spacing to about 510 lines mm⁻¹."
+          }
+        ]
+      }
+    }
+  ]
+}

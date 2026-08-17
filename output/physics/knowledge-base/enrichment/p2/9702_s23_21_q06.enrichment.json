@@ -1,0 +1,129 @@
+{
+  "schema_version": "9702_question_enrichment_v2",
+  "enrichment_id": "9702_s23_21_q06_enrichment",
+  "question_id": "9702_s23_21_q06",
+  "component": "P2",
+  "difficulty": 2,
+  "question_patterns": [
+    "direct_calculation",
+    "multi_step_calculation"
+  ],
+  "mapping": {
+    "topic_ids": [
+      "9702_t09"
+    ],
+    "module_ids": [
+      "9702_t09_m01"
+    ],
+    "outcome_ids": [
+      "9702_t09_m01_o04"
+    ]
+  },
+  "parts": [
+    {
+      "part_id": "9702_s23_21_q06_a",
+      "difficulty": 1,
+      "question_patterns": [
+        "direct_calculation"
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t09",
+        "primary_module_id": "9702_t09_m01",
+        "outcome_ids": [
+          "9702_t09_m01_o04"
+        ]
+      },
+      "skills": {
+        "primary_skill_id": "9702_skill_calculate_charge_carrier_number_density",
+        "supporting_skill_ids": []
+      },
+      "knowledge_refs": {
+        "definition_ids": [],
+        "formula_ids": []
+      },
+      "hints": [
+        "Number density is the total number of free electrons divided by the wire volume.",
+        "Use cross-sectional area multiplied by length for the wire volume."
+      ],
+      "walkthrough": [
+        "The wire volume is AL = (1.5 × 10⁻⁶)(1.8) m³.",
+        "Number density n = N / (AL) = (2.3 × 10²³) / [(1.5 × 10⁻⁶)(1.8)].",
+        "This gives n = 8.5 × 10²⁸ m⁻³."
+      ],
+      "checking": {
+        "mode": "ai",
+        "deterministic_checks": [],
+        "full_marks_if_all_deterministic_checks_pass": false,
+        "ai_rubric": [
+          {
+            "criterion_id": "9702_s23_21_q06_a_mp01",
+            "observable": "Divides 2.3 × 10²³ by the wire volume (1.5 × 10⁻⁶)(1.8) m³ to obtain 8.5 × 10²⁸ m⁻³."
+          }
+        ]
+      }
+    },
+    {
+      "part_id": "9702_s23_21_q06_b",
+      "difficulty": 2,
+      "question_patterns": [
+        "multi_step_calculation"
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t09",
+        "primary_module_id": "9702_t09_m01",
+        "outcome_ids": [
+          "9702_t09_m01_o04"
+        ]
+      },
+      "skills": {
+        "primary_skill_id": "9702_skill_apply_drift_current",
+        "supporting_skill_ids": [
+          "9702_skill_define_electric_current"
+        ]
+      },
+      "knowledge_refs": {
+        "definition_ids": [],
+        "formula_ids": [
+          "9702_formula_charge_current_time",
+          "9702_formula_current_drift"
+        ]
+      },
+      "hints": [
+        "Convert 2.5 minutes to seconds and use I = Q / t to find the current.",
+        "Use the number density from part (a) in I = Anvq, with q = 1.6 × 10⁻¹⁹ C for an electron."
+      ],
+      "walkthrough": [
+        "The time is 2.5 × 60 = 150 s, so I = Q / t = 172 / 150 = 1.15 A.",
+        "For charge carriers in a conductor, I = Anvq. Use A = 1.5 × 10⁻⁶ m², n = 8.5 × 10²⁸ m⁻³ and q = 1.6 × 10⁻¹⁹ C.",
+        "Rearrange: v = I / (Anq) = 1.15 / [(1.5 × 10⁻⁶)(8.5 × 10²⁸)(1.6 × 10⁻¹⁹)].",
+        "The average drift speed is 5.6 × 10⁻⁵ m s⁻¹."
+      ],
+      "checking": {
+        "mode": "hybrid",
+        "deterministic_checks": [
+          {
+            "field_id": "9702_s23_21_q06_b_field_02",
+            "type": "numeric",
+            "accepted_value": 5.6e-5,
+            "absolute_tolerance": 2e-6
+          }
+        ],
+        "full_marks_if_all_deterministic_checks_pass": true,
+        "ai_rubric": [
+          {
+            "criterion_id": "9702_s23_21_q06_b_mp01",
+            "observable": "Converts 2.5 minutes to 150 s and uses I = Q / t to obtain a current of about 1.15 A."
+          },
+          {
+            "criterion_id": "9702_s23_21_q06_b_mp02",
+            "observable": "Uses I = Anvq with A = 1.5 × 10⁻⁶ m², n = 8.5 × 10²⁸ m⁻³ and q = 1.6 × 10⁻¹⁹ C."
+          },
+          {
+            "criterion_id": "9702_s23_21_q06_b_mp03",
+            "observable": "Obtains an average drift speed of 5.6 × 10⁻⁵ m s⁻¹."
+          }
+        ]
+      }
+    }
+  ]
+}

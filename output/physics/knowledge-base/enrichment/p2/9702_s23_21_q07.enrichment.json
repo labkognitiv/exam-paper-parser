@@ -1,0 +1,349 @@
+{
+  "schema_version": "9702_question_enrichment_v2",
+  "enrichment_id": "9702_s23_21_q07_enrichment",
+  "question_id": "9702_s23_21_q07",
+  "component": "P2",
+  "difficulty": 2,
+  "question_patterns": [
+    "circuit_analysis",
+    "multi_step_calculation",
+    "property_identification"
+  ],
+  "mapping": {
+    "topic_ids": [
+      "9702_t10",
+      "9702_t09"
+    ],
+    "module_ids": [
+      "9702_t10_m01",
+      "9702_t10_m02",
+      "9702_t10_m03",
+      "9702_t09_m03"
+    ],
+    "outcome_ids": [
+      "9702_t10_m01_o04",
+      "9702_t10_m02_o07",
+      "9702_t10_m02_o04",
+      "9702_t10_m03_o01",
+      "9702_t10_m01_o03",
+      "9702_t09_m03_o08"
+    ]
+  },
+  "parts": [
+    {
+      "part_id": "9702_s23_21_q07_a",
+      "difficulty": 2,
+      "question_patterns": [
+        "circuit_analysis"
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t10",
+        "primary_module_id": "9702_t10_m02",
+        "outcome_ids": [
+          "9702_t10_m02_o07",
+          "9702_t10_m01_o04"
+        ]
+      },
+      "skills": {
+        "primary_skill_id": "9702_skill_analyse_circuits",
+        "supporting_skill_ids": [
+          "9702_skill_apply_ohms_law"
+        ]
+      },
+      "knowledge_refs": {
+        "definition_ids": [],
+        "formula_ids": [
+          "9702_formula_kirchhoff_second_law",
+          "9702_formula_ohms_law"
+        ]
+      },
+      "hints": [
+        "The voltmeter is connected across the 3400 Ω resistor and thermistor, so its 6.0 V reading is not across the 5800 Ω resistor.",
+        "Use the 9.6 V supply to find the potential difference across the 5800 Ω resistor, then use V = IR."
+      ],
+      "walkthrough": [
+        "Around the complete series loop, the supply e.m.f. equals the sum of potential differences.",
+        "The 5800 Ω resistor therefore has V = 9.6 − 6.0 = 3.6 V across it.",
+        "Using V = IR, I = 3.6 / 5800 = 6.2 × 10⁻⁴ A."
+      ],
+      "checking": {
+        "mode": "hybrid",
+        "deterministic_checks": [
+          {
+            "field_id": "9702_s23_21_q07_a_field_02",
+            "type": "numeric_with_unit",
+            "accepted_value": 0.00062,
+            "absolute_tolerance": 0.00002,
+            "accepted_units": [
+              "A"
+            ]
+          }
+        ],
+        "full_marks_if_all_deterministic_checks_pass": true,
+        "ai_rubric": [
+          {
+            "criterion_id": "9702_s23_21_q07_a_mp01",
+            "observable": "Uses the loop relation 9.6 = 6.0 + I(5800), or equivalently identifies 3.6 V across the 5800 Ω resistor."
+          },
+          {
+            "criterion_id": "9702_s23_21_q07_a_mp02",
+            "observable": "Obtains a current of 6.2 × 10⁻⁴ A."
+          }
+        ]
+      }
+    },
+    {
+      "part_id": "9702_s23_21_q07_b",
+      "difficulty": 2,
+      "question_patterns": [
+        "circuit_analysis",
+        "multi_step_calculation"
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t10",
+        "primary_module_id": "9702_t10_m02",
+        "outcome_ids": [
+          "9702_t10_m02_o04",
+          "9702_t10_m02_o07"
+        ]
+      },
+      "skills": {
+        "primary_skill_id": "9702_skill_analyse_circuits",
+        "supporting_skill_ids": [
+          "9702_skill_apply_ohms_law"
+        ]
+      },
+      "knowledge_refs": {
+        "definition_ids": [],
+        "formula_ids": [
+          "9702_formula_series_resistance",
+          "9702_formula_kirchhoff_second_law",
+          "9702_formula_ohms_law"
+        ]
+      },
+      "hints": [
+        "All three resistive components are in series, so they carry the current found in part (a).",
+        "Use either the full-loop e.m.f. or the 6.0 V across the 3400 Ω resistor and thermistor."
+      ],
+      "walkthrough": [
+        "The series current is I = 6.2 × 10⁻⁴ A.",
+        "Using the full loop, 9.6 = I(3400 + 5800 + R_T).",
+        "Rearranging gives R_T = 9.6 / (6.2 × 10⁻⁴) − 3400 − 5800 = 6.3 × 10³ Ω.",
+        "Equivalently, use the voltmeter branch: 6.0 = I(3400 + R_T)."
+      ],
+      "checking": {
+        "mode": "hybrid",
+        "deterministic_checks": [
+          {
+            "field_id": "9702_s23_21_q07_b_field_02",
+            "type": "numeric_with_unit",
+            "accepted_value": 6300,
+            "absolute_tolerance": 200,
+            "accepted_units": [
+              "Ω",
+              "ohm",
+              "ohms"
+            ]
+          }
+        ],
+        "full_marks_if_all_deterministic_checks_pass": true,
+        "ai_rubric": [
+          {
+            "criterion_id": "9702_s23_21_q07_b_mp01",
+            "observable": "Uses 9.6 = (6.2 × 10⁻⁴)(3400 + 5800 + R_T), or equivalently 6.0 = (6.2 × 10⁻⁴)(3400 + R_T)."
+          },
+          {
+            "criterion_id": "9702_s23_21_q07_b_mp02",
+            "observable": "Obtains a thermistor resistance of 6.3 × 10³ Ω."
+          }
+        ]
+      }
+    },
+    {
+      "part_id": "9702_s23_21_q07_c",
+      "difficulty": 2,
+      "question_patterns": [
+        "multi_step_calculation"
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t10",
+        "primary_module_id": "9702_t10_m01",
+        "outcome_ids": [
+          "9702_t10_m01_o03"
+        ]
+      },
+      "skills": {
+        "primary_skill_id": "9702_skill_calculate_energy_transfer_from_emf",
+        "supporting_skill_ids": []
+      },
+      "knowledge_refs": {
+        "definition_ids": [],
+        "formula_ids": [
+          "9702_formula_energy_charge_potential_difference"
+        ]
+      },
+      "hints": [
+        "Use the constant e.m.f. to find the energy transferred when 330 C leaves the battery.",
+        "This transferred energy reduces the battery's initial stored energy."
+      ],
+      "walkthrough": [
+        "For a source, the energy transferred is ΔE = 𝓔Q.",
+        "ΔE = 9.6 × 330 = 3170 J.",
+        "The battery therefore has final stored energy 2.6 × 10⁴ − 3170 = 2.3 × 10⁴ J."
+      ],
+      "checking": {
+        "mode": "hybrid",
+        "deterministic_checks": [
+          {
+            "field_id": "9702_s23_21_q07_c_field_02",
+            "type": "numeric_with_unit",
+            "accepted_value": 23000,
+            "absolute_tolerance": 500,
+            "accepted_units": [
+              "J"
+            ]
+          }
+        ],
+        "full_marks_if_all_deterministic_checks_pass": true,
+        "ai_rubric": [
+          {
+            "criterion_id": "9702_s23_21_q07_c_mp01",
+            "observable": "Uses ΔE = 𝓔Q = 9.6 × 330 to obtain an energy transfer of about 3170 J."
+          },
+          {
+            "criterion_id": "9702_s23_21_q07_c_mp02",
+            "observable": "Subtracts the transferred energy from 2.6 × 10⁴ J to obtain final stored energy 2.3 × 10⁴ J."
+          }
+        ]
+      }
+    },
+    {
+      "part_id": "9702_s23_21_q07_d_i",
+      "difficulty": 1,
+      "question_patterns": [
+        "property_identification"
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t09",
+        "primary_module_id": "9702_t09_m03",
+        "outcome_ids": [
+          "9702_t09_m03_o08"
+        ]
+      },
+      "skills": {
+        "primary_skill_id": "9702_skill_apply_thermistor_temperature_relationship",
+        "supporting_skill_ids": []
+      },
+      "knowledge_refs": {
+        "definition_ids": [],
+        "formula_ids": []
+      },
+      "hints": [
+        "The syllabus assumes thermistors have a negative temperature coefficient."
+      ],
+      "walkthrough": [
+        "For an NTC thermistor, resistance decreases when temperature increases.",
+        "Therefore, if the thermistor resistance increases, its temperature must decrease."
+      ],
+      "checking": {
+        "mode": "ai",
+        "deterministic_checks": [],
+        "full_marks_if_all_deterministic_checks_pass": false,
+        "ai_rubric": [
+          {
+            "criterion_id": "9702_s23_21_q07_d_i_mp01",
+            "observable": "States that the thermistor temperature decreases."
+          }
+        ]
+      }
+    },
+    {
+      "part_id": "9702_s23_21_q07_d_ii",
+      "difficulty": 1,
+      "question_patterns": [
+        "property_identification"
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t10",
+        "primary_module_id": "9702_t10_m02",
+        "outcome_ids": [
+          "9702_t10_m02_o07"
+        ]
+      },
+      "skills": {
+        "primary_skill_id": "9702_skill_analyse_circuits",
+        "supporting_skill_ids": []
+      },
+      "knowledge_refs": {
+        "definition_ids": [],
+        "formula_ids": [
+          "9702_formula_series_resistance",
+          "9702_formula_ohms_law"
+        ]
+      },
+      "hints": [
+        "All components are in series, so an increase in the thermistor resistance increases the total resistance.",
+        "The battery e.m.f. is fixed."
+      ],
+      "walkthrough": [
+        "In a series circuit, the increased thermistor resistance increases the total circuit resistance.",
+        "With fixed e.m.f., I = \u2110 / R_total, so the circuit current decreases.",
+        "The same current passes through every series component; therefore, the current in the thermistor decreases."
+      ],
+      "checking": {
+        "mode": "ai",
+        "deterministic_checks": [],
+        "full_marks_if_all_deterministic_checks_pass": false,
+        "ai_rubric": [
+          {
+            "criterion_id": "9702_s23_21_q07_d_ii_mp01",
+            "observable": "States that the current in the thermistor decreases."
+          }
+        ]
+      }
+    },
+    {
+      "part_id": "9702_s23_21_q07_d_iii",
+      "difficulty": 1,
+      "question_patterns": [
+        "property_identification"
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t10",
+        "primary_module_id": "9702_t10_m03",
+        "outcome_ids": [
+          "9702_t10_m03_o01"
+        ]
+      },
+      "skills": {
+        "primary_skill_id": "9702_skill_calculate_series_circuit_potential_difference",
+        "supporting_skill_ids": []
+      },
+      "knowledge_refs": {
+        "definition_ids": [],
+        "formula_ids": [
+          "9702_formula_potential_divider"
+        ]
+      },
+      "hints": [
+        "The thermistor is one section of a series potential divider supplied by a fixed e.m.f.",
+        "Compare the thermistor's resistance fraction with the total resistance."
+      ],
+      "walkthrough": [
+        "The potential difference across the thermistor is V_T = \u2110 R_T / R_total.",
+        "Increasing R_T increases its fraction of the total series resistance, so the potential difference across it increases."
+      ],
+      "checking": {
+        "mode": "ai",
+        "deterministic_checks": [],
+        "full_marks_if_all_deterministic_checks_pass": false,
+        "ai_rubric": [
+          {
+            "criterion_id": "9702_s23_21_q07_d_iii_mp01",
+            "observable": "States that the potential difference across the thermistor increases."
+          }
+        ]
+      }
+    }
+  ]
+}

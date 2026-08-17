@@ -1,0 +1,196 @@
+{
+  "schema_version": "9702_question_enrichment_v2",
+  "enrichment_id": "9702_w16_21_q01_enrichment",
+  "question_id": "9702_w16_21_q01",
+  "component": "P2",
+  "difficulty": 3,
+  "question_patterns": [
+    "definition",
+    "direct_calculation",
+    "uncertainty_analysis"
+  ],
+  "mapping": {
+    "topic_ids": [
+      "9702_t04",
+      "9702_t01"
+    ],
+    "module_ids": [
+      "9702_t04_m03",
+      "9702_t01_m03"
+    ],
+    "outcome_ids": [
+      "9702_t04_m03_o01",
+      "9702_t01_m03_o03"
+    ]
+  },
+  "parts": [
+    {
+      "part_id": "9702_w16_21_q01_a",
+      "difficulty": 1,
+      "question_patterns": [
+        "definition"
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t04",
+        "primary_module_id": "9702_t04_m03",
+        "outcome_ids": [
+          "9702_t04_m03_o01"
+        ]
+      },
+      "skills": {
+        "primary_skill_id": "9702_skill_define_density",
+        "supporting_skill_ids": []
+      },
+      "knowledge_refs": {
+        "definition_ids": [
+          "9702_def_density"
+        ],
+        "formula_ids": []
+      },
+      "hints": [
+        "Think about how a substance's mass and the space it occupies relate to each other, independent of how large the sample is."
+      ],
+      "walkthrough": [
+        "Density is the property that relates the mass of a sample of material to the volume it occupies.",
+        "It is defined as mass per unit volume: density = mass / volume."
+      ],
+      "checking": {
+        "mode": "ai",
+        "deterministic_checks": [],
+        "full_marks_if_all_deterministic_checks_pass": false,
+        "ai_rubric": [
+          {
+            "criterion_id": "9702_w16_21_q01_a_mp01",
+            "observable": "States that density equals mass divided by volume (mass per unit volume)."
+          }
+        ]
+      }
+    },
+    {
+      "part_id": "9702_w16_21_q01_b_i",
+      "difficulty": 2,
+      "question_patterns": [
+        "direct_calculation"
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t04",
+        "primary_module_id": "9702_t04_m03",
+        "outcome_ids": [
+          "9702_t04_m03_o01"
+        ]
+      },
+      "skills": {
+        "primary_skill_id": "9702_skill_apply_density",
+        "supporting_skill_ids": []
+      },
+      "knowledge_refs": {
+        "definition_ids": [],
+        "formula_ids": [
+          "9702_formula_density"
+        ]
+      },
+      "hints": [
+        "The sphere's volume is expressed as πd³/6, so rearrange the supplied mass–density–volume expression to make d the subject before substituting numbers."
+      ],
+      "walkthrough": [
+        "The supplied expression m = πd³ρ/6 is the density relationship ρ = m/V written with the sphere volume V = πd³/6.",
+        "Rearranging for the diameter gives d³ = 6m/(πρ).",
+        "Substituting m = 7.5 kg and ρ = 8100 kg m⁻³: d³ = (6 × 7.5)/(π × 8100) = 45/25446.9 = 1.768×10⁻³ m³.",
+        "Taking the cube root: d = (1.768×10⁻³)^(1/3) = 0.121 m."
+      ],
+      "checking": {
+        "mode": "deterministic",
+        "deterministic_checks": [
+          {
+            "field_id": "9702_w16_21_q01_b_i_field_02",
+            "type": "numeric_with_unit",
+            "accepted_value": 0.121,
+            "absolute_tolerance": 0.002,
+            "accepted_units": [
+              "m"
+            ]
+          }
+        ],
+        "full_marks_if_all_deterministic_checks_pass": true,
+        "ai_rubric": [
+          {
+            "criterion_id": "9702_w16_21_q01_b_i_mp01",
+            "observable": "Rearranges m = πd³ρ/6 for d, substitutes m = 7.5 kg and ρ = 8100 kg m⁻³, and obtains d = 0.12 m (0.121 m)."
+          }
+        ]
+      }
+    },
+    {
+      "part_id": "9702_w16_21_q01_b_ii",
+      "difficulty": 3,
+      "question_patterns": [
+        "uncertainty_analysis"
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t01",
+        "primary_module_id": "9702_t01_m03",
+        "outcome_ids": [
+          "9702_t01_m03_o03"
+        ]
+      },
+      "skills": {
+        "primary_skill_id": "9702_skill_combine_percentage_uncertainties",
+        "supporting_skill_ids": [
+          "9702_skill_calculate_absolute_uncertainty"
+        ]
+      },
+      "knowledge_refs": {
+        "definition_ids": [],
+        "formula_ids": []
+      },
+      "hints": [
+        "Because d is obtained from m and ρ through a cube root in d³ = 6m/(πρ), think about how the percentage uncertainties in m and ρ combine before that power is applied.",
+        "Add the percentage uncertainties in m and ρ, divide by 3 for the cube-root power, then convert the resulting percentage uncertainty in d to an absolute uncertainty using the value of d from (b)(i)."
+      ],
+      "walkthrough": [
+        "d³ = 6m/(πρ), so d is proportional to (m/ρ)^(1/3); the percentage uncertainties in m and ρ add, and the cube root divides the total by 3.",
+        "Percentage uncertainty in d = (percentage uncertainty in m + percentage uncertainty in ρ) / 3 = (4 + 5) / 3 = 3%.",
+        "Convert to an absolute uncertainty using d = 0.121 m from (b)(i): absolute uncertainty = 0.03 × 0.121 = 0.00363 m ≈ 0.004 m.",
+        "Quote the diameter with its absolute uncertainty to a matching number of significant figures: d = 0.121 ± 0.004 m."
+      ],
+      "checking": {
+        "mode": "hybrid",
+        "deterministic_checks": [
+          {
+            "field_id": "9702_w16_21_q01_b_ii_field_02",
+            "type": "numeric_with_unit",
+            "accepted_value": 0.121,
+            "absolute_tolerance": 0.002,
+            "accepted_units": [
+              "m"
+            ]
+          },
+          {
+            "field_id": "9702_w16_21_q01_b_ii_field_03",
+            "type": "numeric_with_unit",
+            "accepted_value": 0.004,
+            "absolute_tolerance": 0.0006,
+            "accepted_units": [
+              "m"
+            ]
+          }
+        ],
+        "full_marks_if_all_deterministic_checks_pass": true,
+        "ai_rubric": [
+          {
+            "criterion_id": "9702_w16_21_q01_b_ii_mp01",
+            "observable": "Combines the percentage uncertainties in m and ρ and divides by 3 for the cube-root power, obtaining 3%."
+          },
+          {
+            "criterion_id": "9702_w16_21_q01_b_ii_mp02",
+            "observable": "Converts the 3% uncertainty in d to an absolute uncertainty of 0.0036 m using the value of d found in (b)(i)."
+          },
+          {
+            "criterion_id": "9702_w16_21_q01_b_ii_mp03",
+            "observable": "States the final result as d = 0.121 ± 0.004 m."
+          }
+        ]
+      }
+    }
+  ]
+}

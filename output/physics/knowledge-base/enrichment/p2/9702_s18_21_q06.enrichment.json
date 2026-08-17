@@ -1,0 +1,307 @@
+{
+  "schema_version": "9702_question_enrichment_v2",
+  "enrichment_id": "9702_s18_21_q06_enrichment",
+  "question_id": "9702_s18_21_q06",
+  "component": "P2",
+  "difficulty": 3,
+  "question_patterns": [
+    "definition",
+    "graph_interpretation",
+    "multi_step_calculation",
+    "explanation",
+    "circuit_analysis"
+  ],
+  "mapping": {
+    "topic_ids": [
+      "9702_t09",
+      "9702_t10"
+    ],
+    "module_ids": [
+      "9702_t09_m02",
+      "9702_t09_m03",
+      "9702_t10_m02"
+    ],
+    "outcome_ids": [
+      "9702_t09_m02_o01",
+      "9702_t09_m03_o02",
+      "9702_t09_m03_o03",
+      "9702_t09_m03_o04",
+      "9702_t09_m03_o06",
+      "9702_t10_m02_o01",
+      "9702_t10_m02_o02"
+    ]
+  },
+  "parts": [
+    {
+      "part_id": "9702_s18_21_q06_a",
+      "difficulty": 1,
+      "question_patterns": [
+        "definition"
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t09",
+        "primary_module_id": "9702_t09_m02",
+        "outcome_ids": [
+          "9702_t09_m02_o01"
+        ]
+      },
+      "skills": {
+        "primary_skill_id": "9702_skill_define_volt",
+        "supporting_skill_ids": []
+      },
+      "knowledge_refs": {
+        "definition_ids": [
+          "9702_def_volt"
+        ],
+        "formula_ids": []
+      },
+      "hints": [
+        "Express this unit using energy transferred and charge."
+      ],
+      "walkthrough": [
+        "Potential difference is energy transferred per unit charge.",
+        "Therefore one volt is one joule of energy transferred per coulomb of charge.",
+        "Equivalently, 1 V = 1 J C⁻¹."
+      ],
+      "checking": {
+        "mode": "ai",
+        "deterministic_checks": [],
+        "full_marks_if_all_deterministic_checks_pass": false,
+        "ai_rubric": [
+          {
+            "criterion_id": "9702_s18_21_q06_a_mp01",
+            "observable": "States that one volt equals one joule per coulomb."
+          }
+        ]
+      }
+    },
+    {
+      "part_id": "9702_s18_21_q06_b_i",
+      "difficulty": 3,
+      "question_patterns": [
+        "graph_interpretation",
+        "multi_step_calculation"
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t09",
+        "primary_module_id": "9702_t09_m03",
+        "outcome_ids": [
+          "9702_t09_m03_o03",
+          "9702_t10_m02_o01"
+        ]
+      },
+      "skills": {
+        "primary_skill_id": "9702_skill_interpret_graphs",
+        "supporting_skill_ids": [
+          "9702_skill_apply_kirchhoffs_first_law"
+        ]
+      },
+      "knowledge_refs": {
+        "definition_ids": [],
+        "formula_ids": [
+          "9702_formula_kirchhoff_first_law"
+        ]
+      },
+      "hints": [
+        "P and Q are connected in parallel, so first find the shared potential difference from lamp P's I–V curve.",
+        "Use that same potential difference on lamp Q's curve, then add the two branch currents at the junction."
+      ],
+      "walkthrough": [
+        "Lamp P carries 0.15 A; Fig. 6.2 shows this corresponds to a potential difference of 2.7 V.",
+        "P and Q are in parallel, so lamp Q also has a potential difference of 2.7 V.",
+        "From Q's I–V curve at 2.7 V, I_Q = 0.090 A.",
+        "The battery current is the sum of the parallel branch currents: I = 0.15 A + 0.090 A = 0.24 A."
+      ],
+      "checking": {
+        "mode": "ai",
+        "deterministic_checks": [],
+        "full_marks_if_all_deterministic_checks_pass": false,
+        "ai_rubric": [
+          {
+            "criterion_id": "9702_s18_21_q06_b_i_mp01",
+            "observable": "States that the parallel lamps have the same potential difference, or determines their shared potential difference as 2.7 V."
+          },
+          {
+            "criterion_id": "9702_s18_21_q06_b_i_mp02",
+            "observable": "Reads I_Q = 0.090 A and adds the branch currents to obtain a battery current of 0.24 A."
+          }
+        ]
+      }
+    },
+    {
+      "part_id": "9702_s18_21_q06_b_ii",
+      "difficulty": 3,
+      "question_patterns": [
+        "multi_step_calculation"
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t10",
+        "primary_module_id": "9702_t10_m02",
+        "outcome_ids": [
+          "9702_t10_m02_o02",
+          "9702_t09_m03_o02"
+        ]
+      },
+      "skills": {
+        "primary_skill_id": "9702_skill_apply_ohms_law",
+        "supporting_skill_ids": [
+          "9702_skill_apply_kirchhoffs_second_law"
+        ]
+      },
+      "knowledge_refs": {
+        "definition_ids": [],
+        "formula_ids": [
+          "9702_formula_kirchhoff_second_law",
+          "9702_formula_ohms_law"
+        ]
+      },
+      "hints": [
+        "Use the 2.7 V across the parallel lamps to find the remaining potential difference across R.",
+        "The resistor R carries the battery current from part (b)(i); then use V = IR."
+      ],
+      "walkthrough": [
+        "The parallel lamps have 2.7 V across them, while the battery provides 4.5 V.",
+        "Kirchhoff’s second law gives the potential difference across R as 4.5 V − 2.7 V = 1.8 V.",
+        "R carries the battery current of 0.24 A.",
+        "Using V = IR, R = 1.8 / 0.24 = 7.5 Ω."
+      ],
+      "checking": {
+        "mode": "hybrid",
+        "deterministic_checks": [
+          {
+            "field_id": "9702_s18_21_q06_b_ii_field_02",
+            "type": "numeric_with_unit",
+            "accepted_value": 7.5,
+            "absolute_tolerance": 0.1,
+            "accepted_units": [
+              "Ω",
+              "ohm",
+              "ohms"
+            ]
+          }
+        ],
+        "full_marks_if_all_deterministic_checks_pass": false,
+        "ai_rubric": [
+          {
+            "criterion_id": "9702_s18_21_q06_b_ii_mp01",
+            "observable": "Uses the 1.8 V potential difference across R with the 0.24 A circuit current, or an accepted equivalent circuit-resistance method."
+          },
+          {
+            "criterion_id": "9702_s18_21_q06_b_ii_mp02",
+            "observable": "Obtains R = 7.5 Ω."
+          }
+        ]
+      }
+    },
+    {
+      "part_id": "9702_s18_21_q06_b_iii",
+      "difficulty": 3,
+      "question_patterns": [
+        "multi_step_calculation"
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t09",
+        "primary_module_id": "9702_t09_m03",
+        "outcome_ids": [
+          "9702_t09_m03_o06",
+          "9702_t09_m03_o02"
+        ]
+      },
+      "skills": {
+        "primary_skill_id": "9702_skill_apply_resistivity",
+        "supporting_skill_ids": [
+          "9702_skill_apply_ohms_law"
+        ]
+      },
+      "knowledge_refs": {
+        "definition_ids": [],
+        "formula_ids": [
+          "9702_formula_resistivity",
+          "9702_formula_ohms_law"
+        ]
+      },
+      "hints": [
+        "First determine the operating-resistance ratio from the shared 2.7 V potential difference and the two branch currents.",
+        "For the same resistivity, use R = ρL / A and remember that cross-sectional area is proportional to diameter squared."
+      ],
+      "walkthrough": [
+        "The lamps have the same 2.7 V potential difference, so R_P = 2.7 / 0.15 = 18 Ω and R_Q = 2.7 / 0.090 = 30 Ω.",
+        "Thus R_P / R_Q = 18 / 30 = 0.60.",
+        "For wires of the same resistivity, R = ρL / A. Lamp P has twice the diameter, so A_P / A_Q = 2² = 4.",
+        "Therefore R_P / R_Q = (L_P / L_Q) / 4, so L_P / L_Q = 0.60 × 4 = 2.4."
+      ],
+      "checking": {
+        "mode": "ai",
+        "deterministic_checks": [],
+        "full_marks_if_all_deterministic_checks_pass": false,
+        "ai_rubric": [
+          {
+            "criterion_id": "9702_s18_21_q06_b_iii_mp01",
+            "observable": "Uses R = ρL / A."
+          },
+          {
+            "criterion_id": "9702_s18_21_q06_b_iii_mp02",
+            "observable": "Uses the shared 2.7 V potential difference and currents to obtain R_P / R_Q = (2.7 / 0.15) / (2.7 / 0.090) = 0.60."
+          },
+          {
+            "criterion_id": "9702_s18_21_q06_b_iii_mp03",
+            "observable": "Uses the squared diameter ratio to obtain L_P / L_Q = 0.60 × 2² = 2.4."
+          }
+        ]
+      }
+    },
+    {
+      "part_id": "9702_s18_21_q06_b_iv",
+      "difficulty": 2,
+      "question_patterns": [
+        "explanation",
+        "circuit_analysis"
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t09",
+        "primary_module_id": "9702_t09_m03",
+        "outcome_ids": [
+          "9702_t09_m03_o04",
+          "9702_t10_m02_o02"
+        ]
+      },
+      "skills": {
+        "primary_skill_id": "9702_skill_analyse_filament_lamp_resistance",
+        "supporting_skill_ids": [
+          "9702_skill_apply_kirchhoffs_second_law"
+        ]
+      },
+      "knowledge_refs": {
+        "definition_ids": [],
+        "formula_ids": [
+          "9702_formula_kirchhoff_second_law"
+        ]
+      },
+      "hints": [
+        "When Q becomes an open circuit, the current through the series resistor decreases.",
+        "Use the fixed battery e.m.f. to relate the smaller resistor p.d. to the p.d. across P, then link a larger lamp current to filament resistance."
+      ],
+      "walkthrough": [
+        "With lamp Q open, the total current through the series resistor R decreases.",
+        "The potential difference across R therefore decreases, so Kirchhoff’s second law gives a greater potential difference across lamp P.",
+        "The greater potential difference produces a greater current in P.",
+        "Its filament becomes hotter, and the resistance of a filament lamp increases as its temperature and current increase."
+      ],
+      "checking": {
+        "mode": "ai",
+        "deterministic_checks": [],
+        "full_marks_if_all_deterministic_checks_pass": false,
+        "ai_rubric": [
+          {
+            "criterion_id": "9702_s18_21_q06_b_iv_mp01",
+            "observable": "States that the potential difference across R decreases, or equivalently that the potential difference across P increases."
+          },
+          {
+            "criterion_id": "9702_s18_21_q06_b_iv_mp02",
+            "observable": "States that the current through P increases and hence its resistance increases."
+          }
+        ]
+      }
+    }
+  ]
+}

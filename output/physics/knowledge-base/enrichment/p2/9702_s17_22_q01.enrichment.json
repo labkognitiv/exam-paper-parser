@@ -1,0 +1,253 @@
+{
+  "schema_version": "9702_question_enrichment_v2",
+  "enrichment_id": "9702_s17_22_q01_enrichment",
+  "question_id": "9702_s17_22_q01",
+  "component": "P2",
+  "difficulty": 3,
+  "question_patterns": [
+    "classification",
+    "direct_calculation",
+    "multi_step_calculation",
+    "definition",
+    "comparison"
+  ],
+  "mapping": {
+    "topic_ids": [
+      "9702_t01",
+      "9702_t09"
+    ],
+    "module_ids": [
+      "9702_t01_m02",
+      "9702_t09_m03",
+      "9702_t01_m03"
+    ],
+    "outcome_ids": [
+      "9702_t01_m02_o01",
+      "9702_t01_m02_o02",
+      "9702_t09_m03_o06",
+      "9702_t01_m03_o02",
+      "9702_t01_m03_o03"
+    ]
+  },
+  "parts": [
+    {
+      "part_id": "9702_s17_22_q01_a",
+      "difficulty": 1,
+      "question_patterns": [
+        "classification"
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t01",
+        "primary_module_id": "9702_t01_m02",
+        "outcome_ids": [
+          "9702_t01_m02_o01"
+        ]
+      },
+      "skills": {
+        "primary_skill_id": "9702_skill_recall_si_base_units",
+        "supporting_skill_ids": []
+      },
+      "knowledge_refs": {
+        "definition_ids": [],
+        "formula_ids": []
+      },
+      "hints": [
+        "Recall which SI base quantities remain after mass, length and time are excluded."
+      ],
+      "walkthrough": [
+        "The seven SI base units are kilogram, metre, second, ampere, kelvin, mole and candela.",
+        "Removing kilogram, metre and second leaves ampere, kelvin, mole and candela.",
+        "Any two of these four satisfy the request."
+      ],
+      "checking": {
+        "mode": "ai",
+        "deterministic_checks": [],
+        "full_marks_if_all_deterministic_checks_pass": false,
+        "ai_rubric": [
+          {
+            "criterion_id": "9702_s17_22_q01_a_mp01",
+            "observable": "States any two of ampere, kelvin, mole and candela as SI base units."
+          }
+        ]
+      }
+    },
+    {
+      "part_id": "9702_s17_22_q01_b",
+      "difficulty": 3,
+      "question_patterns": [
+        "direct_calculation"
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t01",
+        "primary_module_id": "9702_t01_m02",
+        "outcome_ids": [
+          "9702_t01_m02_o02"
+        ]
+      },
+      "skills": {
+        "primary_skill_id": "9702_skill_derive_si_base_units",
+        "supporting_skill_ids": []
+      },
+      "knowledge_refs": {
+        "definition_ids": [],
+        "formula_ids": [
+          "9702_formula_resistivity",
+          "9702_formula_ohms_law",
+          "9702_formula_potential_difference",
+          "9702_formula_electrical_power"
+        ]
+      },
+      "hints": [
+        "Start from ρ=RA/L and reduce resistance to electrical and mechanical base quantities.",
+        "You may derive the volt from energy per charge or use electrical power."
+      ],
+      "walkthrough": [
+        "Use ρ=RA/L and R=V/I, so ρ=VA/(IL).",
+        "A volt is joule per coulomb: V=(kg m² s⁻²)/(A s)=kg m² s⁻³ A⁻¹.",
+        "Therefore [ρ]=(kg m² s⁻³ A⁻¹)(m²)/(A m)=kg m³ s⁻³ A⁻².",
+        "Alternatively, P=I²R gives ρ=PA/(I²L); [P]=kg m² s⁻³, producing the same result."
+      ],
+      "checking": {
+        "mode": "ai",
+        "deterministic_checks": [],
+        "full_marks_if_all_deterministic_checks_pass": false,
+        "ai_rubric": [
+          {
+            "criterion_id": "9702_s17_22_q01_b_mp01",
+            "observable": "Uses either ρ=VA/(IL), or the alternative ρ=PA/(I²L).",
+            "alternative_criterion_ids": [
+              "9702_s17_22_q01_b_mp04"
+            ]
+          },
+          {
+            "criterion_id": "9702_s17_22_q01_b_mp02",
+            "observable": "Derives either [V]=kg m² s⁻³ A⁻¹, or the alternative [P]=kg m² s⁻³.",
+            "alternative_criterion_ids": [
+              "9702_s17_22_q01_b_mp05"
+            ]
+          },
+          {
+            "criterion_id": "9702_s17_22_q01_b_mp03",
+            "observable": "Completes either accepted route to kg m³ s⁻³ A⁻².",
+            "alternative_criterion_ids": [
+              "9702_s17_22_q01_b_mp06"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "part_id": "9702_s17_22_q01_c_i",
+      "difficulty": 3,
+      "question_patterns": [
+        "multi_step_calculation"
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t09",
+        "primary_module_id": "9702_t09_m03",
+        "outcome_ids": [
+          "9702_t09_m03_o06"
+        ]
+      },
+      "skills": {
+        "primary_skill_id": "9702_skill_apply_resistivity",
+        "supporting_skill_ids": []
+      },
+      "knowledge_refs": {
+        "definition_ids": [],
+        "formula_ids": [
+          "9702_formula_resistivity"
+        ]
+      },
+      "hints": [
+        "Convert the area from mm² to m² before applying the resistivity relation."
+      ],
+      "walkthrough": [
+        "Use ρ=RA/L.",
+        "ρ=(0.030)(1.5×10⁻⁶)/2.5=1.8×10⁻⁸ Ω m.",
+        "Since 1 nΩ m=10⁻⁹ Ω m, ρ=18 nΩ m."
+      ],
+      "checking": {
+        "mode": "hybrid",
+        "deterministic_checks": [
+          {
+            "field_id": "9702_s17_22_q01_c_i_field_02",
+            "type": "numeric_with_unit",
+            "accepted_value": 18,
+            "absolute_tolerance": 0.5,
+            "accepted_units": [
+              "nΩ m",
+              "n ohm m"
+            ]
+          }
+        ],
+        "full_marks_if_all_deterministic_checks_pass": true,
+        "ai_rubric": [
+          {
+            "criterion_id": "9702_s17_22_q01_c_i_mp01",
+            "observable": "Uses ρ=RA/L."
+          },
+          {
+            "criterion_id": "9702_s17_22_q01_c_i_mp02",
+            "observable": "Substitutes consistently to obtain 1.8×10⁻⁸ Ω m."
+          },
+          {
+            "criterion_id": "9702_s17_22_q01_c_i_mp03",
+            "observable": "Converts to 18 nΩ m."
+          }
+        ]
+      }
+    },
+    {
+      "part_id": "9702_s17_22_q01_c_ii",
+      "difficulty": 2,
+      "question_patterns": [
+        "definition",
+        "comparison"
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t01",
+        "primary_module_id": "9702_t01_m03",
+        "outcome_ids": [
+          "9702_t01_m03_o02",
+          "9702_t01_m03_o03"
+        ]
+      },
+      "skills": {
+        "primary_skill_id": "9702_skill_measurement",
+        "supporting_skill_ids": [
+          "9702_skill_distinguish_accuracy_precision"
+        ]
+      },
+      "knowledge_refs": {
+        "definition_ids": [
+          "9702_def_precision"
+        ],
+        "formula_ids": []
+      },
+      "hints": [
+        "Separate repeatability from accuracy, then compare the instruments’ resolutions."
+      ],
+      "walkthrough": [
+        "Precision means close agreement of repeated readings, shown by a small spread or range.",
+        "A metre rule resolves about 1 mm, whereas a micrometer resolves about 0.01 mm.",
+        "The micrometer gives much smaller percentage uncertainty in diameter and therefore in area and resistivity."
+      ],
+      "checking": {
+        "mode": "ai",
+        "deterministic_checks": [],
+        "full_marks_if_all_deterministic_checks_pass": false,
+        "ai_rubric": [
+          {
+            "criterion_id": "9702_s17_22_q01_c_ii_mp01",
+            "observable": "Defines precision through spread/agreement of repeated readings."
+          },
+          {
+            "criterion_id": "9702_s17_22_q01_c_ii_mp02",
+            "observable": "Explains that the micrometer’s finer resolution reduces percentage uncertainty."
+          }
+        ]
+      }
+    }
+  ]
+}

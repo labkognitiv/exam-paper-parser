@@ -1,0 +1,260 @@
+{
+  "schema_version": "9702_question_enrichment_v2",
+  "enrichment_id": "9702_s18_23_q06_enrichment",
+  "question_id": "9702_s18_23_q06",
+  "component": "P2",
+  "difficulty": 3,
+  "question_patterns": [
+    "multi_step_calculation",
+    "direct_calculation",
+    "circuit_analysis"
+  ],
+  "mapping": {
+    "topic_ids": [
+      "9702_t09",
+      "9702_t10"
+    ],
+    "module_ids": [
+      "9702_t09_m03",
+      "9702_t10_m01",
+      "9702_t10_m02"
+    ],
+    "outcome_ids": [
+      "9702_t09_m03_o06",
+      "9702_t10_m01_o05",
+      "9702_t10_m02_o07"
+    ]
+  },
+  "parts": [
+    {
+      "part_id": "9702_s18_23_q06_a",
+      "difficulty": 3,
+      "question_patterns": [
+        "multi_step_calculation"
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t09",
+        "primary_module_id": "9702_t09_m03",
+        "outcome_ids": [
+          "9702_t09_m03_o06"
+        ]
+      },
+      "skills": {
+        "primary_skill_id": "9702_skill_apply_resistivity",
+        "supporting_skill_ids": []
+      },
+      "knowledge_refs": {
+        "definition_ids": [],
+        "formula_ids": [
+          "9702_formula_resistivity"
+        ]
+      },
+      "hints": [
+        "The stated resistance per unit length lets you set L = 1.0 m in R = ρL / A.",
+        "Use the radius, half the diameter, in A = πr² and convert millimetres to metres first."
+      ],
+      "walkthrough": [
+        "Take a 1.0 m length of wire, for which R = 3.0 Ω. From R = ρL / A, ρ = RA / L = 3.0A.",
+        "The radius is r = 0.48 mm / 2 = 0.24 × 10⁻³ m.",
+        "A = πr² = π(0.24 × 10⁻³ m)² = 1.81 × 10⁻⁷ m².",
+        "ρ = 3.0 × 1.81 × 10⁻⁷ Ω m = 5.4 × 10⁻⁷ Ω m."
+      ],
+      "checking": {
+        "mode": "hybrid",
+        "deterministic_checks": [
+          {
+            "field_id": "9702_s18_23_q06_a_field_02",
+            "type": "numeric_with_unit",
+            "accepted_value": 5.4e-7,
+            "relative_tolerance": 0.04,
+            "accepted_units": [
+              "Ω m",
+              "ohm m",
+              "ohm metre"
+            ]
+          }
+        ],
+        "full_marks_if_all_deterministic_checks_pass": true,
+        "ai_rubric": [
+          {
+            "criterion_id": "9702_s18_23_q06_a_mp01",
+            "observable": "Uses R = ρL / A, or an algebraically equivalent form."
+          },
+          {
+            "criterion_id": "9702_s18_23_q06_a_mp02",
+            "observable": "Uses the cross-sectional area π(0.48 × 10⁻³ m / 2)² with the 3.0 Ω m⁻¹ resistance."
+          },
+          {
+            "criterion_id": "9702_s18_23_q06_a_mp03",
+            "observable": "Obtains a resistivity of 5.4 × 10⁻⁷ Ω m."
+          }
+        ]
+      }
+    },
+    {
+      "part_id": "9702_s18_23_q06_b_i",
+      "difficulty": 1,
+      "question_patterns": [
+        "direct_calculation"
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t10",
+        "primary_module_id": "9702_t10_m01",
+        "outcome_ids": [
+          "9702_t10_m01_o05"
+        ]
+      },
+      "skills": {
+        "primary_skill_id": "9702_skill_calculate_terminal_potential_difference",
+        "supporting_skill_ids": []
+      },
+      "knowledge_refs": {
+        "definition_ids": [],
+        "formula_ids": [
+          "9702_formula_terminal_potential_difference"
+        ]
+      },
+      "hints": [
+        "The terminal potential difference is the e.m.f. after subtracting the lost volts across the internal resistance."
+      ],
+      "walkthrough": [
+        "Use V = ℰ − Ir for a source delivering current.",
+        "V = 5.0 V − (1.6 A × 2.0 Ω) = 1.8 V.",
+        "Resistor R is in parallel with wire X, so it has this terminal potential difference."
+      ],
+      "checking": {
+        "mode": "hybrid",
+        "deterministic_checks": [
+          {
+            "field_id": "9702_s18_23_q06_b_i_field_02",
+            "type": "numeric_with_unit",
+            "accepted_value": 1.8,
+            "absolute_tolerance": 0.05,
+            "accepted_units": [
+              "V",
+              "volt",
+              "volts"
+            ]
+          }
+        ],
+        "full_marks_if_all_deterministic_checks_pass": true,
+        "ai_rubric": [
+          {
+            "criterion_id": "9702_s18_23_q06_b_i_mp01",
+            "observable": "Subtracts the 3.2 V internal voltage loss from the 5.0 V e.m.f. to obtain 1.8 V."
+          }
+        ]
+      }
+    },
+    {
+      "part_id": "9702_s18_23_q06_b_ii_1",
+      "difficulty": 3,
+      "question_patterns": [
+        "circuit_analysis",
+        "multi_step_calculation"
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t10",
+        "primary_module_id": "9702_t10_m02",
+        "outcome_ids": [
+          "9702_t10_m02_o07"
+        ]
+      },
+      "skills": {
+        "primary_skill_id": "9702_skill_determine_parallel_branch_resistance",
+        "supporting_skill_ids": [
+          "9702_skill_apply_kirchhoffs_first_law",
+          "9702_skill_apply_ohms_law"
+        ]
+      },
+      "knowledge_refs": {
+        "definition_ids": [],
+        "formula_ids": [
+          "9702_formula_ohms_law",
+          "9702_formula_kirchhoff_first_law",
+          "9702_formula_parallel_resistance"
+        ]
+      },
+      "hints": [
+        "The two parallel branches have the 1.8 V potential difference found in part (b)(i). Find the current in the known 4.5 Ω branch first.",
+        "Subtract that branch current from the 1.6 A battery current, then use the shared potential difference to find wire X's resistance."
+      ],
+      "walkthrough": [
+        "The parallel branches each have 1.8 V across them. For the 4.5 Ω resistor, I_R = V / R = 1.8 / 4.5 = 0.40 A.",
+        "By current conservation at the junction, the current in wire X is I_X = 1.6 A − 0.40 A = 1.2 A.",
+        "Use R_X = V / I_X = 1.8 V / 1.2 A = 1.5 Ω."
+      ],
+      "checking": {
+        "mode": "ai",
+        "deterministic_checks": [],
+        "full_marks_if_all_deterministic_checks_pass": false,
+        "ai_rubric": [
+          {
+            "criterion_id": "9702_s18_23_q06_b_ii_1_mp01",
+            "alternative_criterion_ids": [
+              "9702_s18_23_q06_b_ii_1_mp04"
+            ],
+            "observable": "Finds the 0.40 A current in the 4.5 Ω resistor, or an equivalent total resistance of 1.125 Ω."
+          },
+          {
+            "criterion_id": "9702_s18_23_q06_b_ii_1_mp02",
+            "alternative_criterion_ids": [
+              "9702_s18_23_q06_b_ii_1_mp05"
+            ],
+            "observable": "Uses current conservation to obtain 1.2 A in wire X, or sets up the parallel-resistance relation for wire X."
+          },
+          {
+            "criterion_id": "9702_s18_23_q06_b_ii_1_mp03",
+            "alternative_criterion_ids": [
+              "9702_s18_23_q06_b_ii_1_mp06"
+            ],
+            "observable": "Obtains a resistance of 1.5 Ω for wire X."
+          }
+        ]
+      }
+    },
+    {
+      "part_id": "9702_s18_23_q06_b_ii_2",
+      "difficulty": 1,
+      "question_patterns": [
+        "direct_calculation"
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t09",
+        "primary_module_id": "9702_t09_m03",
+        "outcome_ids": [
+          "9702_t09_m03_o06"
+        ]
+      },
+      "skills": {
+        "primary_skill_id": "9702_skill_apply_resistivity",
+        "supporting_skill_ids": []
+      },
+      "knowledge_refs": {
+        "definition_ids": [],
+        "formula_ids": [
+          "9702_formula_resistivity"
+        ]
+      },
+      "hints": [
+        "The wire resistance is 3.0 Ω for every metre, so compare the 1.5 Ω resistance found in part (ii)1 with this rate."
+      ],
+      "walkthrough": [
+        "Wire X has resistance per unit length 3.0 Ω m⁻¹.",
+        "Use L = R / (resistance per unit length).",
+        "L = 1.5 Ω / (3.0 Ω m⁻¹) = 0.50 m."
+      ],
+      "checking": {
+        "mode": "ai",
+        "deterministic_checks": [],
+        "full_marks_if_all_deterministic_checks_pass": false,
+        "ai_rubric": [
+          {
+            "criterion_id": "9702_s18_23_q06_b_ii_2_mp01",
+            "observable": "Divides the 1.5 Ω wire resistance by 3.0 Ω m⁻¹ to obtain 0.50 m, or uses an equivalent resistivity calculation."
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,162 @@
+{
+  "schema_version": "9702_question_enrichment_v2",
+  "enrichment_id": "9702_s19_22_q01_enrichment",
+  "question_id": "9702_s19_22_q01",
+  "component": "P2",
+  "difficulty": 3,
+  "question_patterns": [
+    "uncertainty_analysis",
+    "direct_calculation",
+    "multi_step_calculation"
+  ],
+  "mapping": {
+    "topic_ids": [
+      "9702_t01",
+      "9702_t04"
+    ],
+    "module_ids": [
+      "9702_t01_m03",
+      "9702_t04_m03"
+    ],
+    "outcome_ids": [
+      "9702_t01_m03_o03",
+      "9702_t04_m03_o02"
+    ]
+  },
+  "parts": [
+    {
+      "part_id": "9702_s19_22_q01_a",
+      "difficulty": 1,
+      "question_patterns": [
+        "uncertainty_analysis"
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t01",
+        "primary_module_id": "9702_t01_m03",
+        "outcome_ids": [
+          "9702_t01_m03_o03"
+        ]
+      },
+      "skills": {
+        "primary_skill_id": "9702_skill_uncertainty",
+        "supporting_skill_ids": []
+      },
+      "knowledge_refs": {
+        "definition_ids": [],
+        "formula_ids": []
+      },
+      "hints": [
+        "The percentage describes the fraction of the measured diameter that could be uncertain. Convert 1.6% into a decimal fraction before applying it to 0.0125 m.",
+        "Use absolute uncertainty = 0.016 × 0.0125 m, then express the result in metres."
+      ],
+      "walkthrough": [
+        "An absolute uncertainty is the stated percentage of the measured value. Convert 1.6% to a fraction: 1.6 ÷ 100 = 0.016.",
+        "Multiply this fraction by the measured diameter: 0.016 × 0.0125 m = 0.00020 m.",
+        "Write the result in standard form: the absolute uncertainty is 2 × 10⁻⁴ m."
+      ],
+      "checking": {
+        "mode": "ai",
+        "deterministic_checks": [],
+        "full_marks_if_all_deterministic_checks_pass": false,
+        "ai_rubric": [
+          {
+            "criterion_id": "9702_s19_22_q01_a_mp01",
+            "observable": "Converts the 1.6% uncertainty into a fraction of 0.0125 m and gives an absolute uncertainty of 2 × 10⁻⁴ m."
+          }
+        ]
+      }
+    },
+    {
+      "part_id": "9702_s19_22_q01_b_i",
+      "difficulty": 2,
+      "question_patterns": [
+        "direct_calculation"
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t04",
+        "primary_module_id": "9702_t04_m03",
+        "outcome_ids": [
+          "9702_t04_m03_o02"
+        ]
+      },
+      "skills": {
+        "primary_skill_id": "9702_skill_evaluate_supplied_equation",
+        "supporting_skill_ids": []
+      },
+      "knowledge_refs": {
+        "definition_ids": [],
+        "formula_ids": []
+      },
+      "hints": [
+        "Use the supplied expression for p directly; both W and d are already in SI units.",
+        "Square 0.0125 m before multiplying it by π, then divide 4 × 0.38 N by that denominator."
+      ],
+      "walkthrough": [
+        "The question supplies the pressure expression p = 4W / (πd²), so substitute W = 0.38 N and d = 0.0125 m.",
+        "Calculate the denominator first: π(0.0125 m)² = 4.91 × 10⁻⁴ m². The numerator is 4 × 0.38 N = 1.52 N.",
+        "Divide the numerator by the denominator: p = 1.52 N / (4.91 × 10⁻⁴ m²) = 3.10 × 10³ N m⁻², or 3100 N m⁻²."
+      ],
+      "checking": {
+        "mode": "ai",
+        "deterministic_checks": [],
+        "full_marks_if_all_deterministic_checks_pass": false,
+        "ai_rubric": [
+          {
+            "criterion_id": "9702_s19_22_q01_b_i_mp01",
+            "observable": "Substitutes the stated weight and diameter into the supplied pressure expression and gives 3100 N m⁻²."
+          }
+        ]
+      }
+    },
+    {
+      "part_id": "9702_s19_22_q01_b_ii",
+      "difficulty": 3,
+      "question_patterns": [
+        "uncertainty_analysis",
+        "multi_step_calculation"
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t01",
+        "primary_module_id": "9702_t01_m03",
+        "outcome_ids": [
+          "9702_t01_m03_o03"
+        ]
+      },
+      "skills": {
+        "primary_skill_id": "9702_skill_uncertainty",
+        "supporting_skill_ids": []
+      },
+      "knowledge_refs": {
+        "definition_ids": [],
+        "formula_ids": []
+      },
+      "hints": [
+        "In the supplied expression for pressure, W occurs once while d is squared. Combine their percentage uncertainties with the exponent on d included.",
+        "After finding the percentage uncertainty in p, convert it to a decimal fraction and apply it to the 3100 N m⁻² calculated in part (b)(i)."
+      ],
+      "walkthrough": [
+        "For quantities multiplied or divided together, percentage uncertainties are added. The weight W contributes 2.8%.",
+        "The diameter d is squared in the supplied pressure expression, so its 1.6% uncertainty contributes twice: 2 × 1.6% = 3.2%.",
+        "Add the contributions: percentage uncertainty in p = 2.8% + 3.2% = 6.0%.",
+        "Convert 6.0% to a decimal fraction: 6.0 ÷ 100 = 0.06.",
+        "Apply this fraction to the pressure from part (b)(i): Δp = 0.06 × 3100 N m⁻² = 186 N m⁻².",
+        "To one significant figure, the absolute uncertainty in p is 190 N m⁻²."
+      ],
+      "checking": {
+        "mode": "ai",
+        "deterministic_checks": [],
+        "full_marks_if_all_deterministic_checks_pass": false,
+        "ai_rubric": [
+          {
+            "criterion_id": "9702_s19_22_q01_b_ii_mp01",
+            "observable": "Combines 2.8% from the weight with twice the 1.6% diameter uncertainty, or gives the equivalent fractional calculation, to obtain 6% or 0.06."
+          },
+          {
+            "criterion_id": "9702_s19_22_q01_b_ii_mp02",
+            "observable": "Applies 0.06 to 3100 N m⁻² and reports an absolute uncertainty of 190 N m⁻² to one significant figure."
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,140 @@
+{
+  "schema_version": "9702_question_enrichment_v2",
+  "enrichment_id": "9702_s17_21_q05_enrichment",
+  "question_id": "9702_s17_21_q05",
+  "component": "P2",
+  "difficulty": 3,
+  "question_patterns": [
+    "definition",
+    "multi_step_calculation"
+  ],
+  "mapping": {
+    "topic_ids": [
+      "9702_t07"
+    ],
+    "module_ids": [
+      "9702_t07_m03"
+    ],
+    "outcome_ids": [
+      "9702_t07_m03_o01",
+      "9702_t07_m03_o02"
+    ]
+  },
+  "parts": [
+    {
+      "part_id": "9702_s17_21_q05_a",
+      "difficulty": 1,
+      "question_patterns": [
+        "definition"
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t07",
+        "primary_module_id": "9702_t07_m03",
+        "outcome_ids": [
+          "9702_t07_m03_o01"
+        ]
+      },
+      "skills": {
+        "primary_skill_id": "9702_skill_define_doppler_effect",
+        "supporting_skill_ids": []
+      },
+      "knowledge_refs": {
+        "definition_ids": [
+          "9702_def_doppler_effect"
+        ],
+        "formula_ids": []
+      },
+      "hints": [
+        "Compare the emitted and detected wave frequencies while the source–observer separation changes."
+      ],
+      "walkthrough": [
+        "The source emits a fixed frequency.",
+        "When source and observer move relative to one another, successive wavefronts reach the observer at a different rate.",
+        "The resulting difference between observed frequency and source frequency is the Doppler effect."
+      ],
+      "checking": {
+        "mode": "ai",
+        "deterministic_checks": [],
+        "full_marks_if_all_deterministic_checks_pass": false,
+        "ai_rubric": [
+          {
+            "criterion_id": "9702_s17_21_q05_a_mp01",
+            "observable": "States that relative source–observer motion makes observed frequency differ from source frequency."
+          }
+        ]
+      }
+    },
+    {
+      "part_id": "9702_s17_21_q05_b",
+      "difficulty": 3,
+      "question_patterns": [
+        "multi_step_calculation"
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t07",
+        "primary_module_id": "9702_t07_m03",
+        "outcome_ids": [
+          "9702_t07_m03_o02"
+        ]
+      },
+      "skills": {
+        "primary_skill_id": "9702_skill_apply_doppler_effect",
+        "supporting_skill_ids": []
+      },
+      "knowledge_refs": {
+        "definition_ids": [],
+        "formula_ids": [
+          "9702_formula_doppler_moving_source"
+        ]
+      },
+      "hints": [
+        "Because the observed frequency is below 400 Hz, decide first whether the car approaches or recedes."
+      ],
+      "walkthrough": [
+        "A lower observed frequency means the source is moving away, so use f_o=f_s v_sound/(v_sound+v_car).",
+        "Substitute 360=400×340/(340+v).",
+        "Thus 340+v=(400×340)/360=377.78, giving v=37.78 m s⁻¹.",
+        "The car travels away from the observer at about 38 m s⁻¹."
+      ],
+      "checking": {
+        "mode": "hybrid",
+        "deterministic_checks": [
+          {
+            "field_id": "9702_s17_21_q05_b_field_02",
+            "type": "numeric_with_unit",
+            "accepted_value": 37.8,
+            "absolute_tolerance": 1,
+            "accepted_units": [
+              "m s⁻¹",
+              "m/s"
+            ]
+          },
+          {
+            "field_id": "9702_s17_21_q05_b_field_03",
+            "type": "exact",
+            "accepted_values": [
+              "away",
+              "away from the observer"
+            ],
+            "case_sensitive": false
+          }
+        ],
+        "full_marks_if_all_deterministic_checks_pass": true,
+        "ai_rubric": [
+          {
+            "criterion_id": "9702_s17_21_q05_b_mp01",
+            "observable": "Uses the moving-source Doppler equation with the receding sign."
+          },
+          {
+            "criterion_id": "9702_s17_21_q05_b_mp02",
+            "observable": "Solves for v≈37.8 or 38 m s⁻¹."
+          },
+          {
+            "criterion_id": "9702_s17_21_q05_b_mp03",
+            "observable": "States that the car is moving away from the observer."
+          }
+        ]
+      }
+    }
+  ]
+}

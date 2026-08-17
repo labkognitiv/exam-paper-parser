@@ -1,0 +1,130 @@
+{
+  "schema_version": "9702_question_enrichment_v2",
+  "enrichment_id": "9702_s17_22_q03_enrichment",
+  "question_id": "9702_s17_22_q03",
+  "component": "P2",
+  "difficulty": 3,
+  "question_patterns": [
+    "multi_step_calculation",
+    "explanation"
+  ],
+  "mapping": {
+    "topic_ids": [
+      "9702_t06"
+    ],
+    "module_ids": [
+      "9702_t06_m01"
+    ],
+    "outcome_ids": [
+      "9702_t06_m01_o05"
+    ]
+  },
+  "parts": [
+    {
+      "part_id": "9702_s17_22_q03_a",
+      "difficulty": 3,
+      "question_patterns": [
+        "multi_step_calculation"
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t06",
+        "primary_module_id": "9702_t06_m01",
+        "outcome_ids": [
+          "9702_t06_m01_o05"
+        ]
+      },
+      "skills": {
+        "primary_skill_id": "9702_skill_apply_young_modulus",
+        "supporting_skill_ids": [
+          "9702_skill_interpret_graphs"
+        ]
+      },
+      "knowledge_refs": {
+        "definition_ids": [],
+        "formula_ids": [
+          "9702_formula_young_modulus"
+        ]
+      },
+      "hints": [
+        "Use the graph gradient F/e, then combine it with original length and wire area."
+      ],
+      "walkthrough": [
+        "E=(F/A)/(e/L)=L(F/e)/A.",
+        "Gradient≈(40−5)/[(11.6−3.2)×10⁻³]=4.17×10³ N m⁻¹; A=π(0.19×10⁻³)².",
+        "E=3.50(4.17×10³)/[π(0.19×10⁻³)²]=1.29×10¹¹ Pa=0.129 TPa."
+      ],
+      "checking": {
+        "mode": "hybrid",
+        "deterministic_checks": [
+          {
+            "field_id": "9702_s17_22_q03_a_field_02",
+            "type": "numeric_with_unit",
+            "accepted_value": 0.129,
+            "absolute_tolerance": 0.009,
+            "accepted_units": [
+              "TPa"
+            ]
+          }
+        ],
+        "full_marks_if_all_deterministic_checks_pass": true,
+        "ai_rubric": [
+          {
+            "criterion_id": "9702_s17_22_q03_a_mp01",
+            "observable": "Uses E=L(F/e)/A."
+          },
+          {
+            "criterion_id": "9702_s17_22_q03_a_mp02",
+            "observable": "Uses graph gradient, length and area consistently."
+          },
+          {
+            "criterion_id": "9702_s17_22_q03_a_mp03",
+            "observable": "Obtains about 0.13 TPa."
+          }
+        ]
+      }
+    },
+    {
+      "part_id": "9702_s17_22_q03_b",
+      "difficulty": 1,
+      "question_patterns": [
+        "explanation"
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t06",
+        "primary_module_id": "9702_t06_m01",
+        "outcome_ids": [
+          "9702_t06_m01_o05"
+        ]
+      },
+      "skills": {
+        "primary_skill_id": "9702_skill_apply_young_modulus",
+        "supporting_skill_ids": []
+      },
+      "knowledge_refs": {
+        "definition_ids": [],
+        "formula_ids": [
+          "9702_formula_young_modulus"
+        ]
+      },
+      "hints": [
+        "Compare extension e=FL/(EA) for the thicker wire."
+      ],
+      "walkthrough": [
+        "The thicker wire has larger cross-sectional area A.",
+        "For the same F, L and E, e=FL/(EA) is smaller.",
+        "A larger force range, exceeding the original ≈35 N maximum, is needed for the same extension range."
+      ],
+      "checking": {
+        "mode": "ai",
+        "deterministic_checks": [],
+        "full_marks_if_all_deterministic_checks_pass": false,
+        "ai_rubric": [
+          {
+            "criterion_id": "9702_s17_22_q03_b_mp01",
+            "observable": "States that a larger force range, greater than about 35 N, is required."
+          }
+        ]
+      }
+    }
+  ]
+}

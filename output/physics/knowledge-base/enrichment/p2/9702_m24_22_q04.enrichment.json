@@ -1,0 +1,199 @@
+{
+  "schema_version": "9702_question_enrichment_v2",
+  "enrichment_id": "9702_m24_22_q04_enrichment",
+  "question_id": "9702_m24_22_q04",
+  "component": "P2",
+  "difficulty": 2,
+  "question_patterns": [
+    "equation_completion",
+    "definition",
+    "multi_step_calculation"
+  ],
+  "mapping": {
+    "topic_ids": [
+      "9702_t11",
+      "9702_t03"
+    ],
+    "module_ids": [
+      "9702_t11_m01",
+      "9702_t03_m03"
+    ],
+    "outcome_ids": [
+      "9702_t11_m01_o06",
+      "9702_t11_m01_o11",
+      "9702_t03_m03_o01",
+      "9702_t03_m03_o02"
+    ]
+  },
+  "parts": [
+    {
+      "part_id": "9702_m24_22_q04_a",
+      "difficulty": 2,
+      "question_patterns": [
+        "equation_completion"
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t11",
+        "primary_module_id": "9702_t11_m01",
+        "outcome_ids": [
+          "9702_t11_m01_o06",
+          "9702_t11_m01_o11"
+        ]
+      },
+      "skills": {
+        "primary_skill_id": "9702_skill_complete_nuclear_equations",
+        "supporting_skill_ids": []
+      },
+      "knowledge_refs": {
+        "definition_ids": [],
+        "formula_ids": []
+      },
+      "hints": [
+        "Conserve both nucleon number and proton number across the nuclear equation.",
+        "An alpha particle carries nucleon number 4 and proton number 2; subtract these from P to determine Q."
+      ],
+      "walkthrough": [
+        "In α-decay, the alpha particle has nucleon number 4 and proton number 2.",
+        "Conserve nucleon number: 215 = nucleon number of Q + 4, so Q has nucleon number 211.",
+        "Conserve proton number: 84 = proton number of Q + 2, so Q has proton number 82.",
+        "The completed equation is ²¹⁵₈₄P → ²¹¹₈₂Q + ⁴₂α."
+      ],
+      "checking": {
+        "mode": "hybrid",
+        "deterministic_checks": [
+          {
+            "field_id": "9702_m24_22_q04_a_q_nucleon",
+            "type": "numeric",
+            "accepted_value": 211,
+            "absolute_tolerance": 0
+          },
+          {
+            "field_id": "9702_m24_22_q04_a_q_proton",
+            "type": "numeric",
+            "accepted_value": 82,
+            "absolute_tolerance": 0
+          },
+          {
+            "field_id": "9702_m24_22_q04_a_alpha_nucleon",
+            "type": "numeric",
+            "accepted_value": 4,
+            "absolute_tolerance": 0
+          },
+          {
+            "field_id": "9702_m24_22_q04_a_alpha_proton",
+            "type": "numeric",
+            "accepted_value": 2,
+            "absolute_tolerance": 0
+          }
+        ],
+        "full_marks_if_all_deterministic_checks_pass": true,
+        "ai_rubric": [
+          {
+            "criterion_id": "9702_m24_22_q04_a_mp01",
+            "observable": "Gives the alpha particle nucleon number 4 and proton number 2."
+          },
+          {
+            "criterion_id": "9702_m24_22_q04_a_mp02",
+            "observable": "Gives nucleus Q nucleon number 211 and proton number 82."
+          }
+        ]
+      }
+    },
+    {
+      "part_id": "9702_m24_22_q04_b_i",
+      "difficulty": 2,
+      "question_patterns": [
+        "definition"
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t03",
+        "primary_module_id": "9702_t03_m03",
+        "outcome_ids": [
+          "9702_t03_m03_o01"
+        ]
+      },
+      "skills": {
+        "primary_skill_id": "9702_skill_define_conservation_of_momentum",
+        "supporting_skill_ids": []
+      },
+      "knowledge_refs": {
+        "definition_ids": [
+          "9702_def_conservation_of_momentum"
+        ],
+        "formula_ids": []
+      },
+      "hints": [
+        "State both what happens to the total momentum and the condition required for that statement to hold."
+      ],
+      "walkthrough": [
+        "Momentum conservation concerns the total momentum of all objects in a chosen system.",
+        "For an isolated system, there is no resultant external force acting on the system.",
+        "Therefore, the total momentum remains constant: total momentum before an interaction equals total momentum after it."
+      ],
+      "checking": {
+        "mode": "ai",
+        "deterministic_checks": [],
+        "full_marks_if_all_deterministic_checks_pass": false,
+        "ai_rubric": [
+          {
+            "criterion_id": "9702_m24_22_q04_b_i_mp01",
+            "observable": "States that total momentum is constant, or that total momentum before equals total momentum after."
+          },
+          {
+            "criterion_id": "9702_m24_22_q04_b_i_mp02",
+            "observable": "States that the system is isolated or that no resultant external force acts."
+          }
+        ]
+      }
+    },
+    {
+      "part_id": "9702_m24_22_q04_b_ii",
+      "difficulty": 2,
+      "question_patterns": [
+        "multi_step_calculation"
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t03",
+        "primary_module_id": "9702_t03_m03",
+        "outcome_ids": [
+          "9702_t03_m03_o02"
+        ]
+      },
+      "skills": {
+        "primary_skill_id": "9702_skill_apply_momentum_conservation",
+        "supporting_skill_ids": []
+      },
+      "knowledge_refs": {
+        "definition_ids": [],
+        "formula_ids": [
+          "9702_formula_momentum"
+        ]
+      },
+      "hints": [
+        "Apply the momentum-conservation statement from part (i) to P before the decay and to Q plus the alpha particle after it.",
+        "Q is stationary, so its momentum is zero; use nucleon numbers as proportional masses when forming the momentum equation."
+      ],
+      "walkthrough": [
+        "Momentum is conserved in the decay, so momentum of P before the decay equals the combined momenta of Q and the alpha particle after it.",
+        "Nucleus Q is stationary, so p_Q = 0. Using mass numbers as proportional masses gives 215u(3.2 × 10⁵) = 4u v_α.",
+        "Rearrange: v_α = [215 × 3.2 × 10⁵]/4 = 1.72 × 10⁷ m s⁻¹.",
+        "To two significant figures, the alpha-particle speed is 1.7 × 10⁷ m s⁻¹."
+      ],
+      "checking": {
+        "mode": "ai",
+        "deterministic_checks": [],
+        "full_marks_if_all_deterministic_checks_pass": false,
+        "ai_rubric": [
+          {
+            "criterion_id": "9702_m24_22_q04_b_ii_mp01",
+            "observable": "Uses conservation of momentum with Q stationary to form 4u vα = 215u(3.2 × 10⁵)."
+          },
+          {
+            "criterion_id": "9702_m24_22_q04_b_ii_mp02",
+            "observable": "Obtains an alpha-particle speed of 1.7 × 10⁷ m s⁻¹."
+          }
+        ]
+      }
+    }
+  ]
+}

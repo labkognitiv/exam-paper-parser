@@ -1,0 +1,280 @@
+{
+  "schema_version": "9702_question_enrichment_v2",
+  "enrichment_id": "9702_m23_22_q01_enrichment",
+  "question_id": "9702_m23_22_q01",
+  "component": "P2",
+  "difficulty": 2,
+  "question_patterns": [
+    "classification",
+    "property_identification",
+    "direct_calculation",
+    "uncertainty_analysis"
+  ],
+  "mapping": {
+    "topic_ids": [
+      "9702_t01",
+      "9702_t02"
+    ],
+    "module_ids": [
+      "9702_t01_m02",
+      "9702_t02_m01",
+      "9702_t01_m03"
+    ],
+    "outcome_ids": [
+      "9702_t01_m02_o01",
+      "9702_t02_m01_o06",
+      "9702_t02_m01_o07",
+      "9702_t01_m03_o03"
+    ]
+  },
+  "parts": [
+    {
+      "part_id": "9702_m23_22_q01_a",
+      "difficulty": 1,
+      "question_patterns": [
+        "classification"
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t01",
+        "primary_module_id": "9702_t01_m02",
+        "outcome_ids": [
+          "9702_t01_m02_o01"
+        ]
+      },
+      "skills": {
+        "primary_skill_id": "9702_skill_recall_si_base_units",
+        "supporting_skill_ids": []
+      },
+      "knowledge_refs": {
+        "definition_ids": [],
+        "formula_ids": []
+      },
+      "hints": [
+        "Separate units from quantities and from derived units: SI base units name a fundamental measurement standard.",
+        "From the list, choose the units for electric current and thermodynamic temperature; do not choose the derived unit or the physical quantity."
+      ],
+      "walkthrough": [
+        "An SI base unit is the unit assigned to a base quantity, rather than a name for a quantity itself or a combination of base units.",
+        "Ampere is the SI base unit for electric current and kelvin is the SI base unit for thermodynamic temperature.",
+        "Coulomb and newton are derived units, while current is a physical quantity rather than a unit.",
+        "Therefore, underline ampere and kelvin only."
+      ],
+      "checking": {
+        "mode": "deterministic",
+        "deterministic_checks": [
+          {
+            "field_id": "9702_m23_22_q01_a_field_01",
+            "type": "multi_select",
+            "accepted_values": [
+              "ampere",
+              "kelvin"
+            ]
+          }
+        ],
+        "full_marks_if_all_deterministic_checks_pass": true,
+        "ai_rubric": [
+          {
+            "criterion_id": "9702_m23_22_q01_a_mp01",
+            "observable": "Underlines ampere and kelvin, with none of coulomb, current or newton selected."
+          }
+        ]
+      }
+    },
+    {
+      "part_id": "9702_m23_22_q01_b",
+      "difficulty": 2,
+      "question_patterns": [
+        "property_identification"
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t02",
+        "primary_module_id": "9702_t02_m01",
+        "outcome_ids": [
+          "9702_t02_m01_o06"
+        ]
+      },
+      "skills": {
+        "primary_skill_id": "9702_skill_apply_constant_acceleration",
+        "supporting_skill_ids": []
+      },
+      "knowledge_refs": {
+        "definition_ids": [],
+        "formula_ids": [
+          "9702_formula_constant_acceleration_velocity_displacement"
+        ]
+      },
+      "hints": [
+        "Compare the stated equation with a constant-acceleration equation that includes initial velocity.",
+        "Ask which initial-velocity term must disappear, and what restriction on acceleration lets you use the constant-acceleration relation."
+      ],
+      "walkthrough": [
+        "For motion with constant acceleration in a straight line, the velocity–displacement equation is v² = u² + 2as, where u is the initial velocity.",
+        "The stated equation rearranges to v² = 2as, so the u² term must be zero; therefore the car starts from rest.",
+        "The constant-acceleration equation applies only when the acceleration is uniform in the straight-line motion.",
+        "Because the equation divides by a, the acceleration must also be non-zero."
+      ],
+      "checking": {
+        "mode": "ai",
+        "deterministic_checks": [],
+        "full_marks_if_all_deterministic_checks_pass": false,
+        "ai_rubric": [
+          {
+            "criterion_id": "9702_m23_22_q01_b_mp01",
+            "observable": "States that the car has zero initial speed or velocity."
+          },
+          {
+            "criterion_id": "9702_m23_22_q01_b_mp02",
+            "observable": "States that the non-zero acceleration is constant or uniform during straight-line motion."
+          }
+        ]
+      }
+    },
+    {
+      "part_id": "9702_m23_22_q01_c_i",
+      "difficulty": 1,
+      "question_patterns": [
+        "direct_calculation"
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t02",
+        "primary_module_id": "9702_t02_m01",
+        "outcome_ids": [
+          "9702_t02_m01_o07"
+        ]
+      },
+      "skills": {
+        "primary_skill_id": "9702_skill_apply_constant_acceleration",
+        "supporting_skill_ids": []
+      },
+      "knowledge_refs": {
+        "definition_ids": [],
+        "formula_ids": [
+          "9702_formula_constant_acceleration_velocity_displacement"
+        ]
+      },
+      "hints": [
+        "Rearrange the displacement equation from part (b) so that acceleration is the subject.",
+        "Use a = v²/(2s), keeping the given speed in m s⁻¹ and displacement in metres."
+      ],
+      "walkthrough": [
+        "The stated relationship is s = v²/(2a). Rearranging gives a = v²/(2s).",
+        "Substitute v = 2.75 m s⁻¹ and s = 3.89 m: a = 2.75² / (2 × 3.89).",
+        "This gives a = 7.5625 / 7.78 = 0.972... m s⁻².",
+        "To two significant figures, the acceleration is 0.97 m s⁻²."
+      ],
+      "checking": {
+        "mode": "hybrid",
+        "deterministic_checks": [
+          {
+            "field_id": "9702_m23_22_q01_c_i_field_02",
+            "type": "numeric_with_unit",
+            "accepted_value": 0.97,
+            "absolute_tolerance": 0.015,
+            "accepted_units": [
+              "m s^-2",
+              "m s⁻²"
+            ]
+          }
+        ],
+        "full_marks_if_all_deterministic_checks_pass": true,
+        "ai_rubric": [
+          {
+            "criterion_id": "9702_m23_22_q01_c_i_mp01",
+            "observable": "Uses a = v²/(2s) with the stated measurements and obtains 0.97 m s⁻², or an equivalent correctly rounded value."
+          }
+        ]
+      }
+    },
+    {
+      "part_id": "9702_m23_22_q01_c_ii",
+      "difficulty": 2,
+      "question_patterns": [
+        "uncertainty_analysis"
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t01",
+        "primary_module_id": "9702_t01_m03",
+        "outcome_ids": [
+          "9702_t01_m03_o03"
+        ]
+      },
+      "skills": {
+        "primary_skill_id": "9702_skill_uncertainty",
+        "supporting_skill_ids": []
+      },
+      "knowledge_refs": {
+        "definition_ids": [],
+        "formula_ids": []
+      },
+      "hints": [
+        "Write the dependence of a on each measurement, paying attention to the power of the speed.",
+        "For percentage uncertainties in products or quotients, add contributions; the squared speed contributes twice its stated percentage uncertainty."
+      ],
+  "walkthrough": [
+    "No separate formula reference is needed: this part propagates uncertainty from the relationship a ∝ v²/s already established in part (i).",
+    "The acceleration is proportional to v²/s, so its percentage uncertainty receives a contribution from s and two contributions from v.",
+        "The speed contribution is 2 × 0.8% = 1.6% because v is squared.",
+        "Add the displacement contribution: percentage uncertainty in a = 1.6% + 0.5% = 2.1%.",
+        "This already has two significant figures, so the percentage uncertainty is 2.1%."
+      ],
+      "checking": {
+        "mode": "ai",
+        "deterministic_checks": [],
+        "full_marks_if_all_deterministic_checks_pass": false,
+        "ai_rubric": [
+          {
+            "criterion_id": "9702_m23_22_q01_c_ii_mp01",
+            "observable": "Doubles the 0.8% speed uncertainty because v is squared, then adds the 0.5% displacement uncertainty."
+          },
+          {
+            "criterion_id": "9702_m23_22_q01_c_ii_mp02",
+            "observable": "Gives the percentage uncertainty in a as 2.1% to two significant figures."
+          }
+        ]
+      }
+    },
+    {
+      "part_id": "9702_m23_22_q01_c_iii",
+      "difficulty": 1,
+      "question_patterns": [
+        "uncertainty_analysis"
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t01",
+        "primary_module_id": "9702_t01_m03",
+        "outcome_ids": [
+          "9702_t01_m03_o03"
+        ]
+      },
+      "skills": {
+        "primary_skill_id": "9702_skill_calculate_absolute_uncertainty",
+        "supporting_skill_ids": []
+      },
+      "knowledge_refs": {
+        "definition_ids": [],
+        "formula_ids": []
+      },
+      "hints": [
+        "An absolute uncertainty is the stated percentage of the calculated value, expressed in the same unit as that value.",
+        "Convert 2.1% to a fraction before multiplying it by the 0.97 m s⁻² acceleration from part (c)(i)."
+      ],
+      "walkthrough": [
+        "The percentage uncertainty is 2.1%, which as a fraction is 2.1 / 100 = 0.021.",
+        "Multiply this fractional uncertainty by the calculated acceleration: Δa = 0.021 × 0.97 m s⁻² = 0.02037 m s⁻².",
+        "Rounding appropriately, the absolute uncertainty is 0.02 m s⁻².",
+        "No major physics formula is required here: the calculation converts the stated percentage uncertainty into an absolute uncertainty."
+      ],
+      "checking": {
+        "mode": "ai",
+        "deterministic_checks": [],
+        "full_marks_if_all_deterministic_checks_pass": false,
+        "ai_rubric": [
+          {
+            "criterion_id": "9702_m23_22_q01_c_iii_mp01",
+            "observable": "Calculates 2.1% of 0.97 m s⁻² and gives an absolute uncertainty of 0.02 m s⁻²."
+          }
+        ]
+      }
+    }
+  ]
+}

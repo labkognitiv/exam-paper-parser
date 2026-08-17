@@ -1,0 +1,280 @@
+{
+  "schema_version": "9702_question_enrichment_v2",
+  "enrichment_id": "9702_s24_22_q01_enrichment",
+  "question_id": "9702_s24_22_q01",
+  "component": "P2",
+  "difficulty": 2,
+  "question_patterns": [
+    "classification",
+    "direct_calculation",
+    "uncertainty_analysis",
+    "explanation"
+  ],
+  "mapping": {
+    "topic_ids": [
+      "9702_t01",
+      "9702_t07",
+      "9702_t05"
+    ],
+    "module_ids": [
+      "9702_t01_m02",
+      "9702_t07_m01",
+      "9702_t01_m03",
+      "9702_t05_m01"
+    ],
+    "outcome_ids": [
+      "9702_t01_m02_o01",
+      "9702_t07_m01_o07",
+      "9702_t01_m03_o03",
+      "9702_t05_m01_o03",
+      "9702_t05_m01_o04"
+    ]
+  },
+  "parts": [
+    {
+      "part_id": "9702_s24_22_q01_a",
+      "difficulty": 1,
+      "question_patterns": [
+        "classification"
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t01",
+        "primary_module_id": "9702_t01_m02",
+        "outcome_ids": [
+          "9702_t01_m02_o01"
+        ]
+      },
+      "skills": {
+        "primary_skill_id": "9702_skill_recall_si_base_units",
+        "supporting_skill_ids": []
+      },
+      "knowledge_refs": {
+        "definition_ids": [],
+        "formula_ids": []
+      },
+      "hints": [
+        "Compare each listed quantity with the SI base quantities rather than with commonly used SI-derived quantities."
+      ],
+      "walkthrough": [
+        "The listed SI base quantities include length, time and electric current.",
+        "Charge is measured in coulombs, which is an SI-derived unit rather than a base quantity.",
+        "Therefore underline charge only."
+      ],
+      "checking": {
+        "mode": "ai",
+        "deterministic_checks": [],
+        "full_marks_if_all_deterministic_checks_pass": false,
+        "ai_rubric": [
+          {
+            "criterion_id": "9702_s24_22_q01_a_mp01",
+            "observable": "Underlines or identifies charge, and does not select current, length or time."
+          }
+        ]
+      }
+    },
+    {
+      "part_id": "9702_s24_22_q01_b_i",
+      "difficulty": 2,
+      "question_patterns": [
+        "direct_calculation"
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t07",
+        "primary_module_id": "9702_t07_m01",
+        "outcome_ids": [
+          "9702_t07_m01_o07"
+        ]
+      },
+      "skills": {
+        "primary_skill_id": "9702_skill_apply_wave_intensity",
+        "supporting_skill_ids": []
+      },
+      "knowledge_refs": {
+        "definition_ids": [],
+        "formula_ids": [
+          "9702_formula_wave_intensity_power_area"
+        ]
+      },
+      "hints": [
+        "Intensity is the incident power divided by the surface area perpendicular to the light.",
+        "Convert each 1300 mm side to 1.300 m, then square that length before dividing 750 W by the area."
+      ],
+      "walkthrough": [
+        "The light is normal to the panel, so the area intercepting the light is the square face area.",
+        "Convert the side length: 1300 mm = 1.300 m, giving A = 1.300² = 1.69 m².",
+        "Use I = P / A = 750 / 1.69 = 4.44 × 10² W m⁻².",
+        "To the appropriate precision, the intensity is 440 W m⁻²."
+      ],
+      "checking": {
+        "mode": "ai",
+        "deterministic_checks": [],
+        "full_marks_if_all_deterministic_checks_pass": false,
+        "ai_rubric": [
+          {
+            "criterion_id": "9702_s24_22_q01_b_i_mp01",
+            "observable": "Uses intensity as incident power divided by area."
+          },
+          {
+            "criterion_id": "9702_s24_22_q01_b_i_mp02",
+            "observable": "Converts the side length to metres and uses the square area 1.69 m² in the calculation."
+          },
+          {
+            "criterion_id": "9702_s24_22_q01_b_i_mp03",
+            "observable": "Obtains an intensity of 440 W m⁻², or an equivalent correctly rounded value."
+          }
+        ]
+      }
+    },
+    {
+      "part_id": "9702_s24_22_q01_b_ii",
+      "difficulty": 2,
+      "question_patterns": [
+        "uncertainty_analysis"
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t01",
+        "primary_module_id": "9702_t01_m03",
+        "outcome_ids": [
+          "9702_t01_m03_o03"
+        ]
+      },
+      "skills": {
+        "primary_skill_id": "9702_skill_combine_percentage_uncertainties",
+        "supporting_skill_ids": []
+      },
+      "knowledge_refs": {
+        "definition_ids": [],
+        "formula_ids": [],
+        "formula_empty_justification": "The percentage-uncertainty addition rule is applied to the stated power and two measured side lengths; it is an uncertainty procedure rather than a major reusable syllabus formula in the controlled formula registry."
+      },
+      "hints": [
+        "The panel area is proportional to the square of its side length, so the length percentage uncertainty contributes twice.",
+        "Find the percentage uncertainty in one side from 5 mm / 1300 mm, double it, then add the 3% power contribution."
+      ],
+      "walkthrough": [
+        "Intensity is P / A, and the square panel area is proportional to L².",
+        "The percentage uncertainty in one side is (5 / 1300) × 100 = 0.38%.",
+        "Because the area contains L², its percentage uncertainty is 2 × 0.38% = 0.76%.",
+        "For division, add the percentage contributions: 3% + 0.76% = 3.76%.",
+        "Rounded to the required precision, the percentage uncertainty in intensity is ±4%."
+      ],
+      "checking": {
+        "mode": "ai",
+        "deterministic_checks": [],
+        "full_marks_if_all_deterministic_checks_pass": false,
+        "ai_rubric": [
+          {
+            "criterion_id": "9702_s24_22_q01_b_ii_mp01",
+            "observable": "Adds the 3% power uncertainty to twice the side-length percentage uncertainty, using 2 × (5 / 1300) × 100."
+          },
+          {
+            "criterion_id": "9702_s24_22_q01_b_ii_mp02",
+            "observable": "Obtains a percentage uncertainty of ±4%, allowing the unrounded intermediate value."
+          }
+        ]
+      }
+    },
+    {
+      "part_id": "9702_s24_22_q01_b_iii",
+      "difficulty": 1,
+      "question_patterns": [
+        "direct_calculation"
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t05",
+        "primary_module_id": "9702_t05_m01",
+        "outcome_ids": [
+          "9702_t05_m01_o03",
+          "9702_t05_m01_o04"
+        ]
+      },
+      "skills": {
+        "primary_skill_id": "9702_skill_apply_efficiency",
+        "supporting_skill_ids": []
+      },
+      "knowledge_refs": {
+        "definition_ids": [],
+        "formula_ids": [
+          "9702_formula_efficiency"
+        ]
+      },
+      "hints": [
+        "Use useful output power divided by total input power, then multiply by 100 for a percentage."
+      ],
+      "walkthrough": [
+        "The useful output power is 160 W and the incident input power is 750 W.",
+        "Percentage efficiency = (160 / 750) × 100 = 21.3...%.",
+        "Therefore the percentage efficiency is 21%."
+      ],
+      "checking": {
+        "mode": "ai",
+        "deterministic_checks": [],
+        "full_marks_if_all_deterministic_checks_pass": false,
+        "ai_rubric": [
+          {
+            "criterion_id": "9702_s24_22_q01_b_iii_mp01",
+            "observable": "Uses useful output power divided by total input power and obtains 21%."
+          }
+        ]
+      }
+    },
+    {
+      "part_id": "9702_s24_22_q01_b_iv",
+      "difficulty": 2,
+      "question_patterns": [
+        "explanation"
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t05",
+        "primary_module_id": "9702_t05_m01",
+        "outcome_ids": [
+          "9702_t05_m01_o03",
+          "9702_t05_m01_o04",
+          "9702_t07_m01_o07"
+        ]
+      },
+      "skills": {
+        "primary_skill_id": "9702_skill_apply_efficiency",
+        "supporting_skill_ids": [
+          "9702_skill_apply_wave_intensity"
+        ]
+      },
+      "knowledge_refs": {
+        "definition_ids": [],
+        "formula_ids": [
+          "9702_formula_efficiency",
+          "9702_formula_wave_intensity_power_area"
+        ]
+      },
+      "hints": [
+        "At fixed incident intensity, relate a shorter panel side to its area and hence to incident input power.",
+        "Compare the unchanged useful output with the changed input power in the efficiency ratio."
+      ],
+      "walkthrough": [
+        "A square panel with shorter sides has a smaller surface area.",
+        "At the same incident intensity, I = P / A means the incident input power is smaller for the smaller area.",
+        "The useful output power is stated to be unchanged.",
+        "Since efficiency is useful output power divided by input power, the same numerator divided by a smaller denominator gives a greater efficiency."
+      ],
+      "checking": {
+        "mode": "ai",
+        "deterministic_checks": [],
+        "full_marks_if_all_deterministic_checks_pass": false,
+        "ai_rubric": [
+          {
+            "criterion_id": "9702_s24_22_q01_b_iv_mp01",
+            "observable": "States that the new panel has a smaller area."
+          },
+          {
+            "criterion_id": "9702_s24_22_q01_b_iv_mp02",
+            "observable": "Explains that equal incident intensity gives the smaller-area panel a smaller input power."
+          },
+          {
+            "criterion_id": "9702_s24_22_q01_b_iv_mp03",
+            "observable": "Concludes that the new panel has greater efficiency because its useful output is unchanged while its input power is smaller."
+          }
+        ]
+      }
+    }
+  ]
+}

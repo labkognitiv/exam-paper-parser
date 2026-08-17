@@ -1,0 +1,231 @@
+{
+  "schema_version": "9702_question_enrichment_v2",
+  "enrichment_id": "9702_s16_21_q01_enrichment",
+  "question_id": "9702_s16_21_q01",
+  "component": "P2",
+  "difficulty": 4,
+  "question_patterns": [
+    "physical_quantity_estimation",
+    "multi_step_calculation",
+    "uncertainty_analysis"
+  ],
+  "mapping": {
+    "topic_ids": [
+      "9702_t01",
+      "9702_t04"
+    ],
+    "module_ids": [
+      "9702_t01_m01",
+      "9702_t01_m03",
+      "9702_t04_m03"
+    ],
+    "outcome_ids": [
+      "9702_t01_m01_o02",
+      "9702_t01_m03_o03",
+      "9702_t04_m03_o01"
+    ]
+  },
+  "parts": [
+    {
+      "part_id": "9702_s16_21_q01_a_i",
+      "difficulty": 1,
+      "question_patterns": [
+        "physical_quantity_estimation"
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t01",
+        "primary_module_id": "9702_t01_m01",
+        "outcome_ids": [
+          "9702_t01_m01_o02"
+        ]
+      },
+      "skills": {
+        "primary_skill_id": "9702_skill_estimate_physical_quantities",
+        "supporting_skill_ids": []
+      },
+      "knowledge_refs": {
+        "definition_ids": [],
+        "formula_ids": []
+      },
+      "hints": [
+        "Use the metre rule's length, narrow cross-section and wooden material to judge its mass scale.",
+        "A wooden metre rule is light enough to hold easily, but far more massive than a sheet of paper; estimate in grams first, then express the value in kilograms."
+      ],
+      "walkthrough": [
+        "A metre rule is one metre long but thin and narrow, so its mass is much less than one kilogram.",
+        "Because it is solid wood rather than paper, its mass should be in the tens to hundreds of grams rather than only a few grams.",
+        "A sensible central estimate is about 100 g.",
+        "Convert grams to kilograms: 100 g = 100 ÷ 1000 kg = 0.10 kg.",
+        "Therefore a plausible estimate is 0.10 kg."
+      ],
+      "checking": {
+        "mode": "deterministic",
+        "deterministic_checks": [
+          {
+            "field_id": "9702_s16_21_q01_a_i_field_01",
+            "type": "numeric_with_unit",
+            "accepted_min": 0.05,
+            "accepted_max": 0.2,
+            "accepted_units": [
+              "kg"
+            ]
+          }
+        ],
+        "full_marks_if_all_deterministic_checks_pass": true,
+        "ai_rubric": [
+          {
+            "criterion_id": "9702_s16_21_q01_a_i_mp01",
+            "observable": "Gives a mass estimate in kilograms within the accepted plausible range for a wooden metre rule."
+          }
+        ]
+      }
+    },
+    {
+      "part_id": "9702_s16_21_q01_a_ii",
+      "difficulty": 1,
+      "question_patterns": [
+        "physical_quantity_estimation"
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t01",
+        "primary_module_id": "9702_t01_m01",
+        "outcome_ids": [
+          "9702_t01_m01_o02"
+        ]
+      },
+      "skills": {
+        "primary_skill_id": "9702_skill_estimate_physical_quantities",
+        "supporting_skill_ids": []
+      },
+      "knowledge_refs": {
+        "definition_ids": [],
+        "formula_ids": []
+      },
+      "hints": [
+        "Use the ball's familiar hand-held size to estimate a volume in cubic centimetres.",
+        "A ball about 6–8 cm across has a volume on the scale of hundreds, rather than thousands, of cubic centimetres."
+      ],
+      "walkthrough": [
+        "A tennis ball or cricket ball is only several centimetres across and fits comfortably in one hand.",
+        "A volume of 1 cm³ is the size of a small cube, so a ball of this diameter occupies many such cubes.",
+        "Its volume should therefore be on the scale of a few hundred cubic centimetres, not only a few cubic centimetres and not several thousand.",
+        "A sensible estimate is about 200 cm³."
+      ],
+      "checking": {
+        "mode": "deterministic",
+        "deterministic_checks": [
+          {
+            "field_id": "9702_s16_21_q01_a_ii_field_01",
+            "type": "numeric_with_unit",
+            "accepted_min": 50,
+            "accepted_max": 300,
+            "accepted_units": [
+              "cm3",
+              "cm^3",
+              "cm³"
+            ]
+          }
+        ],
+        "full_marks_if_all_deterministic_checks_pass": true,
+        "ai_rubric": [
+          {
+            "criterion_id": "9702_s16_21_q01_a_ii_mp01",
+            "observable": "Gives a volume estimate in cubic centimetres within the accepted plausible range for a cricket ball or tennis ball."
+          }
+        ]
+      }
+    },
+    {
+      "part_id": "9702_s16_21_q01_b",
+      "difficulty": 4,
+      "question_patterns": [
+        "multi_step_calculation",
+        "uncertainty_analysis"
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t04",
+        "primary_module_id": "9702_t04_m03",
+        "outcome_ids": [
+          "9702_t04_m03_o01",
+          "9702_t01_m03_o03"
+        ]
+      },
+      "skills": {
+        "primary_skill_id": "9702_skill_apply_density",
+        "supporting_skill_ids": [
+          "9702_skill_uncertainty"
+        ]
+      },
+      "knowledge_refs": {
+        "definition_ids": [],
+        "formula_ids": [
+          "9702_formula_density"
+        ]
+      },
+      "hints": [
+        "Convert every measured quantity to SI units before using the wire-volume expression or the density relationship.",
+        "Find the wire volume from d and L, then use density = mass ÷ volume.",
+        "For the uncertainty, add the fractional uncertainties in M and L and twice the fractional uncertainty in d because d is squared in the volume expression.",
+        "Multiply the resulting fractional density uncertainty by the calculated density, then round the value and its uncertainty consistently."
+      ],
+      "walkthrough": [
+        "Convert the measurements to SI units: d = 0.38 × 10⁻³ m, L = 25.0 × 10⁻² m and M = 0.225 × 10⁻³ kg.",
+        "Use the supplied cylindrical-wire expression: V = πd²L / 4.",
+        "Substitute the SI values: V = π(0.38 × 10⁻³)²(25.0 × 10⁻²) / 4 = 2.835 × 10⁻⁸ m³.",
+        "Apply ρ = M / V: ρ = (0.225 × 10⁻³) / (2.835 × 10⁻⁸) = 7.94 × 10³ kg m⁻³.",
+        "For ρ = M / V and V proportional to d²L, add the fractional uncertainties: Δρ / ρ = 2(0.01 / 0.38) + (0.1 / 25.0) + (0.001 / 0.225).",
+        "This gives Δρ / ρ = 0.061, or 6.1%.",
+        "Calculate the absolute uncertainty: Δρ = 0.061 × 7940 = 4.8 × 10² kg m⁻³.",
+        "Round the uncertainty to 0.5 × 10³ kg m⁻³ and the density to the same place value: ρ = (7.9 ± 0.5) × 10³ kg m⁻³."
+      ],
+      "checking": {
+        "mode": "hybrid",
+        "deterministic_checks": [
+          {
+            "field_id": "9702_s16_21_q01_b_field_02",
+            "type": "numeric_with_unit",
+            "accepted_value": 7900,
+            "absolute_tolerance": 150,
+            "accepted_units": [
+              "kg m^-3",
+              "kg m⁻³"
+            ]
+          },
+          {
+            "field_id": "9702_s16_21_q01_b_field_03",
+            "type": "numeric_with_unit",
+            "accepted_value": 500,
+            "absolute_tolerance": 100,
+            "accepted_units": [
+              "kg m^-3",
+              "kg m⁻³"
+            ]
+          }
+        ],
+        "full_marks_if_all_deterministic_checks_pass": true,
+        "ai_rubric": [
+          {
+            "criterion_id": "9702_s16_21_q01_b_mp01",
+            "observable": "Uses density as mass divided by volume."
+          },
+          {
+            "criterion_id": "9702_s16_21_q01_b_mp02",
+            "observable": "Calculates the wire volume from its converted diameter and length as about 2.835 × 10⁻⁸ m³."
+          },
+          {
+            "criterion_id": "9702_s16_21_q01_b_mp03",
+            "observable": "Obtains a density of about 7940 kg m⁻³ from the measured mass and calculated volume."
+          },
+          {
+            "criterion_id": "9702_s16_21_q01_b_mp04",
+            "observable": "Combines the fractional uncertainties with the diameter contribution doubled to obtain about 0.061, or 6.1%."
+          },
+          {
+            "criterion_id": "9702_s16_21_q01_b_mp05",
+            "observable": "Calculates an absolute density uncertainty of about 480 kg m⁻³ and reports density as (7.9 ± 0.5) × 10³ kg m⁻³, or an equivalent form."
+          }
+        ]
+      }
+    }
+  ]
+}

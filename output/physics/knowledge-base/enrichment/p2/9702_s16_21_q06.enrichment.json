@@ -1,0 +1,356 @@
+{
+  "schema_version": "9702_question_enrichment_v2",
+  "enrichment_id": "9702_s16_21_q06_enrichment",
+  "question_id": "9702_s16_21_q06",
+  "component": "P2",
+  "difficulty": 3,
+  "question_patterns": [
+    "definition",
+    "multi_step_calculation",
+    "direct_calculation"
+  ],
+  "mapping": {
+    "topic_ids": [
+      "9702_t09",
+      "9702_t10"
+    ],
+    "module_ids": [
+      "9702_t09_m01",
+      "9702_t09_m02",
+      "9702_t09_m03",
+      "9702_t10_m03"
+    ],
+    "outcome_ids": [
+      "9702_t09_m01_o03",
+      "9702_t09_m01_o04",
+      "9702_t09_m02_o03",
+      "9702_t09_m03_o06",
+      "9702_t10_m03_o01"
+    ]
+  },
+  "parts": [
+    {
+      "part_id": "9702_s16_21_q06_a",
+      "difficulty": 1,
+      "question_patterns": [
+        "definition"
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t09",
+        "primary_module_id": "9702_t09_m01",
+        "outcome_ids": [
+          "9702_t09_m01_o03"
+        ]
+      },
+      "skills": {
+        "primary_skill_id": "9702_skill_define_coulomb",
+        "supporting_skill_ids": []
+      },
+      "knowledge_refs": {
+        "definition_ids": [
+          "9702_def_coulomb"
+        ],
+        "formula_ids": []
+      },
+      "hints": [
+        "Link the named unit of charge to both a current value and a time interval.",
+        "State the charge transferred when a current of one ampere flows for one second."
+      ],
+      "walkthrough": [
+        "Current is the rate at which charge is transferred.",
+        "A current of one ampere transfers one coulomb of charge each second.",
+        "Therefore, one coulomb is the charge transferred when a current of one ampere flows for one second."
+      ],
+      "checking": {
+        "mode": "ai",
+        "deterministic_checks": [],
+        "full_marks_if_all_deterministic_checks_pass": false,
+        "ai_rubric": [
+          {
+            "criterion_id": "9702_s16_21_q06_a_mp01",
+            "observable": "States that a coulomb is an ampere second, or the charge transferred by one ampere in one second."
+          }
+        ]
+      }
+    },
+    {
+      "part_id": "9702_s16_21_q06_b",
+      "difficulty": 3,
+      "question_patterns": [
+        "multi_step_calculation"
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t09",
+        "primary_module_id": "9702_t09_m01",
+        "outcome_ids": [
+          "9702_t09_m01_o03",
+          "9702_t09_m01_o04"
+        ]
+      },
+      "skills": {
+        "primary_skill_id": "9702_skill_apply_drift_current",
+        "supporting_skill_ids": []
+      },
+      "knowledge_refs": {
+        "definition_ids": [],
+        "formula_ids": [
+          "9702_formula_charge_current_time",
+          "9702_formula_current_drift"
+        ]
+      },
+      "hints": [
+        "Consider a length l of the wire and use its cross-sectional area to find the volume containing the moving charge carriers.",
+        "Relate the charge through that length to current and time, then replace l/t by the drift speed."
+      ],
+      "walkthrough": [
+        "A length l of wire has volume Al.",
+        "With n charge carriers per unit volume, this length contains nAl carriers.",
+        "Each carrier has charge e, so the total charge in this length is Q = nAle.",
+        "The current is I = Q/t, so I = nAle/t.",
+        "The average drift speed is v = l/t, giving I = nAve.",
+        "Rearrange to obtain v = I/(nAe)."
+      ],
+      "checking": {
+        "mode": "ai",
+        "deterministic_checks": [],
+        "full_marks_if_all_deterministic_checks_pass": false,
+        "ai_rubric": [
+          {
+            "criterion_id": "9702_s16_21_q06_b_mp01",
+            "observable": "Forms the carrier charge in a length l as Q = nAle, or an equivalent expression."
+          },
+          {
+            "criterion_id": "9702_s16_21_q06_b_mp02",
+            "observable": "Uses I = Q/t and identifies l/t as the drift speed."
+          },
+          {
+            "criterion_id": "9702_s16_21_q06_b_mp03",
+            "observable": "Obtains I = nAve and rearranges it to v = I/(nAe)."
+          }
+        ]
+      }
+    },
+    {
+      "part_id": "9702_s16_21_q06_c_i",
+      "difficulty": 3,
+      "question_patterns": [
+        "direct_calculation"
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t09",
+        "primary_module_id": "9702_t09_m01",
+        "outcome_ids": [
+          "9702_t09_m01_o04"
+        ]
+      },
+      "skills": {
+        "primary_skill_id": "9702_skill_apply_drift_current",
+        "supporting_skill_ids": []
+      },
+      "knowledge_refs": {
+        "definition_ids": [],
+        "formula_ids": [
+          "9702_formula_current_drift"
+        ]
+      },
+      "hints": [
+        "The resistors are in series, so the current is the same in Y and Z; the wires also have the same carrier number density and carrier charge.",
+        "Use v = I/(nAe), then compare only the cross-sectional areas of the wires."
+      ],
+      "walkthrough": [
+        "For each wire, v = I/(nAe).",
+        "Y and Z are in series, so they carry the same current I. Their material is the same, so n and e are also the same.",
+        "Thus v is inversely proportional to cross-sectional area A.",
+        "Wire Z has diameter 2d, so A_Z = π(2d)²/4 = πd² = 4A_Y.",
+        "Therefore v_Y/v_Z = A_Z/A_Y = 4."
+      ],
+      "checking": {
+        "mode": "hybrid",
+        "deterministic_checks": [
+          {
+            "field_id": "9702_s16_21_q06_c_i_field_02",
+            "type": "numeric",
+            "accepted_value": 4.0,
+            "absolute_tolerance": 0.05
+          }
+        ],
+        "full_marks_if_all_deterministic_checks_pass": true,
+        "ai_rubric": [
+          {
+            "criterion_id": "9702_s16_21_q06_c_i_mp01",
+            "observable": "Forms the drift-speed ratio from I/(nAe) for the two wires."
+          },
+          {
+            "criterion_id": "9702_s16_21_q06_c_i_mp02",
+            "observable": "Shows that the ratio reduces to A_Z/A_Y and evaluates the area ratio as 4."
+          },
+          {
+            "criterion_id": "9702_s16_21_q06_c_i_mp03",
+            "observable": "Obtains v_Y/v_Z = 4."
+          }
+        ]
+      }
+    },
+    {
+      "part_id": "9702_s16_21_q06_c_ii",
+      "difficulty": 2,
+      "question_patterns": [
+        "direct_calculation"
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t09",
+        "primary_module_id": "9702_t09_m03",
+        "outcome_ids": [
+          "9702_t09_m03_o06"
+        ]
+      },
+      "skills": {
+        "primary_skill_id": "9702_skill_apply_resistivity",
+        "supporting_skill_ids": []
+      },
+      "knowledge_refs": {
+        "definition_ids": [],
+        "formula_ids": [
+          "9702_formula_resistivity"
+        ]
+      },
+      "hints": [
+        "The wires have the same material, so use R = ρL/A and compare how length and cross-sectional area change.",
+        "Doubling a wire's diameter makes its cross-sectional area four times larger."
+      ],
+      "walkthrough": [
+        "For wire Y, R_Y = ρl/A.",
+        "Wire Z has length 2l and diameter 2d, so its cross-sectional area is 4A.",
+        "Thus R_Z = ρ(2l)/(4A) = ρl/(2A).",
+        "The ratio is R_Y/R_Z = (ρl/A)/(ρl/(2A)) = 2.",
+        "Therefore the resistance of Y divided by the resistance of Z is 2."
+      ],
+      "checking": {
+        "mode": "ai",
+        "deterministic_checks": [],
+        "full_marks_if_all_deterministic_checks_pass": false,
+        "ai_rubric": [
+          {
+            "criterion_id": "9702_s16_21_q06_c_ii_mp01",
+            "observable": "Uses R = ρL/A, or an equivalent expression for the wire resistance."
+          },
+          {
+            "criterion_id": "9702_s16_21_q06_c_ii_mp02",
+            "observable": "Accounts for the doubled length and fourfold area of Z to obtain R_Y/R_Z = 2."
+          }
+        ]
+      }
+    },
+    {
+      "part_id": "9702_s16_21_q06_c_iii",
+      "difficulty": 2,
+      "question_patterns": [
+        "direct_calculation"
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t10",
+        "primary_module_id": "9702_t10_m03",
+        "outcome_ids": [
+          "9702_t10_m03_o01"
+        ]
+      },
+      "skills": {
+        "primary_skill_id": "9702_skill_calculate_series_circuit_potential_difference",
+        "supporting_skill_ids": []
+      },
+      "knowledge_refs": {
+        "definition_ids": [],
+        "formula_ids": [
+          "9702_formula_potential_divider"
+        ]
+      },
+      "hints": [
+        "Y and Z are in series and the resistance ratio from part (ii) is R_Y:R_Z = 2:1.",
+        "Use the resistance fraction for Y to find its share of the 12 V supply."
+      ],
+      "walkthrough": [
+        "From part (ii), the resistance ratio is R_Y:R_Z = 2:1.",
+        "The total series resistance is therefore three equal resistance parts, of which Y accounts for two.",
+        "Use the potential-divider relation: V_Y = 12 × R_Y/(R_Y + R_Z).",
+        "Thus V_Y = 12 × 2/3 = 8.0 V."
+      ],
+      "checking": {
+        "mode": "hybrid",
+        "deterministic_checks": [
+          {
+            "field_id": "9702_s16_21_q06_c_iii_field_02",
+            "type": "numeric_with_unit",
+            "accepted_value": 8.0,
+            "absolute_tolerance": 0.1,
+            "accepted_units": [
+              "V"
+            ]
+          }
+        ],
+        "full_marks_if_all_deterministic_checks_pass": true,
+        "ai_rubric": [
+          {
+            "criterion_id": "9702_s16_21_q06_c_iii_mp01",
+            "observable": "Uses the series resistance ratio in a potential-divider relation, or an equivalent current-and-Ohm's-law route."
+          },
+          {
+            "criterion_id": "9702_s16_21_q06_c_iii_mp02",
+            "observable": "Obtains a potential difference across Y of 8.0 V."
+          }
+        ]
+      }
+    },
+    {
+      "part_id": "9702_s16_21_q06_c_iv",
+      "difficulty": 1,
+      "question_patterns": [
+        "direct_calculation"
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t09",
+        "primary_module_id": "9702_t09_m02",
+        "outcome_ids": [
+          "9702_t09_m02_o03"
+        ]
+      },
+      "skills": {
+        "primary_skill_id": "9702_skill_calculate_electrical_power",
+        "supporting_skill_ids": []
+      },
+      "knowledge_refs": {
+        "definition_ids": [],
+        "formula_ids": [
+          "9702_formula_electrical_power"
+        ]
+      },
+      "hints": [
+        "Y and Z are in series, so they carry the same current.",
+        "Use P = I²R and the resistance ratio from part (ii)."
+      ],
+      "walkthrough": [
+        "Y and Z are in series, so both carry the same current I.",
+        "Use P = I²R for each resistor.",
+        "Thus P_Y / P_Z = (I²R_Y) / (I²R_Z) = R_Y / R_Z.",
+        "From part (ii), R_Y / R_Z = 2, so P_Y / P_Z = 2."
+      ],
+      "checking": {
+        "mode": "hybrid",
+        "deterministic_checks": [
+          {
+            "field_id": "9702_s16_21_q06_c_iv_field_01",
+            "type": "numeric",
+            "accepted_value": 2.0,
+            "absolute_tolerance": 0.05
+          }
+        ],
+        "full_marks_if_all_deterministic_checks_pass": true,
+        "ai_rubric": [
+          {
+            "criterion_id": "9702_s16_21_q06_c_iv_mp01",
+            "observable": "Uses a valid electrical-power relationship to obtain P_Y / P_Z = 2."
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,271 @@
+{
+  "schema_version": "9702_question_enrichment_v2",
+  "enrichment_id": "9702_s16_23_q06_enrichment",
+  "question_id": "9702_s16_23_q06",
+  "component": "P2",
+  "difficulty": 3,
+  "question_patterns": [
+    "definition",
+    "multi_step_calculation"
+  ],
+  "mapping": {
+    "topic_ids": [
+      "9702_t09"
+    ],
+    "module_ids": [
+      "9702_t09_m03",
+      "9702_t09_m02",
+      "9702_t09_m01"
+    ],
+    "outcome_ids": [
+      "9702_t09_m03_o01",
+      "9702_t09_m03_o06",
+      "9702_t09_m02_o03",
+      "9702_t09_m01_o04"
+    ]
+  },
+  "parts": [
+    {
+      "part_id": "9702_s16_23_q06_a",
+      "difficulty": 1,
+      "question_patterns": [
+        "definition"
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t09",
+        "primary_module_id": "9702_t09_m03",
+        "outcome_ids": [
+          "9702_t09_m03_o01"
+        ]
+      },
+      "skills": {
+        "primary_skill_id": "9702_skill_define_ohm",
+        "supporting_skill_ids": []
+      },
+      "knowledge_refs": {
+        "definition_ids": [
+          "9702_def_ohm"
+        ],
+        "formula_ids": []
+      },
+      "hints": [
+        "Express the unit of resistance using potential difference and current.",
+        "One ohm is one volt per ampere."
+      ],
+      "walkthrough": [
+        "Resistance is measured in ohms, and its SI unit can be written as volts per ampere.",
+        "Therefore 1 Ω = 1 V A⁻¹.",
+        "Equivalently, an ohm is the resistance for which a 1 V potential difference produces a 1 A current."
+      ],
+      "checking": {
+        "mode": "deterministic",
+        "deterministic_checks": [
+          {
+            "field_id": "9702_s16_23_q06_a_field_01",
+            "type": "exact",
+            "accepted_answers": [
+              "volt per ampere",
+              "volt / ampere",
+              "one volt per ampere",
+              "1 V A^-1",
+              "1 V A⁻¹"
+            ]
+          }
+        ],
+        "full_marks_if_all_deterministic_checks_pass": true,
+        "ai_rubric": [
+          {
+            "criterion_id": "9702_s16_23_q06_a_mp01",
+            "observable": "Defines an ohm as a volt per ampere, including an equivalent unit expression."
+          }
+        ]
+      }
+    },
+    {
+      "part_id": "9702_s16_23_q06_b_i",
+      "difficulty": 3,
+      "question_patterns": [
+        "multi_step_calculation"
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t09",
+        "primary_module_id": "9702_t09_m03",
+        "outcome_ids": [
+          "9702_t09_m03_o06"
+        ]
+      },
+      "skills": {
+        "primary_skill_id": "9702_skill_apply_resistivity",
+        "supporting_skill_ids": []
+      },
+      "knowledge_refs": {
+        "definition_ids": [],
+        "formula_ids": [
+          "9702_formula_resistivity"
+        ]
+      },
+      "hints": [
+        "Both wires have the same resistivity, so compare their lengths and cross-sectional areas in R = ρL / A.",
+        "Q is half as long as P, but its diameter is twice as large, so its area is four times as large.",
+        "Combine the factors to express R_Q as a fraction of the given 12 Ω resistance of P."
+      ],
+      "walkthrough": [
+        "For wires of the same material, R = ρL / A and a circular cross-sectional area is proportional to diameter squared.",
+        "P has length 2l and area πd² / 4, so R_P = ρ(2l) / (πd² / 4) = 8ρl / πd².",
+        "Q has length l and diameter 2d, so its area is π(2d)² / 4 = πd² and R_Q = ρl / πd².",
+        "Thus R_Q = R_P / 8 = 12 / 8 = 1.5 Ω."
+      ],
+      "checking": {
+        "mode": "ai",
+        "deterministic_checks": [],
+        "full_marks_if_all_deterministic_checks_pass": false,
+        "ai_rubric": [
+          {
+            "criterion_id": "9702_s16_23_q06_b_i_mp01",
+            "observable": "Uses the resistance–resistivity relationship R = ρL / A."
+          },
+          {
+            "criterion_id": "9702_s16_23_q06_b_i_mp02",
+            "observable": "Accounts for Q's halved length and fourfold cross-sectional area relative to P, or gives equivalent resistance expressions."
+          },
+          {
+            "criterion_id": "9702_s16_23_q06_b_i_mp03",
+            "observable": "Relates Q's resistance to R_P / 8 and obtains 1.5 Ω."
+          }
+        ]
+      }
+    },
+    {
+      "part_id": "9702_s16_23_q06_b_ii",
+      "difficulty": 3,
+      "question_patterns": [
+        "multi_step_calculation"
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t09",
+        "primary_module_id": "9702_t09_m02",
+        "outcome_ids": [
+          "9702_t09_m02_o03"
+        ]
+      },
+      "skills": {
+        "primary_skill_id": "9702_skill_calculate_electrical_power",
+        "supporting_skill_ids": [
+          "9702_skill_analyse_circuits"
+        ]
+      },
+      "knowledge_refs": {
+        "definition_ids": [],
+        "formula_ids": [
+          "9702_formula_electrical_power"
+        ]
+      },
+      "hints": [
+        "The two resistors are in parallel, so each has the full 15 V potential difference across it.",
+        "Find the power in each branch using P = V² / R, then add the two powers.",
+        "Use R_P = 12 Ω and the R_Q = 1.5 Ω result from part (b)(i)."
+      ],
+      "walkthrough": [
+        "Because P and Q are connected in parallel across the 15 V battery, each resistor has V = 15 V.",
+        "For P, P_P = V² / R_P = 15² / 12 = 18.75 W.",
+        "For Q, P_Q = V² / R_Q = 15² / 1.5 = 150 W.",
+        "Total power = 18.75 + 150 = 168.75 W, which is 170 W to two significant figures."
+      ],
+      "checking": {
+        "mode": "hybrid",
+        "deterministic_checks": [
+          {
+            "field_id": "9702_s16_23_q06_b_ii_field_02",
+            "type": "numeric_with_unit",
+            "accepted_value": 168.75,
+            "absolute_tolerance": 3,
+            "accepted_units": [
+              "W",
+              "watt",
+              "watts"
+            ]
+          }
+        ],
+        "full_marks_if_all_deterministic_checks_pass": true,
+        "ai_rubric": [
+          {
+            "criterion_id": "9702_s16_23_q06_b_ii_mp01",
+            "observable": "Uses a valid electrical-power relationship, such as P = V²/R, P = I²R or P = VI."
+          },
+          {
+            "criterion_id": "9702_s16_23_q06_b_ii_mp02",
+            "observable": "Calculates the two branch powers consistently from the 15 V supply and the 12 Ω and 1.5 Ω resistances, or uses an equivalent total-current route."
+          },
+          {
+            "criterion_id": "9702_s16_23_q06_b_ii_mp03",
+            "observable": "Obtains total power of about 170 W."
+          }
+        ]
+      }
+    },
+    {
+      "part_id": "9702_s16_23_q06_b_iii",
+      "difficulty": 3,
+      "question_patterns": [
+        "multi_step_calculation"
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t09",
+        "primary_module_id": "9702_t09_m01",
+        "outcome_ids": [
+          "9702_t09_m01_o04"
+        ]
+      },
+      "skills": {
+        "primary_skill_id": "9702_skill_apply_drift_current",
+        "supporting_skill_ids": [
+          "9702_skill_analyse_circuits"
+        ]
+      },
+      "knowledge_refs": {
+        "definition_ids": [],
+        "formula_ids": [
+          "9702_formula_ohms_law",
+          "9702_formula_current_drift"
+        ]
+      },
+      "hints": [
+        "First find the current in each parallel branch from the 15 V potential difference and the two resistances.",
+        "For wires of the same material, n and q cancel when comparing I = Anvq, so drift speed is proportional to I / A.",
+        "P has area πd² / 4 and Q has area πd² because its diameter is 2d."
+      ],
+      "walkthrough": [
+        "Each parallel resistor has 15 V across it, so I_P = 15 / 12 = 1.25 A and I_Q = 15 / 1.5 = 10 A.",
+        "From I = Anvq, v is proportional to I / A because P and Q are made from the same material and therefore have the same n and q.",
+        "A_P = πd² / 4 and A_Q = π(2d)² / 4 = πd².",
+        "v_P / v_Q = (I_P / A_P) / (I_Q / A_Q) = (1.25 × πd²) / (10 × πd² / 4) = 0.50."
+      ],
+      "checking": {
+        "mode": "hybrid",
+        "deterministic_checks": [
+          {
+            "field_id": "9702_s16_23_q06_b_iii_field_02",
+            "type": "numeric",
+            "accepted_value": 0.5,
+            "absolute_tolerance": 0.03
+          }
+        ],
+        "full_marks_if_all_deterministic_checks_pass": true,
+        "ai_rubric": [
+          {
+            "criterion_id": "9702_s16_23_q06_b_iii_mp01",
+            "observable": "Calculates the branch currents as 1.25 A in P and 10 A in Q."
+          },
+          {
+            "criterion_id": "9702_s16_23_q06_b_iii_mp02",
+            "observable": "Uses I = Anvq to compare drift speeds through the current-to-area ratios, with the correct areas for diameters d and 2d."
+          },
+          {
+            "criterion_id": "9702_s16_23_q06_b_iii_mp03",
+            "observable": "Obtains v_P / v_Q = 0.50."
+          }
+        ]
+      }
+    }
+  ]
+}

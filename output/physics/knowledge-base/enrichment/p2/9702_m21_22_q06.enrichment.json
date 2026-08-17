@@ -1,0 +1,328 @@
+{
+  "schema_version": "9702_question_enrichment_v2",
+  "enrichment_id": "9702_m21_22_q06_enrichment",
+  "question_id": "9702_m21_22_q06",
+  "component": "P2",
+  "difficulty": 2,
+  "question_patterns": [
+    "definition",
+    "circuit_analysis",
+    "graph_interpretation",
+    "multi_step_calculation",
+    "direct_calculation"
+  ],
+  "mapping": {
+    "topic_ids": [
+      "9702_t10",
+      "9702_t05",
+      "9702_t09"
+    ],
+    "module_ids": [
+      "9702_t10_m02",
+      "9702_t10_m01",
+      "9702_t05_m01",
+      "9702_t09_m01"
+    ],
+    "outcome_ids": [
+      "9702_t10_m02_o01",
+      "9702_t10_m02_o07",
+      "9702_t10_m01_o05",
+      "9702_t05_m01_o06",
+      "9702_t09_m01_o04"
+    ]
+  },
+  "parts": [
+    {
+      "part_id": "9702_m21_22_q06_a",
+      "difficulty": 1,
+      "question_patterns": [
+        "definition"
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t10",
+        "primary_module_id": "9702_t10_m02",
+        "outcome_ids": [
+          "9702_t10_m02_o01"
+        ]
+      },
+      "skills": {
+        "primary_skill_id": "9702_skill_define_kirchhoffs_first_law",
+        "supporting_skill_ids": []
+      },
+      "knowledge_refs": {
+        "definition_ids": [
+          "9702_def_kirchhoffs_first_law"
+        ],
+        "formula_ids": [
+          "9702_formula_kirchhoff_first_law"
+        ]
+      },
+      "hints": [
+        "Focus on how currents are balanced at a junction in a circuit.",
+        "Express the rule by comparing the total current entering a junction with the total current leaving it."
+      ],
+      "walkthrough": [
+        "Kirchhoff's first law applies at a circuit junction.",
+        "The sum of the currents entering the junction equals the sum of the currents leaving the junction.",
+        "Equivalently, the algebraic sum of currents at a junction is zero."
+      ],
+      "checking": {
+        "mode": "ai",
+        "deterministic_checks": [],
+        "full_marks_if_all_deterministic_checks_pass": false,
+        "ai_rubric": [
+          {
+            "criterion_id": "9702_m21_22_q06_a_mp01",
+            "observable": "States that total current entering a junction equals total current leaving it, or an equivalent algebraic-current statement."
+          }
+        ]
+      }
+    },
+    {
+      "part_id": "9702_m21_22_q06_b_i",
+      "difficulty": 2,
+      "question_patterns": [
+        "circuit_analysis",
+        "graph_interpretation",
+        "multi_step_calculation"
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t10",
+        "primary_module_id": "9702_t10_m02",
+        "outcome_ids": [
+          "9702_t10_m02_o07"
+        ]
+      },
+      "skills": {
+        "primary_skill_id": "9702_skill_analyse_circuits",
+        "supporting_skill_ids": [
+          "9702_skill_interpret_graphs"
+        ]
+      },
+      "knowledge_refs": {
+        "definition_ids": [],
+        "formula_ids": [
+          "9702_formula_kirchhoff_first_law",
+          "9702_formula_ohms_law"
+        ]
+      },
+      "hints": [
+        "At the junction, subtract the current in the resistor branch from the battery current to find the lamp current.",
+        "Use that lamp current to read the lamp potential difference from the I-V characteristic, then calculate resistance from R = V / I."
+      ],
+      "walkthrough": [
+        "At the junction, the lamp current is 3.6 A - 2.1 A = 1.5 A.",
+        "From the I-V characteristic, a current of 1.5 A corresponds to a lamp potential difference of 4.4 V.",
+        "Using R = V / I gives R = 4.4 / 1.5 = 2.9 ohm."
+      ],
+      "checking": {
+        "mode": "hybrid",
+        "deterministic_checks": [
+          {
+            "field_id": "9702_m21_22_q06_b_i_field_02",
+            "type": "numeric_with_unit",
+            "accepted_value": 2.9,
+            "absolute_tolerance": 0.1,
+            "accepted_units": [
+              "ohm",
+              "Ω"
+            ]
+          }
+        ],
+        "full_marks_if_all_deterministic_checks_pass": true,
+        "ai_rubric": [
+          {
+            "criterion_id": "9702_m21_22_q06_b_i_mp01",
+            "observable": "Uses Kirchhoff's first law to obtain a lamp current of 1.5 A from 3.6 A - 2.1 A."
+          },
+          {
+            "criterion_id": "9702_m21_22_q06_b_i_mp02",
+            "observable": "Reads a potential difference of 4.4 V for the lamp at 1.5 A from the I-V characteristic."
+          },
+          {
+            "criterion_id": "9702_m21_22_q06_b_i_mp03",
+            "observable": "Uses R = V / I to obtain a lamp resistance of 2.9 ohm."
+          }
+        ]
+      }
+    },
+    {
+      "part_id": "9702_m21_22_q06_b_ii",
+      "difficulty": 2,
+      "question_patterns": [
+        "direct_calculation"
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t10",
+        "primary_module_id": "9702_t10_m01",
+        "outcome_ids": [
+          "9702_t10_m01_o05",
+          "9702_t10_m02_o07"
+        ]
+      },
+      "skills": {
+        "primary_skill_id": "9702_skill_analyse_circuits",
+        "supporting_skill_ids": [
+          "9702_skill_explain_emf_internal_resistance"
+        ]
+      },
+      "knowledge_refs": {
+        "definition_ids": [],
+        "formula_ids": [
+          "9702_formula_terminal_potential_difference"
+        ]
+      },
+      "hints": [
+        "The 4.4 V found for the lamp is the terminal potential difference of the battery.",
+        "Use the e.m.f. as the terminal potential difference plus the lost volts across the internal resistance."
+      ],
+      "walkthrough": [
+        "The terminal potential difference is 4.4 V and the e.m.f. is 12.0 V.",
+        "Use 12.0 = 4.4 + 3.6r, where 3.6r is the potential difference across the internal resistance.",
+        "Rearranging gives r = (12.0 - 4.4) / 3.6 = 2.1 ohm."
+      ],
+      "checking": {
+        "mode": "hybrid",
+        "deterministic_checks": [
+          {
+            "field_id": "9702_m21_22_q06_b_ii_field_02",
+            "type": "numeric_with_unit",
+            "accepted_value": 2.1,
+            "absolute_tolerance": 0.1,
+            "accepted_units": [
+              "ohm",
+              "Ω"
+            ]
+          }
+        ],
+        "full_marks_if_all_deterministic_checks_pass": true,
+        "ai_rubric": [
+          {
+            "criterion_id": "9702_m21_22_q06_b_ii_mp01",
+            "observable": "Forms 12.0 = 4.4 + 3.6r, or the equivalent total-resistance equation 12.0 = 3.6(1.2 + r)."
+          },
+          {
+            "criterion_id": "9702_m21_22_q06_b_ii_mp02",
+            "observable": "Obtains an internal resistance of 2.1 ohm."
+          }
+        ]
+      }
+    },
+    {
+      "part_id": "9702_m21_22_q06_b_iii",
+      "difficulty": 2,
+      "question_patterns": [
+        "direct_calculation"
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t05",
+        "primary_module_id": "9702_t05_m01",
+        "outcome_ids": [
+          "9702_t05_m01_o06"
+        ]
+      },
+      "skills": {
+        "primary_skill_id": "9702_skill_determine_battery_discharge_time",
+        "supporting_skill_ids": [
+          "9702_skill_analyse_circuits"
+        ]
+      },
+      "knowledge_refs": {
+        "definition_ids": [],
+        "formula_ids": [
+          "9702_formula_electrical_power",
+          "9702_formula_power_energy_time"
+        ]
+      },
+      "hints": [
+        "First calculate the energy decrease in joules, rather than using either stored-energy value alone.",
+        "The battery supplies electrical power EI at constant e.m.f. and current; divide the energy decrease by that power."
+      ],
+      "walkthrough": [
+        "The battery energy decreases by (470 - 240) kJ = 230 × 10^3 J.",
+        "The constant power supplied is P = EI = 12.0 × 3.6 W.",
+        "Thus t = ΔE / P = (230 × 10^3) / (12.0 × 3.6) = 5.3 × 10^3 s, or 5300 s."
+      ],
+      "checking": {
+        "mode": "hybrid",
+        "deterministic_checks": [
+          {
+            "field_id": "9702_m21_22_q06_b_iii_field_02",
+            "type": "numeric_with_unit",
+            "accepted_value": 5300,
+            "absolute_tolerance": 100,
+            "accepted_units": [
+              "s"
+            ]
+          }
+        ],
+        "full_marks_if_all_deterministic_checks_pass": true,
+        "ai_rubric": [
+          {
+            "criterion_id": "9702_m21_22_q06_b_iii_mp01",
+            "observable": "Uses t = (470 × 10^3 - 240 × 10^3) / (12.0 × 3.6), or an equivalent energy-change divided by EI calculation."
+          },
+          {
+            "criterion_id": "9702_m21_22_q06_b_iii_mp02",
+            "observable": "Obtains a time of 5300 s."
+          }
+        ]
+      }
+    },
+    {
+      "part_id": "9702_m21_22_q06_b_iv",
+      "difficulty": 2,
+      "question_patterns": [
+        "direct_calculation"
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t09",
+        "primary_module_id": "9702_t09_m01",
+        "outcome_ids": [
+          "9702_t09_m01_o04"
+        ]
+      },
+      "skills": {
+        "primary_skill_id": "9702_skill_apply_drift_current",
+        "supporting_skill_ids": []
+      },
+      "knowledge_refs": {
+        "definition_ids": [],
+        "formula_ids": [
+          "9702_formula_current_drift"
+        ]
+      },
+      "hints": [
+        "The filament and connecting wire are in series, so the same current passes through both wires.",
+        "From I = Anvq, compare the area and number-density products inversely when forming the drift-speed ratio."
+      ],
+      "walkthrough": [
+        "For each wire, I = Anvq. The current and charge magnitude are the same because the wires are in series and both have free electrons.",
+        "Therefore v_filament / v_copper = (A_copper n_copper) / (A_filament n_filament).",
+        "The ratio is (360A × 2.5n) / (A × n) = 900."
+      ],
+      "checking": {
+        "mode": "hybrid",
+        "deterministic_checks": [
+          {
+            "field_id": "9702_m21_22_q06_b_iv_field_01",
+            "type": "numeric",
+            "accepted_value": 900,
+            "absolute_tolerance": 10
+          }
+        ],
+        "full_marks_if_all_deterministic_checks_pass": true,
+        "ai_rubric": [
+          {
+            "criterion_id": "9702_m21_22_q06_b_iv_mp01",
+            "observable": "Uses I = Anvq and the equal series current to form v_filament / v_copper = (360A / A)(2.5n / n), or 360 × 2.5."
+          },
+          {
+            "criterion_id": "9702_m21_22_q06_b_iv_mp02",
+            "observable": "Obtains a drift-speed ratio of 900."
+          }
+        ]
+      }
+    }
+  ]
+}

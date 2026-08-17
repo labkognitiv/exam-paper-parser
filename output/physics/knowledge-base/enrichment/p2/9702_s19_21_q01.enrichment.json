@@ -1,0 +1,172 @@
+{
+  "schema_version": "9702_question_enrichment_v2",
+  "enrichment_id": "9702_s19_21_q01_enrichment",
+  "question_id": "9702_s19_21_q01",
+  "component": "P2",
+  "difficulty": 3,
+  "question_patterns": [
+    "definition",
+    "direct_calculation",
+    "uncertainty_analysis"
+  ],
+  "mapping": {
+    "topic_ids": [
+      "9702_t02",
+      "9702_t07",
+      "9702_t01"
+    ],
+    "module_ids": [
+      "9702_t02_m01",
+      "9702_t07_m01",
+      "9702_t01_m03"
+    ],
+    "outcome_ids": [
+      "9702_t02_m01_o01",
+      "9702_t07_m01_o02",
+      "9702_t01_m03_o03"
+    ]
+  },
+  "parts": [
+    {
+      "part_id": "9702_s19_21_q01_a",
+      "difficulty": 1,
+      "question_patterns": [
+        "definition"
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t02",
+        "primary_module_id": "9702_t02_m01",
+        "outcome_ids": [
+          "9702_t02_m01_o01"
+        ]
+      },
+      "skills": {
+        "primary_skill_id": "9702_skill_define_velocity",
+        "supporting_skill_ids": []
+      },
+      "knowledge_refs": {
+        "definition_ids": [
+          "9702_def_velocity"
+        ],
+        "formula_ids": []
+      },
+      "hints": [
+        "Distinguish displacement from distance, then state the quantity as a rate over time."
+      ],
+      "walkthrough": [
+        "Velocity describes how displacement changes with time.",
+        "Therefore, velocity is the rate of change of displacement, or change in displacement per unit time."
+      ],
+      "checking": {
+        "mode": "ai",
+        "deterministic_checks": [],
+        "full_marks_if_all_deterministic_checks_pass": false,
+        "ai_rubric": [
+          {
+            "criterion_id": "9702_s19_21_q01_a_mp01",
+            "observable": "Defines velocity as change in displacement per unit time."
+          }
+        ]
+      }
+    },
+    {
+      "part_id": "9702_s19_21_q01_b_i",
+      "difficulty": 2,
+      "question_patterns": [
+        "direct_calculation"
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t07",
+        "primary_module_id": "9702_t07_m01",
+        "outcome_ids": [
+          "9702_t07_m01_o02"
+        ]
+      },
+      "skills": {
+        "primary_skill_id": "9702_skill_evaluate_supplied_equation",
+        "supporting_skill_ids": []
+      },
+      "knowledge_refs": {
+        "definition_ids": [],
+        "formula_ids": [],
+        "formula_empty_justification": "The calculation rearranges the question-supplied pressure–density wave-speed model to determine its dimensionless constant; this is not a major reusable syllabus formula."
+      },
+      "hints": [
+        "Square the measured speed first, then isolate k from the supplied relation.",
+        "After rearranging, multiply density by v² and divide by pressure."
+      ],
+      "walkthrough": [
+        "Square the supplied relation to give v² = kP / ρ, then rearrange it as k = ρv² / P.",
+        "Substitute the table values: k = 1.29 × (3.3 × 10²)² / (9.9 × 10⁴).",
+        "This gives k = 1.419..., so k = 1.4 to an appropriate number of significant figures."
+      ],
+      "checking": {
+        "mode": "ai",
+        "deterministic_checks": [],
+        "full_marks_if_all_deterministic_checks_pass": false,
+        "ai_rubric": [
+          {
+            "criterion_id": "9702_s19_21_q01_b_i_mp01",
+            "observable": "Rearranges the supplied relation and substitutes the density, speed and pressure to calculate k."
+          },
+          {
+            "criterion_id": "9702_s19_21_q01_b_i_mp02",
+            "observable": "Obtains k = 1.4."
+          }
+        ]
+      }
+    },
+    {
+      "part_id": "9702_s19_21_q01_b_ii",
+      "difficulty": 3,
+      "question_patterns": [
+        "uncertainty_analysis"
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t01",
+        "primary_module_id": "9702_t01_m03",
+        "outcome_ids": [
+          "9702_t01_m03_o03"
+        ]
+      },
+      "skills": {
+        "primary_skill_id": "9702_skill_uncertainty",
+        "supporting_skill_ids": []
+      },
+      "knowledge_refs": {
+        "definition_ids": [],
+        "formula_ids": []
+      },
+      "hints": [
+        "In k = ρv² / P, each multiplication or division contributes its percentage uncertainty, and the squared speed contributes twice its percentage uncertainty.",
+        "Convert the combined percentage uncertainty to a decimal fraction before using it to find the absolute uncertainty in k.",
+        "Round the uncertainty suitably, then write the central value to the same decimal place."
+      ],
+      "walkthrough": [
+        "From k = ρv² / P, the percentage uncertainty contributions are 4% from ρ, 2 × 3% from v², and 2% from P.",
+        "Add them to obtain the percentage uncertainty in k: 4% + 6% + 2% = 12%, which is 0.12 as a fraction.",
+        "Use the unrounded value k = 1.42: Δk = 0.12 × 1.42 = 0.1704, so the absolute uncertainty rounds to 0.2.",
+        "Report the central value to the same decimal place: k = 1.4 ± 0.2."
+      ],
+      "checking": {
+        "mode": "ai",
+        "deterministic_checks": [],
+        "full_marks_if_all_deterministic_checks_pass": false,
+        "ai_rubric": [
+          {
+            "criterion_id": "9702_s19_21_q01_b_ii_mp01",
+            "observable": "Combines the 4% density uncertainty, twice the 3% speed uncertainty and the 2% pressure uncertainty to obtain 12%, or an equivalent fractional uncertainty of 0.12."
+          },
+          {
+            "criterion_id": "9702_s19_21_q01_b_ii_mp02",
+            "observable": "Uses the fractional uncertainty and the unrounded k value to calculate an absolute uncertainty of about 0.17."
+          },
+          {
+            "criterion_id": "9702_s19_21_q01_b_ii_mp03",
+            "observable": "Reports k = 1.4 ± 0.2 with appropriate significant figures."
+          }
+        ]
+      }
+    }
+  ]
+}

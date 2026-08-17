@@ -1,0 +1,127 @@
+{
+  "schema_version": "9702_question_enrichment_v2",
+  "enrichment_id": "9702_s22_23_q01_enrichment",
+  "question_id": "9702_s22_23_q01",
+  "component": "P2",
+  "difficulty": 2,
+  "question_patterns": [
+    "multi_step_calculation",
+    "uncertainty_analysis"
+  ],
+  "mapping": {
+    "topic_ids": [
+      "9702_t01",
+      "9702_t04"
+    ],
+    "module_ids": [
+      "9702_t01_m03",
+      "9702_t04_m03"
+    ],
+    "outcome_ids": [
+      "9702_t01_m03_o03",
+      "9702_t04_m03_o01"
+    ]
+  },
+  "parts": [
+    {
+      "part_id": "9702_s22_23_q01_a",
+      "difficulty": 2,
+      "question_patterns": [
+        "multi_step_calculation"
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t04",
+        "primary_module_id": "9702_t04_m03",
+        "outcome_ids": [
+          "9702_t04_m03_o01"
+        ]
+      },
+      "skills": {
+        "primary_skill_id": "9702_skill_apply_density",
+        "supporting_skill_ids": []
+      },
+      "knowledge_refs": {
+        "definition_ids": [],
+        "formula_ids": [
+          "9702_formula_density"
+        ]
+      },
+      "hints": [
+        "The stated diameter is not the radius. Find the radius before calculating the sphere's volume.",
+        "Use the sphere-volume expression to obtain the metal's volume in cm³, then relate its mass and volume to density."
+      ],
+      "walkthrough": [
+        "The radius is half the diameter: r = 3.42 / 2 = 1.71 cm.",
+        "For a sphere, V = (4 / 3)πr³ = (4 / 3)π(1.71)³ = 20.9 cm³ to three significant figures.",
+        "Density is mass divided by volume, so ρ = 67 / 20.9 = 3.2 g cm⁻³ to two significant figures."
+      ],
+      "checking": {
+        "mode": "ai",
+        "deterministic_checks": [],
+        "full_marks_if_all_deterministic_checks_pass": false,
+        "ai_rubric": [
+          {
+            "criterion_id": "9702_s22_23_q01_a_mp01",
+            "observable": "States or uses density as mass divided by volume."
+          },
+          {
+            "criterion_id": "9702_s22_23_q01_a_mp02",
+            "observable": "Uses half the stated diameter as the radius and calculates the spherical volume as about 20.9 cm³."
+          },
+          {
+            "criterion_id": "9702_s22_23_q01_a_mp03",
+            "observable": "Divides 67 g by the calculated volume and reports 3.2 g cm⁻³."
+          }
+        ]
+      }
+    },
+    {
+      "part_id": "9702_s22_23_q01_b",
+      "difficulty": 2,
+      "question_patterns": [
+        "uncertainty_analysis"
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t01",
+        "primary_module_id": "9702_t01_m03",
+        "outcome_ids": [
+          "9702_t01_m03_o03"
+        ]
+      },
+      "skills": {
+        "primary_skill_id": "9702_skill_uncertainty",
+        "supporting_skill_ids": []
+      },
+      "knowledge_refs": {
+        "definition_ids": [],
+        "formula_ids": []
+      },
+      "hints": [
+        "Express each measurement uncertainty as a percentage before combining their contributions to the density.",
+        "Density is proportional to mass divided by the cube of the diameter, so include one mass percentage and three diameter percentages."
+      ],
+      "walkthrough": [
+        "The mass percentage uncertainty is (2 / 67) × 100 = 3.0% to two significant figures.",
+        "The diameter percentage uncertainty is (0.02 / 3.42) × 100 = 0.58%.",
+        "A sphere's volume is proportional to diameter cubed, so the diameter contributes 3 × 0.58% = 1.74% to the density uncertainty.",
+        "For the quotient defining density, add the percentage contributions: 3.0% + 1.74% = 4.74%.",
+        "Report the percentage uncertainty as 4.7%, or 5% after rounding appropriately."
+      ],
+      "checking": {
+        "mode": "ai",
+        "deterministic_checks": [],
+        "full_marks_if_all_deterministic_checks_pass": false,
+        "ai_rubric": [
+          {
+            "criterion_id": "9702_s22_23_q01_b_mp01",
+            "observable": "Calculates the mass percentage uncertainty and adds it to three times the diameter percentage uncertainty."
+          },
+          {
+            "criterion_id": "9702_s22_23_q01_b_mp02",
+            "observable": "Reports the density percentage uncertainty as 4.7% or 5%."
+          }
+        ]
+      }
+    }
+  ]
+}

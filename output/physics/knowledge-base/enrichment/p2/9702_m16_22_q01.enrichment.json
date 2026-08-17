@@ -1,0 +1,208 @@
+{
+  "schema_version": "9702_question_enrichment_v2",
+  "enrichment_id": "9702_m16_22_q01_enrichment",
+  "question_id": "9702_m16_22_q01",
+  "component": "P2",
+  "difficulty": 3,
+  "question_patterns": ["measurement_selection","direct_calculation","uncertainty_analysis","multi_step_calculation"],
+  "mapping": {
+    "topic_ids": [
+      "9702_t01"
+    ],
+    "module_ids": [
+      "9702_t01_m02",
+      "9702_t01_m03"
+    ],
+    "outcome_ids": [
+      "9702_t01_m02_o02",
+      "9702_t01_m03_o03"
+    ]
+  },
+  "parts": [
+    {
+      "part_id": "9702_m16_22_q01_a",
+      "difficulty": 1,
+      "question_patterns": ["measurement_selection"],
+      "mapping": {
+        "primary_topic_id": "9702_t01",
+        "primary_module_id": "9702_t01_m03",
+        "outcome_ids": []
+      },
+      "skills": {
+        "primary_skill_id": "9702_skill_measurement",
+        "supporting_skill_ids": []
+      },
+      "knowledge_refs": {
+        "definition_ids": [],
+        "formula_ids": []
+      },
+      "hints": [
+        "Choose an instrument designed to measure a length of about one metre directly, without repeatedly repositioning a short scale."
+      ],
+      "walkthrough": [
+        "The quantity being measured is the length of a string, and the table shows that it is approximately 126 cm long.",
+        "The instrument must therefore measure a length a little greater than one metre directly and with suitable precision.",
+        "A metre rule or a tape measure is appropriate."
+      ],
+      "checking": {
+        "mode": "deterministic",
+        "deterministic_checks": [
+          {
+            "field_id": "9702_m16_22_q01_a_field_01",
+            "type": "exact",
+            "accepted_answers": [
+              "metre rule",
+              "meter rule",
+              "tape measure",
+              "measuring tape"
+            ]
+          }
+        ],
+        "full_marks_if_all_deterministic_checks_pass": true,
+        "ai_rubric": [
+          {
+            "criterion_id": "9702_m16_22_q01_a_mp01",
+            "observable": "Names a metre rule or tape measure as the instrument used to measure the string length."
+          }
+        ]
+      }
+    },
+    {
+      "part_id": "9702_m16_22_q01_b_i",
+      "difficulty": 2,
+      "question_patterns": ["direct_calculation"],
+      "mapping": {
+        "primary_topic_id": "9702_t01",
+        "primary_module_id": "9702_t01_m02",
+        "outcome_ids": [
+          "9702_t01_m02_o02"
+        ]
+      },
+      "skills": {
+        "primary_skill_id": "9702_skill_apply_physical_relationships",
+        "supporting_skill_ids": []
+      },
+      "knowledge_refs": {
+        "definition_ids": [],
+        "formula_ids": []
+      },
+      "hints": [
+        "Before substituting, convert the measured length and mass into metres and kilograms.",
+        "Use T = 1.8 N, l = 1.26 m and m = 5.1 × 10⁻³ kg in the supplied square-root expression."
+      ],
+      "walkthrough": [
+        "The supplied expression uses SI quantities, so first convert the measurements to SI units.",
+        "Convert the length: l = 126 cm = 126 ÷ 100 = 1.26 m.",
+        "Convert the mass: m = 5.1 g = 5.1 ÷ 1000 = 5.1 × 10⁻³ kg.",
+        "The tension is already in SI units: T = 1.8 N.",
+        "Substitute the values into the supplied expression: v = √[(Tl)/m] = √[(1.8 × 1.26)/(5.1 × 10⁻³)].",
+        "Calculate the numerator: 1.8 × 1.26 = 2.268.",
+        "Divide by the mass: 2.268 ÷ 0.0051 = 444.7.",
+        "Take the square root: v = √444.7 = 21.064... m s⁻¹.",
+        "Round appropriately to three significant figures: v = 21.1 m s⁻¹."
+      ],
+      "checking": {
+        "mode": "hybrid",
+        "deterministic_checks": [
+          {
+            "field_id": "9702_m16_22_q01_b_i_field_02",
+            "type": "numeric_with_unit",
+            "accepted_value": 21.1,
+            "absolute_tolerance": 0.15,
+            "accepted_units": [
+              "m s^-1",
+              "m s⁻¹"
+            ]
+          }
+        ],
+        "full_marks_if_all_deterministic_checks_pass": true,
+        "ai_rubric": [
+          {
+            "criterion_id": "9702_m16_22_q01_b_i_mp01",
+            "observable": "Applies the supplied relationship using T = 1.8 N, l = 1.26 m and m = 5.1 × 10⁻³ kg, including the necessary SI-unit conversions."
+          },
+          {
+            "criterion_id": "9702_m16_22_q01_b_i_mp02",
+            "observable": "Obtains a wave speed of 21.1 m s⁻¹, or an equivalent correctly rounded value."
+          }
+        ]
+      }
+    },
+    {
+      "part_id": "9702_m16_22_q01_b_ii",
+      "difficulty": 3,
+      "question_patterns": ["uncertainty_analysis","multi_step_calculation"],
+      "mapping": {
+        "primary_topic_id": "9702_t01",
+        "primary_module_id": "9702_t01_m03",
+        "outcome_ids": [
+          "9702_t01_m03_o03"
+        ]
+      },
+      "skills": {
+        "primary_skill_id": "9702_skill_uncertainty",
+        "supporting_skill_ids": []
+      },
+      "knowledge_refs": {
+        "definition_ids": [],
+        "formula_ids": []
+      },
+      "hints": [
+        "The speed is the square root of a product and quotient, so first add the percentage uncertainties inside the square root and then apply the power of one-half.",
+        "After finding the percentage uncertainty in v, multiply it by 21.1 m s⁻¹ to obtain the absolute uncertainty.",
+        "Round the absolute uncertainty appropriately, then quote v to the same decimal place."
+      ],
+      "walkthrough": [
+        "The expression is v = (Tl/m)¹ᐟ². Start by combining the percentage uncertainties of the multiplied and divided measurements inside the brackets.",
+        "Add the percentage uncertainties: 5% + 1% + 2% = 8%.",
+        "The bracket is raised to the power one-half, so multiply the combined percentage uncertainty by ½: percentage uncertainty in v = ½ × 8% = 4%.",
+        "Write 4% as a decimal before calculating the absolute uncertainty: 4% = 4 ÷ 100 = 0.04.",
+        "Use the calculated speed from part (b)(i): Δv = 0.04 × 21.1 m s⁻¹.",
+        "Carry out the multiplication: Δv = 0.844 m s⁻¹.",
+        "Round the absolute uncertainty to one significant figure: Δv = 0.8 m s⁻¹.",
+        "The uncertainty is given to the nearest 0.1 m s⁻¹, so report the speed to the same decimal place.",
+        "The final result is v = (21.1 ± 0.8) m s⁻¹."
+      ],
+      "checking": {
+        "mode": "hybrid",
+        "deterministic_checks": [
+          {
+            "field_id": "9702_m16_22_q01_b_ii_field_02",
+            "type": "numeric_with_unit",
+            "accepted_value": 21.1,
+            "absolute_tolerance": 0.15,
+            "accepted_units": [
+              "m s^-1",
+              "m s⁻¹"
+            ]
+          },
+          {
+            "field_id": "9702_m16_22_q01_b_ii_field_03",
+            "type": "numeric_with_unit",
+            "accepted_value": 0.8,
+            "absolute_tolerance": 0.05,
+            "accepted_units": [
+              "m s^-1",
+              "m s⁻¹"
+            ]
+          }
+        ],
+        "full_marks_if_all_deterministic_checks_pass": true,
+        "ai_rubric": [
+          {
+            "criterion_id": "9702_m16_22_q01_b_ii_mp01",
+            "observable": "Combines the measurement uncertainties and accounts for the square root to obtain a percentage uncertainty in v of 4%, or a fractional uncertainty of 0.04."
+          },
+          {
+            "criterion_id": "9702_m16_22_q01_b_ii_mp02",
+            "observable": "Calculates the absolute uncertainty as approximately 0.84 m s⁻¹ from 0.04 × 21.1."
+          },
+          {
+            "criterion_id": "9702_m16_22_q01_b_ii_mp03",
+            "observable": "Reports v as (21.1 ± 0.8) m s⁻¹ with appropriate precision."
+          }
+        ]
+      }
+    }
+  ]
+}

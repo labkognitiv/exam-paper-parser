@@ -1,0 +1,232 @@
+{
+  "schema_version": "9702_question_enrichment_v2",
+  "enrichment_id": "9702_s23_22_q07_enrichment",
+  "question_id": "9702_s23_22_q07",
+  "component": "P2",
+  "difficulty": 3,
+  "question_patterns": [
+    "direct_calculation",
+    "property_identification"
+  ],
+  "mapping": {
+    "topic_ids": [
+      "9702_t10"
+    ],
+    "module_ids": [
+      "9702_t10_m03"
+    ],
+    "outcome_ids": [
+      "9702_t10_m03_o01",
+      "9702_t10_m03_o02",
+      "9702_t10_m03_o04",
+      "9702_t09_m03_o07",
+      "9702_t09_m02_o03"
+    ]
+  },
+  "parts": [
+    {
+      "part_id": "9702_s23_22_q07_a",
+      "difficulty": 2,
+      "question_patterns": [
+        "direct_calculation"
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t10",
+        "primary_module_id": "9702_t10_m03",
+        "outcome_ids": [
+          "9702_t10_m03_o01"
+        ]
+      },
+      "skills": {
+        "primary_skill_id": "9702_skill_calculate_series_circuit_potential_difference",
+        "supporting_skill_ids": []
+      },
+      "knowledge_refs": {
+        "definition_ids": [],
+        "formula_ids": [
+          "9702_formula_potential_divider",
+          "9702_formula_ohms_law"
+        ]
+      },
+      "hints": [
+        "The LDR and fixed resistor are in series, so the 9.0 V supply is shared between them in proportion to their resistances.",
+        "Use the LDR's fraction of the total resistance, 1800 / (1800 + 1200), to find its share of the supply potential difference."
+      ],
+      "walkthrough": [
+        "The LDR and the 1200 Ω resistor are in series, so their total resistance is 1800 Ω + 1200 Ω = 3000 Ω.",
+        "The LDR receives the fraction 1800/3000 of the 9.0 V supply.",
+        "Therefore V_LDR = 9.0 × 1800/(1800 + 1200) = 5.4 V.",
+        "Equivalently, I = 9.0/3000 = 3.0 × 10⁻³ A and V_LDR = I × 1800 = 5.4 V."
+      ],
+      "checking": {
+        "mode": "hybrid",
+        "deterministic_checks": [
+          {
+            "field_id": "9702_s23_22_q07_a_field_02",
+            "type": "numeric_with_unit",
+            "accepted_value": 5.4,
+            "absolute_tolerance": 0.05,
+            "accepted_units": [
+              "V"
+            ]
+          }
+        ],
+        "full_marks_if_all_deterministic_checks_pass": true,
+        "ai_rubric": [
+          {
+            "criterion_id": "9702_s23_22_q07_a_mp01",
+            "alternative_criterion_ids": [
+              "9702_s23_22_q07_a_mp03"
+            ],
+            "observable": "Uses the LDR resistance fraction of the series total, or finds the series current and applies V = IR to the LDR."
+          },
+          {
+            "criterion_id": "9702_s23_22_q07_a_mp02",
+            "alternative_criterion_ids": [
+              "9702_s23_22_q07_a_mp04"
+            ],
+            "observable": "Calculates the potential difference across the LDR as 5.4 V."
+          }
+        ]
+      }
+    },
+    {
+      "part_id": "9702_s23_22_q07_b_i",
+      "difficulty": 2,
+      "question_patterns": [
+        "direct_calculation"
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t10",
+        "primary_module_id": "9702_t10_m03",
+        "outcome_ids": [
+          "9702_t10_m03_o02"
+        ]
+      },
+      "skills": {
+        "primary_skill_id": "9702_skill_apply_potentiometer_balance",
+        "supporting_skill_ids": []
+      },
+      "knowledge_refs": {
+        "definition_ids": [],
+        "formula_ids": [],
+        "formula_empty_justification": "The calculation uses the defining proportionality of potential difference and length on the stated uniform potentiometer wire; this is not a separate major formula beyond the controlled potentiometer-balance skill."
+      },
+      "hints": [
+        "At a zero galvanometer reading, the potential difference from X to Z equals the potential difference across the LDR.",
+        "The wire XY is uniform, so use the ratio of potential differences: XZ / XY = V_LDR / V_XY."
+      ],
+      "walkthrough": [
+        "The null galvanometer reading means the potential difference from X to Z equals the potential difference across the LDR, which is 5.4 V.",
+        "The complete uniform wire XY has 9.0 V across its 1.2 m length, so potential difference is proportional to length.",
+        "Therefore XZ / 1.2 = 5.4 / 9.0.",
+        "XZ = 1.2 × 5.4 / 9.0 = 0.72 m.",
+        "The same ratio can be obtained directly from 1800 / (1800 + 1200), because 5.4 V is the LDR's fraction of the 9.0 V supply."
+      ],
+      "checking": {
+        "mode": "ai",
+        "deterministic_checks": [],
+        "full_marks_if_all_deterministic_checks_pass": false,
+        "ai_rubric": [
+          {
+            "criterion_id": "9702_s23_22_q07_b_i_mp01",
+            "alternative_criterion_ids": [
+              "9702_s23_22_q07_b_i_mp03"
+            ],
+            "observable": "Sets the uniform-wire length fraction equal to the LDR potential-difference fraction, or directly to the LDR resistance fraction of the series total."
+          },
+          {
+            "criterion_id": "9702_s23_22_q07_b_i_mp02",
+            "alternative_criterion_ids": [
+              "9702_s23_22_q07_b_i_mp04"
+            ],
+            "observable": "Calculates XZ as 0.72 m."
+          }
+        ]
+      }
+    },
+    {
+      "part_id": "9702_s23_22_q07_b_ii",
+      "difficulty": 3,
+      "question_patterns": [
+        "property_identification"
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t10",
+        "primary_module_id": "9702_t10_m03",
+        "outcome_ids": [
+          "9702_t10_m03_o04",
+          "9702_t09_m03_o07",
+          "9702_t09_m02_o03",
+          "9702_t10_m03_o02"
+        ]
+      },
+      "skills": {
+        "primary_skill_id": "9702_skill_analyse_ldr_potential_divider_response",
+        "supporting_skill_ids": []
+      },
+      "knowledge_refs": {
+        "definition_ids": [],
+        "formula_ids": [
+          "9702_formula_electrical_power",
+          "9702_formula_potential_divider"
+        ]
+      },
+      "hints": [
+        "The LDR temperature is unchanged, so use the relationship between an LDR's resistance and the light intensity instead of a temperature effect.",
+        "With the same 9.0 V supply, follow the lower LDR resistance through the series total resistance, the LDR's share of the supply, and then the null-balance position on the unchanged uniform wire."
+      ],
+      "walkthrough": [
+        "For an LDR at constant temperature, a lower resistance means that the light intensity has increased.",
+        "The LDR and fixed resistor remain in series, so the total resistance decreases. With a fixed 9.0 V supply, the source power P = V²/R_total increases.",
+        "The potential difference across the LDR is V_LDR = 9.0 × R_LDR/(R_LDR + 1200 Ω). Reducing R_LDR reduces this fraction, so V_LDR decreases.",
+        "At the null reading, the potential difference along XZ must equal V_LDR. The potential gradient along the unchanged XY wire is fixed, so a smaller V_LDR requires a shorter XZ length.",
+        "Therefore the light intensity increases, the total battery power increases and XZ decreases."
+      ],
+      "checking": {
+        "mode": "deterministic",
+        "deterministic_checks": [
+          {
+            "field_id": "9702_s23_22_q07_b_ii_field_01",
+            "type": "exact",
+            "accepted_answers": [
+              "increase",
+              "increases"
+            ]
+          },
+          {
+            "field_id": "9702_s23_22_q07_b_ii_field_02",
+            "type": "exact",
+            "accepted_answers": [
+              "increase",
+              "increases"
+            ]
+          },
+          {
+            "field_id": "9702_s23_22_q07_b_ii_field_03",
+            "type": "exact",
+            "accepted_answers": [
+              "decrease",
+              "decreases"
+            ]
+          }
+        ],
+        "full_marks_if_all_deterministic_checks_pass": true,
+        "ai_rubric": [
+          {
+            "criterion_id": "9702_s23_22_q07_b_ii_mp01",
+            "observable": "States that the light intensity increases."
+          },
+          {
+            "criterion_id": "9702_s23_22_q07_b_ii_mp02",
+            "observable": "States that the total power supplied by the battery increases."
+          },
+          {
+            "criterion_id": "9702_s23_22_q07_b_ii_mp03",
+            "observable": "States that the null-balance length XZ decreases."
+          }
+        ]
+      }
+    }
+  ]
+}

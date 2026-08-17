@@ -1,0 +1,252 @@
+{
+  "schema_version": "9702_question_enrichment_v2",
+  "enrichment_id": "9702_s23_22_q06_enrichment",
+  "question_id": "9702_s23_22_q06",
+  "component": "P2",
+  "difficulty": 3,
+  "question_patterns": [
+    "explanation",
+    "direct_calculation",
+    "multi_step_calculation"
+  ],
+  "mapping": {
+    "topic_ids": [
+      "9702_t09"
+    ],
+    "module_ids": [
+      "9702_t09_m03",
+      "9702_t09_m01"
+    ],
+    "outcome_ids": [
+      "9702_t09_m03_o04",
+      "9702_t09_m03_o02",
+      "9702_t09_m01_o04",
+      "9702_t09_m01_o03"
+    ]
+  },
+  "parts": [
+    {
+      "part_id": "9702_s23_22_q06_a",
+      "difficulty": 1,
+      "question_patterns": [
+        "explanation"
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t09",
+        "primary_module_id": "9702_t09_m03",
+        "outcome_ids": [
+          "9702_t09_m03_o04"
+        ]
+      },
+      "skills": {
+        "primary_skill_id": "9702_skill_analyse_filament_lamp_resistance",
+        "supporting_skill_ids": []
+      },
+      "knowledge_refs": {
+        "definition_ids": [],
+        "formula_ids": []
+      },
+      "hints": [
+        "Relate the smaller current to the filament temperature, then consider how a metal filament's resistance depends on temperature."
+      ],
+      "walkthrough": [
+        "When the current decreases, less power is dissipated in the filament, so its temperature decreases.",
+        "A cooler metal filament has lower resistance.",
+        "Therefore, the resistance of the lamp decreases."
+      ],
+      "checking": {
+        "mode": "ai",
+        "deterministic_checks": [],
+        "full_marks_if_all_deterministic_checks_pass": false,
+        "ai_rubric": [
+          {
+            "criterion_id": "9702_s23_22_q06_a_mp01",
+            "observable": "Explains that lower current lowers filament temperature, so the lamp resistance decreases."
+          }
+        ]
+      }
+    },
+    {
+      "part_id": "9702_s23_22_q06_b_i",
+      "difficulty": 1,
+      "question_patterns": [
+        "direct_calculation"
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t09",
+        "primary_module_id": "9702_t09_m03",
+        "outcome_ids": [
+          "9702_t09_m03_o02"
+        ]
+      },
+      "skills": {
+        "primary_skill_id": "9702_skill_apply_ohms_law",
+        "supporting_skill_ids": []
+      },
+      "knowledge_refs": {
+        "definition_ids": [],
+        "formula_ids": [
+          "9702_formula_ohms_law"
+        ]
+      },
+      "hints": [
+        "Rearrange the potential-difference, current and resistance relationship so that current is the subject."
+      ],
+      "walkthrough": [
+        "Ohm's law gives V = IR.",
+        "Dividing both sides by R gives I = V / R."
+      ],
+      "checking": {
+        "mode": "deterministic",
+        "deterministic_checks": [
+          {
+            "field_id": "9702_s23_22_q06_b_i_field_01",
+            "type": "exact",
+            "accepted_answers": [
+              "V/R",
+              "V / R",
+              "\\frac{V}{R}"
+            ]
+          }
+        ],
+        "full_marks_if_all_deterministic_checks_pass": true,
+        "ai_rubric": [
+          {
+            "criterion_id": "9702_s23_22_q06_b_i_mp01",
+            "observable": "Gives the current as V / R."
+          }
+        ]
+      }
+    },
+    {
+      "part_id": "9702_s23_22_q06_b_ii",
+      "difficulty": 3,
+      "question_patterns": [
+        "multi_step_calculation"
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t09",
+        "primary_module_id": "9702_t09_m01",
+        "outcome_ids": [
+          "9702_t09_m01_o04",
+          "9702_t09_m03_o02"
+        ]
+      },
+      "skills": {
+        "primary_skill_id": "9702_skill_apply_drift_current",
+        "supporting_skill_ids": [
+          "9702_skill_apply_ohms_law"
+        ]
+      },
+      "knowledge_refs": {
+        "definition_ids": [],
+        "formula_ids": [
+          "9702_formula_current_drift",
+          "9702_formula_charge_current_time",
+          "9702_formula_ohms_law"
+        ]
+      },
+      "hints": [
+        "Write the current first, then express either the carrier number density or the total charge in the whole wire using N and e.",
+        "Use I = Anve with n = N/(AL), or use v = L/t together with t = Q/I; substitute I = V/R."
+      ],
+      "walkthrough": [
+        "Ohm's law gives I = V/R.",
+        "For a wire volume AL containing N free electrons, the number density is n = N/(AL).",
+        "Use I = Anve: V/R = A[N/(AL)]ve = Nve/L.",
+        "Rearranging gives v = VL/(RNe)."
+      ],
+      "checking": {
+        "mode": "hybrid",
+        "deterministic_checks": [
+          {
+            "field_id": "9702_s23_22_q06_b_ii_field_01",
+            "type": "exact",
+            "accepted_answers": [
+              "VL/(RNe)",
+              "V L / (R N e)",
+              "\\frac{VL}{RNe}"
+            ]
+          }
+        ],
+        "full_marks_if_all_deterministic_checks_pass": true,
+        "ai_rubric": [
+          {
+            "criterion_id": "9702_s23_22_q06_b_ii_mp01",
+            "alternative_criterion_ids": [
+              "9702_s23_22_q06_b_ii_mp03"
+            ],
+            "observable": "Uses I = Anve with a carrier density derived from N and the wire volume, or writes drift speed as L divided by the electron transit time Q/I."
+          },
+          {
+            "criterion_id": "9702_s23_22_q06_b_ii_mp02",
+            "alternative_criterion_ids": [
+              "9702_s23_22_q06_b_ii_mp04"
+            ],
+            "observable": "Substitutes I = V/R and obtains the drift speed VL/(RNe)."
+          }
+        ]
+      }
+    },
+    {
+      "part_id": "9702_s23_22_q06_b_iii",
+      "difficulty": 2,
+      "question_patterns": [
+        "direct_calculation"
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t09",
+        "primary_module_id": "9702_t09_m01",
+        "outcome_ids": [
+          "9702_t09_m01_o03",
+          "9702_t09_m01_o04",
+          "9702_t09_m03_o02"
+        ]
+      },
+      "skills": {
+        "primary_skill_id": "9702_skill_apply_drift_current",
+        "supporting_skill_ids": [
+          "9702_skill_calculate_charge_from_current",
+          "9702_skill_apply_ohms_law"
+        ]
+      },
+      "knowledge_refs": {
+        "definition_ids": [],
+        "formula_ids": [
+          "9702_formula_current_drift",
+          "9702_formula_charge_current_time",
+          "9702_formula_ohms_law"
+        ]
+      },
+      "hints": [
+        "Relate the transit time to either distance divided by the drift speed or total charge divided by the current."
+      ],
+      "walkthrough": [
+        "The total charge carried by the N electrons is Q = Ne.",
+        "The current is I = V/R, so the time for charge Q to pass is t = Q/I.",
+        "Therefore t = Ne / (V/R) = RNe/V."
+      ],
+      "checking": {
+        "mode": "deterministic",
+        "deterministic_checks": [
+          {
+            "field_id": "9702_s23_22_q06_b_iii_field_01",
+            "type": "exact",
+            "accepted_answers": [
+              "RNe/V",
+              "R N e / V",
+              "\\frac{RNe}{V}"
+            ]
+          }
+        ],
+        "full_marks_if_all_deterministic_checks_pass": true,
+        "ai_rubric": [
+          {
+            "criterion_id": "9702_s23_22_q06_b_iii_mp01",
+            "observable": "Uses transit time as distance divided by drift speed or charge divided by current to obtain RNe/V."
+          }
+        ]
+      }
+    }
+  ]
+}

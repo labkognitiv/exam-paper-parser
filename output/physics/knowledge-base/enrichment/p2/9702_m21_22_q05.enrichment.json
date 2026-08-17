@@ -1,0 +1,149 @@
+{
+  "schema_version": "9702_question_enrichment_v2",
+  "enrichment_id": "9702_m21_22_q05_enrichment",
+  "question_id": "9702_m21_22_q05",
+  "component": "P2",
+  "difficulty": 2,
+    "question_patterns": [
+    "direct_calculation",
+    "multi_step_calculation"
+  ],
+  "mapping": {
+    "topic_ids": [
+      "9702_t07",
+      "9702_t02"
+    ],
+    "module_ids": [
+      "9702_t07_m03",
+      "9702_t02_m01"
+    ],
+    "outcome_ids": [
+      "9702_t07_m03_o01",
+      "9702_t07_m03_o02",
+      "9702_t02_m01_o01"
+    ]
+  },
+  "parts": [
+    {
+      "part_id": "9702_m21_22_q05_a",
+      "difficulty": 2,
+      "question_patterns": [
+        "direct_calculation"
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t07",
+        "primary_module_id": "9702_t07_m03",
+        "outcome_ids": [
+          "9702_t07_m03_o02"
+        ]
+      },
+      "skills": {
+        "primary_skill_id": "9702_skill_apply_doppler_effect",
+        "supporting_skill_ids": []
+      },
+      "knowledge_refs": {
+        "definition_ids": [],
+        "formula_ids": [
+          "9702_formula_doppler_moving_source"
+        ]
+      },
+      "hints": [
+        "The minimum observed frequency occurs when the source is moving directly away from the distant observer.",
+        "For a receding source, use the Doppler expression with v + vₛ in the denominator."
+      ],
+      "walkthrough": [
+        "The observed frequency is smallest when the source moves directly away from the observer at its full speed of 12.0 m s⁻¹.",
+        "For a receding source, fₒ = fₛv / (v + vₛ).",
+        "fₒ = (951 × 330) / (330 + 12) = 917.6 Hz.",
+        "To three significant figures, the minimum frequency is 918 Hz."
+      ],
+      "checking": {
+        "mode": "hybrid",
+        "deterministic_checks": [
+          {
+            "field_id": "9702_m21_22_q05_a_field_02",
+            "type": "numeric_with_unit",
+            "accepted_value": 918,
+            "absolute_tolerance": 0.6,
+            "accepted_units": [
+              "Hz"
+            ]
+          }
+        ],
+        "full_marks_if_all_deterministic_checks_pass": true,
+        "ai_rubric": [
+          {
+            "criterion_id": "9702_m21_22_q05_a_mp01",
+            "observable": "Uses the moving-source Doppler expression for a source receding at 12.0 m s⁻¹."
+          },
+          {
+            "criterion_id": "9702_m21_22_q05_a_mp02",
+            "observable": "Obtains a minimum observed frequency of 918 Hz to three significant figures."
+          }
+        ]
+      }
+    },
+    {
+      "part_id": "9702_m21_22_q05_b",
+      "difficulty": 2,
+      "question_patterns": [
+        "multi_step_calculation"
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t02",
+        "primary_module_id": "9702_t02_m01",
+        "outcome_ids": [
+          "9702_t02_m01_o01",
+          "9702_t07_m03_o01"
+        ]
+      },
+      "skills": {
+        "primary_skill_id": "9702_skill_determine_travel_time_from_distance_speed",
+        "supporting_skill_ids": [
+          "9702_skill_apply_doppler_effect"
+        ]
+      },
+      "knowledge_refs": {
+        "definition_ids": [],
+        "formula_ids": [
+          "9702_formula_uniform_motion_displacement"
+        ]
+      },
+      "hints": [
+        "Minimum and maximum observed frequencies occur when the source moves directly away from and directly towards the observer, respectively.",
+        "Those positions are half a circular path apart. Find that arc distance, then divide by the constant source speed."
+      ],
+      "walkthrough": [
+        "The minimum and maximum Doppler shifts occur at opposite points of the circular path, where the source moves directly away from and directly towards the observer.",
+        "The shortest path between opposite points is half the circumference: d = πr = π × 2.4 m.",
+        "At constant speed, t = d / v = (π × 2.4) / 12.0 = 0.628 s.",
+        "The shortest time interval is 0.63 s."
+      ],
+      "checking": {
+        "mode": "hybrid",
+        "deterministic_checks": [
+          {
+            "field_id": "9702_m21_22_q05_b_field_02",
+            "type": "numeric_with_unit",
+            "accepted_value": 0.63,
+            "absolute_tolerance": 0.015,
+            "accepted_units": [
+              "s"
+            ]
+          }
+        ],
+        "full_marks_if_all_deterministic_checks_pass": true,
+        "ai_rubric": [
+          {
+            "criterion_id": "9702_m21_22_q05_b_mp01",
+            "observable": "Uses the half-circumference distance πr between the receding and approaching positions and divides by 12.0 m s⁻¹."
+          },
+          {
+            "criterion_id": "9702_m21_22_q05_b_mp02",
+            "observable": "Obtains a shortest time interval of 0.63 s."
+          }
+        ]
+      }
+    }
+  ]
+}

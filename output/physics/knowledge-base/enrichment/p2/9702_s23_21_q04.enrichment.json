@@ -1,0 +1,265 @@
+{
+  "schema_version": "9702_question_enrichment_v2",
+  "enrichment_id": "9702_s23_21_q04_enrichment",
+  "question_id": "9702_s23_21_q04",
+  "component": "P2",
+  "difficulty": 2,
+  "question_patterns": [
+    "multi_step_calculation",
+    "explanation",
+    "graph_interpretation",
+    "direct_calculation"
+  ],
+  "mapping": {
+    "topic_ids": [
+      "9702_t04"
+    ],
+    "module_ids": [
+      "9702_t04_m03",
+      "9702_t04_m02"
+    ],
+    "outcome_ids": [
+      "9702_t04_m03_o03",
+      "9702_t04_m03_o04",
+      "9702_t04_m03_o06",
+      "9702_t04_m02_o02"
+    ]
+  },
+  "parts": [
+    {
+      "part_id": "9702_s23_21_q04_a",
+      "difficulty": 2,
+      "question_patterns": [
+        "multi_step_calculation"
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t04",
+        "primary_module_id": "9702_t04_m03",
+        "outcome_ids": [
+          "9702_t04_m03_o03"
+        ]
+      },
+      "skills": {
+        "primary_skill_id": "9702_skill_apply_hydrostatic_pressure",
+        "supporting_skill_ids": [
+          "9702_skill_define_density",
+          "9702_skill_define_pressure"
+        ]
+      },
+      "knowledge_refs": {
+        "definition_ids": [
+          "9702_def_density",
+          "9702_def_pressure"
+        ],
+        "formula_ids": [
+          "9702_formula_density",
+          "9702_formula_pressure_force",
+          "9702_formula_weight",
+          "9702_formula_hydrostatic_pressure"
+        ]
+      },
+      "hints": [
+        "Write the liquid volume as base area multiplied by depth: V = Ah.",
+        "Use density to express the mass of this volume, then use W = mg before substituting into p = F / A."
+      ],
+      "walkthrough": [
+        "The liquid above the base has volume V = Ah, so from ρ = m / V, its mass is m = ρAh.",
+        "Its weight is W = mg = ρAhg, and this is the force on the base.",
+        "Using p = F / A gives p = ρAhg / A = ρgh, which is the hydrostatic-pressure relation for this depth."
+      ],
+      "checking": {
+        "mode": "ai",
+        "deterministic_checks": [],
+        "full_marks_if_all_deterministic_checks_pass": false,
+        "ai_rubric": [
+          {
+            "criterion_id": "9702_s23_21_q04_a_mp01",
+            "observable": "Uses ρ = m / V with V = Ah, or equivalently writes ρ = m / Ah."
+          },
+          {
+            "criterion_id": "9702_s23_21_q04_a_mp02",
+            "observable": "Uses p = F / A or p = W / A for the pressure on the base."
+          },
+          {
+            "criterion_id": "9702_s23_21_q04_a_mp03",
+            "observable": "Uses W = mg and the preceding definitions to obtain p = ρgh by appropriate cancellation of A."
+          }
+        ]
+      }
+    },
+    {
+      "part_id": "9702_s23_21_q04_b",
+      "difficulty": 1,
+      "question_patterns": [
+        "explanation"
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t04",
+        "primary_module_id": "9702_t04_m03",
+        "outcome_ids": [
+          "9702_t04_m03_o03"
+        ]
+      },
+      "skills": {
+        "primary_skill_id": "9702_skill_apply_hydrostatic_pressure",
+        "supporting_skill_ids": []
+      },
+      "knowledge_refs": {
+        "definition_ids": [],
+        "formula_ids": []
+      },
+      "hints": [
+        "The expression from part (a) accounts only for the pressure produced by the liquid column.",
+        "Consider the pressure exerted on the liquid surface by the air."
+      ],
+      "walkthrough": [
+        "The quantity ρgh is the pressure contribution from the liquid column.",
+        "Air above the liquid also exerts atmospheric pressure, which is transmitted to the base.",
+        "Therefore ρgh alone is not the total pressure on the base."
+      ],
+      "checking": {
+        "mode": "ai",
+        "deterministic_checks": [],
+        "full_marks_if_all_deterministic_checks_pass": false,
+        "ai_rubric": [
+          {
+            "criterion_id": "9702_s23_21_q04_b_mp01",
+            "observable": "States that atmospheric or air pressure also contributes to the total pressure on the base."
+          }
+        ]
+      }
+    },
+    {
+      "part_id": "9702_s23_21_q04_c",
+      "difficulty": 2,
+      "question_patterns": [
+        "graph_interpretation",
+        "direct_calculation"
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t04",
+        "primary_module_id": "9702_t04_m03",
+        "outcome_ids": [
+          "9702_t04_m03_o04"
+        ]
+      },
+      "skills": {
+        "primary_skill_id": "9702_skill_apply_hydrostatic_pressure",
+        "supporting_skill_ids": [
+          "9702_skill_interpret_graphs"
+        ]
+      },
+      "knowledge_refs": {
+        "definition_ids": [],
+        "formula_ids": [
+          "9702_formula_hydrostatic_pressure"
+        ]
+      },
+      "hints": [
+        "Use two well-separated points on the graph, so the atmospheric-pressure contribution cancels when you find the pressure difference.",
+        "Convert the 8.0 cm depth difference to metres before using Δp = ρgΔh."
+      ],
+      "walkthrough": [
+        "From the graph, pressure increases from 9.60 × 10⁴ Pa at 0 cm to 9.66 × 10⁴ Pa at 8.0 cm, so Δp = 600 Pa.",
+        "The depth difference is Δh = 8.0 cm = 8.0 × 10⁻² m.",
+        "Using Δp = ρgΔh gives ρ = 600 / (9.81 × 8.0 × 10⁻²) = 765 kg m⁻³.",
+        "This is within the accepted range, so the density is about 760–770 kg m⁻³."
+      ],
+      "checking": {
+        "mode": "hybrid",
+        "deterministic_checks": [
+          {
+            "field_id": "9702_s23_21_q04_c_field_02",
+            "type": "numeric",
+            "accepted_value": 765,
+            "absolute_tolerance": 5
+          }
+        ],
+        "full_marks_if_all_deterministic_checks_pass": true,
+        "ai_rubric": [
+          {
+            "criterion_id": "9702_s23_21_q04_c_mp01",
+            "observable": "Uses the graph pressure difference of 600 Pa and depth difference of 8.0 × 10⁻² m in Δp = ρgΔh."
+          },
+          {
+            "criterion_id": "9702_s23_21_q04_c_mp02",
+            "observable": "Obtains a density in the accepted range 760–770 kg m⁻³."
+          }
+        ]
+      }
+    },
+    {
+      "part_id": "9702_s23_21_q04_d",
+      "difficulty": 2,
+      "question_patterns": [
+        "multi_step_calculation"
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t04",
+        "primary_module_id": "9702_t04_m03",
+        "outcome_ids": [
+          "9702_t04_m03_o06",
+          "9702_t04_m02_o02"
+        ]
+      },
+      "skills": {
+        "primary_skill_id": "9702_skill_apply_archimedes_principle",
+        "supporting_skill_ids": [
+          "9702_skill_equilibrium",
+          "9702_skill_apply_hydrostatic_pressure",
+          "9702_skill_apply_pressure_force"
+        ]
+      },
+      "knowledge_refs": {
+        "definition_ids": [],
+        "formula_ids": [
+          "9702_formula_upthrust",
+          "9702_formula_hydrostatic_pressure",
+          "9702_formula_pressure_force"
+        ]
+      },
+      "hints": [
+        "When the cylinder is fully immersed, calculate the volume of liquid displaced from its cross-sectional area and length.",
+        "The extra upward upthrust reduces the tension needed to keep the cylinder stationary.",
+        "Alternatively, obtain the pressure difference over the cylinder length from Fig. 4.2 and multiply it by the cross-sectional area."
+      ],
+      "walkthrough": [
+        "With its top at the liquid surface, the cylinder is fully immersed, so the displaced volume is V = 3.7 × 10⁻⁴ × 4.0 × 10⁻² m³.",
+        "The upthrust is F = ρgV = 765 × 9.81 × 3.7 × 10⁻⁴ × 4.0 × 10⁻² = 0.11 N (approximately).",
+        "Because the cylinder remains stationary, the additional upward upthrust reduces the wire tension: T = 0.53 − 0.11 = 0.42 N.",
+        "Equivalent route: the graph gives a 300 Pa pressure difference over 4.0 cm, so F = ΔpA = 300 × 3.7 × 10⁻⁴ = 0.11 N, leading to the same tension."
+      ],
+      "checking": {
+        "mode": "hybrid",
+        "deterministic_checks": [
+          {
+            "field_id": "9702_s23_21_q04_d_field_02",
+            "type": "numeric_with_unit",
+            "accepted_value": 0.42,
+            "absolute_tolerance": 0.01,
+            "accepted_units": [
+              "N"
+            ]
+          }
+        ],
+        "full_marks_if_all_deterministic_checks_pass": true,
+        "ai_rubric": [
+          {
+            "criterion_id": "9702_s23_21_q04_d_mp01",
+            "alternative_criterion_ids": [
+              "9702_s23_21_q04_d_mp03"
+            ],
+            "observable": "Calculates an upthrust of about 0.11 N using F = ρgV, or equivalently uses the 300 Pa pressure difference and F = ΔpA."
+          },
+          {
+            "criterion_id": "9702_s23_21_q04_d_mp02",
+            "alternative_criterion_ids": [
+              "9702_s23_21_q04_d_mp04"
+            ],
+            "observable": "Subtracts the 0.11 N upthrust from 0.53 N to obtain a new tension of 0.42 N."
+          }
+        ]
+      }
+    }
+  ]
+}

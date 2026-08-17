@@ -1,0 +1,161 @@
+{
+  "schema_version": "9702_question_enrichment_v2",
+  "enrichment_id": "9702_s24_21_q04_enrichment",
+  "question_id": "9702_s24_21_q04",
+  "component": "P2",
+  "difficulty": 2,
+  "question_patterns": ["definition", "multi_step_calculation", "graph_construction", "comparison"],
+  "mapping": {
+    "topic_ids": ["9702_t06"],
+    "module_ids": ["9702_t06_m01"],
+    "outcome_ids": ["9702_t06_m01_o05"]
+  },
+  "parts": [
+    {
+      "part_id": "9702_s24_21_q04_a",
+      "difficulty": 1,
+      "question_patterns": ["definition"],
+      "mapping": {
+        "primary_topic_id": "9702_t06",
+        "primary_module_id": "9702_t06_m01",
+        "outcome_ids": ["9702_t06_m01_o05"]
+      },
+      "skills": {
+        "primary_skill_id": "9702_skill_define_strain",
+        "supporting_skill_ids": []
+      },
+      "knowledge_refs": {
+        "definition_ids": ["9702_def_strain"],
+        "formula_ids": []
+      },
+      "hints": ["Strain compares extension with the original length."],
+      "walkthrough": [
+        "Let ΔL be the extension and L be the original length.",
+        "Strain is extension divided by original length: strain = ΔL / L.",
+        "It has no unit because both quantities are lengths."
+      ],
+      "checking": {
+        "mode": "ai",
+        "deterministic_checks": [],
+        "full_marks_if_all_deterministic_checks_pass": false,
+        "ai_rubric": [
+          {"criterion_id": "9702_s24_21_q04_a_mp01", "observable": "Defines strain as extension divided by original length."}
+        ]
+      }
+    },
+      {
+        "part_id": "9702_s24_21_q04_b_i",
+        "difficulty": 2,
+        "question_patterns": ["multi_step_calculation"],
+        "mapping": {
+          "primary_topic_id": "9702_t06",
+          "primary_module_id": "9702_t06_m01",
+          "outcome_ids": ["9702_t06_m01_o05"]
+        },
+        "skills": {
+          "primary_skill_id": "9702_skill_apply_young_modulus",
+          "supporting_skill_ids": []
+        },
+        "knowledge_refs": {
+          "definition_ids": [],
+          "formula_ids": ["9702_formula_young_modulus"]
+        },
+        "hints": [
+          "Young modulus is stress divided by strain; calculate each quantity from the wire data.",
+          "Use the extension in metres and divide it by the original 4.0 m length before forming the ratio."
+        ],
+        "walkthrough": [
+          "Young modulus is E = stress / strain.",
+          "Stress = F / A = 18 / (4.5 × 10⁻⁷) = 4.0 × 10⁷ Pa.",
+          "Strain = ΔL / L = (1.4 × 10⁻³) / 4.0 = 3.5 × 10⁻⁴.",
+          "E = (4.0 × 10⁷) / (3.5 × 10⁻⁴) = 1.14 × 10¹¹ Pa, so E = 1.1 × 10¹¹ Pa."
+        ],
+        "checking": {
+          "mode": "ai",
+          "deterministic_checks": [],
+          "full_marks_if_all_deterministic_checks_pass": false,
+          "ai_rubric": [
+            {"criterion_id": "9702_s24_21_q04_b_i_mp01", "observable": "Uses Young modulus as stress divided by strain."},
+            {"criterion_id": "9702_s24_21_q04_b_i_mp02", "observable": "Calculates stress from force and area and strain from extension divided by original length."},
+            {"criterion_id": "9702_s24_21_q04_b_i_mp03", "observable": "Obtains a Young modulus of 1.1 × 10¹¹ Pa."}
+          ]
+        }
+      },
+      {
+        "part_id": "9702_s24_21_q04_b_ii",
+        "difficulty": 2,
+        "question_patterns": ["graph_construction"],
+        "mapping": {
+          "primary_topic_id": "9702_t06",
+          "primary_module_id": "9702_t06_m01",
+          "outcome_ids": ["9702_t06_m01_o05"]
+        },
+        "skills": {
+          "primary_skill_id": "9702_skill_construct_linear_stress_strain_graph",
+          "supporting_skill_ids": []
+        },
+        "knowledge_refs": {
+          "definition_ids": [],
+          "formula_ids": ["9702_formula_young_modulus"]
+        },
+        "hints": [
+          "Up to the limit of proportionality, stress is proportional to strain.",
+          "Use the stress and strain calculated in part (b)(i) as the endpoint of the straight-line region."
+        ],
+        "walkthrough": [
+          "Within the proportional region, Young modulus is constant, so stress is directly proportional to strain.",
+          "A directly proportional graph is a straight line through the origin.",
+          "From part (b)(i), the limiting strain is 3.5 × 10⁻⁴ and the limiting stress is 4.0 × 10⁷ Pa.",
+          "Draw the straight line from the origin to the plotted point with coordinates (3.5, 4.0) on the supplied scaled axes."
+        ],
+        "checking": {
+          "mode": "ai",
+          "deterministic_checks": [],
+          "full_marks_if_all_deterministic_checks_pass": false,
+          "ai_rubric": [
+            {"criterion_id": "9702_s24_21_q04_b_ii_mp01", "observable": "Draws a straight line through the graph origin."},
+            {"criterion_id": "9702_s24_21_q04_b_ii_mp02", "observable": "Ends the line at the supplied-axis point (3.5, 4.0)."}
+          ]
+        }
+      },
+      {
+        "part_id": "9702_s24_21_q04_c",
+        "difficulty": 2,
+        "question_patterns": ["comparison"],
+        "mapping": {
+          "primary_topic_id": "9702_t06",
+          "primary_module_id": "9702_t06_m01",
+          "outcome_ids": ["9702_t06_m01_o05"]
+        },
+        "skills": {
+          "primary_skill_id": "9702_skill_apply_young_modulus",
+          "supporting_skill_ids": ["9702_skill_apply_stress"]
+        },
+        "knowledge_refs": {
+          "definition_ids": [],
+          "formula_ids": ["9702_formula_stress", "9702_formula_young_modulus"]
+        },
+        "hints": [
+          "For the same tensile force, compare the cross-sectional areas before comparing stresses.",
+          "Both wires are copper, so use how strain changes with stress when Young modulus is unchanged."
+        ],
+        "walkthrough": [
+          "The second wire has a larger diameter and therefore a larger cross-sectional area.",
+          "With the same tensile force, stress = F / A is less in the second wire.",
+          "Both wires have the same Young modulus because they are the same material, and strain = stress / E.",
+          "The lower stress therefore gives lower strain, so tick less for both stress and strain."
+        ],
+        "checking": {
+          "mode": "deterministic",
+          "deterministic_checks": [
+            {"field_id": "9702_s24_21_q04_c_stress", "type": "single_choice", "accepted_value": "less"},
+            {"field_id": "9702_s24_21_q04_c_strain", "type": "single_choice", "accepted_value": "less"}
+          ],
+          "full_marks_if_all_deterministic_checks_pass": true,
+          "ai_rubric": [
+            {"criterion_id": "9702_s24_21_q04_c_mp01", "observable": "Selects less for both the stress and strain of the larger-diameter second wire."}
+          ]
+        }
+      }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "schema_version": "9702_question_enrichment_v2",
+  "enrichment_id": "9702_s16_22_q03_enrichment",
+  "question_id": "9702_s16_22_q03",
+  "component": "P2",
+  "difficulty": 2,
+  "question_patterns": ["definition", "multi_step_calculation", "graph_construction"],
+  "mapping": {"topic_ids": ["9702_t06"], "module_ids": ["9702_t06_m01"], "outcome_ids": ["9702_t06_m01_o03", "9702_t06_m01_o05"]},
+  "parts": [
+    {
+      "part_id": "9702_s16_22_q03_a",
+      "difficulty": 1,
+      "question_patterns": ["definition"],
+      "mapping": {"primary_topic_id": "9702_t06", "primary_module_id": "9702_t06_m01", "outcome_ids": ["9702_t06_m01_o05"]},
+      "skills": {"primary_skill_id": "9702_skill_define_young_modulus", "supporting_skill_ids": []},
+      "knowledge_refs": {"definition_ids": ["9702_def_young_modulus"], "formula_ids": ["9702_formula_young_modulus"]},
+      "hints": ["State the ratio that compares how much tensile stress produces a given tensile strain."],
+      "walkthrough": ["Young modulus measures a material's resistance to tensile deformation.", "It is defined as tensile stress divided by tensile strain.", "Therefore E = stress / strain."],
+      "checking": {"mode": "ai", "deterministic_checks": [], "full_marks_if_all_deterministic_checks_pass": false, "ai_rubric": [{"criterion_id": "9702_s16_22_q03_a_mp01", "observable": "States that Young modulus is tensile stress divided by tensile strain."}]}
+    },
+    {
+      "part_id": "9702_s16_22_q03_b_i",
+      "difficulty": 2,
+      "question_patterns": ["multi_step_calculation"],
+      "mapping": {"primary_topic_id": "9702_t06", "primary_module_id": "9702_t06_m01", "outcome_ids": ["9702_t06_m01_o05"]},
+      "skills": {"primary_skill_id": "9702_skill_apply_young_modulus", "supporting_skill_ids": []},
+      "knowledge_refs": {"definition_ids": [], "formula_ids": ["9702_formula_young_modulus"]},
+      "hints": ["The wires have equal force, length and cross-sectional area, so isolate how extension depends on Young modulus.", "Rearrange E = FL / (AΔL) to make extension the subject, then form the copper-to-steel ratio."],
+      "walkthrough": ["Young modulus is E = FL / (AΔL), so ΔL = FL / (AE).", "The wires have the same F, L and A, hence extension is inversely proportional to E.", "Therefore ΔL_copper / ΔL_steel = E_steel / E_copper = (1.9 × 10¹¹) / (1.2 × 10¹¹) = 1.58...", "The extension ratio is 1.6."],
+      "checking": {"mode": "hybrid", "deterministic_checks": [{"field_id": "9702_s16_22_q03_b_i_field_02", "type": "numeric", "accepted_value": 1.6, "absolute_tolerance": 0.05}], "full_marks_if_all_deterministic_checks_pass": true, "ai_rubric": [{"criterion_id": "9702_s16_22_q03_b_i_mp01", "observable": "Rearranges the Young-modulus relationship to express extension in terms of force, length, area and modulus."}, {"criterion_id": "9702_s16_22_q03_b_i_mp02", "observable": "Recognises that extension is inversely proportional to Young modulus for the otherwise identical wires."}, {"criterion_id": "9702_s16_22_q03_b_i_mp03", "observable": "Obtains the copper-to-steel extension ratio as 1.6."}]}
+    },
+    {
+      "part_id": "9702_s16_22_q03_b_ii",
+      "difficulty": 2,
+      "question_patterns": ["graph_construction"],
+      "mapping": {"primary_topic_id": "9702_t06", "primary_module_id": "9702_t06_m01", "outcome_ids": ["9702_t06_m01_o03", "9702_t06_m01_o05"]},
+      "skills": {"primary_skill_id": "9702_skill_construct_graphs", "supporting_skill_ids": ["9702_skill_apply_young_modulus"]},
+      "knowledge_refs": {"definition_ids": [], "formula_ids": ["9702_formula_hookes_law", "9702_formula_young_modulus"]},
+      "hints": ["Because both wires obey Hooke's law, decide what shape the force–extension graph has and where it starts.", "For equal length and area, use the Young moduli to decide which wire needs more force for the same extension."],
+      "walkthrough": ["Hooke's law gives F proportional to extension, so both graphs are straight lines through the origin.", "Using E = FL / (AΔL), rearrange to F = (EA/L)ΔL.", "The wires have equal A and L, so the graph gradient is proportional to E.", "Steel has the larger Young modulus, so draw S as the steeper line and C as the less-steep line."],
+      "checking": {"mode": "ai", "deterministic_checks": [], "full_marks_if_all_deterministic_checks_pass": false, "ai_rubric": [{"criterion_id": "9702_s16_22_q03_b_ii_mp01", "observable": "Draws two straight lines from the origin and labels the steel line S as steeper than the copper line C."}]}
+    }
+  ]
+}

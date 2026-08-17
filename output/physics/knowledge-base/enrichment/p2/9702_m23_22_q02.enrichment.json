@@ -1,0 +1,316 @@
+{
+  "schema_version": "9702_question_enrichment_v2",
+  "enrichment_id": "9702_m23_22_q02_enrichment",
+  "question_id": "9702_m23_22_q02",
+  "component": "P2",
+  "difficulty": 2,
+  "question_patterns": [
+    "direct_calculation",
+    "multi_step_calculation",
+    "graph_construction"
+  ],
+  "mapping": {
+    "topic_ids": [
+      "9702_t06",
+      "9702_t05",
+      "9702_t03",
+      "9702_t02"
+    ],
+    "module_ids": [
+      "9702_t06_m01",
+      "9702_t05_m02",
+      "9702_t05_m01",
+      "9702_t03_m01",
+      "9702_t02_m01"
+    ],
+    "outcome_ids": [
+      "9702_t06_m01_o05",
+      "9702_t05_m02_o02",
+      "9702_t05_m01_o04",
+      "9702_t05_m01_o07",
+      "9702_t03_m01_o02",
+      "9702_t03_m01_o06",
+      "9702_t02_m01_o02"
+    ]
+  },
+  "parts": [
+    {
+      "part_id": "9702_m23_22_q02_a_i",
+      "difficulty": 2,
+      "question_patterns": [
+        "direct_calculation"
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t06",
+        "primary_module_id": "9702_t06_m01",
+        "outcome_ids": [
+          "9702_t06_m01_o05"
+        ]
+      },
+      "skills": {
+        "primary_skill_id": "9702_skill_apply_young_modulus",
+        "supporting_skill_ids": []
+      },
+      "knowledge_refs": {
+        "definition_ids": [],
+        "formula_ids": [
+          "9702_formula_young_modulus"
+        ]
+      },
+      "hints": [
+        "Relate Young modulus to stress and strain, then express stress as the tension divided by cross-sectional area.",
+        "Rearrange E = F/(Aε) to make A the subject before substituting the given weight, modulus and strain."
+      ],
+      "walkthrough": [
+        "Young modulus is E = stress/strain. For the wire, stress is F/A, so E = F/(Aε).",
+        "Rearrange this relation: A = F/(Eε).",
+        "The wire supports the block at constant speed, so its tension is the stated block weight, F = 1.4 × 10⁴ N.",
+        "Substitute the values: A = (1.4 × 10⁴)/[(2.2 × 10¹¹)(0.0012)] m².",
+        "This gives A = 5.30... × 10⁻⁵ m², so the cross-sectional area is 5.3 × 10⁻⁵ m²."
+      ],
+      "checking": {
+        "mode": "hybrid",
+        "deterministic_checks": [
+          {
+            "field_id": "9702_m23_22_q02_a_i_field_02",
+            "type": "numeric_with_unit",
+            "accepted_value": 0.000053,
+            "absolute_tolerance": 0.000001,
+            "accepted_units": [
+              "m^2",
+              "m²"
+            ]
+          }
+        ],
+        "full_marks_if_all_deterministic_checks_pass": true,
+        "ai_rubric": [
+          {
+            "criterion_id": "9702_m23_22_q02_a_i_mp01",
+            "observable": "Uses Young modulus as E = stress/strain, or equivalently E = F/(Aε)."
+          },
+          {
+            "criterion_id": "9702_m23_22_q02_a_i_mp02",
+            "observable": "Calculates the wire area as 5.3 × 10⁻⁵ m², or an equivalent correctly rounded value."
+          }
+        ]
+      }
+    },
+    {
+      "part_id": "9702_m23_22_q02_a_ii",
+      "difficulty": 2,
+      "question_patterns": [
+        "multi_step_calculation"
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t05",
+        "primary_module_id": "9702_t05_m02",
+        "outcome_ids": [
+          "9702_t05_m02_o02"
+        ]
+      },
+      "skills": {
+        "primary_skill_id": "9702_skill_apply_gravitational_potential_energy",
+        "supporting_skill_ids": [
+          "9702_skill_apply_constant_velocity_motion"
+        ]
+      },
+      "knowledge_refs": {
+        "definition_ids": [],
+        "formula_ids": [
+          "9702_formula_uniform_motion_displacement",
+          "9702_formula_gravitational_potential_energy"
+        ]
+      },
+      "hints": [
+        "First find the vertical distance travelled from the constant speed and the time between X and Y.",
+        "Use the block's stated weight with the height change to calculate the increase in gravitational potential energy."
+      ],
+      "walkthrough": [
+        "The base moves upward at constant speed, so the vertical height change is Δh = vt = 0.64 × 0.49 = 0.3136 m.",
+        "The increase in gravitational potential energy is ΔEₚ = mgΔh. Since the block's weight W = mg is given, use ΔEₚ = WΔh.",
+        "Substitute W = 1.4 × 10⁴ N: ΔEₚ = (1.4 × 10⁴)(0.3136) J = 4390.4 J.",
+        "To two significant figures, the gravitational potential energy increases by 4.4 × 10³ J."
+      ],
+      "checking": {
+        "mode": "ai",
+        "deterministic_checks": [],
+        "full_marks_if_all_deterministic_checks_pass": false,
+        "ai_rubric": [
+          {
+            "criterion_id": "9702_m23_22_q02_a_ii_mp01",
+            "observable": "Calculates the vertical height change as 0.64 m s⁻¹ × 0.49 s = 0.3136 m."
+          },
+          {
+            "criterion_id": "9702_m23_22_q02_a_ii_mp02",
+            "observable": "Uses ΔEₚ = mgΔh or the equivalent relation ΔEₚ = WΔh."
+          },
+          {
+            "criterion_id": "9702_m23_22_q02_a_ii_mp03",
+            "observable": "Obtains an increase in gravitational potential energy of 4.4 × 10³ J, or an equivalent correctly rounded value."
+          }
+        ]
+      }
+    },
+    {
+      "part_id": "9702_m23_22_q02_b",
+      "difficulty": 2,
+      "question_patterns": [
+        "multi_step_calculation"
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t05",
+        "primary_module_id": "9702_t05_m01",
+        "outcome_ids": [
+          "9702_t05_m01_o04",
+          "9702_t05_m01_o07"
+        ]
+      },
+      "skills": {
+        "primary_skill_id": "9702_skill_apply_efficiency",
+        "supporting_skill_ids": [
+          "9702_skill_apply_mechanical_power"
+        ]
+      },
+      "knowledge_refs": {
+        "definition_ids": [],
+        "formula_ids": [
+          "9702_formula_mechanical_power",
+          "9702_formula_efficiency"
+        ]
+      },
+      "hints": [
+        "Find the motor's useful output power from the lifting force and the constant upward speed.",
+        "Efficiency is useful output power divided by input power, so rearrange that ratio to find the input."
+      ],
+      "walkthrough": [
+        "The useful output power raises the block against its weight at speed v, so P_output = Fv = (1.4 × 10⁴)(0.64) W = 8960 W.",
+        "The efficiency is η = P_output / P_input = 0.56.",
+        "Rearrange for input power: P_input = P_output / η = 8960 / 0.56 W.",
+        "Therefore the motor input power is 1.6 × 10⁴ W."
+      ],
+      "checking": {
+        "mode": "ai",
+        "deterministic_checks": [],
+        "full_marks_if_all_deterministic_checks_pass": false,
+        "ai_rubric": [
+          {
+            "criterion_id": "9702_m23_22_q02_b_mp01",
+            "observable": "Uses P = Fv or the equivalent energy-transfer-per-time expression for the useful output power."
+          },
+          {
+            "criterion_id": "9702_m23_22_q02_b_mp02",
+            "observable": "Divides the useful output power, 1.4 × 10⁴ N × 0.64 m s⁻¹, by the efficiency 0.56."
+          },
+          {
+            "criterion_id": "9702_m23_22_q02_b_mp03",
+            "observable": "Calculates the motor input power as 1.6 × 10⁴ W, or an equivalent correctly rounded value."
+          }
+        ]
+      }
+    },
+    {
+      "part_id": "9702_m23_22_q02_c",
+      "difficulty": 2,
+      "question_patterns": [
+        "multi_step_calculation"
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t03",
+        "primary_module_id": "9702_t03_m01",
+        "outcome_ids": [
+          "9702_t03_m01_o02",
+          "9702_t03_m01_o06"
+        ]
+      },
+      "skills": {
+        "primary_skill_id": "9702_skill_apply_newtons_second_law",
+        "supporting_skill_ids": []
+      },
+      "knowledge_refs": {
+        "definition_ids": [],
+        "formula_ids": [
+          "9702_formula_weight",
+          "9702_formula_newtons_second_law"
+        ]
+      },
+      "hints": [
+        "The block is moving upward but slowing, so its acceleration is downward; choose an upward-positive force direction.",
+        "Find the mass from the stated weight, then use the resultant force to relate the upward tension and downward weight."
+      ],
+      "walkthrough": [
+        "The block's mass is m = W/g = (1.4 × 10⁴)/9.81 = 1427... kg.",
+        "Take upward as positive. Because the upward-moving block decelerates at 1.3 m s⁻², its acceleration is a = −1.3 m s⁻².",
+        "The forces are tension T upward and weight W downward, so Newton's second law gives T − 1.4 × 10⁴ = 1427...(−1.3).",
+        "The downward resultant force has magnitude 1855... N, so T = 1.4 × 10⁴ − 1855... = 1.214... × 10⁴ N.",
+        "Therefore, the wire tension is 1.2 × 10⁴ N."
+      ],
+      "checking": {
+        "mode": "ai",
+        "deterministic_checks": [],
+        "full_marks_if_all_deterministic_checks_pass": false,
+        "ai_rubric": [
+          {
+            "criterion_id": "9702_m23_22_q02_c_mp01",
+            "observable": "Calculates the block mass as (1.4 × 10⁴ N)/9.81 m s⁻², about 1427 kg."
+          },
+          {
+            "criterion_id": "9702_m23_22_q02_c_mp02",
+            "observable": "Calculates the resultant force magnitude as mass × 1.3 m s⁻², about 1855 N, directed downward."
+          },
+          {
+            "criterion_id": "9702_m23_22_q02_c_mp03",
+            "observable": "Uses the downward resultant force to obtain a tension of 1.2 × 10⁴ N, or an equivalent correctly rounded value."
+          }
+        ]
+      }
+    },
+    {
+      "part_id": "9702_m23_22_q02_d",
+      "difficulty": 2,
+      "question_patterns": [
+        "graph_construction"
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t02",
+        "primary_module_id": "9702_t02_m01",
+        "outcome_ids": [
+          "9702_t02_m01_o02"
+        ]
+      },
+      "skills": {
+        "primary_skill_id": "9702_skill_construct_graphs",
+        "supporting_skill_ids": []
+      },
+      "knowledge_refs": {
+        "definition_ids": [],
+        "formula_ids": []
+      },
+      "hints": [
+        "The gradient of a distance–time graph is speed; begin by representing the constant-speed motion from X to Y.",
+        "From Y to Z the upward motion slows uniformly to rest, so make the gradient decrease continuously until it is zero at tZ."
+      ],
+      "walkthrough": [
+        "At tX, the base is at level X, so the graph starts at the point (tX, 0).",
+        "From tX to tY, the block moves upward at constant speed. Its distance increases at a constant rate, so draw an upward-sloping straight line ending at tY.",
+        "From tY to tZ, the block continues upward but has a uniform downward acceleration and reaches rest at Z. Its distance still increases, but its speed and hence the graph gradient decrease steadily.",
+        "Draw an upward-sloping curve from tY that becomes progressively less steep and has a horizontal tangent at tZ.",
+        "No major formula is required: the graph follows directly from the stated constant-speed and uniform-deceleration motion."
+      ],
+      "checking": {
+        "mode": "ai",
+        "deterministic_checks": [],
+        "full_marks_if_all_deterministic_checks_pass": false,
+        "ai_rubric": [
+          {
+            "criterion_id": "9702_m23_22_q02_d_mp01",
+            "observable": "Draws an upward-sloping straight line from (tX, 0) to tY."
+          },
+          {
+            "criterion_id": "9702_m23_22_q02_d_mp02",
+            "observable": "From tY to tZ, draws an upward-sloping curve with decreasing gradient that is horizontal at tZ."
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,264 @@
+{
+  "schema_version": "9702_question_enrichment_v2",
+  "enrichment_id": "9702_m19_22_q06_enrichment",
+  "question_id": "9702_m19_22_q06",
+  "component": "P2",
+  "difficulty": 4,
+  "question_patterns": [
+    "comparison",
+    "circuit_analysis",
+    "multi_step_calculation",
+    "explanation"
+  ],
+  "mapping": {
+    "topic_ids": [
+      "9702_t10"
+    ],
+    "module_ids": [
+      "9702_t10_m01",
+      "9702_t10_m02"
+    ],
+    "outcome_ids": [
+      "9702_t09_m01_o02",
+      "9702_t09_m01_o03",
+      "9702_t09_m02_o01",
+      "9702_t09_m02_o03",
+      "9702_t10_m01_o03",
+      "9702_t10_m01_o04",
+      "9702_t10_m02_o04",
+      "9702_t10_m02_o06",
+      "9702_t10_m02_o07"
+    ]
+  },
+  "parts": [
+    {
+      "part_id": "9702_m19_22_q06_a",
+      "difficulty": 2,
+      "question_patterns": [
+        "comparison"
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t10",
+        "primary_module_id": "9702_t10_m01",
+        "outcome_ids": [
+          "9702_t10_m01_o03",
+          "9702_t10_m01_o04",
+          "9702_t09_m02_o01"
+        ]
+      },
+      "skills": {
+        "primary_skill_id": "9702_skill_compare_emf_potential_difference",
+        "supporting_skill_ids": [
+          "9702_skill_define_electromotive_force",
+          "9702_skill_define_potential_difference"
+        ]
+      },
+      "knowledge_refs": {
+        "definition_ids": [
+          "9702_def_electromotive_force",
+          "9702_def_potential_difference"
+        ],
+        "formula_ids": []
+      },
+      "hints": [
+        "For the battery, identify the energy store that decreases and the electrical energy supplied per unit charge.",
+        "For the resistor, identify how electrical energy is transferred from each unit charge into thermal energy."
+      ],
+      "walkthrough": [
+        "In the battery, chemical energy is transformed into electrical energy and supplied to the circuit.",
+        "The e.m.f. is the chemical-to-electrical energy transferred by the source per unit charge.",
+        "In a resistor, electrical energy carried by the charge is transformed mainly into thermal energy.",
+        "The potential difference across the resistor is the electrical-to-thermal energy transferred per unit charge."
+      ],
+      "checking": {
+        "mode": "ai",
+        "deterministic_checks": [],
+        "full_marks_if_all_deterministic_checks_pass": false,
+        "ai_rubric": [
+          {
+            "criterion_id": "9702_m19_22_q06_a_mp01",
+            "observable": "Describes the battery e.m.f. as chemical energy transferred to electrical energy per unit charge."
+          },
+          {
+            "criterion_id": "9702_m19_22_q06_a_mp02",
+            "observable": "Describes the resistor p.d. as electrical energy transferred to thermal energy per unit charge."
+          }
+        ]
+      }
+    },
+    {
+      "part_id": "9702_m19_22_q06_b_i",
+      "difficulty": 4,
+      "question_patterns": [
+        "circuit_analysis",
+        "multi_step_calculation"
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t10",
+        "primary_module_id": "9702_t10_m02",
+        "outcome_ids": [
+          "9702_t10_m02_o04",
+          "9702_t10_m02_o06",
+          "9702_t10_m02_o07",
+          "9702_t09_m02_o03",
+          "9702_t09_m01_o03",
+          "9702_t09_m01_o02"
+        ]
+      },
+      "skills": {
+        "primary_skill_id": "9702_skill_analyse_circuits",
+        "supporting_skill_ids": [
+          "9702_skill_apply_charge_quantisation"
+        ]
+      },
+      "knowledge_refs": {
+        "definition_ids": [],
+        "formula_ids": [
+          "9702_formula_ohms_law",
+          "9702_formula_electrical_power",
+          "9702_formula_charge_current_time",
+          "9702_formula_charge_quantisation",
+          "9702_formula_parallel_resistance"
+        ]
+      },
+      "hints": [
+        "The voltmeter is across Z, so use 4.8 V and 32 Ω to find the series current through Z and the battery.",
+        "Use the 6.0 V battery e.m.f. with that current to find the total power.",
+        "For the electron count, first find Q = It, then use Q = Ne.",
+        "The parallel combination X–Y has the remaining 6.0 − 4.8 V across it; use this and the total current to find its equivalent resistance.",
+        "Finally apply the parallel-resistance equation to the 8.0 Ω combination of X and the 24 Ω resistor Y."
+      ],
+      "walkthrough": [
+        "The voltmeter reads the p.d. across Z, so I_Z = 4.8/32 = 0.15 A. Because Z is in series with the parallel section, this is also the total battery current.",
+        "The total power supplied is P = EI = 6.0 × 0.15 = 0.90 W.",
+        "In 25 s, Q = It = 0.15 × 25 = 3.75 C. Using Q = Ne gives N = 3.75/(1.6 × 10⁻¹⁹) = 2.34 × 10¹⁹, or 2.3 × 10¹⁹ electrons.",
+        "The p.d. across the parallel X–Y section is 6.0 − 4.8 = 1.2 V. Its equivalent resistance is R_XY = 1.2/0.15 = 8.0 Ω.",
+        "For X and Y in parallel, 1/8.0 = 1/R_X + 1/24, so 1/R_X = 1/12 and R_X = 12 Ω.",
+        "An equivalent route for the last result uses I_Y = 1.2/24 = 0.05 A, hence I_X = 0.15 − 0.05 = 0.10 A and R_X = 1.2/0.10 = 12 Ω."
+      ],
+      "checking": {
+        "mode": "ai",
+        "deterministic_checks": [],
+        "full_marks_if_all_deterministic_checks_pass": false,
+        "ai_rubric": [
+          {
+            "criterion_id": "9702_m19_22_q06_b_i_mp01",
+            "criterion_occurrence": 1,
+            "observable": "For item 1 in official occurrence 1, obtains I_Z = 4.8/32 = 0.15 A."
+          },
+          {
+            "criterion_id": "9702_m19_22_q06_b_i_mp02",
+            "criterion_occurrence": 1,
+            "observable": "For item 2 in official occurrence 1, uses a valid total-power relationship with the battery values, such as P = EI = 6.0 × 0.15."
+          },
+          {
+            "criterion_id": "9702_m19_22_q06_b_i_mp03",
+            "criterion_occurrence": 1,
+            "observable": "For item 2 in official occurrence 1, obtains total power 0.90 W."
+          },
+          {
+            "criterion_id": "9702_m19_22_q06_b_i_mp04",
+            "criterion_occurrence": 1,
+            "alternative_criterion_ids": [
+              "9702_m19_22_q06_b_i_mp06"
+            ],
+            "observable": "For item 3 in official occurrence 1, uses N = It/e or equivalently calculates Q = It and then N = Q/e."
+          },
+          {
+            "criterion_id": "9702_m19_22_q06_b_i_mp05",
+            "criterion_occurrence": 1,
+            "alternative_criterion_ids": [
+              "9702_m19_22_q06_b_i_mp07"
+            ],
+            "observable": "For item 3 in official occurrence 1, obtains 2.3 × 10¹⁹ electrons."
+          },
+          {
+            "criterion_id": "9702_m19_22_q06_b_i_mp08",
+            "criterion_occurrence": 1,
+            "alternative_criterion_ids": [
+              "9702_m19_22_q06_b_i_mp10",
+              "9702_m19_22_q06_b_i_mp12"
+            ],
+            "observable": "For item 4 in official occurrence 1, uses a valid potential-divider, series-resistance, or remaining-p.d. route to determine R_XY."
+          },
+          {
+            "criterion_id": "9702_m19_22_q06_b_i_mp09",
+            "criterion_occurrence": 1,
+            "alternative_criterion_ids": [
+              "9702_m19_22_q06_b_i_mp11",
+              "9702_m19_22_q06_b_i_mp13"
+            ],
+            "observable": "For item 4 in official occurrence 1, obtains R_XY = 8.0 Ω."
+          },
+          {
+            "criterion_id": "9702_m19_22_q06_b_i_mp01",
+            "criterion_occurrence": 2,
+            "alternative_criterion_ids": [
+              "9702_m19_22_q06_b_i_mp03"
+            ],
+            "observable": "For item 5 in official occurrence 2, uses 1/8.0 = 1/R_X + 1/24 or the equivalent branch-current method."
+          },
+          {
+            "criterion_id": "9702_m19_22_q06_b_i_mp02",
+            "criterion_occurrence": 2,
+            "alternative_criterion_ids": [
+              "9702_m19_22_q06_b_i_mp04"
+            ],
+            "observable": "For item 5 in official occurrence 2, obtains R_X = 12 Ω."
+          }
+        ]
+      }
+    },
+    {
+      "part_id": "9702_m19_22_q06_b_ii",
+      "difficulty": 2,
+      "question_patterns": [
+        "explanation"
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t10",
+        "primary_module_id": "9702_t10_m02",
+        "outcome_ids": [
+          "9702_t10_m02_o06",
+          "9702_t10_m02_o07"
+        ]
+      },
+      "skills": {
+        "primary_skill_id": "9702_skill_analyse_circuits",
+        "supporting_skill_ids": []
+      },
+      "knowledge_refs": {
+        "definition_ids": [],
+        "formula_ids": [
+          "9702_formula_parallel_resistance",
+          "9702_formula_ohms_law"
+        ]
+      },
+      "hints": [
+        "First decide how decreasing X changes the equivalent resistance of the parallel X–Y combination and hence the total circuit resistance.",
+        "The battery e.m.f. is fixed, so relate the changed total resistance to current and then to the p.d. across the fixed 32 Ω resistor Z."
+      ],
+      "walkthrough": [
+        "Decreasing R_X decreases the equivalent resistance of the parallel X–Y combination.",
+        "Since this combination is in series with Z, the total circuit resistance decreases.",
+        "With a fixed 6.0 V supply, the total current therefore increases.",
+        "The voltmeter measures the p.d. across the fixed resistor Z, so V_Z = IR_Z increases; the voltmeter reading increases."
+      ],
+      "checking": {
+        "mode": "ai",
+        "deterministic_checks": [],
+        "full_marks_if_all_deterministic_checks_pass": false,
+        "ai_rubric": [
+          {
+            "criterion_id": "9702_m19_22_q06_b_ii_mp01",
+            "observable": "Explains that decreasing R_X decreases the parallel equivalent resistance and therefore the total circuit resistance."
+          },
+          {
+            "criterion_id": "9702_m19_22_q06_b_ii_mp02",
+            "observable": "Concludes that the increased current produces a larger p.d. across Z, so the voltmeter reading increases."
+          }
+        ]
+      }
+    }
+  ]
+}

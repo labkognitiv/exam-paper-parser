@@ -1,0 +1,196 @@
+{
+  "schema_version": "9702_question_enrichment_v2",
+  "enrichment_id": "9702_s24_21_q06_enrichment",
+  "question_id": "9702_s24_21_q06",
+  "component": "P2",
+  "difficulty": 3,
+  "question_patterns": ["definition", "circuit_analysis", "multi_step_calculation", "explanation"],
+  "mapping": {
+    "topic_ids": ["9702_t10"],
+    "module_ids": ["9702_t10_m02", "9702_t10_m01"],
+    "outcome_ids": ["9702_t10_m02_o01", "9702_t10_m02_o03", "9702_t10_m01_o05", "9702_t10_m02_o06"]
+  },
+  "parts": [
+    {
+      "part_id": "9702_s24_21_q06_a",
+      "difficulty": 1,
+      "question_patterns": ["definition"],
+      "mapping": {
+        "primary_topic_id": "9702_t10",
+        "primary_module_id": "9702_t10_m02",
+        "outcome_ids": ["9702_t10_m02_o01"]
+      },
+      "skills": {
+        "primary_skill_id": "9702_skill_define_kirchhoffs_first_law",
+        "supporting_skill_ids": []
+      },
+      "knowledge_refs": {
+        "definition_ids": ["9702_def_kirchhoffs_first_law"],
+        "formula_ids": []
+      },
+      "hints": [
+        "Focus on a single circuit junction.",
+        "State how the total current entering that junction compares with the total current leaving it."
+      ],
+      "walkthrough": [
+        "Kirchhoff’s first law applies at a junction in a circuit.",
+        "Charge is conserved, so charge cannot accumulate at the junction.",
+        "Therefore the sum of currents entering a junction equals the sum of currents leaving it."
+      ],
+      "checking": {
+        "mode": "ai",
+        "deterministic_checks": [],
+        "full_marks_if_all_deterministic_checks_pass": false,
+        "ai_rubric": [
+          {"criterion_id": "9702_s24_21_q06_a_mp01", "observable": "States that the sum of currents entering a junction equals the sum of currents leaving it, or equivalently that the algebraic sum of currents at a junction is zero."}
+        ]
+      }
+    },
+    {
+      "part_id": "9702_s24_21_q06_b",
+      "difficulty": 2,
+      "question_patterns": ["circuit_analysis"],
+      "mapping": {
+        "primary_topic_id": "9702_t10",
+        "primary_module_id": "9702_t10_m02",
+        "outcome_ids": ["9702_t10_m02_o03"]
+      },
+      "skills": {
+        "primary_skill_id": "9702_skill_derive_series_resistance_from_kirchhoffs_laws",
+        "supporting_skill_ids": []
+      },
+      "knowledge_refs": {
+        "definition_ids": [],
+        "formula_ids": ["9702_formula_kirchhoff_second_law", "9702_formula_ohms_law", "9702_formula_series_resistance"]
+      },
+      "hints": [
+        "Apply the loop law to the two external resistors, so that the terminal p.d. is the sum of their p.d.s.",
+        "Replace each potential difference using V = IR; the same current passes through both series resistors."
+      ],
+      "walkthrough": [
+        "Kirchhoff’s second law for the external loop gives V = V₁ + V₂.",
+        "Using V = IR, this becomes IR_T = IR₁ + IR₂.",
+        "The current I is the same through all series components, so cancelling I gives R_T = R₁ + R₂."
+      ],
+      "checking": {
+        "mode": "ai",
+        "deterministic_checks": [],
+        "full_marks_if_all_deterministic_checks_pass": false,
+        "ai_rubric": [
+          {"criterion_id": "9702_s24_21_q06_b_mp01", "observable": "Uses Kirchhoff’s second law to state V = V₁ + V₂."},
+          {"criterion_id": "9702_s24_21_q06_b_mp02", "observable": "Substitutes V = IR to obtain IR_T = IR₁ + IR₂ and cancels I to show R_T = R₁ + R₂, or gives an equivalent derivation."}
+        ]
+      }
+    },
+    {
+      "part_id": "9702_s24_21_q06_c",
+      "difficulty": 3,
+      "question_patterns": ["circuit_analysis", "multi_step_calculation"],
+      "mapping": {
+        "primary_topic_id": "9702_t10",
+        "primary_module_id": "9702_t10_m01",
+        "outcome_ids": ["9702_t10_m01_o05"]
+      },
+      "skills": {
+        "primary_skill_id": "9702_skill_determine_source_internal_resistance",
+        "supporting_skill_ids": []
+      },
+      "knowledge_refs": {
+        "definition_ids": [],
+        "formula_ids": ["9702_formula_terminal_potential_difference", "9702_formula_ohms_law", "9702_formula_series_resistance"]
+      },
+      "hints": [
+        "The external resistance is R₁ + R₂ = 25 Ω, so use the terminal p.d. to find the circuit current.",
+        "The e.m.f. exceeds the terminal p.d. by the potential difference Ir across the cell's internal resistance."
+      ],
+      "walkthrough": [
+        "The 25 Ω external resistance has terminal p.d. 1.35 V, so I = 1.35 / 25 = 0.054 A.",
+        "For a source delivering current, ℰ = V + Ir, so r = (ℰ − V) / I.",
+        "Thus r = (1.50 − 1.35) / 0.054 = 2.8 Ω.",
+        "Equivalent routes are to use the potential-divider relation 0.15 / 1.35 = 25 / r, or to find total resistance 1.50 / 0.054 = 27.8 Ω and subtract 25 Ω."
+      ],
+      "checking": {
+        "mode": "ai",
+        "deterministic_checks": [],
+        "full_marks_if_all_deterministic_checks_pass": false,
+        "ai_rubric": [
+          {"criterion_id": "9702_s24_21_q06_c_mp01", "alternative_criterion_ids": ["9702_s24_21_q06_c_mp04", "9702_s24_21_q06_c_mp05"], "observable": "Finds the circuit current as 0.054 A from 1.35 V across 25 Ω, or uses the official potential-divider route."},
+          {"criterion_id": "9702_s24_21_q06_c_mp02", "alternative_criterion_ids": ["9702_s24_21_q06_c_mp06"], "observable": "Uses r = (ℰ − V) / I, or obtains the total resistance as 1.50 / 0.054 = 27.8 Ω and subtracts the 25 Ω external resistance."},
+          {"criterion_id": "9702_s24_21_q06_c_mp03", "alternative_criterion_ids": ["9702_s24_21_q06_c_mp07"], "observable": "Obtains r = 2.8 Ω by an accepted route."}
+        ]
+      }
+    },
+    {
+      "part_id": "9702_s24_21_q06_d_i",
+      "difficulty": 2,
+      "question_patterns": ["circuit_analysis"],
+      "mapping": {
+        "primary_topic_id": "9702_t10",
+        "primary_module_id": "9702_t10_m02",
+        "outcome_ids": ["9702_t10_m02_o06"]
+      },
+      "skills": {
+        "primary_skill_id": "9702_skill_analyse_parallel_branch_resistance_change",
+        "supporting_skill_ids": []
+      },
+      "knowledge_refs": {
+        "definition_ids": [],
+        "formula_ids": ["9702_formula_parallel_resistance"]
+      },
+      "hints": [
+        "R₃ provides an additional path between the same two junctions as the R₁–R₂ series branch.",
+        "Adding a parallel branch decreases the total circuit resistance while the cell e.m.f. is unchanged."
+      ],
+      "walkthrough": [
+        "In Fig. 6.2, R₃ is connected in parallel with the series combination R₁ + R₂.",
+        "Adding this parallel branch decreases the external resistance and hence the total circuit resistance.",
+        "With the e.m.f. unchanged, the current in the cell therefore increases."
+      ],
+      "checking": {
+        "mode": "ai",
+        "deterministic_checks": [],
+        "full_marks_if_all_deterministic_checks_pass": false,
+        "ai_rubric": [
+          {"criterion_id": "9702_s24_21_q06_d_i_mp01", "observable": "States that the total circuit resistance decreases when R₃ is added in parallel, with the e.m.f. unchanged."},
+          {"criterion_id": "9702_s24_21_q06_d_i_mp02", "observable": "States that the current in the cell increases."}
+        ]
+      }
+    },
+    {
+      "part_id": "9702_s24_21_q06_d_ii",
+      "difficulty": 2,
+      "question_patterns": ["explanation"],
+      "mapping": {
+        "primary_topic_id": "9702_t10",
+        "primary_module_id": "9702_t10_m01",
+        "outcome_ids": ["9702_t10_m01_o05"]
+      },
+      "skills": {
+        "primary_skill_id": "9702_skill_explain_emf_internal_resistance",
+        "supporting_skill_ids": []
+      },
+      "knowledge_refs": {
+        "definition_ids": [],
+        "formula_ids": ["9702_formula_terminal_potential_difference"]
+      },
+      "hints": [
+        "From part (d)(i), the current from the cell is greater after R₃ is added.",
+        "Use V = ℰ − Ir to relate the current increase to the potential difference lost inside the cell."
+      ],
+      "walkthrough": [
+        "Adding R₃ increases the current I drawn from the cell.",
+        "The potential difference across the unchanged internal resistance is Ir, so this internal voltage loss increases.",
+        "Since V = ℰ − Ir and the e.m.f. is unchanged, the terminal p.d. decreases."
+      ],
+      "checking": {
+        "mode": "ai",
+        "deterministic_checks": [],
+        "full_marks_if_all_deterministic_checks_pass": false,
+        "ai_rubric": [
+          {"criterion_id": "9702_s24_21_q06_d_ii_mp01", "observable": "States that the larger current produces a larger potential difference across the internal resistance."},
+          {"criterion_id": "9702_s24_21_q06_d_ii_mp02", "observable": "States that the terminal potential difference decreases."}
+        ]
+      }
+    }
+  ]
+}

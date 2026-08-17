@@ -1,0 +1,301 @@
+{
+  "schema_version": "9702_question_enrichment_v2",
+  "enrichment_id": "9702_s16_22_q07_enrichment",
+  "question_id": "9702_s16_22_q07",
+  "component": "P2",
+  "difficulty": 3,
+  "question_patterns": [
+    "definition",
+    "circuit_analysis",
+    "direct_calculation",
+    "comparison"
+  ],
+  "mapping": {
+    "topic_ids": [
+      "9702_t09",
+      "9702_t10"
+    ],
+    "module_ids": [
+      "9702_t09_m01",
+      "9702_t09_m03",
+      "9702_t10_m01"
+    ],
+    "outcome_ids": [
+      "9702_t09_m01_o02",
+      "9702_t09_m01_o04",
+      "9702_t09_m03_o06",
+      "9702_t10_m01_o05",
+      "9702_t10_m02_o04"
+    ]
+  },
+  "parts": [
+    {
+      "part_id": "9702_s16_22_q07_a",
+      "difficulty": 1,
+      "question_patterns": [
+        "definition"
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t09",
+        "primary_module_id": "9702_t09_m01",
+        "outcome_ids": [
+          "9702_t09_m01_o02"
+        ]
+      },
+      "skills": {
+        "primary_skill_id": "9702_skill_define_charge_quantisation",
+        "supporting_skill_ids": []
+      },
+      "knowledge_refs": {
+        "definition_ids": [
+          "9702_def_charge_quantisation"
+        ],
+        "formula_ids": []
+      },
+      "hints": [
+        "Say whether charge can take any continuous value or only distinct allowed amounts."
+      ],
+      "walkthrough": [
+        "Quantised means that only separate allowed values are possible.",
+        "Electric charge therefore exists only in discrete amounts, each an integer multiple of the elementary charge."
+      ],
+      "checking": {
+        "mode": "ai",
+        "deterministic_checks": [],
+        "full_marks_if_all_deterministic_checks_pass": false,
+        "ai_rubric": [
+          {
+            "criterion_id": "9702_s16_22_q07_a_mp01",
+            "observable": "States that charge exists only in discrete amounts, or integer multiples of the elementary charge."
+          }
+        ]
+      }
+    },
+    {
+      "part_id": "9702_s16_22_q07_b_i",
+      "difficulty": 2,
+      "question_patterns": [
+        "circuit_analysis"
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t10",
+        "primary_module_id": "9702_t10_m01",
+        "outcome_ids": [
+          "9702_t10_m01_o05",
+          "9702_t10_m02_o04"
+        ]
+      },
+      "skills": {
+        "primary_skill_id": "9702_skill_calculate_series_circuit_current_with_internal_resistance",
+        "supporting_skill_ids": []
+      },
+      "knowledge_refs": {
+        "definition_ids": [],
+        "formula_ids": [
+          "9702_formula_series_resistance",
+          "9702_formula_terminal_potential_difference"
+        ]
+      },
+      "hints": [
+        "Add every series resistor, including the battery's internal resistance.",
+        "Use the e.m.f. across the total resistance to determine current."
+      ],
+      "walkthrough": [
+        "The external resistance is 2.7 + 0.15 + 0.15 = 3.0 Ω.",
+        "Including internal resistance gives 3.25 Ω.",
+        "I = 9.0 / 3.25 = 2.77... A, so I = 2.8 A."
+      ],
+      "checking": {
+        "mode": "ai",
+        "deterministic_checks": [],
+        "full_marks_if_all_deterministic_checks_pass": false,
+        "ai_rubric": [
+          {
+            "criterion_id": "9702_s16_22_q07_b_i_mp01",
+            "observable": "Uses the complete-circuit e.m.f.–current–resistance relationship."
+          },
+          {
+            "criterion_id": "9702_s16_22_q07_b_i_mp02",
+            "observable": "Obtains total resistance 3.25 Ω including internal resistance."
+          },
+          {
+            "criterion_id": "9702_s16_22_q07_b_i_mp03",
+            "observable": "Obtains 2.8 A."
+          }
+        ]
+      }
+    },
+    {
+      "part_id": "9702_s16_22_q07_b_ii",
+      "difficulty": 2,
+      "question_patterns": [
+        "circuit_analysis"
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t10",
+        "primary_module_id": "9702_t10_m01",
+        "outcome_ids": [
+          "9702_t10_m01_o05"
+        ]
+      },
+      "skills": {
+        "primary_skill_id": "9702_skill_calculate_series_circuit_potential_difference",
+        "supporting_skill_ids": []
+      },
+      "knowledge_refs": {
+        "definition_ids": [],
+        "formula_ids": [
+          "9702_formula_terminal_potential_difference",
+          "9702_formula_ohms_law"
+        ]
+      },
+      "hints": [
+        "The terminal potential difference is the e.m.f. after the voltage lost across internal resistance.",
+        "Use the current from part (i) with r = 0.25 Ω."
+      ],
+      "walkthrough": [
+        "V = ε − Ir.",
+        "V = 9.0 − (2.77... × 0.25) = 8.31... V.",
+        "The potential difference across the battery is 8.3 V."
+      ],
+      "checking": {
+        "mode": "hybrid",
+        "deterministic_checks": [
+          {
+            "field_id": "9702_s16_22_q07_b_ii_field_02",
+            "type": "numeric_with_unit",
+            "accepted_value": 8.3,
+            "absolute_tolerance": 0.15,
+            "accepted_units": [
+              "V"
+            ]
+          }
+        ],
+        "full_marks_if_all_deterministic_checks_pass": true,
+        "ai_rubric": [
+          {
+            "criterion_id": "9702_s16_22_q07_b_ii_mp01",
+            "observable": "Uses V = IR for the external circuit or an equivalent terminal-potential-difference relationship."
+          },
+          {
+            "criterion_id": "9702_s16_22_q07_b_ii_mp02",
+            "observable": "Obtains about 8.3 V."
+          }
+        ]
+      }
+    },
+    {
+      "part_id": "9702_s16_22_q07_c_i",
+      "difficulty": 2,
+      "question_patterns": [
+        "direct_calculation"
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t09",
+        "primary_module_id": "9702_t09_m01",
+        "outcome_ids": [
+          "9702_t09_m01_o04"
+        ]
+      },
+      "skills": {
+        "primary_skill_id": "9702_skill_apply_drift_current",
+        "supporting_skill_ids": []
+      },
+      "knowledge_refs": {
+        "definition_ids": [],
+        "formula_ids": [
+          "9702_formula_current_drift"
+        ]
+      },
+      "hints": [
+        "Use I = Anvq and make drift speed the subject.",
+        "Convert the cross-sectional area from mm² to m² before substituting."
+      ],
+      "walkthrough": [
+        "I = Anvq, so v = I / (Anq).",
+        "A = 2.5 mm² = 2.5 × 10⁻⁶ m².",
+        "v = 2.77 / [(2.5 × 10⁻⁶)(8.5 × 10²⁹)(1.60 × 10⁻¹⁹)] = 8.15 × 10⁻⁶ m s⁻¹.",
+        "The average drift speed is 8.1 × 10⁻⁶ m s⁻¹."
+      ],
+      "checking": {
+        "mode": "hybrid",
+        "deterministic_checks": [
+          {
+            "field_id": "9702_s16_22_q07_c_i_field_02",
+            "type": "numeric_with_unit",
+            "accepted_value": 0.0000081,
+            "absolute_tolerance": 3E-7,
+            "accepted_units": [
+              "m s^-1",
+              "m s⁻¹"
+            ]
+          }
+        ],
+        "full_marks_if_all_deterministic_checks_pass": true,
+        "ai_rubric": [
+          {
+            "criterion_id": "9702_s16_22_q07_c_i_mp01",
+            "observable": "Uses I = Anvq and substitutes the current, carrier density, charge and cross-sectional area."
+          },
+          {
+            "criterion_id": "9702_s16_22_q07_c_i_mp02",
+            "observable": "Obtains a drift speed of about 8.1 × 10⁻⁶ m s⁻¹."
+          }
+        ]
+      }
+    },
+    {
+      "part_id": "9702_s16_22_q07_c_ii",
+      "difficulty": 3,
+      "question_patterns": [
+        "comparison"
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t09",
+        "primary_module_id": "9702_t09_m03",
+        "outcome_ids": [
+          "9702_t09_m01_o04",
+          "9702_t09_m03_o06"
+        ]
+      },
+      "skills": {
+        "primary_skill_id": "9702_skill_apply_drift_current",
+        "supporting_skill_ids": [
+          "9702_skill_apply_resistivity"
+        ]
+      },
+      "knowledge_refs": {
+        "definition_ids": [],
+        "formula_ids": [
+          "9702_formula_current_drift",
+          "9702_formula_resistivity"
+        ]
+      },
+      "hints": [
+        "Halving a wire diameter changes its area by the square of the diameter ratio.",
+        "Compare how that area change affects resistance, current and I = Anvq."
+      ],
+      "walkthrough": [
+        "Halving the diameter makes cross-sectional area one quarter.",
+        "R = ρL/A, so each Z resistor has four times the resistance of X.",
+        "Total resistance rises, so current decreases, but by less than four because internal resistance is unchanged.",
+        "With v = I/(Anq), area falls by four while current falls by less than four, so drift speed in Z is greater."
+      ],
+      "checking": {
+        "mode": "ai",
+        "deterministic_checks": [],
+        "full_marks_if_all_deterministic_checks_pass": false,
+        "ai_rubric": [
+          {
+            "criterion_id": "9702_s16_22_q07_c_ii_mp01",
+            "observable": "States that halving diameter reduces area to one quarter, or increases each wire resistance by four."
+          },
+          {
+            "criterion_id": "9702_s16_22_q07_c_ii_mp02",
+            "observable": "Explains that current falls by less than four because of the full circuit resistance, so drift speed increases."
+          }
+        ]
+      }
+    }
+  ]
+}

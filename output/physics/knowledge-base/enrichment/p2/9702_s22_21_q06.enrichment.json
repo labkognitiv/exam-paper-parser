@@ -1,0 +1,65 @@
+{
+  "schema_version": "9702_question_enrichment_v2",
+  "enrichment_id": "9702_s22_21_q06_enrichment",
+  "question_id": "9702_s22_21_q06",
+  "component": "P2",
+  "difficulty": 2,
+  "question_patterns": ["definition", "circuit_analysis", "explanation", "direct_calculation", "multi_step_calculation"],
+  "mapping": {"topic_ids": ["9702_t10", "9702_t09"], "module_ids": ["9702_t10_m02", "9702_t09_m02", "9702_t09_m03"], "outcome_ids": ["9702_t10_m02_o01", "9702_t09_m02_o03", "9702_t09_m03_o06", "9702_t09_m03_o02", "9702_t10_m02_o04", "9702_t09_m03_o07"]},
+  "parts": [{
+    "part_id": "9702_s22_21_q06_a",
+    "difficulty": 1,
+    "question_patterns": ["definition"],
+    "mapping": {"primary_topic_id": "9702_t10", "primary_module_id": "9702_t10_m02", "outcome_ids": ["9702_t10_m02_o01"]},
+    "skills": {"primary_skill_id": "9702_skill_define_kirchhoffs_first_law", "supporting_skill_ids": []},
+    "knowledge_refs": {"definition_ids": ["9702_def_kirchhoffs_first_law"], "formula_ids": []},
+    "hints": ["Think about conservation of charge at a circuit junction."],
+    "walkthrough": ["Charge cannot accumulate at a junction.", "Therefore, the total current entering a junction equals the total current leaving it."],
+    "checking": {"mode": "ai", "deterministic_checks": [], "full_marks_if_all_deterministic_checks_pass": false, "ai_rubric": [{"criterion_id": "9702_s22_21_q06_a_mp01", "observable": "States that the sum of currents entering a junction equals the sum leaving it, or gives the equivalent algebraic statement."}]}
+  }, {
+    "part_id": "9702_s22_21_q06_b_i",
+    "difficulty": 2,
+    "question_patterns": ["circuit_analysis", "explanation"],
+    "mapping": {"primary_topic_id": "9702_t09", "primary_module_id": "9702_t09_m02", "outcome_ids": ["9702_t09_m02_o03"]},
+    "skills": {"primary_skill_id": "9702_skill_analyse_circuits", "supporting_skill_ids": []},
+    "knowledge_refs": {"definition_ids": [], "formula_ids": ["9702_formula_electrical_power"]},
+    "hints": ["Resistors X and Y are connected in parallel, so compare the potential difference across each.", "Use the power relationship expressed in terms of potential difference and resistance."],
+    "walkthrough": ["Parallel resistors have the same potential difference across them.", "For the same V, P = V²/R, so the lower resistance dissipates the greater power.", "Since RY is less than RX, resistor Y dissipates more power."],
+    "checking": {"mode": "ai", "deterministic_checks": [], "full_marks_if_all_deterministic_checks_pass": false, "ai_rubric": [
+      {"criterion_id": "9702_s22_21_q06_b_i_mp01", "observable": "States that X and Y have the same potential difference because they are in parallel."},
+      {"criterion_id": "9702_s22_21_q06_b_i_mp02", "observable": "Uses P = V²/R, or P = VI with the corresponding current comparison."},
+      {"criterion_id": "9702_s22_21_q06_b_i_mp03", "observable": "Concludes that resistor Y dissipates more power."}
+    ]}
+  }, {
+    "part_id": "9702_s22_21_q06_b_ii",
+    "difficulty": 2,
+    "question_patterns": ["explanation"],
+    "mapping": {"primary_topic_id": "9702_t09", "primary_module_id": "9702_t09_m03", "outcome_ids": ["9702_t09_m03_o06"]},
+    "skills": {"primary_skill_id": "9702_skill_apply_resistivity", "supporting_skill_ids": []},
+    "knowledge_refs": {"definition_ids": [], "formula_ids": ["9702_formula_resistivity"]},
+    "hints": ["The wires have identical length and resistivity, so compare only the cross-sectional-area factor in R = ρL/A."],
+    "walkthrough": ["For fixed ρ and L, resistance is inversely proportional to cross-sectional area.", "Since RY is less than RX, resistor Y must have the larger cross-sectional area."],
+    "checking": {"mode": "ai", "deterministic_checks": [], "full_marks_if_all_deterministic_checks_pass": false, "ai_rubric": [{"criterion_id": "9702_s22_21_q06_b_ii_mp01", "observable": "Uses R = ρL/A and the fact that RX is greater than RY."}, {"criterion_id": "9702_s22_21_q06_b_ii_mp02", "observable": "Concludes that resistor Y has the larger cross-sectional area."}]}
+  }, {
+    "part_id": "9702_s22_21_q06_c_i",
+    "difficulty": 1,
+    "question_patterns": ["direct_calculation", "circuit_analysis"],
+    "mapping": {"primary_topic_id": "9702_t09", "primary_module_id": "9702_t09_m03", "outcome_ids": ["9702_t09_m03_o02"]},
+    "skills": {"primary_skill_id": "9702_skill_analyse_circuits", "supporting_skill_ids": []},
+    "knowledge_refs": {"definition_ids": [], "formula_ids": ["9702_formula_ohms_law"]},
+    "hints": ["The voltmeter reading is the potential difference across the 1800 Ω fixed resistor."],
+    "walkthrough": ["Use I = V/R for the fixed resistor.", "I = 5.4/1800 = 3.0 × 10⁻³ A."],
+    "checking": {"mode": "ai", "deterministic_checks": [], "full_marks_if_all_deterministic_checks_pass": false, "ai_rubric": [{"criterion_id": "9702_s22_21_q06_c_i_mp01", "observable": "Uses 5.4/1800 to obtain 3.0 × 10⁻³ A."}]}
+  }, {
+    "part_id": "9702_s22_21_q06_c_ii",
+    "difficulty": 2,
+    "question_patterns": ["multi_step_calculation", "circuit_analysis"],
+    "mapping": {"primary_topic_id": "9702_t10", "primary_module_id": "9702_t10_m02", "outcome_ids": ["9702_t10_m02_o04"]},
+    "skills": {"primary_skill_id": "9702_skill_calculate_series_circuit_potential_difference", "supporting_skill_ids": []},
+    "knowledge_refs": {"definition_ids": [], "formula_ids": ["9702_formula_ohms_law", "9702_formula_series_resistance"]},
+    "hints": ["Use either the same current with the remaining 3.6 V, or the series voltage-divider ratio."],
+    "walkthrough": ["The LDR has 9.0 − 5.4 = 3.6 V across it and carries 3.0 × 10⁻³ A.", "RL = 3.6/(3.0 × 10⁻³) = 1200 Ω."],
+    "checking": {"mode": "ai", "deterministic_checks": [], "full_marks_if_all_deterministic_checks_pass": false, "ai_rubric": [{"criterion_id": "9702_s22_21_q06_c_ii_mp01", "observable": "Uses an accepted voltage-divider or current route."}, {"criterion_id": "9702_s22_21_q06_c_ii_mp02", "observable": "Obtains 1200 Ω."}]}
+  }, {"part_id":"9702_s22_21_q06_c_iii","difficulty":2,"question_patterns":["explanation","circuit_analysis"],"mapping":{"primary_topic_id":"9702_t09","primary_module_id":"9702_t09_m03","outcome_ids":["9702_t09_m03_o07"]},"skills":{"primary_skill_id":"9702_skill_analyse_circuits","supporting_skill_ids":[]},"knowledge_refs":{"definition_ids":[],"formula_ids":["9702_formula_ohms_law"]},"hints":["An LDR's resistance falls when light intensity increases; follow the effect on the series current."],"walkthrough":["Increasing light intensity decreases the LDR resistance.","The total series resistance decreases, so the circuit current increases.","The fixed resistor has V = IR, so its voltmeter reading increases."],"checking":{"mode":"ai","deterministic_checks":[],"full_marks_if_all_deterministic_checks_pass":false,"ai_rubric":[{"criterion_id":"9702_s22_21_q06_c_iii_mp01","observable":"States that the LDR resistance decreases."},{"criterion_id":"9702_s22_21_q06_c_iii_mp02","observable":"Explains that current and the fixed-resistor voltmeter reading increase."}]}}
+  ]
+}

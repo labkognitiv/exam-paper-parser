@@ -1,0 +1,187 @@
+{
+  "schema_version": "9702_question_enrichment_v2",
+  "enrichment_id": "9702_s16_22_q02_enrichment",
+  "question_id": "9702_s16_22_q02",
+  "component": "P2",
+  "difficulty": 2,
+  "question_patterns": [
+    "multi_step_calculation",
+    "graph_interpretation",
+    "direct_calculation"
+  ],
+  "mapping": {
+    "topic_ids": [
+      "9702_t04"
+    ],
+    "module_ids": [
+      "9702_t04_m03"
+    ],
+    "outcome_ids": [
+      "9702_t04_m03_o03",
+      "9702_t04_m03_o04"
+    ]
+  },
+  "parts": [
+    {
+      "part_id": "9702_s16_22_q02_a",
+      "difficulty": 2,
+      "question_patterns": [
+        "multi_step_calculation"
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t04",
+        "primary_module_id": "9702_t04_m03",
+        "outcome_ids": [
+          "9702_t04_m03_o03"
+        ]
+      },
+      "skills": {
+        "primary_skill_id": "9702_skill_apply_hydrostatic_pressure",
+        "supporting_skill_ids": []
+      },
+      "knowledge_refs": {
+        "definition_ids": [],
+        "formula_ids": [
+          "9702_formula_pressure_force",
+          "9702_formula_density",
+          "9702_formula_weight"
+        ]
+      },
+      "hints": [
+        "Start with pressure as force divided by area; the force on the base is the weight of the liquid column.",
+        "Express the liquid mass as density times volume, then use the cylinder volume A × h before simplifying."
+      ],
+      "walkthrough": [
+        "Pressure on the base is p = F / A.",
+        "The force F is the weight of the liquid, so F = mg.",
+        "The liquid mass is m = ρV, and the volume of the cylindrical column is V = Ah.",
+        "Substitute these expressions: p = (ρAhg) / A.",
+        "Cancel A to obtain p = ρgh."
+      ],
+      "checking": {
+        "mode": "ai",
+        "deterministic_checks": [],
+        "full_marks_if_all_deterministic_checks_pass": false,
+        "ai_rubric": [
+          {
+            "criterion_id": "9702_s16_22_q02_a_mp01",
+            "observable": "Starts the derivation with pressure as force divided by base area."
+          },
+          {
+            "criterion_id": "9702_s16_22_q02_a_mp02",
+            "observable": "Expresses the liquid weight using m = ρV and uses the cylindrical volume V = Ah."
+          },
+          {
+            "criterion_id": "9702_s16_22_q02_a_mp03",
+            "observable": "Substitutes and simplifies to obtain p = ρgh."
+          }
+        ]
+      }
+    },
+    {
+      "part_id": "9702_s16_22_q02_b_i",
+      "difficulty": 1,
+      "question_patterns": [
+        "graph_interpretation"
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t04",
+        "primary_module_id": "9702_t04_m03",
+        "outcome_ids": [
+          "9702_t04_m03_o03"
+        ]
+      },
+      "skills": {
+        "primary_skill_id": "9702_skill_interpret_graphs",
+        "supporting_skill_ids": []
+      },
+      "knowledge_refs": {
+        "definition_ids": [],
+        "formula_ids": []
+      },
+      "hints": [
+        "Interpret the pressure-axis intercept at h = 0 by separating the liquid's contribution from the total pressure."
+      ],
+      "walkthrough": [
+        "At h = 0, there is no liquid column, so the pressure due to the liquid is zero.",
+        "However, air above the liquid still exerts atmospheric pressure on the surface and hence on the base.",
+        "The total pressure is therefore non-zero at h = 0, giving a positive pressure-axis intercept."
+      ],
+      "checking": {
+        "mode": "ai",
+        "deterministic_checks": [],
+        "full_marks_if_all_deterministic_checks_pass": false,
+        "ai_rubric": [
+          {
+            "criterion_id": "9702_s16_22_q02_b_i_mp01",
+            "observable": "Explains that atmospheric pressure remains when the liquid height is zero."
+          }
+        ]
+      }
+    },
+    {
+      "part_id": "9702_s16_22_q02_b_ii",
+      "difficulty": 2,
+      "question_patterns": [
+        "graph_interpretation",
+        "direct_calculation"
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t04",
+        "primary_module_id": "9702_t04_m03",
+        "outcome_ids": [
+          "9702_t04_m03_o04"
+        ]
+      },
+      "skills": {
+        "primary_skill_id": "9702_skill_apply_hydrostatic_pressure",
+        "supporting_skill_ids": [
+          "9702_skill_interpret_graphs"
+        ]
+      },
+      "knowledge_refs": {
+        "definition_ids": [],
+        "formula_ids": [
+          "9702_formula_hydrostatic_pressure"
+        ]
+      },
+      "hints": [
+        "Use two well-separated points on the line and calculate the pressure change divided by the height change, so atmospheric pressure cancels.",
+        "The gradient of the total-pressure graph is ρg; divide the gradient by g to obtain the density."
+      ],
+      "walkthrough": [
+        "Read two points from the graph: at h = 0, P = 1.0 × 10⁵ Pa, and at h = 0.75 m, P = 2.0 × 10⁵ Pa.",
+        "The gradient is ΔP / Δh = (2.0 × 10⁵ − 1.0 × 10⁵) / 0.75 = 1.33 × 10⁵ Pa m⁻¹.",
+        "For a liquid, the pressure gradient is ρg, so ρg = 1.33 × 10⁵ Pa m⁻¹.",
+        "ρ = (1.33 × 10⁵) / 9.81 = 1.36 × 10⁴ kg m⁻³.",
+        "To two significant figures, the density is 1.4 × 10⁴ kg m⁻³."
+      ],
+      "checking": {
+        "mode": "hybrid",
+        "deterministic_checks": [
+          {
+            "field_id": "9702_s16_22_q02_b_ii_field_02",
+            "type": "numeric_with_unit",
+            "accepted_value": 14000,
+            "absolute_tolerance": 700,
+            "accepted_units": [
+              "kg m^-3",
+              "kg m⁻³"
+            ]
+          }
+        ],
+        "full_marks_if_all_deterministic_checks_pass": true,
+        "ai_rubric": [
+          {
+            "criterion_id": "9702_s16_22_q02_b_ii_mp01",
+            "observable": "Relates the graph gradient to ρg, or subtracts the atmospheric-pressure intercept before applying p = ρgh."
+          },
+          {
+            "criterion_id": "9702_s16_22_q02_b_ii_mp02",
+            "observable": "Uses graph data to obtain a density of about 14 000 kg m⁻³."
+          }
+        ]
+      }
+    }
+  ]
+}

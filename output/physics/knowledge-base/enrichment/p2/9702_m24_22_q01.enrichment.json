@@ -1,0 +1,176 @@
+{
+  "schema_version": "9702_question_enrichment_v2",
+  "enrichment_id": "9702_m24_22_q01_enrichment",
+  "question_id": "9702_m24_22_q01",
+  "component": "P2",
+  "difficulty": 2,
+  "question_patterns": [
+    "classification",
+    "direct_calculation",
+    "multi_step_calculation"
+  ],
+  "mapping": {
+    "topic_ids": [
+      "9702_t01"
+      ,"9702_t07"
+    ],
+    "module_ids": [
+      "9702_t01_m02",
+      "9702_t07_m01"
+    ],
+    "outcome_ids": [
+      "9702_t01_m02_o01",
+      "9702_t01_m02_o02",
+      "9702_t07_m01_o07"
+    ]
+  },
+  "parts": [
+    {
+      "part_id": "9702_m24_22_q01_a",
+      "difficulty": 1,
+      "question_patterns": [
+        "classification"
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t01",
+        "primary_module_id": "9702_t01_m02",
+        "outcome_ids": [
+          "9702_t01_m02_o01"
+        ]
+      },
+      "skills": {
+        "primary_skill_id": "9702_skill_recall_si_base_units",
+        "supporting_skill_ids": []
+      },
+      "knowledge_refs": {
+        "definition_ids": [],
+        "formula_ids": []
+      },
+      "hints": [
+        "Separate quantities defined independently in the SI system from quantities formed by combining other quantities."
+      ],
+      "walkthrough": [
+        "The SI base quantities include mass and electric current; each has its own base unit, kilogram and ampere respectively.",
+        "Energy is derived from work done and force is derived from mass and acceleration, so neither is an SI base quantity.",
+        "Tick current and mass only."
+      ],
+      "checking": {
+        "mode": "ai",
+        "deterministic_checks": [],
+        "full_marks_if_all_deterministic_checks_pass": false,
+        "ai_rubric": [
+          {
+            "criterion_id": "9702_m24_22_q01_a_mp01",
+            "observable": "Ticks current and mass, with energy and force left unticked."
+          }
+        ]
+      }
+    },
+    {
+      "part_id": "9702_m24_22_q01_b",
+      "difficulty": 2,
+      "question_patterns": [
+        "direct_calculation"
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t01",
+        "primary_module_id": "9702_t01_m02",
+        "outcome_ids": [
+          "9702_t01_m02_o02"
+        ]
+      },
+      "skills": {
+        "primary_skill_id": "9702_skill_derive_si_base_units",
+        "supporting_skill_ids": [
+          "9702_skill_define_power"
+        ]
+      },
+      "knowledge_refs": {
+        "definition_ids": [
+          "9702_def_power"
+        ],
+        "formula_ids": [
+          "9702_formula_power_energy_time"
+        ]
+      },
+      "hints": [
+        "Begin with power as a rate: identify the energy-transfer quantity and the time quantity in its definition.",
+        "Use joule as kg m² s⁻², then divide by the unit second and combine the time powers."
+      ],
+      "walkthrough": [
+        "Power is work done, or energy transferred, per unit time: P = W / t.",
+        "Work done has the SI unit joule, J = kg m² s⁻².",
+        "Therefore the unit of power is J s⁻¹ = (kg m² s⁻²) / s.",
+        "Combining the time factors gives the SI base units kg m² s⁻³."
+      ],
+      "checking": {
+        "mode": "ai",
+        "deterministic_checks": [],
+        "full_marks_if_all_deterministic_checks_pass": false,
+        "ai_rubric": [
+          {
+            "criterion_id": "9702_m24_22_q01_b_mp01",
+            "observable": "Uses power as work done or energy transferred divided by time."
+          },
+          {
+            "criterion_id": "9702_m24_22_q01_b_mp02",
+            "observable": "Converts J s⁻¹ to the SI base units kg m² s⁻³."
+          }
+        ]
+      }
+    },
+    {
+      "part_id": "9702_m24_22_q01_c",
+      "difficulty": 2,
+      "question_patterns": [
+        "multi_step_calculation"
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t07",
+        "primary_module_id": "9702_t07_m01",
+        "outcome_ids": [
+          "9702_t07_m01_o07"
+        ]
+      },
+      "skills": {
+        "primary_skill_id": "9702_skill_apply_wave_intensity",
+        "supporting_skill_ids": []
+      },
+      "knowledge_refs": {
+        "definition_ids": [],
+        "formula_ids": [
+          "9702_formula_wave_intensity_power_area"
+        ]
+      },
+      "hints": [
+        "Intensity is power per unit area, so rearrange that relationship for the power reaching the sensor.",
+        "Convert the sensor area from cm² to m² before multiplying by the intensity in W m⁻²."
+      ],
+      "walkthrough": [
+        "For light incident normally on the sensor, the power received is intensity multiplied by sensor area: P = IA.",
+        "Convert the area: 2.2 cm² = 2.2 × 10⁻⁴ m².",
+        "Substitute the intensity and area: P = 950 × 2.2 × 10⁻⁴ W.",
+        "This gives P = 0.209 W, which to two significant figures is 0.21 W."
+      ],
+      "checking": {
+        "mode": "ai",
+        "deterministic_checks": [],
+        "full_marks_if_all_deterministic_checks_pass": false,
+        "ai_rubric": [
+          {
+            "criterion_id": "9702_m24_22_q01_c_mp01",
+            "observable": "Uses P = IA, or an equivalent rearrangement of intensity as power per area."
+          },
+          {
+            "criterion_id": "9702_m24_22_q01_c_mp02",
+            "observable": "Converts the sensor area to 2.2 × 10⁻⁴ m² and substitutes it with the stated intensity."
+          },
+          {
+            "criterion_id": "9702_m24_22_q01_c_mp03",
+            "observable": "Obtains the power of the incident daylight as 0.21 W."
+          }
+        ]
+      }
+    }
+  ]
+}

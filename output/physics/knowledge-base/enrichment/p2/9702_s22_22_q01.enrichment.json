@@ -1,0 +1,162 @@
+{
+  "schema_version": "9702_question_enrichment_v2",
+  "enrichment_id": "9702_s22_22_q01_enrichment",
+  "question_id": "9702_s22_22_q01",
+  "component": "P2",
+  "difficulty": 2,
+  "question_patterns": [
+    "classification",
+    "uncertainty_analysis"
+  ],
+  "mapping": {
+    "topic_ids": [
+      "9702_t01"
+    ],
+    "module_ids": [
+      "9702_t01_m02",
+      "9702_t01_m03"
+    ],
+    "outcome_ids": [
+      "9702_t01_m02_o01",
+      "9702_t01_m03_o03"
+    ]
+  },
+  "parts": [
+    {
+      "part_id": "9702_s22_22_q01_a",
+      "difficulty": 1,
+      "question_patterns": [
+        "classification"
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t01",
+        "primary_module_id": "9702_t01_m02",
+        "outcome_ids": [
+          "9702_t01_m02_o01"
+        ]
+      },
+      "skills": {
+        "primary_skill_id": "9702_skill_recall_si_base_units",
+        "supporting_skill_ids": []
+      },
+      "knowledge_refs": {
+        "definition_ids": [],
+        "formula_ids": []
+      },
+      "hints": [
+        "Sort the listed terms into SI base units, named derived units and other temperature scales."
+      ],
+      "walkthrough": [
+        "An SI base unit is the unit for a base physical quantity, rather than a unit formed by combining other units.",
+        "The ampere is the SI base unit for electric current and the kilogram is the SI base unit for mass.",
+        "The newton is a derived unit for force, while degree Celsius is not an SI base unit.",
+        "Therefore underline ampere and kilogram only."
+      ],
+      "checking": {
+        "mode": "ai",
+        "deterministic_checks": [],
+        "full_marks_if_all_deterministic_checks_pass": false,
+        "ai_rubric": [
+          {
+            "criterion_id": "9702_s22_22_q01_a_mp01",
+            "observable": "Underlines ampere and kilogram, with neither degree Celsius nor newton selected."
+          }
+        ]
+      }
+    },
+    {
+      "part_id": "9702_s22_22_q01_b_i",
+      "difficulty": 2,
+      "question_patterns": [
+        "uncertainty_analysis"
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t01",
+        "primary_module_id": "9702_t01_m03",
+        "outcome_ids": [
+          "9702_t01_m03_o03"
+        ]
+      },
+      "skills": {
+        "primary_skill_id": "9702_skill_uncertainty",
+        "supporting_skill_ids": []
+      },
+      "knowledge_refs": {
+        "definition_ids": [],
+        "formula_ids": []
+      },
+      "hints": [
+        "Use the powers in the expression for E to decide how many times each stated percentage uncertainty contributes.",
+        "Add the contributions from k and M, then include two lots of the percentage uncertainty in T."
+      ],
+      "walkthrough": [
+        "For quantities multiplied or divided together, add their percentage uncertainties; a quantity raised to a power contributes that many times its percentage uncertainty.",
+        "In E = kM / T², k contributes 2.1% and M contributes 0.6%.",
+        "Because T is squared, its 1.5% uncertainty contributes 2 × 1.5% = 3.0%.",
+        "The total percentage uncertainty is 2.1% + 0.6% + 3.0% = 5.7%."
+      ],
+      "checking": {
+        "mode": "ai",
+        "deterministic_checks": [],
+        "full_marks_if_all_deterministic_checks_pass": false,
+        "ai_rubric": [
+          {
+            "criterion_id": "9702_s22_22_q01_b_i_mp01",
+            "observable": "Adds the 2.1% and 0.6% contributions and doubles the 1.5% uncertainty because T is squared."
+          },
+          {
+            "criterion_id": "9702_s22_22_q01_b_i_mp02",
+            "observable": "States the percentage uncertainty in E as 5.7%."
+          }
+        ]
+      }
+    },
+    {
+      "part_id": "9702_s22_22_q01_b_ii",
+      "difficulty": 2,
+      "question_patterns": [
+        "uncertainty_analysis"
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t01",
+        "primary_module_id": "9702_t01_m03",
+        "outcome_ids": [
+          "9702_t01_m03_o03"
+        ]
+      },
+      "skills": {
+        "primary_skill_id": "9702_skill_uncertainty",
+        "supporting_skill_ids": []
+      },
+      "knowledge_refs": {
+        "definition_ids": [],
+        "formula_ids": []
+      },
+      "hints": [
+        "Turn the percentage uncertainty from part (b)(i) into a decimal fraction before applying it to the calculated value of E.",
+        "After finding the absolute uncertainty, round it suitably and round E to the same place value in the stated power of ten."
+      ],
+      "walkthrough": [
+        "The percentage uncertainty is 5.7%, so the corresponding fractional uncertainty is 5.7 / 100 = 0.057.",
+        "Multiply this fraction by the calculated value: ΔE = 0.057 × 8.245 × 10⁹ Pa = 4.70 × 10⁸ Pa.",
+        "This is 0.470 × 10⁹ Pa, which rounds to 0.5 × 10⁹ Pa to one significant figure.",
+        "Round the central value to the same decimal place in the coefficient: E = (8.2 ± 0.5) × 10⁹ Pa."
+      ],
+      "checking": {
+        "mode": "ai",
+        "deterministic_checks": [],
+        "full_marks_if_all_deterministic_checks_pass": false,
+        "ai_rubric": [
+          {
+            "criterion_id": "9702_s22_22_q01_b_ii_mp01",
+            "observable": "Calculates the absolute uncertainty as about 4.7 × 10⁸ Pa, or equivalently 0.47 × 10⁹ Pa, from the 5.7% uncertainty."
+          },
+          {
+            "criterion_id": "9702_s22_22_q01_b_ii_mp02",
+            "observable": "Reports E as (8.2 ± 0.5) × 10⁹ Pa with the central value and uncertainty rounded consistently."
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,276 @@
+{
+  "schema_version": "9702_question_enrichment_v2",
+  "enrichment_id": "9702_s17_21_q03_enrichment",
+  "question_id": "9702_s17_21_q03",
+  "component": "P2",
+  "difficulty": 3,
+  "question_patterns": [
+    "multi_step_calculation",
+    "definition",
+    "explanation",
+    "direct_calculation"
+  ],
+  "mapping": {
+    "topic_ids": [
+      "9702_t04"
+    ],
+    "module_ids": [
+      "9702_t04_m03",
+      "9702_t04_m01",
+      "9702_t04_m02"
+    ],
+    "outcome_ids": [
+      "9702_t04_m03_o01",
+      "9702_t04_m01_o01",
+      "9702_t04_m02_o01",
+      "9702_t04_m03_o05"
+    ]
+  },
+  "parts": [
+    {
+      "part_id": "9702_s17_21_q03_a",
+      "difficulty": 3,
+      "question_patterns": [
+        "multi_step_calculation"
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t04",
+        "primary_module_id": "9702_t04_m03",
+        "outcome_ids": [
+          "9702_t04_m03_o01"
+        ]
+      },
+      "skills": {
+        "primary_skill_id": "9702_skill_apply_density",
+        "supporting_skill_ids": []
+      },
+      "knowledge_refs": {
+        "definition_ids": [],
+        "formula_ids": [
+          "9702_formula_density",
+          "9702_formula_weight"
+        ]
+      },
+      "hints": [
+        "Convert density to kg m⁻³ and both cylinder dimensions to metres."
+      ],
+      "walkthrough": [
+        "Density 2.7 g cm⁻³=2.7×10³ kg m⁻³; radius=1.2×10⁻² m and length=5.0×10⁻² m.",
+        "Cylinder volume V=πr²L=π(1.2×10⁻²)²(5.0×10⁻²)=2.262×10⁻⁵ m³.",
+        "Mass=ρV=(2.7×10³)(2.262×10⁻⁵)=0.0611 kg.",
+        "Weight=mg=0.0611×9.81=0.599 N≈0.60 N."
+      ],
+      "checking": {
+        "mode": "ai",
+        "deterministic_checks": [],
+        "full_marks_if_all_deterministic_checks_pass": false,
+        "ai_rubric": [
+          {
+            "criterion_id": "9702_s17_21_q03_a_mp01",
+            "observable": "Uses ρ=m/V or m=ρV."
+          },
+          {
+            "criterion_id": "9702_s17_21_q03_a_mp02",
+            "observable": "Uses V=πr²L or πd²L/4 with converted dimensions."
+          },
+          {
+            "criterion_id": "9702_s17_21_q03_a_mp03",
+            "observable": "Obtains weight 0.60 N."
+          }
+        ]
+      }
+    },
+    {
+      "part_id": "9702_s17_21_q03_b_i",
+      "difficulty": 1,
+      "question_patterns": [
+        "definition"
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t04",
+        "primary_module_id": "9702_t04_m01",
+        "outcome_ids": [
+          "9702_t04_m01_o01"
+        ]
+      },
+      "skills": {
+        "primary_skill_id": "9702_skill_define_centre_of_gravity",
+        "supporting_skill_ids": []
+      },
+      "knowledge_refs": {
+        "definition_ids": [
+          "9702_def_centre_of_gravity"
+        ],
+        "formula_ids": []
+      },
+      "hints": [
+        "Think about replacing the gravitational forces distributed through a body by one equivalent resultant."
+      ],
+      "walkthrough": [
+        "A body’s weight acts throughout its mass distribution.",
+        "For analysing forces and moments, this distributed effect is equivalent to the whole weight acting at one point.",
+        "That point is the centre of gravity."
+      ],
+      "checking": {
+        "mode": "ai",
+        "deterministic_checks": [],
+        "full_marks_if_all_deterministic_checks_pass": false,
+        "ai_rubric": [
+          {
+            "criterion_id": "9702_s17_21_q03_b_i_mp01",
+            "observable": "Defines centre of gravity as the point through which the entire weight appears to act."
+          }
+        ]
+      }
+    },
+    {
+      "part_id": "9702_s17_21_q03_b_ii",
+      "difficulty": 3,
+      "question_patterns": [
+        "direct_calculation"
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t04",
+        "primary_module_id": "9702_t04_m02",
+        "outcome_ids": [
+          "9702_t04_m02_o01"
+        ]
+      },
+      "skills": {
+        "primary_skill_id": "9702_skill_equilibrium",
+        "supporting_skill_ids": []
+      },
+      "knowledge_refs": {
+        "definition_ids": [],
+        "formula_ids": [
+          "9702_formula_moment"
+        ]
+      },
+      "hints": [
+        "Take moments about pivot P; use the distances of X, the bar’s centre of gravity, and the cylinder from P."
+      ],
+      "walkthrough": [
+        "The clockwise moment of X is W×12 cm.",
+        "The anticlockwise moments are 0.25×8 N cm from the bar and 0.60×38 N cm from the cylinder.",
+        "Equilibrium gives 12W=(0.25×8)+(0.60×38)=2.0+22.8=24.8 N cm.",
+        "W=24.8/12=2.07 N≈2.1 N."
+      ],
+      "checking": {
+        "mode": "hybrid",
+        "deterministic_checks": [
+          {
+            "field_id": "9702_s17_21_q03_b_ii_field_02",
+            "type": "numeric_with_unit",
+            "accepted_value": 2.07,
+            "absolute_tolerance": 0.06,
+            "accepted_units": [
+              "N"
+            ]
+          }
+        ],
+        "full_marks_if_all_deterministic_checks_pass": true,
+        "ai_rubric": [
+          {
+            "criterion_id": "9702_s17_21_q03_b_ii_mp01",
+            "observable": "Forms the moment W×12 about P."
+          },
+          {
+            "criterion_id": "9702_s17_21_q03_b_ii_mp02",
+            "observable": "Includes moments 0.25×8 and 0.60×38 on the opposite side."
+          },
+          {
+            "criterion_id": "9702_s17_21_q03_b_ii_mp03",
+            "observable": "Solves to obtain W≈2.1 N."
+          }
+        ]
+      }
+    },
+    {
+      "part_id": "9702_s17_21_q03_c_i",
+      "difficulty": 2,
+      "question_patterns": [
+        "explanation"
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t04",
+        "primary_module_id": "9702_t04_m03",
+        "outcome_ids": [
+          "9702_t04_m03_o05"
+        ]
+      },
+      "skills": {
+        "primary_skill_id": "9702_skill_explain_upthrust",
+        "supporting_skill_ids": []
+      },
+      "knowledge_refs": {
+        "definition_ids": [],
+        "formula_ids": []
+      },
+      "hints": [
+        "Compare water pressure on the cylinder’s upper and lower faces."
+      ],
+      "walkthrough": [
+        "Hydrostatic pressure increases with depth.",
+        "The lower face is deeper, so it experiences greater pressure than the upper face.",
+        "Pressure acting over the faces therefore produces a larger upward force on the bottom than the downward force on the top.",
+        "Their resultant is the upward upthrust."
+      ],
+      "checking": {
+        "mode": "ai",
+        "deterministic_checks": [],
+        "full_marks_if_all_deterministic_checks_pass": false,
+        "ai_rubric": [
+          {
+            "criterion_id": "9702_s17_21_q03_c_i_mp01",
+            "observable": "States that pressure increases with depth or differs between top and bottom."
+          },
+          {
+            "criterion_id": "9702_s17_21_q03_c_i_mp02",
+            "observable": "Explains that greater pressure/force on the bottom produces a resultant upward force."
+          }
+        ]
+      }
+    },
+    {
+      "part_id": "9702_s17_21_q03_c_ii",
+      "difficulty": 1,
+      "question_patterns": [
+        "explanation"
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t04",
+        "primary_module_id": "9702_t04_m02",
+        "outcome_ids": [
+          "9702_t04_m02_o01"
+        ]
+      },
+      "skills": {
+        "primary_skill_id": "9702_skill_equilibrium",
+        "supporting_skill_ids": []
+      },
+      "knowledge_refs": {
+        "definition_ids": [],
+        "formula_ids": []
+      },
+      "hints": [
+        "Immersion reduces the cylinder’s effective downward force; consider how this changes its moment about P."
+      ],
+      "walkthrough": [
+        "Upthrust reduces the net downward force at A, so the anticlockwise moment about P decreases.",
+        "The clockwise moment due to X initially remains unchanged and would now exceed the anticlockwise moment.",
+        "Reducing X’s weight reduces its clockwise moment until clockwise and anticlockwise moments are equal again."
+      ],
+      "checking": {
+        "mode": "ai",
+        "deterministic_checks": [],
+        "full_marks_if_all_deterministic_checks_pass": false,
+        "ai_rubric": [
+          {
+            "criterion_id": "9702_s17_21_q03_c_ii_mp01",
+            "observable": "Explains that immersion reduces the anticlockwise moment, so X must be reduced to lower the clockwise moment and restore balance."
+          }
+        ]
+      }
+    }
+  ]
+}
