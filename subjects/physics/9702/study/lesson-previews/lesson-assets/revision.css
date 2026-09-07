@@ -1,0 +1,37 @@
+/* Small additions; original lesson typography, colours and flow retained. */
+.top{flex-wrap:wrap}.top .brand{margin-right:auto}.top button{white-space:nowrap}
+.quick-check{margin:24px 0}.check-label{font-size:16px;color:var(--muted);margin-bottom:10px}.check-options{display:flex;gap:12px}.check-options button{flex:1;text-align:left;padding:12px 16px;background:white;color:var(--ink);border:1px solid var(--divider);font:inherit;cursor:pointer}.check-options button[aria-pressed=true]{border:2px solid var(--blue);padding:11px 15px}.check-feedback{font-size:18px;margin:12px 0}.check-feedback:empty{display:none}
+.definition{position:relative}.collect-gem{display:block;margin:0 0 12px auto;border:1px solid var(--green);background:white;color:var(--green);padding:7px 12px;font:inherit;font-size:16px;cursor:pointer}.collect-gem:disabled{cursor:default;opacity:1}
+#gem-sidebar{box-sizing:border-box;position:fixed;inset:0 0 0 auto;margin:0;height:100dvh;max-height:100dvh;width:420px;max-width:100vw;border:0;border-left:1px solid var(--divider);padding:28px;background:white;color:var(--ink);overflow-y:auto;font:inherit}#gem-sidebar::backdrop{background:rgba(32,39,34,.25)}.gem-heading{display:flex;align-items:center;justify-content:space-between;gap:16px}.gem-heading h2{margin:0;font-size:32px}.gem-heading button{font:inherit;background:white;border:1px solid var(--divider);padding:6px 12px;cursor:pointer}.gem-storage-note,.gem-meta{font-size:15px;color:var(--muted)}#gem-list{list-style:none;padding:0}#gem-list li{border-top:1px solid var(--divider);padding:18px 0}#gem-list h3{margin:4px 0;color:var(--green)}#gem-list p{margin:6px 0}.sr-only{position:absolute;width:1px;height:1px;padding:0;overflow:hidden;clip-path:inset(50%);white-space:nowrap}button:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
+@media(max-width:700px){.check-options{flex-direction:column}.top .brand{flex-basis:100%}.top{gap:12px}#gem-sidebar{padding:22px}}
+@media print{.quick-check,.collect-gem,#open-gems,#gem-sidebar,#gem-announcement{display:none!important}}
+
+#gem-list .katex{font-size:1em}#gem-list .katex-display{overflow-x:auto;padding:8px 0}
+
+.gem-remove{font:inherit;font-size:14px;background:white;color:var(--muted);border:0;text-decoration:underline;cursor:pointer;padding:4px 0}
+.check-options button{white-space:normal;min-width:0;overflow-wrap:break-word}.top #gem-count{display:inline}
+
+/* Check-ins form a complete, recognisable pause in the lesson. */
+.quick-check{--check-accent:#285dac;--check-tint:#edf4ff;--check-border:#b9cfea;margin:28px 0;padding:24px;border:1px solid var(--check-border);border-top:4px solid var(--check-accent);border-radius:14px;background:var(--check-tint);box-shadow:0 4px 14px rgba(35,53,79,.06);transition:box-shadow .18s ease,border-color .18s ease}
+.quick-check[data-tone=violet]{--check-accent:#70469a;--check-tint:#f6f0fc;--check-border:#d9c7e9}
+.quick-check .check-label{color:var(--check-accent);font-weight:700;letter-spacing:.04em;font-size:14px;margin:0 0 12px}
+.quick-check .check-question{font-size:22px;line-height:1.45;font-weight:600;color:var(--ink);margin:0 0 20px}
+.quick-check .check-options button{border-radius:9px;border:1px solid var(--check-border);padding:14px 16px;box-shadow:0 2px 3px rgba(30,40,50,.03);transition:background .16s ease,box-shadow .16s ease,transform .16s ease,border-color .16s ease}
+.quick-check .check-options button[aria-pressed=true]{border:2px solid var(--check-accent);padding:13px 15px;background:#fff;box-shadow:0 0 0 2px color-mix(in srgb,var(--check-accent) 12%,transparent)}
+.quick-check .check-feedback{border-radius:8px;padding:14px 16px;margin:18px 0 0;background:white;border-left:3px solid var(--check-accent);font-size:18px}
+.quick-check[data-result=correct] .check-feedback{background:#e8f5ed;border-color:#28734a;color:#205438}
+.quick-check[data-result=incorrect] .check-feedback{background:#fff0e5;border-color:#aa5125;color:#793d20}
+@media(hover:hover){.quick-check:hover{box-shadow:0 7px 22px rgba(35,53,79,.1)}.quick-check .check-options button:hover{transform:translateY(-2px);border-color:var(--check-accent);box-shadow:0 5px 12px rgba(35,53,79,.12)}.collect-gem:not(:disabled):hover,#open-gems:hover{background:#edf6f0;box-shadow:0 3px 9px rgba(24,70,45,.12)}.definition:hover,.formula-box:hover{box-shadow:0 4px 14px rgba(35,53,79,.07)}}
+.collect-gem,#open-gems,.definition,.formula-box{transition:box-shadow .18s ease,background .18s ease}
+@media(max-width:700px){.quick-check{padding:18px;margin:24px 0}.quick-check .check-question{font-size:20px}.quick-check .check-options button{font-size:18px}}
+@media(prefers-reduced-motion:reduce){.quick-check,.quick-check .check-options button,.collect-gem,#open-gems,.definition,.formula-box{transition:none!important;transform:none!important}}
+
+/* One shared card colour, requested 2026-09-07. */
+:root{--lesson-card-bg:#edf4ff;--lesson-card-border:#b9cfea}
+.quick-check,.quick-check[data-tone=violet]{--check-accent:#285dac;--check-tint:var(--lesson-card-bg);--check-border:var(--lesson-card-border)}
+.definition,.formula-box,.comparison{background:var(--lesson-card-bg);border-color:var(--lesson-card-border)}
+.comparison>div+div{border-color:var(--lesson-card-border)}
+.quick-check .check-options button,.quick-check .check-options button[aria-pressed=true],.quick-check .check-feedback,.quick-check[data-result=correct] .check-feedback,.quick-check[data-result=incorrect] .check-feedback{background:var(--lesson-card-bg);color:var(--ink)}
+.quick-check[data-result=correct] .check-feedback,.quick-check[data-result=incorrect] .check-feedback{border-color:var(--blue)}
+#gem-list li{background:var(--lesson-card-bg);border:1px solid var(--lesson-card-border);border-radius:10px;padding:16px;margin:14px 0}
+@media print{.definition,.formula-box,.comparison{background:white}}
