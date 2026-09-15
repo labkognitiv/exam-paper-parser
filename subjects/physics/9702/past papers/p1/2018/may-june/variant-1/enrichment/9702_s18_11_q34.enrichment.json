@@ -1,0 +1,60 @@
+{
+  "schema_version": "9702_p1_enrichment_v1",
+  "question_id": "9702_s18_11_q34",
+  "component": "P1",
+  "difficulty": 3,
+  "question_patterns": [
+    "circuit_analysis",
+    "multi_step_calculation"
+  ],
+  "topic_id": "9702_t10",
+  "module_id": "9702_t10_m01",
+  "skill_id": "9702_skill_kirchhoffs_laws",
+  "accepted_answer": "C",
+  "options_breakdown": {
+    "A": {
+      "status": "incorrect",
+      "explanation": "Reverses the left and right branches, giving $I_1$ negative and $I_3 = 6.5\\text{ A}$, which does not satisfy the $15\\text{ V}$ left loop and $9\\text{ V}$ right loop."
+    },
+    "B": {
+      "status": "incorrect",
+      "explanation": "Swaps $I_1$ and $I_3$ values, so the larger $3.5\\text{ A}$ current is wrongly placed in the $9\\text{ V}$ loop instead of the $15\\text{ V}$ loop."
+    },
+    "C": {
+      "status": "correct",
+      "explanation": "Satisfies $I_2 = I_1 + I_3$ with $4.0 = 3.5 + 0.5$ and both loop equations with the $15\\text{ V}$, $9\\text{ V}$ batteries and $2.0\\text{ }\\Omega$ resistors."
+    },
+    "D": {
+      "status": "incorrect",
+      "explanation": "Gives $I_1 = 6.5\\text{ A}$ and negative $I_3$, which would require about $13\\text{ V}$ across the left $2.0\\text{ }\\Omega$ resistor alone and fails Kirchhoff voltage checks."
+    }
+  },
+  "hints": [
+    "Notice the bottom wire is common and the top has two separate loops sharing the middle $2.0\\text{ }\\Omega$ resistor carrying $I_2$ downward.",
+    "Apply Kirchhoff first law at the top middle junction to relate $I_1$, $I_2$ and $I_3$, noting $I_1$ and $I_3$ are both drawn upward into the top wire.",
+    "Apply Kirchhoff second law to the left loop with the $15\\text{ V}$ battery and to the right loop with the $9\\text{ V}$ battery, each loop containing two $2.0\\text{ }\\Omega$ resistors."
+  ],
+  "walkthrough": [
+    "Let the bottom common wire be $0\\text{ V}$ and the top middle junction be $V$. The middle $2.0\\text{ }\\Omega$ resistor has current $I_2$ downward, so $V - 0 = 2.0I_2$.",
+    "At the top middle junction, $I_1$ and $I_3$ flow in from the sides and $I_2$ flows out downward, so Kirchhoff first law gives $I_2 = I_1 + I_3$.",
+    "For the left loop, going from the bottom up the left resistor then through the $15\\text{ V}$ battery to the middle junction gives $2.0I_1 + 2.0I_2 = 15$. This is because both batteries are oriented to push positive charge toward the middle junction.",
+    "For the right loop, similarly $2.0I_3 + 2.0I_2 = 9$. Solving with $I_2 = I_1 + I_3$ gives $I_2 = 4.0\\text{ A}$, then $I_1 = (15 - 2.0 \\times 4.0)/2.0 = 3.5\\text{ A}$ and $I_3 = (9 - 2.0 \\times 4.0)/2.0 = 0.5\\text{ A}$.",
+    "Check: $3.5 + 0.5 = 4.0$, and $V = 2.0 \\times 4.0 = 8.0\\text{ V}$ is consistent with both batteries. This is option C."
+  ],
+  "mapping": {
+    "primary_topic_id": "9702_t10",
+    "primary_module_id": "9702_t10_m01",
+    "outcome_ids": [
+      "9702_t10_m01_o02",
+      "9702_t10_m01_o01"
+    ]
+  },
+  "taxonomy_tags": {
+    "topic_ids": [
+      "9702_t10"
+    ],
+    "module_ids": [
+      "9702_t10_m01"
+    ]
+  }
+}

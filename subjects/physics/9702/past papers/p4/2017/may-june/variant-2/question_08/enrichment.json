@@ -1,0 +1,212 @@
+{
+  "schema_version": "9702_theory_enrichment_v1",
+  "question_id": "9702_s17_42_q08",
+  "difficulty": 3,
+  "question_patterns": [
+    "circuit_analysis",
+    "explanation"
+  ],
+  "parts": [
+    {
+      "part_id": "9702_s17_42_q08_a_i",
+      "label": "(a)(i)",
+      "marks": 1,
+      "difficulty": 1,
+      "question_patterns": [
+        "circuit_analysis"
+      ],
+      "key_concepts": [
+        "input vs processing vs output devices",
+        "LED as output device"
+      ],
+      "hints": [
+        "Hint 1: Think about the flow of information - which components sense the environment and which components show something to the user?"
+      ],
+      "proper_answer": "Circle around both LEDs (B and G) on the right of the output.",
+      "walkthrough": [
+        "Step 1: **Spot the Input, Process and Output**\nThink of any sensing circuit in three blocks. Inputs sense the world, here component C (thermistor) and the variable resistor. Processing decides, here the op-amp comparator. Outputs show the result to the user.",
+        "Step 2: **Identify the LEDs**\nThe two LEDs labelled B (blue) and G (green) give light out to show the state of the circuit. They are both output devices, so circle around both of them."
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t24",
+        "primary_module_id": "9702_t24_m01",
+        "outcome_ids": [
+          "9702_t24_m01_o04",
+          "9702_t24_m01_o06"
+        ]
+      },
+      "primary_topic_id": "9702_t24",
+      "primary_module_id": "9702_t24_m01",
+      "outcome_ids": [
+        "9702_t24_m01_o04",
+        "9702_t24_m01_o06"
+      ]
+    },
+    {
+      "part_id": "9702_s17_42_q08_a_ii",
+      "label": "(a)(ii)",
+      "marks": 2,
+      "difficulty": 2,
+      "question_patterns": [
+        "explanation"
+      ],
+      "key_concepts": [
+        "comparator circuit",
+        "thermistor sensing",
+        "temperature indicator"
+      ],
+      "hints": [
+        "Hint 1: Look at what changes the input voltages - component C has the thermistor symbol, so what physical quantity must it be sensing?",
+        "Hint 2: The op-amp has two different LEDs on its output, only one can be on at a time - what kind of yes/no decision about temperature would that show?"
+      ],
+      "proper_answer": "To indicate whether temperature is above or below a preset set value by lighting the blue or green LED.",
+      "walkthrough": [
+        "Step 1: **What Does Component C Do?**\nComponent C is a thermistor whose resistance changes with temperature. It forms a potential divider with $R_V$ to give a temperature-dependent voltage to the $+$ input of the op-amp.",
+        "Step 2: **Comparator Plus Two Colours**\nThe op-amp is used open-loop as a comparator. It compares the thermistor divider voltage with a fixed $3\\text{ V}$ reference from X and Y. Its output saturates positive or negative, lighting either the blue LED or the green LED. So the whole circuit is a temperature comparator indicator showing if temperature is high or low relative to the set point."
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t14",
+        "primary_module_id": "9702_t14_m02",
+        "outcome_ids": [
+          "9702_t14_m02_o01",
+          "9702_t14_m02_o04"
+        ]
+      },
+      "primary_topic_id": "9702_t14",
+      "primary_module_id": "9702_t14_m02",
+      "outcome_ids": [
+        "9702_t14_m02_o01",
+        "9702_t14_m02_o04"
+      ]
+    },
+    {
+      "part_id": "9702_s17_42_q08_b_i",
+      "label": "(b)(i)",
+      "marks": 3,
+      "difficulty": 3,
+      "question_patterns": [
+        "circuit_analysis",
+        "explanation"
+      ],
+      "key_concepts": [
+        "potential divider",
+        "op-amp comparator action",
+        "LED forward bias"
+      ],
+      "hints": [
+        "Hint 1: Start with the two potential dividers - with X = Y, what is $V^-$? How does a large C affect the share of 6 V across $R_V$ and hence $V^+$?",
+        "Hint 2: Recall the comparator rule comparing $V^+$ and $V^-$ to decide if the output saturates to about +5 V or -5 V.",
+        "Hint 3: Think about which LED direction allows current to flow for a negative output voltage compared to 0 V ground."
+      ],
+      "proper_answer": "Green light is emitted. $V^- = 3\\text{ V}$ and $V^+ < 3\\text{ V}$, so $V^- > V^+$. Op-amp output saturates negative. Green LED is forward biased and conducts, blue LED is reverse biased and off.",
+      "walkthrough": [
+        "Step 1: **Find the Two Input Voltages**\nThe left divider X and Y are equal, so: $$V^- = \\frac{R}{R+R} \\times 6\\text{ V} = 3.0\\text{ V}$$ The right divider is C on top and $R_V$ at the bottom to earth, so: $$V^+ = \\frac{R_V}{R_C + R_V} \\times 6\\text{ V}$$ If $R_C > R_V$, most of the 6 V drops across C and only a small p.d. is left across $R_V$. So $V^+ < 3\\text{ V}$. Hence $V^- > V^+$.",
+        "Step 2: **Apply the Comparator Rule**\nYou can remember it simply: if $V^+ > V^-$ output goes high to near $+5\\text{ V}$, if $V^- > V^+$ output goes low to near $-5\\text{ V}$. Here $V^-$ wins, so the output saturates negative.",
+        "Step 3: **Which LED Can Conduct?**\nThe bottom of both LEDs is at $0\\text{ V}$ (earth). The top is at about $-5\\text{ V}$. Current can only flow from $0\\text{ V}$ down to $-5\\text{ V}$, i.e. upwards through the LED. The green LED G is connected in that forward direction, so it conducts and emits green light. The blue LED B is reverse biased, so it stays off. Only green is on."
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t12",
+        "primary_module_id": "9702_t12_m01",
+        "outcome_ids": [
+          "9702_t12_m01_o03",
+          "9702_t12_m01_o01"
+        ]
+      },
+      "primary_topic_id": "9702_t12",
+      "primary_module_id": "9702_t12_m01",
+      "outcome_ids": [
+        "9702_t12_m01_o03",
+        "9702_t12_m01_o01"
+      ]
+    },
+    {
+      "part_id": "9702_s17_42_q08_b_ii",
+      "label": "(b)(ii)",
+      "marks": 3,
+      "difficulty": 3,
+      "question_patterns": [
+        "circuit_analysis",
+        "explanation"
+      ],
+      "key_concepts": [
+        "thermistor resistance change",
+        "comparator switching",
+        "LED switching"
+      ],
+      "hints": [
+        "Hint 1: If C gets smaller, what happens to its share of the 6 V and to the voltage $V^+$ across $R_V$?",
+        "Hint 2: At some point $V^+$ will cross the fixed 3 V level - how does that change the sign of $V^+ - V^-$ and the output polarity?",
+        "Hint 3: Link the new positive output to forward and reverse bias of the two oppositely connected LEDs."
+      ],
+      "proper_answer": "Resistance of C falls until $R_C < R_V$, so $V^+ > V^-$. Output saturates positive. Green LED goes out (reverse biased) and blue LED comes on (forward biased).",
+      "walkthrough": [
+        "Step 1: **$V^+$ Rises as C Falls**\nReducing $R_C$ reduces the p.d. across C and increases the p.d. across $R_V$. From $$V^+ = \\frac{R_V}{R_C + R_V} \\times 6\\text{ V}$$ $V^+$ increases. Eventually $R_C$ becomes less than $R_V$ and $V^+$ rises above the $3\\text{ V}$ reference, so $V^+ > V^-$.",
+        "Step 2: **Output Switches Polarity**\nThe comparator now flips to positive saturation, near $+5\\text{ V}$. This is the key switching action - a small change in divider voltage causes a large swing in output.",
+        "Step 3: **LEDs Swap Over**\nNow the top of the LEDs is at $+5\\text{ V}$ and the bottom at $0\\text{ V}$, so current can only flow downwards. The blue LED B is forward in this direction, so it turns on and emits blue light. The green LED G is now reverse biased, so the green light goes out."
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t19",
+        "primary_module_id": "9702_t19_m01",
+        "outcome_ids": [
+          "9702_t19_m01_o02",
+          "9702_t19_m01_o03"
+        ]
+      },
+      "primary_topic_id": "9702_t19",
+      "primary_module_id": "9702_t19_m01",
+      "outcome_ids": [
+        "9702_t19_m01_o02",
+        "9702_t19_m01_o03"
+      ]
+    },
+    {
+      "part_id": "9702_s17_42_q08_c",
+      "label": "(c)",
+      "marks": 1,
+      "difficulty": 2,
+      "question_patterns": [
+        "explanation"
+      ],
+      "key_concepts": [
+        "variable resistor as threshold control",
+        "calibration of comparator"
+      ],
+      "hints": [
+        "Hint 1: Think about what sets the value of $V^+$ needed to equal 3 V - which component can you adjust?"
+      ],
+      "proper_answer": "To adjust the value of $R_V$ and hence set the temperature at which the LEDs switch over.",
+      "walkthrough": [
+        "Step 1: **Setting the Trip Point**\nSwitching happens when $R_C = R_V$, because then $V^+ = 3\\text{ V} = V^-$. By changing $R_V$ you change the resistance value of the thermistor (and therefore the temperature) at which this equality occurs. So $R_V$ calibrates the threshold temperature."
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t14",
+        "primary_module_id": "9702_t14_m02",
+        "outcome_ids": [
+          "9702_t14_m02_o01",
+          "9702_t14_m02_o04"
+        ]
+      },
+      "primary_topic_id": "9702_t14",
+      "primary_module_id": "9702_t14_m02",
+      "outcome_ids": [
+        "9702_t14_m02_o01",
+        "9702_t14_m02_o04"
+      ]
+    }
+  ],
+  "total_marks": 10,
+  "taxonomy_tags": {
+    "topic_ids": [
+      "9702_t12",
+      "9702_t14",
+      "9702_t19",
+      "9702_t24"
+    ],
+    "module_ids": [
+      "9702_t12_m01",
+      "9702_t14_m02",
+      "9702_t19_m01",
+      "9702_t24_m01"
+    ]
+  }
+}

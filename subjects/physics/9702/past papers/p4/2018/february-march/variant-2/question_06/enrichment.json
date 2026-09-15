@@ -1,0 +1,131 @@
+{
+  "schema_version": "9702_theory_enrichment_v1",
+  "question_id": "9702_m18_42_q06",
+  "difficulty": 2,
+  "question_patterns": [
+    "graph_interpretation"
+  ],
+  "parts": [
+    {
+      "part_id": "9702_m18_42_q06_a_i",
+      "label": "(a)(i)",
+      "marks": 1,
+      "difficulty": 1,
+      "question_patterns": [
+        "graph_interpretation"
+      ],
+      "key_concepts": [
+        "sampling of analogue signal",
+        "quantisation with 1.0 mV LSB",
+        "4-bit binary conversion"
+      ],
+      "hints": [
+        "Hint 1: Find $t = 0.25\\text{ ms}$ on the time axis of Fig. 6.2, go straight up to the curve and then straight across to read the signal voltage in $\\text{mV}$."
+      ],
+      "proper_answer": "$5.0\\text{ mV} = 0101$",
+      "walkthrough": [
+        "Step 1: **Read the sampled voltage**\nThink of the ADC as taking a snapshot. At $t = 0.25\\text{ ms}$ the curve in Fig. 6.2 passes through $5.0\\text{ mV}$.",
+        "Step 2: **Convert to 4-bit binary**\nWith the smallest bit representing $1.0\\text{ mV}$, the number is just the voltage value in binary. $$5 = 4 + 1 = 0101$$ So the ADC outputs $0101$."
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t19",
+        "primary_module_id": "9702_t19_m02",
+        "outcome_ids": [
+          "9702_t19_m02_o01",
+          "9702_t19_m02_o02"
+        ]
+      },
+      "primary_topic_id": "9702_t19",
+      "primary_module_id": "9702_t19_m02",
+      "outcome_ids": [
+        "9702_t19_m02_o01",
+        "9702_t19_m02_o02"
+      ]
+    },
+    {
+      "part_id": "9702_m18_42_q06_a_ii",
+      "label": "(a)(ii)",
+      "marks": 1,
+      "difficulty": 1,
+      "question_patterns": [
+        "graph_interpretation"
+      ],
+      "key_concepts": [
+        "sampling of analogue signal",
+        "quantisation level",
+        "4-bit binary conversion"
+      ],
+      "hints": [
+        "Hint 1: Find $t = 1.25\\text{ ms}$ on Fig. 6.2 and read across to the voltage axis, remembering the ADC can only output whole $1.0\\text{ mV}$ steps so you take the whole-number level."
+      ],
+      "proper_answer": "$8\\text{ mV} = 1000$",
+      "walkthrough": [
+        "Step 1: **Read the sampled voltage**\nAt $t = 1.25\\text{ ms}$ the smooth curve is at about $8$ to $9\\text{ mV}$. The ADC only records complete $1.0\\text{ mV}$ levels, so this sample is recorded as $8\\text{ mV}$.",
+        "Step 2: **Convert to 4-bit binary**\nWrite 8 as a 4-bit binary number: $$8 = 8 + 0 + 0 + 0 = 1000$$ So the ADC outputs $1000$."
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t19",
+        "primary_module_id": "9702_t19_m02",
+        "outcome_ids": [
+          "9702_t19_m02_o01",
+          "9702_t19_m02_o02"
+        ]
+      },
+      "primary_topic_id": "9702_t19",
+      "primary_module_id": "9702_t19_m02",
+      "outcome_ids": [
+        "9702_t19_m02_o01",
+        "9702_t19_m02_o02"
+      ]
+    },
+    {
+      "part_id": "9702_m18_42_q06_b",
+      "label": "(b)",
+      "marks": 4,
+      "difficulty": 3,
+      "question_patterns": [
+        "graph_interpretation"
+      ],
+      "key_concepts": [
+        "ADC sampling interval",
+        "DAC staircase output",
+        "quantisation and step height"
+      ],
+      "hints": [
+        "Hint 1: List the sampling times from $t = 0$ to $t = 1.50\\text{ ms}$ using the given $0.25\\text{ ms}$ interval and read each corresponding voltage from Fig. 6.2.",
+        "Hint 2: Round each reading down to the nearest whole $1.0\\text{ mV}$ level, since that is what the 4-bit ADC can store.",
+        "Hint 3: Remember what a DAC does between samples - it holds its last value constant until the next sample arrives, so think about the shape this makes.",
+        "Hint 4: Check the vertical scale on Fig. 6.3 is in $\\text{mV}$ and the horizontal steps must line up exactly with $0, 0.25, 0.50, 0.75, 1.00, 1.25, 1.50\\text{ ms}$."
+      ],
+      "proper_answer": "Staircase with horizontal steps changing at every $0.25\\text{ ms}$: 0 mV (0-0.25 ms), 5 mV (0.25-0.50 ms), 10 mV (0.50-0.75 ms), 12 mV (0.75-1.00 ms), 15 mV (1.00-1.25 ms), 8 mV (1.25-1.50 ms).",
+      "walkthrough": [
+        "Step 1: **Sample the original at every 0.25 ms**\nYou are taking snapshots of Fig. 6.2. Reading across gives roughly: $$t = 0: 0\\text{ mV}$$ $$t = 0.25\\text{ ms}: 5\\text{ mV}$$ $$t = 0.50\\text{ ms}: 10\\text{ mV}$$ $$t = 0.75\\text{ ms}: 12\\text{ mV}$$ $$t = 1.00\\text{ ms}: 15\\text{ mV}$$ $$t = 1.25\\text{ ms}: 8\\text{ mV}$$ $$t = 1.50\\text{ ms}: 5\\text{ mV}$$",
+        "Step 2: **Hold each value until the next sample**\nA DAC cannot follow the smooth curve. It outputs the last received digital level as a steady voltage, then jumps suddenly when the next sample arrives. That is why the reconstruction is a series of flat horizontal steps, not a smooth line.",
+        "Step 3: **Draw the staircase on Fig. 6.3**\nStart at 0 mV from $t = 0$ to $0.25\\text{ ms}$, then jump to 5 mV to $0.50\\text{ ms}$, then 10 mV to $0.75\\text{ ms}$, then 12 mV to $1.00\\text{ ms}$, then 15 mV to $1.25\\text{ ms}$, then 8 mV to $1.50\\text{ ms}$. Each vertical change lines up exactly with a multiple of $0.25\\text{ ms}$ with no time delay."
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t23",
+        "primary_module_id": "9702_t23_m02",
+        "outcome_ids": [
+          "9702_t23_m02_o05"
+        ]
+      },
+      "primary_topic_id": "9702_t23",
+      "primary_module_id": "9702_t23_m02",
+      "outcome_ids": [
+        "9702_t23_m02_o05"
+      ]
+    }
+  ],
+  "total_marks": 6,
+  "taxonomy_tags": {
+    "topic_ids": [
+      "9702_t19",
+      "9702_t23"
+    ],
+    "module_ids": [
+      "9702_t19_m02",
+      "9702_t23_m02"
+    ]
+  }
+}

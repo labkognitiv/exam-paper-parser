@@ -1,0 +1,145 @@
+{
+  "schema_version": "9702_theory_enrichment_v1",
+  "question_id": "9702_w17_41_q07",
+  "difficulty": 3,
+  "question_patterns": [
+    "explanation",
+    "algebraic_derivation",
+    "graph_interpretation",
+    "direct_calculation"
+  ],
+  "parts": [
+    {
+      "part_id": "9702_w17_41_q07_a_i",
+      "label": "(a)(i)",
+      "marks": 4,
+      "difficulty": 2,
+      "question_patterns": [
+        "explanation"
+      ],
+      "key_concepts": [
+        "ideal op-amp open-loop gain",
+        "non-inverting input earthed",
+        "negative feedback and saturation",
+        "virtual earth"
+      ],
+      "hints": [
+        "Hint 1: Start by looking at where the two op-amp inputs are connected in Fig. 7.1. What is the potential of the + input, and what is point P connected to?",
+        "Hint 2: Recall the size of the open-loop gain of an ideal op-amp and how output voltage is related to the difference between the two inputs.",
+        "Hint 3: Think about what would happen if there was even a tiny voltage difference between P and earth. Would the output stay within the +9.0 V to -9.0 V supply limits?",
+        "Hint 4: Link negative feedback through R2 to how any difference is automatically corrected, leaving P at almost 0 V without being directly wired to earth."
+      ],
+      "proper_answer": "Ideal op-amp has very large open-loop gain. V+ is connected to earth so V+ = 0 V. Since $V_{OUT} = A(V+ - V-)$, for $V_{OUT}$ not to saturate, $(V+ - V-)$ must be essentially zero. Hence $V- \\approx V+ = 0$ V, so point P is at earth potential but not directly earthed, a virtual earth maintained by negative feedback.",
+      "walkthrough": [
+        "Step 1: **Spot the earthed input**\nYou can see in Fig. 7.1 that the non-inverting input marked + is wired straight to the earth line. That means $V+ = 0\\text{ V}$ all the time. Point P is wired to the inverting input marked -, so the voltage at P is $V-$.",
+        "Step 2: **Remember how huge the gain is**\nFor any op-amp, $$V_{OUT} = A_0 \\times (V+ - V-)$$ where $A_0$ is the open-loop gain. For an ideal op-amp $A_0$ is taken as infinite, in practice very large, e.g. $10^5$.",
+        "Step 3: **See why the inputs must be almost equal**\nThe output cannot exceed the supply rails of $+9.0\\text{ V}$ to $-9.0\\text{ V}$. If $(V+ - V-)$ was even a millivolt, $A_0$ times that would try to drive the output to thousands of volts and it would saturate. So in normal linear operation with negative feedback, $$(V+ - V-) \\approx 0$$",
+        "Step 4: **Explain virtual earth**\nSince $V+ = 0\\text{ V}$, then $V- \\approx 0\\text{ V}$ too. Point P therefore sits at about earth potential. It is called virtual because it is not directly connected to earth, it is held there by the action of the feedback through $R_2$. If $V-$ tries to rise, the output goes negative and pulls it back down until $V- = V+$ when stable."
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t18",
+        "primary_module_id": "9702_t18_m05",
+        "outcome_ids": [
+          "9702_t18_m05_o03",
+          "9702_t18_m05_o04"
+        ]
+      },
+      "primary_topic_id": "9702_t18",
+      "primary_module_id": "9702_t18_m05",
+      "outcome_ids": [
+        "9702_t18_m05_o03",
+        "9702_t18_m05_o04"
+      ]
+    },
+    {
+      "part_id": "9702_w17_41_q07_a_ii",
+      "label": "(a)(ii)",
+      "marks": 4,
+      "difficulty": 3,
+      "question_patterns": [
+        "algebraic_derivation"
+      ],
+      "key_concepts": [
+        "infinite input impedance",
+        "current conservation at virtual earth",
+        "inverting amplifier gain"
+      ],
+      "hints": [
+        "Hint 1: Use the virtual earth result from (i) to write down the potential at P, then think about the p.d. across R1 between VIN and P.",
+        "Hint 2: Recall the ideal op-amp property for current entering the inputs, and decide what this means for the current through R1 compared to the current through R2.",
+        "Hint 3: Write Ohm's law $I = V/R$ separately for the current in R1 and the current in R2, taking care with signs for VOUT.",
+        "Hint 4: Equate the two currents and rearrange to get $V_{OUT}/V_{IN}$ in terms of R1 and R2 only."
+      ],
+      "proper_answer": "Ideal op-amp has infinite input impedance so no current enters P. Current in $R_1$ = current in $R_2$. With $V_P = 0$, $I = (V_{IN}-0)/R_1 = (0-V_{OUT})/R_2$. Hence gain $G = V_{OUT}/V_{IN} = -R_2/R_1$.",
+      "walkthrough": [
+        "Step 1: **Use no current into the op-amp**\nAn ideal op-amp has infinite input impedance, so essentially zero current flows into the - input at P. That is really helpful because the current arriving through $R_1$ has nowhere else to go except through $R_2$. So $$I_{R1} = I_{R2} = I$$",
+        "Step 2: **Write the current in R1**\nLeft end of $R_1$ is at $V_{IN}$, right end at P which is at $0\\text{ V}$ from the virtual earth idea. The p.d. across $R_1$ is $V_{IN} - 0$. By Ohm's law: $$I = \\frac{V_{IN} - 0}{R_1}$$",
+        "Step 3: **Write the current in R2**\nLeft end of $R_2$ is at P ($0\\text{ V}$), right end is at $V_{OUT}$. The p.d. from P to output is $0 - V_{OUT}$, driving the same current $I$ through $R_2$: $$I = \\frac{0 - V_{OUT}}{R_2}$$",
+        "Step 4: **Equate and find gain**\nEquating the two expressions for $I$: $$\\frac{V_{IN}}{R_1} = \\frac{-V_{OUT}}{R_2}$$ Rearranging for the closed-loop voltage gain: $$\\frac{V_{OUT}}{V_{IN}} = -\\frac{R_2}{R_1}$$ The minus sign shows inversion: a positive input gives a negative output."
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t18",
+        "primary_module_id": "9702_t18_m05",
+        "outcome_ids": [
+          "9702_t18_m05_o03",
+          "9702_t18_m05_o04"
+        ]
+      },
+      "primary_topic_id": "9702_t18",
+      "primary_module_id": "9702_t18_m05",
+      "outcome_ids": [
+        "9702_t18_m05_o03",
+        "9702_t18_m05_o04"
+      ]
+    },
+    {
+      "part_id": "9702_w17_41_q07_b",
+      "label": "(b)",
+      "marks": 3,
+      "difficulty": 3,
+      "question_patterns": [
+        "graph_interpretation",
+        "direct_calculation"
+      ],
+      "key_concepts": [
+        "inverting gain magnitude",
+        "op-amp saturation at supply rails",
+        "transfer of input waveform to output"
+      ],
+      "hints": [
+        "Hint 1: First find the numerical voltage gain from your expression in (a)(ii) using $R_2/R_1 = 4.5$, and note its sign.",
+        "Hint 2: Calculate what $V_{OUT}$ would be without limits when $V_{IN} = 3.0\\text{ V}$, and compare with the -9.0 V supply to see that saturation must occur.",
+        "Hint 3: Work out the input voltage at which saturation just starts, then sketch how $V_{OUT}$ falls from zero, clips flat, then rises back as $V_{IN}$ falls."
+      ],
+      "proper_answer": "Gain $= -4.5$. Unsaturated $V_{OUT} = -4.5 V_{IN}$. Saturation at $-9.0\\text{ V}$ occurs when $V_{IN} = 2.0\\text{ V}$. $V_{OUT}$ is an inverted ramp from 0 to $-9.0\\text{ V}$, then flat at $-9.0\\text{ V}$ while $V_{IN} > 2.0\\text{ V}$, then ramp back to 0 in step with $V_{IN}$ falling to 0.",
+      "walkthrough": [
+        "Step 1: **Find the gain and ideal output**\nFrom (a)(ii): $$G = -\\frac{R_2}{R_1} = -4.5$$ So ideally $$V_{OUT} = -4.5 \\times V_{IN}$$ A positive-going $V_{IN}$ gives a negative-going $V_{OUT}$ with 4.5 times the size.",
+        "Step 2: **Find where clipping starts**\nThe output cannot go more negative than the $-9.0\\text{ V}$ rail. Set the ideal value equal to the rail: $$-4.5 \\times V_{IN} = -9.0$$ $$V_{IN} = 2.0\\text{ V}$$ From Fig. 7.2, $V_{IN}$ rises from 0 to $3.0\\text{ V}$, so for all $V_{IN}$ above $2.0\\text{ V}$ the output is stuck at $-9.0\\text{ V}$.",
+        "Step 3: **Describe the waveform to draw**\nStarting at $t=0$, $V_{OUT}=0$. As $V_{IN}$ ramps up, $V_{OUT}$ ramps down linearly with 4.5 times steeper slope until it hits $-9.0\\text{ V}$ at the time $V_{IN}$ reaches $2.0\\text{ V}$. It then stays horizontal at $-9.0\\text{ V}$ while $V_{IN}$ goes up to $3.0\\text{ V}$, stays at $3.0\\text{ V}$, and starts to fall. When $V_{IN}$ falls back below $2.0\\text{ V}$, $V_{OUT}$ leaves saturation and ramps linearly back up to 0 at the same time $V_{IN}$ reaches 0."
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t18",
+        "primary_module_id": "9702_t18_m05",
+        "outcome_ids": [
+          "9702_t18_m05_o03",
+          "9702_t18_m05_o04"
+        ]
+      },
+      "primary_topic_id": "9702_t18",
+      "primary_module_id": "9702_t18_m05",
+      "outcome_ids": [
+        "9702_t18_m05_o03",
+        "9702_t18_m05_o04"
+      ]
+    }
+  ],
+  "total_marks": 11,
+  "taxonomy_tags": {
+    "topic_ids": [
+      "9702_t18"
+    ],
+    "module_ids": [
+      "9702_t18_m05"
+    ]
+  }
+}

@@ -1,0 +1,169 @@
+{
+  "schema_version": "9702_theory_enrichment_v1",
+  "question_id": "9702_w18_41_q05",
+  "difficulty": 2,
+  "question_patterns": [
+    "explanation",
+    "direct_calculation",
+    "graph_interpretation"
+  ],
+  "parts": [
+    {
+      "part_id": "9702_w18_41_q05_a",
+      "label": "(a)",
+      "marks": 2,
+      "difficulty": 1,
+      "question_patterns": [
+        "explanation"
+      ],
+      "key_concepts": [
+        "digital vs analogue transmission",
+        "noise and regeneration",
+        "error correction and data processing"
+      ],
+      "hints": [
+        "Hint 1: Think about what happens to an analogue signal as it travels a long distance and picks up unwanted noise, compared to a signal that is only 0s and 1s.",
+        "Hint 2: Think of two extra things you can do easily with 0s and 1s that are very hard with a continuously varying voltage, such as checking for mistakes, squeezing data together, or keeping it secret."
+      ],
+      "proper_answer": "1. Noise can be removed and the digital signal can be regenerated without loss of quality. 2. Extra bits can be added for error correction / data can be multiplexed or compressed / signal can be encrypted for better security. Any two valid points.",
+      "walkthrough": [
+        "Step 1: **Why digital is tougher against noise**\nImagine an analogue voltage slowly varying. Any extra noise voltage adds on and becomes part of the signal forever, and amplifiers amplify the noise too. A digital signal only has to be recognised as high or low, 1 or 0, so even if it is noisy and distorted it can be cleaned up and regenerated perfectly at repeater stations.",
+        "Step 2: **Why digital is more flexible**\nBecause data is just numbers, you can process it. You can add parity or extra bits so the receiver can detect and correct errors, you can compress data and multiplex many signals together, and you can encrypt it so it is secure. None of this is practical with a pure analogue waveform."
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t24",
+        "primary_module_id": "9702_t24_m03",
+        "outcome_ids": [
+          "9702_t24_m03_o06",
+          "9702_t24_m03_o01"
+        ]
+      },
+      "primary_topic_id": "9702_t24",
+      "primary_module_id": "9702_t24_m03",
+      "outcome_ids": [
+        "9702_t24_m03_o06",
+        "9702_t24_m03_o01"
+      ]
+    },
+    {
+      "part_id": "9702_w18_41_q05_b",
+      "label": "(b)",
+      "marks": 4,
+      "difficulty": 3,
+      "question_patterns": [
+        "direct_calculation",
+        "graph_interpretation"
+      ],
+      "key_concepts": [
+        "binary to decimal conversion",
+        "sampling period",
+        "DAC staircase output"
+      ],
+      "hints": [
+        "Hint 1: Look carefully at Fig. 5.1 to see which binary number is sent first. The start of transmission is on the right-hand side.",
+        "Hint 2: Convert each 4-bit number to decimal to get the DAC signal level. Remember place values 8, 4, 2, 1 from left to right.",
+        "Hint 3: Use the sampling rate to find how long each level lasts. Remember period $T = 1/f$.",
+        "Hint 4: Remember what a DAC output looks like on a signal level against time graph - a flat constant level that jumps vertically to the next level, not a smooth sloping line."
+      ],
+      "proper_answer": "Sampling period $T = 1/500 = 2.0 \\times 10^{-3} \\text{ s} = 2.0 \\text{ ms}$. Decimal levels in time order from $t=0$: 2, 5, 14, 4, 9, 11, 7. Graph is a staircase of 7 horizontal steps each 2 ms wide at those levels.",
+      "walkthrough": [
+        "Step 1: **Get the order and the decimal values**\nTime starts at $t=0$ with the start of transmission on the right. So read right to left. Convert binary with weights $8-4-2-1$: $0010 = 2$, $0101 = 4+1 = 5$, $1110 = 8+4+2 = 14$, $0100 = 4$, $1001 = 8+1 = 9$, $1011 = 8+2+1 = 11$, $0111 = 4+2+1 = 7$.",
+        "Step 2: **Find the width of each step**\nThe sampling rate is the number of samples per second. One sample lasts for one sampling period: $$T = \\frac{1}{f} = \\frac{1}{500 \\text{ Hz}} = 0.0020 \\text{ s} = 2.0 \\text{ ms}$$ So each DAC level is held constant for 2.0 ms before jumping to the next.",
+        "Step 3: **Draw the staircase**\nStarting at $t=0$, draw a horizontal line at level 2 from 0 to 2 ms, then vertical jump to level 5 from 2 to 4 ms, then to 14, then to 4, then to 9, then to 11, then to 7, each 2 ms wide. The DAC holds the value, so do not draw diagonal joins. Total duration is $7 \\times 2 \\text{ ms} = 14 \\text{ ms}$."
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t17",
+        "primary_module_id": "9702_t17_m02",
+        "outcome_ids": [
+          "9702_t17_m02_o02"
+        ]
+      },
+      "primary_topic_id": "9702_t17",
+      "primary_module_id": "9702_t17_m02",
+      "outcome_ids": [
+        "9702_t17_m02_o02"
+      ]
+    },
+    {
+      "part_id": "9702_w18_41_q05_ci",
+      "label": "(c)(i)",
+      "marks": 1,
+      "difficulty": 1,
+      "question_patterns": [
+        "explanation"
+      ],
+      "key_concepts": [
+        "sampling rate",
+        "time resolution",
+        "reproduction of high frequencies"
+      ],
+      "hints": [
+        "Hint 1: Think about what sampling rate controls on the time axis - how often you take a snapshot of the analogue signal."
+      ],
+      "proper_answer": "The step width (sampling period) is reduced, so the reconstructed signal follows rapid changes more closely and higher frequencies can be reproduced more accurately.",
+      "walkthrough": [
+        "Step 1: **More samples per second means narrower steps**\nIncreasing the sampling rate means $T = 1/f$ gets smaller, so the DAC updates more often. The staircase steps become narrower in time and follow the original analogue curve much more closely, especially where it changes quickly. This allows higher frequency detail to be captured and reproduced."
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t24",
+        "primary_module_id": "9702_t24_m03",
+        "outcome_ids": [
+          "9702_t24_m03_o06",
+          "9702_t24_m03_o01"
+        ]
+      },
+      "primary_topic_id": "9702_t24",
+      "primary_module_id": "9702_t24_m03",
+      "outcome_ids": [
+        "9702_t24_m03_o06",
+        "9702_t24_m03_o01"
+      ]
+    },
+    {
+      "part_id": "9702_w18_41_q05_cii",
+      "label": "(c)(ii)",
+      "marks": 1,
+      "difficulty": 1,
+      "question_patterns": [
+        "explanation"
+      ],
+      "key_concepts": [
+        "number of bits",
+        "quantisation levels",
+        "voltage resolution"
+      ],
+      "hints": [
+        "Hint 1: Think about what the number of bits controls on the vertical axis - how many different signal levels are available."
+      ],
+      "proper_answer": "The step height (voltage change per level) is reduced, so smaller changes in signal intensity can be reproduced and quantisation error is reduced.",
+      "walkthrough": [
+        "Step 1: **More bits means finer voltage steps**\nWith 4 bits you have $2^4 = 16$ levels. With more bits, say 8 bits, you have $2^8 = 256$ levels. The vertical distance between adjacent levels gets much smaller, so the DAC can represent small changes in amplitude more accurately and the staircase looks smoother vertically."
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t13",
+        "primary_module_id": "9702_t13_m03",
+        "outcome_ids": [
+          "9702_t13_m03_o03"
+        ]
+      },
+      "primary_topic_id": "9702_t13",
+      "primary_module_id": "9702_t13_m03",
+      "outcome_ids": [
+        "9702_t13_m03_o03"
+      ]
+    }
+  ],
+  "total_marks": 8,
+  "taxonomy_tags": {
+    "topic_ids": [
+      "9702_t13",
+      "9702_t17",
+      "9702_t24"
+    ],
+    "module_ids": [
+      "9702_t13_m03",
+      "9702_t17_m02",
+      "9702_t24_m03"
+    ]
+  }
+}

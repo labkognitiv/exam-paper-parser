@@ -1,0 +1,61 @@
+{
+  "schema_version": "9702_p1_enrichment_v1",
+  "question_id": "9702_s17_12_q04",
+  "component": "P1",
+  "difficulty": 3,
+  "question_patterns": [
+    "multi_step_calculation",
+    "uncertainty_analysis"
+  ],
+  "topic_id": "9702_t09",
+  "module_id": "9702_t09_m02",
+  "skill_id": "9702_skill_resistivity",
+  "accepted_answer": "C",
+  "options_breakdown": {
+    "A": {
+      "status": "incorrect",
+      "explanation": "A $0.2 \\ \\Omega \\text{m}$ uncertainty is too small as it ignores the summed fractional uncertainties from $V$, $I$, length and both sides of the area."
+    },
+    "B": {
+      "status": "incorrect",
+      "explanation": "A $0.3 \\ \\Omega \\text{m}$ uncertainty underestimates the total because the $15.0 \\ \\text{mm}$ width, $15.0 \\ \\text{mm}$ length and $30.0 \\ \\text{mm}$ height each contribute."
+    },
+    "C": {
+      "status": "correct",
+      "explanation": "The value is $10.0 \\ \\Omega \\text{m}$ and the summed percentage uncertainties give about $4.7$% or $\\pm 0.5 \\ \\Omega \\text{m}$."
+    },
+    "D": {
+      "status": "incorrect",
+      "explanation": "A $0.8 \\ \\Omega \\text{m}$ uncertainty is too large and would require about $8$% total fractional uncertainty, greater than the sum for this block."
+    }
+  },
+  "hints": [
+    "Notice the current passes along the $15.0 \\ \\text{mm}$ depth, so the length $L$ is $15.0 \\ \\text{mm}$ and the cross-section perpendicular to current is $15.0 \\ \\text{mm}$ by $30.0 \\ \\text{mm}$.",
+    "Recall $\\rho = RA/L$ with $R=V/I$, so the fractional uncertainty in $\\rho$ is the sum of fractional uncertainties in $V$, $I$, $L$ and the two sides making $A$.",
+    "Calculate $R = 10.0/0.030$, then $\\rho$ in $\\Omega \\text{m}$, then add $0.1/10.0 + 0.1/30.0 + 0.2/15.0 + 0.2/15.0 + 0.2/30.0$ and multiply by $\\rho$."
+  ],
+  "walkthrough": [
+    "Identify $L$ and $A$ from the current direction. Current flows through the $15.0 \\ \\text{mm}$ thickness, so $L = 15.0 \\times 10^{-3} \\ \\text{m}$ and $A = (15.0 \\times 10^{-3})(30.0 \\times 10^{-3}) = 4.50 \\times 10^{-4} \\ \\text{m}^2$.",
+    "Calculate resistance from $R = V/I$. With $V = 10.0 \\ \\text{V}$ and $I = 30.0 \\ \\text{mA} = 0.0300 \\ \\text{A}$, $R = 10.0/0.0300 \\approx 333 \\ \\Omega$.",
+    "Calculate resistivity from $\\rho = RA/L$. So $\\rho = 333 \\times 4.50 \\times 10^{-4} / (15.0 \\times 10^{-3}) = 333 \\times 0.0300 = 10.0 \\ \\Omega \\text{m}$.",
+    "Find fractional uncertainties: $\\Delta V/V = 0.1/10.0 = 1.0$%, $\\Delta I/I = 0.1/30.0 \\approx 0.33$%, $\\Delta L/L = 0.2/15.0 \\approx 1.33$%, and for area $\\Delta A/A = 0.2/15.0 + 0.2/30.0 \\approx 1.33 + 0.67 = 2.00$%.",
+    "Add them for the product-quotient $\\rho = (V/I)(A/L)$: total % $\\approx 1.00 + 0.33 + 1.33 + 2.00 = 4.67$%. Absolute uncertainty $\\approx 0.0467 \\times 10.0 \\approx 0.47 \\ \\Omega \\text{m}$, about $\\pm 0.5 \\ \\Omega \\text{m}$.",
+    "Hence $\\rho = 10.0 \\pm 0.5 \\ \\Omega \\text{m}$. This is option C."
+  ],
+  "mapping": {
+    "primary_topic_id": "9702_t09",
+    "primary_module_id": "9702_t09_m02",
+    "outcome_ids": [
+      "9702_t09_m02_o03",
+      "9702_t09_m02_o02"
+    ]
+  },
+  "taxonomy_tags": {
+    "topic_ids": [
+      "9702_t09"
+    ],
+    "module_ids": [
+      "9702_t09_m02"
+    ]
+  }
+}

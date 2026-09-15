@@ -1,0 +1,101 @@
+{
+  "schema_version": "9702_theory_enrichment_v1",
+  "question_id": "9702_w17_41_q09",
+  "difficulty": 3,
+  "question_patterns": [
+    "explanation",
+    "direct_calculation"
+  ],
+  "parts": [
+    {
+      "part_id": "9702_w17_41_q09_a",
+      "label": "(a)",
+      "marks": 4,
+      "difficulty": 2,
+      "question_patterns": [
+        "explanation"
+      ],
+      "key_concepts": [
+        "CT scanning and X-ray attenuation",
+        "multiple views of a single slice",
+        "computer reconstruction of 2D slice",
+        "stacking slices to form 3D image"
+      ],
+      "hints": [
+        "Hint 1: Start by thinking about the limitation of a single X-ray image - it is a flat shadow of everything the beam passes through, so how could you get detail of just one thin slice?",
+        "Hint 2: If you rotate the X-ray tube and detectors around the patient, what extra information do you get about that same slice from each new angle?",
+        "Hint 3: Remember a computer is involved - how are all those different directional attenuation readings combined for one slice?",
+        "Hint 4: One slice only gives a 2D picture, so what must you do to see the whole organ or body in 3D?"
+      ],
+      "proper_answer": "X-rays of one thin slice are taken from many different directions. Attenuation data are processed by computer to form a 2D image of that slice. This is repeated for many adjacent slices to build up a 3D image of the structure.",
+      "walkthrough": [
+        "Step 1: **Think in slices, not shadows**\nA normal X-ray is like a shadow. All the bone and soft tissue along the path overlap. In CT we want to know what is happening inside one thin cross-sectional slice. So imagine cutting the body into very thin slices and looking at just one at a time.",
+        "Step 2: **Look at the same slice from many angles**\nThe X-ray tube and detector array rotate around the patient. For one fixed slice position, a narrow fan beam is sent through and the transmitted intensity is recorded. This is repeated from hundreds of different directions in the plane of the slice. Each direction tells you how much attenuation occurred along that line.",
+        "Step 3: **Let the computer build the 2D slice image**\nThe computer takes all the attenuation readings for that one slice and works backwards to find the attenuation of each small voxel in the slice. This produces a detailed 2D map of the slice where dense tissue like bone appears different from soft tissue.",
+        "Step 4: **Stack the slices to get 3D**\nStep 2 and Step 3 are repeated as the patient is moved through the scanner so many parallel slices are imaged. The computer then stacks all the 2D slice images together to form a full 3D image of the organ or body that can be rotated and viewed from any side."
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t24",
+        "primary_module_id": "9702_t24_m02",
+        "outcome_ids": [
+          "9702_t24_m02_o04"
+        ]
+      },
+      "primary_topic_id": "9702_t24",
+      "primary_module_id": "9702_t24_m02",
+      "outcome_ids": [
+        "9702_t24_m02_o04"
+      ]
+    },
+    {
+      "part_id": "9702_w17_41_q09_b",
+      "label": "(b)",
+      "marks": 3,
+      "difficulty": 3,
+      "question_patterns": [
+        "direct_calculation"
+      ],
+      "key_concepts": [
+        "background count subtraction",
+        "summed back-projected signal",
+        "pixel number reconstruction"
+      ],
+      "hints": [
+        "Hint 1: The numbers in Fig. 9.2 are summed detector readings, not the true pixel values. What part of each reading is present even with no object there and must be removed first?",
+        "Hint 2: After you subtract the background of 26 from each summed value in Fig. 9.2, you get 21, 33, 18 and 6. Why would these totals still be too big to be the single voxel values?",
+        "Hint 3: In this simplified model each voxel has been counted three times in the summation, so what final mathematical operation gives A, B, C and D?"
+      ],
+      "proper_answer": "$A = 7$, $B = 11$, $D = 6$, $C = 2$. Summed value minus background count of 26, then divided by 3.",
+      "walkthrough": [
+        "Step 1: **Remove the background**\nEvery detector reads 26 counts even with nothing in the way. This background is included in the summed numbers in Fig. 9.2, so subtract it first to leave only the signal due to the voxels.",
+        "Step 2: **Account for multiple counting**\nBecause the same section was viewed from several directions and the results were added, each voxel contribution has been added in three times. To get back to one voxel value you must divide the background-corrected total by 3.",
+        "Step 3: **Calculate each pixel number**\nApply $$\\text{pixel} = \\frac{\\text{summed value} - 26}{3}$$ to each position:\n$$A = \\frac{47-26}{3} = \\frac{21}{3} = 7$$\n$$B = \\frac{59-26}{3} = \\frac{33}{3} = 11$$\n$$D = \\frac{44-26}{3} = \\frac{18}{3} = 6$$\n$$C = \\frac{32-26}{3} = \\frac{6}{3} = 2$$\nSo in the layout of Fig. 9.1: A is 7, B is 11, D is 6, C is 2."
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t19",
+        "primary_module_id": "9702_t19_m02",
+        "outcome_ids": [
+          "9702_t19_m02_o01",
+          "9702_t19_m02_o02"
+        ]
+      },
+      "primary_topic_id": "9702_t19",
+      "primary_module_id": "9702_t19_m02",
+      "outcome_ids": [
+        "9702_t19_m02_o01",
+        "9702_t19_m02_o02"
+      ]
+    }
+  ],
+  "total_marks": 7,
+  "taxonomy_tags": {
+    "topic_ids": [
+      "9702_t19",
+      "9702_t24"
+    ],
+    "module_ids": [
+      "9702_t19_m02",
+      "9702_t24_m02"
+    ]
+  }
+}
