@@ -93,6 +93,33 @@ def validate_topic(topic_dir: Path, expected_outcomes: Set[str]) -> List[str]:
             cms = sorted([d for d in cm_dir.iterdir() if d.is_dir() and not d.name.startswith(".")]) if cm_dir.is_dir() else []
             if not cms:
                 errors.append(f"{topic_dir.name}: No course-modules found")
+            for cm in cms:
+                module_path = cm / "module.json"
+                try:
+                    module = json.loads(module_path.read_text(encoding="utf-8"))
+                    if not isinstance(module, dict):
+                        raise ValueError("Expected a module object")
+                    expected_id = "_".join(cm.name.split("_")[:3])
+                    if module.get("course_module_id") != expected_id:
+                        errors.append(f"{cm.name}: course_module_id must be {expected_id}")
+                    if module.get("topic_id") != tid:
+                        errors.append(f"{cm.name}: topic_id must be {tid}")
+                    if not module.get("title") or not module.get("lesson_ids"):
+                        errors.append(f"{cm.name}: Missing title or lesson_ids")
+                    declared_lessons = module.get("lesson_ids", [])
+                    expected_lessons = {
+                        lid for lid in lesson_ids
+                        if isinstance(lid, str) and lid.startswith(expected_id + "_")
+                    }
+                    if (
+                        not isinstance(declared_lessons, list)
+                        or not all(isinstance(lid, str) for lid in declared_lessons)
+                        or set(declared_lessons) != expected_lessons
+                        or len(declared_lessons) != len(expected_lessons)
+                    ):
+                        errors.append(f"{cm.name}: lesson_ids must match its active lesson-map entries")
+                except (OSError, ValueError) as exc:
+                    errors.append(f"{cm.name}: module.json read/parse error: {exc}")
 
             # Validate each lesson
             adj: Dict[str, List[str]] = {lid: [] for lid in lesson_ids if lid}
@@ -200,7 +227,7 @@ def main() -> None:
         print(f"FAILED with {len(all_errors)} total errors.")
         sys.exit(1)
     else:
-        print("100% PASS: All 25 topics, course modules, lessons, DAGs, and zero em dashes verified.")
+        print(f"PASS: Structural checks passed for {total_validated_topics} topics, including course-module records, active lesson membership, lesson DAGs and outcome coverage.")
 
 
 if __name__ == "__main__":

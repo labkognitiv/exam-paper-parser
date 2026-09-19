@@ -14,6 +14,7 @@ Checks:
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 from pathlib import Path
 import sys
@@ -30,6 +31,25 @@ PHYSICS_PAPER_EXPECTED_TOTALS = {
 
 def preferred_markscheme_path(question_dir: Path) -> Path:
     """Use an explicitly approved additive review, otherwise the locked source."""
+    ocr_reviewed = question_dir / "markscheme_ocr_reviewed.json"
+    ocr_meta = question_dir / "markscheme_ocr_review_meta.json"
+    if ocr_reviewed.is_file() and ocr_meta.is_file():
+        try:
+            meta = json.loads(ocr_meta.read_text(encoding="utf-8"))
+            if (
+                meta.get("status") == "PASS"
+                and meta.get("review_kind") == "ocr_reconciliation"
+                and meta.get("official_source_locked") is True
+            ):
+                checks = (
+                    (question_dir / "markscheme.json", meta["original_markscheme_sha256"]),
+                    (ocr_reviewed, meta["reviewed_markscheme_sha256"]),
+                    (question_dir / meta["source_pdf"], meta["source_pdf_sha256"]),
+                )
+                if all(hashlib.sha256(path.read_bytes()).hexdigest() == digest for path, digest in checks):
+                    return ocr_reviewed
+        except (OSError, ValueError, KeyError, TypeError):
+            pass
     reviewed = question_dir / "markscheme_reviewed.json"
     review_meta = question_dir / "markscheme_review_meta.json"
     if reviewed.is_file() and review_meta.is_file():

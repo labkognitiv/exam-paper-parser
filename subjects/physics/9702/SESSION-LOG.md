@@ -828,3 +828,18 @@ Append one short entry after material Physics work. Do not rewrite old entries.
 ## 2026-09-14 - Dashboard subject-card redesign
 
 - Simplified the dashboard header and subject section, added the requested date ranges and replaced the three subject cards with rounded image-backed designs using generated Physics, Mathematics and Chemistry assets. Follow-up polish made the canvas white, enlarged the greeting, replaced dashboard iconography and the filter with text-first controls, simplified the streak, added stable card hover feedback and a removal confirmation, and corrected mobile card sizing and scroll restoration. Production build passes.
+
+## 2026-09-19 - Physics migration preparation repairs
+
+- Used two Sol agents at low reasoning effort. Restored two module records and 28 P1 JSONs; repaired 36 compact-image references; retained all 4,016 question identities and 147 active lessons with 47 redirects.
+- Added migration mapping policy, eight development mapping overrides, 58 explicit part-ID translations and a read-only selection gate. All question/enrichment/effective-scheme joins pass; one invented duplicate enrichment part is explicitly excluded and three missing explanations declared unavailable. 103 mapping records retain review-required status.
+- Independently verified three additive OCR mark-scheme corrections against official PDF pages and restored one missing capacitor prompt with its proper mark allocation. Hash-gated selection preserves original schemes and earlier review metadata (2,348 baseline files unchanged).
+- Validation: curriculum 25 topics/300 outcomes and redirects pass; all 2,760 P1 answers match official keys; 138 structured-paper mark audits pass; all 61 explicit structured PNG references resolve. Five join tests plus focused module and reconciliation rejection checks pass. No database writes or website-content export performed.
+
+## 2026-09-19 - Development website export
+
+- Built user-requested root `migration/physics/`: 25 topics, 76 syllabus/94 teaching modules, 300 outcomes, 147 named lessons, 207 papers/4,016 past-paper questions with schemes, enrichment, selected mappings and compact assets. No Markdown, PDFs, printable images or formula/definition libraries.
+- Copied archived Checking equation homogeneity HTML/assets and its 20 custom questions independently into every lesson: 147 labelled test HTMLs and 2,940 unique practice records. Original authoring files remain unchanged by export. Fixtures have no asserted curriculum alignment.
+- Standardised export paths and scoped figure tokens, repaired three fig_ aliases, and disambiguated repeated part IDs in s19_23 q02/q06 with preserved source IDs and checked grouped-mark joins. Three corrected scheme images extracted from verified official sources.
+- Exporter `scripts/export_website_package.py` stages and validates before publication, records hashes, archives superseded releases and leaves identical builds unchanged. Release `physics-9702-test-c92464aacd2fae60`: 29,846 files; repeat build PASS/unchanged; ten focused tests PASS; desktop/mobile render and three corrected scheme images inspected. 147 HTML copies have separate inodes.
+- Development only: 103 mappings retain review-required status; one invalid enrichment part excluded and three explanations unavailable. Database schema integration remains unverified; no database upload performed.

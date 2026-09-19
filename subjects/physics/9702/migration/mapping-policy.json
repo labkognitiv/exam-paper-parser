@@ -1,0 +1,34 @@
+{
+  "schema_version": "9702_migration_mapping_policy_v1",
+  "subject_code": "9702",
+  "purpose": "development_test",
+  "content_authority": {
+    "curriculum": "study/topics/*/syllabus.json and study/topics/*/lesson-knowledge-map.json",
+    "past_paper_content": "past papers/p1, past papers/p2 and past papers/p4",
+    "official_answers_and_marks": "canonical past-paper answer and mark-scheme records, including approved reconciliation records",
+    "active_lessons": "the 147 unique lesson IDs in study/topics/*/lesson-knowledge-map.json",
+    "lesson_redirects": "study/lesson-id-redirects.json"
+  },
+  "website_mapping_authority": {
+    "p1": "canonical question enrichment mapping when present",
+    "p2_p4": "reviews/question-primary-lesson-mapping/{component}/{question_id}.json only when that individual record has status VALID",
+    "canonical_enrichment_role": "retained content and provenance; not authoritative for website placement when a valid reviewed lesson mapping exists",
+    "failed_or_missing_review": "use migration/mapping-overrides.json only when an explicit evidence-based development override exists; otherwise include the question with mapping_status unresolved",
+    "override_status": "development_test and review_required; an override preserves the original failed review and does not convert it to approved",
+    "confidence": "retain the record confidence; low confidence is usable for development testing but remains review_required for production"
+  },
+  "part_id_translation": {
+    "scope": "within one question only",
+    "precedence": [
+      "exact part ID",
+      "unique suffix match after removing underscores following _qNN_",
+      "explicit checked mapping in migration/part-id-translations.json"
+    ],
+    "ambiguous_or_missing": "do not join; report unresolved"
+  },
+  "selection": {
+    "questions": "include every readable canonical P1, P2 and P4 question record once",
+    "lessons": "include each active lesson once; retain redirects as aliases without duplicating retired lessons",
+    "historical_lesson_folders": "exclude from current website content unless referenced by an active lesson ID"
+  }
+}

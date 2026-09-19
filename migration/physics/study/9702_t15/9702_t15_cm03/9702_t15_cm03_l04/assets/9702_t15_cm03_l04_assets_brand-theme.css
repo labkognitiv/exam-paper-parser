@@ -1,0 +1,256 @@
+/* Kognitiv lesson theme. Opt-in: load last, after shared and lesson-local CSS.
+   Plum establishes hierarchy; teal marks emphasis; mint is the only tinted surface.
+   Keep quantitative geometry and all lesson behaviour in their owning files. */
+:root {
+  --brand-plum: #29213f;
+  --brand-teal: #08756f;
+  --brand-accent: #2bb7ae;
+  --brand-mint: #e3f4f0;
+  --brand-paper: #ffffff;
+  --brand-canvas: #f7f8fa;
+  --ink: #302b40;
+  --muted: #655f70;
+  --green: var(--brand-teal);
+  --blue: var(--brand-plum);
+  --orange: var(--brand-teal);
+  --line: #e5e3eb;
+  --divider: #d8d5e0;
+  --lesson-card-bg: #ffffff;
+  --lesson-card-border: #d8d5e0;
+}
+
+@media screen {
+  body { background: var(--brand-canvas); color: var(--ink); }
+  main { background: var(--brand-paper); border-inline: 1px solid var(--line); }
+  .top { color: var(--brand-plum); border-color: var(--line); }
+  .brand { font-size: 17px; letter-spacing: -.01em; }
+  .top button { color: var(--brand-plum); border-color: var(--divider); border-radius: 10px; background: white; }
+  header.hero { margin-top: 24px; padding: 32px; border: 1px solid var(--lesson-card-border); border-radius: 22px; background: var(--brand-plum); }
+  h1,h2 { font-family: 'Source Sans 3',Arial,sans-serif; color: var(--brand-plum); font-weight: 600; letter-spacing: -.025em; line-height: 1.15; }
+  h1 { font-size: 48px; margin-top: 14px; }
+  h2 { font-size: 34px; }
+  h3 { color: var(--brand-plum); }
+  .hero h1 { color: white; }
+  .hero .lead { color: #eeecf3; margin-bottom: 0; }
+  .hero .kicker { color: #bdebe3; }
+  .kicker::before { content: ""; display: inline-block; width: 7px; height: 7px; margin-right: 9px; border-radius: 50%; background: var(--brand-accent); vertical-align: .1em; }
+  .kicker { color: var(--brand-teal); letter-spacing: .08em; }
+  .hero .lesson-route { margin: 22px 0 0; }
+  .lesson-nav { color: var(--muted); font-weight: 600; }
+  .lesson-nav a,.reading-route a,.lesson-route a { color: var(--brand-plum); text-decoration-color: var(--brand-teal); }
+  main p a { color: var(--brand-teal); text-underline-offset: 4px; }
+  .hero .lesson-route,.hero .lesson-route a { color: white; text-decoration-color: #bdebe3; }
+  .lesson-nav-bottom,.bottom-nav,#end-navigation { padding: 20px; border: 1px solid var(--divider); border-radius: 16px; background: var(--brand-canvas); }
+  .reading-route { border-color: var(--line); }
+  main>section+section { border-top: 1px solid var(--divider); }
+  .worked-example,.optional-example,.footer { border-color: var(--line); }
+  .question { color: var(--brand-teal); }
+  .result { color: var(--brand-teal); text-decoration-color: var(--lesson-card-border); }
+  .definition,.formula-box,.comparison,.measurement-anatomy,.record,.notebook>div,
+  .timeline,.method-grid li,.final-card,.object-match,.route li,.bag-benchmark,
+  .scale-panels>div,.cube-apple,.timer-pair>div,.prefix-ladder,.conversion-flow,
+  .conversion-strip,.mass-strip,.case-cards>div,.meter-pair>div,.build-panels>div,
+  .unit-summary,.mini-work { border-radius: 16px; border-color: var(--lesson-card-border); }
+  .formula-box,.definition { background: var(--lesson-card-bg); }
+  .formula-box h3,.definition h3 { color: var(--brand-plum); }
+  .definition { background: var(--brand-mint); border-top: 3px solid var(--brand-teal); }
+  .mini-work { background: white; border: 1px solid var(--divider); border-top: 3px solid var(--brand-plum); box-shadow: 0 3px 12px rgba(41,33,63,.035); }
+  .mini-work .definition { background: var(--brand-mint); }
+  .prefix-ladder>div { border-radius: 10px; background: white; }
+  .prefix-ladder .base { background: var(--brand-canvas); }
+  .base-table thead { background: var(--brand-canvas); color: var(--brand-plum); }
+  .base-table tbody { background: white; }
+  .comparison>div+div { border-color: var(--lesson-card-border); }
+  .scale-panels .plausible { border-color: var(--brand-teal); }
+  .final-card { background: var(--brand-canvas); border-top: 3px solid var(--brand-plum); }
+  .final-card span,.conversion-flow span,.conversion-strip span,.mass-strip span,.loose-labels span { border-radius: 8px; }
+  /* Replace old blue/peach fills in symbolic CSS drawings, not their geometry. */
+  .jars span,.bag span,.bag-icon { background: var(--brand-canvas); }
+  .eraser span,.apple,.segments span:first-child { background: var(--brand-mint); }
+  .balance-reading { border-radius: 8px; }
+
+  /* Unselected answers are white; selection is solid plum with white text.
+     Correctness remains written explicitly; status never relies on colour. */
+  .quick-check,.quick-check[data-tone=violet] {
+    --check-accent: var(--brand-plum);
+    --check-tint: var(--brand-canvas);
+    --check-border: var(--lesson-card-border);
+    background: var(--check-tint); border-color: var(--check-border);
+    border-top: 4px solid var(--brand-plum); border-radius: 18px;
+    box-shadow: 0 4px 16px rgba(41,33,63,.045);
+  }
+  .quick-check .check-label { color: var(--brand-teal); }
+  .quick-check .check-question { color: var(--brand-plum); }
+  .quick-check .check-options button { background: white; color: var(--ink); border-color: #8c8799; }
+  .quick-check .check-options button[aria-pressed=true] { background: var(--brand-plum); color: white; border-color: var(--brand-plum); box-shadow: 0 0 0 2px rgba(41,33,63,.12); }
+  .quick-check .check-feedback,.quick-check[data-result=correct] .check-feedback,
+  .quick-check[data-result=incorrect] .check-feedback { background: white; color: var(--ink); }
+  .quick-check[data-result=correct] .check-feedback { border-color: var(--brand-teal); }
+  .quick-check[data-result=incorrect] .check-feedback { border-color: var(--brand-plum); }
+  a:focus-visible,button:focus-visible,.lesson-nav a:focus-visible,.lesson-route a:focus-visible { outline: 3px solid var(--brand-teal); outline-offset: 4px; }
+  .hero a:focus-visible { outline-color: #bdebe3; }
+  ::selection { background: #c4e9e1; color: var(--brand-plum); }
+}
+@media screen and (hover:hover) {
+  .lesson-nav a:hover,.reading-route a:hover,main p a:hover { color: var(--brand-teal); }
+  .hero .lesson-route a:hover { color: #bdebe3; }
+  .top button:hover { border-color: var(--brand-teal); background: var(--lesson-card-bg); }
+  .quick-check .check-options button:hover { border-color: var(--brand-plum); }
+}
+@media screen and (max-width:700px) {
+  main { border-inline: 0; }
+  header.hero { margin-top: 18px; padding: 24px 20px; border-radius: 18px; }
+  h1 { font-size: 36px; }
+  h2 { font-size: 29px; }
+  .lesson-nav-bottom,.bottom-nav,#end-navigation { padding: 18px 16px; }
+}
+@media print {
+  :root { --ink: #202020; --muted: #505050; --green: #202020; --blue: #202020; --orange: #202020; --lesson-card-bg: #fff; --lesson-card-border: #b0b0b0; }
+}
+
+/* Reading-first refinement, September 2026.
+   Keep the colour system above; distinguish teaching roles through structure.
+   These rules apply only to the four previews that opt into this stylesheet. */
+@media screen {
+  html { scroll-padding-top: 24px; }
+  main { padding-inline: 48px; padding-bottom: 48px; }
+  main > section { max-width: 840px; margin-inline: auto; }
+  main > section + section { margin-top: 28px; padding-top: 40px; }
+  main > section > h2 { max-width: 27ch; }
+  h1 { max-width: 19ch; font-size: clamp(36px, 4.2vw, 50px); line-height: 1.08; }
+  h2 { font-size: 34px; line-height: 1.18; margin-bottom: 22px; }
+  h3 { font-size: 23px; font-weight: 600; }
+  header.hero { padding: 36px 40px; border: 0; box-shadow: none; }
+  .hero .lead { max-width: 66ch; font-size: 21px; line-height: 1.6; }
+  .kicker { font-size: 13px; line-height: 1.5; letter-spacing: .075em; }
+  .top { max-width: 1060px; padding: 20px 48px; border-bottom: 0; }
+  .top .brand { letter-spacing: -.015em; }
+  .top .brand span { font-weight: 400; letter-spacing: 0; }
+  .top button { padding: 8px 14px; min-height: 40px; font-weight: 600; }
+
+  /* Links remain links. Routes wrap without competing with the lesson title. */
+  .lesson-nav { flex-wrap: wrap; gap: 10px 24px; margin: 20px 0; font-size: 16px; line-height: 1.45; }
+  .lesson-nav > * { min-width: 0; max-width: 100%; }
+  .lesson-nav a { display: inline-block; padding: 8px 0; text-underline-offset: 4px; }
+  .lesson-nav > span { color: var(--muted); font-weight: 400; }
+  .lesson-route,.reading-route { font-size: 17px; line-height: 1.6; }
+  .reading-route { padding: 14px 0; gap: 8px 24px; }
+  .lesson-nav-bottom,.bottom-nav,#end-navigation { margin-top: 36px; padding: 18px 24px; }
+  .skip-link { position: absolute; left: 16px; top: -100px; z-index: 10; padding: 10px 16px; background: white; color: var(--brand-plum); border-radius: 8px; }
+  .skip-link:focus { top: 12px; }
+
+  /* Ordinary explanation stays on the page. Borders identify useful groupings,
+     not every paragraph or every step. */
+  .comparison { background: white; border: 0; border-block: 1px solid var(--divider); border-radius: 0; margin: 28px 0; }
+  .comparison > div { padding: 22px 24px; }
+  .comparison > div:first-child { padding-left: 0; }
+  .comparison h3 { font-size: 23px; }
+  .method-grid { gap: 0 26px; margin: 26px 0; }
+  .method-grid li { background: transparent; border: 0; border-top: 1px solid var(--divider); border-radius: 0; padding: 18px 0; align-content: start; }
+  .method-grid span { font-size: 18px; line-height: 1.55; }
+  .route { gap: 0 28px; }
+  .route li { background: transparent; border: 0; border-top: 1px solid var(--divider); border-radius: 0; padding: 20px 0; }
+  .route b { width: 34px; height: 34px; font-size: 17px; }
+  .notebook { gap: 0; border-block: 1px solid var(--divider); }
+  .notebook > div { border: 0; border-radius: 0; background: transparent; padding: 22px; }
+  .notebook > div + div { border-left: 1px solid var(--divider); }
+  .notebook strong { color: var(--brand-plum); font-weight: 600; }
+  .notebook small { font-size: 17px; }
+  .record,.timer-pair > div,.meter-pair > div { border-width: 1px; background: var(--brand-canvas); }
+
+  /* Exact definitions and supplied formulas stay distinct. Supporting prose
+     uses the reading font and reading size, rather than a handwritten heading. */
+  .definition { max-width: none; padding: 22px 26px; text-align: left; border-width: 1px; border-top: 3px solid var(--brand-teal); }
+  .definition h3 { font: 600 21px/1.4 'Source Sans 3',Arial,sans-serif; margin: 0 0 10px; }
+  .definition .exact,.mini-work .definition .exact { font-family: 'Source Sans 3',Arial,sans-serif; font-size: 24px; line-height: 1.5; }
+  .formula-box { max-width: none; text-align: left; border: 1px solid var(--divider); border-left: 3px solid var(--brand-plum); border-radius: 0 16px 16px 0; padding: 22px 26px; }
+  .formula-box h3 { font: 600 23px/1.35 'Source Sans 3',Arial,sans-serif; text-align: left; margin: 0 0 12px; }
+  .formula-box p { font-size: 20px; line-height: 1.6; }
+  .formula-box .math { font-size: 24px; line-height: 1.8; padding-block: 8px; }
+  .math,.small-work,.record strong,.timer-pair strong { font-variant-numeric: lining-nums tabular-nums; }
+  .definition:hover,.formula-box:hover { box-shadow: none; }
+  .question { max-width: 720px; font-size: 25px; line-height: 1.5; margin-block: 26px 14px; }
+  .response { max-width: 720px; font-size: 20px; }
+  .result { text-decoration: none; border-left: 3px solid var(--brand-teal); padding-left: 16px; line-height: 1.6; }
+
+  /* Setup, figure, then full-measure reasoning. Long worked solutions never
+     inherit the narrow half of a diagram comparison. */
+  .example-layout,.example-layout.reverse { grid-template-columns: minmax(0,1fr); grid-template-areas: 'intro' 'figure' 'working'; gap: 24px; }
+  .example-layout > figure { width: 100%; max-width: 560px; margin-inline: auto; padding-top: 0; }
+  .example-layout > .example-working { width: 100%; }
+  .spread > *,.comparison > div,.formula-pair > * { min-width: 0; }
+  figcaption { font-size: 17px; line-height: 1.5; }
+  .steps,.mini-work ol { padding-left: 28px; }
+  .steps li,.mini-work li { padding-left: 7px; line-height: 1.7; margin-block: 14px; }
+  .steps li::marker,.mini-work li::marker { color: var(--brand-teal); font-weight: 600; }
+  .worked-example { border-top: 0; padding-top: 0; }
+  .worked-example + .worked-example { border-top: 1px solid var(--divider); padding-top: 28px; }
+  .example-label,.mini-work > span { font-size: 15px; line-height: 1.5; text-transform: none; letter-spacing: .015em; color: var(--brand-teal); }
+  main > section.optional-section { border-top: 3px solid var(--brand-plum); }
+  .optional-section .mini-work,.optional-examples > .formula-box { padding: 28px 0 0; border: 0; border-top: 1px solid var(--divider); border-radius: 0; background: transparent; box-shadow: none; }
+  .optional-section .mini-work:first-child,.optional-examples > .formula-box:first-child { border-top: 0; padding-top: 0; }
+  .worked-grid { gap: 24px; }
+  .mini-work .check-line { font-size: 18px; }
+
+  /* Reference grids have a quiet shared frame, rather than card-inside-card. */
+  .prefix-ladder { padding: 0; gap: 0; overflow: hidden; }
+  .prefix-ladder > div { border: 0; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); border-radius: 0; padding: 18px 8px; }
+  .prefix-ladder .base { background: var(--brand-mint); }
+  .base-table { font-size: 19px; }
+  .base-table caption { font-size: 17px; font-weight: 400; color: var(--muted); }
+  .base-table th,.base-table td { border: 0; border-bottom: 1px solid var(--divider); }
+  .base-table thead th { font-weight: 600; font-size: 17px; }
+  .base-table tbody th { font-weight: 400; }
+  .case-cards > div { background: transparent; border: 0; border-radius: 0; border-block: 1px solid var(--divider); }
+  .unit-summary { padding: 22px 26px; background: var(--brand-canvas); }
+  .quick-check { padding: 26px; box-shadow: none; }
+  .quick-check .check-label { font-size: 15px; letter-spacing: .025em; }
+  .check-label .check-source { font-weight: 400; color: var(--muted); letter-spacing: 0; }
+  .quick-check .check-options { align-items: stretch; }
+  .quick-check .check-options button { line-height: 1.5; min-height: 48px; box-shadow: none; }
+  .quick-check:hover { box-shadow: none; }
+  .quick-check .check-options button:hover { transform: none; box-shadow: none; }
+  .footer { max-width: 840px; margin-inline: auto; font-size: 14px; line-height: 1.5; }
+}
+@media screen and (max-width: 900px) {
+  .spread,.spread.wide,.spread.reverse { grid-template-columns: minmax(0,1fr); gap: 24px; }
+  .spread.reverse figure,.spread.reverse .explanation { order: initial; }
+  .spread > figure { width: 100%; max-width: 560px; margin-inline: auto; }
+  .notebook > div + div { border-left: 0; border-top: 1px solid var(--divider); }
+  .scale-panels { grid-template-columns: minmax(0,1fr); align-items: stretch; }
+}
+@media screen and (max-width: 700px) {
+  main { padding-inline: 22px; padding-bottom: 32px; }
+  .top { padding: 18px 22px 8px; gap: 10px; }
+  .top .brand { flex-basis: auto; }
+  header.hero { padding: 28px 22px; margin-top: 16px; border-radius: 18px; }
+  h1 { font-size: 36px; }
+  h2 { font-size: 29px; }
+  .hero .lead { font-size: 19px; }
+  .kicker { font-size: 12px; }
+  .lesson-nav { font-size: 16px; flex-direction: column; align-items: flex-start; gap: 4px; }
+  .lesson-nav a { padding-block: 8px; }
+  .lesson-nav-bottom,.bottom-nav,#end-navigation { padding: 16px 18px; }
+  main > section + section { padding-top: 30px; margin-top: 24px; }
+  .comparison > div,.comparison > div:first-child { padding: 18px 0; }
+  .comparison > div + div { border-left: 0; }
+  .formula-box,.definition { padding: 20px 18px; }
+  .formula-box h3,.definition h3 { font-size: 21px; }
+  .formula-box p,.response,.mini-work p,.mini-work ol { font-size: 18px; }
+  .formula-box .math { font-size: 21px; }
+  .definition .exact,.mini-work .definition .exact { font-size: 22px; }
+  .quick-check { padding: 20px 18px; }
+  .check-label .check-source { display: block; margin-top: 3px; }
+  .prefix-ladder { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .base-table th,.base-table td { padding: 12px 7px; font-size: 17px; }
+  .base-table thead th { font-size: 16px; }
+  .unit-summary { padding: 20px 18px; }
+  .result { padding-left: 13px; }
+  .steps,.mini-work ol { padding-left: 23px; }
+  .steps li,.mini-work li { padding-left: 4px; }
+  .final-card { padding: 22px 16px; }
+}
+@media print {
+  .skip-link { display: none; }
+  .check-source { font-weight: 400; }
+}

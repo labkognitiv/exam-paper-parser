@@ -821,3 +821,6 @@ Append concise dated handoffs. Do not rewrite earlier entries.
 - Inspected 17 sources including 7 Paper 2 packages (9702_s17_21_q03, 9702_s21_23_q03, 9702_s22_21_q02, 9702_w17_22_q02, 9702_w20_21_q01, 9702_s19_22_q03, 9702_s25_22_q02) and archived scroll lesson assets.
 - Specified 6 visuals (4 SVGs, 2 authentic source figures) and 6 distinct retrieval activities. Zero em/en dashes.
 
+## 2026-09-19 - Development migration curriculum and mapping repair
+
+- Restored the two empty teaching-module records from the active lesson maps and syllabus. Added a read-only 4,016-question/147-lesson migration selection audit, explicit mapping authority, eight review-required development overrides and 58 checked part-ID translations. Question, enrichment and hash-validated effective mark-scheme joins pass. One invented duplicate enrichment part is explicitly excluded while three unavailable enrichment parts remain declared; canonical papers, locked mark schemes, review history and numerical flags remain unchanged.

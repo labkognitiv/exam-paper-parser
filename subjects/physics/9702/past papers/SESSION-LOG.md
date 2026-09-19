@@ -222,3 +222,10 @@ Append concise dated handoffs. Do not rewrite earlier entries.
   repository archive `2026-09-08-physics-biology-folder-normalization/`; no
   records were deleted. Archive movements are recorded in its manifest.
 - Re-ran Physics P1 and full Physics paper verification after normalization.
+
+## 2026-09-19 - Migration readiness repairs
+
+- Restored 28 empty P1 canonical question JSON records from their retained TXT/PNG packages and locked answer keys; verified IDs, source pages, schemas, and all 2,760 official-answer joins.
+- Repointed 36 stale P2/P4 `question_ocr.json` image fields across 20 question packages to their existing `question_compact.png`; all explicit PNG references now resolve.
+- Added source-verified, hash-validated OCR reconciliations for `9702_m19_22_q02`, `9702_m20_22_q04`, and `9702_w18_41_q10`; official PDFs, original mark schemes and earlier review metadata remain unchanged.
+- Restored the omitted one-mark capacitor-smoothing prompt in `9702_w24_41_q06` from the official question paper and corrected its context-only parent part to zero marks.
