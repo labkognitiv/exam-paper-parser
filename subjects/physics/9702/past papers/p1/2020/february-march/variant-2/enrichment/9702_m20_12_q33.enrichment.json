@@ -1,0 +1,60 @@
+{
+  "schema_version": "9702_p1_enrichment_v1",
+  "question_id": "9702_m20_12_q33",
+  "component": "P1",
+  "difficulty": 2,
+  "question_patterns": [
+    "circuit_analysis",
+    "multi_step_calculation"
+  ],
+  "topic_id": "9702_t10",
+  "module_id": "9702_t10_m01",
+  "skill_id": "9702_skill_resistor_networks",
+  "accepted_answer": "B",
+  "options_breakdown": {
+    "A": {
+      "status": "incorrect",
+      "explanation": "Too small because it ignores that the $6\\,\\Omega$ resistor carries $2\\,\\text{A}$, not a small fraction of the $3\\,\\text{A}$ total."
+    },
+    "B": {
+      "status": "correct",
+      "explanation": "The $6\\,\\Omega$ power is $24\\,\\text{W}$ and the $2\\,\\Omega$ power is $18\\,\\text{W}$, giving ratio $24/18 = 4/3$."
+    },
+    "C": {
+      "status": "incorrect",
+      "explanation": "Too large because it compares resistances $12/6$ rather than calculating $I^2R$ with the correct branch currents."
+    },
+    "D": {
+      "status": "incorrect",
+      "explanation": "Too large because it assumes the full $3\\,\\text{A}$ flows through the $6\\,\\Omega$ resistor instead of only its $2\\,\\text{A}$ share."
+    }
+  },
+  "hints": [
+    "Notice from the diagram that the $12\\,\\Omega$ and $6\\,\\Omega$ resistors are in parallel with each other, and that parallel combination is in series with the $2\\,\\Omega$ resistor.",
+    "Recall that the $3\\,\\text{A}$ battery current must all pass through the $2\\,\\Omega$ resistor, but must split between the $12\\,\\Omega$ and $6\\,\\Omega$ branches in inverse ratio to their resistances.",
+    "Use $P = I^2R$ for each resistor: find the $2\\,\\text{A}$ current in the $6\\,\\Omega$ branch, then form $I_6^2 \\times 6$ divided by $I_2^2 \\times 2$."
+  ],
+  "walkthrough": [
+    "Identify the arrangement: the $12\\,\\Omega$ and $6\\,\\Omega$ resistors share the same two nodes so they are in parallel, and the $2\\,\\Omega$ resistor carries the whole battery current of $3\\,\\text{A}$.",
+    "Find the current in the $2\\,\\Omega$ resistor: $I_2 = 3\\,\\text{A}$, so $P_2 = I_2^2 R = (3)^2 \\times 2 = 18\\,\\text{W}$.",
+    "Split the $3\\,\\text{A}$ between the parallel branches. For equal p.d., $I_6 \\times 6 = I_{12} \\times 12$, so $I_6 = 2I_{12}$ and $I_6 + I_{12} = 3\\,\\text{A}$.",
+    "Solve to get $I_{12} = 1\\,\\text{A}$ and $I_6 = 2\\,\\text{A}$, so $P_6 = I_6^2 R = (2)^2 \\times 6 = 24\\,\\text{W}$.",
+    "Form the required ratio $P_6/P_2 = 24/18 = 4/3$. This is option B."
+  ],
+  "mapping": {
+    "primary_topic_id": "9702_t10",
+    "primary_module_id": "9702_t10_m01",
+    "outcome_ids": [
+      "9702_t10_m01_o01",
+      "9702_t10_m01_o02"
+    ]
+  },
+  "taxonomy_tags": {
+    "topic_ids": [
+      "9702_t10"
+    ],
+    "module_ids": [
+      "9702_t10_m01"
+    ]
+  }
+}

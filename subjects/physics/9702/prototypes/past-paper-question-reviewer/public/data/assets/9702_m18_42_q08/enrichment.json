@@ -1,0 +1,209 @@
+{
+  "schema_version": "9702_theory_enrichment_v1",
+  "question_id": "9702_m18_42_q08",
+  "difficulty": 3,
+  "question_patterns": [
+    "definition",
+    "direct_calculation",
+    "circuit_analysis",
+    "graph_interpretation",
+    "explanation"
+  ],
+  "parts": [
+    {
+      "part_id": "9702_m18_42_q08_a_i",
+      "label": "(a)(i)",
+      "marks": 1,
+      "difficulty": 1,
+      "question_patterns": [
+        "definition"
+      ],
+      "key_concepts": [
+        "ideal op-amp properties",
+        "bandwidth and frequency response",
+        "voltage gain independent of frequency"
+      ],
+      "hints": [
+        "Hint 1: Think about what bandwidth tells you about frequency - what would it mean if an amplifier worked just as well for very low and very high frequency signals?"
+      ],
+      "proper_answer": "Infinite bandwidth means the voltage gain is the same for all frequencies of input signal.",
+      "walkthrough": [
+        "Step 1: **What bandwidth means**\nThink of bandwidth as the range of frequencies that the op-amp can amplify properly. A real op-amp loses gain at high frequencies, so its output gets smaller.",
+        "Step 2: **Ideal case**\nFor an ideal op-amp this range is infinite, so $$\\text{gain is constant for all frequencies}$$ from zero up to infinitely high frequency. There is no cut-off."
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t19",
+        "primary_module_id": "9702_t19_m02",
+        "outcome_ids": [
+          "9702_t19_m02_o01"
+        ]
+      },
+      "primary_topic_id": "9702_t19",
+      "primary_module_id": "9702_t19_m02",
+      "outcome_ids": [
+        "9702_t19_m02_o01"
+      ]
+    },
+    {
+      "part_id": "9702_m18_42_q08_a_ii",
+      "label": "(a)(ii)",
+      "marks": 1,
+      "difficulty": 1,
+      "question_patterns": [
+        "definition"
+      ],
+      "key_concepts": [
+        "slew rate",
+        "rate of change of output voltage",
+        "instantaneous response"
+      ],
+      "hints": [
+        "Hint 1: Focus on the word rate - it is about how fast the output voltage can change in time when the input changes suddenly."
+      ],
+      "proper_answer": "Infinite slew rate means the output voltage can change instantaneously, with no time delay or distortion.",
+      "walkthrough": [
+        "Step 1: **What slew rate measures**\nSlew rate is the maximum rate of change of output voltage, $$\\text{slew rate} = \\left(\\frac{dV_{OUT}}{dt}\\right)_{max}$$ in $\\text{V s}^{-1}$. A real op-amp takes a short time to swing from one voltage to another.",
+        "Step 2: **Ideal case**\nInfinite slew rate means there is no limit - the output follows any change in input immediately and exactly, even for a step or very high frequency signal."
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t19",
+        "primary_module_id": "9702_t19_m02",
+        "outcome_ids": [
+          "9702_t19_m02_o01",
+          "9702_t19_m02_o02"
+        ]
+      },
+      "primary_topic_id": "9702_t19",
+      "primary_module_id": "9702_t19_m02",
+      "outcome_ids": [
+        "9702_t19_m02_o01",
+        "9702_t19_m02_o02"
+      ]
+    },
+    {
+      "part_id": "9702_m18_42_q08_b_i",
+      "label": "(b)(i)",
+      "marks": 1,
+      "difficulty": 2,
+      "question_patterns": [
+        "direct_calculation",
+        "circuit_analysis"
+      ],
+      "key_concepts": [
+        "op-amp as comparator",
+        "potential divider",
+        "V+ equals V- for zero output switching point"
+      ],
+      "hints": [
+        "Hint 1: Look at Fig. 8.1 as a comparator - at the switching point where $V_{OUT}$ is zero, what must be true about the potentials at the - and + inputs?"
+      ],
+      "proper_answer": "$R_T = 1200\\,\\Omega$ ($1.2\\,\\text{k}\\Omega$).",
+      "walkthrough": [
+        "Step 1: **Switching condition for a comparator**\nYou have an open-loop comparator. $V_{OUT}$ changes sign when $V_-$ crosses $V_+$. So $V_{OUT} = 0$ when $$V_- = V_+$$",
+        "Step 2: **Find the fixed reference $V_+$**\nThe + input is from a fixed divider across $+4\\text{ V}$ to earth: $$V_+ = 4 \\times \\frac{1.2}{1.8+1.2} = 4 \\times \\frac{1.2}{3.0} = 1.6\\text{ V}$$",
+        "Step 3: **Set $V_-$ equal to this**\nThe - input is from the thermistor divider: $$V_- = 4 \\times \\frac{800}{R_T + 800}$$ Set equal to $1.6\\text{ V}$: $$1.6 = 4 \\times \\frac{800}{R_T+800}$$ $$R_T + 800 = \\frac{3200}{1.6} = 2000$$ $$R_T = 1200\\,\\Omega$$"
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t19",
+        "primary_module_id": "9702_t19_m02",
+        "outcome_ids": [
+          "9702_t19_m02_o01"
+        ]
+      },
+      "primary_topic_id": "9702_t19",
+      "primary_module_id": "9702_t19_m02",
+      "outcome_ids": [
+        "9702_t19_m02_o01"
+      ]
+    },
+    {
+      "part_id": "9702_m18_42_q08_b_ii",
+      "label": "(b)(ii)",
+      "marks": 2,
+      "difficulty": 3,
+      "question_patterns": [
+        "graph_interpretation",
+        "circuit_analysis"
+      ],
+      "key_concepts": [
+        "comparator saturation",
+        "supply rails +9V and -9V",
+        "thermistor resistance decreases with temperature"
+      ],
+      "hints": [
+        "Hint 1: Work out what happens to $V_-$ when $R_T$ gets larger or smaller - remember the $800\\,\\Omega$ resistor is at the bottom of that divider.",
+        "Hint 2: Remember an ideal comparator saturates near its supplies - what are the two possible values of $V_{OUT}$, and at which value of resistance does it flip?"
+      ],
+      "proper_answer": "Horizontal line at $V_{OUT} = +9\\text{ V}$ for resistance $> R_T$ up to $1.5R_T$, sharp vertical drop at $R_T$ to $V_{OUT} = -9\\text{ V}$, then horizontal line at $-9\\text{ V}$ down to $0.5R_T$.",
+      "walkthrough": [
+        "Step 1: **Link resistance to $V_-$**\n$$V_- = 4 \\times \\frac{800}{R_T+800}$$ If $R_T$ is large, the denominator is large so $V_-$ is small. If $R_T$ is small, $V_-$ is large. $V_+$ stays fixed at $1.6\\text{ V}$.",
+        "Step 2: **Decide saturation**\nFor $R > R_T$, $V_- < V_+$, so $V_+ > V_-$ and the op-amp saturates positive: $$V_{OUT} \\approx +9\\text{ V}$$ For $R < R_T$, $V_- > V_+$, so the op-amp saturates negative: $$V_{OUT} \\approx -9\\text{ V}$$",
+        "Step 3: **Sketch the shape**\nAs temperature rises, resistance falls from $1.5R_T$ to $0.5R_T$. So start on the right at $+9\\text{ V}$, stay flat, then at $R_T$ drop vertically straight down to $-9\\text{ V}$, then stay flat to the left. This is the classic comparator switching characteristic."
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t12",
+        "primary_module_id": "9702_t12_m01",
+        "outcome_ids": [
+          "9702_t12_m01_o03"
+        ]
+      },
+      "primary_topic_id": "9702_t12",
+      "primary_module_id": "9702_t12_m01",
+      "outcome_ids": [
+        "9702_t12_m01_o03"
+      ]
+    },
+    {
+      "part_id": "9702_m18_42_q08_b_iii",
+      "label": "(b)(iii)",
+      "marks": 2,
+      "difficulty": 2,
+      "question_patterns": [
+        "circuit_analysis",
+        "explanation"
+      ],
+      "key_concepts": [
+        "LED forward bias",
+        "output polarity for comparator",
+        "connection between VOUT and earth"
+      ],
+      "hints": [
+        "Hint 1: From (b)(ii), decide whether $V_{OUT}$ is positive or negative when the thermistor resistance is less than $R_T$ - this is when the LED must be on.",
+        "Hint 2: Think about which way conventional current must flow through an LED to light it, and whether current should flow from earth to $V_{OUT}$ or from $V_{OUT}$ to earth in this case."
+      ],
+      "proper_answer": "Connect LED between $V_{OUT}$ terminal and earth (0 V) rail. Orient with anode to earth and cathode to $V_{OUT}$ so it is forward biased when $V_{OUT}$ is negative (-9 V), i.e. when $R < R_T$.",
+      "walkthrough": [
+        "Step 1: **When must the LED be on?**\nWhen $R < R_T$, you found $V_- > V_+$ so $$V_{OUT} = -9\\text{ V}$$ Earth is at $0\\text{ V}$, which is higher than $-9\\text{ V}$. So conventional current can flow from earth down to $V_{OUT}$.",
+        "Step 2: **Orient the LED correctly**\nAn LED conducts and emits light only in forward direction, from anode (triangle) to cathode (bar). To allow earth to $V_{OUT}$ flow, place the anode towards earth and the cathode towards $V_{OUT}$. Draw the LED symbol on Fig. 8.1 bridging the $V_{OUT}$ line to the earthed common line.",
+        "Step 3: **Check the off state**\nWhen $R > R_T$, $V_{OUT} = +9\\text{ V}$, the LED is reverse biased (both ends positive, $V_{OUT}$ higher than earth) so no current flows and it stays off. That gives light only for hot thermistor, $R < R_T$."
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t18",
+        "primary_module_id": "9702_t18_m05",
+        "outcome_ids": [
+          "9702_t18_m05_o03",
+          "9702_t18_m05_o04"
+        ]
+      },
+      "primary_topic_id": "9702_t18",
+      "primary_module_id": "9702_t18_m05",
+      "outcome_ids": [
+        "9702_t18_m05_o03",
+        "9702_t18_m05_o04"
+      ]
+    }
+  ],
+  "total_marks": 7,
+  "taxonomy_tags": {
+    "topic_ids": [
+      "9702_t12",
+      "9702_t18",
+      "9702_t19"
+    ],
+    "module_ids": [
+      "9702_t12_m01",
+      "9702_t18_m05",
+      "9702_t19_m02"
+    ]
+  }
+}

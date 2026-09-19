@@ -1,0 +1,138 @@
+{
+  "elapsed_sec": 0.8,
+  "tokens": {
+    "prompt_tokens": 2254,
+    "completion_tokens": 2232,
+    "reasoning_tokens": 694,
+    "total_tokens": 4486
+  },
+  "cost_usd": 0.000672,
+  "valid_json": true,
+  "parsed_json": {
+    "question_num": 6,
+    "difficulty": 2,
+    "question_patterns": [
+      "qualitative_explanation",
+      "symbolic_derivation"
+    ],
+    "parts": [
+      {
+        "part": "(a)",
+        "difficulty": 1,
+        "question_patterns": [
+          "qualitative_explanation"
+        ],
+        "target_time_minutes": 1,
+        "formulas_used": [
+          "R \\propto T \\text{ for a metal filament}"
+        ],
+        "hints": [
+          "Hint 1: Recall that the resistance of a metal filament is determined by its temperature through increased lattice ion vibration and electron scattering."
+        ],
+        "teacher_walkthrough": [
+          "Resistance of a metal filament increases with temperature due to increased amplitude of vibration of lattice ions which increases scattering of conduction electrons.",
+          "Heating power in the filament is $P = I^2 R$. A decrease in current $I$ reduces heating, so the filament temperature falls.",
+          "Lower temperature gives reduced scattering rate, so resistance $R$ decreases."
+        ],
+        "walkthrough": [
+          "Decreased current causes decreased temperature of filament.",
+          "Decreased scattering gives decreased resistance, so resistance decreases."
+        ],
+        "common_pitfalls": [
+          "Using $R = V/I$ alone to argue that smaller $I$ gives larger $R$, ignoring that $V$ also changes and that a filament is non-ohmic.",
+          "Stating resistance is constant because the filament material has not changed, ignoring temperature dependence.",
+          "Reversing the effect and stating resistance increases when current decreases."
+        ]
+      },
+      {
+        "part": "(b)(i)",
+        "difficulty": 1,
+        "question_patterns": [
+          "direct_calculation"
+        ],
+        "target_time_minutes": 1,
+        "formulas_used": [
+          "V = IR",
+          "I = \\frac{V}{R}"
+        ],
+        "hints": [
+          "Hint 1: Identify the defining relation between potential difference $V$, current $I$ and resistance $R$ for the wire."
+        ],
+        "teacher_walkthrough": [
+          "Ohm's law for the wire is $V = IR$ where $V$ is potential difference, $I$ is current and $R$ is resistance.",
+          "Rearrange for current by dividing both sides by $R$: $$I = \\frac{V}{R}$$"
+        ],
+        "walkthrough": [
+          "Apply $I = V/R$ as required expression for current."
+        ],
+        "common_pitfalls": [
+          "Introducing electron charge $e$ or number $N$ unnecessarily in this part.",
+          "Writing $I = VR$ by incorrect rearrangement of $V = IR$."
+        ]
+      },
+      {
+        "part": "(b)(ii)",
+        "difficulty": 2,
+        "question_patterns": [
+          "symbolic_derivation"
+        ],
+        "target_time_minutes": 2,
+        "formulas_used": [
+          "I = nAve",
+          "n = \\frac{N}{AL}",
+          "I = \\frac{V}{R}"
+        ],
+        "hints": [
+          "Hint 1: Start from the drift speed equation $I = nAve$ and recognise that number density $n$ equals total number $N$ divided by volume $AL$.",
+          "Hint 2: Substitute $n = N/(AL)$ into $v = I/(nAe)$ and then substitute $I = V/R$ from (b)(i), cancelling cross-sectional area $A$."
+        ],
+        "teacher_walkthrough": [
+          "Current in terms of drift speed is $I = nAv e$ where $n$ is number of free electrons per unit volume, $A$ is cross-sectional area, $v$ is average drift speed and $e$ is electron charge.",
+          "Rearrange for drift speed: $$v = \\frac{I}{nAe}$$",
+          "Number density is total number divided by volume of cylinder: $$n = \\frac{N}{Volume} = \\frac{N}{AL}$$",
+          "Substitute $n$ into expression for $v$: $$v = \\frac{I}{\\left(\\frac{N}{AL}\\right) A e}$$",
+          "Cancel $A$ in numerator and denominator: $$v = \\frac{I}{\\left(\\frac{N}{L}\\right) e} = \\frac{IL}{Ne}$$",
+          "Substitute $I = V/R$ from (b)(i): $$v = \\frac{\\left(\\frac{V}{R}\\right)L}{Ne} = \\frac{VL}{NeR}$$"
+        ],
+        "walkthrough": [
+          "Use $I = nAve$ with $n = N/(AL)$ to get $v = I/(nAe)$.",
+          "Substitute $I = V/R$ to obtain $v = VL/(NeR)$."
+        ],
+        "common_pitfalls": [
+          "Confusing total number $N$ with number density $n$ and writing $v = I/(NAe)$ without dividing by volume.",
+          "Failing to cancel area $A$ and leaving $A$ in the final expression when only $e, L, N, R, V$ are allowed."
+        ]
+      },
+      {
+        "part": "(b)(iii)",
+        "difficulty": 2,
+        "question_patterns": [
+          "symbolic_derivation"
+        ],
+        "target_time_minutes": 1,
+        "formulas_used": [
+          "t = \\frac{L}{v}",
+          "Q = It"
+        ],
+        "hints": [
+          "Hint 1: Use constant speed kinematics $distance = speed \\times time$ with distance $L$ and speed equal to drift speed $v$ from (b)(ii)."
+        ],
+        "teacher_walkthrough": [
+          "Average motion along the wire is at constant drift speed $v$ over distance $L$, so time is $$t = \\frac{L}{v}$$",
+          "Substitute $v = VL/(NeR)$ from (b)(ii): $$t = \\frac{L}{\\left(\\frac{VL}{NeR}\\right)}$$",
+          "Invert and cancel $L$: $$t = L \\times \\frac{NeR}{VL} = \\frac{NeR}{V}$$",
+          "This can also be written using $I = V/R$ as: $$t = \\frac{Ne}{V/R} = \\frac{Ne}{I}$$"
+        ],
+        "walkthrough": [
+          "Apply $t = L/v$ using $v$ from (b)(ii).",
+          "Simplify to $t = NeR/V$ or $Ne/(V/R)$."
+        ],
+        "common_pitfalls": [
+          "Using $v = at$ or accelerated motion equations instead of constant drift speed $t = L/v$.",
+          "Inverting incorrectly to get $t = v/L$ instead of $L/v$."
+        ]
+      }
+    ]
+  },
+  "raw_content": "{\n  \"question_num\": 6,\n  \"difficulty\": 2,\n  \"question_patterns\": [\n    \"qualitative_explanation\",\n    \"symbolic_derivation\"\n  ],\n  \"parts\": [\n    {\n      \"part\": \"(a)\",\n      \"difficulty\": 1,\n      \"question_patterns\": [\n        \"qualitative_explanation\"\n      ],\n      \"target_time_minutes\": 1,\n      \"formulas_used\": [\n        \"R \\\\propto T \\\\text{ for a metal filament}\"\n      ],\n      \"hints\": [\n        \"Hint 1: Recall that the resistance of a metal filament is determined by its temperature through increased lattice ion vibration and electron scattering.\"\n      ],\n      \"teacher_walkthrough\": [\n        \"Resistance of a metal filament increases with temperature due to increased amplitude of vibration of lattice ions which increases scattering of conduction electrons.\",\n        \"Heating power in the filament is $P = I^2 R$. A decrease in current $I$ reduces heating, so the filament temperature falls.\",\n        \"Lower temperature gives reduced scattering rate, so resistance $R$ decreases.\"\n      ],\n      \"walkthrough\": [\n        \"Decreased current causes decreased temperature of filament.\",\n        \"Decreased scattering gives decreased resistance, so resistance decreases.\"\n      ],\n      \"common_pitfalls\": [\n        \"Using $R = V/I$ alone to argue that smaller $I$ gives larger $R$, ignoring that $V$ also changes and that a filament is non-ohmic.\",\n        \"Stating resistance is constant because the filament material has not changed, ignoring temperature dependence.\",\n        \"Reversing the effect and stating resistance increases when current decreases.\"\n      ]\n    },\n    {\n      \"part\": \"(b)(i)\",\n      \"difficulty\": 1,\n      \"question_patterns\": [\n        \"direct_calculation\"\n      ],\n      \"target_time_minutes\": 1,\n      \"formulas_used\": [\n        \"V = IR\",\n        \"I = \\\\frac{V}{R}\"\n      ],\n      \"hints\": [\n        \"Hint 1: Identify the defining relation between potential difference $V$, current $I$ and resistance $R$ for the wire.\"\n      ],\n      \"teacher_walkthrough\": [\n        \"Ohm's law for the wire is $V = IR$ where $V$ is potential difference, $I$ is current and $R$ is resistance.\",\n        \"Rearrange for current by dividing both sides by $R$: $$I = \\\\frac{V}{R}$$\"\n      ],\n      \"walkthrough\": [\n        \"Apply $I = V/R$ as required expression for current.\"\n      ],\n      \"common_pitfalls\": [\n        \"Introducing electron charge $e$ or number $N$ unnecessarily in this part.\",\n        \"Writing $I = VR$ by incorrect rearrangement of $V = IR$.\"\n      ]\n    },\n    {\n      \"part\": \"(b)(ii)\",\n      \"difficulty\": 2,\n      \"question_patterns\": [\n        \"symbolic_derivation\"\n      ],\n      \"target_time_minutes\": 2,\n      \"formulas_used\": [\n        \"I = nAve\",\n        \"n = \\\\frac{N}{AL}\",\n        \"I = \\\\frac{V}{R}\"\n      ],\n      \"hints\": [\n        \"Hint 1: Start from the drift speed equation $I = nAve$ and recognise that number density $n$ equals total number $N$ divided by volume $AL$.\",\n        \"Hint 2: Substitute $n = N/(AL)$ into $v = I/(nAe)$ and then substitute $I = V/R$ from (b)(i), cancelling cross-sectional area $A$.\"\n      ],\n      \"teacher_walkthrough\": [\n        \"Current in terms of drift speed is $I = nAv e$ where $n$ is number of free electrons per unit volume, $A$ is cross-sectional area, $v$ is average drift speed and $e$ is electron charge.\",\n        \"Rearrange for drift speed: $$v = \\\\frac{I}{nAe}$$\",\n        \"Number density is total number divided by volume of cylinder: $$n = \\\\frac{N}{Volume} = \\\\frac{N}{AL}$$\",\n        \"Substitute $n$ into expression for $v$: $$v = \\\\frac{I}{\\\\left(\\\\frac{N}{AL}\\\\right) A e}$$\",\n        \"Cancel $A$ in numerator and denominator: $$v = \\\\frac{I}{\\\\left(\\\\frac{N}{L}\\\\right) e} = \\\\frac{IL}{Ne}$$\",\n        \"Substitute $I = V/R$ from (b)(i): $$v = \\\\frac{\\\\left(\\\\frac{V}{R}\\\\right)L}{Ne} = \\\\frac{VL}{NeR}$$\"\n      ],\n      \"walkthrough\": [\n        \"Use $I = nAve$ with $n = N/(AL)$ to get $v = I/(nAe)$.\",\n        \"Substitute $I = V/R$ to obtain $v = VL/(NeR)$.\"\n      ],\n      \"common_pitfalls\": [\n        \"Confusing total number $N$ with number density $n$ and writing $v = I/(NAe)$ without dividing by volume.\",\n        \"Failing to cancel area $A$ and leaving $A$ in the final expression when only $e, L, N, R, V$ are allowed.\"\n      ]\n    },\n    {\n      \"part\": \"(b)(iii)\",\n      \"difficulty\": 2,\n      \"question_patterns\": [\n        \"symbolic_derivation\"\n      ],\n      \"target_time_minutes\": 1,\n      \"formulas_used\": [\n        \"t = \\\\frac{L}{v}\",\n        \"Q = It\"\n      ],\n      \"hints\": [\n        \"Hint 1: Use constant speed kinematics $distance = speed \\\\times time$ with distance $L$ and speed equal to drift speed $v$ from (b)(ii).\"\n      ],\n      \"teacher_walkthrough\": [\n        \"Average motion along the wire is at constant drift speed $v$ over distance $L$, so time is $$t = \\\\frac{L}{v}$$\",\n        \"Substitute $v = VL/(NeR)$ from (b)(ii): $$t = \\\\frac{L}{\\\\left(\\\\frac{VL}{NeR}\\\\right)}$$\",\n        \"Invert and cancel $L$: $$t = L \\\\times \\\\frac{NeR}{VL} = \\\\frac{NeR}{V}$$\",\n        \"This can also be written using $I = V/R$ as: $$t = \\\\frac{Ne}{V/R} = \\\\frac{Ne}{I}$$\"\n      ],\n      \"walkthrough\": [\n        \"Apply $t = L/v$ using $v$ from (b)(ii).\",\n        \"Simplify to $t = NeR/V$ or $Ne/(V/R)$.\"\n      ],\n      \"common_pitfalls\": [\n        \"Using $v = at$ or accelerated motion equations instead of constant drift speed $t = L/v$.\",\n        \"Inverting incorrectly to get $t = v/L$ instead of $L/v$.\"\n      ]\n    }\n  ]\n}"
+}

@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "p4-independent-verifier-report.schema.json",
+  "title": "Physics 9702 P4 independent verifier report",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["paper", "verdict", "author_id", "manager_id", "verifier_id", "reviewed_leaves", "semantic_findings", "deterministic_findings"],
+  "properties": {
+    "paper": {"type": "string", "pattern": "^9702_[msw][0-9]{2}_4[1-4]$"},
+    "verdict": {"enum": ["PASS", "FAIL"]},
+    "author_id": {"type": "string", "minLength": 1},
+    "manager_id": {"type": "string", "minLength": 1},
+    "verifier_id": {"type": "string", "minLength": 1},
+    "reviewed_leaves": {"type": "array", "uniqueItems": true, "items": {"type": "string"}},
+    "semantic_findings": {"type": "array", "items": {"type": "string"}},
+    "deterministic_findings": {"type": "array", "items": {"type": "string"}}
+  },
+  "allOf": [{
+    "if": {"properties": {"verdict": {"const": "PASS"}}},
+    "then": {"properties": {"semantic_findings": {"maxItems": 0}, "deterministic_findings": {"maxItems": 0}}}
+  }]
+}

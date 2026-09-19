@@ -1,0 +1,131 @@
+{
+  "schema_version": "9702_theory_enrichment_v1",
+  "question_id": "9702_w17_42_q05",
+  "difficulty": 3,
+  "question_patterns": [
+    "graph_interpretation",
+    "explanation"
+  ],
+  "parts": [
+    {
+      "part_id": "9702_w17_42_q05_a",
+      "label": "(a)",
+      "marks": 2,
+      "difficulty": 2,
+      "question_patterns": [
+        "graph_interpretation"
+      ],
+      "key_concepts": [
+        "sampling of analogue signal",
+        "reading voltage-time graph",
+        "4-bit ADC binary conversion with LSB"
+      ],
+      "hints": [
+        "Hint 1: Start by reading the smooth curve in Fig. 5.1 at the two sampling instants. Look vertically up from $t = 0.2\\text{ ms}$ and $t = 0.8\\text{ ms}$ to meet the curve, then read horizontally to the microphone output axis in $\\text{mV}$.",
+        "Hint 2: Now turn each voltage into a 4-bit binary number. Remember the smallest bit means $1.0\\text{ mV}$, so the binary value is just the whole-number part of the voltage in $\\text{mV}$. Work out $8$ and $5$ in 4-bit binary."
+      ],
+      "proper_answer": "At $t = 0.2\\text{ ms}$: microphone output $= 8.0\\text{ mV}$, ADC output $= 1000$. At $t = 0.8\\text{ ms}$: microphone output $= 5.8\\text{ mV}$, ADC output $= 0101$.",
+      "walkthrough": [
+        "Step 1: **Read the sampled analogue voltages**\nThink of sampling like taking a snapshot of the continuously changing voltage. From Fig. 5.1, at $t = 0.2\\text{ ms}$ the curve has flattened at $8.0\\text{ mV}$. At $t = 0.8\\text{ ms}$ the curve is in the dip and reads about $5.8\\text{ mV}$.",
+        "Step 2: **Convert to 4-bit binary with 1.0 mV per LSB**\nThe ADC can only output whole numbers of $\\text{mV}$ because the least significant bit is $1.0\\text{ mV}$. So we use: $$ \\text{binary value} = \\text{integer part of } \\left(\\frac{V}{1.0\\text{ mV}}\\right) $$ For $8.0\\text{ mV}$: $8 = 8 + 0 + 0 + 0$ in powers of 2, so $8 = 1000_2$. For $5.8\\text{ mV}$: the ADC truncates to $5\\text{ mV}$, and $5 = 4+1$, so $5 = 0101_2$."
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t18",
+        "primary_module_id": "9702_t18_m03",
+        "outcome_ids": [
+          "9702_t18_m03_o02"
+        ]
+      },
+      "primary_topic_id": "9702_t18",
+      "primary_module_id": "9702_t18_m03",
+      "outcome_ids": [
+        "9702_t18_m03_o02"
+      ]
+    },
+    {
+      "part_id": "9702_w17_42_q05_b",
+      "label": "(b)",
+      "marks": 4,
+      "difficulty": 3,
+      "question_patterns": [
+        "graph_interpretation"
+      ],
+      "key_concepts": [
+        "sampling interval from sampling frequency",
+        "quantisation",
+        "DAC staircase reconstruction"
+      ],
+      "hints": [
+        "Hint 1: First work out how often a sample is taken. You are given sampling frequency $5.0\\text{ kHz}$, so think about the time $T$ between one sample and the next and list the sample times from $0$ to $1.2\\text{ ms}$.",
+        "Hint 2: Next read the analogue voltage from Fig. 5.1 at each of those sample times, then round down to the whole $\\text{mV}$ that the 4-bit ADC with $1.0\\text{ mV}$ LSB would store.",
+        "Hint 3: Remember what a DAC does between samples. It cannot follow the smooth curve, it must hold each sampled level constant until the next sample arrives.",
+        "Hint 4: Sketch horizontal steps that change only at the sampling instants. Check your levels are approximately $0, 8, 10, 15, 5, 8, 12$ held over intervals $0-0.2$, $0.2-0.4$ ms etc."
+      ],
+      "proper_answer": "Staircase of constant levels changing every $0.20\\text{ ms}$ at $0, 0.2, 0.4...1.2\\text{ ms}$. Levels held are approx: $0$ for $0-0.2\\text{ ms}$, $8$ for $0.2-0.4\\text{ ms}$, $10$ for $0.4-0.6\\text{ ms}$, $15$ for $0.6-0.8\\text{ ms}$, $5$ for $0.8-1.0\\text{ ms}$, $8$ for $1.0-1.2\\text{ ms}$.",
+      "walkthrough": [
+        "Step 1: **Find the sampling interval**\nSampling is regular in time. The period is: $$ T = \\frac{1}{f} = \\frac{1}{5.0 \\times 10^3\\text{ Hz}} = 2.0 \\times 10^{-4}\\text{ s} = 0.20\\text{ ms} $$ So samples are taken at $t = 0, 0.2, 0.4, 0.6, 0.8, 1.0, 1.2\\text{ ms}$. The DAC output can only change at these instants.",
+        "Step 2: **Read and quantise each sample**\nReading Fig. 5.1 and truncating to $1\\text{ mV}$ steps gives: $t=0$: $0\\text{ mV}$ gives $0$; $t=0.2$: $8.0\\text{ mV}$ gives $8$; $t=0.4$: $10\\text{ mV}$ gives $10$; $t=0.6$: $15\\text{ mV}$ gives $15$; $t=0.8$: $\\approx 5.8\\text{ mV}$ gives $5$; $t=1.0$: $8.0\\text{ mV}$ gives $8$; $t=1.2$: $12\\text{ mV}$ gives $12$.",
+        "Step 3: **Draw the DAC staircase**\nJoin these with horizontal lines. From $0$ to $0.2\\text{ ms}$ draw a line at $0$, then jump vertically at $0.2\\text{ ms}$ up to $8$ and hold to $0.4\\text{ ms}$, then jump to $10$, and so on. The result is a series of flat steps, not a smooth curve, with all vertical jumps exactly at multiples of $0.2\\text{ ms}$."
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t18",
+        "primary_module_id": "9702_t18_m03",
+        "outcome_ids": [
+          "9702_t18_m03_o02"
+        ]
+      },
+      "primary_topic_id": "9702_t18",
+      "primary_module_id": "9702_t18_m03",
+      "outcome_ids": [
+        "9702_t18_m03_o02"
+      ]
+    },
+    {
+      "part_id": "9702_w17_42_q05_c",
+      "label": "(c)",
+      "marks": 2,
+      "difficulty": 2,
+      "question_patterns": [
+        "explanation"
+      ],
+      "key_concepts": [
+        "number of bits and quantisation levels",
+        "quantisation error and fidelity"
+      ],
+      "hints": [
+        "Hint 1: Think about what more bits means for the number of different levels available. With 4 bits there are $2^4 = 16$ levels, what happens with 5, 8 or more bits if the voltage range stays the same?",
+        "Hint 2: Link the size of the voltage jump between neighbouring levels to how closely the stepped DAC output can follow small wiggles in the original smooth microphone signal."
+      ],
+      "proper_answer": "Smaller step heights / finer quantisation levels are possible. Smaller changes in input can be resolved, so the reconstructed analogue signal is a more accurate reproduction of the original with less quantisation distortion.",
+      "walkthrough": [
+        "Step 1: **More bits means finer steps**\nThe number of levels is $2^n$ where $n$ is bits per sample. Increasing $n$ packs many more levels into the same voltage range, so the voltage difference between one level and the next becomes smaller.",
+        "Step 2: **Better fidelity**\nBecause each sample is rounded less coarsely, the quantisation error is reduced. Tiny variations in the microphone signal that were lost in a $1.0\\text{ mV}$ step can now be coded, so the DAC staircase follows the original analogue curve much more closely."
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t22",
+        "primary_module_id": "9702_t22_m04",
+        "outcome_ids": [
+          "9702_t22_m04_o01",
+          "9702_t22_m04_o02"
+        ]
+      },
+      "primary_topic_id": "9702_t22",
+      "primary_module_id": "9702_t22_m04",
+      "outcome_ids": [
+        "9702_t22_m04_o01",
+        "9702_t22_m04_o02"
+      ]
+    }
+  ],
+  "total_marks": 8,
+  "taxonomy_tags": {
+    "topic_ids": [
+      "9702_t18",
+      "9702_t22"
+    ],
+    "module_ids": [
+      "9702_t18_m03",
+      "9702_t22_m04"
+    ]
+  }
+}

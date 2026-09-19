@@ -1,0 +1,273 @@
+{
+  "schema_version": "9702_theory_enrichment_v1",
+  "question_id": "9702_w21_42_q07",
+  "difficulty": 2,
+  "question_patterns": [
+    "definition",
+    "explanation",
+    "direct_calculation"
+  ],
+  "parts": [
+    {
+      "part_id": "9702_w21_42_q07_a",
+      "label": "(a)",
+      "marks": 2,
+      "difficulty": 1,
+      "question_patterns": [
+        "definition"
+      ],
+      "key_concepts": [
+        "open-loop gain",
+        "output voltage to differential input voltage ratio"
+      ],
+      "hints": [
+        "Hint 1: Think about what an amplifier does - it makes a small voltage bigger. Which two voltages would you compare to say how much bigger?",
+        "Hint 2: Remember the op-amp has two inputs, + and -. The important input is not just one of them, but the difference between them."
+      ],
+      "proper_answer": "Gain = $V_{OUT} / V_{IN}$ where $V_{IN}$ is the potential difference between the inverting (-) and non-inverting (+) inputs.",
+      "walkthrough": [
+        "Step 1: **What gain means**\nThink of gain as the multiplication factor. If you put a tiny voltage in, you get a much larger voltage out. So gain is simply the ratio: $$G = \\frac{V_{OUT}}{V_{IN}}$$ It has no unit because it is voltage divided by voltage.",
+        "Step 2: **What is $V_{IN}$ for an op-amp?**\nAn op-amp does not amplify just the - terminal or just the + terminal. It amplifies the difference between them. So $V_{IN} = V_{+} - V_{-}$ (or magnitude of the difference). That is why the open-loop gain of a typical op-amp is huge, of order $10^5$."
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t21",
+        "primary_module_id": "9702_t21_m01",
+        "outcome_ids": [
+          "9702_t21_m01_o02",
+          "9702_t21_m01_o01"
+        ]
+      },
+      "primary_topic_id": "9702_t21",
+      "primary_module_id": "9702_t21_m01",
+      "outcome_ids": [
+        "9702_t21_m01_o02",
+        "9702_t21_m01_o01"
+      ]
+    },
+    {
+      "part_id": "9702_w21_42_q07_b",
+      "label": "(b)",
+      "marks": 2,
+      "difficulty": 1,
+      "question_patterns": [
+        "explanation"
+      ],
+      "key_concepts": [
+        "negative feedback",
+        "gain-bandwidth trade-off",
+        "stability"
+      ],
+      "hints": [
+        "Hint 1: Recall that without feedback the open-loop gain is enormous, about $10^5$, and uncontrollable. What must feedback do to make the circuit useful?",
+        "Hint 2: Think of the gain-bandwidth product being constant - if one goes down, what happens to the other? Also think about distortion and stability."
+      ],
+      "proper_answer": "Negative feedback reduces / controls the gain. It increases the bandwidth (and makes gain more stable, less distortion). Any two effects for 1 mark each.",
+      "walkthrough": [
+        "Step 1: **Why use negative feedback?**\nAn ideal op-amp alone has massive gain that saturates immediately and varies with temperature and frequency. Feeding a fraction of the output back to the inverting input opposes the input change and tames the gain to a small value set by resistors.",
+        "Step 2: **Two key benefits**\n1. Gain is reduced to a stable, predictable value. 2. Bandwidth is increased, so the amplifier works over a larger frequency range. It also becomes more stable with less distortion."
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t20",
+        "primary_module_id": "9702_t20_m05",
+        "outcome_ids": [
+          "9702_t20_m05_o04"
+        ]
+      },
+      "primary_topic_id": "9702_t20",
+      "primary_module_id": "9702_t20_m05",
+      "outcome_ids": [
+        "9702_t20_m05_o04"
+      ]
+    },
+    {
+      "part_id": "9702_w21_42_q07_ci",
+      "label": "(c)(i)",
+      "marks": 1,
+      "difficulty": 1,
+      "question_patterns": [
+        "definition"
+      ],
+      "key_concepts": [
+        "inverting amplifier identification"
+      ],
+      "hints": [
+        "Hint 1: Look at where the input signal $V_{IN}$ goes - to the - terminal or the + terminal? Also check where the + terminal is connected."
+      ],
+      "proper_answer": "Inverting amplifier.",
+      "walkthrough": [
+        "Step 1: **Spot the connections**\n$V_{IN}$ goes through the $480 \\, \\Omega$ resistor to the inverting (-) input, while the non-inverting (+) input is tied to $0\\text{ V}$. Feedback resistor connects output back to the - input. That is the classic inverting amplifier configuration, so output is inverted relative to input."
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t19",
+        "primary_module_id": "9702_t19_m02",
+        "outcome_ids": [
+          "9702_t19_m02_o01",
+          "9702_t19_m02_o02"
+        ]
+      },
+      "primary_topic_id": "9702_t19",
+      "primary_module_id": "9702_t19_m02",
+      "outcome_ids": [
+        "9702_t19_m02_o01",
+        "9702_t19_m02_o02"
+      ]
+    },
+    {
+      "part_id": "9702_w21_42_q07_cii",
+      "label": "(c)(ii)",
+      "marks": 1,
+      "difficulty": 1,
+      "question_patterns": [
+        "definition"
+      ],
+      "key_concepts": [
+        "virtual earth",
+        "inverting input at 0 V potential"
+      ],
+      "hints": [
+        "Hint 1: Virtual earth means a point that stays at about 0 V even though it is not directly connected to 0 V. Which op-amp input is forced to follow the earthed + input?"
+      ],
+      "proper_answer": "X at the inverting (-) input junction, i.e. the junction of the $480 \\, \\Omega$ resistor, $1.2\\text{ k}\\Omega$ resistor and - terminal.",
+      "walkthrough": [
+        "Step 1: **Why the - input is virtual earth**\nWith negative feedback and high gain, the op-amp keeps $V_{-} \\approx V_{+}$. Here $V_{+} = 0\\text{ V}$ (earthed), so $V_{-} \\approx 0\\text{ V}$. It is called virtual earth because no current flows into the op-amp input, yet the point is at earth potential. Mark X at that - input node."
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t24",
+        "primary_module_id": "9702_t24_m02",
+        "outcome_ids": [
+          "9702_t24_m02_o03",
+          "9702_t24_m02_o02"
+        ]
+      },
+      "primary_topic_id": "9702_t24",
+      "primary_module_id": "9702_t24_m02",
+      "outcome_ids": [
+        "9702_t24_m02_o03",
+        "9702_t24_m02_o02"
+      ]
+    },
+    {
+      "part_id": "9702_w21_42_q07_ciii",
+      "label": "(c)(iii)",
+      "marks": 2,
+      "difficulty": 2,
+      "question_patterns": [
+        "direct_calculation"
+      ],
+      "key_concepts": [
+        "inverting gain formula",
+        "feedback to input resistance ratio"
+      ],
+      "hints": [
+        "Hint 1: For an inverting amplifier the magnitude of gain is set by the two resistors. Which one is the feedback resistor $R_f$ and which is the input resistor $R_{in}$?",
+        "Hint 2: Remember to convert $1.2\\text{ k}\\Omega$ to ohms to match $480\\, \\Omega$, and do not forget the minus sign for inversion."
+      ],
+      "proper_answer": "Gain $= -R_f / R_{in} = -1200 / 480 = -2.5$.",
+      "walkthrough": [
+        "Step 1: **Recall the inverting gain rule**\nFor an inverting amplifier the closed-loop voltage gain is determined only by resistors: $$G = -\\frac{R_f}{R_{in}}$$ The minus sign shows a $180^{\\circ}$ phase shift.",
+        "Step 2: **Insert the values**\nHere $R_f = 1.2\\text{ k}\\Omega = 1200\\, \\Omega$ and $R_{in} = 480\\, \\Omega$. So: $$G = -\\frac{1200}{480} = -2.5$$ No unit, to 2 significant figures."
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t12",
+        "primary_module_id": "9702_t12_m02",
+        "outcome_ids": [
+          "9702_t12_m02_o04",
+          "9702_t12_m02_o03"
+        ]
+      },
+      "primary_topic_id": "9702_t12",
+      "primary_module_id": "9702_t12_m02",
+      "outcome_ids": [
+        "9702_t12_m02_o04",
+        "9702_t12_m02_o03"
+      ]
+    },
+    {
+      "part_id": "9702_w21_42_q07_civ",
+      "label": "(c)(iv)",
+      "marks": 1,
+      "difficulty": 2,
+      "question_patterns": [
+        "direct_calculation"
+      ],
+      "key_concepts": [
+        "voltage gain relation Vout = G x Vin"
+      ],
+      "hints": [
+        "Hint 1: You now know gain = output divided by input. Rearrange to find input when you know output and gain."
+      ],
+      "proper_answer": "$V_{IN} = V_{OUT} / G = 6.5 / (-2.5) = -2.6\\text{ V}$.",
+      "walkthrough": [
+        "Step 1: **Use gain to find input**\nGain links input and output: $$V_{OUT} = G \\times V_{IN}$$ so $$V_{IN} = \\frac{V_{OUT}}{G} = \\frac{+6.5}{-2.5} = -2.6\\text{ V}$$ The negative input correctly gives a positive output for an inverting amplifier, and $6.5\\text{ V}$ is within the $\\pm 8.0\\text{ V}$ supplies so no saturation."
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t17",
+        "primary_module_id": "9702_t17_m01",
+        "outcome_ids": [
+          "9702_t17_m01_o04"
+        ]
+      },
+      "primary_topic_id": "9702_t17",
+      "primary_module_id": "9702_t17_m01",
+      "outcome_ids": [
+        "9702_t17_m01_o04"
+      ]
+    },
+    {
+      "part_id": "9702_w21_42_q07_cv",
+      "label": "(c)(v)",
+      "marks": 1,
+      "difficulty": 2,
+      "question_patterns": [
+        "direct_calculation",
+        "explanation"
+      ],
+      "key_concepts": [
+        "saturation",
+        "power supply limit"
+      ],
+      "hints": [
+        "Hint 1: First calculate what the output would be without limits using $V_{OUT} = G \\times V_{IN}$, then compare it to the $\\pm 8.0\\text{ V}$ supply rails."
+      ],
+      "proper_answer": "Unlimited $V_{OUT} = (-2.5) \\times (-5.4) = +13.5\\text{ V}$ which exceeds +8.0 V supply, so op-amp saturates and $V_{OUT} = +8.0\\text{ V}$.",
+      "walkthrough": [
+        "Step 1: **Check for saturation**\nPredicted output would be: $$V_{OUT} = G \\times V_{IN} = (-2.5) \\times (-5.4) = +13.5\\text{ V}$$ But the op-amp is powered by $\\pm 8.0\\text{ V}$, so output cannot exceed about $+8.0\\text{ V}$. The op-amp saturates and the output sticks at the positive rail: $$V_{OUT} = +8.0\\text{ V}$$"
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t18",
+        "primary_module_id": "9702_t18_m05",
+        "outcome_ids": [
+          "9702_t18_m05_o03",
+          "9702_t18_m05_o04"
+        ]
+      },
+      "primary_topic_id": "9702_t18",
+      "primary_module_id": "9702_t18_m05",
+      "outcome_ids": [
+        "9702_t18_m05_o03",
+        "9702_t18_m05_o04"
+      ]
+    }
+  ],
+  "total_marks": 10,
+  "taxonomy_tags": {
+    "topic_ids": [
+      "9702_t12",
+      "9702_t17",
+      "9702_t18",
+      "9702_t19",
+      "9702_t20",
+      "9702_t21",
+      "9702_t24"
+    ],
+    "module_ids": [
+      "9702_t12_m02",
+      "9702_t17_m01",
+      "9702_t18_m05",
+      "9702_t19_m02",
+      "9702_t20_m05",
+      "9702_t21_m01",
+      "9702_t24_m02"
+    ]
+  }
+}

@@ -1,0 +1,91 @@
+{
+  "elapsed_sec": 1.14,
+  "tokens": {
+    "prompt_tokens": 3088,
+    "completion_tokens": 2052,
+    "reasoning_tokens": 610,
+    "total_tokens": 5140
+  },
+  "cost_usd": 0.00067,
+  "valid_json": true,
+  "parsed_json": {
+    "question_num": 5,
+    "difficulty": 2,
+    "question_patterns": [
+      "graph_sketching",
+      "direct_calculation"
+    ],
+    "parts": [
+      {
+        "part": "(a)",
+        "difficulty": 1,
+        "question_patterns": [
+          "doppler_effect",
+          "graph_sketching"
+        ],
+        "target_time_minutes": 1,
+        "formulas_used": [
+          "f_o = f_S \\frac{v}{v - v_S} \\text{ (approaching)}",
+          "f_o = f_S \\frac{v}{v + v_S} \\text{ (receding)}"
+        ],
+        "hints": [
+          "Recall the Doppler effect for sound: a source moving towards a stationary observer compresses wavefronts so observed wavelength decreases and observed frequency is constant and greater than $f_S$ while approaching, and constant and less than $f_S$ while receding."
+        ],
+        "teacher_walkthrough": [
+          "Doppler effect for a source moving at constant speed relative to a stationary observer gives a constant observed frequency shift while the velocity component towards the observer is constant.",
+          "For $0 \\le t < t_1$ the train approaches at constant high speed, so $$f_o = f_S \\frac{v}{v - v_S} > f_S$$ and is constant. Draw a horizontal line above the $f_S$ dashed line from $t = 0$ to $t = t_1$.",
+          "For $t_1 < t \\le t_2$ the train recedes at constant speed, so $$f_o = f_S \\frac{v}{v + v_S} < f_S$$ and is constant. Draw a horizontal line below the $f_S$ dashed line from $t = t_1$ to $t = t_2$.",
+          "The change occurs at $t = t_1$ when passing occurs, so show a vertical drop at $t_1$ between the two horizontal levels."
+        ],
+        "walkthrough": [
+          "A1: horizontal line above $f_S$ from $t=0$ to $t=t_1$ and horizontal line below $f_S$ from $t=t_1$ to $t=t_2$ with step down at $t_1$."
+        ],
+        "common_pitfalls": [
+          "Drawing a continuously decreasing sloping line through $t_1$ instead of two constant levels with a sudden drop, confusing transit Doppler shift with gradual change.",
+          "Drawing one or both lines at $f_S$ level, forgetting approaching gives higher frequency and receding gives lower frequency.",
+          "Showing frequency varying with distance while approaching or receding, forgetting speed is constant so Doppler shift is constant."
+        ]
+      },
+      {
+        "part": "(b)",
+        "difficulty": 2,
+        "question_patterns": [
+          "direct_calculation",
+          "unit_conversion"
+        ],
+        "target_time_minutes": 4,
+        "formulas_used": [
+          "I = \\frac{P}{A}",
+          "A = \\pi r^2",
+          "P = I A"
+        ],
+        "hints": [
+          "Recall definition of wave intensity as power per unit area normal to propagation: $I = P/A$, so rearrange to $P = I \\times A$.",
+          "Calculate the area of the circular detector with $A = \\pi r^2$ after converting radius from cm to m: $r = 2.8 \\text{ cm} = 0.028 \\text{ m}$.",
+          "Substitute $I = 4.7 \\times 10^{-3} \\text{ Wm}^{-2}$ and your area in $\\text{m}^2$ into $P = I A$ and evaluate to 2 significant figures in W."
+        ],
+        "teacher_walkthrough": [
+          "Intensity is power per unit area for waves incident normally: $$I = \\frac{P}{A}$$ so $$P = I A$$.",
+          "Area of circular detector is $$A = \\pi r^2$$.",
+          "Convert radius: $$r = 2.8 \\text{ cm} = \\frac{2.8}{100} \\text{ m} = 0.028 \\text{ m}$$.",
+          "Calculate $r^2$: $$r^2 = (0.028)^2 = 0.028 \\times 0.028 = 7.84 \\times 10^{-4} \\text{ m}^2$$.",
+          "Calculate area: $$A = \\pi \\times 7.84 \\times 10^{-4} = 3.1416 \\times 7.84 \\times 10^{-4} = 24.63 \\times 10^{-4} \\text{ m}^2 = 2.46 \\times 10^{-3} \\text{ m}^2$$.",
+          "Calculate power: $$P = (4.7 \\times 10^{-3}) \\times (2.463 \\times 10^{-3})$$.",
+          "$$P = 4.7 \\times 2.463 \\times 10^{-3-3} = 11.58 \\times 10^{-6} \\text{ W}$$",
+          "$$P = 1.16 \\times 10^{-5} \\text{ W} \\approx 1.2 \\times 10^{-5} \\text{ W}$$."
+        ],
+        "walkthrough": [
+          "C1: use $I = P/A$ rearranged to $P = IA$.",
+          "C1: use $A = \\pi \\times 0.028^2 = 2.46 \\times 10^{-3} \\text{ m}^2$.",
+          "A1: $P = 4.7 \\times 10^{-3} \\times 2.46 \\times 10^{-3} = 1.2 \\times 10^{-5} \\text{ W}$."
+        ],
+        "common_pitfalls": [
+          "Forgetting to convert radius from cm to m and using $r = 2.8$ in $\\pi r^2$, giving area $24.6 \\text{ m}^2$ and a power too large by factor $10^4$.",
+          "Using diameter instead of radius or using $2\\pi r$ or $\\pi d^2$, giving incorrect detector area.",
+          "Dividing intensity by area ($P = I/A$) instead of multiplying, confusing the definition $I = P/A$."
+        ]
+      }
+    ]
+  },
+  "raw_content": "{\n  \"question_num\": 5,\n  \"difficulty\": 2,\n  \"question_patterns\": [\n    \"graph_sketching\",\n    \"direct_calculation\"\n  ],\n  \"parts\": [\n    {\n      \"part\": \"(a)\",\n      \"difficulty\": 1,\n      \"question_patterns\": [\n        \"doppler_effect\",\n        \"graph_sketching\"\n      ],\n      \"target_time_minutes\": 1,\n      \"formulas_used\": [\n        \"f_o = f_S \\\\frac{v}{v - v_S} \\\\text{ (approaching)}\",\n        \"f_o = f_S \\\\frac{v}{v + v_S} \\\\text{ (receding)}\"\n      ],\n      \"hints\": [\n        \"Recall the Doppler effect for sound: a source moving towards a stationary observer compresses wavefronts so observed wavelength decreases and observed frequency is constant and greater than $f_S$ while approaching, and constant and less than $f_S$ while receding.\"\n      ],\n      \"teacher_walkthrough\": [\n        \"Doppler effect for a source moving at constant speed relative to a stationary observer gives a constant observed frequency shift while the velocity component towards the observer is constant.\",\n        \"For $0 \\\\le t < t_1$ the train approaches at constant high speed, so $$f_o = f_S \\\\frac{v}{v - v_S} > f_S$$ and is constant. Draw a horizontal line above the $f_S$ dashed line from $t = 0$ to $t = t_1$.\",\n        \"For $t_1 < t \\\\le t_2$ the train recedes at constant speed, so $$f_o = f_S \\\\frac{v}{v + v_S} < f_S$$ and is constant. Draw a horizontal line below the $f_S$ dashed line from $t = t_1$ to $t = t_2$.\",\n        \"The change occurs at $t = t_1$ when passing occurs, so show a vertical drop at $t_1$ between the two horizontal levels.\"\n      ],\n      \"walkthrough\": [\n        \"A1: horizontal line above $f_S$ from $t=0$ to $t=t_1$ and horizontal line below $f_S$ from $t=t_1$ to $t=t_2$ with step down at $t_1$.\"\n      ],\n      \"common_pitfalls\": [\n        \"Drawing a continuously decreasing sloping line through $t_1$ instead of two constant levels with a sudden drop, confusing transit Doppler shift with gradual change.\",\n        \"Drawing one or both lines at $f_S$ level, forgetting approaching gives higher frequency and receding gives lower frequency.\",\n        \"Showing frequency varying with distance while approaching or receding, forgetting speed is constant so Doppler shift is constant.\"\n      ]\n    },\n    {\n      \"part\": \"(b)\",\n      \"difficulty\": 2,\n      \"question_patterns\": [\n        \"direct_calculation\",\n        \"unit_conversion\"\n      ],\n      \"target_time_minutes\": 4,\n      \"formulas_used\": [\n        \"I = \\\\frac{P}{A}\",\n        \"A = \\\\pi r^2\",\n        \"P = I A\"\n      ],\n      \"hints\": [\n        \"Recall definition of wave intensity as power per unit area normal to propagation: $I = P/A$, so rearrange to $P = I \\\\times A$.\",\n        \"Calculate the area of the circular detector with $A = \\\\pi r^2$ after converting radius from cm to m: $r = 2.8 \\\\text{ cm} = 0.028 \\\\text{ m}$.\",\n        \"Substitute $I = 4.7 \\\\times 10^{-3} \\\\text{ Wm}^{-2}$ and your area in $\\\\text{m}^2$ into $P = I A$ and evaluate to 2 significant figures in W.\"\n      ],\n      \"teacher_walkthrough\": [\n        \"Intensity is power per unit area for waves incident normally: $$I = \\\\frac{P}{A}$$ so $$P = I A$$.\",\n        \"Area of circular detector is $$A = \\\\pi r^2$$.\",\n        \"Convert radius: $$r = 2.8 \\\\text{ cm} = \\\\frac{2.8}{100} \\\\text{ m} = 0.028 \\\\text{ m}$$.\",\n        \"Calculate $r^2$: $$r^2 = (0.028)^2 = 0.028 \\\\times 0.028 = 7.84 \\\\times 10^{-4} \\\\text{ m}^2$$.\",\n        \"Calculate area: $$A = \\\\pi \\\\times 7.84 \\\\times 10^{-4} = 3.1416 \\\\times 7.84 \\\\times 10^{-4} = 24.63 \\\\times 10^{-4} \\\\text{ m}^2 = 2.46 \\\\times 10^{-3} \\\\text{ m}^2$$.\",\n        \"Calculate power: $$P = (4.7 \\\\times 10^{-3}) \\\\times (2.463 \\\\times 10^{-3})$$.\",\n        \"$$P = 4.7 \\\\times 2.463 \\\\times 10^{-3-3} = 11.58 \\\\times 10^{-6} \\\\text{ W}$$\",\n        \"$$P = 1.16 \\\\times 10^{-5} \\\\text{ W} \\\\approx 1.2 \\\\times 10^{-5} \\\\text{ W}$$.\"\n      ],\n      \"walkthrough\": [\n        \"C1: use $I = P/A$ rearranged to $P = IA$.\",\n        \"C1: use $A = \\\\pi \\\\times 0.028^2 = 2.46 \\\\times 10^{-3} \\\\text{ m}^2$.\",\n        \"A1: $P = 4.7 \\\\times 10^{-3} \\\\times 2.46 \\\\times 10^{-3} = 1.2 \\\\times 10^{-5} \\\\text{ W}$.\"\n      ],\n      \"common_pitfalls\": [\n        \"Forgetting to convert radius from cm to m and using $r = 2.8$ in $\\\\pi r^2$, giving area $24.6 \\\\text{ m}^2$ and a power too large by factor $10^4$.\",\n        \"Using diameter instead of radius or using $2\\\\pi r$ or $\\\\pi d^2$, giving incorrect detector area.\",\n        \"Dividing intensity by area ($P = I/A$) instead of multiplying, confusing the definition $I = P/A$.\"\n      ]\n    }\n  ]\n}"
+}

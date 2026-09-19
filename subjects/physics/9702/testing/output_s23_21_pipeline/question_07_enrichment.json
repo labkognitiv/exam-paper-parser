@@ -1,0 +1,183 @@
+{
+  "question_num": 7,
+  "difficulty": 2,
+  "question_patterns": [
+    "series_circuits",
+    "potential_divider",
+    "direct_calculation"
+  ],
+  "parts": [
+    {
+      "part": "(a)",
+      "difficulty": 1,
+      "question_patterns": [
+        "direct_calculation",
+        "series_circuits"
+      ],
+      "target_time_minutes": 3,
+      "formulas_used": [
+        "$$E = V_1 + V_2$$",
+        "$$V = IR$$"
+      ],
+      "hints": [
+        "Hint 1: Use Kirchhoff's second law for a series loop. The e.m.f. equals the sum of the p.d.s. Find the p.d. across the 5800 ohm resistor from 9.6 V and the 6.0 V voltmeter reading.",
+        "Hint 2: Apply Ohm's law to the 5800 ohm resistor only, with $I = V/R$. Substitute the p.d. from Hint 1 and $R = 5800\\,\\Omega$ and check the power of 10 for the current."
+      ],
+      "teacher_walkthrough": [
+        "Kirchhoff's second law for a series circuit states the sum of p.d.s around the loop equals the e.m.f.",
+        "The voltmeter reads the p.d. across the series combination of the $3400\\,\\Omega$ resistor and the thermistor, so $$V_{5800} = E - V = 9.6 - 6.0 = 3.6\\,\\mathrm{V}$$",
+        "Ohm's law for the $5800\\,\\Omega$ resistor is $$I = \\frac{V_{5800}}{R} = \\frac{3.6}{5800}$$",
+        "$$I = 0.00062068...\\,\\mathrm{A} = 6.2 \\times 10^{-4}\\,\\mathrm{A}$$ in the series circuit, so this is also the current everywhere."
+      ],
+      "walkthrough": [
+        "Mark scheme step 1: p.d. across 5800 ohm resistor = 3.6 V = I x 5800",
+        "Mark scheme step 2: I = 6.2 x 10^-4 A"
+      ],
+      "common_pitfalls": [
+        "Using 6.0 V directly in V = IR with 5800 ohm. The 6.0 V is not across the 5800 ohm resistor, it is across the other two components.",
+        "Giving current in mA without conversion, e.g. 0.62 mA is correct but 0.62 A loses a power of 10 mark if units are wrong."
+      ]
+    },
+    {
+      "part": "(b)",
+      "difficulty": 2,
+      "question_patterns": [
+        "direct_calculation",
+        "series_circuits"
+      ],
+      "target_time_minutes": 3,
+      "formulas_used": [
+        "$$V = IR$$",
+        "$$R = \\frac{V}{I}$$"
+      ],
+      "hints": [
+        "Hint 1: Recall current is the same everywhere in series. Use the current from (a) and the 6.0 V across the $3400\\,\\Omega$ plus thermistor combination.",
+        "Hint 2: Set $6.0 = I \\times (3400 + R_{th})$ and solve for $R_{th}$ by first finding the total resistance of that branch, then subtracting $3400\\,\\Omega$."
+      ],
+      "teacher_walkthrough": [
+        "Ohm's law applied to the part of the circuit measured by the voltmeter gives the combined resistance.",
+        "Current in series is $$I = 6.2069 \\times 10^{-4}\\,\\mathrm{A}$$ from part (a).",
+        "For the $3400\\,\\Omega$ resistor plus thermistor: $$6.0 = I \\times (3400 + R_{th})$$",
+        "Rearranged: $$3400 + R_{th} = \\frac{6.0}{I} = \\frac{6.0}{6.2069 \\times 10^{-4}}$$",
+        "$$3400 + R_{th} = 9666.7\\,\\Omega$$",
+        "$$R_{th} = 9666.7 - 3400 = 6266.7\\,\\Omega \\approx 6300\\,\\Omega$$"
+      ],
+      "walkthrough": [
+        "Mark scheme step 1: 9.6 = I x (3400 + 5800 + R) or 6.0 = I x (3400 + R)",
+        "Mark scheme step 2: R = 6300 ohm"
+      ],
+      "common_pitfalls": [
+        "Dividing 6.0 V by the current to claim that is the thermistor resistance, forgetting to subtract the 3400 ohm fixed resistor.",
+        "Using total e.m.f. 9.6 V with only (3400 + R) or using 6.0 V with total resistance including 5800 ohm."
+      ]
+    },
+    {
+      "part": "(c)",
+      "difficulty": 2,
+      "question_patterns": [
+        "energy_transfer",
+        "direct_calculation"
+      ],
+      "target_time_minutes": 3,
+      "formulas_used": [
+        "$$W = VQ$$",
+        "$$E_{final} = E_{initial} - W$$"
+      ],
+      "hints": [
+        "Hint 1: Recall the definition of e.m.f. as energy transferred per unit charge. Energy delivered by the battery is $W = VQ$ with $V = 9.6\\,\\mathrm{V}$.",
+        "Hint 2: The battery loses stored energy as charge flows. Subtract the transferred energy from the initial $2.6 \\times 10^{4}\\,\\mathrm{J}$ to get the final stored energy."
+      ],
+      "teacher_walkthrough": [
+        "The energy transferred by the battery when charge $Q$ moves through e.m.f. $E$ is $$W = EQ$$",
+        "Substitute: $$W = 9.6 \\times 330$$",
+        "$$W = 3168\\,\\mathrm{J} \\approx 3170\\,\\mathrm{J}$$",
+        "Stored energy decreases by this amount: $$E_{final} = 2.6 \\times 10^{4} - 3168$$",
+        "$$E_{final} = 26000 - 3168 = 22832\\,\\mathrm{J} \\approx 2.3 \\times 10^{4}\\,\\mathrm{J}$$"
+      ],
+      "walkthrough": [
+        "Mark scheme step 1: energy transferred = VQ = 9.6 x 330 = 3170 J",
+        "Mark scheme step 2: final energy = 2.6 x 10^4 - 3170 = 2.28 x 10^4 J"
+      ],
+      "common_pitfalls": [
+        "Adding the transferred energy to the initial store instead of subtracting. A battery supplying charge loses chemical energy.",
+        "Using Q/t or V = IR here. No time or resistance is needed, only $W = VQ$ directly."
+      ]
+    },
+    {
+      "part": "(d)(i)",
+      "difficulty": 1,
+      "question_patterns": [
+        "property_identification"
+      ],
+      "target_time_minutes": 1,
+      "formulas_used": [],
+      "hints": [
+        "Hint 1: Recall how resistance of an NTC thermistor varies with temperature. Decide what temperature change makes resistance go up."
+      ],
+      "teacher_walkthrough": [
+        "A thermistor is an NTC component where resistance decreases as temperature increases.",
+        "An increase in resistance therefore corresponds to a decrease in temperature."
+      ],
+      "walkthrough": [
+        "Mark scheme step 1: decrease"
+      ],
+      "common_pitfalls": [
+        "Confusing thermistor with LDR or with a metal wire where resistance rises with temperature.",
+        "Thinking resistance increase is caused by heating due to larger current, rather than the stated environmental change."
+      ]
+    },
+    {
+      "part": "(d)(ii)",
+      "difficulty": 1,
+      "question_patterns": [
+        "qualitative_reasoning"
+      ],
+      "target_time_minutes": 1,
+      "formulas_used": [
+        "$$I = \\frac{E}{R_{total}}$$"
+      ],
+      "hints": [
+        "Hint 1: Consider total resistance of the series loop and Ohm's law $I = E/R_{total}$ with constant $E$. Decide the effect of larger $R_{total}$ on the single series current."
+      ],
+      "teacher_walkthrough": [
+        "Total resistance is $$R_{total} = 5800 + 3400 + R_{th}$$",
+        "With $R_{th}$ increased, $R_{total}$ increases while $E = 9.6\\,\\mathrm{V}$ is constant.",
+        "From $$I = \\frac{E}{R_{total}}$$ current decreases, and this series current is the current in the thermistor."
+      ],
+      "walkthrough": [
+        "Mark scheme step 1: decrease"
+      ],
+      "common_pitfalls": [
+        "Thinking current stays the same because e.m.f. is constant, ignoring the change in total resistance.",
+        "Thinking current increases because resistance is larger, confusing $I = V/R$ with $V$ constant across the thermistor alone."
+      ]
+    },
+    {
+      "part": "(d)(iii)",
+      "difficulty": 2,
+      "question_patterns": [
+        "qualitative_reasoning",
+        "potential_divider"
+      ],
+      "target_time_minutes": 1,
+      "formulas_used": [
+        "$$V = IR$$"
+      ],
+      "hints": [
+        "Hint 1: Use the potential divider idea. The thermistor now takes a larger share of the total resistance, so it takes a larger share of the 9.6 V even though total current falls."
+      ],
+      "teacher_walkthrough": [
+        "Potential divider principle states p.d. across a component is proportional to its fraction of total resistance.",
+        "Although $I$ decreases, $R_{th}$ increases by a larger factor, so from $$V_{th} = I \\times R_{th}$$ the net effect is an increase.",
+        "Alternatively, $V_{5800} = I \\times 5800$ decreases with $I$, so more of the fixed $9.6\\,\\mathrm{V}$ is left for the thermistor branch, and $V_{3400}$ also falls, leaving $V_{th}$ to increase."
+      ],
+      "walkthrough": [
+        "Mark scheme step 1: increase"
+      ],
+      "common_pitfalls": [
+        "Arguing $V = IR$ decreases because $I$ decreases, forgetting $R$ for the thermistor has increased.",
+        "Stating p.d. shows no change because battery e.m.f. is constant, confusing total p.d. with p.d. across one component."
+      ]
+    }
+  ]
+}

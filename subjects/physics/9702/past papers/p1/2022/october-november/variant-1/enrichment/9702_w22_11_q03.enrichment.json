@@ -1,0 +1,59 @@
+{
+  "schema_version": "9702_p1_enrichment_v1",
+  "question_id": "9702_w22_11_q03",
+  "component": "P1",
+  "difficulty": 1,
+  "question_patterns": [
+    "uncertainty_analysis"
+  ],
+  "topic_id": "9702_t01",
+  "module_id": "9702_t01_m03",
+  "skill_id": "9702_skill_uncertainty_propagation",
+  "accepted_answer": "C",
+  "options_breakdown": {
+    "A": {
+      "status": "incorrect",
+      "explanation": "1% would come from subtracting 3% from 2%, but percentage uncertainties in a multiply-divide calculation are added, not subtracted."
+    },
+    "B": {
+      "status": "incorrect",
+      "explanation": "5% adds 2% and 3% once, but it misses that $t$ appears as $t^2$ so its percentage uncertainty must be doubled."
+    },
+    "C": {
+      "status": "correct",
+      "explanation": "Adding the $s$ term once and the $t$ term twice gives $2\\% + 2 \\times 3\\% = 8\\%$, which matches the rule for $g = 2s/t^2$."
+    },
+    "D": {
+      "status": "incorrect",
+      "explanation": "11% is too large and does not follow from $2\\% + 2 \\times 3\\%$; it may come from incorrectly combining the uncertainties."
+    }
+  },
+  "hints": [
+    "Look at the form $g = 2s/t^2$ and notice that $g$ is found by multiplying by $s$ and dividing by $t^2$, with 2 as an exact constant.",
+    "Recall how percentage uncertainties combine for multiplication and division, and what happens when a measured quantity like $t$ is raised to the power 2.",
+    "Compare the 2% contribution from $s$ with the doubled 3% contribution from $t$, then add them to get the total percentage uncertainty in $g$."
+  ],
+  "walkthrough": [
+    "Identify the given data: percentage uncertainty in $s$ is 2% and percentage uncertainty in $t$ is 3%, with $g = 2s/t^2$.",
+    "State the propagation rule: for multiplication and division, add the percentage uncertainties; for a power $x^n$, multiply the percentage uncertainty in $x$ by $n$. The constant 2 has no uncertainty.",
+    "Apply the power rule to the denominator: $t^2$ means the percentage uncertainty in $t$ is doubled, so $2 \\times 3\\% = 6\\%$.",
+    "Add the contribution from the numerator $s$ once: $2\\% + 6\\% = 8\\%$.",
+    "Check that the result is a percentage uncertainty in $g$ of 8%. This is option C."
+  ],
+  "mapping": {
+    "primary_topic_id": "9702_t01",
+    "primary_module_id": "9702_t01_m03",
+    "outcome_ids": [
+      "9702_t01_m03_o03",
+      "9702_t01_m03_o01"
+    ]
+  },
+  "taxonomy_tags": {
+    "topic_ids": [
+      "9702_t01"
+    ],
+    "module_ids": [
+      "9702_t01_m03"
+    ]
+  }
+}

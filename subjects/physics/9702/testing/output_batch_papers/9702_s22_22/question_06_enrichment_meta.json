@@ -1,0 +1,141 @@
+{
+  "elapsed_sec": 1.25,
+  "tokens": {
+    "prompt_tokens": 5764,
+    "completion_tokens": 3039,
+    "reasoning_tokens": 643,
+    "total_tokens": 8803
+  },
+  "cost_usd": 0.001184,
+  "valid_json": true,
+  "parsed_json": {
+    "question_num": 6,
+    "difficulty": 2,
+    "question_patterns": [
+      "derivation_proof",
+      "potential_divider",
+      "series_parallel_resistance"
+    ],
+    "parts": [
+      {
+        "part": "(a)",
+        "difficulty": 1,
+        "question_patterns": [
+          "derivation_proof"
+        ],
+        "target_time_minutes": 3,
+        "formulas_used": [
+          "V = V_1 + V_2 + V_3",
+          "V = IR",
+          "R = \\frac{V}{I}"
+        ],
+        "hints": [
+          "Hint 1: Recall the series rules from Fig. 6.1: the current $I$ is the same through all three resistors and the total p.d. $V$ is the sum of the individual p.d.s.",
+          "Hint 2: Write each p.d. using $V = IR$ as $V_1 = IR_1$ etc., substitute into the total p.d. equation and divide throughout by the common current $I$."
+        ],
+        "teacher_walkthrough": [
+          "Step 1: State the governing principle for resistors in series: charge conservation gives the same current $I$ in each resistor, and energy conservation gives $$V = V_1 + V_2 + V_3$$",
+          "Step 2: Identify the definition of resistance for the combination and for each resistor: $$V = IR, \\quad V_1 = IR_1, \\quad V_2 = IR_2, \\quad V_3 = IR_3$$",
+          "Step 3: Substitute the $IR$ expressions into the voltage sum: $$IR = IR_1 + IR_2 + IR_3$$",
+          "Step 4: Divide both sides by the common factor $I$: $$R = R_1 + R_2 + R_3$$ which is the required result."
+        ],
+        "common_pitfalls": [
+          "Trap 1: Stating $I = I_1 + I_2 + I_3$, which applies to parallel not series; in series the current is identical.",
+          "Trap 2: Writing $R = R_1 + R_2 + R_3$ without showing the $V = V_1 + V_2 + V_3$ and $V = IR$ steps, which loses the B1 proof marks."
+        ]
+      },
+      {
+        "part": "(b)(i)",
+        "difficulty": 2,
+        "question_patterns": [
+          "direct_calculation",
+          "potential_divider"
+        ],
+        "target_time_minutes": 3,
+        "formulas_used": [
+          "R_{total} = R_1 + R_2",
+          "I = \\frac{V}{R_{total}}",
+          "V_1 = IR_1"
+        ],
+        "hints": [
+          "Hint 1: With switch X open the thermistor branch is disconnected, so $R_1$ and $R_2$ are in series across the 8.0 V battery.",
+          "Hint 2: First find the series current using $I = V/R_{total}$, taking care to convert $k\\Omega$ to $\\Omega$, then use $V_1 = IR_1$ or the potential divider ratio."
+        ],
+        "teacher_walkthrough": [
+          "Step 1: State the governing principle: with X open only $R_1$ and $R_2$ conduct, in series, so $$R_{total} = R_1 + R_2$$",
+          "Step 2: Identify known quantities with conversions: $$V = 8.0 \\text{ V}, \\quad R_1 = 6.0 \\text{ k}\\Omega = 6.0 \\times 10^3 \\ \\Omega, \\quad R_2 = 4.0 \\text{ k}\\Omega = 4.0 \\times 10^3 \\ \\Omega$$",
+          "Step 3: Substitute values to find total resistance: $$R_{total} = 6.0 \\times 10^3 + 4.0 \\times 10^3 = 10.0 \\times 10^3 \\ \\Omega$$",
+          "Step 4: Calculate series current using Ohm's law: $$I = \\frac{V}{R_{total}} = \\frac{8.0}{10.0 \\times 10^3} = 8.0 \\times 10^{-4} \\text{ A}$$",
+          "Step 5: Calculate p.d. across $R_1$: $$V_1 = IR_1 = (8.0 \\times 10^{-4}) \\times (6.0 \\times 10^3) = 48.0 \\times 10^{-1} = 4.8 \\text{ V}$$",
+          "Step 6: State final answer with appropriate significant figures and units: $$V_1 = 4.8 \\text{ V}$$"
+        ],
+        "common_pitfalls": [
+          "Trap 1: Including the thermistor when X is open; an open switch means zero current in that branch.",
+          "Trap 2: Forgetting $k\\Omega$ to $\\Omega$ conversion or mixing units, giving a current out by $10^3$."
+        ]
+      },
+      {
+        "part": "(b)(ii)",
+        "difficulty": 2,
+        "question_patterns": [
+          "direct_calculation",
+          "series_parallel_resistance"
+        ],
+        "target_time_minutes": 3,
+        "formulas_used": [
+          "\\frac{1}{R_p} = \\frac{1}{R_2} + \\frac{1}{R_{th}}",
+          "R_{total} = R_1 + R_p",
+          "I = \\frac{V}{R_{total}}"
+        ],
+        "hints": [
+          "Hint 1: With switch X closed, $R_2$ and the thermistor are in parallel, and this parallel combination is in series with $R_1$.",
+          "Hint 2: Calculate the parallel resistance $R_p$ first using $1/R_p = 1/R_2 + 1/R_{th}$, then add $R_1$ to get total resistance for $I = V/R_{total}$."
+        ],
+        "teacher_walkthrough": [
+          "Step 1: State the governing principle: parallel resistance is given by $$\\frac{1}{R_p} = \\frac{1}{R_2} + \\frac{1}{R_{th}}$$ and total resistance is $$R_{total} = R_1 + R_p$$",
+          "Step 2: Identify known quantities: $$R_2 = 4.0 \\times 10^3 \\ \\Omega, \\quad R_{th} = 12.0 \\times 10^3 \\ \\Omega, \\quad R_1 = 6.0 \\times 10^3 \\ \\Omega, \\quad V = 8.0 \\text{ V}$$",
+          "Step 3: Substitute values into parallel formula: $$\\frac{1}{R_p} = \\frac{1}{4.0 \\times 10^3} + \\frac{1}{12.0 \\times 10^3}$$",
+          "Step 4: Show intermediate arithmetic: $$\\frac{1}{R_p} = \\frac{3 + 1}{12.0 \\times 10^3} = \\frac{4}{12.0 \\times 10^3}$$ so $$R_p = \\frac{12.0 \\times 10^3}{4} = 3.0 \\times 10^3 \\ \\Omega$$",
+          "Step 5: Calculate total series resistance: $$R_{total} = 6.0 \\times 10^3 + 3.0 \\times 10^3 = 9.0 \\times 10^3 \\ \\Omega$$",
+          "Step 6: Calculate battery current: $$I = \\frac{8.0}{9.0 \\times 10^3} = 0.888... \\times 10^{-3} = 8.9 \\times 10^{-4} \\text{ A}$$",
+          "Step 7: State final answer with appropriate significant figures and units: $$I = 8.9 \\times 10^{-4} \\text{ A}$$"
+        ],
+        "common_pitfalls": [
+          "Trap 1: Adding $R_2$ and thermistor as series instead of parallel, giving $R_{total} = 22 k\\Omega$.",
+          "Trap 2: Calculating only the parallel current or the current in one branch instead of the total battery current through $R_1$."
+        ]
+      },
+      {
+        "part": "(c)",
+        "difficulty": 2,
+        "question_patterns": [
+          "qualitative_explanation",
+          "sensor_dependence"
+        ],
+        "target_time_minutes": 4,
+        "formulas_used": [
+          "P = EI",
+          "I = \\frac{E}{R_{total}}"
+        ],
+        "hints": [
+          "Hint 1: Recall the NTC thermistor property: resistance increases as temperature decreases.",
+          "Hint 2: Consider how the parallel resistance and hence the total circuit resistance change, and use $I = E/R_{total}$ to deduce the battery current.",
+          "Hint 3: Link current to battery power using $P = EI$ with constant e.m.f. $E$ to decide if power increases, decreases or stays the same."
+        ],
+        "teacher_walkthrough": [
+          "Step 1: State the governing sensor property: for an NTC thermistor, a decrease in temperature causes thermistor resistance to increase.",
+          "Step 2: State the effect on circuit resistance: larger thermistor resistance gives larger parallel resistance $R_p$, so total resistance $$R_{total} = R_1 + R_p$$ increases.",
+          "Step 3: Deduce the effect on current using $$I = \\frac{E}{R_{total}}$$ with constant $E = 8.0 \\text{ V}$, so increased $R_{total}$ gives decreased battery current $I$.",
+          "Step 4: Link to power using $$P = EI$$ with $E$ constant, so decreased $I$ gives decreased $P$.",
+          "Step 5: State final conclusion: power produced by the battery decreases."
+        ],
+        "common_pitfalls": [
+          "Trap 1: Reversing thermistor behaviour and stating resistance decreases with decreasing temperature, as for a metal.",
+          "Trap 2: Stating power changes without reference to current, e.g. using $P = I^2R$ incorrectly with changing $R$ instead of the simple $P = EI$ argument required.",
+          "Trap 3: Claiming e.m.f. or terminal p.d. changes; the battery e.m.f. stays at 8.0 V with negligible internal resistance."
+        ]
+      }
+    ]
+  },
+  "raw_content": "{\n  \"question_num\": 6,\n  \"difficulty\": 2,\n  \"question_patterns\": [\n    \"derivation_proof\",\n    \"potential_divider\",\n    \"series_parallel_resistance\"\n  ],\n  \"parts\": [\n    {\n      \"part\": \"(a)\",\n      \"difficulty\": 1,\n      \"question_patterns\": [\n        \"derivation_proof\"\n      ],\n      \"target_time_minutes\": 3,\n      \"formulas_used\": [\n        \"V = V_1 + V_2 + V_3\",\n        \"V = IR\",\n        \"R = \\\\frac{V}{I}\"\n      ],\n      \"hints\": [\n        \"Hint 1: Recall the series rules from Fig. 6.1: the current $I$ is the same through all three resistors and the total p.d. $V$ is the sum of the individual p.d.s.\",\n        \"Hint 2: Write each p.d. using $V = IR$ as $V_1 = IR_1$ etc., substitute into the total p.d. equation and divide throughout by the common current $I$.\"\n      ],\n      \"teacher_walkthrough\": [\n        \"Step 1: State the governing principle for resistors in series: charge conservation gives the same current $I$ in each resistor, and energy conservation gives $$V = V_1 + V_2 + V_3$$\",\n        \"Step 2: Identify the definition of resistance for the combination and for each resistor: $$V = IR, \\\\quad V_1 = IR_1, \\\\quad V_2 = IR_2, \\\\quad V_3 = IR_3$$\",\n        \"Step 3: Substitute the $IR$ expressions into the voltage sum: $$IR = IR_1 + IR_2 + IR_3$$\",\n        \"Step 4: Divide both sides by the common factor $I$: $$R = R_1 + R_2 + R_3$$ which is the required result.\"\n      ],\n      \"common_pitfalls\": [\n        \"Trap 1: Stating $I = I_1 + I_2 + I_3$, which applies to parallel not series; in series the current is identical.\",\n        \"Trap 2: Writing $R = R_1 + R_2 + R_3$ without showing the $V = V_1 + V_2 + V_3$ and $V = IR$ steps, which loses the B1 proof marks.\"\n      ]\n    },\n    {\n      \"part\": \"(b)(i)\",\n      \"difficulty\": 2,\n      \"question_patterns\": [\n        \"direct_calculation\",\n        \"potential_divider\"\n      ],\n      \"target_time_minutes\": 3,\n      \"formulas_used\": [\n        \"R_{total} = R_1 + R_2\",\n        \"I = \\\\frac{V}{R_{total}}\",\n        \"V_1 = IR_1\"\n      ],\n      \"hints\": [\n        \"Hint 1: With switch X open the thermistor branch is disconnected, so $R_1$ and $R_2$ are in series across the 8.0 V battery.\",\n        \"Hint 2: First find the series current using $I = V/R_{total}$, taking care to convert $k\\\\Omega$ to $\\\\Omega$, then use $V_1 = IR_1$ or the potential divider ratio.\"\n      ],\n      \"teacher_walkthrough\": [\n        \"Step 1: State the governing principle: with X open only $R_1$ and $R_2$ conduct, in series, so $$R_{total} = R_1 + R_2$$\",\n        \"Step 2: Identify known quantities with conversions: $$V = 8.0 \\\\text{ V}, \\\\quad R_1 = 6.0 \\\\text{ k}\\\\Omega = 6.0 \\\\times 10^3 \\\\ \\\\Omega, \\\\quad R_2 = 4.0 \\\\text{ k}\\\\Omega = 4.0 \\\\times 10^3 \\\\ \\\\Omega$$\",\n        \"Step 3: Substitute values to find total resistance: $$R_{total} = 6.0 \\\\times 10^3 + 4.0 \\\\times 10^3 = 10.0 \\\\times 10^3 \\\\ \\\\Omega$$\",\n        \"Step 4: Calculate series current using Ohm's law: $$I = \\\\frac{V}{R_{total}} = \\\\frac{8.0}{10.0 \\\\times 10^3} = 8.0 \\\\times 10^{-4} \\\\text{ A}$$\",\n        \"Step 5: Calculate p.d. across $R_1$: $$V_1 = IR_1 = (8.0 \\\\times 10^{-4}) \\\\times (6.0 \\\\times 10^3) = 48.0 \\\\times 10^{-1} = 4.8 \\\\text{ V}$$\",\n        \"Step 6: State final answer with appropriate significant figures and units: $$V_1 = 4.8 \\\\text{ V}$$\"\n      ],\n      \"common_pitfalls\": [\n        \"Trap 1: Including the thermistor when X is open; an open switch means zero current in that branch.\",\n        \"Trap 2: Forgetting $k\\\\Omega$ to $\\\\Omega$ conversion or mixing units, giving a current out by $10^3$.\"\n      ]\n    },\n    {\n      \"part\": \"(b)(ii)\",\n      \"difficulty\": 2,\n      \"question_patterns\": [\n        \"direct_calculation\",\n        \"series_parallel_resistance\"\n      ],\n      \"target_time_minutes\": 3,\n      \"formulas_used\": [\n        \"\\\\frac{1}{R_p} = \\\\frac{1}{R_2} + \\\\frac{1}{R_{th}}\",\n        \"R_{total} = R_1 + R_p\",\n        \"I = \\\\frac{V}{R_{total}}\"\n      ],\n      \"hints\": [\n        \"Hint 1: With switch X closed, $R_2$ and the thermistor are in parallel, and this parallel combination is in series with $R_1$.\",\n        \"Hint 2: Calculate the parallel resistance $R_p$ first using $1/R_p = 1/R_2 + 1/R_{th}$, then add $R_1$ to get total resistance for $I = V/R_{total}$.\"\n      ],\n      \"teacher_walkthrough\": [\n        \"Step 1: State the governing principle: parallel resistance is given by $$\\\\frac{1}{R_p} = \\\\frac{1}{R_2} + \\\\frac{1}{R_{th}}$$ and total resistance is $$R_{total} = R_1 + R_p$$\",\n        \"Step 2: Identify known quantities: $$R_2 = 4.0 \\\\times 10^3 \\\\ \\\\Omega, \\\\quad R_{th} = 12.0 \\\\times 10^3 \\\\ \\\\Omega, \\\\quad R_1 = 6.0 \\\\times 10^3 \\\\ \\\\Omega, \\\\quad V = 8.0 \\\\text{ V}$$\",\n        \"Step 3: Substitute values into parallel formula: $$\\\\frac{1}{R_p} = \\\\frac{1}{4.0 \\\\times 10^3} + \\\\frac{1}{12.0 \\\\times 10^3}$$\",\n        \"Step 4: Show intermediate arithmetic: $$\\\\frac{1}{R_p} = \\\\frac{3 + 1}{12.0 \\\\times 10^3} = \\\\frac{4}{12.0 \\\\times 10^3}$$ so $$R_p = \\\\frac{12.0 \\\\times 10^3}{4} = 3.0 \\\\times 10^3 \\\\ \\\\Omega$$\",\n        \"Step 5: Calculate total series resistance: $$R_{total} = 6.0 \\\\times 10^3 + 3.0 \\\\times 10^3 = 9.0 \\\\times 10^3 \\\\ \\\\Omega$$\",\n        \"Step 6: Calculate battery current: $$I = \\\\frac{8.0}{9.0 \\\\times 10^3} = 0.888... \\\\times 10^{-3} = 8.9 \\\\times 10^{-4} \\\\text{ A}$$\",\n        \"Step 7: State final answer with appropriate significant figures and units: $$I = 8.9 \\\\times 10^{-4} \\\\text{ A}$$\"\n      ],\n      \"common_pitfalls\": [\n        \"Trap 1: Adding $R_2$ and thermistor as series instead of parallel, giving $R_{total} = 22 k\\\\Omega$.\",\n        \"Trap 2: Calculating only the parallel current or the current in one branch instead of the total battery current through $R_1$.\"\n      ]\n    },\n    {\n      \"part\": \"(c)\",\n      \"difficulty\": 2,\n      \"question_patterns\": [\n        \"qualitative_explanation\",\n        \"sensor_dependence\"\n      ],\n      \"target_time_minutes\": 4,\n      \"formulas_used\": [\n        \"P = EI\",\n        \"I = \\\\frac{E}{R_{total}}\"\n      ],\n      \"hints\": [\n        \"Hint 1: Recall the NTC thermistor property: resistance increases as temperature decreases.\",\n        \"Hint 2: Consider how the parallel resistance and hence the total circuit resistance change, and use $I = E/R_{total}$ to deduce the battery current.\",\n        \"Hint 3: Link current to battery power using $P = EI$ with constant e.m.f. $E$ to decide if power increases, decreases or stays the same.\"\n      ],\n      \"teacher_walkthrough\": [\n        \"Step 1: State the governing sensor property: for an NTC thermistor, a decrease in temperature causes thermistor resistance to increase.\",\n        \"Step 2: State the effect on circuit resistance: larger thermistor resistance gives larger parallel resistance $R_p$, so total resistance $$R_{total} = R_1 + R_p$$ increases.\",\n        \"Step 3: Deduce the effect on current using $$I = \\\\frac{E}{R_{total}}$$ with constant $E = 8.0 \\\\text{ V}$, so increased $R_{total}$ gives decreased battery current $I$.\",\n        \"Step 4: Link to power using $$P = EI$$ with $E$ constant, so decreased $I$ gives decreased $P$.\",\n        \"Step 5: State final conclusion: power produced by the battery decreases.\"\n      ],\n      \"common_pitfalls\": [\n        \"Trap 1: Reversing thermistor behaviour and stating resistance decreases with decreasing temperature, as for a metal.\",\n        \"Trap 2: Stating power changes without reference to current, e.g. using $P = I^2R$ incorrectly with changing $R$ instead of the simple $P = EI$ argument required.\",\n        \"Trap 3: Claiming e.m.f. or terminal p.d. changes; the battery e.m.f. stays at 8.0 V with negligible internal resistance.\"\n      ]\n    }\n  ]\n}"
+}

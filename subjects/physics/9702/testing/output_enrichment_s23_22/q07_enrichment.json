@@ -1,0 +1,109 @@
+{
+  "question_id": "9702_s23_22_q07",
+  "question_num": 7,
+  "title": "D.C. circuits",
+  "marks": 7,
+  "elapsed_sec": 2.58,
+  "tokens": {
+    "prompt_tokens": 2577,
+    "completion_tokens": 2409,
+    "reasoning_tokens": 597,
+    "total_tokens": 4986
+  },
+  "cost_usd": 0.00074,
+  "valid_json": true,
+  "dash_violations": 0,
+  "parsed_json": {
+    "question_difficulty": 2,
+    "question_patterns": [
+      "potential_divider",
+      "potentiometer_balance",
+      "qualitative_reasoning"
+    ],
+    "parts": [
+      {
+        "part_id": "9702_s23_22_q07_a",
+        "difficulty": 1,
+        "question_patterns": [
+          "potential_divider",
+          "direct_calculation"
+        ],
+        "hints": [
+          "Hint 1: Recognise the two resistors are in series across the 9.0 V battery, so the e.m.f. is shared in proportion to resistance (potential divider principle). Identify which resistance corresponds to the LDR.",
+          "Hint 2: Set up the potential divider ratio for the LDR: V_LDR = E multiplied by R_LDR divided by (R_LDR + R_fixed). Substitute E = 9.0 V, R_LDR = 1800 ohm and R_fixed = 1200 ohm."
+        ],
+        "walkthrough": [
+          "C1: Use potential divider: V = 9.0 x 1800 / (1800 + 1200) or find current I = 9.0 / (1800 + 1200) then V = I x 1800.",
+          "A1: V = 5.4 V."
+        ],
+        "teacher_walkthrough": [
+          "The resistors are in series with negligible internal resistance, so the full 9.0 V is divided between them in the ratio of their resistances.",
+          "Using the potential divider equation for the LDR: $$V_{LDR} = E \\times \\frac{R_{LDR}}{R_{LDR}+R_{fixed}}$$",
+          "Substitute values: $$V_{LDR} = 9.0 \\times \\frac{1800}{1800+1200} = 9.0 \\times \\frac{1800}{3000}$$",
+          "Evaluate the fraction: $$\\frac{1800}{3000} = 0.60$$, then $$V_{LDR} = 9.0 \\times 0.60 = 5.4 \\text{ V}$$",
+          "Alternatively, total resistance $$R_T = 3000 \\, \\Omega$$, current $$I = E/R_T = 9.0/3000 = 3.0 \\times 10^{-3} \\text{ A}$$, then $$V_{LDR} = I R_{LDR} = (3.0 \\times 10^{-3}) \\times 1800 = 5.4 \\text{ V}$$."
+        ],
+        "common_pitfalls": [
+          "Using the wrong resistor in the numerator, giving 9.0 x 1200/3000 = 3.6 V, which is the p.d. across the fixed resistor, not the LDR.",
+          "Dividing by only one resistance instead of the total series resistance, for example 9.0 x 1800/1200."
+        ]
+      },
+      {
+        "part_id": "9702_s23_22_q07_b_i",
+        "difficulty": 2,
+        "question_patterns": [
+          "potentiometer_balance",
+          "proportional_reasoning"
+        ],
+        "hints": [
+          "Hint 1: Recall what zero galvanometer reading means: no current in the galvanometer branch, so the p.d. between X and Z on the wire must exactly balance (equal) the p.d. across the LDR from part (a).",
+          "Hint 2: For the uniform wire XY, p.d. is proportional to length. Set up the proportion: XZ divided by XY equals V_LDR divided by the full 9.0 V across XY, with XY = 1.2 m, then solve for XZ."
+        ],
+        "walkthrough": [
+          "C1: Use balance condition V_XZ = V_LDR: XZ / 1.2 = 5.4 / 9.0 or equivalently XZ / 1.2 = 1800 / (1800 + 1200).",
+          "A1: XZ = 0.72 m."
+        ],
+        "teacher_walkthrough": [
+          "Zero galvanometer current means the potential at Z equals the potential at the junction between the LDR and fixed resistor. Therefore p.d. across XZ equals p.d. across the LDR.",
+          "For a uniform wire, resistance and p.d. are proportional to length, so: $$\\frac{V_{XZ}}{V_{XY}} = \\frac{XZ}{XY}$$",
+          "Here $$V_{XY} = 9.0 \\text{ V}$$ and $$V_{XZ} = V_{LDR} = 5.4 \\text{ V}$$, with $$XY = 1.2 \\text{ m}$$.",
+          "Substitute: $$\\frac{XZ}{1.2} = \\frac{5.4}{9.0}$$",
+          "Evaluate ratio: $$\\frac{5.4}{9.0} = 0.60$$, then $$XZ = 1.2 \\times 0.60 = 0.72 \\text{ m}$$."
+        ],
+        "common_pitfalls": [
+          "Using the p.d. across the fixed resistor (3.6 V) instead of the LDR, giving XZ = 0.48 m.",
+          "Subtracting lengths from 1.2 m unnecessarily, confusing which end X corresponds to which side of the divider."
+        ]
+      },
+      {
+        "part_id": "9702_s23_22_q07_b_ii",
+        "difficulty": 2,
+        "question_patterns": [
+          "qualitative_reasoning",
+          "LDR_dependence",
+          "power_variation"
+        ],
+        "hints": [
+          "Hint 1: Recall how LDR resistance depends on light: resistance decreases when light intensity increases (at constant temperature). Use the stated decrease in resistance to deduce the change in illumination.",
+          "Hint 2: Consider total circuit resistance and total power from the battery using P = E times I or P = E squared divided by R_total. Decide how current and power change when R_LDR falls with E constant.",
+          "Hint 3: Link the new V_LDR to the new balance length: V_LDR = E times R_LDR divided by (R_LDR + R_fixed) falls when R_LDR falls, and since V_XZ must equal V_LDR with V proportional to XZ, deduce how XZ must move."
+        ],
+        "walkthrough": [
+          "B1: Intensity of light illuminating LDR increases (lower resistance means more light).",
+          "B1: Total power produced by battery increases (total resistance decreases so current I = E/R increases, P = E x I increases).",
+          "B1: Length XZ decreases (V_LDR decreases so shorter length needed to balance)."
+        ],
+        "teacher_walkthrough": [
+          "LDR resistance falls with increasing light intensity at constant temperature. Since resistance has decreased, the light intensity must have increased.",
+          "Total resistance $$R_T = R_{LDR} + 1200$$ decreases. With constant e.m.f., current $$I = E/R_T$$ increases. Total power from the battery is $$P = E I = E^2/R_T$$, so with E = 9.0 V constant and $$R_T$$ smaller, P increases.",
+          "The balance p.d. is $$V_{LDR} = E \\times R_{LDR}/(R_{LDR}+1200)$$. When $$R_{LDR}$$ decreases, this fraction decreases, so $$V_{LDR}$$ decreases. Since $$V_{XZ}$$ is proportional to XZ and must equal $$V_{LDR}$$ for zero galvanometer deflection, XZ must decrease."
+        ],
+        "common_pitfalls": [
+          "Stating power decreases because LDR resistance decreases, confusing P = I squared R for one component with total power P = E times I from the battery.",
+          "Stating XZ increases because total current increased, forgetting that the share of voltage across the LDR falls even though current rises."
+        ]
+      }
+    ]
+  },
+  "raw_content": "{\n  \"question_difficulty\": 2,\n  \"question_patterns\": [\n    \"potential_divider\",\n    \"potentiometer_balance\",\n    \"qualitative_reasoning\"\n  ],\n  \"parts\": [\n    {\n      \"part_id\": \"9702_s23_22_q07_a\",\n      \"difficulty\": 1,\n      \"question_patterns\": [\n        \"potential_divider\",\n        \"direct_calculation\"\n      ],\n      \"hints\": [\n        \"Hint 1: Recognise the two resistors are in series across the 9.0 V battery, so the e.m.f. is shared in proportion to resistance (potential divider principle). Identify which resistance corresponds to the LDR.\",\n        \"Hint 2: Set up the potential divider ratio for the LDR: V_LDR = E multiplied by R_LDR divided by (R_LDR + R_fixed). Substitute E = 9.0 V, R_LDR = 1800 ohm and R_fixed = 1200 ohm.\"\n      ],\n      \"walkthrough\": [\n        \"C1: Use potential divider: V = 9.0 x 1800 / (1800 + 1200) or find current I = 9.0 / (1800 + 1200) then V = I x 1800.\",\n        \"A1: V = 5.4 V.\"\n      ],\n      \"teacher_walkthrough\": [\n        \"The resistors are in series with negligible internal resistance, so the full 9.0 V is divided between them in the ratio of their resistances.\",\n        \"Using the potential divider equation for the LDR: $$V_{LDR} = E \\\\times \\\\frac{R_{LDR}}{R_{LDR}+R_{fixed}}$$\",\n        \"Substitute values: $$V_{LDR} = 9.0 \\\\times \\\\frac{1800}{1800+1200} = 9.0 \\\\times \\\\frac{1800}{3000}$$\",\n        \"Evaluate the fraction: $$\\\\frac{1800}{3000} = 0.60$$, then $$V_{LDR} = 9.0 \\\\times 0.60 = 5.4 \\\\text{ V}$$\",\n        \"Alternatively, total resistance $$R_T = 3000 \\\\, \\\\Omega$$, current $$I = E/R_T = 9.0/3000 = 3.0 \\\\times 10^{-3} \\\\text{ A}$$, then $$V_{LDR} = I R_{LDR} = (3.0 \\\\times 10^{-3}) \\\\times 1800 = 5.4 \\\\text{ V}$$.\"\n      ],\n      \"common_pitfalls\": [\n        \"Using the wrong resistor in the numerator, giving 9.0 x 1200/3000 = 3.6 V, which is the p.d. across the fixed resistor, not the LDR.\",\n        \"Dividing by only one resistance instead of the total series resistance, for example 9.0 x 1800/1200.\"\n      ]\n    },\n    {\n      \"part_id\": \"9702_s23_22_q07_b_i\",\n      \"difficulty\": 2,\n      \"question_patterns\": [\n        \"potentiometer_balance\",\n        \"proportional_reasoning\"\n      ],\n      \"hints\": [\n        \"Hint 1: Recall what zero galvanometer reading means: no current in the galvanometer branch, so the p.d. between X and Z on the wire must exactly balance (equal) the p.d. across the LDR from part (a).\",\n        \"Hint 2: For the uniform wire XY, p.d. is proportional to length. Set up the proportion: XZ divided by XY equals V_LDR divided by the full 9.0 V across XY, with XY = 1.2 m, then solve for XZ.\"\n      ],\n      \"walkthrough\": [\n        \"C1: Use balance condition V_XZ = V_LDR: XZ / 1.2 = 5.4 / 9.0 or equivalently XZ / 1.2 = 1800 / (1800 + 1200).\",\n        \"A1: XZ = 0.72 m.\"\n      ],\n      \"teacher_walkthrough\": [\n        \"Zero galvanometer current means the potential at Z equals the potential at the junction between the LDR and fixed resistor. Therefore p.d. across XZ equals p.d. across the LDR.\",\n        \"For a uniform wire, resistance and p.d. are proportional to length, so: $$\\\\frac{V_{XZ}}{V_{XY}} = \\\\frac{XZ}{XY}$$\",\n        \"Here $$V_{XY} = 9.0 \\\\text{ V}$$ and $$V_{XZ} = V_{LDR} = 5.4 \\\\text{ V}$$, with $$XY = 1.2 \\\\text{ m}$$.\",\n        \"Substitute: $$\\\\frac{XZ}{1.2} = \\\\frac{5.4}{9.0}$$\",\n        \"Evaluate ratio: $$\\\\frac{5.4}{9.0} = 0.60$$, then $$XZ = 1.2 \\\\times 0.60 = 0.72 \\\\text{ m}$$.\"\n      ],\n      \"common_pitfalls\": [\n        \"Using the p.d. across the fixed resistor (3.6 V) instead of the LDR, giving XZ = 0.48 m.\",\n        \"Subtracting lengths from 1.2 m unnecessarily, confusing which end X corresponds to which side of the divider.\"\n      ]\n    },\n    {\n      \"part_id\": \"9702_s23_22_q07_b_ii\",\n      \"difficulty\": 2,\n      \"question_patterns\": [\n        \"qualitative_reasoning\",\n        \"LDR_dependence\",\n        \"power_variation\"\n      ],\n      \"hints\": [\n        \"Hint 1: Recall how LDR resistance depends on light: resistance decreases when light intensity increases (at constant temperature). Use the stated decrease in resistance to deduce the change in illumination.\",\n        \"Hint 2: Consider total circuit resistance and total power from the battery using P = E times I or P = E squared divided by R_total. Decide how current and power change when R_LDR falls with E constant.\",\n        \"Hint 3: Link the new V_LDR to the new balance length: V_LDR = E times R_LDR divided by (R_LDR + R_fixed) falls when R_LDR falls, and since V_XZ must equal V_LDR with V proportional to XZ, deduce how XZ must move.\"\n      ],\n      \"walkthrough\": [\n        \"B1: Intensity of light illuminating LDR increases (lower resistance means more light).\",\n        \"B1: Total power produced by battery increases (total resistance decreases so current I = E/R increases, P = E x I increases).\",\n        \"B1: Length XZ decreases (V_LDR decreases so shorter length needed to balance).\"\n      ],\n      \"teacher_walkthrough\": [\n        \"LDR resistance falls with increasing light intensity at constant temperature. Since resistance has decreased, the light intensity must have increased.\",\n        \"Total resistance $$R_T = R_{LDR} + 1200$$ decreases. With constant e.m.f., current $$I = E/R_T$$ increases. Total power from the battery is $$P = E I = E^2/R_T$$, so with E = 9.0 V constant and $$R_T$$ smaller, P increases.\",\n        \"The balance p.d. is $$V_{LDR} = E \\\\times R_{LDR}/(R_{LDR}+1200)$$. When $$R_{LDR}$$ decreases, this fraction decreases, so $$V_{LDR}$$ decreases. Since $$V_{XZ}$$ is proportional to XZ and must equal $$V_{LDR}$$ for zero galvanometer deflection, XZ must decrease.\"\n      ],\n      \"common_pitfalls\": [\n        \"Stating power decreases because LDR resistance decreases, confusing P = I squared R for one component with total power P = E times I from the battery.\",\n        \"Stating XZ increases because total current increased, forgetting that the share of voltage across the LDR falls even though current rises.\"\n      ]\n    }\n  ]\n}"
+}

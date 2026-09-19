@@ -1,0 +1,59 @@
+{
+  "schema_version": "9702_p1_enrichment_v1",
+  "question_id": "9702_s21_13_q05",
+  "component": "P1",
+  "difficulty": 2,
+  "question_patterns": [
+    "uncertainty_analysis"
+  ],
+  "topic_id": "9702_t01",
+  "module_id": "9702_t01_m03",
+  "skill_id": "9702_skill_uncertainty_propagation",
+  "accepted_answer": "B",
+  "options_breakdown": {
+    "A": {
+      "status": "incorrect",
+      "explanation": "Gives $38.5 \\text{ mm}^2 \\pm 0.5 \\text{ mm}^2$ but the $\\pm 0.5$ uses only one times the fractional uncertainty in diameter, not doubled for $d^2$."
+    },
+    "B": {
+      "status": "correct",
+      "explanation": "Gives $38 \\text{ mm}^2 \\pm 1 \\text{ mm}^2$, which matches $A = \\pi d^2/4$ with doubled fractional uncertainty and correct 2 significant figures."
+    },
+    "C": {
+      "status": "incorrect",
+      "explanation": "Gives $154 \\text{ mm}^2$ by using $\\pi d^2$ instead of $\\pi d^2/4$, treating the $7.0 \\text{ mm}$ diameter as if it were the radius."
+    },
+    "D": {
+      "status": "incorrect",
+      "explanation": "Gives $154 \\text{ mm}^2$ by the same diameter-as-radius error, although its $\\pm 4 \\text{ mm}^2$ is the correctly doubled uncertainty for that wrong area."
+    }
+  },
+  "hints": [
+    "Notice the measured quantity is diameter $d = (7.0 \\pm 0.1) \\text{ mm}$, so the fractional uncertainty in $d$ is $0.1/7.0$.",
+    "Recall the area in terms of diameter is $A = \\pi d^2/4$, so $A$ depends on the second power of the measured $d$.",
+    "Double the fractional uncertainty to get that in the area, then multiply by the calculated area to get the absolute uncertainty and round to match the 2 significant figures of $7.0 \\text{ mm}$."
+  ],
+  "walkthrough": [
+    "Write the area using diameter: $A = \\pi r^2 = \\pi (d/2)^2 = \\pi d^2/4$. Substitute $d = 7.0 \\text{ mm}$ to get $A = \\pi \\times (7.0)^2/4 \\approx 38.48 \\text{ mm}^2$.",
+    "Find the fractional uncertainty in the diameter: $\\Delta d/d = 0.1/7.0 \\approx 0.0143$ or $1.43\\%$.",
+    "Because $A$ is proportional to $d^2$, double the fractional uncertainty: $\\Delta A/A = 2 \\times \\Delta d/d \\approx 2 \\times 0.0143 \\approx 0.0286$ or $2.86\\%$.",
+    "Convert to absolute uncertainty: $\\Delta A \\approx 0.0286 \\times 38.48 \\text{ mm}^2 \\approx 1.1 \\text{ mm}^2$, so $\\Delta A \\approx \\pm 1 \\text{ mm}^2$ to 1 significant figure.",
+    "Round the area to the same precision as the input with 2 significant figures: $38 \\text{ mm}^2 \\pm 1 \\text{ mm}^2$. This is option B."
+  ],
+  "mapping": {
+    "primary_topic_id": "9702_t01",
+    "primary_module_id": "9702_t01_m03",
+    "outcome_ids": [
+      "9702_t01_m03_o03",
+      "9702_t01_m03_o02"
+    ]
+  },
+  "taxonomy_tags": {
+    "topic_ids": [
+      "9702_t01"
+    ],
+    "module_ids": [
+      "9702_t01_m03"
+    ]
+  }
+}

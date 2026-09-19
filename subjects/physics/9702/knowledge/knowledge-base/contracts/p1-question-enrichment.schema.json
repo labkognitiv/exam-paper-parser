@@ -1,0 +1,151 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "9702_p1_enrichment_v1",
+  "title": "Physics 9702 P1 MCQ enrichment",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "question_id",
+    "component",
+    "difficulty",
+    "question_patterns",
+    "topic_id",
+    "module_id",
+    "skill_id",
+    "accepted_answer",
+    "hints",
+    "walkthrough"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "9702_p1_enrichment_v1"
+    },
+    "question_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "component": {
+      "const": "P1"
+    },
+    "difficulty": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 5
+    },
+    "question_patterns": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "string"
+      }
+    },
+    "topic_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "module_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "skill_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "accepted_answer": {
+      "type": "string",
+      "minLength": 1
+    },
+    "options_breakdown": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "properties": {
+        "A": { "$ref": "#/$defs/option_explanation" },
+        "B": { "$ref": "#/$defs/option_explanation" },
+        "C": { "$ref": "#/$defs/option_explanation" },
+        "D": { "$ref": "#/$defs/option_explanation" }
+      }
+    },
+    "hints": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "walkthrough": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "mapping": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "primary_topic_id",
+        "primary_module_id",
+        "outcome_ids"
+      ],
+      "properties": {
+        "primary_topic_id": { "type": "string", "minLength": 1 },
+        "primary_module_id": { "type": "string", "minLength": 1 },
+        "outcome_ids": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 2,
+          "items": { "type": "string", "minLength": 1 }
+        }
+      }
+    },
+    "taxonomy_tags": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "topic_ids",
+        "module_ids"
+      ],
+      "properties": {
+        "topic_ids": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "type": "string", "minLength": 1 }
+        },
+        "module_ids": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "type": "string", "minLength": 1 }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "option_explanation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "status",
+        "explanation"
+      ],
+      "properties": {
+        "status": {
+          "enum": ["correct", "incorrect"]
+        },
+        "explanation": {
+          "type": "string",
+          "minLength": 10
+        }
+      }
+    }
+  }
+}

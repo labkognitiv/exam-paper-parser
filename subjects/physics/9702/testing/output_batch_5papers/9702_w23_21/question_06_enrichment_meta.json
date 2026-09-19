@@ -1,0 +1,164 @@
+{
+  "elapsed_sec": 1.11,
+  "tokens": {
+    "prompt_tokens": 3615,
+    "completion_tokens": 3434,
+    "reasoning_tokens": 1103,
+    "total_tokens": 7049
+  },
+  "cost_usd": 0.001048,
+  "valid_json": true,
+  "parsed_json": {
+    "question_num": 6,
+    "difficulty": 2,
+    "question_patterns": [
+      "series_parallel_circuits",
+      "direct_calculation",
+      "potential_divider_reasoning"
+    ],
+    "parts": [
+      {
+        "part": "(a)(i)",
+        "difficulty": 1,
+        "question_patterns": [
+          "direct_calculation"
+        ],
+        "target_time_minutes": 1,
+        "formulas_used": [
+          "$V = IR$",
+          "$I = \\frac{V}{R}$"
+        ],
+        "hints": [
+          "The voltmeter reads the p.d. across the $320\\,\\Omega$ resistor only, and this resistor carries the full battery current because it is in series."
+        ],
+        "teacher_walkthrough": [
+          "Ohm's law applied to the $320\\,\\Omega$ resistor is $V = IR$.",
+          "Rearrange for the series current: $$I = \\frac{V}{R}$$",
+          "Substitute $V = 16\\,\\text{V}$ and $R = 320\\,\\Omega$: $$I = \\frac{16}{320}$$",
+          "$$I = 0.050\\,\\text{A}$$",
+          "Since the $320\\,\\Omega$ resistor is in series with the battery, this is the current in the battery."
+        ],
+        "walkthrough": [
+          "Use $I = V/R$ for the $320\\,\\Omega$ resistor: $I = 16/320 = 0.050\\,\\text{A}$."
+        ],
+        "common_pitfalls": [
+          "Using the full e.m.f. of $25\\,\\text{V}$ instead of the $16\\,\\text{V}$ across the $320\\,\\Omega$ resistor.",
+          "Dividing by the $240\\,\\Omega$ resistance or by a combined resistance instead of $320\\,\\Omega$."
+        ]
+      },
+      {
+        "part": "(a)(ii)",
+        "difficulty": 3,
+        "question_patterns": [
+          "series_parallel_circuits",
+          "direct_calculation"
+        ],
+        "target_time_minutes": 4,
+        "formulas_used": [
+          "$V_{parallel} = E - V_{320}$",
+          "$R = \\frac{V}{I}$",
+          "$\\frac{1}{R_p} = \\frac{1}{R_1} + \\frac{1}{R_2}$"
+        ],
+        "hints": [
+          "Apply Kirchhoff's second law: the e.m.f. $25\\,\\text{V}$ is shared between the $320\\,\\Omega$ resistor and the parallel combination, so find the p.d. across the parallel part.",
+          "Treat the parallel combination as one equivalent resistor $R_p$ carrying the total current $0.050\\,\\text{A}$ and use $R_p = V_{parallel}/I$.",
+          "Use the parallel resistance formula with $R_p$ and $240\\,\\Omega$ to isolate the LDR resistance."
+        ],
+        "teacher_walkthrough": [
+          "Kirchhoff's second law for a loop with negligible internal resistance: $E = V_{320} + V_{parallel}$.",
+          "Rearrange for the p.d. across the parallel combination: $$V_{parallel} = E - V_{320} = 25 - 16$$",
+          "$$V_{parallel} = 9.0\\,\\text{V}$$",
+          "The equivalent resistance of the parallel combination is: $$R_p = \\frac{V_{parallel}}{I} = \\frac{9.0}{0.050}$$",
+          "$$R_p = 180\\,\\Omega$$",
+          "For two resistors in parallel: $$\\frac{1}{R_p} = \\frac{1}{R_{LDR}} + \\frac{1}{240}$$",
+          "Rearrange for the LDR: $$\\frac{1}{R_{LDR}} = \\frac{1}{R_p} - \\frac{1}{240} = \\frac{1}{180} - \\frac{1}{240}$$",
+          "Put over common denominator $720$: $$\\frac{1}{R_{LDR}} = \\frac{4}{720} - \\frac{3}{720} = \\frac{1}{720}$$",
+          "$$R_{LDR} = 720\\,\\Omega$$"
+        ],
+        "walkthrough": [
+          "P.d. across parallel part $= 25 - 16 = 9.0\\,\\text{V}$, so $R_p = 9.0/0.050 = 180\\,\\Omega$.",
+          "Then $1/R_{LDR} = 1/180 - 1/240$, giving $R_{LDR} = 720\\,\\Omega$."
+        ],
+        "common_pitfalls": [
+          "Assuming the $9.0\\,\\text{V}$ is across the LDR alone in a series calculation and forgetting the $240\\,\\Omega$ resistor is in parallel with it.",
+          "Adding $180\\,\\Omega$ and $240\\,\\Omega$ as if in series, or using $R_p = R_{LDR} + 240$.",
+          "Current error: subtracting currents incorrectly instead of using $V_{parallel} = 9.0\\,\\text{V}$ with the total current."
+        ]
+      },
+      {
+        "part": "(a)(iii)",
+        "difficulty": 2,
+        "question_patterns": [
+          "power_calculation",
+          "ratio_calculation"
+        ],
+        "target_time_minutes": 3,
+        "formulas_used": [
+          "$P = \\frac{V^2}{R}$",
+          "$P = VI$",
+          "$P = I^2R$"
+        ],
+        "hints": [
+          "Both the LDR and the $240\\,\\Omega$ resistor have the same p.d. of $9.0\\,\\text{V}$ because they are in parallel.",
+          "Set up the power ratio using $P = V^2/R$ for each branch so the common $V^2$ cancels, or calculate each power separately."
+        ],
+        "teacher_walkthrough": [
+          "Electrical power dissipated is $P = V^2/R$.",
+          "Both branches share $V_{parallel} = 9.0\\,\\text{V}$, so: $$P_{LDR} = \\frac{9.0^2}{R_{LDR}} = \\frac{81}{720}$$",
+          "$$P_{LDR} = 0.1125\\,\\text{W}$$",
+          "$$P_{240} = \\frac{9.0^2}{240} = \\frac{81}{240}$$",
+          "$$P_{240} = 0.3375\\,\\text{W}$$",
+          "Required ratio: $$\\frac{P_{LDR}}{P_{240}} = \\frac{0.1125}{0.3375}$$",
+          "$$\\frac{P_{LDR}}{P_{240}} = 0.33$$",
+          "Equivalently the $V^2$ cancels: ratio $= 240/720 = 1/3$."
+        ],
+        "walkthrough": [
+          "Use $P = V^2/R$ with $V = 9.0\\,\\text{V}$ for both branches.",
+          "Ratio $= (9^2/720)/(9^2/240) = 0.1125/0.3375 = 0.33$."
+        ],
+        "common_pitfalls": [
+          "Using different voltages for the two branches, for example $16\\,\\text{V}$ or $25\\,\\text{V}$, instead of the common $9.0\\,\\text{V}$.",
+          "Inverting the ratio and giving power in $240\\,\\Omega$ divided by power in LDR, giving about $3.0$."
+        ]
+      },
+      {
+        "part": "(b)",
+        "difficulty": 2,
+        "question_patterns": [
+          "property_identification",
+          "qualitative_reasoning"
+        ],
+        "target_time_minutes": 4,
+        "formulas_used": [
+          "$V = IR$",
+          "$E = V_{320} + V_{parallel}$"
+        ],
+        "hints": [
+          "Recall how LDR resistance varies with light intensity.",
+          "Consider what happens to the equivalent resistance of the LDR and $240\\,\\Omega$ in parallel, and hence to the total circuit resistance.",
+          "Use $V = IR$ for the $320\\,\\Omega$ resistor with the new larger total current, or use the potential divider idea that less p.d. is left for the parallel part."
+        ],
+        "teacher_walkthrough": [
+          "LDR property: increased light intensity decreases the resistance of the LDR.",
+          "The LDR is in parallel with the $240\\,\\Omega$ resistor, so the equivalent parallel resistance decreases when $R_{LDR}$ decreases.",
+          "Total circuit resistance $= 320\\,\\Omega + R_p$ therefore decreases.",
+          "With $E = 25\\,\\text{V}$ fixed and negligible internal resistance, total current $I = E/R_{total}$ increases.",
+          "Voltmeter reads $V = IR$ for the $320\\,\\Omega$ resistor: $$V = I \\times 320$$",
+          "Since $I$ increases and $320\\,\\Omega$ is constant, $V$ increases, so the voltmeter reading increases.",
+          "Equivalently, $V_{parallel} = E - V$, so $V_{parallel}$ decreases as more of the $25\\,\\text{V}$ is dropped across the $320\\,\\Omega$ resistor."
+        ],
+        "walkthrough": [
+          "Resistance of LDR decreases.",
+          "Resistance of parallel combination and total resistance decrease, so current in $320\\,\\Omega$ resistor increases.",
+          "Hence p.d. across $320\\,\\Omega$ resistor increases, so voltmeter reading increases."
+        ],
+        "common_pitfalls": [
+          "Stating LDR resistance increases with light intensity, which reverses the whole argument.",
+          "Claiming the voltmeter reading decreases because the parallel voltage decreases, without recognising the voltmeter is across the series $320\\,\\Omega$ resistor, not across the parallel part.",
+          "Giving only the final statement with no linked explanation of total resistance, current and $V = IR$."
+        ]
+      }
+    ]
+  },
+  "raw_content": "{\n  \"question_num\": 6,\n  \"difficulty\": 2,\n  \"question_patterns\": [\n    \"series_parallel_circuits\",\n    \"direct_calculation\",\n    \"potential_divider_reasoning\"\n  ],\n  \"parts\": [\n    {\n      \"part\": \"(a)(i)\",\n      \"difficulty\": 1,\n      \"question_patterns\": [\n        \"direct_calculation\"\n      ],\n      \"target_time_minutes\": 1,\n      \"formulas_used\": [\n        \"$V = IR$\",\n        \"$I = \\\\frac{V}{R}$\"\n      ],\n      \"hints\": [\n        \"The voltmeter reads the p.d. across the $320\\\\,\\\\Omega$ resistor only, and this resistor carries the full battery current because it is in series.\"\n      ],\n      \"teacher_walkthrough\": [\n        \"Ohm's law applied to the $320\\\\,\\\\Omega$ resistor is $V = IR$.\",\n        \"Rearrange for the series current: $$I = \\\\frac{V}{R}$$\",\n        \"Substitute $V = 16\\\\,\\\\text{V}$ and $R = 320\\\\,\\\\Omega$: $$I = \\\\frac{16}{320}$$\",\n        \"$$I = 0.050\\\\,\\\\text{A}$$\",\n        \"Since the $320\\\\,\\\\Omega$ resistor is in series with the battery, this is the current in the battery.\"\n      ],\n      \"walkthrough\": [\n        \"Use $I = V/R$ for the $320\\\\,\\\\Omega$ resistor: $I = 16/320 = 0.050\\\\,\\\\text{A}$.\"\n      ],\n      \"common_pitfalls\": [\n        \"Using the full e.m.f. of $25\\\\,\\\\text{V}$ instead of the $16\\\\,\\\\text{V}$ across the $320\\\\,\\\\Omega$ resistor.\",\n        \"Dividing by the $240\\\\,\\\\Omega$ resistance or by a combined resistance instead of $320\\\\,\\\\Omega$.\"\n      ]\n    },\n    {\n      \"part\": \"(a)(ii)\",\n      \"difficulty\": 3,\n      \"question_patterns\": [\n        \"series_parallel_circuits\",\n        \"direct_calculation\"\n      ],\n      \"target_time_minutes\": 4,\n      \"formulas_used\": [\n        \"$V_{parallel} = E - V_{320}$\",\n        \"$R = \\\\frac{V}{I}$\",\n        \"$\\\\frac{1}{R_p} = \\\\frac{1}{R_1} + \\\\frac{1}{R_2}$\"\n      ],\n      \"hints\": [\n        \"Apply Kirchhoff's second law: the e.m.f. $25\\\\,\\\\text{V}$ is shared between the $320\\\\,\\\\Omega$ resistor and the parallel combination, so find the p.d. across the parallel part.\",\n        \"Treat the parallel combination as one equivalent resistor $R_p$ carrying the total current $0.050\\\\,\\\\text{A}$ and use $R_p = V_{parallel}/I$.\",\n        \"Use the parallel resistance formula with $R_p$ and $240\\\\,\\\\Omega$ to isolate the LDR resistance.\"\n      ],\n      \"teacher_walkthrough\": [\n        \"Kirchhoff's second law for a loop with negligible internal resistance: $E = V_{320} + V_{parallel}$.\",\n        \"Rearrange for the p.d. across the parallel combination: $$V_{parallel} = E - V_{320} = 25 - 16$$\",\n        \"$$V_{parallel} = 9.0\\\\,\\\\text{V}$$\",\n        \"The equivalent resistance of the parallel combination is: $$R_p = \\\\frac{V_{parallel}}{I} = \\\\frac{9.0}{0.050}$$\",\n        \"$$R_p = 180\\\\,\\\\Omega$$\",\n        \"For two resistors in parallel: $$\\\\frac{1}{R_p} = \\\\frac{1}{R_{LDR}} + \\\\frac{1}{240}$$\",\n        \"Rearrange for the LDR: $$\\\\frac{1}{R_{LDR}} = \\\\frac{1}{R_p} - \\\\frac{1}{240} = \\\\frac{1}{180} - \\\\frac{1}{240}$$\",\n        \"Put over common denominator $720$: $$\\\\frac{1}{R_{LDR}} = \\\\frac{4}{720} - \\\\frac{3}{720} = \\\\frac{1}{720}$$\",\n        \"$$R_{LDR} = 720\\\\,\\\\Omega$$\"\n      ],\n      \"walkthrough\": [\n        \"P.d. across parallel part $= 25 - 16 = 9.0\\\\,\\\\text{V}$, so $R_p = 9.0/0.050 = 180\\\\,\\\\Omega$.\",\n        \"Then $1/R_{LDR} = 1/180 - 1/240$, giving $R_{LDR} = 720\\\\,\\\\Omega$.\"\n      ],\n      \"common_pitfalls\": [\n        \"Assuming the $9.0\\\\,\\\\text{V}$ is across the LDR alone in a series calculation and forgetting the $240\\\\,\\\\Omega$ resistor is in parallel with it.\",\n        \"Adding $180\\\\,\\\\Omega$ and $240\\\\,\\\\Omega$ as if in series, or using $R_p = R_{LDR} + 240$.\",\n        \"Current error: subtracting currents incorrectly instead of using $V_{parallel} = 9.0\\\\,\\\\text{V}$ with the total current.\"\n      ]\n    },\n    {\n      \"part\": \"(a)(iii)\",\n      \"difficulty\": 2,\n      \"question_patterns\": [\n        \"power_calculation\",\n        \"ratio_calculation\"\n      ],\n      \"target_time_minutes\": 3,\n      \"formulas_used\": [\n        \"$P = \\\\frac{V^2}{R}$\",\n        \"$P = VI$\",\n        \"$P = I^2R$\"\n      ],\n      \"hints\": [\n        \"Both the LDR and the $240\\\\,\\\\Omega$ resistor have the same p.d. of $9.0\\\\,\\\\text{V}$ because they are in parallel.\",\n        \"Set up the power ratio using $P = V^2/R$ for each branch so the common $V^2$ cancels, or calculate each power separately.\"\n      ],\n      \"teacher_walkthrough\": [\n        \"Electrical power dissipated is $P = V^2/R$.\",\n        \"Both branches share $V_{parallel} = 9.0\\\\,\\\\text{V}$, so: $$P_{LDR} = \\\\frac{9.0^2}{R_{LDR}} = \\\\frac{81}{720}$$\",\n        \"$$P_{LDR} = 0.1125\\\\,\\\\text{W}$$\",\n        \"$$P_{240} = \\\\frac{9.0^2}{240} = \\\\frac{81}{240}$$\",\n        \"$$P_{240} = 0.3375\\\\,\\\\text{W}$$\",\n        \"Required ratio: $$\\\\frac{P_{LDR}}{P_{240}} = \\\\frac{0.1125}{0.3375}$$\",\n        \"$$\\\\frac{P_{LDR}}{P_{240}} = 0.33$$\",\n        \"Equivalently the $V^2$ cancels: ratio $= 240/720 = 1/3$.\"\n      ],\n      \"walkthrough\": [\n        \"Use $P = V^2/R$ with $V = 9.0\\\\,\\\\text{V}$ for both branches.\",\n        \"Ratio $= (9^2/720)/(9^2/240) = 0.1125/0.3375 = 0.33$.\"\n      ],\n      \"common_pitfalls\": [\n        \"Using different voltages for the two branches, for example $16\\\\,\\\\text{V}$ or $25\\\\,\\\\text{V}$, instead of the common $9.0\\\\,\\\\text{V}$.\",\n        \"Inverting the ratio and giving power in $240\\\\,\\\\Omega$ divided by power in LDR, giving about $3.0$.\"\n      ]\n    },\n    {\n      \"part\": \"(b)\",\n      \"difficulty\": 2,\n      \"question_patterns\": [\n        \"property_identification\",\n        \"qualitative_reasoning\"\n      ],\n      \"target_time_minutes\": 4,\n      \"formulas_used\": [\n        \"$V = IR$\",\n        \"$E = V_{320} + V_{parallel}$\"\n      ],\n      \"hints\": [\n        \"Recall how LDR resistance varies with light intensity.\",\n        \"Consider what happens to the equivalent resistance of the LDR and $240\\\\,\\\\Omega$ in parallel, and hence to the total circuit resistance.\",\n        \"Use $V = IR$ for the $320\\\\,\\\\Omega$ resistor with the new larger total current, or use the potential divider idea that less p.d. is left for the parallel part.\"\n      ],\n      \"teacher_walkthrough\": [\n        \"LDR property: increased light intensity decreases the resistance of the LDR.\",\n        \"The LDR is in parallel with the $240\\\\,\\\\Omega$ resistor, so the equivalent parallel resistance decreases when $R_{LDR}$ decreases.\",\n        \"Total circuit resistance $= 320\\\\,\\\\Omega + R_p$ therefore decreases.\",\n        \"With $E = 25\\\\,\\\\text{V}$ fixed and negligible internal resistance, total current $I = E/R_{total}$ increases.\",\n        \"Voltmeter reads $V = IR$ for the $320\\\\,\\\\Omega$ resistor: $$V = I \\\\times 320$$\",\n        \"Since $I$ increases and $320\\\\,\\\\Omega$ is constant, $V$ increases, so the voltmeter reading increases.\",\n        \"Equivalently, $V_{parallel} = E - V$, so $V_{parallel}$ decreases as more of the $25\\\\,\\\\text{V}$ is dropped across the $320\\\\,\\\\Omega$ resistor.\"\n      ],\n      \"walkthrough\": [\n        \"Resistance of LDR decreases.\",\n        \"Resistance of parallel combination and total resistance decrease, so current in $320\\\\,\\\\Omega$ resistor increases.\",\n        \"Hence p.d. across $320\\\\,\\\\Omega$ resistor increases, so voltmeter reading increases.\"\n      ],\n      \"common_pitfalls\": [\n        \"Stating LDR resistance increases with light intensity, which reverses the whole argument.\",\n        \"Claiming the voltmeter reading decreases because the parallel voltage decreases, without recognising the voltmeter is across the series $320\\\\,\\\\Omega$ resistor, not across the parallel part.\",\n        \"Giving only the final statement with no linked explanation of total resistance, current and $V = IR$.\"\n      ]\n    }\n  ]\n}"
+}

@@ -1,0 +1,124 @@
+{
+  "question_id": "9702_s23_22_q01",
+  "question_num": 1,
+  "title": "Forces, density and pressure",
+  "marks": 6,
+  "elapsed_sec": 1.1,
+  "tokens": {
+    "prompt_tokens": 1353,
+    "completion_tokens": 2336,
+    "reasoning_tokens": 593,
+    "total_tokens": 3689
+  },
+  "cost_usd": 0.000602,
+  "valid_json": true,
+  "dash_violations": 0,
+  "parsed_json": {
+    "question_difficulty": 2,
+    "question_patterns": [
+      "definition_recall",
+      "unit_derivation",
+      "homogeneity_analysis",
+      "uncertainty_propagation"
+    ],
+    "parts": [
+      {
+        "part_id": "9702_s23_22_q01_a_i",
+        "difficulty": 1,
+        "question_patterns": [
+          "definition_recall"
+        ],
+        "hints": [
+          "Recall pressure is defined in terms of the force acting perpendicular to a surface divided by the area of that surface."
+        ],
+        "walkthrough": [
+          "B1: State pressure = force per unit area, with force normal to the area."
+        ],
+        "teacher_walkthrough": [
+          "Pressure is defined as the normal force per unit area: $$p = \\frac{F}{A}$$ where $F$ is the component of force perpendicular to the surface and $A$ is the area."
+        ],
+        "common_pitfalls": [
+          "Omitting that the force must be normal (perpendicular) to the area, just saying force over area is incomplete for full credit.",
+          "Confusing pressure with force itself or with stress without referencing area."
+        ]
+      },
+      {
+        "part_id": "9702_s23_22_q01_a_ii",
+        "difficulty": 2,
+        "question_patterns": [
+          "unit_derivation"
+        ],
+        "hints": [
+          "Start from p = F/A and write force in SI base units using F = ma, then divide by the SI unit of area."
+        ],
+        "walkthrough": [
+          "A1: Unit of F is kg m s^-2, unit of A is m^2, so unit of p = kg m s^-2 / m^2 = kg m^-1 s^-2."
+        ],
+        "teacher_walkthrough": [
+          "Force is given by Newton's second law: $$F = ma$$",
+          "In SI base units, mass is $kg$ and acceleration is $m s^{-2}$, so: $$\\text{unit of } F = kg \\times m s^{-2} = kg\\, m\\, s^{-2}$$",
+          "Area has unit: $$\\text{unit of } A = m^2$$",
+          "Since $$p = \\frac{F}{A}$$ then: $$\\text{unit of } p = \\frac{kg\\, m\\, s^{-2}}{m^2} = kg\\, m^{-1}\\, s^{-2}$$"
+        ],
+        "common_pitfalls": [
+          "Writing newtons as a base unit instead of expanding N to kg m s^-2.",
+          "Making power of ten or algebra errors when dividing by m^2, for example giving kg m s^-2 or kg m^-2 s^-2."
+        ]
+      },
+      {
+        "part_id": "9702_s23_22_q01_b",
+        "difficulty": 3,
+        "question_patterns": [
+          "algebraic_derivation",
+          "homogeneity_analysis"
+        ],
+        "hints": [
+          "Rearrange the given equation to make k the subject, so k is expressed in terms of pressure difference, R, rho, t, m and L.",
+          "Write each quantity on the right hand side in SI base units, using kg m^-1 s^-2 for pressure difference, m for R and L, kg m^-3 for density, s for t and kg for m.",
+          "Substitute these units into the rearranged expression for k and simplify powers of m, kg and s step by step without skipping cancellation."
+        ],
+        "walkthrough": [
+          "C1: Identify units: R in m, t in s, L in m, m in kg, (p2-p1) in kg m^-1 s^-2.",
+          "C1: Unit of rho is kg m^-3 from mass/volume.",
+          "A1: Rearranged k = pi(p2-p1)R^4 rho t / (8 m L), so units = (kg m^-1 s^-2 x m^4 x kg m^-3 x s)/(kg x m) = kg m^-1 s^-1."
+        ],
+        "teacher_walkthrough": [
+          "Rearrange for $k$. Starting from: $$m = \\frac{\\pi(p_2-p_1)R^4 \\rho t}{8kL}$$ Multiply both sides by $k$ and divide by $m$: $$k = \\frac{\\pi(p_2-p_1)R^4 \\rho t}{8 m L}$$ Constants $\\pi$ and $8$ have no units.",
+          "Write SI base units of each quantity: $$(p_2-p_1): kg\\, m^{-1}\\, s^{-2}$$ $$R^4: m^4$$ $$\\rho: kg\\, m^{-3}$$ $$t: s$$ $$m: kg$$ $$L: m$$",
+          "Substitute into the expression for units of $k$: $$\\text{unit of } k = \\frac{(kg\\, m^{-1}\\, s^{-2}) \\times (m^4) \\times (kg\\, m^{-3}) \\times (s)}{(kg) \\times (m)}$$",
+          "Simplify numerator: $kg \\times kg = kg^2$. For $m$: $m^{-1} \\times m^4 \\times m^{-3} = m^{(-1+4-3)} = m^0 = 1$. For $s$: $s^{-2} \\times s = s^{-1}$. So numerator is $kg^2 s^{-1}$.",
+          "Divide by denominator $kg \\times m$: $$\\text{unit of } k = \\frac{kg^2 s^{-1}}{kg\\, m} = kg\\, m^{-1}\\, s^{-1}$$"
+        ],
+        "common_pitfalls": [
+          "Forgetting to rearrange for k first and trying to balance units with k in the denominator, leading to inverted units.",
+          "Using incorrect units for density or pressure difference, for example g cm^-3 for density or Pa without expanding to base units.",
+          "Losing powers when handling R^4, writing m instead of m^4, or mishandling m^-1 from pressure with m^4 and m^-3."
+        ]
+      },
+      {
+        "part_id": "9702_s23_22_q01_c",
+        "difficulty": 2,
+        "question_patterns": [
+          "uncertainty_propagation"
+        ],
+        "hints": [
+          "Recall how percentage uncertainty propagates through powers: if k depends on R^4 and on L^1, consider what multiplier applies to each percentage uncertainty."
+        ],
+        "walkthrough": [
+          "B1: R term gives 4 x 2% = 8% while L gives 2%, so R contributes more."
+        ],
+        "teacher_walkthrough": [
+          "From (b), $k$ is proportional to $R^4$ and inversely proportional to $L$: $$k \\propto \\frac{R^4}{L}$$",
+          "When a quantity is raised to a power $n$, its percentage uncertainty is multiplied by $|n|$. So for $R^4$: $$\\text{percentage uncertainty from } R = 4 \\times 2\\% = 8\\%$$",
+          "For $L$ to power 1: $$\\text{percentage uncertainty from } L = 1 \\times 2\\% = 2\\%$$",
+          "Since $8\\% > 2\\%$, $R$ contributes more to the percentage uncertainty in $k$."
+        ],
+        "common_pitfalls": [
+          "Stating R contributes more without quantitative comparison of 8% versus 2%, which is required for the mark.",
+          "Forgetting to multiply by the power 4 and concluding both contribute equally because both have 2% measurement uncertainty."
+        ]
+      }
+    ]
+  },
+  "raw_content": "{\n  \"question_difficulty\": 2,\n  \"question_patterns\": [\n    \"definition_recall\",\n    \"unit_derivation\",\n    \"homogeneity_analysis\",\n    \"uncertainty_propagation\"\n  ],\n  \"parts\": [\n    {\n      \"part_id\": \"9702_s23_22_q01_a_i\",\n      \"difficulty\": 1,\n      \"question_patterns\": [\"definition_recall\"],\n      \"hints\": [\n        \"Recall pressure is defined in terms of the force acting perpendicular to a surface divided by the area of that surface.\"\n      ],\n      \"walkthrough\": [\n        \"B1: State pressure = force per unit area, with force normal to the area.\"\n      ],\n      \"teacher_walkthrough\": [\n        \"Pressure is defined as the normal force per unit area: $$p = \\\\frac{F}{A}$$ where $F$ is the component of force perpendicular to the surface and $A$ is the area.\"\n      ],\n      \"common_pitfalls\": [\n        \"Omitting that the force must be normal (perpendicular) to the area, just saying force over area is incomplete for full credit.\",\n        \"Confusing pressure with force itself or with stress without referencing area.\"\n      ]\n    },\n    {\n      \"part_id\": \"9702_s23_22_q01_a_ii\",\n      \"difficulty\": 2,\n      \"question_patterns\": [\"unit_derivation\"],\n      \"hints\": [\n        \"Start from p = F/A and write force in SI base units using F = ma, then divide by the SI unit of area.\"\n      ],\n      \"walkthrough\": [\n        \"A1: Unit of F is kg m s^-2, unit of A is m^2, so unit of p = kg m s^-2 / m^2 = kg m^-1 s^-2.\"\n      ],\n      \"teacher_walkthrough\": [\n        \"Force is given by Newton's second law: $$F = ma$$\",\n        \"In SI base units, mass is $kg$ and acceleration is $m s^{-2}$, so: $$\\\\text{unit of } F = kg \\\\times m s^{-2} = kg\\\\, m\\\\, s^{-2}$$\",\n        \"Area has unit: $$\\\\text{unit of } A = m^2$$\",\n        \"Since $$p = \\\\frac{F}{A}$$ then: $$\\\\text{unit of } p = \\\\frac{kg\\\\, m\\\\, s^{-2}}{m^2} = kg\\\\, m^{-1}\\\\, s^{-2}$$\"\n      ],\n      \"common_pitfalls\": [\n        \"Writing newtons as a base unit instead of expanding N to kg m s^-2.\",\n        \"Making power of ten or algebra errors when dividing by m^2, for example giving kg m s^-2 or kg m^-2 s^-2.\"\n      ]\n    },\n    {\n      \"part_id\": \"9702_s23_22_q01_b\",\n      \"difficulty\": 3,\n      \"question_patterns\": [\"algebraic_derivation\", \"homogeneity_analysis\"],\n      \"hints\": [\n        \"Rearrange the given equation to make k the subject, so k is expressed in terms of pressure difference, R, rho, t, m and L.\",\n        \"Write each quantity on the right hand side in SI base units, using kg m^-1 s^-2 for pressure difference, m for R and L, kg m^-3 for density, s for t and kg for m.\",\n        \"Substitute these units into the rearranged expression for k and simplify powers of m, kg and s step by step without skipping cancellation.\"\n      ],\n      \"walkthrough\": [\n        \"C1: Identify units: R in m, t in s, L in m, m in kg, (p2-p1) in kg m^-1 s^-2.\",\n        \"C1: Unit of rho is kg m^-3 from mass/volume.\",\n        \"A1: Rearranged k = pi(p2-p1)R^4 rho t / (8 m L), so units = (kg m^-1 s^-2 x m^4 x kg m^-3 x s)/(kg x m) = kg m^-1 s^-1.\"\n      ],\n      \"teacher_walkthrough\": [\n        \"Rearrange for $k$. Starting from: $$m = \\\\frac{\\\\pi(p_2-p_1)R^4 \\\\rho t}{8kL}$$ Multiply both sides by $k$ and divide by $m$: $$k = \\\\frac{\\\\pi(p_2-p_1)R^4 \\\\rho t}{8 m L}$$ Constants $\\\\pi$ and $8$ have no units.\",\n        \"Write SI base units of each quantity: $$(p_2-p_1): kg\\\\, m^{-1}\\\\, s^{-2}$$ $$R^4: m^4$$ $$\\\\rho: kg\\\\, m^{-3}$$ $$t: s$$ $$m: kg$$ $$L: m$$\",\n        \"Substitute into the expression for units of $k$: $$\\\\text{unit of } k = \\\\frac{(kg\\\\, m^{-1}\\\\, s^{-2}) \\\\times (m^4) \\\\times (kg\\\\, m^{-3}) \\\\times (s)}{(kg) \\\\times (m)}$$\",\n        \"Simplify numerator: $kg \\\\times kg = kg^2$. For $m$: $m^{-1} \\\\times m^4 \\\\times m^{-3} = m^{(-1+4-3)} = m^0 = 1$. For $s$: $s^{-2} \\\\times s = s^{-1}$. So numerator is $kg^2 s^{-1}$.\",\n        \"Divide by denominator $kg \\\\times m$: $$\\\\text{unit of } k = \\\\frac{kg^2 s^{-1}}{kg\\\\, m} = kg\\\\, m^{-1}\\\\, s^{-1}$$\"\n      ],\n      \"common_pitfalls\": [\n        \"Forgetting to rearrange for k first and trying to balance units with k in the denominator, leading to inverted units.\",\n        \"Using incorrect units for density or pressure difference, for example g cm^-3 for density or Pa without expanding to base units.\",\n        \"Losing powers when handling R^4, writing m instead of m^4, or mishandling m^-1 from pressure with m^4 and m^-3.\"\n      ]\n    },\n    {\n      \"part_id\": \"9702_s23_22_q01_c\",\n      \"difficulty\": 2,\n      \"question_patterns\": [\"uncertainty_propagation\"],\n      \"hints\": [\n        \"Recall how percentage uncertainty propagates through powers: if k depends on R^4 and on L^1, consider what multiplier applies to each percentage uncertainty.\"\n      ],\n      \"walkthrough\": [\n        \"B1: R term gives 4 x 2% = 8% while L gives 2%, so R contributes more.\"\n      ],\n      \"teacher_walkthrough\": [\n        \"From (b), $k$ is proportional to $R^4$ and inversely proportional to $L$: $$k \\\\propto \\\\frac{R^4}{L}$$\",\n        \"When a quantity is raised to a power $n$, its percentage uncertainty is multiplied by $|n|$. So for $R^4$: $$\\\\text{percentage uncertainty from } R = 4 \\\\times 2\\\\% = 8\\\\%$$\",\n        \"For $L$ to power 1: $$\\\\text{percentage uncertainty from } L = 1 \\\\times 2\\\\% = 2\\\\%$$\",\n        \"Since $8\\\\% > 2\\\\%$, $R$ contributes more to the percentage uncertainty in $k$.\"\n      ],\n      \"common_pitfalls\": [\n        \"Stating R contributes more without quantitative comparison of 8% versus 2%, which is required for the mark.\",\n        \"Forgetting to multiply by the power 4 and concluding both contribute equally because both have 2% measurement uncertainty.\"\n      ]\n    }\n  ]\n}"
+}

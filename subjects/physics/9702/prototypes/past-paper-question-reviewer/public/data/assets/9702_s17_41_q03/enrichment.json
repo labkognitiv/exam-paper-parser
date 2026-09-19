@@ -1,0 +1,206 @@
+{
+  "schema_version": "9702_theory_enrichment_v1",
+  "question_id": "9702_s17_41_q03",
+  "difficulty": 3,
+  "question_patterns": [
+    "definition",
+    "explanation",
+    "direct_calculation"
+  ],
+  "parts": [
+    {
+      "part_id": "9702_s17_41_q03_a_i",
+      "label": "(a)(i)",
+      "marks": 1,
+      "difficulty": 1,
+      "question_patterns": [
+        "definition"
+      ],
+      "key_concepts": [
+        "digital signal as discrete states",
+        "binary 1s and 0s"
+      ],
+      "hints": [
+        "Hint 1: Think about how an analogue speech wave looks compared to what can travel cleanly down an optic fibre - is it continuously varying or jumping between just two fixed levels?"
+      ],
+      "proper_answer": "A digital signal consists of a series of 1s and 0s (high and low voltages / ons and offs), with only discrete values and no intermediate values.",
+      "walkthrough": [
+        "Step 1: **Picture Analogue Versus Digital**\nThink of your voice as a smooth, continuously changing air pressure wave. An analogue voltage copy of it can take any value. For reliable long-distance transmission we do not want that. We want something much simpler that noise cannot easily corrupt.",
+        "Step 2: **Define the Digital Form**\nThat simpler form uses just two levels. So a digital signal is a sequence of pulses representing binary 1 and 0, for example +5 V for 1 and 0 V for 0. There is nothing in between."
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t24",
+        "primary_module_id": "9702_t24_m02",
+        "outcome_ids": [
+          "9702_t24_m02_o03",
+          "9702_t24_m02_o02"
+        ]
+      },
+      "primary_topic_id": "9702_t24",
+      "primary_module_id": "9702_t24_m02",
+      "outcome_ids": [
+        "9702_t24_m02_o03",
+        "9702_t24_m02_o02"
+      ]
+    },
+    {
+      "part_id": "9702_s17_41_q03_a_ii",
+      "label": "(a)(ii)",
+      "marks": 2,
+      "difficulty": 1,
+      "question_patterns": [
+        "definition"
+      ],
+      "key_concepts": [
+        "parallel-to-serial conversion for fibre transmission",
+        "DAC for signal recovery"
+      ],
+      "hints": [
+        "Hint 1: Follow the signal path in Fig. 3.1 - the ADC outputs several bits at once in parallel, but the fibre can only carry one bit at a time, so what must X do? At the far end after parallel is restored, what must Y do to drive a loudspeaker?",
+        "Hint 2: Recall the symmetry of the system: ADC changes analogue to digital at the start, so the reverse block is needed at the end before amplification to the speaker."
+      ],
+      "proper_answer": "X: parallel-to-serial converter. Y: DAC / digital-to-analogue converter.",
+      "walkthrough": [
+        "Step 1: **Why X Is Needed Before the Fibre**\nThe ADC produces, say, an 8-bit number for each sample with all 8 bits available at the same time on 8 wires. An optic fibre carries a single stream of pulses. So X must line those bits up one after another. That is a parallel-to-serial converter.",
+        "Step 2: **Why Y Is Needed After the Fibre**\nAt the receiver the serial-to-parallel converter restores the parallel 8-bit numbers. The loudspeaker needs a continuously varying analogue voltage, not numbers. So Y must rebuild an analogue voltage from each digital number. That is a DAC, a digital-to-analogue converter."
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t24",
+        "primary_module_id": "9702_t24_m02",
+        "outcome_ids": [
+          "9702_t24_m02_o03",
+          "9702_t24_m02_o02"
+        ]
+      },
+      "primary_topic_id": "9702_t24",
+      "primary_module_id": "9702_t24_m02",
+      "outcome_ids": [
+        "9702_t24_m02_o03",
+        "9702_t24_m02_o02"
+      ]
+    },
+    {
+      "part_id": "9702_s17_41_q03_a_iii",
+      "label": "(a)(iii)",
+      "marks": 2,
+      "difficulty": 2,
+      "question_patterns": [
+        "explanation"
+      ],
+      "key_concepts": [
+        "sampling at regular intervals",
+        "analogue-to-digital conversion and binary output"
+      ],
+      "hints": [
+        "Hint 1: The input to the ADC from the microphone amplifier is still a smooth analogue voltage - how could you capture its shape using measurements made at fixed times?",
+        "Hint 2: Once you have measured the voltage at one instant, what number form must it be turned into so X and the fibre can handle it?"
+      ],
+      "proper_answer": "The ADC samples the analogue signal at regular intervals and converts each sampled analogue value into a digital / binary number.",
+      "walkthrough": [
+        "Step 1: **Sampling the Wave**\nImagine freezing the microphone voltage at very rapid, equally spaced moments in time. That is sampling. The ADC measures the analogue voltage at each sampling instant.",
+        "Step 2: **Converting to Binary**\nEach measured voltage is then quantised and coded as a binary number, for example an 8-bit number. That stream of binary numbers is the digital representation of the speech that can be sent via X and the optic fibre."
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t24",
+        "primary_module_id": "9702_t24_m02",
+        "outcome_ids": [
+          "9702_t24_m02_o03",
+          "9702_t24_m02_o02"
+        ]
+      },
+      "primary_topic_id": "9702_t24",
+      "primary_module_id": "9702_t24_m02",
+      "outcome_ids": [
+        "9702_t24_m02_o03",
+        "9702_t24_m02_o02"
+      ]
+    },
+    {
+      "part_id": "9702_s17_41_q03_b_i",
+      "label": "(b)(i)",
+      "marks": 2,
+      "difficulty": 2,
+      "question_patterns": [
+        "direct_calculation"
+      ],
+      "key_concepts": [
+        "attenuation in dB",
+        "addition of dB ratios",
+        "signal-to-noise ratio"
+      ],
+      "hints": [
+        "Hint 1: The fibre loss and the signal-to-noise at the output are both given in dB - think about how the input power relates first to the output signal power, and then to the output noise power.",
+        "Hint 2: Work out the total loss along the 84 km fibre from the loss per km, then consider how dB values combine by addition when you chain ratios together."
+      ],
+      "proper_answer": "Attenuation $= 84 \\times 0.19 \\approx 16\\text{ dB}$. Ratio $= 16 + 28 = 44\\text{ dB}$.",
+      "walkthrough": [
+        "Step 1: **Find the Fibre Loss in dB**\nLoss in a fibre grows with length, and dB values simply scale. Here: $$ \\text{attenuation} = \\text{length} \\times \\text{loss per km} $$ $$ \\text{attenuation} = 84 \\times 0.19 \\approx 16\\text{ dB} $$ This means the signal power at the output is 16 dB below the input power.",
+        "Step 2: **Add the Two dB Stages**\nAt the output, the signal is 28 dB above the noise: $$ 28 = 10\\lg\\left(\\frac{P_{signal,out}}{P_{noise,out}}\\right) $$ You want input power compared to output noise. In log units you just add: $$ 10\\lg\\left(\\frac{P_{in}}{P_{noise,out}}\\right) = 10\\lg\\left(\\frac{P_{in}}{P_{signal,out}}\\right) + 10\\lg\\left(\\frac{P_{signal,out}}{P_{noise,out}}\\right) $$ $$ = 16 + 28 = 44\\text{ dB} $$"
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t24",
+        "primary_module_id": "9702_t24_m02",
+        "outcome_ids": [
+          "9702_t24_m02_o03",
+          "9702_t24_m02_o01"
+        ]
+      },
+      "primary_topic_id": "9702_t24",
+      "primary_module_id": "9702_t24_m02",
+      "outcome_ids": [
+        "9702_t24_m02_o03",
+        "9702_t24_m02_o01"
+      ]
+    },
+    {
+      "part_id": "9702_s17_41_q03_b_ii",
+      "label": "(b)(ii)",
+      "marks": 3,
+      "difficulty": 3,
+      "question_patterns": [
+        "direct_calculation"
+      ],
+      "key_concepts": [
+        "decibel power ratio formula",
+        "conversion from dB to linear power",
+        "milliwatt to watt conversion"
+      ],
+      "hints": [
+        "Hint 1: You now know the power ratio in dB is 44 dB - recall the general link between a ratio in dB and the ratio of the two actual powers using log base 10.",
+        "Hint 2: Identify which power is on top: input power $9.7\\text{ mW}$ is the larger power, noise power $P$ is the unknown smaller power, so set up $44 = 10\\lg(9.7\\times10^{-3}/P)$.",
+        "Hint 3: To isolate $P$, first divide by 10 to get $\\lg(...)=4.4$, then use antilog $10^{4.4}$ and rearrange, remembering to keep the final answer in W."
+      ],
+      "proper_answer": "Using $44 = 10\\lg(9.7\\times10^{-3}/P)$, noise power $P = 3.9\\times10^{-7}\\text{ W}$.",
+      "walkthrough": [
+        "Step 1: **Write the dB Definition**\nFor powers, the level in decibels is: $$ \\text{ratio / dB} = 10\\lg\\left(\\frac{P_2}{P_1}\\right) $$ Here $P_2$ is the input power and $P_1$ is the noise power at the output.",
+        "Step 2: **Substitute the Known Values**\nInput power $9.7\\text{ mW} = 9.7\\times10^{-3}\\text{ W}$ and ratio $=44\\text{ dB}$: $$ 44 = 10\\lg\\left(\\frac{9.7\\times10^{-3}}{P}\\right) $$ where $P$ is the noise power.",
+        "Step 3: **Solve for the Noise Power**\nDivide by 10: $$ \\lg\\left(\\frac{9.7\\times10^{-3}}{P}\\right) = 4.4 $$ Take antilogs: $$ \\frac{9.7\\times10^{-3}}{P} = 10^{4.4} $$ $$ P = \\frac{9.7\\times10^{-3}}{10^{4.4}} \\approx 3.9\\times10^{-7}\\text{ W} $$ This tiny value makes sense because 44 dB is a power factor of about 25000."
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t21",
+        "primary_module_id": "9702_t21_m01",
+        "outcome_ids": [
+          "9702_t21_m01_o03",
+          "9702_t21_m01_o04"
+        ]
+      },
+      "primary_topic_id": "9702_t21",
+      "primary_module_id": "9702_t21_m01",
+      "outcome_ids": [
+        "9702_t21_m01_o03",
+        "9702_t21_m01_o04"
+      ]
+    }
+  ],
+  "total_marks": 10,
+  "taxonomy_tags": {
+    "topic_ids": [
+      "9702_t21",
+      "9702_t24"
+    ],
+    "module_ids": [
+      "9702_t21_m01",
+      "9702_t24_m02"
+    ]
+  }
+}

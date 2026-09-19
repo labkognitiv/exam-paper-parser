@@ -1,0 +1,59 @@
+{
+  "schema_version": "9702_p1_enrichment_v1",
+  "question_id": "9702_s24_11_q34",
+  "component": "P1",
+  "difficulty": 2,
+  "question_patterns": [
+    "circuit_analysis"
+  ],
+  "topic_id": "9702_t10",
+  "module_id": "9702_t10_m02",
+  "skill_id": "9702_skill_resistor_networks",
+  "accepted_answer": "C",
+  "options_breakdown": {
+    "A": {
+      "status": "incorrect",
+      "explanation": "Too small because it treats the $120 \\, \\Omega$ as $4R$ in series rather than a parallel combination."
+    },
+    "B": {
+      "status": "incorrect",
+      "explanation": "Too small because it treats the network as $R$ in parallel with $2R$ instead of $R$ in parallel with $3R$."
+    },
+    "C": {
+      "status": "correct",
+      "explanation": "The $3R$ series branch in parallel with $R$ gives $3R/4 = 120 \\, \\Omega$, so $R = 160 \\, \\Omega$."
+    },
+    "D": {
+      "status": "incorrect",
+      "explanation": "Too large because it multiplies $120 \\, \\Omega$ by 4, inverting the parallel reduction $3R/4$."
+    }
+  },
+  "hints": [
+    "Notice the two junctions at X and Y: one single resistor $R$ joins them directly, while the other three $R$ resistors form a second route on the right.",
+    "Recall that resistors in the same single loop add as $R_1+R_2+...$, and two branches between the same points combine with $1/R_T = 1/R_1+1/R_2$.",
+    "First add the three right-hand $R$ values to get that branch resistance, then combine it in parallel with the single $R$ and set the result equal to $120 \\, \\Omega$."
+  ],
+  "walkthrough": [
+    "Identify the two parallel paths between X and Y from the diagram. Path 1 is the single vertical resistor $R$. Path 2 goes through the top, right and bottom resistors in series.",
+    "Add the series path: $R_{series} = R + R + R = 3R$.",
+    "Combine the two paths in parallel using $1/R_{XY} = 1/R + 1/3R$.",
+    "Simplify: $1/R_{XY} = 3/3R + 1/3R = 4/3R$, so $R_{XY} = 3R/4$.",
+    "Set equal to the given total and solve: $3R/4 = 120 \\, \\Omega$, so $R = 120 \\times 4/3 = 160 \\, \\Omega$ with correct $\\Omega$ units. This is option C."
+  ],
+  "mapping": {
+    "primary_topic_id": "9702_t10",
+    "primary_module_id": "9702_t10_m02",
+    "outcome_ids": [
+      "9702_t10_m02_o05",
+      "9702_t10_m02_o06"
+    ]
+  },
+  "taxonomy_tags": {
+    "topic_ids": [
+      "9702_t10"
+    ],
+    "module_ids": [
+      "9702_t10_m02"
+    ]
+  }
+}

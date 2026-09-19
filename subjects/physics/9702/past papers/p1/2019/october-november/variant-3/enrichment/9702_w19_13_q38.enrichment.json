@@ -1,0 +1,60 @@
+{
+  "schema_version": "9702_p1_enrichment_v1",
+  "question_id": "9702_w19_13_q38",
+  "component": "P1",
+  "difficulty": 3,
+  "question_patterns": [
+    "circuit_analysis",
+    "multi_step_calculation"
+  ],
+  "topic_id": "9702_t10",
+  "module_id": "9702_t10_m02",
+  "skill_id": "9702_skill_resistor_networks",
+  "accepted_answer": "B",
+  "options_breakdown": {
+    "A": {
+      "status": "incorrect",
+      "explanation": "These values are half the correct voltages and would correspond to using $V_2$ as the voltage of the whole lower branch instead of one resistor."
+    },
+    "B": {
+      "status": "correct",
+      "explanation": "The lower branch p.d. is $2 \\times 1.0 = 2.0 \\text{ V}$, so $V_4 = 2.0 \\text{ V}$, and the series current is 3 times the lower-branch current, so $V_3 = 3.0 \\text{ V}$."
+    },
+    "C": {
+      "status": "incorrect",
+      "explanation": "These values overestimate the voltages and do not satisfy $V = IR$ with identical $R$ for the 1-resistor and 2-resistor parallel branches."
+    },
+    "D": {
+      "status": "incorrect",
+      "explanation": "These values would make $V_3 +$ parallel p.d. exceed $V_1 = 8.0 \\text{ V}$ when the left vertical resistor is included."
+    }
+  },
+  "hints": [
+    "Notice $V_2 = 1.0 \\text{ V}$ is across only the right-hand resistor of the lower branch, which has two identical resistors in series.",
+    "Remember the upper single-resistor branch is in parallel with that two-resistor lower branch, so both branches share the same p.d. and $V = IR$ controls the current split.",
+    "Compare the total current returning to the battery with the current in the $V_2$ resistor, then apply $V = IR$ to the single series resistor measured by $V_3$."
+  ],
+  "walkthrough": [
+    "Identify the series loop: the $8.0 \\text{ V}$ measured by $V_1$ drives current through the left vertical resistor, then the $V_3$ resistor, then the right parallel combination back to the battery.",
+    "Analyse the lower right branch: it is two identical resistors of resistance $R$ in series. Let its current be $I$. Then $V_2 = IR = 1.0 \\text{ V}$.",
+    "Find the p.d. of the whole right parallel combination. The lower branch p.d. is $I \\times 2R = 2IR = 2.0 \\text{ V}$. The upper branch is in parallel with it, so $V_4$ equals this value, $2.0 \\text{ V}$.",
+    "Find the total current. Upper branch current is $2.0/R = 2I$, lower branch current is $I$, so total current leaving the junction is $3I$. This $3I$ flows through the $V_3$ series resistor.",
+    "Calculate $V_3 = 3I \\times R = 3IR = 3 \\times 1.0 = 3.0 \\text{ V}$. Check: $3.0 + 2.0 = 5.0 \\text{ V}$ leaves $3.0 \\text{ V}$ for the remaining left resistor, totalling $8.0 \\text{ V}$. This is option B."
+  ],
+  "mapping": {
+    "primary_topic_id": "9702_t10",
+    "primary_module_id": "9702_t10_m02",
+    "outcome_ids": [
+      "9702_t10_m02_o03",
+      "9702_t10_m02_o04"
+    ]
+  },
+  "taxonomy_tags": {
+    "topic_ids": [
+      "9702_t10"
+    ],
+    "module_ids": [
+      "9702_t10_m02"
+    ]
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "schema_version": "9702_p1_enrichment_v1",
+  "question_id": "9702_w25_13_q02",
+  "component": "P1",
+  "difficulty": 2,
+  "question_patterns": [
+    "uncertainty_analysis"
+  ],
+  "topic_id": "9702_t01",
+  "module_id": "9702_t01_m02",
+  "skill_id": "9702_skill_uncertainty_propagation",
+  "accepted_answer": "D",
+  "options_breakdown": {
+    "A": {
+      "status": "incorrect",
+      "explanation": "The absolute uncertainty of $0.2$ is far too small and ignores the large $T$ contribution doubled by the $T^2$ term."
+    },
+    "B": {
+      "status": "incorrect",
+      "explanation": "The absolute uncertainty of $0.3$ is far too small and does not add the fractional uncertainties with the factor 2 for $T^2$."
+    },
+    "C": {
+      "status": "incorrect",
+      "explanation": "The value 46 is correctly rounded but $\\pm 2$ is about half the true uncertainty, from adding $\\Delta T/T$ only once instead of twice."
+    },
+    "D": {
+      "status": "correct",
+      "explanation": "The value is about $45.8$ and the fractional uncertainty is about $8.1$%, giving $\\pm 4$, correctly rounded to $46 \\pm 4$ $\\text{cm s}^{-2}$."
+    }
+  },
+  "hints": [
+    "Notice $X = 4\\pi^2L/T^2$ depends on $L$ to power 1 and on $T$ to power 2, with $L = 6.8 \\pm 0.1$ $\\text{cm}$ and $T = 2.42 \\pm 0.08$ $\\text{s}$.",
+    "Recall for multiplication and division you add fractional uncertainties, but a squared quantity $T^2$ contributes $2 \\times \\Delta T/T$ to the total fractional uncertainty.",
+    "Calculate $X$ first, then multiply it by the total fractional uncertainty, and finally round $X$ to the same place as its absolute uncertainty."
+  ],
+  "walkthrough": [
+    "Calculate the best value of $X$ using $L = 6.8$ $\\text{cm}$ and $T = 2.42$ $\\text{s}$: $X = 4\\pi^2 \\times 6.8 / 2.42^2 \\approx 268.5 / 5.856 \\approx 45.8$ $\\text{cm s}^{-2}$.",
+    "Find the fractional uncertainties: for $L$, $0.1/6.8 \\approx 0.0147$ or $1.5$%, and for $T$, $0.08/2.42 \\approx 0.0331$ or $3.3$%.",
+    "Because the equation has $T^2$ in the denominator, double the $T$ fractional uncertainty: $2 \\times 0.0331 \\approx 0.0661$ or $6.6$%.",
+    "Add for the $L \\times 1/T^2$ combination: $0.0147 + 0.0661 \\approx 0.0808$, so about $8.1$% uncertainty in $X$.",
+    "Convert to absolute uncertainty: $0.0808 \\times 45.8 \\approx 3.7$ $\\text{cm s}^{-2}$, which rounds to $\\pm 4$ $\\text{cm s}^{-2}$ to one significant figure.",
+    "Match precision of value to uncertainty: $45.8 \\pm 3.7$ becomes $46 \\pm 4$ $\\text{cm s}^{-2}$. This is option D."
+  ],
+  "mapping": {
+    "primary_topic_id": "9702_t01",
+    "primary_module_id": "9702_t01_m02",
+    "outcome_ids": [
+      "9702_t01_m02_o04",
+      "9702_t01_m02_o01"
+    ]
+  },
+  "taxonomy_tags": {
+    "topic_ids": [
+      "9702_t01"
+    ],
+    "module_ids": [
+      "9702_t01_m02"
+    ]
+  }
+}

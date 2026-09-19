@@ -1,0 +1,137 @@
+{
+  "elapsed_sec": 2.31,
+  "tokens": {
+    "prompt_tokens": 2775,
+    "completion_tokens": 2570,
+    "reasoning_tokens": 686,
+    "total_tokens": 5345
+  },
+  "cost_usd": 0.000791,
+  "valid_json": true,
+  "parsed_json": {
+    "question_num": 2,
+    "difficulty": 2,
+    "question_patterns": [
+      "equilibrium_condition",
+      "archimedes_principle",
+      "direct_calculation"
+    ],
+    "parts": [
+      {
+        "part": "(a)",
+        "difficulty": 2,
+        "question_patterns": [
+          "equilibrium_condition",
+          "archimedes_principle"
+        ],
+        "target_time_minutes": 3,
+        "formulas_used": [
+          "W = \\rho_{sphere} V g",
+          "U = \\rho_{water} V_{sub} g",
+          "W = U \\text{ for floating equilibrium}"
+        ],
+        "hints": [
+          "Hint 1: For floating in equilibrium the weight of the sphere equals the upthrust, which equals the weight of displaced sea water.",
+          "Hint 2: Let total volume be $V$, so submerged volume is $0.21V$. Set $\\rho_{sphere}Vg = \\rho_{water}(0.21V)g$ and cancel $V$ and $g$ to solve for $\\rho_{sphere}$."
+        ],
+        "teacher_walkthrough": [
+          "Archimedes principle: upthrust $U$ equals weight of displaced fluid. Floating equilibrium gives weight $W$ = upthrust $U$.",
+          "Weight of sphere: $$W = \\rho_{sphere} V g$$ where $V$ is total volume of sphere.",
+          "Weight of displaced sea water: $$U = \\rho_{water} V_{sub} g$$ where $V_{sub} = 0.21V$.",
+          "Equate: $$\\rho_{sphere} V g = \\rho_{water} (0.21V) g$$",
+          "Cancel $V$ and $g$ on both sides: $$\\rho_{sphere} = 0.21 \\times \\rho_{water}$$",
+          "Substitute $\\rho_{water} = 1050\\,\\mathrm{kg\\,m^{-3}}$: $$\\rho_{sphere} = 0.21 \\times 1050$$",
+          "$$0.21 \\times 1050 = \\frac{21}{100} \\times 1050 = \\frac{22050}{100} = 220.5$$",
+          "$$\\rho_{sphere} \\approx 2.2 \\times 10^{2}\\,\\mathrm{kg\\,m^{-3}}$$"
+        ],
+        "walkthrough": [
+          "Upthrust = weight of displaced water.",
+          "Set weight of sphere equal to upthrust: $\\rho V g = 1050 \\times 0.21V \\times g$ giving density about $220\\,\\mathrm{kg\\,m^{-3}}$."
+        ],
+        "common_pitfalls": [
+          "Using $V$ instead of $0.21V$ for displaced volume, giving density equal to sea water density.",
+          "Omitting that $g$ and $V$ cancel, and attempting to find $V$ from no data.",
+          "Leaving answer as $220.5$ without correct unit $\\mathrm{kg\\,m^{-3}}$ or confusing density with weight."
+        ]
+      },
+      {
+        "part": "(b)(i)",
+        "difficulty": 2,
+        "question_patterns": [
+          "resultant_force",
+          "newton_second_law"
+        ],
+        "target_time_minutes": 4,
+        "formulas_used": [
+          "U = \\rho_{water} V g",
+          "W = \\rho_{sphere} V g",
+          "F_{net} = U - W = ma"
+        ],
+        "hints": [
+          "Hint 1: When fully submerged, displaced volume is the full volume $V$. Identify the two vertical forces: upthrust upwards and weight downwards.",
+          "Hint 2: Write upthrust as $U = 1050Vg$ and weight as $W = \\rho_{sphere}Vg$ using density from (a), with mass $m = \\rho_{sphere}V$.",
+          "Hint 3: Apply $F_{net} = U - W = ma$ and cancel $V$ to solve for $a$. Check direction from the sign of $U - W$."
+        ],
+        "teacher_walkthrough": [
+          "Newton second law: resultant force $F_{net} = ma$ upwards. Resultant is upthrust minus weight because upthrust exceeds weight when fully submerged.",
+          "Upthrust for full submersion: $$U = \\rho_{water} V g = 1050 V g$$",
+          "Weight of sphere: $$W = \\rho_{sphere} V g$$ with $\\rho_{sphere} = 220.5\\,\\mathrm{kg\\,m^{-3}}$ from (a).",
+          "Mass of sphere: $$m = \\rho_{sphere} V = 220.5 V$$",
+          "Newton second law upwards: $$U - W = ma$$ $$(1050Vg - 220.5Vg) = (220.5V)a$$",
+          "Cancel $V$: $$(1050 - 220.5)g = 220.5a$$",
+          "$$829.5 \\times 9.81 = 220.5a$$",
+          "$$829.5 \\times 9.81 = 8137.395$$ so $$8137.395 = 220.5a$$",
+          "$$a = \\frac{8137.395}{220.5} = 36.9$$",
+          "$$a \\approx 37\\,\\mathrm{m\\,s^{-2}} \\text{ upwards}$$"
+        ],
+        "walkthrough": [
+          "Upthrust = $1050 \\times V \\times g$ and weight = $220 \\times V \\times g$.",
+          "Resultant $= (1050-220)Vg = m a$ with $m = 220V$.",
+          "Solve to give $a$ about $37\\,\\mathrm{m\\,s^{-2}}$ upwards."
+        ],
+        "common_pitfalls": [
+          "Using $0.21V$ for displaced volume again instead of full $V$ when fully submerged.",
+          "Setting $ma = U$ only and forgetting to subtract weight, giving acceleration close to $g$ times density ratio.",
+          "Giving magnitude only without stating direction upwards, which is required for acceleration as a vector."
+        ]
+      },
+      {
+        "part": "(b)(ii)",
+        "difficulty": 2,
+        "question_patterns": [
+          "qualitative_explanation",
+          "drag_and_terminal_velocity"
+        ],
+        "target_time_minutes": 4,
+        "formulas_used": [
+          "F_{net} = U - W - F_{drag}",
+          "a = \\frac{F_{net}}{m}"
+        ],
+        "hints": [
+          "Hint 1: While fully submerged, upthrust and weight are constant because displaced volume and densities do not change.",
+          "Hint 2: Recall that a body moving through a fluid experiences a resistive drag or viscous force that increases with speed.",
+          "Hint 3: Link drag to resultant force $F_{net} = U - W - F_{drag}$ and then to $a = F_{net}/m$ to decide the trend in acceleration."
+        ],
+        "teacher_walkthrough": [
+          "Newton second law with drag: while fully submerged, upthrust $U$ and weight $W$ are constant, but motion produces a downward viscous drag $F_{drag}$.",
+          "Resultant upwards: $$F_{net} = U - W - F_{drag}$$",
+          "Drag magnitude increases with velocity $v$, so as $v$ increases $F_{drag}$ increases.",
+          "Since $U - W$ is fixed, $F_{net}$ decreases as $F_{drag}$ grows.",
+          "Acceleration: $$a = \\frac{F_{net}}{m}$$ so decreasing $F_{net}$ with constant $m$ gives decreasing $a$.",
+          "Therefore acceleration decreases as velocity increases, tending toward zero if terminal velocity is reached."
+        ],
+        "walkthrough": [
+          "Viscous or drag force increases with speed.",
+          "Upthrust and weight stay constant so resultant force decreases.",
+          "Hence acceleration decreases as velocity increases."
+        ],
+        "common_pitfalls": [
+          "Stating acceleration increases with velocity, confusing acceleration with velocity itself.",
+          "Claiming upthrust or weight changes with speed, when both remain constant while fully submerged.",
+          "Omitting the link between resultant force and acceleration via $F = ma$ in the explanation."
+        ]
+      }
+    ]
+  },
+  "raw_content": "{\n  \"question_num\": 2,\n  \"difficulty\": 2,\n  \"question_patterns\": [\n    \"equilibrium_condition\",\n    \"archimedes_principle\",\n    \"direct_calculation\"\n  ],\n  \"parts\": [\n    {\n      \"part\": \"(a)\",\n      \"difficulty\": 2,\n      \"question_patterns\": [\n        \"equilibrium_condition\",\n        \"archimedes_principle\"\n      ],\n      \"target_time_minutes\": 3,\n      \"formulas_used\": [\n        \"W = \\\\rho_{sphere} V g\",\n        \"U = \\\\rho_{water} V_{sub} g\",\n        \"W = U \\\\text{ for floating equilibrium}\"\n      ],\n      \"hints\": [\n        \"Hint 1: For floating in equilibrium the weight of the sphere equals the upthrust, which equals the weight of displaced sea water.\",\n        \"Hint 2: Let total volume be $V$, so submerged volume is $0.21V$. Set $\\\\rho_{sphere}Vg = \\\\rho_{water}(0.21V)g$ and cancel $V$ and $g$ to solve for $\\\\rho_{sphere}$.\"\n      ],\n      \"teacher_walkthrough\": [\n        \"Archimedes principle: upthrust $U$ equals weight of displaced fluid. Floating equilibrium gives weight $W$ = upthrust $U$.\",\n        \"Weight of sphere: $$W = \\\\rho_{sphere} V g$$ where $V$ is total volume of sphere.\",\n        \"Weight of displaced sea water: $$U = \\\\rho_{water} V_{sub} g$$ where $V_{sub} = 0.21V$.\",\n        \"Equate: $$\\\\rho_{sphere} V g = \\\\rho_{water} (0.21V) g$$\",\n        \"Cancel $V$ and $g$ on both sides: $$\\\\rho_{sphere} = 0.21 \\\\times \\\\rho_{water}$$\",\n        \"Substitute $\\\\rho_{water} = 1050\\\\,\\\\mathrm{kg\\\\,m^{-3}}$: $$\\\\rho_{sphere} = 0.21 \\\\times 1050$$\",\n        \"$$0.21 \\\\times 1050 = \\\\frac{21}{100} \\\\times 1050 = \\\\frac{22050}{100} = 220.5$$\",\n        \"$$\\\\rho_{sphere} \\\\approx 2.2 \\\\times 10^{2}\\\\,\\\\mathrm{kg\\\\,m^{-3}}$$\"\n      ],\n      \"walkthrough\": [\n        \"Upthrust = weight of displaced water.\",\n        \"Set weight of sphere equal to upthrust: $\\\\rho V g = 1050 \\\\times 0.21V \\\\times g$ giving density about $220\\\\,\\\\mathrm{kg\\\\,m^{-3}}$.\"\n      ],\n      \"common_pitfalls\": [\n        \"Using $V$ instead of $0.21V$ for displaced volume, giving density equal to sea water density.\",\n        \"Omitting that $g$ and $V$ cancel, and attempting to find $V$ from no data.\",\n        \"Leaving answer as $220.5$ without correct unit $\\\\mathrm{kg\\\\,m^{-3}}$ or confusing density with weight.\"\n      ]\n    },\n    {\n      \"part\": \"(b)(i)\",\n      \"difficulty\": 2,\n      \"question_patterns\": [\n        \"resultant_force\",\n        \"newton_second_law\"\n      ],\n      \"target_time_minutes\": 4,\n      \"formulas_used\": [\n        \"U = \\\\rho_{water} V g\",\n        \"W = \\\\rho_{sphere} V g\",\n        \"F_{net} = U - W = ma\"\n      ],\n      \"hints\": [\n        \"Hint 1: When fully submerged, displaced volume is the full volume $V$. Identify the two vertical forces: upthrust upwards and weight downwards.\",\n        \"Hint 2: Write upthrust as $U = 1050Vg$ and weight as $W = \\\\rho_{sphere}Vg$ using density from (a), with mass $m = \\\\rho_{sphere}V$.\",\n        \"Hint 3: Apply $F_{net} = U - W = ma$ and cancel $V$ to solve for $a$. Check direction from the sign of $U - W$.\"\n      ],\n      \"teacher_walkthrough\": [\n        \"Newton second law: resultant force $F_{net} = ma$ upwards. Resultant is upthrust minus weight because upthrust exceeds weight when fully submerged.\",\n        \"Upthrust for full submersion: $$U = \\\\rho_{water} V g = 1050 V g$$\",\n        \"Weight of sphere: $$W = \\\\rho_{sphere} V g$$ with $\\\\rho_{sphere} = 220.5\\\\,\\\\mathrm{kg\\\\,m^{-3}}$ from (a).\",\n        \"Mass of sphere: $$m = \\\\rho_{sphere} V = 220.5 V$$\",\n        \"Newton second law upwards: $$U - W = ma$$ $$(1050Vg - 220.5Vg) = (220.5V)a$$\",\n        \"Cancel $V$: $$(1050 - 220.5)g = 220.5a$$\",\n        \"$$829.5 \\\\times 9.81 = 220.5a$$\",\n        \"$$829.5 \\\\times 9.81 = 8137.395$$ so $$8137.395 = 220.5a$$\",\n        \"$$a = \\\\frac{8137.395}{220.5} = 36.9$$\",\n        \"$$a \\\\approx 37\\\\,\\\\mathrm{m\\\\,s^{-2}} \\\\text{ upwards}$$\"\n      ],\n      \"walkthrough\": [\n        \"Upthrust = $1050 \\\\times V \\\\times g$ and weight = $220 \\\\times V \\\\times g$.\",\n        \"Resultant $= (1050-220)Vg = m a$ with $m = 220V$.\",\n        \"Solve to give $a$ about $37\\\\,\\\\mathrm{m\\\\,s^{-2}}$ upwards.\"\n      ],\n      \"common_pitfalls\": [\n        \"Using $0.21V$ for displaced volume again instead of full $V$ when fully submerged.\",\n        \"Setting $ma = U$ only and forgetting to subtract weight, giving acceleration close to $g$ times density ratio.\",\n        \"Giving magnitude only without stating direction upwards, which is required for acceleration as a vector.\"\n      ]\n    },\n    {\n      \"part\": \"(b)(ii)\",\n      \"difficulty\": 2,\n      \"question_patterns\": [\n        \"qualitative_explanation\",\n        \"drag_and_terminal_velocity\"\n      ],\n      \"target_time_minutes\": 4,\n      \"formulas_used\": [\n        \"F_{net} = U - W - F_{drag}\",\n        \"a = \\\\frac{F_{net}}{m}\"\n      ],\n      \"hints\": [\n        \"Hint 1: While fully submerged, upthrust and weight are constant because displaced volume and densities do not change.\",\n        \"Hint 2: Recall that a body moving through a fluid experiences a resistive drag or viscous force that increases with speed.\",\n        \"Hint 3: Link drag to resultant force $F_{net} = U - W - F_{drag}$ and then to $a = F_{net}/m$ to decide the trend in acceleration.\"\n      ],\n      \"teacher_walkthrough\": [\n        \"Newton second law with drag: while fully submerged, upthrust $U$ and weight $W$ are constant, but motion produces a downward viscous drag $F_{drag}$.\",\n        \"Resultant upwards: $$F_{net} = U - W - F_{drag}$$\",\n        \"Drag magnitude increases with velocity $v$, so as $v$ increases $F_{drag}$ increases.\",\n        \"Since $U - W$ is fixed, $F_{net}$ decreases as $F_{drag}$ grows.\",\n        \"Acceleration: $$a = \\\\frac{F_{net}}{m}$$ so decreasing $F_{net}$ with constant $m$ gives decreasing $a$.\",\n        \"Therefore acceleration decreases as velocity increases, tending toward zero if terminal velocity is reached.\"\n      ],\n      \"walkthrough\": [\n        \"Viscous or drag force increases with speed.\",\n        \"Upthrust and weight stay constant so resultant force decreases.\",\n        \"Hence acceleration decreases as velocity increases.\"\n      ],\n      \"common_pitfalls\": [\n        \"Stating acceleration increases with velocity, confusing acceleration with velocity itself.\",\n        \"Claiming upthrust or weight changes with speed, when both remain constant while fully submerged.\",\n        \"Omitting the link between resultant force and acceleration via $F = ma$ in the explanation.\"\n      ]\n    }\n  ]\n}"
+}

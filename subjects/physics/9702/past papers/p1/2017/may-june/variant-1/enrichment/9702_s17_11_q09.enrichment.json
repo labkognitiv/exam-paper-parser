@@ -1,0 +1,61 @@
+{
+  "schema_version": "9702_p1_enrichment_v1",
+  "question_id": "9702_s17_11_q09",
+  "component": "P1",
+  "difficulty": 2,
+  "question_patterns": [
+    "uncertainty_analysis",
+    "multi_step_calculation"
+  ],
+  "topic_id": "9702_t01",
+  "module_id": "9702_t01_m02",
+  "skill_id": "9702_skill_uncertainty_propagation",
+  "accepted_answer": "D",
+  "options_breakdown": {
+    "A": {
+      "status": "incorrect",
+      "explanation": "Value is a factor of 10 too small because thickness $0.20 \\text{ mm}$ was not converted to $0.020 \\text{ cm}$ before using $\\text{g cm}^{-3}$."
+    },
+    "B": {
+      "status": "incorrect",
+      "explanation": "Value is a factor of 10 too small from the $\\text{mm}$ to $\\text{cm}$ conversion, and the uncertainty does not match the correct density."
+    },
+    "C": {
+      "status": "incorrect",
+      "explanation": "Density $2.6 \\text{ g cm}^{-3}$ is correct but $\\pm 0.1 \\text{ g cm}^{-3}$ is too small because the $5\\%$ thickness uncertainty alone gives about $\\pm 0.13 \\text{ g cm}^{-3}$."
+    },
+    "D": {
+      "status": "correct",
+      "explanation": "Density is about $2.6 \\text{ g cm}^{-3}$ and total fractional uncertainty of about $6.3\\%$ gives absolute uncertainty of about $0.16 \\text{ g cm}^{-3}$, rounded to $\\pm 0.2 \\text{ g cm}^{-3}$."
+    }
+  },
+  "hints": [
+    "Notice thickness $t = 0.20 \\pm 0.01 \\text{ mm}$ is in $\\text{mm}$ while length and width are in $\\text{cm}$, so convert $t$ to $\\text{cm}$ before finding volume $wlt$.",
+    "For $\\rho = m/(wlt)$ with multiply and divide, add the four fractional uncertainties $\\Delta m/m + \\Delta l/l + \\Delta w/w + \\Delta t/t$.",
+    "Compare the four percentages: thickness is $0.01/0.20 = 5\\%$, much larger than mass, length and width, then multiply the total percentage by the $2.6 \\text{ g cm}^{-3}$ density to get the absolute uncertainty."
+  ],
+  "walkthrough": [
+    "Convert thickness to consistent units: $t = 0.20 \\text{ mm} = 0.020 \\text{ cm}$. Then volume $V = wlt = 10.0 \\times 100.0 \\times 0.020 = 20 \\text{ cm}^{3}$.",
+    "Calculate density: $\\rho = m/V = 51.6/20 = 2.58 \\text{ g cm}^{-3}$, which rounds to $2.6 \\text{ g cm}^{-3}$ for the option format.",
+    "Calculate each fractional uncertainty: $\\Delta m/m = 0.1/51.6 \\approx 0.0019$, $\\Delta l/l = 0.1/100.0 = 0.001$, $\\Delta w/w = 0.1/10.0 = 0.01$, $\\Delta t/t = 0.01/0.20 = 0.05$.",
+    "Add them for the product $wlt$ in the denominator: $\\Delta \\rho/\\rho \\approx 0.0019 + 0.001 + 0.01 + 0.05 \\approx 0.063$ or $6.3\\%$.",
+    "Convert to absolute uncertainty: $\\Delta \\rho \\approx 0.063 \\times 2.58 \\approx 0.16 \\text{ g cm}^{-3}$, rounded to one significant figure as $\\pm 0.2 \\text{ g cm}^{-3}$.",
+    "So the result is $2.6 \\pm 0.2 \\text{ g cm}^{-3}$. This is option D."
+  ],
+  "mapping": {
+    "primary_topic_id": "9702_t01",
+    "primary_module_id": "9702_t01_m02",
+    "outcome_ids": [
+      "9702_t01_m02_o04",
+      "9702_t01_m02_o01"
+    ]
+  },
+  "taxonomy_tags": {
+    "topic_ids": [
+      "9702_t01"
+    ],
+    "module_ids": [
+      "9702_t01_m02"
+    ]
+  }
+}

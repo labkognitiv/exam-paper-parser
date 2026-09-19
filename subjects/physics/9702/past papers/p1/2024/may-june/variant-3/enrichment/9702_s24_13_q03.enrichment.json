@@ -1,0 +1,59 @@
+{
+  "schema_version": "9702_p1_enrichment_v1",
+  "question_id": "9702_s24_13_q03",
+  "component": "P1",
+  "difficulty": 2,
+  "question_patterns": [
+    "uncertainty_analysis"
+  ],
+  "topic_id": "9702_t01",
+  "module_id": "9702_t01_m02",
+  "skill_id": "9702_skill_uncertainty_propagation",
+  "accepted_answer": "B",
+  "options_breakdown": {
+    "A": {
+      "status": "incorrect",
+      "explanation": "For $L = 2.043 \\pm 0.002 \\text{ m}$ the fractional uncertainty is only about $0.1\\%$, so it contributes very little to $E$."
+    },
+    "B": {
+      "status": "correct",
+      "explanation": "For $d = 0.54 \\pm 0.02 \\text{ mm}$ the fractional uncertainty is about $3.7\\%$ and it is doubled to about $7.4\\%$ because $E$ depends on $1/d^2$."
+    },
+    "C": {
+      "status": "incorrect",
+      "explanation": "For $F = 19.62 \\pm 0.01 \\text{ N}$ the fractional uncertainty is only about $0.05\\%$, the smallest contribution."
+    },
+    "D": {
+      "status": "incorrect",
+      "explanation": "For $x = 5.2 \\pm 0.2 \\text{ mm}$ the fractional uncertainty is about $3.8\\%$, which is large but still less than the doubled effect from $d$."
+    }
+  },
+  "hints": [
+    "Look at $E = 4FL / (\\pi d^2 x)$ and notice that $L$, $F$ and $x$ appear to power 1 while diameter $d$ appears as $d^2$ in the denominator.",
+    "Calculate the fractional uncertainty $\\Delta y / y$ for each measurement using the $\\pm$ values for $2.043 \\text{ m}$, $0.54 \\text{ mm}$, $19.62 \\text{ N}$ and $5.2 \\text{ mm}$.",
+    "Remember that a squared quantity doubles its percentage uncertainty, so compare $2 \\times \\Delta d / d$ with $\\Delta x / x$ to find the largest contribution."
+  ],
+  "walkthrough": [
+    "Write the governing relation $E = 4FL/(\\pi d^2 x)$. For multiplication and division the fractional uncertainty in $E$ is the sum of the fractional uncertainties, with powers multiplying the contribution.",
+    "Calculate each fractional uncertainty: for $L$, $0.002/2.043 \\approx 0.0010$ or $0.10\\%$; for $F$, $0.01/19.62 \\approx 0.0005$ or $0.05\\%$.",
+    "Calculate for $x$: $0.2/5.2 \\approx 0.0385$ or $3.8\\%$. Calculate for $d$: $0.02/0.54 \\approx 0.0370$ or $3.7\\%$.",
+    "Because $E$ is proportional to $1/d^2$, double the $d$ contribution: $2 \\times 3.7\\% \\approx 7.4\\%$. This exceeds the $3.8\\%$ from $x$ and the $0.1\\%$ and $0.05\\%$ from $L$ and $F$.",
+    "Therefore the diameter measurement dominates the uncertainty in $E$. This is option B."
+  ],
+  "mapping": {
+    "primary_topic_id": "9702_t01",
+    "primary_module_id": "9702_t01_m02",
+    "outcome_ids": [
+      "9702_t01_m02_o04",
+      "9702_t01_m02_o01"
+    ]
+  },
+  "taxonomy_tags": {
+    "topic_ids": [
+      "9702_t01"
+    ],
+    "module_ids": [
+      "9702_t01_m02"
+    ]
+  }
+}

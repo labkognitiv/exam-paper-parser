@@ -1,0 +1,97 @@
+{
+  "elapsed_sec": 1.11,
+  "tokens": {
+    "prompt_tokens": 4701,
+    "completion_tokens": 2129,
+    "reasoning_tokens": 599,
+    "total_tokens": 6830
+  },
+  "cost_usd": 0.000896,
+  "valid_json": true,
+  "parsed_json": {
+    "question_num": 1,
+    "difficulty": 2,
+    "question_patterns": [
+      "property_identification",
+      "uncertainty_propagation"
+    ],
+    "parts": [
+      {
+        "part": "(a)",
+        "difficulty": 1,
+        "question_patterns": [
+          "property_identification"
+        ],
+        "target_time_minutes": 1,
+        "formulas_used": [],
+        "hints": [
+          "Hint 1: Recall the seven SI base quantities and units: kilogram, metre, second, ampere, kelvin, mole and candela, and check each listed unit against this set."
+        ],
+        "teacher_walkthrough": [
+          "Step 1: State the governing principle: SI base units are the seven fundamental units from which all other derived units are formed.",
+          "Step 2: Identify the status of each listed unit: $\\text{ampere}$ is the base unit for electric current, $\\text{kilogram}$ is the base unit for mass.",
+          "Step 3: Identify non-base units: $\\text{degree Celsius}$ is not a base unit since temperature base unit is kelvin, $\\text{newton}$ is a derived unit since $1 \\text{ N} = 1 \\text{ kg m s}^{-2}$.",
+          "Step 4: State final answer with required selection: underline ampere and kilogram only."
+        ],
+        "common_pitfalls": [
+          "Trap 1: Underlining newton because it looks fundamental, but it is derived from kg, m and s.",
+          "Trap 2: Underlining degree Celsius for temperature, but the SI base unit for temperature is kelvin."
+        ]
+      },
+      {
+        "part": "(b)(i)",
+        "difficulty": 2,
+        "question_patterns": [
+          "uncertainty_propagation"
+        ],
+        "target_time_minutes": 3,
+        "formulas_used": [
+          "\\frac{\\Delta E}{E} \\times 100\\% = \\frac{\\Delta k}{k} \\times 100\\% + \\frac{\\Delta M}{M} \\times 100\\% + 2 \\times \\left(\\frac{\\Delta T}{T} \\times 100\\%\\right)"
+        ],
+        "hints": [
+          "Hint 1: For a result found by multiplication and division, add the percentage uncertainties of each measured quantity.",
+          "Hint 2: Set up the sum for $$E = \\frac{kM}{T^2}$$ remembering that a power $n$ multiplies the percentage uncertainty by $n$, so the $T^2$ term contributes twice."
+        ],
+        "teacher_walkthrough": [
+          "Step 1: State the governing rule for propagation: when quantities are multiplied or divided, total percentage uncertainty is the sum of individual percentage uncertainties, with powers multiplying the uncertainty.",
+          "Step 2: Identify known given quantities: percentage uncertainty in $k = \\pm 2.1\\%$, in $M = \\pm 0.6\\%$, in $T = \\pm 1.5\\%$, and $T$ appears as $T^2$ in denominator.",
+          "Step 3: Substitute values into the equation: $$\\frac{\\Delta E}{E} \\times 100\\% = 2.1\\% + 0.6\\% + 2 \\times 1.5\\%$$",
+          "Step 4: Explicitly show intermediate arithmetic calculation: $2 \\times 1.5\\% = 3.0\\%$, then $2.1\\% + 0.6\\% = 2.7\\%$, then $2.7\\% + 3.0\\% = 5.7\\%$",
+          "Step 5: State final answer with appropriate significant figures and units: percentage uncertainty $= 5.7\\%$."
+        ],
+        "common_pitfalls": [
+          "Trap 1: Adding $1.5\\%$ only once and obtaining $4.2\\%$, forgetting that $E \\propto 1/T^2$ so the $T$ uncertainty must be doubled.",
+          "Trap 2: Combining percentage uncertainties in quadrature (square root of sum of squares), which is not required at AS level where simple addition is used."
+        ]
+      },
+      {
+        "part": "(b)(ii)",
+        "difficulty": 2,
+        "question_patterns": [
+          "absolute_uncertainty",
+          "significant_figures"
+        ],
+        "target_time_minutes": 3,
+        "formulas_used": [
+          "\\Delta E = \\frac{\\text{percentage uncertainty}}{100} \\times E"
+        ],
+        "hints": [
+          "Hint 1: Convert the percentage uncertainty from (b)(i) to an absolute uncertainty using $\\Delta E = (\\text{percentage}/100) \\times 8.245 \\times 10^9 \\text{ Pa}$.",
+          "Hint 2: Round the absolute uncertainty to a suitable number of significant figures (normally 2 s.f. if it starts with 1 or 2, otherwise 1 s.f.) and then round the value of $E$ to the same decimal place."
+        ],
+        "teacher_walkthrough": [
+          "Step 1: State the governing relation: absolute uncertainty $= $ fractional uncertainty $\\times$ measured value, where fractional uncertainty $= $ percentage uncertainty $/100$.",
+          "Step 2: Identify known given quantities: $E = 8.245 \\times 10^9 \\text{ Pa}$ and fractional uncertainty $= 5.7/100 = 0.057$.",
+          "Step 3: Substitute values into the equation: $$\\Delta E = 0.057 \\times 8.245 \\times 10^9 \\text{ Pa}$$",
+          "Step 4: Explicitly show intermediate arithmetic calculation: $0.057 \\times 8.245 = 0.469965$, so $\\Delta E = 0.469965 \\times 10^9 \\text{ Pa} \\approx 0.47 \\times 10^9 \\text{ Pa}$.",
+          "Step 5: State final answer with appropriate significant figures and units: round $E = 8.245 \\times 10^9$ to match $0.47 \\times 10^9$, giving $E = (8.25 \\pm 0.47) \\times 10^9 \\text{ Pa}$ to 3 s.f."
+        ],
+        "common_pitfalls": [
+          "Trap 1: Quoting $E$ to 4 s.f. as $8.245 \\times 10^9$ Pa while the uncertainty is about $6\\%$, so the last digits are meaningless.",
+          "Trap 2: Giving absolute uncertainty with too many figures, e.g. $0.469965 \\times 10^9$ Pa, instead of rounding to 2 s.f. and matching the value precision."
+        ]
+      }
+    ]
+  },
+  "raw_content": "{\n  \"question_num\": 1,\n  \"difficulty\": 2,\n  \"question_patterns\": [\n    \"property_identification\",\n    \"uncertainty_propagation\"\n  ],\n  \"parts\": [\n    {\n      \"part\": \"(a)\",\n      \"difficulty\": 1,\n      \"question_patterns\": [\n        \"property_identification\"\n      ],\n      \"target_time_minutes\": 1,\n      \"formulas_used\": [],\n      \"hints\": [\n        \"Hint 1: Recall the seven SI base quantities and units: kilogram, metre, second, ampere, kelvin, mole and candela, and check each listed unit against this set.\"\n      ],\n      \"teacher_walkthrough\": [\n        \"Step 1: State the governing principle: SI base units are the seven fundamental units from which all other derived units are formed.\",\n        \"Step 2: Identify the status of each listed unit: $\\\\text{ampere}$ is the base unit for electric current, $\\\\text{kilogram}$ is the base unit for mass.\",\n        \"Step 3: Identify non-base units: $\\\\text{degree Celsius}$ is not a base unit since temperature base unit is kelvin, $\\\\text{newton}$ is a derived unit since $1 \\\\text{ N} = 1 \\\\text{ kg m s}^{-2}$.\",\n        \"Step 4: State final answer with required selection: underline ampere and kilogram only.\"\n      ],\n      \"common_pitfalls\": [\n        \"Trap 1: Underlining newton because it looks fundamental, but it is derived from kg, m and s.\",\n        \"Trap 2: Underlining degree Celsius for temperature, but the SI base unit for temperature is kelvin.\"\n      ]\n    },\n    {\n      \"part\": \"(b)(i)\",\n      \"difficulty\": 2,\n      \"question_patterns\": [\n        \"uncertainty_propagation\"\n      ],\n      \"target_time_minutes\": 3,\n      \"formulas_used\": [\n        \"\\\\frac{\\\\Delta E}{E} \\\\times 100\\\\% = \\\\frac{\\\\Delta k}{k} \\\\times 100\\\\% + \\\\frac{\\\\Delta M}{M} \\\\times 100\\\\% + 2 \\\\times \\\\left(\\\\frac{\\\\Delta T}{T} \\\\times 100\\\\%\\\\right)\"\n      ],\n      \"hints\": [\n        \"Hint 1: For a result found by multiplication and division, add the percentage uncertainties of each measured quantity.\",\n        \"Hint 2: Set up the sum for $$E = \\\\frac{kM}{T^2}$$ remembering that a power $n$ multiplies the percentage uncertainty by $n$, so the $T^2$ term contributes twice.\"\n      ],\n      \"teacher_walkthrough\": [\n        \"Step 1: State the governing rule for propagation: when quantities are multiplied or divided, total percentage uncertainty is the sum of individual percentage uncertainties, with powers multiplying the uncertainty.\",\n        \"Step 2: Identify known given quantities: percentage uncertainty in $k = \\\\pm 2.1\\\\%$, in $M = \\\\pm 0.6\\\\%$, in $T = \\\\pm 1.5\\\\%$, and $T$ appears as $T^2$ in denominator.\",\n        \"Step 3: Substitute values into the equation: $$\\\\frac{\\\\Delta E}{E} \\\\times 100\\\\% = 2.1\\\\% + 0.6\\\\% + 2 \\\\times 1.5\\\\%$$\",\n        \"Step 4: Explicitly show intermediate arithmetic calculation: $2 \\\\times 1.5\\\\% = 3.0\\\\%$, then $2.1\\\\% + 0.6\\\\% = 2.7\\\\%$, then $2.7\\\\% + 3.0\\\\% = 5.7\\\\%$\",\n        \"Step 5: State final answer with appropriate significant figures and units: percentage uncertainty $= 5.7\\\\%$.\"\n      ],\n      \"common_pitfalls\": [\n        \"Trap 1: Adding $1.5\\\\%$ only once and obtaining $4.2\\\\%$, forgetting that $E \\\\propto 1/T^2$ so the $T$ uncertainty must be doubled.\",\n        \"Trap 2: Combining percentage uncertainties in quadrature (square root of sum of squares), which is not required at AS level where simple addition is used.\"\n      ]\n    },\n    {\n      \"part\": \"(b)(ii)\",\n      \"difficulty\": 2,\n      \"question_patterns\": [\n        \"absolute_uncertainty\",\n        \"significant_figures\"\n      ],\n      \"target_time_minutes\": 3,\n      \"formulas_used\": [\n        \"\\\\Delta E = \\\\frac{\\\\text{percentage uncertainty}}{100} \\\\times E\"\n      ],\n      \"hints\": [\n        \"Hint 1: Convert the percentage uncertainty from (b)(i) to an absolute uncertainty using $\\\\Delta E = (\\\\text{percentage}/100) \\\\times 8.245 \\\\times 10^9 \\\\text{ Pa}$.\",\n        \"Hint 2: Round the absolute uncertainty to a suitable number of significant figures (normally 2 s.f. if it starts with 1 or 2, otherwise 1 s.f.) and then round the value of $E$ to the same decimal place.\"\n      ],\n      \"teacher_walkthrough\": [\n        \"Step 1: State the governing relation: absolute uncertainty $= $ fractional uncertainty $\\\\times$ measured value, where fractional uncertainty $= $ percentage uncertainty $/100$.\",\n        \"Step 2: Identify known given quantities: $E = 8.245 \\\\times 10^9 \\\\text{ Pa}$ and fractional uncertainty $= 5.7/100 = 0.057$.\",\n        \"Step 3: Substitute values into the equation: $$\\\\Delta E = 0.057 \\\\times 8.245 \\\\times 10^9 \\\\text{ Pa}$$\",\n        \"Step 4: Explicitly show intermediate arithmetic calculation: $0.057 \\\\times 8.245 = 0.469965$, so $\\\\Delta E = 0.469965 \\\\times 10^9 \\\\text{ Pa} \\\\approx 0.47 \\\\times 10^9 \\\\text{ Pa}$.\",\n        \"Step 5: State final answer with appropriate significant figures and units: round $E = 8.245 \\\\times 10^9$ to match $0.47 \\\\times 10^9$, giving $E = (8.25 \\\\pm 0.47) \\\\times 10^9 \\\\text{ Pa}$ to 3 s.f.\"\n      ],\n      \"common_pitfalls\": [\n        \"Trap 1: Quoting $E$ to 4 s.f. as $8.245 \\\\times 10^9$ Pa while the uncertainty is about $6\\\\%$, so the last digits are meaningless.\",\n        \"Trap 2: Giving absolute uncertainty with too many figures, e.g. $0.469965 \\\\times 10^9$ Pa, instead of rounding to 2 s.f. and matching the value precision.\"\n      ]\n    }\n  ]\n}"
+}

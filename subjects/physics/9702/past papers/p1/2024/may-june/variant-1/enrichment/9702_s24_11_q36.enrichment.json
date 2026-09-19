@@ -1,0 +1,59 @@
+{
+  "schema_version": "9702_p1_enrichment_v1",
+  "question_id": "9702_s24_11_q36",
+  "component": "P1",
+  "difficulty": 1,
+  "question_patterns": [
+    "circuit_analysis"
+  ],
+  "topic_id": "9702_t10",
+  "module_id": "9702_t10_m02",
+  "skill_id": "9702_skill_resistor_networks",
+  "accepted_answer": "D",
+  "options_breakdown": {
+    "A": {
+      "status": "incorrect",
+      "explanation": "This adds all three as $R_1 + R_2 + R_3$, which would only be correct if all three were in series with the same current."
+    },
+    "B": {
+      "status": "incorrect",
+      "explanation": "The right-hand side $1/(R_1+R_2) + 1/R_3$ has unit $\\Omega^{-1}$, so it cannot equal $R_T$ which has unit $\\Omega$."
+    },
+    "C": {
+      "status": "incorrect",
+      "explanation": "This treats $R_1 + R_2 + R_3$ as a single series branch in parallel, but $R_3$ is a separate parallel branch from $R_1$ and $R_2$."
+    },
+    "D": {
+      "status": "correct",
+      "explanation": "The series pair gives $R_1 + R_2$ in parallel with $R_3$, so $1/R_T = 1/(R_1+R_2) + 1/R_3$."
+    }
+  },
+  "hints": [
+    "Notice in the diagram that $R_1$ and $R_2$ share the same middle wire with no junction, while $R_3$ forms a separate lower branch between the same two dots.",
+    "Recall that resistors on the same single path add directly, while resistors on separate branches between the same two nodes add by reciprocals.",
+    "First combine $R_1$ and $R_2$ into one series value, then combine that value with $R_3$ using the parallel rule for $R_T$."
+  ],
+  "walkthrough": [
+    "Identify the connections from the dots in the diagram: $R_1$ and $R_2$ are end-to-end on the upper branch, so the same current must pass through both.",
+    "For two resistors in series, the combined resistance is the sum, so the upper branch has resistance $R_{12} = R_1 + R_2$.",
+    "The upper branch $R_{12}$ and the lower resistor $R_3$ both connect between the same left and right nodes, so they are in parallel and share the same potential difference.",
+    "For two resistors in parallel, reciprocals add: $1/R_T = 1/R_{12} + 1/R_3$.",
+    "Substitute $R_{12} = R_1 + R_2$ to get $1/R_T = 1/(R_1+R_2) + 1/R_3$. This is option D."
+  ],
+  "mapping": {
+    "primary_topic_id": "9702_t10",
+    "primary_module_id": "9702_t10_m02",
+    "outcome_ids": [
+      "9702_t10_m02_o05",
+      "9702_t10_m02_o06"
+    ]
+  },
+  "taxonomy_tags": {
+    "topic_ids": [
+      "9702_t10"
+    ],
+    "module_ids": [
+      "9702_t10_m02"
+    ]
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "schema_version": "9702_p1_enrichment_v1",
+  "question_id": "9702_w20_13_q37",
+  "component": "P1",
+  "difficulty": 2,
+  "question_patterns": [
+    "circuit_analysis"
+  ],
+  "topic_id": "9702_t10",
+  "module_id": "9702_t10_m01",
+  "skill_id": "9702_skill_resistor_networks",
+  "accepted_answer": "D",
+  "options_breakdown": {
+    "A": {
+      "status": "incorrect",
+      "explanation": "Too small - this would be the p.d. across only half of one $R$ resistor, not across the two in series between X and Y."
+    },
+    "B": {
+      "status": "incorrect",
+      "explanation": "This assumes the 30 V splits equally, ignoring that the parallel pair of $R$ has much less resistance than the series pair of $R$ between X and Y."
+    },
+    "C": {
+      "status": "incorrect",
+      "explanation": "This is the p.d. across the parallel combination if miscalculated, not the larger share across the $2R$ section between X and Y."
+    },
+    "D": {
+      "status": "correct",
+      "explanation": "The two resistors between X and Y take the major share of the 30 V because their $2R$ exceeds the $R/2$ of the parallel pair, giving 24 V."
+    }
+  },
+  "hints": [
+    "Notice which resistors lie directly between X and Y: two identical resistors in series, so that section has resistance $2R$.",
+    "Notice the other section in the same loop: two identical resistors in parallel, so that section has resistance $R/2$ and the total is $2.5R$.",
+    "Use the same loop current through $2R$ and $R/2$ to compare shares of the 30 V e.m.f., then find $I \\times 2R$ for X to Y."
+  ],
+  "walkthrough": [
+    "Identify the loop: starting from the 30 V battery, current passes through the parallel pair then through Y to X via the two series resistors back to the battery.",
+    "Let each resistor be $R$. The X-Y section is two in series, so $R_{XY} = R + R = 2R$. The other section is two in parallel, so $R_{p} = R/2$.",
+    "Total resistance is $R_{total} = 2R + R/2 = 2.5R$. With negligible internal resistance, loop current is $I = 30 / 2.5R = 12/R$.",
+    "Potential difference between X and Y is the p.d. across $R_{XY}$: $V_{XY} = I \\times 2R = (12/R) \\times 2R = 24 \\text{ V}$.",
+    "The larger resistance takes the larger share of 30 V, so 24 V across X-Y and 6 V across the parallel pair is consistent. This is option D."
+  ],
+  "mapping": {
+    "primary_topic_id": "9702_t10",
+    "primary_module_id": "9702_t10_m01",
+    "outcome_ids": [
+      "9702_t10_m01_o05",
+      "9702_t10_m01_o04"
+    ]
+  },
+  "taxonomy_tags": {
+    "topic_ids": [
+      "9702_t10"
+    ],
+    "module_ids": [
+      "9702_t10_m01"
+    ]
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "schema_version": "9702_p1_enrichment_v1",
+  "question_id": "9702_m18_12_q38",
+  "component": "P1",
+  "difficulty": 2,
+  "question_patterns": [
+    "circuit_analysis"
+  ],
+  "topic_id": "9702_t10",
+  "module_id": "9702_t10_m02",
+  "skill_id": "9702_skill_resistor_networks",
+  "accepted_answer": "C",
+  "options_breakdown": {
+    "A": {
+      "status": "incorrect",
+      "explanation": "This is $1/R_{PQ} = 0.25$ $\\Omega^{-1}$, the reciprocal of the resistance, not $R_{PQ}$ itself."
+    },
+    "B": {
+      "status": "incorrect",
+      "explanation": "This value is too small and comes from mishandling the parallel reciprocal sum for the $28$ $\\Omega$, $14$ $\\Omega$ and $7.0$ $\\Omega$ branches."
+    },
+    "C": {
+      "status": "correct",
+      "explanation": "The three parallel branches give $1/R_{PQ} = 1/28 + 1/14 + 1/7 = 1/4$ $\\Omega^{-1}$, so $R_{PQ} = 4.0$ $\\Omega$."
+    },
+    "D": {
+      "status": "incorrect",
+      "explanation": "This adds resistances as if in series, but the $20$ $\\Omega$ + $8.0$ $\\Omega$, $6.0$ $\\Omega$ + $8.0$ $\\Omega$ and $7.0$ $\\Omega$ branches are in parallel between P and Q."
+    }
+  },
+  "hints": [
+    "Notice how the wires join at P on the left and at Q on the right, so count how many separate paths join P to Q.",
+    "Check the top path with $20$ $\\Omega$ and $8.0$ $\\Omega$ and the middle path with $6.0$ $\\Omega$ and $8.0$ $\\Omega$ - what is the series resistance of each path?",
+    "Connect the $28$ $\\Omega$, $14$ $\\Omega$ and $7.0$ $\\Omega$ branches with the parallel rule $1/R = 1/R_1 + 1/R_2 + 1/R_3$ and then invert."
+  ],
+  "walkthrough": [
+    "Redraw the network as three branches in parallel between P and Q: top branch $20$ $\\Omega$ in series with $8.0$ $\\Omega$, middle branch $6.0$ $\\Omega$ in series with $8.0$ $\\Omega$, bottom branch $7.0$ $\\Omega$ alone.",
+    "Add series resistances with $R = R_1 + R_2$. Top: $R_{top} = 20 + 8.0 = 28$ $\\Omega$. Middle: $R_{mid} = 6.0 + 8.0 = 14$ $\\Omega$.",
+    "Apply the parallel rule for the three branches: $1/R_{PQ} = 1/R_{top} + 1/R_{mid} + 1/R_{bot}$.",
+    "Substitute values: $1/R_{PQ} = 1/28 + 1/14 + 1/7 = 1/28 + 2/28 + 4/28 = 7/28 = 1/4$ $\\Omega^{-1}$.",
+    "Invert to get $R_{PQ} = 4.0$ $\\Omega$. This is option C."
+  ],
+  "mapping": {
+    "primary_topic_id": "9702_t10",
+    "primary_module_id": "9702_t10_m02",
+    "outcome_ids": [
+      "9702_t10_m02_o05",
+      "9702_t10_m02_o06"
+    ]
+  },
+  "taxonomy_tags": {
+    "topic_ids": [
+      "9702_t10"
+    ],
+    "module_ids": [
+      "9702_t10_m02"
+    ]
+  }
+}

@@ -1,0 +1,218 @@
+{
+  "schema_version": "9702_lesson_orchestration_v2",
+  "subject_code": "9702",
+  "updated": "2026-09-17",
+  "status": "adapted_from_biology_current",
+  "purpose": "Stage-to-model assignment and run rules for automated Physics lesson production. Read with study/skills/lesson-workflow.md, which defines what each stage does.",
+  "unit_of_parallelism": "lesson",
+  "unit_of_audit": "topic",
+  "rules": [
+    "The manager creates one persistent Codex task per lesson in the saved Physics project using the local environment, never a worktree. Every per-lesson stage returns to that same task so one task owns the lesson from plan through final outputs.",
+    "Parallelise across lessons; never allow overlapping per-lesson writes. Visualization and practice may overlap only with isolated output ownership.",
+    "Within each lesson task, plan, author, Review Student and Review Science run sequentially. Student runs first and Science verifies the text Student reviewed.",
+    "A fresh independent reviewer receives artifacts but not the creator self-verdict. The persistent lesson task coordinates that reviewer; switching models in the same conversation alone does not establish independence.",
+    "Lesson tasks never write shared files. They return their tracker line and session-log line; the manager writes shared files once after final verification.",
+    "The manager waits for every lesson to pass Review Science, then runs and repairs the topic audit itself. The audit is the final Markdown authority; there is no automatic post-audit Student or Science recheck stage.",
+    "After the topic audit, the manager sends work back to each existing lesson task. Visualization and question creation may run concurrently only when their writes do not overlap. Question review starts only after question creation finishes and may overlap visualization.",
+    "Student-reference synchronization is not part of this workflow. HTML contains no student-reference integration.",
+    "Record actual model and reasoning_effort plus input/output hashes in every stage evidence record; never infer missing historical settings.",
+    "Reviewers read and repair both sidecars. After audit prose edits, lesson owners reconcile anchors without changing audited Markdown; manager verifies before production."
+  ],
+  "waves": [
+    {
+      "n": 1,
+      "stage": "plan",
+      "skill": "plan-physics-lesson",
+      "scope": "per_lesson",
+      "model": "sol",
+      "reasoning_effort": "medium",
+      "parallel": true,
+      "writes": [
+        "lesson-plan.json"
+      ]
+    },
+    {
+      "n": 2,
+      "stage": "author",
+      "skill": "author-physics-lesson-markdown",
+      "scope": "per_lesson",
+      "model": "terra",
+      "reasoning_effort": "high",
+      "parallel": true,
+      "writes": [
+        "lesson.md",
+        "lesson-visuals.json",
+        "lesson-activities.json",
+        "lesson-build-evidence.json"
+      ]
+    },
+    {
+      "n": 3,
+      "stage": "review_student",
+      "skill": "review-physics-lesson-student",
+      "scope": "per_lesson",
+      "model": "terra",
+      "reasoning_effort": "medium",
+      "parallel": true,
+      "writes": [
+        "lesson.md",
+        "lesson-build-evidence.json",
+        "lesson-visuals.json",
+        "lesson-activities.json"
+      ]
+    },
+    {
+      "n": 4,
+      "stage": "review_science",
+      "skill": "review-physics-lesson-science",
+      "scope": "per_lesson",
+      "model": "sol",
+      "reasoning_effort": "low",
+      "parallel": true,
+      "writes": [
+        "lesson.md",
+        "lesson-build-evidence.json",
+        "lesson-visuals.json",
+        "lesson-activities.json"
+      ]
+    },
+    {
+      "n": 5,
+      "stage": "topic_audit",
+      "skill": "audit-physics-topic-markdown",
+      "scope": "per_topic",
+      "model": "sol",
+      "reasoning_effort": "high",
+      "parallel": false,
+      "writes": [
+        "lesson.md",
+        "topic-markdown-audit.md"
+      ],
+      "requires": "every lesson in the topic has passed wave 4",
+      "note": "Runs in the manager task. Its final hashes become the production Markdown inputs; no post-audit review loop follows."
+    },
+    {
+      "n": 6,
+      "stage": "visualize",
+      "skill": "visualize-physics-lesson",
+      "scope": "per_lesson",
+      "model": "astra",
+      "reasoning_effort": "low",
+      "parallel": true,
+      "writes": [
+        "index.html",
+        "assets/",
+        "lesson-html-review.json"
+      ],
+      "note": "Runs in the existing lesson task. Exact subject diagrams use deterministic SVG/Python; ImageGen is only qualitative context. Follow the subject method table."
+    },
+    {
+      "n": 6,
+      "stage": "create_questions",
+      "skill": "create-physics-lesson-questions",
+      "scope": "per_lesson",
+      "model": "terra",
+      "reasoning_effort": "medium",
+      "parallel": true,
+      "writes": [
+        "practice-questions/",
+        "scripts/practice-figures/<lesson_id>/"
+      ],
+      "note": "May run alongside visualize through a separate writer only when output ownership is isolated."
+    },
+    {
+      "n": 7,
+      "stage": "review_questions",
+      "skill": "review-physics-lesson-questions",
+      "scope": "per_lesson",
+      "model": "sol",
+      "reasoning_effort": "low",
+      "parallel": true,
+      "writes": [
+        "practice-questions/",
+        "scripts/practice-figures/<lesson_id>/"
+      ],
+      "requires": "create_questions complete; may overlap visualize"
+    }
+  ],
+  "milestones": {
+    "A_markdown": {
+      "through_wave": 4,
+      "meaning": "Lesson prose complete and both reviews passed. Topic audit still pending."
+    },
+    "B_topic": {
+      "through_wave": 5,
+      "meaning": "Manager topic audit passed and its recorded Markdown hashes are final."
+    },
+    "C_production": {
+      "through_wave": 7,
+      "meaning": "HTML and practice questions built and reviewed. All release gates pass."
+    }
+  },
+  "escalation": {
+    "principle": "Buy capability on evidence, not in advance. Reserve higher effort for measured failures.",
+    "on_gate_failure": "Escalate only the failing stage: sol low -> sol medium -> sol high -> astra medium; terra medium -> terra high -> sol high; terra high -> sol high; astra low -> astra medium. Record the failure and actual settings.",
+    "preemptive": "Multi-step mechanics, circuit networks, fields, uncertainty and wave/phase reasoning may start Review Science at astra medium when the manager records why.",
+    "never": "Do not raise the whole pipeline because one stage disappointed. Escalate that stage only."
+  },
+  "cost_reference_per_million_tokens": {
+    "astra": {
+      "input": 10,
+      "output": 50
+    },
+    "sol": {
+      "input": 4,
+      "output": 20,
+      "note": "Historical promotional claim from source template; verify before use."
+    },
+    "terra": {
+      "input": 2,
+      "output": 12
+    },
+    "luna": {
+      "input": 0.2,
+      "output": 1.2
+    },
+    "sourced": "Copied historical Biology reference dated 2026-09-13; not reverified for this adaptation. Verify official rates before budgeting.",
+    "reasoning": "Stages differ in input:output ratio. Plan, reviews and audit are input-heavy, so the input rate dominates. Author is output-heavy. Effort level is usually a better lever than model tier."
+  },
+  "task_topology": {
+    "manager": "One gpt-5.6-sol task at low reasoning owns topic membership, dispatch, waits, final verification and the single shared write. It uses high reasoning for the topic-audit stage.",
+    "lesson_tasks": "Create exactly one local Codex task per selected lesson in the saved Physics project. Reuse that task for every later lesson stage; never create a worktree.",
+    "handoff": "Each lesson task reports stage completion to the manager. After all wave-4 reports, the manager audits. It then sends post-audit visualization/question work back to the same lesson tasks."
+  },
+  "orchestrator": {
+    "model": "sol",
+    "reasoning_effort": "low",
+    "why": "The manager coordinates persistent lesson tasks and verifies final evidence at low reasoning. Its topic-audit stage uses Sol high. Final verification stays in the manager task and is not a separate model stage.",
+    "duty": "Verify before recording. A subagent reporting PASS is evidence it believes it passed. Hash claimed outputs, grep for vocabulary claimed absent, confirm cited asset paths exist, check sidecar anchors match real sentences.",
+    "higher_option": "sol high for a failed manager-owned audit or verification gate"
+  },
+  "failure_policy": "Fix, do not halt. A failed gate or review is re-dispatched to the stage that owns the defect, with the findings, and the run continues. Only a genuinely blocked stage stops, and then only that stage.",
+  "source_template": "subjects/biology/9700/study/orchestration.json",
+  "subject_system": "skills/subject-system.md",
+  "model_ids": {
+    "sol": "gpt-5.6-sol",
+    "terra": "gpt-5.6-terra",
+    "astra": "gpt-6-astra",
+    "luna": "gpt-5.6-luna"
+  },
+  "validation": {
+    "command": "python3 scripts/validate_practice_questions.py <lesson-folder>",
+    "cwd": "subjects/physics/9702",
+    "strict_supported": false,
+    "release": "Structural PASS plus all explicit manual release gates in the practice contract."
+  },
+  "write_scope": "Wave writes are lesson-relative except scripts/practice-figures/<lesson_id>/ (workspace-relative) and topic-markdown-audit.md (topic-relative). Dated preservation archives are allowed for replaced owned files. Shared tracker/session writes belong only to the manager.",
+  "anchor_reconciliation": {
+    "owner": "existing lesson task",
+    "after": "topic_audit prose repairs",
+    "before": "B_topic and wave 6",
+    "writes": [
+      "lesson-visuals.json",
+      "lesson-activities.json",
+      "lesson-build-evidence.json"
+    ],
+    "constraint": "Mechanical anchors and hash evidence only; no audited Markdown edits. New content returns to its owning stage. Manager verifies final anchors and sidecar hashes."
+  }
+}

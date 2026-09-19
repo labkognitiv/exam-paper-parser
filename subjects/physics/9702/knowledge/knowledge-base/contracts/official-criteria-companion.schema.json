@@ -1,0 +1,79 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "9702_official_criteria_companion_v1",
+  "title": "Physics 9702 official criteria companion",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "companion_id",
+    "question_id",
+    "canonical_mark_scheme",
+    "official_pdf",
+    "parts"
+  ],
+  "properties": {
+    "schema_version": { "const": "9702_official_criteria_companion_v1" },
+    "companion_id": { "type": "string", "minLength": 1 },
+    "question_id": { "type": "string", "minLength": 1 },
+    "canonical_mark_scheme": { "$ref": "#/$defs/lockedSource" },
+    "official_pdf": {
+      "allOf": [
+        { "$ref": "#/$defs/lockedSource" },
+        { "required": ["page_numbers"] }
+      ]
+    },
+    "parts": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/part" }
+    }
+  },
+  "$defs": {
+    "lockedSource": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "sha256"],
+      "properties": {
+        "path": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^(?!/)(?!.*(^|/)\\.\\.(/|$)).+"
+        },
+        "sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+        "page_numbers": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "type": "integer", "minimum": 1 }
+        }
+      }
+    },
+    "markingPoint": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "text", "tag", "marks", "is_alternative"],
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "text": { "type": "string", "minLength": 1 },
+        "tag": { "type": "string", "minLength": 1 },
+        "marks": { "type": "integer", "minimum": 1 },
+        "is_alternative": { "type": "boolean" }
+      }
+    },
+    "part": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "marks", "marking_points"],
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "marks": { "type": "integer", "minimum": 1 },
+        "marking_points": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/markingPoint" }
+        }
+      }
+    }
+  }
+}

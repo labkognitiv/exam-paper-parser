@@ -1,0 +1,117 @@
+{
+  "elapsed_sec": 0.85,
+  "tokens": {
+    "prompt_tokens": 3568,
+    "completion_tokens": 2593,
+    "reasoning_tokens": 1028,
+    "total_tokens": 6161
+  },
+  "cost_usd": 0.000875,
+  "valid_json": true,
+  "parsed_json": {
+    "question_num": 6,
+    "difficulty": 2,
+    "question_patterns": [
+      "definition_recall",
+      "graph_interpretation",
+      "direct_calculation"
+    ],
+    "parts": [
+      {
+        "part": "(a)",
+        "difficulty": 1,
+        "question_patterns": [
+          "definition_recall"
+        ],
+        "target_time_minutes": 1,
+        "formulas_used": [
+          "E = \\frac{\\sigma}{\\varepsilon}"
+        ],
+        "hints": [
+          "Identify the two mechanical quantities for a stretched wire: stress which measures force per unit cross-sectional area and strain which measures fractional extension."
+        ],
+        "teacher_walkthrough": [
+          "Young modulus $E$ is defined as the ratio of tensile stress to tensile strain for a material under elastic deformation.",
+          "$$E = \\frac{\\text{stress}}{\\text{strain}}$$",
+          "where stress is force per unit area and strain is extension per unit original length."
+        ],
+        "walkthrough": [
+          "B1: state stress divided by strain."
+        ],
+        "common_pitfalls": [
+          "Stating force divided by extension, which is the force constant $k$ and not the Young modulus.",
+          "Defining Young modulus as stress times strain or strain divided by stress, which inverts the correct ratio."
+        ]
+      },
+      {
+        "part": "(b)(i)",
+        "difficulty": 1,
+        "question_patterns": [
+          "graph_interpretation"
+        ],
+        "target_time_minutes": 1,
+        "formulas_used": [
+          "L_0 = l(F=0)"
+        ],
+        "hints": [
+          "Read the intercept of the $l$ against $F$ graph in Fig. 6.2 where the applied force $F = 0$, since this corresponds to zero extension."
+        ],
+        "teacher_walkthrough": [
+          "Unstretched length $L_0$ is the length $l$ when applied force $F = 0$.",
+          "From Fig. 6.2 the straight line meets the $l$-axis at $F = 0$ N at $$l = 1.998 \\, \\mathrm{m}$$",
+          "Therefore $L_0 = 1.998 \\, \\mathrm{m}$."
+        ],
+        "walkthrough": [
+          "B1: $1.998 \\, \\mathrm{m}$ from intercept at $F=0$."
+        ],
+        "common_pitfalls": [
+          "Reading the length at $F = 30$ N instead of $F = 0$ N, giving the maximum stretched length.",
+          "Misreading the vertical scale as $2.000$ m or $1.999$ m by miscounting the small grid divisions of $0.0001$ m."
+        ]
+      },
+      {
+        "part": "(b)(ii)",
+        "difficulty": 2,
+        "question_patterns": [
+          "direct_calculation",
+          "unit_conversion",
+          "graph_interpretation"
+        ],
+        "target_time_minutes": 4,
+        "formulas_used": [
+          "\\sigma = \\frac{F}{A}",
+          "A = 0.95 \\times 10^{-6} \\, \\mathrm{m^2}",
+          "\\varepsilon = \\frac{x}{L_0} = \\frac{l - L_0}{L_0}"
+        ],
+        "hints": [
+          "Recall the defining equations: stress $\\sigma = F/A$ and strain $\\varepsilon = x/L_0$ where $x$ is extension and $L_0$ is the unstretched length from (b)(i).",
+          "Convert cross-sectional area to SI units using $1 \\, \\mathrm{mm} = 10^{-3} \\, \\mathrm{m}$ so $1 \\, \\mathrm{mm^2} = 10^{-6} \\, \\mathrm{m^2}$ before substituting into $F/A$.",
+          "Read the stretched length $l$ at $F = 30 \\, \\mathrm{N}$ from Fig. 6.2 and form the extension $x = l - L_0$, then divide by $L_0$ to obtain a dimensionless strain."
+        ],
+        "teacher_walkthrough": [
+          "Tensile stress is defined as $$\\sigma = \\frac{F}{A}$$",
+          "Convert area: $$A = 0.95 \\, \\mathrm{mm^2} = 0.95 \\times (10^{-3} \\, \\mathrm{m})^2 = 0.95 \\times 10^{-6} \\, \\mathrm{m^2} = 9.5 \\times 10^{-7} \\, \\mathrm{m^2}$$",
+          "Substitute $F = 30 \\, \\mathrm{N}$: $$\\sigma = \\frac{30}{0.95 \\times 10^{-6}}$$",
+          "$$\\sigma = \\frac{30}{0.95} \\times 10^{6} = 31.5789 \\times 10^{6} \\, \\mathrm{Pa}$$",
+          "$$\\sigma = 3.2 \\times 10^{7} \\, \\mathrm{Pa}$$",
+          "Tensile strain is defined as $$\\varepsilon = \\frac{x}{L_0} = \\frac{l - L_0}{L_0}$$",
+          "From Fig. 6.2 at $F = 30 \\, \\mathrm{N}$, $$l = 2.003 \\, \\mathrm{m}$$ and from (b)(i) $$L_0 = 1.998 \\, \\mathrm{m}$$",
+          "Extension: $$x = 2.003 - 1.998 = 0.005 \\, \\mathrm{m}$$",
+          "Strain: $$\\varepsilon = \\frac{0.005}{1.998} = 0.0025025$$",
+          "$$\\varepsilon = 0.0025$$ with no unit."
+        ],
+        "walkthrough": [
+          "C1: stress $= F/A = 30/(0.95 \\times 10^{-6})$.",
+          "A1: stress $= 3.2 \\times 10^{7} \\, \\mathrm{Pa}$.",
+          "B1: strain $= x/L = (2.003-1.998)/1.998 = 0.0025$."
+        ],
+        "common_pitfalls": [
+          "Substituting $A = 0.95 \\, \\mathrm{mm^2}$ directly without conversion to $\\mathrm{m^2}$, giving a stress value $10^{6}$ times too small.",
+          "Using the stretched length $l$ instead of the extension $x$ in strain, computing $2.003/1.998$ which is approximately $1.0025$ instead of $0.0025$.",
+          "Assigning a unit such as m or Pa to strain, whereas strain is a dimensionless ratio of two lengths."
+        ]
+      }
+    ]
+  },
+  "raw_content": "{\n  \"question_num\": 6,\n  \"difficulty\": 2,\n  \"question_patterns\": [\n    \"definition_recall\",\n    \"graph_interpretation\",\n    \"direct_calculation\"\n  ],\n  \"parts\": [\n    {\n      \"part\": \"(a)\",\n      \"difficulty\": 1,\n      \"question_patterns\": [\n        \"definition_recall\"\n      ],\n      \"target_time_minutes\": 1,\n      \"formulas_used\": [\n        \"E = \\\\frac{\\\\sigma}{\\\\varepsilon}\"\n      ],\n      \"hints\": [\n        \"Identify the two mechanical quantities for a stretched wire: stress which measures force per unit cross-sectional area and strain which measures fractional extension.\"\n      ],\n      \"teacher_walkthrough\": [\n        \"Young modulus $E$ is defined as the ratio of tensile stress to tensile strain for a material under elastic deformation.\",\n        \"$$E = \\\\frac{\\\\text{stress}}{\\\\text{strain}}$$\",\n        \"where stress is force per unit area and strain is extension per unit original length.\"\n      ],\n      \"walkthrough\": [\n        \"B1: state stress divided by strain.\"\n      ],\n      \"common_pitfalls\": [\n        \"Stating force divided by extension, which is the force constant $k$ and not the Young modulus.\",\n        \"Defining Young modulus as stress times strain or strain divided by stress, which inverts the correct ratio.\"\n      ]\n    },\n    {\n      \"part\": \"(b)(i)\",\n      \"difficulty\": 1,\n      \"question_patterns\": [\n        \"graph_interpretation\"\n      ],\n      \"target_time_minutes\": 1,\n      \"formulas_used\": [\n        \"L_0 = l(F=0)\"\n      ],\n      \"hints\": [\n        \"Read the intercept of the $l$ against $F$ graph in Fig. 6.2 where the applied force $F = 0$, since this corresponds to zero extension.\"\n      ],\n      \"teacher_walkthrough\": [\n        \"Unstretched length $L_0$ is the length $l$ when applied force $F = 0$.\",\n        \"From Fig. 6.2 the straight line meets the $l$-axis at $F = 0$ N at $$l = 1.998 \\\\, \\\\mathrm{m}$$\",\n        \"Therefore $L_0 = 1.998 \\\\, \\\\mathrm{m}$.\"\n      ],\n      \"walkthrough\": [\n        \"B1: $1.998 \\\\, \\\\mathrm{m}$ from intercept at $F=0$.\"\n      ],\n      \"common_pitfalls\": [\n        \"Reading the length at $F = 30$ N instead of $F = 0$ N, giving the maximum stretched length.\",\n        \"Misreading the vertical scale as $2.000$ m or $1.999$ m by miscounting the small grid divisions of $0.0001$ m.\"\n      ]\n    },\n    {\n      \"part\": \"(b)(ii)\",\n      \"difficulty\": 2,\n      \"question_patterns\": [\n        \"direct_calculation\",\n        \"unit_conversion\",\n        \"graph_interpretation\"\n      ],\n      \"target_time_minutes\": 4,\n      \"formulas_used\": [\n        \"\\\\sigma = \\\\frac{F}{A}\",\n        \"A = 0.95 \\\\times 10^{-6} \\\\, \\\\mathrm{m^2}\",\n        \"\\\\varepsilon = \\\\frac{x}{L_0} = \\\\frac{l - L_0}{L_0}\"\n      ],\n      \"hints\": [\n        \"Recall the defining equations: stress $\\\\sigma = F/A$ and strain $\\\\varepsilon = x/L_0$ where $x$ is extension and $L_0$ is the unstretched length from (b)(i).\",\n        \"Convert cross-sectional area to SI units using $1 \\\\, \\\\mathrm{mm} = 10^{-3} \\\\, \\\\mathrm{m}$ so $1 \\\\, \\\\mathrm{mm^2} = 10^{-6} \\\\, \\\\mathrm{m^2}$ before substituting into $F/A$.\",\n        \"Read the stretched length $l$ at $F = 30 \\\\, \\\\mathrm{N}$ from Fig. 6.2 and form the extension $x = l - L_0$, then divide by $L_0$ to obtain a dimensionless strain.\"\n      ],\n      \"teacher_walkthrough\": [\n        \"Tensile stress is defined as $$\\\\sigma = \\\\frac{F}{A}$$\",\n        \"Convert area: $$A = 0.95 \\\\, \\\\mathrm{mm^2} = 0.95 \\\\times (10^{-3} \\\\, \\\\mathrm{m})^2 = 0.95 \\\\times 10^{-6} \\\\, \\\\mathrm{m^2} = 9.5 \\\\times 10^{-7} \\\\, \\\\mathrm{m^2}$$\",\n        \"Substitute $F = 30 \\\\, \\\\mathrm{N}$: $$\\\\sigma = \\\\frac{30}{0.95 \\\\times 10^{-6}}$$\",\n        \"$$\\\\sigma = \\\\frac{30}{0.95} \\\\times 10^{6} = 31.5789 \\\\times 10^{6} \\\\, \\\\mathrm{Pa}$$\",\n        \"$$\\\\sigma = 3.2 \\\\times 10^{7} \\\\, \\\\mathrm{Pa}$$\",\n        \"Tensile strain is defined as $$\\\\varepsilon = \\\\frac{x}{L_0} = \\\\frac{l - L_0}{L_0}$$\",\n        \"From Fig. 6.2 at $F = 30 \\\\, \\\\mathrm{N}$, $$l = 2.003 \\\\, \\\\mathrm{m}$$ and from (b)(i) $$L_0 = 1.998 \\\\, \\\\mathrm{m}$$\",\n        \"Extension: $$x = 2.003 - 1.998 = 0.005 \\\\, \\\\mathrm{m}$$\",\n        \"Strain: $$\\\\varepsilon = \\\\frac{0.005}{1.998} = 0.0025025$$\",\n        \"$$\\\\varepsilon = 0.0025$$ with no unit.\"\n      ],\n      \"walkthrough\": [\n        \"C1: stress $= F/A = 30/(0.95 \\\\times 10^{-6})$.\",\n        \"A1: stress $= 3.2 \\\\times 10^{7} \\\\, \\\\mathrm{Pa}$.\",\n        \"B1: strain $= x/L = (2.003-1.998)/1.998 = 0.0025$.\"\n      ],\n      \"common_pitfalls\": [\n        \"Substituting $A = 0.95 \\\\, \\\\mathrm{mm^2}$ directly without conversion to $\\\\mathrm{m^2}$, giving a stress value $10^{6}$ times too small.\",\n        \"Using the stretched length $l$ instead of the extension $x$ in strain, computing $2.003/1.998$ which is approximately $1.0025$ instead of $0.0025$.\",\n        \"Assigning a unit such as m or Pa to strain, whereas strain is a dimensionless ratio of two lengths.\"\n      ]\n    }\n  ]\n}"
+}

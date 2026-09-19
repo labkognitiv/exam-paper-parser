@@ -1,0 +1,102 @@
+# Physics 9702 Paper 2 (AS Level Structured Theory) Orchestration Tracker
+
+Last updated: 2026-09-08 16:54:34 UTC
+
+This tracker records automated single-command orchestration runs for Cambridge Physics (9702).
+All verification passes, OCR reviews, pedagogical enrichments, and model costs are tracked per paper.
+
+## Summary
+
+| Measure | Count |
+|---|---:|
+| Total Papers Tracked | 69 |
+| Fully Orchestrated (COMPLETE) | 64 |
+| Total Pipeline Cost | $1.4480 |
+
+## Orchestration Runs
+
+| Paper | Date | Questions | Marks | Slicing | OCR | MS | Review | Enrichment | Verification | Cost ($) | Time (s) | Status |
+|---|---|---:|---:|:---:|:---:|:---:|:---:|:---:|:---:|---:|---:|:---:|
+| `9702_m16_22` | 2026-09-08 16:43 | 6 | 12 | SUCCESS | SUCCESS | SUCCESS | SUCCESS | SUCCESS | PASS | $0.0079 | 99.9 | COMPLETE |
+| `9702_m17_22` | 2026-09-08 19:40 | 7 | 60 | SKIPPED | SUCCESS | SUCCESS | SUCCESS | SUCCESS | PASS | $0.0000 | 0.0 | COMPLETE |
+| `9702_m18_22` | 2026-09-08 16:49 | 6 | 5 | SKIPPED | SUCCESS | SUCCESS | SUCCESS | SUCCESS | PASS | $0.0033 | 171.2 | COMPLETE |
+| `9702_m19_22` | 2026-09-08 13:11 | 7 | 42 | SKIPPED | SUCCESS | SUCCESS | SUCCESS | SUCCESS | PASS | $0.0296 | 235.8 | COMPLETE |
+| `9702_m20_22` | 2026-09-08 13:06 | 7 | 58 | SKIPPED | SUCCESS | SUCCESS | SUCCESS | SUCCESS | PASS | $0.0267 | 216.8 | COMPLETE |
+| `9702_m21_22` | 2026-09-08 13:02 | 7 | 56 | SKIPPED | SUCCESS | SUCCESS | SUCCESS | SUCCESS | PASS | $0.0268 | 267.1 | COMPLETE |
+| `9702_m22_22` | 2026-09-08 12:51 | 7 | 54 | SKIPPED | SUCCESS | SUCCESS | SUCCESS | SUCCESS | PASS | $0.0285 | 218.7 | COMPLETE |
+| `9702_m23_22` | 2026-09-08 12:43 | 7 | 60 | SKIPPED | SUCCESS | SUCCESS | SUCCESS | SUCCESS | PASS | $0.0250 | 114.9 | COMPLETE |
+| `9702_m24_22` | 2026-09-08 12:38 | 8 | 60 | SKIPPED | SUCCESS | SUCCESS | SUCCESS | SUCCESS | PASS | $0.0264 | 154.1 | COMPLETE |
+| `9702_m25_22` | 2026-09-08 12:11 | 7 | 60 | SKIPPED | SUCCESS | SUCCESS | SUCCESS | SUCCESS | FAIL | $0.0257 | 204.1 | FAILED |
+| `9702_s16_21` | 2026-09-08 11:48 | 7 | 60 | SKIPPED | SUCCESS | SUCCESS | SUCCESS | SUCCESS | PASS | $0.0228 | 115.8 | COMPLETE |
+| `9702_s16_22` | 2026-09-08 11:48 | 8 | 60 | SKIPPED | SUCCESS | SUCCESS | SUCCESS | SUCCESS | PASS | $0.0234 | 129.2 | COMPLETE |
+| `9702_s16_23` | 2026-09-08 11:48 | 8 | 60 | SKIPPED | SUCCESS | SUCCESS | SUCCESS | SUCCESS | PASS | $0.0218 | 94.1 | COMPLETE |
+| `9702_s17_21` | 2026-09-08 19:40 | 7 | 60 | SKIPPED | SUCCESS | SUCCESS | SUCCESS | SUCCESS | PASS | $0.0000 | 0.0 | COMPLETE |
+| `9702_s17_22` | 2026-09-08 19:40 | 8 | 60 | SKIPPED | SUCCESS | SUCCESS | SUCCESS | SUCCESS | PASS | $0.0000 | 0.0 | COMPLETE |
+| `9702_s17_23` | 2026-09-08 19:40 | 7 | 60 | SKIPPED | SUCCESS | SUCCESS | SUCCESS | SUCCESS | PASS | $0.0000 | 0.0 | COMPLETE |
+| `9702_s18_21` | 2026-09-08 13:15 | 7 | 57 | SKIPPED | SUCCESS | SUCCESS | SUCCESS | SUCCESS | PASS | $0.0278 | 181.4 | COMPLETE |
+| `9702_s18_22` | 2026-09-08 13:15 | 7 | 56 | SKIPPED | SUCCESS | SUCCESS | SUCCESS | SUCCESS | PASS | $0.0267 | 179.6 | COMPLETE |
+| `9702_s18_23` | 2026-09-08 13:14 | 7 | 59 | SKIPPED | SUCCESS | SUCCESS | SUCCESS | SUCCESS | PASS | $0.0256 | 141.5 | COMPLETE |
+| `9702_s19_21` | 2026-09-08 13:09 | 7 | 61 | SKIPPED | SUCCESS | SUCCESS | SUCCESS | SUCCESS | PASS | $0.0268 | 139.9 | COMPLETE |
+| `9702_s19_22` | 2026-09-08 13:10 | 6 | 55 | SKIPPED | SUCCESS | SUCCESS | SUCCESS | SUCCESS | PASS | $0.0253 | 165.1 | COMPLETE |
+| `9702_s19_23` | 2026-09-08 13:10 | 7 | 63 | SKIPPED | SUCCESS | SUCCESS | SUCCESS | SUCCESS | PASS | $0.0253 | 184.2 | COMPLETE |
+| `9702_s21_21` | 2026-09-08 13:01 | 6 | 55 | SKIPPED | SUCCESS | SUCCESS | SUCCESS | SUCCESS | PASS | $0.0247 | 229.9 | COMPLETE |
+| `9702_s21_22` | 2026-09-08 13:00 | 6 | 64 | SKIPPED | SUCCESS | SUCCESS | SUCCESS | SUCCESS | PASS | $0.0241 | 166.4 | COMPLETE |
+| `9702_s21_23` | 2026-09-08 16:54 | 6 | 51 | SKIPPED | SUCCESS | SUCCESS | SUCCESS | SUCCESS | FAIL | $0.0136 | 149.6 | FAILED |
+| `9702_s22_21` | 2026-09-08 12:50 | 7 | 56 | SKIPPED | SUCCESS | SUCCESS | SUCCESS | SUCCESS | FAIL | $0.0260 | 150.0 | FAILED |
+| `9702_s22_22` | 2026-09-08 12:57 | 7 | 57 | SKIPPED | SUCCESS | SUCCESS | SUCCESS | SUCCESS | FAIL | $0.0279 | 252.0 | FAILED |
+| `9702_s22_23` | 2026-09-08 16:51 | 7 | 18 | SKIPPED | SUCCESS | SUCCESS | SUCCESS | SUCCESS | PASS | $0.0033 | 51.3 | COMPLETE |
+| `9702_s23_21` | 2026-09-08 12:44 | 8 | 60 | SKIPPED | SUCCESS | SUCCESS | SUCCESS | SUCCESS | PASS | $0.0289 | 161.4 | COMPLETE |
+| `9702_s23_22` | 2026-09-08 12:45 | 8 | 55 | SKIPPED | SUCCESS | SUCCESS | SUCCESS | SUCCESS | PASS | $0.0295 | 219.8 | COMPLETE |
+| `9702_s23_23` | 2026-09-08 12:47 | 7 | 49 | SKIPPED | SUCCESS | SUCCESS | SUCCESS | SUCCESS | PASS | $0.0265 | 332.9 | COMPLETE |
+| `9702_s24_21` | 2026-09-08 12:36 | 7 | 0 | SKIPPED | SUCCESS | SUCCESS | SUCCESS | SUCCESS | PASS | $0.0041 | 26.5 | COMPLETE |
+| `9702_s24_22` | 2026-09-08 12:40 | 7 | 56 | SKIPPED | SUCCESS | SUCCESS | SUCCESS | SUCCESS | PASS | $0.0268 | 230.0 | COMPLETE |
+| `9702_s24_23` | 2026-09-08 12:39 | 6 | 52 | SKIPPED | SUCCESS | SUCCESS | SUCCESS | SUCCESS | PASS | $0.0250 | 167.7 | COMPLETE |
+| `9702_s25_21` | 2026-09-08 12:11 | 7 | 60 | SKIPPED | SUCCESS | SUCCESS | SUCCESS | SUCCESS | PASS | $0.0272 | 177.5 | COMPLETE |
+| `9702_s25_22` | 2026-09-08 12:10 | 7 | 60 | SKIPPED | SUCCESS | SUCCESS | SUCCESS | SUCCESS | PASS | $0.0270 | 106.2 | COMPLETE |
+| `9702_s25_23` | 2026-09-08 12:11 | 8 | 61 | SKIPPED | SUCCESS | SUCCESS | SUCCESS | SUCCESS | PASS | $0.0286 | 167.9 | COMPLETE |
+| `9702_s25_24` | 2026-09-08 12:10 | 7 | 60 | SKIPPED | SUCCESS | SUCCESS | SUCCESS | SUCCESS | PASS | $0.0262 | 137.3 | COMPLETE |
+| `9702_w16_21` | 2026-09-08 16:45 | 7 | 16 | SKIPPED | SUCCESS | SUCCESS | SUCCESS | SUCCESS | PASS | $0.0045 | 67.6 | COMPLETE |
+| `9702_w16_22` | 2026-09-08 19:40 | 6 | 60 | SKIPPED | SUCCESS | SUCCESS | SUCCESS | SUCCESS | PASS | $0.0000 | 0.0 | COMPLETE |
+| `9702_w16_23` | 2026-09-08 19:40 | 7 | 60 | SKIPPED | SUCCESS | SUCCESS | SUCCESS | SUCCESS | PASS | $0.0000 | 0.0 | COMPLETE |
+| `9702_w17_21` | 2026-09-08 19:40 | 8 | 60 | SKIPPED | SUCCESS | SUCCESS | SUCCESS | SUCCESS | PASS | $0.0000 | 0.0 | COMPLETE |
+| `9702_w17_22` | 2026-09-08 19:40 | 7 | 60 | SKIPPED | SUCCESS | SUCCESS | SUCCESS | SUCCESS | PASS | $0.0000 | 0.0 | COMPLETE |
+| `9702_w17_23` | 2026-09-08 19:40 | 7 | 60 | SKIPPED | SUCCESS | SUCCESS | SUCCESS | SUCCESS | PASS | $0.0000 | 0.0 | COMPLETE |
+| `9702_w18_21` | 2026-09-08 13:14 | 6 | 59 | SKIPPED | SUCCESS | SUCCESS | SUCCESS | SUCCESS | PASS | $0.0260 | 175.8 | COMPLETE |
+| `9702_w18_22` | 2026-09-08 13:14 | 8 | 57 | SKIPPED | SUCCESS | SUCCESS | SUCCESS | SUCCESS | PASS | $0.0289 | 165.5 | COMPLETE |
+| `9702_w18_23` | 2026-09-08 13:14 | 7 | 59 | SKIPPED | SUCCESS | SUCCESS | SUCCESS | SUCCESS | PASS | $0.0267 | 162.2 | COMPLETE |
+| `9702_w19_21` | 2026-09-08 13:10 | 7 | 63 | SKIPPED | SUCCESS | SUCCESS | SUCCESS | SUCCESS | PASS | $0.0279 | 148.1 | COMPLETE |
+| `9702_w19_22` | 2026-09-08 13:10 | 7 | 60 | SKIPPED | SUCCESS | SUCCESS | SUCCESS | SUCCESS | PASS | $0.0265 | 145.3 | COMPLETE |
+| `9702_w19_23` | 2026-09-08 13:11 | 7 | 60 | SKIPPED | SUCCESS | SUCCESS | SUCCESS | SUCCESS | PASS | $0.0260 | 206.8 | COMPLETE |
+| `9702_w20_21` | 2026-09-08 13:05 | 8 | 50 | SKIPPED | SUCCESS | SUCCESS | SUCCESS | SUCCESS | PASS | $0.0282 | 142.2 | COMPLETE |
+| `9702_w20_22` | 2026-09-08 13:05 | 7 | 57 | SKIPPED | SUCCESS | SUCCESS | SUCCESS | SUCCESS | PASS | $0.0277 | 164.9 | COMPLETE |
+| `9702_w20_23` | 2026-09-08 13:06 | 7 | 63 | SKIPPED | SUCCESS | SUCCESS | SUCCESS | SUCCESS | PASS | $0.0272 | 193.3 | COMPLETE |
+| `9702_w21_21` | 2026-09-08 13:00 | 6 | 51 | SKIPPED | SUCCESS | SUCCESS | SUCCESS | SUCCESS | PASS | $0.0249 | 171.8 | COMPLETE |
+| `9702_w21_22` | 2026-09-08 12:59 | 7 | 61 | SKIPPED | SUCCESS | SUCCESS | SUCCESS | SUCCESS | PASS | $0.0258 | 134.9 | COMPLETE |
+| `9702_w21_23` | 2026-09-08 12:59 | 6 | 56 | SKIPPED | SUCCESS | SUCCESS | SUCCESS | SUCCESS | PASS | $0.0236 | 129.9 | COMPLETE |
+| `9702_w22_21` | 2026-09-08 12:52 | 6 | 60 | SKIPPED | SUCCESS | SUCCESS | SUCCESS | SUCCESS | PASS | $0.0248 | 254.4 | COMPLETE |
+| `9702_w22_22` | 2026-09-08 12:50 | 7 | 60 | SKIPPED | SUCCESS | SUCCESS | SUCCESS | SUCCESS | PASS | $0.0267 | 136.4 | COMPLETE |
+| `9702_w22_23` | 2026-09-08 12:50 | 6 | 60 | SKIPPED | SUCCESS | SUCCESS | SUCCESS | SUCCESS | PASS | $0.0254 | 144.1 | COMPLETE |
+| `9702_w23_21` | 2026-09-08 12:44 | 7 | 60 | SKIPPED | SUCCESS | SUCCESS | SUCCESS | SUCCESS | PASS | $0.0263 | 158.2 | COMPLETE |
+| `9702_w23_22` | 2026-09-08 12:44 | 7 | 60 | SKIPPED | SUCCESS | SUCCESS | SUCCESS | SUCCESS | PASS | $0.0256 | 180.9 | COMPLETE |
+| `9702_w23_23` | 2026-09-08 12:43 | 8 | 60 | SKIPPED | SUCCESS | SUCCESS | SUCCESS | SUCCESS | PASS | $0.0296 | 142.8 | COMPLETE |
+| `9702_w24_21` | 2026-09-08 12:38 | 7 | 60 | SKIPPED | SUCCESS | SUCCESS | SUCCESS | SUCCESS | PASS | $0.0260 | 139.3 | COMPLETE |
+| `9702_w24_22` | 2026-09-08 12:38 | 6 | 60 | SKIPPED | SUCCESS | SUCCESS | SUCCESS | SUCCESS | FAIL | $0.0239 | 133.4 | FAILED |
+| `9702_w24_23` | 2026-09-08 12:40 | 7 | 60 | SKIPPED | SUCCESS | SUCCESS | SUCCESS | SUCCESS | PASS | $0.0255 | 247.2 | COMPLETE |
+| `9702_w25_21` | 2026-09-08 12:16 | 6 | 60 | SKIPPED | SUCCESS | SUCCESS | SUCCESS | SUCCESS | PASS | $0.0232 | 185.8 | COMPLETE |
+| `9702_w25_22` | 2026-09-08 12:16 | 6 | 60 | SKIPPED | SUCCESS | SUCCESS | SUCCESS | SUCCESS | PASS | $0.0246 | 177.8 | COMPLETE |
+| `9702_w25_23` | 2026-09-08 12:15 | 6 | 60 | SKIPPED | SUCCESS | SUCCESS | SUCCESS | SUCCESS | PASS | $0.0233 | 109.3 | COMPLETE |
+| `9702_w25_24` | 2026-09-08 12:16 | 6 | 60 | SKIPPED | SUCCESS | SUCCESS | SUCCESS | SUCCESS | PASS | $0.0244 | 185.3 | COMPLETE |
+
+## Authentic Publisher Errata & Discrepancies
+
+The 5 papers marked FAILED above represent authentic Cambridge publisher discrepancies and source exceptions preserved in accordance with repository guidelines:
+
+1. `9702_m25_22`: Question paper printed marks disagree with official mark scheme marks. QP Q4 specifies [8] marks while MS allocates 11 marks; QP Q7 specifies [7] marks while MS allocates 4 marks. Overall paper mark sum remains 60.
+2. `9702_w24_22`: Question paper printed marks disagree with official mark scheme marks. QP Q4 specifies [8] marks while MS allocates 10 marks; QP Q6 specifies [11] marks while MS allocates 9 marks. Overall paper mark sum remains 60.
+3. `9702_s22_21`: Official Cambridge Mark Scheme mark sum is 58 instead of 60 (Q2 MS awards 8 marks vs QP 10 marks).
+4. `9702_s22_22`: Official Cambridge Mark Scheme mark sum is 56 instead of 60 (Q2 MS awards 7 marks vs QP 11 marks).
+5. `9702_s21_23`: Mark Scheme PDF is a scanned raster document with 90-degree rotated layout and 0 embedded text blocks; upstream extraction recorded 0 marks.
+
+## Current reconciliation status
+
+The five original orchestration outcomes above remain recorded as `FAILED`: their immutable source records contain the stated discrepancies. On 2026-09-08, all five received approved additive publisher-erratum reconciliation records, with source-PDF and locked-mark-scheme hashes. The current Physics verifier and reviewer use those records only when their PASS metadata explicitly authorizes it. Current package result: 69/69 P2 papers clean; 0 warnings and 0 errors.

@@ -1,0 +1,131 @@
+{
+  "schema_version": "9702_theory_enrichment_v1",
+  "question_id": "9702_w20_41_q07",
+  "difficulty": 3,
+  "question_patterns": [
+    "circuit_analysis",
+    "explanation"
+  ],
+  "parts": [
+    {
+      "part_id": "9702_w20_41_q07_a",
+      "label": "(a)",
+      "marks": 4,
+      "difficulty": 3,
+      "question_patterns": [
+        "circuit_analysis"
+      ],
+      "key_concepts": [
+        "op-amp comparator action",
+        "potential divider",
+        "NTC thermistor behaviour"
+      ],
+      "hints": [
+        "Hint 1: Start by thinking what decides the sign of $V_{OUT}$ for a comparator. How must $V_{+}$ compare with $V_{-}$ to give -5.0 V at low temperature and +5.0 V at high temperature?",
+        "Hint 2: Recall how an NTC thermistor changes. Is its resistance large or small at low temperature, and how would that affect the voltage at the tap of a divider made from the thermistor and a $1000 \\, \\Omega$ resistor?",
+        "Hint 3: Think about using the battery and earth lines to make two dividers. What fixed voltage would two $1000 \\, \\Omega$ resistors in series give you for a reference?",
+        "Hint 4: Decide which divider must go to which input. Which input needs the voltage that rises with temperature so the output switches from negative to positive on warming?"
+      ],
+      "proper_answer": "Two potential dividers connected between the top battery lead and the earthed bottom lead. One divider: two $1000 \\, \\Omega$ resistors in series, tap to $V_{-}$. Other divider: NTC thermistor on top to battery lead and $1000 \\, \\Omega$ resistor below to earth, tap to $V_{+}$. At low T, $V_{+} < V_{-}$ so $V_{OUT} = -5.0 \\text{ V}$; at high T, $V_{+} > V_{-}$ so $V_{OUT} = +5.0 \\text{ V}$.",
+      "walkthrough": [
+        "Step 1: **Recall how a comparator decides**\nThink of the op-amp here as just comparing its two inputs. My rule I always use is: $$V_{OUT} = +5.0 \\text{ V if } V_{+} > V_{-}$$ $$V_{OUT} = -5.0 \\text{ V if } V_{+} < V_{-}$$ You need $V_{OUT} = -5.0 \\text{ V}$ when cold and $+5.0 \\text{ V}$ when hot. So you need $V_{+} < V_{-}$ when cold and $V_{+} > V_{-}$ when hot. That means $V_{+}$ must rise with temperature while $V_{-}$ stays fixed.",
+        "Step 2: **Use the NTC behaviour to make a rising voltage**\nAn NTC thermistor has high resistance when cold and low resistance when hot. Put it in a divider with a fixed resistor. If the thermistor is at the top (to the positive battery lead) and a $1000 \\, \\Omega$ resistor is at the bottom (to earth), the tap voltage is: $$V_{+} = V_{batt} \\times \\frac{1000}{R_{th} + 1000}$$ When $R_{th}$ is large (cold), the fraction is small so $V_{+}$ is small. When $R_{th}$ falls (hot), the fraction grows so $V_{+}$ rises. That is exactly what you need.",
+        "Step 3: **Make a fixed reference for the other input**\nWith the three $1000 \\, \\Omega$ resistors available, use two of them in series between the battery top lead and earth to feed $V_{-}$: $$V_{-} = V_{batt} \\times \\frac{1000}{1000+1000} = \\frac{V_{batt}}{2}$$ This does not change with temperature. Switching happens when $V_{+} = V_{-}$, i.e. when $R_{th} = 1000 \\, \\Omega$.",
+        "Step 4: **Complete the drawing**\nConnect top horizontal wire to the top of both dividers, bottom earthed wire to the bottom of both dividers. Connect the midpoint of the two fixed resistors to the inverting (-) input, and the midpoint of the thermistor (top) and $1000 \\, \\Omega$ resistor (bottom) to the non-inverting (+) input. No extra connections to the battery or earth."
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t12",
+        "primary_module_id": "9702_t12_m01",
+        "outcome_ids": [
+          "9702_t12_m01_o03",
+          "9702_t12_m01_o02"
+        ]
+      },
+      "primary_topic_id": "9702_t12",
+      "primary_module_id": "9702_t12_m01",
+      "outcome_ids": [
+        "9702_t12_m01_o03",
+        "9702_t12_m01_o02"
+      ]
+    },
+    {
+      "part_id": "9702_w20_41_q07_b_i",
+      "label": "(b)(i)",
+      "marks": 1,
+      "difficulty": 1,
+      "question_patterns": [
+        "explanation"
+      ],
+      "key_concepts": [
+        "comparator switching condition",
+        "NTC resistance vs temperature"
+      ],
+      "hints": [
+        "Hint 1: For $V_{OUT}$ to be -5.0 V you need $V_{+} < V_{-}$. With the circuit in (a), does that need the thermistor resistance to be above or below the $1000 \\, \\Omega$ balance value at low temperature?"
+      ],
+      "proper_answer": "Any value $> 1000 \\, \\Omega$, e.g. $2000 \\, \\Omega$.",
+      "walkthrough": [
+        "Step 1: **Pick a resistance that keeps $V_{+}$ low**\nAt low temperature $V_{OUT} = -5.0 \\text{ V}$ means $V_{+} < V_{-} = V_{batt}/2$. From $$V_{+} = V_{batt} \\times \\frac{1000}{R_{th}+1000}$$ this needs $R_{th} > 1000 \\, \\Omega$. Any sensibly larger NTC value is fine, for example about $1500 \\, \\Omega$ to $2000 \\, \\Omega$."
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t14",
+        "primary_module_id": "9702_t14_m02",
+        "outcome_ids": [
+          "9702_t14_m02_o01",
+          "9702_t14_m02_o04"
+        ]
+      },
+      "primary_topic_id": "9702_t14",
+      "primary_module_id": "9702_t14_m02",
+      "outcome_ids": [
+        "9702_t14_m02_o01",
+        "9702_t14_m02_o04"
+      ]
+    },
+    {
+      "part_id": "9702_w20_41_q07_b_ii",
+      "label": "(b)(ii)",
+      "marks": 1,
+      "difficulty": 1,
+      "question_patterns": [
+        "explanation"
+      ],
+      "key_concepts": [
+        "comparator switching condition",
+        "NTC resistance vs temperature"
+      ],
+      "hints": [
+        "Hint 1: For $V_{OUT}$ to switch to +5.0 V you need $V_{+} > V_{-}$. How must the NTC resistance now compare with $1000 \\, \\Omega$ after warming?"
+      ],
+      "proper_answer": "Any value $< 1000 \\, \\Omega$, e.g. $500 \\, \\Omega$.",
+      "walkthrough": [
+        "Step 1: **Pick a resistance that pushes $V_{+}$ high**\nAt higher temperature $V_{OUT} = +5.0 \\text{ V}$ means $V_{+} > V_{-}$. This needs the divider fraction to be greater than one half, so $$R_{th} < 1000 \\, \\Omega$$ Any sensibly smaller NTC value is fine, for example about $500 \\, \\Omega$."
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t14",
+        "primary_module_id": "9702_t14_m02",
+        "outcome_ids": [
+          "9702_t14_m02_o01",
+          "9702_t14_m02_o04"
+        ]
+      },
+      "primary_topic_id": "9702_t14",
+      "primary_module_id": "9702_t14_m02",
+      "outcome_ids": [
+        "9702_t14_m02_o01",
+        "9702_t14_m02_o04"
+      ]
+    }
+  ],
+  "total_marks": 6,
+  "taxonomy_tags": {
+    "topic_ids": [
+      "9702_t12",
+      "9702_t14"
+    ],
+    "module_ids": [
+      "9702_t12_m01",
+      "9702_t14_m02"
+    ]
+  }
+}

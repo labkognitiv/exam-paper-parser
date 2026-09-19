@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Physics 9702 (2016) · Interactive Learning Record & Question Platform</title>
+  <link rel="stylesheet" href="vendor/katex/katex.min.css">
+  <link rel="stylesheet" href="styles.css">
+  <script src="vendor/katex/katex.min.js"></script>
+</head>
+<body>
+  <header class="masthead">
+    <div class="brand-block">
+      <div class="brand-mark">φ</div>
+      <div>
+        <p class="kicker">KOGNITIV · CAMBRIDGE AS PHYSICS 9702 (2016 SERIES)</p>
+        <h1>Interactive Question & Knowledge Platform</h1>
+      </div>
+    </div>
+    <div class="masthead-tools">
+      <div class="tool-item">
+        <label for="paper-select">Select Paper</label>
+        <select id="paper-select"></select>
+      </div>
+      <div class="tool-item">
+        <label for="question-select">Select Question</label>
+        <select id="question-select"></select>
+      </div>
+      <button id="view-scan-btn" class="btn-scan" type="button" title="View original scanned question paper">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+        Original Paper Scan
+      </button>
+    </div>
+  </header>
+
+  <main class="workspace-layout">
+    <!-- LEFT COLUMN: Entire Structured Interactive Question -->
+    <section class="question-column">
+      <div class="column-header">
+        <div class="badge-row">
+          <span class="badge badge-paper" id="q-paper-badge">May/June 2016 · Paper 22</span>
+          <span class="badge badge-marks" id="q-marks-badge">12 Marks</span>
+        </div>
+        <h2 class="question-main-heading" id="q-main-title">Question 1</h2>
+      </div>
+
+      <div class="question-container" id="question-container">
+        <!-- Question Stem (if present) -->
+        <div id="question-stem-block" class="question-stem-block" hidden></div>
+
+        <!-- Rendered parts hierarchy & embedded figures -->
+        <div id="parts-flow-container" class="parts-flow-container"></div>
+      </div>
+    </section>
+
+    <!-- RIGHT COLUMN: Enrichment & Background Record Inspector -->
+    <aside class="inspector-column">
+      <div class="inspector-header">
+        <div class="inspector-title-row">
+          <span class="inspector-kicker">Active Part Knowledge & Marking</span>
+          <span class="active-part-pill" id="active-part-pill">Part (a)</span>
+        </div>
+        <div class="part-quick-nav" id="part-quick-nav" aria-label="Jump to part"></div>
+      </div>
+
+      <div class="inspector-body">
+        <!-- Part Tabs (Enrichment, Hints, Walkthrough, Mark Scheme) -->
+        <div class="inspector-tabs" role="tablist">
+          <button class="tab-btn active" data-tab="learning" role="tab" aria-selected="true">Skills & Formulas</button>
+          <button class="tab-btn" data-tab="hints" role="tab" aria-selected="false">Hint Ladder <span class="tab-counter" id="hint-tab-counter">0</span></button>
+          <button class="tab-btn" data-tab="walkthrough" role="tab" aria-selected="false">Walkthrough</button>
+          <button class="tab-btn" data-tab="markscheme" role="tab" aria-selected="false">Mark Scheme</button>
+        </div>
+
+        <!-- Tab 1: Skills, Formulas, Syllabus -->
+        <div class="tab-pane active" id="tab-learning" role="tabpanel">
+          <!-- Syllabus & Classification -->
+          <div class="card-section">
+            <h3 class="section-title">Syllabus & Classification</h3>
+            <div class="meta-grid">
+              <div class="meta-item">
+                <span class="meta-label">Topic</span>
+                <span class="meta-val" id="insp-topic">-</span>
+              </div>
+              <div class="meta-item">
+                <span class="meta-label">Module</span>
+                <span class="meta-val" id="insp-module">-</span>
+              </div>
+              <div class="meta-item">
+                <span class="meta-label">Difficulty</span>
+                <div class="difficulty-rating" id="insp-difficulty"></div>
+              </div>
+            </div>
+            <div class="patterns-wrap" id="insp-patterns"></div>
+            <div class="outcomes-wrap">
+              <span class="sub-label">Learning Outcomes:</span>
+              <div id="insp-outcomes" class="outcomes-list"></div>
+            </div>
+          </div>
+
+          <!-- Skills -->
+          <div class="card-section">
+            <h3 class="section-title">Assessed Skills</h3>
+            <div id="insp-skills" class="skills-list"></div>
+          </div>
+
+          <!-- Formulas -->
+          <div class="card-section">
+            <h3 class="section-title">Major Mathematical Formulas</h3>
+            <div id="insp-formulas" class="formulas-list"></div>
+          </div>
+
+          <!-- Definitions -->
+          <div class="card-section" id="insp-def-section">
+            <h3 class="section-title">Key Definitions</h3>
+            <div id="insp-definitions" class="definitions-list"></div>
+          </div>
+        </div>
+
+        <!-- Tab 2: Hint Ladder -->
+        <div class="tab-pane" id="tab-hints" role="tabpanel">
+          <div class="card-section">
+            <div class="hint-header">
+              <h3 class="section-title">Step-by-Step Hint Ladder</h3>
+              <span class="hint-progress-badge" id="hint-progress-badge">0 / 0</span>
+            </div>
+            <p class="hint-intro">Hints provide progressive physical reasoning without giving away final numerical calculations.</p>
+            <div id="hint-ladder-container" class="hint-ladder-container"></div>
+            <button id="reveal-hint-btn" class="btn-reveal-hint" type="button">Reveal Next Hint</button>
+          </div>
+        </div>
+
+        <!-- Tab 3: Walkthrough -->
+        <div class="tab-pane" id="tab-walkthrough" role="tabpanel">
+          <div class="card-section">
+            <h3 class="section-title">Teacher Walkthrough & Physical Principles</h3>
+            <p class="walkthrough-intro">Complete step-by-step physical reasoning, equation setups, and substitutions:</p>
+            <ol id="walkthrough-steps" class="walkthrough-steps"></ol>
+          </div>
+        </div>
+
+        <!-- Tab 4: Connected Official Mark Scheme -->
+        <div class="tab-pane" id="tab-markscheme" role="tabpanel">
+          <div class="card-section">
+            <h3 class="section-title">Official Cambridge Mark Scheme</h3>
+            <p class="markscheme-intro">Canonical marking criteria, allowable alternatives, and AI observable evaluation rules:</p>
+            <div id="markscheme-criteria-list" class="criteria-list"></div>
+            <div class="checking-meta-card" id="checking-meta-card"></div>
+          </div>
+        </div>
+      </div>
+    </aside>
+  </main>
+
+  <!-- Modal for Viewing Canonical Paper Scan -->
+  <div id="scan-modal" class="modal-overlay" hidden>
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 id="modal-title">Original Scanned Exam Paper</h3>
+        <button id="modal-close-btn" class="modal-close" type="button" aria-label="Close modal">×</button>
+      </div>
+      <div class="modal-body">
+        <img id="modal-scan-img" alt="Scanned question image">
+      </div>
+    </div>
+  </div>
+
+  <footer class="app-footer">
+    <span id="footer-paper-info">Cambridge AS Physics 9702 (2016)</span>
+    <span id="footer-stats">7 Papers · 49 Questions · 275 Parts</span>
+    <span>Official Mark Schemes & Source Images Immutable</span>
+  </footer>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

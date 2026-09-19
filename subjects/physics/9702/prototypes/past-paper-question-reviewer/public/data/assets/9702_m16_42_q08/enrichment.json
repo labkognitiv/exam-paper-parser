@@ -1,0 +1,173 @@
+{
+  "schema_version": "9702_theory_enrichment_v1",
+  "question_id": "9702_m16_42_q08",
+  "difficulty": 3,
+  "question_patterns": [
+    "explanation",
+    "circuit_analysis",
+    "direct_calculation",
+    "graph_interpretation"
+  ],
+  "parts": [
+    {
+      "part_id": "9702_m16_42_q08_a",
+      "label": "(a)",
+      "marks": 2,
+      "difficulty": 1,
+      "question_patterns": [
+        "explanation"
+      ],
+      "key_concepts": [
+        "negative feedback",
+        "voltage gain reduction",
+        "bandwidth and stability"
+      ],
+      "hints": [
+        "Hint 1: Think about what happens when a fraction of the output is fed back to oppose the input - does the overall amplification get larger or smaller than the huge open-loop gain?",
+        "Hint 2: Recall the trade-off for sacrificing that huge gain - what useful improvements in bandwidth, distortion and predictable operation do you get in return?"
+      ],
+      "proper_answer": "Negative feedback decreases the voltage gain. It increases the bandwidth (decreases distortion / increases operating stability).",
+      "walkthrough": [
+        "Step 1: **Why Gain Falls With Feedback**\nAn ideal op-amp alone has a very large open-loop gain, typically $10^5$. When you feed part of $V_{OUT}$ back to the inverting input, the net input $V_+ - V_-$ is reduced, so the closed-loop gain is much smaller and is set by external resistors, not by the op-amp itself.",
+        "Step 2: **What You Gain In Return**\nThe benefit is control and quality. The amplifier has a larger bandwidth, lower distortion, and much greater stability and predictability of gain, so it behaves linearly over a wider frequency range."
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t18",
+        "primary_module_id": "9702_t18_m05",
+        "outcome_ids": [
+          "9702_t18_m05_o02",
+          "9702_t18_m05_o04"
+        ]
+      },
+      "primary_topic_id": "9702_t18",
+      "primary_module_id": "9702_t18_m05",
+      "outcome_ids": [
+        "9702_t18_m05_o02",
+        "9702_t18_m05_o04"
+      ]
+    },
+    {
+      "part_id": "9702_m16_42_q08_b_i",
+      "label": "(b)(i)",
+      "marks": 2,
+      "difficulty": 2,
+      "question_patterns": [
+        "circuit_analysis"
+      ],
+      "key_concepts": [
+        "non-inverting amplifier",
+        "feedback resistor network",
+        "V+ and V- connections"
+      ],
+      "hints": [
+        "Hint 1: A positive gain of +5.0 with no sign change tells you which type of amplifier this must be - consider where $V_{IN}$ must go for a non-inverting input.",
+        "Hint 2: Look at the floating end of the 7.2 k$\\Omega$ resistor - for a potential divider to set the feedback, where must that end go and where must the junction feed back to?"
+      ],
+      "proper_answer": "Non-inverting amplifier: $V_{IN}$ connected to $V_+$. 7.2 k$\\Omega$ resistor is feedback resistor from output to $V_-$, with an additional resistor from $V_-$ junction to 0 V earth.",
+      "walkthrough": [
+        "Step 1: **Spot The Non-Inverting Amplifier**\nA voltage gain of $+5.0$ is positive, so output is in phase with input. That means $V_{IN}$ must be applied to the non-inverting input $V_+$. The inverting input $V_-$ is used for the feedback network.",
+        "Step 2: **Complete The Feedback Loop**\nConnect the lower floating end of the 7.2 k$\\Omega$ resistor through a new resistor $R$ to earth (0 V line). Then join the junction of the 7.2 k$\\Omega$ resistor and $R$ back to $V_-$. This forms the $R_F$ and $R_1$ potential divider that sets the gain."
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t19",
+        "primary_module_id": "9702_t19_m03",
+        "outcome_ids": [
+          "9702_t19_m03_o01",
+          "9702_t19_m03_o03"
+        ]
+      },
+      "primary_topic_id": "9702_t19",
+      "primary_module_id": "9702_t19_m03",
+      "outcome_ids": [
+        "9702_t19_m03_o01",
+        "9702_t19_m03_o03"
+      ]
+    },
+    {
+      "part_id": "9702_m16_42_q08_b_ii",
+      "label": "(b)(ii)",
+      "marks": 2,
+      "difficulty": 2,
+      "question_patterns": [
+        "direct_calculation"
+      ],
+      "key_concepts": [
+        "non-inverting gain formula",
+        "feedback resistance ratio"
+      ],
+      "hints": [
+        "Hint 1: Focus on the formula linking closed-loop gain to the two resistors for this type of amplifier - which resistor is on top ($R_F$) and which goes to earth ($R_1$)?",
+        "Hint 2: Substitute $G = 5.0$ and $R_F = 7.2\\text{ k}\\Omega$ into that relation and rearrange to isolate the unknown earth resistor."
+      ],
+      "proper_answer": "$R = 1.8\\text{ k}\\Omega$.",
+      "walkthrough": [
+        "Step 1: **Write The Gain Rule**\nFor an ideal non-inverting amplifier the closed-loop gain is set only by resistors: $$G = 1 + \\frac{R_F}{R_1}$$ Here $R_F = 7.2\\text{ k}\\Omega$ is the feedback resistor from output to $V_-$, and $R_1 = R$ is the resistor from $V_-$ to earth.",
+        "Step 2: **Solve For R**\nPut $G = 5.0$ in: $$5.0 = 1 + \\frac{7.2}{R}$$ $$\\frac{7.2}{R} = 4.0$$ $$R = \\frac{7.2}{4.0} = 1.8\\text{ k}\\Omega$$ Keep the same k$\\Omega$ units throughout so no power-of-ten conversion is needed."
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t12",
+        "primary_module_id": "9702_t12_m02",
+        "outcome_ids": [
+          "9702_t12_m02_o03",
+          "9702_t12_m02_o04"
+        ]
+      },
+      "primary_topic_id": "9702_t12",
+      "primary_module_id": "9702_t12_m02",
+      "outcome_ids": [
+        "9702_t12_m02_o03",
+        "9702_t12_m02_o04"
+      ]
+    },
+    {
+      "part_id": "9702_m16_42_q08_b_iii",
+      "label": "(b)(iii)",
+      "marks": 2,
+      "difficulty": 3,
+      "question_patterns": [
+        "graph_interpretation"
+      ],
+      "key_concepts": [
+        "saturation voltage",
+        "linear amplification limit",
+        "Vout = G x Vin"
+      ],
+      "hints": [
+        "Hint 1: Start by multiplying the $V_{IN}$ graph by 5.0 - at $t = 0$ what value would you predict, and how does that compare with the $+8.0\\text{ V}$ supply limit?",
+        "Hint 2: Find the input value where the output just leaves saturation ($V_{OUT} = 8.0\\text{ V}$) and read off from Fig. 8.2 the time when $V_{IN}$ falls to that value."
+      ],
+      "proper_answer": "Horizontal line at $V_{OUT} = 8.0\\text{ V}$ from $t = 0$ to $t \\approx 1.8\\text{ ms}$, then straight line falling to $V_{OUT} = 0$ at $t = 5.0\\text{ ms}$.",
+      "walkthrough": [
+        "Step 1: **Check For Saturation First**\nIn the linear region $V_{OUT} = G \\times V_{IN} = 5.0 \\times V_{IN}$. From Fig. 8.2, $V_{IN} \\approx 2.5\\text{ V}$ at $t=0$, which would give $12.5\\text{ V}$. That exceeds the positive supply of $+8.0\\text{ V}$, so the op-amp saturates and $V_{OUT} = +8.0\\text{ V}$.",
+        "Step 2: **Find When It Comes Out Of Saturation**\nSaturation ends when $5.0 \\times V_{IN} = 8.0\\text{ V}$, i.e. $V_{IN} = 1.6\\text{ V}$. From the $V_{IN}$ line this occurs at $t \\approx 1.8\\text{ ms}$. So draw a flat $8.0\\text{ V}$ line from $(0, 8.0)$ to $(1.8, 8.0)$, then a straight falling line following $5 \\times V_{IN}$ down to $(5.0, 0)$."
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t18",
+        "primary_module_id": "9702_t18_m05",
+        "outcome_ids": [
+          "9702_t18_m05_o03",
+          "9702_t18_m05_o04"
+        ]
+      },
+      "primary_topic_id": "9702_t18",
+      "primary_module_id": "9702_t18_m05",
+      "outcome_ids": [
+        "9702_t18_m05_o03",
+        "9702_t18_m05_o04"
+      ]
+    }
+  ],
+  "total_marks": 8,
+  "taxonomy_tags": {
+    "topic_ids": [
+      "9702_t12",
+      "9702_t18",
+      "9702_t19"
+    ],
+    "module_ids": [
+      "9702_t12_m02",
+      "9702_t18_m05",
+      "9702_t19_m03"
+    ]
+  }
+}

@@ -1,0 +1,169 @@
+{
+  "schema_version": "9702_theory_enrichment_v1",
+  "question_id": "9702_s21_43_q11",
+  "difficulty": 2,
+  "question_patterns": [
+    "recall",
+    "direct_calculation",
+    "explanation"
+  ],
+  "parts": [
+    {
+      "part_id": "9702_s21_43_q11_a",
+      "label": "(a)",
+      "marks": 2,
+      "difficulty": 1,
+      "question_patterns": [
+        "recall"
+      ],
+      "key_concepts": [
+        "X-ray tube operation",
+        "beam intensity and electron rate",
+        "beam hardness and photon energy"
+      ],
+      "hints": [
+        "Hint 1: Think separately about what makes more X-ray photons per second, and what makes each photon more energetic. Which part of the tube supplies the electrons?",
+        "Hint 2: Link number of electrons to the heater of the cathode, and link energy gained by each electron to the large p.d. it accelerates through to the anode."
+      ],
+      "proper_answer": "intensity: varied by filament (heater) current / p.d. hardness: varied by accelerating p.d. between cathode and anode.",
+      "walkthrough": [
+        "Step 1: **What intensity really means**\nThink of intensity as photons per second arriving at the patient. In the tube, each thermionically emitted electron can produce X-ray photons at the target. So to get more photons you need more electrons per second.",
+        "Step 2: **Controlling the electron supply**\nThe cathode filament is heated. A larger heater current makes it hotter, so more electrons are boiled off per second by thermionic emission. That gives a more intense beam, with no change in photon energy: $$\\text{intensity} \\propto \\text{filament current}$$",
+        "Step 3: **What hardness really means**\nHardness means penetrating power, which is set by photon energy and frequency. A harder beam has higher maximum photon energy $h f_{max}$.",
+        "Step 4: **Controlling the photon energy**\nEach electron gains kinetic energy $eV$ from the accelerating p.d. $V$ between cathode and anode. At the target this sets the maximum photon energy: $$h f_{max} = eV$$ So a larger accelerating p.d. gives a harder beam."
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t24",
+        "primary_module_id": "9702_t24_m02",
+        "outcome_ids": [
+          "9702_t24_m02_o01",
+          "9702_t24_m02_o02"
+        ]
+      },
+      "primary_topic_id": "9702_t24",
+      "primary_module_id": "9702_t24_m02",
+      "outcome_ids": [
+        "9702_t24_m02_o01",
+        "9702_t24_m02_o02"
+      ]
+    },
+    {
+      "part_id": "9702_s21_43_q11_b_i",
+      "label": "(b)(i)",
+      "marks": 2,
+      "difficulty": 2,
+      "question_patterns": [
+        "direct_calculation"
+      ],
+      "key_concepts": [
+        "exponential attenuation",
+        "linear attenuation coefficient mu",
+        "transmitted intensity"
+      ],
+      "hints": [
+        "Hint 1: Look at Fig. 11.1 for the lower ray $I_S$. It passes through soft tissue only. What is the total thickness $x$ it travels through?",
+        "Hint 2: Recall how transmitted intensity falls exponentially with thickness, using the $\\mu$ value for soft tissue from Table 11.1. Keep the answer as a fraction of $I_0$."
+      ],
+      "proper_answer": "$I_S = I_0 \\exp(-\\mu x) = I_0 \\exp(-0.92 \\times 9.0) = 2.5 \\times 10^{-4} I_0$.",
+      "walkthrough": [
+        "Step 1: **Pick out the correct path**\nYou are sitting with the lower beam in Fig. 11.1. It misses the bone completely, so it travels through $x = 9.0\\text{ cm}$ of soft tissue only. From Table 11.1, $\\mu = 0.92\\text{ cm}^{-1}$ for soft tissue.",
+        "Step 2: **Apply exponential attenuation**\nX-rays are absorbed exponentially: $$I = I_0 e^{-\\mu x}$$ Substitute the numbers: $$I_S = I_0 \\exp(-0.92 \\times 9.0)$$ $$I_S = I_0 \\exp(-8.28)$$ $$I_S = 2.5 \\times 10^{-4} I_0$$ Only a tiny fraction gets through, but we keep it in terms of $I_0$."
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t24",
+        "primary_module_id": "9702_t24_m02",
+        "outcome_ids": [
+          "9702_t24_m02_o03",
+          "9702_t24_m02_o02"
+        ]
+      },
+      "primary_topic_id": "9702_t24",
+      "primary_module_id": "9702_t24_m02",
+      "outcome_ids": [
+        "9702_t24_m02_o03",
+        "9702_t24_m02_o02"
+      ]
+    },
+    {
+      "part_id": "9702_s21_43_q11_b_ii",
+      "label": "(b)(ii)",
+      "marks": 2,
+      "difficulty": 3,
+      "question_patterns": [
+        "direct_calculation"
+      ],
+      "key_concepts": [
+        "combined attenuation in two materials",
+        "effective soft tissue thickness",
+        "product of exponentials"
+      ],
+      "hints": [
+        "Hint 1: Look at the upper ray $I_C$ in Fig. 11.1. It goes through 3.0 cm of bone, but how much soft tissue is left out of the total 9.0 cm?",
+        "Hint 2: Think of attenuation in stages: the beam is reduced by soft tissue and then further by bone. How can you combine two $e^{-\\mu x}$ factors into one calculation?"
+      ],
+      "proper_answer": "$I_C = I_0 \\exp(-0.92 \\times 6.0) \\exp(-2.9 \\times 3.0) = 6.7 \\times 10^{-7} I_0$.",
+      "walkthrough": [
+        "Step 1: **Split the path into two materials**\nThe upper beam passes through the bone of thickness $3.0\\text{ cm}$. The total limb thickness is $9.0\\text{ cm}$, so the remaining soft tissue thickness is: $$x_{tissue} = 9.0 - 3.0 = 6.0\\text{ cm}$$ A common slip is to use 9.0 cm of tissue plus 3.0 cm of bone, which double counts.",
+        "Step 2: **Multiply the attenuation factors**\nAttenuation happens in series, so you multiply the exponentials: $$I_C = I_0 \\exp(-\\mu_{tissue} x_{tissue}) \\times \\exp(-\\mu_{bone} x_{bone})$$ $$I_C = I_0 \\exp(-0.92 \\times 6.0) \\times \\exp(-2.9 \\times 3.0)$$ $$I_C = I_0 \\exp(-5.52) \\times \\exp(-8.70)$$ $$I_C = 6.7 \\times 10^{-7} I_0$$ Bone absorbs much more strongly, so $I_C$ is far smaller than $I_S$."
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t24",
+        "primary_module_id": "9702_t24_m02",
+        "outcome_ids": [
+          "9702_t24_m02_o03",
+          "9702_t24_m02_o02"
+        ]
+      },
+      "primary_topic_id": "9702_t24",
+      "primary_module_id": "9702_t24_m02",
+      "outcome_ids": [
+        "9702_t24_m02_o03",
+        "9702_t24_m02_o02"
+      ]
+    },
+    {
+      "part_id": "9702_s21_43_q11_c",
+      "label": "(c)",
+      "marks": 1,
+      "difficulty": 2,
+      "question_patterns": [
+        "explanation"
+      ],
+      "key_concepts": [
+        "image contrast",
+        "intensity ratio",
+        "differential absorption"
+      ],
+      "hints": [
+        "Hint 1: Compare the size of your two answers $I_S$ and $I_C$. Contrast needs a large difference between neighbouring areas - is $I_S$ much larger than $I_C$ here?"
+      ],
+      "proper_answer": "Yes, good contrast, because $I_S \\gg I_C$ ($2.5 \\times 10^{-4} I_0$ compared with $6.7 \\times 10^{-7} I_0$, ratio about 370), so bone appears clearly distinct from soft tissue.",
+      "walkthrough": [
+        "Step 1: **Judge contrast from the ratio**\nGood contrast means the detector sees a big difference between tissue alone and tissue plus bone. Here: $$\\frac{I_S}{I_C} \\approx \\frac{2.5 \\times 10^{-4}}{6.7 \\times 10^{-7}} \\approx 370$$ $I_S$ is several hundred times $I_C$. That large difference gives a sharp light-dark distinction, so good contrast is obtained."
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t21",
+        "primary_module_id": "9702_t21_m01",
+        "outcome_ids": [
+          "9702_t21_m01_o04"
+        ]
+      },
+      "primary_topic_id": "9702_t21",
+      "primary_module_id": "9702_t21_m01",
+      "outcome_ids": [
+        "9702_t21_m01_o04"
+      ]
+    }
+  ],
+  "total_marks": 7,
+  "taxonomy_tags": {
+    "topic_ids": [
+      "9702_t21",
+      "9702_t24"
+    ],
+    "module_ids": [
+      "9702_t21_m01",
+      "9702_t24_m02"
+    ]
+  }
+}

@@ -1,0 +1,246 @@
+{
+  "elapsed_sec": 1.52,
+  "tokens": {
+    "prompt_tokens": 4615,
+    "completion_tokens": 3841,
+    "reasoning_tokens": 489,
+    "total_tokens": 8456
+  },
+  "cost_usd": 0.00123,
+  "valid_json": true,
+  "parsed_json": {
+    "question_num": 6,
+    "difficulty": 2,
+    "question_patterns": [
+      "resistivity_calculation",
+      "direct_calculation",
+      "series_circuit_analysis",
+      "LDR_behaviour"
+    ],
+    "parts": [
+      {
+        "part": "(a)",
+        "difficulty": 2,
+        "question_patterns": [
+          "resistivity_calculation"
+        ],
+        "target_time_minutes": 3,
+        "formulas_used": [
+          "R = \\frac{\\rho L}{A}",
+          "\\rho = \\frac{R}{L} \\times A"
+        ],
+        "hints": [
+          "Hint 1: Recall the relation between resistance, resistivity, length and area: $$R = \\frac{\\rho L}{A}$$. Rearrange to find resistivity using resistance per unit length $$\\frac{R}{L}$$.",
+          "Hint 2: Substitute $$\\frac{R}{L} = 0.92\\,\\Omega\\,\\mathrm{m}^{-1}$$ and $$A = 5.3 \\times 10^{-7}\\,\\mathrm{m}^2$$ into $$\\rho = \\frac{R}{L} \\times A$$ and evaluate with correct unit $$\\Omega\\,\\mathrm{m}$$."
+        ],
+        "teacher_walkthrough": [
+          "Resistivity is defined by $$R = \\frac{\\rho L}{A}$$, so $$\\rho = \\frac{RA}{L} = \\left(\\frac{R}{L}\\right) \\times A$$.",
+          "Substitute $$\\frac{R}{L} = 0.92\\,\\Omega\\,\\mathrm{m}^{-1}$$ and $$A = 5.3 \\times 10^{-7}\\,\\mathrm{m}^2$$: $$\\rho = 0.92 \\times 5.3 \\times 10^{-7}\\,\\Omega\\,\\mathrm{m}$$.",
+          "Evaluate product: $$0.92 \\times 5.3 = 4.876$$, so $$\\rho = 4.876 \\times 10^{-7}\\,\\Omega\\,\\mathrm{m}$$.",
+          "Round to two significant figures: $$\\rho = 4.9 \\times 10^{-7}\\,\\Omega\\,\\mathrm{m}$$."
+        ],
+        "walkthrough": [
+          "Use $R = \\rho L / A$.",
+          "Calculate $\\rho = 0.92 \\times 5.3 \\times 10^{-7} = 4.9 \\times 10^{-7}\\,\\Omega\\,\\mathrm{m}$."
+        ],
+        "common_pitfalls": [
+          "Dividing by area instead of multiplying: resistivity requires $\\rho = (R/L) \\times A$, not $(R/L)/A$.",
+          "Omitting the unit $\\Omega\\,\\mathrm{m}$ or writing $\\Omega\\,\\mathrm{m}^{-1}$ which is the unit of $R/L$.",
+          "Losing powers of 10 when multiplying by $10^{-7}$."
+        ]
+      },
+      {
+        "part": "(b)(i)",
+        "difficulty": 1,
+        "question_patterns": [
+          "direct_calculation"
+        ],
+        "target_time_minutes": 1,
+        "formulas_used": [
+          "I = \\frac{V}{R}"
+        ],
+        "hints": [
+          "Hint 1: Apply Ohm's law to the LDR alone, using the voltmeter reading as $V$ across the LDR and $1600\\,\\Omega$ as its resistance."
+        ],
+        "teacher_walkthrough": [
+          "Ohm's law for the LDR is $$I = \\frac{V}{R}$$ where $$V = 6.4\\,\\mathrm{V}$$ and $$R = 1600\\,\\Omega$$.",
+          "Substitute: $$I = \\frac{6.4}{1600} = 0.0040\\,\\mathrm{A}$$.",
+          "Express in standard form: $$I = 4.0 \\times 10^{-3}\\,\\mathrm{A}$$."
+        ],
+        "walkthrough": [
+          "Current = $6.4 / 1600 = 4.0 \\times 10^{-3}\\,\\mathrm{A}$."
+        ],
+        "common_pitfalls": [
+          "Using total series resistance $3000\\,\\Omega$ instead of LDR resistance $1600\\,\\Omega$.",
+          "Confusing series current with parallel branches: in this series loop the same current flows in fixed resistor and LDR."
+        ]
+      },
+      {
+        "part": "(b)(ii)",
+        "difficulty": 2,
+        "question_patterns": [
+          "charge_quantisation"
+        ],
+        "target_time_minutes": 3,
+        "formulas_used": [
+          "Q = It",
+          "Q = ne",
+          "n = \\frac{It}{e}"
+        ],
+        "hints": [
+          "Hint 1: First find total charge using $Q = It$ with $I = 4.0 \\times 10^{-3}\\,\\mathrm{A}$ and time converted from minutes to seconds.",
+          "Hint 2: Convert electron count using quantisation of charge $Q = ne$ with $e = 1.60 \\times 10^{-19}\\,\\mathrm{C}$, so $n = Q/e$."
+        ],
+        "teacher_walkthrough": [
+          "Charge flow is governed by $$Q = It$$ and quantisation $$Q = ne$$, so $$n = \\frac{It}{e}$$.",
+          "Convert time: $$t = 3.2 \\times 60 = 192\\,\\mathrm{s}$$.",
+          "Calculate charge: $$Q = 4.0 \\times 10^{-3} \\times 192 = 768 \\times 10^{-3} = 0.768\\,\\mathrm{C}$$.",
+          "Calculate number: $$n = \\frac{0.768}{1.60 \\times 10^{-19}} = 0.48 \\times 10^{19} = 4.8 \\times 10^{18}$$."
+        ],
+        "walkthrough": [
+          "Charge $= 4.0 \\times 10^{-3} \\times 3.2 \\times 60 = 0.768\\,\\mathrm{C}$.",
+          "Number $= 0.768 / 1.60 \\times 10^{-19} = 4.8 \\times 10^{18}$."
+        ],
+        "common_pitfalls": [
+          "Forgetting to convert 3.2 minutes to seconds and using 3.2 s directly.",
+          "Using $e = 1.6 \\times 10^{-19}$ incorrectly in numerator or omitting it."
+        ]
+      },
+      {
+        "part": "(b)(iii)",
+        "difficulty": 2,
+        "question_patterns": [
+          "series_circuit_analysis"
+        ],
+        "target_time_minutes": 3,
+        "formulas_used": [
+          "V = IR",
+          "E = I(R_1 + R_2)"
+        ],
+        "hints": [
+          "Hint 1: In a series circuit with negligible internal resistance, e.m.f. equals sum of p.d.s: $E = V_{fixed} + V_{LDR}$ where $V_{LDR} = 6.4\\,\\mathrm{V}$.",
+          "Hint 2: Calculate $V_{fixed} = I \\times 1400\\,\\Omega$ with $I = 4.0 \\times 10^{-3}\\,\\mathrm{A}$, then add to $6.4\\,\\mathrm{V}$."
+        ],
+        "teacher_walkthrough": [
+          "Kirchhoff's second law for negligible internal resistance gives $$E = V_{fixed} + V_{LDR}$$ with $$V = IR$$.",
+          "Calculate p.d. across fixed resistor: $$V_{fixed} = 4.0 \\times 10^{-3} \\times 1400 = 5.6\\,\\mathrm{V}$$.",
+          "Add p.d.s: $$E = 5.6 + 6.4 = 11.6$$ rounded by data to $$E = 12\\,\\mathrm{V}$$.",
+          "Alternative by total resistance: $$E = 4.0 \\times 10^{-3} \\times (1400 + 1600) = 4.0 \\times 10^{-3} \\times 3000 = 12\\,\\mathrm{V}$$."
+        ],
+        "walkthrough": [
+          "Use $E = 6.4 + (4.0 \\times 10^{-3} \\times 1400)$ or $E = 4.0 \\times 10^{-3}(1600+1400)$.",
+          "Evaluate $E = 12\\,\\mathrm{V}$."
+        ],
+        "common_pitfalls": [
+          "Assuming $E = 6.4\\,\\mathrm{V}$, ignoring the p.d. across the fixed resistor.",
+          "Using potential divider inverted: $E = 6.4 \\times (1400/3000)$ instead of $E = 6.4 \\times (3000/1600)$."
+        ]
+      },
+      {
+        "part": "(b)(iv)",
+        "difficulty": 2,
+        "question_patterns": [
+          "power_calculation"
+        ],
+        "target_time_minutes": 3,
+        "formulas_used": [
+          "P = I^2 R",
+          "P = VI",
+          "P = \\frac{V^2}{R}"
+        ],
+        "hints": [
+          "Hint 1: Recall any power form $P = I^2R = VI = V^2/R$. Since current $I$ is common in series, $P$ is proportional to $R$.",
+          "Hint 2: Set up ratio $P_{LDR}/P_{fixed}$ using consistent values, e.g. $(I^2 \\times 1600)/(I^2 \\times 1400) = 1600/1400$, or evaluate each power numerically."
+        ],
+        "teacher_walkthrough": [
+          "Electrical power dissipated is $$P = I^2 R$$. Series current $$I = 4.0 \\times 10^{-3}\\,\\mathrm{A}$$ is common to both resistors.",
+          "Power in LDR: $$P_{LDR} = (4.0 \\times 10^{-3})^2 \\times 1600 = 16 \\times 10^{-6} \\times 1600 = 25600 \\times 10^{-6} = 0.0256\\,\\mathrm{W}$$.",
+          "Power in fixed resistor: $$P_{fixed} = (4.0 \\times 10^{-3})^2 \\times 1400 = 16 \\times 10^{-6} \\times 1400 = 22400 \\times 10^{-6} = 0.0224\\,\\mathrm{W}$$.",
+          "Ratio: $$\\frac{P_{LDR}}{P_{fixed}} = \\frac{0.0256}{0.0224} = \\frac{1600}{1400} = 1.142... \\approx 1.1$$."
+        ],
+        "walkthrough": [
+          "Use $P = I^2R$ or $P = VI$ or $P = V^2/R$.",
+          "Ratio $= (6.4^2/1600)/[(4.0 \\times 10^{-3})^2 \\times 1400] = 1.1$."
+        ],
+        "common_pitfalls": [
+          "Inverting the ratio and giving $1400/1600 = 0.88$ instead of $1600/1400$.",
+          "Squaring error with $(4.0 \\times 10^{-3})^2 = 16 \\times 10^{-6}$, not $16 \\times 10^{-3}$."
+        ]
+      },
+      {
+        "part": "(c)(i)",
+        "difficulty": 1,
+        "question_patterns": [
+          "property_identification"
+        ],
+        "target_time_minutes": 1,
+        "formulas_used": [],
+        "hints": [
+          "Hint 1: Recall how LDR resistance varies with light intensity when temperature is constant."
+        ],
+        "teacher_walkthrough": [
+          "LDR resistance decreases when incident light intensity increases, as more photons release more charge carriers.",
+          "A decrease in resistance with no temperature change must be caused by an increase in light intensity."
+        ],
+        "walkthrough": [
+          "Increase."
+        ],
+        "common_pitfalls": [
+          "Linking resistance fall to temperature instead of light, despite temperature stated as unchanged.",
+          "Stating decrease because resistance decreased, confusing cause with effect."
+        ]
+      },
+      {
+        "part": "(c)(ii)",
+        "difficulty": 1,
+        "question_patterns": [
+          "series_circuit_analysis"
+        ],
+        "target_time_minutes": 1,
+        "formulas_used": [
+          "I = \\frac{E}{R_{total}}"
+        ],
+        "hints": [
+          "Hint 1: Consider total resistance $R_{total} = 1400 + R_{LDR}$ and $I = E/R_{total}$ with $E$ constant."
+        ],
+        "teacher_walkthrough": [
+          "Total resistance is $$R_{total} = 1400 + R_{LDR}$$. Current from battery is $$I = \\frac{E}{R_{total}}$$.",
+          "If $$R_{LDR}$$ decreases, $$R_{total}$$ decreases while $$E$$ is constant, so $$I$$ increases."
+        ],
+        "walkthrough": [
+          "Increase."
+        ],
+        "common_pitfalls": [
+          "Thinking current stays same because e.m.f. is unchanged, ignoring reduced total resistance.",
+          "Thinking current decreases because LDR resistance decreased."
+        ]
+      },
+      {
+        "part": "(c)(iii)",
+        "difficulty": 1,
+        "question_patterns": [
+          "potential_divider"
+        ],
+        "target_time_minutes": 1,
+        "formulas_used": [
+          "V_{LDR} = E \\times \\frac{R_{LDR}}{R_{fixed} + R_{LDR}}"
+        ],
+        "hints": [
+          "Hint 1: Use the potential divider relation $V_{LDR} = E \\times R_{LDR}/(R_{fixed}+R_{LDR})$ and consider the effect of smaller $R_{LDR}$ on its share of $E$."
+        ],
+        "teacher_walkthrough": [
+          "Potential divider gives $$V_{LDR} = E \\times \\frac{R_{LDR}}{1400 + R_{LDR}}$$.",
+          "When $$R_{LDR}$$ falls, its fraction of total resistance falls, so its share of p.d. falls even though total current rises. Voltmeter reading decreases."
+        ],
+        "walkthrough": [
+          "Decrease."
+        ],
+        "common_pitfalls": [
+          "Assuming voltmeter rises because circuit current rises, ignoring that $V = IR_{LDR}$ with smaller $R_{LDR}$ dominates.",
+          "Confusing voltmeter across LDR with voltmeter across fixed resistor, which would increase."
+        ]
+      }
+    ]
+  },
+  "raw_content": "{\n  \"question_num\": 6,\n  \"difficulty\": 2,\n  \"question_patterns\": [\n    \"resistivity_calculation\",\n    \"direct_calculation\",\n    \"series_circuit_analysis\",\n    \"LDR_behaviour\"\n  ],\n  \"parts\": [\n    {\n      \"part\": \"(a)\",\n      \"difficulty\": 2,\n      \"question_patterns\": [\n        \"resistivity_calculation\"\n      ],\n      \"target_time_minutes\": 3,\n      \"formulas_used\": [\n        \"R = \\\\frac{\\\\rho L}{A}\",\n        \"\\\\rho = \\\\frac{R}{L} \\\\times A\"\n      ],\n      \"hints\": [\n        \"Hint 1: Recall the relation between resistance, resistivity, length and area: $$R = \\\\frac{\\\\rho L}{A}$$. Rearrange to find resistivity using resistance per unit length $$\\\\frac{R}{L}$$.\",\n        \"Hint 2: Substitute $$\\\\frac{R}{L} = 0.92\\\\,\\\\Omega\\\\,\\\\mathrm{m}^{-1}$$ and $$A = 5.3 \\\\times 10^{-7}\\\\,\\\\mathrm{m}^2$$ into $$\\\\rho = \\\\frac{R}{L} \\\\times A$$ and evaluate with correct unit $$\\\\Omega\\\\,\\\\mathrm{m}$$.\"\n      ],\n      \"teacher_walkthrough\": [\n        \"Resistivity is defined by $$R = \\\\frac{\\\\rho L}{A}$$, so $$\\\\rho = \\\\frac{RA}{L} = \\\\left(\\\\frac{R}{L}\\\\right) \\\\times A$$.\",\n        \"Substitute $$\\\\frac{R}{L} = 0.92\\\\,\\\\Omega\\\\,\\\\mathrm{m}^{-1}$$ and $$A = 5.3 \\\\times 10^{-7}\\\\,\\\\mathrm{m}^2$$: $$\\\\rho = 0.92 \\\\times 5.3 \\\\times 10^{-7}\\\\,\\\\Omega\\\\,\\\\mathrm{m}$$.\",\n        \"Evaluate product: $$0.92 \\\\times 5.3 = 4.876$$, so $$\\\\rho = 4.876 \\\\times 10^{-7}\\\\,\\\\Omega\\\\,\\\\mathrm{m}$$.\",\n        \"Round to two significant figures: $$\\\\rho = 4.9 \\\\times 10^{-7}\\\\,\\\\Omega\\\\,\\\\mathrm{m}$$.\"\n      ],\n      \"walkthrough\": [\n        \"Use $R = \\\\rho L / A$.\",\n        \"Calculate $\\\\rho = 0.92 \\\\times 5.3 \\\\times 10^{-7} = 4.9 \\\\times 10^{-7}\\\\,\\\\Omega\\\\,\\\\mathrm{m}$.\"\n      ],\n      \"common_pitfalls\": [\n        \"Dividing by area instead of multiplying: resistivity requires $\\\\rho = (R/L) \\\\times A$, not $(R/L)/A$.\",\n        \"Omitting the unit $\\\\Omega\\\\,\\\\mathrm{m}$ or writing $\\\\Omega\\\\,\\\\mathrm{m}^{-1}$ which is the unit of $R/L$.\",\n        \"Losing powers of 10 when multiplying by $10^{-7}$.\"\n      ]\n    },\n    {\n      \"part\": \"(b)(i)\",\n      \"difficulty\": 1,\n      \"question_patterns\": [\n        \"direct_calculation\"\n      ],\n      \"target_time_minutes\": 1,\n      \"formulas_used\": [\n        \"I = \\\\frac{V}{R}\"\n      ],\n      \"hints\": [\n        \"Hint 1: Apply Ohm's law to the LDR alone, using the voltmeter reading as $V$ across the LDR and $1600\\\\,\\\\Omega$ as its resistance.\"\n      ],\n      \"teacher_walkthrough\": [\n        \"Ohm's law for the LDR is $$I = \\\\frac{V}{R}$$ where $$V = 6.4\\\\,\\\\mathrm{V}$$ and $$R = 1600\\\\,\\\\Omega$$.\",\n        \"Substitute: $$I = \\\\frac{6.4}{1600} = 0.0040\\\\,\\\\mathrm{A}$$.\",\n        \"Express in standard form: $$I = 4.0 \\\\times 10^{-3}\\\\,\\\\mathrm{A}$$.\"\n      ],\n      \"walkthrough\": [\n        \"Current = $6.4 / 1600 = 4.0 \\\\times 10^{-3}\\\\,\\\\mathrm{A}$.\"\n      ],\n      \"common_pitfalls\": [\n        \"Using total series resistance $3000\\\\,\\\\Omega$ instead of LDR resistance $1600\\\\,\\\\Omega$.\",\n        \"Confusing series current with parallel branches: in this series loop the same current flows in fixed resistor and LDR.\"\n      ]\n    },\n    {\n      \"part\": \"(b)(ii)\",\n      \"difficulty\": 2,\n      \"question_patterns\": [\n        \"charge_quantisation\"\n      ],\n      \"target_time_minutes\": 3,\n      \"formulas_used\": [\n        \"Q = It\",\n        \"Q = ne\",\n        \"n = \\\\frac{It}{e}\"\n      ],\n      \"hints\": [\n        \"Hint 1: First find total charge using $Q = It$ with $I = 4.0 \\\\times 10^{-3}\\\\,\\\\mathrm{A}$ and time converted from minutes to seconds.\",\n        \"Hint 2: Convert electron count using quantisation of charge $Q = ne$ with $e = 1.60 \\\\times 10^{-19}\\\\,\\\\mathrm{C}$, so $n = Q/e$.\"\n      ],\n      \"teacher_walkthrough\": [\n        \"Charge flow is governed by $$Q = It$$ and quantisation $$Q = ne$$, so $$n = \\\\frac{It}{e}$$.\",\n        \"Convert time: $$t = 3.2 \\\\times 60 = 192\\\\,\\\\mathrm{s}$$.\",\n        \"Calculate charge: $$Q = 4.0 \\\\times 10^{-3} \\\\times 192 = 768 \\\\times 10^{-3} = 0.768\\\\,\\\\mathrm{C}$$.\",\n        \"Calculate number: $$n = \\\\frac{0.768}{1.60 \\\\times 10^{-19}} = 0.48 \\\\times 10^{19} = 4.8 \\\\times 10^{18}$$.\"\n      ],\n      \"walkthrough\": [\n        \"Charge $= 4.0 \\\\times 10^{-3} \\\\times 3.2 \\\\times 60 = 0.768\\\\,\\\\mathrm{C}$.\",\n        \"Number $= 0.768 / 1.60 \\\\times 10^{-19} = 4.8 \\\\times 10^{18}$.\"\n      ],\n      \"common_pitfalls\": [\n        \"Forgetting to convert 3.2 minutes to seconds and using 3.2 s directly.\",\n        \"Using $e = 1.6 \\\\times 10^{-19}$ incorrectly in numerator or omitting it.\"\n      ]\n    },\n    {\n      \"part\": \"(b)(iii)\",\n      \"difficulty\": 2,\n      \"question_patterns\": [\n        \"series_circuit_analysis\"\n      ],\n      \"target_time_minutes\": 3,\n      \"formulas_used\": [\n        \"V = IR\",\n        \"E = I(R_1 + R_2)\"\n      ],\n      \"hints\": [\n        \"Hint 1: In a series circuit with negligible internal resistance, e.m.f. equals sum of p.d.s: $E = V_{fixed} + V_{LDR}$ where $V_{LDR} = 6.4\\\\,\\\\mathrm{V}$.\",\n        \"Hint 2: Calculate $V_{fixed} = I \\\\times 1400\\\\,\\\\Omega$ with $I = 4.0 \\\\times 10^{-3}\\\\,\\\\mathrm{A}$, then add to $6.4\\\\,\\\\mathrm{V}$.\"\n      ],\n      \"teacher_walkthrough\": [\n        \"Kirchhoff's second law for negligible internal resistance gives $$E = V_{fixed} + V_{LDR}$$ with $$V = IR$$.\",\n        \"Calculate p.d. across fixed resistor: $$V_{fixed} = 4.0 \\\\times 10^{-3} \\\\times 1400 = 5.6\\\\,\\\\mathrm{V}$$.\",\n        \"Add p.d.s: $$E = 5.6 + 6.4 = 11.6$$ rounded by data to $$E = 12\\\\,\\\\mathrm{V}$$.\",\n        \"Alternative by total resistance: $$E = 4.0 \\\\times 10^{-3} \\\\times (1400 + 1600) = 4.0 \\\\times 10^{-3} \\\\times 3000 = 12\\\\,\\\\mathrm{V}$$.\"\n      ],\n      \"walkthrough\": [\n        \"Use $E = 6.4 + (4.0 \\\\times 10^{-3} \\\\times 1400)$ or $E = 4.0 \\\\times 10^{-3}(1600+1400)$.\",\n        \"Evaluate $E = 12\\\\,\\\\mathrm{V}$.\"\n      ],\n      \"common_pitfalls\": [\n        \"Assuming $E = 6.4\\\\,\\\\mathrm{V}$, ignoring the p.d. across the fixed resistor.\",\n        \"Using potential divider inverted: $E = 6.4 \\\\times (1400/3000)$ instead of $E = 6.4 \\\\times (3000/1600)$.\"\n      ]\n    },\n    {\n      \"part\": \"(b)(iv)\",\n      \"difficulty\": 2,\n      \"question_patterns\": [\n        \"power_calculation\"\n      ],\n      \"target_time_minutes\": 3,\n      \"formulas_used\": [\n        \"P = I^2 R\",\n        \"P = VI\",\n        \"P = \\\\frac{V^2}{R}\"\n      ],\n      \"hints\": [\n        \"Hint 1: Recall any power form $P = I^2R = VI = V^2/R$. Since current $I$ is common in series, $P$ is proportional to $R$.\",\n        \"Hint 2: Set up ratio $P_{LDR}/P_{fixed}$ using consistent values, e.g. $(I^2 \\\\times 1600)/(I^2 \\\\times 1400) = 1600/1400$, or evaluate each power numerically.\"\n      ],\n      \"teacher_walkthrough\": [\n        \"Electrical power dissipated is $$P = I^2 R$$. Series current $$I = 4.0 \\\\times 10^{-3}\\\\,\\\\mathrm{A}$$ is common to both resistors.\",\n        \"Power in LDR: $$P_{LDR} = (4.0 \\\\times 10^{-3})^2 \\\\times 1600 = 16 \\\\times 10^{-6} \\\\times 1600 = 25600 \\\\times 10^{-6} = 0.0256\\\\,\\\\mathrm{W}$$.\",\n        \"Power in fixed resistor: $$P_{fixed} = (4.0 \\\\times 10^{-3})^2 \\\\times 1400 = 16 \\\\times 10^{-6} \\\\times 1400 = 22400 \\\\times 10^{-6} = 0.0224\\\\,\\\\mathrm{W}$$.\",\n        \"Ratio: $$\\\\frac{P_{LDR}}{P_{fixed}} = \\\\frac{0.0256}{0.0224} = \\\\frac{1600}{1400} = 1.142... \\\\approx 1.1$$.\"\n      ],\n      \"walkthrough\": [\n        \"Use $P = I^2R$ or $P = VI$ or $P = V^2/R$.\",\n        \"Ratio $= (6.4^2/1600)/[(4.0 \\\\times 10^{-3})^2 \\\\times 1400] = 1.1$.\"\n      ],\n      \"common_pitfalls\": [\n        \"Inverting the ratio and giving $1400/1600 = 0.88$ instead of $1600/1400$.\",\n        \"Squaring error with $(4.0 \\\\times 10^{-3})^2 = 16 \\\\times 10^{-6}$, not $16 \\\\times 10^{-3}$.\"\n      ]\n    },\n    {\n      \"part\": \"(c)(i)\",\n      \"difficulty\": 1,\n      \"question_patterns\": [\n        \"property_identification\"\n      ],\n      \"target_time_minutes\": 1,\n      \"formulas_used\": [],\n      \"hints\": [\n        \"Hint 1: Recall how LDR resistance varies with light intensity when temperature is constant.\"\n      ],\n      \"teacher_walkthrough\": [\n        \"LDR resistance decreases when incident light intensity increases, as more photons release more charge carriers.\",\n        \"A decrease in resistance with no temperature change must be caused by an increase in light intensity.\"\n      ],\n      \"walkthrough\": [\n        \"Increase.\"\n      ],\n      \"common_pitfalls\": [\n        \"Linking resistance fall to temperature instead of light, despite temperature stated as unchanged.\",\n        \"Stating decrease because resistance decreased, confusing cause with effect.\"\n      ]\n    },\n    {\n      \"part\": \"(c)(ii)\",\n      \"difficulty\": 1,\n      \"question_patterns\": [\n        \"series_circuit_analysis\"\n      ],\n      \"target_time_minutes\": 1,\n      \"formulas_used\": [\n        \"I = \\\\frac{E}{R_{total}}\"\n      ],\n      \"hints\": [\n        \"Hint 1: Consider total resistance $R_{total} = 1400 + R_{LDR}$ and $I = E/R_{total}$ with $E$ constant.\"\n      ],\n      \"teacher_walkthrough\": [\n        \"Total resistance is $$R_{total} = 1400 + R_{LDR}$$. Current from battery is $$I = \\\\frac{E}{R_{total}}$$.\",\n        \"If $$R_{LDR}$$ decreases, $$R_{total}$$ decreases while $$E$$ is constant, so $$I$$ increases.\"\n      ],\n      \"walkthrough\": [\n        \"Increase.\"\n      ],\n      \"common_pitfalls\": [\n        \"Thinking current stays same because e.m.f. is unchanged, ignoring reduced total resistance.\",\n        \"Thinking current decreases because LDR resistance decreased.\"\n      ]\n    },\n    {\n      \"part\": \"(c)(iii)\",\n      \"difficulty\": 1,\n      \"question_patterns\": [\n        \"potential_divider\"\n      ],\n      \"target_time_minutes\": 1,\n      \"formulas_used\": [\n        \"V_{LDR} = E \\\\times \\\\frac{R_{LDR}}{R_{fixed} + R_{LDR}}\"\n      ],\n      \"hints\": [\n        \"Hint 1: Use the potential divider relation $V_{LDR} = E \\\\times R_{LDR}/(R_{fixed}+R_{LDR})$ and consider the effect of smaller $R_{LDR}$ on its share of $E$.\"\n      ],\n      \"teacher_walkthrough\": [\n        \"Potential divider gives $$V_{LDR} = E \\\\times \\\\frac{R_{LDR}}{1400 + R_{LDR}}$$.\",\n        \"When $$R_{LDR}$$ falls, its fraction of total resistance falls, so its share of p.d. falls even though total current rises. Voltmeter reading decreases.\"\n      ],\n      \"walkthrough\": [\n        \"Decrease.\"\n      ],\n      \"common_pitfalls\": [\n        \"Assuming voltmeter rises because circuit current rises, ignoring that $V = IR_{LDR}$ with smaller $R_{LDR}$ dominates.\",\n        \"Confusing voltmeter across LDR with voltmeter across fixed resistor, which would increase.\"\n      ]\n    }\n  ]\n}"
+}

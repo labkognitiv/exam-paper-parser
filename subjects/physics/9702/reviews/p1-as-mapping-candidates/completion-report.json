@@ -1,0 +1,71 @@
+{
+  "schema_version": "9702_p1_as_lesson_mapping_completion_report_v1",
+  "scope": "Physics 9702 P1, all 69 papers and 2760 MCQs",
+  "status": "PASS",
+  "runtime": {
+    "primary_full_run_wall_seconds": 2235.886,
+    "targeted_repair_wall_seconds": 21.381,
+    "primary_plus_repair_wall_seconds": 2257.267,
+    "preflight_proof_wall_seconds": 87.411,
+    "known_model_elapsed_seconds": 8611.184,
+    "phase_note": "The primary full run includes initial mapping, retries and low-confidence review. The targeted repair completed the five missing rows in 9702_w16_11. The preflight proof is reported separately and is not included in primary_plus_repair."
+  },
+  "mapping": {
+    "papers": 69,
+    "mcqs": 2760,
+    "complete_papers": 69,
+    "nonnull_valid_lesson_tuples": 2760,
+    "direct": 2682,
+    "contextual_skill": 8,
+    "legacy_content": 70
+  },
+  "review": {
+    "initial_low_confidence": 13,
+    "reviewed_rows": 13,
+    "still_low_after_review": 13,
+    "unreviewed_initial_low_rows": 0
+  },
+  "accounting": {
+    "known_cost_usd": 0.995448986,
+    "known_prompt_tokens": 10586744,
+    "known_completion_tokens": 762776,
+    "known_total_tokens": 11349520,
+    "exact_total_cost_and_tokens": "unavailable",
+    "missing_receipt_count": 1,
+    "missing_receipt_reason": "A null-content model response escaped before atomic persistence, and no generation receipt was retained."
+  },
+  "failures": {
+    "historical_failed_calls": 7,
+    "final_unresolved_failures": 0,
+    "note": "Historical failures remain in per-paper metadata; all affected mapping rows were subsequently resolved."
+  },
+  "paths": {
+    "runner": "scripts/p1/bulk_map_p1_as_candidates.py",
+    "reference_validation": "reviews/p1-as-mapping-candidates/reference-validation.json",
+    "manifest": "reviews/p1-as-mapping-candidates/manifest.json",
+    "aggregate": "reviews/p1-as-mapping-candidates/resolved-all.json",
+    "per_paper": "reviews/p1-as-mapping-candidates/<paper_id>/{candidate.json,firstpass.json,resolved.json,meta.json}"
+  },
+  "validation": [
+    {
+      "command": "python3 -m py_compile scripts/p1/bulk_map_p1_as_candidates.py",
+      "result": "PASS"
+    },
+    {
+      "command": "python3 scripts/p1/bulk_map_p1_as_candidates.py --validate-only",
+      "result": "PASS: 69 papers, 2760 rows; IDs, answers, tuples, duplicate rows and reviewed-low receipts validated"
+    },
+    {
+      "command": "python3 scripts/p1/bulk_map_p1_as_candidates.py --finalize-only",
+      "result": "PASS: rebuilt full-corpus manifest and resolved aggregate"
+    },
+    {
+      "command": "python3 subjects/physics/9702/scripts/taxonomy/validate_topic_curriculum.py",
+      "result": "PASS: all 25 topics, 300 outcomes, module/lesson structures and prerequisite DAGs"
+    },
+    {
+      "command": "python3 scripts/verify_physics_paper.py --component p1",
+      "result": "NOT APPLICABLE: this legacy verifier enumerated 0 P1 papers, so it is not evidence for this mapping output"
+    }
+  ]
+}

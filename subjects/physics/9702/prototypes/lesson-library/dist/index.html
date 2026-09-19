@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Unified local viewer for Kognitiv Biology, Physics and Chemistry HTML lessons.">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23191a23'/%3E%3Cpath d='M17 16h30v32H17z' fill='%23fff'/%3E%3Cpath d='M23 23h18M23 31h18M23 39h12' stroke='%2300a88f' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E">
+  <title>Kognitiv Lesson Library</title>
+  <style>
+    :root { --ink:#191a23; --muted:#6c7080; --line:#dfe2e8; --paper:#f5f6f8; --card:#fff; --teal:#007f73; --purple:#5d4bb7; --chem:#b25b13; }
+    * { box-sizing:border-box; }
+    body { margin:0; height:100vh; overflow:hidden; color:var(--ink); background:var(--paper); font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif; }
+    button,input,select { font:inherit; }
+    .app { display:grid; grid-template-columns:390px minmax(0,1fr); height:100vh; }
+    .library { display:flex; flex-direction:column; min-width:0; border-right:1px solid var(--line); background:var(--card); }
+    header { padding:22px 22px 16px; border-bottom:1px solid var(--line); }
+    .brand { display:flex; align-items:center; justify-content:space-between; gap:12px; }
+    h1 { margin:0; font-size:21px; letter-spacing:-.03em; }
+    #total { color:var(--muted); font-size:13px; font-weight:700; }
+    .search { width:100%; margin-top:17px; padding:12px 14px; border:1px solid var(--line); border-radius:11px; background:#fafbfc; color:var(--ink); outline:none; }
+    .search:focus { border-color:var(--teal); box-shadow:0 0 0 3px rgba(0,127,115,.12); }
+    .filters { display:grid; grid-template-columns:1fr 1fr; gap:9px; margin-top:10px; }
+    select { min-width:0; padding:10px 11px; border:1px solid var(--line); border-radius:10px; background:white; color:var(--ink); }
+    .list { flex:1; overflow:auto; padding:10px; }
+    .lesson { width:100%; padding:13px 12px; border:1px solid transparent; border-radius:12px; background:transparent; text-align:left; cursor:pointer; }
+    .lesson:hover { background:#f4f6f8; }
+    .lesson.active { border-color:rgba(0,127,115,.24); background:#eaf6f3; }
+    .lesson-top { display:flex; align-items:center; gap:8px; margin-bottom:6px; }
+    .dot { width:8px; height:8px; flex:none; border-radius:50%; background:var(--teal); }
+    .dot.Physics { background:var(--purple); }
+    .dot.Chemistry { background:var(--chem); }
+    .subject { color:var(--muted); font-size:12px; font-weight:800; text-transform:uppercase; letter-spacing:.08em; }
+    .lesson-title { display:block; overflow:hidden; color:var(--ink); font-size:15px; font-weight:720; line-height:1.35; text-overflow:ellipsis; white-space:nowrap; }
+    .meta { display:block; margin-top:4px; overflow:hidden; color:var(--muted); font-size:12px; text-overflow:ellipsis; white-space:nowrap; }
+    .viewer { display:grid; grid-template-rows:auto minmax(0,1fr); min-width:0; background:#e9ebef; }
+    .toolbar { display:flex; align-items:center; gap:14px; min-height:70px; padding:11px 18px; border-bottom:1px solid var(--line); background:white; }
+    .current { min-width:0; flex:1; }
+    .current h2 { margin:0; overflow:hidden; font-size:17px; text-overflow:ellipsis; white-space:nowrap; }
+    .current p { margin:4px 0 0; color:var(--muted); font-size:12px; }
+    .actions { display:flex; gap:7px; }
+    .actions button,.actions a { display:grid; min-width:39px; height:39px; place-items:center; border:1px solid var(--line); border-radius:10px; background:white; color:var(--ink); text-decoration:none; cursor:pointer; }
+    .actions button:hover,.actions a:hover { border-color:var(--teal); color:var(--teal); }
+    .actions button:disabled { cursor:not-allowed; opacity:.35; }
+    iframe { width:100%; height:100%; border:0; background:white; }
+    .empty { display:grid; height:100%; place-items:center; padding:30px; color:var(--muted); text-align:center; }
+    .mobile-toggle { display:none; }
+    @media (max-width:800px) {
+      .app { grid-template-columns:1fr; }
+      .library { position:fixed; inset:0 12% 0 0; z-index:5; box-shadow:24px 0 60px rgba(25,26,35,.18); transform:translateX(-110%); transition:transform .2s ease; }
+      body.menu-open .library { transform:translateX(0); }
+      .mobile-toggle { display:grid !important; }
+      .toolbar { padding-inline:10px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="app">
+    <aside class="library" aria-label="Lesson library">
+      <header>
+        <div class="brand"><h1>Lesson Library</h1><span id="total">Loading...</span></div>
+        <input class="search" id="search" type="search" placeholder="Search title, topic or lesson ID" aria-label="Search lessons">
+        <div class="filters">
+          <select id="subject" aria-label="Filter by subject"><option value="">All subjects</option></select>
+          <select id="topic" aria-label="Filter by topic"><option value="">All topics</option></select>
+        </div>
+      </header>
+      <div class="list" id="list"></div>
+    </aside>
+    <section class="viewer">
+      <div class="toolbar">
+        <div class="actions"><button class="mobile-toggle" id="menu" aria-label="Open lesson library">☰</button></div>
+        <div class="current"><h2 id="current-title">Choose a lesson</h2><p id="current-meta">Biology, Physics and Chemistry in one place</p></div>
+        <div class="actions">
+          <button id="prev" aria-label="Previous lesson" title="Previous lesson">←</button>
+          <button id="next" aria-label="Next lesson" title="Next lesson">→</button>
+          <a id="open" href="#" target="_blank" rel="noopener" aria-label="Open lesson in new tab" title="Open in new tab">↗</a>
+        </div>
+      </div>
+      <div id="stage" class="empty">Select a lesson from the library.</div>
+    </section>
+  </main>
+  <script>
+    const state = { lessons: [], filtered: [], selected: -1 };
+    const $ = id => document.getElementById(id);
+    const escapeHtml = text => text.replace(/[&<>"']/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
+
+    function unique(values) { return [...new Set(values)].sort(); }
+    function fillSelect(select, values, label) {
+      const current = select.value;
+      select.innerHTML = `<option value="">All ${label}</option>` + values.map(value => `<option>${escapeHtml(value)}</option>`).join('');
+      if (values.includes(current)) select.value = current;
+    }
+
+    function filterLessons() {
+      const query = $('search').value.trim().toLowerCase();
+      const subject = $('subject').value;
+      const topic = $('topic').value;
+      state.filtered = state.lessons.filter(lesson =>
+        (!subject || lesson.subject === subject) &&
+        (!topic || lesson.topic === topic) &&
+        (!query || `${lesson.title} ${lesson.topic} ${lesson.id}`.toLowerCase().includes(query))
+      );
+      const topics = unique(state.lessons.filter(x => !subject || x.subject === subject).map(x => x.topic));
+      fillSelect($('topic'), topics, 'topics');
+      renderList();
+    }
+
+    function renderList() {
+      $('total').textContent = `${state.filtered.length} of ${state.lessons.length}`;
+      $('list').innerHTML = state.filtered.length ? state.filtered.map((lesson, index) => `
+        <button class="lesson ${index === state.selected ? 'active' : ''}" data-index="${index}">
+          <span class="lesson-top"><i class="dot ${lesson.subject}"></i><span class="subject">${lesson.subject}</span></span>
+          <span class="lesson-title">${escapeHtml(lesson.title)}</span>
+          <span class="meta">${escapeHtml(lesson.topic)} · ${lesson.id}</span>
+        </button>`).join('') : '<div class="empty">No matching lessons.</div>';
+      document.querySelectorAll('.lesson').forEach(button => button.addEventListener('click', () => selectLesson(Number(button.dataset.index))));
+    }
+
+    function selectLesson(index) {
+      if (!state.filtered.length) return;
+      state.selected = Math.max(0, Math.min(index, state.filtered.length - 1));
+      const lesson = state.filtered[state.selected];
+      $('current-title').textContent = lesson.title;
+      $('current-meta').textContent = `${lesson.subject} · ${lesson.topic} · ${lesson.id} · ${lesson.source}`;
+      $('open').href = lesson.url;
+      $('stage').className = '';
+      $('stage').innerHTML = `<iframe title="${escapeHtml(lesson.title)}" src="${lesson.url}"></iframe>`;
+      $('prev').disabled = state.selected === 0;
+      $('next').disabled = state.selected === state.filtered.length - 1;
+      document.body.classList.remove('menu-open');
+      renderList();
+      document.querySelector('.lesson.active')?.scrollIntoView({ block: 'nearest' });
+    }
+
+    async function init() {
+      const response = await fetch('/api/lessons');
+      state.lessons = await response.json();
+      fillSelect($('subject'), unique(state.lessons.map(x => x.subject)), 'subjects');
+      filterLessons();
+      if (state.filtered.length) selectLesson(0);
+    }
+
+    $('search').addEventListener('input', filterLessons);
+    $('subject').addEventListener('change', () => { $('topic').value = ''; filterLessons(); });
+    $('topic').addEventListener('change', filterLessons);
+    $('prev').addEventListener('click', () => selectLesson(state.selected - 1));
+    $('next').addEventListener('click', () => selectLesson(state.selected + 1));
+    $('menu').addEventListener('click', () => document.body.classList.toggle('menu-open'));
+    document.addEventListener('keydown', event => {
+      if (event.target.matches('input,select')) return;
+      if (event.key === 'ArrowLeft') selectLesson(state.selected - 1);
+      if (event.key === 'ArrowRight') selectLesson(state.selected + 1);
+    });
+    init().catch(() => { $('stage').textContent = 'Could not load the lesson index.'; });
+  </script>
+</body>
+</html>

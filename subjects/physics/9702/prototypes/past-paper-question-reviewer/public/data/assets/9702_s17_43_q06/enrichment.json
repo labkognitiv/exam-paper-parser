@@ -1,0 +1,202 @@
+{
+  "schema_version": "9702_theory_enrichment_v1",
+  "question_id": "9702_s17_43_q06",
+  "difficulty": 2,
+  "question_patterns": [
+    "explanation",
+    "circuit_analysis"
+  ],
+  "parts": [
+    {
+      "part_id": "9702_s17_43_q06_a_i",
+      "label": "(a)(i)",
+      "marks": 2,
+      "difficulty": 1,
+      "question_patterns": [
+        "explanation"
+      ],
+      "key_concepts": [
+        "op-amp output current limit",
+        "mains power requirement",
+        "electrical isolation by relay"
+      ],
+      "hints": [
+        "Hint 1: Compare the electrical demands of the two sides of the circuit - what does a mains lamp need to light, and what can the small 6 V sensing circuit and op-amp actually supply?",
+        "Hint 2: Think about current and isolation - how can a tiny control current be used to safely switch a separate high-voltage, high-current mains circuit?"
+      ],
+      "proper_answer": "The mains lamp requires a large current / high power at high voltage. The op-amp can supply only a very small output current at low voltage (+/-5 V). A relay allows the small op-amp current to switch the large mains current, with isolation between circuits.",
+      "walkthrough": [
+        "Step 1: **What the lamp needs**\nThink of the output as two different worlds. The lamp is a mains device, so it needs about 230 V a.c. and a relatively large current to give high power, perhaps tens to hundreds of watts.",
+        "Step 2: **What the op-amp can give**\nThe sensing circuit and op-amp run on low d.c. voltages, here with saturation at about $+5\\text{ V}$ and $-5\\text{ V}$. An op-amp can deliver only a few mA of output current. It cannot directly drive the lamp and must not be connected directly to the mains.",
+        "Step 3: **Role of the relay**\nA relay solves both problems. A small current from the op-amp energises an electromagnet coil, which then mechanically closes a separate switch in the mains circuit. So the low-power electronics controls the high-power lamp safely with electrical isolation."
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t21",
+        "primary_module_id": "9702_t21_m01",
+        "outcome_ids": [
+          "9702_t21_m01_o03",
+          "9702_t21_m01_o02"
+        ]
+      },
+      "primary_topic_id": "9702_t21",
+      "primary_module_id": "9702_t21_m01",
+      "outcome_ids": [
+        "9702_t21_m01_o03",
+        "9702_t21_m01_o02"
+      ]
+    },
+    {
+      "part_id": "9702_s17_43_q06_a_ii",
+      "label": "(a)(ii)",
+      "marks": 2,
+      "difficulty": 2,
+      "question_patterns": [
+        "circuit_analysis"
+      ],
+      "key_concepts": [
+        "relay coil symbol",
+        "relay switch in mains circuit",
+        "output isolation"
+      ],
+      "hints": [
+        "Hint 1: Follow the signal path - where must the electromagnet coil go so it is energised by the op-amp output current returning to 0 V earth?",
+        "Hint 2: Now follow the mains loop on the right - where must the magnetically operated switch go so it can complete or break the circuit to the lamp?"
+      ],
+      "proper_answer": "Relay coil connected between diode output (op-amp output via D) and 0 V / earth line. Relay switch contacts connected in series with the mains supply and lamp, to make/break the mains loop.",
+      "walkthrough": [
+        "Step 1: **Placing the coil**\nThe coil is the input side of the relay. Connect one end to the line coming from the op-amp output through diode D, and the other end to the 0 V earth return line at the bottom of Fig. 6.1. Then when $V_{OUT}$ is positive, current flows through D and the coil to earth and the relay is energised.",
+        "Step 2: **Placing the switch**\nThe switch is the output side of the relay. On the separate mains diagram on the right, draw the relay switch symbol in series with the supply and the lamp, i.e. breaking the loop: supply - switch - lamp - supply. When the coil is energised the switch closes and the lamp lights, keeping the high-voltage mains isolated from the low-voltage op-amp circuit."
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t19",
+        "primary_module_id": "9702_t19_m02",
+        "outcome_ids": [
+          "9702_t19_m02_o01",
+          "9702_t19_m02_o02"
+        ]
+      },
+      "primary_topic_id": "9702_t19",
+      "primary_module_id": "9702_t19_m02",
+      "outcome_ids": [
+        "9702_t19_m02_o01",
+        "9702_t19_m02_o02"
+      ]
+    },
+    {
+      "part_id": "9702_s17_43_q06_b_i",
+      "label": "(b)(i)",
+      "marks": 1,
+      "difficulty": 1,
+      "question_patterns": [
+        "explanation"
+      ],
+      "key_concepts": [
+        "potential divider threshold",
+        "variable resistor calibration"
+      ],
+      "hints": [
+        "Hint 1: Look at which potential divider $R_V$ is in - if you change $R_V$, what reference voltage changes, and so what light level will make the two op-amp inputs equal?"
+      ],
+      "proper_answer": "To adjust / set the light intensity level at which the lamp switches on/off, by changing the threshold voltage at the comparator input.",
+      "walkthrough": [
+        "Step 1: **Setting the switching point**\n$R_V$ forms a potential divider with the LDR, setting the voltage $V-$ at the inverting input. Changing $R_V$ changes $V-$. The comparator switches when $V-$ crosses the fixed $V+$. So adjusting $R_V$ calibrates the exact ambient light level that triggers the lamp."
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t19",
+        "primary_module_id": "9702_t19_m02",
+        "outcome_ids": [
+          "9702_t19_m02_o01"
+        ]
+      },
+      "primary_topic_id": "9702_t19",
+      "primary_module_id": "9702_t19_m02",
+      "outcome_ids": [
+        "9702_t19_m02_o01"
+      ]
+    },
+    {
+      "part_id": "9702_s17_43_q06_b_ii",
+      "label": "(b)(ii)",
+      "marks": 1,
+      "difficulty": 2,
+      "question_patterns": [
+        "explanation"
+      ],
+      "key_concepts": [
+        "diode one-way conduction",
+        "comparator positive and negative saturation",
+        "half-wave selection"
+      ],
+      "hints": [
+        "Hint 1: Recall an ideal comparator gives either about +5 V or -5 V - what happens if that alternating polarity is applied directly to a relay coil, and how does a diode change this?"
+      ],
+      "proper_answer": "To allow current through the relay in one direction only, so the relay / lamp is activated for only one output state (either light or dark, not both).",
+      "walkthrough": [
+        "Step 1: **Selecting one state only**\nThe op-amp as a comparator saturates at either $+5\\text{ V}$ or $-5\\text{ V}$. Diode D conducts in the forward direction only. So it passes the positive output to energise the relay but blocks the negative output. Without D the relay might try to operate on both polarities or be damaged by reverse current. With D the lamp operates for either dark or light conditions, not both."
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t19",
+        "primary_module_id": "9702_t19_m02",
+        "outcome_ids": [
+          "9702_t19_m02_o01"
+        ]
+      },
+      "primary_topic_id": "9702_t19",
+      "primary_module_id": "9702_t19_m02",
+      "outcome_ids": [
+        "9702_t19_m02_o01"
+      ]
+    },
+    {
+      "part_id": "9702_s17_43_q06_c",
+      "label": "(c)",
+      "marks": 3,
+      "difficulty": 3,
+      "question_patterns": [
+        "explanation",
+        "circuit_analysis"
+      ],
+      "key_concepts": [
+        "LDR resistance vs light",
+        "potential divider voltage",
+        "comparator switching and diode action"
+      ],
+      "hints": [
+        "Hint 1: Start with the sensor - how does the resistance of the LDR change when light level rises and when it falls?",
+        "Hint 2: Use the potential divider rule for the left divider to work out what happens to $V-$ compared to the fixed $V+$, and hence whether $V_{OUT}$ saturates to +5 V or -5 V.",
+        "Hint 3: Link the sign of $V_{OUT}$ through diode D to the relay - which polarity can energise the coil and light the lamp?"
+      ],
+      "proper_answer": "Lamp switches on as light level decreases. As light increases, $R_{LDR}$ decreases so $V- > V+$ so $V_{OUT} = -5\\text{ V}$, diode blocks, relay off. As light decreases, $R_{LDR}$ increases so $V- < V+$ so $V_{OUT} = +5\\text{ V}$, diode conducts, relay energised and lamp on.",
+      "walkthrough": [
+        "Step 1: **LDR and $V-$**\nFor the left divider, with 6 V at the top and 0 V at the bottom: $$V- = 6 \\times \\frac{R_V}{R_{LDR}+R_V}$$ In bright light $R_{LDR}$ is low, so a larger share of 6 V appears across $R_V$ and $V-$ is high. In the dark $R_{LDR}$ is high, so $V-$ is low. $V+$ from the right divider is fixed.",
+        "Step 2: **Comparator action**\nA comparator gives positive saturation if $V+ > V-$ and negative saturation if $V- > V+$. So in bright light $V- > V+$, giving $$V_{OUT} \\approx -5\\text{ V}$$ In dim light / darkness $V- < V+$, giving $$V_{OUT} \\approx +5\\text{ V}$$",
+        "Step 3: **Diode and lamp**\nDiode D conducts only for the positive output. So $-5\\text{ V}$ is blocked, no coil current, relay switch open, lamp off in bright light. $+5\\text{ V}$ passes through D, coil energised, relay switch closed, lamp on. Hence the lamp comes on as the light level decreases, as in an automatic night light."
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t17",
+        "primary_module_id": "9702_t17_m01",
+        "outcome_ids": [
+          "9702_t17_m01_o04"
+        ]
+      },
+      "primary_topic_id": "9702_t17",
+      "primary_module_id": "9702_t17_m01",
+      "outcome_ids": [
+        "9702_t17_m01_o04"
+      ]
+    }
+  ],
+  "total_marks": 9,
+  "taxonomy_tags": {
+    "topic_ids": [
+      "9702_t17",
+      "9702_t19",
+      "9702_t21"
+    ],
+    "module_ids": [
+      "9702_t17_m01",
+      "9702_t19_m02",
+      "9702_t21_m01"
+    ]
+  }
+}

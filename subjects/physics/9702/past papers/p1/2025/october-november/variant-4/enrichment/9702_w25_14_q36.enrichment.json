@@ -1,0 +1,59 @@
+{
+  "schema_version": "9702_p1_enrichment_v1",
+  "question_id": "9702_w25_14_q36",
+  "component": "P1",
+  "difficulty": 2,
+  "question_patterns": [
+    "circuit_analysis"
+  ],
+  "topic_id": "9702_t10",
+  "module_id": "9702_t10_m01",
+  "skill_id": "9702_skill_resistor_networks",
+  "accepted_answer": "C",
+  "options_breakdown": {
+    "A": {
+      "status": "incorrect",
+      "explanation": "2 V is only the p.d. across the $2R$ resistor, not the full p.d. across the $3R + 2R + R$ series branch."
+    },
+    "B": {
+      "status": "incorrect",
+      "explanation": "4 V would ignore the $3\\text{ V}$ across $3R$ and $1\\text{ V}$ across $R$ that are in series with the $2R$ resistor."
+    },
+    "C": {
+      "status": "correct",
+      "explanation": "Current in the series branch is $I = 2/(2R)$, giving $3\\text{ V} + 2\\text{ V} + 1\\text{ V} = 6\\text{ V}$ across the battery."
+    },
+    "D": {
+      "status": "incorrect",
+      "explanation": "10 V is the sum $R+2R+3R+4R$ treated as one series chain, but $4R$ is in parallel with the battery, not in series."
+    }
+  },
+  "hints": [
+    "Notice the voltmeter is connected directly across only the $2R$ resistor, where it reads $2\\text{ V}$.",
+    "Trace the right-hand loop: $3R$, $2R$ and $R$ are in series with each other, and that whole series combination is in parallel with the battery and with $4R$.",
+    "Find the common current in $3R$, $2R$ and $R$ from $I = V/R$ for the $2R$ resistor, then add the three $IR$ drops to get the battery p.d."
+  ],
+  "walkthrough": [
+    "Identify the two parallel branches across the battery: one branch is $4R$ alone, the other branch is $3R$, $2R$ and $R$ in series.",
+    "In the series branch the same current $I$ flows through all three resistors. Use the $2R$ resistor where the p.d. is known: $I = V_{2R}/(2R) = 2/(2R) = 1/R$.",
+    "Calculate the other series p.d.s with $V = IR$: $V_{3R} = I \\times 3R = 3\\text{ V}$ and $V_{R} = I \\times R = 1\\text{ V}$.",
+    "Add p.d.s around the series branch: $V_{branch} = 3\\text{ V} + 2\\text{ V} + 1\\text{ V} = 6\\text{ V}$.",
+    "The battery has negligible internal resistance, so its e.m.f. equals the terminal p.d. across either parallel branch, which is $6\\text{ V}$. This is option C"
+  ],
+  "mapping": {
+    "primary_topic_id": "9702_t10",
+    "primary_module_id": "9702_t10_m01",
+    "outcome_ids": [
+      "9702_t10_m01_o04",
+      "9702_t10_m01_o05"
+    ]
+  },
+  "taxonomy_tags": {
+    "topic_ids": [
+      "9702_t10"
+    ],
+    "module_ids": [
+      "9702_t10_m01"
+    ]
+  }
+}

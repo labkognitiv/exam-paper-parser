@@ -1,0 +1,129 @@
+{
+  "schema_version": "9702_theory_enrichment_v1",
+  "question_id": "9702_w20_43_q07",
+  "difficulty": 3,
+  "question_patterns": [
+    "circuit_analysis",
+    "explanation"
+  ],
+  "parts": [
+    {
+      "part_id": "9702_w20_43_q07_a",
+      "label": "(a)",
+      "marks": 4,
+      "difficulty": 3,
+      "question_patterns": [
+        "circuit_analysis"
+      ],
+      "key_concepts": [
+        "op-amp comparator saturation",
+        "potential divider",
+        "NTC thermistor behaviour"
+      ],
+      "hints": [
+        "Hint 1: Start by recalling how an ideal op-amp used open-loop decides its output - what comparison of $V_+$ and $V_-$ gives $+5.0\\text{ V}$ and what gives $-5.0\\text{ V}$?",
+        "Hint 2: Think about what voltages you can make from the battery on the left - how can two resistors between the top wire and the earthed bottom wire give a fixed reference voltage at one input?",
+        "Hint 3: Remember an NTC thermistor has high resistance when cold and low resistance when hot - which position in a divider (top or bottom) will make the divider voltage fall as temperature rises?",
+        "Hint 4: Check your choice gives $V_- > V_+$ at low temperature for $-5.0\\text{ V}$ output and $V_+ > V_-$ at high temperature for $+5.0\\text{ V}$ output."
+      ],
+      "proper_answer": "Two potential dividers connected between top of battery and earthed bottom wire. Divider 1: two $1000\\,\\Omega$ resistors in series, midpoint to $V_+$. Divider 2: $1000\\,\\Omega$ resistor (top) in series with thermistor (bottom to earth), midpoint to $V_-$. At low T $V_- > V_+$, at high T $V_- < V_+$.",
+      "walkthrough": [
+        "Step 1: **How the comparator switches**\nThink of the op-amp here as a simple comparer with huge gain. If $V_+ > V_-$ the output saturates high at about $+5.0\\text{ V}$. If $V_- > V_+$ it saturates low at about $-5.0\\text{ V}$. So you need one input to be a fixed reference and the other to move with temperature and cross over it.",
+        "Step 2: **Make a fixed reference with two resistors**\nJoin the top battery wire to the top of two $1000\\,\\Omega$ resistors in series, with the bottom of the chain to earth. The midpoint is: $$V_+ = V_{battery} \\times \\frac{1000}{1000+1000} = 0.5 V_{battery}$$ This stays constant and goes to the non-inverting (+) input.",
+        "Step 3: **Make a sensing divider with the thermistor**\nJoin the same top battery wire to a $1000\\,\\Omega$ resistor, then to the NTC thermistor down to earth. Take the midpoint to the inverting (-) input: $$V_- = V_{battery} \\times \\frac{R_{therm}}{1000 + R_{therm}}$$ An NTC resistor is large when cold and small when hot, so $V_-$ is high when cold and low when hot.",
+        "Step 4: **Check the switching works**\nAt low T, $R_{therm} > 1000\\,\\Omega$ so $V_- > 0.5V_{battery} = V_+$, giving $V_{OUT} = -5.0\\text{ V}$. At high T, $R_{therm} < 1000\\,\\Omega$ so $V_- < V_+$, giving $V_{OUT} = +5.0\\text{ V}$. That is exactly the required temperature switch."
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t12",
+        "primary_module_id": "9702_t12_m01",
+        "outcome_ids": [
+          "9702_t12_m01_o03",
+          "9702_t12_m01_o01"
+        ]
+      },
+      "primary_topic_id": "9702_t12",
+      "primary_module_id": "9702_t12_m01",
+      "outcome_ids": [
+        "9702_t12_m01_o03",
+        "9702_t12_m01_o01"
+      ]
+    },
+    {
+      "part_id": "9702_w20_43_q07_b_i",
+      "label": "(b)(i)",
+      "marks": 1,
+      "difficulty": 1,
+      "question_patterns": [
+        "explanation"
+      ],
+      "key_concepts": [
+        "NTC resistance at low temperature"
+      ],
+      "hints": [
+        "Hint 1: For $V_{OUT} = -5.0\\text{ V}$ you need $V_- > V_+$, so with the circuit above does the thermistor resistance need to be larger or smaller than the $1000\\,\\Omega$ fixed resistor?"
+      ],
+      "proper_answer": "Any thermistor resistance $> 1000\\,\\Omega$, e.g. $2000\\,\\Omega$.",
+      "walkthrough": [
+        "Step 1: **Cold means high resistance**\nAt low temperature you need $V_- > V_+ = 0.5V_{battery}$. From $$V_- = V_{battery} \\frac{R_{therm}}{1000+R_{therm}}$$ this needs $R_{therm} > 1000\\,\\Omega$. Any value clearly above $1000\\,\\Omega$, for example about $1500$ to $5000\\,\\Omega$, is suitable."
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t14",
+        "primary_module_id": "9702_t14_m02",
+        "outcome_ids": [
+          "9702_t14_m02_o01",
+          "9702_t14_m02_o04"
+        ]
+      },
+      "primary_topic_id": "9702_t14",
+      "primary_module_id": "9702_t14_m02",
+      "outcome_ids": [
+        "9702_t14_m02_o01",
+        "9702_t14_m02_o04"
+      ]
+    },
+    {
+      "part_id": "9702_w20_43_q07_b_ii",
+      "label": "(b)(ii)",
+      "marks": 1,
+      "difficulty": 1,
+      "question_patterns": [
+        "explanation"
+      ],
+      "key_concepts": [
+        "NTC resistance at high temperature"
+      ],
+      "hints": [
+        "Hint 1: For $V_{OUT} = +5.0\\text{ V}$ you need $V_+ > V_-$, so as the NTC warms up in which direction must its resistance change relative to $1000\\,\\Omega$?"
+      ],
+      "proper_answer": "Any thermistor resistance $< 1000\\,\\Omega$, e.g. $500\\,\\Omega$.",
+      "walkthrough": [
+        "Step 1: **Hot means low resistance**\nAt higher temperature you need $V_- < V_+$. This needs $R_{therm} < 1000\\,\\Omega$. Any value clearly below $1000\\,\\Omega$, for example about $100$ to $800\\,\\Omega$, is suitable and shows the NTC resistance has fallen."
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t14",
+        "primary_module_id": "9702_t14_m02",
+        "outcome_ids": [
+          "9702_t14_m02_o01",
+          "9702_t14_m02_o04"
+        ]
+      },
+      "primary_topic_id": "9702_t14",
+      "primary_module_id": "9702_t14_m02",
+      "outcome_ids": [
+        "9702_t14_m02_o01",
+        "9702_t14_m02_o04"
+      ]
+    }
+  ],
+  "total_marks": 6,
+  "taxonomy_tags": {
+    "topic_ids": [
+      "9702_t12",
+      "9702_t14"
+    ],
+    "module_ids": [
+      "9702_t12_m01",
+      "9702_t14_m02"
+    ]
+  }
+}

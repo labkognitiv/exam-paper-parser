@@ -1,0 +1,116 @@
+{
+  "elapsed_sec": 0.97,
+  "tokens": {
+    "prompt_tokens": 3467,
+    "completion_tokens": 2187,
+    "reasoning_tokens": 563,
+    "total_tokens": 5654
+  },
+  "cost_usd": 0.000784,
+  "valid_json": true,
+  "parsed_json": {
+    "question_num": 1,
+    "difficulty": 2,
+    "question_patterns": [
+      "direct_calculation",
+      "experimental_error",
+      "precision_vs_accuracy"
+    ],
+    "parts": [
+      {
+        "part": "(a)",
+        "difficulty": 1,
+        "question_patterns": [
+          "direct_calculation"
+        ],
+        "target_time_minutes": 3,
+        "formulas_used": [
+          "s = ut + \\frac{1}{2}at^{2}",
+          "s = \\frac{1}{2}gt^{2}",
+          "t = \\sqrt{\\frac{2s}{g}}"
+        ],
+        "hints": [
+          "Identify the motion as free fall with constant acceleration: displacement $s = 36\\text{ m}$ downwards, initial velocity $u = 0$, acceleration $a = g = 9.81\\text{ m s}^{-2}$.",
+          "Set $u = 0$ in $s = ut + \\frac{1}{2}gt^{2}$ to get $s = \\frac{1}{2}gt^{2}$, rearrange to $t = \\sqrt{2s/g}$ and substitute $s$ and $g$ without calculating the final square root yet."
+        ],
+        "teacher_walkthrough": [
+          "Uniform acceleration applies with $a = g$ downwards and $u = 0$ since the stone is released from rest.",
+          "Use $$s = ut + \\frac{1}{2}gt^{2}$$",
+          "With $u = 0$: $$s = \\frac{1}{2}gt^{2}$$",
+          "Rearrange for $t$: $$t^{2} = \\frac{2s}{g}$$ $$t = \\sqrt{\\frac{2s}{g}}$$",
+          "Substitute $s = 36\\text{ m}$ and $g = 9.81\\text{ m s}^{-2}$: $$t = \\sqrt{\\frac{2 \\times 36}{9.81}}$$",
+          "Evaluate numerator: $$2 \\times 36 = 72$$",
+          "Divide by $g$: $$\\frac{72}{9.81} = 7.3394$$",
+          "Take square root: $$t = \\sqrt{7.3394} = 2.709...\\text{ s}$$",
+          "Round to two significant figures consistent with $36\\text{ m}$: $$t = 2.7\\text{ s}$$"
+        ],
+        "walkthrough": [
+          "C1: use of $s = ut + \\frac{1}{2}at^{2}$ with $u=0$, $s=36$ m, $a=9.81$ m s^-2",
+          "A1: $t = 2.7$ s"
+        ],
+        "common_pitfalls": [
+          "Using $v = s/t$ or $s = vt$, which assumes constant velocity and ignores acceleration under gravity.",
+          "Forgetting that $u = 0$ and incorrectly adding a $ut$ term or using $v^{2} = u^{2} + 2as$ then stopping at velocity instead of finding time."
+        ]
+      },
+      {
+        "part": "(b)",
+        "difficulty": 2,
+        "question_patterns": [
+          "experimental_error"
+        ],
+        "target_time_minutes": 4,
+        "formulas_used": [],
+        "hints": [
+          "Consider what the stop-watch actually measures: time from release to hearing the splash, not time from release to impact. What extra journey must the signal make?",
+          "Consider human timing limitations: reaction time when starting the watch on release and when stopping it on hearing the sound.",
+          "Consider the starting conditions and apparatus: release height, initial velocity, synchronisation of release and timer start, and calibration of the stop-watch."
+        ],
+        "teacher_walkthrough": [
+          "The calculated time in (a) is the pure fall time. The measured time includes systematic additions and human errors.",
+          "Reason 1: sound travel time. The splash sound must travel $36\\text{ m}$ up the well at the speed of sound to reach the student, so the stop-watch keeps running after impact.",
+          "Reason 2: human reaction time. There is a delay between hearing the splash and pressing to stop the watch, and a possible mismatch between the instant of release and the instant of starting the watch.",
+          "Reason 3: incorrect initial conditions. The stone may be released from above or below ground level, or given a small initial downward or upward velocity, or the stop-watch may have zero error or poor calibration, or local $g$ may differ slightly from $9.81\\text{ m s}^{-2}$."
+        ],
+        "walkthrough": [
+          "B1: delay between hearing splash and stopping stop-watch / reaction time",
+          "B1: sound takes finite time to travel from water surface to student",
+          "B1: stone not released from ground level / release and starting watch not simultaneous / stop-watch zero error or calibration error / g not exactly 9.81 / stone given non-zero initial velocity / stone does not fall vertically"
+        ],
+        "common_pitfalls": [
+          "Stating air resistance, which is explicitly excluded by the question.",
+          "Giving only vague answers such as human error or parallax without linking to starting, stopping or sound travel in this specific experiment."
+        ]
+      },
+      {
+        "part": "(c)",
+        "difficulty": 2,
+        "question_patterns": [
+          "precision_vs_accuracy"
+        ],
+        "target_time_minutes": 3,
+        "formulas_used": [],
+        "hints": [
+          "Recall the definition of precise: repeated measurements that agree closely with each other with small random spread, regardless of the true value. Check the spread of 54.4, 53.9 and 54.1.",
+          "Recall the definition of accurate: measurements close to the true value of 36.0 m. Compare the cluster around 54 m with 36.0 m and link the offset to systematic error."
+        ],
+        "teacher_walkthrough": [
+          "Precision refers to repeatability or small scatter. Accuracy refers to closeness to the true value.",
+          "The three values are $54.4\\text{ m}$, $53.9\\text{ m}$ and $54.1\\text{ m}$. Range $= 54.4 - 53.9 = 0.5\\text{ m}$, which is less than $1$% of the reading, so they cluster closely together.",
+          "This close clustering indicates high precision and small random error.",
+          "The true value is $36.0\\text{ m}$. The measured values are about $54\\text{ m}$, which is about $18\\text{ m}$ or $50$% higher than the true value.",
+          "This large systematic offset indicates low accuracy, consistent with a systematic error such as including sound travel time in every timing."
+        ],
+        "walkthrough": [
+          "B1: values are close together / have little scatter so precise",
+          "B1: values are far from / about 50% larger than true value so not accurate"
+        ],
+        "common_pitfalls": [
+          "Confusing the two terms and stating the results are accurate because they agree with each other.",
+          "Stating the results are not precise because they differ from the true value, when precision depends only on mutual agreement."
+        ]
+      }
+    ]
+  },
+  "raw_content": "{\n  \"question_num\": 1,\n  \"difficulty\": 2,\n  \"question_patterns\": [\n    \"direct_calculation\",\n    \"experimental_error\",\n    \"precision_vs_accuracy\"\n  ],\n  \"parts\": [\n    {\n      \"part\": \"(a)\",\n      \"difficulty\": 1,\n      \"question_patterns\": [\n        \"direct_calculation\"\n      ],\n      \"target_time_minutes\": 3,\n      \"formulas_used\": [\n        \"s = ut + \\\\frac{1}{2}at^{2}\",\n        \"s = \\\\frac{1}{2}gt^{2}\",\n        \"t = \\\\sqrt{\\\\frac{2s}{g}}\"\n      ],\n      \"hints\": [\n        \"Identify the motion as free fall with constant acceleration: displacement $s = 36\\\\text{ m}$ downwards, initial velocity $u = 0$, acceleration $a = g = 9.81\\\\text{ m s}^{-2}$.\",\n        \"Set $u = 0$ in $s = ut + \\\\frac{1}{2}gt^{2}$ to get $s = \\\\frac{1}{2}gt^{2}$, rearrange to $t = \\\\sqrt{2s/g}$ and substitute $s$ and $g$ without calculating the final square root yet.\"\n      ],\n      \"teacher_walkthrough\": [\n        \"Uniform acceleration applies with $a = g$ downwards and $u = 0$ since the stone is released from rest.\",\n        \"Use $$s = ut + \\\\frac{1}{2}gt^{2}$$\",\n        \"With $u = 0$: $$s = \\\\frac{1}{2}gt^{2}$$\",\n        \"Rearrange for $t$: $$t^{2} = \\\\frac{2s}{g}$$ $$t = \\\\sqrt{\\\\frac{2s}{g}}$$\",\n        \"Substitute $s = 36\\\\text{ m}$ and $g = 9.81\\\\text{ m s}^{-2}$: $$t = \\\\sqrt{\\\\frac{2 \\\\times 36}{9.81}}$$\",\n        \"Evaluate numerator: $$2 \\\\times 36 = 72$$\",\n        \"Divide by $g$: $$\\\\frac{72}{9.81} = 7.3394$$\",\n        \"Take square root: $$t = \\\\sqrt{7.3394} = 2.709...\\\\text{ s}$$\",\n        \"Round to two significant figures consistent with $36\\\\text{ m}$: $$t = 2.7\\\\text{ s}$$\"\n      ],\n      \"walkthrough\": [\n        \"C1: use of $s = ut + \\\\frac{1}{2}at^{2}$ with $u=0$, $s=36$ m, $a=9.81$ m s^-2\",\n        \"A1: $t = 2.7$ s\"\n      ],\n      \"common_pitfalls\": [\n        \"Using $v = s/t$ or $s = vt$, which assumes constant velocity and ignores acceleration under gravity.\",\n        \"Forgetting that $u = 0$ and incorrectly adding a $ut$ term or using $v^{2} = u^{2} + 2as$ then stopping at velocity instead of finding time.\"\n      ]\n    },\n    {\n      \"part\": \"(b)\",\n      \"difficulty\": 2,\n      \"question_patterns\": [\n        \"experimental_error\"\n      ],\n      \"target_time_minutes\": 4,\n      \"formulas_used\": [],\n      \"hints\": [\n        \"Consider what the stop-watch actually measures: time from release to hearing the splash, not time from release to impact. What extra journey must the signal make?\",\n        \"Consider human timing limitations: reaction time when starting the watch on release and when stopping it on hearing the sound.\",\n        \"Consider the starting conditions and apparatus: release height, initial velocity, synchronisation of release and timer start, and calibration of the stop-watch.\"\n      ],\n      \"teacher_walkthrough\": [\n        \"The calculated time in (a) is the pure fall time. The measured time includes systematic additions and human errors.\",\n        \"Reason 1: sound travel time. The splash sound must travel $36\\\\text{ m}$ up the well at the speed of sound to reach the student, so the stop-watch keeps running after impact.\",\n        \"Reason 2: human reaction time. There is a delay between hearing the splash and pressing to stop the watch, and a possible mismatch between the instant of release and the instant of starting the watch.\",\n        \"Reason 3: incorrect initial conditions. The stone may be released from above or below ground level, or given a small initial downward or upward velocity, or the stop-watch may have zero error or poor calibration, or local $g$ may differ slightly from $9.81\\\\text{ m s}^{-2}$.\"\n      ],\n      \"walkthrough\": [\n        \"B1: delay between hearing splash and stopping stop-watch / reaction time\",\n        \"B1: sound takes finite time to travel from water surface to student\",\n        \"B1: stone not released from ground level / release and starting watch not simultaneous / stop-watch zero error or calibration error / g not exactly 9.81 / stone given non-zero initial velocity / stone does not fall vertically\"\n      ],\n      \"common_pitfalls\": [\n        \"Stating air resistance, which is explicitly excluded by the question.\",\n        \"Giving only vague answers such as human error or parallax without linking to starting, stopping or sound travel in this specific experiment.\"\n      ]\n    },\n    {\n      \"part\": \"(c)\",\n      \"difficulty\": 2,\n      \"question_patterns\": [\n        \"precision_vs_accuracy\"\n      ],\n      \"target_time_minutes\": 3,\n      \"formulas_used\": [],\n      \"hints\": [\n        \"Recall the definition of precise: repeated measurements that agree closely with each other with small random spread, regardless of the true value. Check the spread of 54.4, 53.9 and 54.1.\",\n        \"Recall the definition of accurate: measurements close to the true value of 36.0 m. Compare the cluster around 54 m with 36.0 m and link the offset to systematic error.\"\n      ],\n      \"teacher_walkthrough\": [\n        \"Precision refers to repeatability or small scatter. Accuracy refers to closeness to the true value.\",\n        \"The three values are $54.4\\\\text{ m}$, $53.9\\\\text{ m}$ and $54.1\\\\text{ m}$. Range $= 54.4 - 53.9 = 0.5\\\\text{ m}$, which is less than $1$% of the reading, so they cluster closely together.\",\n        \"This close clustering indicates high precision and small random error.\",\n        \"The true value is $36.0\\\\text{ m}$. The measured values are about $54\\\\text{ m}$, which is about $18\\\\text{ m}$ or $50$% higher than the true value.\",\n        \"This large systematic offset indicates low accuracy, consistent with a systematic error such as including sound travel time in every timing.\"\n      ],\n      \"walkthrough\": [\n        \"B1: values are close together / have little scatter so precise\",\n        \"B1: values are far from / about 50% larger than true value so not accurate\"\n      ],\n      \"common_pitfalls\": [\n        \"Confusing the two terms and stating the results are accurate because they agree with each other.\",\n        \"Stating the results are not precise because they differ from the true value, when precision depends only on mutual agreement.\"\n      ]\n    }\n  ]\n}"
+}

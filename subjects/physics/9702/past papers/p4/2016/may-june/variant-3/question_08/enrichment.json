@@ -1,0 +1,140 @@
+{
+  "schema_version": "9702_theory_enrichment_v1",
+  "question_id": "9702_s16_43_q08",
+  "difficulty": 3,
+  "question_patterns": [
+    "explanation",
+    "algebraic_derivation",
+    "circuit_analysis"
+  ],
+  "parts": [
+    {
+      "part_id": "9702_s16_43_q08_a",
+      "label": "(a)",
+      "marks": 3,
+      "difficulty": 2,
+      "question_patterns": [
+        "explanation"
+      ],
+      "key_concepts": [
+        "ideal op-amp infinite open-loop gain",
+        "non-inverting input at earth potential",
+        "virtual earth at inverting input"
+      ],
+      "hints": [
+        "Hint 1: Start by looking at the + input in Fig. 8.1. Where is it connected, and what voltage must it therefore be at?",
+        "Hint 2: Remember the key property of an ideal op-amp - its open-loop gain is extremely large. What would happen to the output if the two inputs differed by even a tiny voltage?",
+        "Hint 3: For the amplifier to work normally without saturating, what must be true about the voltage difference between the - input (point P) and the + input?"
+      ],
+      "proper_answer": "Ideal op-amp has very large open-loop gain, so it saturates unless $V_{+} \\approx V_{-}$. Since $V_{+}$ is connected to earth ($0\\text{ V}$), $V_{-}$ at point P must also be at $≈0\\text{ V}$ without being directly connected to earth. Hence P is a virtual earth.",
+      "walkthrough": [
+        "Step 1: **Spot the earth on the non-inverting input**\nYou are sitting with the circuit, so first trace the + input. It goes straight down to the earth rail. That means $V_{+} = 0\\text{ V}$ always. Point P is the - input, so the question is really: why must P copy that 0 V?",
+        "Step 2: **Use the huge gain of the ideal op-amp**\nAn ideal op-amp multiplies the difference between its inputs by an enormous number: $$V_{OUT} = A_{0}(V_{+} - V_{-})$$ where $A_{0}$ is infinite or very large. Even a difference of a millivolt would try to drive $V_{OUT}$ beyond the $\\pm V$ supplies. In practice the op-amp would saturate.",
+        "Step 3: **Force P to follow the earth**\nTo stay in linear operation and not saturate, we must have $V_{+} - V_{-} \\approx 0$. So $V_{-} \\approx V_{+}$. Since $V_{+} = 0$, point P is held at about $0\\text{ V}$. It behaves like earth for voltage, but no earth wire is there and current does not flow to earth from P, so we call it a virtual earth."
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t18",
+        "primary_module_id": "9702_t18_m05",
+        "outcome_ids": [
+          "9702_t18_m05_o03",
+          "9702_t18_m05_o04"
+        ]
+      },
+      "primary_topic_id": "9702_t18",
+      "primary_module_id": "9702_t18_m05",
+      "outcome_ids": [
+        "9702_t18_m05_o03",
+        "9702_t18_m05_o04"
+      ]
+    },
+    {
+      "part_id": "9702_s16_43_q08_b",
+      "label": "(b)",
+      "marks": 3,
+      "difficulty": 3,
+      "question_patterns": [
+        "algebraic_derivation",
+        "explanation"
+      ],
+      "key_concepts": [
+        "infinite input impedance - no current into op-amp",
+        "same current through R2 and R1",
+        "Ohm's law applied with virtual earth"
+      ],
+      "hints": [
+        "Hint 1: An ideal op-amp draws no current at its inputs because its input resistance is very large. If no current enters P from the op-amp, where must the current through $R_{2}$ go?",
+        "Hint 2: Use the virtual earth idea from (a). If P is at $0\\text{ V}$, what is the p.d. across $R_{2}$ in terms of $V_{IN}$, and the p.d. across $R_{1}$ in terms of $V_{OUT}$?",
+        "Hint 3: Write Ohm's law $I = V/R$ for each resistor using the same current $I$, then divide the two equations to eliminate $I$ and find $V_{OUT}/V_{IN}$."
+      ],
+      "proper_answer": "No current enters ideal op-amp, so current $I$ in $R_{2}$ equals current in $R_{1}$. With P at $0\\text{ V}$: $V_{IN} - 0 = IR_{2}$ and $0 - V_{OUT} = IR_{1}$. Dividing gives $V_{OUT}/V_{IN} = -R_{1}/R_{2}$.",
+      "walkthrough": [
+        "Step 1: **Realise one current flows through both resistors**\nThink of point P as a junction. Current arrives through $R_{2}$, but it cannot go into the - input because an ideal op-amp has infinite input resistance. So all of it must leave through the feedback resistor $R_{1}$. Call this common current $I$.",
+        "Step 2: **Apply Ohm's law to each resistor using virtual earth**\nFrom (a), $V_{P} = 0$. For $R_{2}$, the left end is at $V_{IN}$ and the right end is at 0, so: $$V_{IN} - 0 = IR_{2}$$ For $R_{1}$, the left end is at 0 and the right end is at $V_{OUT}$, so: $$0 - V_{OUT} = IR_{1}$$ Notice the minus sign appears because $V_{OUT}$ will be opposite in sign to $V_{IN}$.",
+        "Step 3: **Combine to get the closed-loop gain**\nBoth expressions equal the same $I$, so divide them: $$\\frac{-V_{OUT}}{V_{IN}} = \\frac{IR_{1}}{IR_{2}}$$ Cancelling $I$ gives: $$\\frac{V_{OUT}}{V_{IN}} = -\\frac{R_{1}}{R_{2}}$$ The negative sign tells you it is inverting - a positive input gives a negative output."
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t21",
+        "primary_module_id": "9702_t21_m01",
+        "outcome_ids": [
+          "9702_t21_m01_o04"
+        ]
+      },
+      "primary_topic_id": "9702_t21",
+      "primary_module_id": "9702_t21_m01",
+      "outcome_ids": [
+        "9702_t21_m01_o04"
+      ]
+    },
+    {
+      "part_id": "9702_s16_43_q08_c",
+      "label": "(c)",
+      "marks": 3,
+      "difficulty": 2,
+      "question_patterns": [
+        "circuit_analysis"
+      ],
+      "key_concepts": [
+        "relay coil energised by output current",
+        "diode allows current in forward direction only",
+        "series diode for half-wave selection"
+      ],
+      "hints": [
+        "Hint 1: A relay coil needs a current through it to earth to close the switch. Between which two points in Fig. 8.2 must the coil be connected to get current from $V_{OUT}$?",
+        "Hint 2: A diode conducts in one direction only. To allow operation for positive $V_{OUT}$ but block it for negative $V_{OUT}$, should the diode be in series with the coil or in a separate branch?",
+        "Hint 3: Check polarity. For conventional current to flow from a positive $V_{OUT}$ down through the coil to earth, which way must the diode arrow point?"
+      ],
+      "proper_answer": "Connect the relay coil in series with a diode between the $V_{OUT}$ terminal and earth. Diode anode towards $V_{OUT}$ (cathode towards coil/earth) so forward conduction is from $V_{OUT}$ to earth. Current flows and relay operates only when $V_{OUT}$ is positive.",
+      "walkthrough": [
+        "Step 1: **Provide a path for output current through the relay**\nThe relay is just an electromagnet coil. One end must go to the $V_{OUT}$ top wire and the other end must go to the earth bottom wire. Then a voltage $V_{OUT}$ will try to push current through the coil to earth.",
+        "Step 2: **Add a diode in series to select polarity**\nA diode is a one-way valve. Put it in series with the coil, either between $V_{OUT}$ and the coil or between the coil and earth. When forward biased it conducts with almost zero resistance, when reverse biased it blocks.",
+        "Step 3: **Orient the diode for positive-only operation**\nYou want conduction when $V_{OUT}$ is positive. Conventional current must flow downwards from $V_{OUT}$ to earth. So the diode symbol must point downwards, anode up to $V_{OUT}$ and cathode down toward earth. For negative $V_{OUT}$ the diode is reverse biased, no current flows, and the relay stays off."
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t21",
+        "primary_module_id": "9702_t21_m02",
+        "outcome_ids": [
+          "9702_t21_m02_o02",
+          "9702_t21_m02_o03"
+        ]
+      },
+      "primary_topic_id": "9702_t21",
+      "primary_module_id": "9702_t21_m02",
+      "outcome_ids": [
+        "9702_t21_m02_o02",
+        "9702_t21_m02_o03"
+      ]
+    }
+  ],
+  "total_marks": 9,
+  "taxonomy_tags": {
+    "topic_ids": [
+      "9702_t18",
+      "9702_t21"
+    ],
+    "module_ids": [
+      "9702_t18_m05",
+      "9702_t21_m01",
+      "9702_t21_m02"
+    ]
+  }
+}

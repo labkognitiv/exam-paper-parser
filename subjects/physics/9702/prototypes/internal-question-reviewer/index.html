@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kognitiv Internal Question Reviewer</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">K</div>
+    <div>
+      <p class="eyebrow">Kognitiv · Physics 9702</p>
+      <h1>Internal question reviewer</h1>
+    </div>
+    <div class="progress" id="progress">0 of 0 reviewed</div>
+  </header>
+
+  <main class="shell">
+    <aside class="library" aria-label="Question library">
+      <div class="library-heading">
+        <div>
+          <p class="eyebrow">Library</p>
+          <h2>Lesson questions</h2>
+        </div>
+        <button class="ghost mobile-close" id="close-library" type="button">Close</button>
+      </div>
+
+      <label>Module
+        <select id="module-select"></select>
+      </label>
+      <label>Lesson
+        <select id="lesson-select"></select>
+      </label>
+      <div class="filter-row" role="group" aria-label="Question type filter">
+        <button class="filter active" data-filter="all" type="button">All</button>
+        <button class="filter" data-filter="mcq" type="button">MCQ</button>
+        <button class="filter" data-filter="theory" type="button">Theory</button>
+        <button class="filter" data-filter="flag" type="button">Flagged</button>
+      </div>
+      <div class="question-list" id="question-list"></div>
+    </aside>
+
+    <section class="workspace">
+      <div class="workspace-toolbar">
+        <button class="ghost library-toggle" id="open-library" type="button">Library</button>
+        <div class="crumb" id="crumb"></div>
+        <div class="nav-buttons">
+          <button class="ghost" id="previous" type="button" aria-label="Previous question">←</button>
+          <button class="ghost" id="next" type="button" aria-label="Next question">→</button>
+        </div>
+      </div>
+
+      <article class="question-card">
+        <div class="question-meta" id="question-meta"></div>
+        <div id="question-content"></div>
+      </article>
+
+      <section class="support-card">
+        <div class="tabs" role="tablist" aria-label="Question support">
+          <button class="tab active" data-tab="scheme" type="button">Mark scheme</button>
+          <button class="tab" data-tab="hints" type="button">Hints</button>
+          <button class="tab" data-tab="solution" type="button">Solution</button>
+          <button class="tab" data-tab="walkthrough" type="button">Walkthrough</button>
+          <button class="tab" data-tab="evidence" type="button">Past-paper basis</button>
+        </div>
+        <div class="support-content" id="support-content"></div>
+      </section>
+
+      <section class="review-card">
+        <div>
+          <p class="eyebrow">Review decision</p>
+          <h2>Is this question ready?</h2>
+        </div>
+        <textarea id="review-note" rows="3" placeholder="Write a concise correction or reason for the flag."></textarea>
+        <div class="review-actions">
+          <span id="save-status" aria-live="polite"></span>
+          <button class="flag-button" id="flag" type="button">Flag</button>
+          <button class="pass-button" id="pass" type="button">Pass</button>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

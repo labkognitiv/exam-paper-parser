@@ -1,0 +1,130 @@
+{
+  "schema_version": "9702_theory_enrichment_v1",
+  "question_id": "9702_s17_42_q05",
+  "difficulty": 2,
+  "question_patterns": [
+    "explanation"
+  ],
+  "parts": [
+    {
+      "part_id": "9702_s17_42_q05_a",
+      "label": "(a)",
+      "marks": 2,
+      "difficulty": 1,
+      "question_patterns": [
+        "explanation"
+      ],
+      "key_concepts": [
+        "digital vs analogue transmission",
+        "noise immunity and regeneration",
+        "multiplexing and processing"
+      ],
+      "hints": [
+        "Hint 1: Think about what happens to a small unwanted disturbance added to the signal during a long transmission - is it easier to remove from a signal that can only be 0 or 1, or from one that can have any value?",
+        "Hint 2: Think about what else digital data allows you to do easily with computers - checking for errors, mixing many signals together, keeping data secret, and building cheap reliable logic circuits."
+      ],
+      "proper_answer": "1. Digital signal can be regenerated and noise can be removed. 2. Allows multiplexing / error checking and correction / easier encryption and greater security / cheaper and more reliable circuits.",
+      "walkthrough": [
+        "Step 1: **Why analogue is fragile**\nThink of an analogue signal like a smooth handwritten curve. Any extra electrical noise picked up on the wire changes the shape of the curve, and you cannot tell what was original signal and what was noise. The distortion builds up along the line.",
+        "Step 2: **Why digital is robust and flexible**\nA digital signal only has two levels, high (1) and low (0). Even if noise is added, the receiver can still decide if it was meant to be 0 or 1, and then create a perfect clean copy. This is regeneration. In addition, because the data is just numbers, computers can easily add error-checking bits, mix many channels by multiplexing, encrypt for security, and use cheap reliable logic circuits."
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t24",
+        "primary_module_id": "9702_t24_m03",
+        "outcome_ids": [
+          "9702_t24_m03_o06",
+          "9702_t24_m03_o01"
+        ]
+      },
+      "primary_topic_id": "9702_t24",
+      "primary_module_id": "9702_t24_m03",
+      "outcome_ids": [
+        "9702_t24_m03_o06",
+        "9702_t24_m03_o01"
+      ]
+    },
+    {
+      "part_id": "9702_s17_42_q05_b_i",
+      "label": "(b)(i)",
+      "marks": 2,
+      "difficulty": 2,
+      "question_patterns": [
+        "explanation"
+      ],
+      "key_concepts": [
+        "analogue-to-digital conversion",
+        "sampling at regular intervals",
+        "quantisation and binary encoding"
+      ],
+      "hints": [
+        "Hint 1: The input $S_I$ varies continuously in time. How could you turn a continuous curve into a list of values? Think about measuring its voltage at equally spaced moments in time.",
+        "Hint 2: Once you have each measured voltage, what must the ADC do to send it as digital data D? Think about converting each measurement into a binary number."
+      ],
+      "proper_answer": "The ADC samples the analogue signal $S_I$ at regular time intervals. Each sample voltage is converted into a binary digital number to form signal D.",
+      "walkthrough": [
+        "Step 1: **Sampling - slicing in time**\n$S_I$ is continuously varying. The ADC measures, or samples, its voltage at regular, equally spaced time intervals determined by the sampling rate. You can picture this as reading off the height of the wave at fixed time steps.",
+        "Step 2: **Conversion - turning heights into numbers**\nEach sampled voltage is then quantised and encoded as a binary number, a group of 0s and 1s. This stream of binary numbers is the digital signal $D$ that can be transmitted."
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t21",
+        "primary_module_id": "9702_t21_m01",
+        "outcome_ids": [
+          "9702_t21_m01_o04",
+          "9702_t21_m01_o02"
+        ]
+      },
+      "primary_topic_id": "9702_t21",
+      "primary_module_id": "9702_t21_m01",
+      "outcome_ids": [
+        "9702_t21_m01_o04",
+        "9702_t21_m01_o02"
+      ]
+    },
+    {
+      "part_id": "9702_s17_42_q05_b_ii",
+      "label": "(b)(ii)",
+      "marks": 2,
+      "difficulty": 2,
+      "question_patterns": [
+        "explanation"
+      ],
+      "key_concepts": [
+        "sampling rate and step width",
+        "number of bits and step height",
+        "fidelity of reconstructed signal"
+      ],
+      "hints": [
+        "Hint 1: Picture the DAC output $S_T$ as a staircase trying to follow the smooth original. What controls how often the staircase can step sideways in time?",
+        "Hint 2: Picture the same staircase. What controls how finely it can step up and down in voltage? Think about how many different levels are possible with more bits per sample."
+      ],
+      "proper_answer": "1. Increased sampling rate gives smaller step width / steps closer together in time, so $S_T$ follows $S_I$ more closely. 2. Increased number of bits gives smaller step height / smaller voltage steps, so $S_T$ follows $S_I$ more closely.",
+      "walkthrough": [
+        "Step 1: **Effect of higher sampling rate - narrower steps**\nThe DAC rebuilds an analogue level for each digital number it receives. If you sample more often, you get more points per second. The horizontal width of each step in $S_T$ becomes smaller, so the staircase follows rapid changes in $S_I$ much better.",
+        "Step 2: **Effect of more bits - shorter steps**\nThe number of bits sets how many different voltage levels are available, $2^n$ levels for $n$ bits. More bits means more levels and a smaller voltage jump between levels. The vertical height of each step becomes smaller, so $S_T$ is a smoother, more accurate copy of $S_I$ with less quantisation error."
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t21",
+        "primary_module_id": "9702_t21_m01",
+        "outcome_ids": [
+          "9702_t21_m01_o04"
+        ]
+      },
+      "primary_topic_id": "9702_t21",
+      "primary_module_id": "9702_t21_m01",
+      "outcome_ids": [
+        "9702_t21_m01_o04"
+      ]
+    }
+  ],
+  "total_marks": 6,
+  "taxonomy_tags": {
+    "topic_ids": [
+      "9702_t21",
+      "9702_t24"
+    ],
+    "module_ids": [
+      "9702_t21_m01",
+      "9702_t24_m03"
+    ]
+  }
+}

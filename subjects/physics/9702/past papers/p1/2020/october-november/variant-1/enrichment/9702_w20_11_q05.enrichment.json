@@ -1,0 +1,61 @@
+{
+  "schema_version": "9702_p1_enrichment_v1",
+  "question_id": "9702_w20_11_q05",
+  "component": "P1",
+  "difficulty": 2,
+  "question_patterns": [
+    "uncertainty_analysis",
+    "multi_step_calculation"
+  ],
+  "topic_id": "9702_t01",
+  "module_id": "9702_t01_m03",
+  "skill_id": "9702_skill_uncertainty_propagation",
+  "accepted_answer": "D",
+  "options_breakdown": {
+    "A": {
+      "status": "incorrect",
+      "explanation": "This copies the $0.01 \\text{ cm}$ diameter uncertainty directly to the volume, ignoring that $V$ depends on $d^3$ and has units of $\\text{cm}^3$."
+    },
+    "B": {
+      "status": "incorrect",
+      "explanation": "This multiplies the $0.01 \\text{ cm}$ uncertainty by 3 but still treats it as an absolute uncertainty, instead of tripling the fractional uncertainty."
+    },
+    "C": {
+      "status": "incorrect",
+      "explanation": "This gives the unrounded volume $36.35 \\text{ cm}^3$ with an uncertainty that is too small and quoted to two significant figures."
+    },
+    "D": {
+      "status": "correct",
+      "explanation": "The nominal volume is about $36.4 \\text{ cm}^3$ and tripling the fractional uncertainty in $d$ gives an absolute uncertainty of about $0.3 \\text{ cm}^3$."
+    }
+  },
+  "hints": [
+    "Start from the measured diameter $(4.11 \\pm 0.01) \\text{ cm}$ and work out its fractional uncertainty $0.01/4.11$.",
+    "Use the rule for $V = \\frac{1}{6}\\pi d^3$ that the fractional uncertainty in $V$ is three times the fractional uncertainty in $d$ because of the $d^3$ power.",
+    "Calculate the nominal volume from $4.11 \\text{ cm}$, convert the tripled fractional uncertainty to an absolute uncertainty in $\\text{cm}^3$, then round the uncertainty to one significant figure."
+  ],
+  "walkthrough": [
+    "Calculate the nominal volume using $V = \\frac{1}{6}\\pi d^3$ with $d = 4.11 \\text{ cm}$: $V = \\frac{1}{6}\\pi \\times (4.11)^3 \\approx 36.35 \\text{ cm}^3$.",
+    "Find the fractional uncertainty in the diameter: $\\frac{\\Delta d}{d} = \\frac{0.01}{4.11} \\approx 0.00243$, about $0.24\\%$.",
+    "Apply power-rule propagation: because $V$ is proportional to $d^3$, $\\frac{\\Delta V}{V} = 3 \\times \\frac{\\Delta d}{d} \\approx 3 \\times 0.00243 \\approx 0.00730$.",
+    "Convert to absolute uncertainty: $\\Delta V \\approx 0.00730 \\times 36.35 \\approx 0.27 \\text{ cm}^3$, which rounds to one significant figure as $0.3 \\text{ cm}^3$.",
+    "Match decimal places: with uncertainty $0.3 \\text{ cm}^3$, the volume $36.35 \\text{ cm}^3$ must be rounded to one decimal place, $36.4 \\text{ cm}^3$.",
+    "This gives $(36.4 \\pm 0.3) \\text{ cm}^3$. This is option D."
+  ],
+  "mapping": {
+    "primary_topic_id": "9702_t01",
+    "primary_module_id": "9702_t01_m03",
+    "outcome_ids": [
+      "9702_t01_m03_o03",
+      "9702_t01_m03_o01"
+    ]
+  },
+  "taxonomy_tags": {
+    "topic_ids": [
+      "9702_t01"
+    ],
+    "module_ids": [
+      "9702_t01_m03"
+    ]
+  }
+}

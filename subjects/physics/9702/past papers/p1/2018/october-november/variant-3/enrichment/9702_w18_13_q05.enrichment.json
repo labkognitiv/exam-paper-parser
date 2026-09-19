@@ -1,0 +1,60 @@
+{
+  "schema_version": "9702_p1_enrichment_v1",
+  "question_id": "9702_w18_13_q05",
+  "component": "P1",
+  "difficulty": 2,
+  "question_patterns": [
+    "uncertainty_analysis"
+  ],
+  "topic_id": "9702_t01",
+  "module_id": "9702_t01_m02",
+  "skill_id": "9702_skill_uncertainty_propagation",
+  "accepted_answer": "B",
+  "options_breakdown": {
+    "A": {
+      "status": "incorrect",
+      "explanation": "Area is over-rounded to $0.7$ and $\\pm 0.1 \\text{ m}^2$ is far too large for fractional uncertainties below $1\\%$. "
+    },
+    "B": {
+      "status": "correct",
+      "explanation": "Area $0.704 \\text{ m}^2$ with fractional uncertainties added gives absolute uncertainty about $0.006 \\text{ m}^2$."
+    },
+    "C": {
+      "status": "incorrect",
+      "explanation": "It adds absolute uncertainties $0.001 \\text{ m} + 0.01 \\text{ m} = 0.011 \\text{ m}$, but for a product $A = lw$ fractional uncertainties must be added."
+    },
+    "D": {
+      "status": "incorrect",
+      "explanation": "It multiplies $50.3$ by $1.40$ without converting $\\text{cm}$ to $\\text{m}$, giving $70.4$ instead of $0.704 \\text{ m}^2$."
+    }
+  },
+  "hints": [
+    "Notice the mixed units: width is $(50.3 \\pm 0.1) \\text{ cm}$ while length is $(1.40 \\pm 0.01) \\text{ m}$, so convert width to $0.503 \\text{ m}$ before multiplying.",
+    "For area $A = \\text{length} \\times \\text{width}$, a product, add the two fractional uncertainties $\\Delta l/l + \\Delta w/w$ to get the fractional uncertainty in $A$.",
+    "Calculate $0.1/50.3 + 0.01/1.40$, multiply that sum by the $0.704 \\text{ m}^2$ area, and check which option matches that absolute uncertainty and uses $\\text{m}^2$."
+  ],
+  "walkthrough": [
+    "Convert width to metres: $w = 50.3 \\text{ cm} = 0.503 \\text{ m}$ with $\\Delta w = 0.1 \\text{ cm} = 0.001 \\text{ m}$, while $l = 1.40 \\text{ m}$ with $\\Delta l = 0.01 \\text{ m}$.",
+    "Calculate the best-estimate area: $A = l \\times w = 1.40 \\times 0.503 = 0.7042 \\text{ m}^2$, so $0.704 \\text{ m}^2$ to 3 significant figures.",
+    "Write each fractional uncertainty: $\\Delta w/w = 0.1/50.3 = 0.00199$ and $\\Delta l/l = 0.01/1.40 = 0.00714$.",
+    "Add fractional uncertainties for multiplication: $\\Delta A/A = 0.00199 + 0.00714 = 0.00913$, about $0.91\\%$.",
+    "Convert to absolute uncertainty: $\\Delta A = 0.00913 \\times 0.7042 = 0.0064 \\text{ m}^2$, about $\\pm 0.006 \\text{ m}^2$.",
+    "Hence $A = (0.704 \\pm 0.006) \\text{ m}^2$. This is option B."
+  ],
+  "mapping": {
+    "primary_topic_id": "9702_t01",
+    "primary_module_id": "9702_t01_m02",
+    "outcome_ids": [
+      "9702_t01_m02_o04",
+      "9702_t01_m02_o01"
+    ]
+  },
+  "taxonomy_tags": {
+    "topic_ids": [
+      "9702_t01"
+    ],
+    "module_ids": [
+      "9702_t01_m02"
+    ]
+  }
+}

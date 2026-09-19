@@ -1,0 +1,59 @@
+{
+  "schema_version": "9702_p1_enrichment_v1",
+  "question_id": "9702_w20_11_q36",
+  "component": "P1",
+  "difficulty": 2,
+  "question_patterns": [
+    "circuit_analysis"
+  ],
+  "topic_id": "9702_t10",
+  "module_id": "9702_t10_m02",
+  "skill_id": "9702_skill_resistor_networks",
+  "accepted_answer": "B",
+  "options_breakdown": {
+    "A": {
+      "status": "incorrect",
+      "explanation": "L1 does get brighter, but L2 does not get brighter because the voltage across the L2 branch falls when S is closed."
+    },
+    "B": {
+      "status": "correct",
+      "explanation": "Total resistance falls so current through L1 rises, while the voltage shared to the L2 parallel combination falls so L2 dims."
+    },
+    "C": {
+      "status": "incorrect",
+      "explanation": "L1 does not dim because adding L3 in parallel lowers total resistance and increases the current through L1."
+    },
+    "D": {
+      "status": "incorrect",
+      "explanation": "L1 does not dim because the total current in the circuit increases when L3 is connected in parallel with L2."
+    }
+  },
+  "hints": [
+    "Notice that L1 is in the main line while L2 and L3 are in parallel branches after L1, so L1 carries the total current and L2 carries only part of it.",
+    "Recall brightness depends on power $P = I^2R$ for L1 and $P = V^2/R$ for L2, so track total current for L1 and branch voltage for L2.",
+    "Compare total resistance with S open ($R + R$) to S closed ($R + R/2$) and use the fixed battery e.m.f. to see how total current and the voltage left for the parallel part change."
+  ],
+  "walkthrough": [
+    "With S open, L1 and L2 are in series. Let each lamp have resistance $R$. Total resistance is $R + R = 2R$ and total current is $I = V/2R$ through both L1 and L2.",
+    "With S closed, L2 and L3 are in parallel. Their combined resistance is $R/2$, so total resistance is $R + R/2 = 1.5R$, which is smaller than before.",
+    "Battery has negligible internal resistance so terminal p.d. equals e.m.f. $V$. New total current is $I' = V/1.5R$, which is larger than $V/2R$. This current flows through L1, so power $P_1 = I'^2 R$ increases and L1 gets brighter.",
+    "The voltage across L1 is $I'R$ and has increased, so the remaining voltage for the parallel combination $V - I'R$ has decreased.",
+    "L2 now has a smaller p.d. across it, so its power $P_2 = V_{parallel}^2/R$ decreases and L2 gets dimmer. This is option B."
+  ],
+  "mapping": {
+    "primary_topic_id": "9702_t10",
+    "primary_module_id": "9702_t10_m02",
+    "outcome_ids": [
+      "9702_t10_m02_o05",
+      "9702_t10_m02_o06"
+    ]
+  },
+  "taxonomy_tags": {
+    "topic_ids": [
+      "9702_t10"
+    ],
+    "module_ids": [
+      "9702_t10_m02"
+    ]
+  }
+}

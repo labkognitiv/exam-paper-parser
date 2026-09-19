@@ -1,0 +1,173 @@
+{
+  "schema_version": "9702_theory_enrichment_v1",
+  "question_id": "9702_w21_41_q05",
+  "difficulty": 3,
+  "question_patterns": [
+    "explanation",
+    "direct_calculation",
+    "graph_interpretation"
+  ],
+  "parts": [
+    {
+      "part_id": "9702_w21_41_q05_a",
+      "label": "(a)",
+      "marks": 2,
+      "difficulty": 1,
+      "question_patterns": [
+        "explanation"
+      ],
+      "key_concepts": [
+        "digital transmission advantages",
+        "noise and regeneration",
+        "error correction and security"
+      ],
+      "hints": [
+        "Hint 1: Think about what happens to an analogue signal as it travels - how does unwanted noise change its shape, and why is a signal made only of 1s and 0s easier to clean up?",
+        "Hint 2: Think of one more processing trick that is only easy with numbers - checking for mistakes, squeezing data together, or keeping it secret."
+      ],
+      "proper_answer": "Any two from: noise can be removed / digital signal can be regenerated; extra bits can be added for error detection and correction; signal can be encrypted for security; multiplexing / data compression possible.",
+      "walkthrough": [
+        "Step 1: **Why Digital Beats Analogue For Noise**\nThink of an analogue signal as a smooth wavy line. Any noise picked up on the line adds on and changes the shape for ever - you cannot tell what was signal and what was noise. A digital signal is only high or low, 1 or 0. Even if it gets a bit noisy, the receiver can still tell 1 from 0 and make a perfect clean copy again. We call this regeneration.",
+        "Step 2: **What Else Numbers Let You Do**\nOnce your sound is just numbers you can do clever maths on it. You can add extra parity bits to spot and fix errors, you can encrypt the numbers so only the right receiver can read them, and you can compress many signals together down one fibre by multiplexing. Any two of these ideas earns the 2 marks."
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t24",
+        "primary_module_id": "9702_t24_m03",
+        "outcome_ids": [
+          "9702_t24_m03_o06",
+          "9702_t24_m03_o01"
+        ]
+      },
+      "primary_topic_id": "9702_t24",
+      "primary_module_id": "9702_t24_m03",
+      "outcome_ids": [
+        "9702_t24_m03_o06",
+        "9702_t24_m03_o01"
+      ]
+    },
+    {
+      "part_id": "9702_w21_41_q05_b_i",
+      "label": "(b)(i)",
+      "marks": 1,
+      "difficulty": 2,
+      "question_patterns": [
+        "direct_calculation"
+      ],
+      "key_concepts": [
+        "sampling interval",
+        "4-bit binary conversion",
+        "least significant bit"
+      ],
+      "hints": [
+        "Hint 1: First work out how often the ADC takes a sample from the 250 Hz frequency, then read the p.d. values off Fig. 5.2 at 4 ms and 8 ms and remember what 1 mV per LSB means for the binary number."
+      ],
+      "proper_answer": "Sampling interval $= 1/250 = 4.0 \\times 10^{-3} \\text{ s} = 4 \\text{ ms}$. At 4 ms, p.d. $= 5 \\text{ mV} = 0101$; at 8 ms, p.d. $= 4 \\text{ mV} = 0100$.",
+      "walkthrough": [
+        "Step 1: **Find When Samples Happen**\nSampling frequency tells you samples per second. The time between samples is:\n$$T = \\frac{1}{f} = \\frac{1}{250} = 0.004 \\text{ s} = 4 \\text{ ms}$$\nSo with first sample at 0, the next samples are at 4 ms, 8 ms, 12 ms and so on.",
+        "Step 2: **Read Graph And Convert To Binary**\nFrom Fig. 5.2, at $t = 4 \\text{ ms}$ the curve is at $5 \\text{ mV}$. At $t = 8 \\text{ ms}$ the dip is at $4 \\text{ mV}$. The LSB is $1 \\text{ mV}$, so the binary number is just the voltage number in binary with 4 bits. $5 = 4+1 = 0101$ and $4 = 0100$."
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t18",
+        "primary_module_id": "9702_t18_m03",
+        "outcome_ids": [
+          "9702_t18_m03_o02"
+        ]
+      },
+      "primary_topic_id": "9702_t18",
+      "primary_module_id": "9702_t18_m03",
+      "outcome_ids": [
+        "9702_t18_m03_o02"
+      ]
+    },
+    {
+      "part_id": "9702_w21_41_q05_b_ii",
+      "label": "(b)(ii)",
+      "marks": 2,
+      "difficulty": 2,
+      "question_patterns": [
+        "graph_interpretation"
+      ],
+      "key_concepts": [
+        "DAC output hold",
+        "staircase reconstruction",
+        "sample-and-hold"
+      ],
+      "hints": [
+        "Hint 1: Remember what a DAC does between samples - it cannot guess the curve, so what shape must the output have until the next new number arrives?",
+        "Hint 2: Use your answers from (b)(i) to decide how long the 5 mV level from the 4 ms sample lasts, and what new level must start at 8 ms."
+      ],
+      "proper_answer": "Horizontal line at 5 mV continues from 6 ms to 8 ms, then steps down to 4 mV at 8 ms and continues horizontally to 12 ms.",
+      "walkthrough": [
+        "Step 1: **Hold The Value Until Next Sample**\nA DAC puts out a constant p.d. equal to the last received sample until the next sample arrives. It makes a staircase, not a smooth curve. Fig. 5.3 already shows 1 mV from 0 to 4 ms and 5 mV from 4 ms onwards.",
+        "Step 2: **Extend To 8 ms Then Step To New Value**\nThe 5 mV sample taken at 4 ms is held for one full sampling interval:\n$$4 \\text{ ms to } 8 \\text{ ms at } 5 \\text{ mV}$$\nAt 8 ms the new sample is 4 mV, so the line drops vertically at 8 ms to:\n$$4 \\text{ mV from } 8 \\text{ ms to } 12 \\text{ ms}$$\nThat flat to 8 ms and correct 4 mV level are the two marks."
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t19",
+        "primary_module_id": "9702_t19_m03",
+        "outcome_ids": [
+          "9702_t19_m03_o01",
+          "9702_t19_m03_o02"
+        ]
+      },
+      "primary_topic_id": "9702_t19",
+      "primary_module_id": "9702_t19_m03",
+      "outcome_ids": [
+        "9702_t19_m03_o01",
+        "9702_t19_m03_o02"
+      ]
+    },
+    {
+      "part_id": "9702_w21_41_q05_c",
+      "label": "(c)",
+      "marks": 3,
+      "difficulty": 3,
+      "question_patterns": [
+        "graph_interpretation",
+        "direct_calculation"
+      ],
+      "key_concepts": [
+        "sampling frequency and resolution",
+        "3-bit quantisation",
+        "LSB step size"
+      ],
+      "hints": [
+        "Hint 1: Start by converting the new 500 Hz sampling frequency into a new time between steps - how does the width of each flat section compare to part (b)?",
+        "Hint 2: Now think about the new 2 mV LSB - the DAC can now only output even numbers of mV, so how will each smooth value from Fig. 5.2 be rounded?",
+        "Hint 3: Read Fig. 5.2 at 0, 2, 4, 6, 8 and 10 ms and round each to the nearest allowed 2 mV level to get the six step heights."
+      ],
+      "proper_answer": "Steps of width 2 ms. Step levels from 0 to 12 ms: 0, 2, 4, 6, 4, 6 mV held for intervals 0-2, 2-4, 4-6, 6-8, 8-10, 10-12 ms.",
+      "walkthrough": [
+        "Step 1: **New Step Width**\nHigher sampling rate means more frequent steps:\n$$T = \\frac{1}{500} = 0.002 \\text{ s} = 2 \\text{ ms}$$\nSo you draw flats 2 ms wide: 0-2, 2-4, 4-6, 6-8, 8-10, 10-12 ms. This finer sampling follows the curve better in time.",
+        "Step 2: **New Step Heights With Coarser Voltage Steps**\nNow 3-bit with LSB $= 2 \\text{ mV}$, so allowed DAC outputs are $0, 2, 4, 6, 8... \\text{ mV}$. Read Fig. 5.2 and round to nearest allowed level: at 0 ms $\\approx 1 \\text{ mV} \\to 0 \\text{ mV}$; at 2 ms $\\approx 2 \\text{ mV} \\to 2 \\text{ mV}$; at 4 ms $\\approx 5 \\text{ mV} \\to 4 \\text{ mV}$; at 6 ms $\\approx 7 \\text{ mV} \\to 6 \\text{ mV}$; at 8 ms $\\approx 4 \\text{ mV} \\to 4 \\text{ mV}$; at 10 ms $\\approx 6 \\text{ mV} \\to 6 \\text{ mV}$.",
+        "Step 3: **Sketch The New Staircase**\nDraw horizontal lines at those six heights, with vertical jumps at 2, 4, 6, 8, 10 ms. You get more steps than in (b) but the voltage levels are chunkier because the LSB is larger. That trade-off between time resolution and voltage resolution is the key physics here."
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t25",
+        "primary_module_id": "9702_t25_m02",
+        "outcome_ids": [
+          "9702_t25_m02_o02"
+        ]
+      },
+      "primary_topic_id": "9702_t25",
+      "primary_module_id": "9702_t25_m02",
+      "outcome_ids": [
+        "9702_t25_m02_o02"
+      ]
+    }
+  ],
+  "total_marks": 8,
+  "taxonomy_tags": {
+    "topic_ids": [
+      "9702_t18",
+      "9702_t19",
+      "9702_t24",
+      "9702_t25"
+    ],
+    "module_ids": [
+      "9702_t18_m03",
+      "9702_t19_m03",
+      "9702_t24_m03",
+      "9702_t25_m02"
+    ]
+  }
+}

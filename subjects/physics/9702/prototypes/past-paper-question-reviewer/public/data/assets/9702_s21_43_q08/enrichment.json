@@ -1,0 +1,175 @@
+{
+  "schema_version": "9702_theory_enrichment_v1",
+  "question_id": "9702_s21_43_q08",
+  "difficulty": 3,
+  "question_patterns": [
+    "direct_calculation",
+    "explanation",
+    "graph_interpretation"
+  ],
+  "parts": [
+    {
+      "part_id": "9702_s21_43_q08_a",
+      "label": "(a)",
+      "marks": 2,
+      "difficulty": 1,
+      "question_patterns": [
+        "direct_calculation"
+      ],
+      "key_concepts": [
+        "potential divider",
+        "op-amp input potential"
+      ],
+      "hints": [
+        "Hint 1: Focus on the left-hand branch in Fig. 8.2. The non-inverting input is connected between the two fixed resistors, so think about how the 3.0 V supply is shared between them.",
+        "Hint 2: Recall how the p.d. across one resistor in a series pair relates to its resistance fraction of the total resistance, and check which resistor $V^+$ is measured across."
+      ],
+      "proper_answer": "$V^+ = 3.0 \\times 3.0/(2.5+3.0) = 1.6\\text{ V}$",
+      "walkthrough": [
+        "Step 1: **See the left branch as a potential divider**\nYou have $+3.0\\text{ V}$ at the top and $0\\text{ V}$ (earth) at the bottom. The $2.5\\text{ k}\\Omega$ and $3.0\\text{ k}\\Omega$ resistors are in series, so the same current flows through both and the supply p.d. divides in the ratio of the resistances.",
+        "Step 2: **Calculate the share across the lower resistor**\n$V^+$ is the potential at the junction, which is the p.d. across the $3.0\\text{ k}\\Omega$ resistor to earth:\n$$V^+ = V_{supply} \\times \\frac{R_{lower}}{R_{upper}+R_{lower}}$$\n$$V^+ = 3.0 \\times \\frac{3.0}{2.5+3.0} = 3.0 \\times \\frac{3.0}{5.5} \\approx 1.6\\text{ V}$$"
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t18",
+        "primary_module_id": "9702_t18_m05",
+        "outcome_ids": [
+          "9702_t18_m05_o03",
+          "9702_t18_m05_o04"
+        ]
+      },
+      "primary_topic_id": "9702_t18",
+      "primary_module_id": "9702_t18_m05",
+      "outcome_ids": [
+        "9702_t18_m05_o03",
+        "9702_t18_m05_o04"
+      ]
+    },
+    {
+      "part_id": "9702_s21_43_q08_b",
+      "label": "(b)",
+      "marks": 2,
+      "difficulty": 2,
+      "question_patterns": [
+        "direct_calculation",
+        "explanation"
+      ],
+      "key_concepts": [
+        "op-amp as comparator",
+        "inverting vs non-inverting input",
+        "LED forward conduction"
+      ],
+      "hints": [
+        "Hint 1: Start by working out $V^-$ at the inverting input from the right-hand divider with the thermistor on top and the $5.0\\text{ k}\\Omega$ resistor below. Compare its value with $V^+$ from (a).",
+        "Hint 2: Remember how an ideal op-amp used open-loop behaves: if $V^+ > V^-$ the output saturates high and positive, if $V^+ < V^-$ it saturates low and negative. Think about what output polarity is needed to push forward current through the LED to earth."
+      ],
+      "proper_answer": "At $10^\\circ\\text{C}$, $V^- = 2.0\\text{ V} > V^+ = 1.6\\text{ V}$, so op-amp output is negative/low and LED does not emit light.",
+      "walkthrough": [
+        "Step 1: **Find $V^-$ at $10^\\circ\\text{C}$**\nThe right branch is another divider. $V^-$ is across the lower $5.0\\text{ k}\\Omega$ resistor:\n$$V^- = 3.0 \\times \\frac{5.0}{2.5+5.0} = 3.0 \\times \\frac{5.0}{7.5} = 2.0\\text{ V}$$\nSo $V^- = 2.0\\text{ V}$ while $V^+ = 1.6\\text{ V}$. That means $V^- > V^+$.",
+        "Step 2: **Decide the comparator output and LED state**\nAn op-amp with no feedback acts as a comparator. When the inverting input is higher than the non-inverting input, the output is driven to the negative supply, essentially low. A negative output cannot drive forward current down through the LED to earth, so the LED stays off and emits no light."
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t17",
+        "primary_module_id": "9702_t17_m01",
+        "outcome_ids": [
+          "9702_t17_m01_o04"
+        ]
+      },
+      "primary_topic_id": "9702_t17",
+      "primary_module_id": "9702_t17_m01",
+      "outcome_ids": [
+        "9702_t17_m01_o04"
+      ]
+    },
+    {
+      "part_id": "9702_s21_43_q08_c",
+      "label": "(c)",
+      "marks": 2,
+      "difficulty": 3,
+      "question_patterns": [
+        "explanation",
+        "graph_interpretation"
+      ],
+      "key_concepts": [
+        "NTC thermistor behaviour",
+        "potential divider shift with temperature",
+        "comparator switching condition"
+      ],
+      "hints": [
+        "Hint 1: Look at Fig. 8.1 and see what happens to thermistor resistance as temperature rises above $0^\\circ\\text{C}$. It is an NTC thermistor, so track whether resistance increases or decreases.",
+        "Hint 2: Think about how that resistance change affects $V^-$, which is the p.d. across the fixed lower resistor. Consider whether $V^-$ will move toward or away from the fixed $V^+$ value."
+      ],
+      "proper_answer": "At $0^\\circ\\text{C}$, $R_T \\approx 3.8\\text{ k}\\Omega$ giving $V^- \\approx 1.7\\text{ V} > V^+$. For $T > 0^\\circ\\text{C}$, $R_T$ falls so $V^-$ rises further and stays $> V^+$, so output never switches.",
+      "walkthrough": [
+        "Step 1: **Check the starting point at $0^\\circ\\text{C}$**\nFrom Fig. 8.1, $R_T$ at $0^\\circ\\text{C}$ is about $3.7$ to $3.8\\text{ k}\\Omega$. Even there:\n$$V^- = 3.0 \\times \\frac{5.0}{R_T+5.0} \\approx 1.7\\text{ V}$$\nThis is already greater than $V^+ = 1.6\\text{ V}$.",
+        "Step 2: **Follow the trend to higher temperature**\nWarming an NTC thermistor lowers its resistance. In the divider $V^- = 3.0 \\times 5.0/(R_T+5.0)$, a smaller $R_T$ makes the denominator smaller, so the fraction across the fixed $5.0\\text{ k}\\Omega$ resistor gets larger. $V^-$ therefore increases further above $V^+$. Since $V^- > V^+$ for all $T > 0^\\circ\\text{C}$, the comparator output stays low and never switches, so no temperature change is indicated."
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t18",
+        "primary_module_id": "9702_t18_m05",
+        "outcome_ids": [
+          "9702_t18_m05_o03",
+          "9702_t18_m05_o04"
+        ]
+      },
+      "primary_topic_id": "9702_t18",
+      "primary_module_id": "9702_t18_m05",
+      "outcome_ids": [
+        "9702_t18_m05_o03",
+        "9702_t18_m05_o04"
+      ]
+    },
+    {
+      "part_id": "9702_s21_43_q08_d",
+      "label": "(d)",
+      "marks": 3,
+      "difficulty": 3,
+      "question_patterns": [
+        "graph_interpretation",
+        "direct_calculation"
+      ],
+      "key_concepts": [
+        "comparator threshold V- = V+",
+        "reading thermistor resistance from graph",
+        "potential divider rearrangement"
+      ],
+      "hints": [
+        "Hint 1: Switching happens when the two inputs are equal. Use your $V^+$ value from (a) as the target value for $V^-$ at the switching temperature.",
+        "Hint 2: Read the thermistor resistance at $20^\\circ\\text{C}$ carefully from Fig. 8.1, using the small grid squares to get about $1.8\\text{ k}\\Omega$.",
+        "Hint 3: Set up the divider equation for the right branch with unknown lower resistor $R$ and known upper resistor $R_T$, then rearrange to solve for $R$."
+      ],
+      "proper_answer": "At $20^\\circ\\text{C}$, $R_T = 1.8\\text{ k}\\Omega$. At switching $V^- = V^+ = 1.6\\text{ V}$, so $[R/(R+1.8)]\\times 3.0 = 1.6$, giving $R = 2.2\\text{ k}\\Omega$.",
+      "walkthrough": [
+        "Step 1: **Use the switching condition and the graph**\nThe LED changes state when the comparator changes over, which is when $V^- = V^+ \\approx 1.64\\text{ V}$. From Fig. 8.1 at $20^\\circ\\text{C}$, read horizontally to the curve then down to the resistance axis:\n$$R_T(20^\\circ\\text{C}) = 1.8\\text{ k}\\Omega$$",
+        "Step 2: **Write the divider with unknown $R$**\nNow the lower resistor is $R$ and the upper is $R_T = 1.8\\text{ k}\\Omega$:\n$$V^- = 3.0 \\times \\frac{R}{R+R_T}$$\nSet $V^- = V^+$:\n$$\\frac{R}{R+1.8} \\times 3.0 = 1.64$$",
+        "Step 3: **Solve for $R$**\nRearrange:\n$$\\frac{2.5}{3.0} = \\frac{1.8}{R}$$\nThis comes from equating the resistance ratios of the two dividers for the same voltage ratio. Solving:\n$$R = 1.8 \\times \\frac{3.0}{2.5} = 2.16 \\approx 2.2\\text{ k}\\Omega$$"
+      ],
+      "mapping": {
+        "primary_topic_id": "9702_t12",
+        "primary_module_id": "9702_t12_m02",
+        "outcome_ids": [
+          "9702_t12_m02_o03",
+          "9702_t12_m02_o04"
+        ]
+      },
+      "primary_topic_id": "9702_t12",
+      "primary_module_id": "9702_t12_m02",
+      "outcome_ids": [
+        "9702_t12_m02_o03",
+        "9702_t12_m02_o04"
+      ]
+    }
+  ],
+  "total_marks": 9,
+  "taxonomy_tags": {
+    "topic_ids": [
+      "9702_t12",
+      "9702_t17",
+      "9702_t18"
+    ],
+    "module_ids": [
+      "9702_t12_m02",
+      "9702_t17_m01",
+      "9702_t18_m05"
+    ]
+  }
+}
