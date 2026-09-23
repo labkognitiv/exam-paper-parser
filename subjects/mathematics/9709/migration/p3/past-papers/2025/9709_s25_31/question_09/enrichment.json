@@ -1,0 +1,161 @@
+{
+  "schema_version": "9709_math_enrichment_v3",
+  "paper_code": "9709_s25_31",
+  "question_id": "9709_s25_31_q9",
+  "question_num": 9,
+  "subject_code": "9709",
+  "component": "P3",
+  "year": 2025,
+  "session": "May/June",
+  "variant": "31",
+  "difficulty": 3,
+  "numerical_values_checked": false,
+  "parts": [
+    {
+      "part_id": "9709_s25_31_q9_a",
+      "difficulty": 2,
+      "practice_tier": "revision",
+      "mapping": {
+        "topic_id": "9709_p3_t_integration",
+        "module_id": "9709_p3_t_integration_m02",
+        "lesson_id": "9709_p3_t_integration_m02_l01"
+      },
+      "skills": {
+        "primary_skill_id": "9709_p3_skill_integration_by_parts",
+        "skill_tags": [
+          "Integration by Parts"
+        ]
+      },
+      "question_pattern_ids": [
+        "9709_p3_pattern_prove_or_show",
+        "9709_p3_pattern_exact_value",
+        "9709_p3_pattern_calculus_process"
+      ],
+      "knowledge_refs": {
+        "formula_ids": [
+          "9709_p3_formula_integration_by_parts"
+        ],
+        "identity_ids": [],
+        "method_ids": [
+          "9709_p3_method_integration_by_parts"
+        ],
+        "fact_ids": []
+      },
+      "hints": [
+        "Evaluate $\\int 6x\\ln x\\,dx$ by parts with $u=\\ln x$ and $dv=6x\\,dx$.",
+        "Apply the limits $1$ and $a$, remembering that $\\ln1=0$, and set the resulting expression equal to $4$.",
+        "Rearrange to isolate $\\ln a$ and divide by the appropriate power of $a$.",
+        "Exponentiate both sides to reach the stated fixed-point equation exactly."
+      ],
+      "walkthrough": [
+        "Use integration by parts $\\int u\\dfrac{\\mathrm{d}v}{\\mathrm{d}x}\\,\\mathrm{d}x = uv - \\int v\\dfrac{\\mathrm{d}u}{\\mathrm{d}x}\\,\\mathrm{d}x$ on $\\int 6x\\ln x\\,\\mathrm{d}x$:\n$$u = \\ln x \\implies \\dfrac{\\mathrm{d}u}{\\mathrm{d}x} = \\dfrac{1}{x}$$\n$$\\dfrac{\\mathrm{d}v}{\\mathrm{d}x} = 6x \\implies v = \\int 6x\\,\\mathrm{d}x = 3x^2$$",
+        "Substitute into the parts formula:\n$$\\int 6x\\ln x\\,\\mathrm{d}x = 3x^2\\ln x - \\int 3x^2\\left(\\dfrac{1}{x}\\right)\\,\\mathrm{d}x = 3x^2\\ln x - \\int 3x\\,\\mathrm{d}x = 3x^2\\ln x - \\dfrac{3}{2}x^2$$",
+        "Evaluate the definite integral between the limits $1$ and $a$:\n$$\\left[ 3x^2\\ln x - \\dfrac{3}{2}x^2 \\right]_1^a = \\left(3a^2\\ln a - \\dfrac{3}{2}a^2\\right) - \\left(3(1)^2\\ln(1) - \\dfrac{3}{2}(1)^2\\right)$$\n$$\\text{Since } \\ln(1) = 0: \\quad = 3a^2\\ln a - \\dfrac{3}{2}a^2 - \\left(0 - \\dfrac{3}{2}\\right) = 3a^2\\ln a - \\dfrac{3}{2}a^2 + \\dfrac{3}{2}$$",
+        "Equate the expression to $4$:\n$$3a^2\\ln a - \\dfrac{3}{2}a^2 + \\dfrac{3}{2} = 4$$",
+        "Isolate $3a^2\\ln a$ on the left-hand side:\n$$3a^2\\ln a = 4 - \\dfrac{3}{2} + \\dfrac{3}{2}a^2 = \\dfrac{5}{2} + \\dfrac{3}{2}a^2 = \\dfrac{5 + 3a^2}{2}$$",
+        "Divide both sides by $3a^2$:\n$$\\ln a = \\dfrac{5 + 3a^2}{6a^2} = \\dfrac{1}{6}\\left(\\dfrac{5}{a^2} + 3\\right)$$",
+        "Exponentiate both sides with base $\\mathrm{e}$:\n$$a = \\exp\\left[\\dfrac{1}{6}\\left(\\dfrac{5}{a^2} + 3\\right)\\right]$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "ai_rubric": {
+          "Integration by Parts": "$3x^2lnx-3\\int x dx$. Applies limits and equates to 4, giving $3a^2lna-(3/2)a^2+3/2=4$. Concludes that = exp[(1/6)(5/a² + 3)]."
+        },
+        "criteria_source": "mark_scheme_structured"
+      }
+    },
+    {
+      "part_id": "9709_s25_31_q9_b",
+      "difficulty": 1,
+      "practice_tier": "revision",
+      "mapping": {
+        "topic_id": "9709_p3_t_numerical_solution_of_equations",
+        "module_id": "9709_p3_t_numerical_solution_of_equations_m01",
+        "lesson_id": "9709_p3_t_numerical_solution_of_equations_m01_l02"
+      },
+      "skills": {
+        "primary_skill_id": "9709_p3_skill_numerical_root_bracketing",
+        "skill_tags": [
+          "Numerical Root Bracketing"
+        ]
+      },
+      "question_pattern_ids": [
+        "9709_p3_pattern_solve_inequality",
+        "9709_p3_pattern_prove_or_show"
+      ],
+      "knowledge_refs": {
+        "formula_ids": [],
+        "identity_ids": [],
+        "method_ids": [
+          "9709_p3_method_numerical_root_bracketing"
+        ],
+        "fact_ids": []
+      },
+      "hints": [
+        "Use the equation from part (a), rather than numerically evaluating the original integral, to define a continuous root function.",
+        "For example, rearrange it to $f(x)=6x^2\\ln x-3x^2-5$.",
+        "Evaluate $f(2)$ and $f(2.1)$ and display their opposite signs.",
+        "Invoke continuity on $[2,2.1]$ to verify that the required root lies between the endpoints."
+      ],
+      "walkthrough": [
+        "Define the continuous function $f(x) = 6x^2\\ln x - 3x^2 - 5$ representing the equation $6a^2\\ln a - 3a^2 - 5 = 0$:\n$$f(x) = 3x^2(2\\ln x - 1) - 5$$",
+        "Evaluate $f(x)$ at $x = 2$:\n$$f(2) = 6(2^2)\\ln 2 - 3(2^2) - 5 = 24(0.693147) - 12 - 5 = 16.6355 - 17 = -0.3645 < 0$$\n$$\\left(\\text{or using the fixed-point form } g(x) = x - \\exp\\left[\\dfrac{1}{6}\\left(\\dfrac{5}{x^2} + 3\\right)\\right]: \\quad g(2) = 2 - 2.0306 = -0.0306 < 0\\right)$$",
+        "Evaluate $f(x)$ at $x = 2.1$:\n$$f(2.1) = 6(2.1^2)\\ln(2.1) - 3(2.1^2) - 5 = 6(4.41)(0.741937) - 3(4.41) - 5 = 19.6317 - 13.23 - 5 = +1.4017 > 0$$\n$$\\left(\\text{or using } g(2.1) = 2.1 - 1.9917 = +0.1083 > 0\\right)$$",
+        "Conclude using the intermediate value theorem:\n$$\\text{Since } f(x) \\text{ is continuous on } [2, 2.1] \\text{ and } f(2) < 0 \\text{ while } f(2.1) > 0,$$\n$$\\text{there is a sign change. Hence the root } a \\text{ lies between } 2 \\text{ and } 2.1.$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "ai_rubric": {
+          "Numerical Root Bracketing": "E.g. $f(x)=6x^2lnx-3x^2$ gives $f(2)=4.636<5$ and $f(2.1)=6.402>5$, or compare with the exponential fixed point ($2<2.0306$, $2.1>1.9917$). Uses the displayed signs or ordering to justify the conclusion. Concludes with 2 < a < 2.1. The final result is 2 < a < 2.1."
+        },
+        "criteria_source": "mark_scheme_structured"
+      }
+    },
+    {
+      "part_id": "9709_s25_31_q9_c",
+      "difficulty": 3,
+      "practice_tier": "revision",
+      "mapping": {
+        "topic_id": "9709_p3_t_numerical_solution_of_equations",
+        "module_id": "9709_p3_t_numerical_solution_of_equations_m02",
+        "lesson_id": "9709_p3_t_numerical_solution_of_equations_m02_l02"
+      },
+      "skills": {
+        "primary_skill_id": "9709_p3_skill_fixed_point_iteration",
+        "skill_tags": [
+          "Fixed-Point Iteration"
+        ]
+      },
+      "question_pattern_ids": [
+        "9709_p3_pattern_numerical_approximation"
+      ],
+      "knowledge_refs": {
+        "formula_ids": [],
+        "identity_ids": [],
+        "method_ids": [
+          "9709_p3_method_fixed_point_iteration"
+        ],
+        "fact_ids": [
+          "9709_p3_fact_iteration_convergence"
+        ]
+      },
+      "hints": [
+        "Use $a_{n+1}=\\exp\\!\\left[\\frac16\\left(\\frac5{a_n^2}+3\\right)\\right]$ as the fixed-point update.",
+        "Take $a_1=2$ and repeatedly substitute each output into the right-hand side, recording every iterate to 4 decimal places.",
+        "Continue until the values are stable enough to justify the final result to 2 decimal places."
+      ],
+      "walkthrough": [
+        "Set up the iteration formula $a_{n+1} = \\exp\\left[\\dfrac{1}{6}\\left(\\dfrac{5}{a_n^2} + 3\\right)\\right]$ starting with initial guess $a_1 = 2$:\n$$a_2 = \\exp\\left[\\dfrac{1}{6}\\left(\\dfrac{5}{2^2} + 3\\right)\\right] = \\exp\\left[\\dfrac{1}{6}(1.25 + 3)\\right] = \\exp\\left(\\dfrac{4.25}{6}\\right) = \\exp(0.708333) \\approx 2.0306$$",
+        "Substitute $a_2 = 2.0306$ into the iteration formula to calculate subsequent iterates:\n$$a_3 = \\exp\\left[\\dfrac{1}{6}\\left(\\dfrac{5}{2.0306^2} + 3\\right)\\right] = \\exp\\left[\\dfrac{1}{6}\\left(\\dfrac{5}{4.1233} + 3\\right)\\right] = \\exp(0.70211) \\approx 2.0180$$\n$$a_4 = \\exp\\left[\\dfrac{1}{6}\\left(\\dfrac{5}{2.0180^2} + 3\\right)\\right] = \\exp\\left[\\dfrac{1}{6}\\left(\\dfrac{5}{4.0723} + 3\\right)\\right] = \\exp(0.70464) \\approx 2.0231$$\n$$a_5 = \\exp\\left[\\dfrac{1}{6}\\left(\\dfrac{5}{2.0231^2} + 3\\right)\\right] = \\exp\\left[\\dfrac{1}{6}\\left(\\dfrac{5}{4.0929} + 3\\right)\\right] = \\exp(0.70360) \\approx 2.0210$$\n$$a_6 = \\exp\\left[\\dfrac{1}{6}\\left(\\dfrac{5}{2.0210^2} + 3\\right)\\right] \\approx 2.0219$$",
+        "Round the converged value to 2 decimal places:\n$$\\text{Both } 2.0210 \\text{ and } 2.0219 \\text{ round to } 2.02:$$\n$$a = 2.02$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "ai_rubric": {
+          "Fixed-Point Iteration": "Applies $a_{n+1}=exp[(1/6)(5/a_n^2+3)]$ by direct substitution. Concludes with $2.02$. The solved value is a=2.02."
+        },
+        "criteria_source": "mark_scheme_structured"
+      }
+    }
+  ]
+}

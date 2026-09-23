@@ -1,0 +1,75 @@
+{
+  "schema_version": "9709_math_enrichment_v3",
+  "paper_code": "9709_w23_52",
+  "question_id": "9709_w23_52_q3",
+  "question_num": 3,
+  "subject_code": "9709",
+  "component": "S1",
+  "year": 2023,
+  "session": "October/November",
+  "variant": "52",
+  "difficulty": 3,
+  "numerical_values_checked": false,
+  "parts": [
+    {
+      "part_id": "9709_w23_52_q3",
+      "difficulty": 3,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_s1_t_the_normal_distribution",
+        "module_id": "9709_s1_t_the_normal_distribution_m03",
+        "lesson_id": "9709_s1_t_the_normal_distribution_m03_l02"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_applying_a_normal_approximation",
+        "skill_tags": [
+          "Applying a Normal Approximation",
+          "Applying a Continuity Correction"
+        ]
+      },
+      "question_pattern_ids": [
+        "9709_s1_pattern_normal_approximation_to_binomial"
+      ],
+      "knowledge_refs": {
+        "formula_ids": [
+          "9709_s1_formula_normal_approximation_parameters",
+          "9709_s1_formula_normal_standardisation"
+        ],
+        "identity_ids": [],
+        "method_ids": [
+          "9709_s1_method_applying_a_normal_approximation",
+          "9709_s1_method_applying_a_continuity_correction"
+        ],
+        "fact_ids": [
+          "9709_s1_fact_normal_approximation_validity_condition"
+        ]
+      },
+      "hints": [
+        "The number of faulty components F follows B(200, 0.15).",
+        "Find the parameters for the approximating normal distribution: mean mu = 200 * 0.15 = 30 and variance sigma^2 = 30 * 0.85 = 25.5.",
+        "Apply the continuity correction to F > 40 (discrete F >= 41): P(F_cont > 40.5).",
+        "Standardise: Z = (40.5 - 30) / sqrt(25.5) = 10.5 / 5.0498 = 2.079, and compute 1 - Phi(2.079) = 0.0188."
+      ],
+      "walkthrough": [
+        "Model the number of faulty components $F$ as a binomial distribution:\n$$F \\sim \\mathrm{B}(200, 0.15)$$",
+        "Calculate the approximating normal distribution parameters:\n$$\\mu = n p = 200 \\times 0.15 = 30$$\n$$\\sigma^2 = n p (1 - p) = 30 \\times 0.85 = 25.5 \\implies \\sigma = \\sqrt{25.5} \\approx 5.0498$$",
+        "Apply the continuity correction for the strict inequality $F > 40$ ($F \\ge 41$):\n$$\\mathrm{P}(F > 40) = \\mathrm{P}(F \\ge 41) \\approx \\mathrm{P}_{\\text{normal}}(F_{\\text{cont}} > 40.5)$$",
+        "Standardise and evaluate the upper tail probability:\n$$Z = \\frac{40.5 - 30}{\\sqrt{25.5}} = \\frac{10.5}{5.0498} \\approx 2.0793 \\approx 2.079$$\n$$\\mathrm{P}(Z > 2.079) = 1 - \\Phi(2.079) = 1 - 0.9812 = 0.0188$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "ai_rubric": {
+          "Applying a Normal Approximation": "Finds mu = 30, sigma^2 = 25.5, applies continuity correction 40.5, standardises to 2.079, and evaluates probability 0.0188."
+        },
+        "criteria_source": "mark_scheme_structured"
+      },
+      "teacher_walkthrough": [
+        "Step 1: Set up the binomial distribution:\n- Sample size $n = 200$\n- Probability of a component being faulty $p = 0.15$\n- Probability of not being faulty $q = 1 - 0.15 = 0.85$\n- Distribution: $F \\sim \\mathrm{B}(200, 0.15)$.",
+        "Step 2: Check conditions and compute normal parameters:\n- $n p = 200 \\times 0.15 = 30 > 5$\n- $n q = 200 \\times 0.85 = 170 > 5$\nBoth conditions are met, so a normal approximation is appropriate.\n$$\\mu = n p = 30$$\n$$\\sigma^2 = n p q = 30 \\times 0.85 = 25.5$$\n$$\\sigma = \\sqrt{25.5} \\approx 5.049752$$",
+        "Step 3: Apply the continuity correction:\nWe need the probability that 'more than 40' components are faulty.\nFor discrete integers, this means $F \\ge 41$.\nOn the continuous normal scale, the discrete integer 41 begins at its lower boundary $40.5$:\n$$\\mathrm{P}(F > 40) = \\mathrm{P}(F \\ge 41) \\approx \\mathrm{P}(F_{\\text{normal}} > 40.5)$$",
+        "Step 4: Standardise using $Z = \\frac{F - \\mu}{\\sigma}$:\n$$Z = \\frac{40.5 - 30}{\\sqrt{25.5}} = \\frac{10.5}{5.049752} \\approx 2.07931 \\approx 2.079$$",
+        "Step 5: Compute the upper-tail probability:\n$$\\mathrm{P}(Z > 2.079) = 1 - \\Phi(2.079)$$\nFrom the normal distribution table:\n$$\\Phi(2.07) = 0.9808$$\nDifference for $9$: $+0.0004$\n$$\\Phi(2.079) = 0.9812$$\n$$\\mathrm{P}(Z > 2.079) = 1 - 0.9812 = 0.0188$$"
+      ]
+    }
+  ]
+}

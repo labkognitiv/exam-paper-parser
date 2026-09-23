@@ -1,0 +1,67 @@
+{
+  "schema_version": "9709_math_enrichment_v3",
+  "paper_code": "9709_s16_31",
+  "question_id": "9709_s16_31_q2",
+  "question_num": 2,
+  "subject_code": "9709",
+  "component": "P3",
+  "year": 2016,
+  "session": "May/June",
+  "variant": "31",
+  "difficulty": 3,
+  "numerical_values_checked": false,
+  "parts": [
+    {
+      "part_id": "9709_s16_31_q2",
+      "difficulty": 3,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_p3_t_logarithmic_and_exponential_functions",
+        "module_id": "9709_p3_t_logarithmic_and_exponential_functions_m03",
+        "lesson_id": "9709_p3_t_logarithmic_and_exponential_functions_m03_l01"
+      },
+      "skills": {
+        "primary_skill_id": "9709_p3_skill_integration_by_parts",
+        "skill_tags": [
+          "Integration by Parts"
+        ]
+      },
+      "question_pattern_ids": [
+        "9709_p3_pattern_exact_value",
+        "9709_p3_pattern_calculus_process"
+      ],
+      "knowledge_refs": {
+        "formula_ids": [
+          "9709_p3_formula_integration_by_parts"
+        ],
+        "identity_ids": [],
+        "method_ids": [
+          "9709_p3_method_integration_by_parts"
+        ],
+        "fact_ids": []
+      },
+      "hints": [
+        "Use integration by parts with $u=x$ and $dv=e^{-2x}dx$.",
+        "This gives an antiderivative containing $-\\tfrac12xe^{-2x}$ and a remaining exponential integral.",
+        "Complete that integral, then evaluate at $x=\\tfrac12$ and $x=0$.",
+        "Keep $e^{-1}$ exact while simplifying."
+      ],
+      "walkthrough": [
+        "Apply integration by parts $\\int u\\,\\mathrm{d}v = uv - \\int v\\,\\mathrm{d}u$ with:\n$$u = x \\implies \\mathrm{d}u = \\mathrm{d}x$$\n$$\\mathrm{d}v = \\mathrm{e}^{-2x}\\,\\mathrm{d}x \\implies v = \\int \\mathrm{e}^{-2x}\\,\\mathrm{d}x = -\\dfrac{1}{2}\\mathrm{e}^{-2x}$$",
+        "Substitute these parts into the integration by parts formula:\n$$\\int x\\mathrm{e}^{-2x}\\,\\mathrm{d}x = -\\dfrac{1}{2}x\\mathrm{e}^{-2x} - \\int \\left(-\\dfrac{1}{2}\\mathrm{e}^{-2x}\\right)\\mathrm{d}x = -\\dfrac{1}{2}x\\mathrm{e}^{-2x} + \\dfrac{1}{2}\\int \\mathrm{e}^{-2x}\\,\\mathrm{d}x$$",
+        "Evaluate the remaining integral:\n$$\\dfrac{1}{2}\\int \\mathrm{e}^{-2x}\\,\\mathrm{d}x = \\dfrac{1}{2}\\left(-\\dfrac{1}{2}\\mathrm{e}^{-2x}\\right) = -\\dfrac{1}{4}\\mathrm{e}^{-2x}$$",
+        "Assemble the full antiderivative:\n$$\\int_0^{1/2} x\\mathrm{e}^{-2x}\\,\\mathrm{d}x = \\left[-\\dfrac{1}{2}x\\mathrm{e}^{-2x} - \\dfrac{1}{4}\\mathrm{e}^{-2x}\\right]_0^{1/2}$$",
+        "Evaluate at the upper limit $x = \\dfrac{1}{2}$:\n$$-\\dfrac{1}{2}\\left(\\dfrac{1}{2}\\right)\\mathrm{e}^{-2(1/2)} - \\dfrac{1}{4}\\mathrm{e}^{-2(1/2)} = -\\dfrac{1}{4}\\mathrm{e}^{-1} - \\dfrac{1}{4}\\mathrm{e}^{-1} = -\\dfrac{1}{2}\\mathrm{e}^{-1}$$",
+        "Evaluate at the lower limit $x = 0$:\n$$-\\dfrac{1}{2}(0)\\mathrm{e}^0 - \\dfrac{1}{4}\\mathrm{e}^0 = 0 - \\dfrac{1}{4}(1) = -\\dfrac{1}{4}$$",
+        "Subtract the lower limit value from the upper limit value:\n$$\\left(-\\dfrac{1}{2}\\mathrm{e}^{-1}\\right) - \\left(-\\dfrac{1}{4}\\right) = \\dfrac{1}{4} - \\dfrac{1}{2}\\mathrm{e}^{-1} \\quad \\left(\\text{or } \\dfrac{1}{4} - \\dfrac{1}{2\\mathrm{e}}\\right)$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "ai_rubric": {
+          "Integration by Parts": "Integrates by parts and reach $axe^{-2x}+b\\int e^{-2x}\\,dx$. Derives $-\\frac12xe^{-2x}+\\frac12\\int e^{-2x}\\,dx$, or equivalent. The final result is $\\frac14-\\frac1{2e}$."
+        },
+        "criteria_source": "mark_scheme_structured"
+      }
+    }
+  ]
+}

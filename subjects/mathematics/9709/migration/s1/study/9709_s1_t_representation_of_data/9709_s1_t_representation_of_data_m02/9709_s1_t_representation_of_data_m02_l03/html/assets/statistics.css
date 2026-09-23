@@ -1,0 +1,74 @@
+@font-face{font-family:Source Sans 3;src:url(fonts/SourceSans3-Regular.woff)}
+
+@font-face{font-family:Source Sans 3;src:url(fonts/SourceSans3-Semibold.woff);font-weight:600}
+
+@font-face{font-family:Source Sans 3;src:url(fonts/SourceSans3-Bold.woff);font-weight:700}
+
+@font-face{font-family:Kalam;src:url(fonts/Kalam-Regular.ttf)}
+
+:root{--plum:#29213f;--plum2:#493e60;--teal:#08756f;--ink:#302b40;--muted:#625674;--line:#d8d5e0;--paper:#fff;--wash:#f7f8fa;--soft:#f3f1f6}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--wash);color:var(--ink);font:20px/1.58 "Source Sans 3",sans-serif}
+a{color:var(--teal)}
+.top{background:var(--plum);color:#fff;display:flex;justify-content:space-between;padding:10px max(18px,calc((100% - 940px)/2));font-size:16px}
+.top button{background:#fff;color:var(--plum);border:0;border-radius:8px;padding:7px 12px;font:inherit;font-weight:600}
+.skip-link{position:absolute;left:-9999px}
+.skip-link:focus{left:12px;top:12px;z-index:9;background:#fff;padding:8px}
+.lesson-nav,main>section,main>footer{max-width:840px;margin:auto;background:#fff;padding:28px 44px}
+.lesson-nav{display:flex;gap:18px;flex-wrap:wrap;border-bottom:1px solid var(--line);font-size:17px}
+.lesson-nav span{margin-right:auto;font-weight:600}
+.hero{max-width:940px;margin:auto;background:var(--plum);color:#fff;padding:76px max(50px,calc((100% - 840px)/2))}
+.hero h1{font-size:clamp(42px,7vw,74px);line-height:1.02;margin:8px 0 20px}
+.hero .lead{max-width:690px;font-size:23px}
+.hero a{color:#fff}
+.kicker{text-transform:uppercase;letter-spacing:.12em;font-size:15px;font-weight:700}
+h2{font-size:36px;line-height:1.15;color:var(--plum);margin:20px 0}
+h3{color:var(--plum);font-size:25px}
+section+section{border-top:1px solid var(--line)}
+.explanation-points li{margin:8px 0}
+.formula-box,.worked-example,.quick-check,.definition{border:1px solid var(--line);border-radius:18px;padding:22px 26px;margin:24px 0;background:#fff}
+.formula-box{border-left:5px solid var(--plum)}
+.teacher-note{font-family:Kalam,"Source Sans 3",sans-serif;color:var(--teal);font-size:24px}
+.math{font-size:1.12em;overflow-x:auto;padding:9px 0}
+.steps li{margin:10px 0}
+.table-wrap,.number-scroll,.diagram-scroll{overflow-x:auto;border:1px solid var(--line);border-radius:14px;margin:18px 0}
+.scroll-cue{font-size:16px;color:var(--muted);margin-bottom:-10px}
+.table-wrap:focus-visible,.number-scroll:focus-visible,.diagram-scroll:focus-visible{outline:3px solid var(--teal);outline-offset:3px}
+table{border-collapse:collapse;width:100%;min-width:600px}
+th,td{padding:11px 14px;border:1px solid var(--line);text-align:center}
+th{background:var(--soft);color:var(--plum)}
+.number-strip{display:flex;gap:18px;align-items:center;min-width:max-content;padding:18px 22px;font-variant-numeric:tabular-nums}
+.number-strip .picked{font-weight:700;color:var(--plum);border:2px solid var(--plum2);border-radius:10px;padding:3px 8px}
+.split-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.split-grid>div{border:1px solid var(--line);border-radius:14px;padding:16px}
+.quick-check button{display:block;width:100%;text-align:left;background:#fff;border:1px solid #aaa4b4;border-radius:12px;padding:12px 15px;margin:10px 0;font:inherit;color:var(--ink)}
+.quick-check button[aria-pressed=true]{background:var(--plum);color:#fff}
+.quick-check button:focus-visible,a:focus-visible{outline:3px solid var(--teal);outline-offset:3px}
+.check-feedback{min-height:1.6em;font-weight:600;color:var(--plum)}
+.recap{background:var(--soft)!important}
+.final-answer{font-weight:700;color:var(--plum)}
+svg.numberline{width:100%;min-width:620px;height:auto;background:#fff}
+svg text{font-family:"Source Sans 3",sans-serif;fill:var(--ink);font-size:20px}
+footer{border-top:1px solid var(--line);padding-bottom:60px!important}
+.route{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+@media(max-width:700px){body{font-size:18px}
+.lesson-nav,main>section,main>footer{padding:24px 20px}
+.hero{padding:54px 24px}
+.hero .lead{font-size:20px}
+h2{font-size:31px}
+.top{padding:10px 14px}
+.top .brand span{display:none}
+.formula-box,.worked-example,.quick-check,.definition{padding:18px}
+.split-grid{grid-template-columns:1fr}
+}
+@media print{.top,.lesson-nav,.skip-link,.scroll-cue{display:none}
+.hero{max-width:none;padding:34px 44px}
+.hero h1{font-size:48px}
+body{background:#fff}
+main>section,main>footer{max-width:none;padding:20px 36px}
+.quick-check button{display:none}
+section,.worked-example{break-inside:avoid}
+}
+

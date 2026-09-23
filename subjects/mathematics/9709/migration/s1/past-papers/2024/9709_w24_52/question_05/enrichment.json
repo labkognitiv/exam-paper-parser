@@ -1,0 +1,128 @@
+{
+  "schema_version": "9709_math_enrichment_v3",
+  "paper_code": "9709_w24_52",
+  "question_id": "9709_w24_52_q5",
+  "question_num": 5,
+  "subject_code": "9709",
+  "component": "S1",
+  "year": 2024,
+  "session": "Oct/Nov",
+  "variant": "52",
+  "difficulty": 4,
+  "numerical_values_checked": false,
+  "parts": [
+    {
+      "part_id": "9709_w24_52_q5_a",
+      "difficulty": 2,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_s1_t_permutations_and_combinations",
+        "module_id": "9709_s1_t_permutations_and_combinations_m04",
+        "lesson_id": "9709_s1_t_permutations_and_combinations_m04_l01"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_calculating_combinations",
+        "skill_tags": [
+          "Calculating Combinations"
+        ]
+      },
+      "question_pattern_ids": [
+        "9709_s1_pattern_combinations_independent_groups"
+      ],
+      "knowledge_refs": {
+        "formula_ids": [
+          "9709_s1_formula_combinations"
+        ],
+        "identity_ids": [],
+        "method_ids": [
+          "9709_s1_method_calculating_combinations"
+        ],
+        "fact_ids": [
+          "9709_s1_fact_multiplication_principle_counting"
+        ]
+      },
+      "hints": [
+        "A group of 7 is chosen: 4 violinists from 10, 2 guitarists from 6, and 1 pianist from 5.",
+        "Calculate combinations for each instrument category: 10C4, 6C2, and 5C1.",
+        "10C4 = 210, 6C2 = 15, 5C1 = 5.",
+        "Multiply the three counts: 210 * 15 * 5 = 15750."
+      ],
+      "walkthrough": [
+        "Choose the required number of musicians from each distinct instrument category:\n- Choose $4$ violinists from $10$: $\\binom{10}{4} = \\frac{10 \\times 9 \\times 8 \\times 7}{4 \\times 3 \\times 2 \\times 1} = 210$\n- Choose $2$ guitarists from $6$: $\\binom{6}{2} = \\frac{6 \\times 5}{2 \\times 1} = 15$\n- Choose $1$ pianist from $5$: $\\binom{5}{1} = 5$",
+        "Multiply by the multiplication principle:\n$$\\text{Total ways} = \\binom{10}{4} \\times \\binom{6}{2} \\times \\binom{5}{1} = 210 \\times 15 \\times 5 = 15750$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "ai_rubric": {
+          "Calculating Combinations": "Evaluates 10C4 * 6C2 * 5C1 = 15750."
+        },
+        "criteria_source": "mark_scheme_structured"
+      },
+      "teacher_walkthrough": [
+        "Step 1: Identify the groups and selection sizes:\n- Violinists ($V$): choose $4$ from $10$\n- Guitarists ($G$): choose $2$ from $6$\n- Pianists ($P$): choose $1$ from $5$",
+        "Step 2: Calculate each combination:\n$$\\binom{10}{4} = \\frac{10 \\times 9 \\times 8 \\times 7}{24} = 210$$\n$$\\binom{6}{2} = \\frac{6 \\times 5}{2} = 15$$\n$$\\binom{5}{1} = 5$$",
+        "Step 3: Multiply the selections:\n$$\\text{Ways} = 210 \\times 15 \\times 5 = 15750$$"
+      ]
+    },
+    {
+      "part_id": "9709_w24_52_q5_b",
+      "difficulty": 4,
+      "practice_tier": "revision",
+      "mapping": {
+        "topic_id": "9709_s1_t_permutations_and_combinations",
+        "module_id": "9709_s1_t_permutations_and_combinations_m04",
+        "lesson_id": "9709_s1_t_permutations_and_combinations_m04_l02"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_handling_selection_restrictions",
+        "skill_tags": [
+          "Handling Selection Restrictions",
+          "Calculating Combinations"
+        ]
+      },
+      "question_pattern_ids": [
+        "9709_s1_pattern_selections_with_lower_and_upper_category_bounds"
+      ],
+      "knowledge_refs": {
+        "formula_ids": [
+          "9709_s1_formula_combinations"
+        ],
+        "identity_ids": [],
+        "method_ids": [
+          "9709_s1_method_handling_selection_restrictions",
+          "9709_s1_method_calculating_combinations"
+        ],
+        "fact_ids": [
+          "9709_s1_fact_addition_principle_counting"
+        ]
+      },
+      "hints": [
+        "A group of 5 is chosen with restrictions: V >= 2, G >= 1, P <= 1 (so P = 0 or P = 1). Total V + G + P = 5.",
+        "List all valid scenarios (V, G, P):",
+        "Case 1 (P = 0): (4, 1, 0) -> 10C4 * 6C1 * 5C0 = 210 * 6 * 1 = 1260.",
+        "Case 2 (P = 0): (3, 2, 0) -> 10C3 * 6C2 * 5C0 = 120 * 15 * 1 = 1800.",
+        "Case 3 (P = 0): (2, 3, 0) -> 10C2 * 6C3 * 5C0 = 45 * 20 * 1 = 900.",
+        "Case 4 (P = 1): (3, 1, 1) -> 10C3 * 6C1 * 5C1 = 120 * 6 * 5 = 3600.",
+        "Case 5 (P = 1): (2, 2, 1) -> 10C2 * 6C2 * 5C1 = 45 * 15 * 5 = 3375.",
+        "Sum all 5 cases: 1260 + 1800 + 900 + 3600 + 3375 = 10935."
+      ],
+      "walkthrough": [
+        "Enumerate all valid, non-overlapping scenarios $(V, G, P)$ satisfying $V + G + P = 5$ with $V \\ge 2, G \\ge 1, P \\le 1$:\n- Scenario 1 ($4$ V, $1$ G, $0$ P):\n$$\\binom{10}{4} \\times \\binom{6}{1} \\times \\binom{5}{0} = 210 \\times 6 \\times 1 = 1260$$\n- Scenario 2 ($3$ V, $2$ G, $0$ P):\n$$\\binom{10}{3} \\times \\binom{6}{2} \\times \\binom{5}{0} = 120 \\times 15 \\times 1 = 1800$$\n- Scenario 3 ($2$ V, $3$ G, $0$ P):\n$$\\binom{10}{2} \\times \\binom{6}{3} \\times \\binom{5}{0} = 45 \\times 20 \\times 1 = 900$$\n- Scenario 4 ($3$ V, $1$ G, $1$ P):\n$$\\binom{10}{3} \\times \\binom{6}{1} \\times \\binom{5}{1} = 120 \\times 6 \\times 5 = 3600$$\n- Scenario 5 ($2$ V, $2$ G, $1$ P):\n$$\\binom{10}{2} \\times \\binom{6}{2} \\times \\binom{5}{1} = 45 \\times 15 \\times 5 = 3375$$",
+        "Sum the values of all five valid scenarios:\n$$\\text{Total ways} = 1260 + 1800 + 900 + 3600 + 3375 = 10935$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "ai_rubric": {
+          "Handling Selection Restrictions": "Identifies the 5 mutually exclusive scenarios and evaluates their sum to 10935."
+        },
+        "criteria_source": "mark_scheme_structured"
+      },
+      "teacher_walkthrough": [
+        "Step 1: Understand the boundary conditions for the group of 5:\nWe choose $5$ students from $10$ violinists ($V$), $6$ guitarists ($G$), and $5$ pianists ($P$):\n- $V + G + P = 5$\n- $V \\ge 2$\n- $G \\ge 1$\n- $P \\le 1$ (so $P = 0$ or $P = 1$)",
+        "Step 2: Enumerate all integer solutions:\n- If $P = 0$: $V + G = 5$, with $V \\ge 2$ and $G \\ge 1$:\n  * $(V=4, G=1, P=0)$\n  * $(V=3, G=2, P=0)$\n  * $(V=2, G=3, P=0)$\n- If $P = 1$: $V + G = 4$, with $V \\ge 2$ and $G \\ge 1$:\n  * $(V=3, G=1, P=1)$\n  * $(V=2, G=2, P=1)$\nThere are exactly $5$ exhaustive and mutually exclusive scenarios.",
+        "Step 3: Calculate the number of selections for each scenario:\n1. $(4, 1, 0): \\binom{10}{4}\\binom{6}{1}\\binom{5}{0} = 210 \\times 6 \\times 1 = 1260$\n2. $(3, 2, 0): \\binom{10}{3}\\binom{6}{2}\\binom{5}{0} = 120 \\times 15 \\times 1 = 1800$\n3. $(2, 3, 0): \\binom{10}{2}\\binom{6}{3}\\binom{5}{0} = 45 \\times 20 \\times 1 = 900$\n4. $(3, 1, 1): \\binom{10}{3}\\binom{6}{1}\\binom{5}{1} = 120 \\times 6 \\times 5 = 3600$\n5. $(2, 2, 1): \\binom{10}{2}\\binom{6}{2}\\binom{5}{1} = 45 \\times 15 \\times 5 = 3375$",
+        "Step 4: Add the values:\n$$\\text{Total} = 1260 + 1800 + 900 + 3600 + 3375 = 10935$$"
+      ]
+    }
+  ]
+}

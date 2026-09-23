@@ -1,0 +1,1184 @@
+{
+  "lesson_id": "9709_s1_t_probability_m03_l03",
+  "questions": [
+    {
+      "question_id": "9709_s1_t_probability_m03_l03_drq01",
+      "parts": [
+        {
+          "part_id": "9709_s1_t_probability_m03_l03_drq01_p01",
+          "difficulty": "easy",
+          "hints": [
+            "Track the counts carefully: after removing one counter, add the green counter before finding the probability of drawing blue on the second draw.",
+            "Use Bayes' theorem: $P(R_1 \\mid B_2) = \\frac{P(R_1 \\cap B_2)}{P(B_2)}$, where $P(B_2) = P(R_1 \\cap B_2) + P(B_1 \\cap B_2)$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Find the composition of the box along each first-draw branch:\n- If Red is drawn first ($P(R_1) = \\frac{5}{8}$), the box has $4$ Red and $3$ Blue counters. Adding $1$ Green counter gives $4$ Red, $3$ Blue, $1$ Green ($8$ counters in total). The probability of drawing Blue next is:\n$$P(B_2 \\mid R_1) = \\frac{3}{8}$$\n- If Blue is drawn first ($P(B_1) = \\frac{3}{8}$), the box has $5$ Red and $2$ Blue counters. Adding $1$ Green counter gives $5$ Red, $2$ Blue, $1$ Green ($8$ counters in total). The probability of drawing Blue next is:\n$$P(B_2 \\mid B_1) = \\frac{2}{8}$$"
+            },
+            {
+              "step": 2,
+              "text": "Calculate the joint probabilities and the total probability of drawing Blue second:\n$$P(R_1 \\cap B_2) = \\frac{5}{8} \\times \\frac{3}{8} = \\frac{15}{64}$$\n$$P(B_1 \\cap B_2) = \\frac{3}{8} \\times \\frac{2}{8} = \\frac{6}{64}$$\n$$P(B_2) = \\frac{15}{64} + \\frac{6}{64} = \\frac{21}{64}$$"
+            },
+            {
+              "step": 3,
+              "text": "Apply the conditional probability formula to find $P(R_1 \\mid B_2)$:\n$$P(R_1 \\mid B_2) = \\frac{P(R_1 \\cap B_2)}{P(B_2)} = \\frac{\\frac{15}{64}}{\\frac{21}{64}} = \\frac{15}{21} = \\frac{5}{7}$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "Remember our core dynamic pool principle: update the pool completely before calculating the next branch probability. Initially, we have $5R$ and $3B$ (total $8$). When a red is removed, we drop to $4R, 3B$ (total $6$). Adding a green counter raises the total back to $8$ counters ($4R, 3B, 1G$). Thus:\n$$P(R_1 \\cap B_2) = \\frac{5}{8} \\times \\frac{3}{8} = \\frac{15}{64}$$"
+            },
+            {
+              "step": 2,
+              "text": "Similarly, if blue was chosen first, we drop to $5R, 2B$, and adding green gives $5R, 2B, 1G$ (total $8$). Hence:\n$$P(B_1 \\cap B_2) = \\frac{3}{8} \\times \\frac{2}{8} = \\frac{6}{64}$$\nAdding the two possible paths for a second blue counter gives:\n$$P(B_2) = \\frac{15}{64} + \\frac{6}{64} = \\frac{21}{64}$$"
+            },
+            {
+              "step": 3,
+              "text": "Finally, the probability that the first counter was red given that the second counter is blue is simply the favorable path divided by the total condition:\n$$P(R_1 \\mid B_2) = \\frac{15}{21} = \\frac{5}{7} \\approx 0.714$$"
+            }
+          ],
+          "checking": {
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_s1_t_probability_m03_l03_drq01_p01_c1",
+                "type": "M1",
+                "observable": "Computes joint probabilities for paths ending in blue: $P(R_1 \\cap B_2) = \\frac{5}{8} \\times \\frac{3}{8} = \\frac{15}{64}$ and $P(B_1 \\cap B_2) = \\frac{3}{8} \\times \\frac{2}{8} = \\frac{6}{64}$, summing to obtain denominator $P(B_2) = \\frac{21}{64}$."
+              },
+              {
+                "criterion_id": "9709_s1_t_probability_m03_l03_drq01_p01_c2",
+                "type": "A1",
+                "observable": "Applies conditional probability formula to obtain $P(R_1 \\mid B_2) = \\frac{15/64}{21/64} = \\frac{15}{21} = \\frac{5}{7}$ (or $0.714$ to 3 s.f.)."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_s1_t_probability_m03_l03_drq02",
+      "parts": [
+        {
+          "part_id": "9709_s1_t_probability_m03_l03_drq02_p01",
+          "difficulty": "easy",
+          "hints": [
+            "Determine the two possible transfers from Box A: White ($W_{\\text{trans}}$) or Black ($B_{\\text{trans}}$).",
+            "Update the number of black discs and total discs in Box B for each case before finding $P(B_{\\text{trans}} \\mid B_{\\text{draw}} = \\text{black})$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Calculate the transfer probabilities from Box A ($4$ white, $2$ black, total $6$):\n$$P(W_{\\text{trans}}) = \\frac{4}{6} = \\frac{2}{3}, \\quad P(B_{\\text{trans}}) = \\frac{2}{6} = \\frac{1}{3}$$"
+            },
+            {
+              "step": 2,
+              "text": "Update Box B ($3$ white, $5$ black, total $8$) after receiving one disc (new total $9$):\n- If White is transferred: Box B has $4$ white, $5$ black ($9$ total). Probability of drawing black is $\\frac{5}{9}$.\n- If Black is transferred: Box B has $3$ white, $6$ black ($9$ total). Probability of drawing black is $\\frac{6}{9}$.\nThe joint probabilities are:\n$$P(W_{\\text{trans}} \\cap B_{\\text{draw}}) = \\frac{4}{6} \\times \\frac{5}{9} = \\frac{20}{54}$$\n$$P(B_{\\text{trans}} \\cap B_{\\text{draw}}) = \\frac{2}{6} \\times \\frac{6}{9} = \\frac{12}{54}$$\nSumming gives:\n$$P(B_{\\text{draw}}) = \\frac{20}{54} + \\frac{12}{54} = \\frac{32}{54} = \\frac{16}{27}$$"
+            },
+            {
+              "step": 3,
+              "text": "Apply Bayes' theorem to find $P(B_{\\text{trans}} \\mid B_{\\text{draw}})$:\n$$P(B_{\\text{trans}} \\mid B_{\\text{draw}}) = \\frac{P(B_{\\text{trans}} \\cap B_{\\text{draw}})}{P(B_{\\text{draw}})} = \\frac{\\frac{12}{54}}{\\frac{32}{54}} = \\frac{12}{32} = \\frac{3}{8}$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "In urn transfer problems, the second urn's pool depends directly on which item was moved. Box A has $4W, 2B$, so we move black with probability $\\frac{2}{6}$ and white with probability $\\frac{4}{6}$:\n$$P(B_{\\text{trans}}) = \\frac{2}{6}, \\quad P(W_{\\text{trans}}) = \\frac{4}{6}$$"
+            },
+            {
+              "step": 2,
+              "text": "Box B initially has $8$ discs. After the transfer, it has $9$ discs. If black was transferred, Box B now has $6$ black discs out of $9$. If white was transferred, Box B still has $5$ black discs out of $9$. We find total black draws:\n$$P(B_{\\text{draw}}) = \\frac{4}{6} \\times \\frac{5}{9} + \\frac{2}{6} \\times \\frac{6}{9} = \\frac{20 + 12}{54} = \\frac{32}{54}$$"
+            },
+            {
+              "step": 3,
+              "text": "We now condition on having drawn a black disc from Box B:\n$$P(B_{\\text{trans}} \\mid B_{\\text{draw}}) = \\frac{12/54}{32/54} = \\frac{12}{32} = \\frac{3}{8} = 0.375$$"
+            }
+          ],
+          "checking": {
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_s1_t_probability_m03_l03_drq02_p01_c1",
+                "type": "M1",
+                "observable": "Evaluates updated Box B contents and computes total probability of drawing black: $\\frac{4}{6} \\times \\frac{5}{9} + \\frac{2}{6} \\times \\frac{6}{9} = \\frac{20}{54} + \\frac{12}{54} = \\frac{32}{54} = \\frac{16}{27}$."
+              },
+              {
+                "criterion_id": "9709_s1_t_probability_m03_l03_drq02_p01_c2",
+                "type": "A1",
+                "observable": "Divides favorable branch by total probability: $\\frac{12/54}{32/54} = \\frac{12}{32} = \\frac{3}{8}$ (or $0.375$)."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_s1_t_probability_m03_l03_drq03",
+      "parts": [
+        {
+          "part_id": "9709_s1_t_probability_m03_l03_drq03_p01",
+          "difficulty": "easy",
+          "hints": [
+            "Calculate the probabilities of the train being on time ($T$) or late ($L$) on Day 2 first.",
+            "Use the law of total probability from Day 2 to Day 3: $P(T_3) = P(T_2) \\times P(T_3 \\mid T_2) + P(L_2) \\times P(T_3 \\mid L_2)$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Determine the probabilities on Day 2 using the Day 1 starting probabilities $P(T_1) = \\frac{4}{5}$ and $P(L_1) = \\frac{1}{5}$:\n$$P(T_2) = P(T_1) P(T_2 \\mid T_1) + P(L_1) P(T_2 \\mid L_1) = \\frac{4}{5} \\times \\frac{3}{4} + \\frac{1}{5} \\times \\frac{1}{2} = \\frac{3}{5} + \\frac{1}{10} = \\frac{7}{10}$$\n$$P(L_2) = 1 - P(T_2) = 1 - \\frac{7}{10} = \\frac{3}{10}$$"
+            },
+            {
+              "step": 2,
+              "text": "Calculate the probability that the train is on time on Day 3 using the transition rules from Day 2:\n$$P(T_3) = P(T_2) P(T_3 \\mid T_2) + P(L_2) P(T_3 \\mid L_2) = \\frac{7}{10} \\times \\frac{3}{4} + \\frac{3}{10} \\times \\frac{1}{2}$$\n$$P(T_3) = \\frac{21}{40} + \\frac{6}{40} = \\frac{27}{40} = 0.675$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "In a 3-day sequential Markov chain, we can either write down all $4$ valid paths ($TTT, TLT, LTT, LLT$) or propagate the distribution step-by-step. Propagating to Day 2:\n$$P(T_2) = \\left(\\frac{4}{5}\\right)\\left(\\frac{3}{4}\\right) + \\left(\\frac{1}{5}\\right)\\left(\\frac{1}{2}\\right) = \\frac{6}{10} + \\frac{1}{10} = \\frac{7}{10}$$\nConsequently, $P(L_2) = \\frac{3}{10}$."
+            },
+            {
+              "step": 2,
+              "text": "Now propagate from Day 2 to Day 3:\n$$P(T_3) = \\frac{7}{10} \\times \\frac{3}{4} + \\frac{3}{10} \\times \\frac{1}{2} = \\frac{21}{40} + \\frac{3}{20} = \\frac{27}{40} = 0.675$$"
+            }
+          ],
+          "checking": {
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_s1_t_probability_m03_l03_drq03_p01_c1",
+                "type": "M1",
+                "observable": "Propagates state probabilities through Day 2 to find $P(T_2) = \\frac{4}{5} \\times \\frac{3}{4} + \\frac{1}{5} \\times \\frac{1}{2} = \\frac{7}{10}$ and $P(L_2) = \\frac{3}{10}$ (or lists four Day 3 branches)."
+              },
+              {
+                "criterion_id": "9709_s1_t_probability_m03_l03_drq03_p01_c2",
+                "type": "A1",
+                "observable": "Computes $P(T_3) = \\frac{7}{10} \\times \\frac{3}{4} + \\frac{3}{10} \\times \\frac{1}{2} = \\frac{21}{40} + \\frac{6}{40} = \\frac{27}{40}$ (or $0.675$)."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_s1_t_probability_m03_l03_drq04",
+      "parts": [
+        {
+          "part_id": "9709_s1_t_probability_m03_l03_drq04_p01",
+          "difficulty": "easy",
+          "hints": [
+            "Since the first shot is given as a Hit ($H_1$), look only at branches starting from $H_1$.",
+            "To have exactly two hits in total, the remaining two shots must contain exactly one hit: either $H_1 H_2 M_3$ or $H_1 M_2 H_3$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Given that Shot 1 is a Hit ($H_1$), the archer needs exactly one more hit among Shots 2 and 3. The two possible mutually exclusive sequences are:\n$$\\text{Sequences: } H_2 M_3 \\quad \\text{and} \\quad M_2 H_3$$"
+            },
+            {
+              "step": 2,
+              "text": "Calculate the conditional probability for each sequence:\n- Sequence $H_2 M_3$ (Hit on shot 2, then Miss on shot 3):\n$$P(H_2 M_3 \\mid H_1) = P(H_2 \\mid H_1) \\times P(M_3 \\mid H_2) = 0.6 \\times (1 - 0.6) = 0.6 \\times 0.4 = 0.24$$\n- Sequence $M_2 H_3$ (Miss on shot 2, then Hit on shot 3):\n$$P(M_2 H_3 \\mid H_1) = P(M_2 \\mid H_1) \\times P(H_3 \\mid M_2) = (1 - 0.6) \\times 0.3 = 0.4 \\times 0.3 = 0.12$$"
+            },
+            {
+              "step": 3,
+              "text": "Sum the two probabilities to find the required conditional probability:\n$$P(\\text{exactly 2 hits} \\mid H_1) = 0.24 + 0.12 = 0.36 = \\frac{9}{25}$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "When the problem states 'Given that she hits on the first shot', we restrict our attention to the subset of outcomes where Shot 1 is a hit:\n$$\\text{Given state: } H_1$$"
+            },
+            {
+              "step": 2,
+              "text": "From $H_1$, we need exactly one hit in the next two trials. This gives two branches:\n1. Hit then Miss: $P(H_2 \\mid H_1) \\times P(M_3 \\mid H_2) = 0.6 \\times 0.4 = 0.24$\n2. Miss then Hit: $P(M_2 \\mid H_1) \\times P(H_3 \\mid M_2) = 0.4 \\times 0.3 = 0.12$\n$$\\text{Total} = 0.24 + 0.12 = 0.36$$"
+            }
+          ],
+          "checking": {
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_s1_t_probability_m03_l03_drq04_p01_c1",
+                "type": "M1",
+                "observable": "Identifies routes starting with hit that have exactly two hits, $H_1 H_2 M_3$ and $H_1 M_2 H_3$, and sets up conditional product sum $0.6 \\times 0.4 + 0.4 \\times 0.3$."
+              },
+              {
+                "criterion_id": "9709_s1_t_probability_m03_l03_drq04_p01_c2",
+                "type": "A1",
+                "observable": "Calculates $0.24 + 0.12 = 0.36$ (or $\\frac{9}{25}$)."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_s1_t_probability_m03_l03_drq05",
+      "parts": [
+        {
+          "part_id": "9709_s1_t_probability_m03_l03_drq05_p01",
+          "difficulty": "easy",
+          "hints": [
+            "Notice that 1 marble is removed and 1 yellow marble is added: what happens to the total number of marbles in each bag?",
+            "Because exactly 1 yellow marble is added to whichever bag was chosen, the probability of drawing yellow second from Bag 1 is $\\frac{1}{5}$, and from Bag 2 is $\\frac{1}{6}$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Analyze the composition of Bag 1 and Bag 2 after the modification:\n- Bag 1 initially has $5$ marbles. Removing $1$ marble leaves $4$ marbles. Adding $1$ yellow marble brings the total back to $5$ marbles, exactly one of which is yellow. Thus:\n$$P(Y_2 \\mid \\text{Bag 1}) = \\frac{1}{5}$$\n- Bag 2 initially has $6$ marbles. Removing $1$ marble leaves $5$ marbles. Adding $1$ yellow marble brings the total back to $6$ marbles, exactly one of which is yellow. Thus:\n$$P(Y_2 \\mid \\text{Bag 2}) = \\frac{1}{6}$$"
+            },
+            {
+              "step": 2,
+              "text": "Use the law of total probability with equal bag selection probabilities $P(\\text{Bag 1}) = P(\\text{Bag 2}) = \\frac{1}{2}$:\n$$P(Y_2) = \\frac{1}{2} \\times \\frac{1}{5} + \\frac{1}{2} \\times \\frac{1}{6} = \\frac{1}{10} + \\frac{1}{12} = \\frac{6 + 5}{60} = \\frac{11}{60}$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "This question tests your understanding of changing pools. Even though the first drawn marble could be red or blue, the net change in total count is zero: $-1 + 1 = 0$. Since there were no yellow marbles before, there is now exactly $1$ yellow marble in the bag:\n$$P(Y_2 \\mid \\text{Bag 1}) = \\frac{1}{5}, \\quad P(Y_2 \\mid \\text{Bag 2}) = \\frac{1}{6}$$"
+            },
+            {
+              "step": 2,
+              "text": "Now we combine using the bag selection probabilities of $\\frac{1}{2}$ each:\n$$P(Y_2) = \\frac{1}{2}\\left(\\frac{1}{5}\\right) + \\frac{1}{2}\\left(\\frac{1}{6}\\right) = \\frac{1}{10} + \\frac{1}{12} = \\frac{11}{60} \\approx 0.183$$"
+            }
+          ],
+          "checking": {
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_s1_t_probability_m03_l03_drq05_p01_c1",
+                "type": "M1",
+                "observable": "Recognizes that removing one marble and adding one yellow marble leaves total counts unchanged at 5 for Bag 1 and 6 for Bag 2, giving $P(Y_2 \\mid \\text{Bag 1}) = \\frac{1}{5}$ and $P(Y_2 \\mid \\text{Bag 2}) = \\frac{1}{6}$."
+              },
+              {
+                "criterion_id": "9709_s1_t_probability_m03_l03_drq05_p01_c2",
+                "type": "A1",
+                "observable": "Computes total probability $\\frac{1}{2} \\times \\frac{1}{5} + \\frac{1}{2} \\times \\frac{1}{6} = \\frac{1}{10} + \\frac{1}{12} = \\frac{11}{60}$ (or $0.183$ to 3 s.f.)."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_s1_t_probability_m03_l03_drq06",
+      "parts": [
+        {
+          "part_id": "9709_s1_t_probability_m03_l03_drq06_p01",
+          "difficulty": "easy",
+          "hints": [
+            "Amy draws on turn 1 and turn 3; Ben draws on turn 2.",
+            "For Amy to win on her second turn, the game must not have ended earlier: Amy must draw Blue on turn 1, Ben must draw Blue on turn 2, and Amy must draw Red on turn 3."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Determine the sequence of outcomes required for Amy to win on her second turn:\n- Turn 1 (Amy): Amy must draw a blue counter ($B_1$).\n- Turn 2 (Ben): Ben must draw a blue counter ($B_2$).\n- Turn 3 (Amy): Amy must draw a red counter ($R_3$).\n$$\\text{Required sequence: } B_1 \\cap B_2 \\cap R_3$$"
+            },
+            {
+              "step": 2,
+              "text": "Calculate the probability along this single path without replacement:\n- Initially: $3$ Red, $3$ Blue (total $6$). $P(B_1) = \\frac{3}{6} = \\frac{1}{2}$.\n- Turn 2: $3$ Red, $2$ Blue (total $5$). $P(B_2 \\mid B_1) = \\frac{2}{5}$.\n- Turn 3: $3$ Red, $1$ Blue (total $4$). $P(R_3 \\mid B_1 B_2) = \\frac{3}{4}$.\n$$P(B_1 \\cap B_2 \\cap R_3) = \\frac{3}{6} \\times \\frac{2}{5} \\times \\frac{3}{4} = \\frac{1}{2} \\times \\frac{2}{5} \\times \\frac{3}{4} = \\frac{3}{20} = 0.15$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "In alternating games with stopping conditions, always list the required outcome turn by turn. Since Amy starts, the turn order is Amy, Ben, Amy. For Amy to win on her second turn (Draw 3), nobody must win before Draw 3:\n$$\\text{Required outcome: } B_1 B_2 R_3$$"
+            },
+            {
+              "step": 2,
+              "text": "Now update the counts without replacement at each step:\n- Step 1: $3$ blue out of $6$\n- Step 2: $2$ blue out of $5$\n- Step 3: $3$ red out of $4$\n$$P(\\text{Amy wins on turn 2}) = \\frac{3}{6} \\times \\frac{2}{5} \\times \\frac{3}{4} = \\frac{18}{120} = \\frac{3}{20} = 0.15$$"
+            }
+          ],
+          "checking": {
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_s1_t_probability_m03_l03_drq06_p01_c1",
+                "type": "M1",
+                "observable": "Identifies exact sequence for Amy winning on turn 2: Amy draws Blue ($B_1$), Ben draws Blue ($B_2$), Amy draws Red ($R_3$), with product $\\frac{3}{6} \\times \\frac{2}{5} \\times \\frac{3}{4}$."
+              },
+              {
+                "criterion_id": "9709_s1_t_probability_m03_l03_drq06_p01_c2",
+                "type": "A1",
+                "observable": "Calculates probability $\\frac{1}{2} \\times \\frac{2}{5} \\times \\frac{3}{4} = \\frac{3}{20}$ (or $0.15$)."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_s1_t_probability_m03_l03_cpq01",
+      "parts": [
+        {
+          "part_id": "9709_s1_t_probability_m03_l03_cpq01_p01",
+          "difficulty": "easy",
+          "hints": [
+            "Track the box contents after removing 1 ball (which leaves 5 balls) and adding 2 yellow balls (giving 7 balls in total).",
+            "Determine $P(Y_2 \\mid R_1)$ and $P(Y_2 \\mid G_1)$ and sum the two branches."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Evaluate the state of the box after each possible first draw:\n- Initial: $4$ red, $2$ green (total $6$).\n- If Red is drawn ($P(R_1) = \\frac{4}{6} = \\frac{2}{3}$): Remaining balls are $3$ red, $2$ green. Adding $2$ yellow balls gives $3$ red, $2$ green, $2$ yellow (total $7$). Thus:\n$$P(Y_2 \\mid R_1) = \\frac{2}{7}$$\n- If Green is drawn ($P(G_1) = \\frac{2}{6} = \\frac{1}{3}$): Remaining balls are $4$ red, $1$ green. Adding $2$ yellow balls gives $4$ red, $1$ green, $2$ yellow (total $7$). Thus:\n$$P(Y_2 \\mid G_1) = \\frac{2}{7}$$"
+            },
+            {
+              "step": 2,
+              "text": "Apply the law of total probability:\n$$P(Y_2) = P(R_1) P(Y_2 \\mid R_1) + P(G_1) P(Y_2 \\mid G_1) = \\frac{2}{3} \\times \\frac{2}{7} + \\frac{1}{3} \\times \\frac{2}{7} = \\frac{4}{21} + \\frac{2}{21} = \\frac{6}{21} = \\frac{2}{7}$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "Notice that regardless of whether a red or green ball is removed, the box always ends up with exactly $2$ yellow balls out of $7$ total balls:\n$$P(Y_2 \\mid R_1) = \\frac{2}{7}, \\quad P(Y_2 \\mid G_1) = \\frac{2}{7}$$"
+            },
+            {
+              "step": 2,
+              "text": "Therefore, the total probability of drawing a yellow ball on the second draw is constant across both branches:\n$$P(Y_2) = \\frac{4}{6}\\left(\\frac{2}{7}\\right) + \\frac{2}{6}\\left(\\frac{2}{7}\\right) = \\frac{2}{7} \\approx 0.286$$"
+            }
+          ],
+          "checking": {
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_s1_t_probability_m03_l03_cpq01_p01_c1",
+                "type": "M1",
+                "observable": "Updates pool after removing 1 ball and adding 2 yellow balls to obtain a new total of 7 balls with 2 yellow balls regardless of initial draw, setting up $\\frac{4}{6} \\times \\frac{2}{7} + \\frac{2}{6} \\times \\frac{2}{7}$."
+              },
+              {
+                "criterion_id": "9709_s1_t_probability_m03_l03_cpq01_p01_c2",
+                "type": "A1",
+                "observable": "Obtains total probability $\\frac{2}{7}$ (or $0.286$ to 3 s.f.)."
+              }
+            ]
+          }
+        },
+        {
+          "part_id": "9709_s1_t_probability_m03_l03_cpq01_p02",
+          "difficulty": "easy",
+          "hints": [
+            "Use Bayes' formula: $P(R_1 \\mid Y_2) = \\frac{P(R_1 \\cap Y_2)}{P(Y_2)}$.",
+            "From part (a), you know $P(R_1 \\cap Y_2) = \\frac{4}{21}$ and $P(Y_2) = \\frac{2}{7} = \\frac{6}{21}$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "State the favorable joint probability of drawing Red first and Yellow second:\n$$P(R_1 \\cap Y_2) = P(R_1) \\times P(Y_2 \\mid R_1) = \\frac{4}{6} \\times \\frac{2}{7} = \\frac{4}{21}$$"
+            },
+            {
+              "step": 2,
+              "text": "Divide by the total probability $P(Y_2) = \\frac{6}{21}$ found in part (a):\n$$P(R_1 \\mid Y_2) = \\frac{P(R_1 \\cap Y_2)}{P(Y_2)} = \\frac{\\frac{4}{21}}{\\frac{6}{21}} = \\frac{4}{6} = \\frac{2}{3}$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "We condition on the second ball being yellow. The total probability of this condition from part (a) is:\n$$P(Y_2) = \\frac{6}{21}$$"
+            },
+            {
+              "step": 2,
+              "text": "The path where the first ball was red gave $P(R_1 \\cap Y_2) = \\frac{4}{21}$. Dividing favorable by total:\n$$P(R_1 \\mid Y_2) = \\frac{4/21}{6/21} = \\frac{4}{6} = \\frac{2}{3} \\approx 0.667$$\nNotice this is identical to $P(R_1) = \\frac{4}{6}$, confirming that drawing yellow is independent of the first ball's colour."
+            }
+          ],
+          "checking": {
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_s1_t_probability_m03_l03_cpq01_p02_c1",
+                "type": "M1",
+                "observable": "Sets up conditional ratio $\\frac{P(R_1 \\cap Y_2)}{P(Y_2)} = \\frac{(4/6) \\times (2/7)}{2/7}$."
+              },
+              {
+                "criterion_id": "9709_s1_t_probability_m03_l03_cpq01_p02_c2",
+                "type": "A1",
+                "observable": "Simplifies correctly to $\\frac{4}{6} = \\frac{2}{3}$ (or $0.667$ to 3 s.f.)."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_s1_t_probability_m03_l03_cpq02",
+      "parts": [
+        {
+          "part_id": "9709_s1_t_probability_m03_l03_cpq02_p01",
+          "difficulty": "easy",
+          "hints": [
+            "Determine what happens to Urn Y (initially 2 red, 4 blue, total 6) when a red disc is added versus when a blue disc is added.",
+            "Use $P(R_Y) = P(R_X) P(R_Y \\mid R_X) + P(B_X) P(R_Y \\mid B_X)$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Urn X has $5$ red and $3$ blue discs (total $8$). The transfer probabilities are:\n$$P(R_{\\text{trans}}) = \\frac{5}{8}, \\quad P(B_{\\text{trans}}) = \\frac{3}{8}$$\nUrn Y originally has $2$ red and $4$ blue discs (total $6$). After the transfer, Urn Y has $7$ discs."
+            },
+            {
+              "step": 2,
+              "text": "Find the probability of drawing red from Urn Y under each transfer condition:\n- If Red is transferred: Urn Y has $3$ red, $4$ blue ($7$ total), so $P(R_Y \\mid R_{\\text{trans}}) = \\frac{3}{7}$.\n- If Blue is transferred: Urn Y has $2$ red, $5$ blue ($7$ total), so $P(R_Y \\mid B_{\\text{trans}}) = \\frac{2}{7}$.\nApply the law of total probability:\n$$P(R_Y) = \\frac{5}{8} \\times \\frac{3}{7} + \\frac{3}{8} \\times \\frac{2}{7} = \\frac{15}{56} + \\frac{6}{56} = \\frac{21}{56} = \\frac{3}{8} = 0.375$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "In transfer problems, always sketch a two-stage branch diagram. Stage 1 is the transfer from Urn X ($5R, 3B$):\n$$P(R_{\\text{trans}}) = \\frac{5}{8}, \\quad P(B_{\\text{trans}}) = \\frac{3}{8}$$"
+            },
+            {
+              "step": 2,
+              "text": "Stage 2 draws from Urn Y ($7$ total). If red entered, red count is $3$. If blue entered, red count remains $2$:\n$$P(R_Y) = \\left(\\frac{5}{8}\\right)\\left(\\frac{3}{7}\\right) + \\left(\\frac{3}{8}\\right)\\left(\\frac{2}{7}\\right) = \\frac{21}{56} = \\frac{3}{8} = 0.375$$"
+            }
+          ],
+          "checking": {
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_s1_t_probability_m03_l03_cpq02_p01_c1",
+                "type": "M1",
+                "observable": "Evaluates composition of Urn Y under both transfers (3R, 4B if R transferred; 2R, 5B if B transferred) and sets up sum of products: $\\frac{5}{8} \\times \\frac{3}{7} + \\frac{3}{8} \\times \\frac{2}{7}$."
+              },
+              {
+                "criterion_id": "9709_s1_t_probability_m03_l03_cpq02_p01_c2",
+                "type": "A1",
+                "observable": "Calculates $P(\\text{red from Y}) = \\frac{15}{56} + \\frac{6}{56} = \\frac{21}{56} = \\frac{3}{8}$ (or $0.375$)."
+              }
+            ]
+          }
+        },
+        {
+          "part_id": "9709_s1_t_probability_m03_l03_cpq02_p02",
+          "difficulty": "medium",
+          "hints": [
+            "Identify the joint probability of transferring a blue disc and drawing a red disc from Urn Y.",
+            "Recall that conditional probability is given by $P(B_{\\text{trans}} \\mid R_Y) = \\frac{P(B_{\\text{trans}} \\cap R_Y)}{P(R_Y)}$.",
+            "Substitute the values from part (a) to find the simplified fraction."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Find the favorable joint probability where a blue disc was transferred and a red disc was drawn from Urn Y:\n$$P(B_{\\text{trans}} \\cap R_Y) = P(B_{\\text{trans}}) \\times P(R_Y \\mid B_{\\text{trans}}) = \\frac{3}{8} \\times \\frac{2}{7} = \\frac{6}{56}$$"
+            },
+            {
+              "step": 2,
+              "text": "Use the total probability $P(R_Y) = \\frac{21}{56}$ from part (a) in Bayes' formula:\n$$P(B_{\\text{trans}} \\mid R_Y) = \\frac{P(B_{\\text{trans}} \\cap R_Y)}{P(R_Y)} = \\frac{\\frac{6}{56}}{\\frac{21}{56}}$$"
+            },
+            {
+              "step": 3,
+              "text": "Simplify the fraction:\n$$P(B_{\\text{trans}} \\mid R_Y) = \\frac{6}{21} = \\frac{2}{7} \\approx 0.286$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "This is a classic backward inference problem. We observed the final outcome (a red disc from Urn Y with $P(R_Y) = \\frac{21}{56}$) and want to infer what happened in the hidden intermediate step (the transfer):\n$$P(R_Y) = \\frac{21}{56}$$"
+            },
+            {
+              "step": 2,
+              "text": "The favorable path has probability:\n$$P(B_{\\text{trans}} \\cap R_Y) = \\frac{3}{8} \\times \\frac{2}{7} = \\frac{6}{56}$$"
+            },
+            {
+              "step": 3,
+              "text": "Dividing this favorable path by the sum of all paths leading to a red disc from Urn Y (which was $\\frac{21}{56}$ in part (a)):\n$$P(B_{\\text{trans}} \\mid R_Y) = \\frac{6}{21} = \\frac{2}{7} \\approx 0.286$$"
+            }
+          ],
+          "checking": {
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_s1_t_probability_m03_l03_cpq02_p02_c1",
+                "type": "B1",
+                "observable": "States or calculates the favorable joint probability $P(B_{\\text{trans}} \\cap R_{\\text{from Y}}) = \\frac{3}{8} \\times \\frac{2}{7} = \\frac{6}{56}$."
+              },
+              {
+                "criterion_id": "9709_s1_t_probability_m03_l03_cpq02_p02_c2",
+                "type": "M1",
+                "observable": "Applies Bayes' theorem / conditional formula with denominator from part (a): $\\frac{6/56}{21/56}$."
+              },
+              {
+                "criterion_id": "9709_s1_t_probability_m03_l03_cpq02_p02_c3",
+                "type": "A1",
+                "observable": "Simplifies to $\\frac{6}{21} = \\frac{2}{7}$ (or $0.286$ to 3 s.f.)."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_s1_t_probability_m03_l03_cpq03",
+      "parts": [
+        {
+          "part_id": "9709_s1_t_probability_m03_l03_cpq03_p01",
+          "difficulty": "medium",
+          "hints": [
+            "Propagate probabilities sequentially: find $P(S_2)$ and $P(R_2)$ for Tuesday first.",
+            "Use the Tuesday distribution to calculate Wednesday's probability of being Sunny: $P(S_3) = P(S_2)(0.8) + P(R_2)(0.3)$.",
+            "Evaluate $0.65 \\times 0.8 + 0.35 \\times 0.3$ to get the final decimal."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Calculate the probabilities for Tuesday ($S_2$ and $R_2$) given Monday's probabilities $P(S_1) = 0.7$ and $P(R_1) = 0.3$:\n$$P(S_2) = P(S_1) P(S_2 \\mid S_1) + P(R_1) P(S_2 \\mid R_1) = 0.7 \\times 0.8 + 0.3 \\times 0.3 = 0.56 + 0.09 = 0.65$$\n$$P(R_2) = 1 - P(S_2) = 1 - 0.65 = 0.35$$"
+            },
+            {
+              "step": 2,
+              "text": "Propagate from Tuesday to Wednesday to find $P(S_3)$:\n$$P(S_3) = P(S_2) P(S_3 \\mid S_2) + P(R_2) P(S_3 \\mid R_2) = 0.65 \\times 0.8 + 0.35 \\times 0.3$$\n$$P(S_3) = 0.52 + 0.105 = 0.625 = \\frac{5}{8}$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "For multi-stage weather trees, always calculate the state probabilities day by day. On Tuesday:\n$$P(\\text{Sunny}) = 0.7(0.8) + 0.3(0.3) = 0.65, \\quad P(\\text{Rainy}) = 0.35$$"
+            },
+            {
+              "step": 2,
+              "text": "On Wednesday, using the Tuesday probabilities:\n$$P(S_3) = 0.65(0.8) + 0.35(0.3) = 0.52 + 0.105 = 0.625$$"
+            }
+          ],
+          "checking": {
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_s1_t_probability_m03_l03_cpq03_p01_c1",
+                "type": "M1",
+                "observable": "Determines Tuesday state probabilities $P(S_2) = 0.7 \\times 0.8 + 0.3 \\times 0.3 = 0.65$ and sets up Wednesday calculation $0.65 \\times 0.8 + 0.35 \\times 0.3$."
+              },
+              {
+                "criterion_id": "9709_s1_t_probability_m03_l03_cpq03_p01_c2",
+                "type": "A1",
+                "observable": "Computes $P(S_3) = 0.52 + 0.105 = 0.625$ (or $\\frac{5}{8}$)."
+              }
+            ]
+          }
+        },
+        {
+          "part_id": "9709_s1_t_probability_m03_l03_cpq03_p02",
+          "difficulty": "medium",
+          "hints": [
+            "Notice the condition is Wednesday being Rainy ($R_3$), so $P(R_3) = 1 - P(S_3)$.",
+            "Identify the two paths where Monday is Sunny and Wednesday is Rainy: $S_1 S_2 R_3$ and $S_1 R_2 R_3$.",
+            "Divide the sum of those two paths by $P(R_3)$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Find the total probability that Wednesday is Rainy ($R_3$):\n$$P(R_3) = 1 - P(S_3) = 1 - 0.625 = 0.375$$"
+            },
+            {
+              "step": 2,
+              "text": "Calculate the joint probability that Monday is Sunny and Wednesday is Rainy, which consists of two paths ($S_1 S_2 R_3$ and $S_1 R_2 R_3$):\n$$P(S_1 S_2 R_3) = 0.7 \\times 0.8 \\times (1 - 0.8) = 0.7 \\times 0.8 \\times 0.2 = 0.112$$\n$$P(S_1 R_2 R_3) = 0.7 \\times (1 - 0.8) \\times (1 - 0.3) = 0.7 \\times 0.2 \\times 0.7 = 0.098$$\n$$P(S_1 \\cap R_3) = 0.112 + 0.098 = 0.210$$"
+            },
+            {
+              "step": 3,
+              "text": "Apply the conditional probability definition:\n$$P(S_1 \\mid R_3) = \\frac{P(S_1 \\cap R_3)}{P(R_3)} = \\frac{0.210}{0.375} = \\frac{210}{375} = \\frac{14}{25} = 0.56$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "The condition is Wednesday is Rainy. Since Sunny and Rainy are complementary:\n$$P(R_3) = 1 - 0.625 = 0.375$$"
+            },
+            {
+              "step": 2,
+              "text": "For Monday Sunny and Wednesday Rainy, we look at both intermediate weather possibilities for Tuesday:\n- Sunny Tuesday: $0.7 \\times 0.8 \\times 0.2 = 0.112$\n- Rainy Tuesday: $0.7 \\times 0.2 \\times 0.7 = 0.098$\n$$\\text{Sum} = 0.112 + 0.098 = 0.210$$"
+            },
+            {
+              "step": 3,
+              "text": "Now divide favorable by total:\n$$P(S_1 \\mid R_3) = \\frac{0.210}{0.375} = \\frac{14}{25} = 0.56$$"
+            }
+          ],
+          "checking": {
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_s1_t_probability_m03_l03_cpq03_p02_c1",
+                "type": "B1",
+                "observable": "Finds total probability of Wednesday being rainy: $P(R_3) = 1 - 0.625 = 0.375$ (or evaluates $0.65 \\times 0.2 + 0.35 \\times 0.7 = 0.375$)."
+              },
+              {
+                "criterion_id": "9709_s1_t_probability_m03_l03_cpq03_p02_c2",
+                "type": "M1",
+                "observable": "Computes joint probability for Monday Sunny and Wednesday Rainy: $P(S_1 \\cap R_3) = 0.7 \\times 0.8 \\times 0.2 + 0.7 \\times 0.2 \\times 0.7 = 0.112 + 0.098 = 0.210$."
+              },
+              {
+                "criterion_id": "9709_s1_t_probability_m03_l03_cpq03_p02_c3",
+                "type": "A1",
+                "observable": "Evaluates conditional probability $\\frac{0.210}{0.375} = \\frac{14}{25} = 0.56$."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_s1_t_probability_m03_l03_cpq04",
+      "parts": [
+        {
+          "part_id": "9709_s1_t_probability_m03_l03_cpq04_p01",
+          "difficulty": "medium",
+          "hints": [
+            "Identify all outcomes yielding at least two successful throws: $SSS$, $SSM$, $SMS$, and $MSS$.",
+            "Use the state-dependent transitions: score after score has probability $0.7$, score after miss has probability $0.4$.",
+            "Sum the four branch probabilities."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "List the four mutually exclusive outcomes with at least two scores:\n$$\\text{Outcomes: } \\{SSS, SSM, SMS, MSS\\}$$"
+            },
+            {
+              "step": 2,
+              "text": "Calculate each path probability using the dynamic transition rules:\n- Path 1 ($SSS$):\n$$P(SSS) = 0.6 \\times 0.7 \\times 0.7 = 0.294$$\n- Path 2 ($SSM$):\n$$P(SSM) = 0.6 \\times 0.7 \\times 0.3 = 0.126$$\n- Path 3 ($SMS$):\n$$P(SMS) = 0.6 \\times 0.3 \\times 0.4 = 0.072$$\n- Path 4 ($MSS$):\n$$P(MSS) = 0.4 \\times 0.4 \\times 0.7 = 0.112$$"
+            },
+            {
+              "step": 3,
+              "text": "Sum the probabilities to find $P(\\ge 2 \\text{ scores})$:\n$$P(\\ge 2) = 0.294 + 0.126 + 0.072 + 0.112 = 0.604 = \\frac{151}{250}$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "At least two scores in three throws means either $2$ scores or $3$ scores. In order of throws, the valid paths are:\n$$\\text{Valid paths: } SSS, SSM, SMS, MSS$$"
+            },
+            {
+              "step": 2,
+              "text": "Be very attentive to the transitions: after a Score, the next probabilities are $0.7$ Score and $0.3$ Miss. After a Miss, the next probabilities are $0.4$ Score and $0.6$ Miss:\n$$P(SSS) = 0.6(0.7)(0.7) = 0.294$$\n$$P(SSM) = 0.6(0.7)(0.3) = 0.126$$\n$$P(SMS) = 0.6(0.3)(0.4) = 0.072$$\n$$P(MSS) = 0.4(0.4)(0.7) = 0.112$$"
+            },
+            {
+              "step": 3,
+              "text": "Adding these four probabilities gives:\n$$P(\\ge 2) = 0.294 + 0.126 + 0.072 + 0.112 = 0.604$$"
+            }
+          ],
+          "checking": {
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_s1_t_probability_m03_l03_cpq04_p01_c1",
+                "type": "M1",
+                "observable": "Identifies the four mutually exclusive outcomes with at least two scores: $SSS$, $SSM$, $SMS$, $MSS$."
+              },
+              {
+                "criterion_id": "9709_s1_t_probability_m03_l03_cpq04_p01_c2",
+                "type": "M1",
+                "observable": "Calculates branch probabilities using dynamic transition rules: $P(SSS) = 0.6 \\times 0.7 \\times 0.7 = 0.294$, $P(SSM) = 0.6 \\times 0.7 \\times 0.3 = 0.126$, $P(SMS) = 0.6 \\times 0.3 \\times 0.4 = 0.072$, and $P(MSS) = 0.4 \\times 0.4 \\times 0.7 = 0.112$."
+              },
+              {
+                "criterion_id": "9709_s1_t_probability_m03_l03_cpq04_p01_c3",
+                "type": "A1",
+                "observable": "Sums the probabilities to obtain $0.294 + 0.126 + 0.072 + 0.112 = 0.604$ (or $\\frac{151}{250}$)."
+              }
+            ]
+          }
+        },
+        {
+          "part_id": "9709_s1_t_probability_m03_l03_cpq04_p02",
+          "difficulty": "medium",
+          "hints": [
+            "Which of the four outcomes from part (a) have a score on the first throw?",
+            "Sum $P(SSS) + P(SSM) + P(SMS)$ to find the numerator.",
+            "Divide by the denominator $0.604$ from part (a)."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Identify the outcomes that satisfy both conditions (scored on first throw AND at least two scores):\n$$S_1 \\cap (\\ge 2) = \\{SSS, SSM, SMS\\}$$"
+            },
+            {
+              "step": 2,
+              "text": "Sum their individual probabilities:\n$$P(S_1 \\cap \\ge 2) = 0.294 + 0.126 + 0.072 = 0.492$$"
+            },
+            {
+              "step": 3,
+              "text": "Divide by the total probability of at least two scores ($0.604$ from part (a)):\n$$P(S_1 \\mid \\ge 2) = \\frac{0.492}{0.604} = \\frac{492}{604} = \\frac{123}{151} \\approx 0.815$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "In conditional probability, the given condition narrows our sample space to the four paths from part (a). The total probability of this condition is:\n$$P(\\ge 2) = 0.604$$"
+            },
+            {
+              "step": 2,
+              "text": "Among those four paths, three start with a score: $SSS, SSM, SMS$. Their combined probability is:\n$$0.294 + 0.126 + 0.072 = 0.492$$"
+            },
+            {
+              "step": 3,
+              "text": "Thus, the required conditional probability is:\n$$P(S_1 \\mid \\ge 2) = \\frac{0.492}{0.604} = \\frac{123}{151} \\approx 0.815$$"
+            }
+          ],
+          "checking": {
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_s1_t_probability_m03_l03_cpq04_p02_c1",
+                "type": "B1",
+                "observable": "Identifies favorable outcomes where the first throw is scored ($SSS, SSM, SMS$) and sums their probabilities: $0.294 + 0.126 + 0.072 = 0.492$."
+              },
+              {
+                "criterion_id": "9709_s1_t_probability_m03_l03_cpq04_p02_c2",
+                "type": "M1",
+                "observable": "Sets up conditional ratio with denominator from part (a): $\\frac{0.492}{0.604}$."
+              },
+              {
+                "criterion_id": "9709_s1_t_probability_m03_l03_cpq04_p02_c3",
+                "type": "A1",
+                "observable": "Calculates $\\frac{492}{604} = \\frac{123}{151}$ (or $0.815$ to 3 s.f.)."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_s1_t_probability_m03_l03_cpq05",
+      "parts": [
+        {
+          "part_id": "9709_s1_t_probability_m03_l03_cpq05_p01",
+          "difficulty": "medium",
+          "hints": [
+            "Find the bag selection probabilities: rolling 1 or 2 gives $P(\\text{Bag A}) = \\frac{2}{6} = \\frac{1}{3}$, and $P(\\text{Bag B}) = \\frac{4}{6} = \\frac{2}{3}$.",
+            "Calculate the probability of drawing two red counters for each bag separately, updating the count after removing 1 red and adding 1 black counter.",
+            "Combine using total probability: $P(A) P(R_1 R_2 \\mid A) + P(B) P(R_1 R_2 \\mid B)$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Determine the bag probabilities from rolling the die:\n$$P(A) = \\frac{2}{6} = \\frac{1}{3}, \\quad P(B) = \\frac{4}{6} = \\frac{2}{3}$$"
+            },
+            {
+              "step": 2,
+              "text": "Calculate the probability of drawing two red counters given each bag:\n- Bag A ($4$ red, $2$ white, total $6$):\n  - First draw red: $P(R_1 \\mid A) = \\frac{4}{6}$.\n  - After removing $1$ red and adding $1$ black, Bag A contains $3$ red, $2$ white, $1$ black (total $6$).\n  - Second draw red: $P(R_2 \\mid A, R_1) = \\frac{3}{6}$.\n  $$P(R_1 R_2 \\mid A) = \\frac{4}{6} \\times \\frac{3}{6} = \\frac{2}{3} \\times \\frac{1}{2} = \\frac{1}{3}$$\n- Bag B ($3$ red, $5$ white, total $8$):\n  - First draw red: $P(R_1 \\mid B) = \\frac{3}{8}$.\n  - After removing $1$ red and adding $1$ black, Bag B contains $2$ red, $5$ white, $1$ black (total $8$).\n  - Second draw red: $P(R_2 \\mid B, R_1) = \\frac{2}{8}$.\n  $$P(R_1 R_2 \\mid B) = \\frac{3}{8} \\times \\frac{2}{8} = \\frac{6}{64} = \\frac{3}{32}$$"
+            },
+            {
+              "step": 3,
+              "text": "Apply the law of total probability:\n$$P(R_1 R_2) = P(A) P(R_1 R_2 \\mid A) + P(B) P(R_1 R_2 \\mid B) = \\frac{1}{3} \\times \\frac{1}{3} + \\frac{2}{3} \\times \\frac{3}{32}$$\n$$P(R_1 R_2) = \\frac{1}{9} + \\frac{2}{32} = \\frac{1}{9} + \\frac{1}{16} = \\frac{16 + 9}{144} = \\frac{25}{144} \\approx 0.174$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "First, find the source probabilities from the die roll:\n$$P(A) = \\frac{2}{6} = \\frac{1}{3}, \\quad P(B) = \\frac{4}{6} = \\frac{2}{3}$$"
+            },
+            {
+              "step": 2,
+              "text": "Next, compute the probability of two reds in each bag, being careful to update the pool. When a red is removed and a black is added, the total number of counters remains constant, but the red count decreases by $1$:\n$$\\text{For Bag A: } \\frac{4}{6} \\times \\frac{3}{6} = \\frac{1}{3}$$\n$$\\text{For Bag B: } \\frac{3}{8} \\times \\frac{2}{8} = \\frac{3}{32}$$"
+            },
+            {
+              "step": 3,
+              "text": "Weight each by the source probability and add:\n$$P(\\text{both red}) = \\frac{1}{3}\\left(\\frac{1}{3}\\right) + \\frac{2}{3}\\left(\\frac{3}{32}\\right) = \\frac{1}{9} + \\frac{1}{16} = \\frac{25}{144} \\approx 0.174$$"
+            }
+          ],
+          "checking": {
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_s1_t_probability_m03_l03_cpq05_p01_c1",
+                "type": "M1",
+                "observable": "Computes probability of two red counters given Bag A: $\\frac{4}{6} \\times \\frac{3}{6} = \\frac{1}{3}$, and given Bag B: $\\frac{3}{8} \\times \\frac{2}{8} = \\frac{3}{32}$."
+              },
+              {
+                "criterion_id": "9709_s1_t_probability_m03_l03_cpq05_p01_c2",
+                "type": "M1",
+                "observable": "Multiplies by bag selection probabilities $P(A) = \\frac{2}{6} = \\frac{1}{3}$ and $P(B) = \\frac{4}{6} = \\frac{2}{3}$, setting up $\\frac{1}{3} \\times \\frac{1}{3} + \\frac{2}{3} \\times \\frac{3}{32}$."
+              },
+              {
+                "criterion_id": "9709_s1_t_probability_m03_l03_cpq05_p01_c3",
+                "type": "A1",
+                "observable": "Calculates total probability $\\frac{1}{9} + \\frac{1}{16} = \\frac{25}{144}$ (or $0.174$ to 3 s.f.)."
+              }
+            ]
+          }
+        },
+        {
+          "part_id": "9709_s1_t_probability_m03_l03_cpq05_p02",
+          "difficulty": "medium",
+          "hints": [
+            "Use Bayes' theorem: $P(A \\mid R_1 R_2) = \\frac{P(A \\cap R_1 R_2)}{P(R_1 R_2)}$.",
+            "From part (a), $P(A \\cap R_1 R_2) = \\frac{1}{9}$ and $P(R_1 R_2) = \\frac{25}{144}$.",
+            "Divide the two fractions to get the exact value."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Identify the favorable joint probability that Bag A was chosen and both counters were red:\n$$P(A \\cap R_1 R_2) = P(A) \\times P(R_1 R_2 \\mid A) = \\frac{1}{3} \\times \\frac{1}{3} = \\frac{1}{9}$$"
+            },
+            {
+              "step": 2,
+              "text": "Substitute into Bayes' formula using the total probability from part (a):\n$$P(A \\mid R_1 R_2) = \\frac{P(A \\cap R_1 R_2)}{P(R_1 R_2)} = \\frac{\\frac{1}{9}}{\\frac{25}{144}}$$"
+            },
+            {
+              "step": 3,
+              "text": "Simplify the fraction:\n$$P(A \\mid R_1 R_2) = \\frac{1}{9} \\times \\frac{144}{25} = \\frac{16}{25} = 0.64$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "Given that both counters drawn were red, we invert the tree to find the probability that Bag A was chosen:\n$$\\text{Target: } P(A \\mid R_1 R_2)$$"
+            },
+            {
+              "step": 2,
+              "text": "The branch corresponding to Bag A and two red counters has probability:\n$$P(A \\cap R_1 R_2) = \\frac{1}{3} \\times \\frac{1}{3} = \\frac{1}{9} = \\frac{16}{144}$$"
+            },
+            {
+              "step": 3,
+              "text": "Dividing by the total probability of two red counters ($\\frac{25}{144}$):\n$$P(A \\mid R_1 R_2) = \\frac{16/144}{25/144} = \\frac{16}{25} = 0.64$$"
+            }
+          ],
+          "checking": {
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_s1_t_probability_m03_l03_cpq05_p02_c1",
+                "type": "B1",
+                "observable": "States the numerator joint probability $P(A \\cap R_1 R_2) = \\frac{1}{3} \\times \\frac{1}{3} = \\frac{1}{9}$."
+              },
+              {
+                "criterion_id": "9709_s1_t_probability_m03_l03_cpq05_p02_c2",
+                "type": "M1",
+                "observable": "Applies Bayes' theorem: $\\frac{1/9}{25/144} = \\frac{16/144}{25/144}$."
+              },
+              {
+                "criterion_id": "9709_s1_t_probability_m03_l03_cpq05_p02_c3",
+                "type": "A1",
+                "observable": "Simplifies to $\\frac{16}{25} = 0.64$."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_s1_t_probability_m03_l03_cpq06",
+      "parts": [
+        {
+          "part_id": "9709_s1_t_probability_m03_l03_cpq06_p01",
+          "difficulty": "hard",
+          "hints": [
+            "Turn order: Draw 1 is Leo, Draw 2 is Mia, Draw 3 is Leo.",
+            "For Leo to win on Draw 3, he must draw his second gold coin on Draw 3, meaning he must have drawn gold on Draw 1 as well.",
+            "Mia cannot win on Draw 2, so Mia can draw either gold or silver on Draw 2.",
+            "Calculate the probabilities of $G_1 G_2 G_3$ and $G_1 S_2 G_3$ without replacement."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Identify the structure of the game: Leo draws on odd turns ($1, 3, \\dots$) and Mia draws on even turns ($2, 4, \\dots$). For Leo to win on Draw 3, he must obtain his second gold coin on Draw 3:\n$$\\text{Leo winning draws: } G_1 \\cap G_3$$"
+            },
+            {
+              "step": 2,
+              "text": "Mia's draw on Turn 2 can be either gold or silver:\n- Path 1 ($G_1 G_2 G_3$):\n$$P(G_1 G_2 G_3) = \\frac{4}{8} \\times \\frac{3}{7} \\times \\frac{2}{6} = \\frac{24}{336} = \\frac{1}{14}$$\n- Path 2 ($G_1 S_2 G_3$):\n$$P(G_1 S_2 G_3) = \\frac{4}{8} \\times \\frac{4}{7} \\times \\frac{3}{6} = \\frac{48}{336} = \\frac{2}{14} = \\frac{1}{7}$$"
+            },
+            {
+              "step": 3,
+              "text": "Sum the two mutually exclusive paths:\n$$P(\\text{Leo wins on Draw 3}) = \\frac{1}{14} + \\frac{2}{14} = \\frac{3}{14} \\approx 0.214$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "Leo needs $2$ gold coins to win. On Draw 3, Leo takes his second turn. For him to win on this exact turn, he must have drawn Gold on Draw 1 and Gold on Draw 3:\n$$\\text{Condition: } G_1 \\cap G_3$$"
+            },
+            {
+              "step": 2,
+              "text": "We evaluate the two paths without replacement:\n$$P(G_1 G_2 G_3) = \\frac{4}{8} \\times \\frac{3}{7} \\times \\frac{2}{6} = \\frac{24}{336}$$\n$$P(G_1 S_2 G_3) = \\frac{4}{8} \\times \\frac{4}{7} \\times \\frac{3}{6} = \\frac{48}{336}$$"
+            },
+            {
+              "step": 3,
+              "text": "Adding them together:\n$$P(\\text{Leo wins on Draw 3}) = \\frac{72}{336} = \\frac{3}{14} \\approx 0.214$$"
+            }
+          ],
+          "checking": {
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_s1_t_probability_m03_l03_cpq06_p01_c1",
+                "type": "M1",
+                "observable": "Identifies valid sequences for Leo winning on Draw 3 ($G_1 G_2 G_3$ and $G_1 S_2 G_3$) and sets up $\\frac{4}{8} \\times \\frac{3}{7} \\times \\frac{2}{6} + \\frac{4}{8} \\times \\frac{4}{7} \\times \\frac{3}{6}$ (or $\\frac{4}{8} \\times \\frac{3}{7}$)."
+              },
+              {
+                "criterion_id": "9709_s1_t_probability_m03_l03_cpq06_p01_c2",
+                "type": "A1",
+                "observable": "Calculates probability $\\frac{24}{336} + \\frac{48}{336} = \\frac{72}{336} = \\frac{3}{14}$ (or $0.214$ to 3 s.f.)."
+              }
+            ]
+          }
+        },
+        {
+          "part_id": "9709_s1_t_probability_m03_l03_cpq06_p02",
+          "difficulty": "hard",
+          "hints": [
+            "Mia draws on Draw 2 and Draw 4. For Mia to win on Draw 4, she must draw gold on Draw 2 and gold on Draw 4.",
+            "Crucial stopping rule: Leo must NOT have already won on Draw 3. This means Leo cannot have drawn gold on both Draw 1 and Draw 3.",
+            "List all allowable 4-draw sequences: $S_1 G_2 G_3 G_4$, $S_1 G_2 S_3 G_4$, and $G_1 G_2 S_3 G_4$.",
+            "Calculate each path probability using sampling without replacement from 4 gold and 4 silver coins."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "For Mia to win on Draw 4, Mia must draw gold on Draw 2 and Draw 4. Additionally, Leo must not have already won on Draw 3 (which excludes the sequence $G_1 G_2 G_3$):\n$$\\text{Excluded branch: } G_1 G_2 G_3 G_4$$"
+            },
+            {
+              "step": 2,
+              "text": "Identify the three valid four-draw sequences and calculate their probabilities without replacement from $4$ gold and $4$ silver coins:\n- Sequence $S_1 G_2 G_3 G_4$:\n$$P(S_1 G_2 G_3 G_4) = \\frac{4}{8} \\times \\frac{4}{7} \\times \\frac{3}{6} \\times \\frac{2}{5} = \\frac{96}{1680} = \\frac{2}{35}$$\n- Sequence $S_1 G_2 S_3 G_4$:\n$$P(S_1 G_2 S_3 G_4) = \\frac{4}{8} \\times \\frac{4}{7} \\times \\frac{3}{6} \\times \\frac{3}{5} = \\frac{144}{1680} = \\frac{3}{35}$$\n- Sequence $G_1 G_2 S_3 G_4$:\n$$P(G_1 G_2 S_3 G_4) = \\frac{4}{8} \\times \\frac{3}{7} \\times \\frac{4}{6} \\times \\frac{2}{5} = \\frac{96}{1680} = \\frac{2}{35}$$"
+            },
+            {
+              "step": 3,
+              "text": "Sum the probabilities of these three mutually exclusive sequences:\n$$P(\\text{Mia wins on Draw 4}) = \\frac{2}{35} + \\frac{3}{35} + \\frac{2}{35} = \\frac{7}{35} = \\frac{1}{5} = 0.2$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "This is a key stopping rule problem. Mia draws on turns 2 and 4. To win on turn 4, she must draw gold on both turns ($G_2$ and $G_4$). Crucially, the game must not end on turn 3: if Leo drew $G_1$ and $G_3$, the game stopped on turn 3:\n$$\\text{Valid sequences: } S_1 G_2 G_3 G_4, \\; S_1 G_2 S_3 G_4, \\; G_1 G_2 S_3 G_4$$"
+            },
+            {
+              "step": 2,
+              "text": "Thus, Leo's draws $(D_1, D_3)$ can only be $(S, G)$, $(S, S)$, or $(G, S)$:\n$$P(S_1 G_2 G_3 G_4) = \\frac{4}{8} \\times \\frac{4}{7} \\times \\frac{3}{6} \\times \\frac{2}{5} = \\frac{2}{35}$$\n$$P(S_1 G_2 S_3 G_4) = \\frac{4}{8} \\times \\frac{4}{7} \\times \\frac{3}{6} \\times \\frac{3}{5} = \\frac{3}{35}$$\n$$P(G_1 G_2 S_3 G_4) = \\frac{4}{8} \\times \\frac{3}{7} \\times \\frac{4}{6} \\times \\frac{2}{5} = \\frac{2}{35}$$"
+            },
+            {
+              "step": 3,
+              "text": "Summing these three valid branches gives:\n$$P(\\text{Mia wins on Draw 4}) = \\frac{2 + 3 + 2}{35} = \\frac{7}{35} = \\frac{1}{5} = 0.2$$"
+            }
+          ],
+          "checking": {
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_s1_t_probability_m03_l03_cpq06_p02_c1",
+                "type": "M1",
+                "observable": "Recognizes that Mia must draw gold on Draw 2 and Draw 4 while excluding the branch where Leo wins on Draw 3 ($G_1 G_2 G_3$), identifying valid sequences: $S_1 G_2 G_3 G_4$, $S_1 G_2 S_3 G_4$, and $G_1 G_2 S_3 G_4$."
+              },
+              {
+                "criterion_id": "9709_s1_t_probability_m03_l03_cpq06_p02_c2",
+                "type": "M1",
+                "observable": "Calculates branch probabilities without replacement: $\\frac{4}{8} \\times \\frac{4}{7} \\times \\frac{3}{6} \\times \\frac{2}{5} = \\frac{2}{35}$, $\\frac{4}{8} \\times \\frac{4}{7} \\times \\frac{3}{6} \\times \\frac{3}{5} = \\frac{3}{35}$, and $\\frac{4}{8} \\times \\frac{3}{7} \\times \\frac{4}{6} \\times \\frac{2}{5} = \\frac{2}{35}$."
+              },
+              {
+                "criterion_id": "9709_s1_t_probability_m03_l03_cpq06_p02_c3",
+                "type": "A1",
+                "observable": "Sums the probabilities to obtain $\\frac{2}{35} + \\frac{3}{35} + \\frac{2}{35} = \\frac{7}{35} = \\frac{1}{5}$ (or $0.2$)."
+              }
+            ]
+          }
+        },
+        {
+          "part_id": "9709_s1_t_probability_m03_l03_cpq06_p03",
+          "difficulty": "hard",
+          "hints": [
+            "Can the game end on Draw 1 or Draw 2? No, because 2 gold coins are required to win.",
+            "Therefore, the game ends on or before Draw 4 if and only if it ends on Draw 3 or Draw 4.",
+            "Recall who wins on Draw 3 (Leo) and who wins on Draw 4 (Mia).",
+            "Compute the conditional probability that Leo won given that the game ended on or before Draw 4."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Determine all possible ways the game can end on or before Draw 4:\n- Since $2$ gold coins are needed, the game cannot end on Draw 1 or Draw 2.\n- The game can end on Draw 3 (only Leo can win on Draw 3) with probability $\\frac{3}{14}$.\n- The game can end on Draw 4 (only Mia can win on Draw 4) with probability $\\frac{1}{5}$.\n$$\\text{Possible ending draws: } \\{\\text{Draw 3 (Leo)}, \\text{Draw 4 (Mia)}\\}$$"
+            },
+            {
+              "step": 2,
+              "text": "Calculate the total probability that the game ends on or before Draw 4:\n$$P(\\text{ends } \\le 4) = P(\\text{ends on 3}) + P(\\text{ends on 4}) = \\frac{3}{14} + \\frac{1}{5} = \\frac{15}{70} + \\frac{14}{70} = \\frac{29}{70}$$"
+            },
+            {
+              "step": 3,
+              "text": "Notice that Leo wins on or before Draw 4 if and only if he wins on Draw 3. Apply the conditional probability formula:\n$$P(\\text{Leo wins} \\mid \\text{ends } \\le 4) = \\frac{P(\\text{Leo wins on 3})}{P(\\text{ends } \\le 4)} = \\frac{\\frac{15}{70}}{\\frac{29}{70}} = \\frac{15}{29} \\approx 0.517$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "To condition on the game ending on or before Draw 4, we find the sum of all winning probabilities up to that point. Nobody can win on Draw 1 or 2 (at most $1$ coin drawn per person). Thus:\n$$P(\\text{ends } \\le 4) = P(\\text{Draw 3}) + P(\\text{Draw 4}) = \\frac{3}{14} + \\frac{1}{5} = \\frac{29}{70}$$"
+            },
+            {
+              "step": 2,
+              "text": "Now identify who won in each of those winning outcomes. Leo is the only player who can win on Draw 3, and Mia is the only player who can win on Draw 4:\n$$P(\\text{Leo wins and ends } \\le 4) = P(\\text{Leo wins on Draw 3}) = \\frac{3}{14}$$"
+            },
+            {
+              "step": 3,
+              "text": "Therefore, given that the game ended by Draw 4, the probability that Leo was the winner is simply the ratio of Leo's win to the total wins:\n$$P(\\text{Leo} \\mid \\text{ends } \\le 4) = \\frac{15/70}{29/70} = \\frac{15}{29} \\approx 0.517$$"
+            }
+          ],
+          "checking": {
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_s1_t_probability_m03_l03_cpq06_p03_c1",
+                "type": "B1",
+                "observable": "Calculates total probability of game ending on or before Draw 4: $P(\\text{Draw 3}) + P(\\text{Draw 4}) = \\frac{3}{14} + \\frac{1}{5} = \\frac{15}{70} + \\frac{14}{70} = \\frac{29}{70}$."
+              },
+              {
+                "criterion_id": "9709_s1_t_probability_m03_l03_cpq06_p03_c2",
+                "type": "M1",
+                "observable": "Recognizes that Leo wins on or before Draw 4 if and only if he wins on Draw 3, forming conditional ratio $\\frac{3/14}{29/70} = \\frac{15/70}{29/70}$."
+              },
+              {
+                "criterion_id": "9709_s1_t_probability_m03_l03_cpq06_p03_c3",
+                "type": "A1",
+                "observable": "Obtains final probability $\\frac{15}{29}$ (or $0.517$ to 3 s.f.)."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_s1_t_probability_m03_l03_cpq07",
+      "parts": [
+        {
+          "part_id": "9709_s1_t_probability_m03_l03_cpq07_p01",
+          "difficulty": "hard",
+          "hints": [
+            "In Step 1, a counter is transferred from Box 1 (3 red, 3 green) to Box 2 (4 red, 2 green).",
+            "Determine the transfer probabilities from Box 1: $P(T_1 = R)$ and $P(T_1 = G)$.",
+            "Update Box 2's composition (which now has 7 counters) under both cases and find $P(T_2 = R)$.",
+            "Use the law of total probability: $P(T_2 = R) = P(T_1 = R) P(T_2 = R \\mid T_1 = R) + P(T_1 = G) P(T_2 = R \\mid T_1 = G)$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Analyze Step 1: Box 1 initially has $3$ red and $3$ green counters ($6$ total). The probability of transferring red or green is:\n$$P(T_1 = R) = \\frac{3}{6} = \\frac{1}{2}, \\quad P(T_1 = G) = \\frac{3}{6} = \\frac{1}{2}$$"
+            },
+            {
+              "step": 2,
+              "text": "Update Box 2 (originally $4$ red, $2$ green, total $6$) after receiving the counter in Step 1 (new total $7$):\n- If Red was transferred ($T_1 = R$): Box 2 has $5$ red, $2$ green ($7$ total). Thus:\n$$P(T_2 = R \\mid T_1 = R) = \\frac{5}{7}$$\n- If Green was transferred ($T_1 = G$): Box 2 has $4$ red, $3$ green ($7$ total). Thus:\n$$P(T_2 = R \\mid T_1 = G) = \\frac{4}{7}$$"
+            },
+            {
+              "step": 3,
+              "text": "Calculate the total probability that the counter transferred in Step 2 is red:\n$$P(T_2 = R) = \\frac{1}{2} \\times \\frac{5}{7} + \\frac{1}{2} \\times \\frac{4}{7} = \\frac{5}{14} + \\frac{4}{14} = \\frac{9}{14} \\approx 0.643$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "Let $T_1$ be the counter moved from Box 1 to Box 2, and $T_2$ be the counter moved from Box 2 to Box 1. Box 1 has equal numbers of red and green counters:\n$$P(T_1 = R) = \\frac{1}{2}, \\quad P(T_1 = G) = \\frac{1}{2}$$"
+            },
+            {
+              "step": 2,
+              "text": "Box 2 starts with $4R, 2G$. Adding $T_1$ increases the total to $7$ counters:\n- If $T_1 = R$, Box 2 has $5R, 2G$, so $P(T_2 = R) = \\frac{5}{7}$.\n- If $T_1 = G$, Box 2 has $4R, 3G$, so $P(T_2 = R) = \\frac{4}{7}$.\n$$\\text{Conditional probabilities: } P(T_2 = R \\mid T_1 = R) = \\frac{5}{7}, \\quad P(T_2 = R \\mid T_1 = G) = \\frac{4}{7}$$"
+            },
+            {
+              "step": 3,
+              "text": "By the law of total probability:\n$$P(T_2 = R) = \\frac{1}{2}\\left(\\frac{5}{7}\\right) + \\frac{1}{2}\\left(\\frac{4}{7}\\right) = \\frac{9}{14} \\approx 0.643$$"
+            }
+          ],
+          "checking": {
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_s1_t_probability_m03_l03_cpq07_p01_c1",
+                "type": "M1",
+                "observable": "Identifies the two Step 1 outcomes ($T_1 = R$ with prob $\\frac{3}{6} = \\frac{1}{2}$ and $T_1 = G$ with prob $\\frac{3}{6} = \\frac{1}{2}$) and updates Box 2 contents to 5R, 2G and 4R, 3G respectively."
+              },
+              {
+                "criterion_id": "9709_s1_t_probability_m03_l03_cpq07_p01_c2",
+                "type": "M1",
+                "observable": "Sets up total probability for $T_2 = R$: $\\frac{1}{2} \\times \\frac{5}{7} + \\frac{1}{2} \\times \\frac{4}{7}$."
+              },
+              {
+                "criterion_id": "9709_s1_t_probability_m03_l03_cpq07_p01_c3",
+                "type": "A1",
+                "observable": "Calculates $P(T_2 = R) = \\frac{5}{14} + \\frac{4}{14} = \\frac{9}{14}$ (or $0.643$ to 3 s.f.)."
+              }
+            ]
+          }
+        },
+        {
+          "part_id": "9709_s1_t_probability_m03_l03_cpq07_p02",
+          "difficulty": "hard",
+          "hints": [
+            "There are four paths for the two transfers: $(R, R), (R, G), (G, R), (G, G)$.",
+            "For each path, determine the final composition of Box 1 (which will have 6 counters total) before Step 3.",
+            "Find $P(\\text{final red})$ by summing the four branch products.",
+            "Add the four fractions over common denominator 84."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Determine the composition of Box 1 after Step 2 for all four possible transfer pairs $(T_1, T_2)$:\n- $(R, R)$: Lost $1$ red, gained $1$ red $\\implies 3$ red, $3$ green. $P(C_3 = R) = \\frac{3}{6} = \\frac{1}{2}$.\n- $(R, G)$: Lost $1$ red, gained $1$ green $\\implies 2$ red, $4$ green. $P(C_3 = R) = \\frac{2}{6} = \\frac{1}{3}$.\n- $(G, R)$: Lost $1$ green, gained $1$ red $\\implies 4$ red, $2$ green. $P(C_3 = R) = \\frac{4}{6} = \\frac{2}{3}$.\n- $(G, G)$: Lost $1$ green, gained $1$ green $\\implies 3$ red, $3$ green. $P(C_3 = R) = \\frac{3}{6} = \\frac{1}{2}$.\n$$\\text{Transfer pairs: } \\{(R, R), (R, G), (G, R), (G, G)\\}$$"
+            },
+            {
+              "step": 2,
+              "text": "Calculate the joint probability for each path ending in a red counter from Box 1:\n- Path 1 ($R, R, R$):\n$$P(RRR) = \\frac{1}{2} \\times \\frac{5}{7} \\times \\frac{3}{6} = \\frac{15}{84}$$\n- Path 2 ($R, G, R$):\n$$P(RGR) = \\frac{1}{2} \\times \\frac{2}{7} \\times \\frac{2}{6} = \\frac{4}{84}$$\n- Path 3 ($G, R, R$):\n$$P(GRR) = \\frac{1}{2} \\times \\frac{4}{7} \\times \\frac{4}{6} = \\frac{16}{84}$$\n- Path 4 ($G, G, R$):\n$$P(GGR) = \\frac{1}{2} \\times \\frac{3}{7} \\times \\frac{3}{6} = \\frac{9}{84}$$"
+            },
+            {
+              "step": 3,
+              "text": "Sum the four probabilities to find the total probability:\n$$P(C_3 = R) = \\frac{15 + 4 + 16 + 9}{84} = \\frac{44}{84} = \\frac{11}{21} \\approx 0.524$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "Box 1 undergoes a two-way transfer: one counter leaves, then one counter enters. The net effect on Box 1 depends on whether the colours matched:\n- If colours matched ($RR$ or $GG$), Box 1 returns to its initial $3R, 3G$ state.\n- If $RG$ was transferred, Box 1 lost red and gained green, becoming $2R, 4G$.\n- If $GR$ was transferred, Box 1 lost green and gained red, becoming $4R, 2G$.\n$$\\text{Box 1 Red counts: } RR \\to 3, \\; RG \\to 2, \\; GR \\to 4, \\; GG \\to 3$$"
+            },
+            {
+              "step": 2,
+              "text": "We multiply along all four paths:\n$$P(RRR) = \\frac{1}{2} \\times \\frac{5}{7} \\times \\frac{3}{6} = \\frac{15}{84}$$\n$$P(RGR) = \\frac{1}{2} \\times \\frac{2}{7} \\times \\frac{2}{6} = \\frac{4}{84}$$\n$$P(GRR) = \\frac{1}{2} \\times \\frac{4}{7} \\times \\frac{4}{6} = \\frac{16}{84}$$\n$$P(GGR) = \\frac{1}{2} \\times \\frac{3}{7} \\times \\frac{3}{6} = \\frac{9}{84}$$"
+            },
+            {
+              "step": 3,
+              "text": "Summing the four paths:\n$$P(C_3 = R) = \\frac{15 + 4 + 16 + 9}{84} = \\frac{44}{84} = \\frac{11}{21} \\approx 0.524$$"
+            }
+          ],
+          "checking": {
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_s1_t_probability_m03_l03_cpq07_p02_c1",
+                "type": "M1",
+                "observable": "Evaluates Box 1 composition after Step 2 for all four paths: (R, R) leaves 3R, 3G; (R, G) leaves 2R, 4G; (G, R) leaves 4R, 2G; (G, G) leaves 3R, 3G."
+              },
+              {
+                "criterion_id": "9709_s1_t_probability_m03_l03_cpq07_p02_c2",
+                "type": "M1",
+                "observable": "Sets up sum of products for drawing red in Step 3: $\\frac{1}{2} \\times \\frac{5}{7} \\times \\frac{3}{6} + \\frac{1}{2} \\times \\frac{2}{7} \\times \\frac{2}{6} + \\frac{1}{2} \\times \\frac{4}{7} \\times \\frac{4}{6} + \\frac{1}{2} \\times \\frac{3}{7} \\times \\frac{3}{6}$."
+              },
+              {
+                "criterion_id": "9709_s1_t_probability_m03_l03_cpq07_p02_c3",
+                "type": "A1",
+                "observable": "Calculates $\\frac{15 + 4 + 16 + 9}{84} = \\frac{44}{84} = \\frac{11}{21}$ (or $0.524$ to 3 s.f.)."
+              }
+            ]
+          }
+        },
+        {
+          "part_id": "9709_s1_t_probability_m03_l03_cpq07_p03",
+          "difficulty": "hard",
+          "hints": [
+            "The given condition is that the final counter chosen from Box 1 in Step 3 is red.",
+            "Identify which paths from part (b) had $T_1 = R$ (red transferred in Step 1).",
+            "Those paths are Path 1 ($R, R, R$) and Path 2 ($R, G, R$). Sum their probabilities to find the numerator.",
+            "Divide by the denominator $P(C_3 = R) = \\frac{44}{84}$ found in part (b)."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Identify the paths from part (b) where the counter transferred in Step 1 was red ($T_1 = R$) and the final counter drawn was red ($C_3 = R$):\n$$P(T_1 = R \\cap C_3 = R) = P(R, R, R) + P(R, G, R) = \\frac{15}{84} + \\frac{4}{84} = \\frac{19}{84}$$"
+            },
+            {
+              "step": 2,
+              "text": "Apply Bayes' theorem using the total probability $P(C_3 = R) = \\frac{44}{84}$ from part (b):\n$$P(T_1 = R \\mid C_3 = R) = \\frac{P(T_1 = R \\cap C_3 = R)}{P(C_3 = R)} = \\frac{\\frac{19}{84}}{\\frac{44}{84}}$$"
+            },
+            {
+              "step": 3,
+              "text": "Simplify the fraction:\n$$P(T_1 = R \\mid C_3 = R) = \\frac{19}{44} \\approx 0.432$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "We are looking backward to the very first action (Step 1 transfer) given the final observation in Step 3:\n$$\\text{Target: } P(T_1 = R \\mid C_3 = R)$$"
+            },
+            {
+              "step": 2,
+              "text": "From our work in part (b), the paths where Step 1 transferred a red counter are Path 1 and Path 2:\n$$\\text{Numerator} = \\frac{15}{84} + \\frac{4}{84} = \\frac{19}{84}$$"
+            },
+            {
+              "step": 3,
+              "text": "Dividing by the total probability of ending on a red counter ($\\frac{44}{84}$):\n$$P(T_1 = R \\mid C_3 = R) = \\frac{19/84}{44/84} = \\frac{19}{44} \\approx 0.432$$"
+            }
+          ],
+          "checking": {
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_s1_t_probability_m03_l03_cpq07_p03_c1",
+                "type": "B1",
+                "observable": "Identifies the joint probability of $T_1 = R$ and final draw red: $\\frac{15}{84} + \\frac{4}{84} = \\frac{19}{84}$."
+              },
+              {
+                "criterion_id": "9709_s1_t_probability_m03_l03_cpq07_p03_c2",
+                "type": "M1",
+                "observable": "Applies Bayes' theorem using denominator from part (b): $\\frac{19/84}{44/84}$."
+              },
+              {
+                "criterion_id": "9709_s1_t_probability_m03_l03_cpq07_p03_c3",
+                "type": "A1",
+                "observable": "Simplifies to $\\frac{19}{44}$ (or $0.432$ to 3 s.f.)."
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

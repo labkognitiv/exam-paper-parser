@@ -1,0 +1,184 @@
+{
+  "schema_version": "9709_math_enrichment_v3",
+  "paper_code": "9709_s23_51",
+  "question_id": "9709_s23_51_q7",
+  "question_num": 7,
+  "subject_code": "9709",
+  "component": "S1",
+  "year": 2023,
+  "session": "May/June",
+  "variant": "51",
+  "difficulty": 3,
+  "numerical_values_checked": false,
+  "parts": [
+    {
+      "part_id": "9709_s23_51_q7_a",
+      "difficulty": 2,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_s1_t_discrete_random_variables",
+        "module_id": "9709_s1_t_discrete_random_variables_m04",
+        "lesson_id": "9709_s1_t_discrete_random_variables_m04_l01"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_calculating_geometric_distribution_probabilities",
+        "skill_tags": [
+          "Calculating Geometric Distribution Probabilities"
+        ]
+      },
+      "question_pattern_ids": [
+        "9709_s1_pattern_geometric_tail_probability"
+      ],
+      "knowledge_refs": {
+        "formula_ids": [
+          "9709_s1_formula_geometric_tail_probability",
+          "9709_s1_formula_geometric_probability"
+        ],
+        "identity_ids": [],
+        "method_ids": [
+          "9709_s1_method_calculating_geometric_distribution_probabilities"
+        ],
+        "fact_ids": [
+          "9709_s1_fact_complement_rule"
+        ]
+      },
+      "hints": [
+        "Let T be the week number when the first elephant is received. The probability of receiving an elephant on any week is p = 1/5 = 0.2.",
+        "The first elephant is before the 6th Monday if it occurs on weeks 1, 2, 3, 4, or 5, meaning T <= 5.",
+        "Use the geometric tail formula: P(T <= 5) = 1 - (1 - p)^5 = 1 - (0.8)^5."
+      ],
+      "walkthrough": [
+        "Identify the distribution of the week $T$ on which the first elephant is obtained:\n$$T \\sim \\mathrm{Geo}(0.2)$$",
+        "Express 'before the 6th Monday' in terms of the geometric distribution:\n$$\\mathrm{P}(T < 6) = \\mathrm{P}(T \\le 5) = 1 - (1 - 0.2)^5 = 1 - (0.8)^5$$",
+        "Evaluate:\n$$(0.8)^5 = 0.32768$$\n$$\\mathrm{P}(T < 6) = 1 - 0.32768 = 0.67232 \\approx 0.672$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "ai_rubric": {
+          "Calculating Geometric Distribution Probabilities": "Evaluates P(T < 6) = 1 - (0.8)^5 = 0.672."
+        },
+        "criteria_source": "mark_scheme_structured"
+      },
+      "teacher_walkthrough": [
+        "Step 1: Model the weekly draws:\nEach Monday, the gift has an independent probability $p = \\frac{1}{5} = 0.2$ of being an elephant, and $q = 1 - 0.2 = 0.8$ of not being an elephant.",
+        "Step 2: Interpret 'before the 6th Monday':\nThis requires the first elephant to be obtained on week 1, 2, 3, 4, or 5 ($T \\le 5$).",
+        "Step 3: Apply the complement rule:\nThe only scenario where this does not happen is if all 5 weeks pass with no elephant:\n$$\\mathrm{P}(\\text{no elephant in first 5 weeks}) = (0.8)^5$$",
+        "Step 4: Compute the power:\n$$(0.8)^5 = 0.32768$$",
+        "Step 5: Subtract from 1:\n$$\\mathrm{P}(T \\le 5) = 1 - 0.32768 = 0.67232$$\nRounding to 3 significant figures gives $0.672$."
+      ]
+    },
+    {
+      "part_id": "9709_s23_51_q7_b",
+      "difficulty": 3,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_s1_t_discrete_random_variables",
+        "module_id": "9709_s1_t_discrete_random_variables_m03",
+        "lesson_id": "9709_s1_t_discrete_random_variables_m03_l03"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_calculating_binomial_tail_probabilities",
+        "skill_tags": [
+          "Calculating Binomial Tail Probabilities"
+        ]
+      },
+      "question_pattern_ids": [
+        "9709_s1_pattern_binomial_more_than_k_complement"
+      ],
+      "knowledge_refs": {
+        "formula_ids": [
+          "9709_s1_formula_binomial_probability"
+        ],
+        "identity_ids": [],
+        "method_ids": [
+          "9709_s1_method_calculating_binomial_tail_probabilities"
+        ],
+        "fact_ids": [
+          "9709_s1_fact_complement_rule"
+        ]
+      },
+      "hints": [
+        "Let L be the number of leopards in the 12 magazines. Model this as a binomial distribution: L ~ B(12, 0.2).",
+        "Use the complement rule for 'more than 2': P(L > 2) = 1 - [P(L = 0) + P(L = 1) + P(L = 2)].",
+        "Calculate P(L = 0) = (0.8)^12, P(L = 1) = 12 * 0.2 * (0.8)^11, and P(L = 2) = 66 * (0.2)^2 * (0.8)^10, then subtract their sum from 1."
+      ],
+      "walkthrough": [
+        "Model the number of leopards $L$ as a binomial distribution:\n$$L \\sim \\mathrm{B}(12, 0.2)$$",
+        "Use the complement rule to express $\\mathrm{P}(L > 2)$:\n$$\\mathrm{P}(L > 2) = 1 - [\\mathrm{P}(L = 0) + \\mathrm{P}(L = 1) + \\mathrm{P}(L = 2)]$$",
+        "Evaluate each term:\n$$\\mathrm{P}(L = 0) = \\binom{12}{0} (0.8)^{12} = (0.8)^{12} \\approx 0.068719$$\n$$\\mathrm{P}(L = 1) = \\binom{12}{1} (0.2)^1 (0.8)^{11} = 12 \\times 0.2 \\times (0.8)^{11} \\approx 0.206158$$\n$$\\mathrm{P}(L = 2) = \\binom{12}{2} (0.2)^2 (0.8)^{10} = 66 \\times 0.04 \\times (0.8)^{10} \\approx 0.283468$$",
+        "Sum the lower tail and subtract from 1:\n$$\\mathrm{P}(L \\le 2) = 0.068719 + 0.206158 + 0.283468 = 0.558345$$\n$$\\mathrm{P}(L > 2) = 1 - 0.558345 = 0.441655 \\approx 0.442$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "ai_rubric": {
+          "Calculating Binomial Tail Probabilities": "Evaluates 1 - [P(0) + P(1) + P(2)] = 1 - 0.5583 = 0.442."
+        },
+        "criteria_source": "mark_scheme_structured"
+      },
+      "teacher_walkthrough": [
+        "Step 1: Identify the binomial model:\n- Number of trials $n = 12$\n- Probability of receiving a leopard on any Monday $p = \\frac{1}{5} = 0.2$\n- Probability of not receiving a leopard $q = 1 - 0.2 = 0.8$\n- Model: $L \\sim \\mathrm{B}(12, 0.2)$.",
+        "Step 2: Express the required event using the complement rule:\n$$\\mathrm{P}(L > 2) = 1 - \\mathrm{P}(L \\le 2) = 1 - [\\mathrm{P}(L = 0) + \\mathrm{P}(L = 1) + \\mathrm{P}(L = 2)]$$",
+        "Step 3: Evaluate each individual binomial probability:\n- For $r = 0$:\n$$\\mathrm{P}(L = 0) = \\binom{12}{0} (0.2)^0 (0.8)^{12} = (0.8)^{12} \\approx 0.068719$$\n- For $r = 1$:\n$$\\mathrm{P}(L = 1) = \\binom{12}{1} (0.2)^1 (0.8)^{11} = 12 \\times 0.2 \\times (0.8)^{11} \\approx 0.206158$$\n- For $r = 2$:\n$$\\binom{12}{2} = \\frac{12 \\times 11}{2} = 66$$\n$$\\mathrm{P}(L = 2) = 66 \\times (0.2)^2 \\times (0.8)^{10} = 66 \\times 0.04 \\times (0.8)^{10} \\approx 0.283468$$",
+        "Step 4: Sum the lower tail probabilities:\n$$\\mathrm{P}(L \\le 2) = 0.068719 + 0.206158 + 0.283468 = 0.558345$$",
+        "Step 5: Subtract from 1:\n$$\\mathrm{P}(L > 2) = 1 - 0.558345 = 0.441655$$\nRounding to 3 significant figures gives $0.442$."
+      ]
+    },
+    {
+      "part_id": "9709_s23_51_q7_c",
+      "difficulty": 3,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_s1_t_probability",
+        "module_id": "9709_s1_t_probability_m05",
+        "lesson_id": "9709_s1_t_probability_m05_l01"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_constructing_sample_spaces",
+        "skill_tags": [
+          "Constructing Sample Spaces"
+        ]
+      },
+      "question_pattern_ids": [
+        "9709_s1_pattern_repeated_trials_all_distinct_outcomes"
+      ],
+      "knowledge_refs": {
+        "formula_ids": [
+          "9709_s1_formula_classical_probability",
+          "9709_s1_formula_permutations"
+        ],
+        "identity_ids": [],
+        "method_ids": [
+          "9709_s1_method_constructing_sample_spaces",
+          "9709_s1_method_finding_probability_by_counting"
+        ],
+        "fact_ids": [
+          "9709_s1_fact_multiplication_principle_counting"
+        ]
+      },
+      "hints": [
+        "There are 5 different animals. In 5 weeks, Sahim receives 5 animals.",
+        "The total number of possible sequences of 5 animals is 5^5 = 3125.",
+        "The number of sequences that contain all 5 distinct animals is 5! = 120.",
+        "Divide the favourable arrangements by the total sequences: 120 / 3125 = 24 / 625 = 0.0384."
+      ],
+      "walkthrough": [
+        "Find the total number of equally likely gift sequences over 5 weeks:\n$$\\text{Total sequences} = 5^5 = 3125$$",
+        "Find the number of sequences where all 5 animals are distinct:\n$$\\text{Favourable sequences} = 5! = 120$$",
+        "Compute the probability:\n$$\\mathrm{P}(\\text{one of each animal}) = \\frac{5!}{5^5} = \\frac{120}{3125} = \\frac{24}{625} = 0.0384$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "ai_rubric": {
+          "Constructing Sample Spaces": "Evaluates 5! / 5^5 = 120 / 3125 = 24/625 = 0.0384."
+        },
+        "criteria_source": "mark_scheme_structured"
+      },
+      "teacher_walkthrough": [
+        "Step 1: Understand the sequence of gifts:\nSahim collects 5 model animals over 5 weeks. Each week, any of the 5 animal models can appear with equal probability $\\frac{1}{5}$.",
+        "Step 2: Calculate the probability using sequential independent events:\n- Week 1: Any of the 5 animals is acceptable: probability $\\frac{5}{5} = 1$.\n- Week 2: Must be different from Week 1: probability $\\frac{4}{5}$.\n- Week 3: Must be different from Weeks 1 and 2: probability $\\frac{3}{5}$.\n- Week 4: Must be different from Weeks 1, 2, and 3: probability $\\frac{2}{5}$.\n- Week 5: Must be the final remaining animal: probability $\\frac{1}{5}$.",
+        "Step 3: Multiply the sequential probabilities:\n$$\\mathrm{P} = \\frac{5}{5} \\times \\frac{4}{5} \\times \\frac{3}{5} \\times \\frac{2}{5} \\times \\frac{1}{5} = \\frac{5!}{5^5}$$",
+        "Step 4: Compute the numerator and denominator:\n$$5! = 120$$\n$$5^5 = 3125$$\n$$\\mathrm{P} = \\frac{120}{3125} = \\frac{24}{625} = 0.0384$$"
+      ]
+    }
+  ]
+}

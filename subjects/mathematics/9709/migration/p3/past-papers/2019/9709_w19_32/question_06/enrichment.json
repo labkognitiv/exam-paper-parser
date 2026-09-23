@@ -1,0 +1,78 @@
+{
+  "schema_version": "9709_math_enrichment_v3",
+  "paper_code": "9709_w19_32",
+  "question_id": "9709_w19_32_q6",
+  "question_num": 6,
+  "subject_code": "9709",
+  "component": "P3",
+  "year": 2019,
+  "session": "Oct/Nov",
+  "variant": "32",
+  "difficulty": 4,
+  "numerical_values_checked": false,
+  "parts": [
+    {
+      "part_id": "9709_w19_32_q6",
+      "difficulty": 4,
+      "practice_tier": "revision",
+      "mapping": {
+        "topic_id": "9709_p3_t_integration",
+        "module_id": "9709_p3_t_integration_m05",
+        "lesson_id": "9709_p3_t_integration_m05_l01"
+      },
+      "skills": {
+        "primary_skill_id": "9709_p3_skill_solving_separable_differential_equations",
+        "skill_tags": [
+          "Solving Separable Differential Equations"
+        ]
+      },
+      "question_pattern_ids": [
+        "9709_p3_pattern_solve_equation",
+        "9709_p3_pattern_find_parameter",
+        "9709_p3_pattern_calculus_process",
+        "9709_p3_pattern_complex_number",
+        "9709_p3_pattern_trigonometric_reasoning"
+      ],
+      "knowledge_refs": {
+        "formula_ids": [
+          "9709_p3_formula_complex_polar",
+          "9709_p3_formula_scalar_product"
+        ],
+        "identity_ids": [
+          "9709_p3_identity_double_angle",
+          "9709_p3_identity_pythagorean"
+        ],
+        "method_ids": [
+          "9709_p3_method_solving_separable_differential_equations"
+        ],
+        "fact_ids": [
+          "9709_p3_fact_log_domain"
+        ]
+      },
+      "hints": [
+        "Separate the equation as $dx/(x+2)=\\cot(\\theta/2)\\,d\\theta$.",
+        "Integrate the right side using $u=\\theta/2$, giving twice a logarithm of $\\sin(\\theta/2)$.",
+        "Apply $x=1$ at $\\theta=\\pi/3$ to determine the constant, then exponentiate.",
+        "Use $2\\sin^2(\\theta/2)=1-\\cos\\theta$ and rearrange for $x$."
+      ],
+      "walkthrough": [
+        "Start from the differential equation:\n$$\\sin\\tfrac{1}{2}\\theta\\,\\dfrac{\\mathrm{d}x}{\\mathrm{d}\\theta} = (x + 2)\\cos\\tfrac{1}{2}\\theta$$",
+        "Separate variables by dividing by $(x + 2)$ and $\\sin\\frac{1}{2}\\theta$:\n$$\\dfrac{1}{x + 2}\\,\\mathrm{d}x = \\dfrac{\\cos\\frac{1}{2}\\theta}{\\sin\\frac{1}{2}\\theta}\\,\\mathrm{d}\\theta = \\cot\\left(\\tfrac{1}{2}\\theta\\right)\\mathrm{d}\\theta$$",
+        "Integrate both sides:\n$$\\int \\dfrac{1}{x + 2}\\,\\mathrm{d}x = \\int \\dfrac{\\cos\\frac{1}{2}\\theta}{\\sin\\frac{1}{2}\\theta}\\,\\mathrm{d}\\theta$$",
+        "Evaluate the left-hand integral:\n$$\\int \\dfrac{1}{x + 2}\\,\\mathrm{d}x = \\ln(x + 2)$$",
+        "Evaluate the right-hand integral using the substitution $u = \\sin\\frac{1}{2}\\theta \\implies \\mathrm{d}u = \\frac{1}{2}\\cos\\frac{1}{2}\\theta\\,\\mathrm{d}\\theta$:\n$$\\int \\dfrac{\\cos\\frac{1}{2}\\theta}{\\sin\\frac{1}{2}\\theta}\\,\\mathrm{d}\\theta = 2\\int \\dfrac{1}{u}\\,\\mathrm{d}u = 2\\ln\\left(\\sin\\tfrac{1}{2}\\theta\\right) = \\ln\\left(\\sin^2\\tfrac{1}{2}\\theta\\right)$$",
+        "Equate both sides and introduce the constant of integration:\n$$\\ln(x + 2) = 2\\ln\\left(\\sin\\tfrac{1}{2}\\theta\\right) + \\ln C = \\ln\\left(C\\sin^2\\tfrac{1}{2}\\theta\\right)$$\n$$x + 2 = C\\sin^2\\left(\\tfrac{1}{2}\\theta\\right)$$",
+        "Apply the initial condition $x = 1$ when $\\theta = \\dfrac{1}{3}\\pi$:\n$$\\tfrac{1}{2}\\theta = \\dfrac{1}{6}\\pi \\implies \\sin\\left(\\dfrac{1}{6}\\pi\\right) = \\dfrac{1}{2}$$\n$$1 + 2 = C\\left(\\dfrac{1}{2}\\right)^2$$\n$$3 = \\dfrac{1}{4}C \\implies C = 12$$",
+        "Substitute $C = 12$ and use the double angle identity $\\sin^2\\left(\\frac{1}{2}\\theta\\right) = \\dfrac{1 - \\cos\\theta}{2}$:\n$$x + 2 = 12\\left(\\dfrac{1 - \\cos\\theta}{2}\\right) = 6(1 - \\cos\\theta) = 6 - 6\\cos\\theta$$",
+        "Isolate $x$:\n$$x = (6 - 6\\cos\\theta) - 2 = 4 - 6\\cos\\theta$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "ai_rubric": {
+          "Solving Separable Differential Equations": "Separates variables to derive $\\int\\frac1{x+2}\\,dx=\\int\\cot(\\theta/2)\\,d\\theta$; Derives a term of the form $k\\ln\\sin(\\theta/2)$; Concludes with $x=4-6\\cos\\theta$."
+        },
+        "criteria_source": "mark_scheme_structured"
+      }
+    }
+  ]
+}

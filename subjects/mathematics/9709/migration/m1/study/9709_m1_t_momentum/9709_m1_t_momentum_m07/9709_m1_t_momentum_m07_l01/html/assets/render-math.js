@@ -1,0 +1,1 @@
+document.querySelectorAll('.math-source').forEach(el=>{try{katex.render(el.dataset.tex,el,{throwOnError:true,displayMode:el.classList.contains('display-math')});}catch(err){el.dataset.mathError=err.message;}});

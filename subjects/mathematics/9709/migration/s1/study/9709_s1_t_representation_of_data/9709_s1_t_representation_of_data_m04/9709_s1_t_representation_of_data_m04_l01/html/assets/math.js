@@ -1,0 +1,1 @@
+document.addEventListener('DOMContentLoaded',()=>document.querySelectorAll('.tex').forEach(el=>{if(window.katex){katex.render(el.dataset.tex,el,{throwOnError:false,displayMode:el.classList.contains('math')});}}));

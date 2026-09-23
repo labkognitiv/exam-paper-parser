@@ -1,0 +1,72 @@
+{
+  "schema_version": "9709_math_enrichment_v3",
+  "paper_code": "9709_s21_32",
+  "question_id": "9709_s21_32_q4",
+  "question_num": 4,
+  "subject_code": "9709",
+  "component": "P3",
+  "year": 2021,
+  "session": "May/June",
+  "variant": "32",
+  "difficulty": 2,
+  "numerical_values_checked": false,
+  "parts": [
+    {
+      "part_id": "9709_s21_32_q4",
+      "difficulty": 2,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_p3_t_trigonometry",
+        "module_id": "9709_p3_t_trigonometry_m03",
+        "lesson_id": "9709_p3_t_trigonometry_m03_l03"
+      },
+      "skills": {
+        "primary_skill_id": "9709_p3_skill_integration",
+        "skill_tags": [
+          "Integration"
+        ]
+      },
+      "question_pattern_ids": [
+        "9709_p3_pattern_exact_value",
+        "9709_p3_pattern_calculus_process",
+        "9709_p3_pattern_trigonometric_reasoning"
+      ],
+      "knowledge_refs": {
+        "formula_ids": [
+          "9709_p3_formula_integration_by_parts"
+        ],
+        "identity_ids": [
+          "9709_p3_identity_double_angle",
+          "9709_p3_identity_pythagorean"
+        ],
+        "method_ids": [
+          "9709_p3_method_integration"
+        ],
+        "fact_ids": [
+          "9709_p3_fact_log_domain"
+        ]
+      },
+      "hints": [
+        "Use integration by parts with the inverse tangent as the part to differentiate.",
+        "Take $u=\\tan^{-1}(x/2)$ and $dv=dx$, noting $du=2/(4+x^2)\\,dx$.",
+        "The remaining integral is $\\int 2x/(4+x^2)\\,dx$, which is logarithmic.",
+        "Evaluate the completed antiderivative at $2$ and $0$, using $\\tan^{-1}1=\\pi/4$ and exact logarithm laws."
+      ],
+      "walkthrough": [
+        "Set up integration by parts for $\\int_0^2 \\tan^{-1}\\!\\left(\\dfrac{1}{2}x\\right)\\,\\mathrm{d}x$ using $\\int u\\,\\mathrm{d}v = uv - \\int v\\,\\mathrm{d}u$:\nLet $u = \\tan^{-1}\\left(\\dfrac{1}{2}x\\right) \\implies \\mathrm{d}u = \\dfrac{\\frac{1}{2}}{1 + \\left(\\frac{1}{2}x\\right)^2}\\,\\mathrm{d}x = \\dfrac{\\frac{1}{2}}{1 + \\frac{1}{4}x^2}\\,\\mathrm{d}x = \\dfrac{2}{4 + x^2}\\,\\mathrm{d}x$\nLet $\\mathrm{d}v = 1\\,\\mathrm{d}x \\implies v = x$",
+        "Apply the integration by parts formula:\n$$\\int_0^2 \\tan^{-1}\\!\\left(\\dfrac{1}{2}x\\right)\\,\\mathrm{d}x = \\left[x\\tan^{-1}\\!\\left(\\dfrac{1}{2}x\\right)\\right]_0^2 - \\int_0^2 \\dfrac{2x}{4 + x^2}\\,\\mathrm{d}x$$",
+        "Evaluate the boundary term $\\left[x\\tan^{-1}\\!\\left(\\dfrac{1}{2}x\\right)\\right]_0^2$:\nAt $x = 2$: $2\\tan^{-1}\\left(\\dfrac{1}{2}(2)\\right) = 2\\tan^{-1}(1) = 2\\left(\\dfrac{\\pi}{4}\\right) = \\dfrac{\\pi}{2}$\nAt $x = 0$: $0\\tan^{-1}(0) = 0$\nSo the integrated term equals $\\dfrac{\\pi}{2} - 0 = \\dfrac{\\pi}{2}$.",
+        "Evaluate the remaining integral $\\int_0^2 \\dfrac{2x}{4 + x^2}\\,\\mathrm{d}x$:\nNotice that the numerator $2x$ is the derivative of the denominator $4 + x^2$, so:\n$$\\int_0^2 \\dfrac{2x}{4 + x^2}\\,\\mathrm{d}x = \\left[\\ln(4 + x^2)\\right]_0^2$$",
+        "Evaluate at the limits $x = 2$ and $x = 0$:\n$$\\ln(4 + 2^2) - \\ln(4 + 0^2) = \\ln 8 - \\ln 4 = \\ln\\left(\\dfrac{8}{4}\\right) = \\ln 2$$",
+        "Combine the two parts to state the exact value:\n$$\\int_0^2 \\tan^{-1}\\!\\left(\\dfrac{1}{2}x\\right)\\,\\mathrm{d}x = \\dfrac{\\pi}{2} - \\ln 2$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "ai_rubric": {
+          "Integration": "Integration begins with $ax\\tan^{-1}(\\frac12x)+b\\int\\frac{x}{c+x^2}\\,dx$. Completes integration to $x\\tan^{-1}(\\frac12x)-\\ln(4+x^2)$. Concludes with $\\frac\\pi2-\\ln2$."
+        },
+        "criteria_source": "mark_scheme_structured"
+      }
+    }
+  ]
+}

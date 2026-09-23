@@ -1,0 +1,176 @@
+{
+  "schema_version": "9709_math_enrichment_v3",
+  "paper_code": "9709_w22_53",
+  "question_id": "9709_w22_53_q6",
+  "question_num": 6,
+  "subject_code": "9709",
+  "component": "S1",
+  "year": 2022,
+  "session": "October/November",
+  "variant": "53",
+  "difficulty": 4,
+  "numerical_values_checked": false,
+  "parts": [
+    {
+      "part_id": "9709_w22_53_q6_a",
+      "difficulty": 2,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_s1_t_permutations_and_combinations",
+        "module_id": "9709_s1_t_permutations_and_combinations_m02",
+        "lesson_id": "9709_s1_t_permutations_and_combinations_m02_l01"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_calculating_permutations",
+        "skill_tags": [
+          "Calculating Permutations"
+        ]
+      },
+      "question_pattern_ids": [
+        "9709_s1_pattern_permutations_repeated_items"
+      ],
+      "knowledge_refs": {
+        "formula_ids": [
+          "9709_s1_formula_permutations"
+        ],
+        "identity_ids": [],
+        "method_ids": [
+          "9709_s1_method_calculating_permutations"
+        ],
+        "fact_ids": []
+      },
+      "hints": [
+        "Count the total letters and letter repetitions in ACTIVATED: 9 letters with two As and two Ts.",
+        "Use the permutations of repeated items formula: $\\frac{n!}{p! \\, q!}$.",
+        "Evaluate $\\frac{9!}{2! \\, 2!}$."
+      ],
+      "walkthrough": [
+        "Count the frequency of each letter in ACTIVATED (total $9$ letters):\n- A: $2$\n- C: $1$\n- T: $2$\n- I: $1$\n- V: $1$\n- E: $1$\n- D: $1$",
+        "Apply the formula for permutations with repeated elements:\n$$\\text{Total arrangements} = \\frac{9!}{2! \\, 2!}$$",
+        "Compute the factorials:\n$$\\text{Total} = \\frac{362\\,880}{2 \\times 2} = \\frac{362\\,880}{4} = 90\\,720$$"
+      ],
+      "teacher_walkthrough": [
+        "Step 1: Count letters and repetitions in ACTIVATED.\nTotal letters $= 9$.\nRepeated letters:\n- Two As\n- Two Ts\nSingle letters: C, I, V, E, D (5 singletons).\n\nStep 2: Apply the multiset permutation formula.\n$$\\frac{n!}{n_1! \\, n_2! \\dots n_k!} = \\frac{9!}{2! \\, 2!}$$\n\nStep 3: Evaluate.\n$$9! = 362\\,880$$\n$$2! \\times 2! = 2 \\times 2 = 4$$\n$$\\frac{362\\,880}{4} = 90\\,720$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "ai_rubric": {
+          "Calculating Permutations": "Calculates 9! / (2! * 2!) = 90720. For this part: Find the number of different arrangements of the 9 letters in the word ACTIVATED."
+        },
+        "criteria_source": "mark_scheme_structured"
+      }
+    },
+    {
+      "part_id": "9709_w22_53_q6_b",
+      "difficulty": 3,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_s1_t_permutations_and_combinations",
+        "module_id": "9709_s1_t_permutations_and_combinations_m03",
+        "lesson_id": "9709_s1_t_permutations_and_combinations_m03_l01"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_handling_arrangement_restrictions",
+        "skill_tags": [
+          "Handling Arrangement Restrictions",
+          "Calculating Permutations"
+        ]
+      },
+      "question_pattern_ids": [
+        "9709_s1_pattern_permutations_minimum_separation_distance"
+      ],
+      "knowledge_refs": {
+        "formula_ids": [
+          "9709_s1_formula_permutations"
+        ],
+        "identity_ids": [],
+        "method_ids": [
+          "9709_s1_method_handling_arrangement_restrictions"
+        ],
+        "fact_ids": [
+          "9709_s1_fact_addition_principle_counting",
+          "9709_s1_fact_multiplication_principle_counting"
+        ]
+      },
+      "hints": [
+        "In a 9-letter word, having at least 5 letters between the two As means their index positions differ by at least 6.",
+        "List the pairs of positions for the two As: difference 6 ((1,7), (2,8), (3,9)), difference 7 ((1,8), (2,9)), difference 8 ((1,9)). Total is 6 valid pairs.",
+        "For each pair of positions for the As, arrange the remaining 7 letters (containing two Ts) in $\\frac{7!}{2!}$ ways.",
+        "Multiply the number of position pairs (6) by $\\frac{7!}{2!} = 2520$."
+      ],
+      "walkthrough": [
+        "Identify valid position pairs $(i, j)$ with $1 \\le i < j \\le 9$ such that there are at least $5$ letters between the two As ($j - i \\ge 6$):\n- Gap of $5$ letters ($j - i = 6$): $(1, 7), (2, 8), (3, 9) \\implies 3$ pairs\n- Gap of $6$ letters ($j - i = 7$): $(1, 8), (2, 9) \\implies 2$ pairs\n- Gap of $7$ letters ($j - i = 8$): $(1, 9) \\implies 1$ pair\n$$\\text{Total valid pairs of positions for As} = 3 + 2 + 1 = 6$$",
+        "For any chosen pair of positions, the two identical As are placed in $1$ way.",
+        "Arrange the remaining $7$ letters (C, T, T, I, V, E, D), which contain two indistinguishable Ts:\n$$\\text{Ways to arrange remaining letters} = \\frac{7!}{2!} = \\frac{5040}{2} = 2520$$",
+        "Multiply the number of position pairs by the permutations of the remaining letters:\n$$\\text{Total arrangements} = 6 \\times 2520 = 15\\,120$$"
+      ],
+      "teacher_walkthrough": [
+        "Step 1: Determine the gap constraint between the two As.\nLet the 9 letter positions be $1, 2, 3, 4, 5, 6, 7, 8, 9$.\nHaving at least 5 letters between the two As means if the first A is at position $i$, the second A must be at position $j \\ge i + 6$.\n\nStep 2: List all possible position pairs $(i, j)$:\n- When $j - i = 6$ (exactly 5 letters between): $(1, 7), (2, 8), (3, 9)$ (3 options)\n- When $j - i = 7$ (exactly 6 letters between): $(1, 8), (2, 9)$ (2 options)\n- When $j - i = 8$ (exactly 7 letters between): $(1, 9)$ (1 option)\nTotal valid pairs $= 3 + 2 + 1 = 6$.\n\nStep 3: Arrange the other letters in the remaining 7 positions.\nThe remaining 7 letters are: C, T, T, I, V, E, D.\nThis group has 7 letters with two Ts:\n$$\\frac{7!}{2!} = \\frac{5040}{2} = 2520$$\n\nStep 4: Multiply.\n$$\\text{Total} = 6 \\times 2520 = 15\\,120$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "ai_rubric": {
+          "Handling Arrangement Restrictions": "Finds 6 position pairs for the As and multiplies by 7!/2! = 2520 to get 15120. For this part: Find the number of different arrangements of the 9 letters in the word ACTIVATED in which there are at least 5 letters between the two As."
+        },
+        "criteria_source": "mark_scheme_structured"
+      }
+    },
+    {
+      "part_id": "9709_w22_53_q6_c",
+      "difficulty": 4,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_s1_t_permutations_and_combinations",
+        "module_id": "9709_s1_t_permutations_and_combinations_m04",
+        "lesson_id": "9709_s1_t_permutations_and_combinations_m04_l03"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_handling_selection_restrictions",
+        "skill_tags": [
+          "Handling Selection Restrictions",
+          "Calculating Combinations"
+        ]
+      },
+      "question_pattern_ids": [
+        "9709_s1_pattern_selections_frequency_comparison_complement"
+      ],
+      "knowledge_refs": {
+        "formula_ids": [
+          "9709_s1_formula_combinations"
+        ],
+        "identity_ids": [],
+        "method_ids": [
+          "9709_s1_method_handling_selection_restrictions"
+        ],
+        "fact_ids": [
+          "9709_s1_fact_complement_rule",
+          "9709_s1_fact_addition_principle_counting",
+          "9709_s1_fact_multiplication_principle_counting"
+        ]
+      },
+      "hints": [
+        "Five letters are selected at random from the 9 letter tokens: total unrestricted selections is $\\binom{9}{5} = 126$.",
+        "The condition 'does not contain more Ts than As' means $N_T \\le N_A$. Use the complement: selections where $N_T > N_A$.",
+        "Identify the three cases where $N_T > N_A$: (2T, 0A), (2T, 1A), and (1T, 0A).",
+        "Count selections for each violating case, sum them (10 + 20 + 10 = 40), and subtract from 126 to get the probability $\\frac{86}{126} = \\frac{43}{63}$."
+      ],
+      "walkthrough": [
+        "Determine the total number of unrestricted selections of $5$ letters from the $9$ letter tiles in ACTIVATED:\n$$\\text{Total selections} = \\binom{9}{5} = 126$$",
+        "We require that the selection does not contain more Ts than As ($N_T \\le N_A$). Use the complementary event ($N_T > N_A$):",
+        "List and evaluate all cases where the selection contains more Ts than As ($N_T > N_A$):\n- Case 1: $2$ Ts and $0$ As ($N_T = 2, N_A = 0$):\n  Choose $2$ Ts from $2$, $0$ As from $2$, and $3$ from the $5$ other letters:\n  $$\\binom{2}{2} \\times \\binom{2}{0} \\times \\binom{5}{3} = 1 \\times 1 \\times 10 = 10$$\n- Case 2: $2$ Ts and $1$ A ($N_T = 2, N_A = 1$):\n  Choose $2$ Ts from $2$, $1$ A from $2$, and $2$ from the $5$ other letters:\n  $$\\binom{2}{2} \\times \\binom{2}{1} \\times \\binom{5}{2} = 1 \\times 2 \\times 10 = 20$$\n- Case 3: $1$ T and $0$ As ($N_T = 1, N_A = 0$):\n  Choose $1$ T from $2$, $0$ As from $2$, and $4$ from the $5$ other letters:\n  $$\\binom{2}{1} \\times \\binom{2}{0} \\times \\binom{5}{4} = 2 \\times 1 \\times 5 = 10$$",
+        "Sum the violating selections and subtract from total:\n$$\\text{Violating selections} = 10 + 20 + 10 = 40$$\n$$\\text{Favorable selections} = 126 - 40 = 86$$",
+        "Compute the probability:\n$$\\mathrm{P} = \\frac{86}{126} = \\frac{43}{63} \\approx 0.683$$"
+      ],
+      "teacher_walkthrough": [
+        "Step 1: Identify the letter pool.\nIn ACTIVATED, there are 9 letter tiles:\n- 2 As\n- 2 Ts\n- 5 other letters (C, I, V, E, D)\nTotal unranked selections of 5 letters from these 9 tiles:\n$$\\binom{9}{5} = \\frac{9 \\times 8 \\times 7 \\times 6}{4 \\times 3 \\times 2 \\times 1} = 126$$\n\nStep 2: Understand the condition $N_T \\le N_A$.\nWe want the probability that the number of Ts is not greater than the number of As ($N_T \\le N_A$).\nIt is much quicker to compute the complement, which is $N_T > N_A$.\n\nStep 3: Enumerate cases where $N_T > N_A$.\nSince $N_T \\in \\{0, 1, 2\\}$ and $N_A \\in \\{0, 1, 2\\}$, $N_T > N_A$ occurs only in 3 cases:\n- Case 1: $N_T = 2, N_A = 0$\n  We select 2 Ts, 0 As, and $5 - 2 = 3$ letters from the 5 other letters:\n  $$\\binom{2}{2} \\times \\binom{2}{0} \\times \\binom{5}{3} = 1 \\times 1 \\times 10 = 10$$\n- Case 2: $N_T = 2, N_A = 1$\n  We select 2 Ts, 1 A, and $5 - 3 = 2$ letters from the 5 other letters:\n  $$\\binom{2}{2} \\times \\binom{2}{1} \\times \\binom{5}{2} = 1 \\times 2 \\times 10 = 20$$\n- Case 3: $N_T = 1, N_A = 0$\n  We select 1 T, 0 As, and $5 - 1 = 4$ letters from the 5 other letters:\n  $$\\binom{2}{1} \\times \\binom{2}{0} \\times \\binom{5}{4} = 2 \\times 1 \\times 5 = 10$$\n\nStep 4: Subtract from total selections.\n$$\\text{Total violating selections} = 10 + 20 + 10 = 40$$\n$$\\text{Favorable selections} = 126 - 40 = 86$$\n\nStep 5: Compute the probability.\n$$\\mathrm{P} = \\frac{86}{126} = \\frac{43}{63} \\approx 0.6825...$$\nRounding to 3 significant figures gives $0.683$ (or $\\frac{43}{63}$)."
+      ],
+      "checking": {
+        "mode": "ai",
+        "ai_rubric": {
+          "Handling Selection Restrictions": "Finds total = 126, violating cases = 10 + 20 + 10 = 40, and probability = 86/126 = 43/63 = 0.683. For this part: Five letters are selected at random from the 9 letters in the word ACTIVATED. Find the probability that the selection does not contain more Ts than As."
+        },
+        "criteria_source": "mark_scheme_structured"
+      }
+    }
+  ]
+}

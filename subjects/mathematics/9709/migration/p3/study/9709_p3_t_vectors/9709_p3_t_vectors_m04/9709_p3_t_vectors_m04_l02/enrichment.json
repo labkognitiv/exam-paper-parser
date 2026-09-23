@@ -1,0 +1,1684 @@
+{
+  "schema_version": "9709_math_lesson_enrichment_v1",
+  "lesson_id": "9709_p3_t_vectors_m04_l02",
+  "topic_id": "9709_p3_t_vectors",
+  "numerical_values_checked": false,
+  "lesson_scope": "Line-plane intersection parameter determination, position vector calculations, parallel line-plane non-intersection proofs, line containment in planes, foot of perpendicular from point to plane, laser reflections, ratio division of segments, and 3D pyramid sectioning.",
+  "questions": [
+    {
+      "question_id": "9709_p3_t_vectors_m04_l02_drq01",
+      "sequence": 1,
+      "difficulty": "easy",
+      "difficulty_reason": "Drill: Direct parameter solving for line-plane intersection.",
+      "source_question_id": "drill_p3_vec_line_plane_parameter",
+      "source_role": "foundational_drill",
+      "dependency_role": "none",
+      "dependency_refs": [],
+      "parts": [
+        {
+          "part_id": "9709_p3_t_vectors_m04_l02_drq01_p01",
+          "difficulty": "easy",
+          "question_pattern_ids": [
+            "9709_p3_pattern_solve_equation",
+            "9709_p3_pattern_vector_geometry"
+          ],
+          "source_evidence": {
+            "question_id": "drill_p3_vec_line_plane_parameter",
+            "part_id": "drill_p3_vec_line_plane_parameter_p01",
+            "legacy_practice_tier": "foundational",
+            "product_role": "warm_up_drill",
+            "structural_inspiration": "Line-plane intersection parameter solving."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Express the line in parametric form: $x = 1 + 2\\lambda, y = 2 + \\lambda, z = -1 + 3\\lambda$.",
+            "Substitute into the plane equation: $2(1 + 2\\lambda) + 3(2 + \\lambda) - (-1 + 3\\lambda) = 17$.",
+            "Expand and collect terms: $4\\lambda + 9 = 17 \\implies 4\\lambda = 8 \\implies \\lambda = 2$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Substitute the parametric coordinates of the line into the plane equation:\n$$2(1 + 2\\lambda) + 3(2 + \\lambda) - (-1 + 3\\lambda) = 17$$"
+            },
+            {
+              "step": 2,
+              "text": "Expand and collect like terms:\n$$2 + 4\\lambda + 6 + 3\\lambda + 1 - 3\\lambda = 17$$\n$$4\\lambda + 9 = 17 \\implies 4\\lambda = 8 \\implies \\lambda = 2$$"
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_vectors_m04_l02_drq01_p01_mp01",
+                "observable": "Substitutes line parametric coordinates into plane."
+              },
+              {
+                "criterion_id": "9709_p3_t_vectors_m04_l02_drq01_p01_mp02",
+                "observable": "Solves $\\lambda = 2$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_vector_planes",
+            "9709_p3_skill_vector_equations_of_lines"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_vector_planes",
+              "9709_p3_skill_vector_equations_of_lines"
+            ],
+            "method_ids": [
+              "9709_p3_method_vector_planes",
+              "9709_p3_method_vector_equations_of_lines"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        }
+      ],
+      "_numerical_values_checked": false
+    },
+    {
+      "question_id": "9709_p3_t_vectors_m04_l02_drq02",
+      "sequence": 2,
+      "difficulty": "easy",
+      "difficulty_reason": "Drill: Position vector evaluation from parameter.",
+      "source_question_id": "drill_p3_vec_line_plane_position_eval",
+      "source_role": "foundational_drill",
+      "dependency_role": "requires_previous_part",
+      "dependency_refs": [
+        "9709_p3_t_vectors_m04_l02_drq01_p01"
+      ],
+      "parts": [
+        {
+          "part_id": "9709_p3_t_vectors_m04_l02_drq02_p01",
+          "difficulty": "easy",
+          "question_pattern_ids": [
+            "9709_p3_pattern_vector_geometry"
+          ],
+          "source_evidence": {
+            "question_id": "drill_p3_vec_line_plane_position_eval",
+            "part_id": "drill_p3_vec_line_plane_position_eval_p01",
+            "legacy_practice_tier": "foundational",
+            "product_role": "warm_up_drill",
+            "structural_inspiration": "Position vector evaluation from line parameter."
+          },
+          "dependency_role": "requires_previous_part",
+          "dependency_refs": [
+            "9709_p3_t_vectors_m04_l02_drq01_p01"
+          ],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Substitute $\\lambda = 2$ into the line equation: $\\mathbf{r} = \\begin{pmatrix} 1 \\\\ 2 \\\\ -1 \\end{pmatrix} + 2\\begin{pmatrix} 2 \\\\ 1 \\\\ 3 \\end{pmatrix}$.",
+            "Calculate each component: $x = 1 + 4 = 5, y = 2 + 2 = 4, z = -1 + 6 = 5$.",
+            "State the position vector $\\mathbf{r}_P = \\begin{pmatrix} 5 \\\\ 4 \\\\ 5 \\end{pmatrix}$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Substitute $\\lambda = 2$ into the vector line equation:\n$$\\mathbf{r}_P = \\begin{pmatrix} 1 \\\\ 2 \\\\ -1 \\end{pmatrix} + 2\\begin{pmatrix} 2 \\\\ 1 \\\\ 3 \\end{pmatrix} = \\begin{pmatrix} 1 + 4 \\\\ 2 + 2 \\\\ -1 + 6 \\end{pmatrix} = \\begin{pmatrix} 5 \\\\ 4 \\\\ 5 \\end{pmatrix}$$"
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_vectors_m04_l02_drq02_p01_mp01",
+                "observable": "Substitutes $\\lambda = 2$ into line."
+              },
+              {
+                "criterion_id": "9709_p3_t_vectors_m04_l02_drq02_p01_mp02",
+                "observable": "Obtains position vector $\\begin{pmatrix} 5 \\\\ 4 \\\\ 5 \\end{pmatrix}$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_vector_planes",
+            "9709_p3_skill_vector_equations_of_lines"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_vector_planes",
+              "9709_p3_skill_vector_equations_of_lines"
+            ],
+            "method_ids": [
+              "9709_p3_method_vector_planes",
+              "9709_p3_method_vector_equations_of_lines"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        }
+      ],
+      "_numerical_values_checked": false
+    },
+    {
+      "question_id": "9709_p3_t_vectors_m04_l02_drq03",
+      "sequence": 3,
+      "difficulty": "easy",
+      "difficulty_reason": "Drill: Parallel line-plane non-intersection test.",
+      "source_question_id": "9709_m16_32_q8_i",
+      "source_role": "foundational_drill",
+      "dependency_role": "none",
+      "dependency_refs": [],
+      "parts": [
+        {
+          "part_id": "9709_p3_t_vectors_m04_l02_drq03_p01",
+          "difficulty": "easy",
+          "question_pattern_ids": [
+            "9709_p3_pattern_vector_geometry"
+          ],
+          "source_evidence": {
+            "question_id": "9709_m16_32_q8_i",
+            "part_id": "9709_m16_32_q8_i",
+            "legacy_practice_tier": "core",
+            "product_role": "warm_up_drill",
+            "structural_inspiration": "Parallel line-plane non-intersection proof."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Compute $\\mathbf{d} \\cdot \\mathbf{n} = \\begin{pmatrix} 2 \\\\ 1 \\\\ 3 \\end{pmatrix} \\cdot \\begin{pmatrix} 2 \\\\ -1 \\\\ -1 \\end{pmatrix} = 4 - 1 - 3 = 0$.",
+            "Since $\\mathbf{d} \\cdot \\mathbf{n} = 0$, line direction is parallel to the plane.",
+            "Test base point $(1, 2, -1)$ in plane: $2(1) - 2 - (-1) = 1 \\neq 8$. Conclude no intersection."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Compute the scalar product between line direction and plane normal:\n$$\\mathbf{d} \\cdot \\mathbf{n} = \\begin{pmatrix} 2 \\\\ 1 \\\\ 3 \\end{pmatrix} \\cdot \\begin{pmatrix} 2 \\\\ -1 \\\\ -1 \\end{pmatrix} = 2(2) + 1(-1) + 3(-1) = 4 - 1 - 3 = 0$$\nSince $\\mathbf{d} \\cdot \\mathbf{n} = 0$, the line is parallel to the plane."
+            },
+            {
+              "step": 2,
+              "text": "Test whether the base point $(1, 2, -1)$ lies on the plane:\n$$2(1) - 1(2) - 1(-1) = 2 - 2 + 1 = 1 \\neq 8$$\nBecause the base point does not satisfy the plane equation, the line is strictly parallel to the plane and never intersects it."
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_vectors_m04_l02_drq03_p01_mp01",
+                "observable": "Shows $\\mathbf{d} \\cdot \\mathbf{n} = 0$."
+              },
+              {
+                "criterion_id": "9709_p3_t_vectors_m04_l02_drq03_p01_mp02",
+                "observable": "Shows base point $1 \\neq 8$ and concludes no intersection."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_vector_planes",
+            "9709_p3_skill_using_scalar_products"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_vector_planes",
+              "9709_p3_skill_using_scalar_products"
+            ],
+            "method_ids": [
+              "9709_p3_method_vector_planes",
+              "9709_p3_method_using_scalar_products"
+            ],
+            "formula_ids": [
+              "9709_p3_formula_scalar_product"
+            ],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        }
+      ],
+      "_numerical_values_checked": false
+    },
+    {
+      "question_id": "9709_p3_t_vectors_m04_l02_drq04",
+      "sequence": 4,
+      "difficulty": "easy",
+      "difficulty_reason": "Drill: Line containment within a plane.",
+      "source_question_id": "9709_m17_32_q6_i",
+      "source_role": "foundational_drill",
+      "dependency_role": "none",
+      "dependency_refs": [],
+      "parts": [
+        {
+          "part_id": "9709_p3_t_vectors_m04_l02_drq04_p01",
+          "difficulty": "easy",
+          "question_pattern_ids": [
+            "9709_p3_pattern_vector_geometry"
+          ],
+          "source_evidence": {
+            "question_id": "9709_m17_32_q6_i",
+            "part_id": "9709_m17_32_q6_i",
+            "legacy_practice_tier": "core",
+            "product_role": "warm_up_drill",
+            "structural_inspiration": "Line contained entirely in plane proof."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Compute $\\mathbf{d} \\cdot \\mathbf{n} = \\begin{pmatrix} 2 \\\\ -1 \\\\ 1 \\end{pmatrix} \\cdot \\begin{pmatrix} 3 \\\\ 1 \\\\ -5 \\end{pmatrix} = 6 - 1 - 5 = 0$.",
+            "Test base point $(1, 2, -3)$ in plane: $3(1) + 1(2) - 5(-3) = 3 + 2 + 15 = 20 = 20$.",
+            "Conclude that the line lies entirely within the plane."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Show that the line direction is orthogonal to the normal vector:\n$$\\mathbf{d} \\cdot \\mathbf{n} = 2(3) + (-1)(1) + 1(-5) = 6 - 1 - 5 = 0$$"
+            },
+            {
+              "step": 2,
+              "text": "Show that the base point $(1, 2, -3)$ lies on the plane:\n$$3(1) + 1(2) - 5(-3) = 3 + 2 + 15 = 20$$\nSince the line is parallel to the plane and contains a point lying on the plane, the entire line $l$ lies within $\\Pi$."
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_vectors_m04_l02_drq04_p01_mp01",
+                "observable": "Shows $\\mathbf{d} \\cdot \\mathbf{n} = 0$."
+              },
+              {
+                "criterion_id": "9709_p3_t_vectors_m04_l02_drq04_p01_mp02",
+                "observable": "Substitutes base point into plane."
+              },
+              {
+                "criterion_id": "9709_p3_t_vectors_m04_l02_drq04_p01_mp03",
+                "observable": "Concludes line lies entirely in plane."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_vector_planes",
+            "9709_p3_skill_using_scalar_products"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_vector_planes",
+              "9709_p3_skill_using_scalar_products"
+            ],
+            "method_ids": [
+              "9709_p3_method_vector_planes",
+              "9709_p3_method_using_scalar_products"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        }
+      ],
+      "_numerical_values_checked": false
+    },
+    {
+      "question_id": "9709_p3_t_vectors_m04_l02_drq05",
+      "sequence": 5,
+      "difficulty": "easy",
+      "difficulty_reason": "Drill: Distance along line from base point.",
+      "source_question_id": "9709_s16_31_q9_ii",
+      "source_role": "foundational_drill",
+      "dependency_role": "none",
+      "dependency_refs": [],
+      "parts": [
+        {
+          "part_id": "9709_p3_t_vectors_m04_l02_drq05_p01",
+          "difficulty": "easy",
+          "question_pattern_ids": [
+            "9709_p3_pattern_vector_geometry"
+          ],
+          "source_evidence": {
+            "question_id": "9709_s16_31_q9_ii",
+            "part_id": "9709_s16_31_q9_ii",
+            "legacy_practice_tier": "core",
+            "product_role": "warm_up_drill",
+            "structural_inspiration": "Distance along line to intersection."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Find $\\vec{AP} = \\mathbf{p} - \\mathbf{a} = \\begin{pmatrix} 5 - 1 \\\\ 4 - 2 \\\\ 5 - (-1) \\end{pmatrix} = \\begin{pmatrix} 4 \\\\ 2 \\\\ 6 \\end{pmatrix}$.",
+            "Compute magnitude $|\\vec{AP}| = \\sqrt{4^2 + 2^2 + 6^2} = \\sqrt{16 + 4 + 36} = \\sqrt{56} = 2\\sqrt{14}$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Compute the displacement vector $\\vec{AP}$:\n$$\\vec{AP} = \\begin{pmatrix} 5 - 1 \\\\ 4 - 2 \\\\ 5 - (-1) \\end{pmatrix} = \\begin{pmatrix} 4 \\\\ 2 \\\\ 6 \\end{pmatrix}$$"
+            },
+            {
+              "step": 2,
+              "text": "Calculate the magnitude of $\\vec{AP}$:\n$$AP = |\\vec{AP}| = \\sqrt{4^2 + 2^2 + 6^2} = \\sqrt{56} = 2\\sqrt{14}$$"
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_vectors_m04_l02_drq05_p01_mp01",
+                "observable": "Finds displacement vector $\\vec{AP} = (4, 2, 6)$."
+              },
+              {
+                "criterion_id": "9709_p3_t_vectors_m04_l02_drq05_p01_mp02",
+                "observable": "Obtains exact distance $2\\sqrt{14}$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_using_position_vectors"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_using_position_vectors"
+            ],
+            "method_ids": [
+              "9709_p3_method_using_position_vectors"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        }
+      ],
+      "_numerical_values_checked": false
+    },
+    {
+      "question_id": "9709_p3_t_vectors_m04_l02_drq06",
+      "sequence": 6,
+      "difficulty": "easy",
+      "difficulty_reason": "Drill: Foot of perpendicular from point onto plane.",
+      "source_question_id": "9709_w18_32_q10_i",
+      "source_role": "foundational_drill",
+      "dependency_role": "none",
+      "dependency_refs": [],
+      "parts": [
+        {
+          "part_id": "9709_p3_t_vectors_m04_l02_drq06_p01",
+          "difficulty": "easy",
+          "question_pattern_ids": [
+            "9709_p3_pattern_vector_geometry"
+          ],
+          "source_evidence": {
+            "question_id": "9709_w18_32_q10_i",
+            "part_id": "9709_w18_32_q10_i",
+            "legacy_practice_tier": "core",
+            "product_role": "warm_up_drill",
+            "structural_inspiration": "Foot of perpendicular from point to plane."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Normal line through $A(1, 2, 3)$ is $\\mathbf{r} = \\begin{pmatrix} 1 + \\lambda \\\\ 2 + 2\\lambda \\\\ 3 + 2\\lambda \\end{pmatrix}$.",
+            "Substitute into $x + 2y + 2z = 20 \\implies 1+\\lambda + 4+4\\lambda + 6+4\\lambda = 20 \\implies 9\\lambda + 11 = 20 \\implies \\lambda = 1$.",
+            "Foot of perpendicular is $F(1 + 1, 2 + 2, 3 + 2) = F(2, 4, 5)$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Set up the normal line through $A(1, 2, 3)$ with direction $\\mathbf{n} = \\begin{pmatrix} 1 \\\\ 2 \\\\ 2 \\end{pmatrix}$:\n$$\\mathbf{r} = \\begin{pmatrix} 1 + \\lambda \\\\ 2 + 2\\lambda \\\\ 3 + 2\\lambda \\end{pmatrix}$$"
+            },
+            {
+              "step": 2,
+              "text": "Substitute into the plane equation to find $\\lambda$:\n$$(1 + \\lambda) + 2(2 + 2\\lambda) + 2(3 + 2\\lambda) = 20$$\n$$9\\lambda + 11 = 20 \\implies 9\\lambda = 9 \\implies \\lambda = 1$$"
+            },
+            {
+              "step": 3,
+              "text": "Calculate the coordinates of foot $F$:\n$$F = (1 + 1, 2 + 2(1), 3 + 2(1)) = (2, 4, 5)$$"
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_vectors_m04_l02_drq06_p01_mp01",
+                "observable": "Sets up normal line."
+              },
+              {
+                "criterion_id": "9709_p3_t_vectors_m04_l02_drq06_p01_mp02",
+                "observable": "Solves $\\lambda = 1$."
+              },
+              {
+                "criterion_id": "9709_p3_t_vectors_m04_l02_drq06_p01_mp03",
+                "observable": "Obtains coordinates $F(2, 4, 5)$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_vector_planes",
+            "9709_p3_skill_vector_equations_of_lines"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_vector_planes",
+              "9709_p3_skill_vector_equations_of_lines"
+            ],
+            "method_ids": [
+              "9709_p3_method_vector_planes",
+              "9709_p3_method_vector_equations_of_lines"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        }
+      ],
+      "_numerical_values_checked": false
+    },
+    {
+      "question_id": "9709_p3_t_vectors_m04_l02_cpq01",
+      "sequence": 7,
+      "type": "core",
+      "marks": 5,
+      "difficulty": "easy",
+      "difficulty_reason": "Core: Piercing intersection point and line segment distance.",
+      "source_question_id": "9709_s16_31_q9_ii",
+      "source_role": "core_practice",
+      "dependency_role": "none",
+      "dependency_refs": [],
+      "parts": [
+        {
+          "part_id": "9709_p3_t_vectors_m04_l02_cpq01_p01",
+          "label": "(a)",
+          "difficulty": "easy",
+          "question_pattern_ids": [
+            "9709_p3_pattern_solve_equation",
+            "9709_p3_pattern_vector_geometry"
+          ],
+          "source_evidence": {
+            "question_id": "9709_s16_31_q9_ii",
+            "part_id": "9709_s16_31_q9_a",
+            "legacy_practice_tier": "core",
+            "product_role": "core_mechanics",
+            "structural_inspiration": "Line-plane intersection parameter solving."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Write line equation $\\mathbf{r} = \\begin{pmatrix} -3 \\\\ 1 \\\\ 2 \\end{pmatrix} + \\lambda \\begin{pmatrix} 1 \\\\ 3 \\\\ 2 \\end{pmatrix}$.",
+            "Substitute coordinates $(-3 + \\lambda, 1 + 3\\lambda, 2 + 2\\lambda)$ into $x + 2y - z = 7$.",
+            "Solve $5\\lambda - 3 = 7 \\implies 5\\lambda = 10 \\implies \\lambda = 2$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Write the line equation in parametric form:\n$$\\mathbf{r} = \\begin{pmatrix} -3 + \\lambda \\\\ 1 + 3\\lambda \\\\ 2 + 2\\lambda \\end{pmatrix}$$"
+            },
+            {
+              "step": 2,
+              "text": "Substitute into the plane equation $x + 2y - z = 7$:\n$$(-3 + \\lambda) + 2(1 + 3\\lambda) - (2 + 2\\lambda) = 7$$\n$$-3 + \\lambda + 2 + 6\\lambda - 2 - 2\\lambda = 7 \\implies 5\\lambda - 3 = 7 \\implies 5\\lambda = 10 \\implies \\lambda = 2$$"
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_vectors_m04_l02_cpq01_p01_mp01",
+                "observable": "Sets up line equation."
+              },
+              {
+                "criterion_id": "9709_p3_t_vectors_m04_l02_cpq01_p01_mp02",
+                "observable": "Substitutes into plane."
+              },
+              {
+                "criterion_id": "9709_p3_t_vectors_m04_l02_cpq01_p01_mp03",
+                "observable": "Solves $\\lambda = 2$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_vector_planes",
+            "9709_p3_skill_vector_equations_of_lines"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_vector_planes",
+              "9709_p3_skill_vector_equations_of_lines"
+            ],
+            "method_ids": [
+              "9709_p3_method_vector_planes",
+              "9709_p3_method_vector_equations_of_lines"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        },
+        {
+          "part_id": "9709_p3_t_vectors_m04_l02_cpq01_p02",
+          "label": "(b)",
+          "difficulty": "easy",
+          "question_pattern_ids": [
+            "9709_p3_pattern_prove_or_show",
+            "9709_p3_pattern_vector_geometry"
+          ],
+          "source_evidence": {
+            "question_id": "9709_s16_31_q9_ii",
+            "part_id": "9709_s16_31_q9_ii",
+            "legacy_practice_tier": "core",
+            "product_role": "core_synthesis",
+            "structural_inspiration": "Position vector and exact distance proof."
+          },
+          "dependency_role": "requires_previous_part",
+          "dependency_refs": [
+            "9709_p3_t_vectors_m04_l02_cpq01_p01"
+          ],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Substitute $\\lambda = 2$ into line to get $\\mathbf{r}_P = \\begin{pmatrix} -1 \\\\ 7 \\\\ 6 \\end{pmatrix}$.",
+            "Distance is $DP = |\\lambda| |\\mathbf{d}| = 2\\sqrt{1^2 + 3^2 + 2^2} = 2\\sqrt{14}$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Substitute $\\lambda = 2$ into the line equation to find $\\mathbf{r}_P$:\n$$\\mathbf{r}_P = \\begin{pmatrix} -3 \\\\ 1 \\\\ 2 \\end{pmatrix} + 2\\begin{pmatrix} 1 \\\\ 3 \\\\ 2 \\end{pmatrix} = \\begin{pmatrix} -1 \\\\ 7 \\\\ 6 \\end{pmatrix}$$"
+            },
+            {
+              "step": 2,
+              "text": "Calculate the distance $DP$:\n$$DP = |\\vec{DP}| = 2|\\mathbf{d}| = 2\\sqrt{1^2 + 3^2 + 2^2} = 2\\sqrt{14}$$"
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_vectors_m04_l02_cpq01_p02_mp01",
+                "observable": "Finds position vector $(-1, 7, 6)$."
+              },
+              {
+                "criterion_id": "9709_p3_t_vectors_m04_l02_cpq01_p02_mp02",
+                "observable": "Shows $DP = 2\\sqrt{14}$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_using_position_vectors"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_using_position_vectors"
+            ],
+            "method_ids": [
+              "9709_p3_method_using_position_vectors"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        }
+      ],
+      "_numerical_values_checked": false
+    },
+    {
+      "question_id": "9709_p3_t_vectors_m04_l02_cpq02",
+      "sequence": 8,
+      "type": "core",
+      "marks": 6,
+      "difficulty": "medium",
+      "difficulty_reason": "Core: Perpendicular bisector plane intersecting line.",
+      "source_question_id": "9709_s19_32_q9_ii",
+      "source_role": "core_practice",
+      "dependency_role": "none",
+      "dependency_refs": [],
+      "parts": [
+        {
+          "part_id": "9709_p3_t_vectors_m04_l02_cpq02_p01",
+          "label": "(a)",
+          "difficulty": "easy",
+          "question_pattern_ids": [
+            "9709_p3_pattern_vector_geometry"
+          ],
+          "source_evidence": {
+            "question_id": "9709_s19_32_q9_ii",
+            "part_id": "9709_s19_32_q9_a",
+            "legacy_practice_tier": "core",
+            "product_role": "core_mechanics",
+            "structural_inspiration": "Perpendicular bisector plane equation."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Midpoint $M = \\frac{1}{2}((1, 2, -1) + (3, 1, 1)) = (2, 1.5, 0)$.",
+            "Normal $\\vec{AB} = (2, -1, 2)$.",
+            "Evaluate $2(2) - 1(1.5) + 2(0) = 2.5 \\implies 4x - 2y + 4z = 5$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Compute the midpoint of segment $AB$:\n$$M = \\frac{1}{2}\\begin{pmatrix} 1 + 3 \\\\ 2 + 1 \\\\ -1 + 1 \\end{pmatrix} = \\begin{pmatrix} 2 \\\\ 1.5 \\\\ 0 \\end{pmatrix}$$"
+            },
+            {
+              "step": 2,
+              "text": "Compute the normal vector $\\mathbf{n} = \\vec{AB}$ and evaluate constant $d$:\n$$\\mathbf{n} = \\begin{pmatrix} 3 - 1 \\\\ 1 - 2 \\\\ 1 - (-1) \\end{pmatrix} = \\begin{pmatrix} 2 \\\\ -1 \\\\ 2 \\end{pmatrix}$$\n$$d = 2(2) - 1(1.5) + 2(0) = 2.5 \\implies 4x - 2y + 4z = 5$$"
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_vectors_m04_l02_cpq02_p01_mp01",
+                "observable": "Finds midpoint $M(2, 1.5, 0)$."
+              },
+              {
+                "criterion_id": "9709_p3_t_vectors_m04_l02_cpq02_p01_mp02",
+                "observable": "Finds normal $(2, -1, 2)$."
+              },
+              {
+                "criterion_id": "9709_p3_t_vectors_m04_l02_cpq02_p01_mp03",
+                "observable": "Obtains equation $4x - 2y + 4z = 5$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_vector_planes"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_vector_planes"
+            ],
+            "method_ids": [
+              "9709_p3_method_vector_planes"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        },
+        {
+          "part_id": "9709_p3_t_vectors_m04_l02_cpq02_p02",
+          "label": "(b)",
+          "difficulty": "medium",
+          "question_pattern_ids": [
+            "9709_p3_pattern_solve_equation",
+            "9709_p3_pattern_vector_geometry"
+          ],
+          "source_evidence": {
+            "question_id": "9709_s19_32_q9_ii",
+            "part_id": "9709_s19_32_q9_ii",
+            "legacy_practice_tier": "core",
+            "product_role": "core_synthesis",
+            "structural_inspiration": "Line-plane intersection evaluation."
+          },
+          "dependency_role": "requires_previous_part",
+          "dependency_refs": [
+            "9709_p3_t_vectors_m04_l02_cpq02_p01"
+          ],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Substitute $(1 + \\mu, 1 - \\mu, 2 - 4\\mu)$ into $4x - 2y + 4z = 5$.",
+            "Solve $4(1+\\mu) - 2(1-\\mu) + 4(2-4\\mu) = 5 \\implies 10 - 10\\mu = 5 \\implies \\mu = \\frac{1}{2}$.",
+            "Position vector is $\\mathbf{r} = \\begin{pmatrix} 1 \\\\ 1 \\\\ 2 \\end{pmatrix} + \\frac{1}{2}\\begin{pmatrix} 1 \\\\ -1 \\\\ -4 \\end{pmatrix} = \\begin{pmatrix} 1.5 \\\\ 0.5 \\\\ 0 \\end{pmatrix}$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Substitute parametric coordinates of $l$ into $4x - 2y + 4z = 5$:\n$$4(1 + \\mu) - 2(1 - \\mu) + 4(2 - 4\\mu) = 5$$\n$$4 + 4\\mu - 2 + 2\\mu + 8 - 16\\mu = 5 \\implies 10 - 10\\mu = 5 \\implies 10\\mu = 5 \\implies \\mu = \\frac{1}{2}$$"
+            },
+            {
+              "step": 2,
+              "text": "Compute the position vector of intersection point $P$:\n$$\\mathbf{r}_P = \\begin{pmatrix} 1 + 0.5 \\\\ 1 - 0.5 \\\\ 2 - 4(0.5) \\end{pmatrix} = \\begin{pmatrix} 1.5 \\\\ 0.5 \\\\ 0 \\end{pmatrix} = \\frac{3}{2}\\mathbf{i} + \\frac{1}{2}\\mathbf{j}$$"
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_vectors_m04_l02_cpq02_p02_mp01",
+                "observable": "Substitutes line coordinates into plane."
+              },
+              {
+                "criterion_id": "9709_p3_t_vectors_m04_l02_cpq02_p02_mp02",
+                "observable": "Solves $\\mu = \\frac{1}{2}$."
+              },
+              {
+                "criterion_id": "9709_p3_t_vectors_m04_l02_cpq02_p02_mp03",
+                "observable": "Obtains position vector $\\frac{3}{2}\\mathbf{i} + \\frac{1}{2}\\mathbf{j}$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_vector_planes",
+            "9709_p3_skill_vector_equations_of_lines"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_vector_planes",
+              "9709_p3_skill_vector_equations_of_lines"
+            ],
+            "method_ids": [
+              "9709_p3_method_vector_planes",
+              "9709_p3_method_vector_equations_of_lines"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        }
+      ],
+      "_numerical_values_checked": false
+    },
+    {
+      "question_id": "9709_p3_t_vectors_m04_l02_cpq03",
+      "sequence": 9,
+      "type": "core",
+      "marks": 6,
+      "difficulty": "medium",
+      "difficulty_reason": "Core: Parallel distinct vs line containment in plane.",
+      "source_question_id": "9709_m16_32_q8_i",
+      "source_role": "core_practice",
+      "dependency_role": "none",
+      "dependency_refs": [],
+      "parts": [
+        {
+          "part_id": "9709_p3_t_vectors_m04_l02_cpq03_p01",
+          "label": "(a)",
+          "difficulty": "easy",
+          "question_pattern_ids": [
+            "9709_p3_pattern_vector_geometry"
+          ],
+          "source_evidence": {
+            "question_id": "9709_m16_32_q8_i",
+            "part_id": "9709_m16_32_q8_a",
+            "legacy_practice_tier": "core",
+            "product_role": "core_mechanics",
+            "structural_inspiration": "Parallel non-intersecting line-plane proof."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Check scalar product $\\mathbf{d} \\cdot \\mathbf{n} = 2(2) + 1(-1) + 3(-1) = 0$.",
+            "Test base point $(1, 2, -1)$: $2(1) - 2 - (-1) = 1 \\neq 8$.",
+            "Conclude line $l_1$ is parallel to $\\Pi$ and does not intersect."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Compute the scalar product of the line direction and plane normal:\n$$\\mathbf{d} \\cdot \\mathbf{n} = \\begin{pmatrix} 2 \\\\ 1 \\\\ 3 \\end{pmatrix} \\cdot \\begin{pmatrix} 2 \\\\ -1 \\\\ -1 \\end{pmatrix} = 4 - 1 - 3 = 0$$"
+            },
+            {
+              "step": 2,
+              "text": "Test the base point $(1, 2, -1)$ in the plane equation:\n$$2(1) - 2 - (-1) = 1 \\neq 8$$\nSince the direction is parallel to the plane but no point lies on the plane, line $l_1$ does not intersect $\\Pi$."
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_vectors_m04_l02_cpq03_p01_mp01",
+                "observable": "Shows $\\mathbf{d} \\cdot \\mathbf{n} = 0$."
+              },
+              {
+                "criterion_id": "9709_p3_t_vectors_m04_l02_cpq03_p01_mp02",
+                "observable": "Shows base point $1 \\neq 8$."
+              },
+              {
+                "criterion_id": "9709_p3_t_vectors_m04_l02_cpq03_p01_mp03",
+                "observable": "Concludes no intersection."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_vector_planes",
+            "9709_p3_skill_using_scalar_products"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_vector_planes",
+              "9709_p3_skill_using_scalar_products"
+            ],
+            "method_ids": [
+              "9709_p3_method_vector_planes",
+              "9709_p3_method_using_scalar_products"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        },
+        {
+          "part_id": "9709_p3_t_vectors_m04_l02_cpq03_p02",
+          "label": "(b)",
+          "difficulty": "medium",
+          "question_pattern_ids": [
+            "9709_p3_pattern_vector_geometry"
+          ],
+          "source_evidence": {
+            "question_id": "9709_m17_32_q6_i",
+            "part_id": "9709_m17_32_q6_a",
+            "legacy_practice_tier": "core",
+            "product_role": "core_synthesis",
+            "structural_inspiration": "Line containment verification."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Direction is identical to $l_1$, so $\\mathbf{d} \\cdot \\mathbf{n} = 0$.",
+            "Test base point $(5, 2, 0)$ in plane: $2(5) - 2 - 0 = 8 = 8$.",
+            "Conclude that line $l_2$ lies entirely within plane $\\Pi$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Confirm that the direction of $l_2$ is orthogonal to the normal:\n$$\\mathbf{d} \\cdot \\mathbf{n} = \\begin{pmatrix} 2 \\\\ 1 \\\\ 3 \\end{pmatrix} \\cdot \\begin{pmatrix} 2 \\\\ -1 \\\\ -1 \\end{pmatrix} = 0$$"
+            },
+            {
+              "step": 2,
+              "text": "Test whether the base point $(5, 2, 0)$ lies in plane $\\Pi$:\n$$2(5) - 2 - 0 = 8 = 8$$\nSince $\\mathbf{d} \\cdot \\mathbf{n} = 0$ and the base point lies in the plane, every point on line $l_2$ lies in plane $\\Pi$."
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_vectors_m04_l02_cpq03_p02_mp01",
+                "observable": "Notes $\\mathbf{d} \\cdot \\mathbf{n} = 0$."
+              },
+              {
+                "criterion_id": "9709_p3_t_vectors_m04_l02_cpq03_p02_mp02",
+                "observable": "Tests base point $(5, 2, 0)$."
+              },
+              {
+                "criterion_id": "9709_p3_t_vectors_m04_l02_cpq03_p02_mp03",
+                "observable": "Concludes line lies entirely in plane."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_vector_planes"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_vector_planes"
+            ],
+            "method_ids": [
+              "9709_p3_method_vector_planes"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_p3_t_vectors_m04_l02_cpq04",
+      "sequence": 10,
+      "type": "core",
+      "marks": 7,
+      "difficulty": "medium",
+      "difficulty_reason": "Core: Normal line, foot of perpendicular, and exact distance.",
+      "source_question_id": "9709_w18_32_q10_i",
+      "source_role": "core_practice",
+      "dependency_role": "none",
+      "dependency_refs": [],
+      "parts": [
+        {
+          "part_id": "9709_p3_t_vectors_m04_l02_cpq04_p01",
+          "label": "(a)",
+          "difficulty": "easy",
+          "question_pattern_ids": [
+            "9709_p3_pattern_vector_geometry"
+          ],
+          "source_evidence": {
+            "question_id": "9709_w18_32_q10_i",
+            "part_id": "9709_w18_32_q10_a",
+            "legacy_practice_tier": "core",
+            "product_role": "core_mechanics",
+            "structural_inspiration": "Normal line authoring."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Normal vector of $\\Pi: 2x + 2y - z = 18$ is $\\mathbf{n} = \\begin{pmatrix} 2 \\\\ 2 \\\\ -1 \\end{pmatrix}$.",
+            "The line passes through $A(2, 3, 1)$.",
+            "Write $\\mathbf{r} = \\begin{pmatrix} 2 \\\\ 3 \\\\ 1 \\end{pmatrix} + \\lambda \\begin{pmatrix} 2 \\\\ 2 \\\\ -1 \\end{pmatrix}$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Extract the normal vector $\\mathbf{n}$ from the plane equation:\n$$\\mathbf{n} = \\begin{pmatrix} 2 \\\\ 2 \\\\ -1 \\end{pmatrix}$$"
+            },
+            {
+              "step": 2,
+              "text": "Write the equation of the normal line $l_N$ through $A(2, 3, 1)$:\n$$\\mathbf{r} = \\begin{pmatrix} 2 \\\\ 3 \\\\ 1 \\end{pmatrix} + \\lambda \\begin{pmatrix} 2 \\\\ 2 \\\\ -1 \\end{pmatrix}$$"
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_vectors_m04_l02_cpq04_p01_mp01",
+                "observable": "Identifies normal $(2, 2, -1)$."
+              },
+              {
+                "criterion_id": "9709_p3_t_vectors_m04_l02_cpq04_p01_mp02",
+                "observable": "Uses point $A(2, 3, 1)$."
+              },
+              {
+                "criterion_id": "9709_p3_t_vectors_m04_l02_cpq04_p01_mp03",
+                "observable": "States line equation."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_vector_equations_of_lines",
+            "9709_p3_skill_vector_planes"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_vector_equations_of_lines",
+              "9709_p3_skill_vector_planes"
+            ],
+            "method_ids": [
+              "9709_p3_method_vector_equations_of_lines",
+              "9709_p3_method_vector_planes"
+            ],
+            "formula_ids": [
+              "9709_p3_formula_vector_line"
+            ],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        },
+        {
+          "part_id": "9709_p3_t_vectors_m04_l02_cpq04_p02",
+          "label": "(b)",
+          "difficulty": "medium",
+          "question_pattern_ids": [
+            "9709_p3_pattern_solve_equation",
+            "9709_p3_pattern_vector_geometry"
+          ],
+          "source_evidence": {
+            "question_id": "9709_w18_32_q10_i",
+            "part_id": "9709_w18_32_q10_i",
+            "legacy_practice_tier": "core",
+            "product_role": "core_synthesis",
+            "structural_inspiration": "Foot of perpendicular and distance calculation."
+          },
+          "dependency_role": "requires_previous_part",
+          "dependency_refs": [
+            "9709_p3_t_vectors_m04_l02_cpq04_p01"
+          ],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Substitute $(2+2\\lambda, 3+2\\lambda, 1-\\lambda)$ into $2x + 2y - z = 18$.",
+            "Solve $2(2+2\\lambda) + 2(3+2\\lambda) - (1-\\lambda) = 18 \\implies 9\\lambda + 9 = 18 \\implies \\lambda = 1$.",
+            "Foot $F = (4, 5, 0)$.",
+            "Distance is $|\\vec{AF}| = 1\\sqrt{2^2 + 2^2 + (-1)^2} = 3$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Substitute the parametric coordinates into the plane equation:\n$$2(2 + 2\\lambda) + 2(3 + 2\\lambda) - (1 - \\lambda) = 18$$\n$$4 + 4\\lambda + 6 + 4\\lambda - 1 + \\lambda = 18 \\implies 9\\lambda + 9 = 18 \\implies \\lambda = 1$$"
+            },
+            {
+              "step": 2,
+              "text": "Find the coordinates of the foot of the perpendicular $F$:\n$$F = (2 + 2(1), 3 + 2(1), 1 - 1) = (4, 5, 0)$$"
+            },
+            {
+              "step": 3,
+              "text": "Calculate the perpendicular distance:\n$$\\text{Distance} = |\\vec{AF}| = \\sqrt{(4-2)^2 + (5-3)^2 + (0-1)^2} = \\sqrt{4 + 4 + 1} = 3$$"
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_vectors_m04_l02_cpq04_p02_mp01",
+                "observable": "Substitutes coordinates into plane."
+              },
+              {
+                "criterion_id": "9709_p3_t_vectors_m04_l02_cpq04_p02_mp02",
+                "observable": "Solves $\\lambda = 1$."
+              },
+              {
+                "criterion_id": "9709_p3_t_vectors_m04_l02_cpq04_p02_mp03",
+                "observable": "Obtains foot coordinates $F(4, 5, 0)$."
+              },
+              {
+                "criterion_id": "9709_p3_t_vectors_m04_l02_cpq04_p02_mp04",
+                "observable": "Calculates distance $3$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_vector_planes",
+            "9709_p3_skill_using_position_vectors"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_vector_planes",
+              "9709_p3_skill_using_position_vectors"
+            ],
+            "method_ids": [
+              "9709_p3_method_vector_planes",
+              "9709_p3_method_using_position_vectors"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        }
+      ],
+      "_numerical_values_checked": false
+    },
+    {
+      "question_id": "9709_p3_t_vectors_m04_l02_cpq05",
+      "sequence": 11,
+      "type": "capstone",
+      "marks": 8,
+      "difficulty": "hard",
+      "difficulty_reason": "Capstone: Laser ray plane strike and floor reflection intersection.",
+      "source_question_id": "capstone_p3_vec_laser_mirror_reflection",
+      "source_role": "capstone_synthesis",
+      "dependency_role": "none",
+      "dependency_refs": [],
+      "parts": [
+        {
+          "part_id": "9709_p3_t_vectors_m04_l02_cpq05_p01",
+          "label": "(a)",
+          "difficulty": "medium",
+          "question_pattern_ids": [
+            "9709_p3_pattern_solve_equation",
+            "9709_p3_pattern_vector_geometry"
+          ],
+          "source_evidence": {
+            "question_id": "capstone_p3_vec_laser_mirror_reflection",
+            "part_id": "capstone_p3_vec_laser_mirror_reflection_p01",
+            "legacy_practice_tier": "capstone",
+            "product_role": "core_mechanics",
+            "structural_inspiration": "Laser strike point evaluation."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Substitute $(-1 + 2\\lambda, 5 - \\lambda, 7 - 2\\lambda)$ into $x + 2y + 2z = 11$.",
+            "Expand: $-1 + 2\\lambda + 10 - 2\\lambda + 14 - 4\\lambda = 11 \\implies 23 - 4\\lambda = 11 \\implies 4\\lambda = 12 \\implies \\lambda = 3$.",
+            "Coordinates of strike point $P = (-1 + 6, 5 - 3, 7 - 6) = (5, 2, 1)$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Substitute the parametric coordinates of the laser beam into plane $\\Pi$:\n$$(-1 + 2\\lambda) + 2(5 - \\lambda) + 2(7 - 2\\lambda) = 11$$\n$$-1 + 2\\lambda + 10 - 2\\lambda + 14 - 4\\lambda = 11$$\n$$23 - 4\\lambda = 11 \\implies 4\\lambda = 12 \\implies \\lambda = 3$$"
+            },
+            {
+              "step": 2,
+              "text": "Compute the coordinates of strike point $P$:\n$$P = (-1 + 2(3), 5 - 3, 7 - 2(3)) = (5, 2, 1)$$"
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_vectors_m04_l02_cpq05_p01_mp01",
+                "observable": "Substitutes line coordinates into mirror plane."
+              },
+              {
+                "criterion_id": "9709_p3_t_vectors_m04_l02_cpq05_p01_mp02",
+                "observable": "Expands equation."
+              },
+              {
+                "criterion_id": "9709_p3_t_vectors_m04_l02_cpq05_p01_mp03",
+                "observable": "Solves $\\lambda = 3$."
+              },
+              {
+                "criterion_id": "9709_p3_t_vectors_m04_l02_cpq05_p01_mp04",
+                "observable": "Obtains coordinates $P(5, 2, 1)$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_vector_planes",
+            "9709_p3_skill_vector_equations_of_lines"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_vector_planes",
+              "9709_p3_skill_vector_equations_of_lines"
+            ],
+            "method_ids": [
+              "9709_p3_method_vector_planes",
+              "9709_p3_method_vector_equations_of_lines"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        },
+        {
+          "part_id": "9709_p3_t_vectors_m04_l02_cpq05_p02",
+          "label": "(b)",
+          "difficulty": "hard",
+          "question_pattern_ids": [
+            "9709_p3_pattern_solve_equation",
+            "9709_p3_pattern_vector_geometry"
+          ],
+          "source_evidence": {
+            "question_id": "capstone_p3_vec_laser_mirror_reflection",
+            "part_id": "capstone_p3_vec_laser_mirror_reflection_p02",
+            "legacy_practice_tier": "capstone",
+            "product_role": "advanced_synthesis",
+            "structural_inspiration": "Reflected line floor intersection."
+          },
+          "dependency_role": "requires_previous_part",
+          "dependency_refs": [
+            "9709_p3_t_vectors_m04_l02_cpq05_p01"
+          ],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Write reflected line equation $\\mathbf{r} = \\begin{pmatrix} 5 \\\\ 2 \\\\ 1 \\end{pmatrix} + \\mu \\begin{pmatrix} 0 \\\\ -3 \\\\ -4 \\end{pmatrix}$.",
+            "Floor plane is $z = 0 \\implies 1 - 4\\mu = 0 \\implies \\mu = \\frac{1}{4}$.",
+            "Calculate $Q = \\left(5, 2 - 3\\left(\\frac{1}{4}\\right), 0\\right) = \\left(5, \\frac{5}{4}, 0\\right) = (5, 1.25, 0)$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "State the equation of the reflected line $l_R$:\n$$\\mathbf{r} = \\begin{pmatrix} 5 \\\\ 2 \\\\ 1 \\end{pmatrix} + \\mu \\begin{pmatrix} 0 \\\\ -3 \\\\ -4 \\end{pmatrix}$$"
+            },
+            {
+              "step": 2,
+              "text": "Set the $z$-component equal to $0$ for the horizontal floor plane:\n$$1 - 4\\mu = 0 \\implies 4\\mu = 1 \\implies \\mu = \\frac{1}{4}$$"
+            },
+            {
+              "step": 3,
+              "text": "Evaluate the coordinates of strike point $Q$:\n$$Q = \\left(5 + 0, 2 - 3\\left(\\frac{1}{4}\\right), 0\\right) = \\left(5, \\frac{5}{4}, 0\\right) = (5, 1.25, 0)$$"
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_vectors_m04_l02_cpq05_p02_mp01",
+                "observable": "Sets up reflected line."
+              },
+              {
+                "criterion_id": "9709_p3_t_vectors_m04_l02_cpq05_p02_mp02",
+                "observable": "Sets $z = 0$."
+              },
+              {
+                "criterion_id": "9709_p3_t_vectors_m04_l02_cpq05_p02_mp03",
+                "observable": "Solves $\\mu = \\frac{1}{4}$."
+              },
+              {
+                "criterion_id": "9709_p3_t_vectors_m04_l02_cpq05_p02_mp04",
+                "observable": "Obtains coordinates $Q(5, 1.25, 0)$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_vector_planes",
+            "9709_p3_skill_vector_equations_of_lines"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_vector_planes",
+              "9709_p3_skill_vector_equations_of_lines"
+            ],
+            "method_ids": [
+              "9709_p3_method_vector_planes",
+              "9709_p3_method_vector_equations_of_lines"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        }
+      ],
+      "_numerical_values_checked": false
+    },
+    {
+      "question_id": "9709_p3_t_vectors_m04_l02_cpq06",
+      "sequence": 12,
+      "type": "capstone",
+      "marks": 8,
+      "difficulty": "hard",
+      "difficulty_reason": "Capstone: Segment ratio division by a plane.",
+      "source_question_id": "capstone_p3_vec_segment_plane_ratio",
+      "source_role": "capstone_synthesis",
+      "dependency_role": "none",
+      "dependency_refs": [],
+      "parts": [
+        {
+          "part_id": "9709_p3_t_vectors_m04_l02_cpq06_p01",
+          "label": "(a)",
+          "difficulty": "medium",
+          "question_pattern_ids": [
+            "9709_p3_pattern_solve_equation",
+            "9709_p3_pattern_vector_geometry"
+          ],
+          "source_evidence": {
+            "question_id": "capstone_p3_vec_segment_plane_ratio",
+            "part_id": "capstone_p3_vec_segment_plane_ratio_p01",
+            "legacy_practice_tier": "capstone",
+            "product_role": "core_mechanics",
+            "structural_inspiration": "Line-plane segment intersection."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Direction $\\vec{AB} = \\begin{pmatrix} -6 \\\\ 6 \\\\ -6 \\end{pmatrix} \\sim \\begin{pmatrix} -1 \\\\ 1 \\\\ -1 \\end{pmatrix}$.",
+            "Line $AB: \\mathbf{r} = \\begin{pmatrix} 4 - \\lambda \\\\ -1 + \\lambda \\\\ 3 - \\lambda \\end{pmatrix}$.",
+            "Substitute into $2x - y + 3z = 6 \\implies 18 - 6\\lambda = 6 \\implies \\lambda = 2$.",
+            "Intersection point $P = (4 - 2, -1 + 2, 3 - 2) = (2, 1, 1)$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Find the vector equation of the line passing through $A(4, -1, 3)$ and $B(-2, 5, -3)$:\n$$\\vec{AB} = \\begin{pmatrix} -2 - 4 \\\\ 5 - (-1) \\\\ -3 - 3 \\end{pmatrix} = \\begin{pmatrix} -6 \\\\ 6 \\\\ -6 \\end{pmatrix} = 6\\begin{pmatrix} -1 \\\\ 1 \\\\ -1 \\end{pmatrix} \\implies \\mathbf{r} = \\begin{pmatrix} 4 - \\lambda \\\\ -1 + \\lambda \\\\ 3 - \\lambda \\end{pmatrix}$$"
+            },
+            {
+              "step": 2,
+              "text": "Substitute parametric coordinates into plane $\\Pi: 2x - y + 3z = 6$:\n$$2(4 - \\lambda) - (-1 + \\lambda) + 3(3 - \\lambda) = 6$$\n$$8 - 2\\lambda + 1 - \\lambda + 9 - 3\\lambda = 6 \\implies 18 - 6\\lambda = 6 \\implies 6\\lambda = 12 \\implies \\lambda = 2$$"
+            },
+            {
+              "step": 3,
+              "text": "Compute the coordinates of point $P$:\n$$P = (4 - 2, -1 + 2, 3 - 2) = (2, 1, 1)$$"
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_vectors_m04_l02_cpq06_p01_mp01",
+                "observable": "Finds line equation for $AB$."
+              },
+              {
+                "criterion_id": "9709_p3_t_vectors_m04_l02_cpq06_p01_mp02",
+                "observable": "Substitutes into plane."
+              },
+              {
+                "criterion_id": "9709_p3_t_vectors_m04_l02_cpq06_p01_mp03",
+                "observable": "Solves $\\lambda = 2$."
+              },
+              {
+                "criterion_id": "9709_p3_t_vectors_m04_l02_cpq06_p01_mp04",
+                "observable": "Obtains coordinates $P(2, 1, 1)$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_vector_planes",
+            "9709_p3_skill_vector_equations_of_lines"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_vector_planes",
+              "9709_p3_skill_vector_equations_of_lines"
+            ],
+            "method_ids": [
+              "9709_p3_method_vector_planes",
+              "9709_p3_method_vector_equations_of_lines"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        },
+        {
+          "part_id": "9709_p3_t_vectors_m04_l02_cpq06_p02",
+          "label": "(b)",
+          "difficulty": "hard",
+          "question_pattern_ids": [
+            "9709_p3_pattern_prove_or_show",
+            "9709_p3_pattern_vector_geometry"
+          ],
+          "source_evidence": {
+            "question_id": "capstone_p3_vec_segment_plane_ratio",
+            "part_id": "capstone_p3_vec_segment_plane_ratio_p02",
+            "legacy_practice_tier": "capstone",
+            "product_role": "advanced_synthesis",
+            "structural_inspiration": "Segment division ratio proof."
+          },
+          "dependency_role": "requires_previous_part",
+          "dependency_refs": [
+            "9709_p3_t_vectors_m04_l02_cpq06_p01"
+          ],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Compute $\\vec{AP} = \\begin{pmatrix} 2 - 4 \\\\ 1 - (-1) \\\\ 1 - 3 \\end{pmatrix} = \\begin{pmatrix} -2 \\\\ 2 \\\\ -2 \\end{pmatrix}$.",
+            "Compute $\\vec{PB} = \\begin{pmatrix} -2 - 2 \\\\ 5 - 1 \\\\ -3 - 1 \\end{pmatrix} = \\begin{pmatrix} -4 \\\\ 4 \\\\ -4 \\end{pmatrix}$.",
+            "Observe that $\\vec{PB} = 2\\vec{AP}$, proving $AP : PB = 1 : 2$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Compute displacement vectors $\\vec{AP}$ and $\\vec{PB}$:\n$$\\vec{AP} = \\mathbf{p} - \\mathbf{a} = \\begin{pmatrix} 2 - 4 \\\\ 1 - (-1) \\\\ 1 - 3 \\end{pmatrix} = \\begin{pmatrix} -2 \\\\ 2 \\\\ -2 \\end{pmatrix}$$\n$$\\vec{PB} = \\mathbf{b} - \\mathbf{p} = \\begin{pmatrix} -2 - 2 \\\\ 5 - 1 \\\\ -3 - 1 \\end{pmatrix} = \\begin{pmatrix} -4 \\\\ 4 \\\\ -4 \\end{pmatrix}$$"
+            },
+            {
+              "step": 2,
+              "text": "Compare the magnitudes and vector ratios:\n$$\\vec{PB} = 2\\begin{pmatrix} -2 \\\\ 2 \\\\ -2 \\end{pmatrix} = 2\\vec{AP}$$\nTherefore, point $P$ divides the line segment $AB$ internally in the exact ratio $1 : 2$."
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_vectors_m04_l02_cpq06_p02_mp01",
+                "observable": "Finds $\\vec{AP} = (-2, 2, -2)$."
+              },
+              {
+                "criterion_id": "9709_p3_t_vectors_m04_l02_cpq06_p02_mp02",
+                "observable": "Finds $\\vec{PB} = (-4, 4, -4)$."
+              },
+              {
+                "criterion_id": "9709_p3_t_vectors_m04_l02_cpq06_p02_mp03",
+                "observable": "Shows $\\vec{PB} = 2\\vec{AP}$."
+              },
+              {
+                "criterion_id": "9709_p3_t_vectors_m04_l02_cpq06_p02_mp04",
+                "observable": "Concludes ratio $1 : 2$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_using_position_vectors"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_using_position_vectors"
+            ],
+            "method_ids": [
+              "9709_p3_method_using_position_vectors"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        }
+      ],
+      "_numerical_values_checked": false
+    },
+    {
+      "question_id": "9709_p3_t_vectors_m04_l02_cpq07",
+      "sequence": 13,
+      "type": "capstone",
+      "marks": 9,
+      "difficulty": "hard",
+      "difficulty_reason": "Capstone: Pyramid slicing plane, edge penetration point, and cross-sectional area.",
+      "source_question_id": "capstone_p3_vec_pyramid_slicing_plane",
+      "source_role": "capstone_synthesis",
+      "dependency_role": "none",
+      "dependency_refs": [],
+      "parts": [
+        {
+          "part_id": "9709_p3_t_vectors_m04_l02_cpq07_p01",
+          "label": "(a)",
+          "difficulty": "medium",
+          "question_pattern_ids": [
+            "9709_p3_pattern_vector_geometry"
+          ],
+          "source_evidence": {
+            "question_id": "capstone_p3_vec_pyramid_slicing_plane",
+            "part_id": "capstone_p3_vec_pyramid_slicing_plane_p01",
+            "legacy_practice_tier": "capstone",
+            "product_role": "core_mechanics",
+            "structural_inspiration": "Horizontal slicing plane equation."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Apex $V$ has $z = 6$ and base has $z = 0$.",
+            "Half height is $z = 3$.",
+            "Equation of horizontal plane is $z = 3$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "The base of the pyramid lies in the plane $z = 0$, and the apex is $V(2, 2, 6)$ with height $z = 6$."
+            },
+            {
+              "step": 2,
+              "text": "At half its vertical height, $z = \\frac{6}{2} = 3$.\nSince the plane is horizontal and parallel to the base, its Cartesian equation is:\n$$z = 3$$"
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_vectors_m04_l02_cpq07_p01_mp01",
+                "observable": "Finds half height $z = 3$."
+              },
+              {
+                "criterion_id": "9709_p3_t_vectors_m04_l02_cpq07_p01_mp02",
+                "observable": "Identifies horizontal plane normal."
+              },
+              {
+                "criterion_id": "9709_p3_t_vectors_m04_l02_cpq07_p01_mp03",
+                "observable": "States equation $z = 3$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_vector_planes",
+            "9709_p3_skill_three_dimensional_vector_geometry"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_vector_planes",
+              "9709_p3_skill_three_dimensional_vector_geometry"
+            ],
+            "method_ids": [
+              "9709_p3_method_vector_planes",
+              "9709_p3_method_three_dimensional_vector_geometry"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        },
+        {
+          "part_id": "9709_p3_t_vectors_m04_l02_cpq07_p02",
+          "label": "(b)",
+          "difficulty": "hard",
+          "question_pattern_ids": [
+            "9709_p3_pattern_solve_equation",
+            "9709_p3_pattern_vector_geometry"
+          ],
+          "source_evidence": {
+            "question_id": "capstone_p3_vec_pyramid_slicing_plane",
+            "part_id": "capstone_p3_vec_pyramid_slicing_plane_p02",
+            "legacy_practice_tier": "capstone",
+            "product_role": "core_synthesis",
+            "structural_inspiration": "Sloping edge penetration point."
+          },
+          "dependency_role": "requires_previous_part",
+          "dependency_refs": [
+            "9709_p3_t_vectors_m04_l02_cpq07_p01"
+          ],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Substitute $z = 6 - 3\\mu$ into $z = 3$.",
+            "Solve $6 - 3\\mu = 3 \\implies 3\\mu = 3 \\implies \\mu = 1$.",
+            "Penetration point is $K = (2 + 1, 2 + 1, 6 - 3) = (3, 3, 3)$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Set the $z$-component of line $l_{VC}$ equal to $3$:\n$$6 - 3\\mu = 3 \\implies 3\\mu = 3 \\implies \\mu = 1$$"
+            },
+            {
+              "step": 2,
+              "text": "Compute the coordinates of penetration point $K$:\n$$K = (2 + 1(1), 2 + 1(1), 6 - 3(1)) = (3, 3, 3)$$"
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_vectors_m04_l02_cpq07_p02_mp01",
+                "observable": "Sets $6 - 3\\mu = 3$."
+              },
+              {
+                "criterion_id": "9709_p3_t_vectors_m04_l02_cpq07_p02_mp02",
+                "observable": "Solves $\\mu = 1$."
+              },
+              {
+                "criterion_id": "9709_p3_t_vectors_m04_l02_cpq07_p02_mp03",
+                "observable": "Obtains coordinates $K(3, 3, 3)$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_vector_planes",
+            "9709_p3_skill_vector_equations_of_lines"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_vector_planes",
+              "9709_p3_skill_vector_equations_of_lines"
+            ],
+            "method_ids": [
+              "9709_p3_method_vector_planes",
+              "9709_p3_method_vector_equations_of_lines"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        },
+        {
+          "part_id": "9709_p3_t_vectors_m04_l02_cpq07_p03",
+          "label": "(c)",
+          "difficulty": "hard",
+          "question_pattern_ids": [
+            "9709_p3_pattern_prove_or_show",
+            "9709_p3_pattern_vector_geometry"
+          ],
+          "source_evidence": {
+            "question_id": "capstone_p3_vec_pyramid_slicing_plane",
+            "part_id": "capstone_p3_vec_pyramid_slicing_plane_p03",
+            "legacy_practice_tier": "capstone",
+            "product_role": "advanced_synthesis",
+            "structural_inspiration": "Midpoint verification and cross-sectional area."
+          },
+          "dependency_role": "requires_previous_part",
+          "dependency_refs": [
+            "9709_p3_t_vectors_m04_l02_cpq07_p02"
+          ],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Check midpoint of $V(2, 2, 6)$ and $C(4, 4, 0)$: $\\frac{1}{2}((2, 2, 6) + (4, 4, 0)) = (3, 3, 3) = K$.",
+            "Since the slicing plane is at half height, the cross-section is a square of side length $\\frac{4}{2} = 2$.",
+            "Cross-sectional area is $2^2 = 4$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Verify that $K$ is the midpoint of sloping edge $VC$:\n$$\\text{Midpoint}(VC) = \\frac{1}{2}\\begin{pmatrix} 2 + 4 \\\\ 2 + 4 \\\\ 6 + 0 \\end{pmatrix} = \\begin{pmatrix} 3 \\\\ 3 \\\\ 3 \\end{pmatrix} = K$$"
+            },
+            {
+              "step": 2,
+              "text": "Compute the side length and area of the square cross-section:\nBy similar triangles, at half the height of the pyramid, the side length of the square cross-section is half the base side length:\n$$\\text{Side length } s = \\frac{4}{2} = 2$$\n$$\\text{Area} = s^2 = 2^2 = 4$$"
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_vectors_m04_l02_cpq07_p03_mp01",
+                "observable": "Verifies midpoint $K(3, 3, 3)$."
+              },
+              {
+                "criterion_id": "9709_p3_t_vectors_m04_l02_cpq07_p03_mp02",
+                "observable": "Calculates square cross-section side length $2$."
+              },
+              {
+                "criterion_id": "9709_p3_t_vectors_m04_l02_cpq07_p03_mp03",
+                "observable": "Obtains cross-sectional area $4$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_three_dimensional_vector_geometry",
+            "9709_p3_skill_vector_planes"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_three_dimensional_vector_geometry",
+              "9709_p3_skill_vector_planes"
+            ],
+            "method_ids": [
+              "9709_p3_method_three_dimensional_vector_geometry",
+              "9709_p3_method_vector_planes"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        }
+      ]
+    }
+  ]
+}

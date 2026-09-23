@@ -1,0 +1,115 @@
+{
+  "schema_version": "9709_math_enrichment_v3",
+  "paper_code": "9709_s16_33",
+  "question_id": "9709_s16_33_q7",
+  "question_num": 7,
+  "subject_code": "9709",
+  "component": "P3",
+  "year": 2016,
+  "session": "May/June",
+  "variant": "33",
+  "difficulty": 4,
+  "numerical_values_checked": false,
+  "parts": [
+    {
+      "part_id": "9709_s16_33_q7_i",
+      "difficulty": 3,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_p3_t_integration",
+        "module_id": "9709_p3_t_integration_m01",
+        "lesson_id": "9709_p3_t_integration_m01_l01"
+      },
+      "skills": {
+        "primary_skill_id": "9709_p3_skill_integration_by_substitution",
+        "skill_tags": [
+          "Integration by Substitution"
+        ]
+      },
+      "question_pattern_ids": [
+        "9709_p3_pattern_prove_or_show",
+        "9709_p3_pattern_calculus_process",
+        "9709_p3_pattern_trigonometric_reasoning"
+      ],
+      "knowledge_refs": {
+        "formula_ids": [],
+        "identity_ids": [
+          "9709_p3_identity_double_angle",
+          "9709_p3_identity_pythagorean"
+        ],
+        "method_ids": [
+          "9709_p3_method_integration_by_substitution"
+        ],
+        "fact_ids": []
+      },
+      "hints": [
+        "With $u=1+x^2$, use $du=2x\\,dx$ and split $x^5dx$ as $x^4(x\\,dx)$.",
+        "Replace $x^2$ by $u-1$, so $x^4=(u-1)^2$.",
+        "Change the limits using $u=1+x^2$: transform both $x=0$ and $x=1$.",
+        "Substitute throughout and simplify the factor from $x\\,dx=du/2$."
+      ],
+      "walkthrough": [
+        "Differentiate the substitution $u = 1 + x^2$ with respect to $x$:\n$$\\dfrac{\\mathrm{d}u}{\\mathrm{d}x} = 2x \\implies x\\,\\mathrm{d}x = \\dfrac{1}{2}\\,\\mathrm{d}u$$",
+        "Convert the limits of integration from $x$ to $u$:\nWhen $x = 0$: $u = 1 + 0^2 = 1$\nWhen $x = 1$: $u = 1 + 1^2 = 2$",
+        "Express the numerator $x^5\\,\\mathrm{d}x$ in terms of $u$:\n$$x^2 = u - 1 \\implies x^4 = (x^2)^2 = (u - 1)^2$$\n$$x^5\\,\\mathrm{d}x = x^4(x\\,\\mathrm{d}x) = (u - 1)^2 \\cdot \\left(\\dfrac{1}{2}\\,\\mathrm{d}u\\right)$$",
+        "Substitute into the integral $I = \\int_0^1 \\dfrac{x^5}{(1 + x^2)^3}\\,\\mathrm{d}x$:\n$$I = \\int_1^2 \\dfrac{(u - 1)^2}{u^3} \\cdot \\left(\\dfrac{1}{2}\\,\\mathrm{d}u\\right) = \\int_1^2 \\dfrac{(u - 1)^2}{2u^3}\\,\\mathrm{d}u$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "ai_rubric": {
+          "Integration by Substitution": "Identifies $du=2x\\,dx$, or equivalent; Substitutes for $x$ and $dx$ throughout; Concludes with $I=\\int_1^2\\frac{(u-1)^2}{2u^3}\\,du$."
+        },
+        "criteria_source": "mark_scheme_structured"
+      }
+    },
+    {
+      "part_id": "9709_s16_33_q7_ii",
+      "difficulty": 4,
+      "practice_tier": "revision",
+      "mapping": {
+        "topic_id": "9709_p3_t_integration",
+        "module_id": "9709_p3_t_integration_m01",
+        "lesson_id": "9709_p3_t_integration_m01_l01"
+      },
+      "skills": {
+        "primary_skill_id": "9709_p3_skill_integration",
+        "skill_tags": [
+          "Integration"
+        ]
+      },
+      "question_pattern_ids": [
+        "9709_p3_pattern_exact_value",
+        "9709_p3_pattern_calculus_process",
+        "9709_p3_pattern_multi_part_dependency"
+      ],
+      "knowledge_refs": {
+        "formula_ids": [],
+        "identity_ids": [],
+        "method_ids": [
+          "9709_p3_method_integration"
+        ],
+        "fact_ids": []
+      },
+      "hints": [
+        "Expand $(u-1)^2/(2u^3)$ into separate powers of $u$.",
+        "Integrate the $u^{-1}$, $u^{-2}$, and $u^{-3}$ terms exactly.",
+        "Evaluate the antiderivative at 2 and 1.",
+        "Collect the rational terms while leaving $\\ln2$ exact."
+      ],
+      "walkthrough": [
+        "Expand the numerator of the integrand $(u - 1)^2 = u^2 - 2u + 1$ and divide each term by $2u^3$:\n$$\\dfrac{(u - 1)^2}{2u^3} = \\dfrac{u^2 - 2u + 1}{2u^3} = \\dfrac{1}{2u} - \\dfrac{1}{u^2} + \\dfrac{1}{2u^3} = \\dfrac{1}{2}u^{-1} - u^{-2} + \\dfrac{1}{2}u^{-3}$$",
+        "Find the antiderivative with respect to $u$:\n$$\\int \\left(\\dfrac{1}{2}u^{-1} - u^{-2} + \\dfrac{1}{2}u^{-3}\\right)\\mathrm{d}u = \\left[\\dfrac{1}{2}\\ln u + \\dfrac{1}{u} - \\dfrac{1}{4u^2}\\right]_1^2$$",
+        "Evaluate at the upper limit $u = 2$:\n$$\\dfrac{1}{2}\\ln 2 + \\dfrac{1}{2} - \\dfrac{1}{4(2^2)} = \\dfrac{1}{2}\\ln 2 + \\dfrac{1}{2} - \\dfrac{1}{16} = \\dfrac{1}{2}\\ln 2 + \\dfrac{8}{16} - \\dfrac{1}{16} = \\dfrac{1}{2}\\ln 2 + \\dfrac{7}{16}$$",
+        "Evaluate at the lower limit $u = 1$:\n$$\\dfrac{1}{2}\\ln 1 + \\dfrac{1}{1} - \\dfrac{1}{4(1^2)} = 0 + 1 - \\dfrac{1}{4} = \\dfrac{3}{4} = \\dfrac{12}{16}$$",
+        "Subtract the lower limit evaluation from the upper limit evaluation:\n$$I = \\left(\\dfrac{1}{2}\\ln 2 + \\dfrac{7}{16}\\right) - \\dfrac{12}{16} = \\dfrac{1}{2}\\ln 2 - \\dfrac{5}{16}$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "ai_rubric": {
+          "Integration": "Derives integral $\\frac12\\ln u+\\frac1u-\\frac1{4u^2}$, or equivalent. Gives $\\frac12\\ln2-\\frac5{16}$, exact simplified equivalent. The final result is $I=\\frac12\\ln2-\\frac5{16}$."
+        },
+        "criteria_source": "mark_scheme_structured"
+      }
+    }
+  ]
+}

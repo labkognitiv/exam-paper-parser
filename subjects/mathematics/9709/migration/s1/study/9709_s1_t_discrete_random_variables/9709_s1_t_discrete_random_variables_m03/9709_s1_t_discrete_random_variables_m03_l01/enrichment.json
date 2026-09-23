@@ -1,0 +1,1156 @@
+{
+  "lesson_id": "9709_s1_t_discrete_random_variables_m03_l01",
+  "numerical_values_checked": false,
+  "questions": [
+    {
+      "question_id": "9709_s1_t_discrete_random_variables_m03_l01_drq01",
+      "parts": [
+        {
+          "part_id": "9709_s1_t_discrete_random_variables_m03_l01_drq01_p01",
+          "difficulty": "easy",
+          "hints": [
+            "Identify the parameters: $n = 6$, $p = 0.4$, $1 - p = 0.6$, and $r = 2$.",
+            "Use the formula $P(X = 2) = \\binom{6}{2}(0.4)^2(0.6)^4$ and evaluate to 3 significant figures."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Identify the binomial parameters and formula:\n$$n = 6, \\quad p = 0.4, \\quad 1 - p = 0.6, \\quad r = 2$$\n$$P(X = 2) = \\binom{6}{2}(0.4)^2(0.6)^4$$"
+            },
+            {
+              "step": 2,
+              "text": "Evaluate the terms and round to 3 significant figures:\n$$\\binom{6}{2} = 15, \\quad (0.4)^2 = 0.16, \\quad (0.6)^4 = 0.1296$$\n$$P(X = 2) = 15 \\times 0.16 \\times 0.1296 = 0.31104 \\approx 0.311 \\text{ (3 s.f.)}$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "First, write down the binomial term: choosing 2 positions out of 6 gives $\\binom{6}{2} = 15$:\n$$P(X = 2) = \\binom{6}{2}(0.4)^2(0.6)^4$$"
+            },
+            {
+              "step": 2,
+              "text": "Multiply the factors and round the final result to 3 significant figures:\n$$P(X = 2) = 15(0.16)(0.1296) = 0.311$$"
+            }
+          ],
+          "checking": {
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_s1_t_discrete_random_variables_m03_l01_drq01_p01_c1",
+                "points": 1,
+                "observable": "Substitutes into the binomial probability formula $\\binom{6}{2}(0.4)^2(0.6)^4$."
+              },
+              {
+                "criterion_id": "9709_s1_t_discrete_random_variables_m03_l01_drq01_p01_c2",
+                "points": 1,
+                "observable": "Obtains $15(0.16)(0.1296) = 0.31104 \\dots$ and rounds to $0.311$ (3 s.f.)."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_s1_t_discrete_random_variables_m03_l01_drq02",
+      "parts": [
+        {
+          "part_id": "9709_s1_t_discrete_random_variables_m03_l01_drq02_p01",
+          "difficulty": "easy",
+          "hints": [
+            "Let $X$ be the number of germinating seeds. Then $X \\sim B(5, 0.28)$ with failure probability $1 - 0.28 = 0.72$.",
+            "Calculate $P(X = 2) = \\binom{5}{2}(0.28)^2(0.72)^3$ and round to 3 significant figures."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "State the binomial distribution for the number of germinating seeds $X$:\n$$X \\sim B(5, 0.28), \\quad P(\\text{failure}) = 1 - 0.28 = 0.72$$"
+            },
+            {
+              "step": 2,
+              "text": "Calculate the probability of exactly 2 germinations:\n$$P(X = 2) = \\binom{5}{2}(0.28)^2(0.72)^3 = 10 \\times 0.0784 \\times 0.373248 = 0.292626 \\dots \\approx 0.293 \\text{ (3 s.f.)}$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "Recognise this as 5 independent trials with constant probability $p = 0.28$:\n$$P(X = 2) = \\binom{5}{2}(0.28)^2(0.72)^3$$"
+            },
+            {
+              "step": 2,
+              "text": "Evaluate the expression and state the answer to 3 significant figures:\n$$P(X = 2) = 10(0.0784)(0.373248) = 0.293$$"
+            }
+          ],
+          "checking": {
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_s1_t_discrete_random_variables_m03_l01_drq02_p01_c1",
+                "points": 1,
+                "observable": "Applies binomial distribution $B(5, 0.28)$ to form $\\binom{5}{2}(0.28)^2(0.72)^3$."
+              },
+              {
+                "criterion_id": "9709_s1_t_discrete_random_variables_m03_l01_drq02_p01_c2",
+                "points": 1,
+                "observable": "Calculates $10 \\times (0.0784) \\times (0.373248) \\approx 0.293$ (3 s.f.)."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_s1_t_discrete_random_variables_m03_l01_drq03",
+      "parts": [
+        {
+          "part_id": "9709_s1_t_discrete_random_variables_m03_l01_drq03_p01",
+          "difficulty": "easy",
+          "hints": [
+            "Combine the 'early' and 'on time' categories, or take $1 - P(\\text{late})$, to find the probability that a train is not late on a single day.",
+            "Since outcomes on different days are independent, calculate $(0.72)^4$ and round to 3 significant figures."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Find the probability of a train being not late on any single day:\n$$P(\\text{not late}) = 0.12 + 0.60 = 0.72 \\quad \\text{(or } 1 - 0.28 = 0.72\\text{)}$$"
+            },
+            {
+              "step": 2,
+              "text": "Calculate the probability of not late on all 4 independent days:\n$$P(X = 4) = \\binom{4}{4}(0.72)^4(0.28)^0 = (0.72)^4 = 0.268738 \\dots \\approx 0.269 \\text{ (3 s.f.)}$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "Group the two non-late categories together into one combined success probability:\n$$p = 1 - 0.28 = 0.72$$"
+            },
+            {
+              "step": 2,
+              "text": "Because all 4 days must be non-late, raise $0.72$ to the power of 4:\n$$P(\\text{all 4}) = (0.72)^4 = 0.269$$"
+            }
+          ],
+          "checking": {
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_s1_t_discrete_random_variables_m03_l01_drq03_p01_c1",
+                "points": 1,
+                "observable": "Combines outcomes to find probability of not late: $p = 0.12 + 0.60 = 0.72$ (or $1 - 0.28 = 0.72$)."
+              },
+              {
+                "criterion_id": "9709_s1_t_discrete_random_variables_m03_l01_drq03_p01_c2",
+                "points": 1,
+                "observable": "Evaluates $(0.72)^4 \\approx 0.269$ (to 3 s.f.)."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_s1_t_discrete_random_variables_m03_l01_drq04",
+      "parts": [
+        {
+          "part_id": "9709_s1_t_discrete_random_variables_m03_l01_drq04_p01",
+          "difficulty": "easy",
+          "hints": [
+            "'At least 2' means $X \\ge 2$. Its complement is $X = 0$ or $X = 1$.",
+            "Compute $1 - [P(X = 0) + P(X = 1)] = 1 - [(0.75)^8 + 8(0.25)(0.75)^7]$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Set up the complement for the event $X \\ge 2$ with $X \\sim B(8, 0.25)$:\n$$P(X \\ge 2) = 1 - P(X = 0) - P(X = 1)$$"
+            },
+            {
+              "step": 2,
+              "text": "Evaluate the complement terms and subtract from 1:\n$$P(X = 0) = (0.75)^8 \\approx 0.100113$$\n$$P(X = 1) = \\binom{8}{1}(0.25)(0.75)^7 = 8(0.25)(0.133484) \\approx 0.266968$$\n$$P(X \\ge 2) = 1 - (0.100113 + 0.266968) = 0.632919 \\dots \\approx 0.633 \\text{ (3 s.f.)}$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "Instead of adding seven terms from 2 to 8, calculate the shorter complement consisting of 0 and 1:\n$$P(X \\ge 2) = 1 - P(X=0) - P(X=1)$$"
+            },
+            {
+              "step": 2,
+              "text": "Substitute the binomial probabilities and evaluate:\n$$P(X \\ge 2) = 1 - (0.75)^8 - 8(0.25)(0.75)^7 = 0.633$$"
+            }
+          ],
+          "checking": {
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_s1_t_discrete_random_variables_m03_l01_drq04_p01_c1",
+                "points": 1,
+                "observable": "Applies complement method $1 - P(X = 0) - P(X = 1) = 1 - (0.75)^8 - 8(0.25)(0.75)^7$."
+              },
+              {
+                "criterion_id": "9709_s1_t_discrete_random_variables_m03_l01_drq04_p01_c2",
+                "points": 1,
+                "observable": "Evaluates $1 - 0.100113 - 0.266968 \\approx 0.633$ (to 3 s.f.)."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_s1_t_discrete_random_variables_m03_l01_drq05",
+      "parts": [
+        {
+          "part_id": "9709_s1_t_discrete_random_variables_m03_l01_drq05_p01",
+          "difficulty": "easy",
+          "hints": [
+            "The probability of rolling a 4 is $p = \\frac{1}{6}$, and the failure probability is $\\frac{5}{6}$.",
+            "Compute $\\binom{5}{3}\\left(\\frac{1}{6}\\right)^3\\left(\\frac{5}{6}\\right)^2 = \\frac{10 \\times 25}{7776}$ and simplify the fraction."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Identify the binomial model for the number of fours rolled:\n$$X \\sim B\\left(5, \\frac{1}{6}\\right), \\quad P(X = 3) = \\binom{5}{3}\\left(\\frac{1}{6}\\right)^3\\left(\\frac{5}{6}\\right)^2$$"
+            },
+            {
+              "step": 2,
+              "text": "Evaluate the terms and simplify the fraction:\n$$\\binom{5}{3} = 10, \\quad \\left(\\frac{1}{6}\\right)^3 = \\frac{1}{216}, \\quad \\left(\\frac{5}{6}\\right)^2 = \\frac{25}{36}$$\n$$P(X = 3) = 10 \\times \\frac{1}{216} \\times \\frac{25}{36} = \\frac{250}{7776} = \\frac{125}{3888}$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "Write down the binomial formula with $n = 5$, $r = 3$, $p = \\frac{1}{6}$, and $q = \\frac{5}{6}$:\n$$P(X = 3) = \\binom{5}{3}\\left(\\frac{1}{6}\\right)^3\\left(\\frac{5}{6}\\right)^2$$"
+            },
+            {
+              "step": 2,
+              "text": "Calculate the numerator and denominator carefully to find the exact simplified fraction:\n$$P(X = 3) = \\frac{10 \\times 25}{7776} = \\frac{125}{3888}$$"
+            }
+          ],
+          "checking": {
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_s1_t_discrete_random_variables_m03_l01_drq05_p01_c1",
+                "points": 1,
+                "observable": "Substitutes into $B\\left(5, \\frac{1}{6}\\right)$ formula: $\\binom{5}{3}\\left(\\frac{1}{6}\\right)^3\\left(\\frac{5}{6}\\right)^2$."
+              },
+              {
+                "criterion_id": "9709_s1_t_discrete_random_variables_m03_l01_drq05_p01_c2",
+                "points": 1,
+                "observable": "Simplifies to exact fraction $\\frac{10 \\times 25}{7776} = \\frac{250}{7776} = \\frac{125}{3888}$."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_s1_t_discrete_random_variables_m03_l01_drq06",
+      "parts": [
+        {
+          "part_id": "9709_s1_t_discrete_random_variables_m03_l01_drq06_p01",
+          "difficulty": "easy",
+          "hints": [
+            "The event $X \\le 1$ includes exactly two mutually exclusive values: $X = 0$ and $X = 1$.",
+            "Evaluate $P(X = 0) = (0.8)^7$ and $P(X = 1) = 7(0.2)(0.8)^6$, then add them together."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Identify the two mutually exclusive values that satisfy $X \\le 1$:\n$$P(X \\le 1) = P(X = 0) + P(X = 1)$$"
+            },
+            {
+              "step": 2,
+              "text": "Calculate each binomial term and add:\n$$P(X = 0) = (0.8)^7 = 0.2097152$$\n$$P(X = 1) = \\binom{7}{1}(0.2)^1(0.8)^6 = 7 \\times 0.2 \\times 0.262144 = 0.3670016$$\n$$P(X \\le 1) = 0.2097152 + 0.3670016 = 0.5767168 \\approx 0.577 \\text{ (3 s.f.)}$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "Calculate the probability for 0 successes and 1 success separately:\n$$P(X=0) = (0.8)^7, \\quad P(X=1) = 7(0.2)(0.8)^6$$"
+            },
+            {
+              "step": 2,
+              "text": "Add the two probabilities together to get the cumulative result:\n$$P(X \\le 1) = 0.2097 + 0.3670 = 0.577$$"
+            }
+          ],
+          "checking": {
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_s1_t_discrete_random_variables_m03_l01_drq06_p01_c1",
+                "points": 1,
+                "observable": "Sets up sum of terms $P(X \\le 1) = P(X = 0) + P(X = 1) = (0.8)^7 + \\binom{7}{1}(0.2)(0.8)^6$."
+              },
+              {
+                "criterion_id": "9709_s1_t_discrete_random_variables_m03_l01_drq06_p01_c2",
+                "points": 1,
+                "observable": "Evaluates $0.2097152 + 0.3670016 = 0.5767168 \\approx 0.577$ (to 3 s.f.)."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_s1_t_discrete_random_variables_m03_l01_cpq01",
+      "parts": [
+        {
+          "part_id": "9709_s1_t_discrete_random_variables_m03_l01_cpq01_p01",
+          "difficulty": "easy",
+          "hints": [
+            "Substitute $n = 5$, $p = 0.35$, $1 - p = 0.65$, and $r = 2$ into the binomial formula.",
+            "Compute $10 \\times (0.35)^2 \\times (0.65)^3$ and round to 3 significant figures."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Set up the binomial formula for $X = 2$:\n$$P(X = 2) = \\binom{5}{2}(0.35)^2(0.65)^3$$"
+            },
+            {
+              "step": 2,
+              "text": "Evaluate the terms and round to 3 significant figures:\n$$\\binom{5}{2} = 10, \\quad (0.35)^2 = 0.1225, \\quad (0.65)^3 = 0.274625$$\n$$P(X = 2) = 10 \\times 0.1225 \\times 0.274625 = 0.336415 \\dots \\approx 0.336 \\text{ (3 s.f.)}$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "Write down the expression using 2 successes and 3 failures:\n$$P(X = 2) = \\binom{5}{2}(0.35)^2(0.65)^3$$"
+            },
+            {
+              "step": 2,
+              "text": "Evaluate the product and round to 3 significant figures:\n$$P(X = 2) = 10(0.1225)(0.274625) = 0.336$$"
+            }
+          ],
+          "checking": {
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_s1_t_discrete_random_variables_m03_l01_cpq01_p01_c1",
+                "points": 1,
+                "observable": "Substitutes into binomial formula $\\binom{5}{2}(0.35)^2(0.65)^3$."
+              },
+              {
+                "criterion_id": "9709_s1_t_discrete_random_variables_m03_l01_cpq01_p01_c2",
+                "points": 1,
+                "observable": "Calculates $10 \\times (0.1225) \\times (0.274625) \\approx 0.336$ (to 3 s.f.)."
+              }
+            ]
+          }
+        },
+        {
+          "part_id": "9709_s1_t_discrete_random_variables_m03_l01_cpq01_p02",
+          "difficulty": "easy",
+          "hints": [
+            "The complement of 'at least one success' is 'zero successes'.",
+            "Calculate $1 - (0.65)^5$ and round to 3 significant figures."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Use the complement rule to calculate $P(X \\ge 1)$:\n$$P(X \\ge 1) = 1 - P(X = 0) = 1 - \\binom{5}{0}(0.35)^0(0.65)^5 = 1 - (0.65)^5$$"
+            },
+            {
+              "step": 2,
+              "text": "Evaluate the result to 3 significant figures:\n$$(0.65)^5 \\approx 0.116029$$\n$$P(X \\ge 1) = 1 - 0.116029 = 0.883971 \\dots \\approx 0.884 \\text{ (3 s.f.)}$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "Notice that 'at least one' is fastest using the complement:\n$$P(X \\ge 1) = 1 - P(X = 0) = 1 - (0.65)^5$$"
+            },
+            {
+              "step": 2,
+              "text": "Subtract the zero-success probability from 1:\n$$P(X \\ge 1) = 1 - 0.1160 = 0.884$$"
+            }
+          ],
+          "checking": {
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_s1_t_discrete_random_variables_m03_l01_cpq01_p02_c1",
+                "points": 1,
+                "observable": "Uses the complement formula $P(X \\ge 1) = 1 - P(X = 0) = 1 - (0.65)^5$."
+              },
+              {
+                "criterion_id": "9709_s1_t_discrete_random_variables_m03_l01_cpq01_p02_c2",
+                "points": 1,
+                "observable": "Evaluates $1 - 0.116029 \\approx 0.884$ (to 3 s.f.)."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_s1_t_discrete_random_variables_m03_l01_cpq02",
+      "parts": [
+        {
+          "part_id": "9709_s1_t_discrete_random_variables_m03_l01_cpq02_p01",
+          "difficulty": "easy",
+          "hints": [
+            "With 4 options per question, the probability of a correct guess is $p = \\frac{1}{4} = 0.25$.",
+            "Calculate $P(X = 3) = \\binom{6}{3}(0.25)^3(0.75)^3$ and round to 3 significant figures."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "State the binomial distribution for the number of correct guesses $X$:\n$$X \\sim B(6, 0.25), \\quad p = 0.25, \\quad 1 - p = 0.75$$"
+            },
+            {
+              "step": 2,
+              "text": "Calculate $P(X = 3)$:\n$$P(X = 3) = \\binom{6}{3}(0.25)^3(0.75)^3 = 20 \\times 0.015625 \\times 0.421875 = 0.131836 \\dots \\approx 0.132 \\text{ (3 s.f.)}$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "Determine the single-question probability: 1 correct option out of 4 gives $p = 0.25$:\n$$P(X = 3) = \\binom{6}{3}(0.25)^3(0.75)^3$$"
+            },
+            {
+              "step": 2,
+              "text": "Compute the probability and round to 3 significant figures:\n$$P(X = 3) = 20(0.015625)(0.421875) = 0.132$$"
+            }
+          ],
+          "checking": {
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_s1_t_discrete_random_variables_m03_l01_cpq02_p01_c1",
+                "points": 1,
+                "observable": "Sets up binomial model $X \\sim B(6, 0.25)$ and writes $\\binom{6}{3}(0.25)^3(0.75)^3$."
+              },
+              {
+                "criterion_id": "9709_s1_t_discrete_random_variables_m03_l01_cpq02_p01_c2",
+                "points": 1,
+                "observable": "Evaluates $20 \\times \\left(\\frac{1}{64}\\right) \\times \\left(\\frac{27}{64}\\right) = \\frac{540}{4096} \\approx 0.132$ (to 3 s.f.)."
+              }
+            ]
+          }
+        },
+        {
+          "part_id": "9709_s1_t_discrete_random_variables_m03_l01_cpq02_p02",
+          "difficulty": "easy",
+          "hints": [
+            "Passing requires at least 4 correct answers, so add the probabilities for $X = 4$, $X = 5$, and $X = 6$.",
+            "Compute each term: $P(4) = 15(0.25)^4(0.75)^2$, $P(5) = 6(0.25)^5(0.75)$, and $P(6) = (0.25)^6$, then sum."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Set up the sum of probabilities for the event $X \\ge 4$:\n$$P(X \\ge 4) = P(X = 4) + P(X = 5) + P(X = 6)$$"
+            },
+            {
+              "step": 2,
+              "text": "Evaluate each binomial term:\n$$P(X = 4) = \\binom{6}{4}(0.25)^4(0.75)^2 = 15 \\times \\frac{9}{4096} = \\frac{135}{4096}$$\n$$P(X = 5) = \\binom{6}{5}(0.25)^5(0.75)^1 = 6 \\times \\frac{3}{4096} = \\frac{18}{4096}$$\n$$P(X = 6) = \\binom{6}{6}(0.25)^6(0.75)^0 = 1 \\times \\frac{1}{4096} = \\frac{1}{4096}$$"
+            },
+            {
+              "step": 3,
+              "text": "Sum the probabilities and round to 3 significant figures:\n$$P(X \\ge 4) = \\frac{135 + 18 + 1}{4096} = \\frac{154}{4096} \\approx 0.037597 \\dots = 0.0376 \\text{ (3 s.f.)}$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "Translate 'at least 4' into the three mutually exclusive outcomes $X = 4, 5, 6$:\n$$P(X \\ge 4) = P(X=4) + P(X=5) + P(X=6)$$"
+            },
+            {
+              "step": 2,
+              "text": "Calculate each term using common denominator $4^6 = 4096$:\n$$P(4) = \\frac{135}{4096}, \\quad P(5) = \\frac{18}{4096}, \\quad P(6) = \\frac{1}{4096}$$"
+            },
+            {
+              "step": 3,
+              "text": "Add the fractions to find the probability of passing:\n$$P(X \\ge 4) = \\frac{154}{4096} \\approx 0.0376$$"
+            }
+          ],
+          "checking": {
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_s1_t_discrete_random_variables_m03_l01_cpq02_p02_c1",
+                "points": 1,
+                "observable": "Identifies that passing requires $P(X \\ge 4) = P(X = 4) + P(X = 5) + P(X = 6)$."
+              },
+              {
+                "criterion_id": "9709_s1_t_discrete_random_variables_m03_l01_cpq02_p02_c2",
+                "points": 1,
+                "observable": "Calculates the individual terms: $\\binom{6}{4}(0.25)^4(0.75)^2 + \\binom{6}{5}(0.25)^5(0.75)^1 + (0.25)^6$."
+              },
+              {
+                "criterion_id": "9709_s1_t_discrete_random_variables_m03_l01_cpq02_p02_c3",
+                "points": 1,
+                "observable": "Obtains total probability $\\frac{135 + 18 + 1}{4096} = \\frac{154}{4096} \\approx 0.0376$ (or $0.038$ to 3 s.f.)."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_s1_t_discrete_random_variables_m03_l01_cpq03",
+      "parts": [
+        {
+          "part_id": "9709_s1_t_discrete_random_variables_m03_l01_cpq03_p01",
+          "difficulty": "medium",
+          "hints": [
+            "Inclusive endpoints mean including 5, 6, and 7.",
+            "Calculate $P(X = 5) = \\binom{10}{5}(0.6)^5(0.4)^5$, $P(X = 6) = \\binom{10}{6}(0.6)^6(0.4)^4$, and $P(X = 7) = \\binom{10}{7}(0.6)^7(0.4)^3$.",
+            "Sum the three probabilities and round to 3 significant figures."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Express the probability of the inclusive range as the sum of three terms:\n$$P(5 \\le X \\le 7) = P(X = 5) + P(X = 6) + P(X = 7)$$"
+            },
+            {
+              "step": 2,
+              "text": "Calculate each binomial term with $n = 10, p = 0.6, q = 0.4$:\n$$P(X = 5) = \\binom{10}{5}(0.6)^5(0.4)^5 = 252 \\times 0.07776 \\times 0.01024 \\approx 0.200658$$\n$$P(X = 6) = \\binom{10}{6}(0.6)^6(0.4)^4 = 210 \\times 0.046656 \\times 0.0256 \\approx 0.250823$$\n$$P(X = 7) = \\binom{10}{7}(0.6)^7(0.4)^3 = 120 \\times 0.0279936 \\times 0.064 \\approx 0.214991$$\n$$P(5 \\le X \\le 7) = 0.200658 + 0.250823 + 0.214991 = 0.666472 \\approx 0.666 \\text{ (3 s.f.)}$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "Include all integers from 5 to 7: $X = 5, 6, 7$:\n$$P(5 \\le X \\le 7) = P(5) + P(6) + P(7)$$"
+            },
+            {
+              "step": 2,
+              "text": "Evaluate each term and add them:\n$$P(5 \\le X \\le 7) = 0.2007 + 0.2508 + 0.2150 = 0.666$$"
+            }
+          ],
+          "checking": {
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_s1_t_discrete_random_variables_m03_l01_cpq03_p01_c1",
+                "points": 1,
+                "observable": "Sets up sum of three terms $P(X = 5) + P(X = 6) + P(X = 7)$ with $n = 10$ and $p = 0.6$."
+              },
+              {
+                "criterion_id": "9709_s1_t_discrete_random_variables_m03_l01_cpq03_p01_c2",
+                "points": 1,
+                "observable": "Calculates $0.200658 + 0.250823 + 0.214991 = 0.666472 \\approx 0.666$ (to 3 s.f.)."
+              }
+            ]
+          }
+        },
+        {
+          "part_id": "9709_s1_t_discrete_random_variables_m03_l01_cpq03_p02",
+          "difficulty": "medium",
+          "hints": [
+            "'Strictly greater than 8' does not include 8. The only possible values are $X = 9$ and $X = 10$.",
+            "Compute $P(X = 9) = 10(0.6)^9(0.4)$ and $P(X = 10) = (0.6)^{10}$.",
+            "Sum the two probabilities and round to 3 significant figures."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Identify the outcomes satisfying $X > 8$ for $n = 10$:\n$$P(X > 8) = P(X = 9) + P(X = 10)$$"
+            },
+            {
+              "step": 2,
+              "text": "Calculate each probability:\n$$P(X = 9) = \\binom{10}{9}(0.6)^9(0.4)^1 = 10 \\times 0.0100777 \\times 0.4 \\approx 0.0403108$$\n$$P(X = 10) = \\binom{10}{10}(0.6)^{10}(0.4)^0 = (0.6)^{10} \\approx 0.0060466$$"
+            },
+            {
+              "step": 3,
+              "text": "Sum the probabilities and round to 3 significant figures:\n$$P(X > 8) = 0.0403108 + 0.0060466 = 0.0463574 \\dots \\approx 0.0464 \\text{ (3 s.f.)}$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "Be careful with strict inequality: $X > 8$ means $X = 9$ or $X = 10$:\n$$P(X > 8) = P(X = 9) + P(X = 10)$$"
+            },
+            {
+              "step": 2,
+              "text": "Calculate the two exact tail probabilities:\n$$P(X = 9) = 10(0.6)^9(0.4) = 0.04031, \\quad P(X = 10) = (0.6)^{10} = 0.00605$$"
+            },
+            {
+              "step": 3,
+              "text": "Add the probabilities together:\n$$P(X > 8) = 0.04031 + 0.00605 = 0.0464$$"
+            }
+          ],
+          "checking": {
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_s1_t_discrete_random_variables_m03_l01_cpq03_p02_c1",
+                "points": 1,
+                "observable": "Identifies that $P(X > 8) = P(X = 9) + P(X = 10)$."
+              },
+              {
+                "criterion_id": "9709_s1_t_discrete_random_variables_m03_l01_cpq03_p02_c2",
+                "points": 1,
+                "observable": "Substitutes into formula: $\\binom{10}{9}(0.6)^9(0.4)^1 + (0.6)^{10}$."
+              },
+              {
+                "criterion_id": "9709_s1_t_discrete_random_variables_m03_l01_cpq03_p02_c3",
+                "points": 1,
+                "observable": "Evaluates $0.040311 + 0.006047 = 0.046358 \\approx 0.0464$ (to 3 s.f.)."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_s1_t_discrete_random_variables_m03_l01_cpq04",
+      "parts": [
+        {
+          "part_id": "9709_s1_t_discrete_random_variables_m03_l01_cpq04_p01",
+          "difficulty": "medium",
+          "hints": [
+            "Let $X$ be the number of flawed components: $X \\sim B(12, 0.08)$.",
+            "The failure probability (non-flawed) is $1 - 0.08 = 0.92$.",
+            "Compute $P(X = 1) = 12(0.08)(0.92)^{11}$ and round to 3 significant figures."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Define the distribution of the number of flawed components $X$:\n$$X \\sim B(12, 0.08), \\quad n = 12, \\quad p = 0.08, \\quad 1 - p = 0.92$$"
+            },
+            {
+              "step": 2,
+              "text": "Apply the binomial formula for $X = 1$:\n$$P(X = 1) = \\binom{12}{1}(0.08)^1(0.92)^{11}$$"
+            },
+            {
+              "step": 3,
+              "text": "Evaluate the probability to 3 significant figures:\n$$(0.92)^{11} \\approx 0.399637$$\n$$P(X = 1) = 12 \\times 0.08 \\times 0.399637 = 0.383652 \\dots \\approx 0.384 \\text{ (3 s.f.)}$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "First, establish the binomial model:\n$$X \\sim B(12, 0.08)$$"
+            },
+            {
+              "step": 2,
+              "text": "Substitute $r = 1$ into the binomial formula:\n$$P(X = 1) = \\binom{12}{1}(0.08)^1(0.92)^{11}$$"
+            },
+            {
+              "step": 3,
+              "text": "Calculate the final probability to 3 significant figures:\n$$P(X = 1) = 0.384$$"
+            }
+          ],
+          "checking": {
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_s1_t_discrete_random_variables_m03_l01_cpq04_p01_c1",
+                "points": 1,
+                "observable": "States binomial model $X \\sim B(12, 0.08)$ where $X$ is the number of flawed components."
+              },
+              {
+                "criterion_id": "9709_s1_t_discrete_random_variables_m03_l01_cpq04_p01_c2",
+                "points": 1,
+                "observable": "Substitutes into formula: $P(X = 1) = \\binom{12}{1}(0.08)^1(0.92)^{11}$."
+              },
+              {
+                "criterion_id": "9709_s1_t_discrete_random_variables_m03_l01_cpq04_p01_c3",
+                "points": 1,
+                "observable": "Evaluates $12 \\times 0.08 \\times (0.92)^{11} \\approx 0.384$ (to 3 s.f.)."
+              }
+            ]
+          }
+        },
+        {
+          "part_id": "9709_s1_t_discrete_random_variables_m03_l01_cpq04_p02",
+          "difficulty": "medium",
+          "hints": [
+            "'At most 2' means $X = 0, 1, 2$.",
+            "Calculate $P(X = 0) = (0.92)^{12}$ and $P(X = 2) = 66(0.08)^2(0.92)^{10}$.",
+            "Add $P(X = 0)$, $P(X = 1)$ from part (a), and $P(X = 2)$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Write down the expression for $P(X \\le 2)$:\n$$P(X \\le 2) = P(X = 0) + P(X = 1) + P(X = 2)$$"
+            },
+            {
+              "step": 2,
+              "text": "Calculate $P(X = 0)$ and $P(X = 2)$:\n$$P(X = 0) = (0.92)^{12} \\approx 0.367666$$\n$$P(X = 2) = \\binom{12}{2}(0.08)^2(0.92)^{10} = 66 \\times 0.0064 \\times 0.434388 \\approx 0.183486$$"
+            },
+            {
+              "step": 3,
+              "text": "Combine with $P(X = 1) \\approx 0.383652$ from part (a):\n$$P(X \\le 2) = 0.367666 + 0.383652 + 0.183486 = 0.934804 \\dots \\approx 0.935 \\text{ (3 s.f.)}$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "'At most 2' means summing the probabilities for 0, 1, and 2 flawed items:\n$$P(X \\le 2) = P(0) + P(1) + P(2)$$"
+            },
+            {
+              "step": 2,
+              "text": "Compute each term:\n$$P(0) = (0.92)^{12} \\approx 0.368, \\quad P(1) \\approx 0.384, \\quad P(2) = 66(0.08)^2(0.92)^{10} \\approx 0.183$$"
+            },
+            {
+              "step": 3,
+              "text": "Add all three probabilities to find the answer:\n$$P(X \\le 2) = 0.935$$"
+            }
+          ],
+          "checking": {
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_s1_t_discrete_random_variables_m03_l01_cpq04_p02_c1",
+                "points": 1,
+                "observable": "Identifies $P(X \\le 2) = P(X = 0) + P(X = 1) + P(X = 2)$."
+              },
+              {
+                "criterion_id": "9709_s1_t_discrete_random_variables_m03_l01_cpq04_p02_c2",
+                "points": 1,
+                "observable": "Calculates $P(X = 0) = (0.92)^{12}$ and $P(X = 2) = \\binom{12}{2}(0.08)^2(0.92)^{10}$."
+              },
+              {
+                "criterion_id": "9709_s1_t_discrete_random_variables_m03_l01_cpq04_p02_c3",
+                "points": 1,
+                "observable": "Sums terms: $0.367666 + 0.383652 + 0.183486 = 0.934804 \\approx 0.935$ (to 3 s.f.)."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_s1_t_discrete_random_variables_m03_l01_cpq05",
+      "parts": [
+        {
+          "part_id": "9709_s1_t_discrete_random_variables_m03_l01_cpq05_p01",
+          "difficulty": "medium",
+          "hints": [
+            "Model the number of bullseyes as $X \\sim B(7, 0.45)$.",
+            "At least 5 hits means $X = 5, 6, 7$.",
+            "Compute each term: $P(5) = \\binom{7}{5}(0.45)^5(0.55)^2$, $P(6) = \\binom{7}{6}(0.45)^6(0.55)$, $P(7) = (0.45)^7$, then sum."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Define the distribution for the number of bullseyes $X$:\n$$X \\sim B(7, 0.45), \\quad n = 7, \\quad p = 0.45, \\quad 1 - p = 0.55$$"
+            },
+            {
+              "step": 2,
+              "text": "Evaluate the terms for $X = 5, 6, 7$:\n$$P(X = 5) = \\binom{7}{5}(0.45)^5(0.55)^2 = 21 \\times 0.018453 \\times 0.3025 \\approx 0.117218$$\n$$P(X = 6) = \\binom{7}{6}(0.45)^6(0.55)^1 = 7 \\times 0.008304 \\times 0.55 \\approx 0.031969$$\n$$P(X = 7) = \\binom{7}{7}(0.45)^7(0.55)^0 = (0.45)^7 \\approx 0.003741$$"
+            },
+            {
+              "step": 3,
+              "text": "Sum the probabilities and round to 3 significant figures:\n$$P(X \\ge 5) = 0.117218 + 0.031969 + 0.003741 = 0.152928 \\approx 0.153 \\text{ (3 s.f.)}$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "State the model $X \\sim B(7, 0.45)$ and identify the outcomes for 'at least 5':\n$$P(X \\ge 5) = P(X = 5) + P(X = 6) + P(X = 7)$$"
+            },
+            {
+              "step": 2,
+              "text": "Calculate the three probabilities:\n$$P(5) = 0.1172, \\quad P(6) = 0.0320, \\quad P(7) = 0.0037$$"
+            },
+            {
+              "step": 3,
+              "text": "Add them together:\n$$P(X \\ge 5) = 0.153$$"
+            }
+          ],
+          "checking": {
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_s1_t_discrete_random_variables_m03_l01_cpq05_p01_c1",
+                "points": 1,
+                "observable": "States $X \\sim B(7, 0.45)$ where $X$ is the number of bullseyes hit."
+              },
+              {
+                "criterion_id": "9709_s1_t_discrete_random_variables_m03_l01_cpq05_p01_c2",
+                "points": 1,
+                "observable": "Sets up sum $P(X \\ge 5) = P(X = 5) + P(X = 6) + P(X = 7)$ with binomial formula terms."
+              },
+              {
+                "criterion_id": "9709_s1_t_discrete_random_variables_m03_l01_cpq05_p01_c3",
+                "points": 1,
+                "observable": "Evaluates $0.117218 + 0.031969 + 0.003741 = 0.152928 \\approx 0.153$ (to 3 s.f.)."
+              }
+            ]
+          }
+        },
+        {
+          "part_id": "9709_s1_t_discrete_random_variables_m03_l01_cpq05_p02",
+          "difficulty": "medium",
+          "hints": [
+            "Recall the definition of conditional probability: $P(A \\mid B) = \\frac{P(A \\cap B)}{P(B)}$.",
+            "Here $A \\cap B$ is the single event $X = 6$, and $B$ is the event $X \\ge 5$.",
+            "Divide $P(X = 6)$ by $P(X \\ge 5)$ using unrounded intermediate values."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Set up the conditional probability definition:\n$$P(X = 6 \\mid X \\ge 5) = \\frac{P(X = 6 \\text{ and } X \\ge 5)}{P(X \\ge 5)} = \\frac{P(X = 6)}{P(X \\ge 5)}$$"
+            },
+            {
+              "step": 2,
+              "text": "Substitute the unrounded probabilities calculated in part (a):\n$$P(X = 6) = 0.0319686$$\n$$P(X \\ge 5) = 0.1529277$$"
+            },
+            {
+              "step": 3,
+              "text": "Compute the conditional probability and round to 3 significant figures:\n$$P(X = 6 \\mid X \\ge 5) = \\frac{0.0319686}{0.1529277} \\approx 0.209050 \\dots = 0.209 \\text{ (3 s.f.)}$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "The condition restricts our sample space to the event $X \\ge 5$:\n$$P(X = 6 \\mid X \\ge 5) = \\frac{P(X = 6)}{P(X \\ge 5)}$$"
+            },
+            {
+              "step": 2,
+              "text": "Divide the probability of hitting 6 bullseyes by the probability of hitting at least 5:\n$$\\frac{0.031969}{0.152928}$$"
+            },
+            {
+              "step": 3,
+              "text": "Evaluate the ratio to 3 significant figures:\n$$P(X = 6 \\mid X \\ge 5) = 0.209$$"
+            }
+          ],
+          "checking": {
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_s1_t_discrete_random_variables_m03_l01_cpq05_p02_c1",
+                "points": 1,
+                "observable": "Applies conditional probability formula $P(X = 6 \\mid X \\ge 5) = \\frac{P(X = 6)}{P(X \\ge 5)}$."
+              },
+              {
+                "criterion_id": "9709_s1_t_discrete_random_variables_m03_l01_cpq05_p02_c2",
+                "points": 1,
+                "observable": "Substitutes unrounded values: $\\frac{0.0319686}{0.1529277}$."
+              },
+              {
+                "criterion_id": "9709_s1_t_discrete_random_variables_m03_l01_cpq05_p02_c3",
+                "points": 1,
+                "observable": "Evaluates quotient to obtain $0.209$ (to 3 s.f.)."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_s1_t_discrete_random_variables_m03_l01_cpq06",
+      "parts": [
+        {
+          "part_id": "9709_s1_t_discrete_random_variables_m03_l01_cpq06_p01",
+          "difficulty": "hard",
+          "hints": [
+            "Let $X$ be the number of defective components in a box: $X \\sim B(9, 0.15)$.",
+            "The probability of non-defective is $1 - 0.15 = 0.85$.",
+            "Evaluate $\\binom{9}{2}(0.15)^2(0.85)^7 = 36(0.0225)(0.85)^7$.",
+            "Round the resulting value to 3 significant figures."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "State the binomial distribution for the number of defective components $X$:\n$$X \\sim B(9, 0.15), \\quad n = 9, \\quad p = 0.15, \\quad 1 - p = 0.85$$"
+            },
+            {
+              "step": 2,
+              "text": "Calculate $P(X = 2)$:\n$$P(X = 2) = \\binom{9}{2}(0.15)^2(0.85)^7 = 36 \\times 0.0225 \\times 0.320577 = 0.259667 \\dots \\approx 0.260 \\text{ (3 s.f.)}$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "Identify the model parameters: 9 components, probability of defective $0.15$:\n$$P(X = 2) = \\binom{9}{2}(0.15)^2(0.85)^7$$"
+            },
+            {
+              "step": 2,
+              "text": "Evaluate the terms and round to 3 significant figures:\n$$P(X = 2) = 36(0.0225)(0.320577) = 0.260$$"
+            }
+          ],
+          "checking": {
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_s1_t_discrete_random_variables_m03_l01_cpq06_p01_c1",
+                "points": 1,
+                "observable": "Substitutes into binomial formula $X \\sim B(9, 0.15)$ to get $\\binom{9}{2}(0.15)^2(0.85)^7$."
+              },
+              {
+                "criterion_id": "9709_s1_t_discrete_random_variables_m03_l01_cpq06_p01_c2",
+                "points": 1,
+                "observable": "Calculates $36 \\times 0.0225 \\times 0.320577 \\approx 0.260$ (to 3 s.f.)."
+              }
+            ]
+          }
+        },
+        {
+          "part_id": "9709_s1_t_discrete_random_variables_m03_l01_cpq06_p02",
+          "difficulty": "hard",
+          "hints": [
+            "A box is accepted if $X = 0$ or $X = 1$.",
+            "Evaluate $P(X = 0) = (0.85)^9$ and $P(X = 1) = 9(0.15)(0.85)^8$.",
+            "Add the two probabilities together.",
+            "Show that the sum rounds to $0.599$ as required."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Express the acceptance condition as $P(X \\le 1)$:\n$$P(\\text{box accepted}) = P(X = 0) + P(X = 1)$$"
+            },
+            {
+              "step": 2,
+              "text": "Evaluate the probabilities for 0 defectives and 1 defective:\n$$P(X = 0) = (0.85)^9 \\approx 0.231617$$\n$$P(X = 1) = \\binom{9}{1}(0.15)^1(0.85)^8 = 9 \\times 0.15 \\times 0.272491 \\approx 0.367862$$"
+            },
+            {
+              "step": 3,
+              "text": "Sum the probabilities and verify the 3 significant figure value:\n$$P(X \\le 1) = 0.231617 + 0.367862 = 0.599479 \\dots \\approx 0.599 \\text{ (3 s.f.)}$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "A box passes inspection if there are 0 or 1 defectives:\n$$P(X \\le 1) = P(X = 0) + P(X = 1)$$"
+            },
+            {
+              "step": 2,
+              "text": "Calculate each term:\n$$P(0) = (0.85)^9 = 0.2316, \\quad P(1) = 9(0.15)(0.85)^8 = 0.3679$$"
+            },
+            {
+              "step": 3,
+              "text": "Add them to confirm the required result:\n$$P(\\text{accepted}) = 0.2316 + 0.3679 = 0.599$$"
+            }
+          ],
+          "checking": {
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_s1_t_discrete_random_variables_m03_l01_cpq06_p02_c1",
+                "points": 1,
+                "observable": "Identifies that acceptance requires $P(X \\le 1) = P(X = 0) + P(X = 1)$."
+              },
+              {
+                "criterion_id": "9709_s1_t_discrete_random_variables_m03_l01_cpq06_p02_c2",
+                "points": 1,
+                "observable": "Calculates $P(X = 0) = (0.85)^9$ and $P(X = 1) = \\binom{9}{1}(0.15)(0.85)^8$."
+              },
+              {
+                "criterion_id": "9709_s1_t_discrete_random_variables_m03_l01_cpq06_p02_c3",
+                "points": 1,
+                "observable": "Shows sum $0.231617 + 0.367862 = 0.599479 \\dots = 0.599$ (to 3 s.f.)."
+              }
+            ]
+          }
+        },
+        {
+          "part_id": "9709_s1_t_discrete_random_variables_m03_l01_cpq06_p03",
+          "difficulty": "hard",
+          "hints": [
+            "This is a two-stage problem: let $Y$ be the number of accepted boxes among 5 boxes.",
+            "Here $Y \\sim B(5, p)$ where $p = 0.59948$ from part (b).",
+            "'At least 4 boxes' means $Y = 4$ or $Y = 5$.",
+            "Compute $P(Y = 4) + P(Y = 5) = 5(p)^4(1 - p) + p^5$ using the unrounded probability."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Define a secondary binomial variable $Y$ for the number of accepted boxes out of 5:\n$$Y \\sim B(5, p_a), \\quad \\text{where } p_a \\approx 0.599479, \\quad 1 - p_a \\approx 0.400521$$"
+            },
+            {
+              "step": 2,
+              "text": "Set up the probability of at least 4 accepted boxes:\n$$P(Y \\ge 4) = P(Y = 4) + P(Y = 5) = \\binom{5}{4}(p_a)^4(1 - p_a)^1 + \\binom{5}{5}(p_a)^5$$"
+            },
+            {
+              "step": 3,
+              "text": "Evaluate the terms and round to 3 significant figures:\n$$P(Y = 4) = 5 \\times (0.599479)^4 \\times 0.400521 \\approx 0.258330$$\n$$P(Y = 5) = (0.599479)^5 \\approx 0.077731$$\n$$P(Y \\ge 4) = 0.258330 + 0.077731 = 0.336061 \\dots \\approx 0.336 \\text{ (3 s.f.)}$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "Notice that this creates a second binomial distribution where each 'trial' is now an entire box:\n$$Y \\sim B(5, 0.59948)$$"
+            },
+            {
+              "step": 2,
+              "text": "Find the probabilities for 4 and 5 accepted boxes:\n$$P(Y = 4) = 5(0.59948)^4(0.40052) = 0.2583, \\quad P(Y = 5) = (0.59948)^5 = 0.0777$$"
+            },
+            {
+              "step": 3,
+              "text": "Sum the two values to get the overall probability:\n$$P(Y \\ge 4) = 0.2583 + 0.0777 = 0.336$$"
+            }
+          ],
+          "checking": {
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_s1_t_discrete_random_variables_m03_l01_cpq06_p03_c1",
+                "points": 1,
+                "observable": "Defines new binomial model $Y \\sim B(5, p_a)$ where $p_a \\approx 0.59948$ is the probability that a box is accepted."
+              },
+              {
+                "criterion_id": "9709_s1_t_discrete_random_variables_m03_l01_cpq06_p03_c2",
+                "points": 1,
+                "observable": "Sets up $P(Y \\ge 4) = P(Y = 4) + P(Y = 5) = \\binom{5}{4}(p_a)^4(1 - p_a) + (p_a)^5$."
+              },
+              {
+                "criterion_id": "9709_s1_t_discrete_random_variables_m03_l01_cpq06_p03_c3",
+                "points": 1,
+                "observable": "Evaluates $5(0.59948)^4(0.40052) + (0.59948)^5 = 0.2583 + 0.0777 = 0.336$ (to 3 s.f.)."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_s1_t_discrete_random_variables_m03_l01_cpq07",
+      "parts": [
+        {
+          "part_id": "9709_s1_t_discrete_random_variables_m03_l01_cpq07_p01",
+          "difficulty": "hard",
+          "hints": [
+            "There are 10 ticket holders, each showing up with probability $p = 0.8$, so $X \\sim B(10, 0.8)$.",
+            "With 8 seats available, the flight is overbooked if more than 8 passengers show up: $X = 9$ or $X = 10$.",
+            "Compute $P(X = 9) = 10(0.8)^9(0.2)$ and $P(X = 10) = (0.8)^{10}$.",
+            "Sum the two terms and round to 3 significant figures."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "State the binomial distribution for the number of passengers showing up $X$:\n$$X \\sim B(10, 0.8), \\quad n = 10, \\quad p = 0.8, \\quad 1 - p = 0.2$$"
+            },
+            {
+              "step": 2,
+              "text": "The flight has only 8 seats, so overbooking occurs if $X > 8$, which means $X = 9$ or $X = 10$:\n$$P(X > 8) = P(X = 9) + P(X = 10)$$"
+            },
+            {
+              "step": 3,
+              "text": "Evaluate each binomial term and add:\n$$P(X = 9) = \\binom{10}{9}(0.8)^9(0.2)^1 = 10 \\times 0.134218 \\times 0.2 = 0.268435$$\n$$P(X = 10) = \\binom{10}{10}(0.8)^{10}(0.2)^0 = (0.8)^{10} = 0.107374$$\n$$P(X > 8) = 0.268435 + 0.107374 = 0.375810 \\dots \\approx 0.376 \\text{ (3 s.f.)}$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "Write down the model: 10 independent passengers with show-up probability $0.8$:\n$$X \\sim B(10, 0.8)$$"
+            },
+            {
+              "step": 2,
+              "text": "Overbooking means there are more passengers than seats ($X = 9$ or $X = 10$):\n$$P(X > 8) = \\binom{10}{9}(0.8)^9(0.2) + (0.8)^{10}$$"
+            },
+            {
+              "step": 3,
+              "text": "Compute the sum of the two terms:\n$$P(X > 8) = 0.2684 + 0.1074 = 0.376$$"
+            }
+          ],
+          "checking": {
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_s1_t_discrete_random_variables_m03_l01_cpq07_p01_c1",
+                "points": 1,
+                "observable": "Identifies binomial distribution $X \\sim B(10, 0.8)$."
+              },
+              {
+                "criterion_id": "9709_s1_t_discrete_random_variables_m03_l01_cpq07_p01_c2",
+                "points": 1,
+                "observable": "Sets up overbooking probability $P(X > 8) = P(X = 9) + P(X = 10) = \\binom{10}{9}(0.8)^9(0.2)^1 + (0.8)^{10}$."
+              },
+              {
+                "criterion_id": "9709_s1_t_discrete_random_variables_m03_l01_cpq07_p01_c3",
+                "points": 1,
+                "observable": "Calculates $0.268435 + 0.107374 = 0.375810 \\approx 0.376$ (to 3 s.f.)."
+              }
+            ]
+          }
+        },
+        {
+          "part_id": "9709_s1_t_discrete_random_variables_m03_l01_cpq07_p02",
+          "difficulty": "hard",
+          "hints": [
+            "There are 8 seats. At least one seat is empty if strictly fewer than 8 passengers show up: $X \\le 7$.",
+            "It is faster to use the complement: $P(X \\le 7) = 1 - P(X \\ge 8) = 1 - [P(8) + P(9) + P(10)]$.",
+            "Calculate $P(X = 8) = 45(0.8)^8(0.2)^2 \\approx 0.301990$.",
+            "Subtract $P(X \\ge 8)$ from 1 to obtain the required probability."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Translate the event: at least one seat empty means strictly fewer than 8 passengers arrive, which is $X \\le 7$:\n$$P(\\text{empty seat}) = P(X \\le 7) = 1 - P(X \\ge 8) = 1 - [P(X = 8) + P(X = 9) + P(X = 10)]$$"
+            },
+            {
+              "step": 2,
+              "text": "Calculate $P(X = 8)$:\n$$P(X = 8) = \\binom{10}{8}(0.8)^8(0.2)^2 = 45 \\times 0.167772 \\times 0.04 = 0.301990$$"
+            },
+            {
+              "step": 3,
+              "text": "Subtract the sum of probabilities for 8, 9, and 10 passengers from 1:\n$$P(X \\ge 8) = P(X = 8) + P(X > 8) = 0.301990 + 0.375810 = 0.677800$$\n$$P(X \\le 7) = 1 - 0.677800 = 0.322200 \\approx 0.322 \\text{ (3 s.f.)}$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "If at least one seat is empty, the number of passengers must be 7 or fewer:\n$$P(X \\le 7) = 1 - P(X \\ge 8)$$"
+            },
+            {
+              "step": 2,
+              "text": "We already know $P(X > 8) = 0.3758$ from part (a), so we only need to compute $P(X = 8)$:\n$$P(X = 8) = \\binom{10}{8}(0.8)^8(0.2)^2 = 0.3020$$"
+            },
+            {
+              "step": 3,
+              "text": "Subtract the combined probability of 8, 9, and 10 passengers from 1:\n$$P(X \\le 7) = 1 - (0.3020 + 0.3758) = 0.322$$"
+            }
+          ],
+          "checking": {
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_s1_t_discrete_random_variables_m03_l01_cpq07_p02_c1",
+                "points": 1,
+                "observable": "Recognises that at least one seat is empty if $X < 8$, or $X \\le 7$, which is $1 - P(X \\ge 8)$."
+              },
+              {
+                "criterion_id": "9709_s1_t_discrete_random_variables_m03_l01_cpq07_p02_c2",
+                "points": 1,
+                "observable": "Calculates $P(X = 8) = \\binom{10}{8}(0.8)^8(0.2)^2 = 45 \\times 0.167772 \\times 0.04 = 0.301990$."
+              },
+              {
+                "criterion_id": "9709_s1_t_discrete_random_variables_m03_l01_cpq07_p02_c3",
+                "points": 1,
+                "observable": "Evaluates $1 - (0.301990 + 0.375810) = 1 - 0.677800 = 0.322200 \\approx 0.322$ (to 3 s.f.)."
+              }
+            ]
+          }
+        },
+        {
+          "part_id": "9709_s1_t_discrete_random_variables_m03_l01_cpq07_p03",
+          "difficulty": "hard",
+          "hints": [
+            "There are 8 seats. If at least 8 passengers show up, everyone gets a seat if and only if exactly 8 show up.",
+            "Form the conditional probability: $P(X = 8 \\mid X \\ge 8) = \\frac{P(X = 8)}{P(X \\ge 8)}$.",
+            "We have $P(X = 8) \\approx 0.30199$ and $P(X \\ge 8) = P(8) + P(9) + P(10) \\approx 0.67780$.",
+            "Divide $0.30199$ by $0.67780$ and round to 3 significant figures."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Interpret the conditional event: given that at least 8 show up ($X \\ge 8$), every passenger gets a seat if exactly 8 show up ($X = 8$):\n$$P(\\text{everyone gets seat} \\mid X \\ge 8) = P(X = 8 \\mid X \\ge 8) = \\frac{P(X = 8)}{P(X \\ge 8)}$$"
+            },
+            {
+              "step": 2,
+              "text": "Retrieve the unrounded components from parts (a) and (b):\n$$P(X = 8) = 0.3019899$$\n$$P(X \\ge 8) = 0.6777995$$"
+            },
+            {
+              "step": 3,
+              "text": "Calculate the conditional probability:\n$$P(X = 8 \\mid X \\ge 8) = \\frac{0.3019899}{0.6777995} \\approx 0.445545 \\dots = 0.446 \\text{ (3 s.f.)}$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "Because the aircraft has 8 seats, everyone who turns up gets a seat only if $X \\le 8$. Given that $X \\ge 8$, the only outcome is $X = 8$:\n$$P(X = 8 \\mid X \\ge 8) = \\frac{P(X = 8)}{P(X \\ge 8)}$$"
+            },
+            {
+              "step": 2,
+              "text": "Substitute the probabilities from the previous parts:\n$$\\frac{0.3020}{0.3020 + 0.3758} = \\frac{0.3020}{0.6778}$$"
+            },
+            {
+              "step": 3,
+              "text": "Evaluate the fraction to 3 significant figures:\n$$P(X = 8 \\mid X \\ge 8) = 0.446$$"
+            }
+          ],
+          "checking": {
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_s1_t_discrete_random_variables_m03_l01_cpq07_p03_c1",
+                "points": 1,
+                "observable": "Identifies that every passenger gets a seat given at least 8 show up if $X = 8$, setting up $P(X = 8 \\mid X \\ge 8) = \\frac{P(X = 8)}{P(X \\ge 8)}$."
+              },
+              {
+                "criterion_id": "9709_s1_t_discrete_random_variables_m03_l01_cpq07_p03_c2",
+                "points": 1,
+                "observable": "Substitutes unrounded values: $\\frac{0.3019899}{0.3019899 + 0.3758096} = \\frac{0.3019899}{0.6777995}$."
+              },
+              {
+                "criterion_id": "9709_s1_t_discrete_random_variables_m03_l01_cpq07_p03_c3",
+                "points": 1,
+                "observable": "Evaluates ratio to obtain $0.446$ (to 3 s.f.)."
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

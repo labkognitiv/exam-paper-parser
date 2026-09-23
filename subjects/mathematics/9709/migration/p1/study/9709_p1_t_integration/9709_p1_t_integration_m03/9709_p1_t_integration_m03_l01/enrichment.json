@@ -1,0 +1,1290 @@
+{
+  "schema_version": "9709_math_lesson_enrichment_v1",
+  "lesson_id": "9709_p1_t_integration_m03_l01",
+  "topic_id": "9709_p1_t_integration",
+  "numerical_values_checked": false,
+  "lesson_scope": "Find bounded areas between two graphs (curve and line, or two curves) by identifying intersection limits, determining which graph is above the other on the interval, integrating their vertical difference (y_upper - y_lower), and computing exact positive area.",
+  "questions": [
+    {
+      "question_id": "9709_p1_t_integration_m03_l01_drq01",
+      "sequence": 1,
+      "difficulty": "easy",
+      "difficulty_reason": "Drill: determining upper vs lower graph and forming difference integrand.",
+      "source_question_id": "drill_integ_between_upper_lower",
+      "source_role": "foundational_drill",
+      "dependency_role": "none",
+      "dependency_refs": [],
+      "parts": [
+        {
+          "part_id": "9709_p1_t_integration_m03_l01_drq01_p01",
+          "difficulty": "easy",
+          "question_pattern_ids": [
+            "9709_p1_pattern_area_or_volume"
+          ],
+          "source_evidence": {
+            "question_id": "drill_integ_between_upper_lower",
+            "part_id": "drill_integ_between_upper_lower_p01",
+            "legacy_practice_tier": "foundational",
+            "product_role": "warm_up_drill",
+            "structural_inspiration": "Foundational check of identifying upper vs lower curve and setting up (y_upper - y_lower)."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Test an interior point in the interval $(-2, 2)$, such as $x = 0$: evaluate $y_{\\text{curve}}(0) = 5 - 0^2 = 5$ and $y_{\\text{line}}(0) = 1$.",
+            "Since $5 > 1$, the curve lies above the line on $(-2, 2)$, so $y_{\\text{upper}} = 5 - x^2$ and $y_{\\text{lower}} = 1$.",
+            "Subtract the lower function from the upper function: $(5 - x^2) - 1 = 4 - x^2$, then write the definite integral $\\int_{-2}^2 (4 - x^2) \\, dx$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Determine which graph is higher on $[-2, 2]$ by testing an interior point $x = 0$:\n$$y_{\\text{curve}}(0) = 5 - (0)^2 = 5, \\quad y_{\\text{line}}(0) = 1$$\nSince $5 > 1$, the curve $y = 5 - x^2$ lies above the line $y = 1$ on $(-2, 2)$."
+            },
+            {
+              "step": 2,
+              "text": "Form the difference $y_{\\text{upper}} - y_{\\text{lower}}$:\n$$y_{\\text{upper}} - y_{\\text{lower}} = (5 - x^2) - 1 = 4 - x^2$$"
+            },
+            {
+              "step": 3,
+              "text": "Write the required integral expression:\n$$\\int_{-2}^2 (4 - x^2) \\, dx$$"
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p1_t_integration_m03_l01_drq01_p01_mp01",
+                "observable": "Identifies that the curve $y = 5 - x^2$ lies above the line $y = 1$ on $(-2, 2)$ by comparing values (e.g. at $x = 0$, $5 > 1$)."
+              },
+              {
+                "criterion_id": "9709_p1_t_integration_m03_l01_drq01_p01_mp02",
+                "observable": "Writes $\\int_{-2}^2 (4 - x^2) \\, dx$ in simplest integrand form."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p1_skill_finding_an_area_between_a_line_and_a_curve"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p1_skill_finding_an_area_between_a_line_and_a_curve"
+            ],
+            "method_ids": [
+              "9709_p1_method_finding_an_area_between_a_line_and_a_curve"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_p1_t_integration_m03_l01_drq02",
+      "sequence": 2,
+      "difficulty": "easy",
+      "difficulty_reason": "Drill: direct evaluation of area between a line and a curve with given bounds.",
+      "source_question_id": "drill_integ_between_direct_eval",
+      "source_role": "foundational_drill",
+      "dependency_role": "none",
+      "dependency_refs": [],
+      "parts": [
+        {
+          "part_id": "9709_p1_t_integration_m03_l01_drq02_p01",
+          "difficulty": "easy",
+          "question_pattern_ids": [
+            "9709_p1_pattern_area_or_volume"
+          ],
+          "source_evidence": {
+            "question_id": "drill_integ_between_direct_eval",
+            "part_id": "drill_integ_between_direct_eval_p01",
+            "legacy_practice_tier": "foundational",
+            "product_role": "warm_up_drill",
+            "structural_inspiration": "Foundational check of integrating line minus curve over [0, 1]."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Determine which graph lies above the other on $(0, 1)$ by testing $x = 0.5$: $y_{\\text{line}} = 3(0.5) = 1.5$ and $y_{\\text{curve}} = 3(0.5)^2 = 0.75$, so the line is upper.",
+            "Set up the area integral with upper line minus lower curve: $\\int_0^1 (3x - 3x^2) \\, dx$.",
+            "Integrate term by term to obtain $\\left[\\dfrac{3}{2}x^2 - x^3\\right]_0^1$, then substitute the limits: $\\left(\\dfrac{3}{2}(1)^2 - (1)^3\\right) - 0 = \\dfrac{1}{2}$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Identify the upper and lower functions on $[0, 1]$:\nTesting $x = 0.5$:\n$$y_{\\text{line}}(0.5) = 3(0.5) = 1.5, \\quad y_{\\text{curve}}(0.5) = 3(0.5)^2 = 0.75$$\nSince $1.5 > 0.75$, $y_{\\text{upper}} = 3x$ and $y_{\\text{lower}} = 3x^2$."
+            },
+            {
+              "step": 2,
+              "text": "Set up the area integral:\n$$\\text{Area} = \\int_0^1 (3x - 3x^2) \\, dx$$"
+            },
+            {
+              "step": 3,
+              "text": "Find the antiderivative:\n$$= \\left[\\frac{3}{2}x^2 - x^3\\right]_0^1$$"
+            },
+            {
+              "step": 4,
+              "text": "Evaluate at the upper and lower limits:\n$$= \\left(\\frac{3}{2}(1)^2 - (1)^3\\right) - \\left(\\frac{3}{2}(0)^2 - (0)^3\\right) = \\frac{3}{2} - 1 = \\frac{1}{2} \\text{ square units}$$"
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p1_t_integration_m03_l01_drq02_p01_mp01",
+                "observable": "Forms $\\int_0^1 (3x - 3x^2) \\, dx$ and integrates to obtain $\\left[\\frac{3}{2}x^2 - x^3\\right]_0^1$."
+              },
+              {
+                "criterion_id": "9709_p1_t_integration_m03_l01_drq02_p01_mp02",
+                "observable": "Evaluates limits: $\\frac{3}{2} - 1 = \\frac{1}{2}$ square units."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p1_skill_finding_an_area_between_a_line_and_a_curve"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p1_skill_finding_an_area_between_a_line_and_a_curve"
+            ],
+            "method_ids": [
+              "9709_p1_method_finding_an_area_between_a_line_and_a_curve"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_p1_t_integration_m03_l01_drq03",
+      "sequence": 3,
+      "difficulty": "easy",
+      "difficulty_reason": "Drill: finding horizontal line intersections with parabola and evaluating bounded area.",
+      "source_question_id": "drill_integ_between_horiz_line",
+      "source_role": "foundational_drill",
+      "dependency_role": "none",
+      "dependency_refs": [],
+      "parts": [
+        {
+          "part_id": "9709_p1_t_integration_m03_l01_drq03_p01",
+          "difficulty": "easy",
+          "question_pattern_ids": [
+            "9709_p1_pattern_area_or_volume"
+          ],
+          "source_evidence": {
+            "question_id": "drill_integ_between_horiz_line",
+            "part_id": "drill_integ_between_horiz_line_p01",
+            "legacy_practice_tier": "foundational",
+            "product_role": "warm_up_drill",
+            "structural_inspiration": "Foundational check of finding intersection limits between y=x^2 and y=4."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Find the intersection points by solving $x^2 = 4 \\implies x = -2$ and $x = 2$.",
+            "The horizontal line $y = 4$ is above the parabola $y = x^2$ on $[-2, 2]$ because at $x = 0$, $4 > 0^2$.",
+            "Set up $\\int_{-2}^2 (4 - x^2) \\, dx$ and integrate to obtain $\\left[4x - \\dfrac{x^3}{3}\\right]_{-2}^2$.",
+            "Evaluate at limits: $\\left(4(2) - \\dfrac{8}{3}\\right) - \\left(4(-2) - \\dfrac{-8}{3}\\right) = \\dfrac{16}{3} - \\left(-\\dfrac{16}{3}\\right) = \\dfrac{32}{3}$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Find the $x$-coordinates of the intersection points:\n$$x^2 = 4 \\implies x = -2, \\quad x = 2$$"
+            },
+            {
+              "step": 2,
+              "text": "Set up the area integral with upper line $y = 4$ and lower parabola $y = x^2$:\n$$\\text{Area} = \\int_{-2}^2 (4 - x^2) \\, dx$$"
+            },
+            {
+              "step": 3,
+              "text": "Find the antiderivative:\n$$= \\left[4x - \\frac{x^3}{3}\\right]_{-2}^2$$"
+            },
+            {
+              "step": 4,
+              "text": "Substitute the limits and evaluate:\n$$= \\left(4(2) - \\frac{2^3}{3}\\right) - \\left(4(-2) - \\frac{(-2)^3}{3}\\right)$$\n$$= \\left(8 - \\frac{8}{3}\\right) - \\left(-8 + \\frac{8}{3}\\right) = \\frac{16}{3} - \\left(-\\frac{16}{3}\\right) = \\frac{32}{3} \\text{ square units}$$"
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p1_t_integration_m03_l01_drq03_p01_mp01",
+                "observable": "Solves $x^2 = 4$ to obtain $x = \\pm 2$ and sets up $\\int_{-2}^2 (4 - x^2) \\, dx = \\left[4x - \\frac{x^3}{3}\\right]_{-2}^2$."
+              },
+              {
+                "criterion_id": "9709_p1_t_integration_m03_l01_drq03_p01_mp02",
+                "observable": "Evaluates limits to obtain $\\frac{32}{3}$ square units."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p1_skill_finding_an_area_between_a_line_and_a_curve"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p1_skill_finding_an_area_between_a_line_and_a_curve"
+            ],
+            "method_ids": [
+              "9709_p1_method_finding_an_area_between_a_line_and_a_curve"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_p1_t_integration_m03_l01_drq04",
+      "sequence": 4,
+      "difficulty": "easy",
+      "difficulty_reason": "Drill: area between two parabolas intersecting at given limits.",
+      "source_question_id": "drill_integ_between_two_parabolas",
+      "source_role": "foundational_drill",
+      "dependency_role": "none",
+      "dependency_refs": [],
+      "parts": [
+        {
+          "part_id": "9709_p1_t_integration_m03_l01_drq04_p01",
+          "difficulty": "easy",
+          "question_pattern_ids": [
+            "9709_p1_pattern_area_or_volume"
+          ],
+          "source_evidence": {
+            "question_id": "drill_integ_between_two_parabolas",
+            "part_id": "drill_integ_between_two_parabolas_p01",
+            "legacy_practice_tier": "foundational",
+            "product_role": "warm_up_drill",
+            "structural_inspiration": "Foundational check of subtracting two quadratic curves."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Determine which curve is upper on $(-2, 2)$: at $x = 0$, $6 - 0^2 = 6$ and $0^2 - 2 = -2$, so $y = 6 - x^2$ lies above $y = x^2 - 2$.",
+            "Subtract the lower curve from the upper curve: $(6 - x^2) - (x^2 - 2) = 8 - 2x^2$.",
+            "Integrate $\\int_{-2}^2 (8 - 2x^2) \\, dx = \\left[8x - \\dfrac{2}{3}x^3\\right]_{-2}^2 = \\left(16 - \\dfrac{16}{3}\\right) - \\left(-16 + \\dfrac{16}{3}\\right) = \\dfrac{64}{3}$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Identify the upper curve on $[-2, 2]$:\nAt $x = 0$, $y_1(0) = 6$ and $y_2(0) = -2$.\nSince $6 > -2$, $y_{\\text{upper}} = 6 - x^2$ and $y_{\\text{lower}} = x^2 - 2$."
+            },
+            {
+              "step": 2,
+              "text": "Form the difference integrand:\n$$y_{\\text{upper}} - y_{\\text{lower}} = (6 - x^2) - (x^2 - 2) = 8 - 2x^2$$"
+            },
+            {
+              "step": 3,
+              "text": "Integrate over $[-2, 2]$:\n$$\\text{Area} = \\int_{-2}^2 (8 - 2x^2) \\, dx = \\left[8x - \\frac{2}{3}x^3\\right]_{-2}^2$$"
+            },
+            {
+              "step": 4,
+              "text": "Evaluate at the limits:\n$$= \\left(8(2) - \\frac{2(2)^3}{3}\\right) - \\left(8(-2) - \\frac{2(-2)^3}{3}\\right)$$\n$$= \\left(16 - \\frac{16}{3}\\right) - \\left(-16 + \\frac{16}{3}\\right) = \\frac{32}{3} - \\left(-\\frac{32}{3}\\right) = \\frac{64}{3} \\text{ square units}$$"
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p1_t_integration_m03_l01_drq04_p01_mp01",
+                "observable": "Forms difference $(6 - x^2) - (x^2 - 2) = 8 - 2x^2$ and integrates to $\\left[8x - \\frac{2}{3}x^3\\right]_{-2}^2$."
+              },
+              {
+                "criterion_id": "9709_p1_t_integration_m03_l01_drq04_p01_mp02",
+                "observable": "Evaluates limits: $\\frac{32}{3} - (-\\frac{32}{3}) = \\frac{64}{3}$ square units."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p1_skill_finding_an_area_between_a_line_and_a_curve"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p1_skill_finding_an_area_between_a_line_and_a_curve"
+            ],
+            "method_ids": [
+              "9709_p1_method_finding_an_area_between_a_line_and_a_curve"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_p1_t_integration_m03_l01_drq05",
+      "sequence": 5,
+      "difficulty": "easy",
+      "difficulty_reason": "Drill: area between radical curve 2sqrt(x) and linear graph 2x.",
+      "source_question_id": "drill_integ_between_sqrt_and_line",
+      "source_role": "foundational_drill",
+      "dependency_role": "none",
+      "dependency_refs": [],
+      "parts": [
+        {
+          "part_id": "9709_p1_t_integration_m03_l01_drq05_p01",
+          "difficulty": "easy",
+          "question_pattern_ids": [
+            "9709_p1_pattern_area_or_volume"
+          ],
+          "source_evidence": {
+            "question_id": "drill_integ_between_sqrt_and_line",
+            "part_id": "drill_integ_between_sqrt_and_line_p01",
+            "legacy_practice_tier": "foundational",
+            "product_role": "warm_up_drill",
+            "structural_inspiration": "Foundational check of integrating radical minus line."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "On $(0, 1)$, test $x = 0.25$: $y_{\\text{curve}} = 2\\sqrt{0.25} = 1$ and $y_{\\text{line}} = 2(0.25) = 0.5$, so the curve $y = 2\\sqrt{x}$ is upper.",
+            "Write the radical term as $2x^{1/2}$ and set up the integral $\\int_0^1 (2x^{1/2} - 2x) \\, dx$.",
+            "Integrate: $\\left[\\dfrac{4}{3}x^{3/2} - x^2\\right]_0^1 = \\left(\\dfrac{4}{3}(1)^{3/2} - (1)^2\\right) - 0 = \\dfrac{1}{3}$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Identify the upper curve on $[0, 1]$:\nAt $x = 0.25$:\n$$y_{\\text{curve}} = 2\\sqrt{0.25} = 1, \\quad y_{\\text{line}} = 2(0.25) = 0.5$$\nSince $1 > 0.5$, $y_{\\text{upper}} = 2\\sqrt{x} = 2x^{1/2}$ and $y_{\\text{lower}} = 2x$."
+            },
+            {
+              "step": 2,
+              "text": "Set up the area integral:\n$$\\text{Area} = \\int_0^1 (2x^{1/2} - 2x) \\, dx$$"
+            },
+            {
+              "step": 3,
+              "text": "Integrate using the power rule:\n$$= \\left[\\frac{2x^{3/2}}{3/2} - \\frac{2x^2}{2}\\right]_0^1 = \\left[\\frac{4}{3}x^{3/2} - x^2\\right]_0^1$$"
+            },
+            {
+              "step": 4,
+              "text": "Evaluate at the limits:\n$$= \\left(\\frac{4}{3}(1)^{3/2} - (1)^2\\right) - 0 = \\frac{4}{3} - 1 = \\frac{1}{3} \\text{ square units}$$"
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p1_t_integration_m03_l01_drq05_p01_mp01",
+                "observable": "Forms $\\int_0^1 (2x^{1/2} - 2x) \\, dx$ and integrates to $\\left[\\frac{4}{3}x^{3/2} - x^2\\right]_0^1$."
+              },
+              {
+                "criterion_id": "9709_p1_t_integration_m03_l01_drq05_p01_mp02",
+                "observable": "Evaluates limits to obtain $\\frac{4}{3} - 1 = \\frac{1}{3}$ square units."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p1_skill_finding_an_area_between_a_line_and_a_curve"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p1_skill_finding_an_area_between_a_line_and_a_curve"
+            ],
+            "method_ids": [
+              "9709_p1_method_finding_an_area_between_a_line_and_a_curve"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_p1_t_integration_m03_l01_drq06",
+      "sequence": 6,
+      "difficulty": "easy",
+      "difficulty_reason": "Drill: solving quadratic intersection equation to find bounds and evaluating area between line and parabola.",
+      "source_question_id": "drill_integ_between_line_parabola_solve",
+      "source_role": "foundational_drill",
+      "dependency_role": "none",
+      "dependency_refs": [],
+      "parts": [
+        {
+          "part_id": "9709_p1_t_integration_m03_l01_drq06_p01",
+          "difficulty": "easy",
+          "question_pattern_ids": [
+            "9709_p1_pattern_area_or_volume"
+          ],
+          "source_evidence": {
+            "question_id": "drill_integ_between_line_parabola_solve",
+            "part_id": "drill_integ_between_line_parabola_solve_p01",
+            "legacy_practice_tier": "foundational",
+            "product_role": "warm_up_drill",
+            "structural_inspiration": "Foundational check of solving for intersections and integrating upper line minus lower curve."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Find the intersection limits: solve $x^2 - 2x = x \\implies x^2 - 3x = 0 \\implies x(x - 3) = 0$, so $x = 0$ and $x = 3$.",
+            "On $(0, 3)$, test $x = 1$: $y_{\\text{line}} = 1$ and $y_{\\text{curve}} = -1$, so the line is upper. The integrand is $x - (x^2 - 2x) = 3x - x^2$.",
+            "Integrate $\\int_0^3 (3x - x^2) \\, dx = \\left[\\dfrac{3}{2}x^2 - \\dfrac{x^3}{3}\\right]_0^3 = \\left(\\dfrac{27}{2} - 9\\right) - 0 = \\dfrac{9}{2}$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Find the intersection points by equating line and curve:\n$$x^2 - 2x = x \\implies x^2 - 3x = 0 \\implies x(x - 3) = 0 \\implies x = 0, \\; x = 3$$"
+            },
+            {
+              "step": 2,
+              "text": "Determine the upper function on $[0, 3]$:\nTesting $x = 1$: $y_{\\text{line}} = 1$ and $y_{\\text{curve}} = 1^2 - 2(1) = -1$.\nSince $1 > -1$, $y_{\\text{upper}} = x$ and $y_{\\text{lower}} = x^2 - 2x$."
+            },
+            {
+              "step": 3,
+              "text": "Set up the area integral:\n$$\\text{Area} = \\int_0^3 \\left(x - (x^2 - 2x)\\right) \\, dx = \\int_0^3 (3x - x^2) \\, dx$$"
+            },
+            {
+              "step": 4,
+              "text": "Integrate and evaluate:\n$$= \\left[\\frac{3}{2}x^2 - \\frac{x^3}{3}\\right]_0^3 = \\left(\\frac{3(3)^2}{2} - \\frac{3^3}{3}\\right) - 0 = \\frac{27}{2} - 9 = \\frac{9}{2} \\text{ square units}$$"
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p1_t_integration_m03_l01_drq06_p01_mp01",
+                "observable": "Solves $x^2 - 2x = x$ to find intersection limits $x = 0, 3$ and forms $\\int_0^3 (3x - x^2) \\, dx$."
+              },
+              {
+                "criterion_id": "9709_p1_t_integration_m03_l01_drq06_p01_mp02",
+                "observable": "Integrates and evaluates: $\\left[\\frac{3}{2}x^2 - \\frac{x^3}{3}\\right]_0^3 = \\frac{27}{2} - 9 = \\frac{9}{2}$ square units."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p1_skill_finding_an_area_between_a_line_and_a_curve"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p1_skill_finding_an_area_between_a_line_and_a_curve"
+            ],
+            "method_ids": [
+              "9709_p1_method_finding_an_area_between_a_line_and_a_curve"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_p1_t_integration_m03_l01_cpq01",
+      "sequence": 7,
+      "difficulty": "easy",
+      "difficulty_reason": "Easy: both limits are supplied and one midpoint comparison gives a two-term polynomial integrand before a direct definite integral.",
+      "source_question_id": "9709_w22_11_q10",
+      "source_role": "revision_design_evidence",
+      "dependency_role": "none",
+      "dependency_refs": [],
+      "parts": [
+        {
+          "part_id": "9709_p1_t_integration_m03_l01_cpq01_p01",
+          "difficulty": "easy",
+          "question_pattern_ids": [
+            "9709_p1_pattern_area_or_volume"
+          ],
+          "source_evidence": {
+            "question_id": "9709_w22_11_q10",
+            "part_id": "9709_w22_11_q10_a",
+            "legacy_practice_tier": "mandatory",
+            "product_role": "revision",
+            "structural_inspiration": "Both use supplied intersection limits and a direct upper-minus-lower polynomial integral."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Determine which function is above the other on $(0, 2)$: at $x = 1$, $y_{\\text{line}} = 2(1) = 2$ and $y_{\\text{curve}} = 1^2 = 1$, so the line is upper.",
+            "Form the difference $y_{\\text{upper}} - y_{\\text{lower}} = 2x - x^2$ and set up $\\int_0^2 (2x - x^2) \\, dx$.",
+            "Integrate to obtain $\\left[x^2 - \\dfrac{1}{3}x^3\\right]_0^2$, then evaluate: $\\left(2^2 - \\dfrac{2^3}{3}\\right) - 0 = 4 - \\dfrac{8}{3} = \\dfrac{4}{3}$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Identify upper line and lower curve on $[0, 2]$:\nAt $x = 1$, $y_{\\text{line}} = 2(1) = 2$ and $y_{\\text{curve}} = 1^2 = 1$.\nSince $2 > 1$, $y_{\\text{upper}} = 2x$ and $y_{\\text{lower}} = x^2$."
+            },
+            {
+              "step": 2,
+              "text": "Set up the area integral:\n$$\\text{Area} = \\int_0^2 (2x - x^2) \\, dx$$"
+            },
+            {
+              "step": 3,
+              "text": "Find the antiderivative:\n$$= \\left[x^2 - \\frac{1}{3}x^3\\right]_0^2$$"
+            },
+            {
+              "step": 4,
+              "text": "Evaluate at limits:\n$$= \\left(2^2 - \\frac{2^3}{3}\\right) - \\left(0^2 - \\frac{0^3}{3}\\right) = 4 - \\frac{8}{3} = \\frac{4}{3} \\text{ square units}$$"
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p1_t_integration_m03_l01_cpq01_p01_mp01",
+                "observable": "Forms $\\int_0^2 (2x - x^2) \\, dx$ with line minus curve."
+              },
+              {
+                "criterion_id": "9709_p1_t_integration_m03_l01_cpq01_p01_mp02",
+                "observable": "Integrates to obtain $\\left[x^2 - \\frac{1}{3}x^3\\right]_0^2$."
+              },
+              {
+                "criterion_id": "9709_p1_t_integration_m03_l01_cpq01_p01_mp03",
+                "observable": "Evaluates the exact area as $\\frac{4}{3}$ square units."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p1_skill_finding_an_area_between_a_line_and_a_curve"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p1_skill_finding_an_area_between_a_line_and_a_curve"
+            ],
+            "method_ids": [
+              "9709_p1_method_finding_an_area_between_a_line_and_a_curve"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        }
+      ],
+      "figure_refs": [
+        "9709_p1_t_integration_m03_l01_cpq01_fig01"
+      ],
+      "figure": {
+        "figure_id": "9709_p1_t_integration_m03_l01_cpq01_fig01",
+        "asset_path": "figures/9709_p1_t_integration_m03_l01_cpq01_fig01.svg",
+        "status": "planned",
+        "placement": "after_question_context",
+        "purpose": "Fix the coordinate region and visual context for students without revealing the integration method or final answer.",
+        "alt_text": "Coordinate diagram showing the curve, boundaries, and shaded region for 9709_p1_t_integration_m03_l01_cpq01.",
+        "brief": "Draw coordinate axes, the parabola $y = x^2$, and the line $y = 2x$ intersecting at $(0,0)$ and $(2,4)$. Shade the finite region enclosed between the line and the parabola."
+      }
+    },
+    {
+      "question_id": "9709_p1_t_integration_m03_l01_cpq02",
+      "sequence": 8,
+      "difficulty": "easy",
+      "difficulty_reason": "Easy: symmetric radical endpoints with a negative-monic parabola and a horizontal line.",
+      "source_question_id": "9709_s22_12_q6",
+      "source_role": "revision_design_evidence",
+      "dependency_role": "none",
+      "dependency_refs": [],
+      "parts": [
+        {
+          "part_id": "9709_p1_t_integration_m03_l01_cpq02_p01",
+          "difficulty": "easy",
+          "question_pattern_ids": [
+            "9709_p1_pattern_area_or_volume"
+          ],
+          "source_evidence": {
+            "question_id": "9709_s22_12_q6",
+            "part_id": "9709_s22_12_q6_a",
+            "legacy_practice_tier": "mandatory",
+            "product_role": "revision",
+            "structural_inspiration": "Requires integrating parabola minus horizontal line over symmetric radical bounds."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Determine which graph is upper on $(-\\sqrt{2}, \\sqrt{2})$: at $x = 0$, $y_{\\text{curve}} = 4$ and $y_{\\text{line}} = 2$, so the curve is upper.",
+            "Form the difference $(4 - x^2) - 2 = 2 - x^2$ and set up the integral $\\int_{-\\sqrt{2}}^{\\sqrt{2}} (2 - x^2) \\, dx$.",
+            "Integrate to obtain $\\left[2x - \\dfrac{1}{3}x^3\\right]_{-\\sqrt{2}}^{\\sqrt{2}}$ and evaluate using $(\\sqrt{2})^3 = 2\\sqrt{2}$: $\\left(2\\sqrt{2} - \\dfrac{2\\sqrt{2}}{3}\\right) - \\left(-2\\sqrt{2} + \\dfrac{2\\sqrt{2}}{3}\\right) = \\dfrac{8\\sqrt{2}}{3}$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Identify the upper curve on $[-\\sqrt{2}, \\sqrt{2}]$:\nAt $x = 0$, $y_{\\text{curve}} = 4 - 0^2 = 4$ and $y_{\\text{line}} = 2$.\nSince $4 > 2$, $y_{\\text{upper}} = 4 - x^2$ and $y_{\\text{lower}} = 2$."
+            },
+            {
+              "step": 2,
+              "text": "Set up the area integral:\n$$\\text{Area} = \\int_{-\\sqrt{2}}^{\\sqrt{2}} \\left((4 - x^2) - 2\\right) \\, dx = \\int_{-\\sqrt{2}}^{\\sqrt{2}} (2 - x^2) \\, dx$$"
+            },
+            {
+              "step": 3,
+              "text": "Find the antiderivative:\n$$= \\left[2x - \\frac{1}{3}x^3\\right]_{-\\sqrt{2}}^{\\sqrt{2}}$$"
+            },
+            {
+              "step": 4,
+              "text": "Evaluate at limits using $(\\sqrt{2})^3 = 2\\sqrt{2}$:\n$$= \\left(2\\sqrt{2} - \\frac{2\\sqrt{2}}{3}\\right) - \\left(2(-\\sqrt{2}) - \\frac{-2\\sqrt{2}}{3}\\right)$$\n$$= \\frac{4\\sqrt{2}}{3} - \\left(-\\frac{4\\sqrt{2}}{3}\\right) = \\frac{8\\sqrt{2}}{3} \\text{ square units}$$"
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p1_t_integration_m03_l01_cpq02_p01_mp01",
+                "observable": "Forms $\\int_{-\\sqrt{2}}^{\\sqrt{2}} (2 - x^2) \\, dx$."
+              },
+              {
+                "criterion_id": "9709_p1_t_integration_m03_l01_cpq02_p01_mp02",
+                "observable": "Integrates to obtain $\\left[2x - \\frac{1}{3}x^3\\right]_{-\\sqrt{2}}^{\\sqrt{2}}$."
+              },
+              {
+                "criterion_id": "9709_p1_t_integration_m03_l01_cpq02_p01_mp03",
+                "observable": "Evaluates the exact area as $\\frac{8\\sqrt{2}}{3}$ square units."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p1_skill_finding_an_area_between_a_line_and_a_curve"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p1_skill_finding_an_area_between_a_line_and_a_curve"
+            ],
+            "method_ids": [
+              "9709_p1_method_finding_an_area_between_a_line_and_a_curve"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        }
+      ],
+      "figure_refs": [
+        "9709_p1_t_integration_m03_l01_cpq02_fig01"
+      ],
+      "figure": {
+        "figure_id": "9709_p1_t_integration_m03_l01_cpq02_fig01",
+        "asset_path": "figures/9709_p1_t_integration_m03_l01_cpq02_fig01.svg",
+        "status": "planned",
+        "placement": "after_question_context",
+        "purpose": "Fix the coordinate region and visual context for students without revealing the integration method or final answer.",
+        "alt_text": "Coordinate diagram showing the curve, boundaries, and shaded region for 9709_p1_t_integration_m03_l01_cpq02.",
+        "brief": "Draw coordinate axes, the downward parabola $y = 4 - x^2$, and the horizontal line $y = 2$ intersecting at $(-\\sqrt{2}, 2)$ and $(\\sqrt{2}, 2)$. Shade the region enclosed between the curve and the line."
+      }
+    },
+    {
+      "question_id": "9709_p1_t_integration_m03_l01_cpq03",
+      "sequence": 9,
+      "difficulty": "medium",
+      "difficulty_reason": "Medium: requires solving quadratic intersection equation to find limits, then integrating line minus curve.",
+      "source_question_id": "9709_s19_13_q10",
+      "source_role": "revision_design_evidence",
+      "dependency_role": "none",
+      "dependency_refs": [],
+      "parts": [
+        {
+          "part_id": "9709_p1_t_integration_m03_l01_cpq03_p01",
+          "difficulty": "medium",
+          "question_pattern_ids": [
+            "9709_p1_pattern_area_or_volume"
+          ],
+          "source_evidence": {
+            "question_id": "9709_s19_13_q10",
+            "part_id": "9709_s19_13_q10_b",
+            "legacy_practice_tier": "mandatory",
+            "product_role": "revision",
+            "structural_inspiration": "Requires solving intersection equation first and evaluating bounded area."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Find the intersection limits by equating the curve and the line: $x^2 - 2x + 2 = x + 2 \\implies x^2 - 3x = 0 \\implies x(x - 3) = 0$, giving $x = 0$ and $x = 3$.",
+            "Check which graph is upper on $(0, 3)$: testing $x = 1$, $y_{\\text{line}} = 1 + 2 = 3$ and $y_{\\text{curve}} = 1^2 - 2(1) + 2 = 1$, so the line is upper.",
+            "Form the difference $y_{\\text{upper}} - y_{\\text{lower}} = (x + 2) - (x^2 - 2x + 2) = 3x - x^2$.",
+            "Set up the integral and integrate: $\\int_0^3 (3x - x^2) \\, dx = \\left[\\dfrac{3}{2}x^2 - \\dfrac{1}{3}x^3\\right]_0^3 = \\left(\\dfrac{27}{2} - 9\\right) - 0 = \\dfrac{9}{2}$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Find the $x$-coordinates of the intersection points:\n$$x^2 - 2x + 2 = x + 2$$\n$$x^2 - 3x = 0 \\implies x(x - 3) = 0 \\implies x = 0, \\quad x = 3$$"
+            },
+            {
+              "step": 2,
+              "text": "Determine the upper function on $[0, 3]$:\nTesting $x = 1$: $y_{\\text{line}} = 1 + 2 = 3$ and $y_{\\text{curve}} = 1^2 - 2(1) + 2 = 1$.\nSince $3 > 1$, $y_{\\text{upper}} = x + 2$ and $y_{\\text{lower}} = x^2 - 2x + 2$."
+            },
+            {
+              "step": 3,
+              "text": "Form the difference integrand:\n$$y_{\\text{upper}} - y_{\\text{lower}} = (x + 2) - (x^2 - 2x + 2) = 3x - x^2$$"
+            },
+            {
+              "step": 4,
+              "text": "Set up and evaluate the definite integral:\n$$\\text{Area} = \\int_0^3 (3x - x^2) \\, dx = \\left[\\frac{3}{2}x^2 - \\frac{1}{3}x^3\\right]_0^3$$\n$$= \\left(\\frac{3(3)^2}{2} - \\frac{3^3}{3}\\right) - 0 = \\frac{27}{2} - 9 = \\frac{9}{2} \\text{ square units}$$"
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p1_t_integration_m03_l01_cpq03_p01_mp01",
+                "observable": "Equates $x^2 - 2x + 2 = x + 2$ to form $x(x - 3) = 0$."
+              },
+              {
+                "criterion_id": "9709_p1_t_integration_m03_l01_cpq03_p01_mp02",
+                "observable": "Finds intersection limits $x = 0$ and $x = 3$."
+              },
+              {
+                "criterion_id": "9709_p1_t_integration_m03_l01_cpq03_p01_mp03",
+                "observable": "Forms difference $(x + 2) - (x^2 - 2x + 2) = 3x - x^2$."
+              },
+              {
+                "criterion_id": "9709_p1_t_integration_m03_l01_cpq03_p01_mp04",
+                "observable": "Integrates to obtain $\\left[\\frac{3}{2}x^2 - \\frac{1}{3}x^3\\right]_0^3$."
+              },
+              {
+                "criterion_id": "9709_p1_t_integration_m03_l01_cpq03_p01_mp05",
+                "observable": "Evaluates the exact area as $\\frac{9}{2}$ square units."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p1_skill_finding_an_area_between_a_line_and_a_curve"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p1_skill_finding_an_area_between_a_line_and_a_curve"
+            ],
+            "method_ids": [
+              "9709_p1_method_finding_an_area_between_a_line_and_a_curve"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        }
+      ],
+      "figure_refs": [
+        "9709_p1_t_integration_m03_l01_cpq03_fig01"
+      ],
+      "figure": {
+        "figure_id": "9709_p1_t_integration_m03_l01_cpq03_fig01",
+        "asset_path": "figures/9709_p1_t_integration_m03_l01_cpq03_fig01.svg",
+        "status": "planned",
+        "placement": "after_question_context",
+        "purpose": "Fix the coordinate region and visual context for students without revealing the integration method or final answer.",
+        "alt_text": "Coordinate diagram showing the curve, boundaries, and shaded region for 9709_p1_t_integration_m03_l01_cpq03.",
+        "brief": "Draw coordinate axes, the parabola $y = x^2 - 2x + 2$, and the line $y = x + 2$ intersecting at $(0,2)$ and $(3,5)$. Shade the finite enclosed region."
+      }
+    },
+    {
+      "question_id": "9709_p1_t_integration_m03_l01_cpq04",
+      "sequence": 10,
+      "difficulty": "medium",
+      "difficulty_reason": "Medium: radical and linear graph difference integrated across asymmetric integer bounds [1, 9].",
+      "source_question_id": "9709_w23_11_q8",
+      "source_role": "revision_design_evidence",
+      "dependency_role": "none",
+      "dependency_refs": [],
+      "parts": [
+        {
+          "part_id": "9709_p1_t_integration_m03_l01_cpq04_p01",
+          "difficulty": "medium",
+          "question_pattern_ids": [
+            "9709_p1_pattern_area_or_volume"
+          ],
+          "source_evidence": {
+            "question_id": "9709_w23_11_q8",
+            "part_id": "9709_w23_11_q8_b",
+            "legacy_practice_tier": "mandatory",
+            "product_role": "revision",
+            "structural_inspiration": "Requires integrating radical curve minus line across [1, 9]."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Determine which function is upper on $(1, 9)$: test $x = 4$, $y_{\\text{curve}} = 4\\sqrt{4} = 8$ and $y_{\\text{line}} = 4 + 3 = 7$, so the curve is upper.",
+            "Set up the area integral with upper curve minus lower line: $\\int_1^9 \\left(4x^{1/2} - (x + 3)\\right) \\, dx = \\int_1^9 (4x^{1/2} - x - 3) \\, dx$.",
+            "Integrate term by term: $\\left[\\dfrac{8}{3}x^{3/2} - \\dfrac{1}{2}x^2 - 3x\\right]_1^9$.",
+            "Evaluate at $x = 9$: $\\dfrac{8}{3}(27) - \\dfrac{81}{2} - 27 = 72 - 40.5 - 27 = \\dfrac{9}{2}$. Evaluate at $x = 1$: $\\dfrac{8}{3} - \\dfrac{1}{2} - 3 = -\\dfrac{5}{6}$. Subtract: $\\dfrac{9}{2} - \\left(-\\dfrac{5}{6}\\right) = \\dfrac{27}{6} + \\dfrac{5}{6} = \\dfrac{32}{6} = \\dfrac{16}{3}$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Identify the upper curve on $[1, 9]$:\nAt $x = 4$:\n$$y_{\\text{curve}} = 4\\sqrt{4} = 8, \\quad y_{\\text{line}} = 4 + 3 = 7$$\nSince $8 > 7$, $y_{\\text{upper}} = 4\\sqrt{x} = 4x^{1/2}$ and $y_{\\text{lower}} = x + 3$."
+            },
+            {
+              "step": 2,
+              "text": "Set up the area integral:\n$$\\text{Area} = \\int_1^9 \\left(4x^{1/2} - (x + 3)\\right) \\, dx = \\int_1^9 (4x^{1/2} - x - 3) \\, dx$$"
+            },
+            {
+              "step": 3,
+              "text": "Find the antiderivative:\n$$= \\left[\\frac{4x^{3/2}}{3/2} - \\frac{x^2}{2} - 3x\\right]_1^9 = \\left[\\frac{8}{3}x^{3/2} - \\frac{1}{2}x^2 - 3x\\right]_1^9$$"
+            },
+            {
+              "step": 4,
+              "text": "Evaluate at the upper limit $x = 9$ and lower limit $x = 1$:\n$$\\text{At } x = 9: \\quad \\frac{8}{3}(27) - \\frac{1}{2}(81) - 3(9) = 72 - \\frac{81}{2} - 27 = 45 - \\frac{81}{2} = \\frac{9}{2}$$\n$$\\text{At } x = 1: \\quad \\frac{8}{3}(1) - \\frac{1}{2}(1) - 3(1) = \\frac{8}{3} - \\frac{1}{2} - 3 = \\frac{16 - 3 - 18}{6} = -\\frac{5}{6}$$\n$$\\text{Area} = \\frac{9}{2} - \\left(-\\frac{5}{6}\\right) = \\frac{27}{6} + \\frac{5}{6} = \\frac{32}{6} = \\frac{16}{3} \\text{ square units}$$"
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p1_t_integration_m03_l01_cpq04_p01_mp01",
+                "observable": "Sets up $\\int_1^9 (4x^{1/2} - (x + 3)) \\, dx$."
+              },
+              {
+                "criterion_id": "9709_p1_t_integration_m03_l01_cpq04_p01_mp02",
+                "observable": "Integrates to obtain $\\left[\\frac{8}{3}x^{3/2} - \\frac{1}{2}x^2 - 3x\\right]_1^9$."
+              },
+              {
+                "criterion_id": "9709_p1_t_integration_m03_l01_cpq04_p01_mp03",
+                "observable": "Substitutes limits: $\\left(72 - \\frac{81}{2} - 27\\right) - \\left(\\frac{8}{3} - \\frac{1}{2} - 3\\right) = \\frac{9}{2} - \\left(-\\frac{5}{6}\\right)$."
+              },
+              {
+                "criterion_id": "9709_p1_t_integration_m03_l01_cpq04_p01_mp04",
+                "observable": "Evaluates the exact area as $\\frac{16}{3}$ square units."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p1_skill_finding_an_area_between_a_line_and_a_curve"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p1_skill_finding_an_area_between_a_line_and_a_curve"
+            ],
+            "method_ids": [
+              "9709_p1_method_finding_an_area_between_a_line_and_a_curve"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        }
+      ],
+      "figure_refs": [
+        "9709_p1_t_integration_m03_l01_cpq04_fig01"
+      ],
+      "figure": {
+        "figure_id": "9709_p1_t_integration_m03_l01_cpq04_fig01",
+        "asset_path": "figures/9709_p1_t_integration_m03_l01_cpq04_fig01.svg",
+        "status": "planned",
+        "placement": "after_question_context",
+        "purpose": "Fix the coordinate region and visual context for students without revealing the integration method or final answer.",
+        "alt_text": "Coordinate diagram showing the curve, boundaries, and shaded region for 9709_p1_t_integration_m03_l01_cpq04.",
+        "brief": "Draw coordinate axes, the curve $y = 4\\sqrt{x}$, and the line $y = x + 3$ intersecting at $(1,4)$ and $(9,12)$. Shade the region enclosed between the curve and the line."
+      }
+    },
+    {
+      "question_id": "9709_p1_t_integration_m03_l01_cpq05",
+      "sequence": 11,
+      "difficulty": "medium",
+      "difficulty_reason": "Medium: two shifted parabolas requiring intersection solving and shift-variable integration.",
+      "source_question_id": "9709_w20_11_q12",
+      "source_role": "revision_design_evidence",
+      "dependency_role": "none",
+      "dependency_refs": [],
+      "parts": [
+        {
+          "part_id": "9709_p1_t_integration_m03_l01_cpq05_p01",
+          "difficulty": "medium",
+          "question_pattern_ids": [
+            "9709_p1_pattern_area_or_volume"
+          ],
+          "source_evidence": {
+            "question_id": "9709_w20_11_q12",
+            "part_id": "9709_w20_11_q12_b",
+            "legacy_practice_tier": "mandatory",
+            "product_role": "revision",
+            "structural_inspiration": "Requires solving for intersection of two shifted parabolas and evaluating difference integral."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Find the intersection points: set $(x - 2)^2 + 4 = 2(x - 2)^2 \\implies (x - 2)^2 = 4 \\implies x - 2 = \\pm 2$, so $x = 0$ and $x = 4$.",
+            "Determine the upper curve on $(0, 4)$: at $x = 2$, $y_1 = 0 + 4 = 4$ and $y_2 = 0$, so $y_1 = (x - 2)^2 + 4$ is upper.",
+            "Form the difference: $((x - 2)^2 + 4) - 2(x - 2)^2 = 4 - (x - 2)^2$, then set up $\\int_0^4 (4 - (x - 2)^2) \\, dx$.",
+            "Integrate to obtain $\\left[4x - \\dfrac{1}{3}(x - 2)^3\\right]_0^4$, then evaluate: $\\left(16 - \\dfrac{8}{3}\\right) - \\left(0 - \\left(-\\dfrac{8}{3}\\right)\\right) = \\dfrac{40}{3} - \\dfrac{8}{3} = \\dfrac{32}{3}$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Find the intersection limits:\n$$(x - 2)^2 + 4 = 2(x - 2)^2 \\implies (x - 2)^2 = 4 \\implies x - 2 = \\pm 2 \\implies x = 0, \\; x = 4$$"
+            },
+            {
+              "step": 2,
+              "text": "Determine which curve is upper on $[0, 4]$:\nAt $x = 2$: $y_1(2) = (0)^2 + 4 = 4$ and $y_2(2) = 2(0)^2 = 0$.\nSince $4 > 0$, $y_{\\text{upper}} = (x - 2)^2 + 4$ and $y_{\\text{lower}} = 2(x - 2)^2$."
+            },
+            {
+              "step": 3,
+              "text": "Form the difference integrand:\n$$y_{\\text{upper}} - y_{\\text{lower}} = \\left((x - 2)^2 + 4\\right) - 2(x - 2)^2 = 4 - (x - 2)^2$$"
+            },
+            {
+              "step": 4,
+              "text": "Integrate and evaluate at the limits:\n$$\\text{Area} = \\int_0^4 \\left(4 - (x - 2)^2\\right) \\, dx = \\left[4x - \\frac{1}{3}(x - 2)^3\\right]_0^4$$\n$$= \\left(4(4) - \\frac{(4 - 2)^3}{3}\\right) - \\left(4(0) - \\frac{(0 - 2)^3}{3}\\right)$$\n$$= \\left(16 - \\frac{8}{3}\\right) - \\left(0 - \\left(-\\frac{8}{3}\\right)\\right) = \\frac{40}{3} - \\frac{8}{3} = \\frac{32}{3} \\text{ square units}$$"
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p1_t_integration_m03_l01_cpq05_p01_mp01",
+                "observable": "Equates $(x - 2)^2 + 4 = 2(x - 2)^2$ to obtain $(x - 2)^2 = 4$."
+              },
+              {
+                "criterion_id": "9709_p1_t_integration_m03_l01_cpq05_p01_mp02",
+                "observable": "Obtains intersection limits $x = 0$ and $x = 4$."
+              },
+              {
+                "criterion_id": "9709_p1_t_integration_m03_l01_cpq05_p01_mp03",
+                "observable": "Forms difference $4 - (x - 2)^2$ and sets up $\\int_0^4 (4 - (x - 2)^2) \\, dx$."
+              },
+              {
+                "criterion_id": "9709_p1_t_integration_m03_l01_cpq05_p01_mp04",
+                "observable": "Integrates to obtain $\\left[4x - \\frac{1}{3}(x - 2)^3\\right]_0^4$ (or $\\left[2x^2 - \\frac{1}{3}x^3\\right]_0^4$)."
+              },
+              {
+                "criterion_id": "9709_p1_t_integration_m03_l01_cpq05_p01_mp05",
+                "observable": "Evaluates to $\\frac{32}{3}$ square units."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p1_skill_finding_an_area_between_a_line_and_a_curve"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p1_skill_finding_an_area_between_a_line_and_a_curve"
+            ],
+            "method_ids": [
+              "9709_p1_method_finding_an_area_between_a_line_and_a_curve"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        }
+      ],
+      "figure_refs": [
+        "9709_p1_t_integration_m03_l01_cpq05_fig01"
+      ],
+      "figure": {
+        "figure_id": "9709_p1_t_integration_m03_l01_cpq05_fig01",
+        "asset_path": "figures/9709_p1_t_integration_m03_l01_cpq05_fig01.svg",
+        "status": "planned",
+        "placement": "after_question_context",
+        "purpose": "Fix the coordinate region and visual context for students without revealing the integration method or final answer.",
+        "alt_text": "Coordinate diagram showing the curve, boundaries, and shaded region for 9709_p1_t_integration_m03_l01_cpq05.",
+        "brief": "Draw coordinate axes and the two parabolas $y = (x-2)^2 + 4$ and $y = 2(x-2)^2$. Shade the finite region enclosed between them."
+      }
+    },
+    {
+      "question_id": "9709_p1_t_integration_m03_l01_cpq06",
+      "sequence": 12,
+      "difficulty": "hard",
+      "difficulty_reason": "Hard: two cubic/quadratic curves meeting at 3 points, requiring splitting into two separate bounded regions.",
+      "source_question_id": "9709_w18_11_q7",
+      "source_role": "revision_design_evidence",
+      "dependency_role": "none",
+      "dependency_refs": [],
+      "parts": [
+        {
+          "part_id": "9709_p1_t_integration_m03_l01_cpq06_p01",
+          "difficulty": "medium",
+          "question_pattern_ids": [
+            "9709_p1_pattern_algebraic_manipulation"
+          ],
+          "source_evidence": {
+            "question_id": "9709_w18_11_q7",
+            "part_id": "9709_w18_11_q7_a",
+            "legacy_practice_tier": "mandatory",
+            "product_role": "revision",
+            "structural_inspiration": "Requires factoring cubic difference equation to find three intersection points."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Equate the two equations: $x^3 - 3x^2 + 4 = 3x^2 - 8x + 4$.",
+            "Rearrange all terms to one side: $x^3 - 6x^2 + 8x = 0$.",
+            "Factor out $x$: $x(x^2 - 6x + 8) = x(x - 2)(x - 4) = 0$, giving $x = 0, 2, 4$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Equate the two curves:\n$$x^3 - 3x^2 + 4 = 3x^2 - 8x + 4$$\n$$x^3 - 6x^2 + 8x = 0$$"
+            },
+            {
+              "step": 2,
+              "text": "Factor out $x$ and solve the resulting quadratic:\n$$x(x^2 - 6x + 8) = 0$$\n$$x(x - 2)(x - 4) = 0 \\implies x = 0, \\; x = 2, \\; x = 4$$"
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p1_t_integration_m03_l01_cpq06_p01_mp01",
+                "observable": "Equates curves to obtain $x^3 - 6x^2 + 8x = 0$."
+              },
+              {
+                "criterion_id": "9709_p1_t_integration_m03_l01_cpq06_p01_mp02",
+                "observable": "Factors as $x(x - 2)(x - 4) = 0$ to state $x = 0, 2, 4$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p1_skill_finding_an_area_between_a_line_and_a_curve"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p1_skill_finding_an_area_between_a_line_and_a_curve"
+            ],
+            "method_ids": [],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        },
+        {
+          "part_id": "9709_p1_t_integration_m03_l01_cpq06_p02",
+          "difficulty": "hard",
+          "question_pattern_ids": [
+            "9709_p1_pattern_area_or_volume"
+          ],
+          "source_evidence": {
+            "question_id": "9709_w18_11_q7",
+            "part_id": "9709_w18_11_q7_b",
+            "legacy_practice_tier": "mandatory",
+            "product_role": "revision",
+            "structural_inspiration": "Requires integrating two separate regions between alternating curves."
+          },
+          "dependency_role": "within_question_context",
+          "dependency_refs": [
+            "9709_p1_t_integration_m03_l01_cpq06_p01"
+          ],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "The two enclosed regions are over the intervals $[0, 2]$ and $[2, 4]$.",
+            "On $[0, 2]$, the cubic is upper: $\\int_0^2 (x^3 - 6x^2 + 8x) \\, dx = \\left[\\dfrac{x^4}{4} - 2x^3 + 4x^2\\right]_0^2 = (4 - 16 + 16) - 0 = 4$.",
+            "On $[2, 4]$, the quadratic is upper: $\\int_2^4 (-x^3 + 6x^2 - 8x) \\, dx = \\left[-\\dfrac{x^4}{4} + 2x^3 - 4x^2\\right]_2^4 = 0 - (-4) = 4$. Sum the two areas: $4 + 4 = 8$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Evaluate the area $A_1$ of the first region on $[0, 2]$ (where the cubic curve is upper):\n$$A_1 = \\int_0^2 \\left((x^3 - 3x^2 + 4) - (3x^2 - 8x + 4)\\right) \\, dx = \\int_0^2 (x^3 - 6x^2 + 8x) \\, dx$$\n$$= \\left[\\frac{x^4}{4} - 2x^3 + 4x^2\\right]_0^2 = \\left(\\frac{2^4}{4} - 2(2^3) + 4(2^2)\\right) - 0 = 4 - 16 + 16 = 4$$"
+            },
+            {
+              "step": 2,
+              "text": "Evaluate the area $A_2$ of the second region on $[2, 4]$ (where the quadratic curve is upper):\n$$A_2 = \\int_2^4 \\left((3x^2 - 8x + 4) - (x^3 - 3x^2 + 4)\\right) \\, dx = \\int_2^4 (-x^3 + 6x^2 - 8x) \\, dx$$\n$$= \\left[-\\frac{x^4}{4} + 2x^3 - 4x^2\\right]_2^4$$\n$$\\text{At } x = 4: \\quad -\\frac{256}{4} + 2(64) - 4(16) = -64 + 128 - 64 = 0$$\n$$\\text{At } x = 2: \\quad -\\frac{16}{4} + 2(8) - 4(4) = -4 + 16 - 16 = -4$$\n$$A_2 = 0 - (-4) = 4$$"
+            },
+            {
+              "step": 3,
+              "text": "Sum the areas of the two regions:\n$$\\text{Total Area} = A_1 + A_2 = 4 + 4 = 8 \\text{ square units}$$"
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p1_t_integration_m03_l01_cpq06_p02_mp01",
+                "observable": "Forms first region integral $\\int_0^2 (x^3 - 6x^2 + 8x) \\, dx$."
+              },
+              {
+                "criterion_id": "9709_p1_t_integration_m03_l01_cpq06_p02_mp02",
+                "observable": "Integrates to obtain $\\left[\\frac{1}{4}x^4 - 2x^3 + 4x^2\\right]_0^2 = 4$."
+              },
+              {
+                "criterion_id": "9709_p1_t_integration_m03_l01_cpq06_p02_mp03",
+                "observable": "Forms second region integral $\\int_2^4 (-x^3 + 6x^2 - 8x) \\, dx$ or uses symmetry to evaluate second region as $4$."
+              },
+              {
+                "criterion_id": "9709_p1_t_integration_m03_l01_cpq06_p02_mp04",
+                "observable": "Sums positive regions to obtain $8$ square units."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p1_skill_finding_an_area_between_a_line_and_a_curve"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p1_skill_finding_an_area_between_a_line_and_a_curve"
+            ],
+            "method_ids": [
+              "9709_p1_method_finding_an_area_between_a_line_and_a_curve"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        }
+      ],
+      "figure_refs": [
+        "9709_p1_t_integration_m03_l01_cpq06_fig01"
+      ],
+      "figure": {
+        "figure_id": "9709_p1_t_integration_m03_l01_cpq06_fig01",
+        "asset_path": "figures/9709_p1_t_integration_m03_l01_cpq06_fig01.svg",
+        "status": "planned",
+        "placement": "after_question_context",
+        "purpose": "Fix the coordinate region and visual context for students without revealing the integration method or final answer.",
+        "alt_text": "Coordinate diagram showing the curve, boundaries, and shaded region for 9709_p1_t_integration_m03_l01_cpq06.",
+        "brief": "Draw coordinate axes and the cubic curve $y = x^3 - 3x^2 + 4$ intersecting the quadratic $y = 3x^2 - 8x + 4$ at three points. Shade the two finite enclosed regions."
+      }
+    },
+    {
+      "question_id": "9709_p1_t_integration_m03_l01_cpq07",
+      "sequence": 13,
+      "difficulty": "hard",
+      "difficulty_reason": "Hard: parameterized cubic-quadratic difference integration in parameter a.",
+      "source_question_id": "9709_w24_13_q9",
+      "source_role": "revision_design_evidence",
+      "dependency_role": "none",
+      "dependency_refs": [],
+      "parts": [
+        {
+          "part_id": "9709_p1_t_integration_m03_l01_cpq07_p01",
+          "difficulty": "hard",
+          "question_pattern_ids": [
+            "9709_p1_pattern_area_or_volume"
+          ],
+          "source_evidence": {
+            "question_id": "9709_w24_13_q9",
+            "part_id": "9709_w24_13_q9_b",
+            "legacy_practice_tier": "mandatory",
+            "product_role": "revision",
+            "structural_inspiration": "Requires parameterized area integration in a between two factored curves."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "On $(0, a)$, compare $y_1 = x(a - x)$ and $y_2 = \\dfrac{x^2(a - x)}{a}$: since $0 < \\dfrac{x}{a} < 1$, $y_1 > y_2$, so $y_1$ is upper.",
+            "Expand the difference: $x(a - x) - \\dfrac{x^2(a - x)}{a} = (ax - x^2) - \\left(x^2 - \\dfrac{x^3}{a}\\right) = ax - 2x^2 + \\dfrac{x^3}{a}$.",
+            "Integrate with respect to $x$: $\\int_0^a \\left(ax - 2x^2 + \\dfrac{x^3}{a}\\right) \\, dx = \\left[\\dfrac{a}{2}x^2 - \\dfrac{2}{3}x^3 + \\dfrac{x^4}{4a}\\right]_0^a$.",
+            "Substitute $x = a$: $\\dfrac{a(a^2)}{2} - \\dfrac{2a^3}{3} + \\dfrac{a^4}{4a} = \\left(\\dfrac{1}{2} - \\dfrac{2}{3} + \\dfrac{1}{4}\\right)a^3 = \\dfrac{6 - 8 + 3}{12}a^3 = \\dfrac{a^3}{12}$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Identify which curve is upper on $(0, a)$:\nFor $x \\in (0, a)$, $x(a - x) > 0$ and $0 < \\frac{x}{a} < 1$, so:\n$$y_2 = \\frac{x}{a} \\cdot x(a - x) < x(a - x) = y_1$$\nThus, $y_{\\text{upper}} = x(a - x)$ and $y_{\\text{lower}} = \\frac{x^2(a - x)}{a}$."
+            },
+            {
+              "step": 2,
+              "text": "Expand and form the difference $y_{\\text{upper}} - y_{\\text{lower}}$:\n$$y_{\\text{upper}} - y_{\\text{lower}} = (ax - x^2) - \\left(x^2 - \\frac{x^3}{a}\\right) = ax - 2x^2 + \\frac{x^3}{a}$$"
+            },
+            {
+              "step": 3,
+              "text": "Set up the area integral with limits $0$ to $a$:\n$$\\text{Area} = \\int_0^a \\left(ax - 2x^2 + \\frac{x^3}{a}\\right) \\, dx$$"
+            },
+            {
+              "step": 4,
+              "text": "Find the antiderivative with respect to $x$:\n$$= \\left[\\frac{a}{2}x^2 - \\frac{2}{3}x^3 + \\frac{x^4}{4a}\\right]_0^a$$"
+            },
+            {
+              "step": 5,
+              "text": "Substitute $x = a$ and $x = 0$:\n$$= \\left(\\frac{a(a)^2}{2} - \\frac{2(a)^3}{3} + \\frac{a^4}{4a}\\right) - 0$$\n$$= \\left(\\frac{1}{2}a^3 - \\frac{2}{3}a^3 + \\frac{1}{4}a^3\\right)$$\n$$= \\left(\\frac{6}{12} - \\frac{8}{12} + \\frac{3}{12}\\right)a^3 = \\frac{1}{12}a^3 = \\frac{a^3}{12} \\text{ square units}$$"
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p1_t_integration_m03_l01_cpq07_p01_mp01",
+                "observable": "Identifies that $x(a - x) > \\frac{x^2(a - x)}{a}$ on $(0, a)$."
+              },
+              {
+                "criterion_id": "9709_p1_t_integration_m03_l01_cpq07_p01_mp02",
+                "observable": "Forms difference $x(a - x) - \\frac{x^2(a - x)}{a} = ax - 2x^2 + \\frac{x^3}{a}$."
+              },
+              {
+                "criterion_id": "9709_p1_t_integration_m03_l01_cpq07_p01_mp03",
+                "observable": "Sets up $\\int_0^a \\left(ax - 2x^2 + \\frac{x^3}{a}\\right) \\, dx$."
+              },
+              {
+                "criterion_id": "9709_p1_t_integration_m03_l01_cpq07_p01_mp04",
+                "observable": "Integrates to obtain $\\left[\\frac{a}{2}x^2 - \\frac{2}{3}x^3 + \\frac{x^4}{4a}\\right]_0^a$."
+              },
+              {
+                "criterion_id": "9709_p1_t_integration_m03_l01_cpq07_p01_mp05",
+                "observable": "Substitutes $x = a$ to form $\\left(\\frac{1}{2} - \\frac{2}{3} + \\frac{1}{4}\\right)a^3$."
+              },
+              {
+                "criterion_id": "9709_p1_t_integration_m03_l01_cpq07_p01_mp06",
+                "observable": "Evaluates coefficient $\\frac{6 - 8 + 3}{12} = \\frac{1}{12}$."
+              },
+              {
+                "criterion_id": "9709_p1_t_integration_m03_l01_cpq07_p01_mp07",
+                "observable": "States final exact area $\\frac{a^3}{12}$ square units."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p1_skill_finding_an_area_between_a_line_and_a_curve"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p1_skill_finding_an_area_between_a_line_and_a_curve"
+            ],
+            "method_ids": [
+              "9709_p1_method_finding_an_area_between_a_line_and_a_curve"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        }
+      ],
+      "figure_refs": [
+        "9709_p1_t_integration_m03_l01_cpq07_fig01"
+      ],
+      "figure": {
+        "figure_id": "9709_p1_t_integration_m03_l01_cpq07_fig01",
+        "asset_path": "figures/9709_p1_t_integration_m03_l01_cpq07_fig01.svg",
+        "status": "planned",
+        "placement": "after_question_context",
+        "purpose": "Fix the coordinate region and visual context for students without revealing the integration method or final answer.",
+        "alt_text": "Coordinate diagram showing the curve, boundaries, and shaded region for 9709_p1_t_integration_m03_l01_cpq07.",
+        "brief": "Draw coordinate axes, the parabola $y = x(a-x)$, and the cubic curve $y = \\frac{x^2(a-x)}{a}$ on $[0, a]$. Shade the region enclosed between the two curves."
+      }
+    }
+  ]
+}

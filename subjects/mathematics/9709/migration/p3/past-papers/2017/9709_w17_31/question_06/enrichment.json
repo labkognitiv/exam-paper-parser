@@ -1,0 +1,74 @@
+{
+  "schema_version": "9709_math_enrichment_v3",
+  "paper_code": "9709_w17_31",
+  "question_id": "9709_w17_31_q6",
+  "question_num": 6,
+  "subject_code": "9709",
+  "component": "P3",
+  "year": 2017,
+  "session": "Oct/Nov",
+  "variant": "31",
+  "difficulty": 4,
+  "numerical_values_checked": false,
+  "parts": [
+    {
+      "part_id": "9709_w17_31_q6",
+      "difficulty": 4,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_p3_t_differential_equations",
+        "module_id": "9709_p3_t_differential_equations_m02",
+        "lesson_id": "9709_p3_t_differential_equations_m02_l02"
+      },
+      "skills": {
+        "primary_skill_id": "9709_p3_skill_solving_separable_differential_equations",
+        "skill_tags": [
+          "Solving Separable Differential Equations"
+        ]
+      },
+      "question_pattern_ids": [
+        "9709_p3_pattern_solve_equation",
+        "9709_p3_pattern_solve_inequality",
+        "9709_p3_pattern_find_parameter",
+        "9709_p3_pattern_calculus_process",
+        "9709_p3_pattern_trigonometric_reasoning"
+      ],
+      "knowledge_refs": {
+        "formula_ids": [],
+        "identity_ids": [
+          "9709_p3_identity_double_angle",
+          "9709_p3_identity_pythagorean"
+        ],
+        "method_ids": [
+          "9709_p3_method_solving_separable_differential_equations"
+        ],
+        "fact_ids": []
+      },
+      "hints": [
+        "Separate the equation as $\\sec^2y\\,dy=4\\tan x\\,dx$.",
+        "Integrate to obtain a tangent term in $y$ and a logarithmic term in $\\cos x$.",
+        "Use $x=0$, $y=\\pi/4$ to fix the constant, then substitute $y=\\pi/3$.",
+        "Solve for the admissible $x$ in $0\\le x<\\pi/2$ and round only the final value."
+      ],
+      "walkthrough": [
+        "Separate the variables $x$ and $y$ in $\\dfrac{\\mathrm{d}y}{\\mathrm{d}x} = 4\\cos^2 y\\tan x$:\n$$\\dfrac{1}{\\cos^2 y}\\,\\mathrm{d}y = 4\\tan x\\,\\mathrm{d}x \\implies \\sec^2 y\\,\\mathrm{d}y = 4\\tan x\\,\\mathrm{d}x$$",
+        "Integrate both sides with respect to their variables:\n$$\\int \\sec^2 y\\,\\mathrm{d}y = \\int 4\\tan x\\,\\mathrm{d}x$$",
+        "Evaluate the left-hand integral:\n$$\\int \\sec^2 y\\,\\mathrm{d}y = \\tan y$$",
+        "Evaluate the right-hand integral using $\\tan x = \\dfrac{\\sin x}{\\cos x}$:\n$$\\int 4\\tan x\\,\\mathrm{d}x = -4\\ln(\\cos x) = 4\\ln(\\sec x)$$",
+        "Write down the general solution with constant of integration $c$:\n$$\\tan y = -4\\ln(\\cos x) + c$$",
+        "Substitute the initial condition $x = 0$ when $y = \\dfrac{1}{4}\\pi$ to find $c$:\n$$\\tan\\left(\\dfrac{\\pi}{4}\\right) = -4\\ln(\\cos 0) + c \\implies 1 = -4\\ln(1) + c \\implies c = 1$$",
+        "State the particular solution to the differential equation:\n$$\\tan y = 1 - 4\\ln(\\cos x) \\quad \\left(\\text{or } \\tan y = 4\\ln(\\sec x) + 1\\right)$$",
+        "Substitute $y = \\dfrac{1}{3}\\pi$ into the solution and solve for $x$:\n$$\\tan\\left(\\dfrac{\\pi}{3}\\right) = 4\\ln(\\sec x) + 1 \\implies \\sqrt{3} = 4\\ln(\\sec x) + 1$$\n$$4\\ln(\\sec x) = \\sqrt{3} - 1 \\implies \\ln(\\sec x) = \\dfrac{\\sqrt{3} - 1}{4} \\approx 0.183013$$",
+        "Express in terms of $\\cos x$ and exponentiate:\n$$\\ln(\\cos x) = -\\dfrac{\\sqrt{3} - 1}{4} \\approx -0.183013$$\n$$\\cos x = \\mathrm{e}^{-0.183013} \\approx 0.83276$$",
+        "Calculate $x = \\cos^{-1}(0.83276)$ in radians in the range $0 \\le x < \\dfrac{1}{2}\\pi$:\n$$x \\approx 0.5866 \\implies x = 0.587 \\quad \\text{(to 3 significant figures)}$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "ai_rubric": {
+          "Solving Separable Differential Equations": "Derives term $\\tan y$, or equivalent. The final result is $\\tan y=4\\ln\\sec x+1$. When $y=\\frac{1}{3}\\pi$, $x=0.587$."
+        },
+        "criteria_source": "mark_scheme_structured"
+      }
+    }
+  ]
+}

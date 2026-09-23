@@ -1,0 +1,73 @@
+{
+  "schema_version": "9709_math_enrichment_v3",
+  "paper_code": "9709_m25_32",
+  "question_id": "9709_m25_32_q6",
+  "question_num": 6,
+  "subject_code": "9709",
+  "component": "P3",
+  "year": 2025,
+  "session": "Feb/March",
+  "variant": "32",
+  "difficulty": 5,
+  "numerical_values_checked": false,
+  "parts": [
+    {
+      "part_id": "9709_m25_32_q6",
+      "difficulty": 5,
+      "practice_tier": "revision",
+      "mapping": {
+        "topic_id": "9709_p3_t_differential_equations",
+        "module_id": "9709_p3_t_differential_equations_m02",
+        "lesson_id": "9709_p3_t_differential_equations_m02_l02"
+      },
+      "skills": {
+        "primary_skill_id": "9709_p3_skill_solving_separable_differential_equations",
+        "skill_tags": [
+          "Solving Separable Differential Equations"
+        ]
+      },
+      "question_pattern_ids": [
+        "9709_p3_pattern_solve_equation",
+        "9709_p3_pattern_find_parameter",
+        "9709_p3_pattern_calculus_process",
+        "9709_p3_pattern_trigonometric_reasoning"
+      ],
+      "knowledge_refs": {
+        "formula_ids": [],
+        "identity_ids": [
+          "9709_p3_identity_double_angle",
+          "9709_p3_identity_pythagorean"
+        ],
+        "method_ids": [
+          "9709_p3_method_solving_separable_differential_equations"
+        ],
+        "fact_ids": [
+          "9709_p3_fact_log_domain"
+        ]
+      },
+      "hints": [
+        "Separate the variables by dividing by $x/5+1$, leaving the $\\theta$ expression on the other side.",
+        "Rewrite $\\sin^2(2\\theta)$ as $\\frac12(1-\\cos4\\theta)$ before integrating.",
+        "Integrate the $x$-side logarithmically and retain the factor arising from $x/5+1$.",
+        "Apply $x=5$ when $\\theta=0$ to determine the constant, then exponentiate and isolate $x$."
+      ],
+      "walkthrough": [
+        "Simplify the algebraic fraction in $x$:\n$$\\dfrac{x}{5} + 1 = \\dfrac{x + 5}{5}$$\n$$\\dfrac{\\mathrm{d}x}{\\mathrm{d}\\theta} = \\left(\\dfrac{x + 5}{5}\\right)\\sin^2(2\\theta)$$",
+        "Separate variables by multiplying by $\\dfrac{5}{x + 5}$ and by $\\mathrm{d}\\theta$:\n$$\\dfrac{5}{x + 5}\\,\\mathrm{d}x = \\sin^2(2\\theta)\\,\\mathrm{d}\\theta$$",
+        "Use the double-angle identity $\\sin^2 A = \\dfrac{1 - \\cos(2A)}{2}$ with $A = 2\\theta$:\n$$\\sin^2(2\\theta) = \\dfrac{1 - \\cos(4\\theta)}{2} = \\dfrac{1}{2} - \\dfrac{1}{2}\\cos(4\\theta)$$\n$$\\dfrac{5}{x + 5}\\,\\mathrm{d}x = \\left(\\dfrac{1}{2} - \\dfrac{1}{2}\\cos(4\\theta)\\right)\\,\\mathrm{d}\\theta$$",
+        "Integrate both sides:\n$$\\int \\dfrac{5}{x + 5}\\,\\mathrm{d}x = \\int \\left(\\dfrac{1}{2} - \\dfrac{1}{2}\\cos(4\\theta)\\right)\\,\\mathrm{d}\\theta$$\n$$5\\ln(x + 5) = \\dfrac{1}{2}\\theta - \\dfrac{1}{2}\\left(\\dfrac{\\sin(4\\theta)}{4}\\right) + c$$\n$$5\\ln(x + 5) = \\dfrac{1}{2}\\theta - \\dfrac{1}{8}\\sin(4\\theta) + c$$",
+        "Substitute the initial condition $x = 5$ when $\\theta = 0$ to find the constant $c$:\n$$5\\ln(5 + 5) = \\dfrac{1}{2}(0) - \\dfrac{1}{8}\\sin(0) + c$$\n$$5\\ln(10) = 0 - 0 + c \\implies c = 5\\ln 10$$",
+        "Substitute $c = 5\\ln 10$ and rearrange the logarithmic terms:\n$$5\\ln(x + 5) = \\dfrac{1}{2}\\theta - \\dfrac{1}{8}\\sin(4\\theta) + 5\\ln 10$$\n$$5\\ln(x + 5) - 5\\ln 10 = \\dfrac{1}{2}\\theta - \\dfrac{1}{8}\\sin(4\\theta)$$\n$$5\\ln\\left(\\dfrac{x + 5}{10}\\right) = \\dfrac{1}{2}\\left(\\theta - \\dfrac{1}{4}\\sin(4\\theta)\\right)$$",
+        "Divide by 5 to isolate the logarithm:\n$$\\ln\\left(\\dfrac{x + 5}{10}\\right) = \\dfrac{1}{10}\\left(\\theta - \\dfrac{1}{4}\\sin(4\\theta)\\right)$$",
+        "Exponentiate both sides to express $x$ in terms of $\\theta$:\n$$\\dfrac{x + 5}{10} = \\exp\\left[\\dfrac{1}{10}\\left(\\theta - \\dfrac{1}{4}\\sin(4\\theta)\\right)\\right]$$\n$$x + 5 = 10\\exp\\left[\\dfrac{1}{10}\\left(\\theta - \\dfrac{1}{4}\\sin(4\\theta)\\right)\\right]$$\n$$x = 10\\exp\\left[\\dfrac{1}{10}\\left(\\theta - \\dfrac{1}{4}\\sin(4\\theta)\\right)\\right] - 5$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "ai_rubric": {
+          "Solving Separable Differential Equations": "$\\sin^22\\theta =(1-cos4\\theta )/2$. $(1/2)(\\theta -(1/4)sin4\\theta )$. The solved value is x=10 exp[(θ − (1/4)sin 4θ)/10] − 5."
+        },
+        "criteria_source": "mark_scheme_structured"
+      }
+    }
+  ]
+}

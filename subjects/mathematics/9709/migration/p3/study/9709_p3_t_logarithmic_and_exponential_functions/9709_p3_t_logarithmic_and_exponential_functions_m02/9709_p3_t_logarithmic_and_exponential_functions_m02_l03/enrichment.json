@@ -1,0 +1,1614 @@
+{
+  "schema_version": "9709_math_lesson_enrichment_v1",
+  "lesson_id": "9709_p3_t_logarithmic_and_exponential_functions_m02_l03",
+  "topic_id": "9709_p3_t_logarithmic_and_exponential_functions",
+  "numerical_values_checked": false,
+  "lesson_scope": "Synthesising partial fraction decomposition with negative binomial series expansions, establishing strict convergence domains, and performing exact definite integration.",
+  "questions": [
+    {
+      "question_id": "9709_p3_t_logarithmic_and_exponential_functions_m02_l03_drq01",
+      "sequence": 1,
+      "difficulty": "easy",
+      "difficulty_reason": "Drill: Direct binomial expansion of factored linear denominator.",
+      "source_question_id": "9709_m17_32_q9",
+      "source_role": "foundational_drill",
+      "dependency_role": "none",
+      "dependency_refs": [],
+      "parts": [
+        {
+          "part_id": "9709_p3_t_logarithmic_and_exponential_functions_m02_l03_drq01_p01",
+          "difficulty": "easy",
+          "question_pattern_ids": [
+            "9709_p3_pattern_exact_value",
+            "9709_p3_pattern_prove_or_show"
+          ],
+          "source_evidence": {
+            "question_id": "9709_m17_32_q9",
+            "part_id": "9709_m17_32_q9",
+            "legacy_practice_tier": "core",
+            "product_role": "warm_up_drill",
+            "structural_inspiration": "Direct binomial expansion of factored linear denominator."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Rewrite $\\frac{3}{2 - x}$ as $\\frac{3}{2(1 - x/2)} = \\frac{3}{2}\\left(1 - \\frac{x}{2}\\right)^{-1}$.",
+            "Expand $\\left(1 - \\frac{x}{2}\\right)^{-1} = 1 + \\frac{x}{2} + \\frac{x^2}{4}$.",
+            "Multiply by $\\frac{3}{2}$ to get $\\frac{3}{2} + \\frac{3}{4}x + \\frac{3}{8}x^2$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Factor out 2 from the denominator to create a leading 1:\n$$\\frac{3}{2 - x} = \\frac{3}{2\\left(1 - \\frac{x}{2}\\right)} = \\frac{3}{2}\\left(1 - \\frac{x}{2}\\right)^{-1}$$"
+            },
+            {
+              "step": 2,
+              "text": "Apply the binomial series formula for $n = -1$:\n$$\\frac{3}{2}\\left(1 + \\frac{x}{2} + \\left(\\frac{x}{2}\\right)^2\\right) = \\frac{3}{2}\\left(1 + \\frac{x}{2} + \\frac{x^2}{4}\\right) = \\frac{3}{2} + \\frac{3}{4}x + \\frac{3}{8}x^2$$"
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_logarithmic_and_exponential_functions_m02_l03_drq01_p01_mp01",
+                "observable": "Factors out $2$ to write $\\frac{3}{2}\\left(1 - \\frac{x}{2}\\right)^{-1}$."
+              },
+              {
+                "criterion_id": "9709_p3_t_logarithmic_and_exponential_functions_m02_l03_drq01_p01_mp02",
+                "observable": "Expands correctly to obtain $\\frac{3}{2} + \\frac{3}{4}x + \\frac{3}{8}x^2$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_applying_logarithm_laws"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_applying_logarithm_laws"
+            ],
+            "method_ids": [
+              "9709_p3_method_applying_logarithm_laws"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        }
+      ],
+      "_numerical_values_checked": false
+    },
+    {
+      "question_id": "9709_p3_t_logarithmic_and_exponential_functions_m02_l03_drq02",
+      "sequence": 2,
+      "difficulty": "easy",
+      "difficulty_reason": "Drill: Repeated linear denominator term binomial expansion.",
+      "source_question_id": "9709_s16_31_q8",
+      "source_role": "foundational_drill",
+      "dependency_role": "none",
+      "dependency_refs": [],
+      "parts": [
+        {
+          "part_id": "9709_p3_t_logarithmic_and_exponential_functions_m02_l03_drq02_p01",
+          "difficulty": "easy",
+          "question_pattern_ids": [
+            "9709_p3_pattern_exact_value",
+            "9709_p3_pattern_prove_or_show"
+          ],
+          "source_evidence": {
+            "question_id": "9709_s16_31_q8",
+            "part_id": "9709_s16_31_q8",
+            "legacy_practice_tier": "core",
+            "product_role": "warm_up_drill",
+            "structural_inspiration": "Repeated linear denominator term binomial expansion."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Rewrite as $2(1 + 3x)^{-2}$.",
+            "Expand $(1 + 3x)^{-2} = 1 - 6x + 27x^2$.",
+            "Multiply by 2: $2 - 12x + 54x^2$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Write the fraction using negative indices:\n$$\\frac{2}{(1 + 3x)^2} = 2(1 + 3x)^{-2}$$"
+            },
+            {
+              "step": 2,
+              "text": "Apply the binomial series with $n = -2$ and $u = 3x$:\n$$2\\left(1 + (-2)(3x) + \\frac{(-2)(-3)}{2}(3x)^2\\right) = 2(1 - 6x + 27x^2) = 2 - 12x + 54x^2$$"
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_logarithmic_and_exponential_functions_m02_l03_drq02_p01_mp01",
+                "observable": "Applies binomial series $2(1 + 3x)^{-2} = 2(1 + (-2)(3x) + \\frac{(-2)(-3)}{2}(3x)^2)$."
+              },
+              {
+                "criterion_id": "9709_p3_t_logarithmic_and_exponential_functions_m02_l03_drq02_p01_mp02",
+                "observable": "Simplifies to obtain $2 - 12x + 54x^2$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_applying_logarithm_laws"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_applying_logarithm_laws"
+            ],
+            "method_ids": [
+              "9709_p3_method_applying_logarithm_laws"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        }
+      ],
+      "_numerical_values_checked": false
+    },
+    {
+      "question_id": "9709_p3_t_logarithmic_and_exponential_functions_m02_l03_drq03",
+      "sequence": 3,
+      "difficulty": "easy",
+      "difficulty_reason": "Drill: Composite convergence radius evaluation.",
+      "source_question_id": "9709_s18_31_q9",
+      "source_role": "foundational_drill",
+      "dependency_role": "none",
+      "dependency_refs": [],
+      "parts": [
+        {
+          "part_id": "9709_p3_t_logarithmic_and_exponential_functions_m02_l03_drq03_p01",
+          "difficulty": "easy",
+          "question_pattern_ids": [
+            "9709_p3_pattern_exact_value",
+            "9709_p3_pattern_prove_or_show"
+          ],
+          "source_evidence": {
+            "question_id": "9709_s18_31_q9",
+            "part_id": "9709_s18_31_q9",
+            "legacy_practice_tier": "core",
+            "product_role": "warm_up_drill",
+            "structural_inspiration": "Composite convergence radius evaluation."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "The first term $(1 - 2x)^{-1}$ converges for $|2x| < 1 \\implies |x| < \\frac{1}{2}$.",
+            "The second term $\\frac{1}{3}(1 + x/3)^{-1}$ converges for $|x/3| < 1 \\implies |x| < 3$.",
+            "Choose the stricter (smaller) interval: $|x| < \\frac{1}{2}$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Find the convergence radius for each partial fraction term:\n$$(1 - 2x)^{-1}: \\quad |2x| < 1 \\implies |x| < \\frac{1}{2}$$\n$$(3 + x)^{-1} = \\frac{1}{3}\\left(1 + \\frac{x}{3}\\right)^{-1}: \\quad \\left|\\frac{x}{3}\\right| < 1 \\implies |x| < 3$$"
+            },
+            {
+              "step": 2,
+              "text": "Take the intersection of the two convergence domains:\n$$\\text{Valid for } |x| < \\min\\left(\\frac{1}{2}, 3\\right) \\implies |x| < \\frac{1}{2}$$"
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_logarithmic_and_exponential_functions_m02_l03_drq03_p01_mp01",
+                "observable": "Identifies individual conditions $|2x| < 1 \\implies |x| < \\frac{1}{2}$ and $|x/3| < 1 \\implies |x| < 3$."
+              },
+              {
+                "criterion_id": "9709_p3_t_logarithmic_and_exponential_functions_m02_l03_drq03_p01_mp02",
+                "observable": "Selects the strictest range $|x| < \\frac{1}{2}$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_applying_logarithm_laws"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_applying_logarithm_laws"
+            ],
+            "method_ids": [
+              "9709_p3_method_applying_logarithm_laws"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        }
+      ],
+      "_numerical_values_checked": false
+    },
+    {
+      "question_id": "9709_p3_t_logarithmic_and_exponential_functions_m02_l03_drq04",
+      "sequence": 4,
+      "difficulty": "easy",
+      "difficulty_reason": "Drill: Integration of repeated linear factor term.",
+      "source_question_id": "9709_s21_32_q9",
+      "source_role": "foundational_drill",
+      "dependency_role": "none",
+      "dependency_refs": [],
+      "parts": [
+        {
+          "part_id": "9709_p3_t_logarithmic_and_exponential_functions_m02_l03_drq04_p01",
+          "difficulty": "easy",
+          "question_pattern_ids": [
+            "9709_p3_pattern_exact_value",
+            "9709_p3_pattern_prove_or_show"
+          ],
+          "source_evidence": {
+            "question_id": "9709_s21_32_q9",
+            "part_id": "9709_s21_32_q9",
+            "legacy_practice_tier": "core",
+            "product_role": "warm_up_drill",
+            "structural_inspiration": "Integration of repeated linear factor term."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Rewrite the integrand as $4(2x + 1)^{-2}$.",
+            "Use $\\int (ax + b)^{-2}\\,\\mathrm{d}x = -\\frac{1}{a(ax + b)}$.",
+            "Multiply: $4 \\left(-\\frac{1}{2(2x + 1)}\\right) + c = -\\frac{2}{2x + 1} + c$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Write in index form and integrate using the reverse chain rule:\n$$\\int 4(2x + 1)^{-2}\\,\\mathrm{d}x = 4 \\left[\\frac{(2x + 1)^{-1}}{(-1)(2)}\\right] + c$$"
+            },
+            {
+              "step": 2,
+              "text": "Simplify the constant coefficient:\n$$= -\\frac{4}{2(2x + 1)} + c = -\\frac{2}{2x + 1} + c$$"
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_logarithmic_and_exponential_functions_m02_l03_drq04_p01_mp01",
+                "observable": "Integrates $4(2x + 1)^{-2}$ using reverse chain rule: $4 \\frac{(2x + 1)^{-1}}{-1 \\times 2}$."
+              },
+              {
+                "criterion_id": "9709_p3_t_logarithmic_and_exponential_functions_m02_l03_drq04_p01_mp02",
+                "observable": "Simplifies to $-\\frac{2}{2x + 1} + c$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_applying_logarithm_laws"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_applying_logarithm_laws"
+            ],
+            "method_ids": [
+              "9709_p3_method_applying_logarithm_laws"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        }
+      ],
+      "_numerical_values_checked": false
+    },
+    {
+      "question_id": "9709_p3_t_logarithmic_and_exponential_functions_m02_l03_drq05",
+      "sequence": 5,
+      "difficulty": "easy",
+      "difficulty_reason": "Drill: Series addition of two linear binomial components.",
+      "source_question_id": "9709_w20_31_q9",
+      "source_role": "foundational_drill",
+      "dependency_role": "none",
+      "dependency_refs": [],
+      "parts": [
+        {
+          "part_id": "9709_p3_t_logarithmic_and_exponential_functions_m02_l03_drq05_p01",
+          "difficulty": "easy",
+          "question_pattern_ids": [
+            "9709_p3_pattern_exact_value",
+            "9709_p3_pattern_prove_or_show"
+          ],
+          "source_evidence": {
+            "question_id": "9709_w20_31_q9",
+            "part_id": "9709_w20_31_q9",
+            "legacy_practice_tier": "core",
+            "product_role": "warm_up_drill",
+            "structural_inspiration": "Series addition of two linear binomial components."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Expand $(1 - x)^{-1} = 1 + x + x^2$.",
+            "Expand $-2(1 + 2x)^{-1} = -2(1 - 2x + 4x^2) = -2 + 4x - 8x^2$.",
+            "Add the two polynomials: $(1 - 2) + (1 + 4)x + (1 - 8)x^2 = -1 + 5x - 7x^2$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Expand both terms up to degree 2:\n$$(1 - x)^{-1} = 1 + x + x^2$$\n$$-2(1 + 2x)^{-1} = -2(1 - 2x + 4x^2) = -2 + 4x - 8x^2$$"
+            },
+            {
+              "step": 2,
+              "text": "Combine like powers of $x$:\n$$(1 - x)^{-1} - 2(1 + 2x)^{-1} = (1 - 2) + (1 + 4)x + (1 - 8)x^2 = -1 + 5x - 7x^2$$"
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_logarithmic_and_exponential_functions_m02_l03_drq05_p01_mp01",
+                "observable": "Expands $(1 - x)^{-1} = 1 + x + x^2$."
+              },
+              {
+                "criterion_id": "9709_p3_t_logarithmic_and_exponential_functions_m02_l03_drq05_p01_mp02",
+                "observable": "Expands $-2(1 + 2x)^{-1} = -2(1 - 2x + 4x^2) = -2 + 4x - 8x^2$."
+              },
+              {
+                "criterion_id": "9709_p3_t_logarithmic_and_exponential_functions_m02_l03_drq05_p01_mp03",
+                "observable": "Combines terms to obtain $-1 + 5x - 7x^2$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_applying_logarithm_laws"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_applying_logarithm_laws"
+            ],
+            "method_ids": [
+              "9709_p3_method_applying_logarithm_laws"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        }
+      ],
+      "_numerical_values_checked": false
+    },
+    {
+      "question_id": "9709_p3_t_logarithmic_and_exponential_functions_m02_l03_drq06",
+      "sequence": 6,
+      "difficulty": "easy",
+      "difficulty_reason": "Drill: Definite integration combining logarithmic and algebraic power.",
+      "source_question_id": "9709_w23_31_q10",
+      "source_role": "foundational_drill",
+      "dependency_role": "none",
+      "dependency_refs": [],
+      "parts": [
+        {
+          "part_id": "9709_p3_t_logarithmic_and_exponential_functions_m02_l03_drq06_p01",
+          "difficulty": "easy",
+          "question_pattern_ids": [
+            "9709_p3_pattern_exact_value",
+            "9709_p3_pattern_prove_or_show"
+          ],
+          "source_evidence": {
+            "question_id": "9709_w23_31_q10",
+            "part_id": "9709_w23_31_q10",
+            "legacy_practice_tier": "core",
+            "product_role": "warm_up_drill",
+            "structural_inspiration": "Definite integration combining logarithmic and algebraic power."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Integrate: $\\int \\frac{2}{x + 1}\\,\\mathrm{d}x = 2\\ln|x + 1|$ and $\\int (x + 1)^{-2}\\,\\mathrm{d}x = -\\frac{1}{x + 1}$.",
+            "Evaluate at $x = 1$: $2\\ln 2 - \\frac{1}{2}$.",
+            "Evaluate at $x = 0$: $2\\ln 1 - 1 = -1$.",
+            "Subtract: $(2\\ln 2 - \\frac{1}{2}) - (-1) = 2\\ln 2 + \\frac{1}{2}$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Integrate each term:\n$$\\int \\left(\\frac{2}{x + 1} + (x + 1)^{-2}\\right)\\,\\mathrm{d}x = 2\\ln|x + 1| - \\frac{1}{x + 1}$$"
+            },
+            {
+              "step": 2,
+              "text": "Substitute limits $x = 1$ and $x = 0$:\n$$\\left[2\\ln|x + 1| - \\frac{1}{x + 1}\\right]_0^1 = \\left(2\\ln 2 - \\frac{1}{2}\\right) - (2\\ln 1 - 1)$$"
+            },
+            {
+              "step": 3,
+              "text": "Simplify using $\\ln 1 = 0$:\n$$= \\left(2\\ln 2 - \\frac{1}{2}\\right) - (-1) = 2\\ln 2 + \\frac{1}{2}$$"
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_logarithmic_and_exponential_functions_m02_l03_drq06_p01_mp01",
+                "observable": "Integrates to obtain $2\\ln|x + 1| - \\frac{1}{x + 1}$."
+              },
+              {
+                "criterion_id": "9709_p3_t_logarithmic_and_exponential_functions_m02_l03_drq06_p01_mp02",
+                "observable": "Substitutes limits $x = 1$ and $x = 0$."
+              },
+              {
+                "criterion_id": "9709_p3_t_logarithmic_and_exponential_functions_m02_l03_drq06_p01_mp03",
+                "observable": "Simplifies $(2\\ln 2 - 1/2) - (0 - 1) = 2\\ln 2 + \\frac{1}{2}$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_applying_logarithm_laws"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_applying_logarithm_laws"
+            ],
+            "method_ids": [
+              "9709_p3_method_applying_logarithm_laws"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        }
+      ],
+      "_numerical_values_checked": false
+    },
+    {
+      "question_id": "9709_p3_t_logarithmic_and_exponential_functions_m02_l03_cpq01",
+      "sequence": 7,
+      "difficulty": "easy",
+      "difficulty_reason": "Structured: Decomposing rational function with distinct linear denominator.",
+      "source_question_id": "9709_m17_32_q9",
+      "source_role": "core_concept",
+      "dependency_role": "none",
+      "dependency_refs": [],
+      "parts": [
+        {
+          "part_id": "9709_p3_t_logarithmic_and_exponential_functions_m02_l03_cpq01_p01",
+          "difficulty": "easy",
+          "question_pattern_ids": [
+            "9709_p3_pattern_exact_value",
+            "9709_p3_pattern_prove_or_show"
+          ],
+          "source_evidence": {
+            "question_id": "9709_m17_32_q9",
+            "part_id": "9709_m17_32_q9",
+            "legacy_practice_tier": "core",
+            "product_role": "core_practice",
+            "structural_inspiration": "Decomposing rational function with distinct linear denominator."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Set up $5x + 1 = A(2x + 1) + B(x - 1)$.",
+            "Substitute $x = 1 \\implies 6 = 3A \\implies A = 2$.",
+            "Substitute $x = -1/2 \\implies -1.5 = -1.5B \\implies B = 1$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Form the partial fractions identity:\n$$5x + 1 = A(2x + 1) + B(x - 1)$$"
+            },
+            {
+              "step": 2,
+              "text": "Substitute $x = 1$ and $x = -\\frac{1}{2}$ to solve for $A$ and $B$:\n$$x = 1 \\implies 5(1) + 1 = A(3) \\implies 6 = 3A \\implies A = 2$$\n$$x = -\\frac{1}{2} \\implies 5\\left(-\\frac{1}{2}\\right) + 1 = B\\left(-\\frac{3}{2}\\right) \\implies -\\frac{3}{2} = -\\frac{3}{2}B \\implies B = 1$$\n$$f(x) = \\frac{2}{x - 1} + \\frac{1}{2x + 1}$$"
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_logarithmic_and_exponential_functions_m02_l03_cpq01_p01_mp01",
+                "observable": "Sets up identity $5x + 1 = A(2x + 1) + B(x - 1)$."
+              },
+              {
+                "criterion_id": "9709_p3_t_logarithmic_and_exponential_functions_m02_l03_cpq01_p01_mp02",
+                "observable": "Obtains correct partial fractions $\\frac{2}{x - 1} + \\frac{1}{2x + 1}$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_applying_logarithm_laws"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_applying_logarithm_laws"
+            ],
+            "method_ids": [
+              "9709_p3_method_applying_logarithm_laws"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        },
+        {
+          "part_id": "9709_p3_t_logarithmic_and_exponential_functions_m02_l03_cpq01_p02",
+          "difficulty": "easy",
+          "question_pattern_ids": [
+            "9709_p3_pattern_exact_value",
+            "9709_p3_pattern_prove_or_show"
+          ],
+          "source_evidence": {
+            "question_id": "9709_m17_32_q9",
+            "part_id": "9709_m17_32_q9",
+            "legacy_practice_tier": "core",
+            "product_role": "core_practice",
+            "structural_inspiration": "Converting decomposed fractions to unified power series."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [
+            "9709_p3_t_logarithmic_and_exponential_functions_m02_l03_cpq01_p01"
+          ],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Rewrite $f(x) = -2(1 - x)^{-1} + (1 + 2x)^{-1}$.",
+            "Expand $-2(1 - x)^{-1} = -2 - 2x - 2x^2$ and $(1 + 2x)^{-1} = 1 - 2x + 4x^2$.",
+            "Sum: $(-2 + 1) + (-2 - 2)x + (-2 + 4)x^2 = -1 - 4x + 2x^2$.",
+            "Validity is determined by $|2x| < 1 \\implies |x| < \\frac{1}{2}$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Rewrite the partial fractions with leading 1s:\n$$f(x) = \\frac{2}{x - 1} + \\frac{1}{2x + 1} = -2(1 - x)^{-1} + (1 + 2x)^{-1}$$"
+            },
+            {
+              "step": 2,
+              "text": "Expand both terms up to $x^2$:\n$$-2(1 - x)^{-1} = -2(1 + x + x^2) = -2 - 2x - 2x^2$$\n$$(1 + 2x)^{-1} = 1 - 2x + 4x^2$$"
+            },
+            {
+              "step": 3,
+              "text": "Sum the two expansions and state convergence domain:\n$$f(x) = (-2 + 1) + (-2 - 2)x + (-2 + 4)x^2 = -1 - 4x + 2x^2$$\n$$\\text{Valid for } |x| < \\min\\left(1, \\frac{1}{2}\\right) \\implies |x| < \\frac{1}{2}$$"
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_logarithmic_and_exponential_functions_m02_l03_cpq01_p02_mp01",
+                "observable": "Expands $-2(1 - x)^{-1} = -2 - 2x - 2x^2$ and $(1 + 2x)^{-1} = 1 - 2x + 4x^2$."
+              },
+              {
+                "criterion_id": "9709_p3_t_logarithmic_and_exponential_functions_m02_l03_cpq01_p02_mp02",
+                "observable": "Combines expansions to obtain $-1 - 4x + 2x^2$."
+              },
+              {
+                "criterion_id": "9709_p3_t_logarithmic_and_exponential_functions_m02_l03_cpq01_p02_mp03",
+                "observable": "States validity condition $|x| < \\frac{1}{2}$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_applying_logarithm_laws"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_applying_logarithm_laws"
+            ],
+            "method_ids": [
+              "9709_p3_method_applying_logarithm_laws"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        }
+      ],
+      "_numerical_values_checked": false
+    },
+    {
+      "question_id": "9709_p3_t_logarithmic_and_exponential_functions_m02_l03_cpq02",
+      "sequence": 8,
+      "difficulty": "medium",
+      "difficulty_reason": "Structured: Repeated factor partial fraction decomposition.",
+      "source_question_id": "9709_s16_31_q8",
+      "source_role": "core_concept",
+      "dependency_role": "none",
+      "dependency_refs": [],
+      "parts": [
+        {
+          "part_id": "9709_p3_t_logarithmic_and_exponential_functions_m02_l03_cpq02_p01",
+          "difficulty": "medium",
+          "question_pattern_ids": [
+            "9709_p3_pattern_exact_value",
+            "9709_p3_pattern_prove_or_show"
+          ],
+          "source_evidence": {
+            "question_id": "9709_s16_31_q8",
+            "part_id": "9709_s16_31_q8",
+            "legacy_practice_tier": "core",
+            "product_role": "core_practice",
+            "structural_inspiration": "Repeated factor partial fraction decomposition."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Set up $x^2 - 6x + 20 = A(x - 2)^2 + B(x + 1)(x - 2) + C(x + 1)$.",
+            "Substitute $x = -1 \\implies 27 = 9A \\implies A = 3$.",
+            "Substitute $x = 2 \\implies 12 = 3C \\implies C = 4$.",
+            "Equate $x^2$ coefficients: $1 = A + B \\implies B = -2$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Form the polynomial identity for repeated linear factors:\n$$x^2 - 6x + 20 = A(x - 2)^2 + B(x + 1)(x - 2) + C(x + 1)$$"
+            },
+            {
+              "step": 2,
+              "text": "Substitute roots $x = -1$ and $x = 2$:\n$$x = -1 \\implies (-1)^2 - 6(-1) + 20 = A(-3)^2 \\implies 27 = 9A \\implies A = 3$$\n$$x = 2 \\implies (2)^2 - 6(2) + 20 = C(3) \\implies 12 = 3C \\implies C = 4$$"
+            },
+            {
+              "step": 3,
+              "text": "Equate coefficients of $x^2$ to solve for $B$:\n$$1 = A + B \\implies 1 = 3 + B \\implies B = -2$$\n$$f(x) = \\frac{3}{x + 1} - \\frac{2}{x - 2} + \\frac{4}{(x - 2)^2}$$"
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_logarithmic_and_exponential_functions_m02_l03_cpq02_p01_mp01",
+                "observable": "Forms identity $x^2 - 6x + 20 = A(x - 2)^2 + B(x + 1)(x - 2) + C(x + 1)$."
+              },
+              {
+                "criterion_id": "9709_p3_t_logarithmic_and_exponential_functions_m02_l03_cpq02_p01_mp02",
+                "observable": "Finds $A = 3$ and $C = 4$ by root substitution."
+              },
+              {
+                "criterion_id": "9709_p3_t_logarithmic_and_exponential_functions_m02_l03_cpq02_p01_mp03",
+                "observable": "Equates $x^2$ coefficients $1 = A + B \\implies B = -2$, giving $\\frac{3}{x + 1} - \\frac{2}{x - 2} + \\frac{4}{(x - 2)^2}$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_applying_logarithm_laws"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_applying_logarithm_laws"
+            ],
+            "method_ids": [
+              "9709_p3_method_applying_logarithm_laws"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        },
+        {
+          "part_id": "9709_p3_t_logarithmic_and_exponential_functions_m02_l03_cpq02_p02",
+          "difficulty": "medium",
+          "question_pattern_ids": [
+            "9709_p3_pattern_exact_value",
+            "9709_p3_pattern_prove_or_show"
+          ],
+          "source_evidence": {
+            "question_id": "9709_s16_31_q8",
+            "part_id": "9709_s16_31_q8",
+            "legacy_practice_tier": "core",
+            "product_role": "core_practice",
+            "structural_inspiration": "Multi-term repeated factor binomial expansion synthesis."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [
+            "9709_p3_t_logarithmic_and_exponential_functions_m02_l03_cpq02_p01"
+          ],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Rewrite $f(x) = 3(1 + x)^{-1} + \\left(1 - \\frac{x}{2}\\right)^{-1} + \\left(1 - \\frac{x}{2}\\right)^{-2}$.",
+            "Expand: $3(1 - x + x^2) = 3 - 3x + 3x^2$.",
+            "Expand: $\\left(1 - \\frac{x}{2}\\right)^{-1} = 1 + \\frac{x}{2} + \\frac{x^2}{4}$.",
+            "Expand: $\\left(1 - \\frac{x}{2}\\right)^{-2} = 1 + x + \\frac{3}{4}x^2$.",
+            "Add: $3 + 1 + 1 = 5$, $-3 + 0.5 + 1 = -1.5$, $3 + 0.25 + 0.75 = 4$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Rewrite each partial fraction in standard binomial power form:\n$$\\frac{3}{x + 1} = 3(1 + x)^{-1}$$\n$$-\\frac{2}{x - 2} = \\frac{2}{2 - x} = \\left(1 - \\frac{x}{2}\\right)^{-1}$$\n$$\\frac{4}{(x - 2)^2} = \\frac{4}{4\\left(1 - \\frac{x}{2}\\right)^2} = \\left(1 - \\frac{x}{2}\\right)^{-2}$$"
+            },
+            {
+              "step": 2,
+              "text": "Expand each component up to $x^2$:\n$$3(1 + x)^{-1} = 3 - 3x + 3x^2$$\n$$\\left(1 - \\frac{x}{2}\\right)^{-1} = 1 + \\frac{1}{2}x + \\frac{1}{4}x^2$$\n$$\\left(1 - \\frac{x}{2}\\right)^{-2} = 1 + (-2)\\left(-\\frac{x}{2}\\right) + \\frac{(-2)(-3)}{2}\\left(-\\frac{x}{2}\\right)^2 = 1 + x + \\frac{3}{4}x^2$$"
+            },
+            {
+              "step": 3,
+              "text": "Combine all three expansions:\n$$f(x) = (3 + 1 + 1) + \\left(-3 + \\frac{1}{2} + 1\\right)x + \\left(3 + \\frac{1}{4} + \\frac{3}{4}\\right)x^2 = 5 - \\frac{3}{2}x + 4x^2$$\n$$\\text{Valid for } |x| < 1$$"
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_logarithmic_and_exponential_functions_m02_l03_cpq02_p02_mp01",
+                "observable": "Expresses terms as $3(1 + x)^{-1} + \\left(1 - \\frac{x}{2}\\right)^{-1} + \\left(1 - \\frac{x}{2}\\right)^{-2}$."
+              },
+              {
+                "criterion_id": "9709_p3_t_logarithmic_and_exponential_functions_m02_l03_cpq02_p02_mp02",
+                "observable": "Expands each binomial term and sums to obtain $5 - \\frac{3}{2}x + 4x^2$."
+              },
+              {
+                "criterion_id": "9709_p3_t_logarithmic_and_exponential_functions_m02_l03_cpq02_p02_mp03",
+                "observable": "States validity condition $|x| < 1$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_applying_logarithm_laws"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_applying_logarithm_laws"
+            ],
+            "method_ids": [
+              "9709_p3_method_applying_logarithm_laws"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        }
+      ],
+      "_numerical_values_checked": false
+    },
+    {
+      "question_id": "9709_p3_t_logarithmic_and_exponential_functions_m02_l03_cpq03",
+      "sequence": 9,
+      "difficulty": "medium",
+      "difficulty_reason": "Structured: Irreducible quadratic partial fraction decomposition.",
+      "source_question_id": "9709_s18_31_q9",
+      "source_role": "core_concept",
+      "dependency_role": "none",
+      "dependency_refs": [],
+      "parts": [
+        {
+          "part_id": "9709_p3_t_logarithmic_and_exponential_functions_m02_l03_cpq03_p01",
+          "difficulty": "medium",
+          "question_pattern_ids": [
+            "9709_p3_pattern_exact_value",
+            "9709_p3_pattern_prove_or_show"
+          ],
+          "source_evidence": {
+            "question_id": "9709_s18_31_q9",
+            "part_id": "9709_s18_31_q9",
+            "legacy_practice_tier": "core",
+            "product_role": "core_practice",
+            "structural_inspiration": "Irreducible quadratic partial fraction decomposition."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Set up $3x^2 + 6x + 5 = A(x^2 + 1) + (Bx + C)(x + 2)$.",
+            "Substitute $x = -2 \\implies 5 = 5A \\implies A = 1$.",
+            "Equate $x^2$ coefficients: $3 = A + B \\implies B = 2$.",
+            "Equate constant terms: $5 = A + 2C \\implies 2C = 4 \\implies C = 2$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Multiply by the common denominator $(x + 2)(x^2 + 1)$:\n$$3x^2 + 6x + 5 = A(x^2 + 1) + (Bx + C)(x + 2)$$"
+            },
+            {
+              "step": 2,
+              "text": "Substitute $x = -2$:\n$$3(-2)^2 + 6(-2) + 5 = A((-2)^2 + 1) \\implies 5 = 5A \\implies A = 1$$"
+            },
+            {
+              "step": 3,
+              "text": "Equate coefficients to solve for $B$ and $C$:\n$$\\text{Coeff of } x^2: \\quad 3 = A + B \\implies 3 = 1 + B \\implies B = 2$$\n$$\\text{Constant: } 5 = A + 2C \\implies 5 = 1 + 2C \\implies C = 2$$\n$$g(x) = \\frac{1}{x + 2} + \\frac{2x + 2}{x^2 + 1}$$"
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_logarithmic_and_exponential_functions_m02_l03_cpq03_p01_mp01",
+                "observable": "Sets up identity $3x^2 + 6x + 5 = A(x^2 + 1) + (Bx + C)(x + 2)$."
+              },
+              {
+                "criterion_id": "9709_p3_t_logarithmic_and_exponential_functions_m02_l03_cpq03_p01_mp02",
+                "observable": "Substitutes $x = -2$ to find $A = 1$."
+              },
+              {
+                "criterion_id": "9709_p3_t_logarithmic_and_exponential_functions_m02_l03_cpq03_p01_mp03",
+                "observable": "Equates coefficients to find $B = 2, C = 2$, giving $\\frac{1}{x + 2} + \\frac{2x + 2}{x^2 + 1}$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_applying_logarithm_laws"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_applying_logarithm_laws"
+            ],
+            "method_ids": [
+              "9709_p3_method_applying_logarithm_laws"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        },
+        {
+          "part_id": "9709_p3_t_logarithmic_and_exponential_functions_m02_l03_cpq03_p02",
+          "difficulty": "medium",
+          "question_pattern_ids": [
+            "9709_p3_pattern_exact_value",
+            "9709_p3_pattern_prove_or_show"
+          ],
+          "source_evidence": {
+            "question_id": "9709_s18_31_q9",
+            "part_id": "9709_s18_31_q9",
+            "legacy_practice_tier": "core",
+            "product_role": "core_practice",
+            "structural_inspiration": "Series expansion combining linear and irreducible quadratic binomials."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [
+            "9709_p3_t_logarithmic_and_exponential_functions_m02_l03_cpq03_p01"
+          ],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Expand $\\frac{1}{x + 2} = \\frac{1}{2}\\left(1 - \\frac{x}{2} + \\frac{x^2}{4}\\right) = \\frac{1}{2} - \\frac{1}{4}x + \\frac{1}{8}x^2$.",
+            "Expand $(2x + 2)(1 + x^2)^{-1} = (2 + 2x)(1 - x^2) = 2 + 2x - 2x^2$.",
+            "Sum terms: $(\\frac{1}{2} + 2) + (-\\frac{1}{4} + 2)x + (\\frac{1}{8} - 2)x^2 = \\frac{5}{2} + \\frac{7}{4}x - \\frac{15}{8}x^2$.",
+            "Convergence requires $|x/2| < 1$ and $|x^2| < 1 \\implies |x| < 1$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Expand the linear fraction component:\n$$\\frac{1}{x + 2} = \\frac{1}{2}\\left(1 + \\frac{x}{2}\\right)^{-1} = \\frac{1}{2}\\left(1 - \\frac{x}{2} + \\frac{x^2}{4}\\right) = \\frac{1}{2} - \\frac{1}{4}x + \\frac{1}{8}x^2$$"
+            },
+            {
+              "step": 2,
+              "text": "Expand the quadratic fraction component:\n$$\\frac{2x + 2}{x^2 + 1} = (2 + 2x)(1 + x^2)^{-1} = (2 + 2x)(1 - x^2 + \\dots) = 2 + 2x - 2x^2$$"
+            },
+            {
+              "step": 3,
+              "text": "Combine the two polynomial expansions:\n$$g(x) = \\left(\\frac{1}{2} + 2\\right) + \\left(-\\frac{1}{4} + 2\\right)x + \\left(\\frac{1}{8} - 2\\right)x^2 = \\frac{5}{2} + \\frac{7}{4}x - \\frac{15}{8}x^2$$\n$$\\text{Valid for } |x| < \\min(2, 1) \\implies |x| < 1$$"
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_logarithmic_and_exponential_functions_m02_l03_cpq03_p02_mp01",
+                "observable": "Expands $\\frac{1}{x + 2} = \\frac{1}{2}\\left(1 + \\frac{x}{2}\\right)^{-1} = \\frac{1}{2} - \\frac{1}{4}x + \\frac{1}{8}x^2$."
+              },
+              {
+                "criterion_id": "9709_p3_t_logarithmic_and_exponential_functions_m02_l03_cpq03_p02_mp02",
+                "observable": "Expands $\\frac{2x + 2}{x^2 + 1} = (2 + 2x)(1 - x^2) = 2 + 2x - 2x^2$."
+              },
+              {
+                "criterion_id": "9709_p3_t_logarithmic_and_exponential_functions_m02_l03_cpq03_p02_mp03",
+                "observable": "Sums to obtain $\\frac{5}{2} + \\frac{7}{4}x - \\frac{15}{8}x^2$ and states $|x| < 1$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_applying_logarithm_laws"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_applying_logarithm_laws"
+            ],
+            "method_ids": [
+              "9709_p3_method_applying_logarithm_laws"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        }
+      ],
+      "_numerical_values_checked": false
+    },
+    {
+      "question_id": "9709_p3_t_logarithmic_and_exponential_functions_m02_l03_cpq04",
+      "sequence": 10,
+      "difficulty": "medium",
+      "difficulty_reason": "Structured: Repeated factor partial fraction decomposition.",
+      "source_question_id": "9709_s21_32_q9",
+      "source_role": "core_concept",
+      "dependency_role": "none",
+      "dependency_refs": [],
+      "parts": [
+        {
+          "part_id": "9709_p3_t_logarithmic_and_exponential_functions_m02_l03_cpq04_p01",
+          "difficulty": "medium",
+          "question_pattern_ids": [
+            "9709_p3_pattern_exact_value",
+            "9709_p3_pattern_prove_or_show"
+          ],
+          "source_evidence": {
+            "question_id": "9709_s21_32_q9",
+            "part_id": "9709_s21_32_q9",
+            "legacy_practice_tier": "core",
+            "product_role": "core_practice",
+            "structural_inspiration": "Repeated factor partial fraction decomposition."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Set up $8x = A(x + 2)^2 + B(x - 2)(x + 2) + C(x - 2)$.",
+            "Substitute $x = 2 \\implies 16 = 16A \\implies A = 1$.",
+            "Substitute $x = -2 \\implies -16 = -4C \\implies C = 4$.",
+            "Equate $x^2$ coefficients: $0 = A + B \\implies B = -1$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Form the polynomial identity by multiplying through by $(x - 2)(x + 2)^2$:\n$$8x = A(x + 2)^2 + B(x - 2)(x + 2) + C(x - 2)$$"
+            },
+            {
+              "step": 2,
+              "text": "Substitute $x = 2$ and $x = -2$:\n$$x = 2 \\implies 8(2) = A(2 + 2)^2 \\implies 16 = 16A \\implies A = 1$$\n$$x = -2 \\implies 8(-2) = C(-2 - 2) \\implies -16 = -4C \\implies C = 4$$"
+            },
+            {
+              "step": 3,
+              "text": "Equate coefficients of $x^2$ to solve for $B$:\n$$0 = A + B \\implies 0 = 1 + B \\implies B = -1$$\n$$f(x) = \\frac{1}{x - 2} - \\frac{1}{x + 2} + \\frac{4}{(x + 2)^2}$$"
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_logarithmic_and_exponential_functions_m02_l03_cpq04_p01_mp01",
+                "observable": "Sets up identity $8x = A(x + 2)^2 + B(x - 2)(x + 2) + C(x - 2)$."
+              },
+              {
+                "criterion_id": "9709_p3_t_logarithmic_and_exponential_functions_m02_l03_cpq04_p01_mp02",
+                "observable": "Finds $A = 1$ and $C = 4$."
+              },
+              {
+                "criterion_id": "9709_p3_t_logarithmic_and_exponential_functions_m02_l03_cpq04_p01_mp03",
+                "observable": "Equates $x^2$ coefficients to find $B = -1$, concluding with $\\frac{1}{x - 2} - \\frac{1}{x + 2} + \\frac{4}{(x + 2)^2}$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_applying_logarithm_laws"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_applying_logarithm_laws"
+            ],
+            "method_ids": [
+              "9709_p3_method_applying_logarithm_laws"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        },
+        {
+          "part_id": "9709_p3_t_logarithmic_and_exponential_functions_m02_l03_cpq04_p02",
+          "difficulty": "medium",
+          "question_pattern_ids": [
+            "9709_p3_pattern_exact_value",
+            "9709_p3_pattern_prove_or_show"
+          ],
+          "source_evidence": {
+            "question_id": "9709_s21_32_q9",
+            "part_id": "9709_s21_32_q9",
+            "legacy_practice_tier": "core",
+            "product_role": "core_practice",
+            "structural_inspiration": "Exact definite integration using decomposed partial fraction result."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [
+            "9709_p3_t_logarithmic_and_exponential_functions_m02_l03_cpq04_p01"
+          ],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Integrate the partial fractions: $\\int \\left(\\frac{1}{x - 2} - \\frac{1}{x + 2} + 4(x + 2)^{-2}\\right)\\,\\mathrm{d}x = \\ln|x - 2| - \\ln|x + 2| - \\frac{4}{x + 2}$.",
+            "Upper limit $x = 1$: $\\ln|-1| - \\ln 3 - \\frac{4}{3} = -\\ln 3 - \\frac{4}{3}$.",
+            "Lower limit $x = 0$: $\\ln|-2| - \\ln 2 - 2 = -2$.",
+            "Subtract: $(-\\ln 3 - \\frac{4}{3}) - (-2) = 2 - \\frac{4}{3} - \\ln 3 = \\frac{2}{3} - \\ln 3$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Integrate each partial fraction component:\n$$\\int \\left(\\frac{1}{x - 2} - \\frac{1}{x + 2} + 4(x + 2)^{-2}\\right)\\,\\mathrm{d}x = \\ln|x - 2| - \\ln|x + 2| - \\frac{4}{x + 2}$$"
+            },
+            {
+              "step": 2,
+              "text": "Evaluate at the limits $x = 1$ and $x = 0$:\n$$\\text{Upper } (x = 1): \\quad \\ln|-1| - \\ln 3 - \\frac{4}{3} = 0 - \\ln 3 - \\frac{4}{3} = -\\ln 3 - \\frac{4}{3}$$\n$$\\text{Lower } (x = 0): \\quad \\ln|-2| - \\ln 2 - \\frac{4}{2} = \\ln 2 - \\ln 2 - 2 = -2$$"
+            },
+            {
+              "step": 3,
+              "text": "Subtract the lower limit from the upper limit:\n$$\\text{Integral} = \\left(-\\ln 3 - \\frac{4}{3}\\right) - (-2) = 2 - \\frac{4}{3} - \\ln 3 = \\frac{2}{3} - \\ln 3$$"
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_logarithmic_and_exponential_functions_m02_l03_cpq04_p02_mp01",
+                "observable": "Integrates to obtain $\\ln|x - 2| - \\ln|x + 2| - \\frac{4}{x + 2}$."
+              },
+              {
+                "criterion_id": "9709_p3_t_logarithmic_and_exponential_functions_m02_l03_cpq04_p02_mp02",
+                "observable": "Substitutes upper limit $x = 1$ to get $-\\ln 3 - \\frac{4}{3}$."
+              },
+              {
+                "criterion_id": "9709_p3_t_logarithmic_and_exponential_functions_m02_l03_cpq04_p02_mp03",
+                "observable": "Substitutes lower limit $x = 0$ to get $-2$."
+              },
+              {
+                "criterion_id": "9709_p3_t_logarithmic_and_exponential_functions_m02_l03_cpq04_p02_mp04",
+                "observable": "Subtracts evaluations to obtain $\\frac{2}{3} - \\ln 3$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_applying_logarithm_laws"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_applying_logarithm_laws"
+            ],
+            "method_ids": [
+              "9709_p3_method_applying_logarithm_laws"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        }
+      ],
+      "_numerical_values_checked": false
+    },
+    {
+      "question_id": "9709_p3_t_logarithmic_and_exponential_functions_m02_l03_cpq05",
+      "sequence": 11,
+      "difficulty": "hard",
+      "difficulty_reason": "Structured: Decomposition of rational fraction with quadratic denominator.",
+      "source_question_id": "9709_w20_31_q9",
+      "source_role": "capstone_synthesis",
+      "dependency_role": "none",
+      "dependency_refs": [],
+      "parts": [
+        {
+          "part_id": "9709_p3_t_logarithmic_and_exponential_functions_m02_l03_cpq05_p01",
+          "difficulty": "hard",
+          "question_pattern_ids": [
+            "9709_p3_pattern_exact_value",
+            "9709_p3_pattern_prove_or_show"
+          ],
+          "source_evidence": {
+            "question_id": "9709_w20_31_q9",
+            "part_id": "9709_w20_31_q9",
+            "legacy_practice_tier": "capstone",
+            "product_role": "capstone_practice",
+            "structural_inspiration": "Decomposition of rational fraction with quadratic denominator."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Set up $2x^2 - 7x - 1 = A(x^2 + 3) + (Bx + C)(x - 2)$.",
+            "Substitute $x = 2 \\implies -7 = 7A \\implies A = -1$.",
+            "Equate $x^2$ coefficients: $2 = A + B \\implies B = 3$.",
+            "Equate constant terms: $-1 = 3A - 2C \\implies -1 = -3 - 2C \\implies C = -1$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Multiply by the common denominator $(x - 2)(x^2 + 3)$:\n$$2x^2 - 7x - 1 = A(x^2 + 3) + (Bx + C)(x - 2)$$"
+            },
+            {
+              "step": 2,
+              "text": "Substitute $x = 2$:\n$$2(2)^2 - 7(2) - 1 = A(2^2 + 3) \\implies -7 = 7A \\implies A = -1$$"
+            },
+            {
+              "step": 3,
+              "text": "Equate coefficients to solve for $B$ and $C$:\n$$\\text{Coeff of } x^2: \\quad 2 = A + B \\implies 2 = -1 + B \\implies B = 3$$\n$$\\text{Constant: } -1 = 3A - 2C \\implies -1 = -3 - 2C \\implies 2C = -2 \\implies C = -1$$\n$$f(x) = -\\frac{1}{x - 2} + \\frac{3x - 1}{x^2 + 3} = \\frac{1}{2 - x} + \\frac{3x - 1}{x^2 + 3}$$"
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_logarithmic_and_exponential_functions_m02_l03_cpq05_p01_mp01",
+                "observable": "Sets up identity $2x^2 - 7x - 1 = A(x^2 + 3) + (Bx + C)(x - 2)$."
+              },
+              {
+                "criterion_id": "9709_p3_t_logarithmic_and_exponential_functions_m02_l03_cpq05_p01_mp02",
+                "observable": "Substitutes $x = 2$ to find $A = -1$."
+              },
+              {
+                "criterion_id": "9709_p3_t_logarithmic_and_exponential_functions_m02_l03_cpq05_p01_mp03",
+                "observable": "Equates $x^2$ coefficients $2 = A + B \\implies B = 3$."
+              },
+              {
+                "criterion_id": "9709_p3_t_logarithmic_and_exponential_functions_m02_l03_cpq05_p01_mp04",
+                "observable": "Equates constant terms $-1 = 3A - 2C \\implies C = -1$, giving $-\\frac{1}{x - 2} + \\frac{3x - 1}{x^2 + 3}$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_applying_logarithm_laws"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_applying_logarithm_laws"
+            ],
+            "method_ids": [
+              "9709_p3_method_applying_logarithm_laws"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        },
+        {
+          "part_id": "9709_p3_t_logarithmic_and_exponential_functions_m02_l03_cpq05_p02",
+          "difficulty": "hard",
+          "question_pattern_ids": [
+            "9709_p3_pattern_exact_value",
+            "9709_p3_pattern_prove_or_show"
+          ],
+          "source_evidence": {
+            "question_id": "9709_w20_31_q9",
+            "part_id": "9709_w20_31_q9",
+            "legacy_practice_tier": "capstone",
+            "product_role": "capstone_practice",
+            "structural_inspiration": "Third-order binomial expansion synthesis with quadratic denominator factor."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [
+            "9709_p3_t_logarithmic_and_exponential_functions_m02_l03_cpq05_p01"
+          ],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Rewrite $f(x) = \\frac{1}{2}\\left(1 - \\frac{x}{2}\\right)^{-1} + \\frac{3x - 1}{3}\\left(1 + \\frac{x^2}{3}\\right)^{-1}$.",
+            "Expand $\\frac{1}{2}\\left(1 - \\frac{x}{2}\\right)^{-1} = \\frac{1}{2} + \\frac{1}{4}x + \\frac{1}{8}x^2 + \\frac{1}{16}x^3$.",
+            "Expand $\\left(x - \\frac{1}{3}\\right)\\left(1 - \\frac{x^2}{3}\\right) = -\\frac{1}{3} + x + \\frac{1}{9}x^2 - \\frac{1}{3}x^3$.",
+            "Add: Constant $\\frac{1}{2} - \\frac{1}{3} = \\frac{1}{6}$, Linear $\\frac{1}{4} + 1 = \\frac{5}{4}$, Quadratic $\\frac{1}{8} + \\frac{1}{9} = \\frac{17}{72}$, Cubic $\\frac{1}{16} - \\frac{1}{3} = -\\frac{13}{48}$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Rewrite each partial fraction in factored form:\n$$\\frac{1}{2 - x} = \\frac{1}{2}\\left(1 - \\frac{x}{2}\\right)^{-1} = \\frac{1}{2}\\left(1 + \\frac{x}{2} + \\frac{x^2}{4} + \\frac{x^3}{8}\\right) = \\frac{1}{2} + \\frac{1}{4}x + \\frac{1}{8}x^2 + \\frac{1}{16}x^3$$"
+            },
+            {
+              "step": 2,
+              "text": "Expand the quadratic denominator fraction:\n$$\\frac{3x - 1}{x^2 + 3} = \\frac{3x - 1}{3}\\left(1 + \\frac{x^2}{3}\\right)^{-1} = \\left(x - \\frac{1}{3}\\right)\\left(1 - \\frac{x^2}{3} + \\dots\\right)$$\n$$= x - \\frac{1}{3}x^3 - \\frac{1}{3} + \\frac{1}{9}x^2 = -\\frac{1}{3} + x + \\frac{1}{9}x^2 - \\frac{1}{3}x^3$$"
+            },
+            {
+              "step": 3,
+              "text": "Combine all terms of like degree:\n$$\\text{Constant: } \\frac{1}{2} - \\frac{1}{3} = \\frac{1}{6}$$\n$$\\text{Linear: } \\frac{1}{4} + 1 = \\frac{5}{4}$$\n$$\\text{Quadratic: } \\frac{1}{8} + \\frac{1}{9} = \\frac{9 + 8}{72} = \\frac{17}{72}$$\n$$\\text{Cubic: } \\frac{1}{16} - \\frac{1}{3} = \\frac{3 - 16}{48} = -\\frac{13}{48}$$\n$$f(x) = \\frac{1}{6} + \\frac{5}{4}x + \\frac{17}{72}x^2 - \\frac{13}{48}x^3$$"
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_logarithmic_and_exponential_functions_m02_l03_cpq05_p02_mp01",
+                "observable": "Expands $\\frac{1}{2}\\left(1 - \\frac{x}{2}\\right)^{-1} = \\frac{1}{2} + \\frac{1}{4}x + \\frac{1}{8}x^2 + \\frac{1}{16}x^3$."
+              },
+              {
+                "criterion_id": "9709_p3_t_logarithmic_and_exponential_functions_m02_l03_cpq05_p02_mp02",
+                "observable": "Expands $\\frac{3x - 1}{3}\\left(1 + \\frac{x^2}{3}\\right)^{-1} = \\left(x - \\frac{1}{3}\\right)\\left(1 - \\frac{x^2}{3}\\right) = -\\frac{1}{3} + x + \\frac{1}{9}x^2 - \\frac{1}{3}x^3$."
+              },
+              {
+                "criterion_id": "9709_p3_t_logarithmic_and_exponential_functions_m02_l03_cpq05_p02_mp03",
+                "observable": "Adds corresponding polynomial coefficients."
+              },
+              {
+                "criterion_id": "9709_p3_t_logarithmic_and_exponential_functions_m02_l03_cpq05_p02_mp04",
+                "observable": "Obtains final simplified expansion $\\frac{1}{6} + \\frac{5}{4}x + \\frac{17}{72}x^2 - \\frac{13}{48}x^3$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_applying_logarithm_laws"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_applying_logarithm_laws"
+            ],
+            "method_ids": [
+              "9709_p3_method_applying_logarithm_laws"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        }
+      ],
+      "_numerical_values_checked": false
+    },
+    {
+      "question_id": "9709_p3_t_logarithmic_and_exponential_functions_m02_l03_cpq06",
+      "sequence": 12,
+      "difficulty": "hard",
+      "difficulty_reason": "Structured: Partial fractions integration applied to differential equations.",
+      "source_question_id": "9709_w23_31_q10",
+      "source_role": "capstone_synthesis",
+      "dependency_role": "none",
+      "dependency_refs": [],
+      "parts": [
+        {
+          "part_id": "9709_p3_t_logarithmic_and_exponential_functions_m02_l03_cpq06_p01",
+          "difficulty": "hard",
+          "question_pattern_ids": [
+            "9709_p3_pattern_exact_value",
+            "9709_p3_pattern_prove_or_show"
+          ],
+          "source_evidence": {
+            "question_id": "9709_w23_31_q10",
+            "part_id": "9709_w23_31_q10",
+            "legacy_practice_tier": "capstone",
+            "product_role": "capstone_practice",
+            "structural_inspiration": "Partial fractions integration applied to differential equations."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Set up $y + 5 = A(y + 2) + B(y - 1)$.",
+            "Substitute $y = 1 \\implies 6 = 3A \\implies A = 2$.",
+            "Substitute $y = -2 \\implies 3 = -3B \\implies B = -1$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Form the partial fractions identity for separation of variables:\n$$\\frac{y + 5}{(y - 1)(y + 2)} = \\frac{A}{y - 1} + \\frac{B}{y + 2} \\implies y + 5 = A(y + 2) + B(y - 1)$$"
+            },
+            {
+              "step": 2,
+              "text": "Substitute $y = 1$ and $y = -2$:\n$$y = 1 \\implies 1 + 5 = A(1 + 2) \\implies 6 = 3A \\implies A = 2$$\n$$y = -2 \\implies -2 + 5 = B(-2 - 1) \\implies 3 = -3B \\implies B = -1$$\n$$\\frac{y + 5}{(y - 1)(y + 2)} = \\frac{2}{y - 1} - \\frac{1}{y + 2}$$"
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_logarithmic_and_exponential_functions_m02_l03_cpq06_p01_mp01",
+                "observable": "Sets up identity $y + 5 = A(y + 2) + B(y - 1)$."
+              },
+              {
+                "criterion_id": "9709_p3_t_logarithmic_and_exponential_functions_m02_l03_cpq06_p01_mp02",
+                "observable": "Substitutes $y = 1$ to find $A = 2$."
+              },
+              {
+                "criterion_id": "9709_p3_t_logarithmic_and_exponential_functions_m02_l03_cpq06_p01_mp03",
+                "observable": "Substitutes $y = -2$ to find $B = -1$."
+              },
+              {
+                "criterion_id": "9709_p3_t_logarithmic_and_exponential_functions_m02_l03_cpq06_p01_mp04",
+                "observable": "Concludes with $\\frac{2}{y - 1} - \\frac{1}{y + 2}$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_applying_logarithm_laws"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_applying_logarithm_laws"
+            ],
+            "method_ids": [
+              "9709_p3_method_applying_logarithm_laws"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        },
+        {
+          "part_id": "9709_p3_t_logarithmic_and_exponential_functions_m02_l03_cpq06_p02",
+          "difficulty": "hard",
+          "question_pattern_ids": [
+            "9709_p3_pattern_exact_value",
+            "9709_p3_pattern_prove_or_show"
+          ],
+          "source_evidence": {
+            "question_id": "9709_w23_31_q10",
+            "part_id": "9709_w23_31_q10",
+            "legacy_practice_tier": "capstone",
+            "product_role": "capstone_practice",
+            "structural_inspiration": "Differential equation separation of variables with logarithmic initial value solving."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [
+            "9709_p3_t_logarithmic_and_exponential_functions_m02_l03_cpq06_p01"
+          ],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Separate variables: $\\int \\left(\\frac{2}{y - 1} - \\frac{1}{y + 2}\\right)\\,\\mathrm{d}y = \\int 6\\,\\mathrm{d}x$.",
+            "Integrate: $\\ln\\left(\\frac{(y - 1)^2}{y + 2}\\right) = 6x + c$.",
+            "At $x = 0, y = 3$: $\\ln(4/5) = c$.",
+            "At $y = 2$: $\\ln(1/4) = 6x + \\ln(4/5) \\implies 6x = \\ln\\left(\\frac{1/4}{4/5}\\right) = \\ln(5/16) \\implies x = \\frac{1}{6}\\ln(5/16)$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Separate variables and integrate using the partial fractions result:\n$$\\int \\frac{y + 5}{(y - 1)(y + 2)}\\,\\mathrm{d}y = \\int 6\\,\\mathrm{d}x$$\n$$\\int \\left(\\frac{2}{y - 1} - \\frac{1}{y + 2}\\right)\\,\\mathrm{d}y = 6x + c$$\n$$2\\ln|y - 1| - \\ln|y + 2| = 6x + c \\implies \\ln\\left(\\frac{(y - 1)^2}{y + 2}\\right) = 6x + c$$"
+            },
+            {
+              "step": 2,
+              "text": "Use the initial condition $x = 0, y = 3$ to determine $c$:\n$$\\ln\\left(\\frac{(3 - 1)^2}{3 + 2}\\right) = 6(0) + c \\implies c = \\ln\\left(\\frac{4}{5}\\right)$$"
+            },
+            {
+              "step": 3,
+              "text": "Substitute $y = 2$ into the general solution to solve for $x$:\n$$\\ln\\left(\\frac{(2 - 1)^2}{2 + 2}\\right) = 6x + \\ln\\left(\\frac{4}{5}\\right)$$\n$$\\ln\\left(\\frac{1}{4}\\right) - \\ln\\left(\\frac{4}{5}\\right) = 6x \\implies 6x = \\ln\\left(\\frac{1/4}{4/5}\\right) = \\ln\\left(\\frac{5}{16}\\right)$$\n$$x = \\frac{1}{6}\\ln\\left(\\frac{5}{16}\\right)$$"
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_logarithmic_and_exponential_functions_m02_l03_cpq06_p02_mp01",
+                "observable": "Separates variables and integrates: $\\int \\left(\\frac{2}{y - 1} - \\frac{1}{y + 2}\\right)\\,\\mathrm{d}y = \\int 6\\,\\mathrm{d}x$."
+              },
+              {
+                "criterion_id": "9709_p3_t_logarithmic_and_exponential_functions_m02_l03_cpq06_p02_mp02",
+                "observable": "Obtains $2\\ln(y - 1) - \\ln(y + 2) = 6x + c$."
+              },
+              {
+                "criterion_id": "9709_p3_t_logarithmic_and_exponential_functions_m02_l03_cpq06_p02_mp03",
+                "observable": "Substitutes $(0, 3)$ to find $c = \\ln(4/5)$."
+              },
+              {
+                "criterion_id": "9709_p3_t_logarithmic_and_exponential_functions_m02_l03_cpq06_p02_mp04",
+                "observable": "Substitutes $y = 2$ to find $6x = \\ln(1/4) - \\ln(4/5) = \\ln(5/16) \\implies x = \\frac{1}{6}\\ln\\left(\\frac{5}{16}\\right)$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_applying_logarithm_laws"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_applying_logarithm_laws"
+            ],
+            "method_ids": [
+              "9709_p3_method_applying_logarithm_laws"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        }
+      ],
+      "_numerical_values_checked": false
+    },
+    {
+      "question_id": "9709_p3_t_logarithmic_and_exponential_functions_m02_l03_cpq07",
+      "sequence": 13,
+      "difficulty": "hard",
+      "difficulty_reason": "Structured: Improper cubic polynomial decomposition.",
+      "source_question_id": "9709_w23_31_q10",
+      "source_role": "capstone_synthesis",
+      "dependency_role": "none",
+      "dependency_refs": [],
+      "parts": [
+        {
+          "part_id": "9709_p3_t_logarithmic_and_exponential_functions_m02_l03_cpq07_p01",
+          "difficulty": "hard",
+          "question_pattern_ids": [
+            "9709_p3_pattern_exact_value",
+            "9709_p3_pattern_prove_or_show"
+          ],
+          "source_evidence": {
+            "question_id": "9709_w23_31_q10",
+            "part_id": "9709_w23_31_q10",
+            "legacy_practice_tier": "capstone",
+            "product_role": "capstone_practice",
+            "structural_inspiration": "Improper cubic polynomial decomposition."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Multiply denominator: $(x - 1)(x - 2) = x^2 - 3x + 2$.",
+            "Divide numerator by denominator: quotient is $2x + 3$ with remainder $2x + 4$.",
+            "Decompose $\\frac{2x + 4}{(x - 1)(x - 2)} = \\frac{A}{x - 1} + \\frac{B}{x - 2}$.",
+            "Substitute $x = 1 \\implies 6 = -A \\implies A = -6$ and $x = 2 \\implies 8 = B$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Divide $(2x^3 - 3x^2 - 3x + 10)$ by $(x^2 - 3x + 2)$:\n$$2x(x^2 - 3x + 2) = 2x^3 - 6x^2 + 4x$$\n$$\\text{Subtract: } (2x^3 - 3x^2 - 3x + 10) - (2x^3 - 6x^2 + 4x) = 3x^2 - 7x + 10$$\n$$3(x^2 - 3x + 2) = 3x^2 - 9x + 6$$\n$$\\text{Subtract: } (3x^2 - 7x + 10) - (3x^2 - 9x + 6) = 2x + 4$$\n$$\\text{Quotient} = 2x + 3, \\quad \\text{Remainder} = 2x + 4$$"
+            },
+            {
+              "step": 2,
+              "text": "Decompose the remainder fraction:\n$$\\frac{2x + 4}{(x - 1)(x - 2)} = \\frac{A}{x - 1} + \\frac{B}{x - 2} \\implies 2x + 4 = A(x - 2) + B(x - 1)$$\n$$x = 1 \\implies 6 = -A \\implies A = -6$$\n$$x = 2 \\implies 8 = B \\implies B = 8$$"
+            },
+            {
+              "step": 3,
+              "text": "Assemble the complete expression:\n$$f(x) = 2x + 3 - \\frac{6}{x - 1} + \\frac{8}{x - 2}$$"
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_logarithmic_and_exponential_functions_m02_l03_cpq07_p01_mp01",
+                "observable": "Divides $(2x^3 - 3x^2 - 3x + 10)$ by $(x^2 - 3x + 2)$ to confirm quotient $2x + 3$ and remainder $2x + 4$."
+              },
+              {
+                "criterion_id": "9709_p3_t_logarithmic_and_exponential_functions_m02_l03_cpq07_p01_mp02",
+                "observable": "Sets up identity $2x + 4 = A(x - 2) + B(x - 1)$."
+              },
+              {
+                "criterion_id": "9709_p3_t_logarithmic_and_exponential_functions_m02_l03_cpq07_p01_mp03",
+                "observable": "Substitutes $x = 1$ to find $A = -6$."
+              },
+              {
+                "criterion_id": "9709_p3_t_logarithmic_and_exponential_functions_m02_l03_cpq07_p01_mp04",
+                "observable": "Substitutes $x = 2$ to find $B = 8$, giving $2x + 3 - \\frac{6}{x - 1} + \\frac{8}{x - 2}$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_applying_logarithm_laws"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_applying_logarithm_laws"
+            ],
+            "method_ids": [
+              "9709_p3_method_applying_logarithm_laws"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        },
+        {
+          "part_id": "9709_p3_t_logarithmic_and_exponential_functions_m02_l03_cpq07_p02",
+          "difficulty": "hard",
+          "question_pattern_ids": [
+            "9709_p3_pattern_exact_value",
+            "9709_p3_pattern_prove_or_show"
+          ],
+          "source_evidence": {
+            "question_id": "9709_w23_31_q10",
+            "part_id": "9709_w23_31_q10",
+            "legacy_practice_tier": "capstone",
+            "product_role": "capstone_practice",
+            "structural_inspiration": "Dual power series and definite integration synthesis on improper rational function."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [
+            "9709_p3_t_logarithmic_and_exponential_functions_m02_l03_cpq07_p01"
+          ],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Rewrite $f(x) = (2x + 3) + 6(1 - x)^{-1} - 4(1 - x/2)^{-1}$.",
+            "Expand: $(2x + 3) + 6(1 + x + x^2) - 4(1 + x/2 + x^2/4) = 5 + 6x + 5x^2$.",
+            "Integrate: $\\int_3^4 f(x)\\,\\mathrm{d}x = [x^2 + 3x - 6\\ln(x - 1) + 8\\ln(x - 2)]_3^4$.",
+            "Calculate: $(28 - 6\\ln 3 + 8\\ln 2) - (18 - 6\\ln 2) = 10 + 14\\ln 2 - 6\\ln 3 = 10 + \\ln(2^{14} / 3^6) = 10 + \\ln(16384/729)$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Expand $f(x)$ using standard binomial series:\n$$f(x) = 2x + 3 + 6(1 - x)^{-1} - 4\\left(1 - \\frac{x}{2}\\right)^{-1}$$\n$$= (2x + 3) + 6(1 + x + x^2) - 4\\left(1 + \\frac{1}{2}x + \\frac{1}{4}x^2\\right)$$\n$$= (3 + 6 - 4) + (2 + 6 - 2)x + (6 - 1)x^2 = 5 + 6x + 5x^2$$"
+            },
+            {
+              "step": 2,
+              "text": "Integrate $f(x)$ over the interval $[3, 4]$:\n$$\\int_3^4 \\left(2x + 3 - \\frac{6}{x - 1} + \\frac{8}{x - 2}\\right)\\,\\mathrm{d}x = \\left[x^2 + 3x - 6\\ln|x - 1| + 8\\ln|x - 2|\\right]_3^4$$"
+            },
+            {
+              "step": 3,
+              "text": "Evaluate at upper limit $x = 4$ and lower limit $x = 3$:\n$$\\text{Upper } (x = 4): \\quad (16 + 12 - 6\\ln 3 + 8\\ln 2) = 28 - 6\\ln 3 + 8\\ln 2$$\n$$\\text{Lower } (x = 3): \\quad (9 + 9 - 6\\ln 2 + 8\\ln 1) = 18 - 6\\ln 2$$"
+            },
+            {
+              "step": 4,
+              "text": "Subtract and simplify logarithms:\n$$\\text{Integral} = (28 - 18) + (8\\ln 2 + 6\\ln 2) - 6\\ln 3 = 10 + 14\\ln 2 - 6\\ln 3$$\n$$= 10 + \\ln(2^{14}) - \\ln(3^6) = 10 + \\ln\\left(\\frac{16384}{729}\\right)$$"
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_logarithmic_and_exponential_functions_m02_l03_cpq07_p02_mp01",
+                "observable": "Expands $(2x + 3) + 6(1 - x)^{-1} - 4\\left(1 - \\frac{x}{2}\\right)^{-1}$."
+              },
+              {
+                "criterion_id": "9709_p3_t_logarithmic_and_exponential_functions_m02_l03_cpq07_p02_mp02",
+                "observable": "Obtains simplified power series expansion $5 + 6x + 5x^2$."
+              },
+              {
+                "criterion_id": "9709_p3_t_logarithmic_and_exponential_functions_m02_l03_cpq07_p02_mp03",
+                "observable": "Integrates to $[x^2 + 3x - 6\\ln|x - 1| + 8\\ln|x - 2|]_3^4$."
+              },
+              {
+                "criterion_id": "9709_p3_t_logarithmic_and_exponential_functions_m02_l03_cpq07_p02_mp04",
+                "observable": "Evaluates limits: $(28 - 6\\ln 3 + 8\\ln 2) - (18 - 6\\ln 2) = 10 + 14\\ln 2 - 6\\ln 3$."
+              },
+              {
+                "criterion_id": "9709_p3_t_logarithmic_and_exponential_functions_m02_l03_cpq07_p02_mp05",
+                "observable": "Simplifies to $10 + \\ln\\left(\\frac{16384}{729}\\right)$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_applying_logarithm_laws"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_applying_logarithm_laws"
+            ],
+            "method_ids": [
+              "9709_p3_method_applying_logarithm_laws"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        }
+      ],
+      "_numerical_values_checked": false
+    }
+  ]
+}

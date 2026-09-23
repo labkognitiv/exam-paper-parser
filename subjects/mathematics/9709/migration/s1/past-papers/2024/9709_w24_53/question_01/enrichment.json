@@ -1,0 +1,136 @@
+{
+  "schema_version": "9709_math_enrichment_v3",
+  "paper_code": "9709_w24_53",
+  "question_id": "9709_w24_53_q1",
+  "question_num": 1,
+  "subject_code": "9709",
+  "component": "S1",
+  "year": 2024,
+  "session": "Oct/Nov",
+  "variant": "53",
+  "difficulty": 3,
+  "numerical_values_checked": false,
+  "parts": [
+    {
+      "part_id": "9709_w24_53_q1_a",
+      "difficulty": 2,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_s1_t_probability",
+        "module_id": "9709_s1_t_probability_m01",
+        "lesson_id": "9709_s1_t_probability_m01_l02"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_applying_the_multiplication_rule",
+        "skill_tags": [
+          "Applying the Multiplication Rule",
+          "Applying the Addition Rule"
+        ]
+      },
+      "question_pattern_ids": [
+        "9709_s1_pattern_first_success_independent_trials"
+      ],
+      "knowledge_refs": {
+        "formula_ids": [
+          "9709_s1_formula_independent_trials_probability"
+        ],
+        "identity_ids": [
+          "9709_s1_identity_multiplication_rule_probability"
+        ],
+        "method_ids": [
+          "9709_s1_method_applying_the_multiplication_rule",
+          "9709_s1_method_applying_the_addition_rule"
+        ],
+        "fact_ids": [
+          "9709_s1_fact_addition_principle_counting"
+        ]
+      },
+      "hints": [
+        "Probability that a resident owns an electric car is p = 0.3, so does not own is q = 1 - 0.3 = 0.7.",
+        "For 3 independent residents, either all three own an electric car: (0.3)^3.",
+        "Or none of them owns an electric car: (0.7)^3.",
+        "These two cases are mutually exclusive, so add the probabilities: (0.3)^3 + (0.7)^3.",
+        "Calculate 0.027 + 0.343 = 0.370."
+      ],
+      "walkthrough": [
+        "Identify the two mutually exclusive outcomes for the $3$ independent residents:\n- All three own an electric car: $P(\\text{all } 3) = (0.3)^3 = 0.027$\n- None of the three owns an electric car: $P(\\text{none}) = (0.7)^3 = 0.343$",
+        "Apply the addition rule for mutually exclusive events:\n$$P(\\text{all three or none}) = (0.3)^3 + (0.7)^3 = 0.027 + 0.343 = 0.370$$\n$$\\left(\\text{or exact fraction: } \\frac{37}{100}\\right)$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "ai_rubric": {
+          "Applying the Multiplication Rule": "Evaluates (0.3)^3 + (0.7)^3 = 0.370."
+        },
+        "criteria_source": "mark_scheme_structured"
+      },
+      "teacher_walkthrough": [
+        "Step 1: Identify single-trial probabilities:\nLet $E$ be the event that a randomly chosen resident owns an electric car:\n$$p = P(E) = 0.30$$\n$$q = P(E') = 1 - 0.30 = 0.70$$",
+        "Step 2: Calculate the probability of each required scenario across n = 3 independent residents:\n- Scenario 1 (All three own an electric car):\n$$P(EEE) = p^3 = (0.3)^3 = 0.027$$\n- Scenario 2 (None of the three owns an electric car):\n$$P(E'E'E') = q^3 = (0.7)^3 = 0.343$$",
+        "Step 3: Combine mutually exclusive events:\n$$P = P(EEE) + P(E'E'E') = 0.027 + 0.343 = 0.370 = \\frac{37}{100}$$\n(To 3 significant figures)."
+      ]
+    },
+    {
+      "part_id": "9709_w24_53_q1_b",
+      "difficulty": 5,
+      "practice_tier": "revision",
+      "mapping": {
+        "topic_id": "9709_s1_t_the_normal_distribution",
+        "module_id": "9709_s1_t_the_normal_distribution_m03",
+        "lesson_id": "9709_s1_t_the_normal_distribution_m03_l02"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_applying_a_normal_approximation",
+        "skill_tags": [
+          "Applying a Normal Approximation",
+          "Applying a Continuity Correction",
+          "Standardising a Normal Variable"
+        ]
+      },
+      "question_pattern_ids": [
+        "9709_s1_pattern_normal_approximation_to_binomial"
+      ],
+      "knowledge_refs": {
+        "formula_ids": [
+          "9709_s1_formula_normal_approximation_parameters",
+          "9709_s1_formula_normal_standardisation"
+        ],
+        "identity_ids": [],
+        "method_ids": [
+          "9709_s1_method_applying_a_normal_approximation",
+          "9709_s1_method_applying_a_continuity_correction"
+        ],
+        "fact_ids": [
+          "9709_s1_fact_continuity_correction_greater_than",
+          "9709_s1_fact_normal_approximation_validity_condition"
+        ]
+      },
+      "hints": [
+        "In a sample of 125 residents with p = 0.3, let X ~ B(125, 0.3).",
+        "Calculate mean mu = 125 * 0.3 = 37.5 and variance sigma^2 = 125 * 0.3 * 0.7 = 26.25.",
+        "Apply continuity correction to 'more than 45': P(X > 45) = P(X >= 46) becomes P(V > 45.5) on the continuous scale.",
+        "Standardise z = (45.5 - 37.5) / sqrt(26.25) = 8 / 5.1235 = 1.561.",
+        "Calculate 1 - Phi(1.561) = 1 - 0.9407 = 0.0593."
+      ],
+      "walkthrough": [
+        "Model the number of electric car owners as $X \\sim \\operatorname{B}(125, 0.3)$ and approximate with a Normal distribution:\n$$\\mu = np = 125 \\times 0.3 = 37.5$$\n$$\\sigma^2 = np(1 - p) = 125 \\times 0.3 \\times 0.7 = 26.25$$\n$$\\sigma = \\sqrt{26.25} \\approx 5.1235$$",
+        "Apply the continuity correction to $P(X > 45) = P(X \\ge 46)$:\n$$P(X > 45) \\approx P(V > 45.5) \\quad \\text{where } V \\sim \\operatorname{N}(37.5, 26.25)$$",
+        "Standardise the boundary $45.5$:\n$$Z = \\frac{45.5 - 37.5}{\\sqrt{26.25}} = \\frac{8}{5.1235} \\approx 1.5614$$\n$$(1.561 \\le z \\le 1.562)$$",
+        "Compute the upper tail probability:\n$$P(Z > 1.5614) = 1 - \\Phi(1.5614) = 1 - 0.9407 = 0.0593$$\n$$(0.0592 \\le p \\le 0.0593)$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "ai_rubric": {
+          "Applying a Normal Approximation": "Uses mu = 37.5, sigma^2 = 26.25, continuity correction 45.5, and evaluates 1 - Phi(1.561) = 0.0593."
+        },
+        "criteria_source": "mark_scheme_structured"
+      },
+      "teacher_walkthrough": [
+        "Step 1: Set up the discrete Binomial model:\nLet $X$ be the number of residents owning an electric car out of $n = 125$:\n$$X \\sim \\operatorname{B}(n, p) = \\operatorname{B}(125, 0.3)$$",
+        "Step 2: Check conditions and compute Normal approximation parameters:\n- $np = 125 \\times 0.3 = 37.5 > 5$\n- $n(1 - p) = 125 \\times 0.7 = 87.5 > 5$\nSince both $np > 5$ and $nq > 5$, a Normal approximation is valid:\n- Mean: $\\mu = np = 37.5$\n- Variance: $\\sigma^2 = np(1 - p) = 26.25$\n- Standard deviation: $\\sigma = \\sqrt{26.25} \\approx 5.123475$\n$$X \\approx V \\sim \\operatorname{N}(37.5, 26.25)$$",
+        "Step 3: Apply the continuity correction:\nWe need the probability of strictly more than $45$ owners:\n$$P(X > 45) = P(X \\ge 46)$$\nOn the continuous scale, integer $46$ begins at $45.5$:\n$$P(V > 45.5)$$",
+        "Step 4: Standardise the continuity-corrected boundary:\n$$Z = \\frac{45.5 - \\mu}{\\sigma} = \\frac{45.5 - 37.5}{\\sqrt{26.25}} = \\frac{8}{5.123475...} \\approx 1.5614$$",
+        "Step 5: Look up the probability in the standard normal table:\n$$\\Phi(1.56) = 0.9406, \\quad \\text{diff for } 1 = 1 \\implies \\Phi(1.561) = 0.9407$$\n$$P(Z > 1.5614) = 1 - \\Phi(1.5614) = 1 - 0.9407 = 0.0593$$\n(To 3 significant figures)."
+      ]
+    }
+  ]
+}

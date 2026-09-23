@@ -1,0 +1,166 @@
+{
+  "schema_version": "9709_math_enrichment_v3",
+  "paper_code": "9709_w18_33",
+  "question_id": "9709_w18_33_q3",
+  "question_num": 3,
+  "subject_code": "9709",
+  "component": "P3",
+  "year": 2018,
+  "session": "Oct/Nov",
+  "variant": "33",
+  "difficulty": 2,
+  "numerical_values_checked": false,
+  "parts": [
+    {
+      "part_id": "9709_w18_33_q3_i",
+      "difficulty": 1,
+      "practice_tier": "revision",
+      "mapping": {
+        "topic_id": "9709_p3_t_numerical_solution_of_equations",
+        "module_id": "9709_p3_t_numerical_solution_of_equations_m01",
+        "lesson_id": "9709_p3_t_numerical_solution_of_equations_m01_l01"
+      },
+      "skills": {
+        "primary_skill_id": "9709_p3_skill_numerical_root_bracketing",
+        "skill_tags": [
+          "Numerical Root Bracketing"
+        ]
+      },
+      "question_pattern_ids": [
+        "9709_p3_pattern_solve_equation",
+        "9709_p3_pattern_solve_inequality",
+        "9709_p3_pattern_prove_or_show",
+        "9709_p3_pattern_graph_or_locus",
+        "9709_p3_pattern_exact_value"
+      ],
+      "knowledge_refs": {
+        "formula_ids": [],
+        "identity_ids": [],
+        "method_ids": [
+          "9709_p3_method_numerical_root_bracketing"
+        ],
+        "fact_ids": []
+      },
+      "hints": [
+        "Use the two graphs whose ordinates are the left and right sides of the equation.",
+        "Draw the cubic with its increasing S-shape and the straight line with negative gradient.",
+        "Compare the two graphs to the left of the vertical axis as well as to the right.",
+        "Explain uniqueness using the fact that one function increases everywhere while the other decreases everywhere."
+      ],
+      "walkthrough": [
+        "Consider the two curves $y_1 = x^3$ and $y_2 = 3 - x$:",
+        "Analyze $y_1 = x^3$:\n- Continuous and strictly increasing for all $x \\in \\mathbb{R}$.\n- Passes through the origin $(0, 0)$.\n- As $x \\to -\\infty$, $y_1 \\to -\\infty$; as $x \\to \\infty$, $y_1 \\to \\infty$.",
+        "Analyze $y_2 = 3 - x$:\n- Straight line with gradient $-1$, strictly decreasing for all $x \\in \\mathbb{R}$.\n- Passes through $(0, 3)$ and $(3, 0)$.",
+        "Compare values to establish an intersection:\n- At $x = 0$, $y_1(0) = 0 < 3 = y_2(0)$.\n- At $x = 2$, $y_1(2) = 8 > 1 = y_2(2)$.",
+        "Conclude uniqueness:\nBecause $y_1$ is strictly increasing throughout $\\mathbb{R}$ and $y_2$ is strictly decreasing throughout $\\mathbb{R}$, their graphs intersect at exactly one point. Therefore, the equation $x^3 = 3 - x$ has exactly one real root."
+      ],
+      "checking": {
+        "mode": "ai",
+        "ai_rubric": {
+          "Numerical Root Bracketing": "Sketches a relevant graph, e.g. $y=x^3$. Sketches a second relevant graph, e.g. $y=3-x$, and justifies . Consideration of behaviour for $x<0$ is needed. Concludes that graphs $y=x^3$ and $y=3-x$ intersect exactly once."
+        },
+        "criteria_source": "mark_scheme_structured"
+      }
+    },
+    {
+      "part_id": "9709_w18_33_q3_ii",
+      "difficulty": 1,
+      "practice_tier": "revision",
+      "mapping": {
+        "topic_id": "9709_p3_t_numerical_solution_of_equations",
+        "module_id": "9709_p3_t_numerical_solution_of_equations_m02",
+        "lesson_id": "9709_p3_t_numerical_solution_of_equations_m02_l01"
+      },
+      "skills": {
+        "primary_skill_id": "9709_p3_skill_fixed_point_iteration",
+        "skill_tags": [
+          "Fixed-Point Iteration"
+        ]
+      },
+      "question_pattern_ids": [
+        "9709_p3_pattern_solve_equation",
+        "9709_p3_pattern_prove_or_show",
+        "9709_p3_pattern_numerical_approximation"
+      ],
+      "knowledge_refs": {
+        "formula_ids": [],
+        "identity_ids": [],
+        "method_ids": [
+          "9709_p3_method_fixed_point_iteration"
+        ],
+        "fact_ids": [
+          "9709_p3_fact_iteration_convergence"
+        ]
+      },
+      "hints": [
+        "Denote the common limiting value of the convergent sequence by $r$.",
+        "In the limit, replace both consecutive sequence terms in the recurrence by $r$.",
+        "Clear the denominator of the resulting fixed-point equation.",
+        "Collect terms to recover the cubic equation whose unique root was identified in part (i)."
+      ],
+      "walkthrough": [
+        "Suppose the sequence $(x_n)$ converges to a real limit $x$, so that $\\lim_{n \\to \\infty} x_n = x$ and $\\lim_{n \\to \\infty} x_{n+1} = x$.",
+        "Substitute the limiting value $x$ into the recurrence relation:\n$$x = \\dfrac{2x^3 + 3}{3x^2 + 1}$$",
+        "Multiply both sides by $(3x^2 + 1)$, which is non-zero for all real $x$:\n$$x(3x^2 + 1) = 2x^3 + 3$$\n$$3x^3 + x = 2x^3 + 3$$",
+        "Rearrange by subtracting $2x^3$ from both sides:\n$$x^3 + x = 3$$\n$$x^3 = 3 - x$$",
+        "Conclude that this matches the equation $x^3 = 3 - x$ from part (i). Thus, if the sequence converges, it converges to the root of the equation."
+      ],
+      "checking": {
+        "mode": "ai",
+        "ai_rubric": {
+          "Fixed-Point Iteration": "Formation of $x=(2x^3+3)/(3x^2+1)$. Rearranges this to $x^3=3-x$, or or reverses these algebraic steps. At convergence, $x=\\dfrac{2x^3+3}{3x^2+1}$, which rearranges to $x^3=3-x$."
+        },
+        "criteria_source": "mark_scheme_structured"
+      }
+    },
+    {
+      "part_id": "9709_w18_33_q3_iii",
+      "difficulty": 2,
+      "practice_tier": "revision",
+      "mapping": {
+        "topic_id": "9709_p3_t_numerical_solution_of_equations",
+        "module_id": "9709_p3_t_numerical_solution_of_equations_m02",
+        "lesson_id": "9709_p3_t_numerical_solution_of_equations_m02_l02"
+      },
+      "skills": {
+        "primary_skill_id": "9709_p3_skill_fixed_point_iteration",
+        "skill_tags": [
+          "Fixed-Point Iteration"
+        ]
+      },
+      "question_pattern_ids": [
+        "9709_p3_pattern_numerical_approximation"
+      ],
+      "knowledge_refs": {
+        "formula_ids": [],
+        "identity_ids": [],
+        "method_ids": [
+          "9709_p3_method_fixed_point_iteration"
+        ],
+        "fact_ids": [
+          "9709_p3_fact_iteration_convergence"
+        ]
+      },
+      "hints": [
+        "Select an initial estimate from the crossing shown by your graph.",
+        "Generate each new value with the stated recurrence, always using full calculator precision from the preceding step.",
+        "Record the sequence values to five decimal places.",
+        "Stop only when the displayed values guarantee a stable answer at three decimal places."
+      ],
+      "walkthrough": [
+        "Apply the iterative formula $x_{n+1} = \\dfrac{2x_n^3 + 3}{3x_n^2 + 1}$ with initial value $x_1 = 1$.",
+        "Compute $x_2$:\n$$x_2 = \\dfrac{2(1)^3 + 3}{3(1)^2 + 1} = \\dfrac{5}{4} = 1.25000$$",
+        "Compute subsequent iterations, displaying each to 5 decimal places:\n$$x_3 = \\dfrac{2(1.25)^3 + 3}{3(1.25)^2 + 1} = \\dfrac{6.90625}{5.68750} \\approx 1.21429$$\n$$x_4 = \\dfrac{2(1.21429)^3 + 3}{3(1.21429)^2 + 1} \\approx 1.21341$$\n$$x_5 = \\dfrac{2(1.21341)^3 + 3}{3(1.21341)^2 + 1} \\approx 1.21341$$",
+        "Justify the root to 3 decimal places using a sign change of $f(x) = x^3 + x - 3$ on the interval $[1.2125, 1.2135]$:\n$$f(1.2125) = (1.2125)^3 + 1.2125 - 3 \\approx 1.78255 + 1.2125 - 3 = -0.00495 < 0$$\n$$f(1.2135) = (1.2135)^3 + 1.2135 - 3 \\approx 1.78696 + 1.2135 - 3 = +0.00046 > 0$$",
+        "Conclude that because the sign change occurs in $(1.2125, 1.2135)$, the root is $1.213$ correct to 3 decimal places."
+      ],
+      "checking": {
+        "mode": "ai",
+        "ai_rubric": {
+          "Fixed-Point Iteration": "Applies the iterative formula by direct substitution. Concludes with 1.213. Concludes with $x=1.213$. The final result is $x=1.213$."
+        },
+        "criteria_source": "mark_scheme_structured"
+      }
+    }
+  ]
+}

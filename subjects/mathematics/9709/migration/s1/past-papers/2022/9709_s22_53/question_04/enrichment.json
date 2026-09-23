@@ -1,0 +1,169 @@
+{
+  "schema_version": "9709_math_enrichment_v3",
+  "paper_code": "9709_s22_53",
+  "question_id": "9709_s22_53_q4",
+  "question_num": 4,
+  "subject_code": "9709",
+  "component": "S1",
+  "year": 2022,
+  "session": "May/June",
+  "variant": "53",
+  "difficulty": 3,
+  "numerical_values_checked": false,
+  "parts": [
+    {
+      "part_id": "9709_s22_53_q4_a",
+      "difficulty": 2,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_s1_t_discrete_random_variables",
+        "module_id": "9709_s1_t_discrete_random_variables_m04",
+        "lesson_id": "9709_s1_t_discrete_random_variables_m04_l01"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_calculating_geometric_distribution_probabilities",
+        "skill_tags": [
+          "Calculating Geometric Distribution Probabilities"
+        ]
+      },
+      "question_pattern_ids": [
+        "9709_s1_pattern_first_success_independent_trials"
+      ],
+      "knowledge_refs": {
+        "formula_ids": [
+          "9709_s1_formula_geometric_probability"
+        ],
+        "identity_ids": [],
+        "method_ids": [
+          "9709_s1_method_calculating_geometric_distribution_probabilities"
+        ],
+        "fact_ids": []
+      },
+      "hints": [
+        "Ramesh throws a fair 6-sided die, so the probability of obtaining a 4 on any throw is $p = 1/6$ and failure is $q = 5/6$.",
+        "Obtaining a 4 for the first time on the 8th throw means getting 7 failures followed by a success.",
+        "Evaluate $(5/6)^7 \\times (1/6)$."
+      ],
+      "walkthrough": [
+        "Model the number of throws until the first 4 as a geometric random variable $T \\sim \\mathrm{Geo}(1/6)$ with $p = \\frac{1}{6}$ and $q = \\frac{5}{6}$.",
+        "Calculate the probability of first success on the $8$th throw:\n$$\\mathrm{P}(T = 8) = q^7 p = \\left(\\frac{5}{6}\\right)^7 \\left(\\frac{1}{6}\\right)$$",
+        "Evaluate the powers:\n$$\\left(\\frac{5}{6}\\right)^7 \\left(\\frac{1}{6}\\right) = \\frac{78\\,125}{279\\,936} \\times \\frac{1}{6} = \\frac{78\\,125}{1\\,679\\,616} \\approx 0.0465$$"
+      ],
+      "teacher_walkthrough": [
+        "Step 1: Identify the distribution.\nEach throw of a fair 6-sided die is independent.\nSuccess event: rolling a 4 $\\implies p = \\frac{1}{6}$.\nFailure event: rolling any number other than 4 $\\implies q = 1 - \\frac{1}{6} = \\frac{5}{6}$.\nLet $T$ be the number of throws up to and including the first 4: $T \\sim \\mathrm{Geo}\\left(\\frac{1}{6}\\right)$.\n\nStep 2: State the geometric formula.\n$$\\mathrm{P}(T = r) = q^{r-1} p$$\nFor $r = 8$:\n$$\\mathrm{P}(T = 8) = \\left(\\frac{5}{6}\\right)^{8-1} \\left(\\frac{1}{6}\\right) = \\left(\\frac{5}{6}\\right)^7 \\left(\\frac{1}{6}\\right)$$\n\nStep 3: Compute the arithmetic.\n$$5^7 = 78\\,125$$\n$$6^7 = 279\\,936$$\n$$6^8 = 1\\,679\\,616$$\n$$\\mathrm{P}(T = 8) = \\frac{78\\,125}{1\\,679\\,616} \\approx 0.046513...$$\nRounding to 3 significant figures gives $0.0465$."
+      ],
+      "checking": {
+        "mode": "ai",
+        "ai_rubric": {
+          "Calculating Geometric Distribution Probabilities": "Calculates (5/6)^7 * (1/6) = 78125/1679616 = 0.0465. For this part: Find the probability that he obtains a 4 for the first time on his 8th throw."
+        },
+        "criteria_source": "mark_scheme_structured"
+      }
+    },
+    {
+      "part_id": "9709_s22_53_q4_b",
+      "difficulty": 2,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_s1_t_discrete_random_variables",
+        "module_id": "9709_s1_t_discrete_random_variables_m04",
+        "lesson_id": "9709_s1_t_discrete_random_variables_m04_l01"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_calculating_geometric_distribution_probabilities",
+        "skill_tags": [
+          "Calculating Geometric Distribution Probabilities"
+        ]
+      },
+      "question_pattern_ids": [
+        "9709_s1_pattern_geometric_at_most_k_trials"
+      ],
+      "knowledge_refs": {
+        "formula_ids": [
+          "9709_s1_formula_geometric_cumulative_probability"
+        ],
+        "identity_ids": [],
+        "method_ids": [
+          "9709_s1_method_calculating_geometric_distribution_probabilities"
+        ],
+        "fact_ids": []
+      },
+      "hints": [
+        "'No more than 5 throws' means the first 4 occurs on throw 1, 2, 3, 4, or 5 ($T \\le 5$).",
+        "Use the cumulative geometric probability formula: $\\mathrm{P}(T \\le 5) = 1 - q^5$.",
+        "Calculate $1 - (5/6)^5$."
+      ],
+      "walkthrough": [
+        "The condition 'no more than 5 throws' is represented by the cumulative geometric probability $\\mathrm{P}(T \\le 5)$.",
+        "Apply the complement rule for the geometric distribution:\n$$\\mathrm{P}(T \\le 5) = 1 - \\mathrm{P}(T > 5) = 1 - q^5 = 1 - \\left(\\frac{5}{6}\\right)^5$$",
+        "Evaluate the powers:\n$$\\left(\\frac{5}{6}\\right)^5 = \\frac{3125}{7776}$$\n$$\\mathrm{P}(T \\le 5) = 1 - \\frac{3125}{7776} = \\frac{4651}{7776} \\approx 0.598$$"
+      ],
+      "teacher_walkthrough": [
+        "Step 1: Interpret the event.\n'No more than 5 throws' means $T \\le 5$, where $T \\sim \\mathrm{Geo}(1/6)$.\nThis means that a 4 is obtained on or before the 5th throw.\n\nStep 2: Use the tail formula.\nThe complement of obtaining a success on or before the 5th throw is getting 5 consecutive failures:\n$$\\mathrm{P}(T \\le 5) = 1 - \\mathrm{P}(\\text{first 5 throws are all failures})$$\n$$\\mathrm{P}(T \\le 5) = 1 - q^5 = 1 - \\left(\\frac{5}{6}\\right)^5$$\n\nStep 3: Evaluate the fraction.\n$$5^5 = 3125$$\n$$6^5 = 7776$$\n$$\\mathrm{P}(T \\le 5) = 1 - \\frac{3125}{7776} = \\frac{7776 - 3125}{7776} = \\frac{4651}{7776} \\approx 0.59812...$$\nRounding to 3 significant figures gives $0.598$."
+      ],
+      "checking": {
+        "mode": "ai",
+        "ai_rubric": {
+          "Calculating Geometric Distribution Probabilities": "Calculates 1 - (5/6)^5 = 4651/7776 = 0.598. For this part: Find the probability that it takes no more than 5 throws for Ramesh to obtain a 4."
+        },
+        "criteria_source": "mark_scheme_structured"
+      }
+    },
+    {
+      "part_id": "9709_s22_53_q4_c",
+      "difficulty": 4,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_s1_t_discrete_random_variables",
+        "module_id": "9709_s1_t_discrete_random_variables_m03",
+        "lesson_id": "9709_s1_t_discrete_random_variables_m03_l02"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_calculating_binomial_tail_probabilities",
+        "skill_tags": [
+          "Calculating Binomial Tail Probabilities",
+          "Using Complementary Events"
+        ]
+      },
+      "question_pattern_ids": [
+        "9709_s1_pattern_binomial_at_least_k_complement"
+      ],
+      "knowledge_refs": {
+        "formula_ids": [
+          "9709_s1_formula_binomial_probability"
+        ],
+        "identity_ids": [],
+        "method_ids": [
+          "9709_s1_method_calculating_binomial_tail_probabilities",
+          "9709_s1_method_using_complementary_events"
+        ],
+        "fact_ids": [
+          "9709_s1_fact_complement_rule",
+          "9709_s1_fact_addition_principle_counting"
+        ]
+      },
+      "hints": [
+        "Find the probability of obtaining a sum less than 4 when rolling two fair dice: the only sums less than 4 are 2 (1 way) and 3 (2 ways) out of 36, so $p = 3/36 = 1/12$.",
+        "For $n = 10$ throws, let $Y \\sim \\mathrm{B}(10, 1/12)$. We want $\\mathrm{P}(Y \\ge 3)$.",
+        "Use the complement: $\\mathrm{P}(Y \\ge 3) = 1 - [\\mathrm{P}(Y=0) + \\mathrm{P}(Y=1) + \\mathrm{P}(Y=2)]$, and evaluate each binomial term."
+      ],
+      "walkthrough": [
+        "Find the single-throw probability of rolling a total less than $4$ on two fair dice:\n- Sum $= 2$: $(1, 1) \\implies 1$ outcome\n- Sum $= 3$: $(1, 2), (2, 1) \\implies 2$ outcomes\n$$p = \\frac{1 + 2}{36} = \\frac{3}{36} = \\frac{1}{12}, \\quad q = \\frac{11}{12}$$",
+        "Model the number of successful throws $Y$ in $n = 10$ independent throws as a binomial distribution:\n$$Y \\sim \\mathrm{B}\\left(10, \\frac{1}{12}\\right)$$",
+        "Use the complement rule to express $\\mathrm{P}(Y \\ge 3)$:\n$$\\mathrm{P}(Y \\ge 3) = 1 - [\\mathrm{P}(Y = 0) + \\mathrm{P}(Y = 1) + \\mathrm{P}(Y = 2)]$$",
+        "Evaluate the binomial probabilities:\n$$\\mathrm{P}(Y = 0) = \\left(\\frac{11}{12}\\right)^{10} \\approx 0.418904$$\n$$\\mathrm{P}(Y = 1) = \\binom{10}{1}\\left(\\frac{1}{12}\\right)\\left(\\frac{11}{12}\\right)^9 = 10\\left(\\frac{1}{12}\\right)(0.456986) \\approx 0.380822$$\n$$\\mathrm{P}(Y = 2) = \\binom{10}{2}\\left(\\frac{1}{12}\\right)^2\\left(\\frac{11}{12}\\right)^8 = 45\\left(\\frac{1}{144}\\right)(0.498530) \\approx 0.155791$$",
+        "Subtract the sum from $1$:\n$$\\mathrm{P}(Y \\ge 3) = 1 - (0.418904 + 0.380822 + 0.155791) = 1 - 0.955517 = 0.044483 \\approx 0.0445$$"
+      ],
+      "teacher_walkthrough": [
+        "Step 1: Determine the single-trial success probability.\nTwo fair dice are thrown simultaneously. There are $6 \\times 6 = 36$ equally likely outcomes.\nA total of less than $4$ means the sum is $2$ or $3$:\n- Sum 2: $(1, 1)$ ($1$ outcome)\n- Sum 3: $(1, 2)$ and $(2, 1)$ ($2$ outcomes)\nTotal favorable outcomes = $3$.\n$$p = \\frac{3}{36} = \\frac{1}{12}$$\n$$q = 1 - p = \\frac{11}{12}$$\n\nStep 2: Formulate the binomial model.\nFor $n = 10$ independent throws, let $Y$ denote the number of throws with a total less than $4$:\n$$Y \\sim \\mathrm{B}\\left(10, \\frac{1}{12}\\right)$$\nWe want $\\mathrm{P}(Y \\ge 3)$.\n\nStep 3: Apply the complement method.\n$$\\mathrm{P}(Y \\ge 3) = 1 - [\\mathrm{P}(Y = 0) + \\mathrm{P}(Y = 1) + \\mathrm{P}(Y = 2)]$$\n\nStep 4: Compute the terms.\n- $\\mathrm{P}(Y = 0) = \\binom{10}{0}\\left(\\frac{1}{12}\\right)^0\\left(\\frac{11}{12}\\right)^{10} = \\left(\\frac{11}{12}\\right)^{10} \\approx 0.418904$\n- $\\mathrm{P}(Y = 1) = \\binom{10}{1}\\left(\\frac{1}{12}\\right)^1\\left(\\frac{11}{12}\\right)^9 = \\frac{10}{12}\\left(\\frac{11}{12}\\right)^9 \\approx 0.380822$\n- $\\mathrm{P}(Y = 2) = \\binom{10}{2}\\left(\\frac{1}{12}\\right)^2\\left(\\frac{11}{12}\\right)^8 = 45 \\times \\frac{1}{144} \\times \\left(\\frac{11}{12}\\right)^8 \\approx 0.155791$\n\nStep 5: Sum and subtract.\n$$\\sum_{y=0}^2 \\mathrm{P}(Y = y) = 0.418904 + 0.380822 + 0.155791 = 0.955517$$\n$$\\mathrm{P}(Y \\ge 3) = 1 - 0.955517 = 0.044483$$\nRounding to 3 significant figures gives $0.0445$."
+      ],
+      "checking": {
+        "mode": "ai",
+        "ai_rubric": {
+          "Calculating Binomial Tail Probabilities": "Finds p = 3/36 = 1/12 and evaluates 1 - (P(0) + P(1) + P(2)) for B(10, 1/12) to get 0.0445. For this part: For 10 randomly chosen throws of the two dice, find the probability that Ramesh obtains a total of less than 4 on at least three throws."
+        },
+        "criteria_source": "mark_scheme_structured"
+      }
+    }
+  ]
+}

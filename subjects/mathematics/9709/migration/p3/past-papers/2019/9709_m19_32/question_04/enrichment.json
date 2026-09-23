@@ -1,0 +1,69 @@
+{
+  "schema_version": "9709_math_enrichment_v3",
+  "paper_code": "9709_m19_32",
+  "question_id": "9709_m19_32_q4",
+  "question_num": 4,
+  "subject_code": "9709",
+  "component": "P3",
+  "year": 2019,
+  "session": "Feb/March",
+  "variant": "32",
+  "difficulty": 3,
+  "numerical_values_checked": false,
+  "parts": [
+    {
+      "part_id": "9709_m19_32_q4",
+      "difficulty": 3,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_p3_t_trigonometry",
+        "module_id": "9709_p3_t_trigonometry_m01",
+        "lesson_id": "9709_p3_t_trigonometry_m01_l03"
+      },
+      "skills": {
+        "primary_skill_id": "9709_p3_skill_integration_by_parts",
+        "skill_tags": [
+          "Integration by Parts"
+        ]
+      },
+      "question_pattern_ids": [
+        "9709_p3_pattern_prove_or_show",
+        "9709_p3_pattern_calculus_process"
+      ],
+      "knowledge_refs": {
+        "formula_ids": [
+          "9709_p3_formula_integration_by_parts"
+        ],
+        "identity_ids": [],
+        "method_ids": [
+          "9709_p3_method_integration_by_parts"
+        ],
+        "fact_ids": []
+      },
+      "hints": [
+        "Use integration by parts with the logarithm as the factor to differentiate.",
+        "Take $u=\\ln x$ and integrate $x^{-3/2}$ to obtain $v=-2x^{-1/2}$.",
+        "The remaining integral is another power integral; complete it before substituting the limits $1$ and $4$.",
+        "Use $\\ln1=0$ and simplify the boundary terms to the required form."
+      ],
+      "walkthrough": [
+        "Apply integration by parts to $\\displaystyle\\int_1^4 x^{-\\frac{3}{2}}\\ln x\\,\\mathrm{d}x$ using the formula $\\displaystyle\\int u\\,\\dfrac{\\mathrm{d}v}{\\mathrm{d}x}\\,\\mathrm{d}x = uv - \\int v\\,\\dfrac{\\mathrm{d}u}{\\mathrm{d}x}\\,\\mathrm{d}x$:\nLet $u = \\ln x$ and $\\dfrac{\\mathrm{d}v}{\\mathrm{d}x} = x^{-\\frac{3}{2}}$.",
+        "Differentiate $u$ and integrate $\\dfrac{\\mathrm{d}v}{\\mathrm{d}x}$:\n$$\\dfrac{\\mathrm{d}u}{\\mathrm{d}x} = \\dfrac{1}{x}$$\n$$v = \\int x^{-\\frac{3}{2}}\\,\\mathrm{d}x = \\dfrac{x^{-\\frac{3}{2} + 1}}{-\\frac{3}{2} + 1} = \\dfrac{x^{-\\frac{1}{2}}}{-\\frac{1}{2}} = -2x^{-\\frac{1}{2}}$$",
+        "Assemble the integration by parts formula:\n$$\\int x^{-\\frac{3}{2}}\\ln x\\,\\mathrm{d}x = -2x^{-\\frac{1}{2}}\\ln x - \\int (-2x^{-\\frac{1}{2}})\\left(\\dfrac{1}{x}\\right)\\mathrm{d}x$$\n$$= -2x^{-\\frac{1}{2}}\\ln x + 2\\int x^{-\\frac{3}{2}}\\,\\mathrm{d}x$$",
+        "Evaluate the remaining integral:\n$$2\\int x^{-\\frac{3}{2}}\\,\\mathrm{d}x = 2\\left(-2x^{-\\frac{1}{2}}\\right) = -4x^{-\\frac{1}{2}}$$",
+        "Combine the terms to obtain the antiderivative:\n$$-2x^{-\\frac{1}{2}}\\ln x - 4x^{-\\frac{1}{2}} = -\\dfrac{2\\ln x + 4}{\\sqrt{x}}$$",
+        "Apply the definite limits from $1$ to $4$:\n$$\\left[-2x^{-\\frac{1}{2}}\\ln x - 4x^{-\\frac{1}{2}}\\right]_1^4$$",
+        "Evaluate at the upper limit $x = 4$:\n$$\\text{At } x = 4: \\quad -2(4)^{-\\frac{1}{2}}\\ln 4 - 4(4)^{-\\frac{1}{2}} = -2\\left(\\dfrac{1}{2}\\right)\\ln 4 - 4\\left(\\dfrac{1}{2}\\right) = -\\ln 4 - 2$$",
+        "Evaluate at the lower limit $x = 1$:\n$$\\text{At } x = 1: \\quad -2(1)^{-\\frac{1}{2}}\\ln 1 - 4(1)^{-\\frac{1}{2}} = -2(1)(0) - 4(1) = -4$$",
+        "Subtract the lower limit value from the upper limit value:\n$$(-\\ln 4 - 2) - (-4) = -\\ln 4 - 2 + 4 = 2 - \\ln 4$$\nThis completes the proof as required."
+      ],
+      "checking": {
+        "mode": "ai",
+        "ai_rubric": {
+          "Integration by Parts": "Integrates by parts and reaches $ax^{-1/2}\\ln x+b\\int x^{-1/2}\\dfrac1x\\,dx$. Completes the integration to derive $-2x^{-1/2}\\ln x-4x^{-1/2}$, or equivalent. The final result is $2-\\ln4$."
+        },
+        "criteria_source": "mark_scheme_structured"
+      }
+    }
+  ]
+}

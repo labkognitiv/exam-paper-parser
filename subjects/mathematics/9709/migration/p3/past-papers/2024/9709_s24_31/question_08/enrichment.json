@@ -1,0 +1,70 @@
+{
+  "schema_version": "9709_math_enrichment_v3",
+  "paper_code": "9709_s24_31",
+  "question_id": "9709_s24_31_q8",
+  "question_num": 8,
+  "subject_code": "9709",
+  "component": "P3",
+  "year": 2024,
+  "session": "May/June",
+  "variant": "31",
+  "difficulty": 5,
+  "numerical_values_checked": false,
+  "parts": [
+    {
+      "part_id": "9709_s24_31_q8",
+      "difficulty": 5,
+      "practice_tier": "revision",
+      "mapping": {
+        "topic_id": "9709_p3_t_integration",
+        "module_id": "9709_p3_t_integration_m01",
+        "lesson_id": "9709_p3_t_integration_m01_l01"
+      },
+      "skills": {
+        "primary_skill_id": "9709_p3_skill_integration_by_substitution",
+        "skill_tags": [
+          "Integration by Substitution"
+        ]
+      },
+      "question_pattern_ids": [
+        "9709_p3_pattern_exact_value",
+        "9709_p3_pattern_calculus_process",
+        "9709_p3_pattern_trigonometric_reasoning"
+      ],
+      "knowledge_refs": {
+        "formula_ids": [],
+        "identity_ids": [
+          "9709_p3_identity_double_angle",
+          "9709_p3_identity_pythagorean"
+        ],
+        "method_ids": [
+          "9709_p3_method_integration_by_substitution"
+        ],
+        "fact_ids": []
+      },
+      "hints": [
+        "Use the substitution $u = 1 - \\sin x$, so $\\sin x = 1 - u$ and $\\mathrm{d}u = -\\cos x\\,\\mathrm{d}x$.",
+        "Express $\\sin(2x) = 2\\sin x\\cos x$ to rewrite the integrand in terms of $u$.",
+        "Transform the limits: $x = \\pi \\implies u = 1$ and $x = \\dfrac{3}{2}\\pi \\implies u = 2$."
+      ],
+      "walkthrough": [
+        "Given the substitution $u = 1 - \\sin x$:\n$$\\sin x = 1 - u$$\n$$\\dfrac{\\mathrm{d}u}{\\mathrm{d}x} = -\\cos x \\implies \\mathrm{d}u = -\\cos x\\,\\mathrm{d}x \\implies \\cos x\\,\\mathrm{d}x = -\\mathrm{d}u$$",
+        "Express the numerator $\\sin(2x)$ using the double-angle identity:\n$$\\sin(2x) = 2\\sin x\\cos x$$\nSo the differential product becomes:\n$$\\sin(2x)\\,\\mathrm{d}x = 2\\sin x(\\cos x\\,\\mathrm{d}x) = 2(1 - u)(-\\mathrm{d}u) = -2(1 - u)\\,\\mathrm{d}u = 2(u - 1)\\,\\mathrm{d}u$$",
+        "Transform the integration limits:\n- Lower limit: when $x = \\pi$, $u = 1 - \\sin\\pi = 1 - 0 = 1$\n- Upper limit: when $x = \\dfrac{3}{2}\\pi$, $u = 1 - \\sin\\left(\\dfrac{3}{2}\\pi\\right) = 1 - (-1) = 2$",
+        "Substitute into the integral:\n$$\\int_\\pi^{\\frac{3}{2}\\pi} \\dfrac{\\sin(2x)}{\\sqrt{1 - \\sin x}}\\,\\mathrm{d}x = \\int_1^2 \\dfrac{2(u - 1)}{\\sqrt{u}}\\,\\mathrm{d}u = \\int_1^2 2\\left(\\dfrac{u}{u^{1/2}} - \\dfrac{1}{u^{1/2}}\\right)\\,\\mathrm{d}u$$\n$$= 2\\int_1^2 (u^{1/2} - u^{-1/2})\\,\\mathrm{d}u$$",
+        "Integrate term by term using the power rule:\n$$\\int u^{1/2}\\,\\mathrm{d}u = \\dfrac{u^{3/2}}{3/2} = \\dfrac{2}{3}u^{3/2}$$\n$$\\int u^{-1/2}\\,\\mathrm{d}u = \\dfrac{u^{1/2}}{1/2} = 2u^{1/2}$$\nMultiply by $2$:\n$$2\\left[ \\dfrac{2}{3}u^{3/2} - 2u^{1/2} \\right]_1^2 = \\left[ \\dfrac{4}{3}u^{3/2} - 4u^{1/2} \\right]_1^2$$",
+        "Evaluate at the upper limit $u = 2$:\n$$u^{3/2} = 2^{3/2} = 2\\sqrt{2}, \\quad u^{1/2} = \\sqrt{2}$$\n$$\\text{Upper} = \\dfrac{4}{3}(2\\sqrt{2}) - 4\\sqrt{2} = \\dfrac{8\\sqrt{2}}{3} - \\dfrac{12\\sqrt{2}}{3} = -\\dfrac{4}{3}\\sqrt{2}$$",
+        "Evaluate at the lower limit $u = 1$:\n$$u^{3/2} = 1, \\quad u^{1/2} = 1$$\n$$\\text{Lower} = \\dfrac{4}{3}(1) - 4(1) = \\dfrac{4}{3} - \\dfrac{12}{3} = -\\dfrac{8}{3}$$",
+        "Subtract the lower limit from the upper limit:\n$$\\text{Integral} = \\text{Upper} - \\text{Lower} = -\\dfrac{4}{3}\\sqrt{2} - \\left(-\\dfrac{8}{3}\\right) = \\dfrac{8}{3} - \\dfrac{4}{3}\\sqrt{2}$$",
+        "State the final exact answer in the form $a + b\\sqrt{2}$:\n$$a = \\dfrac{8}{3}, \\quad b = -\\dfrac{4}{3}$$\n$$\\dfrac{8}{3} - \\dfrac{4}{3}\\sqrt{2}$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "ai_rubric": {
+          "Integration by Substitution": "States or implies $du = -\\cos x dx$ (B1). Uses $\\sin 2x = 2\\sin x\\cos x$ and converts integral to $u$ (M1). Obtains $\\pm\\int 2(1-u)u^{-1/2}du$ (A1). Integrates to form $a u^{1/2} + b u^{3/2}$ (DM1). Obtains $-4u^{1/2} + \\frac{4}{3}u^{3/2}$ (A1). Uses limits $2$ and $1$ correctly (DM1). Obtains $\\frac{8}{3} - \\frac{4}{3}\\sqrt{2}$ (A1)."
+        },
+        "criteria_source": "mark_scheme_structured"
+      }
+    }
+  ]
+}

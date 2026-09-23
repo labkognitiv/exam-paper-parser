@@ -1,0 +1,1654 @@
+{
+  "schema_version": "9709_math_lesson_enrichment_v1",
+  "lesson_id": "9709_p3_t_numerical_solution_of_equations_m03_l01",
+  "topic_id": "9709_p3_t_numerical_solution_of_equations",
+  "numerical_values_checked": false,
+  "lesson_scope": "Setting up numerical equations from geometric and calculus contexts, including stationary points dy/dx = 0, tangents/normals, curve intersections, areas under curves, and geometric balances leading to non-algebraic roots.",
+  "questions": [
+    {
+      "question_id": "9709_p3_t_numerical_solution_of_equations_m03_l01_drq01",
+      "sequence": 1,
+      "difficulty": "easy",
+      "difficulty_reason": "Drill: applying product rule to find stationary point and rearranging derivative to show x = cot(x).",
+      "source_question_id": "drill_p3_num_geom_stationary_trig",
+      "source_role": "foundational_drill",
+      "dependency_role": "none",
+      "dependency_refs": [],
+      "parts": [
+        {
+          "part_id": "9709_p3_t_numerical_solution_of_equations_m03_l01_drq01_p01",
+          "difficulty": "easy",
+          "question_pattern_ids": [
+            "9709_p3_pattern_prove_or_show",
+            "9709_p3_pattern_trigonometric_reasoning"
+          ],
+          "source_evidence": {
+            "question_id": "drill_p3_num_geom_stationary_trig",
+            "part_id": "drill_p3_num_geom_stationary_trig_p01",
+            "legacy_practice_tier": "foundational",
+            "product_role": "warm_up_drill",
+            "structural_inspiration": "Foundational check of setting dy/dx = 0 for y = x*cos(x) to derive the cotangent fixed-point equation."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "At a stationary point, the gradient $\\dfrac{\\mathrm{d}y}{\\mathrm{d}x} = 0$. Use the product rule $\\dfrac{\\mathrm{d}}{\\mathrm{d}x}(uv) = u'v + uv'$ to differentiate $y = x \\cos x$.",
+            "The derivative is $\\dfrac{\\mathrm{d}y}{\\mathrm{d}x} = 1 \\cdot \\cos x + x(-\\sin x) = \\cos x - x\\sin x$. Set this equal to $0$.",
+            "Rearrange $\\cos x = x \\sin x$ by dividing both sides by $\\sin x$ (recalling that $\\cot x = \\dfrac{\\cos x}{\\sin x}$) to express $x$ in terms of $\\cot x$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Apply the product rule to differentiate $y = x \\cos x$ with respect to $x$:\n$$\\frac{\\mathrm{d}y}{\\mathrm{d}x} = \\frac{\\mathrm{d}}{\\mathrm{d}x}(x) \\cdot \\cos x + x \\cdot \\frac{\\mathrm{d}}{\\mathrm{d}x}(\\cos x) = \\cos x - x\\sin x$$"
+            },
+            {
+              "step": 2,
+              "text": "Set the derivative equal to $0$ to locate the stationary point:\n$$\\cos x - x\\sin x = 0 \\implies x\\sin x = \\cos x$$"
+            },
+            {
+              "step": 3,
+              "text": "Divide both sides by $\\sin x$ for $0 < x < \\frac{\\pi}{2}$:\n$$x = \\frac{\\cos x}{\\sin x} = \\cot x$$"
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_numerical_solution_of_equations_m03_l01_drq01_p01_mp01",
+                "observable": "Differentiates $y = x\\cos x$ using the product rule to obtain $\\cos x - x\\sin x$ and sets $\\dfrac{\\mathrm{d}y}{\\mathrm{d}x} = 0$."
+              },
+              {
+                "criterion_id": "9709_p3_t_numerical_solution_of_equations_m03_l01_drq01_p01_mp02",
+                "observable": "Rearranges $\\cos x - x\\sin x = 0$ correctly to show $x = \\cot x$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_finding_points_from_a_gradient_condition"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_finding_points_from_a_gradient_condition"
+            ],
+            "method_ids": [
+              "9709_p3_method_finding_points_from_a_gradient_condition"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_p3_t_numerical_solution_of_equations_m03_l01_drq02",
+      "sequence": 2,
+      "difficulty": "easy",
+      "difficulty_reason": "Drill: equating two curve equations and isolating x in fixed-point square root form.",
+      "source_question_id": "drill_p3_num_geom_curve_intersection",
+      "source_role": "foundational_drill",
+      "dependency_role": "none",
+      "dependency_refs": [],
+      "figure_refs": [
+        "9709_p3_t_numerical_solution_of_equations_m03_l01_drq02_fig01"
+      ],
+      "figure": {
+        "figure_id": "9709_p3_t_numerical_solution_of_equations_m03_l01_drq02_fig01",
+        "asset_path": "figures/9709_p3_t_numerical_solution_of_equations_m03_l01_drq02_fig01.svg",
+        "status": "planned",
+        "placement": "after_question_context",
+        "purpose": "Illustrate the intersection between the logarithmic curve y = ln(3x + 1) and the downward parabola y = 4 - x^2 in the first quadrant.",
+        "alt_text": "Plot showing curves y = ln(3x + 1) and y = 4 - x^2 intersecting at x = alpha.",
+        "brief": "2D Cartesian axes showing the curve $y = \\ln(3x+1)$ passing through the origin $(0,0)$ and increasing monotonically, and the curve $y = 4 - x^2$ with vertex $(0,4)$ and positive root $(2,0)$. Their intersection point in the first quadrant is marked with a dotted vertical line to the $x$-axis labelled $\\alpha$."
+      },
+      "parts": [
+        {
+          "part_id": "9709_p3_t_numerical_solution_of_equations_m03_l01_drq02_p01",
+          "difficulty": "easy",
+          "question_pattern_ids": [
+            "9709_p3_pattern_prove_or_show",
+            "9709_p3_pattern_solve_equation"
+          ],
+          "source_evidence": {
+            "question_id": "drill_p3_num_geom_curve_intersection",
+            "part_id": "drill_p3_num_geom_curve_intersection_p01",
+            "legacy_practice_tier": "foundational",
+            "product_role": "warm_up_drill",
+            "structural_inspiration": "Foundational check of equating logarithmic and polynomial curves to extract iteration form x = sqrt(4 - ln(3x+1))."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "At the point of intersection of the two curves, their $y$-values are equal. Set $\\ln(3x + 1) = 4 - x^2$.",
+            "Rearrange the equation to isolate the term $x^2$ on one side of the equation.",
+            "Take the positive square root of both sides (since $\\alpha > 0$) to show $x = \\sqrt{4 - \\ln(3x + 1)}$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Set the equations equal to each other at the intersection point:\n$$\\ln(3x + 1) = 4 - x^2$$"
+            },
+            {
+              "step": 2,
+              "text": "Isolate $x^2$ by adding $x^2$ and subtracting $\\ln(3x + 1)$ on both sides:\n$$x^2 = 4 - \\ln(3x + 1)$$"
+            },
+            {
+              "step": 3,
+              "text": "Since $\\alpha$ is the positive $x$-coordinate, take the principal square root:\n$$x = \\sqrt{4 - \\ln(3x + 1)}$$"
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_numerical_solution_of_equations_m03_l01_drq02_p01_mp01",
+                "observable": "Equates the two curve equations $\\ln(3x + 1) = 4 - x^2$ and rearranges to make $x^2$ the subject."
+              },
+              {
+                "criterion_id": "9709_p3_t_numerical_solution_of_equations_m03_l01_drq02_p01_mp02",
+                "observable": "Takes the positive square root to establish $x = \\sqrt{4 - \\ln(3x + 1)}$ (or $\\alpha = \\sqrt{4 - \\ln(3\\alpha + 1)}$)."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_forming_and_testing_fixed_point_rearrangements"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_forming_and_testing_fixed_point_rearrangements"
+            ],
+            "method_ids": [
+              "9709_p3_method_forming_and_testing_fixed_point_rearrangements"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_p3_t_numerical_solution_of_equations_m03_l01_drq03",
+      "sequence": 3,
+      "difficulty": "easy",
+      "difficulty_reason": "Drill: using tangent through origin to determine parameter value p = 1 on an exponential curve.",
+      "source_question_id": "drill_p3_num_geom_tangent_origin",
+      "source_role": "foundational_drill",
+      "dependency_role": "none",
+      "dependency_refs": [],
+      "figure_refs": [
+        "9709_p3_t_numerical_solution_of_equations_m03_l01_drq03_fig01"
+      ],
+      "figure": {
+        "figure_id": "9709_p3_t_numerical_solution_of_equations_m03_l01_drq03_fig01",
+        "asset_path": "figures/9709_p3_t_numerical_solution_of_equations_m03_l01_drq03_fig01.svg",
+        "status": "planned",
+        "placement": "after_question_context",
+        "purpose": "Show the curve y = x^2 e^(-x) and the straight line tangent through the origin touching the curve at P.",
+        "alt_text": "Plot showing y = x^2 e^(-x) and the tangent from (0,0) touching the curve at P(p, p^2 e^(-p)).",
+        "brief": "2D Cartesian coordinate axes showing the curve $y = x^2 \\mathrm{e}^{-x}$ for $x \\ge 0$, which starts at the origin, rises to a local maximum at $x=2$, and decays towards zero. A tangent line is drawn from the origin $(0,0)$ to touch the curve at point $P(p, y_P)$."
+      },
+      "parts": [
+        {
+          "part_id": "9709_p3_t_numerical_solution_of_equations_m03_l01_drq03_p01",
+          "difficulty": "easy",
+          "question_pattern_ids": [
+            "9709_p3_pattern_prove_or_show",
+            "9709_p3_pattern_exact_value"
+          ],
+          "source_evidence": {
+            "question_id": "drill_p3_num_geom_tangent_origin",
+            "part_id": "drill_p3_num_geom_tangent_origin_p01",
+            "legacy_practice_tier": "foundational",
+            "product_role": "warm_up_drill",
+            "structural_inspiration": "Foundational check of equating tangent gradient dy/dx to y/x to find tangent touchpoint from origin."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "The gradient of the line from $(0,0)$ to $(p, p^2 \\mathrm{e}^{-p})$ is $\\dfrac{p^2 \\mathrm{e}^{-p} - 0}{p - 0} = p\\mathrm{e}^{-p}$.",
+            "Differentiate $y = x^2 \\mathrm{e}^{-x}$ using the product rule $\\dfrac{\\mathrm{d}}{\\mathrm{d}x}(uv) = u'v + uv'$ to find the gradient of the tangent at $x = p$.",
+            "Equate the two expressions for gradient: $(2p - p^2)\\mathrm{e}^{-p} = p\\mathrm{e}^{-p}$. Since $\\mathrm{e}^{-p} \\ne 0$ and $p > 0$, divide through to solve for $p$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "The gradient of the chord from the origin $(0,0)$ to $P(p, p^2\\mathrm{e}^{-p})$ is:\n$$m = \\frac{p^2\\mathrm{e}^{-p} - 0}{p - 0} = p\\mathrm{e}^{-p}$$"
+            },
+            {
+              "step": 2,
+              "text": "Differentiate $y = x^2\\mathrm{e}^{-x}$ using the product rule:\n$$\\frac{\\mathrm{d}y}{\\mathrm{d}x} = 2x\\mathrm{e}^{-x} + x^2(-\\mathrm{e}^{-x}) = (2x - x^2)\\mathrm{e}^{-x}$$"
+            },
+            {
+              "step": 3,
+              "text": "At $x = p$, the gradient of the curve must equal the gradient of the tangent line from the origin:\n$$(2p - p^2)\\mathrm{e}^{-p} = p\\mathrm{e}^{-p}$$\nSince $\\mathrm{e}^{-p} > 0$, divide both sides by $\\mathrm{e}^{-p}$:\n$$2p - p^2 = p \\implies p^2 - p = 0 \\implies p(p - 1) = 0$$\nGiven $p > 0$, we conclude $p = 1$."
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_numerical_solution_of_equations_m03_l01_drq03_p01_mp01",
+                "observable": "Differentiates $y = x^2 \\mathrm{e}^{-x}$ using the product rule to obtain $\\dfrac{\\mathrm{d}y}{\\mathrm{d}x} = (2x - x^2)\\mathrm{e}^{-x}$ and equates the gradient at $x=p$ to $\\dfrac{p^2 \\mathrm{e}^{-p}}{p}$."
+              },
+              {
+                "criterion_id": "9709_p3_t_numerical_solution_of_equations_m03_l01_drq03_p01_mp02",
+                "observable": "Solves $(2p - p^2)\\mathrm{e}^{-p} = p\\mathrm{e}^{-p}$ correctly with $p > 0$ to obtain $p = 1$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_finding_points_from_a_gradient_condition"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_finding_points_from_a_gradient_condition"
+            ],
+            "method_ids": [
+              "9709_p3_method_finding_points_from_a_gradient_condition"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_p3_t_numerical_solution_of_equations_m03_l01_drq04",
+      "sequence": 4,
+      "difficulty": "easy",
+      "difficulty_reason": "Drill: stationary point of logarithmic quotient y = ln(x)/x^2 leading to exact exponential solution.",
+      "source_question_id": "drill_p3_num_geom_stationary_quotient",
+      "source_role": "foundational_drill",
+      "dependency_role": "none",
+      "dependency_refs": [],
+      "parts": [
+        {
+          "part_id": "9709_p3_t_numerical_solution_of_equations_m03_l01_drq04_p01",
+          "difficulty": "easy",
+          "question_pattern_ids": [
+            "9709_p3_pattern_prove_or_show",
+            "9709_p3_pattern_exact_value"
+          ],
+          "source_evidence": {
+            "question_id": "drill_p3_num_geom_stationary_quotient",
+            "part_id": "drill_p3_num_geom_stationary_quotient_p01",
+            "legacy_practice_tier": "foundational",
+            "product_role": "warm_up_drill",
+            "structural_inspiration": "Foundational check of differentiating quotient ln(x)/x^2 and setting numerator to 0."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Use the quotient rule $\\dfrac{\\mathrm{d}}{\\mathrm{d}x}\\left(\\dfrac{u}{v}\\right) = \\dfrac{u'v - uv'}{v^2}$ with $u = \\ln x$ and $v = x^2$.",
+            "The derivative is $\\dfrac{\\mathrm{d}y}{\\mathrm{d}x} = \\dfrac{\\frac{1}{x}(x^2) - (\\ln x)(2x)}{(x^2)^2} = \\dfrac{x - 2x\\ln x}{x^4} = \\dfrac{1 - 2\\ln x}{x^3}$.",
+            "Set the numerator equal to $0$: $1 - 2\\ln x = 0 \\implies \\ln x = \\dfrac{1}{2}$, then exponentiate both sides to solve for $x$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Apply the quotient rule to differentiate $y = \\dfrac{\\ln x}{x^2}$:\n$$\\frac{\\mathrm{d}y}{\\mathrm{d}x} = \\frac{\\frac{1}{x} \\cdot x^2 - \\ln x \\cdot 2x}{(x^2)^2} = \\frac{x(1 - 2\\ln x)}{x^4} = \\frac{1 - 2\\ln x}{x^3}$$"
+            },
+            {
+              "step": 2,
+              "text": "Set $\\dfrac{\\mathrm{d}y}{\\mathrm{d}x} = 0$ to find the stationary point:\n$$\\frac{1 - 2\\ln x}{x^3} = 0 \\implies 1 - 2\\ln x = 0$$"
+            },
+            {
+              "step": 3,
+              "text": "Solve for $x$:\n$$2\\ln x = 1 \\implies \\ln x = \\frac{1}{2} \\implies x = \\mathrm{e}^{1/2} = \\sqrt{\\mathrm{e}}$$"
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_numerical_solution_of_equations_m03_l01_drq04_p01_mp01",
+                "observable": "Applies the quotient rule or product rule to differentiate $y = \\dfrac{\\ln x}{x^2}$ and sets the derivative (or numerator) equal to $0$."
+              },
+              {
+                "criterion_id": "9709_p3_t_numerical_solution_of_equations_m03_l01_drq04_p01_mp02",
+                "observable": "Correctly obtains $1 - 2\\ln x = 0$ and states the exact solution $x = \\mathrm{e}^{1/2}$ (or $\\sqrt{\\mathrm{e}}$)."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_finding_points_from_a_gradient_condition"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_finding_points_from_a_gradient_condition"
+            ],
+            "method_ids": [
+              "9709_p3_method_finding_points_from_a_gradient_condition"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_p3_t_numerical_solution_of_equations_m03_l01_drq05",
+      "sequence": 5,
+      "difficulty": "easy",
+      "difficulty_reason": "Drill: setting up definite integral for area under reciprocal curve equal to 1 to find upper limit a.",
+      "source_question_id": "drill_p3_num_geom_area_integral",
+      "source_role": "foundational_drill",
+      "dependency_role": "none",
+      "dependency_refs": [],
+      "figure_refs": [
+        "9709_p3_t_numerical_solution_of_equations_m03_l01_drq05_fig01"
+      ],
+      "figure": {
+        "figure_id": "9709_p3_t_numerical_solution_of_equations_m03_l01_drq05_fig01",
+        "asset_path": "figures/9709_p3_t_numerical_solution_of_equations_m03_l01_drq05_fig01.svg",
+        "status": "planned",
+        "placement": "after_question_context",
+        "purpose": "Show the shaded area under the reciprocal curve y = 1/(2x+1) between x = 0 and x = a.",
+        "alt_text": "Diagram showing shaded region under curve y = 1/(2x+1) from x = 0 to x = a with area 1.",
+        "brief": "2D Cartesian axes showing the decreasing curve $y = \\dfrac{1}{2x+1}$ for $x \\ge 0$, starting at $(0,1)$. The region under the curve bounded between $x = 0$ and a vertical boundary line $x = a$ is shaded."
+      },
+      "parts": [
+        {
+          "part_id": "9709_p3_t_numerical_solution_of_equations_m03_l01_drq05_p01",
+          "difficulty": "easy",
+          "question_pattern_ids": [
+            "9709_p3_pattern_prove_or_show",
+            "9709_p3_pattern_exact_value"
+          ],
+          "source_evidence": {
+            "question_id": "drill_p3_num_geom_area_integral",
+            "part_id": "drill_p3_num_geom_area_integral_p01",
+            "legacy_practice_tier": "foundational",
+            "product_role": "warm_up_drill",
+            "structural_inspiration": "Foundational check of integrating 1/(2x+1) and equating to a given area to find boundary parameter."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "The area under the curve is given by the definite integral $\\int_0^a \\dfrac{1}{2x + 1}\\, \\mathrm{d}x$.",
+            "Recall that $\\int \\dfrac{1}{ax + b}\\, \\mathrm{d}x = \\dfrac{1}{a} \\ln|ax + b|$. Evaluate $\\left[ \\dfrac{1}{2}\\ln(2x + 1) \\right]_0^a$.",
+            "Set $\\dfrac{1}{2}\\ln(2a + 1) = 1$, multiply by $2$, and write in exponential form to solve for $a$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Set up the definite integral for the area under $y = \\dfrac{1}{2x + 1}$ from $x = 0$ to $x = a$:\n$$\\text{Area} = \\int_0^a \\frac{1}{2x + 1} \\, \\mathrm{d}x = \\left[ \\frac{1}{2} \\ln(2x + 1) \\right]_0^a$$"
+            },
+            {
+              "step": 2,
+              "text": "Evaluate the limits:\n$$\\frac{1}{2} \\ln(2a + 1) - \\frac{1}{2} \\ln(1) = \\frac{1}{2} \\ln(2a + 1)$$"
+            },
+            {
+              "step": 3,
+              "text": "Set the area equal to $1$ and solve for $a$:\n$$\\frac{1}{2} \\ln(2a + 1) = 1 \\implies \\ln(2a + 1) = 2 \\implies 2a + 1 = \\mathrm{e}^2 \\implies a = \\frac{\\mathrm{e}^2 - 1}{2}$$"
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_numerical_solution_of_equations_m03_l01_drq05_p01_mp01",
+                "observable": "Integrates $\\dfrac{1}{2x + 1}$ to obtain $\\dfrac{1}{2}\\ln(2x + 1)$, substitutes limits $0$ and $a$, and sets the result equal to $1$."
+              },
+              {
+                "criterion_id": "9709_p3_t_numerical_solution_of_equations_m03_l01_drq05_p01_mp02",
+                "observable": "Solves $\\dfrac{1}{2}\\ln(2a + 1) = 1$ correctly to obtain $a = \\dfrac{\\mathrm{e}^2 - 1}{2}$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_forming_and_testing_fixed_point_rearrangements"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_forming_and_testing_fixed_point_rearrangements"
+            ],
+            "method_ids": [
+              "9709_p3_method_forming_and_testing_fixed_point_rearrangements"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_p3_t_numerical_solution_of_equations_m03_l01_drq06",
+      "sequence": 6,
+      "difficulty": "easy",
+      "difficulty_reason": "Drill: equating segment area to 1/4 circle area and rearranging to target equation theta = sin(theta) + pi/2.",
+      "source_question_id": "drill_p3_num_geom_segment_area_balance",
+      "source_role": "foundational_drill",
+      "dependency_role": "none",
+      "dependency_refs": [],
+      "figure_refs": [
+        "9709_p3_t_numerical_solution_of_equations_m03_l01_drq06_fig01"
+      ],
+      "figure": {
+        "figure_id": "9709_p3_t_numerical_solution_of_equations_m03_l01_drq06_fig01",
+        "asset_path": "figures/9709_p3_t_numerical_solution_of_equations_m03_l01_drq06_fig01.svg",
+        "status": "planned",
+        "placement": "after_question_context",
+        "purpose": "Illustrate the circle of radius r with minor segment shaded, subtending angle theta at the centre.",
+        "alt_text": "Circle diagram with centre O, radius r, chord subtending angle theta, and shaded minor segment.",
+        "brief": "A geometric diagram of a circle with centre $O$ and radius $r$. Two radii $OA$ and $OB$ subtend an angle $\\theta$ at $O$. The chord $AB$ connects the endpoints, and the minor segment bounded by chord $AB$ and the minor arc $AB$ is shaded."
+      },
+      "parts": [
+        {
+          "part_id": "9709_p3_t_numerical_solution_of_equations_m03_l01_drq06_p01",
+          "difficulty": "easy",
+          "question_pattern_ids": [
+            "9709_p3_pattern_prove_or_show",
+            "9709_p3_pattern_trigonometric_reasoning"
+          ],
+          "source_evidence": {
+            "question_id": "drill_p3_num_geom_segment_area_balance",
+            "part_id": "drill_p3_num_geom_segment_area_balance_p01",
+            "legacy_practice_tier": "foundational",
+            "product_role": "warm_up_drill",
+            "structural_inspiration": "Foundational check of equating sector/segment geometry formulas to derive transcendental numerical equation."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Recall that the area of a circle is $\\pi r^2$ and the area of a circular segment subtending angle $\\theta$ radians is $\\dfrac{1}{2}r^2(\\theta - \\sin \\theta)$.",
+            "Form the equation: $\\dfrac{1}{2}r^2(\\theta - \\sin \\theta) = \\dfrac{1}{4}\\pi r^2$.",
+            "Divide both sides by $r^2$ and multiply by $2$ to isolate $\\theta - \\sin \\theta$, then rearrange to express $\\theta$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "State the area formulas:\n$$\\text{Area of circle} = \\pi r^2$$\n$$\\text{Area of minor segment} = \\frac{1}{2}r^2\\theta - \\frac{1}{2}r^2\\sin\\theta = \\frac{1}{2}r^2(\\theta - \\sin\\theta)$$"
+            },
+            {
+              "step": 2,
+              "text": "Equate the minor segment area to $\\dfrac{1}{4}$ of the total area of the circle:\n$$\\frac{1}{2}r^2(\\theta - \\sin\\theta) = \\frac{1}{4}\\pi r^2$$"
+            },
+            {
+              "step": 3,
+              "text": "Divide both sides by $\\dfrac{1}{2}r^2$ (since $r > 0$):\n$$\\theta - \\sin\\theta = \\frac{\\frac{1}{4}\\pi}{\\frac{1}{2}} = \\frac{\\pi}{2}$$\nRearranging gives the required equation:\n$$\\theta = \\sin\\theta + \\frac{\\pi}{2}$$"
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_numerical_solution_of_equations_m03_l01_drq06_p01_mp01",
+                "observable": "Sets up the segment area equation $\\dfrac{1}{2}r^2(\\theta - \\sin\\theta) = \\dfrac{1}{4}\\pi r^2$."
+              },
+              {
+                "criterion_id": "9709_p3_t_numerical_solution_of_equations_m03_l01_drq06_p01_mp02",
+                "observable": "Divides by $\\dfrac{1}{2}r^2$ and rearranges correctly to obtain $\\theta = \\sin\\theta + \\dfrac{\\pi}{2}$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_forming_and_testing_fixed_point_rearrangements"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_forming_and_testing_fixed_point_rearrangements"
+            ],
+            "method_ids": [
+              "9709_p3_method_forming_and_testing_fixed_point_rearrangements"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_p3_t_numerical_solution_of_equations_m03_l01_cpq01",
+      "sequence": 7,
+      "difficulty": "easy",
+      "difficulty_reason": "Core: stationary point of exponential-quadratic difference curve leading to logarithmic equation and interval root sign check.",
+      "source_question_id": "cpq_p3_num_geom_stationary_exp_quad",
+      "source_role": "core_practice",
+      "dependency_role": "none",
+      "dependency_refs": [],
+      "figure_refs": [
+        "9709_p3_t_numerical_solution_of_equations_m03_l01_cpq01_fig01"
+      ],
+      "figure": {
+        "figure_id": "9709_p3_t_numerical_solution_of_equations_m03_l01_cpq01_fig01",
+        "asset_path": "figures/9709_p3_t_numerical_solution_of_equations_m03_l01_cpq01_fig01.svg",
+        "status": "planned",
+        "placement": "after_question_context",
+        "purpose": "Show the curve y = e^x - 3x^2 for x > 0 with its local minimum turning point.",
+        "alt_text": "Plot of y = e^x - 3x^2 showing a stationary point in the interval 2.5 < x < 3.0.",
+        "brief": "2D Cartesian graph of $y = \\mathrm{e}^x - 3x^2$ for $x \\ge 0$, showing the curve starting at $(0,1)$, decreasing to a local minimum between $x=2.5$ and $x=3.0$, and then rising rapidly."
+      },
+      "parts": [
+        {
+          "part_id": "9709_p3_t_numerical_solution_of_equations_m03_l01_cpq01_p01",
+          "difficulty": "easy",
+          "question_pattern_ids": [
+            "9709_p3_pattern_prove_or_show"
+          ],
+          "source_evidence": {
+            "question_id": "cpq_p3_num_geom_stationary_exp_quad",
+            "part_id": "cpq_p3_num_geom_stationary_exp_quad_p01",
+            "legacy_practice_tier": "core",
+            "product_role": "concept_reinforcement",
+            "structural_inspiration": "Standard Cambridge P3 step of differentiating y = e^x - 3x^2 to set dy/dx = 0 and taking natural log."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Differentiate $y = \\mathrm{e}^x - 3x^2$ term-by-term with respect to $x$.",
+            "Set the derivative $\\dfrac{\\mathrm{d}y}{\\mathrm{d}x} = 0$, giving $\\mathrm{e}^x - 6x = 0$.",
+            "Isolate $\\mathrm{e}^x = 6x$, then take the natural logarithm of both sides to obtain $x = \\ln(6x)$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Differentiate $y = \\mathrm{e}^x - 3x^2$ with respect to $x$:\n$$\\frac{\\mathrm{d}y}{\\mathrm{d}x} = \\mathrm{e}^x - 6x$$"
+            },
+            {
+              "step": 2,
+              "text": "Set the derivative equal to zero to find the stationary point:\n$$\\mathrm{e}^x - 6x = 0 \\implies \\mathrm{e}^x = 6x$$"
+            },
+            {
+              "step": 3,
+              "text": "Take the natural logarithm of both sides:\n$$x = \\ln(6x)$$"
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_numerical_solution_of_equations_m03_l01_cpq01_p01_mp01",
+                "observable": "Differentiates $y = \\mathrm{e}^x - 3x^2$ to obtain $\\mathrm{e}^x - 6x$ and sets $\\dfrac{\\mathrm{d}y}{\\mathrm{d}x} = 0$."
+              },
+              {
+                "criterion_id": "9709_p3_t_numerical_solution_of_equations_m03_l01_cpq01_p01_mp02",
+                "observable": "Rearranges $\\mathrm{e}^x - 6x = 0$ correctly to obtain $x = \\ln(6x)$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_finding_points_from_a_gradient_condition"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_finding_points_from_a_gradient_condition"
+            ],
+            "method_ids": [
+              "9709_p3_method_finding_points_from_a_gradient_condition"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        },
+        {
+          "part_id": "9709_p3_t_numerical_solution_of_equations_m03_l01_cpq01_p02",
+          "difficulty": "easy",
+          "question_pattern_ids": [
+            "9709_p3_pattern_prove_or_show"
+          ],
+          "source_evidence": {
+            "question_id": "cpq_p3_num_geom_stationary_exp_quad",
+            "part_id": "cpq_p3_num_geom_stationary_exp_quad_p02",
+            "legacy_practice_tier": "core",
+            "product_role": "concept_reinforcement",
+            "structural_inspiration": "Standard sign change verification on a given interval [2.5, 3.0]."
+          },
+          "dependency_role": "consume",
+          "dependency_refs": [
+            "9709_p3_t_numerical_solution_of_equations_m03_l01_cpq01_p01"
+          ],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Define a function $f(x) = x - \\ln(6x)$ or $g(x) = \\mathrm{e}^x - 6x$.",
+            "Calculate the value of the function at the endpoints $x = 2.5$ and $x = 3.0$.",
+            "State that the function is continuous, show that the two values have opposite signs, and conclude that a root lies between $2.5$ and $3.0$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Define $f(x) = x - \\ln(6x)$."
+            },
+            {
+              "step": 2,
+              "text": "Evaluate $f(x)$ at the interval endpoints:\n$$f(2.5) = 2.5 - \\ln(15) \\approx 2.5 - 2.7081 = -0.2081 < 0$$\n$$f(3.0) = 3.0 - \\ln(18) \\approx 3.0 - 2.8904 = +0.1096 > 0$$"
+            },
+            {
+              "step": 3,
+              "text": "Since $f(x)$ is continuous on $[2.5, 3.0]$ and there is a change of sign ($f(2.5) < 0$ and $f(3.0) > 0$), a root of the equation $x = \\ln(6x)$ lies between $x = 2.5$ and $x = 3.0$."
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_numerical_solution_of_equations_m03_l01_cpq01_p02_mp01",
+                "observable": "Evaluates $f(x) = x - \\ln(6x)$ (or $f(x) = \\mathrm{e}^x - 6x$) at $x = 2.5$ and $x = 3.0$."
+              },
+              {
+                "criterion_id": "9709_p3_t_numerical_solution_of_equations_m03_l01_cpq01_p02_mp02",
+                "observable": "Obtains correct values showing opposite signs ($f(2.5) \\approx -0.21$ and $f(3.0) \\approx +0.11$, or $\\mathrm{e}^{2.5}-15 \\approx -2.82$ and $\\mathrm{e}^3-18 \\approx +2.09$), notes the change of sign, and concludes that a root lies in the interval $2.5 < x < 3.0$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_forming_and_testing_fixed_point_rearrangements"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_forming_and_testing_fixed_point_rearrangements"
+            ],
+            "method_ids": [
+              "9709_p3_method_forming_and_testing_fixed_point_rearrangements"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_p3_t_numerical_solution_of_equations_m03_l01_cpq02",
+      "sequence": 8,
+      "difficulty": "medium",
+      "difficulty_reason": "Core: normal to logarithmic curve passing through (5,0) leading to square root fixed-point equation.",
+      "source_question_id": "cpq_p3_num_geom_normal_log_curve",
+      "source_role": "core_practice",
+      "dependency_role": "none",
+      "dependency_refs": [],
+      "figure_refs": [
+        "9709_p3_t_numerical_solution_of_equations_m03_l01_cpq02_fig01"
+      ],
+      "figure": {
+        "figure_id": "9709_p3_t_numerical_solution_of_equations_m03_l01_cpq02_fig01",
+        "asset_path": "figures/9709_p3_t_numerical_solution_of_equations_m03_l01_cpq02_fig01.svg",
+        "status": "planned",
+        "placement": "after_question_context",
+        "purpose": "Illustrate the curve y = 2ln(x), the point P on the curve, and the normal line intersecting the x-axis at (5,0).",
+        "alt_text": "Graph of y = 2ln(x) with normal line at P passing through (5,0).",
+        "brief": "2D Cartesian coordinate axes showing the logarithmic curve $y = 2\\ln x$ for $x > 0$. A point $P(p, 2\\ln p)$ is indicated on the curve, and a normal line is drawn perpendicular to the curve at $P$, intersecting the $x$-axis at $(5,0)$."
+      },
+      "parts": [
+        {
+          "part_id": "9709_p3_t_numerical_solution_of_equations_m03_l01_cpq02_p01",
+          "difficulty": "medium",
+          "question_pattern_ids": [
+            "9709_p3_pattern_prove_or_show"
+          ],
+          "source_evidence": {
+            "question_id": "cpq_p3_num_geom_normal_log_curve",
+            "part_id": "cpq_p3_num_geom_normal_log_curve_p01",
+            "legacy_practice_tier": "core",
+            "product_role": "concept_reinforcement",
+            "structural_inspiration": "Standard Cambridge P3 problem: normal to logarithmic curve passing through external point on x-axis."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "First find the gradient of the tangent at $x = p$ by differentiating $y = 2\\ln x$. The normal gradient is the negative reciprocal.",
+            "The tangent gradient is $\\dfrac{2}{p}$, so the normal gradient is $m = -\\dfrac{p}{2}$.",
+            "Write the equation of the normal line as $y - 2\\ln p = -\\dfrac{p}{2}(x - p)$, substitute $(x, y) = (5, 0)$, and rearrange to solve for $p^2$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Differentiate $y = 2\\ln x$ to find the tangent gradient at $x = p$:\n$$\\frac{\\mathrm{d}y}{\\mathrm{d}x} = \\frac{2}{x} \\implies m_T = \\frac{2}{p}$$\nTherefore, the gradient of the normal line at $P(p, 2\\ln p)$ is:\n$$m_N = -\\frac{1}{m_T} = -\\frac{p}{2}$$"
+            },
+            {
+              "step": 2,
+              "text": "Form the equation of the normal line at $P$:\n$$y - 2\\ln p = -\\frac{p}{2}(x - p)$$"
+            },
+            {
+              "step": 3,
+              "text": "Since the normal line passes through $(5, 0)$, substitute $x = 5$ and $y = 0$:\n$$0 - 2\\ln p = -\\frac{p}{2}(5 - p)$$\n$$2\\ln p = \\frac{p(5 - p)}{2} = \\frac{5p - p^2}{2}$$\n$$4\\ln p = 5p - p^2 \\implies p^2 = 5p - 4\\ln p$$\nSince $p > 1$, taking the positive square root gives:\n$$p = \\sqrt{5p - 4\\ln p}$$"
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_numerical_solution_of_equations_m03_l01_cpq02_p01_mp01",
+                "observable": "Finds normal gradient $-\\dfrac{p}{2}$, writes normal equation $y - 2\\ln p = -\\dfrac{p}{2}(x - p)$, and substitutes $(x, y) = (5, 0)$."
+              },
+              {
+                "criterion_id": "9709_p3_t_numerical_solution_of_equations_m03_l01_cpq02_p01_mp02",
+                "observable": "Correctly rearranges $-2\\ln p = -\\dfrac{p}{2}(5 - p)$ to obtain $p^2 = 5p - 4\\ln p$ and hence $p = \\sqrt{5p - 4\\ln p}$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_finding_points_from_a_gradient_condition"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_finding_points_from_a_gradient_condition"
+            ],
+            "method_ids": [
+              "9709_p3_method_finding_points_from_a_gradient_condition"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        },
+        {
+          "part_id": "9709_p3_t_numerical_solution_of_equations_m03_l01_cpq02_p02",
+          "difficulty": "medium",
+          "question_pattern_ids": [
+            "9709_p3_pattern_prove_or_show"
+          ],
+          "source_evidence": {
+            "question_id": "cpq_p3_num_geom_normal_log_curve",
+            "part_id": "cpq_p3_num_geom_normal_log_curve_p02",
+            "legacy_practice_tier": "core",
+            "product_role": "concept_reinforcement",
+            "structural_inspiration": "Interval sign change check for transcendental equation resulting from normal line setup."
+          },
+          "dependency_role": "consume",
+          "dependency_refs": [
+            "9709_p3_t_numerical_solution_of_equations_m03_l01_cpq02_p01"
+          ],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Define $f(p) = p^2 - 5p + 4\\ln p$ or $f(p) = p - \\sqrt{5p - 4\\ln p}$.",
+            "Calculate $f(3.5)$ and $f(4.0)$ carefully using your calculator.",
+            "Verify that $f(3.5) < 0$ and $f(4.0) > 0$, and state that the change of sign confirms a root between $3.5$ and $4.0$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Define $f(p) = p^2 - 5p + 4\\ln p$."
+            },
+            {
+              "step": 2,
+              "text": "Evaluate $f(p)$ at $p = 3.5$ and $p = 4.0$:\n$$f(3.5) = (3.5)^2 - 5(3.5) + 4\\ln(3.5) = 12.25 - 17.5 + 4(1.25276) = -5.25 + 5.0110 = -0.2390 < 0$$\n$$f(4.0) = (4.0)^2 - 5(4.0) + 4\\ln(4.0) = 16 - 20 + 4(1.38629) = -4 + 5.5452 = +1.5452 > 0$$"
+            },
+            {
+              "step": 3,
+              "text": "Since $f(p)$ is continuous on $[3.5, 4.0]$ and there is a sign change ($f(3.5) < 0$ and $f(4.0) > 0$), there is a root of the equation between $p = 3.5$ and $p = 4.0$."
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_numerical_solution_of_equations_m03_l01_cpq02_p02_mp01",
+                "observable": "Evaluates $f(p) = p^2 - 5p + 4\\ln p$ (or $f(p) = p - \\sqrt{5p - 4\\ln p}$) at $p = 3.5$ and $p = 4.0$."
+              },
+              {
+                "criterion_id": "9709_p3_t_numerical_solution_of_equations_m03_l01_cpq02_p02_mp02",
+                "observable": "Obtains correct values ($f(3.5) \\approx -0.24$ and $f(4.0) \\approx +1.55$), notes the sign change, and concludes that a root lies in the interval $3.5 < p < 4.0$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_forming_and_testing_fixed_point_rearrangements"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_forming_and_testing_fixed_point_rearrangements"
+            ],
+            "method_ids": [
+              "9709_p3_method_forming_and_testing_fixed_point_rearrangements"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_p3_t_numerical_solution_of_equations_m03_l01_cpq03",
+      "sequence": 9,
+      "difficulty": "medium",
+      "difficulty_reason": "Core: area under curve via integration by parts leading to iteration formula and convergence to 2 d.p.",
+      "source_question_id": "cpq_p3_num_geom_area_parts_iteration",
+      "source_role": "core_practice",
+      "dependency_role": "none",
+      "dependency_refs": [],
+      "figure_refs": [
+        "9709_p3_t_numerical_solution_of_equations_m03_l01_cpq03_fig01"
+      ],
+      "figure": {
+        "figure_id": "9709_p3_t_numerical_solution_of_equations_m03_l01_cpq03_fig01",
+        "asset_path": "figures/9709_p3_t_numerical_solution_of_equations_m03_l01_cpq03_fig01.svg",
+        "status": "planned",
+        "placement": "after_question_context",
+        "purpose": "Show the shaded area under y = x e^(-x) from x = 0 to x = p with area 1/2.",
+        "alt_text": "Diagram showing curve y = x e^(-x) and shaded area under curve between x = 0 and x = p.",
+        "brief": "2D Cartesian axes showing the curve $y = x\\mathrm{e}^{-x}$ for $x \\ge 0$, rising from $(0,0)$ to a maximum at $(1, \\mathrm{e}^{-1})$ and decaying towards zero. The region under the curve between $x = 0$ and $x = p$ is shaded and labelled Area = 1/2."
+      },
+      "parts": [
+        {
+          "part_id": "9709_p3_t_numerical_solution_of_equations_m03_l01_cpq03_p01",
+          "difficulty": "medium",
+          "question_pattern_ids": [
+            "9709_p3_pattern_prove_or_show"
+          ],
+          "source_evidence": {
+            "question_id": "cpq_p3_num_geom_area_parts_iteration",
+            "part_id": "cpq_p3_num_geom_area_parts_iteration_p01",
+            "legacy_practice_tier": "core",
+            "product_role": "concept_reinforcement",
+            "structural_inspiration": "Integration by parts of x*e^(-x) to form definite integral and solve for boundary limit as iteration rearrangement."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Use integration by parts: $\\int u v' \\, \\mathrm{d}x = u v - \\int u' v \\, \\mathrm{d}x$, setting $u = x$ and $v' = \\mathrm{e}^{-x}$.",
+            "The indefinite integral is $\\int x\\mathrm{e}^{-x}\\, \\mathrm{d}x = -x\\mathrm{e}^{-x} - \\mathrm{e}^{-x}$. Evaluate from $x = 0$ to $x = p$.",
+            "Equate the result $1 - (p+1)\\mathrm{e}^{-p}$ to $\\dfrac{1}{2}$, rearrange to isolate $\\mathrm{e}^p = 2(p+1)$, and take logarithms."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Apply integration by parts to evaluate $\\int_0^p x\\mathrm{e}^{-x} \\, \\mathrm{d}x$ with $u = x$ and $v' = \\mathrm{e}^{-x}$:\n$$u' = 1, \\quad v = -\\mathrm{e}^{-x}$$\n$$\\int x\\mathrm{e}^{-x} \\, \\mathrm{d}x = -x\\mathrm{e}^{-x} - \\int(-\\mathrm{e}^{-x}) \\, \\mathrm{d}x = -x\\mathrm{e}^{-x} - \\mathrm{e}^{-x} = -(x+1)\\mathrm{e}^{-x}$$"
+            },
+            {
+              "step": 2,
+              "text": "Evaluate between limits $x = 0$ and $x = p$:\n$$\\left[ -(x+1)\\mathrm{e}^{-x} \\right]_0^p = -(p+1)\\mathrm{e}^{-p} - (-(0+1)\\mathrm{e}^0) = 1 - (p+1)\\mathrm{e}^{-p}$$"
+            },
+            {
+              "step": 3,
+              "text": "Set the area equal to $\\dfrac{1}{2}$ and solve for $p$:\n$$1 - (p+1)\\mathrm{e}^{-p} = \\frac{1}{2} \\implies (p+1)\\mathrm{e}^{-p} = \\frac{1}{2}$$\n$$\\mathrm{e}^p = 2(p+1) = 2p + 2 \\implies p = \\ln(2p + 2)$$"
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_numerical_solution_of_equations_m03_l01_cpq03_p01_mp01",
+                "observable": "Integrates $x\\mathrm{e}^{-x}$ by parts to get $-x\\mathrm{e}^{-x} - \\mathrm{e}^{-x}$, evaluates limits $0$ to $p$ to obtain $1 - (p+1)\\mathrm{e}^{-p}$, and equates to $\\dfrac{1}{2}$."
+              },
+              {
+                "criterion_id": "9709_p3_t_numerical_solution_of_equations_m03_l01_cpq03_p01_mp02",
+                "observable": "Rearranges $(p+1)\\mathrm{e}^{-p} = \\dfrac{1}{2}$ correctly to obtain $p = \\ln(2p + 2)$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_forming_and_testing_fixed_point_rearrangements"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_forming_and_testing_fixed_point_rearrangements"
+            ],
+            "method_ids": [
+              "9709_p3_method_forming_and_testing_fixed_point_rearrangements"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        },
+        {
+          "part_id": "9709_p3_t_numerical_solution_of_equations_m03_l01_cpq03_p02",
+          "difficulty": "medium",
+          "question_pattern_ids": [
+            "9709_p3_pattern_numerical_approximation"
+          ],
+          "source_evidence": {
+            "question_id": "cpq_p3_num_geom_area_parts_iteration",
+            "part_id": "cpq_p3_num_geom_area_parts_iteration_p02",
+            "legacy_practice_tier": "core",
+            "product_role": "concept_reinforcement",
+            "structural_inspiration": "Standard Cambridge P3 fixed-point iteration reporting iterates to 4 d.p. and final answer to 2 d.p."
+          },
+          "dependency_role": "consume",
+          "dependency_refs": [
+            "9709_p3_t_numerical_solution_of_equations_m03_l01_cpq03_p01"
+          ],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Start with $p_1 = 1.6$ and compute $p_2 = \\ln(2(1.6) + 2) = \\ln(5.2)$.",
+            "Substitute each successive value back into the formula, recording each iterate to $4$ decimal places.",
+            "Continue iterating until consecutive values round to the same number at $2$ decimal places ($1.68$)."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Apply the iterative formula $p_{n+1} = \\ln(2p_n + 2)$ starting with $p_1 = 1.6$:\n$$p_2 = \\ln(2(1.6) + 2) = \\ln(5.2) \\approx 1.6487$$"
+            },
+            {
+              "step": 2,
+              "text": "Calculate subsequent iterates to 4 decimal places:\n$$p_3 = \\ln(2(1.64866) + 2) = \\ln(5.29732) \\approx 1.6672$$\n$$p_4 = \\ln(2(1.66719) + 2) = \\ln(5.33438) \\approx 1.6742$$\n$$p_5 = \\ln(2(1.67417) + 2) = \\ln(5.34834) \\approx 1.6768$$\n$$p_6 = \\ln(2(1.67679) + 2) = \\ln(5.35358) \\approx 1.6778$$"
+            },
+            {
+              "step": 3,
+              "text": "Since $p_5 \\approx 1.677$ and $p_6 \\approx 1.678$, both round to $1.68$ to $2$ decimal places:\n$$p = 1.68$$"
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_numerical_solution_of_equations_m03_l01_cpq03_p02_mp01",
+                "observable": "Uses the iterative formula $p_{n+1} = \\ln(2p_n + 2)$ with $p_1 = 1.6$ to calculate $p_2$ and $p_3$ to at least 4 decimal places ($p_2 \\approx 1.6487$, $p_3 \\approx 1.6672$)."
+              },
+              {
+                "criterion_id": "9709_p3_t_numerical_solution_of_equations_m03_l01_cpq03_p02_mp02",
+                "observable": "Obtains final converged value $p = 1.68$ to 2 decimal places with supporting iterates ($p_4 \\approx 1.6742, p_5 \\approx 1.6769, p_6 \\approx 1.6779$)."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_fixed_point_iteration"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_fixed_point_iteration"
+            ],
+            "method_ids": [
+              "9709_p3_method_fixed_point_iteration"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": [
+              "9709_p3_fact_iteration_convergence"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_p3_t_numerical_solution_of_equations_m03_l01_cpq04",
+      "sequence": 10,
+      "difficulty": "medium",
+      "difficulty_reason": "Core: stationary point of trigonometric product leading to arctan iteration formula and convergence to 2 d.p.",
+      "source_question_id": "cpq_p3_num_geom_stationary_trig_arctan",
+      "source_role": "core_practice",
+      "dependency_role": "none",
+      "dependency_refs": [],
+      "figure_refs": [
+        "9709_p3_t_numerical_solution_of_equations_m03_l01_cpq04_fig01"
+      ],
+      "figure": {
+        "figure_id": "9709_p3_t_numerical_solution_of_equations_m03_l01_cpq04_fig01",
+        "asset_path": "figures/9709_p3_t_numerical_solution_of_equations_m03_l01_cpq04_fig01.svg",
+        "status": "planned",
+        "placement": "after_question_context",
+        "purpose": "Show the curve y = x^2 cos(2x) on the interval [0, pi/4] highlighting the local maximum turning point.",
+        "alt_text": "Plot of y = x^2 cos(2x) for 0 <= x <= pi/4 showing stationary point.",
+        "brief": "2D Cartesian plot of $y = x^2\\cos(2x)$ for $x \\in [0, \\pi/4]$, starting at $(0,0)$, rising to a stationary point near $x \\approx 0.54$, and dropping to $0$ at $x = \\pi/4$."
+      },
+      "parts": [
+        {
+          "part_id": "9709_p3_t_numerical_solution_of_equations_m03_l01_cpq04_p01",
+          "difficulty": "medium",
+          "question_pattern_ids": [
+            "9709_p3_pattern_prove_or_show",
+            "9709_p3_pattern_trigonometric_reasoning"
+          ],
+          "source_evidence": {
+            "question_id": "cpq_p3_num_geom_stationary_trig_arctan",
+            "part_id": "cpq_p3_num_geom_stationary_trig_arctan_p01",
+            "legacy_practice_tier": "core",
+            "product_role": "concept_reinforcement",
+            "structural_inspiration": "Stationary point of product x^2*cos(2x) leading to tan(2x) = 1/x and rearrangement x = 0.5*arctan(1/x)."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Apply the product rule $\\dfrac{\\mathrm{d}}{\\mathrm{d}x}(uv) = u'v + uv'$ to differentiate $y = x^2\\cos(2x)$. Remember the chain rule for $\\cos(2x)$.",
+            "The derivative is $\\dfrac{\\mathrm{d}y}{\\mathrm{d}x} = 2x\\cos(2x) - 2x^2\\sin(2x)$. Set this equal to zero.",
+            "Factor out $2x \\ne 0$ to get $\\cos(2x) = x\\sin(2x)$, divide by $x\\cos(2x)$ to get $\\tan(2x) = \\dfrac{1}{x}$, and take $\\arctan$ of both sides."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Differentiate $y = x^2\\cos(2x)$ using the product rule and chain rule:\n$$\\frac{\\mathrm{d}y}{\\mathrm{d}x} = 2x\\cos(2x) + x^2(-2\\sin(2x)) = 2x\\cos(2x) - 2x^2\\sin(2x)$$"
+            },
+            {
+              "step": 2,
+              "text": "Set $\\dfrac{\\mathrm{d}y}{\\mathrm{d}x} = 0$ for stationary points:\n$$2x\\cos(2x) - 2x^2\\sin(2x) = 0 \\implies 2x(\\cos(2x) - x\\sin(2x)) = 0$$"
+            },
+            {
+              "step": 3,
+              "text": "Since $0 < x < \\frac{\\pi}{4}$, $x \\ne 0$. Thus:\n$$\\cos(2x) - x\\sin(2x) = 0 \\implies x\\sin(2x) = \\cos(2x)$$\n$$\\tan(2x) = \\frac{1}{x} \\implies 2x = \\arctan\\left(\\frac{1}{x}\\right) \\implies x = \\frac{1}{2}\\arctan\\left(\\frac{1}{x}\\right)$$"
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_numerical_solution_of_equations_m03_l01_cpq04_p01_mp01",
+                "observable": "Differentiates $y = x^2\\cos(2x)$ using the product rule to obtain $2x\\cos(2x) - 2x^2\\sin(2x)$ and sets $\\dfrac{\\mathrm{d}y}{\\mathrm{d}x} = 0$."
+              },
+              {
+                "criterion_id": "9709_p3_t_numerical_solution_of_equations_m03_l01_cpq04_p01_mp02",
+                "observable": "Divides by $2x \\ne 0$ to get $\\tan(2x) = \\dfrac{1}{x}$ and takes $\\arctan$ to show $x = \\dfrac{1}{2}\\arctan\\left(\\dfrac{1}{x}\\right)$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_finding_points_from_a_gradient_condition"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_finding_points_from_a_gradient_condition"
+            ],
+            "method_ids": [
+              "9709_p3_method_finding_points_from_a_gradient_condition"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        },
+        {
+          "part_id": "9709_p3_t_numerical_solution_of_equations_m03_l01_cpq04_p02",
+          "difficulty": "medium",
+          "question_pattern_ids": [
+            "9709_p3_pattern_numerical_approximation"
+          ],
+          "source_evidence": {
+            "question_id": "cpq_p3_num_geom_stationary_trig_arctan",
+            "part_id": "cpq_p3_num_geom_stationary_trig_arctan_p02",
+            "legacy_practice_tier": "core",
+            "product_role": "concept_reinforcement",
+            "structural_inspiration": "Trigonometric fixed-point iteration requiring calculator in radian mode and rounding to 2 d.p."
+          },
+          "dependency_role": "consume",
+          "dependency_refs": [
+            "9709_p3_t_numerical_solution_of_equations_m03_l01_cpq04_p01"
+          ],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Ensure your calculator is in radian mode for all trigonometric and inverse trigonometric calculations.",
+            "Start with $x_1 = 0.5$ and calculate $x_2 = \\dfrac{1}{2}\\arctan(2) \\approx 0.5536$.",
+            "Substitute each value into $x_{n+1} = \\dfrac{1}{2}\\arctan(1/x_n)$ and record each result to $4$ decimal places until consecutive values agree to $2$ decimal places."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Ensure the calculator is set to radians. Apply $x_{n+1} = \\dfrac{1}{2}\\arctan\\left(\\dfrac{1}{x_n}\\right)$ with $x_1 = 0.5$:\n$$x_2 = \\frac{1}{2}\\arctan\\left(\\frac{1}{0.5}\\right) = \\frac{1}{2}\\arctan(2) \\approx 0.5536$$"
+            },
+            {
+              "step": 2,
+              "text": "Compute subsequent iterates to 4 decimal places:\n$$x_3 = \\frac{1}{2}\\arctan\\left(\\frac{1}{0.55357}\\right) = \\frac{1}{2}\\arctan(1.80644) \\approx 0.5325$$\n$$x_4 = \\frac{1}{2}\\arctan\\left(\\frac{1}{0.53255}\\right) = \\frac{1}{2}\\arctan(1.87776) \\approx 0.5409$$\n$$x_5 = \\frac{1}{2}\\arctan\\left(\\frac{1}{0.54092}\\right) = \\frac{1}{2}\\arctan(1.84870) \\approx 0.5376$$\n$$x_6 = \\frac{1}{2}\\arctan\\left(\\frac{1}{0.53757}\\right) = \\frac{1}{2}\\arctan(1.86022) \\approx 0.5389$$"
+            },
+            {
+              "step": 3,
+              "text": "Since $x_5 \\approx 0.538$ and $x_6 \\approx 0.539$, the solution rounded to $2$ decimal places is:\n$$x = 0.54$$"
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_numerical_solution_of_equations_m03_l01_cpq04_p02_mp01",
+                "observable": "Applies the iterative formula with $x_1 = 0.5$ to calculate $x_2$ and $x_3$ to at least 4 decimal places ($x_2 \\approx 0.5536, x_3 \\approx 0.5325$)."
+              },
+              {
+                "criterion_id": "9709_p3_t_numerical_solution_of_equations_m03_l01_cpq04_p02_mp02",
+                "observable": "Obtains converged value $x = 0.54$ to 2 decimal places with supporting iterates ($x_4 \\approx 0.5409, x_5 \\approx 0.5376, x_6 \\approx 0.5389$)."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_fixed_point_iteration"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_fixed_point_iteration"
+            ],
+            "method_ids": [
+              "9709_p3_method_fixed_point_iteration"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": [
+              "9709_p3_fact_iteration_convergence"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_p3_t_numerical_solution_of_equations_m03_l01_cpq05",
+      "sequence": 11,
+      "difficulty": "hard",
+      "difficulty_reason": "Capstone: implicit differentiation combined with stationary point condition, substitution into implicit curve, and square root logarithm iteration.",
+      "source_question_id": "cpq_p3_num_geom_implicit_stationary",
+      "source_role": "capstone_practice",
+      "dependency_role": "none",
+      "dependency_refs": [],
+      "figure_refs": [
+        "9709_p3_t_numerical_solution_of_equations_m03_l01_cpq05_fig01"
+      ],
+      "figure": {
+        "figure_id": "9709_p3_t_numerical_solution_of_equations_m03_l01_cpq05_fig01",
+        "asset_path": "figures/9709_p3_t_numerical_solution_of_equations_m03_l01_cpq05_fig01.svg",
+        "status": "planned",
+        "placement": "after_question_context",
+        "purpose": "Show the implicit curve x^3 + e^y = 3xy + 4 and its stationary point with horizontal tangent.",
+        "alt_text": "Plot of implicit curve x^3 + e^y = 3xy + 4 showing stationary point.",
+        "brief": "2D Cartesian coordinate plot of the implicit curve $x^3 + \\mathrm{e}^y = 3xy + 4$ in the first quadrant, showing a smooth curve with a horizontal tangent line at the stationary point near $x \\approx 1.57$."
+      },
+      "parts": [
+        {
+          "part_id": "9709_p3_t_numerical_solution_of_equations_m03_l01_cpq05_p01",
+          "difficulty": "hard",
+          "question_pattern_ids": [
+            "9709_p3_pattern_prove_or_show"
+          ],
+          "source_evidence": {
+            "question_id": "cpq_p3_num_geom_implicit_stationary",
+            "part_id": "cpq_p3_num_geom_implicit_stationary_p01",
+            "legacy_practice_tier": "capstone",
+            "product_role": "mastery_capstone",
+            "structural_inspiration": "High-level Cambridge P3 problem: implicit differentiation to find stationary point, substituting locus y = x^2 back into curve equation to form numerical equation."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Differentiate each term with respect to $x$, applying the chain rule to $\\mathrm{e}^y$ as $\\mathrm{e}^y \\dfrac{\\mathrm{d}y}{\\mathrm{d}x}$ and the product rule to $3xy$ as $3y + 3x\\dfrac{\\mathrm{d}y}{\\mathrm{d}x}$.",
+            "Collect terms in $\\dfrac{\\mathrm{d}y}{\\mathrm{d}x}$ to find $\\dfrac{\\mathrm{d}y}{\\mathrm{d}x} = \\dfrac{3y - 3x^2}{\\mathrm{e}^y - 3x}$.",
+            "Set $\\dfrac{\\mathrm{d}y}{\\mathrm{d}x} = 0$ to get $3y - 3x^2 = 0 \\implies y = x^2$.",
+            "Substitute $y = x^2$ back into the original curve equation $x^3 + \\mathrm{e}^{x^2} = 3x(x^2) + 4$, rearrange to isolate $\\mathrm{e}^{x^2} = 2x^3 + 4$, and take natural logarithms."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Differentiate $x^3 + \\mathrm{e}^y = 3xy + 4$ implicitly with respect to $x$:\n$$3x^2 + \\mathrm{e}^y \\frac{\\mathrm{d}y}{\\mathrm{d}x} = 3y + 3x\\frac{\\mathrm{d}y}{\\mathrm{d}x}$$"
+            },
+            {
+              "step": 2,
+              "text": "Isolate $\\dfrac{\\mathrm{d}y}{\\mathrm{d}x}$ and set it to $0$ for stationary points:\n$$\\frac{\\mathrm{d}y}{\\mathrm{d}x}(\\mathrm{e}^y - 3x) = 3y - 3x^2 \\implies \\frac{\\mathrm{d}y}{\\mathrm{d}x} = \\frac{3(y - x^2)}{\\mathrm{e}^y - 3x} = 0$$\nThis requires $y - x^2 = 0 \\implies y = x^2$."
+            },
+            {
+              "step": 3,
+              "text": "Substitute $y = x^2$ into the original curve equation:\n$$x^3 + \\mathrm{e}^{x^2} = 3x(x^2) + 4 = 3x^3 + 4$$\n$$\\mathrm{e}^{x^2} = 2x^3 + 4$$\nTaking the natural logarithm and principal square root gives:\n$$x^2 = \\ln(2x^3 + 4) \\implies x = \\sqrt{\\ln(2x^3 + 4)}$$"
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_numerical_solution_of_equations_m03_l01_cpq05_p01_mp01",
+                "observable": "Differentiates implicitly to obtain $3x^2 + \\mathrm{e}^y\\dfrac{\\mathrm{d}y}{\\mathrm{d}x} = 3y + 3x\\dfrac{\\mathrm{d}y}{\\mathrm{d}x}$, sets $\\dfrac{\\mathrm{d}y}{\\mathrm{d}x} = 0$ to deduce $y = x^2$, and substitutes $y = x^2$ into $x^3 + \\mathrm{e}^y = 3xy + 4$."
+              },
+              {
+                "criterion_id": "9709_p3_t_numerical_solution_of_equations_m03_l01_cpq05_p01_mp02",
+                "observable": "Rearranges $\\mathrm{e}^{x^2} = 2x^3 + 4$ correctly to show $x = \\sqrt{\\ln(2x^3 + 4)}$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_finding_points_from_a_gradient_condition"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_finding_points_from_a_gradient_condition"
+            ],
+            "method_ids": [
+              "9709_p3_method_finding_points_from_a_gradient_condition"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        },
+        {
+          "part_id": "9709_p3_t_numerical_solution_of_equations_m03_l01_cpq05_p02",
+          "difficulty": "hard",
+          "question_pattern_ids": [
+            "9709_p3_pattern_numerical_approximation"
+          ],
+          "source_evidence": {
+            "question_id": "cpq_p3_num_geom_implicit_stationary",
+            "part_id": "cpq_p3_num_geom_implicit_stationary_p02",
+            "legacy_practice_tier": "capstone",
+            "product_role": "mastery_capstone",
+            "structural_inspiration": "Fixed-point iteration tracking numerical values to 4 d.p. and final accuracy to 2 d.p."
+          },
+          "dependency_role": "consume",
+          "dependency_refs": [
+            "9709_p3_t_numerical_solution_of_equations_m03_l01_cpq05_p01"
+          ],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Calculate $x_2$ by substituting $x_1 = 1.5$ into $\\sqrt{\\ln(2(1.5)^3 + 4)} = \\sqrt{\\ln(10.75)}$.",
+            "Keep full precision in your calculator and record each iterate $x_2, x_3, x_4, \\dots$ rounded to $4$ decimal places.",
+            "Continue iterating until successive values demonstrate agreement to $2$ decimal places.",
+            "Confirm that $x_5 \\approx 1.5671$ and $x_6 \\approx 1.5681$ both round to $1.57$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Apply the iterative formula $x_{n+1} = \\sqrt{\\ln(2x_n^3 + 4)}$ with $x_1 = 1.5$:\n$$x_2 = \\sqrt{\\ln(2(1.5)^3 + 4)} = \\sqrt{\\ln(10.75)} \\approx 1.5411$$"
+            },
+            {
+              "step": 2,
+              "text": "Compute subsequent iterations to 4 decimal places:\n$$x_3 = \\sqrt{\\ln(2(1.54109)^3 + 4)} = \\sqrt{\\ln(11.3197)} \\approx 1.5577$$\n$$x_4 = \\sqrt{\\ln(2(1.55768)^3 + 4)} = \\sqrt{\\ln(11.5562)} \\approx 1.5644$$\n$$x_5 = \\sqrt{\\ln(2(1.56441)^3 + 4)} = \\sqrt{\\ln(11.6543)} \\approx 1.5671$$\n$$x_6 = \\sqrt{\\ln(2(1.56713)^3 + 4)} = \\sqrt{\\ln(11.6926)} \\approx 1.5681$$"
+            },
+            {
+              "step": 3,
+              "text": "Since $x_5 \\approx 1.567$ and $x_6 \\approx 1.568$, the value rounded to $2$ decimal places is:\n$$x = 1.57$$"
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_numerical_solution_of_equations_m03_l01_cpq05_p02_mp01",
+                "observable": "Uses the iterative formula with $x_1 = 1.5$ to find $x_2 \\approx 1.5411$ and $x_3 \\approx 1.5577$."
+              },
+              {
+                "criterion_id": "9709_p3_t_numerical_solution_of_equations_m03_l01_cpq05_p02_mp02",
+                "observable": "Obtains converged value $x = 1.57$ to 2 decimal places with supporting iterates ($x_4 \\approx 1.5644, x_5 \\approx 1.5671, x_6 \\approx 1.5681$)."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_fixed_point_iteration"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_fixed_point_iteration"
+            ],
+            "method_ids": [
+              "9709_p3_method_fixed_point_iteration"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": [
+              "9709_p3_fact_iteration_convergence"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_p3_t_numerical_solution_of_equations_m03_l01_cpq06",
+      "sequence": 12,
+      "difficulty": "hard",
+      "difficulty_reason": "Capstone: volume of revolution integral by parts leading to transcendental equation, sign-change verification, and cobweb iteration.",
+      "source_question_id": "cpq_p3_num_geom_volume_revolution_iteration",
+      "source_role": "capstone_practice",
+      "dependency_role": "none",
+      "dependency_refs": [],
+      "figure_refs": [
+        "9709_p3_t_numerical_solution_of_equations_m03_l01_cpq06_fig01"
+      ],
+      "figure": {
+        "figure_id": "9709_p3_t_numerical_solution_of_equations_m03_l01_cpq06_fig01",
+        "asset_path": "figures/9709_p3_t_numerical_solution_of_equations_m03_l01_cpq06_fig01.svg",
+        "status": "planned",
+        "placement": "after_question_context",
+        "purpose": "Illustrate the curve y = sqrt(x) e^(x/2) and the volume of revolution generated by rotation about the x-axis.",
+        "alt_text": "3D/2D diagram of curve y = sqrt(x) e^(x/2) rotated about x-axis between x = 0 and x = a.",
+        "brief": "Diagram showing the region under $y = \\sqrt{x}\\,\\mathrm{e}^{x/2}$ from $x = 0$ to $x = a$ shaded, with circular revolution arrows around the $x$-axis indicating rotation through $2\\pi$ radians."
+      },
+      "parts": [
+        {
+          "part_id": "9709_p3_t_numerical_solution_of_equations_m03_l01_cpq06_p01",
+          "difficulty": "hard",
+          "question_pattern_ids": [
+            "9709_p3_pattern_prove_or_show"
+          ],
+          "source_evidence": {
+            "question_id": "cpq_p3_num_geom_volume_revolution_iteration",
+            "part_id": "cpq_p3_num_geom_volume_revolution_iteration_p01",
+            "legacy_practice_tier": "capstone",
+            "product_role": "mastery_capstone",
+            "structural_inspiration": "Cambridge P3 integration of x*e^x to establish volume of revolution and setting up logarithmic iteration formula."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Recall the volume of revolution formula $V = \\pi \\int_0^a y^2 \\, \\mathrm{d}x$. Square $y = \\sqrt{x}\\,\\mathrm{e}^{x/2}$ to get $y^2 = x\\mathrm{e}^x$.",
+            "Integrate $x\\mathrm{e}^x$ by parts: with $u = x$ and $v' = \\mathrm{e}^x$, $\\int x\\mathrm{e}^x\\,\\mathrm{d}x = x\\mathrm{e}^x - \\mathrm{e}^x$.",
+            "Evaluate limits from $0$ to $a$: $\\left[ (x - 1)\\mathrm{e}^x \\right]_0^a = (a - 1)\\mathrm{e}^a - (-1) = (a - 1)\\mathrm{e}^a + 1$.",
+            "Set $\\pi\\left[(a - 1)\\mathrm{e}^a + 1\\right] = 20\\pi$, cancel $\\pi$, subtract $1$, and divide by $a - 1$ before taking logarithms."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Square the function $y = \\sqrt{x}\\,\\mathrm{e}^{x/2}$:\n$$y^2 = x\\mathrm{e}^x$$"
+            },
+            {
+              "step": 2,
+              "text": "Set up the volume of revolution integral and apply integration by parts with $u = x$ and $v' = \\mathrm{e}^x$:\n$$V = \\pi \\int_0^a x\\mathrm{e}^x \\, \\mathrm{d}x = \\pi \\left[ x\\mathrm{e}^x - \\mathrm{e}^x \\right]_0^a = \\pi \\left[ (a - 1)\\mathrm{e}^a - (0 - 1) \\right] = \\pi\\left[(a - 1)\\mathrm{e}^a + 1\\right]$$"
+            },
+            {
+              "step": 3,
+              "text": "Equate the volume to $20\\pi$ and rearrange:\n$$\\pi\\left[(a - 1)\\mathrm{e}^a + 1\\right] = 20\\pi \\implies (a - 1)\\mathrm{e}^a + 1 = 20$$\n$$(a - 1)\\mathrm{e}^a = 19 \\implies \\mathrm{e}^a = \\frac{19}{a - 1} \\implies a = \\ln\\left(\\frac{19}{a - 1}\\right)$$"
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_numerical_solution_of_equations_m03_l01_cpq06_p01_mp01",
+                "observable": "Squares $y$ to obtain $y^2 = x\\mathrm{e}^x$, integrates by parts to get $\\pi\\left[ (x-1)\\mathrm{e}^x \\right]_0^a = \\pi\\left[(a - 1)\\mathrm{e}^a + 1\\right]$, and sets the volume equal to $20\\pi$."
+              },
+              {
+                "criterion_id": "9709_p3_t_numerical_solution_of_equations_m03_l01_cpq06_p01_mp02",
+                "observable": "Rearranges $(a - 1)\\mathrm{e}^a = 19$ correctly to obtain $a = \\ln\\left(\\dfrac{19}{a - 1}\\right)$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_forming_and_testing_fixed_point_rearrangements"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_forming_and_testing_fixed_point_rearrangements"
+            ],
+            "method_ids": [
+              "9709_p3_method_forming_and_testing_fixed_point_rearrangements"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        },
+        {
+          "part_id": "9709_p3_t_numerical_solution_of_equations_m03_l01_cpq06_p02",
+          "difficulty": "hard",
+          "question_pattern_ids": [
+            "9709_p3_pattern_numerical_approximation"
+          ],
+          "source_evidence": {
+            "question_id": "cpq_p3_num_geom_volume_revolution_iteration",
+            "part_id": "cpq_p3_num_geom_volume_revolution_iteration_p02",
+            "legacy_practice_tier": "capstone",
+            "product_role": "mastery_capstone",
+            "structural_inspiration": "Interval sign change check combined with fixed-point iteration."
+          },
+          "dependency_role": "consume",
+          "dependency_refs": [
+            "9709_p3_t_numerical_solution_of_equations_m03_l01_cpq06_p01"
+          ],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Let $f(a) = a - \\ln\\left(\\dfrac{19}{a - 1}\\right)$. Calculate $f(2.5)$ and $f(2.6)$ to confirm a change of sign.",
+            "Confirm $f(2.5) \\approx -0.0390 < 0$ and $f(2.6) \\approx +0.1256 > 0$, establishing a root in $[2.5, 2.6]$.",
+            "Compute $a_2 = \\ln\\left(\\dfrac{19}{2.5 - 1}\\right) = \\ln\\left(\\dfrac{19}{1.5}\\right) \\approx 2.5390$, and continue generating successive iterates to $4$ decimal places.",
+            "Observe the cobweb oscillation ($a_2 \\approx 2.5390, a_3 \\approx 2.5133, a_4 \\approx 2.5299, \\dots$) converging to $2.52$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Define $f(a) = a - \\ln\\left(\\dfrac{19}{a - 1}\\right)$ and check interval endpoints:\n$$f(2.5) = 2.5 - \\ln\\left(\\frac{19}{1.5}\\right) = 2.5 - \\ln(12.6667) \\approx 2.5 - 2.5390 = -0.0390 < 0$$\n$$f(2.6) = 2.6 - \\ln\\left(\\frac{19}{1.6}\\right) = 2.6 - \\ln(11.8750) \\approx 2.6 - 2.4744 = +0.1256 > 0$$\nSince $f(a)$ is continuous and changes sign, a root lies in $2.5 < a < 2.6$."
+            },
+            {
+              "step": 2,
+              "text": "Apply the iterative formula $a_{n+1} = \\ln\\left(\\dfrac{19}{a_n - 1}\\right)$ with $a_1 = 2.5$:\n$$a_2 = \\ln\\left(\\frac{19}{1.5}\\right) \\approx 2.5390$$\n$$a_3 = \\ln\\left(\\frac{19}{1.53898}\\right) \\approx 2.5133$$\n$$a_4 = \\ln\\left(\\frac{19}{1.51329}\\right) \\approx 2.5299$$\n$$a_5 = \\ln\\left(\\frac{19}{1.52994}\\right) \\approx 2.5190$$\n$$a_6 = \\ln\\left(\\frac{19}{1.51897}\\right) \\approx 2.5261$$"
+            },
+            {
+              "step": 3,
+              "text": "Both $a_5 \\approx 2.519$ and $a_6 \\approx 2.526$ round to $2.52$ to $2$ decimal places:\n$$a = 2.52$$"
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_numerical_solution_of_equations_m03_l01_cpq06_p02_mp01",
+                "observable": "Verifies sign change on $[2.5, 2.6]$ with $f(2.5) \\approx -0.039$ and $f(2.6) \\approx +0.126$, and generates $a_2 \\approx 2.5390, a_3 \\approx 2.5133$."
+              },
+              {
+                "criterion_id": "9709_p3_t_numerical_solution_of_equations_m03_l01_cpq06_p02_mp02",
+                "observable": "Obtains final converged value $a = 2.52$ to 2 decimal places with supporting iterates ($a_4 \\approx 2.5299, a_5 \\approx 2.5190, a_6 \\approx 2.5261$)."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_fixed_point_iteration"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_fixed_point_iteration"
+            ],
+            "method_ids": [
+              "9709_p3_method_fixed_point_iteration"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": [
+              "9709_p3_fact_iteration_convergence"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_p3_t_numerical_solution_of_equations_m03_l01_cpq07",
+      "sequence": 13,
+      "difficulty": "hard",
+      "difficulty_reason": "Capstone: quotient rule tangent passing through external point (0,-2) leading to exponential numerical equation and iteration.",
+      "source_question_id": "cpq_p3_num_geom_tangent_external_point",
+      "source_role": "capstone_practice",
+      "dependency_role": "none",
+      "dependency_refs": [],
+      "figure_refs": [
+        "9709_p3_t_numerical_solution_of_equations_m03_l01_cpq07_fig01"
+      ],
+      "figure": {
+        "figure_id": "9709_p3_t_numerical_solution_of_equations_m03_l01_cpq07_fig01",
+        "asset_path": "figures/9709_p3_t_numerical_solution_of_equations_m03_l01_cpq07_fig01.svg",
+        "status": "planned",
+        "placement": "after_question_context",
+        "purpose": "Show the curve y = ln(x)/x and the tangent from (0, -2) touching the curve at P.",
+        "alt_text": "Plot of y = ln(x)/x and tangent line passing through (0, -2) and touching curve at P.",
+        "brief": "2D Cartesian axes showing the curve $y = \\dfrac{\\ln x}{x}$ for $x > 0$, crossing the $x$-axis at $(1,0)$ and having a maximum at $(e, 1/e)$. A tangent line is drawn from the $y$-intercept $(0, -2)$ to touch the curve at point $P$."
+      },
+      "parts": [
+        {
+          "part_id": "9709_p3_t_numerical_solution_of_equations_m03_l01_cpq07_p01",
+          "difficulty": "hard",
+          "question_pattern_ids": [
+            "9709_p3_pattern_prove_or_show"
+          ],
+          "source_evidence": {
+            "question_id": "cpq_p3_num_geom_tangent_external_point",
+            "part_id": "cpq_p3_num_geom_tangent_external_point_p01",
+            "legacy_practice_tier": "capstone",
+            "product_role": "mastery_capstone",
+            "structural_inspiration": "Cambridge P3 tangent line to ln(x)/x passing through given external point on y-axis."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Differentiate $y = \\dfrac{\\ln x}{x}$ using the quotient rule: $\\dfrac{\\mathrm{d}y}{\\mathrm{d}x} = \\dfrac{\\frac{1}{x} \\cdot x - \\ln x \\cdot 1}{x^2} = \\dfrac{1 - \\ln x}{x^2}$.",
+            "Write the equation of the tangent at $P\\left(p, \\dfrac{\\ln p}{p}\\right)$ as $y - \\dfrac{\\ln p}{p} = \\dfrac{1 - \\ln p}{p^2}(x - p)$.",
+            "Substitute $(x, y) = (0, -2)$ into the tangent equation and simplify the right-hand side.",
+            "Multiply through by $p$ to obtain $-2p - \\ln p = \\ln p - 1$, isolate $\\ln p = 0.5 - p$, and exponentiate."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Differentiate $y = \\dfrac{\\ln x}{x}$ with respect to $x$:\n$$\\frac{\\mathrm{d}y}{\\mathrm{d}x} = \\frac{\\frac{1}{x} \\cdot x - \\ln x \\cdot 1}{x^2} = \\frac{1 - \\ln x}{x^2}$$"
+            },
+            {
+              "step": 2,
+              "text": "Form the equation of the tangent line at $P\\left(p, \\dfrac{\\ln p}{p}\\right)$:\n$$y - \\frac{\\ln p}{p} = \\frac{1 - \\ln p}{p^2}(x - p)$$"
+            },
+            {
+              "step": 3,
+              "text": "Substitute $(x, y) = (0, -2)$:\n$$-2 - \\frac{\\ln p}{p} = \\frac{1 - \\ln p}{p^2}(0 - p) = -\\frac{1 - \\ln p}{p} = \\frac{\\ln p - 1}{p}$$\nMultiply both sides by $p$:\n$$-2p - \\ln p = \\ln p - 1 \\implies 2\\ln p = 1 - 2p$$\n$$\\ln p = \\frac{1}{2} - p = 0.5 - p \\implies p = \\mathrm{e}^{0.5 - p}$$"
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_numerical_solution_of_equations_m03_l01_cpq07_p01_mp01",
+                "observable": "Differentiates $y = \\dfrac{\\ln x}{x}$ to obtain $\\dfrac{1 - \\ln x}{x^2}$, forms tangent equation $y - \\dfrac{\\ln p}{p} = \\dfrac{1 - \\ln p}{p^2}(x - p)$, and substitutes $(x, y) = (0, -2)$."
+              },
+              {
+                "criterion_id": "9709_p3_t_numerical_solution_of_equations_m03_l01_cpq07_p01_mp02",
+                "observable": "Simplifies $-2 - \\dfrac{\\ln p}{p} = \\dfrac{\\ln p - 1}{p}$ to obtain $2\\ln p = 1 - 2p$ and exponentiates to show $p = \\mathrm{e}^{0.5 - p}$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_finding_points_from_a_gradient_condition"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_finding_points_from_a_gradient_condition"
+            ],
+            "method_ids": [
+              "9709_p3_method_finding_points_from_a_gradient_condition"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        },
+        {
+          "part_id": "9709_p3_t_numerical_solution_of_equations_m03_l01_cpq07_p02",
+          "difficulty": "hard",
+          "question_pattern_ids": [
+            "9709_p3_pattern_numerical_approximation"
+          ],
+          "source_evidence": {
+            "question_id": "cpq_p3_num_geom_tangent_external_point",
+            "part_id": "cpq_p3_num_geom_tangent_external_point_p02",
+            "legacy_practice_tier": "capstone",
+            "product_role": "mastery_capstone",
+            "structural_inspiration": "Iteration of exponential fixed-point form reporting iterates to 4 d.p. and final answer to 2 d.p."
+          },
+          "dependency_role": "consume",
+          "dependency_refs": [
+            "9709_p3_t_numerical_solution_of_equations_m03_l01_cpq07_p01"
+          ],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Define $f(p) = p - \\mathrm{e}^{0.5 - p}$. Evaluate $f(0.7)$ and $f(0.8)$ to verify a change of sign.",
+            "Calculate $f(0.7) = 0.7 - \\mathrm{e}^{-0.2} \\approx -0.1187 < 0$ and $f(0.8) = 0.8 - \\mathrm{e}^{-0.3} \\approx +0.0592 > 0$.",
+            "Use $p_{n+1} = \\mathrm{e}^{0.5 - p_n}$ starting with $p_1 = 0.7$ to calculate $p_2 = \\mathrm{e}^{-0.2} \\approx 0.8187$, $p_3 \\approx 0.7271$, etc.",
+            "Continue iterating until consecutive values round consistently to $0.76$ at $2$ decimal places."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Define $f(p) = p - \\mathrm{e}^{0.5 - p}$ and test interval endpoints:\n$$f(0.7) = 0.7 - \\mathrm{e}^{-0.2} \\approx 0.7 - 0.81873 = -0.1187 < 0$$\n$$f(0.8) = 0.8 - \\mathrm{e}^{-0.3} \\approx 0.8 - 0.74082 = +0.0592 > 0$$\nSince $f(p)$ is continuous and changes sign, a root lies in $0.7 < p < 0.8$."
+            },
+            {
+              "step": 2,
+              "text": "Apply the iterative formula $p_{n+1} = \\mathrm{e}^{0.5 - p_n}$ starting with $p_1 = 0.7$:\n$$p_2 = \\mathrm{e}^{0.5 - 0.7} = \\mathrm{e}^{-0.2} \\approx 0.8187$$\n$$p_3 = \\mathrm{e}^{0.5 - 0.81873} = \\mathrm{e}^{-0.31873} \\approx 0.7271$$\n$$p_4 = \\mathrm{e}^{0.5 - 0.72707} = \\mathrm{e}^{-0.22707} \\approx 0.7969$$\n$$p_5 = \\mathrm{e}^{0.5 - 0.79687} = \\mathrm{e}^{-0.29687} \\approx 0.7431$$\n$$p_6 = \\mathrm{e}^{0.5 - 0.74314} = \\mathrm{e}^{-0.24314} \\approx 0.7842$$\n$$p_7 = \\mathrm{e}^{0.5 - 0.78416} = \\mathrm{e}^{-0.28416} \\approx 0.7526$$"
+            },
+            {
+              "step": 3,
+              "text": "Continuing the iteration yields values alternating around $0.763$, which round to $0.76$ to $2$ decimal places:\n$$p = 0.76$$"
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_numerical_solution_of_equations_m03_l01_cpq07_p02_mp01",
+                "observable": "Shows sign change for $f(p) = p - \\mathrm{e}^{0.5 - p}$ on $[0.7, 0.8]$ ($f(0.7) \\approx -0.1187, f(0.8) \\approx +0.0592$), and calculates iterates $p_2 \\approx 0.8187, p_3 \\approx 0.7271$."
+              },
+              {
+                "criterion_id": "9709_p3_t_numerical_solution_of_equations_m03_l01_cpq07_p02_mp02",
+                "observable": "Obtains converged value $p = 0.76$ to 2 decimal places with supporting iterates ($p_4 \\approx 0.7968, p_5 \\approx 0.7432, p_6 \\approx 0.7841, p_7 \\approx 0.7527$)."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_fixed_point_iteration"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_fixed_point_iteration"
+            ],
+            "method_ids": [
+              "9709_p3_method_fixed_point_iteration"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": [
+              "9709_p3_fact_iteration_convergence"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

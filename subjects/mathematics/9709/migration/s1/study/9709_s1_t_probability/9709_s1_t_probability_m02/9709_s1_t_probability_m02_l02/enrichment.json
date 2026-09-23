@@ -1,0 +1,1243 @@
+{
+  "lesson_id": "9709_s1_t_probability_m02_l02",
+  "questions": [
+    {
+      "question_id": "9709_s1_t_probability_m02_l02_drq01",
+      "parts": [
+        {
+          "part_id": "9709_s1_t_probability_m02_l02_drq01_p01",
+          "label": "(a)",
+          "difficulty": "easy",
+          "pattern_ids": [
+            "tree_single_path_multiplication"
+          ],
+          "hints": [
+            "Passing both tests requires following the single branch path where theory is passed and then the practical is passed.",
+            "Multiply along successive branches: $P(\\text{Pass}_1 \\cap \\text{Pass}_2) = P(\\text{Pass}_1) \\times P(\\text{Pass}_2 \\mid \\text{Pass}_1)$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Identify the required sequential path:\n$$\\text{Path} = (\\text{Pass theory}, \\text{Pass practical})$$"
+            },
+            {
+              "step": 2,
+              "text": "Multiply probabilities along the path:\n$$P(\\text{Pass both}) = 0.70 \\times 0.40 = 0.28$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "Identify the unique path through the tree meeting the condition:\n$$\\text{Event} = \\text{Theory Pass} \\cap \\text{Practical Pass}$$"
+            },
+            {
+              "step": 2,
+              "text": "Apply the multiplication rule along the route:\n$$P(\\text{Pass both}) = 0.70 \\times 0.40 = 0.28 = \\frac{7}{25}$$"
+            }
+          ],
+          "checking": {
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_s1_t_probability_m02_l02_drq01_p01_c01",
+                "mark": "M1",
+                "observable": "Identify the single path requiring both tests to be passed and multiply the branch probabilities: $0.70 \\times 0.40$."
+              },
+              {
+                "criterion_id": "9709_s1_t_probability_m02_l02_drq01_p01_c02",
+                "mark": "A1",
+                "observable": "Obtain correct probability $0.28$ (or $\\frac{7}{25}$)."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_s1_t_probability_m02_l02_drq02",
+      "parts": [
+        {
+          "part_id": "9709_s1_t_probability_m02_l02_drq02_p01",
+          "label": "(a)",
+          "difficulty": "easy",
+          "pattern_ids": [
+            "tree_without_replacement_update"
+          ],
+          "hints": [
+            "When sampling without replacement, both the total number of items and the count of the chosen type decrease after the first draw.",
+            "For the second draw, 9 marbles remain in total, of which all 6 blue marbles are still available."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Determine the probabilities on the sequential branches:\n$$P(R_1) = \\frac{4}{10}, \\quad P(B_2 \\mid R_1) = \\frac{6}{9}$$"
+            },
+            {
+              "step": 2,
+              "text": "Multiply along the path $(R, B)$:\n$$P(R_1 \\cap B_2) = \\frac{4}{10} \\times \\frac{6}{9} = \\frac{24}{90} = \\frac{4}{15}$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "Update bag totals after the first red marble is removed:\n$$\\text{First draw: } P(R) = \\frac{4}{10}, \\quad \\text{Remaining: } 3 \\text{ red, } 6 \\text{ blue, total } 9$$"
+            },
+            {
+              "step": 2,
+              "text": "Multiply the branch probabilities along the path:\n$$P(RB) = \\frac{4}{10} \\times \\frac{6}{9} = \\frac{2}{5} \\times \\frac{2}{3} = \\frac{4}{15}$$"
+            }
+          ],
+          "checking": {
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_s1_t_probability_m02_l02_drq02_p01_c01",
+                "mark": "M1",
+                "observable": "State or calculate the conditional probability of blue on the second draw as $\\frac{6}{9}$ after red on the first draw and form the product $\\frac{4}{10} \\times \\frac{6}{9}$."
+              },
+              {
+                "criterion_id": "9709_s1_t_probability_m02_l02_drq02_p01_c02",
+                "mark": "A1",
+                "observable": "Obtain correct probability $\\frac{4}{15}$ (or recurring decimal $0.267$, $0.2667$)."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_s1_t_probability_m02_l02_drq03",
+      "parts": [
+        {
+          "part_id": "9709_s1_t_probability_m02_l02_drq03_p01",
+          "label": "(a)",
+          "difficulty": "easy",
+          "pattern_ids": [
+            "law_of_total_probability_two_branches"
+          ],
+          "hints": [
+            "Delays can occur along two mutually exclusive paths: route $A$ with delay, or route $B$ with delay.",
+            "Multiply along each branch and add the results: $P(\\text{Delay}) = P(A \\cap \\text{Delay}) + P(B \\cap \\text{Delay})$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Calculate the probability of delay along each route:\n$$P(A \\cap \\text{Delay}) = 0.60 \\times 0.35 = 0.21$$\n$$P(B \\cap \\text{Delay}) = 0.40 \\times 0.15 = 0.06$$"
+            },
+            {
+              "step": 2,
+              "text": "Sum the probabilities of these mutually exclusive paths:\n$$P(\\text{Delay}) = 0.21 + 0.06 = 0.27$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "Apply the law of total probability across both routes:\n$$P(\\text{Delay}) = P(A)P(\\text{Delay} \\mid A) + P(B)P(\\text{Delay} \\mid B)$$"
+            },
+            {
+              "step": 2,
+              "text": "Evaluate each route product and combine:\n$$P(\\text{Delay}) = (0.60 \\times 0.35) + (0.40 \\times 0.15) = 0.21 + 0.06 = 0.27$$"
+            }
+          ],
+          "checking": {
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_s1_t_probability_m02_l02_drq03_p01_c01",
+                "mark": "M1",
+                "observable": "Apply the law of total probability across the two routes by summing the products along both delay branches: $(0.60 \\times 0.35) + (0.40 \\times 0.15)$."
+              },
+              {
+                "criterion_id": "9709_s1_t_probability_m02_l02_drq03_p01_c02",
+                "mark": "A1",
+                "observable": "Obtain correct probability $0.27$ (or $\\frac{27}{100}$)."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_s1_t_probability_m02_l02_drq04",
+      "parts": [
+        {
+          "part_id": "9709_s1_t_probability_m02_l02_drq04_p01",
+          "label": "(a)",
+          "difficulty": "easy",
+          "pattern_ids": [
+            "tree_either_order_without_replacement"
+          ],
+          "hints": [
+            "Two different colours can occur in either order: green then yellow, or yellow then green.",
+            "Calculate both paths without replacement and add them together: $P(GY) + P(YG)$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Identify the two mutually exclusive paths without replacement:\n$$P(GY) = \\frac{3}{8} \\times \\frac{5}{7} = \\frac{15}{56}$$\n$$P(YG) = \\frac{5}{8} \\times \\frac{3}{7} = \\frac{15}{56}$$"
+            },
+            {
+              "step": 2,
+              "text": "Sum the probabilities of both paths:\n$$P(\\text{different colours}) = \\frac{15}{56} + \\frac{15}{56} = \\frac{30}{56} = \\frac{15}{28}$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "Account for both possible draw orders without replacement:\n$$P(\\text{different}) = P(GY) + P(YG)$$"
+            },
+            {
+              "step": 2,
+              "text": "Evaluate each branch and combine into simplest form:\n$$P(\\text{different}) = \\left(\\frac{3}{8} \\times \\frac{5}{7}\\right) + \\left(\\frac{5}{8} \\times \\frac{3}{7}\\right) = \\frac{15}{56} + \\frac{15}{56} = \\frac{15}{28}$$"
+            }
+          ],
+          "checking": {
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_s1_t_probability_m02_l02_drq04_p01_c01",
+                "mark": "M1",
+                "observable": "Identify both mutually exclusive orders (green then yellow, yellow then green) without replacement: $\\left(\\frac{3}{8} \\times \\frac{5}{7}\\right) + \\left(\\frac{5}{8} \\times \\frac{3}{7}\\right)$."
+              },
+              {
+                "criterion_id": "9709_s1_t_probability_m02_l02_drq04_p01_c02",
+                "mark": "A1",
+                "observable": "Obtain correct probability $\\frac{15}{28}$ (or approximately $0.536$)."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_s1_t_probability_m02_l02_drq05",
+      "parts": [
+        {
+          "part_id": "9709_s1_t_probability_m02_l02_drq05_p01",
+          "label": "(a)",
+          "difficulty": "easy",
+          "pattern_ids": [
+            "independent_repeated_trials_permutations"
+          ],
+          "hints": [
+            "List all orderings with 2 hits ($H$) and 1 miss ($M$): $HHM$, $HMH$, and $MHH$.",
+            "Because the trials are independent, each ordering has the exact same probability: $0.30^2 \\times 0.70$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Determine the probability of one specific sequence with 2 hits and 1 miss:\n$$P(HHM) = 0.30 \\times 0.30 \\times 0.70 = 0.063$$"
+            },
+            {
+              "step": 2,
+              "text": "Multiply by the 3 possible arrangements:\n$$P(\\text{exactly } 2 \\text{ hits}) = 3 \\times 0.063 = 0.189$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "Identify the 3 valid branches in the 3-stage tree:\n$$\\text{Sequences} = \\{HHM, HMH, MHH\\}$$"
+            },
+            {
+              "step": 2,
+              "text": "Evaluate the identical path probabilities and sum:\n$$P(\\text{exactly } 2) = 3 \\times (0.30^2 \\times 0.70) = 3 \\times 0.063 = 0.189 = \\frac{189}{1000}$$"
+            }
+          ],
+          "checking": {
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_s1_t_probability_m02_l02_drq05_p01_c01",
+                "mark": "M1",
+                "observable": "Identify the 3 arrangements for exactly two hits in three independent shots ($HHF, HFH, FHH$) and calculate $3 \\times (0.30^2 \\times 0.70)$."
+              },
+              {
+                "criterion_id": "9709_s1_t_probability_m02_l02_drq05_p01_c02",
+                "mark": "A1",
+                "observable": "Obtain correct probability $0.189$ (or $\\frac{189}{1000}$)."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_s1_t_probability_m02_l02_drq06",
+      "parts": [
+        {
+          "part_id": "9709_s1_t_probability_m02_l02_drq06_p01",
+          "label": "(a)",
+          "difficulty": "easy",
+          "pattern_ids": [
+            "complement_at_least_one"
+          ],
+          "hints": [
+            "The complement of 'at least one black counter' is 'no black counters', which means drawing two white counters ($WW$).",
+            "Compute $P(WW)$ without replacement and subtract from 1: $1 - P(WW)$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Calculate the probability of drawing two white counters without replacement:\n$$P(WW) = \\frac{5}{8} \\times \\frac{4}{7} = \\frac{20}{56} = \\frac{5}{14}$$"
+            },
+            {
+              "step": 2,
+              "text": "Apply the complement rule:\n$$P(\\ge 1 \\text{ black}) = 1 - P(WW) = 1 - \\frac{5}{14} = \\frac{9}{14}$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "Formulate the complement event where zero black counters are chosen:\n$$P(\\text{no black}) = P(WW) = \\frac{5}{8} \\times \\frac{4}{7} = \\frac{5}{14}$$"
+            },
+            {
+              "step": 2,
+              "text": "Subtract the complement from 1:\n$$P(\\ge 1 \\text{ black}) = 1 - \\frac{5}{14} = \\frac{9}{14}$$"
+            }
+          ],
+          "checking": {
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_s1_t_probability_m02_l02_drq06_p01_c01",
+                "mark": "M1",
+                "observable": "Use the complement rule $1 - P(\\text{no black counters}) = 1 - P(WW)$ with $P(WW) = \\frac{5}{8} \\times \\frac{4}{7}$ (or sum the three direct paths $BW + WB + BB$)."
+              },
+              {
+                "criterion_id": "9709_s1_t_probability_m02_l02_drq06_p01_c02",
+                "mark": "A1",
+                "observable": "Obtain correct probability $\\frac{9}{14}$ (or approximately $0.643$)."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_s1_t_probability_m02_l02_cpq01",
+      "parts": [
+        {
+          "part_id": "9709_s1_t_probability_m02_l02_cpq01_p01",
+          "label": "(a)",
+          "difficulty": "easy",
+          "pattern_ids": [
+            "tree_same_colour_without_replacement"
+          ],
+          "hints": [
+            "Same colour means either both counters are red ($RR$) or both are blue ($BB$).",
+            "Calculate $P(RR)$ and $P(BB)$ without replacement and add them together."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Find the probability for each same-colour path without replacement:\n$$P(RR) = \\frac{5}{9} \\times \\frac{4}{8} = \\frac{20}{72}$$\n$$P(BB) = \\frac{4}{9} \\times \\frac{3}{8} = \\frac{12}{72}$$"
+            },
+            {
+              "step": 2,
+              "text": "Sum the probabilities of these two mutually exclusive outcomes:\n$$P(\\text{same colour}) = \\frac{20}{72} + \\frac{12}{72} = \\frac{32}{72} = \\frac{4}{9}$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "Identify the two matching colour routes through the tree:\n$$P(\\text{same}) = P(RR) + P(BB)$$"
+            },
+            {
+              "step": 2,
+              "text": "Multiply along each route and simplify the sum:\n$$P(\\text{same}) = \\left(\\frac{5}{9} \\times \\frac{4}{8}\\right) + \\left(\\frac{4}{9} \\times \\frac{3}{8}\\right) = \\frac{20 + 12}{72} = \\frac{32}{72} = \\frac{4}{9}$$"
+            }
+          ],
+          "checking": {
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_s1_t_probability_m02_l02_cpq01_p01_c01",
+                "mark": "M1",
+                "observable": "Sum the probabilities of drawing two red counters and two blue counters without replacement: $\\left(\\frac{5}{9} \\times \\frac{4}{8}\\right) + \\left(\\frac{4}{9} \\times \\frac{3}{8}\\right)$."
+              },
+              {
+                "criterion_id": "9709_s1_t_probability_m02_l02_cpq01_p01_c02",
+                "mark": "A1",
+                "observable": "Obtain correct probability $\\frac{4}{9}$ (or approximately $0.444$)."
+              }
+            ]
+          }
+        },
+        {
+          "part_id": "9709_s1_t_probability_m02_l02_cpq01_p02",
+          "label": "(b)",
+          "difficulty": "easy",
+          "pattern_ids": [
+            "complement_or_alternate_paths"
+          ],
+          "hints": [
+            "The counters must be either of the same colour or of different colours.",
+            "Use the complement rule with your result from part (a): $P(\\text{different}) = 1 - P(\\text{same})$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Notice that different colour is the exact complement of same colour:\n$$P(\\text{different}) = 1 - P(\\text{same})$$"
+            },
+            {
+              "step": 2,
+              "text": "Substitute the result from part (a):\n$$P(\\text{different}) = 1 - \\frac{4}{9} = \\frac{5}{9}$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "Apply the complement theorem to the outcome of part (a):\n$$P(\\text{different}) = 1 - P(\\text{same})$$"
+            },
+            {
+              "step": 2,
+              "text": "Evaluate the difference directly:\n$$P(\\text{different}) = 1 - \\frac{4}{9} = \\frac{5}{9}$$"
+            }
+          ],
+          "checking": {
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_s1_t_probability_m02_l02_cpq01_p02_c01",
+                "mark": "M1",
+                "observable": "Calculate $1 - P(\\text{same colour})$ using part (a) or calculate $\\left(\\frac{5}{9} \\times \\frac{4}{8}\\right) + \\left(\\frac{4}{9} \\times \\frac{5}{8}\\right)$."
+              },
+              {
+                "criterion_id": "9709_s1_t_probability_m02_l02_cpq01_p02_c02",
+                "mark": "A1",
+                "observable": "Obtain correct probability $\\frac{5}{9}$ (or approximately $0.556$)."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_s1_t_probability_m02_l02_cpq02",
+      "parts": [
+        {
+          "part_id": "9709_s1_t_probability_m02_l02_cpq02_p01",
+          "label": "(a)",
+          "difficulty": "easy",
+          "pattern_ids": [
+            "tree_variable_path_length"
+          ],
+          "hints": [
+            "The candidate can qualify either immediately on the first attempt or after failing the first attempt and passing the retest.",
+            "Add the probabilities of these two paths: $P(\\text{Pass}_1) + P(\\text{Fail}_1 \\cap \\text{Pass}_{\\text{retest}})$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Identify the two qualification paths:\n$$\\text{Path 1}: \\text{Pass on 1st attempt with probability } 0.80$$\n$$\\text{Path 2}: \\text{Fail 1st then pass retest with probability } 0.20 \\times 0.50$$"
+            },
+            {
+              "step": 2,
+              "text": "Sum the path probabilities:\n$$P(\\text{qualify Stage 1}) = 0.80 + (0.20 \\times 0.50) = 0.80 + 0.10 = 0.90$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "Formulate the two valid routes for qualifying at Stage 1:\n$$P(\\text{qualify}) = P(P_1) + P(F_1 \\cap P_2)$$"
+            },
+            {
+              "step": 2,
+              "text": "Evaluate each branch route and sum:\n$$P(\\text{qualify}) = 0.80 + (0.20 \\times 0.50) = 0.80 + 0.10 = 0.90$$"
+            }
+          ],
+          "checking": {
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_s1_t_probability_m02_l02_cpq02_p01_c01",
+                "mark": "M1",
+                "observable": "Identify the two mutually exclusive paths to qualify through Stage 1 (pass 1st attempt or fail 1st attempt then pass retest): $0.80 + (0.20 \\times 0.50)$."
+              },
+              {
+                "criterion_id": "9709_s1_t_probability_m02_l02_cpq02_p01_c02",
+                "mark": "A1",
+                "observable": "Obtain correct probability $0.90$ (or $\\frac{9}{10}$)."
+              }
+            ]
+          }
+        },
+        {
+          "part_id": "9709_s1_t_probability_m02_l02_cpq02_p02",
+          "label": "(b)",
+          "difficulty": "medium",
+          "pattern_ids": [
+            "tree_sequential_stages_conditional"
+          ],
+          "hints": [
+            "Passing both stages requires qualifying through Stage 1 first, then passing Stage 2.",
+            "Stage 2 is only taken if Stage 1 is qualified, with conditional probability $0.75$.",
+            "Multiply the overall probability of qualifying Stage 1 by the probability of passing Stage 2."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Express the event as qualifying through Stage 1 and then passing Stage 2:\n$$P(\\text{pass both}) = P(\\text{qualify Stage 1}) \\times P(\\text{Pass Stage 2} \\mid \\text{qualify})$$"
+            },
+            {
+              "step": 2,
+              "text": "Alternatively trace the two complete individual paths:\n$$\\text{Path A: } 0.80 \\times 0.75 = 0.60$$\n$$\\text{Path B: } 0.20 \\times 0.50 \\times 0.75 = 0.075$$"
+            },
+            {
+              "step": 3,
+              "text": "Sum the probabilities of both complete paths:\n$$P(\\text{pass both}) = 0.60 + 0.075 = 0.675 = \\frac{27}{40}$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "Link the Stage 1 outcome directly to Stage 2 progression:\n$$P(\\text{Pass both}) = P(\\text{qualify Stage 1}) \\times 0.75$$"
+            },
+            {
+              "step": 2,
+              "text": "Substitute the total probability of qualifying found in part (a):\n$$P(\\text{Pass both}) = 0.90 \\times 0.75 = 0.675$$"
+            },
+            {
+              "step": 3,
+              "text": "Confirm by path breakdown and express as an exact fraction:\n$$P(\\text{Pass both}) = \\frac{27}{40}$$"
+            }
+          ],
+          "checking": {
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_s1_t_probability_m02_l02_cpq02_p02_c01",
+                "mark": "M1",
+                "observable": "Set up the complete paths leading to passing both stages: $(0.80 \\times 0.75) + (0.20 \\times 0.50 \\times 0.75)$ or $P(\\text{qualify Stage 1}) \\times 0.75$."
+              },
+              {
+                "criterion_id": "9709_s1_t_probability_m02_l02_cpq02_p02_c02",
+                "mark": "M1",
+                "observable": "Evaluate the individual branch products correctly as $0.60$ and $0.075$."
+              },
+              {
+                "criterion_id": "9709_s1_t_probability_m02_l02_cpq02_p02_c03",
+                "mark": "A1",
+                "observable": "Obtain correct final probability $0.675$ (or $\\frac{27}{40}$)."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_s1_t_probability_m02_l02_cpq03",
+      "parts": [
+        {
+          "part_id": "9709_s1_t_probability_m02_l02_cpq03_p01",
+          "label": "(a)",
+          "difficulty": "easy",
+          "pattern_ids": [
+            "choose_container_then_sample"
+          ],
+          "hints": [
+            "The choice of box is the first branching factor ($0.5$ for Box $A$ and $0.5$ for Box $B$).",
+            "Multiply along the path for each box: $P(\\text{Box}) \\times P(B_1) \\times P(B_2 \\mid B_1)$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Calculate the probability of two blue tokens from each box branch:\n$$P(A \\cap BB) = \\frac{1}{2} \\times \\frac{2}{6} \\times \\frac{1}{5} = \\frac{1}{30}$$\n$$P(B \\cap BB) = \\frac{1}{2} \\times \\frac{5}{8} \\times \\frac{4}{7} = \\frac{5}{28}$$"
+            },
+            {
+              "step": 2,
+              "text": "Add the probabilities using a common denominator:\n$$P(BB) = \\frac{1}{30} + \\frac{5}{28} = \\frac{28 + 150}{840} = \\frac{178}{840} = \\frac{89}{420}$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "Split the sample space into two separate container routes:\n$$P(BB) = P(A)P(BB \\mid A) + P(B)P(BB \\mid B)$$"
+            },
+            {
+              "step": 2,
+              "text": "Evaluate the products without replacement for each branch:\n$$P(BB) = \\left(\\frac{1}{2} \\times \\frac{2}{6} \\times \\frac{1}{5}\\right) + \\left(\\frac{1}{2} \\times \\frac{5}{8} \\times \\frac{4}{7}\\right) = \\frac{1}{30} + \\frac{5}{28} = \\frac{89}{420}$$"
+            }
+          ],
+          "checking": {
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_s1_t_probability_m02_l02_cpq03_p01_c01",
+                "mark": "M1",
+                "observable": "Weight each box branch by $\\frac{1}{2}$ and multiply by the respective probability of two blue tokens without replacement: $\\left(\\frac{1}{2} \\times \\frac{2}{6} \\times \\frac{1}{5}\\right) + \\left(\\frac{1}{2} \\times \\frac{5}{8} \\times \\frac{4}{7}\\right)$."
+              },
+              {
+                "criterion_id": "9709_s1_t_probability_m02_l02_cpq03_p01_c02",
+                "mark": "A1",
+                "observable": "Obtain correct probability $\\frac{89}{420}$ (or approximately $0.212$)."
+              }
+            ]
+          }
+        },
+        {
+          "part_id": "9709_s1_t_probability_m02_l02_cpq03_p02",
+          "label": "(b)",
+          "difficulty": "medium",
+          "pattern_ids": [
+            "bayes_reverse_conditioning_tree"
+          ],
+          "hints": [
+            "Use Bayes' theorem: $P(B \\mid BB) = \\frac{P(B \\cap BB)}{P(BB)}$.",
+            "The numerator is the probability along the Box $B$ and two blue tokens branch.",
+            "The denominator is the total probability of two blue tokens found in part (a)."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "State the conditional probability formula:\n$$P(B \\mid BB) = \\frac{P(B \\cap BB)}{P(BB)}$$"
+            },
+            {
+              "step": 2,
+              "text": "Substitute the numerator and denominator values from part (a):\n$$P(B \\cap BB) = \\frac{5}{28} = \\frac{75}{420}, \\quad P(BB) = \\frac{89}{420}$$"
+            },
+            {
+              "step": 3,
+              "text": "Divide to simplify the fraction:\n$$P(B \\mid BB) = \\frac{75/420}{89/420} = \\frac{75}{89}$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "Apply Bayes' theorem to reverse the conditioning:\n$$P(B \\mid BB) = \\frac{P(B \\cap BB)}{P(BB)}$$"
+            },
+            {
+              "step": 2,
+              "text": "Insert the specific branch probability and total probability:\n$$P(B \\mid BB) = \\frac{\\frac{5}{28}}{\\frac{89}{420}}$$"
+            },
+            {
+              "step": 3,
+              "text": "Cancel the common denominator to obtain the final fraction:\n$$P(B \\mid BB) = \\frac{5 \\times 15}{89} = \\frac{75}{89}$$"
+            }
+          ],
+          "checking": {
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_s1_t_probability_m02_l02_cpq03_p02_c01",
+                "mark": "M1",
+                "observable": "State the conditional probability formula $P(\\text{Box } B \\mid \\text{both blue}) = \\frac{P(\\text{Box } B \\cap \\text{both blue})}{P(\\text{both blue})}$."
+              },
+              {
+                "criterion_id": "9709_s1_t_probability_m02_l02_cpq03_p02_c02",
+                "mark": "M1",
+                "observable": "Substitute the numerator $\\frac{1}{2} \\times \\frac{5}{8} \\times \\frac{4}{7} = \\frac{5}{28}$ and denominator $\\frac{89}{420}$."
+              },
+              {
+                "criterion_id": "9709_s1_t_probability_m02_l02_cpq03_p02_c03",
+                "mark": "A1",
+                "observable": "Obtain correct simplified fraction $\\frac{75}{89}$ (or approximately $0.843$)."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_s1_t_probability_m02_l02_cpq04",
+      "parts": [
+        {
+          "part_id": "9709_s1_t_probability_m02_l02_cpq04_p01",
+          "label": "(a)",
+          "difficulty": "medium",
+          "pattern_ids": [
+            "three_stage_hypergeometric_tree"
+          ],
+          "hints": [
+            "'At least two green' in 3 draws means either exactly 2 green or all 3 green.",
+            "List all 4 valid sequences: $GGG$, $RGG$, $GRG$, and $GGR$.",
+            "Calculate each sequence probability without replacement and sum them up."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "List the four mutually exclusive paths:\n$$\\text{Paths} = \\{GGG, RGG, GRG, GGR\\}$$"
+            },
+            {
+              "step": 2,
+              "text": "Calculate the probability for each path:\n$$P(GGG) = \\frac{3}{7} \\times \\frac{2}{6} \\times \\frac{1}{5} = \\frac{6}{210} = \\frac{1}{35}$$\n$$P(RGG) = P(GRG) = P(GGR) = \\frac{4}{7} \\times \\frac{3}{6} \\times \\frac{2}{5} = \\frac{24}{210} = \\frac{4}{35}$$"
+            },
+            {
+              "step": 3,
+              "text": "Add the probabilities of all valid paths:\n$$P(\\ge 2 \\text{ green}) = \\frac{1}{35} + 3 \\times \\frac{4}{35} = \\frac{13}{35}$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "Partition the event 'at least 2 green' into its constituent sequences:\n$$P(\\ge 2 G) = P(GGG) + P(RGG) + P(GRG) + P(GGR)$$"
+            },
+            {
+              "step": 2,
+              "text": "Calculate probabilities along each path without replacement:\n$$P(GGG) = \\frac{3 \\times 2 \\times 1}{7 \\times 6 \\times 5} = \\frac{1}{35}, \\quad P(\\text{any } 2G1R) = \\frac{4 \\times 3 \\times 2}{7 \\times 6 \\times 5} = \\frac{4}{35}$$"
+            },
+            {
+              "step": 3,
+              "text": "Sum the results to obtain the total probability:\n$$P(\\ge 2 G) = \\frac{1}{35} + \\frac{12}{35} = \\frac{13}{35}$$"
+            }
+          ],
+          "checking": {
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_s1_t_probability_m02_l02_cpq04_p01_c01",
+                "mark": "M1",
+                "observable": "Identify the four mutually exclusive favourable sequences: $GGG$, $RGG$, $GRG$, and $GGR$."
+              },
+              {
+                "criterion_id": "9709_s1_t_probability_m02_l02_cpq04_p01_c02",
+                "mark": "M1",
+                "observable": "Calculate probabilities without replacement: $P(GGG) = \\frac{3}{7} \\times \\frac{2}{6} \\times \\frac{1}{5} = \\frac{1}{35}$ and each of the three permutations of 2 green and 1 red equals $\\frac{4}{7} \\times \\frac{3}{6} \\times \\frac{2}{5} = \\frac{4}{35}$."
+              },
+              {
+                "criterion_id": "9709_s1_t_probability_m02_l02_cpq04_p01_c03",
+                "mark": "A1",
+                "observable": "Obtain correct total probability $\\frac{1}{35} + 3 \\times \\frac{4}{35} = \\frac{13}{35}$ (or approximately $0.371$)."
+              }
+            ]
+          }
+        },
+        {
+          "part_id": "9709_s1_t_probability_m02_l02_cpq04_p02",
+          "label": "(b)",
+          "difficulty": "medium",
+          "pattern_ids": [
+            "conditional_probability_subset"
+          ],
+          "hints": [
+            "Use conditional probability: $P(\\text{all } 3 \\text{ green} \\mid \\ge 2 \\text{ green}) = \\frac{P(GGG)}{P(\\ge 2 \\text{ green})}$.",
+            "Notice that all 3 green is entirely contained within the event of at least 2 green.",
+            "Divide the probability of $GGG$ by your total from part (a)."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Set up the conditional probability definition:\n$$P(GGG \\mid \\ge 2 G) = \\frac{P(GGG \\cap (\\ge 2 G))}{P(\\ge 2 G)} = \\frac{P(GGG)}{P(\\ge 2 G)}$$"
+            },
+            {
+              "step": 2,
+              "text": "Substitute values from part (a):\n$$P(GGG) = \\frac{1}{35}, \\quad P(\\ge 2 G) = \\frac{13}{35}$$"
+            },
+            {
+              "step": 3,
+              "text": "Simplify the fraction:\n$$P(GGG \\mid \\ge 2 G) = \\frac{1/35}{13/35} = \\frac{1}{13}$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "Express the conditional probability in reduced sample space terms:\n$$P(\\text{all } 3 \\text{ green} \\mid \\ge 2 \\text{ green}) = \\frac{P(GGG)}{P(\\ge 2 \\text{ green})}$$"
+            },
+            {
+              "step": 2,
+              "text": "Substitute the exact fractions calculated in part (a):\n$$\\frac{P(GGG)}{P(\\ge 2 \\text{ green})} = \\frac{\\frac{1}{35}}{\\frac{13}{35}}$$"
+            },
+            {
+              "step": 3,
+              "text": "Cancel the common denominator $35$:\n$$P = \\frac{1}{13}$$"
+            }
+          ],
+          "checking": {
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_s1_t_probability_m02_l02_cpq04_p02_c01",
+                "mark": "M1",
+                "observable": "State the conditional probability relationship $P(\\text{all } 3 \\text{ green} \\mid \\ge 2 \\text{ green}) = \\frac{P(GGG)}{P(\\ge 2 \\text{ green})}$."
+              },
+              {
+                "criterion_id": "9709_s1_t_probability_m02_l02_cpq04_p02_c02",
+                "mark": "M1",
+                "observable": "Substitute the numerator $\\frac{1}{35}$ and the denominator $\\frac{13}{35}$ from part (a)."
+              },
+              {
+                "criterion_id": "9709_s1_t_probability_m02_l02_cpq04_p02_c03",
+                "mark": "A1",
+                "observable": "Obtain correct simplified fraction $\\frac{1}{13}$ (or approximately $0.0769$)."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_s1_t_probability_m02_l02_cpq05",
+      "parts": [
+        {
+          "part_id": "9709_s1_t_probability_m02_l02_cpq05_p01",
+          "label": "(a)",
+          "difficulty": "medium",
+          "pattern_ids": [
+            "alternating_game_without_replacement"
+          ],
+          "hints": [
+            "Ann draws on odd turns: turn 1, turn 3, and turn 5.",
+            "Since there are only 5 white discs, the game cannot reach turn 7 without drawing a red disc.",
+            "List the paths ending in Ann's victory: $R$ (turn 1), $WWR$ (turn 3), and $WWWWR$ (turn 5)."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Identify all turns where Ann can win:\n$$\\text{Turn 1}: R, \\quad \\text{Turn 3}: WWR, \\quad \\text{Turn 5}: WWWWR$$"
+            },
+            {
+              "step": 2,
+              "text": "Compute probabilities along each winning path:\n$$P(R) = \\frac{4}{9}$$\n$$P(WWR) = \\frac{5}{9} \\times \\frac{4}{8} \\times \\frac{4}{7} = \\frac{10}{63}$$\n$$P(WWWWR) = \\frac{5}{9} \\times \\frac{4}{8} \\times \\frac{3}{7} \\times \\frac{2}{6} \\times \\frac{4}{5} = \\frac{2}{63}$$"
+            },
+            {
+              "step": 3,
+              "text": "Sum the probabilities of these mutually exclusive paths:\n$$P(\\text{Ann wins}) = \\frac{4}{9} + \\frac{10}{63} + \\frac{2}{63} = \\frac{28 + 10 + 2}{63} = \\frac{40}{63}$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "List the valid paths ending on Ann's turns without earlier termination:\n$$\\text{Paths} = \\{R, WWR, WWWWR\\}$$"
+            },
+            {
+              "step": 2,
+              "text": "Calculate probabilities along each path without replacement:\n$$P(R) = \\frac{4}{9}, \\quad P(WWR) = \\frac{10}{63}, \\quad P(WWWWR) = \\frac{2}{63}$$"
+            },
+            {
+              "step": 3,
+              "text": "Combine fractions over the common denominator 63:\n$$P(\\text{Ann wins}) = \\frac{28 + 10 + 2}{63} = \\frac{40}{63}$$"
+            }
+          ],
+          "checking": {
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_s1_t_probability_m02_l02_cpq05_p01_c01",
+                "mark": "M1",
+                "observable": "Identify the odd turns on which Ann can win without the game ending earlier: turn 1 ($R$), turn 3 ($WWR$), and turn 5 ($WWWWR$)."
+              },
+              {
+                "criterion_id": "9709_s1_t_probability_m02_l02_cpq05_p01_c02",
+                "mark": "M1",
+                "observable": "Calculate probabilities along these paths without replacement: $P(R) = \\frac{4}{9}$, $P(WWR) = \\frac{5}{9} \\times \\frac{4}{8} \\times \\frac{4}{7} = \\frac{10}{63}$, and $P(WWWWR) = \\frac{5}{9} \\times \\frac{4}{8} \\times \\frac{3}{7} \\times \\frac{2}{6} \\times \\frac{4}{5} = \\frac{2}{63}$."
+              },
+              {
+                "criterion_id": "9709_s1_t_probability_m02_l02_cpq05_p01_c03",
+                "mark": "A1",
+                "observable": "Sum the probabilities to obtain $\\frac{4}{9} + \\frac{10}{63} + \\frac{2}{63} = \\frac{40}{63}$ (or approximately $0.635$)."
+              }
+            ]
+          }
+        },
+        {
+          "part_id": "9709_s1_t_probability_m02_l02_cpq05_p02",
+          "label": "(b)",
+          "difficulty": "medium",
+          "pattern_ids": [
+            "complement_game_resolution"
+          ],
+          "hints": [
+            "Because someone must draw a red disc within 6 turns, exactly one player will win.",
+            "Ben winning is the exact complement of Ann winning: $P(\\text{Ben wins}) = 1 - P(\\text{Ann wins})$.",
+            "Alternatively, sum the probabilities of Ben winning on turn 2 ($WR$), turn 4 ($WWWR$), or turn 6 ($WWWWWR$)."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Recognize that the game cannot end in a draw as there are only 5 white discs:\n$$P(\\text{Ben wins}) = 1 - P(\\text{Ann wins})$$"
+            },
+            {
+              "step": 2,
+              "text": "Substitute the result from part (a):\n$$P(\\text{Ben wins}) = 1 - \\frac{40}{63} = \\frac{23}{63}$$"
+            },
+            {
+              "step": 3,
+              "text": "Verify by summing Ben's direct path probabilities:\n$$P(WR) + P(WWWR) + P(WWWWWR) = \\frac{5}{18} + \\frac{5}{63} + \\frac{1}{126} = \\frac{35 + 10 + 1}{126} = \\frac{46}{126} = \\frac{23}{63}$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "Use the partition property of the sample space:\n$$P(\\text{Ben wins}) = 1 - P(\\text{Ann wins})$$"
+            },
+            {
+              "step": 2,
+              "text": "Evaluate the complement directly:\n$$P(\\text{Ben wins}) = 1 - \\frac{40}{63} = \\frac{23}{63}$$"
+            },
+            {
+              "step": 3,
+              "text": "Confirm by adding Ben's individual turn probabilities:\n$$P(WR) + P(WWWR) + P(WWWWWR) = \\frac{35}{126} + \\frac{10}{126} + \\frac{1}{126} = \\frac{23}{63}$$"
+            }
+          ],
+          "checking": {
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_s1_t_probability_m02_l02_cpq05_p02_c01",
+                "mark": "M1",
+                "observable": "Identify Ben's winning turns 2, 4, 6 or set up the complement $1 - P(\\text{Ann wins})$."
+              },
+              {
+                "criterion_id": "9709_s1_t_probability_m02_l02_cpq05_p02_c02",
+                "mark": "M1",
+                "observable": "Calculate path probabilities $P(WR) = \\frac{5}{18}$, $P(WWWR) = \\frac{5}{63}$, $P(WWWWWR) = \\frac{1}{126}$ or subtract $1 - \\frac{40}{63}$."
+              },
+              {
+                "criterion_id": "9709_s1_t_probability_m02_l02_cpq05_p02_c03",
+                "mark": "A1",
+                "observable": "Obtain correct probability $\\frac{23}{63}$ (or approximately $0.365$)."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_s1_t_probability_m02_l02_cpq06",
+      "parts": [
+        {
+          "part_id": "9709_s1_t_probability_m02_l02_cpq06_p01",
+          "label": "(a)",
+          "difficulty": "hard",
+          "pattern_ids": [
+            "tree_transfer_stage"
+          ],
+          "hints": [
+            "Identify the total number of balls in Bag 1 before any transfer takes place.",
+            "Bag 1 contains 3 red balls and 4 blue balls, making 7 balls in total.",
+            "The probability of transferring a red ball is simply the proportion of red balls in Bag 1.",
+            "State $P(R_{\\text{trans}}) = \\frac{3}{7}$ as the single-draw probability from Bag 1."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Determine the total number of balls in Bag 1:\n$$\\text{Total} = 3 + 4 = 7$$"
+            },
+            {
+              "step": 2,
+              "text": "Calculate the probability of drawing a red ball from Bag 1:\n$$P(R_{\\text{trans}}) = \\frac{3}{7}$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "Identify the initial composition of Bag 1:\n$$\\text{Bag 1: } 3 \\text{ red, } 4 \\text{ blue, total } 7$$"
+            },
+            {
+              "step": 2,
+              "text": "State the transfer probability directly:\n$$P(R_{\\text{trans}}) = \\frac{3}{7}$$"
+            }
+          ],
+          "checking": {
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_s1_t_probability_m02_l02_cpq06_p01_c01",
+                "mark": "M1",
+                "observable": "State the ratio of red balls to total balls in Bag 1: $\\frac{3}{3 + 4}$."
+              },
+              {
+                "criterion_id": "9709_s1_t_probability_m02_l02_cpq06_p01_c02",
+                "mark": "A1",
+                "observable": "Obtain correct probability $\\frac{3}{7}$ (or approximately $0.429$)."
+              }
+            ]
+          }
+        },
+        {
+          "part_id": "9709_s1_t_probability_m02_l02_cpq06_p02",
+          "label": "(b)",
+          "difficulty": "hard",
+          "pattern_ids": [
+            "total_probability_transfer_experiment"
+          ],
+          "hints": [
+            "Consider the two mutually exclusive cases: a red ball was transferred, or a blue ball was transferred.",
+            "If red is transferred, Bag 2 has 5 red and 2 blue (total 7). If blue is transferred, Bag 2 has 4 red and 3 blue (total 7).",
+            "Calculate the probability of drawing two red balls from Bag 2 under each case without replacement.",
+            "Combine using total probability: $P(RR) = P(R_{\\text{trans}})P(RR \\mid R_{\\text{trans}}) + P(B_{\\text{trans}})P(RR \\mid B_{\\text{trans}})$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Update Bag 2 contents for both transfer scenarios:\n$$\\text{If } R \\text{ transferred: Bag 2 has } 5R, 2B \\implies P(RR \\mid R) = \\frac{5}{7} \\times \\frac{4}{6} = \\frac{20}{42} = \\frac{10}{21}$$\n$$\\text{If } B \\text{ transferred: Bag 2 has } 4R, 3B \\implies P(RR \\mid B) = \\frac{4}{7} \\times \\frac{3}{6} = \\frac{12}{42} = \\frac{6}{21}$$"
+            },
+            {
+              "step": 2,
+              "text": "Apply the law of total probability:\n$$P(RR) = P(R_{\\text{trans}})P(RR \\mid R) + P(B_{\\text{trans}})P(RR \\mid B)$$\n$$P(RR) = \\left(\\frac{3}{7} \\times \\frac{10}{21}\\right) + \\left(\\frac{4}{7} \\times \\frac{6}{21}\\right)$$"
+            },
+            {
+              "step": 3,
+              "text": "Add the path probabilities and simplify:\n$$P(RR) = \\frac{30}{147} + \\frac{24}{147} = \\frac{54}{147} = \\frac{18}{49}$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "Define the updated contents of Bag 2 conditional on the transfer:\n$$\\text{Case } R: 5R, 2B; \\quad \\text{Case } B: 4R, 3B$$"
+            },
+            {
+              "step": 2,
+              "text": "Formulate the total probability sum across both paths:\n$$P(RR) = \\left(\\frac{3}{7} \\times \\frac{5}{7} \\times \\frac{4}{6}\\right) + \\left(\\frac{4}{7} \\times \\frac{4}{7} \\times \\frac{3}{6}\\right)$$"
+            },
+            {
+              "step": 3,
+              "text": "Combine fractions over denominator 147 and reduce:\n$$P(RR) = \\frac{30 + 24}{147} = \\frac{54}{147} = \\frac{18}{49}$$"
+            }
+          ],
+          "checking": {
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_s1_t_probability_m02_l02_cpq06_p02_c01",
+                "mark": "M1",
+                "observable": "Update Bag 2 contents for both transfer scenarios: Bag 2 has 5 red and 2 blue if red is transferred; Bag 2 has 4 red and 3 blue if blue is transferred."
+              },
+              {
+                "criterion_id": "9709_s1_t_probability_m02_l02_cpq06_p02_c02",
+                "mark": "M1",
+                "observable": "Form the total probability expression $\\left(\\frac{3}{7} \\times \\frac{5}{7} \\times \\frac{4}{6}\\right) + \\left(\\frac{4}{7} \\times \\frac{4}{7} \\times \\frac{3}{6}\\right)$."
+              },
+              {
+                "criterion_id": "9709_s1_t_probability_m02_l02_cpq06_p02_c03",
+                "mark": "A1",
+                "observable": "Evaluate the sum to obtain $\\frac{30}{147} + \\frac{24}{147} = \\frac{54}{147} = \\frac{18}{49}$ (or approximately $0.367$)."
+              }
+            ]
+          }
+        },
+        {
+          "part_id": "9709_s1_t_probability_m02_l02_cpq06_p03",
+          "label": "(c)",
+          "difficulty": "hard",
+          "pattern_ids": [
+            "bayes_transfer_inference"
+          ],
+          "hints": [
+            "Use Bayes' theorem: $P(R_{\\text{trans}} \\mid RR) = \\frac{P(R_{\\text{trans}} \\cap RR)}{P(RR)}$.",
+            "The numerator is the probability of the path where red was transferred and two red balls were drawn.",
+            "The denominator is the total probability of drawing two red balls from Bag 2 found in part (b).",
+            "Divide the numerator fraction by the denominator fraction to obtain the simplified posterior probability."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "State the conditional probability relationship:\n$$P(R_{\\text{trans}} \\mid RR) = \\frac{P(R_{\\text{trans}} \\cap RR)}{P(RR)}$$"
+            },
+            {
+              "step": 2,
+              "text": "Insert the values calculated in part (b):\n$$P(R_{\\text{trans}} \\cap RR) = \\frac{30}{147}, \\quad P(RR) = \\frac{54}{147}$$"
+            },
+            {
+              "step": 3,
+              "text": "Simplify the resulting ratio:\n$$P(R_{\\text{trans}} \\mid RR) = \\frac{30/147}{54/147} = \\frac{30}{54} = \\frac{5}{9}$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "Apply Bayes' theorem to reverse the direction of conditioning:\n$$P(R_{\\text{trans}} \\mid RR) = \\frac{P(R_{\\text{trans}} \\cap RR)}{P(RR)}$$"
+            },
+            {
+              "step": 2,
+              "text": "Substitute the path and total probabilities from part (b):\n$$P(R_{\\text{trans}} \\mid RR) = \\frac{\\frac{30}{147}}{\\frac{54}{147}}$$"
+            },
+            {
+              "step": 3,
+              "text": "Divide and express in lowest terms:\n$$P(R_{\\text{trans}} \\mid RR) = \\frac{30}{54} = \\frac{5}{9}$$"
+            }
+          ],
+          "checking": {
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_s1_t_probability_m02_l02_cpq06_p03_c01",
+                "mark": "M1",
+                "observable": "State the conditional probability formula $P(\\text{transferred } R \\mid \\text{both drawn } R) = \\frac{P(\\text{transferred } R \\cap \\text{both drawn } R)}{P(\\text{both drawn } R)}$."
+              },
+              {
+                "criterion_id": "9709_s1_t_probability_m02_l02_cpq06_p03_c02",
+                "mark": "M1",
+                "observable": "Substitute the numerator $\\frac{30}{147}$ (or $\\frac{10}{49}$) and the denominator $\\frac{54}{147}$ (or $\\frac{18}{49}$)."
+              },
+              {
+                "criterion_id": "9709_s1_t_probability_m02_l02_cpq06_p03_c03",
+                "mark": "A1",
+                "observable": "Obtain correct simplified probability $\\frac{30}{54} = \\frac{5}{9}$ (or approximately $0.556$)."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_s1_t_probability_m02_l02_cpq07",
+      "parts": [
+        {
+          "part_id": "9709_s1_t_probability_m02_l02_cpq07_p01",
+          "label": "(a)",
+          "difficulty": "hard",
+          "pattern_ids": [
+            "game_stopping_rule_exact_turn"
+          ],
+          "hints": [
+            "Player $A$ draws on draws 1 and 3. To win on draw 3, Player $A$ must draw red on draw 1 and red on draw 3.",
+            "Player $B$ draws on draw 2, and can draw either red or white.",
+            "Check that neither player can win on draw 1 or draw 2, so the game cannot terminate earlier.",
+            "Compute the probabilities of the two valid sequences $RRR$ and $RWR$ without replacement and add them."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Identify the sequences of 3 draws ending in Player $A$'s second red disc:\n$$\\text{Sequences} = \\{RRR, RWR\\}$$"
+            },
+            {
+              "step": 2,
+              "text": "Calculate the probability of each valid path without replacement:\n$$P(RRR) = \\frac{4}{8} \\times \\frac{3}{7} \\times \\frac{2}{6} = \\frac{24}{336} = \\frac{1}{14}$$\n$$P(RWR) = \\frac{4}{8} \\times \\frac{4}{7} \\times \\frac{3}{6} = \\frac{48}{336} = \\frac{2}{14}$$"
+            },
+            {
+              "step": 3,
+              "text": "Sum the probabilities of these two mutually exclusive paths:\n$$P(A \\text{ wins on 2nd turn}) = \\frac{1}{14} + \\frac{2}{14} = \\frac{3}{14}$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "Determine the routes of length 3 where $A$ secures a second red disc on draw 3:\n$$\\text{Valid paths} = RRR, RWR$$"
+            },
+            {
+              "step": 2,
+              "text": "Compute probabilities along each branch without replacement:\n$$P(RRR) = \\frac{4}{8} \\times \\frac{3}{7} \\times \\frac{2}{6} = \\frac{1}{14}, \\quad P(RWR) = \\frac{4}{8} \\times \\frac{4}{7} \\times \\frac{3}{6} = \\frac{2}{14}$$"
+            },
+            {
+              "step": 3,
+              "text": "Sum to find the total probability:\n$$P(A \\text{ wins on turn 2}) = \\frac{1}{14} + \\frac{2}{14} = \\frac{3}{14}$$"
+            }
+          ],
+          "checking": {
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_s1_t_probability_m02_l02_cpq07_p01_c01",
+                "mark": "M1",
+                "observable": "Identify the two valid sequences of length 3 where Player A draws their second red on draw 3 without winning earlier: $RRR$ and $RWR$."
+              },
+              {
+                "criterion_id": "9709_s1_t_probability_m02_l02_cpq07_p01_c02",
+                "mark": "M1",
+                "observable": "Calculate the branch probabilities without replacement: $P(RRR) = \\frac{4}{8} \\times \\frac{3}{7} \\times \\frac{2}{6} = \\frac{1}{14}$ and $P(RWR) = \\frac{4}{8} \\times \\frac{4}{7} \\times \\frac{3}{6} = \\frac{2}{14}$."
+              },
+              {
+                "criterion_id": "9709_s1_t_probability_m02_l02_cpq07_p01_c03",
+                "mark": "A1",
+                "observable": "Obtain correct total probability $\\frac{1}{14} + \\frac{2}{14} = \\frac{3}{14}$ (or approximately $0.214$)."
+              }
+            ]
+          }
+        },
+        {
+          "part_id": "9709_s1_t_probability_m02_l02_cpq07_p02",
+          "label": "(b)",
+          "difficulty": "hard",
+          "pattern_ids": [
+            "game_stopping_rule_pruning"
+          ],
+          "hints": [
+            "Player $B$'s second turn occurs on draw 4. Player $B$ must draw red on draw 2 and red on draw 4.",
+            "Crucially, Player $A$ must not have drawn red on both draw 1 and draw 3, or $A$ would have won on draw 3.",
+            "List the three valid 4-draw sequences: $WRRR$, $RRWR$, and $WRWR$.",
+            "Calculate each path probability without replacement and add them together."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "List sequences of 4 draws where $B$ gets a second red disc without $A$ winning on draw 3:\n$$\\text{Valid sequences} = \\{WRRR, RRWR, WRWR\\}$$"
+            },
+            {
+              "step": 2,
+              "text": "Calculate the probability along each path without replacement:\n$$P(WRRR) = \\frac{4}{8} \\times \\frac{4}{7} \\times \\frac{3}{6} \\times \\frac{2}{5} = \\frac{96}{1680} = \\frac{2}{35}$$\n$$P(RRWR) = \\frac{4}{8} \\times \\frac{3}{7} \\times \\frac{4}{6} \\times \\frac{2}{5} = \\frac{96}{1680} = \\frac{2}{35}$$\n$$P(WRWR) = \\frac{4}{8} \\times \\frac{4}{7} \\times \\frac{3}{6} \\times \\frac{3}{5} = \\frac{144}{1680} = \\frac{3}{35}$$"
+            },
+            {
+              "step": 3,
+              "text": "Sum the probabilities of the valid paths:\n$$P(B \\text{ wins on 2nd turn}) = \\frac{2}{35} + \\frac{2}{35} + \\frac{3}{35} = \\frac{7}{35} = \\frac{1}{5}$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "Prune paths where the game terminated early at draw 3 ($RRRR$ is excluded):\n$$\\text{Valid paths} = \\{WRRR, RRWR, WRWR\\}$$"
+            },
+            {
+              "step": 2,
+              "text": "Evaluate the probability along each of the three routes without replacement:\n$$P(WRRR) = \\frac{2}{35}, \\quad P(RRWR) = \\frac{2}{35}, \\quad P(WRWR) = \\frac{3}{35}$$"
+            },
+            {
+              "step": 3,
+              "text": "Add the probabilities to find $B$'s win probability:\n$$P(B \\text{ wins on turn 2}) = \\frac{2 + 2 + 3}{35} = \\frac{7}{35} = \\frac{1}{5}$$"
+            }
+          ],
+          "checking": {
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_s1_t_probability_m02_l02_cpq07_p02_c01",
+                "mark": "M1",
+                "observable": "Identify the three valid sequences where Player B wins on draw 4 without Player A having won on draw 3: $WRRR$, $RRWR$, and $WRWR$."
+              },
+              {
+                "criterion_id": "9709_s1_t_probability_m02_l02_cpq07_p02_c02",
+                "mark": "M1",
+                "observable": "Calculate path probabilities without replacement: $P(WRRR) = \\frac{2}{35}$, $P(RRWR) = \\frac{2}{35}$, and $P(WRWR) = \\frac{3}{35}$."
+              },
+              {
+                "criterion_id": "9709_s1_t_probability_m02_l02_cpq07_p02_c03",
+                "mark": "A1",
+                "observable": "Sum the three valid paths to obtain $\\frac{2}{35} + \\frac{2}{35} + \\frac{3}{35} = \\frac{7}{35} = \\frac{1}{5}$ (or $0.20$)."
+              }
+            ]
+          }
+        },
+        {
+          "part_id": "9709_s1_t_probability_m02_l02_cpq07_p03",
+          "label": "(c)",
+          "difficulty": "hard",
+          "pattern_ids": [
+            "union_mutually_exclusive_stopping_times"
+          ],
+          "hints": [
+            "Can the game end on draw 1 or draw 2? No, because a player requires 2 red discs to win.",
+            "Therefore, ending on or before draw 4 means ending either on draw 3 or on draw 4.",
+            "Ending on draw 3 is $A$ winning on turn 2; ending on draw 4 is $B$ winning on turn 2.",
+            "Add your answers from parts (a) and (b): $P(\\text{Ends } \\le 4) = P(A \\text{ wins on turn 2}) + P(B \\text{ wins on turn 2})$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Identify all draw numbers where the game could terminate on or before draw 4:\n$$\\text{No player has 2 discs on draws 1 or 2, so the game can only end on draw 3 or draw 4}$$"
+            },
+            {
+              "step": 2,
+              "text": "Express the event as the union of two mutually exclusive events:\n$$P(\\text{Ends } \\le 4) = P(A \\text{ wins on draw 3}) + P(B \\text{ wins on draw 4})$$"
+            },
+            {
+              "step": 3,
+              "text": "Substitute the results from parts (a) and (b):\n$$P(\\text{Ends } \\le 4) = \\frac{3}{14} + \\frac{1}{5} = \\frac{15 + 14}{70} = \\frac{29}{70}$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "Observe that minimum winning length is 3 draws, so stopping times are 3 and 4:\n$$P(\\text{Ends } \\le 4) = P(\\text{Stop at } 3) + P(\\text{Stop at } 4)$$"
+            },
+            {
+              "step": 2,
+              "text": "Combine the mutually exclusive probabilities from parts (a) and (b):\n$$P(\\text{Ends } \\le 4) = \\frac{3}{14} + \\frac{1}{5}$$"
+            },
+            {
+              "step": 3,
+              "text": "Express the final sum as an exact fraction:\n$$P(\\text{Ends } \\le 4) = \\frac{15 + 14}{70} = \\frac{29}{70}$$"
+            }
+          ],
+          "checking": {
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_s1_t_probability_m02_l02_cpq07_p03_c01",
+                "mark": "M1",
+                "observable": "Recognize that the game cannot end before draw 3 and that ending on draw 3 and ending on draw 4 are mutually exclusive events."
+              },
+              {
+                "criterion_id": "9709_s1_t_probability_m02_l02_cpq07_p03_c02",
+                "mark": "M1",
+                "observable": "Add the probabilities from parts (a) and (b): $P(\\text{A wins on turn 2}) + P(\\text{B wins on turn 2}) = \\frac{3}{14} + \\frac{1}{5}$."
+              },
+              {
+                "criterion_id": "9709_s1_t_probability_m02_l02_cpq07_p03_c03",
+                "mark": "A1",
+                "observable": "Obtain correct total probability $\\frac{15 + 14}{70} = \\frac{29}{70}$ (or approximately $0.414$)."
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

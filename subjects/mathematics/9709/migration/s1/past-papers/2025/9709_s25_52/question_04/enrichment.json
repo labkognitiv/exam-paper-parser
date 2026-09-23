@@ -1,0 +1,182 @@
+{
+  "schema_version": "9709_math_enrichment_v3",
+  "paper_code": "9709_s25_52",
+  "question_id": "9709_s25_52_q4",
+  "question_num": 4,
+  "subject_code": "9709",
+  "component": "S1",
+  "year": 2025,
+  "session": "May/June",
+  "variant": "52",
+  "difficulty": 3,
+  "numerical_values_checked": false,
+  "parts": [
+    {
+      "part_id": "9709_s25_52_q4_a",
+      "difficulty": 2,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_s1_t_permutations_and_combinations",
+        "module_id": "9709_s1_t_permutations_and_combinations_m02",
+        "lesson_id": "9709_s1_t_permutations_and_combinations_m02_l01"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_applying_the_product_rule_for_counting",
+        "skill_tags": [
+          "Applying the Product Rule for Counting",
+          "Applying the Multiplication Rule"
+        ]
+      },
+      "question_pattern_ids": [
+        "9709_s1_pattern_multinomial_repeated_trials"
+      ],
+      "knowledge_refs": {
+        "formula_ids": [
+          "9709_s1_formula_independent_trials_probability",
+          "9709_s1_formula_permutations"
+        ],
+        "identity_ids": [],
+        "method_ids": [
+          "9709_s1_method_applying_the_product_rule_for_counting",
+          "9709_s1_method_applying_the_multiplication_rule"
+        ],
+        "fact_ids": [
+          "9709_s1_fact_multiplication_principle_counting"
+        ]
+      },
+      "hints": [
+        "List the probabilities of a vehicle taking each direction: P(Left) = 0.45, P(Right) = 0.20, P(Straight) = 0.35.",
+        "Calculate the probability of one specific ordering where all three vehicles go in different directions, such as L then R then S: 0.45 * 0.20 * 0.35 = 0.0315.",
+        "Multiply by 3! = 6 to account for all possible arrangements of the three distinct directions: 6 * 0.0315 = 0.189."
+      ],
+      "walkthrough": [
+        "State the probabilities for each independent direction:\n$$\\mathrm{P}(L) = 0.45, \\quad \\mathrm{P}(R) = 0.20, \\quad \\mathrm{P}(S) = 0.35$$",
+        "Calculate the probability of one specific sequence containing all three directions ($LRS$):\n$$\\mathrm{P}(LRS) = 0.45 \\times 0.20 \\times 0.35 = 0.0315$$",
+        "Multiply by $3! = 6$ for all possible orderings:\n$$\\mathrm{P}(\\text{all different}) = 3! \\times (0.45 \\times 0.20 \\times 0.35) = 6 \\times 0.0315 = 0.189 = \\frac{189}{1000}$$"
+      ],
+      "teacher_walkthrough": [
+        "Step 1: Identify the given probabilities for each direction:\nEach vehicle approaching from Bromley must choose one of three directions:\n- Left ($L$): $\\mathrm{P}(L) = 0.45$\n- Right ($R$): $\\mathrm{P}(R) = 0.20$\n- Straight on ($S$): $\\mathrm{P}(S) = 0.35$\nNote that $0.45 + 0.20 + 0.35 = 1.00$.",
+        "Step 2: Understand the required event:\nThree successive vehicles must all go in different directions, meaning one vehicle goes Left, one goes Right, and one goes Straight on.",
+        "Step 3: Calculate the probability of a single sequence:\nFor the sequence $LRS$:\n$$\\mathrm{P}(LRS) = 0.45 \\times 0.20 \\times 0.35 = 0.0315$$",
+        "Step 4: Count the number of permutations:\nThe three distinct directions can occur in any order among the three vehicles. The number of permutations of 3 distinct items is:\n$$3! = 3 \\times 2 \\times 1 = 6$$",
+        "Step 5: Multiply to find the total probability:\n$$\\mathrm{P}(\\text{all different}) = 6 \\times 0.0315 = 0.189$$\nIn exact fractional form: $\\frac{189}{1000}$."
+      ],
+      "checking": {
+        "mode": "ai",
+        "ai_rubric": {
+          "Applying the Product Rule for Counting": "Multiplies 3! by (0.45 * 0.20 * 0.35) to obtain 0.189."
+        },
+        "criteria_source": "mark_scheme_structured"
+      }
+    },
+    {
+      "part_id": "9709_s25_52_q4_b",
+      "difficulty": 2,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_s1_t_discrete_random_variables",
+        "module_id": "9709_s1_t_discrete_random_variables_m04",
+        "lesson_id": "9709_s1_t_discrete_random_variables_m04_l01"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_calculating_geometric_distribution_probabilities",
+        "skill_tags": [
+          "Calculating Geometric Distribution Probabilities",
+          "Using Complementary Events"
+        ]
+      },
+      "question_pattern_ids": [
+        "9709_s1_pattern_geometric_greater_than_k"
+      ],
+      "knowledge_refs": {
+        "formula_ids": [
+          "9709_s1_formula_geometric_tail_probability"
+        ],
+        "identity_ids": [],
+        "method_ids": [
+          "9709_s1_method_calculating_geometric_distribution_probabilities",
+          "9709_s1_method_using_complementary_events"
+        ],
+        "fact_ids": [
+          "9709_s1_fact_complement_rule"
+        ]
+      },
+      "hints": [
+        "Having the first vehicle go right after the 3rd vehicle means none of the first 3 vehicles go right.",
+        "The probability that a vehicle does not go right is 1 - 0.20 = 0.80.",
+        "Because successive vehicles are independent, find the probability that all 3 do not go right: (0.80)^3 = 0.512 = 64/125."
+      ],
+      "walkthrough": [
+        "Express the condition that the first right turn occurs after the 3rd vehicle ($X > 3$):\n$$\\mathrm{P}(X > 3) = \\mathrm{P}(\\text{first 3 vehicles do not go right})$$",
+        "Use the failure probability $q = 1 - 0.20 = 0.80$:\n$$\\mathrm{P}(X > 3) = q^3 = (0.80)^3 = 0.512 = \\frac{64}{125}$$"
+      ],
+      "teacher_walkthrough": [
+        "Step 1: Identify the random variable and distribution:\nLet $X$ be the number of the vehicle that is the first to go right.\nEach vehicle turns right with probability $p = 0.20$ independently.\nTherefore, $X$ follows a geometric distribution:\n$$X \\sim \\operatorname{Geo}(0.20)$$\nFailure probability (not turning right): $q = 1 - p = 1 - 0.20 = 0.80$.",
+        "Step 2: Interpret after the 3rd vehicle:\nFor the first right-turning vehicle to occur after the 3rd vehicle, vehicle 1, vehicle 2, and vehicle 3 must all NOT turn right:\n$$\\mathrm{P}(X > 3) = \\mathrm{P}(R' \\cap R' \\cap R')$$",
+        "Step 3: Evaluate using the tail formula:\n$$\\mathrm{P}(X > 3) = q^3 = (0.80)^3$$\nCalculate $(0.80)^3$:\n$$(0.80)^2 = 0.64$$\n$$(0.80)^3 = 0.64 \\times 0.80 = 0.512$$\nIn exact fraction form: $\\frac{512}{1000} = \\frac{64}{125}$."
+      ],
+      "checking": {
+        "mode": "ai",
+        "ai_rubric": {
+          "Calculating Geometric Distribution Probabilities": "Computes (0.8)^3 = 0.512."
+        },
+        "criteria_source": "mark_scheme_structured"
+      }
+    },
+    {
+      "part_id": "9709_s25_52_q4_c",
+      "difficulty": 2,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_s1_t_discrete_random_variables",
+        "module_id": "9709_s1_t_discrete_random_variables_m03",
+        "lesson_id": "9709_s1_t_discrete_random_variables_m03_l01"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_applying_the_multiplication_rule",
+        "skill_tags": [
+          "Applying the Multiplication Rule",
+          "Calculating Exact Binomial Probabilities"
+        ]
+      },
+      "question_pattern_ids": [
+        "9709_s1_pattern_kth_success_on_rth_trial_probability"
+      ],
+      "knowledge_refs": {
+        "formula_ids": [
+          "9709_s1_formula_binomial_probability"
+        ],
+        "identity_ids": [],
+        "method_ids": [
+          "9709_s1_method_applying_the_multiplication_rule",
+          "9709_s1_method_calculating_exact_binomial_probabilities"
+        ],
+        "fact_ids": []
+      },
+      "hints": [
+        "For the 2nd vehicle going straight on to be the 4th vehicle, exactly one of the first 3 vehicles must go straight on, and the 4th vehicle must go straight on.",
+        "The probability of going straight on is p = 0.35, and not straight on is q = 1 - 0.35 = 0.65.",
+        "Calculate the binomial probability of 1 straight vehicle in the first 3: 3C1 * (0.35)^1 * (0.65)^2 = 3 * 0.35 * 0.4225 = 0.443625.",
+        "Multiply by 0.35 for the 4th vehicle: 0.443625 * 0.35 = 0.155 (3 s.f.)."
+      ],
+      "walkthrough": [
+        "Break the condition into two independent events:\n- Exactly one of the first 3 vehicles goes straight on.\n- The 4th vehicle goes straight on.",
+        "Calculate the probability of exactly one straight vehicle in the first 3 using the binomial formula:\n$$\\mathrm{P}(\\text{1 straight in 3}) = \\binom{3}{1} (0.35)^1 (0.65)^2 = 3 \\times 0.35 \\times 0.4225 = 0.443625$$",
+        "Multiply by $\\mathrm{P}(S) = 0.35$ for the 4th vehicle:\n$$\\mathrm{P}(\\text{2nd straight on 4th}) = 0.443625 \\times 0.35 = 0.15526875 \\approx 0.155\\text{ (3 s.f.)}$$"
+      ],
+      "teacher_walkthrough": [
+        "Step 1: Understand the sequence requirement:\nWe require the 2nd vehicle that goes straight on to be the 4th vehicle in sequence.\nThis necessitates:\n1. Among the first 3 vehicles, exactly one vehicle goes straight on.\n2. The 4th vehicle must go straight on.",
+        "Step 2: Define the success and failure probabilities:\n$$\\mathrm{P}(S) = p = 0.35$$\n$$\\mathrm{P}(S') = q = 1 - 0.35 = 0.65$$",
+        "Step 3: Calculate the probability of exactly one straight in the first 3 vehicles:\nUsing the binomial probability formula for $n = 3, r = 1$:\n$$\\binom{3}{1} p^1 q^2 = 3 \\times (0.35) \\times (0.65)^2$$\nCompute step-by-step:\n$$(0.65)^2 = 0.4225$$\n$$3 \\times 0.35 = 1.05$$\n$$1.05 \\times 0.4225 = 0.443625$$",
+        "Step 4: Multiply by the probability that the 4th vehicle goes straight on:\n$$\\mathrm{P}(\\text{2nd straight on 4th}) = 0.443625 \\times 0.35 = 0.15526875$$\nRounding to 3 significant figures:\n$$0.155$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "ai_rubric": {
+          "Applying the Multiplication Rule": "Multiplies 3C1 * (0.35)^1 * (0.65)^2 by 0.35 to get 0.155."
+        },
+        "criteria_source": "mark_scheme_structured"
+      }
+    }
+  ]
+}

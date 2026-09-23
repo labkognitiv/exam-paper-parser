@@ -1,0 +1,1938 @@
+{
+  "schema_version": "9709_math_lesson_enrichment_v1",
+  "lesson_id": "9709_m1_t_kinematics_of_motion_in_a_straight_line_m04_l03",
+  "topic_id": "9709_m1_t_kinematics_of_motion_in_a_straight_line",
+  "numerical_values_checked": false,
+  "lesson_scope": "Trapezoidal journey modeling across three phases: acceleration, constant-speed cruising, and deceleration; algebraic formulation with deceleration-to-acceleration ratios, total journey constraints, quadratic velocity solutions, truncated trapezium models, and triangular speed optimizations under track speed limits.",
+  "questions": [
+    {
+      "question_id": "9709_m1_t_kinematics_of_motion_in_a_straight_line_m04_l03_drq01",
+      "sequence": 1,
+      "difficulty": "easy",
+      "difficulty_reason": "Foundational Drill: Drill 1: Deceleration duration when deceleration rate is twice acceleration rate",
+      "source_question_id": "drill_drq01",
+      "source_role": "foundational_drill",
+      "dependency_role": "none",
+      "dependency_refs": [],
+      "parts": [
+        {
+          "part_id": "9709_m1_t_kinematics_of_motion_in_a_straight_line_m04_l03_drq01_p01",
+          "difficulty": "easy",
+          "question_pattern_ids": [
+            "9709_m1_pattern_constant_acceleration_suvat"
+          ],
+          "source_evidence": {
+            "question_id": "drill_drq01",
+            "part_id": "drill_drq01_p01",
+            "legacy_practice_tier": "foundational",
+            "product_role": "warm_up_drill",
+            "structural_inspiration": "Drill 1: Deceleration duration when deceleration rate is twice acceleration rate"
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "The top speed reached is $V = aT$.",
+            "Deceleration rate is $2a$, so deceleration time is $\\frac{V}{2a} = \\frac{aT}{2a} = 0.5T$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Express the maximum speed $V$ in terms of acceleration $a$ and time $T$:\n$$V = aT$$"
+            },
+            {
+              "step": 2,
+              "text": "Calculate the deceleration time using the deceleration magnitude $2a$:\n$$t_{\\text{dec}} = \\frac{V}{2a} = \\frac{aT}{2a} = 0.5T$$\\text{The train takes } 0.5T\\text{ seconds to decelerate to rest.}"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "Relate speeds:\n- Reached velocity:\n$$V = aT$$"
+            },
+            {
+              "step": 2,
+              "text": "Divide by braking rate:\n- Deceleration duration:\n$$t_{\\text{dec}} = \\frac{aT}{2a} = 0.5T$$\nBraking takes half as long as acceleration because deceleration is twice as large."
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_m1_t_kinematics_of_motion_in_a_straight_line_m04_l03_drq01_p01_mp01",
+                "observable": "Applies $t = \\frac{V}{d}$ with $V = aT$ and $d = 2a$."
+              },
+              {
+                "criterion_id": "9709_m1_t_kinematics_of_motion_in_a_straight_line_m04_l03_drq01_p01_mp02",
+                "observable": "Simplifies to obtain $t_{\\text{dec}} = 0.5T$ or $\\frac{T}{2}$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_m1_skill_modelling_constant_acceleration_motion"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_m1_skill_modelling_constant_acceleration_motion"
+            ],
+            "method_ids": [
+              "9709_m1_method_interpreting_motion_graphs",
+              "9709_m1_method_modelling_constant_acceleration_motion",
+              "9709_m1_method_sketching_motion_graphs"
+            ],
+            "formula_ids": [
+              "9709_m1_formula_suvat_v_u_at"
+            ],
+            "identity_ids": [],
+            "fact_ids": [
+              "9709_m1_fact_area_under_vt_graph_is_distance",
+              "9709_m1_fact_gradient_of_vt_graph_is_acceleration"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_m1_t_kinematics_of_motion_in_a_straight_line_m04_l03_drq02",
+      "sequence": 2,
+      "difficulty": "easy",
+      "difficulty_reason": "Foundational Drill: Drill 2: Expressing constant-speed cruising duration from total journey time",
+      "source_question_id": "drill_drq02",
+      "source_role": "foundational_drill",
+      "dependency_role": "none",
+      "dependency_refs": [],
+      "parts": [
+        {
+          "part_id": "9709_m1_t_kinematics_of_motion_in_a_straight_line_m04_l03_drq02_p01",
+          "difficulty": "easy",
+          "question_pattern_ids": [
+            "9709_m1_pattern_velocity_time_graph_analysis"
+          ],
+          "source_evidence": {
+            "question_id": "drill_drq02",
+            "part_id": "drill_drq02_p01",
+            "legacy_practice_tier": "foundational",
+            "product_role": "warm_up_drill",
+            "structural_inspiration": "Drill 2: Expressing constant-speed cruising duration from total journey time"
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "The sum of the three phase durations equals the total journey time: $t_{\\text{acc}} + t_{\\text{cruise}} + t_{\\text{dec}} = 120$.",
+            "Substitute $t_{\\text{acc}} = T$ and $t_{\\text{dec}} = 0.5T$ to obtain $t_{\\text{cruise}} = 120 - 1.5T$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Sum the acceleration and deceleration intervals in terms of $T$:\n$$t_{\\text{non-cruise}} = T + 0.5T = 1.5T$$"
+            },
+            {
+              "step": 2,
+              "text": "Subtract from the total journey duration of $120\\text{ s}$ to isolate cruising time:\n$$t_{\\text{cruise}} = 120 - 1.5T$$\\text{The cruising duration is } 120 - 1.5T\\text{ seconds.}"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "Combine non-cruising times:\n- Acceleration plus braking:\n$$t_{\\text{acc}} + t_{\\text{dec}} = T + 0.5T = 1.5T$$"
+            },
+            {
+              "step": 2,
+              "text": "Subtract from overall duration:\n- Cruising interval:\n$$t_{\\text{cruise}} = 120 - 1.5T$$\nThe train cruises for $120 - 1.5T$ seconds."
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_m1_t_kinematics_of_motion_in_a_straight_line_m04_l03_drq02_p01_mp01",
+                "observable": "Subtracts acceleration and deceleration times from total time: $120 - (T + 0.5T)$."
+              },
+              {
+                "criterion_id": "9709_m1_t_kinematics_of_motion_in_a_straight_line_m04_l03_drq02_p01_mp02",
+                "observable": "Simplifies to obtain $t_{\\text{cruise}} = 120 - 1.5T$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_m1_skill_modelling_piecewise_motion"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_m1_skill_modelling_piecewise_motion"
+            ],
+            "method_ids": [
+              "9709_m1_method_interpreting_motion_graphs",
+              "9709_m1_method_modelling_constant_acceleration_motion",
+              "9709_m1_method_sketching_motion_graphs"
+            ],
+            "formula_ids": [
+              "9709_m1_formula_trapezium_area"
+            ],
+            "identity_ids": [],
+            "fact_ids": [
+              "9709_m1_fact_area_under_vt_graph_is_distance",
+              "9709_m1_fact_gradient_of_vt_graph_is_acceleration"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_m1_t_kinematics_of_motion_in_a_straight_line_m04_l03_drq03",
+      "sequence": 3,
+      "difficulty": "easy",
+      "difficulty_reason": "Foundational Drill: Drill 3: Average speed of a symmetrical trapezoidal journey",
+      "source_question_id": "drill_drq03",
+      "source_role": "foundational_drill",
+      "dependency_role": "none",
+      "dependency_refs": [],
+      "parts": [
+        {
+          "part_id": "9709_m1_t_kinematics_of_motion_in_a_straight_line_m04_l03_drq03_p01",
+          "difficulty": "easy",
+          "question_pattern_ids": [
+            "9709_m1_pattern_velocity_time_graph_analysis"
+          ],
+          "source_evidence": {
+            "question_id": "drill_drq03",
+            "part_id": "drill_drq03_p01",
+            "legacy_practice_tier": "foundational",
+            "product_role": "warm_up_drill",
+            "structural_inspiration": "Drill 3: Average speed of a symmetrical trapezoidal journey"
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Total time is $10 + 30 + 10 = 50\\text{ s}$. Total distance is trapezium area: $\\frac{30 + 50}{2} \\times 24 = 960\\text{ m}$.",
+            "Average speed is $\\frac{\\text{Total distance}}{\\text{Total time}} = \\frac{960}{50} = 19.2\\text{ m s}^{-1}$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Calculate the total time and total distance from the trapezium area:\n$$T_{\\text{total}} = 10 + 30 + 10 = 50\\text{ s}$$\n$$s_{\\text{total}} = \\frac{30 + 50}{2} \\times 24 = 40 \\times 24 = 960\\text{ m}$$"
+            },
+            {
+              "step": 2,
+              "text": "Calculate the average speed over the entire journey:\n$$v_{\\text{avg}} = \\frac{s_{\\text{total}}}{T_{\\text{total}}} = \\frac{960}{50} = 19.2\\text{ m s}^{-1}$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "Evaluate area under trapezium:\n- Parallel sides are $30\\text{ s}$ and $50\\text{ s}$:\n$$s = \\frac{30 + 50}{2} \\times 24 = 960\\text{ m}$$"
+            },
+            {
+              "step": 2,
+              "text": "Evaluate mean velocity:\n- Dividing by $50\\text{ s}$:\n$$v_{\\text{avg}} = \\frac{960}{50} = 19.2\\text{ m s}^{-1}$$\nThe average speed is $19.2\\text{ m s}^{-1}$."
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_m1_t_kinematics_of_motion_in_a_straight_line_m04_l03_drq03_p01_mp01",
+                "observable": "Calculates total distance: $\\frac{30 + 50}{2} \\times 24 = 960\\text{ m}$."
+              },
+              {
+                "criterion_id": "9709_m1_t_kinematics_of_motion_in_a_straight_line_m04_l03_drq03_p01_mp02",
+                "observable": "Divides total distance by total time: $\\frac{960}{50} = 19.2\\text{ m s}^{-1}$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_m1_skill_interpreting_motion_graphs"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_m1_skill_interpreting_motion_graphs"
+            ],
+            "method_ids": [
+              "9709_m1_method_interpreting_motion_graphs",
+              "9709_m1_method_modelling_constant_acceleration_motion",
+              "9709_m1_method_sketching_motion_graphs"
+            ],
+            "formula_ids": [
+              "9709_m1_formula_trapezium_area"
+            ],
+            "identity_ids": [],
+            "fact_ids": [
+              "9709_m1_fact_area_under_vt_graph_is_distance",
+              "9709_m1_fact_gradient_of_vt_graph_is_acceleration"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_m1_t_kinematics_of_motion_in_a_straight_line_m04_l03_drq04",
+      "sequence": 4,
+      "difficulty": "easy",
+      "difficulty_reason": "Foundational Drill: Drill 4: Acceleration duration from displacement and final velocity",
+      "source_question_id": "drill_drq04",
+      "source_role": "foundational_drill",
+      "dependency_role": "none",
+      "dependency_refs": [],
+      "parts": [
+        {
+          "part_id": "9709_m1_t_kinematics_of_motion_in_a_straight_line_m04_l03_drq04_p01",
+          "difficulty": "easy",
+          "question_pattern_ids": [
+            "9709_m1_pattern_constant_acceleration_suvat"
+          ],
+          "source_evidence": {
+            "question_id": "drill_drq04",
+            "part_id": "drill_drq04_p01",
+            "legacy_practice_tier": "foundational",
+            "product_role": "warm_up_drill",
+            "structural_inspiration": "Drill 4: Acceleration duration from displacement and final velocity"
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Use the average speed formula for constant acceleration: $s = \\frac{u + v}{2}t$.",
+            "Substitute $u = 0$, $v = 25$, and $s = 200$: $200 = \\frac{25}{2}t = 12.5t \\implies t = \\frac{200}{12.5} = 16\\text{ s}$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Set up the displacement equation using initial and final velocities:\n$$s = \\frac{u + v}{2}t$$\n$$200 = \\frac{0 + 25}{2}t = 12.5t$$"
+            },
+            {
+              "step": 2,
+              "text": "Solve for the acceleration time $t$:\n$$t = \\frac{200}{12.5} = 16\\text{ s}$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "Apply average velocity relation:\n- Triangle area formulation:\n$$200 = \\frac{1}{2} \\times 25 \\times t$$"
+            },
+            {
+              "step": 2,
+              "text": "Solve for time duration:\n- Dividing:\n$$t = \\frac{400}{25} = 16\\text{ s}$$\nThe car accelerates for $16\\text{ s}$."
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_m1_t_kinematics_of_motion_in_a_straight_line_m04_l03_drq04_p01_mp01",
+                "observable": "Applies $s = \\frac{u + v}{2}t$ with $u = 0$, $v = 25$, and $s = 200$."
+              },
+              {
+                "criterion_id": "9709_m1_t_kinematics_of_motion_in_a_straight_line_m04_l03_drq04_p01_mp02",
+                "observable": "Solves $12.5t = 200$ to obtain $t = 16\\text{ s}$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_m1_skill_modelling_constant_acceleration_motion"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_m1_skill_modelling_constant_acceleration_motion"
+            ],
+            "method_ids": [
+              "9709_m1_method_interpreting_motion_graphs",
+              "9709_m1_method_modelling_constant_acceleration_motion",
+              "9709_m1_method_sketching_motion_graphs"
+            ],
+            "formula_ids": [
+              "9709_m1_formula_suvat_s_half_u_v_t"
+            ],
+            "identity_ids": [],
+            "fact_ids": [
+              "9709_m1_fact_area_under_vt_graph_is_distance",
+              "9709_m1_fact_gradient_of_vt_graph_is_acceleration"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_m1_t_kinematics_of_motion_in_a_straight_line_m04_l03_drq05",
+      "sequence": 5,
+      "difficulty": "easy",
+      "difficulty_reason": "Foundational Drill: Drill 5: Comparing deceleration distance to acceleration distance under deceleration ratio",
+      "source_question_id": "drill_drq05",
+      "source_role": "foundational_drill",
+      "dependency_role": "none",
+      "dependency_refs": [],
+      "parts": [
+        {
+          "part_id": "9709_m1_t_kinematics_of_motion_in_a_straight_line_m04_l03_drq05_p01",
+          "difficulty": "easy",
+          "question_pattern_ids": [
+            "9709_m1_pattern_constant_acceleration_suvat"
+          ],
+          "source_evidence": {
+            "question_id": "drill_drq05",
+            "part_id": "drill_drq05_p01",
+            "legacy_practice_tier": "foundational",
+            "product_role": "warm_up_drill",
+            "structural_inspiration": "Drill 5: Comparing deceleration distance to acceleration distance under deceleration ratio"
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "From $v^2 = 2as$, stopping distance is $s = \\frac{V^2}{2d}$.",
+            "Since deceleration is doubled ($2a$), the stopping distance is halved: $s_{\\text{dec}} = \\frac{50}{2} = 25\\text{ m}$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Express the peak velocity in terms of acceleration and distance:\n$$V^2 = 2a s_{\\text{acc}} = 2a(50) = 100a$$"
+            },
+            {
+              "step": 2,
+              "text": "Use the deceleration relation $V^2 = 2(2a)s_{\\text{dec}}$ to solve for $s_{\\text{dec}}$:\n$$100a = 4a s_{\\text{dec}} \\implies s_{\\text{dec}} = \\frac{100a}{4a} = 25\\text{ m}$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "Link squared velocities:\n- Acceleration phase:\n$$V^2 = 2a(50) = 100a$$"
+            },
+            {
+              "step": 2,
+              "text": "Solve for braking distance:\n- Deceleration rate $2a$:\n$$s_{\\text{dec}} = \\frac{V^2}{2(2a)} = \\frac{100a}{4a} = 25\\text{ m}$$\nThe vehicle covers $25\\text{ m}$ while braking."
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_m1_t_kinematics_of_motion_in_a_straight_line_m04_l03_drq05_p01_mp01",
+                "observable": "Uses $v^2 = 2as$ or notes distance is inversely proportional to acceleration: $s_{\\text{dec}} = \\frac{s_{\\text{acc}}}{2}$."
+              },
+              {
+                "criterion_id": "9709_m1_t_kinematics_of_motion_in_a_straight_line_m04_l03_drq05_p01_mp02",
+                "observable": "Calculates $s_{\\text{dec}} = \\frac{50}{2} = 25\\text{ m}$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_m1_skill_modelling_constant_acceleration_motion"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_m1_skill_modelling_constant_acceleration_motion"
+            ],
+            "method_ids": [
+              "9709_m1_method_interpreting_motion_graphs",
+              "9709_m1_method_modelling_constant_acceleration_motion",
+              "9709_m1_method_sketching_motion_graphs"
+            ],
+            "formula_ids": [
+              "9709_m1_formula_suvat_v2_u2_2as"
+            ],
+            "identity_ids": [],
+            "fact_ids": [
+              "9709_m1_fact_area_under_vt_graph_is_distance",
+              "9709_m1_fact_gradient_of_vt_graph_is_acceleration"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_m1_t_kinematics_of_motion_in_a_straight_line_m04_l03_drq06",
+      "sequence": 6,
+      "difficulty": "easy",
+      "difficulty_reason": "Foundational Drill: Drill 6: Determining truncated trapezium finishing speed",
+      "source_question_id": "drill_drq06",
+      "source_role": "foundational_drill",
+      "dependency_role": "none",
+      "dependency_refs": [],
+      "parts": [
+        {
+          "part_id": "9709_m1_t_kinematics_of_motion_in_a_straight_line_m04_l03_drq06_p01",
+          "difficulty": "easy",
+          "question_pattern_ids": [
+            "9709_m1_pattern_velocity_time_graph_analysis"
+          ],
+          "source_evidence": {
+            "question_id": "drill_drq06",
+            "part_id": "drill_drq06_p01",
+            "legacy_practice_tier": "foundational",
+            "product_role": "warm_up_drill",
+            "structural_inspiration": "Drill 6: Determining truncated trapezium finishing speed"
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "The final section is a trapezium with parallel vertical heights $10$ and $V$, and width $4\\text{ s}$.",
+            "Set $\\frac{10 + V}{2} \\times 4 = 2(10 + V) = 32 \\implies 10 + V = 16 \\implies V = 6\\text{ m s}^{-1}$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Express the distance covered during the final deceleration phase using average speed:\n$$s = \\frac{u + V}{2} t$$\n$$32 = \\frac{10 + V}{2} \\times 4 = 2(10 + V)$$"
+            },
+            {
+              "step": 2,
+              "text": "Solve for the finishing speed $V$:\n$$10 + V = 16 \\implies V = 6\\text{ m s}^{-1}$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "Set up final segment area:\n- Trapezium with heights $10$ and $V$:\n$$2(10 + V) = 32$$"
+            },
+            {
+              "step": 2,
+              "text": "Solve for crossing velocity:\n- Dividing and subtracting:\n$$10 + V = 16 \\implies V = 6\\text{ m s}^{-1}$$\nThe runner finishes at $6\\text{ m s}^{-1}$."
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_m1_t_kinematics_of_motion_in_a_straight_line_m04_l03_drq06_p01_mp01",
+                "observable": "Applies trapezium area: $s = \\frac{10 + V}{2} \\times 4 = 32$."
+              },
+              {
+                "criterion_id": "9709_m1_t_kinematics_of_motion_in_a_straight_line_m04_l03_drq06_p01_mp02",
+                "observable": "Solves $2(10 + V) = 32$ to obtain $V = 6\\text{ m s}^{-1}$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_m1_skill_interpreting_motion_graphs"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_m1_skill_interpreting_motion_graphs"
+            ],
+            "method_ids": [
+              "9709_m1_method_interpreting_motion_graphs",
+              "9709_m1_method_modelling_constant_acceleration_motion",
+              "9709_m1_method_sketching_motion_graphs"
+            ],
+            "formula_ids": [
+              "9709_m1_formula_suvat_s_half_u_v_t"
+            ],
+            "identity_ids": [],
+            "fact_ids": [
+              "9709_m1_fact_area_under_vt_graph_is_distance",
+              "9709_m1_fact_gradient_of_vt_graph_is_acceleration"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_m1_t_kinematics_of_motion_in_a_straight_line_m04_l03_cpq01",
+      "sequence": 7,
+      "difficulty": "easy",
+      "difficulty_reason": "Structured Practice: Core Practice 1: Train journey between two stations with deceleration twice acceleration",
+      "source_question_id": "exam_practice_cpq01",
+      "source_role": "core_structured_practice",
+      "dependency_role": "none",
+      "dependency_refs": [],
+      "parts": [
+        {
+          "part_id": "9709_m1_t_kinematics_of_motion_in_a_straight_line_m04_l03_cpq01_p01",
+          "difficulty": "easy",
+          "question_pattern_ids": [
+            "9709_m1_pattern_velocity_time_graph_analysis"
+          ],
+          "source_evidence": {
+            "question_id": "exam_practice_cpq01",
+            "part_id": "exam_practice_cpq01_p01",
+            "legacy_practice_tier": "core_practice",
+            "product_role": "structured_practice",
+            "structural_inspiration": "Core Practice 1: Train journey between two stations with deceleration twice acceleration"
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Since deceleration is twice acceleration, the deceleration duration is half the acceleration duration: $t_{\\text{dec}} = 0.5T$, giving cruising duration $180 - 1.5T$.",
+            "Equate the area of the trapezium to $3300$: $\\frac{(180 - 1.5T) + 180}{2} \\times 25 = 3300 \\implies 360 - 1.5T = 264 \\implies 1.5T = 96 \\implies T = 64\\text{ s}$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Determine the time durations for each stage in terms of $T$:\n$$t_{\\text{acc}} = T$$\n$$t_{\\text{dec}} = \\frac{V}{2a} = \\frac{aT}{2a} = 0.5T$$\n$$t_{\\text{cruise}} = 180 - (T + 0.5T) = 180 - 1.5T$$"
+            },
+            {
+              "step": 2,
+              "text": "Express the total distance as the area of the velocity-time trapezium and solve for $T$:\n$$s = \\frac{t_{\\text{cruise}} + T_{\\text{total}}}{2} \\times V$$\n$$3300 = \\frac{(180 - 1.5T) + 180}{2} \\times 25 = \\frac{360 - 1.5T}{2} \\times 25$$\n$$360 - 1.5T = \\frac{3300 \\times 2}{25} = 264$$\n$$1.5T = 360 - 264 = 96 \\implies T = \\frac{96}{1.5} = 64\\text{ s}$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "Express stage durations:\n- Acceleration and braking times:\n$$t_{\\text{acc}} = T, \\quad t_{\\text{dec}} = 0.5T$$\n$$t_{\\text{cruise}} = 180 - 1.5T$$"
+            },
+            {
+              "step": 2,
+              "text": "Solve for acceleration duration $T$:\n- Area of trapezium:\n$$\\frac{360 - 1.5T}{2} \\times 25 = 3300 \\implies 1.5T = 96 \\implies T = 64\\text{ s}$$\nThe train cruises for $180 - 1.5T$ seconds, and $T = 64\\text{ s}$."
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_m1_t_kinematics_of_motion_in_a_straight_line_m04_l03_cpq01_p01_mp01",
+                "observable": "Expresses deceleration time as $0.5T$ and cruising time as $180 - 1.5T$."
+              },
+              {
+                "criterion_id": "9709_m1_t_kinematics_of_motion_in_a_straight_line_m04_l03_cpq01_p01_mp02",
+                "observable": "Sets up total distance equation using trapezium area: $\\frac{(180 - 1.5T) + 180}{2} \\times 25 = 3300$."
+              },
+              {
+                "criterion_id": "9709_m1_t_kinematics_of_motion_in_a_straight_line_m04_l03_cpq01_p01_mp03",
+                "observable": "Solves $12.5(360 - 1.5T) = 3300 \\implies 18.75T = 1200$ to obtain $T = 64\\text{ s}$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_m1_skill_interpreting_motion_graphs",
+            "9709_m1_skill_modelling_piecewise_motion"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_m1_skill_interpreting_motion_graphs",
+              "9709_m1_skill_modelling_piecewise_motion"
+            ],
+            "method_ids": [
+              "9709_m1_method_interpreting_motion_graphs",
+              "9709_m1_method_modelling_constant_acceleration_motion",
+              "9709_m1_method_modelling_piecewise_motion",
+              "9709_m1_method_sketching_motion_graphs"
+            ],
+            "formula_ids": [
+              "9709_m1_formula_trapezium_area"
+            ],
+            "identity_ids": [],
+            "fact_ids": [
+              "9709_m1_fact_area_under_vt_graph_is_distance",
+              "9709_m1_fact_gradient_of_vt_graph_is_acceleration"
+            ]
+          }
+        },
+        {
+          "part_id": "9709_m1_t_kinematics_of_motion_in_a_straight_line_m04_l03_cpq01_p02",
+          "difficulty": "easy",
+          "question_pattern_ids": [
+            "9709_m1_pattern_velocity_time_graph_analysis"
+          ],
+          "source_evidence": {
+            "question_id": "exam_practice_cpq01",
+            "part_id": "exam_practice_cpq01_p02",
+            "legacy_practice_tier": "core_practice",
+            "product_role": "structured_practice",
+            "structural_inspiration": "Core Practice 1: Train journey between two stations with deceleration twice acceleration"
+          },
+          "dependency_role": "none",
+          "dependency_refs": [
+            "9709_m1_t_kinematics_of_motion_in_a_straight_line_m04_l03_cpq01_p01"
+          ],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Deceleration duration is $0.5(64) = 32\\text{ s}$.",
+            "Deceleration distance is the area of the stopping triangle: $\\frac{1}{2}(32)(25) = 400\\text{ m}$. Deceleration is $\\frac{25}{32} \\approx 0.781\\text{ m s}^{-2}$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Calculate the deceleration time and distance travelled during braking:\n$$t_{\\text{dec}} = 0.5(64) = 32\\text{ s}$$\n$$s_{\\text{dec}} = \\frac{1}{2}(t_{\\text{dec}})(V) = \\frac{1}{2}(32)(25) = 400\\text{ m}$$"
+            },
+            {
+              "step": 2,
+              "text": "Calculate the magnitude of the deceleration:\n$$d = \\frac{V}{t_{\\text{dec}}} = \\frac{25}{32} = 0.78125\\text{ m s}^{-2} \\approx 0.781\\text{ m s}^{-2}$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "Evaluate braking triangle:\n- Duration is $32\\text{ s}$:\n$$s_{\\text{dec}} = \\frac{1}{2} \\times 32 \\times 25 = 400\\text{ m}$$"
+            },
+            {
+              "step": 2,
+              "text": "Evaluate braking gradient:\n- Deceleration rate:\n$$d = \\frac{25}{32} \\approx 0.781\\text{ m s}^{-2}$$\nThe train covers $400\\text{ m}$ while braking at $0.781\\text{ m s}^{-2}$."
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_m1_t_kinematics_of_motion_in_a_straight_line_m04_l03_cpq01_p02_mp01",
+                "observable": "Calculates deceleration distance: $s_{\\text{dec}} = \\frac{1}{2}(0.5 \\times 64)(25) = 400\\text{ m}$."
+              },
+              {
+                "criterion_id": "9709_m1_t_kinematics_of_motion_in_a_straight_line_m04_l03_cpq01_p02_mp02",
+                "observable": "Calculates deceleration rate: $d = \\frac{25}{32} = 0.78125\\text{ m s}^{-2}$ (or $0.781\\text{ m s}^{-2}$)."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_m1_skill_interpreting_motion_graphs"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_m1_skill_interpreting_motion_graphs"
+            ],
+            "method_ids": [
+              "9709_m1_method_interpreting_motion_graphs",
+              "9709_m1_method_modelling_constant_acceleration_motion",
+              "9709_m1_method_modelling_piecewise_motion",
+              "9709_m1_method_sketching_motion_graphs"
+            ],
+            "formula_ids": [
+              "9709_m1_formula_triangle_area",
+              "9709_m1_formula_suvat_v_u_at"
+            ],
+            "identity_ids": [],
+            "fact_ids": [
+              "9709_m1_fact_area_under_vt_graph_is_distance",
+              "9709_m1_fact_gradient_of_vt_graph_is_acceleration"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_m1_t_kinematics_of_motion_in_a_straight_line_m04_l03_cpq02",
+      "sequence": 8,
+      "difficulty": "easy",
+      "difficulty_reason": "Structured Practice: Core Practice 2: Three-stage car journey with displacement metrics and average velocity",
+      "source_question_id": "exam_practice_cpq02",
+      "source_role": "core_structured_practice",
+      "dependency_role": "none",
+      "dependency_refs": [],
+      "parts": [
+        {
+          "part_id": "9709_m1_t_kinematics_of_motion_in_a_straight_line_m04_l03_cpq02_p01",
+          "difficulty": "easy",
+          "question_pattern_ids": [
+            "9709_m1_pattern_constant_acceleration_suvat"
+          ],
+          "source_evidence": {
+            "question_id": "exam_practice_cpq02",
+            "part_id": "exam_practice_cpq02_p01",
+            "legacy_practice_tier": "core_practice",
+            "product_role": "structured_practice",
+            "structural_inspiration": "Core Practice 2: Three-stage car journey with displacement metrics and average velocity"
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Acceleration duration: $180 = \\frac{0 + 24}{2}t_{\\text{acc}} = 12t_{\\text{acc}} \\implies t_{\\text{acc}} = 15\\text{ s}$.",
+            "Cruising duration: $t_{\\text{cruise}} = \\frac{s_{\\text{cruise}}}{v} = \\frac{600}{24} = 25\\text{ s}$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Calculate the acceleration time from the average speed equation:\n$$s_{\\text{acc}} = \\frac{0 + 24}{2} t_{\\text{acc}} = 12 t_{\\text{acc}}$$\n$$180 = 12 t_{\\text{acc}} \\implies t_{\\text{acc}} = \\frac{180}{12} = 15\\text{ s}$$"
+            },
+            {
+              "step": 2,
+              "text": "Calculate the constant speed cruising duration:\n$$t_{\\text{cruise}} = \\frac{s_{\\text{cruise}}}{V} = \\frac{600}{24} = 25\\text{ s}$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "Evaluate acceleration duration:\n- Average velocity relation:\n$$t_{\\text{acc}} = \\frac{180}{12} = 15\\text{ s}$$"
+            },
+            {
+              "step": 2,
+              "text": "Evaluate cruising duration:\n- Dividing distance by speed:\n$$t_{\\text{cruise}} = \\frac{600}{24} = 25\\text{ s}$$\nThe car accelerates for $15\\text{ s}$ and cruises for $25\\text{ s}$."
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_m1_t_kinematics_of_motion_in_a_straight_line_m04_l03_cpq02_p01_mp01",
+                "observable": "Applies $s = \\frac{u + v}{2}t_{\\text{acc}}$: $180 = \\frac{24}{2}t_{\\text{acc}} = 12t_{\\text{acc}}$."
+              },
+              {
+                "criterion_id": "9709_m1_t_kinematics_of_motion_in_a_straight_line_m04_l03_cpq02_p01_mp02",
+                "observable": "Solves to obtain $t_{\\text{acc}} = 15\\text{ s}$."
+              },
+              {
+                "criterion_id": "9709_m1_t_kinematics_of_motion_in_a_straight_line_m04_l03_cpq02_p01_mp03",
+                "observable": "Calculates cruising time: $t_{\\text{cruise}} = \\frac{600}{24} = 25\\text{ s}$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_m1_skill_interpreting_motion_graphs",
+            "9709_m1_skill_modelling_piecewise_motion"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_m1_skill_interpreting_motion_graphs",
+              "9709_m1_skill_modelling_piecewise_motion"
+            ],
+            "method_ids": [
+              "9709_m1_method_interpreting_motion_graphs",
+              "9709_m1_method_modelling_constant_acceleration_motion",
+              "9709_m1_method_modelling_piecewise_motion",
+              "9709_m1_method_sketching_motion_graphs"
+            ],
+            "formula_ids": [
+              "9709_m1_formula_suvat_s_half_u_v_t"
+            ],
+            "identity_ids": [],
+            "fact_ids": [
+              "9709_m1_fact_area_under_vt_graph_is_distance",
+              "9709_m1_fact_gradient_of_vt_graph_is_acceleration"
+            ]
+          }
+        },
+        {
+          "part_id": "9709_m1_t_kinematics_of_motion_in_a_straight_line_m04_l03_cpq02_p02",
+          "difficulty": "easy",
+          "question_pattern_ids": [
+            "9709_m1_pattern_velocity_time_graph_analysis"
+          ],
+          "source_evidence": {
+            "question_id": "exam_practice_cpq02",
+            "part_id": "exam_practice_cpq02_p02",
+            "legacy_practice_tier": "core_practice",
+            "product_role": "structured_practice",
+            "structural_inspiration": "Core Practice 2: Three-stage car journey with displacement metrics and average velocity"
+          },
+          "dependency_role": "none",
+          "dependency_refs": [
+            "9709_m1_t_kinematics_of_motion_in_a_straight_line_m04_l03_cpq02_p01"
+          ],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Deceleration distance is $\\frac{1}{2}(8)(24) = 96\\text{ m}$, so total distance is $180 + 600 + 96 = 876\\text{ m}$.",
+            "Total journey time is $15 + 25 + 8 = 48\\text{ s}$. Average speed is $\\frac{876}{48} = 18.25\\text{ m s}^{-1}$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Calculate the braking distance and total journey distance:\n$$s_{\\text{dec}} = \\frac{1}{2}(t_{\\text{dec}})(V) = \\frac{1}{2}(8)(24) = 96\\text{ m}$$\n$$s_{\\text{total}} = s_{\\text{acc}} + s_{\\text{cruise}} + s_{\\text{dec}} = 180 + 600 + 96 = 876\\text{ m}$$"
+            },
+            {
+              "step": 2,
+              "text": "Compute the total journey duration and overall average speed:\n$$T_{\\text{total}} = 15 + 25 + 8 = 48\\text{ s}$$\n$$v_{\\text{avg}} = \\frac{s_{\\text{total}}}{T_{\\text{total}}} = \\frac{876}{48} = 18.25\\text{ m s}^{-1}$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "Sum all stage distances:\n- Total distance:\n$$s = 180 + 600 + \\frac{1}{2}(8)(24) = 876\\text{ m}$$"
+            },
+            {
+              "step": 2,
+              "text": "Evaluate mean speed:\n- Dividing by $48\\text{ s}$:\n$$v_{\\text{avg}} = \\frac{876}{48} = 18.25\\text{ m s}^{-1}$$\nThe car travels $876\\text{ m}$ at an average speed of $18.25\\text{ m s}^{-1}$."
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_m1_t_kinematics_of_motion_in_a_straight_line_m04_l03_cpq02_p02_mp01",
+                "observable": "Calculates deceleration distance $\\frac{1}{2}(8)(24) = 96\\text{ m}$ and sums total distance $180 + 600 + 96 = 876\\text{ m}$."
+              },
+              {
+                "criterion_id": "9709_m1_t_kinematics_of_motion_in_a_straight_line_m04_l03_cpq02_p02_mp02",
+                "observable": "Calculates average speed: $\\frac{876}{15 + 25 + 8} = \\frac{876}{48} = 18.25\\text{ m s}^{-1}$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_m1_skill_interpreting_motion_graphs"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_m1_skill_interpreting_motion_graphs"
+            ],
+            "method_ids": [
+              "9709_m1_method_interpreting_motion_graphs",
+              "9709_m1_method_modelling_constant_acceleration_motion",
+              "9709_m1_method_modelling_piecewise_motion",
+              "9709_m1_method_sketching_motion_graphs"
+            ],
+            "formula_ids": [
+              "9709_m1_formula_trapezium_area",
+              "9709_m1_formula_triangle_area"
+            ],
+            "identity_ids": [],
+            "fact_ids": [
+              "9709_m1_fact_area_under_vt_graph_is_distance",
+              "9709_m1_fact_gradient_of_vt_graph_is_acceleration"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_m1_t_kinematics_of_motion_in_a_straight_line_m04_l03_cpq03",
+      "sequence": 9,
+      "difficulty": "medium",
+      "difficulty_reason": "Structured Practice: Core Practice 3: Car journey with distance-based acceleration phase and double deceleration",
+      "source_question_id": "exam_practice_cpq03",
+      "source_role": "core_structured_practice",
+      "dependency_role": "none",
+      "dependency_refs": [],
+      "parts": [
+        {
+          "part_id": "9709_m1_t_kinematics_of_motion_in_a_straight_line_m04_l03_cpq03_p01",
+          "difficulty": "medium",
+          "question_pattern_ids": [
+            "9709_m1_pattern_constant_acceleration_suvat"
+          ],
+          "source_evidence": {
+            "question_id": "exam_practice_cpq03",
+            "part_id": "exam_practice_cpq03_p01",
+            "legacy_practice_tier": "core_practice",
+            "product_role": "structured_practice",
+            "structural_inspiration": "Core Practice 3: Car journey with distance-based acceleration phase and double deceleration"
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Cruising speed is distance divided by time: $V = \\frac{480}{20} = 24\\text{ m s}^{-1}$.",
+            "For the acceleration stage, use $v^2 = u^2 + 2as$ with $u = 0$ and $s = 72\\text{ m}$.",
+            "Substitute $V = 24$: $24^2 = 2a(72) \\implies 576 = 144a \\implies a = 4\\text{ m s}^{-2}$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Calculate the constant cruising speed during the middle section:\n$$V = \\frac{s_{\\text{cruise}}}{t_{\\text{cruise}}} = \\frac{480}{20} = 24\\text{ m s}^{-1}$$"
+            },
+            {
+              "step": 2,
+              "text": "Use the third equation of motion for the initial acceleration phase to find $a$:\n$$v^2 = u^2 + 2as_{\\text{acc}}$$\n$$24^2 = 0 + 2a(72) \\implies 576 = 144a$$\n$$a = \\frac{576}{144} = 4\\text{ m s}^{-2}$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "Evaluate cruising velocity:\n- Direct division:\n$$V = \\frac{480}{20} = 24\\text{ m s}^{-1}$$"
+            },
+            {
+              "step": 2,
+              "text": "Apply kinematic formula for acceleration stage:\n- Connecting speed and displacement:\n$$24^2 = 2 \\times a \\times 72 \\implies 144a = 576 \\implies a = 4\\text{ m s}^{-2}$$\nThe cruising speed is $24\\text{ m s}^{-1}$ and acceleration is $4\\text{ m s}^{-2}$."
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_m1_t_kinematics_of_motion_in_a_straight_line_m04_l03_cpq03_p01_mp01",
+                "observable": "Calculates cruising speed: $V = \\frac{480}{20} = 24\\text{ m s}^{-1}$."
+              },
+              {
+                "criterion_id": "9709_m1_t_kinematics_of_motion_in_a_straight_line_m04_l03_cpq03_p01_mp02",
+                "observable": "Applies $v^2 = u^2 + 2as$ with $u = 0$, $v = 24$, and $s = 72$."
+              },
+              {
+                "criterion_id": "9709_m1_t_kinematics_of_motion_in_a_straight_line_m04_l03_cpq03_p01_mp03",
+                "observable": "Solves $24^2 = 2a(72) \\implies 144a = 576$ to obtain $a = 4\\text{ m s}^{-2}$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_m1_skill_modelling_constant_acceleration_motion"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_m1_skill_modelling_constant_acceleration_motion"
+            ],
+            "method_ids": [
+              "9709_m1_method_interpreting_motion_graphs",
+              "9709_m1_method_modelling_constant_acceleration_motion",
+              "9709_m1_method_modelling_piecewise_motion",
+              "9709_m1_method_sketching_motion_graphs"
+            ],
+            "formula_ids": [
+              "9709_m1_formula_suvat_v2_u2_2as"
+            ],
+            "identity_ids": [],
+            "fact_ids": [
+              "9709_m1_fact_area_under_vt_graph_is_distance",
+              "9709_m1_fact_gradient_of_vt_graph_is_acceleration"
+            ]
+          }
+        },
+        {
+          "part_id": "9709_m1_t_kinematics_of_motion_in_a_straight_line_m04_l03_cpq03_p02",
+          "difficulty": "medium",
+          "question_pattern_ids": [
+            "9709_m1_pattern_velocity_time_graph_analysis"
+          ],
+          "source_evidence": {
+            "question_id": "exam_practice_cpq03",
+            "part_id": "exam_practice_cpq03_p02",
+            "legacy_practice_tier": "core_practice",
+            "product_role": "structured_practice",
+            "structural_inspiration": "Core Practice 3: Car journey with distance-based acceleration phase and double deceleration"
+          },
+          "dependency_role": "none",
+          "dependency_refs": [
+            "9709_m1_t_kinematics_of_motion_in_a_straight_line_m04_l03_cpq03_p01"
+          ],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Deceleration is $2a = 2(4) = 8\\text{ m s}^{-2}$.",
+            "Deceleration distance is $s_{\\text{dec}} = \\frac{V^2}{2(8)} = \\frac{576}{16} = 36\\text{ m}$ (or half of $72\\text{ m}$).",
+            "Times are $t_{\\text{acc}} = \\frac{24}{4} = 6\\text{ s}$ and $t_{\\text{dec}} = \\frac{24}{8} = 3\\text{ s}$, so total time is $6 + 20 + 3 = 29\\text{ s}$.",
+            "Total distance is $72 + 480 + 36 = 588\\text{ m}$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Calculate the braking distance under deceleration $2a = 8\\text{ m s}^{-2}$:\n$$s_{\\text{dec}} = \\frac{V^2}{2(2a)} = \\frac{24^2}{2(8)} = \\frac{576}{16} = 36\\text{ m}$$"
+            },
+            {
+              "step": 2,
+              "text": "Determine the durations of the acceleration and deceleration stages and sum total time:\n$$t_{\\text{acc}} = \\frac{V}{a} = \\frac{24}{4} = 6\\text{ s}$$\n$$t_{\\text{dec}} = \\frac{V}{2a} = \\frac{24}{8} = 3\\text{ s}$$\n$$T_{\\text{total}} = 6 + 20 + 3 = 29\\text{ s}$$"
+            },
+            {
+              "step": 3,
+              "text": "Calculate the total distance travelled over the whole journey:\n$$s_{\\text{total}} = 72 + 480 + 36 = 588\\text{ m}$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "Evaluate deceleration distance:\n- Halved distance due to double deceleration:\n$$s_{\\text{dec}} = \\frac{72}{2} = 36\\text{ m}$$"
+            },
+            {
+              "step": 2,
+              "text": "Evaluate stage and journey durations:\n- Stage intervals:\n$$t_{\\text{acc}} = 6\\text{ s}, \\quad t_{\\text{dec}} = 3\\text{ s}$$\n$$T_{\\text{total}} = 6 + 20 + 3 = 29\\text{ s}$$"
+            },
+            {
+              "step": 3,
+              "text": "Sum journey distances:\n- Total track length:\n$$s_{\\text{total}} = 72 + 480 + 36 = 588\\text{ m}$$\nThe car stops in $36\\text{ m}$, taking $29\\text{ s}$ over $588\\text{ m}$."
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_m1_t_kinematics_of_motion_in_a_straight_line_m04_l03_cpq03_p02_mp01",
+                "observable": "Calculates deceleration distance: $s_{\\text{dec}} = \\frac{24^2}{2(8)} = 36\\text{ m}$."
+              },
+              {
+                "criterion_id": "9709_m1_t_kinematics_of_motion_in_a_straight_line_m04_l03_cpq03_p02_mp02",
+                "observable": "Calculates stage times $t_{\\text{acc}} = \\frac{24}{4} = 6\\text{ s}$, $t_{\\text{dec}} = \\frac{24}{8} = 3\\text{ s}$, and total time $6 + 20 + 3 = 29\\text{ s}$."
+              },
+              {
+                "criterion_id": "9709_m1_t_kinematics_of_motion_in_a_straight_line_m04_l03_cpq03_p02_mp03",
+                "observable": "Sums total distance: $72 + 480 + 36 = 588\\text{ m}$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_m1_skill_interpreting_motion_graphs",
+            "9709_m1_skill_modelling_piecewise_motion"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_m1_skill_interpreting_motion_graphs",
+              "9709_m1_skill_modelling_piecewise_motion"
+            ],
+            "method_ids": [
+              "9709_m1_method_interpreting_motion_graphs",
+              "9709_m1_method_modelling_constant_acceleration_motion",
+              "9709_m1_method_modelling_piecewise_motion",
+              "9709_m1_method_sketching_motion_graphs"
+            ],
+            "formula_ids": [
+              "9709_m1_formula_suvat_v2_u2_2as",
+              "9709_m1_formula_suvat_v_u_at"
+            ],
+            "identity_ids": [],
+            "fact_ids": [
+              "9709_m1_fact_area_under_vt_graph_is_distance",
+              "9709_m1_fact_gradient_of_vt_graph_is_acceleration"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_m1_t_kinematics_of_motion_in_a_straight_line_m04_l03_cpq04",
+      "sequence": 10,
+      "difficulty": "medium",
+      "difficulty_reason": "Structured Practice: Core Practice 4: Sprinter 200m race with final fatigue deceleration",
+      "source_question_id": "exam_practice_cpq04",
+      "source_role": "core_structured_practice",
+      "dependency_role": "none",
+      "dependency_refs": [],
+      "parts": [
+        {
+          "part_id": "9709_m1_t_kinematics_of_motion_in_a_straight_line_m04_l03_cpq04_p01",
+          "difficulty": "medium",
+          "question_pattern_ids": [
+            "9709_m1_pattern_velocity_time_graph_analysis"
+          ],
+          "source_evidence": {
+            "question_id": "exam_practice_cpq04",
+            "part_id": "exam_practice_cpq04_p01",
+            "legacy_practice_tier": "core_practice",
+            "product_role": "structured_practice",
+            "structural_inspiration": "Core Practice 4: Sprinter 200m race with final fatigue deceleration"
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Initial acceleration: $a = \\frac{11 - 0}{5} = 2.2\\text{ m s}^{-2}$.",
+            "Distance during first 5 seconds: $\\frac{1}{2}(5)(11) = 27.5\\text{ m}$.",
+            "Distance during next 12 seconds: $12 \\times 11 = 132\\text{ m}$. Total distance in first 17 seconds is $27.5 + 132 = 159.5\\text{ m}$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Calculate the acceleration during the first 5 seconds:\n$$a = \\frac{11 - 0}{5} = 2.2\\text{ m s}^{-2}$$"
+            },
+            {
+              "step": 2,
+              "text": "Calculate the distances covered during the acceleration and constant speed phases:\n$$s_{\\text{acc}} = \\frac{1}{2}(5)(11) = 27.5\\text{ m}$$\n$$s_{\\text{cruise}} = 12 \\times 11 = 132\\text{ m}$$\n$$s_{17} = 27.5 + 132 = 159.5\\text{ m}$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "Find initial acceleration rate:\n- Ratio of change in velocity to time:\n$$a = \\frac{11}{5} = 2.2\\text{ m s}^{-2}$$"
+            },
+            {
+              "step": 2,
+              "text": "Compute distance over first 17 seconds:\n- Summing triangle and rectangle:\n$$s_{17} = 27.5 + 132 = 159.5\\text{ m}$$\nThe acceleration is $2.2\\text{ m s}^{-2}$ and the runner covers $159.5\\text{ m}$ in $17\\text{ s}$."
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_m1_t_kinematics_of_motion_in_a_straight_line_m04_l03_cpq04_p01_mp01",
+                "observable": "Calculates initial acceleration: $a = \\frac{11}{5} = 2.2\\text{ m s}^{-2}$."
+              },
+              {
+                "criterion_id": "9709_m1_t_kinematics_of_motion_in_a_straight_line_m04_l03_cpq04_p01_mp02",
+                "observable": "Calculates acceleration distance $\\frac{1}{2}(5)(11) = 27.5\\text{ m}$ and cruising distance $12 \\times 11 = 132\\text{ m}$."
+              },
+              {
+                "criterion_id": "9709_m1_t_kinematics_of_motion_in_a_straight_line_m04_l03_cpq04_p01_mp03",
+                "observable": "Sums distances to obtain $27.5 + 132 = 159.5\\text{ m}$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_m1_skill_interpreting_motion_graphs",
+            "9709_m1_skill_modelling_piecewise_motion"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_m1_skill_interpreting_motion_graphs",
+              "9709_m1_skill_modelling_piecewise_motion"
+            ],
+            "method_ids": [
+              "9709_m1_method_interpreting_motion_graphs",
+              "9709_m1_method_modelling_constant_acceleration_motion",
+              "9709_m1_method_modelling_piecewise_motion",
+              "9709_m1_method_sketching_motion_graphs"
+            ],
+            "formula_ids": [
+              "9709_m1_formula_triangle_area",
+              "9709_m1_formula_suvat_v_u_at"
+            ],
+            "identity_ids": [],
+            "fact_ids": [
+              "9709_m1_fact_area_under_vt_graph_is_distance",
+              "9709_m1_fact_gradient_of_vt_graph_is_acceleration"
+            ]
+          }
+        },
+        {
+          "part_id": "9709_m1_t_kinematics_of_motion_in_a_straight_line_m04_l03_cpq04_p02",
+          "difficulty": "medium",
+          "question_pattern_ids": [
+            "9709_m1_pattern_velocity_time_graph_analysis"
+          ],
+          "source_evidence": {
+            "question_id": "exam_practice_cpq04",
+            "part_id": "exam_practice_cpq04_p02",
+            "legacy_practice_tier": "core_practice",
+            "product_role": "structured_practice",
+            "structural_inspiration": "Core Practice 4: Sprinter 200m race with final fatigue deceleration"
+          },
+          "dependency_role": "none",
+          "dependency_refs": [
+            "9709_m1_t_kinematics_of_motion_in_a_straight_line_m04_l03_cpq04_p01"
+          ],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "The remaining distance for the final 5 seconds is $200 - 159.5 = 40.5\\text{ m}$.",
+            "The final phase is a trapezium with parallel heights $11$ and $V$: $\\frac{11 + V}{2} \\times 5 = 40.5$.",
+            "Multiply by 2 and divide by 5: $11 + V = 16.2 \\implies V = 5.2\\text{ m s}^{-1}$.",
+            "Deceleration is $d = \\frac{11 - 5.2}{5} = \\frac{5.8}{5} = 1.16\\text{ m s}^{-2}$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Find the distance covered during the final 5 seconds of the race:\n$$s_{\\text{final}} = 200 - s_{17} = 200 - 159.5 = 40.5\\text{ m}$$"
+            },
+            {
+              "step": 2,
+              "text": "Equate this to the area of the final trapezium to solve for finishing speed $V$:\n$$s_{\\text{final}} = \\frac{11 + V}{2} \\times 5 = 40.5$$\n$$11 + V = \\frac{40.5 \\times 2}{5} = 16.2 \\implies V = 16.2 - 11 = 5.2\\text{ m s}^{-1}$$"
+            },
+            {
+              "step": 3,
+              "text": "Calculate the magnitude of the deceleration in the final stage:\n$$d = \\frac{11 - 5.2}{5} = \\frac{5.8}{5} = 1.16\\text{ m s}^{-2}$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "Find remaining track distance:\n- Total minus first 17 seconds:\n$$s_{\\text{final}} = 200 - 159.5 = 40.5\\text{ m}$$"
+            },
+            {
+              "step": 2,
+              "text": "Solve for finishing speed $V$:\n- Area of final trapezium:\n$$2.5(11 + V) = 40.5 \\implies 11 + V = 16.2 \\implies V = 5.2\\text{ m s}^{-1}$$"
+            },
+            {
+              "step": 3,
+              "text": "Evaluate braking rate:\n- Deceleration magnitude:\n$$d = \\frac{11 - 5.2}{5} = 1.16\\text{ m s}^{-2}$$\nThe runner covers $40.5\\text{ m}$ finishing at $5.2\\text{ m s}^{-1}$ under $1.16\\text{ m s}^{-2}$ deceleration."
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_m1_t_kinematics_of_motion_in_a_straight_line_m04_l03_cpq04_p02_mp01",
+                "observable": "Calculates remaining distance: $s_{\\text{final}} = 200 - 159.5 = 40.5\\text{ m}$."
+              },
+              {
+                "criterion_id": "9709_m1_t_kinematics_of_motion_in_a_straight_line_m04_l03_cpq04_p02_mp02",
+                "observable": "Sets up final trapezium area: $\\frac{11 + V}{2} \\times 5 = 40.5$."
+              },
+              {
+                "criterion_id": "9709_m1_t_kinematics_of_motion_in_a_straight_line_m04_l03_cpq04_p02_mp03",
+                "observable": "Solves to obtain $V = 5.2\\text{ m s}^{-1}$ and deceleration $d = \\frac{11 - 5.2}{5} = 1.16\\text{ m s}^{-2}$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_m1_skill_interpreting_motion_graphs",
+            "9709_m1_skill_modelling_piecewise_motion"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_m1_skill_interpreting_motion_graphs",
+              "9709_m1_skill_modelling_piecewise_motion"
+            ],
+            "method_ids": [
+              "9709_m1_method_interpreting_motion_graphs",
+              "9709_m1_method_modelling_constant_acceleration_motion",
+              "9709_m1_method_modelling_piecewise_motion",
+              "9709_m1_method_sketching_motion_graphs"
+            ],
+            "formula_ids": [
+              "9709_m1_formula_trapezium_area",
+              "9709_m1_formula_suvat_v_u_at"
+            ],
+            "identity_ids": [],
+            "fact_ids": [
+              "9709_m1_fact_area_under_vt_graph_is_distance",
+              "9709_m1_fact_gradient_of_vt_graph_is_acceleration"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_m1_t_kinematics_of_motion_in_a_straight_line_m04_l03_cpq05",
+      "sequence": 11,
+      "difficulty": "medium",
+      "difficulty_reason": "Structured Practice: Core Practice 5: Comparative journey durations of two trains under different acceleration caps",
+      "source_question_id": "exam_practice_cpq05",
+      "source_role": "core_structured_practice",
+      "dependency_role": "none",
+      "dependency_refs": [],
+      "parts": [
+        {
+          "part_id": "9709_m1_t_kinematics_of_motion_in_a_straight_line_m04_l03_cpq05_p01",
+          "difficulty": "medium",
+          "question_pattern_ids": [
+            "9709_m1_pattern_velocity_time_graph_analysis"
+          ],
+          "source_evidence": {
+            "question_id": "exam_practice_cpq05",
+            "part_id": "exam_practice_cpq05_p01",
+            "legacy_practice_tier": "core_practice",
+            "product_role": "structured_practice",
+            "structural_inspiration": "Core Practice 5: Comparative journey durations of two trains under different acceleration caps"
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "For Train $A$: acceleration time is $t_{\\text{acc}} = \\frac{24}{0.8} = 30\\text{ s}$, covering $s_{\\text{acc}} = \\frac{1}{2}(30)(24) = 360\\text{ m}$.",
+            "Deceleration time is $t_{\\text{dec}} = \\frac{24}{1.2} = 20\\text{ s}$, covering $s_{\\text{dec}} = \\frac{1}{2}(20)(24) = 240\\text{ m}$.",
+            "Cruising distance is $1800 - (360 + 240) = 1200\\text{ m}$, so cruising time is $\\frac{1200}{24} = 50\\text{ s}$.",
+            "Total time for Train $A$ is $30 + 50 + 20 = 100\\text{ s}$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Calculate the acceleration and deceleration parameters for Train $A$:\n$$t_{\\text{acc}} = \\frac{24}{0.8} = 30\\text{ s}, \\quad s_{\\text{acc}} = \\frac{1}{2}(30)(24) = 360\\text{ m}$$\n$$t_{\\text{dec}} = \\frac{24}{1.2} = 20\\text{ s}, \\quad s_{\\text{dec}} = \\frac{1}{2}(20)(24) = 240\\text{ m}$$"
+            },
+            {
+              "step": 2,
+              "text": "Determine the cruising distance and cruising duration:\n$$s_{\\text{cruise}} = 1800 - (360 + 240) = 1200\\text{ m}$$\n$$t_{\\text{cruise}} = \\frac{1200}{24} = 50\\text{ s}$$"
+            },
+            {
+              "step": 3,
+              "text": "Sum the stage durations to find the total time for Train $A$:\n$$T_A = 30 + 50 + 20 = 100\\text{ s}$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "Evaluate acceleration and deceleration intervals:\n- Stage times and distances:\n$$t_{\\text{acc}} = 30\\text{ s} \\implies s_{\\text{acc}} = 360\\text{ m}$$\n$$t_{\\text{dec}} = 20\\text{ s} \\implies s_{\\text{dec}} = 240\\text{ m}$$"
+            },
+            {
+              "step": 2,
+              "text": "Evaluate cruising phase:\n- Remaining track:\n$$s_{\\text{cruise}} = 1800 - 600 = 1200\\text{ m} \\implies t_{\\text{cruise}} = \\frac{1200}{24} = 50\\text{ s}$$"
+            },
+            {
+              "step": 3,
+              "text": "Sum journey duration:\n- Total time:\n$$T_A = 30 + 50 + 20 = 100\\text{ s}$$\nTrain $A$ completes the journey in $100\\text{ s}$."
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_m1_t_kinematics_of_motion_in_a_straight_line_m04_l03_cpq05_p01_mp01",
+                "observable": "Calculates stage durations and distances for Train $A$: $t_{\\text{acc}} = \\frac{24}{0.8} = 30\\text{ s}$, $s_{\\text{acc}} = 360\\text{ m}$, $t_{\\text{dec}} = \\frac{24}{1.2} = 20\\text{ s}$, $s_{\\text{dec}} = 240\\text{ m}$."
+              },
+              {
+                "criterion_id": "9709_m1_t_kinematics_of_motion_in_a_straight_line_m04_l03_cpq05_p01_mp02",
+                "observable": "Calculates cruising distance $1800 - 360 - 240 = 1200\\text{ m}$ and cruising time $\\frac{1200}{24} = 50\\text{ s}$."
+              },
+              {
+                "criterion_id": "9709_m1_t_kinematics_of_motion_in_a_straight_line_m04_l03_cpq05_p01_mp03",
+                "observable": "Sums total time for Train $A$: $T_A = 30 + 50 + 20 = 100\\text{ s}$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_m1_skill_interpreting_motion_graphs",
+            "9709_m1_skill_modelling_piecewise_motion"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_m1_skill_interpreting_motion_graphs",
+              "9709_m1_skill_modelling_piecewise_motion"
+            ],
+            "method_ids": [
+              "9709_m1_method_interpreting_motion_graphs",
+              "9709_m1_method_modelling_constant_acceleration_motion",
+              "9709_m1_method_modelling_piecewise_motion",
+              "9709_m1_method_sketching_motion_graphs"
+            ],
+            "formula_ids": [
+              "9709_m1_formula_trapezium_area",
+              "9709_m1_formula_suvat_v_u_at"
+            ],
+            "identity_ids": [],
+            "fact_ids": [
+              "9709_m1_fact_area_under_vt_graph_is_distance",
+              "9709_m1_fact_gradient_of_vt_graph_is_acceleration"
+            ]
+          }
+        },
+        {
+          "part_id": "9709_m1_t_kinematics_of_motion_in_a_straight_line_m04_l03_cpq05_p02",
+          "difficulty": "medium",
+          "question_pattern_ids": [
+            "9709_m1_pattern_velocity_time_graph_analysis"
+          ],
+          "source_evidence": {
+            "question_id": "exam_practice_cpq05",
+            "part_id": "exam_practice_cpq05_p02",
+            "legacy_practice_tier": "core_practice",
+            "product_role": "structured_practice",
+            "structural_inspiration": "Core Practice 5: Comparative journey durations of two trains under different acceleration caps"
+          },
+          "dependency_role": "none",
+          "dependency_refs": [
+            "9709_m1_t_kinematics_of_motion_in_a_straight_line_m04_l03_cpq05_p01"
+          ],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "For Train $B$: acceleration and deceleration each take $\\frac{20}{1.0} = 20\\text{ s}$, covering $\\frac{1}{2}(20)(20) = 200\\text{ m}$ each.",
+            "Cruising distance for Train $B$ is $1800 - (200 + 200) = 1400\\text{ m}$, so cruising time is $\\frac{1400}{20} = 70\\text{ s}$.",
+            "Total time for Train $B$ is $20 + 70 + 20 = 110\\text{ s}$.",
+            "Compare with Train $A$ ($100\\text{ s}$): Train $A$ arrives earlier by $110 - 100 = 10\\text{ s}$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Calculate the acceleration and deceleration parameters for Train $B$:\n$$t_{\\text{acc}} = \\frac{20}{1.0} = 20\\text{ s}, \\quad s_{\\text{acc}} = \\frac{1}{2}(20)(20) = 200\\text{ m}$$\n$$t_{\\text{dec}} = \\frac{20}{1.0} = 20\\text{ s}, \\quad s_{\\text{dec}} = \\frac{1}{2}(20)(20) = 200\\text{ m}$$"
+            },
+            {
+              "step": 2,
+              "text": "Determine the cruising time and total journey time for Train $B$:\n$$s_{\\text{cruise}} = 1800 - (200 + 200) = 1400\\text{ m}$$\n$$t_{\\text{cruise}} = \\frac{1400}{20} = 70\\text{ s}$$\n$$T_B = 20 + 70 + 20 = 110\\text{ s}$$"
+            },
+            {
+              "step": 3,
+              "text": "Compare the arrival times of the two trains:\n$$\\Delta T = T_B - T_A = 110 - 100 = 10\\text{ s}$$\n$$\\text{Train } A \\text{ arrives earlier by } 10\\text{ seconds.}$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "Evaluate non-cruising stages for Train $B$:\n- Acceleration and braking:\n$$t_{\\text{acc}} = t_{\\text{dec}} = 20\\text{ s}, \\quad s_{\\text{acc}} = s_{\\text{dec}} = 200\\text{ m}$$"
+            },
+            {
+              "step": 2,
+              "text": "Evaluate cruising and total time:\n- Cruising duration:\n$$t_{\\text{cruise}} = \\frac{1400}{20} = 70\\text{ s}$$\n$$T_B = 20 + 70 + 20 = 110\\text{ s}$$"
+            },
+            {
+              "step": 3,
+              "text": "Determine lead time:\n- Comparison:\n$$T_B - T_A = 110 - 100 = 10\\text{ s}$$\nTrain $A$ arrives earlier by $10\\text{ s}$."
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_m1_t_kinematics_of_motion_in_a_straight_line_m04_l03_cpq05_p02_mp01",
+                "observable": "Calculates stage durations and distances for Train $B$: $t_{\\text{acc}} = \\frac{20}{1.0} = 20\\text{ s}$, $s_{\\text{acc}} = 200\\text{ m}$, $t_{\\text{dec}} = 20\\text{ s}$, $s_{\\text{dec}} = 200\\text{ m}$."
+              },
+              {
+                "criterion_id": "9709_m1_t_kinematics_of_motion_in_a_straight_line_m04_l03_cpq05_p02_mp02",
+                "observable": "Calculates cruising time for Train $B$: $\\frac{1800 - 400}{20} = \\frac{1400}{20} = 70\\text{ s}$."
+              },
+              {
+                "criterion_id": "9709_m1_t_kinematics_of_motion_in_a_straight_line_m04_l03_cpq05_p02_mp03",
+                "observable": "Obtains $T_B = 110\\text{ s}$ and concludes Train $A$ arrives earlier by $110 - 100 = 10\\text{ s}$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_m1_skill_interpreting_motion_graphs",
+            "9709_m1_skill_modelling_piecewise_motion"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_m1_skill_interpreting_motion_graphs",
+              "9709_m1_skill_modelling_piecewise_motion"
+            ],
+            "method_ids": [
+              "9709_m1_method_interpreting_motion_graphs",
+              "9709_m1_method_modelling_constant_acceleration_motion",
+              "9709_m1_method_modelling_piecewise_motion",
+              "9709_m1_method_sketching_motion_graphs"
+            ],
+            "formula_ids": [
+              "9709_m1_formula_trapezium_area",
+              "9709_m1_formula_suvat_v_u_at"
+            ],
+            "identity_ids": [],
+            "fact_ids": [
+              "9709_m1_fact_area_under_vt_graph_is_distance",
+              "9709_m1_fact_gradient_of_vt_graph_is_acceleration"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_m1_t_kinematics_of_motion_in_a_straight_line_m04_l03_cpq06",
+      "sequence": 12,
+      "difficulty": "hard",
+      "difficulty_reason": "Structured Practice: Capstone 1: Metro train parameter derivation via quadratic modeling of trapezoidal motion",
+      "source_question_id": "exam_practice_cpq06",
+      "source_role": "core_structured_practice",
+      "dependency_role": "none",
+      "dependency_refs": [],
+      "parts": [
+        {
+          "part_id": "9709_m1_t_kinematics_of_motion_in_a_straight_line_m04_l03_cpq06_p01",
+          "difficulty": "hard",
+          "question_pattern_ids": [
+            "9709_m1_pattern_velocity_time_graph_analysis"
+          ],
+          "source_evidence": {
+            "question_id": "exam_practice_cpq06",
+            "part_id": "exam_practice_cpq06_p01",
+            "legacy_practice_tier": "core_practice",
+            "product_role": "structured_practice",
+            "structural_inspiration": "Capstone 1: Metro train parameter derivation via quadratic modeling of trapezoidal motion"
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Acceleration time is $t_{\\text{acc}} = \\frac{V}{1.25} = 0.8V$, deceleration time is $t_{\\text{dec}} = \\frac{V}{2.5} = 0.4V$.",
+            "Cruising duration is $90 - (0.8V + 0.4V) = 90 - 1.2V$.",
+            "Total distance is trapezium area: $\\frac{(90 - 1.2V) + 90}{2} \\times V = (90 - 0.6V)V = 90V - 0.6V^2 = 1620$.",
+            "Rearrange to $0.6V^2 - 90V + 1620 = 0 \\implies V^2 - 150V + 2700 = 0$.",
+            "Factor $(V - 30)(V - 120) = 0$. For $V = 120$, $t_{\\text{acc}} + t_{\\text{dec}} = 1.2(120) = 144\\text{ s} > 90\\text{ s}$, which is impossible. Thus $V = 30\\text{ m s}^{-1}$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Express the durations of each of the three stages in terms of $V$:\n$$t_{\\text{acc}} = \\frac{V}{1.25} = 0.8V$$\n$$t_{\\text{dec}} = \\frac{V}{2.5} = 0.4V$$\n$$t_{\\text{cruise}} = 90 - (0.8V + 0.4V) = 90 - 1.2V$$"
+            },
+            {
+              "step": 2,
+              "text": "Set up the area of the velocity-time trapezium and equate it to $1620\\text{ m}$:\n$$s = \\frac{t_{\\text{cruise}} + T_{\\text{total}}}{2} \\times V$$\n$$1620 = \\frac{(90 - 1.2V) + 90}{2} \\times V = (90 - 0.6V)V = 90V - 0.6V^2$$"
+            },
+            {
+              "step": 3,
+              "text": "Rearrange into standard quadratic form and solve for $V$:\n$$0.6V^2 - 90V + 1620 = 0$$\n$$V^2 - 150V + 2700 = 0$$\n$$(V - 30)(V - 120) = 0$$"
+            },
+            {
+              "step": 4,
+              "text": "Analyze the physical validity of each solution:\n$$\\text{If } V = 120\\text{ m s}^{-1}, \\quad t_{\\text{acc}} + t_{\\text{dec}} = 1.2(120) = 144\\text{ s} > 90\\text{ s} \\quad (\\text{impossible})$$\n$$\\text{Therefore, the unique physical solution is } V = 30\\text{ m s}^{-1}$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "Formulate stage times:\n- Acceleration and braking:\n$$t_{\\text{acc}} = 0.8V, \\quad t_{\\text{dec}} = 0.4V$$\n$$t_{\\text{cruise}} = 90 - 1.2V$$"
+            },
+            {
+              "step": 2,
+              "text": "Form quadratic from track area:\n- Area relation:\n$$(90 - 0.6V)V = 1620 \\implies 0.6V^2 - 90V + 1620 = 0$$"
+            },
+            {
+              "step": 3,
+              "text": "Factor monic quadratic:\n- Dividing by 0.6:\n$$V^2 - 150V + 2700 = (V - 30)(V - 120) = 0$$"
+            },
+            {
+              "step": 4,
+              "text": "Reject unphysical root:\n- Time constraint check:\n$$1.2(120) = 144 > 90 \\implies V = 30\\text{ m s}^{-1}$$\nThe cruising speed is $30\\text{ m s}^{-1}$."
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_m1_t_kinematics_of_motion_in_a_straight_line_m04_l03_cpq06_p01_mp01",
+                "observable": "Expresses stage times in terms of $V$: $t_{\\text{acc}} = \\frac{V}{1.25} = 0.8V$, $t_{\\text{dec}} = \\frac{V}{2.5} = 0.4V$, and $t_{\\text{cruise}} = 90 - 1.2V$."
+              },
+              {
+                "criterion_id": "9709_m1_t_kinematics_of_motion_in_a_straight_line_m04_l03_cpq06_p01_mp02",
+                "observable": "Sets up total distance equation: $\\frac{(90 - 1.2V) + 90}{2} \\times V = 1620$."
+              },
+              {
+                "criterion_id": "9709_m1_t_kinematics_of_motion_in_a_straight_line_m04_l03_cpq06_p01_mp03",
+                "observable": "Simplifies to quadratic equation $0.6V^2 - 90V + 1620 = 0$ or $V^2 - 150V + 2700 = 0$."
+              },
+              {
+                "criterion_id": "9709_m1_t_kinematics_of_motion_in_a_straight_line_m04_l03_cpq06_p01_mp04",
+                "observable": "Solves to obtain $V = 30\\text{ m s}^{-1}$ and rejects $V = 120\\text{ m s}^{-1}$ because $1.2(120) = 144 > 90$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_m1_skill_interpreting_motion_graphs",
+            "9709_m1_skill_modelling_piecewise_motion"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_m1_skill_interpreting_motion_graphs",
+              "9709_m1_skill_modelling_piecewise_motion"
+            ],
+            "method_ids": [
+              "9709_m1_method_interpreting_motion_graphs",
+              "9709_m1_method_modelling_constant_acceleration_motion",
+              "9709_m1_method_modelling_piecewise_motion",
+              "9709_m1_method_sketching_motion_graphs"
+            ],
+            "formula_ids": [
+              "9709_m1_formula_trapezium_area",
+              "9709_m1_formula_suvat_v_u_at"
+            ],
+            "identity_ids": [],
+            "fact_ids": [
+              "9709_m1_fact_area_under_vt_graph_is_distance",
+              "9709_m1_fact_gradient_of_vt_graph_is_acceleration"
+            ]
+          }
+        },
+        {
+          "part_id": "9709_m1_t_kinematics_of_motion_in_a_straight_line_m04_l03_cpq06_p02",
+          "difficulty": "hard",
+          "question_pattern_ids": [
+            "9709_m1_pattern_velocity_time_graph_analysis"
+          ],
+          "source_evidence": {
+            "question_id": "exam_practice_cpq06",
+            "part_id": "exam_practice_cpq06_p02",
+            "legacy_practice_tier": "core_practice",
+            "product_role": "structured_practice",
+            "structural_inspiration": "Capstone 1: Metro train parameter derivation via quadratic modeling of trapezoidal motion"
+          },
+          "dependency_role": "none",
+          "dependency_refs": [
+            "9709_m1_t_kinematics_of_motion_in_a_straight_line_m04_l03_cpq06_p01"
+          ],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Substitute $V = 30$ into the stage time expressions.",
+            "Acceleration: $t_{\\text{acc}} = 0.8(30) = 24\\text{ s}$, $s_{\\text{acc}} = \\frac{1}{2}(24)(30) = 360\\text{ m}$.",
+            "Deceleration: $t_{\\text{dec}} = 0.4(30) = 12\\text{ s}$, $s_{\\text{dec}} = \\frac{1}{2}(12)(30) = 180\\text{ m}$.",
+            "Cruising: $t_{\\text{cruise}} = 90 - 36 = 54\\text{ s}$, $s_{\\text{cruise}} = 54 \\times 30 = 1080\\text{ m}$. Check: $360 + 1080 + 180 = 1620\\text{ m}$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Evaluate the acceleration stage duration and displacement for $V = 30\\text{ m s}^{-1}$:\n$$t_{\\text{acc}} = \\frac{30}{1.25} = 24\\text{ s}$$\n$$s_{\\text{acc}} = \\frac{1}{2}(t_{\\text{acc}})(V) = \\frac{1}{2}(24)(30) = 360\\text{ m}$$"
+            },
+            {
+              "step": 2,
+              "text": "Evaluate the deceleration stage duration and displacement:\n$$t_{\\text{dec}} = \\frac{30}{2.5} = 12\\text{ s}$$\n$$s_{\\text{dec}} = \\frac{1}{2}(t_{\\text{dec}})(V) = \\frac{1}{2}(12)(30) = 180\\text{ m}$$"
+            },
+            {
+              "step": 3,
+              "text": "Evaluate the constant speed cruising stage duration and displacement:\n$$t_{\\text{cruise}} = 90 - (24 + 12) = 54\\text{ s}$$\n$$s_{\\text{cruise}} = 54 \\times 30 = 1080\\text{ m}$$\n$$\\text{Check sum: } 360 + 1080 + 180 = 1620\\text{ m}$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "Evaluate initial acceleration stage:\n- Duration and distance:\n$$t_{\\text{acc}} = 24\\text{ s}, \\quad s_{\\text{acc}} = 360\\text{ m}$$"
+            },
+            {
+              "step": 2,
+              "text": "Evaluate final braking stage:\n- Duration and distance:\n$$t_{\\text{dec}} = 12\\text{ s}, \\quad s_{\\text{dec}} = 180\\text{ m}$$"
+            },
+            {
+              "step": 3,
+              "text": "Evaluate cruising middle stage:\n- Duration and distance:\n$$t_{\\text{cruise}} = 54\\text{ s}, \\quad s_{\\text{cruise}} = 1080\\text{ m}$$\nThe stages are $24\\text{ s}$ ($360\\text{ m}$), $54\\text{ s}$ ($1080\\text{ m}$), and $12\\text{ s}$ ($180\\text{ m}$)."
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_m1_t_kinematics_of_motion_in_a_straight_line_m04_l03_cpq06_p02_mp01",
+                "observable": "Calculates acceleration stage metrics: $t_{\\text{acc}} = 0.8(30) = 24\\text{ s}$ and $s_{\\text{acc}} = \\frac{1}{2}(24)(30) = 360\\text{ m}$."
+              },
+              {
+                "criterion_id": "9709_m1_t_kinematics_of_motion_in_a_straight_line_m04_l03_cpq06_p02_mp02",
+                "observable": "Calculates deceleration stage metrics: $t_{\\text{dec}} = 0.4(30) = 12\\text{ s}$ and $s_{\\text{dec}} = \\frac{1}{2}(12)(30) = 180\\text{ m}$."
+              },
+              {
+                "criterion_id": "9709_m1_t_kinematics_of_motion_in_a_straight_line_m04_l03_cpq06_p02_mp03",
+                "observable": "Calculates cruising stage duration: $t_{\\text{cruise}} = 90 - 24 - 12 = 54\\text{ s}$."
+              },
+              {
+                "criterion_id": "9709_m1_t_kinematics_of_motion_in_a_straight_line_m04_l03_cpq06_p02_mp04",
+                "observable": "Calculates cruising stage distance: $s_{\\text{cruise}} = 54 \\times 30 = 1080\\text{ m}$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_m1_skill_interpreting_motion_graphs",
+            "9709_m1_skill_modelling_piecewise_motion"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_m1_skill_interpreting_motion_graphs",
+              "9709_m1_skill_modelling_piecewise_motion"
+            ],
+            "method_ids": [
+              "9709_m1_method_interpreting_motion_graphs",
+              "9709_m1_method_modelling_constant_acceleration_motion",
+              "9709_m1_method_modelling_piecewise_motion",
+              "9709_m1_method_sketching_motion_graphs"
+            ],
+            "formula_ids": [
+              "9709_m1_formula_trapezium_area",
+              "9709_m1_formula_triangle_area"
+            ],
+            "identity_ids": [],
+            "fact_ids": [
+              "9709_m1_fact_area_under_vt_graph_is_distance",
+              "9709_m1_fact_gradient_of_vt_graph_is_acceleration"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_m1_t_kinematics_of_motion_in_a_straight_line_m04_l03_cpq07",
+      "sequence": 13,
+      "difficulty": "hard",
+      "difficulty_reason": "Structured Practice: Capstone 2: Triangular speed profile and transit time degradation under speed restrictions",
+      "source_question_id": "exam_practice_cpq07",
+      "source_role": "core_structured_practice",
+      "dependency_role": "none",
+      "dependency_refs": [],
+      "parts": [
+        {
+          "part_id": "9709_m1_t_kinematics_of_motion_in_a_straight_line_m04_l03_cpq07_p01",
+          "difficulty": "hard",
+          "question_pattern_ids": [
+            "9709_m1_pattern_velocity_time_graph_analysis"
+          ],
+          "source_evidence": {
+            "question_id": "exam_practice_cpq07",
+            "part_id": "exam_practice_cpq07_p01",
+            "legacy_practice_tier": "core_practice",
+            "product_role": "structured_practice",
+            "structural_inspiration": "Capstone 2: Triangular speed profile and transit time degradation under speed restrictions"
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "In a non-cruising journey, the velocity-time graph is a single triangle.",
+            "Acceleration time is $\\frac{V}{1.5} = \\frac{2}{3}V$, deceleration time is $\\frac{V}{3.0} = \\frac{1}{3}V$.",
+            "Total time is $T_0 = \\frac{2}{3}V + \\frac{1}{3}V = V$.",
+            "The area of the triangle is $\\frac{1}{2} \\times T_0 \\times V = \\frac{1}{2}V^2 = 1200$.",
+            "Solve: $V^2 = 2400 \\implies V_0 = \\sqrt{2400} = 20\\sqrt{6} \\approx 49.0\\text{ m s}^{-1}$, so $T_0 \\approx 49.0\\text{ s}$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Express acceleration and deceleration durations in terms of peak velocity $V$:\n$$t_{\\text{acc}} = \\frac{V}{1.5} = \\frac{2}{3}V$$\n$$t_{\\text{dec}} = \\frac{V}{3.0} = \\frac{1}{3}V$$\n$$T_0 = t_{\\text{acc}} + t_{\\text{dec}} = \\frac{2}{3}V + \\frac{1}{3}V = V$$"
+            },
+            {
+              "step": 2,
+              "text": "Set up the area of the triangular velocity-time graph and equate to $1200\\text{ m}$:\n$$\\text{Area} = \\frac{1}{2} \\times \\text{base} \\times \\text{height} = \\frac{1}{2}(T_0)(V) = \\frac{1}{2}V^2$$\n$$\\frac{1}{2}V^2 = 1200 \\implies V^2 = 2400$$"
+            },
+            {
+              "step": 3,
+              "text": "Solve for the maximum speed $V_0$ and journey duration $T_0$:\n$$V_0 = \\sqrt{2400} = 20\\sqrt{6} \\approx 49.0\\text{ m s}^{-1}$$\n$$T_0 = V_0 = 20\\sqrt{6} \\approx 49.0\\text{ s}$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "Express base of velocity triangle:\n- Summing durations:\n$$T_0 = \\frac{V}{1.5} + \\frac{V}{3.0} = \\frac{2V + V}{3} = V$$"
+            },
+            {
+              "step": 2,
+              "text": "Equate triangle area to distance:\n- Area relation:\n$$\\frac{1}{2}V^2 = 1200 \\implies V^2 = 2400$$"
+            },
+            {
+              "step": 3,
+              "text": "Evaluate peak velocity and time:\n- Square root:\n$$V_0 = \\sqrt{2400} = 20\\sqrt{6} \\approx 49.0\\text{ m s}^{-1}$$\n$$T_0 \\approx 49.0\\text{ s}$$\nThe train reaches $49.0\\text{ m s}^{-1}$ taking $49.0\\text{ s}$."
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_m1_t_kinematics_of_motion_in_a_straight_line_m04_l03_cpq07_p01_mp01",
+                "observable": "Expresses stage times in terms of $V$: $t_{\\text{acc}} = \\frac{V}{1.5}$ and $t_{\\text{dec}} = \\frac{V}{3.0}$."
+              },
+              {
+                "criterion_id": "9709_m1_t_kinematics_of_motion_in_a_straight_line_m04_l03_cpq07_p01_mp02",
+                "observable": "Finds total time expression: $T_0 = V\\left(\\frac{2}{3} + \\frac{1}{3}\\right) = V$."
+              },
+              {
+                "criterion_id": "9709_m1_t_kinematics_of_motion_in_a_straight_line_m04_l03_cpq07_p01_mp03",
+                "observable": "Sets triangular area $\\frac{1}{2}(T_0)(V_0) = \\frac{1}{2}V_0^2 = 1200$."
+              },
+              {
+                "criterion_id": "9709_m1_t_kinematics_of_motion_in_a_straight_line_m04_l03_cpq07_p01_mp04",
+                "observable": "Solves $V_0^2 = 2400$ to obtain $V_0 = 20\\sqrt{6} \\approx 49.0\\text{ m s}^{-1}$ and $T_0 = 49.0\\text{ s}$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_m1_skill_interpreting_motion_graphs",
+            "9709_m1_skill_modelling_constant_acceleration_motion"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_m1_skill_interpreting_motion_graphs",
+              "9709_m1_skill_modelling_constant_acceleration_motion"
+            ],
+            "method_ids": [
+              "9709_m1_method_interpreting_motion_graphs",
+              "9709_m1_method_modelling_constant_acceleration_motion",
+              "9709_m1_method_modelling_piecewise_motion",
+              "9709_m1_method_sketching_motion_graphs"
+            ],
+            "formula_ids": [
+              "9709_m1_formula_triangle_area",
+              "9709_m1_formula_suvat_v_u_at"
+            ],
+            "identity_ids": [],
+            "fact_ids": [
+              "9709_m1_fact_area_under_vt_graph_is_distance",
+              "9709_m1_fact_gradient_of_vt_graph_is_acceleration"
+            ]
+          }
+        },
+        {
+          "part_id": "9709_m1_t_kinematics_of_motion_in_a_straight_line_m04_l03_cpq07_p02",
+          "difficulty": "hard",
+          "question_pattern_ids": [
+            "9709_m1_pattern_velocity_time_graph_analysis"
+          ],
+          "source_evidence": {
+            "question_id": "exam_practice_cpq07",
+            "part_id": "exam_practice_cpq07_p02",
+            "legacy_practice_tier": "core_practice",
+            "product_role": "structured_practice",
+            "structural_inspiration": "Capstone 2: Triangular speed profile and transit time degradation under speed restrictions"
+          },
+          "dependency_role": "none",
+          "dependency_refs": [
+            "9709_m1_t_kinematics_of_motion_in_a_straight_line_m04_l03_cpq07_p01"
+          ],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "For $V = 30\\text{ m s}^{-1}$: acceleration time is $\\frac{30}{1.5} = 20\\text{ s}$, covering $\\frac{1}{2}(20)(30) = 300\\text{ m}$.",
+            "Deceleration time is $\\frac{30}{3.0} = 10\\text{ s}$, covering $\\frac{1}{2}(10)(30) = 150\\text{ m}$.",
+            "Cruising distance is $1200 - (300 + 150) = 750\\text{ m}$, giving cruising time $\\frac{750}{30} = 25\\text{ s}$. Total time is $T = 20 + 25 + 10 = 55\\text{ s}$.",
+            "Percentage increase is $\\frac{T - T_0}{T_0} \\times 100\\% = \\frac{55 - 48.99}{48.99} \\times 100\\% \\approx 12.3\\%$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Calculate the acceleration and deceleration metrics when capped at $V = 30\\text{ m s}^{-1}$:\n$$t_{\\text{acc}} = \\frac{30}{1.5} = 20\\text{ s}, \\quad s_{\\text{acc}} = \\frac{1}{2}(20)(30) = 300\\text{ m}$$\n$$t_{\\text{dec}} = \\frac{30}{3.0} = 10\\text{ s}, \\quad s_{\\text{dec}} = \\frac{1}{2}(10)(30) = 150\\text{ m}$$"
+            },
+            {
+              "step": 2,
+              "text": "Determine the cruising duration and total journey time $T$:\n$$s_{\\text{cruise}} = 1200 - (300 + 150) = 750\\text{ m}$$\n$$t_{\\text{cruise}} = \\frac{750}{30} = 25\\text{ s}$$\n$$T = 20 + 25 + 10 = 55\\text{ s}$$"
+            },
+            {
+              "step": 3,
+              "text": "Calculate the percentage increase in journey time relative to the unconstrained time $T_0$:\n$$\\Delta T = 55 - 20\\sqrt{6} = 55 - 48.9898 = 6.0102\\text{ s}$$\n$$\\text{Percentage increase} = \\frac{6.0102}{48.9898} \\times 100\\% \\approx 12.3\\%$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "Evaluate restricted speed profile:\n- Non-cruising phases:\n$$t_{\\text{acc}} = 20\\text{ s} \\implies s_{\\text{acc}} = 300\\text{ m}$$\n$$t_{\\text{dec}} = 10\\text{ s} \\implies s_{\\text{dec}} = 150\\text{ m}$$"
+            },
+            {
+              "step": 2,
+              "text": "Evaluate cruising and total time:\n- Cruising phase:\n$$s_{\\text{cruise}} = 750\\text{ m} \\implies t_{\\text{cruise}} = 25\\text{ s}$$\n$$T = 20 + 25 + 10 = 55\\text{ s}$$"
+            },
+            {
+              "step": 3,
+              "text": "Evaluate percentage degradation:\n- Time penalty:\n$$\\frac{55 - 48.99}{48.99} \\times 100\\% \\approx 12.3\\%$$\nThe journey takes $55\\text{ s}$, an increase of $12.3\\%$."
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_m1_t_kinematics_of_motion_in_a_straight_line_m04_l03_cpq07_p02_mp01",
+                "observable": "Calculates non-cruising times and distances for $V = 30$: $t_{\\text{acc}} = 20\\text{ s}$, $s_{\\text{acc}} = 300\\text{ m}$, $t_{\\text{dec}} = 10\\text{ s}$, $s_{\\text{dec}} = 150\\text{ m}$."
+              },
+              {
+                "criterion_id": "9709_m1_t_kinematics_of_motion_in_a_straight_line_m04_l03_cpq07_p02_mp02",
+                "observable": "Calculates cruising time $\\frac{1200 - 450}{30} = 25\\text{ s}$ and total time $T = 20 + 25 + 10 = 55\\text{ s}$."
+              },
+              {
+                "criterion_id": "9709_m1_t_kinematics_of_motion_in_a_straight_line_m04_l03_cpq07_p02_mp03",
+                "observable": "Calculates percentage increase: $\\frac{55 - 48.99}{48.99} \\times 100\\% \\approx 12.3\\%$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_m1_skill_interpreting_motion_graphs",
+            "9709_m1_skill_modelling_piecewise_motion"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_m1_skill_interpreting_motion_graphs",
+              "9709_m1_skill_modelling_piecewise_motion"
+            ],
+            "method_ids": [
+              "9709_m1_method_interpreting_motion_graphs",
+              "9709_m1_method_modelling_constant_acceleration_motion",
+              "9709_m1_method_modelling_piecewise_motion",
+              "9709_m1_method_sketching_motion_graphs"
+            ],
+            "formula_ids": [
+              "9709_m1_formula_trapezium_area",
+              "9709_m1_formula_suvat_v_u_at"
+            ],
+            "identity_ids": [],
+            "fact_ids": [
+              "9709_m1_fact_area_under_vt_graph_is_distance",
+              "9709_m1_fact_gradient_of_vt_graph_is_acceleration"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

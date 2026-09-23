@@ -1,0 +1,76 @@
+{
+  "schema_version": "9709_math_enrichment_v3",
+  "paper_code": "9709_w16_31",
+  "question_id": "9709_w16_31_q4",
+  "question_num": 4,
+  "subject_code": "9709",
+  "component": "P3",
+  "year": 2016,
+  "session": "Oct/Nov",
+  "variant": "31",
+  "difficulty": 4,
+  "numerical_values_checked": false,
+  "parts": [
+    {
+      "part_id": "9709_w16_31_q4",
+      "difficulty": 4,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_p3_t_differentiation",
+        "module_id": "9709_p3_t_differentiation_m02",
+        "lesson_id": "9709_p3_t_differentiation_m02_l02"
+      },
+      "skills": {
+        "primary_skill_id": "9709_p3_skill_finding_stationary_points",
+        "skill_tags": [
+          "Finding Stationary Points"
+        ]
+      },
+      "question_pattern_ids": [
+        "9709_p3_pattern_solve_equation",
+        "9709_p3_pattern_prove_or_show",
+        "9709_p3_pattern_find_parameter",
+        "9709_p3_pattern_calculus_process",
+        "9709_p3_pattern_trigonometric_reasoning"
+      ],
+      "knowledge_refs": {
+        "formula_ids": [],
+        "identity_ids": [
+          "9709_p3_identity_double_angle",
+          "9709_p3_identity_pythagorean"
+        ],
+        "method_ids": [
+          "9709_p3_method_finding_stationary_points"
+        ],
+        "fact_ids": [
+          "9709_p3_fact_stationary_point"
+        ]
+      },
+      "hints": [
+        "Expand the curve equation as $x^2y-6xy^2=9a^3$ and differentiate implicitly.",
+        "For a horizontal tangent set $dy/dx=0$ in the differentiated equation.",
+        "Factor the remaining condition in $x,y$; reject $y=0$ because $a\\ne0$ makes it incompatible with the original curve.",
+        "Use the surviving relation between $x$ and $y$ in the original equation.",
+        "Solve consistently for the single point in terms of $a$, explaining why no other case remains."
+      ],
+      "walkthrough": [
+        "Expand the curve equation $xy(x - 6y) = 9a^3$:\n$$x^2y - 6xy^2 = 9a^3$$",
+        "Differentiate both sides implicitly with respect to $x$ using the product rule:\n$$\\left(2xy + x^2\\dfrac{\\mathrm{d}y}{\\mathrm{d}x}\\right) - 6\\left(y^2 + 2xy\\dfrac{\\mathrm{d}y}{\\mathrm{d}x}\\right) = 0$$",
+        "Expand and collect terms with $\\dfrac{\\mathrm{d}y}{\\mathrm{d}x}$:\n$$2xy - 6y^2 + (x^2 - 12xy)\\dfrac{\\mathrm{d}y}{\\mathrm{d}x} = 0$$\n$$\\dfrac{\\mathrm{d}y}{\\mathrm{d}x} = \\dfrac{6y^2 - 2xy}{x^2 - 12xy} = \\dfrac{2y(3y - x)}{x(x - 12y)}$$",
+        "A tangent parallel to the $x$-axis has $\\dfrac{\\mathrm{d}y}{\\mathrm{d}x} = 0$, so set the numerator to zero:\n$$2y(3y - x) = 0 \\implies y = 0 \\quad \\text{or} \\quad x = 3y$$",
+        "Test $y = 0$: substituting $y = 0$ into the curve equation gives $0 = 9a^3$, which is impossible since $a$ is a non-zero constant. Thus $y \\neq 0$.",
+        "Substitute $x = 3y$ into the curve equation $xy(x - 6y) = 9a^3$:\n$$(3y)(y)(3y - 6y) = 9a^3$$\n$$3y^2(-3y) = 9a^3$$\n$$-9y^3 = 9a^3 \\implies y^3 = -a^3 \\implies y = -a$$",
+        "Find $x$ from $x = 3y$:\n$$x = 3(-a) = -3a$$",
+        "Check the denominator at $(-3a, -a)$: $x(x - 12y) = (-3a)(-3a + 12a) = (-3a)(9a) = -27a^2 \\neq 0$ since $a \\neq 0$.",
+        "Because $y^3 = -a^3$ has only one real root, there is only one point on the curve with a horizontal tangent, with coordinates:\n$$(-3a, -a)$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "ai_rubric": {
+          "Finding Stationary Points": "Identifies $2xy+x^2\\frac{dy}{dx}$, or equivalent, as derivative of $x^2y$; Within first route: differentiating LHS using product rule, state term $xy(1-6\\frac{dy}{dx})$, or equivalent; Concludes with $(-3a,-a)$."
+        },
+        "criteria_source": "mark_scheme_structured"
+      }
+    }
+  ]
+}

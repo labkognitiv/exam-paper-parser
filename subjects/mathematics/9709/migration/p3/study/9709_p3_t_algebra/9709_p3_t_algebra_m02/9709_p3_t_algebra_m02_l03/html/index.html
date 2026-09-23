@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Repeated factors · Kognitiv</title>
+  <meta name="description" content="Use a polynomial and its derivative to identify and work with repeated factors.">
+  <link rel="stylesheet" href="assets/style.css">
+  <script defer src="assets/check-ins.js"></script>
+</head>
+<body>
+<a class="skip" href="#lesson">Skip to lesson</a>
+<div class="top">Kognitiv <span>/ Mathematics 9709 · Pure Mathematics 3</span><button onclick="print()">Print / save PDF</button></div>
+<main data-lesson-id="9709_p3_t_algebra_m02_l03">
+  <nav class="lesson-nav" aria-label="Lesson navigation">
+    <span>Algebra · Module 2 · Lesson 3</span>
+    <a href="#method">Key ideas</a>
+    <a href="#examples">Worked example</a>
+    <a href="#more-examples">More worked examples</a>
+  </nav>
+  <header class="hero">
+    <div class="kicker">One root, more than one copy</div>
+    <h1>Find where a polynomial meets the axis and goes flat.</h1>
+    <p>A repeated factor gives two useful facts at the same value of <span class="math">x</span>. The polynomial is zero there, and its gradient is zero there.</p>
+  </header>
+
+  <section id="lesson" data-source-pages="1">
+    <h2>What a repeated factor means</h2>
+    <ul class="points">
+      <li>A <strong>polynomial</strong> is an expression made from powers of <span class="math">x</span> with non-negative whole-number exponents.</li>
+      <li>A <strong>coefficient</strong> is the number or constant multiplying a power of x.</li>
+      <li>A <strong>factor</strong> is an expression that multiplies another expression.</li>
+      <li>A <strong>root</strong> is a value of <span class="math">x</span> that makes the polynomial equal zero.</li>
+      <li>The factor theorem says: <span class="math">x − c</span> is a factor of <span class="math">p(x)</span> exactly when <span class="math">p(c) = 0</span>.</li>
+      <li>Notice the sign: <span class="math">x − c = 0</span> gives <span class="math">x = c</span>.</li>
+      <li>A <strong>repeated factor</strong> occurs at least twice, such as <span class="math">(x − c)<sup>2</sup></span>.</li>
+      <li>The number of copies is its <strong>multiplicity</strong>.</li>
+    </ul>
+    <div class="formula">
+      <h3>Repeated-factor conditions</h3>
+      <span class="math display" tabindex="0" role="region" aria-label="Equation; scroll horizontally if needed">p(x) = (x − c)<sup>m</sup>q(x), &nbsp; m ≥ 2</span>
+      <ul class="points">
+        <li>The integer <span class="math">m</span> is the exact multiplicity when <span class="math">q(c) ≠ 0</span>. If <span class="math">m ≥ 2</span>, the factor is repeated.</li>
+        <li>At <span class="math">x = c</span>, the repeated factor is zero, so <span class="math">p(c) = 0</span>.</li>
+        <li>The <strong>gradient</strong> describes the graph’s steepness: how its height changes as x increases. At one point, it is the slope of the tangent, the straight line matching the curve’s direction there.</li>
+        <li>A zero gradient means that tangent is horizontal.</li>
+        <li>The derivative <span class="math">p′(x)</span> gives the gradient of the graph at each value of <span class="math">x</span>.</li>
+        <li>The prime mark in <span class="math">p′</span> is read “p prime”.</li>
+        <li>A repeated polynomial root has gradient zero, so <span class="math">p′(c) = 0</span>.</li>
+      </ul>
+    </div>
+    <div class="formula">
+      <h3>Differentiation used here</h3>
+      <ul class="points">
+        <li>For a term <span class="math">Ax<sup>n</sup></span>, where A is a constant coefficient and n is a positive whole number, multiply by the exponent and reduce the exponent by one.</li>
+        <li><span class="math">d/dx(Ax<sup>n</sup>) = nAx<sup>n−1</sup></span>.</li>
+        <li>A constant has derivative zero because its graph has gradient zero.</li>
+        <li>For example, <span class="math">d/dx(ax<sup>3</sup>) = 3ax<sup>2</sup></span>.</li>
+      </ul>
+    </div>
+    <div class="comparison">
+      <div>
+        <h3>Even multiplicity</h3>
+        <p>The graph touches the <span class="math">x</span>-axis and turns back.</p>
+        <svg viewBox="0 0 360 210" role="img" aria-label="A curve touching the x-axis at x equals c with zero gradient" style="width:100%;max-width:440px">
+          <path d="M30 170H335M60 190V20" fill="none" stroke="#302b40" stroke-width="2"/>
+          <path d="M95 45 Q185 295 275 45" fill="none" stroke="#29213f" stroke-width="4"/>
+          <circle cx="185" cy="170" r="6" fill="#08756f"/><path d="M140 170H230" stroke="#08756f" stroke-width="3"/>
+          <text x="170" y="198" fill="#302b40">x = c</text><text x="235" y="160" fill="#08756f">gradient 0</text>
+        </svg>
+      </div>
+      <div>
+        <h3>Odd repeated multiplicity</h3>
+        <p>The graph crosses the axis, but it is flat at the root.</p>
+        <svg viewBox="0 0 360 210" role="img" aria-label="A curve crossing the x-axis at x equals c with zero gradient" style="width:100%;max-width:440px">
+          <path d="M30 110H335M60 190V20" fill="none" stroke="#302b40" stroke-width="2"/>
+          <path d="M95 170 C155 50 215 170 275 50" fill="none" stroke="#29213f" stroke-width="4"/>
+          <circle cx="185" cy="110" r="6" fill="#08756f"/><path d="M140 110H230" stroke="#08756f" stroke-width="3"/>
+          <text x="174" y="138" fill="#302b40">x = c</text><text x="232" y="102" fill="#08756f">gradient 0</text>
+        </svg>
+      </div>
+    </div>
+    <ol class="method">
+      <li>Read <span class="math">c</span> from <span class="math">x − c</span>.</li>
+      <li>Write <span class="math">p(c) = 0</span>.</li>
+      <li>Differentiate <span class="math">p(x)</span>.</li>
+      <li>Write <span class="math">p′(c) = 0</span>.</li>
+      <li>Solve both equations.</li>
+    </ol>
+  </section>
+
+  <section id="examples" data-source-pages="2,3,5">
+    <h2>Worked example</h2>
+    <article class="example">
+      <p><span class="math">p(x) = ax<sup>3</sup> − 10x<sup>2</sup> + bx + 8</span>. The expression <span class="math">x − 2</span> is a factor of both <span class="math">p(x)</span> and <span class="math">p′(x)</span>. Find <span class="math">a</span> and <span class="math">b</span>. <strong>[5]</strong></p>
+      <ol class="steps">
+        <li><span class="math">x − 2</span> gives the root <span class="math">x = 2</span>.</li>
+        <li>Use <span class="math">p(2) = 0</span>:<br><span class="math display" tabindex="0" role="region" aria-label="Equation; scroll horizontally if needed">8a − 40 + 2b + 8 = 0</span><span class="math display" tabindex="0" role="region" aria-label="Equation; scroll horizontally if needed">8a + 2b − 32 = 0</span><span class="math display" tabindex="0" role="region" aria-label="Equation; scroll horizontally if needed">4a + b = 16 &nbsp; (1)</span></li>
+        <li>Differentiate term by term:<br><span class="math display" tabindex="0" role="region" aria-label="Equation; scroll horizontally if needed">p′(x) = 3ax<sup>2</sup> − 20x + b</span></li>
+        <li>Use <span class="math">p′(2) = 0</span>:<br><span class="math display" tabindex="0" role="region" aria-label="Equation; scroll horizontally if needed">12a − 40 + b = 0</span><span class="math display" tabindex="0" role="region" aria-label="Equation; scroll horizontally if needed">12a + b = 40 &nbsp; (2)</span></li>
+        <li>Subtract equation (1) from equation (2):<br><span class="math display" tabindex="0" role="region" aria-label="Equation; scroll horizontally if needed">(12a + b) − (4a + b) = 40 − 16</span><span class="math display" tabindex="0" role="region" aria-label="Equation; scroll horizontally if needed">8a = 24</span><span class="math display" tabindex="0" role="region" aria-label="Equation; scroll horizontally if needed">a = 3</span></li>
+        <li>Substitute <span class="math">a = 3</span> into equation (1):<br><span class="math display" tabindex="0" role="region" aria-label="Equation; scroll horizontally if needed">4(3) + b = 16</span><span class="math display" tabindex="0" role="region" aria-label="Equation; scroll horizontally if needed">b = 4</span></li>
+      </ol>
+      <p class="answer">Answer: <span class="math">a = 3, b = 4</span>.</p>
+      <p class="teacher">Final check: both p(2) and p′(2) must equal zero.</p>
+    </article>
+    <div class="note">
+      <h3>Common traps</h3>
+      <ul class="points">
+        <li><span class="math">x − 2</span> gives <span class="math">x = 2</span>, not <span class="math">x = −2</span>.</li>
+        <li>Use two different conditions: <span class="math">p(2) = 0</span> and <span class="math">p′(2) = 0</span>.</li>
+        <li>The derivative of <span class="math">ax<sup>3</sup></span> is <span class="math">3ax<sup>2</sup></span>.</li>
+        <li>Find both unknown coefficients.</li>
+      </ul>
+    </div>
+    <div class="check">
+      <div class="check-label">Check 1</div>
+      <p><strong>If <span class="math">x − 4</span> is a repeated factor of <span class="math">f(x)</span>, which pair must be true?</strong></p>
+      <div class="options">
+        <button aria-pressed="false" data-feedback="Correct. The factor x − 4 gives x = 4, and repetition also makes the derivative zero there.">A. <span class="math">f(4) = 0</span> and <span class="math">f′(4) = 0</span></button>
+        <button aria-pressed="false" data-feedback="Not this pair. Solving x − 4 = 0 gives x = 4, not x = −4.">B. <span class="math">f(−4) = 0</span> and <span class="math">f′(−4) = 0</span></button>
+      </div>
+      <p class="feedback" aria-live="polite">Choose A or B.</p>
+    </div>
+  </section>
+
+  <section id="method" class="recap">
+    <h2>From a repeated root to a factorisation</h2><ul class="points"><li>A <strong>cubic</strong> has highest power 3. Removing two copies of a linear factor leaves one linear factor.</li><li>Write p(x) = (x − c)²(kx + d), with unknown constants k and d.</li><li>Expand the product and compare coefficients: equal polynomials have the same coefficient beside each power of x.</li></ul><h2>Key ideas</h2>
+    <ul class="points">
+      <li><span class="math">x − c</span> is a repeated factor when <span class="math">p(c) = 0</span> and <span class="math">p′(c) = 0</span>.</li>
+      <li>The derivative gives the gradient, so a repeated root is flat at <span class="math">x = c</span>.</li>
+      <li>Even multiplicity touches the axis. Odd repeated multiplicity crosses with gradient zero.</li>
+      <li>The two zero conditions usually form simultaneous equations for unknown coefficients.</li>
+      <li>Once a double root is known, begin a cubic factorisation with <span class="math">(x − c)<sup>2</sup></span>.</li>
+    </ul>
+    <p><a href="#more-examples">Continue to more worked examples</a></p>
+  </section>
+
+  <section id="more-examples" data-source-pages="4,6">
+    <h2>More worked examples</h2>
+    <article class="example">
+      <h3>Worked example</h3>
+      <p><span class="math">p(x) = ax<sup>3</sup> − 8x<sup>2</sup> + bx + 4</span>. The expression <span class="math">x − 1</span> is a factor of both <span class="math">p(x)</span> and <span class="math">p′(x)</span>. Find <span class="math">a</span> and <span class="math">b</span>.</p>
+      <ol class="steps">
+        <li><span class="math">x − 1</span> gives <span class="math">x = 1</span>.</li>
+        <li>Use <span class="math">p(1) = 0</span>:<br><span class="math display" tabindex="0" role="region" aria-label="Equation; scroll horizontally if needed">a − 8 + b + 4 = 0</span><span class="math display" tabindex="0" role="region" aria-label="Equation; scroll horizontally if needed">a + b = 4 &nbsp; (1)</span></li>
+        <li>Differentiate:<br><span class="math display" tabindex="0" role="region" aria-label="Equation; scroll horizontally if needed">p′(x) = 3ax<sup>2</sup> − 16x + b</span></li>
+        <li>Use <span class="math">p′(1) = 0</span>:<br><span class="math display" tabindex="0" role="region" aria-label="Equation; scroll horizontally if needed">3a − 16 + b = 0</span><span class="math display" tabindex="0" role="region" aria-label="Equation; scroll horizontally if needed">3a + b = 16 &nbsp; (2)</span></li>
+        <li>Subtract equation (1) from equation (2):<br><span class="math display" tabindex="0" role="region" aria-label="Equation; scroll horizontally if needed">2a = 12</span><span class="math display" tabindex="0" role="region" aria-label="Equation; scroll horizontally if needed">a = 6</span></li>
+        <li>Use equation (1): <span class="math">6 + b = 4</span>, so <span class="math">b = −2</span>.</li>
+      </ol>
+      <p class="answer">Answer: <span class="math">a = 6, b = −2</span>.</p>
+    </article>
+    <article class="example">
+      <h3>Worked example</h3>
+      <p>For <span class="math">a = 3</span> and <span class="math">b = 4</span>, factorise <span class="math">p(x) = 3x<sup>3</sup> − 10x<sup>2</sup> + 4x + 8</span> completely. <strong>[3]</strong></p>
+      <ol class="steps">
+        <li>Because <span class="math">x − 2</span> divides both <span class="math">p(x)</span> and <span class="math">p′(x)</span>, it is repeated.</li>
+        <li>A cubic has total degree 3. After the two copies of <span class="math">x − 2</span>, one linear factor remains.</li>
+        <li>Write <span class="math display" tabindex="0" role="region" aria-label="Equation; scroll horizontally if needed">p(x) = (x − 2)<sup>2</sup>(kx + m)</span>.</li>
+        <li>Expand the square first:<br><span class="math display" tabindex="0" role="region" aria-label="Equation; scroll horizontally if needed">(x − 2)<sup>2</sup> = x<sup>2</sup> − 4x + 4</span></li>
+        <li>Multiply by <span class="math">kx + m</span>:<br><span class="math display" tabindex="0" role="region" aria-label="Equation; scroll horizontally if needed">(x<sup>2</sup> − 4x + 4)(kx + m)</span><span class="math display" tabindex="0" role="region" aria-label="Equation; scroll horizontally if needed">= kx<sup>3</sup> + (m − 4k)x<sup>2</sup> + (4k − 4m)x + 4m</span></li>
+        <li><strong>Compare coefficients</strong>: equal polynomials have matching coefficients of each power of <span class="math">x</span>.<br><span class="math display" tabindex="0" role="region" aria-label="Equation; scroll horizontally if needed">k = 3</span><span class="math display" tabindex="0" role="region" aria-label="Equation; scroll horizontally if needed">m − 4k = −10</span><span class="math display" tabindex="0" role="region" aria-label="Equation; scroll horizontally if needed">4k − 4m = 4</span><span class="math display" tabindex="0" role="region" aria-label="Equation; scroll horizontally if needed">4m = 8</span></li>
+        <li>The first and last equations give <span class="math">k = 3</span> and <span class="math">m = 2</span>. The two middle equations confirm the same values.</li>
+      </ol>
+      <p class="answer">Answer: <span class="math">p(x) = (x − 2)<sup>2</sup>(3x + 2)</span>.</p>
+    </article>
+    <div class="check">
+      <div class="check-label">Check 2</div>
+      <p><strong>Differentiate <span class="math">r(x) = 2x<sup>3</sup> − 5x<sup>2</sup> + 7x − 9</span>. Which is correct?</strong></p>
+      <div class="options">
+        <button aria-pressed="false" data-feedback="Correct. Multiply each power term by its exponent, reduce that exponent by one, and differentiate the constant to zero.">A. <span class="math">r′(x) = 6x<sup>2</sup> − 10x + 7</span></button>
+        <button aria-pressed="false" data-feedback="Not quite. The derivative of 2x³ is 6x², and the constant −9 has derivative zero.">B. <span class="math">r′(x) = 2x<sup>2</sup> − 5x + 7 − 9</span></button>
+      </div>
+      <p class="feedback" aria-live="polite">Choose A or B.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Finish with both checks</h2>
+    <ul class="points">
+      <li>Substitute the root into the final polynomial.</li>
+      <li>Substitute the same root into its derivative.</li>
+      <li>Both results should be zero.</li>
+    </ul>
+    <nav class="bottom" aria-label="End navigation"><a href="#lesson">Back to the start</a> · <a href="#method">Key ideas</a> · <a href="../../../topic-overview/index.html">Algebra lessons</a></nav>
+  </section>
+</main>
+</body>
+</html>

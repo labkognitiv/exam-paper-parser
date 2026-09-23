@@ -1,0 +1,1604 @@
+{
+  "schema_version": "9709_math_lesson_enrichment_v1",
+  "lesson_id": "9709_p3_t_differentiation_m04_l01",
+  "topic_id": "9709_p3_t_differentiation",
+  "numerical_values_checked": false,
+  "lesson_scope": "Connected rates of change, separable differential equations, differentiating integral accumulator functions, cooling and logistic growth models.",
+  "questions": [
+    {
+      "question_id": "9709_p3_t_differentiation_m04_l01_drq01",
+      "sequence": 1,
+      "difficulty": "easy",
+      "difficulty_reason": "Drill: Verification of first-order differential equation solution.",
+      "source_question_id": "9709_s17_33_q7",
+      "source_role": "foundational_drill",
+      "dependency_role": "none",
+      "dependency_refs": [],
+      "parts": [
+        {
+          "part_id": "9709_p3_t_differentiation_m04_l01_drq01_p01",
+          "difficulty": "easy",
+          "question_pattern_ids": [
+            "9709_p3_pattern_de_verification"
+          ],
+          "source_evidence": {
+            "question_id": "9709_s17_33_q7",
+            "part_id": "9709_s17_33_q7",
+            "legacy_practice_tier": "core",
+            "product_role": "warm_up_drill",
+            "structural_inspiration": "Verifying differential equation with exponential product."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Use the product rule to differentiate $y = x\\mathrm{e}^{2x}$.",
+            "$\\frac{\\mathrm{d}y}{\\mathrm{d}x} = (1)\\mathrm{e}^{2x} + x(2\\mathrm{e}^{2x}) = \\mathrm{e}^{2x} + 2x\\mathrm{e}^{2x}$.",
+            "Substitute $\\frac{\\mathrm{d}y}{\\mathrm{d}x}$ and $y$ into the left hand side: $\\frac{\\mathrm{d}y}{\\mathrm{d}x} - 2y = (\\mathrm{e}^{2x} + 2x\\mathrm{e}^{2x}) - 2(x\\mathrm{e}^{2x}) = \\mathrm{e}^{2x}$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Compute derivative of $y$:\n$$\\frac{\\mathrm{d}y}{\\mathrm{d}x} = \\frac{\\mathrm{d}}{\\mathrm{d}x}(x\\mathrm{e}^{2x}) = \\mathrm{e}^{2x} + 2x\\mathrm{e}^{2x}$$"
+            },
+            {
+              "step": 2,
+              "text": "Substitute into the differential equation:\n$$\\frac{\\mathrm{d}y}{\\mathrm{d}x} - 2y = (\\mathrm{e}^{2x} + 2x\\mathrm{e}^{2x}) - 2(x\\mathrm{e}^{2x}) = \\mathrm{e}^{2x}$$"
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_differentiation_m04_l01_drq01_p01_mp01",
+                "observable": "Applies product rule: $\\frac{\\mathrm{d}y}{\\mathrm{d}x} = \\mathrm{e}^{2x} + 2x\\mathrm{e}^{2x}$."
+              },
+              {
+                "criterion_id": "9709_p3_t_differentiation_m04_l01_drq01_p01_mp02",
+                "observable": "Substitutes: $\\frac{\\mathrm{d}y}{\\mathrm{d}x} - 2y = (\\mathrm{e}^{2x} + 2x\\mathrm{e}^{2x}) - 2x\\mathrm{e}^{2x} = \\mathrm{e}^{2x}$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_diff_de_connection"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_diff_de_connection"
+            ],
+            "method_ids": [
+              "9709_p3_method_de_verification"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        }
+      ],
+      "_numerical_values_checked": false
+    },
+    {
+      "question_id": "9709_p3_t_differentiation_m04_l01_drq02",
+      "sequence": 2,
+      "difficulty": "easy",
+      "difficulty_reason": "Drill: Separating variables in simple exponential differential equation.",
+      "source_question_id": "9709_s18_32_q8",
+      "source_role": "foundational_drill",
+      "dependency_role": "none",
+      "dependency_refs": [],
+      "parts": [
+        {
+          "part_id": "9709_p3_t_differentiation_m04_l01_drq02_p01",
+          "difficulty": "easy",
+          "question_pattern_ids": [
+            "9709_p3_pattern_separable_de"
+          ],
+          "source_evidence": {
+            "question_id": "9709_s18_32_q8",
+            "part_id": "9709_s18_32_q8",
+            "legacy_practice_tier": "core",
+            "product_role": "warm_up_drill",
+            "structural_inspiration": "Separable differential equation with exponential."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Separate the variables: $\\mathrm{e}^y\\,\\mathrm{d}y = 3x^2\\,\\mathrm{d}x$.",
+            "Integrate both sides: $\\mathrm{e}^y = x^3 + c$.",
+            "Substitute $x = 0, y = 0$: $\\mathrm{e}^0 = 0 + c \\implies c = 1$.",
+            "Take natural logarithms: $y = \\ln(x^3 + 1)$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Separate and integrate:\n$$\\int \\mathrm{e}^y\\,\\mathrm{d}y = \\int 3x^2\\,\\mathrm{d}x \\implies \\mathrm{e}^y = x^3 + c$$"
+            },
+            {
+              "step": 2,
+              "text": "Apply initial condition $(0, 0)$:\n$$\\mathrm{e}^0 = 0 + c \\implies c = 1 \\implies \\mathrm{e}^y = x^3 + 1 \\implies y = \\ln(x^3 + 1)$$"
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_differentiation_m04_l01_drq02_p01_mp01",
+                "observable": "Separates $\\int \\mathrm{e}^y\\,\\mathrm{d}y = \\int 3x^2\\,\\mathrm{d}x \\implies \\mathrm{e}^y = x^3 + c$."
+              },
+              {
+                "criterion_id": "9709_p3_t_differentiation_m04_l01_drq02_p01_mp02",
+                "observable": "Applies $y(0) = 0 \\implies c = 1$, obtaining $y = \\ln(x^3 + 1)$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_diff_de_connection"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_diff_de_connection"
+            ],
+            "method_ids": [
+              "9709_p3_method_separation_of_variables"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        }
+      ],
+      "_numerical_values_checked": false
+    },
+    {
+      "question_id": "9709_p3_t_differentiation_m04_l01_drq03",
+      "sequence": 3,
+      "difficulty": "easy",
+      "difficulty_reason": "Drill: Using differentiation to deduce antiderivative of ln x.",
+      "source_question_id": "9709_w19_31_q4",
+      "source_role": "foundational_drill",
+      "dependency_role": "none",
+      "dependency_refs": [],
+      "parts": [
+        {
+          "part_id": "9709_p3_t_differentiation_m04_l01_drq03_p01",
+          "difficulty": "easy",
+          "question_pattern_ids": [
+            "9709_p3_pattern_diff_integration_deduction"
+          ],
+          "source_evidence": {
+            "question_id": "9709_w19_31_q4",
+            "part_id": "9709_w19_31_q4",
+            "legacy_practice_tier": "core",
+            "product_role": "warm_up_drill",
+            "structural_inspiration": "Differentiating x ln x - x to integrate ln x."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Differentiate $x\\ln x$ using product rule: $(1)\\ln x + x(1/x) = \\ln x + 1$.",
+            "Subtract derivative of $x$: $\\frac{\\mathrm{d}}{\\mathrm{d}x}(x\\ln x - x) = (\\ln x + 1) - 1 = \\ln x$.",
+            "Since $\\frac{\\mathrm{d}}{\\mathrm{d}x}(x\\ln x - x) = \\ln x$, the antiderivative is $\\int \\ln x\\,\\mathrm{d}x = x\\ln x - x + c$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Differentiate $y = x\\ln x - x$:\n$$y' = (1)\\ln x + x\\left(\\frac{1}{x}\\right) - 1 = \\ln x + 1 - 1 = \\ln x$$"
+            },
+            {
+              "step": 2,
+              "text": "Deduce integral by the Fundamental Theorem of Calculus:\n$$\\int \\ln x\\,\\mathrm{d}x = x\\ln x - x + c$$"
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_differentiation_m04_l01_drq03_p01_mp01",
+                "observable": "Differentiates: $y' = \\ln x + x(1/x) - 1 = \\ln x + 1 - 1 = \\ln x$."
+              },
+              {
+                "criterion_id": "9709_p3_t_differentiation_m04_l01_drq03_p01_mp02",
+                "observable": "Deduces $\\int \\ln x\\,\\mathrm{d}x = x\\ln x - x + c$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_diff_de_connection"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_diff_de_connection"
+            ],
+            "method_ids": [
+              "9709_p3_method_reverse_differentiation"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        }
+      ],
+      "_numerical_values_checked": false
+    },
+    {
+      "question_id": "9709_p3_t_differentiation_m04_l01_drq04",
+      "sequence": 4,
+      "difficulty": "easy",
+      "difficulty_reason": "Drill: Exponential gradient evaluation and definite integral area.",
+      "source_question_id": "9709_w20_31_q10",
+      "source_role": "foundational_drill",
+      "dependency_role": "none",
+      "dependency_refs": [],
+      "parts": [
+        {
+          "part_id": "9709_p3_t_differentiation_m04_l01_drq04_p01",
+          "difficulty": "easy",
+          "question_pattern_ids": [
+            "9709_p3_pattern_diff_integral_pair"
+          ],
+          "source_evidence": {
+            "question_id": "9709_w20_31_q10",
+            "part_id": "9709_w20_31_q10",
+            "legacy_practice_tier": "core",
+            "product_role": "warm_up_drill",
+            "structural_inspiration": "Exponential derivative and definite integral."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Differentiate $y = 2\\mathrm{e}^{-x}$: $\\frac{\\mathrm{d}y}{\\mathrm{d}x} = -2\\mathrm{e}^{-x}$. At $x = 0$, $y'(0) = -2$.",
+            "Integrate to find area: $\\int_0^{\\ln 2} 2\\mathrm{e}^{-x}\\,\\mathrm{d}x = [-2\\mathrm{e}^{-x}]_0^{\\ln 2}$.",
+            "Evaluate limits: $-2\\mathrm{e}^{-\\ln 2} - (-2\\mathrm{e}^0) = -2(1/2) + 2 = -1 + 2 = 1$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Calculate gradient at $x = 0$:\n$$y' = -2\\mathrm{e}^{-x} \\implies y'(0) = -2\\mathrm{e}^0 = -2$$"
+            },
+            {
+              "step": 2,
+              "text": "Compute area under curve:\n$$\\text{Area} = \\int_0^{\\ln 2} 2\\mathrm{e}^{-x}\\,\\mathrm{d}x = \\left[ -2\\mathrm{e}^{-x} \\right]_0^{\\ln 2} = -2\\left(\\frac{1}{2}\\right) - (-2) = -1 + 2 = 1$$"
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_differentiation_m04_l01_drq04_p01_mp01",
+                "observable": "Evaluates $y'(0) = -2\\mathrm{e}^0 = -2$."
+              },
+              {
+                "criterion_id": "9709_p3_t_differentiation_m04_l01_drq04_p01_mp02",
+                "observable": "Integrates $\\int_0^{\\ln 2} 2\\mathrm{e}^{-x}\\,\\mathrm{d}x = [-2\\mathrm{e}^{-x}]_0^{\\ln 2} = -2(1/2) - (-2) = 1$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_diff_de_connection"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_diff_de_connection"
+            ],
+            "method_ids": [
+              "9709_p3_method_definite_integration"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        }
+      ],
+      "_numerical_values_checked": false
+    },
+    {
+      "question_id": "9709_p3_t_differentiation_m04_l01_drq05",
+      "sequence": 5,
+      "difficulty": "easy",
+      "difficulty_reason": "Drill: Verification of harmonic oscillator second-order differential equation.",
+      "source_question_id": "9709_w20_33_q10",
+      "source_role": "foundational_drill",
+      "dependency_role": "none",
+      "dependency_refs": [],
+      "parts": [
+        {
+          "part_id": "9709_p3_t_differentiation_m04_l01_drq05_p01",
+          "difficulty": "easy",
+          "question_pattern_ids": [
+            "9709_p3_pattern_de_verification"
+          ],
+          "source_evidence": {
+            "question_id": "9709_w20_33_q10",
+            "part_id": "9709_w20_33_q10",
+            "legacy_practice_tier": "core",
+            "product_role": "warm_up_drill",
+            "structural_inspiration": "Verifying second derivative harmonic equation."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Differentiate once: $y' = -3A\\sin(3x) + 3B\\cos(3x)$.",
+            "Differentiate again: $y'' = -9A\\cos(3x) - 9B\\sin(3x)$.",
+            "Factor out $-9$: $y'' = -9(A\\cos(3x) + B\\sin(3x)) = -9y$.",
+            "Add $9y$ to both sides: $y'' + 9y = 0$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Compute first and second derivatives:\n$$y' = -3A\\sin(3x) + 3B\\cos(3x)$$\n$$y'' = -9A\\cos(3x) - 9B\\sin(3x) = -9(A\\cos(3x) + B\\sin(3x)) = -9y$$"
+            },
+            {
+              "step": 2,
+              "text": "Conclude differential equation:\n$$y'' + 9y = -9y + 9y = 0$$"
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_differentiation_m04_l01_drq05_p01_mp01",
+                "observable": "Computes $y' = -3A\\sin(3x) + 3B\\cos(3x)$."
+              },
+              {
+                "criterion_id": "9709_p3_t_differentiation_m04_l01_drq05_p01_mp02",
+                "observable": "Computes $y'' = -9A\\cos(3x) - 9B\\sin(3x) = -9y$."
+              },
+              {
+                "criterion_id": "9709_p3_t_differentiation_m04_l01_drq05_p01_mp03",
+                "observable": "Concludes $y'' + 9y = -9y + 9y = 0$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_diff_de_connection"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_diff_de_connection"
+            ],
+            "method_ids": [
+              "9709_p3_method_de_verification"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        }
+      ],
+      "_numerical_values_checked": false
+    },
+    {
+      "question_id": "9709_p3_t_differentiation_m04_l01_drq06",
+      "sequence": 6,
+      "difficulty": "easy",
+      "difficulty_reason": "Drill: Repeated differentiation of rational function and evaluation.",
+      "source_question_id": "9709_w22_32_q7",
+      "source_role": "foundational_drill",
+      "dependency_role": "none",
+      "dependency_refs": [],
+      "parts": [
+        {
+          "part_id": "9709_p3_t_differentiation_m04_l01_drq06_p01",
+          "difficulty": "easy",
+          "question_pattern_ids": [
+            "9709_p3_pattern_higher_derivatives"
+          ],
+          "source_evidence": {
+            "question_id": "9709_w22_32_q7",
+            "part_id": "9709_w22_32_q7",
+            "legacy_practice_tier": "core",
+            "product_role": "warm_up_drill",
+            "structural_inspiration": "Repeated derivative of rational expression."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Write $y = (1+x^2)^{-1}$ and differentiate with chain rule: $y' = -1(1+x^2)^{-2}(2x) = -\\frac{2x}{(1+x^2)^2}$.",
+            "Use quotient rule or product rule for $y''$: $y'' = \\frac{-2(1+x^2)^2 - (-2x)(2(1+x^2)(2x))}{(1+x^2)^4}$.",
+            "Cancel $(1+x^2)$: $y'' = \\frac{-2(1+x^2) + 8x^2}{(1+x^2)^3} = \\frac{6x^2 - 2}{(1+x^2)^3}$.",
+            "Substitute $x = 1$: $y''(1) = \\frac{6(1)-2}{(1+1)^3} = \\frac{4}{8} = \\frac{1}{2}$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Compute first derivative:\n$$y = (1+x^2)^{-1} \\implies y' = -(1+x^2)^{-2}(2x) = -\\frac{2x}{(1+x^2)^2}$$"
+            },
+            {
+              "step": 2,
+              "text": "Compute second derivative and evaluate at $x = 1$:\n$$y'' = \\frac{-2(1+x^2)^2 - (-2x)(2)(1+x^2)(2x)}{(1+x^2)^4} = \\frac{-2(1+x^2) + 8x^2}{(1+x^2)^3} = \\frac{6x^2 - 2}{(1+x^2)^3}$$\n$$y''(1) = \\frac{6(1) - 2}{(2)^3} = \\frac{4}{8} = \\frac{1}{2}$$"
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_differentiation_m04_l01_drq06_p01_mp01",
+                "observable": "Differentiates $y = (1+x^2)^{-1} \\implies y' = -2x(1+x^2)^{-2}$."
+              },
+              {
+                "criterion_id": "9709_p3_t_differentiation_m04_l01_drq06_p01_mp02",
+                "observable": "Differentiates again to obtain $y'' = \\frac{-2(1+x^2) + 8x^2}{(1+x^2)^3} = \\frac{6x^2 - 2}{(1+x^2)^3}$."
+              },
+              {
+                "criterion_id": "9709_p3_t_differentiation_m04_l01_drq06_p01_mp03",
+                "observable": "Evaluates $y''(1) = \\frac{6(1) - 2}{(1+1)^3} = \\frac{4}{8} = \\frac{1}{2}$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_diff_de_connection"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_diff_de_connection"
+            ],
+            "method_ids": [
+              "9709_p3_method_quotient_rule"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        }
+      ],
+      "_numerical_values_checked": false
+    },
+    {
+      "question_id": "9709_p3_t_differentiation_m04_l01_cpq01",
+      "sequence": 7,
+      "type": "structured_core",
+      "marks": 5,
+      "prompt": "A conical funnel has vertex pointing downwards, open top radius $4\\text{ cm}$ and total depth $12\\text{ cm}$. Water is poured into the funnel at a constant rate of $8\\text{ cm}^3/\\text{s}$.",
+      "parts": [
+        {
+          "part_id": "9709_p3_t_differentiation_m04_l01_cpq01_p01",
+          "label": "a",
+          "difficulty": "easy",
+          "question_pattern_ids": [
+            "9709_p3_pattern_connected_rates"
+          ],
+          "source_evidence": {
+            "question_id": "9709_s17_33_q7",
+            "part_id": "9709_s17_33_q7",
+            "legacy_practice_tier": "core",
+            "product_role": "core_differentiation",
+            "structural_inspiration": "Forming cone volume equation with depth."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Use similar triangles: $\\frac{r}{h} = \\frac{4}{12} = \\frac{1}{3} \\implies r = \\frac{1}{3}h$.",
+            "Recall the volume of a cone: $V = \\frac{1}{3}\\pi r^2 h$.",
+            "Substitute $r = \\frac{1}{3}h$: $V = \\frac{1}{3}\\pi\\left(\\frac{1}{3}h\\right)^2 h = \\frac{1}{27}\\pi h^3$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Relate radius $r$ and height $h$ using similar triangles:\n$$\\frac{r}{h} = \\frac{4}{12} = \\frac{1}{3} \\implies r = \\frac{1}{3}h$$"
+            },
+            {
+              "step": 2,
+              "text": "Substitute into cone volume formula:\n$$V = \\frac{1}{3}\\pi r^2 h = \\frac{1}{3}\\pi\\left(\\frac{1}{3}h\\right)^2 h = \\frac{1}{27}\\pi h^3$$"
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_differentiation_m04_l01_cpq01_p01_mp01",
+                "observable": "Uses similar triangles $\\frac{r}{h} = \\frac{4}{12} = \\frac{1}{3} \\implies r = \\frac{1}{3}h$."
+              },
+              {
+                "criterion_id": "9709_p3_t_differentiation_m04_l01_cpq01_p01_mp02",
+                "observable": "Substitutes into cone volume: $V = \\frac{1}{3}\\pi (\\frac{1}{3}h)^2 h = \\frac{1}{27}\\pi h^3$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_connected_rates"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_connected_rates"
+            ],
+            "method_ids": [
+              "9709_p3_method_chain_rule_rates"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        },
+        {
+          "part_id": "9709_p3_t_differentiation_m04_l01_cpq01_p02",
+          "label": "b",
+          "difficulty": "easy",
+          "question_pattern_ids": [
+            "9709_p3_pattern_connected_rates"
+          ],
+          "source_evidence": {
+            "question_id": "9709_s17_33_q7",
+            "part_id": "9709_s17_33_q7",
+            "legacy_practice_tier": "core",
+            "product_role": "core_application",
+            "structural_inspiration": "Calculating rate of change of depth."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [
+            "9709_p3_t_differentiation_m04_l01_cpq01_p01"
+          ],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Differentiate $V = \\frac{1}{27}\\pi h^3$ with respect to $h$: $\\frac{\\mathrm{d}V}{\\mathrm{d}h} = \\frac{1}{9}\\pi h^2$.",
+            "Write the chain rule: $\\frac{\\mathrm{d}V}{\\mathrm{d}t} = \\frac{\\mathrm{d}V}{\\mathrm{d}h} \\frac{\\mathrm{d}h}{\\mathrm{d}t} \\implies \\frac{\\mathrm{d}h}{\\mathrm{d}t} = \\frac{\\mathrm{d}V/\\mathrm{d}t}{\\mathrm{d}V/\\mathrm{d}h}$.",
+            "Substitute $h = 6$ and $\\frac{\\mathrm{d}V}{\\mathrm{d}t} = 8$: $\\frac{\\mathrm{d}V}{\\mathrm{d}h} = \\frac{1}{9}\\pi(36) = 4\\pi$.",
+            "Compute $\\frac{\\mathrm{d}h}{\\mathrm{d}t} = \\frac{8}{4\\pi} = \\frac{2}{\\pi}\\text{ cm/s}$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Differentiate $V$ with respect to $h$:\n$$\\frac{\\mathrm{d}V}{\\mathrm{d}h} = \\frac{3}{27}\\pi h^2 = \\frac{1}{9}\\pi h^2$$\n$$\\text{At } h = 6: \\quad \\frac{\\mathrm{d}V}{\\mathrm{d}h} = \\frac{1}{9}\\pi(36) = 4\\pi$$"
+            },
+            {
+              "step": 2,
+              "text": "Apply chain rule:\n$$\\frac{\\mathrm{d}h}{\\mathrm{d}t} = \\frac{\\frac{\\mathrm{d}V}{\\mathrm{d}t}}{\\frac{\\mathrm{d}V}{\\mathrm{d}h}} = \\frac{8}{4\\pi} = \\frac{2}{\\pi}\\text{ cm/s}$$"
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_differentiation_m04_l01_cpq01_p02_mp01",
+                "observable": "Differentiates $\\frac{\\mathrm{d}V}{\\mathrm{d}h} = \\frac{1}{9}\\pi h^2$."
+              },
+              {
+                "criterion_id": "9709_p3_t_differentiation_m04_l01_cpq01_p02_mp02",
+                "observable": "Applies chain rule $\\frac{\\mathrm{d}h}{\\mathrm{d}t} = \\frac{\\mathrm{d}V/\\mathrm{d}t}{\\mathrm{d}V/\\mathrm{d}h}$."
+              },
+              {
+                "criterion_id": "9709_p3_t_differentiation_m04_l01_cpq01_p02_mp03",
+                "observable": "Evaluates at $h = 6$: $\\frac{8}{4\\pi} = \\frac{2}{\\pi}\\text{ cm/s}$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_connected_rates"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_connected_rates"
+            ],
+            "method_ids": [
+              "9709_p3_method_chain_rule_rates"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        }
+      ],
+      "_numerical_values_checked": false
+    },
+    {
+      "question_id": "9709_p3_t_differentiation_m04_l01_cpq02",
+      "sequence": 8,
+      "difficulty": "medium",
+      "difficulty_reason": "Core: Separable trigonometric differential equation, explicit solution and gradient.",
+      "source_question_id": "9709_s18_32_q8",
+      "source_role": "structured_core",
+      "dependency_role": "none",
+      "dependency_refs": [],
+      "parts": [
+        {
+          "part_id": "9709_p3_t_differentiation_m04_l01_cpq02_p01",
+          "difficulty": "medium",
+          "question_pattern_ids": [
+            "9709_p3_pattern_separable_de"
+          ],
+          "source_evidence": {
+            "question_id": "9709_s18_32_q8",
+            "part_id": "9709_s18_32_q8",
+            "legacy_practice_tier": "core",
+            "product_role": "core_differentiation",
+            "structural_inspiration": "Separation of variables with trigonometric fraction."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Separate variables: $\\frac{1}{y}\\,\\mathrm{d}y = \\frac{\\cos x}{1+\\sin x}\\,\\mathrm{d}x$.",
+            "Notice that the numerator is the exact derivative of the denominator: $\\frac{\\mathrm{d}}{\\mathrm{d}x}(1+\\sin x) = \\cos x$.",
+            "Integrate: $\\ln y = \\ln(1 + \\sin x) + c$.",
+            "Substitute $x = 0, y = 2$: $\\ln 2 = \\ln(1) + c \\implies c = \\ln 2$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Separate variables and integrate:\n$$\\int \\frac{1}{y}\\,\\mathrm{d}y = \\int \\frac{\\cos x}{1 + \\sin x}\\,\\mathrm{d}x$$\n$$\\ln y = \\ln(1 + \\sin x) + c$$"
+            },
+            {
+              "step": 2,
+              "text": "Apply boundary condition $(0, 2)$:\n$$\\ln 2 = \\ln(1 + 0) + c \\implies c = \\ln 2$$\n$$\\ln y = \\ln(1 + \\sin x) + \\ln 2$$"
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_differentiation_m04_l01_cpq02_p01_mp01",
+                "observable": "Separates variables: $\\int \\frac{1}{y}\\,\\mathrm{d}y = \\int \\frac{\\cos x}{1+\\sin x}\\,\\mathrm{d}x$."
+              },
+              {
+                "criterion_id": "9709_p3_t_differentiation_m04_l01_cpq02_p01_mp02",
+                "observable": "Integrates: $\\ln y = \\ln(1 + \\sin x) + c$."
+              },
+              {
+                "criterion_id": "9709_p3_t_differentiation_m04_l01_cpq02_p01_mp03",
+                "observable": "Substitutes $(0, 2) \\implies c = \\ln 2$, giving $\\ln y = \\ln(1+\\sin x) + \\ln 2$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_diff_de_connection"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_diff_de_connection"
+            ],
+            "method_ids": [
+              "9709_p3_method_separation_of_variables"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        },
+        {
+          "part_id": "9709_p3_t_differentiation_m04_l01_cpq02_p02",
+          "difficulty": "medium",
+          "question_pattern_ids": [
+            "9709_p3_pattern_separable_de"
+          ],
+          "source_evidence": {
+            "question_id": "9709_s18_32_q8",
+            "part_id": "9709_s18_32_q8",
+            "legacy_practice_tier": "core",
+            "product_role": "core_application",
+            "structural_inspiration": "Explicit form and gradient evaluation."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [
+            "9709_p3_t_differentiation_m04_l01_cpq02_p01"
+          ],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Combine logarithms: $\\ln y = \\ln(2(1+\\sin x)) \\implies y = 2(1+\\sin x)$.",
+            "Differentiate with respect to $x$: $\\frac{\\mathrm{d}y}{\\mathrm{d}x} = 2\\cos x$.",
+            "Substitute $x = \\frac{\\pi}{6}$: $y' = 2\\cos(\\pi/6) = 2\\left(\\frac{\\sqrt{3}}{2}\\right) = \\sqrt{3}$.",
+            "Verify with original differential equation: $y' = \\frac{y\\cos x}{1+\\sin x} = \\frac{2(1.5)(\\sqrt{3}/2)}{1.5} = \\sqrt{3}$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Express $y$ explicitly:\n$$\\ln y = \\ln(2(1+\\sin x)) \\implies y = 2(1+\\sin x)$$"
+            },
+            {
+              "step": 2,
+              "text": "Differentiate and evaluate gradient at $x = \\frac{\\pi}{6}$:\n$$\\frac{\\mathrm{d}y}{\\mathrm{d}x} = 2\\cos x$$\n$$\\text{At } x = \\frac{\\pi}{6}: \\quad \\frac{\\mathrm{d}y}{\\mathrm{d}x} = 2\\left(\\frac{\\sqrt{3}}{2}\\right) = \\sqrt{3}$$"
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_differentiation_m04_l01_cpq02_p02_mp01",
+                "observable": "Exponentiates: $y = 2(1 + \\sin x)$."
+              },
+              {
+                "criterion_id": "9709_p3_t_differentiation_m04_l01_cpq02_p02_mp02",
+                "observable": "Differentiates $\\frac{\\mathrm{d}y}{\\mathrm{d}x} = 2\\cos x$."
+              },
+              {
+                "criterion_id": "9709_p3_t_differentiation_m04_l01_cpq02_p02_mp03",
+                "observable": "Evaluates at $x = \\frac{\\pi}{6}$: $2\\cos(\\pi/6) = 2(\\frac{\\sqrt{3}}{2}) = \\sqrt{3}$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_diff_de_connection"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_diff_de_connection"
+            ],
+            "method_ids": [
+              "9709_p3_method_separation_of_variables"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        }
+      ],
+      "_numerical_values_checked": false
+    },
+    {
+      "question_id": "9709_p3_t_differentiation_m04_l01_cpq03",
+      "sequence": 9,
+      "difficulty": "medium",
+      "difficulty_reason": "Core: Differentiating integral accumulator with composite bounds and algebraic verification.",
+      "source_question_id": "9709_w19_31_q4",
+      "source_role": "structured_core",
+      "dependency_role": "none",
+      "dependency_refs": [],
+      "parts": [
+        {
+          "part_id": "9709_p3_t_differentiation_m04_l01_cpq03_p01",
+          "difficulty": "medium",
+          "question_pattern_ids": [
+            "9709_p3_pattern_integral_differentiation"
+          ],
+          "source_evidence": {
+            "question_id": "9709_w19_31_q4",
+            "part_id": "9709_w19_31_q4",
+            "legacy_practice_tier": "core",
+            "product_role": "core_differentiation",
+            "structural_inspiration": "Differentiating integral with variable upper limit."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Let $u = x^2$. By the Fundamental Theorem of Calculus, $\\frac{\\mathrm{d}}{\\mathrm{d}u}\\int_1^u \\frac{\\ln t}{t}\\,\\mathrm{d}t = \\frac{\\ln u}{u}$.",
+            "Apply the chain rule: $F'(x) = \\frac{\\mathrm{d}F}{\\mathrm{d}u} \\frac{\\mathrm{d}u}{\\mathrm{d}x} = \\frac{\\ln(x^2)}{x^2} \\cdot 2x$.",
+            "Use log rules: $\\ln(x^2) = 2\\ln x$.",
+            "Simplify: $\\frac{2\\ln x}{x^2} \\cdot 2x = \\frac{4\\ln x}{x}$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Apply Leibniz rule with $u = x^2$:\n$$F'(x) = \\frac{\\ln(x^2)}{x^2} \\cdot \\frac{\\mathrm{d}}{\\mathrm{d}x}(x^2) = \\frac{\\ln(x^2)}{x^2} \\cdot 2x$$"
+            },
+            {
+              "step": 2,
+              "text": "Simplify using $\\ln(x^2) = 2\\ln x$:\n$$F'(x) = \\frac{2\\ln x}{x^2} \\cdot 2x = \\frac{4\\ln x}{x}$$"
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_differentiation_m04_l01_cpq03_p01_mp01",
+                "observable": "Applies Leibniz rule: $F'(x) = \\frac{\\ln(x^2)}{x^2} \\cdot \\frac{\\mathrm{d}}{\\mathrm{d}x}(x^2)$."
+              },
+              {
+                "criterion_id": "9709_p3_t_differentiation_m04_l01_cpq03_p01_mp02",
+                "observable": "Substitutes $\\ln(x^2) = 2\\ln x$ and $\\frac{\\mathrm{d}}{\\mathrm{d}x}(x^2) = 2x$."
+              },
+              {
+                "criterion_id": "9709_p3_t_differentiation_m04_l01_cpq03_p01_mp03",
+                "observable": "Simplifies to $\\frac{2\\ln x}{x^2} \\cdot 2x = \\frac{4\\ln x}{x}$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_integral_differentiation"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_integral_differentiation"
+            ],
+            "method_ids": [
+              "9709_p3_method_leibniz_integral_rule"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        },
+        {
+          "part_id": "9709_p3_t_differentiation_m04_l01_cpq03_p02",
+          "difficulty": "medium",
+          "question_pattern_ids": [
+            "9709_p3_pattern_integral_differentiation"
+          ],
+          "source_evidence": {
+            "question_id": "9709_w19_31_q4",
+            "part_id": "9709_w19_31_q4",
+            "legacy_practice_tier": "core",
+            "product_role": "core_application",
+            "structural_inspiration": "Direct integration and derivative verification."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [
+            "9709_p3_t_differentiation_m04_l01_cpq03_p01"
+          ],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Recognize $\\int \\frac{\\ln t}{t}\\,\\mathrm{d}t$ as $\\int u\\,\\mathrm{d}u = \\frac{1}{2}(\\ln t)^2$.",
+            "Evaluate between $1$ and $x^2$: $\\left[\\frac{1}{2}(\\ln t)^2\\right]_1^{x^2} = \\frac{1}{2}(\\ln(x^2))^2 - 0$.",
+            "Simplify: $\\frac{1}{2}(2\\ln x)^2 = \\frac{1}{2}(4(\\ln x)^2) = 2(\\ln x)^2$.",
+            "Differentiate using chain rule: $\\frac{\\mathrm{d}}{\\mathrm{d}x}[2(\\ln x)^2] = 2 \\cdot 2(\\ln x) \\cdot \\frac{1}{x} = \\frac{4\\ln x}{x}$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Integrate directly:\n$$F(x) = \\left[ \\frac{1}{2}(\\ln t)^2 \\right]_1^{x^2} = \\frac{1}{2}(\\ln(x^2))^2 - 0 = \\frac{1}{2}(2\\ln x)^2 = 2(\\ln x)^2$$"
+            },
+            {
+              "step": 2,
+              "text": "Differentiate using chain rule:\n$$F'(x) = 2 \\cdot 2(\\ln x) \\cdot \\frac{1}{x} = \\frac{4\\ln x}{x}$$"
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_differentiation_m04_l01_cpq03_p02_mp01",
+                "observable": "Integrates $\\int_1^{x^2} \\frac{\\ln t}{t}\\,\\mathrm{d}t = [\\frac{1}{2}(\\ln t)^2]_1^{x^2} = \\frac{1}{2}(2\\ln x)^2$."
+              },
+              {
+                "criterion_id": "9709_p3_t_differentiation_m04_l01_cpq03_p02_mp02",
+                "observable": "Simplifies to $F(x) = 2(\\ln x)^2$."
+              },
+              {
+                "criterion_id": "9709_p3_t_differentiation_m04_l01_cpq03_p02_mp03",
+                "observable": "Differentiates: $F'(x) = 4\\ln x \\cdot (1/x) = \\frac{4\\ln x}{x}$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_integral_differentiation"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_integral_differentiation"
+            ],
+            "method_ids": [
+              "9709_p3_method_definite_integration"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        }
+      ],
+      "_numerical_values_checked": false
+    },
+    {
+      "question_id": "9709_p3_t_differentiation_m04_l01_cpq04",
+      "sequence": 10,
+      "difficulty": "medium",
+      "difficulty_reason": "Core: Newton's Law of Cooling rate model, parameter calculation and cooling rate evaluation.",
+      "source_question_id": "9709_w20_31_q10",
+      "source_role": "structured_core",
+      "dependency_role": "none",
+      "dependency_refs": [],
+      "parts": [
+        {
+          "part_id": "9709_p3_t_differentiation_m04_l01_cpq04_p01",
+          "label": "a",
+          "difficulty": "medium",
+          "question_pattern_ids": [
+            "9709_p3_pattern_cooling_model"
+          ],
+          "source_evidence": {
+            "question_id": "9709_w20_31_q10",
+            "part_id": "9709_w20_31_q10",
+            "legacy_practice_tier": "core",
+            "product_role": "core_differentiation",
+            "structural_inspiration": "Solving cooling rate differential equation."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Separate variables: $\\frac{1}{\\theta - 20}\\,\\mathrm{d}\\theta = -k\\,\\mathrm{d}t$.",
+            "Integrate both sides: $\\ln(\\theta - 20) = -kt + c$.",
+            "Substitute $t = 0, \\theta = 80$: $\\ln(60) = c$.",
+            "Exponentiate: $\\theta - 20 = 60\\mathrm{e}^{-kt} \\implies \\theta = 20 + 60\\mathrm{e}^{-kt}$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Separate and integrate:\n$$\\int \\frac{1}{\\theta - 20}\\,\\mathrm{d}\\theta = \\int -k\\,\\mathrm{d}t \\implies \\ln(\\theta - 20) = -kt + c$$"
+            },
+            {
+              "step": 2,
+              "text": "Apply initial condition $(0, 80)$:\n$$\\ln(60) = c \\implies \\theta - 20 = 60\\mathrm{e}^{-kt} \\implies \\theta = 20 + 60\\mathrm{e}^{-kt}$$"
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_differentiation_m04_l01_cpq04_p01_mp01",
+                "observable": "Separates $\\int \\frac{1}{\\theta-20}\\,\\mathrm{d}\\theta = \\int -k\\,\\mathrm{d}t \\implies \\ln(\\theta-20) = -kt + c$."
+              },
+              {
+                "criterion_id": "9709_p3_t_differentiation_m04_l01_cpq04_p01_mp02",
+                "observable": "Applies $\\theta(0) = 80 \\implies c = \\ln 60$."
+              },
+              {
+                "criterion_id": "9709_p3_t_differentiation_m04_l01_cpq04_p01_mp03",
+                "observable": "Concludes $\\theta = 20 + 60\\mathrm{e}^{-kt}$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_diff_de_connection"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_diff_de_connection"
+            ],
+            "method_ids": [
+              "9709_p3_method_separation_of_variables"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        },
+        {
+          "part_id": "9709_p3_t_differentiation_m04_l01_cpq04_p02",
+          "label": "b",
+          "difficulty": "medium",
+          "question_pattern_ids": [
+            "9709_p3_pattern_cooling_model"
+          ],
+          "source_evidence": {
+            "question_id": "9709_w20_31_q10",
+            "part_id": "9709_w20_31_q10",
+            "legacy_practice_tier": "core",
+            "product_role": "core_application",
+            "structural_inspiration": "Determining rate constant and computing derivative value."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [
+            "9709_p3_t_differentiation_m04_l01_cpq04_p01"
+          ],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Use $\\theta(10) = 50$: $50 = 20 + 60\\mathrm{e}^{-10k} \\implies 60\\mathrm{e}^{-10k} = 30 \\implies \\mathrm{e}^{-10k} = \\frac{1}{2}$.",
+            "Solve for $k$: $-10k = -\\ln 2 \\implies k = \\frac{\\ln 2}{10} = 0.1\\ln 2$.",
+            "Find temperature at $t = 20$: $\\theta(20) = 20 + 60(\\mathrm{e}^{-10k})^2 = 20 + 60(1/4) = 35^\\circ\\text{C}$.",
+            "Evaluate rate: $\\frac{\\mathrm{d}\\theta}{\\mathrm{d}t} = -k(\\theta - 20) = -\\left(\\frac{\\ln 2}{10}\\right)(15) = -1.5\\ln 2^\\circ\\text{C/min}$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Determine constant $k$:\n$$50 = 20 + 60\\mathrm{e}^{-10k} \\implies \\mathrm{e}^{-10k} = \\frac{1}{2} \\implies k = \\frac{\\ln 2}{10}$$"
+            },
+            {
+              "step": 2,
+              "text": "Find temperature and cooling rate at $t = 20$:\n$$\\theta(20) = 20 + 60\\left(\\frac{1}{2}\\right)^2 = 20 + 15 = 35^\\circ\\text{C}$$\n$$\\frac{\\mathrm{d}\\theta}{\\mathrm{d}t}\\Big|_{t=20} = -\\left(\\frac{\\ln 2}{10}\\right)(35 - 20) = -1.5\\ln 2^\\circ\\text{C/min}$$"
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_differentiation_m04_l01_cpq04_p02_mp01",
+                "observable": "Substitutes $t = 10, \\theta = 50 \\implies 60\\mathrm{e}^{-10k} = 30 \\implies \\mathrm{e}^{-10k} = 0.5$."
+              },
+              {
+                "criterion_id": "9709_p3_t_differentiation_m04_l01_cpq04_p02_mp02",
+                "observable": "Solves $k = \\frac{\\ln 2}{10}$."
+              },
+              {
+                "criterion_id": "9709_p3_t_differentiation_m04_l01_cpq04_p02_mp03",
+                "observable": "Calculates $\\theta(20) = 20 + 60(1/4) = 35^\\circ\\text{C}$."
+              },
+              {
+                "criterion_id": "9709_p3_t_differentiation_m04_l01_cpq04_p02_mp04",
+                "observable": "Evaluates rate $\\frac{\\mathrm{d}\\theta}{\\mathrm{d}t} = -k(35-20) = -15\\left(\\frac{\\ln 2}{10}\\right) = -1.5\\ln 2^\\circ\\text{C/min}$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_diff_de_connection"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_diff_de_connection"
+            ],
+            "method_ids": [
+              "9709_p3_method_separation_of_variables"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        }
+      ],
+      "_numerical_values_checked": false
+    },
+    {
+      "question_id": "9709_p3_t_differentiation_m04_l01_cpq05",
+      "sequence": 11,
+      "difficulty": "hard",
+      "difficulty_reason": "Capstone: Geometric tangent intercept differential equation and centroid integration.",
+      "source_question_id": "9709_w20_33_q10",
+      "source_role": "structured_capstone",
+      "dependency_role": "none",
+      "dependency_refs": [],
+      "parts": [
+        {
+          "part_id": "9709_p3_t_differentiation_m04_l01_cpq05_p01",
+          "difficulty": "hard",
+          "question_pattern_ids": [
+            "9709_p3_pattern_geometric_de"
+          ],
+          "source_evidence": {
+            "question_id": "9709_w20_33_q10",
+            "part_id": "9709_w20_33_q10",
+            "legacy_practice_tier": "core",
+            "product_role": "capstone_differentiation",
+            "structural_inspiration": "Forming differential equation from tangent intercept."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "The equation of the tangent at $P(x, y)$ is $Y - y = y'(X - x)$.",
+            "Set $X = 0$ to find the $y$-intercept: $Y = y - x y'$.",
+            "The given property states $Y = -y$, so $y - x y' = -y \\implies x y' = 2y$.",
+            "Separate variables: $\\frac{1}{y}\\,\\mathrm{d}y = \\frac{2}{x}\\,\\mathrm{d}x \\implies \\ln y = 2\\ln x + c = \\ln(Ax^2) \\implies y = Ax^2$.",
+            "Substitute $(1, 2)$: $2 = A(1)^2 \\implies A = 2$, so $y = 2x^2$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Formulate tangent $y$-intercept equation:\n$$\\text{Tangent: } Y - y = y'(X - x)$$\n$$\\text{When } X = 0, \\quad Y = y - x y' = -y \\implies x\\frac{\\mathrm{d}y}{\\mathrm{d}x} = 2y$$"
+            },
+            {
+              "step": 2,
+              "text": "Solve differential equation and apply $(1, 2)$:\n$$\\int \\frac{1}{y}\\,\\mathrm{d}y = \\int \\frac{2}{x}\\,\\mathrm{d}x \\implies \\ln y = 2\\ln x + c \\implies y = Ax^2$$\n$$2 = A(1)^2 \\implies A = 2 \\implies y = 2x^2$$"
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_differentiation_m04_l01_cpq05_p01_mp01",
+                "observable": "Writes tangent equation $Y - y = y'(X - x)$ and sets $X = 0 \\implies Y = y - xy'$."
+              },
+              {
+                "criterion_id": "9709_p3_t_differentiation_m04_l01_cpq05_p01_mp02",
+                "observable": "Equates $y - xy' = -y \\implies x\\frac{\\mathrm{d}y}{\\mathrm{d}x} = 2y$."
+              },
+              {
+                "criterion_id": "9709_p3_t_differentiation_m04_l01_cpq05_p01_mp03",
+                "observable": "Separates $\\int \\frac{1}{y}\\,\\mathrm{d}y = \\int \\frac{2}{x}\\,\\mathrm{d}x \\implies \\ln y = 2\\ln x + c \\implies y = A x^2$."
+              },
+              {
+                "criterion_id": "9709_p3_t_differentiation_m04_l01_cpq05_p01_mp04",
+                "observable": "Substitutes $(1, 2) \\implies A = 2$, obtaining $y = 2x^2$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_diff_de_connection"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_diff_de_connection"
+            ],
+            "method_ids": [
+              "9709_p3_method_separation_of_variables"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        },
+        {
+          "part_id": "9709_p3_t_differentiation_m04_l01_cpq05_p02",
+          "difficulty": "hard",
+          "question_pattern_ids": [
+            "9709_p3_pattern_centroid_integration"
+          ],
+          "source_evidence": {
+            "question_id": "9709_w20_33_q10",
+            "part_id": "9709_w20_33_q10",
+            "legacy_practice_tier": "core",
+            "product_role": "capstone_application",
+            "structural_inspiration": "Area and centroid calculation."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [
+            "9709_p3_t_differentiation_m04_l01_cpq05_p01"
+          ],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Find the area: $\\text{Area} = \\int_0^3 2x^2\\,\\mathrm{d}x = \\left[\\frac{2}{3}x^3\\right]_0^3 = \\frac{2}{3}(27) = 18$.",
+            "Compute the moment $\\int_0^3 x y\\,\\mathrm{d}x = \\int_0^3 2x^3\\,\\mathrm{d}x = \\left[\\frac{2}{4}x^4\\right]_0^3 = \\frac{1}{2}(81) = 40.5$.",
+            "Calculate $\\bar{x} = \\frac{\\text{Moment}}{\\text{Area}} = \\frac{40.5}{18} = \\frac{81}{36} = \\frac{9}{4} = 2.25$.",
+            "Double check each step of your working and state your final answer in exact simplest form.",
+            "Double check each step of your working and state your final answer in exact simplest form."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Calculate area:\n$$\\text{Area} = \\int_0^3 2x^2\\,\\mathrm{d}x = \\left[ \\frac{2}{3}x^3 \\right]_0^3 = 18$$"
+            },
+            {
+              "step": 2,
+              "text": "Compute first moment and centroid:\n$$\\int_0^3 x(2x^2)\\,\\mathrm{d}x = \\int_0^3 2x^3\\,\\mathrm{d}x = \\left[ \\frac{1}{2}x^4 \\right]_0^3 = \\frac{81}{2} = 40.5$$\n$$\\bar{x} = \\frac{40.5}{18} = \\frac{9}{4} = 2.25$$"
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_differentiation_m04_l01_cpq05_p02_mp01",
+                "observable": "Calculates area $\\int_0^3 2x^2\\,\\mathrm{d}x = [\\frac{2}{3}x^3]_0^3 = 18$."
+              },
+              {
+                "criterion_id": "9709_p3_t_differentiation_m04_l01_cpq05_p02_mp02",
+                "observable": "States area $= 18$."
+              },
+              {
+                "criterion_id": "9709_p3_t_differentiation_m04_l01_cpq05_p02_mp03",
+                "observable": "Calculates moment $\\int_0^3 2x^3\\,\\mathrm{d}x = [\\frac{1}{2}x^4]_0^3 = \\frac{81}{2} = 40.5$."
+              },
+              {
+                "criterion_id": "9709_p3_t_differentiation_m04_l01_cpq05_p02_mp04",
+                "observable": "Calculates centroid $\\bar{x} = \\frac{40.5}{18} = \\frac{9}{4} = 2.25$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_diff_de_connection"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_diff_de_connection"
+            ],
+            "method_ids": [
+              "9709_p3_method_definite_integration"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        }
+      ],
+      "_numerical_values_checked": false
+    },
+    {
+      "question_id": "9709_p3_t_differentiation_m04_l01_cpq06",
+      "sequence": 12,
+      "difficulty": "hard",
+      "difficulty_reason": "Capstone: Leaking reservoir rate equation, explicit solution and rate calculation.",
+      "source_question_id": "9709_w22_32_q7",
+      "source_role": "structured_capstone",
+      "dependency_role": "none",
+      "dependency_refs": [],
+      "parts": [
+        {
+          "part_id": "9709_p3_t_differentiation_m04_l01_cpq06_p01",
+          "difficulty": "hard",
+          "question_pattern_ids": [
+            "9709_p3_pattern_leaking_tank"
+          ],
+          "source_evidence": {
+            "question_id": "9709_w22_32_q7",
+            "part_id": "9709_w22_32_q7",
+            "legacy_practice_tier": "core",
+            "product_role": "capstone_differentiation",
+            "structural_inspiration": "Forming differential equation for leaking cylinder."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Volume $V = 2h \\implies \\frac{\\mathrm{d}V}{\\mathrm{d}t} = 2\\frac{\\mathrm{d}h}{\\mathrm{d}t}$.",
+            "Set equal to leak rate: $2\\frac{\\mathrm{d}h}{\\mathrm{d}t} = -0.4\\sqrt{h} \\implies \\frac{\\mathrm{d}h}{\\mathrm{d}t} = -0.2\\sqrt{h}$.",
+            "Separate variables: $h^{-1/2}\\,\\mathrm{d}h = -0.2\\,\\mathrm{d}t \\implies 2\\sqrt{h} = -0.2t + c$.",
+            "Substitute $t = 0, h = 4$: $2\\sqrt{4} = 4 = c \\implies 2\\sqrt{h} = 4 - 0.2t$.",
+            "Divide by 2 and square: $\\sqrt{h} = 2 - 0.1t \\implies h = (2 - 0.1t)^2$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Derive depth rate equation:\n$$V = 2h \\implies \\frac{\\mathrm{d}V}{\\mathrm{d}t} = 2\\frac{\\mathrm{d}h}{\\mathrm{d}t} = -0.4\\sqrt{h} \\implies \\frac{\\mathrm{d}h}{\\mathrm{d}t} = -0.2\\sqrt{h}$$"
+            },
+            {
+              "step": 2,
+              "text": "Solve differential equation:\n$$\\int h^{-1/2}\\,\\mathrm{d}h = \\int -0.2\\,\\mathrm{d}t \\implies 2\\sqrt{h} = -0.2t + c$$\n$$\\text{At } t = 0, h = 4: \\quad c = 4 \\implies 2\\sqrt{h} = 4 - 0.2t \\implies h = (2 - 0.1t)^2$$"
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_differentiation_m04_l01_cpq06_p01_mp01",
+                "observable": "Uses $V = 2h \\implies \\frac{\\mathrm{d}V}{\\mathrm{d}t} = 2\\frac{\\mathrm{d}h}{\\mathrm{d}t} = -0.4\\sqrt{h} \\implies \\frac{\\mathrm{d}h}{\\mathrm{d}t} = -0.2\\sqrt{h}$."
+              },
+              {
+                "criterion_id": "9709_p3_t_differentiation_m04_l01_cpq06_p01_mp02",
+                "observable": "Separates $\\int h^{-1/2}\\,\\mathrm{d}h = \\int -0.2\\,\\mathrm{d}t \\implies 2\\sqrt{h} = -0.2t + c$."
+              },
+              {
+                "criterion_id": "9709_p3_t_differentiation_m04_l01_cpq06_p01_mp03",
+                "observable": "Applies $h(0) = 4 \\implies c = 4$."
+              },
+              {
+                "criterion_id": "9709_p3_t_differentiation_m04_l01_cpq06_p01_mp04",
+                "observable": "Concludes $h = (2 - 0.1t)^2$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_diff_de_connection"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_diff_de_connection"
+            ],
+            "method_ids": [
+              "9709_p3_method_separation_of_variables"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        },
+        {
+          "part_id": "9709_p3_t_differentiation_m04_l01_cpq06_p02",
+          "difficulty": "hard",
+          "question_pattern_ids": [
+            "9709_p3_pattern_leaking_tank"
+          ],
+          "source_evidence": {
+            "question_id": "9709_w22_32_q7",
+            "part_id": "9709_w22_32_q7",
+            "legacy_practice_tier": "core",
+            "product_role": "capstone_application",
+            "structural_inspiration": "Calculating emptying time and evaluation."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [
+            "9709_p3_t_differentiation_m04_l01_cpq06_p01"
+          ],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "The tank is empty when $h = 0$: $(2 - 0.1t)^2 = 0 \\implies 2 - 0.1t = 0 \\implies t = 20\\text{ minutes}$.",
+            "When $h = 2$, substitute directly into $\\frac{\\mathrm{d}V}{\\mathrm{d}t} = -0.4\\sqrt{h}$.",
+            "$\\frac{\\mathrm{d}V}{\\mathrm{d}t} = -0.4\\sqrt{2} \\approx -0.566\\text{ m}^3/\\text{min}$.",
+            "Double check each step of your working and state your final answer in exact simplest form.",
+            "Double check each step of your working and state your final answer in exact simplest form."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Find emptying time ($h = 0$):\n$$(2 - 0.1t)^2 = 0 \\implies 0.1t = 2 \\implies t = 20\\text{ minutes}$$"
+            },
+            {
+              "step": 2,
+              "text": "Evaluate rate of volume change at $h = 2\\text{ m}$:\n$$\\frac{\\mathrm{d}V}{\\mathrm{d}t} = -0.4\\sqrt{2} \\approx -0.566\\text{ m}^3/\\text{min}$$"
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_differentiation_m04_l01_cpq06_p02_mp01",
+                "observable": "Sets $h = 0 \\implies 2 - 0.1t = 0$."
+              },
+              {
+                "criterion_id": "9709_p3_t_differentiation_m04_l01_cpq06_p02_mp02",
+                "observable": "Solves emptying time $t = 20\\text{ minutes}$."
+              },
+              {
+                "criterion_id": "9709_p3_t_differentiation_m04_l01_cpq06_p02_mp03",
+                "observable": "Substitutes $h = 2$ into leak rate equation."
+              },
+              {
+                "criterion_id": "9709_p3_t_differentiation_m04_l01_cpq06_p02_mp04",
+                "observable": "Calculates $\\frac{\\mathrm{d}V}{\\mathrm{d}t} = -0.4\\sqrt{2}\\text{ m}^3/\\text{min}$ (or $-0.566$)."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_diff_de_connection"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_diff_de_connection"
+            ],
+            "method_ids": [
+              "9709_p3_method_separation_of_variables"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        }
+      ],
+      "_numerical_values_checked": false
+    },
+    {
+      "question_id": "9709_p3_t_differentiation_m04_l01_cpq07",
+      "sequence": 13,
+      "type": "structured_capstone",
+      "marks": 9,
+      "prompt": "A model for the growth of a fish population $P(t)$ (in thousands) in a lake is given by the differential equation $\\frac{\\mathrm{d}P}{\\mathrm{d}t} = 0.05 P(10 - P)$, with initial population $P(0) = 2$ at $t = 0$ years.",
+      "parts": [
+        {
+          "part_id": "9709_p3_t_differentiation_m04_l01_cpq07_p01",
+          "label": "a",
+          "difficulty": "hard",
+          "question_pattern_ids": [
+            "9709_p3_pattern_logistic_growth"
+          ],
+          "source_evidence": {
+            "question_id": "9709_s17_33_q7",
+            "part_id": "9709_s17_33_q7",
+            "legacy_practice_tier": "core",
+            "product_role": "capstone_differentiation",
+            "structural_inspiration": "Solving logistic differential equation with partial fractions."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Separate variables: $\\frac{1}{P(10-P)}\\,\\mathrm{d}P = 0.05\\,\\mathrm{d}t$.",
+            "Split into partial fractions: $\\frac{1}{P(10-P)} = \\frac{1}{10}\\left(\\frac{1}{P} + \\frac{1}{10-P}\\right)$.",
+            "Integrate both sides: $\\frac{1}{10}(\\ln P - \\ln(10-P)) = 0.05t + c_1 \\implies \\ln\\left(\\frac{P}{10-P}\\right) = 0.5t + c$.",
+            "Substitute $t = 0, P = 2$: $\\ln\\left(\\frac{2}{8}\\right) = \\ln(1/4) = -\\ln 4 = c$.",
+            "Conclude $\\ln\\left(\\frac{P}{10-P}\\right) = 0.5t - \\ln 4$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Separate variables and apply partial fractions:\n$$\\frac{1}{10} \\int \\left( \\frac{1}{P} + \\frac{1}{10 - P} \\right)\\,\\mathrm{d}P = \\int 0.05\\,\\mathrm{d}t$$\n$$\\ln P - \\ln(10 - P) = 0.5t + c$$"
+            },
+            {
+              "step": 2,
+              "text": "Apply initial condition $P(0) = 2$:\n$$\\ln\\left(\\frac{2}{8}\\right) = c \\implies c = -\\ln 4$$\n$$\\ln\\left(\\frac{P}{10 - P}\\right) = 0.5t - \\ln 4$$"
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_differentiation_m04_l01_cpq07_p01_mp01",
+                "observable": "Splits into partial fractions: $\\frac{1}{10}\\int (\\frac{1}{P} + \\frac{1}{10-P})\\,\\mathrm{d}P = \\int 0.05\\,\\mathrm{d}t$."
+              },
+              {
+                "criterion_id": "9709_p3_t_differentiation_m04_l01_cpq07_p01_mp02",
+                "observable": "Integrates: $\\ln P - \\ln(10-P) = 0.5t + c$."
+              },
+              {
+                "criterion_id": "9709_p3_t_differentiation_m04_l01_cpq07_p01_mp03",
+                "observable": "Applies $P(0) = 2 \\implies c = \\ln(2/8) = -\\ln 4$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_diff_de_connection"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_diff_de_connection"
+            ],
+            "method_ids": [
+              "9709_p3_method_partial_fractions_integration"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        },
+        {
+          "part_id": "9709_p3_t_differentiation_m04_l01_cpq07_p02",
+          "difficulty": "hard",
+          "question_pattern_ids": [
+            "9709_p3_pattern_logistic_growth"
+          ],
+          "source_evidence": {
+            "question_id": "9709_s17_33_q7",
+            "part_id": "9709_s17_33_q7",
+            "legacy_practice_tier": "core",
+            "product_role": "capstone_algebra",
+            "structural_inspiration": "Explicit logistic form and carrying capacity."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [
+            "9709_p3_t_differentiation_m04_l01_cpq07_p01"
+          ],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Exponentiate both sides: $\\frac{P}{10-P} = \\mathrm{e}^{0.5t - \\ln 4} = \\frac{1}{4}\\mathrm{e}^{0.5t}$.",
+            "Cross-multiply: $4P = (10-P)\\mathrm{e}^{0.5t} = 10\\mathrm{e}^{0.5t} - P\\mathrm{e}^{0.5t}$.",
+            "Multiply by $\\mathrm{e}^{-0.5t}$: $4P\\mathrm{e}^{-0.5t} = 10 - P \\implies P(1 + 4\\mathrm{e}^{-0.5t}) = 10$.",
+            "Solve for $P$: $P(t) = \\frac{10}{1 + 4\\mathrm{e}^{-0.5t}}$.",
+            "As $t \\to \\infty$, $\\mathrm{e}^{-0.5t} \\to 0$, so $P(t) \\to \\frac{10}{1+0} = 10$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Exponentiate and rearrange for $P$:\n$$\\frac{P}{10 - P} = \\frac{1}{4}\\mathrm{e}^{0.5t} \\implies 4P\\mathrm{e}^{-0.5t} = 10 - P$$\n$$P(1 + 4\\mathrm{e}^{-0.5t}) = 10 \\implies P(t) = \\frac{10}{1 + 4\\mathrm{e}^{-0.5t}}$$"
+            },
+            {
+              "step": 2,
+              "text": "State limiting capacity:\n$$\\lim_{t \\to \\infty} P(t) = \\frac{10}{1 + 0} = 10\\text{ thousand fish}$$"
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_differentiation_m04_l01_cpq07_p02_mp01",
+                "observable": "Exponentiates: $\\frac{P}{10-P} = \\frac{1}{4}\\mathrm{e}^{0.5t}$."
+              },
+              {
+                "criterion_id": "9709_p3_t_differentiation_m04_l01_cpq07_p02_mp02",
+                "observable": "Rearranges to obtain $P(t) = \\frac{10}{1 + 4\\mathrm{e}^{-0.5t}}$."
+              },
+              {
+                "criterion_id": "9709_p3_t_differentiation_m04_l01_cpq07_p02_mp03",
+                "observable": "Evaluates $\\lim_{t \\to \\infty} P(t) = 10$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_diff_de_connection"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_diff_de_connection"
+            ],
+            "method_ids": [
+              "9709_p3_method_algebraic_rearrangement"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        },
+        {
+          "part_id": "9709_p3_t_differentiation_m04_l01_cpq07_p03",
+          "difficulty": "hard",
+          "question_pattern_ids": [
+            "9709_p3_pattern_logistic_growth"
+          ],
+          "source_evidence": {
+            "question_id": "9709_s17_33_q7",
+            "part_id": "9709_s17_33_q7",
+            "legacy_practice_tier": "core",
+            "product_role": "capstone_application",
+            "structural_inspiration": "Maximizing growth rate and solving for time."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [
+            "9709_p3_t_differentiation_m04_l01_cpq07_p01",
+            "9709_p3_t_differentiation_m04_l01_cpq07_p02"
+          ],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Let growth rate be $R(P) = 0.05P(10-P) = 0.5P - 0.05P^2$.",
+            "Differentiate with respect to $P$: $R'(P) = 0.5 - 0.1P = 0 \\implies P = 5$.",
+            "Set $P(t) = 5$: $\\frac{10}{1 + 4\\mathrm{e}^{-0.5t}} = 5 \\implies 1 + 4\\mathrm{e}^{-0.5t} = 2$.",
+            "Solve for exponential: $4\\mathrm{e}^{-0.5t} = 1 \\implies \\mathrm{e}^{-0.5t} = \\frac{1}{4} \\implies \\mathrm{e}^{0.5t} = 4$.",
+            "Solve for $t$: $0.5t = \\ln 4 = 2\\ln 2 \\implies t = 4\\ln 2 \\approx 2.77\\text{ years}$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Differentiate growth rate function to find optimal population:\n$$R(P) = 0.5P - 0.05P^2 \\implies R'(P) = 0.5 - 0.1P = 0 \\implies P = 5\\text{ thousand}$$"
+            },
+            {
+              "step": 2,
+              "text": "Solve for time $t$ when $P = 5$:\n$$\\frac{10}{1 + 4\\mathrm{e}^{-0.5t}} = 5 \\implies 1 + 4\\mathrm{e}^{-0.5t} = 2 \\implies \\mathrm{e}^{0.5t} = 4$$\n$$0.5t = \\ln 4 = 2\\ln 2 \\implies t = 4\\ln 2 \\approx 2.77\\text{ years}$$"
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_differentiation_m04_l01_cpq07_p03_mp01",
+                "observable": "Differentiates $\\frac{\\mathrm{d}}{\\mathrm{d}P}(0.5P - 0.05P^2) = 0.5 - 0.1P = 0 \\implies P = 5$."
+              },
+              {
+                "criterion_id": "9709_p3_t_differentiation_m04_l01_cpq07_p03_mp02",
+                "observable": "Sets $\\frac{10}{1+4\\mathrm{e}^{-0.5t}} = 5 \\implies 4\\mathrm{e}^{-0.5t} = 1 \\implies \\mathrm{e}^{0.5t} = 4$."
+              },
+              {
+                "criterion_id": "9709_p3_t_differentiation_m04_l01_cpq07_p03_mp03",
+                "observable": "Solves $t = 2\\ln 4 = 4\\ln 2 \\approx 2.77\\text{ years}$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_diff_de_connection"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_diff_de_connection"
+            ],
+            "method_ids": [
+              "9709_p3_method_differentiation_extrema"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        }
+      ],
+      "_numerical_values_checked": false
+    }
+  ]
+}

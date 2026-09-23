@@ -1,0 +1,181 @@
+{
+  "schema_version": "9709_math_enrichment_v3",
+  "paper_code": "9709_s21_51",
+  "question_id": "9709_s21_51_q6",
+  "question_num": 6,
+  "subject_code": "9709",
+  "component": "S1",
+  "year": 2021,
+  "session": "May/June",
+  "variant": "51",
+  "difficulty": 3,
+  "numerical_values_checked": false,
+  "parts": [
+    {
+      "part_id": "9709_s21_51_q6_a",
+      "difficulty": 2,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_s1_t_discrete_random_variables",
+        "module_id": "9709_s1_t_discrete_random_variables_m03",
+        "lesson_id": "9709_s1_t_discrete_random_variables_m03_l03"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_calculating_binomial_tail_probabilities",
+        "skill_tags": [
+          "Calculating Binomial Tail Probabilities"
+        ]
+      },
+      "question_pattern_ids": [
+        "9709_s1_pattern_binomial_fewer_than_k"
+      ],
+      "knowledge_refs": {
+        "formula_ids": [
+          "9709_s1_formula_binomial_probability"
+        ],
+        "identity_ids": [],
+        "method_ids": [
+          "9709_s1_method_calculating_binomial_tail_probabilities"
+        ],
+        "fact_ids": [
+          "9709_s1_fact_complement_rule"
+        ]
+      },
+      "hints": [
+        "Define the binomial distribution: $X \\sim B(12, 0.6)$, where $n = 12$ and probability of travelling by car is $p = 0.6$.",
+        "The question asks for the probability that the number is less than 10: $\\mathrm{P}(X < 10) = \\mathrm{P}(X \\le 9)$.",
+        "Use the complement rule: $\\mathrm{P}(X < 10) = 1 - [\\mathrm{P}(X = 10) + \\mathrm{P}(X = 11) + \\mathrm{P}(X = 12)]$.",
+        "Evaluate each binomial term using $\\binom{12}{x} (0.6)^x (0.4)^{12-x}$, sum them, subtract from 1, and round to 3 significant figures."
+      ],
+      "walkthrough": [
+        "Define the random variable $X$ as the number of adults in the sample of 12 who travel to work by car:\n$$X \\sim B(12, 0.6)$$",
+        "Use the complement rule to calculate $\\mathrm{P}(X < 10)$:\n$$\\mathrm{P}(X < 10) = 1 - [\\mathrm{P}(X = 10) + \\mathrm{P}(X = 11) + \\mathrm{P}(X = 12)]$$",
+        "Calculate the probability of each upper tail outcome using $\\binom{12}{x} (0.6)^x (0.4)^{12-x}$:\n$$\\mathrm{P}(X = 10) = \\binom{12}{10} (0.6)^{10} (0.4)^2 = 66 \\times 0.0060466 \\times 0.16 \\approx 0.063852$$\n$$\\mathrm{P}(X = 11) = \\binom{12}{11} (0.6)^{11} (0.4)^1 = 12 \\times 0.0036280 \\times 0.4 \\approx 0.017414$$\n$$\\mathrm{P}(X = 12) = \\binom{12}{12} (0.6)^{12} (0.4)^0 = 1 \\times 0.0021768 \\times 1 \\approx 0.002177$$",
+        "Sum the upper tail probabilities and subtract from 1:\n$$\\mathrm{P}(X \\ge 10) = 0.063852 + 0.017414 + 0.002177 = 0.083443$$\n$$\\mathrm{P}(X < 10) = 1 - 0.083443 = 0.916557 \\approx 0.917$$"
+      ],
+      "teacher_walkthrough": [
+        "Step 1: Set up the probability model.\nLet $X$ be the number of adults in the sample of 12 who travel to work by car. Each adult independently has probability $p = 0.6$ of travelling by car, and $q = 1 - p = 0.4$ of not travelling by car:\n$$X \\sim B(n, p) = B(12, 0.6)$$",
+        "Step 2: Identify the required event.\nWe need the probability that fewer than 10 adults travel by car:\n$$\\mathrm{P}(X < 10) = \\mathrm{P}(X \\le 9)$$\nSumming terms from $X = 0$ to $X = 9$ requires ten separate calculations. Instead, we use the complement rule:\n$$\\mathrm{P}(X < 10) = 1 - \\mathrm{P}(X \\ge 10) = 1 - [\\mathrm{P}(X = 10) + \\mathrm{P}(X = 11) + \\mathrm{P}(X = 12)]$$",
+        "Step 3: Calculate each upper term using the binomial formula $\\mathrm{P}(X = x) = \\binom{n}{x} p^x q^{n-x}$:\n- For $x = 10$:\n$$\\binom{12}{10} = \\frac{12 \\times 11}{2 \\times 1} = 66$$\n$$\\mathrm{P}(X = 10) = 66 \\times (0.6)^{10} \\times (0.4)^2 = 66 \\times 0.0060466176 \\times 0.16 = 0.06385228$$\n- For $x = 11$:\n$$\\binom{12}{11} = 12$$\n$$\\mathrm{P}(X = 11) = 12 \\times (0.6)^{11} \\times (0.4)^1 = 12 \\times 0.0036279706 \\times 0.4 = 0.01741426$$\n- For $x = 12$:\n$$\\binom{12}{12} = 1$$\n$$\\mathrm{P}(X = 12) = 1 \\times (0.6)^{12} \\times (0.4)^0 = 0.00217678$$",
+        "Step 4: Sum the three upper probabilities:\n$$\\mathrm{P}(X \\ge 10) = 0.06385228 + 0.01741426 + 0.00217678 = 0.08344332$$",
+        "Step 5: Subtract from 1:\n$$\\mathrm{P}(X < 10) = 1 - 0.08344332 = 0.91655668$$\nRounding to 3 significant figures gives $0.917$."
+      ],
+      "checking": {
+        "mode": "ai",
+        "ai_rubric": {
+          "Calculating Binomial Tail Probabilities": "Uses 1 - [P(10) + P(11) + P(12)] with B(12, 0.6) to obtain 0.917."
+        },
+        "criteria_source": "mark_scheme_structured"
+      }
+    },
+    {
+      "part_id": "9709_s21_51_q6_b",
+      "difficulty": 3,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_s1_t_the_normal_distribution",
+        "module_id": "9709_s1_t_the_normal_distribution_m03",
+        "lesson_id": "9709_s1_t_the_normal_distribution_m03_l02"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_applying_a_normal_approximation",
+        "skill_tags": [
+          "Applying a Normal Approximation"
+        ]
+      },
+      "question_pattern_ids": [
+        "9709_s1_pattern_normal_approximation_fewer_than_k"
+      ],
+      "knowledge_refs": {
+        "formula_ids": [
+          "9709_s1_formula_normal_approximation_parameters",
+          "9709_s1_formula_normal_standardisation"
+        ],
+        "identity_ids": [],
+        "method_ids": [
+          "9709_s1_method_applying_a_normal_approximation"
+        ],
+        "fact_ids": [
+          "9709_s1_fact_continuity_correction_less_than",
+          "9709_s1_fact_normal_cumulative_area",
+          "9709_s1_fact_normal_symmetry_lower_tail"
+        ]
+      },
+      "hints": [
+        "Identify the binomial parameters for the larger sample: $n = 150$ and $p = 0.6$.",
+        "Calculate the mean $\\mu = np = 150 \\times 0.6 = 90$ and variance $\\sigma^2 = np(1 - p) = 150 \\times 0.6 \\times 0.4 = 36$, giving standard deviation $\\sigma = 6$.",
+        "Apply the continuity correction to the strict inequality 'less than 81': $\\mathrm{P}(X < 81) = \\mathrm{P}(X \\le 80) \\approx \\mathrm{P}(Y < 80.5)$.",
+        "Standardise $z = \\dfrac{80.5 - 90}{6}$, calculate the standard normal probability using $1 - \\Phi(|z|)$, and give your answer to 3 significant figures."
+      ],
+      "walkthrough": [
+        "Calculate the mean and variance of the approximating normal distribution for $X \\sim B(150, 0.6)$:\n$$\\mu = np = 150 \\times 0.6 = 90$$\n$$\\sigma^2 = np(1 - p) = 150 \\times 0.6 \\times 0.4 = 36 \\implies \\sigma = \\sqrt{36} = 6$$",
+        "Apply the continuity correction to the discrete condition 'less than 81':\n$$\\mathrm{P}(X < 81) = \\mathrm{P}(X \\le 80) \\approx \\mathrm{P}(Y < 80.5)$$",
+        "Standardise to convert to a standard normal variable $Z$:\n$$z = \\frac{80.5 - 90}{6} = \\frac{-9.5}{6} \\approx -1.5833$$",
+        "Evaluate using the standard normal cumulative distribution function and symmetry:\n$$\\mathrm{P}(Z < -1.5833) = 1 - \\Phi(1.5833)$$\n$$\\Phi(1.583) \\approx 0.9433$$\n$$1 - 0.9433 = 0.0567$$"
+      ],
+      "teacher_walkthrough": [
+        "Step 1: Calculate the parameters of the normal approximation.\nThe number of adults who travel by car in a sample of $n = 150$ follows:\n$$X \\sim B(150, 0.6)$$\nWe approximate $X$ using a continuous normal random variable $Y \\sim N(\\mu, \\sigma^2)$:\n$$\\mu = np = 150 \\times 0.6 = 90$$\n$$\\sigma^2 = np(1 - p) = 150 \\times 0.6 \\times 0.4 = 36$$\n$$\\sigma = \\sqrt{36} = 6$$",
+        "Step 2: Apply the continuity correction.\nWe want to find the probability that $X$ is less than 81:\n$$\\mathrm{P}(X < 81)$$\nBecause $X$ takes integer values, $X < 81$ is identical to $X \\le 80$.\nIn a continuous distribution, the integer 80 is represented by the interval $[79.5, 80.5]$. To include all integers up to and including 80, the continuous cutoff is $80.5$:\n$$\\mathrm{P}(X < 81) = \\mathrm{P}(X \\le 80) \\approx \\mathrm{P}(Y < 80.5)$$",
+        "Step 3: Standardise to find the $Z$-score.\nUse the formula $Z = \\frac{Y - \\mu}{\\sigma}$:\n$$Z = \\frac{80.5 - 90}{6} = \\frac{-9.5}{6} = -1.5833$$",
+        "Step 4: Use normal distribution tables to evaluate the probability.\nSince the $Z$-score is negative, use the symmetry relation $\\mathrm{P}(Z < -z) = 1 - \\Phi(z)$:\n$$\\mathrm{P}(Z < -1.5833) = 1 - \\Phi(1.5833)$$\nFrom the standard normal tables:\n$$\\Phi(1.58) = 0.9429$$\nThe difference for the next digit $3$ is $+4$ (or $0.0004$):\n$$\\Phi(1.583) = 0.9429 + 0.0004 = 0.9433$$\nSubtract from 1:\n$$1 - 0.9433 = 0.0567$$\nRounding to 3 significant figures gives $0.0567$."
+      ],
+      "checking": {
+        "mode": "ai",
+        "ai_rubric": {
+          "Applying a Normal Approximation": "Computes mean = 90, variance = 36, standardises (80.5 - 90)/6 = -1.583 to get 1 - Phi(1.583) = 0.0567."
+        },
+        "criteria_source": "mark_scheme_structured"
+      }
+    },
+    {
+      "part_id": "9709_s21_51_q6_c",
+      "difficulty": 1,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_s1_t_the_normal_distribution",
+        "module_id": "9709_s1_t_the_normal_distribution_m03",
+        "lesson_id": "9709_s1_t_the_normal_distribution_m03_l01"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_justifying_a_normal_approximation",
+        "skill_tags": [
+          "Justifying a Normal Approximation"
+        ]
+      },
+      "question_pattern_ids": [
+        "9709_s1_pattern_justifying_normal_approximation"
+      ],
+      "knowledge_refs": {
+        "formula_ids": [],
+        "identity_ids": [],
+        "method_ids": [
+          "9709_s1_method_justifying_a_normal_approximation"
+        ],
+        "fact_ids": [
+          "9709_s1_fact_normal_approximation_validity_condition"
+        ]
+      },
+      "hints": [
+        "Recall the conditions required to use a normal approximation to a binomial distribution $B(n, p)$.",
+        "Calculate both $np$ and $n(1 - p)$ for $n = 150$ and $p = 0.6$.",
+        "State clearly that both products are greater than 5."
+      ],
+      "walkthrough": [
+        "State and evaluate the validity criteria for a normal approximation to a binomial distribution:\n$$np = 150 \\times 0.6 = 90 > 5$$\n$$n(1 - p) = 150 \\times 0.4 = 60 > 5$$",
+        "Conclude that because both $np > 5$ and $n(1 - p) > 5$, the normal approximation is valid."
+      ],
+      "teacher_walkthrough": [
+        "Step 1: State the criteria for approximating a binomial distribution with a normal distribution.\nA normal distribution can be used as a reliable approximation to a binomial distribution $B(n, p)$ if the expected number of successes $np$ and the expected number of failures $n(1 - p)$ (or $nq$) are both sufficiently large, typically greater than 5.",
+        "Step 2: Calculate both quantities explicitly:\n$$np = 150 \\times 0.6 = 90$$\n$$nq = n(1 - p) = 150 \\times 0.4 = 60$$",
+        "Step 3: State the conclusion clearly:\nBoth $np = 90 > 5$ and $n(1 - p) = 60 > 5$, which justifies the use of the normal approximation."
+      ],
+      "checking": {
+        "mode": "ai",
+        "ai_rubric": {
+          "Justifying a Normal Approximation": "Evaluates np = 90 and n(1-p) = 60 and states that both are greater than 5."
+        },
+        "criteria_source": "mark_scheme_structured"
+      }
+    }
+  ]
+}

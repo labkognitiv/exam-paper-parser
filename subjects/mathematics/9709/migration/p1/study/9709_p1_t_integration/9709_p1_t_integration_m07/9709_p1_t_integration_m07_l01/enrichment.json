@@ -1,0 +1,1247 @@
+{
+  "schema_version": "9709_math_lesson_enrichment_v1",
+  "lesson_id": "9709_p1_t_integration_m07_l01",
+  "topic_id": "9709_p1_t_integration",
+  "numerical_values_checked": false,
+  "lesson_scope": "Special variants in Cambridge P1 integration: improper integrals with infinite limits, definite integrals with variable limits to recover parameters, and double integration to recover curve equations from second derivatives with stationary/gradient boundary conditions.",
+  "questions": [
+    {
+      "question_id": "9709_p1_t_integration_m07_l01_drq01",
+      "sequence": 1,
+      "difficulty": "easy",
+      "difficulty_reason": "Drill: basic improper integral of x^-2 with infinite upper limit.",
+      "source_question_id": "drill_integ_improper_basic",
+      "source_role": "foundational_drill",
+      "dependency_role": "none",
+      "dependency_refs": [],
+      "parts": [
+        {
+          "part_id": "9709_p1_t_integration_m07_l01_drq01_p01",
+          "difficulty": "easy",
+          "question_pattern_ids": [
+            "9709_p1_pattern_area_or_volume"
+          ],
+          "source_evidence": {
+            "question_id": "drill_integ_improper_basic",
+            "part_id": "drill_integ_improper_basic_p01",
+            "legacy_practice_tier": "foundational",
+            "product_role": "warm_up_drill",
+            "structural_inspiration": "Foundational check of evaluating an improper integral with an infinite upper bound."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Write the integrand using negative exponents: $\\dfrac{1}{x^2} = x^{-2}$.",
+            "Find the antiderivative: $\\int x^{-2} \\, dx = \\dfrac{x^{-1}}{-1} = -\\dfrac{1}{x}$.",
+            "Evaluate the limits: $\\lim_{t \\to \\infty} \\left(-\\dfrac{1}{t}\\right) - \\left(-\\dfrac{1}{1}\\right) = 0 - (-1) = 1$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Express the improper integral using a limit or standard notation:\n$$\\int_1^\\infty \\frac{1}{x^2} \\, dx = \\lim_{t \\to \\infty} \\int_1^t x^{-2} \\, dx$$"
+            },
+            {
+              "step": 2,
+              "text": "Find the antiderivative using the power rule:\n$$= \\lim_{t \\to \\infty} \\left[-\\frac{1}{x}\\right]_1^t = \\lim_{t \\to \\infty} \\left(-\\frac{1}{t} - \\left(-\\frac{1}{1}\\right)\\right)$$"
+            },
+            {
+              "step": 3,
+              "text": "Evaluate the limit as $t \to \\infty$:\n$$= 0 - (-1) = 1$$"
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p1_t_integration_m07_l01_drq01_p01_mp01",
+                "observable": "Integrates $\\int_1^\\infty x^{-2} \\, dx$ to obtain $\\left[-\\frac{1}{x}\\right]_1^\\infty$."
+              },
+              {
+                "criterion_id": "9709_p1_t_integration_m07_l01_drq01_p01_mp02",
+                "observable": "Evaluates the limit: $0 - (-1) = 1$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p1_skill_evaluating_definite_integrals"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p1_skill_evaluating_definite_integrals"
+            ],
+            "method_ids": [
+              "9709_p1_method_evaluating_definite_integrals"
+            ],
+            "formula_ids": [
+              "9709_p1_formula_power_integral"
+            ],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_p1_t_integration_m07_l01_drq02",
+      "sequence": 2,
+      "difficulty": "easy",
+      "difficulty_reason": "Drill: improper integral with linear composite denominator (2x+1)^-2.",
+      "source_question_id": "drill_integ_improper_chain",
+      "source_role": "foundational_drill",
+      "dependency_role": "none",
+      "dependency_refs": [],
+      "parts": [
+        {
+          "part_id": "9709_p1_t_integration_m07_l01_drq02_p01",
+          "difficulty": "easy",
+          "question_pattern_ids": [
+            "9709_p1_pattern_area_or_volume"
+          ],
+          "source_evidence": {
+            "question_id": "drill_integ_improper_chain",
+            "part_id": "drill_integ_improper_chain_p01",
+            "legacy_practice_tier": "foundational",
+            "product_role": "warm_up_drill",
+            "structural_inspiration": "Foundational check of integrating a linear composite function over an infinite interval."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Rewrite the integrand with a negative index: $(2x + 1)^{-2}$.",
+            "Integrate using the linear chain rule: $\\int (2x + 1)^{-2} \\, dx = \\dfrac{(2x + 1)^{-1}}{-1 \\times 2} = -\\dfrac{1}{2(2x + 1)}$.",
+            "Evaluate at $\\infty$ and $0$: $0 - \\left(-\\dfrac{1}{2(1)}\\right) = \\dfrac{1}{2}$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Write the integrand in index form:\n$$\\int_0^\\infty (2x + 1)^{-2} \\, dx$$"
+            },
+            {
+              "step": 2,
+              "text": "Integrate using the reverse chain rule, dividing by the coefficient of $x$ ($2$):\n$$= \\left[-\\frac{1}{2(2x + 1)}\\right]_0^\\infty$$"
+            },
+            {
+              "step": 3,
+              "text": "Evaluate the limits:\n$$= \\lim_{x \\to \\infty} \\left(-\\frac{1}{2(2x + 1)}\\right) - \\left(-\\frac{1}{2(2(0) + 1)}\\right) = 0 - \\left(-\\frac{1}{2}\\right) = \\frac{1}{2}$$"
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p1_t_integration_m07_l01_drq02_p01_mp01",
+                "observable": "Integrates using linear chain rule to obtain $\\left[-\\frac{1}{2(2x+1)}\\right]_0^\\infty$."
+              },
+              {
+                "criterion_id": "9709_p1_t_integration_m07_l01_drq02_p01_mp02",
+                "observable": "Evaluates limits to obtain $0 - \\left(-\\frac{1}{2}\\right) = \\frac{1}{2}$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p1_skill_integrating_linear_composite_functions"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p1_skill_integrating_linear_composite_functions"
+            ],
+            "method_ids": [
+              "9709_p1_method_integrating_linear_composite_functions"
+            ],
+            "formula_ids": [
+              "9709_p1_formula_composite_linear_integral"
+            ],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_p1_t_integration_m07_l01_drq03",
+      "sequence": 3,
+      "difficulty": "easy",
+      "difficulty_reason": "Drill: definite integral with unknown upper limit solved as a quadratic/monomial equation.",
+      "source_question_id": "drill_integ_variable_limit_basic",
+      "source_role": "foundational_drill",
+      "dependency_role": "none",
+      "dependency_refs": [],
+      "parts": [
+        {
+          "part_id": "9709_p1_t_integration_m07_l01_drq03_p01",
+          "difficulty": "easy",
+          "question_pattern_ids": [
+            "9709_p1_pattern_area_or_volume"
+          ],
+          "source_evidence": {
+            "question_id": "drill_integ_variable_limit_basic",
+            "part_id": "drill_integ_variable_limit_basic_p01",
+            "legacy_practice_tier": "foundational",
+            "product_role": "warm_up_drill",
+            "structural_inspiration": "Foundational check of solving for an unknown integration limit from a given integral value."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Integrate the function $2x$ with respect to $x$: $\\int_0^k 2x \\, dx = [x^2]_0^k$.",
+            "Substitute the limits: $k^2 - 0 = k^2$.",
+            "Set the result equal to $9$: $k^2 = 9 \\implies k = 3$ (since $k > 0$)."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Evaluate the definite integral in terms of $k$:\n$$\\int_0^k 2x \\, dx = \\left[x^2\\right]_0^k = k^2 - 0^2 = k^2$$"
+            },
+            {
+              "step": 2,
+              "text": "Set the evaluated integral equal to the given value $9$ and solve for $k > 0$:\n$$k^2 = 9 \\implies k = 3 \\quad (\\text{since } k > 0)$$"
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p1_t_integration_m07_l01_drq03_p01_mp01",
+                "observable": "Integrates to $[x^2]_0^k = k^2$ and sets $k^2 = 9$."
+              },
+              {
+                "criterion_id": "9709_p1_t_integration_m07_l01_drq03_p01_mp02",
+                "observable": "Solves with $k > 0$ to obtain $k = 3$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p1_skill_evaluating_definite_integrals"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p1_skill_evaluating_definite_integrals"
+            ],
+            "method_ids": [
+              "9709_p1_method_evaluating_definite_integrals"
+            ],
+            "formula_ids": [
+              "9709_p1_formula_power_integral"
+            ],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_p1_t_integration_m07_l01_drq04",
+      "sequence": 4,
+      "difficulty": "easy",
+      "difficulty_reason": "Drill: double integration from constant second derivative.",
+      "source_question_id": "drill_integ_second_deriv_const",
+      "source_role": "foundational_drill",
+      "dependency_role": "none",
+      "dependency_refs": [],
+      "parts": [
+        {
+          "part_id": "9709_p1_t_integration_m07_l01_drq04_p01",
+          "difficulty": "easy",
+          "question_pattern_ids": [
+            "9709_p1_pattern_integration_of_derivatives"
+          ],
+          "source_evidence": {
+            "question_id": "drill_integ_second_deriv_const",
+            "part_id": "drill_integ_second_deriv_const_p01",
+            "legacy_practice_tier": "foundational",
+            "product_role": "warm_up_drill",
+            "structural_inspiration": "Foundational check of integrating twice to find a curve equation."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Integrate $\\dfrac{d^2y}{dx^2} = 6$ once to find the gradient: $\\dfrac{dy}{dx} = 6x + c_1$.",
+            "Use $\\dfrac{dy}{dx} = 4$ when $x = 0$ to find $c_1$: $6(0) + c_1 = 4 \\implies c_1 = 4$, so $\\dfrac{dy}{dx} = 6x + 4$.",
+            "Integrate again: $y = 3x^2 + 4x + c_2$. Use the point $(0, 5)$ to find $c_2 = 5 \\implies y = 3x^2 + 4x + 5$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Integrate the second derivative to find the first derivative:\n$$\\frac{dy}{dx} = \\int 6 \\, dx = 6x + c_1$$"
+            },
+            {
+              "step": 2,
+              "text": "Apply the gradient condition $\\frac{dy}{dx} = 4$ when $x = 0$:\n$$6(0) + c_1 = 4 \\implies c_1 = 4 \\implies \\frac{dy}{dx} = 6x + 4$$"
+            },
+            {
+              "step": 3,
+              "text": "Integrate again to find $y$ and apply the point $(0, 5)$:\n$$y = \\int (6x + 4) \\, dx = 3x^2 + 4x + c_2$$\n$$3(0)^2 + 4(0) + c_2 = 5 \\implies c_2 = 5 \\implies y = 3x^2 + 4x + 5$$"
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p1_t_integration_m07_l01_drq04_p01_mp01",
+                "observable": "Integrates twice to $y = 3x^2 + c_1x + c_2$ and uses given initial values."
+              },
+              {
+                "criterion_id": "9709_p1_t_integration_m07_l01_drq04_p01_mp02",
+                "observable": "Obtains constants $c_1 = 4$, $c_2 = 5$ to state $y = 3x^2 + 4x + 5$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p1_skill_finding_equation_of_curve"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p1_skill_finding_equation_of_curve"
+            ],
+            "method_ids": [
+              "9709_p1_method_finding_equation_of_curve"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_p1_t_integration_m07_l01_drq05",
+      "sequence": 5,
+      "difficulty": "easy",
+      "difficulty_reason": "Drill: double integration from linear second derivative with stationary point condition.",
+      "source_question_id": "drill_integ_second_deriv_stat",
+      "source_role": "foundational_drill",
+      "dependency_role": "none",
+      "dependency_refs": [],
+      "parts": [
+        {
+          "part_id": "9709_p1_t_integration_m07_l01_drq05_p01",
+          "difficulty": "easy",
+          "question_pattern_ids": [
+            "9709_p1_pattern_integration_of_derivatives"
+          ],
+          "source_evidence": {
+            "question_id": "drill_integ_second_deriv_stat",
+            "part_id": "drill_integ_second_deriv_stat_p01",
+            "legacy_practice_tier": "foundational",
+            "product_role": "warm_up_drill",
+            "structural_inspiration": "Foundational check of using a stationary point condition (dy/dx = 0) to find the first constant of integration."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Integrate $\\dfrac{d^2y}{dx^2} = 12x$ to get $\\dfrac{dy}{dx} = 6x^2 + c_1$.",
+            "A stationary point at $(1, 4)$ means $\\dfrac{dy}{dx} = 0$ when $x = 1$: $6(1)^2 + c_1 = 0 \\implies c_1 = -6$, so $\\dfrac{dy}{dx} = 6x^2 - 6$.",
+            "Integrate again: $y = 2x^3 - 6x + c_2$. Substitute $(1, 4)$: $2(1) - 6(1) + c_2 = 4 \\implies -4 + c_2 = 4 \\implies c_2 = 8 \\implies y = 2x^3 - 6x + 8$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Integrate the second derivative:\n$$\\frac{dy}{dx} = \\int 12x \\, dx = 6x^2 + c_1$$"
+            },
+            {
+              "step": 2,
+              "text": "Apply the stationary condition $\\frac{dy}{dx} = 0$ at $x = 1$:\n$$6(1)^2 + c_1 = 0 \\implies c_1 = -6 \\implies \\frac{dy}{dx} = 6x^2 - 6$$"
+            },
+            {
+              "step": 3,
+              "text": "Integrate to find $y$ and substitute the point $(1, 4)$:\n$$y = \\int (6x^2 - 6) \\, dx = 2x^3 - 6x + c_2$$\n$$2(1)^3 - 6(1) + c_2 = 4 \\implies -4 + c_2 = 4 \\implies c_2 = 8$$\n$$y = 2x^3 - 6x + 8$$"
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p1_t_integration_m07_l01_drq05_p01_mp01",
+                "observable": "Integrates to $\\frac{dy}{dx} = 6x^2 + c_1$, uses $\\frac{dy}{dx}(1) = 0$ to find $c_1 = -6$, and integrates again."
+              },
+              {
+                "criterion_id": "9709_p1_t_integration_m07_l01_drq05_p01_mp02",
+                "observable": "Uses $(1, 4)$ to find $c_2 = 8$ and concludes $y = 2x^3 - 6x + 8$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p1_skill_finding_equation_of_curve"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p1_skill_finding_equation_of_curve"
+            ],
+            "method_ids": [
+              "9709_p1_method_finding_equation_of_curve"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_p1_t_integration_m07_l01_drq06",
+      "sequence": 6,
+      "difficulty": "easy",
+      "difficulty_reason": "Drill: improper integral with fractional negative power x^-3/2.",
+      "source_question_id": "drill_integ_improper_fractional",
+      "source_role": "foundational_drill",
+      "dependency_role": "none",
+      "dependency_refs": [],
+      "parts": [
+        {
+          "part_id": "9709_p1_t_integration_m07_l01_drq06_p01",
+          "difficulty": "easy",
+          "question_pattern_ids": [
+            "9709_p1_pattern_area_or_volume"
+          ],
+          "source_evidence": {
+            "question_id": "drill_integ_improper_fractional",
+            "part_id": "drill_integ_improper_fractional_p01",
+            "legacy_practice_tier": "foundational",
+            "product_role": "warm_up_drill",
+            "structural_inspiration": "Foundational check of integrating a fractional negative power over an infinite domain."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Express the integrand with a fractional exponent: $x^{-3/2}$.",
+            "Integrate using the power rule: $\\int x^{-3/2} \\, dx = \\dfrac{x^{-1/2}}{-1/2} = -2x^{-1/2} = -\\dfrac{2}{\\sqrt{x}}$.",
+            "Evaluate at $\\infty$ and $1$: $0 - \\left(-\\dfrac{2}{\\sqrt{1}}\\right) = 0 - (-2) = 2$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Write the integrand in index notation:\n$$\\int_1^\\infty x^{-3/2} \\, dx$$"
+            },
+            {
+              "step": 2,
+              "text": "Apply the power rule to integrate:\n$$= \\left[\\frac{x^{-1/2}}{-1/2}\\right]_1^\\infty = \\left[-2x^{-1/2}\\right]_1^\\infty = \\left[-\\frac{2}{\\sqrt{x}}\\right]_1^\\infty$$"
+            },
+            {
+              "step": 3,
+              "text": "Evaluate the limits:\n$$= \\lim_{x \\to \\infty} \\left(-\\frac{2}{\\sqrt{x}}\\right) - \\left(-\\frac{2}{\\sqrt{1}}\\right) = 0 - (-2) = 2$$"
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p1_t_integration_m07_l01_drq06_p01_mp01",
+                "observable": "Integrates $\\int_1^\\infty x^{-3/2} \\, dx$ to obtain $\\left[-2x^{-1/2}\\right]_1^\\infty$."
+              },
+              {
+                "criterion_id": "9709_p1_t_integration_m07_l01_drq06_p01_mp02",
+                "observable": "Evaluates limits: $0 - (-2) = 2$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p1_skill_evaluating_definite_integrals"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p1_skill_evaluating_definite_integrals"
+            ],
+            "method_ids": [
+              "9709_p1_method_evaluating_definite_integrals"
+            ],
+            "formula_ids": [
+              "9709_p1_formula_power_integral"
+            ],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_p1_t_integration_m07_l01_cpq01",
+      "sequence": 7,
+      "difficulty": "easy",
+      "difficulty_reason": "Easy: improper integral with linear composite reciprocal power.",
+      "source_question_id": "9709_m17_12_q10",
+      "source_role": "revision_design_evidence",
+      "dependency_role": "none",
+      "dependency_refs": [],
+      "parts": [
+        {
+          "part_id": "9709_p1_t_integration_m07_l01_cpq01_p01",
+          "difficulty": "easy",
+          "difficulty_reason": "Easy: improper integral with linear composite reciprocal power.",
+          "question_pattern_ids": [
+            "9709_p1_pattern_area_or_volume"
+          ],
+          "source_evidence": {
+            "question_id": "9709_m17_12_q10",
+            "part_id": "9709_m17_12_q10_c",
+            "legacy_practice_tier": "mandatory",
+            "product_role": "revision",
+            "structural_inspiration": "Requires evaluating an improper integral with an infinite upper limit."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "domain_and_existence_restrictions": [
+            "$x > -1$; on $[2, \\infty)$, the integrand is continuous."
+          ],
+          "hints": [
+            "Write the integrand in index form: $6(x + 1)^{-2}$.",
+            "Integrate: $\\int 6(x + 1)^{-2} \\, dx = \\dfrac{6(x + 1)^{-1}}{-1} = -\\dfrac{6}{x + 1}$.",
+            "Evaluate at upper limit $\\infty$ ($\\lim_{x \\to \\infty} -\\dfrac{6}{x+1} = 0$) and lower limit $x = 2$ ($-\\dfrac{6}{2+1} = -2$).",
+            "Subtract to obtain the exact value: $0 - (-2) = 2$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Write the integrand in index form:\n$$\\int_2^\\infty 6(x + 1)^{-2} \\, dx$$"
+            },
+            {
+              "step": 2,
+              "text": "Find the antiderivative using the linear reverse chain rule:\n$$= \\left[-6(x + 1)^{-1}\\right]_2^\\infty = \\left[-\\frac{6}{x + 1}\\right]_2^\\infty$$"
+            },
+            {
+              "step": 3,
+              "text": "Evaluate the difference as $x \to \\infty$ and at $x = 2$:\n$$= \\lim_{x \\to \\infty} \\left(-\\frac{6}{x + 1}\\right) - \\left(-\\frac{6}{2 + 1}\\right) = 0 - (-2) = 2$$"
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p1_t_integration_m07_l01_cpq01_p01_mp01",
+                "observable": "Integrates to obtain $-6(x+1)^{-1}$."
+              },
+              {
+                "criterion_id": "9709_p1_t_integration_m07_l01_cpq01_p01_mp02",
+                "observable": "Uses the upper-limit value $0$ and the lower-limit value $-2$."
+              },
+              {
+                "criterion_id": "9709_p1_t_integration_m07_l01_cpq01_p01_mp03",
+                "observable": "Subtracts the limit values to obtain $2$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p1_skill_evaluating_definite_integrals"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p1_skill_evaluating_definite_integrals"
+            ],
+            "method_ids": [
+              "9709_p1_method_evaluating_definite_integrals"
+            ],
+            "formula_ids": [
+              "9709_p1_formula_composite_linear_integral"
+            ],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_p1_t_integration_m07_l01_cpq02",
+      "sequence": 8,
+      "difficulty": "easy",
+      "difficulty_reason": "Easy: integrate twice from constant second derivative and use stationary point to determine both constants.",
+      "source_question_id": "9709_w16_11_q7",
+      "source_role": "revision_design_evidence",
+      "dependency_role": "none",
+      "dependency_refs": [],
+      "parts": [
+        {
+          "part_id": "9709_p1_t_integration_m07_l01_cpq02_p01",
+          "difficulty": "easy",
+          "difficulty_reason": "Easy: integrate twice from constant second derivative and use stationary point to determine both constants.",
+          "question_pattern_ids": [
+            "9709_p1_pattern_integration_of_derivatives"
+          ],
+          "source_evidence": {
+            "question_id": "9709_w16_11_q7",
+            "part_id": "9709_w16_11_q7",
+            "legacy_practice_tier": "mandatory",
+            "product_role": "revision",
+            "structural_inspiration": "Requires double integration from d^2y/dx^2 and stationary point conditions."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "domain_and_existence_restrictions": [
+            "Domain is all real $x$."
+          ],
+          "hints": [
+            "Integrate $\\dfrac{d^2y}{dx^2} = 4$ to obtain $\\dfrac{dy}{dx} = 4x + c_1$.",
+            "At a stationary point $(1, 3)$, $\\dfrac{dy}{dx} = 0$ when $x = 1$: $4(1) + c_1 = 0 \\implies c_1 = -4$, so $\\dfrac{dy}{dx} = 4x - 4$.",
+            "Integrate again: $y = 2x^2 - 4x + c_2$.",
+            "Substitute the point $(1, 3)$ into the equation: $3 = 2(1)^2 - 4(1) + c_2 \\implies 3 = -2 + c_2 \\implies c_2 = 5$, giving $y = 2x^2 - 4x + 5$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Integrate the second derivative once:\n$$\\frac{dy}{dx} = \\int 4 \\, dx = 4x + c_1$$"
+            },
+            {
+              "step": 2,
+              "text": "Use the stationary point condition $\\frac{dy}{dx} = 0$ at $x = 1$ to find $c_1$:\n$$4(1) + c_1 = 0 \\implies c_1 = -4 \\implies \\frac{dy}{dx} = 4x - 4$$"
+            },
+            {
+              "step": 3,
+              "text": "Integrate a second time to find $y$:\n$$y = \\int (4x - 4) \\, dx = 2x^2 - 4x + c_2$$"
+            },
+            {
+              "step": 4,
+              "text": "Use the point $(1, 3)$ to determine $c_2$:\n$$3 = 2(1)^2 - 4(1) + c_2 \\implies 3 = -2 + c_2 \\implies c_2 = 5$$\n$$\\text{Equation of the curve: } y = 2x^2 - 4x + 5$$"
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p1_t_integration_m07_l01_cpq02_p01_mp01",
+                "observable": "Integrates once to obtain $\\dfrac{dy}{dx} = 4x + c_1$."
+              },
+              {
+                "criterion_id": "9709_p1_t_integration_m07_l01_cpq02_p01_mp02",
+                "observable": "Uses stationarity at $x = 1$ to obtain $c_1 = -4$."
+              },
+              {
+                "criterion_id": "9709_p1_t_integration_m07_l01_cpq02_p01_mp03",
+                "observable": "Integrates again to obtain $y = 2x^2 - 4x + c_2$."
+              },
+              {
+                "criterion_id": "9709_p1_t_integration_m07_l01_cpq02_p01_mp04",
+                "observable": "Uses $(1, 3)$ to form $3 = 2 - 4 + c_2$."
+              },
+              {
+                "criterion_id": "9709_p1_t_integration_m07_l01_cpq02_p01_mp05",
+                "observable": "Obtains $c_2 = 5$ and states $y = 2x^2 - 4x + 5$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p1_skill_finding_equation_of_curve"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p1_skill_finding_equation_of_curve"
+            ],
+            "method_ids": [
+              "9709_p1_method_finding_equation_of_curve"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_p1_t_integration_m07_l01_cpq03",
+      "sequence": 9,
+      "difficulty": "medium",
+      "difficulty_reason": "Medium: improper integral with linear composite fractional negative power (2x-1)^(-3/2).",
+      "source_question_id": "9709_m25_12_q9",
+      "source_role": "revision_design_evidence",
+      "dependency_role": "none",
+      "dependency_refs": [],
+      "parts": [
+        {
+          "part_id": "9709_p1_t_integration_m07_l01_cpq03_p01",
+          "difficulty": "medium",
+          "difficulty_reason": "Medium: improper integral with linear composite fractional negative power (2x-1)^(-3/2).",
+          "question_pattern_ids": [
+            "9709_p1_pattern_area_or_volume"
+          ],
+          "source_evidence": {
+            "question_id": "9709_m25_12_q9",
+            "part_id": "9709_m25_12_q9_c",
+            "legacy_practice_tier": "mandatory",
+            "product_role": "revision",
+            "structural_inspiration": "Requires integrating a fractional composite power over an infinite domain."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "domain_and_existence_restrictions": [
+            "$x > \\frac{1}{2}$; on $[3, \\infty)$, the integrand is continuous."
+          ],
+          "hints": [
+            "Write the integrand in index form: $8(2x - 1)^{-3/2}$.",
+            "Integrate using the linear chain rule: $\\int 8(2x - 1)^{-3/2} \\, dx = 8 \\cdot \\dfrac{(2x - 1)^{-1/2}}{-1/2 \\times 2} = -\\dfrac{8}{\\sqrt{2x - 1}}$.",
+            "Evaluate at upper limit $\\infty$: $\\lim_{x \\to \\infty} -\\dfrac{8}{\\sqrt{2x - 1}} = 0$.",
+            "Evaluate at lower limit $x = 3$: $-\\dfrac{8}{\\sqrt{2(3) - 1}} = -\\dfrac{8}{\\sqrt{5}}$, then subtract: $0 - \\left(-\\dfrac{8}{\\sqrt{5}}\\right) = \\dfrac{8}{\\sqrt{5}}$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Rewrite the integrand in index form:\n$$\\int_3^\\infty 8(2x - 1)^{-3/2} \\, dx$$"
+            },
+            {
+              "step": 2,
+              "text": "Integrate using the reverse chain rule (dividing by the inner derivative $2$):\n$$= \\left[\\frac{8(2x - 1)^{-1/2}}{(-1/2)(2)}\\right]_3^\\infty = \\left[-8(2x - 1)^{-1/2}\\right]_3^\\infty = \\left[-\\frac{8}{\\sqrt{2x - 1}}\\right]_3^\\infty$$"
+            },
+            {
+              "step": 3,
+              "text": "Evaluate at the upper limit ($x \to \\infty$) and lower limit ($x = 3$):\n$$= \\lim_{x \\to \\infty} \\left(-\\frac{8}{\\sqrt{2x - 1}}\\right) - \\left(-\\frac{8}{\\sqrt{2(3) - 1}}\\right) = 0 - \\left(-\\frac{8}{\\sqrt{5}}\\right) = \\frac{8}{\\sqrt{5}} \\quad \\left(\\text{or } \\frac{8\\sqrt{5}}{5}\\right)$$"
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p1_t_integration_m07_l01_cpq03_p01_mp01",
+                "observable": "Rewrites the integrand as $8(2x - 1)^{-3/2}$."
+              },
+              {
+                "criterion_id": "9709_p1_t_integration_m07_l01_cpq03_p01_mp02",
+                "observable": "Integrates with the inner factor to obtain $-8(2x - 1)^{-1/2}$."
+              },
+              {
+                "criterion_id": "9709_p1_t_integration_m07_l01_cpq03_p01_mp03",
+                "observable": "Uses the upper-limit value $0$ and lower-limit value $-8/\\sqrt{5}$."
+              },
+              {
+                "criterion_id": "9709_p1_t_integration_m07_l01_cpq03_p01_mp04",
+                "observable": "Obtains $8/\\sqrt{5}$ in an exact equivalent form."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p1_skill_evaluating_definite_integrals"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p1_skill_evaluating_definite_integrals"
+            ],
+            "method_ids": [
+              "9709_p1_method_evaluating_definite_integrals"
+            ],
+            "formula_ids": [
+              "9709_p1_formula_composite_linear_integral"
+            ],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_p1_t_integration_m07_l01_cpq04",
+      "sequence": 10,
+      "difficulty": "medium",
+      "difficulty_reason": "Medium: integrate with variable upper limit k, set equal to 15, and solve a quadratic equation with surd roots.",
+      "source_question_id": "9709_s25_11_q2",
+      "source_role": "revision_design_evidence",
+      "dependency_role": "none",
+      "dependency_refs": [],
+      "parts": [
+        {
+          "part_id": "9709_p1_t_integration_m07_l01_cpq04_p01",
+          "difficulty": "medium",
+          "difficulty_reason": "Medium: integrate with variable upper limit k, set equal to 15, and solve a quadratic equation with surd roots.",
+          "question_pattern_ids": [
+            "9709_p1_pattern_area_or_volume"
+          ],
+          "source_evidence": {
+            "question_id": "9709_s25_11_q2",
+            "part_id": "9709_s25_11_q2",
+            "legacy_practice_tier": "mandatory",
+            "product_role": "revision",
+            "structural_inspiration": "Requires setting up a definite integral in terms of an unknown limit and solving the resulting quadratic."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "domain_and_existence_restrictions": [
+            "$k > 1$."
+          ],
+          "hints": [
+            "Integrate the linear polynomial: $\\int_1^k (4x - 2) \\, dx = \\left[2x^2 - 2x\\right]_1^k$.",
+            "Substitute the limits: $(2k^2 - 2k) - (2(1)^2 - 2(1)) = 2k^2 - 2k$.",
+            "Set equal to $15$: $2k^2 - 2k = 15 \\implies 2k^2 - 2k - 15 = 0$.",
+            "Apply the quadratic formula: $k = \\dfrac{2 \\pm \\sqrt{4 - 4(2)(-15)}}{4} = \\dfrac{2 \\pm \\sqrt{124}}{4} = \\dfrac{1 \\pm \\sqrt{31}}{2}$. Since $k > 1$, retain $k = \\dfrac{1 + \\sqrt{31}}{2}$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Evaluate the definite integral in terms of $k$:\n$$\\int_1^k (4x - 2) \\, dx = \\left[2x^2 - 2x\\right]_1^k = (2k^2 - 2k) - (2(1)^2 - 2(1)) = 2k^2 - 2k$$"
+            },
+            {
+              "step": 2,
+              "text": "Set the expression equal to $15$ and form a quadratic equation:\n$$2k^2 - 2k = 15 \\implies 2k^2 - 2k - 15 = 0$$"
+            },
+            {
+              "step": 3,
+              "text": "Solve using the quadratic formula:\n$$k = \\frac{-(-2) \\pm \\sqrt{(-2)^2 - 4(2)(-15)}}{2(2)} = \\frac{2 \\pm \\sqrt{4 + 120}}{4} = \\frac{2 \\pm \\sqrt{124}}{4} = \\frac{2 \\pm 2\\sqrt{31}}{4} = \\frac{1 \\pm \\sqrt{31}}{2}$$"
+            },
+            {
+              "step": 4,
+              "text": "Apply the condition $k > 1$:\n$$\\text{Since } \\sqrt{31} \\approx 5.57, \\quad \\frac{1 + \\sqrt{31}}{2} \\approx 3.28 > 1 \\implies k = \\frac{1 + \\sqrt{31}}{2}$$"
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p1_t_integration_m07_l01_cpq04_p01_mp01",
+                "observable": "Integrates to obtain $2x^2 - 2x$."
+              },
+              {
+                "criterion_id": "9709_p1_t_integration_m07_l01_cpq04_p01_mp02",
+                "observable": "Applies the limits to obtain $2k^2 - 2k$."
+              },
+              {
+                "criterion_id": "9709_p1_t_integration_m07_l01_cpq04_p01_mp03",
+                "observable": "Forms $2k^2 - 2k - 15 = 0$."
+              },
+              {
+                "criterion_id": "9709_p1_t_integration_m07_l01_cpq04_p01_mp04",
+                "observable": "Uses the quadratic formula to obtain $k = (1 \\pm \\sqrt{31})/2$."
+              },
+              {
+                "criterion_id": "9709_p1_t_integration_m07_l01_cpq04_p01_mp05",
+                "observable": "Uses $k > 1$ to retain $k = (1 + \\sqrt{31})/2$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p1_skill_evaluating_definite_integrals",
+            "9709_p1_skill_solving_quadratic_equations"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p1_skill_evaluating_definite_integrals",
+              "9709_p1_skill_solving_quadratic_equations"
+            ],
+            "method_ids": [
+              "9709_p1_method_evaluating_definite_integrals",
+              "9709_p1_method_solving_quadratic_equations"
+            ],
+            "formula_ids": [
+              "9709_p1_formula_power_integral"
+            ],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_p1_t_integration_m07_l01_cpq05",
+      "sequence": 11,
+      "difficulty": "medium",
+      "difficulty_reason": "Medium: double integration from linear d^2y/dx^2 = 6x + 4 with given gradient at origin and point (-1, 2).",
+      "source_question_id": "9709_w18_11_q7",
+      "source_role": "revision_design_evidence",
+      "dependency_role": "none",
+      "dependency_refs": [],
+      "parts": [
+        {
+          "part_id": "9709_p1_t_integration_m07_l01_cpq05_p01",
+          "difficulty": "medium",
+          "difficulty_reason": "Medium: double integration from linear d^2y/dx^2 = 6x + 4 with given gradient at origin and point (-1, 2).",
+          "question_pattern_ids": [
+            "9709_p1_pattern_integration_of_derivatives"
+          ],
+          "source_evidence": {
+            "question_id": "9709_w18_11_q7",
+            "part_id": "9709_w18_11_q7",
+            "legacy_practice_tier": "mandatory",
+            "product_role": "revision",
+            "structural_inspiration": "Requires double integration from a linear second derivative with boundary conditions on gradient and coordinate point."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "domain_and_existence_restrictions": [
+            "Domain is all real $x$."
+          ],
+          "hints": [
+            "Integrate $\\dfrac{d^2y}{dx^2} = 6x + 4$ once: $\\dfrac{dy}{dx} = 3x^2 + 4x + c_1$.",
+            "Use the gradient condition $\\dfrac{dy}{dx} = 1$ when $x = 0$: $3(0)^2 + 4(0) + c_1 = 1 \\implies c_1 = 1$, so $\\dfrac{dy}{dx} = 3x^2 + 4x + 1$.",
+            "Integrate again to find $y$: $y = x^3 + 2x^2 + x + c_2$.",
+            "Substitute $(-1, 2)$: $(-1)^3 + 2(-1)^2 + (-1) + c_2 = 2 \\implies -1 + 2 - 1 + c_2 = 2 \\implies c_2 = 2$, giving $y = x^3 + 2x^2 + x + 2$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Integrate the second derivative to find the gradient function:\n$$\\frac{dy}{dx} = \\int (6x + 4) \\, dx = 3x^2 + 4x + c_1$$"
+            },
+            {
+              "step": 2,
+              "text": "Apply the condition $\\frac{dy}{dx} = 1$ at $x = 0$:\n$$3(0)^2 + 4(0) + c_1 = 1 \\implies c_1 = 1 \\implies \\frac{dy}{dx} = 3x^2 + 4x + 1$$"
+            },
+            {
+              "step": 3,
+              "text": "Integrate a second time to find the curve equation:\n$$y = \\int (3x^2 + 4x + 1) \\, dx = x^3 + 2x^2 + x + c_2$$"
+            },
+            {
+              "step": 4,
+              "text": "Substitute the point $(-1, 2)$ to find $c_2$:\n$$2 = (-1)^3 + 2(-1)^2 + (-1) + c_2 \\implies 2 = -1 + 2 - 1 + c_2 \\implies c_2 = 2$$\n$$\\text{Equation of the curve: } y = x^3 + 2x^2 + x + 2$$"
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p1_t_integration_m07_l01_cpq05_p01_mp01",
+                "observable": "Integrates once to obtain $\\dfrac{dy}{dx} = 3x^2 + 4x + c_1$."
+              },
+              {
+                "criterion_id": "9709_p1_t_integration_m07_l01_cpq05_p01_mp02",
+                "observable": "Uses the gradient condition at $x = 0$ to form $1 = c_1$."
+              },
+              {
+                "criterion_id": "9709_p1_t_integration_m07_l01_cpq05_p01_mp03",
+                "observable": "Obtains $c_1 = 1$ and states the complete first derivative."
+              },
+              {
+                "criterion_id": "9709_p1_t_integration_m07_l01_cpq05_p01_mp04",
+                "observable": "Integrates again to obtain $y = x^3 + 2x^2 + x + c_2$."
+              },
+              {
+                "criterion_id": "9709_p1_t_integration_m07_l01_cpq05_p01_mp05",
+                "observable": "Uses $(-1, 2)$ to obtain $c_2 = 2$."
+              },
+              {
+                "criterion_id": "9709_p1_t_integration_m07_l01_cpq05_p01_mp06",
+                "observable": "States $y = x^3 + 2x^2 + x + 2$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p1_skill_finding_equation_of_curve"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p1_skill_finding_equation_of_curve"
+            ],
+            "method_ids": [
+              "9709_p1_method_finding_equation_of_curve"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_p1_t_integration_m07_l01_cpq06",
+      "sequence": 12,
+      "difficulty": "hard",
+      "difficulty_reason": "Hard: evaluate an integral with algebraic limits k^2 and 4k^2 involving both positive and negative fractional powers, simplify to a quadratic in k, and solve for k > 0.",
+      "source_question_id": "9709_m24_12_q1",
+      "source_role": "revision_design_evidence",
+      "dependency_role": "none",
+      "dependency_refs": [],
+      "parts": [
+        {
+          "part_id": "9709_p1_t_integration_m07_l01_cpq06_p01",
+          "difficulty": "hard",
+          "difficulty_reason": "Hard: evaluate an integral with algebraic limits k^2 and 4k^2 involving both positive and negative fractional powers, simplify to a quadratic in k, and solve for k > 0.",
+          "question_pattern_ids": [
+            "9709_p1_pattern_area_or_volume"
+          ],
+          "source_evidence": {
+            "question_id": "9709_m24_12_q1",
+            "part_id": "9709_m24_12_q1",
+            "legacy_practice_tier": "mandatory",
+            "product_role": "revision",
+            "structural_inspiration": "Requires evaluating an integral with parameter-dependent limits and solving for the positive parameter."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "domain_and_existence_restrictions": [
+            "$k > 0$; $x > 0$ throughout $[k^2, 4k^2]$."
+          ],
+          "hints": [
+            "Write the integrand using fractional powers: $\\dfrac{1}{k}x^{1/2} + x^{-1/2}$.",
+            "Integrate: $\\left[\\dfrac{2}{3k}x^{3/2} + 2x^{1/2}\\right]_{k^2}^{4k^2}$.",
+            "Evaluate at upper limit $4k^2$: $\\dfrac{2}{3k}(8k^3) + 2(2k) = \\dfrac{16}{3}k^2 + 4k$. At lower limit $k^2$: $\\dfrac{2}{3k}(k^3) + 2(k) = \\dfrac{2}{3}k^2 + 2k$. Difference: $\\dfrac{14}{3}k^2 + 2k$.",
+            "Set equal to $\\dfrac{68}{3}$: $\\dfrac{14}{3}k^2 + 2k = \\dfrac{68}{3} \\implies 14k^2 + 6k - 68 = 0 \\implies 7k^2 + 3k - 34 = 0 \\implies (7k + 17)(k - 2) = 0 \\implies k = 2$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Write the integrand in index form and find the antiderivative:\n$$\\int \\left(\\frac{1}{k}x^{1/2} + x^{-1/2}\\right) \\, dx = \\left[\\frac{2x^{3/2}}{3k} + 2x^{1/2}\\right]_{k^2}^{4k^2}$$"
+            },
+            {
+              "step": 2,
+              "text": "Evaluate at the upper limit $x = 4k^2$ and lower limit $x = k^2$ (since $k > 0$, $\\sqrt{4k^2} = 2k$ and $(4k^2)^{3/2} = 8k^3$):\n$$\\text{At } x = 4k^2: \\quad \\frac{2(8k^3)}{3k} + 2(2k) = \\frac{16}{3}k^2 + 4k$$\n$$\\text{At } x = k^2: \\quad \\frac{2(k^3)}{3k} + 2(k) = \\frac{2}{3}k^2 + 2k$$\n$$\\text{Difference} = \\left(\\frac{16}{3} - \\frac{2}{3}\\right)k^2 + (4 - 2)k = \\frac{14}{3}k^2 + 2k$$"
+            },
+            {
+              "step": 3,
+              "text": "Equate to $\\frac{68}{3}$ and form a quadratic equation:\n$$\\frac{14}{3}k^2 + 2k = \\frac{68}{3} \\implies 14k^2 + 6k - 68 = 0 \\implies 7k^2 + 3k - 34 = 0$$"
+            },
+            {
+              "step": 4,
+              "text": "Factor the quadratic and solve for $k > 0$:\n$$(7k + 17)(k - 2) = 0 \\implies k = -\\frac{17}{7} \\quad \\text{or} \\quad k = 2$$\nSince $k > 0$, we have $k = 2$."
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p1_t_integration_m07_l01_cpq06_p01_mp01",
+                "observable": "Integrates to obtain $\\dfrac{2x^{3/2}}{3k} + 2x^{1/2}$."
+              },
+              {
+                "criterion_id": "9709_p1_t_integration_m07_l01_cpq06_p01_mp02",
+                "observable": "Uses $k > 0$ while applying the limits to obtain $\\dfrac{14}{3}k^2 + 2k$."
+              },
+              {
+                "criterion_id": "9709_p1_t_integration_m07_l01_cpq06_p01_mp03",
+                "observable": "Forms $7k^2 + 3k - 34 = 0$."
+              },
+              {
+                "criterion_id": "9709_p1_t_integration_m07_l01_cpq06_p01_mp04",
+                "observable": "Factorises as $(k - 2)(7k + 17) = 0$ or solves equivalently."
+              },
+              {
+                "criterion_id": "9709_p1_t_integration_m07_l01_cpq06_p01_mp05",
+                "observable": "Uses $k > 0$ to state $k = 2$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p1_skill_evaluating_definite_integrals",
+            "9709_p1_skill_solving_quadratic_equations"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p1_skill_evaluating_definite_integrals",
+              "9709_p1_skill_solving_quadratic_equations"
+            ],
+            "method_ids": [
+              "9709_p1_method_evaluating_definite_integrals",
+              "9709_p1_method_solving_quadratic_equations"
+            ],
+            "formula_ids": [
+              "9709_p1_formula_power_integral"
+            ],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_p1_t_integration_m07_l01_cpq07",
+      "sequence": 13,
+      "difficulty": "hard",
+      "difficulty_reason": "Hard: two-part question requiring double integration from a quadratic second derivative d^2y/dx^2 = 12x^2 - 4 to find a quartic curve, then finding all other stationary points by solving a cubic derivative equation.",
+      "source_question_id": "9709_w20_11_q12",
+      "source_role": "revision_design_evidence",
+      "dependency_role": "within_question_context",
+      "dependency_refs": [],
+      "parts": [
+        {
+          "part_id": "9709_p1_t_integration_m07_l01_cpq07_p01",
+          "label": "(a)",
+          "difficulty": "medium",
+          "question_pattern_ids": [
+            "9709_p1_pattern_integration_of_derivatives"
+          ],
+          "source_evidence": {
+            "question_id": "9709_w20_11_q12",
+            "part_id": "9709_w20_11_q12_a",
+            "legacy_practice_tier": "mandatory",
+            "product_role": "revision",
+            "structural_inspiration": "Requires double integration from a quadratic second derivative."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Integrate $\\dfrac{d^2y}{dx^2} = 12x^2 - 4$ once: $\\dfrac{dy}{dx} = 4x^3 - 4x + c_1$.",
+            "Since $(1, 3)$ is a stationary point, $\\dfrac{dy}{dx} = 0$ at $x = 1$: $4(1)^3 - 4(1) + c_1 = 0 \\implies c_1 = 0$, so $\\dfrac{dy}{dx} = 4x^3 - 4x$.",
+            "Integrate again to find $y$: $y = x^4 - 2x^2 + c_2$.",
+            "Substitute $(1, 3)$ into the curve equation: $3 = 1^4 - 2(1)^2 + c_2 \\implies 3 = -1 + c_2 \\implies c_2 = 4$, giving $y = x^4 - 2x^2 + 4$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Integrate the second derivative once:\n$$\\frac{dy}{dx} = \\int (12x^2 - 4) \\, dx = 4x^3 - 4x + c_1$$"
+            },
+            {
+              "step": 2,
+              "text": "Use the stationary point condition $\\frac{dy}{dx} = 0$ at $x = 1$ to find $c_1$:\n$$4(1)^3 - 4(1) + c_1 = 0 \\implies c_1 = 0 \\implies \\frac{dy}{dx} = 4x^3 - 4x$$"
+            },
+            {
+              "step": 3,
+              "text": "Integrate a second time to find $y$:\n$$y = \\int (4x^3 - 4x) \\, dx = x^4 - 2x^2 + c_2$$"
+            },
+            {
+              "step": 4,
+              "text": "Use the point $(1, 3)$ to determine $c_2$:\n$$3 = 1^4 - 2(1)^2 + c_2 \\implies 3 = -1 + c_2 \\implies c_2 = 4$$\n$$\\text{Equation of the curve: } y = x^4 - 2x^2 + 4$$"
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p1_t_integration_m07_l01_cpq07_p01_mp01",
+                "observable": "Integrates once to obtain $\\dfrac{dy}{dx} = 4x^3 - 4x + c_1$."
+              },
+              {
+                "criterion_id": "9709_p1_t_integration_m07_l01_cpq07_p01_mp02",
+                "observable": "Uses stationarity at $x = 1$ to obtain $c_1 = 0$."
+              },
+              {
+                "criterion_id": "9709_p1_t_integration_m07_l01_cpq07_p01_mp03",
+                "observable": "Integrates again to obtain $y = x^4 - 2x^2 + c_2$."
+              },
+              {
+                "criterion_id": "9709_p1_t_integration_m07_l01_cpq07_p01_mp04",
+                "observable": "Uses $(1, 3)$ to obtain $c_2 = 4$."
+              },
+              {
+                "criterion_id": "9709_p1_t_integration_m07_l01_cpq07_p01_mp05",
+                "observable": "States $y = x^4 - 2x^2 + 4$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p1_skill_finding_equation_of_curve"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p1_skill_finding_equation_of_curve"
+            ],
+            "method_ids": [
+              "9709_p1_method_finding_equation_of_curve"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        },
+        {
+          "part_id": "9709_p1_t_integration_m07_l01_cpq07_p02",
+          "label": "(b)",
+          "difficulty": "medium",
+          "question_pattern_ids": [
+            "9709_p1_pattern_stationary_points"
+          ],
+          "source_evidence": {
+            "question_id": "9709_w20_11_q12",
+            "part_id": "9709_w20_11_q12_b",
+            "legacy_practice_tier": "mandatory",
+            "product_role": "revision",
+            "structural_inspiration": "Requires finding all remaining stationary points of the recovered curve."
+          },
+          "dependency_role": "within_question_context",
+          "dependency_refs": [
+            "9709_p1_t_integration_m07_l01_cpq07_p01"
+          ],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Set the first derivative equal to zero: $\\dfrac{dy}{dx} = 4x^3 - 4x = 0$.",
+            "Factor completely: $4x(x^2 - 1) = 4x(x - 1)(x + 1) = 0 \\implies x = 0, x = 1, x = -1$.",
+            "The given stationary point is at $x = 1$. The other two stationary points are at $x = 0$ and $x = -1$.",
+            "Substitute into $y = x^4 - 2x^2 + 4$: at $x = 0$, $y = 4 \\implies (0, 4)$; at $x = -1$, $y = (-1)^4 - 2(-1)^2 + 4 = 3 \\implies (-1, 3)$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Set the first derivative $\\frac{dy}{dx} = 0$ to find stationary points:\n$$4x^3 - 4x = 0$$"
+            },
+            {
+              "step": 2,
+              "text": "Factor the cubic expression:\n$$4x(x^2 - 1) = 0 \\implies 4x(x - 1)(x + 1) = 0$$\n$$x = 0, \\quad x = 1, \\quad x = -1$$"
+            },
+            {
+              "step": 3,
+              "text": "Identify the other $x$-coordinates ($x = 0$ and $x = -1$) and find their corresponding $y$-coordinates on $y = x^4 - 2x^2 + 4$:\n$$\\text{At } x = 0: \\quad y = 0^4 - 2(0)^2 + 4 = 4 \\implies (0, 4)$$\n$$\\text{At } x = -1: \\quad y = (-1)^4 - 2(-1)^2 + 4 = 1 - 2 + 4 = 3 \\implies (-1, 3)$$\n$$\\text{Other stationary points: } (0, 4) \\text{ and } (-1, 3)$$"
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p1_t_integration_m07_l01_cpq07_p02_mp01",
+                "observable": "Uses $\\dfrac{dy}{dx} = 4x^3 - 4x = 0$."
+              },
+              {
+                "criterion_id": "9709_p1_t_integration_m07_l01_cpq07_p02_mp02",
+                "observable": "Factorises as $4x(x - 1)(x + 1) = 0$."
+              },
+              {
+                "criterion_id": "9709_p1_t_integration_m07_l01_cpq07_p02_mp03",
+                "observable": "Identifies the other stationary $x$-coordinates as $-1$ and $0$."
+              },
+              {
+                "criterion_id": "9709_p1_t_integration_m07_l01_cpq07_p02_mp04",
+                "observable": "Substitutes in the curve equation to obtain $(-1, 3)$ and $(0, 4)$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p1_skill_finding_stationary_points"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p1_skill_finding_stationary_points"
+            ],
+            "method_ids": [
+              "9709_p1_method_finding_stationary_points"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        }
+      ]
+    }
+  ]
+}

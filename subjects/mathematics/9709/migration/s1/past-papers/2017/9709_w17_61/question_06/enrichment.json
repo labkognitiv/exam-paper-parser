@@ -1,0 +1,167 @@
+{
+  "schema_version": "9709_math_enrichment_v3",
+  "paper_code": "9709_w17_61",
+  "question_id": "9709_w17_61_q6",
+  "question_num": 6,
+  "subject_code": "9709",
+  "component": "S1",
+  "year": 2017,
+  "session": "Oct/Nov",
+  "variant": "61",
+  "difficulty": 3,
+  "numerical_values_checked": false,
+  "parts": [
+    {
+      "part_id": "9709_w17_61_q6_a_i",
+      "difficulty": 2,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_s1_t_permutations_and_combinations",
+        "module_id": "9709_s1_t_permutations_and_combinations_m01",
+        "lesson_id": "9709_s1_t_permutations_and_combinations_m01_l01"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_calculating_permutations",
+        "skill_tags": [
+          "Calculating Permutations"
+        ]
+      },
+      "question_pattern_ids": [
+        "9709_s1_pattern_permutations_ordered_selection"
+      ],
+      "knowledge_refs": {
+        "formula_ids": [
+          "9709_s1_formula_permutations"
+        ],
+        "identity_ids": [],
+        "method_ids": [],
+        "fact_ids": []
+      },
+      "hints": [
+        "There are 40 distinct seats in total in the village hall.",
+        "Mary, Ahmad, Wayne, Elsie and John are 5 distinct people.",
+        "Use permutations ${}^{40}\\mathrm{P}_5$ to choose and arrange 5 people into 40 distinct seats."
+      ],
+      "walkthrough": [
+        "Use permutations of $5$ people chosen from $40$ distinct seats with no restrictions:\n$${}^{40}\\mathrm{P}_5 = \\frac{40!}{(40 - 5)!} = 40 \\times 39 \\times 38 \\times 37 \\times 36$$\n$${}^{40}\\mathrm{P}_5 = 78\\,960\\,960\\text{ arrangements}$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "ai_rubric": {
+          "Calculating Permutations": "Evaluates 40P5 = 78960960."
+        },
+        "criteria_source": "mark_scheme_structured"
+      },
+      "teacher_walkthrough": [
+        "Step 1: Identify the counting problem.\nThere are $40$ available seats in the village hall, all distinguishable by row and seat number.\nWe have $5$ people: Mary, Ahmad, Wayne, Elsie, and John.\nBecause each seat is distinct and each person is distinct, the order of assignment matters.",
+        "Step 2: Apply the permutations formula:\n$${}^n\\mathrm{P}_r = \\frac{n!}{(n - r)!}$$\nHere $n = 40$ and $r = 5$:\n$${}^{40}\\mathrm{P}_5 = 40 \\times 39 \\times 38 \\times 37 \\times 36$$\n- The first person has $40$ seat options.\n- The second has $39$ remaining options.\n- The third has $38$ options.\n- The fourth has $37$ options.\n- The fifth has $36$ options.",
+        "Step 3: Compute the product:\n$$40 \\times 39 = 1560$$\n$$1560 \\times 38 = 59280$$\n$$59280 \\times 37 = 2193360$$\n$$2193360 \\times 36 = 78\\,960\\,960$$"
+      ]
+    },
+    {
+      "part_id": "9709_w17_61_q6_a_ii",
+      "difficulty": 3,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_s1_t_permutations_and_combinations",
+        "module_id": "9709_s1_t_permutations_and_combinations_m03",
+        "lesson_id": "9709_s1_t_permutations_and_combinations_m03_l02"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_handling_arrangement_restrictions",
+        "skill_tags": [
+          "Handling Arrangement Restrictions",
+          "Calculating Permutations"
+        ]
+      },
+      "question_pattern_ids": [
+        "9709_s1_pattern_permutations_grouped_blocks_in_rows"
+      ],
+      "knowledge_refs": {
+        "formula_ids": [
+          "9709_s1_formula_permutations"
+        ],
+        "identity_ids": [],
+        "method_ids": [
+          "9709_s1_method_handling_arrangement_restrictions"
+        ],
+        "fact_ids": [
+          "9709_s1_fact_multiplication_principle_counting"
+        ]
+      },
+      "hints": [
+        "In the front row of 5 seats, count how many adjacent pairs of seats exist, and multiply by 2! for Mary and Ahmad's internal arrangements.",
+        "For the other three people, choose one of the remaining 7 rows, find how many adjacent blocks of 3 seats exist in a row of 5, and multiply by 3!.",
+        "Multiply the arrangements in the front row by the arrangements in the other rows."
+      ],
+      "walkthrough": [
+        "Calculate the arrangements for Mary and Ahmad sitting together in the front row (5 seats):\n- Adjacent seat pairs in a row of $5$: $(1,2), (2,3), (3,4), (4,5) \\implies 4$ positions\n- Internal orderings of Mary and Ahmad: $2! = 2$\n$$\\text{Front row ways} = 4 \\times 2 = 8$$",
+        "Calculate the arrangements for Wayne, Elsie, and John sitting together in one of the other $7$ rows:\n- Choose the row: $7$ options\n- Adjacent triples in a row of $5$: $(1,2,3), (2,3,4), (3,4,5) \\implies 3$ positions\n- Internal orderings of the $3$ people: $3! = 6$\n$$\\text{Other row ways} = 7 \\times (3 \\times 3!) = 7 \\times 18 = 126$$",
+        "Multiply to find the total number of seating arrangements:\n$$\\text{Total arrangements} = 8 \\times 126 = 1008$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "ai_rubric": {
+          "Handling Arrangement Restrictions": "Finds 4 * 2 = 8 front-row arrangements and 7 * 3 * 3! = 126 other-row arrangements.",
+          "Calculating Permutations": "Multiplies 8 * 126 = 1008."
+        },
+        "criteria_source": "mark_scheme_structured"
+      },
+      "teacher_walkthrough": [
+        "Step 1: Seat Mary and Ahmad together in the front row.\nThe front row contains $5$ seats. Mary and Ahmad must occupy $2$ adjacent seats.\nThe possible pairs of adjacent seat numbers are:\n$$(1, 2), \\quad (2, 3), \\quad (3, 4), \\quad (4, 5)$$\nThere are $4$ possible seat locations. Within whichever pair of seats is chosen, Mary and Ahmad can swap places in $2! = 2$ ways.\n$$\\text{Ways for front row} = 4 \\times 2! = 4 \\times 2 = 8$$",
+        "Step 2: Seat Wayne, Elsie, and John together in one of the other rows.\nThere are $8 - 1 = 7$ other rows available.\n1. Choose which row they sit in: $\\binom{7}{1} = 7$ choices.\n2. In a row of $5$ seats, the three must sit in $3$ adjacent seats. The possible blocks of $3$ seats are:\n$$(1, 2, 3), \\quad (2, 3, 4), \\quad (3, 4, 5)$$\nThere are $3$ possible positions within the row.\n3. Within those $3$ seats, Wayne, Elsie, and John can be arranged in $3! = 6$ ways.\n$$\\text{Ways for the three people} = 7 \\times 3 \\times 3! = 7 \\times 18 = 126$$",
+        "Step 3: Combine both groups using the multiplication principle:\n$$\\text{Total arrangements} = 8 \\times 126 = 1008$$"
+      ]
+    },
+    {
+      "part_id": "9709_w17_61_q6_b",
+      "difficulty": 2,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_s1_t_permutations_and_combinations",
+        "module_id": "9709_s1_t_permutations_and_combinations_m04",
+        "lesson_id": "9709_s1_t_permutations_and_combinations_m04_l04"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_handling_selection_restrictions",
+        "skill_tags": [
+          "Handling Selection Restrictions",
+          "Calculating Combinations"
+        ]
+      },
+      "question_pattern_ids": [
+        "9709_s1_pattern_combinations_with_exclusion_restriction"
+      ],
+      "knowledge_refs": {
+        "formula_ids": [
+          "9709_s1_formula_combinations"
+        ],
+        "identity_ids": [],
+        "method_ids": [],
+        "fact_ids": []
+      },
+      "hints": [
+        "Use the subtraction method: (total unrestricted teams) minus (unwanted teams containing both Ross and Lionel).",
+        "Calculate the total ways to choose 4 people from 10: $\\binom{10}{4}$.",
+        "Calculate the number of teams containing both Ross and Lionel by choosing the remaining 2 people from 8: $\\binom{8}{2}$, and subtract."
+      ],
+      "walkthrough": [
+        "Use the subtraction method:\n$$\\text{Valid teams} = (\\text{Total teams of } 4) - (\\text{Teams with both Ross and Lionel})$$",
+        "Calculate total unrestricted selections of $4$ from $10$:\n$$\\binom{10}{4} = \\frac{10 \\times 9 \\times 8 \\times 7}{4 \\times 3 \\times 2 \\times 1} = 210$$",
+        "Calculate the number of teams containing both Ross and Lionel:\n- Both Ross and Lionel are selected, leaving $4 - 2 = 2$ places to fill from the remaining $10 - 2 = 8$ people:\n$$\\binom{8}{2} = \\frac{8 \\times 7}{2 \\times 1} = 28$$",
+        "Subtract to find the number of valid teams:\n$$\\text{Valid teams} = 210 - 28 = 182$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "ai_rubric": {
+          "Handling Selection Restrictions": "Uses subtraction method 10C4 - 8C2 = 210 - 28 = 182 (or casework 56 + 56 + 70 = 182).",
+          "Calculating Combinations": "Evaluates 10C4 = 210 and 8C2 = 28."
+        },
+        "criteria_source": "mark_scheme_structured"
+      },
+      "teacher_walkthrough": [
+        "Method 1: Subtraction method (Complementary counting)\nStep 1: Find the total number of ways to select a team of $4$ from all $10$ people without any restriction:\n$$\\text{Total} = \\binom{10}{4} = \\frac{10 \\times 9 \\times 8 \\times 7}{4 \\times 3 \\times 2 \\times 1} = 210$$\n\nStep 2: Count the prohibited teams where both Ross and Lionel are selected together.\nIf both are on the team, they fill $2$ of the $4$ places. The remaining $2$ members must be chosen from the other $8$ people:\n$$\\text{Both in team} = \\binom{8}{2} = \\frac{8 \\times 7}{2 \\times 1} = 28$$\n\nStep 3: Subtract the unwanted teams:\n$$\\text{Valid teams} = 210 - 28 = 182$$\n\nMethod 2: Casework\n- Case 1: Ross is on the team, Lionel is not.\n  Choose $3$ more people from the remaining $8$: $\\binom{8}{3} = 56$.\n- Case 2: Lionel is on the team, Ross is not.\n  Choose $3$ more people from the remaining $8$: $\\binom{8}{3} = 56$.\n- Case 3: Neither Ross nor Lionel is on the team.\n  Choose all $4$ people from the remaining $8$: $\\binom{8}{4} = 70$.\nTotal $= 56 + 56 + 70 = 182$."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,133 @@
+{
+  "schema_version": "9709_math_enrichment_v3",
+  "paper_code": "9709_w20_53",
+  "question_id": "9709_w20_53_q3",
+  "question_num": 3,
+  "subject_code": "9709",
+  "component": "S1",
+  "year": 2020,
+  "session": "October/November",
+  "variant": "53",
+  "difficulty": 3,
+  "numerical_values_checked": false,
+  "parts": [
+    {
+      "part_id": "9709_w20_53_q3_a",
+      "difficulty": 3,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_s1_t_permutations_and_combinations",
+        "module_id": "9709_s1_t_permutations_and_combinations_m04",
+        "lesson_id": "9709_s1_t_permutations_and_combinations_m04_l01"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_handling_selection_restrictions",
+        "skill_tags": [
+          "Handling Selection Restrictions",
+          "Calculating Combinations"
+        ]
+      },
+      "question_pattern_ids": [
+        "9709_s1_pattern_combinations_with_case_splits"
+      ],
+      "knowledge_refs": {
+        "formula_ids": [
+          "9709_s1_formula_combinations"
+        ],
+        "identity_ids": [],
+        "method_ids": [
+          "9709_s1_method_handling_selection_restrictions",
+          "9709_s1_method_calculating_combinations"
+        ],
+        "fact_ids": []
+      },
+      "hints": [
+        "A committee of 6 people is chosen from 9 women and 5 men. The condition requires strictly more women than men.",
+        "List all possible compositions $(W, M)$ where $W + M = 6$ and $W > M$: $(6, 0), (5, 1), (4, 2)$.",
+        "Calculate the combinations for each case: $\\binom{9}{6}\\binom{5}{0}$, $\\binom{9}{5}\\binom{5}{1}$, and $\\binom{9}{4}\\binom{5}{2}$.",
+        "Sum the selections from all three cases: $84 + 630 + 1260$."
+      ],
+      "walkthrough": [
+        "Identify the valid compositions of 6 people with strictly more women than men:\n$$\\text{Case 1: 6 Women, 0 Men}$$\n$$\\text{Case 2: 5 Women, 1 Man}$$\n$$\\text{Case 3: 4 Women, 2 Men}$$",
+        "Calculate the number of ways for each case using combinations:\n$$\\text{Case 1}: \\quad \\binom{9}{6} \\times \\binom{5}{0} = 84 \\times 1 = 84$$\n$$\\text{Case 2}: \\quad \\binom{9}{5} \\times \\binom{5}{1} = 126 \\times 5 = 630$$\n$$\\text{Case 3}: \\quad \\binom{9}{4} \\times \\binom{5}{2} = 126 \\times 10 = 1260$$",
+        "Add the results across all mutually exclusive cases:\n$$\\text{Total ways} = 84 + 630 + 1260 = 1974$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "ai_rubric": {
+          "Calculating Combinations": "Evaluates combinations for 6W, 5W 1M, and 4W 2M accurately.",
+          "Handling Selection Restrictions": "Sums 9C6 + 9C5 * 5C1 + 9C4 * 5C2 = 84 + 630 + 1260 = 1974."
+        },
+        "criteria_source": "mark_scheme_structured"
+      },
+      "teacher_walkthrough": [
+        "A committee of 6 people is to be chosen from 9 women and 5 men.",
+        "We need to find the number of ways to choose the 6 people if there must be more women than men on the committee.",
+        "Step 1: Determine the valid cases.\nLet $W$ be the number of women and $M$ be the number of men. We require $W + M = 6$ and $W > M$.\nThe possible splits are:\n- $6$ women, $0$ men ($6 > 0$)\n- $5$ women, $1$ man ($5 > 1$)\n- $4$ women, $2$ men ($4 > 2$)\n(Note: $3$ women and $3$ men is not allowed because $3$ is not strictly greater than $3$).",
+        "Step 2: Calculate each scenario using combinations:\n- Case 1 ($6W, 0M$):\n$$\\binom{9}{6} \\times \\binom{5}{0} = \\frac{9 \\times 8 \\times 7}{3 \\times 2 \\times 1} \\times 1 = 84$$\n\n- Case 2 ($5W, 1M$):\n$$\\binom{9}{5} \\times \\binom{5}{1} = 126 \\times 5 = 630$$\n\n- Case 3 ($4W, 2M$):\n$$\\binom{9}{4} \\times \\binom{5}{2} = 126 \\times 10 = 1260$$",
+        "Step 3: Sum all cases:\n$$\\text{Total ways} = 84 + 630 + 1260 = 1974$$\nThere are 1974 ways to form the committee."
+      ]
+    },
+    {
+      "part_id": "9709_w20_53_q3_b",
+      "difficulty": 3,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_s1_t_permutations_and_combinations",
+        "module_id": "9709_s1_t_permutations_and_combinations_m04",
+        "lesson_id": "9709_s1_t_permutations_and_combinations_m04_l04"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_handling_selection_restrictions",
+        "skill_tags": [
+          "Handling Selection Restrictions",
+          "Calculating Combinations"
+        ]
+      },
+      "question_pattern_ids": [
+        "9709_s1_pattern_committee_selection_family_exclusion"
+      ],
+      "knowledge_refs": {
+        "formula_ids": [
+          "9709_s1_formula_combinations"
+        ],
+        "identity_ids": [],
+        "method_ids": [
+          "9709_s1_method_handling_selection_restrictions",
+          "9709_s1_method_calculating_combinations"
+        ],
+        "fact_ids": [
+          "9709_s1_fact_complement_rule"
+        ]
+      },
+      "hints": [
+        "Use the complement (subtraction) method: find total unrestricted committees of 6 from all 14 people, then subtract the committees containing both the sister and the brother.",
+        "Total ways to choose 6 people from $9 + 5 = 14$ people is $\\binom{14}{6} = 3003$.",
+        "If both the sister and the brother are on the committee, 4 more people must be chosen from the remaining $14 - 2 = 12$ people: $\\binom{12}{4} = 495$.",
+        "Subtract: $3003 - 495$ to get the final answer."
+      ],
+      "walkthrough": [
+        "Calculate the total number of unrestricted ways to choose 6 people from all 14 people ($9 + 5 = 14$):\n$$\\text{Total unrestricted} = \\binom{14}{6} = \\dfrac{14 \\times 13 \\times 12 \\times 11 \\times 10 \\times 9}{6 \\times 5 \\times 4 \\times 3 \\times 2 \\times 1} = 3003$$",
+        "Calculate the number of committees that contain both the sister and brother:\n$$\\text{Both included} = \\binom{2}{2} \\times \\binom{12}{4} = 1 \\times 495 = 495$$",
+        "Subtract to find the number of ways where they are not both on the committee:\n$$\\text{Required ways} = \\binom{14}{6} - \\binom{12}{4} = 3003 - 495 = 2508$$",
+        "Alternative Method (Direct addition of disjoint cases):\n$$\\text{Neither sister nor brother} = \\binom{12}{6} = 924$$\n$$\\text{Exactly one of sister or brother} = 2 \\times \\binom{12}{5} = 2 \\times 792 = 1584$$\n$$\\text{Total} = 924 + 1584 = 2508$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "ai_rubric": {
+          "Calculating Combinations": "Calculates 14C6 = 3003 and 12C4 = 495.",
+          "Handling Selection Restrictions": "Subtracts 14C6 - 12C4 = 3003 - 495 = 2508 (or adds 12C6 + 2 * 12C5 = 924 + 1584 = 2508)."
+        },
+        "criteria_source": "mark_scheme_structured"
+      },
+      "teacher_walkthrough": [
+        "One of the women and one of the men are sister and brother. They cannot both be on the committee.",
+        "Method 1: Subtraction (complement) method.",
+        "Step 1: Calculate the total number of ways to choose 6 people from the 14 available people without restrictions:\n$$\\text{Total} = \\binom{14}{6} = \\frac{14!}{6! \\, 8!} = \\frac{14 \\times 13 \\times 12 \\times 11 \\times 10 \\times 9}{720} = 3003$$",
+        "Step 2: Calculate the number of committees where BOTH the sister and brother ARE chosen.\nIf both are selected, they take 2 of the 6 seats on the committee.\nThe remaining $6 - 2 = 4$ seats must be chosen from the other $14 - 2 = 12$ people:\n$$\\text{Both selected} = \\binom{12}{4} = \\frac{12 \\times 11 \\times 10 \\times 9}{24} = 495$$",
+        "Step 3: Subtract the forbidden selections from the total:\n$$\\text{Valid committees} = 3003 - 495 = 2508$$",
+        "Method 2: Addition of valid cases.\n- Case A: Neither the sister nor brother is chosen:\nChoose 6 people from the remaining 12: $\\binom{12}{6} = 924$.\n- Case B: Exactly one of them is chosen:\nChoose which sibling ($2$ choices) and choose the remaining 5 people from the 12 other people: $2 \\times \\binom{12}{5} = 2 \\times 792 = 1584$.\n$$\\text{Total} = 924 + 1584 = 2508$$"
+      ]
+    }
+  ]
+}

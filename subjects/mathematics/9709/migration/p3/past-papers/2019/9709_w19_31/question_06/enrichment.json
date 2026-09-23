@@ -1,0 +1,120 @@
+{
+  "schema_version": "9709_math_enrichment_v3",
+  "paper_code": "9709_w19_31",
+  "question_id": "9709_w19_31_q6",
+  "question_num": 6,
+  "subject_code": "9709",
+  "component": "P3",
+  "year": 2019,
+  "session": "Oct/Nov",
+  "variant": "31",
+  "difficulty": 5,
+  "numerical_values_checked": false,
+  "parts": [
+    {
+      "part_id": "9709_w19_31_q6_i",
+      "difficulty": 1,
+      "practice_tier": "revision",
+      "mapping": {
+        "topic_id": "9709_p3_t_differential_equations",
+        "module_id": "9709_p3_t_differential_equations_m02",
+        "lesson_id": "9709_p3_t_differential_equations_m02_l02"
+      },
+      "skills": {
+        "primary_skill_id": "9709_p3_skill_differentiation",
+        "skill_tags": [
+          "Differentiation"
+        ]
+      },
+      "question_pattern_ids": [
+        "9709_p3_pattern_prove_or_show",
+        "9709_p3_pattern_calculus_process",
+        "9709_p3_pattern_trigonometric_reasoning"
+      ],
+      "knowledge_refs": {
+        "formula_ids": [],
+        "identity_ids": [
+          "9709_p3_identity_double_angle",
+          "9709_p3_identity_pythagorean"
+        ],
+        "method_ids": [
+          "9709_p3_method_differentiation"
+        ],
+        "fact_ids": []
+      },
+      "hints": [
+        "Write $\\cot x=\\cos x/\\sin x$ and apply the quotient rule.",
+        "The numerator becomes $-\\sin^2x-\\cos^2x$; use the Pythagorean identity and divide by $\\sin^2x$."
+      ],
+      "walkthrough": [
+        "Apply the quotient rule $\\dfrac{\\mathrm{d}}{\\mathrm{d}x}\\left(\\dfrac{u}{v}\\right) = \\dfrac{u'v - uv'}{v^2}$ to $y = \\dfrac{\\cos x}{\\sin x}$ with $u = \\cos x$ and $v = \\sin x$:\n$$u' = -\\sin x, \\quad v' = \\cos x$$",
+        "Form the derivative expression:\n$$\\dfrac{\\mathrm{d}y}{\\mathrm{d}x} = \\dfrac{(-\\sin x)(\\sin x) - (\\cos x)(\\cos x)}{\\sin^2 x} = \\dfrac{-\\sin^2 x - \\cos^2 x}{\\sin^2 x}$$",
+        "Factor $-1$ in the numerator and apply the identity $\\sin^2 x + \\cos^2 x = 1$:\n$$\\dfrac{\\mathrm{d}y}{\\mathrm{d}x} = \\dfrac{-(\\sin^2 x + \\cos^2 x)}{\\sin^2 x} = \\dfrac{-1}{\\sin^2 x} = -\\operatorname{cosec}^2 x$$\nThis completes the proof."
+      ],
+      "checking": {
+        "mode": "ai",
+        "ai_rubric": {
+          "Differentiation": "Applies the quotient rule; Derives $\\dfrac{dy}{dx}=-\\operatorname{cosec}^2x$; Concludes with $\\displaystyle \\frac{dy}{dx}=-\\operatorname{cosec}^2x$."
+        },
+        "criteria_source": "mark_scheme_structured"
+      }
+    },
+    {
+      "part_id": "9709_w19_31_q6_ii",
+      "difficulty": 5,
+      "practice_tier": "revision",
+      "mapping": {
+        "topic_id": "9709_p3_t_trigonometry",
+        "module_id": "9709_p3_t_trigonometry_m01",
+        "lesson_id": "9709_p3_t_trigonometry_m01_l03"
+      },
+      "skills": {
+        "primary_skill_id": "9709_p3_skill_integration_by_parts",
+        "skill_tags": [
+          "Integration by Parts"
+        ]
+      },
+      "question_pattern_ids": [
+        "9709_p3_pattern_prove_or_show",
+        "9709_p3_pattern_exact_value",
+        "9709_p3_pattern_calculus_process",
+        "9709_p3_pattern_trigonometric_reasoning"
+      ],
+      "knowledge_refs": {
+        "formula_ids": [
+          "9709_p3_formula_integration_by_parts"
+        ],
+        "identity_ids": [
+          "9709_p3_identity_double_angle",
+          "9709_p3_identity_pythagorean"
+        ],
+        "method_ids": [
+          "9709_p3_method_integration_by_parts"
+        ],
+        "fact_ids": []
+      },
+      "hints": [
+        "Use integration by parts with $u=x$ and integrate $\\cosec^2x$ using part (i).",
+        "This gives $-x\\cot x+\\int\\cot x\\,dx$.",
+        "Use $\\int\\cot x\\,dx=\\ln|\\sin x|$ and evaluate at $x=\\pi/2$ and $x=\\pi/4$.",
+        "Keep the trigonometric values exact and convert the logarithmic term to the required form."
+      ],
+      "walkthrough": [
+        "Apply integration by parts $\\int u v' = uv - \\int u' v$ to $\\int x\\operatorname{cosec}^2 x\\,\\mathrm{d}x$:\nLet $u = x \\implies u' = 1$, and $v' = \\operatorname{cosec}^2 x \\implies v = -\\cot x$ (from part (i)):\n$$\\int x\\operatorname{cosec}^2 x\\,\\mathrm{d}x = x(-\\cot x) - \\int 1 \\cdot (-\\cot x)\\,\\mathrm{d}x = -x\\cot x + \\int \\cot x\\,\\mathrm{d}x$$",
+        "Integrate $\\cot x = \\dfrac{\\cos x}{\\sin x}$ using $\\int \\dfrac{f'(x)}{f(x)}\\,\\mathrm{d}x = \\ln|f(x)|$:\n$$\\int \\cot x\\,\\mathrm{d}x = \\ln(\\sin x)$$",
+        "Write out the full definite integral expression:\n$$\\left[-x\\cot x + \\ln(\\sin x)\\right]_{\\frac{1}{4}\\pi}^{\\frac{1}{2}\\pi}$$",
+        "Evaluate at the upper limit $x = \\dfrac{1}{2}\\pi$:\n$$\\cot\\left(\\dfrac{1}{2}\\pi\\right) = 0, \\quad \\sin\\left(\\dfrac{1}{2}\\pi\\right) = 1$$\n$$\\text{At } x = \\dfrac{1}{2}\\pi: \\quad -\\left(\\dfrac{1}{2}\\pi\\right)(0) + \\ln(1) = 0 + 0 = 0$$",
+        "Evaluate at the lower limit $x = \\dfrac{1}{4}\\pi$:\n$$\\cot\\left(\\dfrac{1}{4}\\pi\\right) = 1, \\quad \\sin\\left(\\dfrac{1}{4}\\pi\\right) = \\dfrac{1}{\\sqrt{2}}$$\n$$\\text{At } x = \\dfrac{1}{4}\\pi: \\quad -\\left(\\dfrac{1}{4}\\pi\\right)(1) + \\ln\\left(\\dfrac{1}{\\sqrt{2}}\\right) = -\\dfrac{1}{4}\\pi - \\ln(\\sqrt{2}) = -\\dfrac{1}{4}\\pi - \\dfrac{1}{2}\\ln 2$$",
+        "Subtract the lower limit value from the upper limit value:\n$$\\text{Integral} = 0 - \\left(-\\dfrac{1}{4}\\pi - \\dfrac{1}{2}\\ln 2\\right) = \\dfrac{1}{4}\\pi + \\dfrac{1}{2}\\ln 2$$",
+        "Rewrite $\\dfrac{1}{2}\\ln 2$ in terms of $\\ln 4$ using $\\ln 4 = \\ln(2^2) = 2\\ln 2 \\implies \\dfrac{1}{2}\\ln 2 = \\dfrac{1}{4}\\ln 4$:\n$$\\text{Integral} = \\dfrac{1}{4}\\pi + \\dfrac{1}{4}\\ln 4 = \\dfrac{1}{4}(\\pi + \\ln 4)$$\nThis completes the proof."
+      ],
+      "checking": {
+        "mode": "ai",
+        "ai_rubric": {
+          "Integration by Parts": "Integrates by parts and reaches $ax\\cot x+b\\int\\cot x\\,dx$. Derives complete integral $-x\\cot x+\\ln\\sin x$. The final result is $\\displaystyle \\int_{\\frac14\\pi}^{\\frac12\\pi}x\\operatorname{cosec}^2x\\,dx=\\frac14(\\pi+\\ln4)$."
+        },
+        "criteria_source": "mark_scheme_structured"
+      }
+    }
+  ]
+}

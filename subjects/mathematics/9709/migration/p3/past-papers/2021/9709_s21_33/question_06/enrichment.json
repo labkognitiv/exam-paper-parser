@@ -1,0 +1,161 @@
+{
+  "schema_version": "9709_math_enrichment_v3",
+  "paper_code": "9709_s21_33",
+  "question_id": "9709_s21_33_q6",
+  "question_num": 6,
+  "subject_code": "9709",
+  "component": "P3",
+  "year": 2021,
+  "session": "May/June",
+  "variant": "33",
+  "difficulty": 3,
+  "numerical_values_checked": false,
+  "parts": [
+    {
+      "part_id": "9709_s21_33_q6_a",
+      "difficulty": 2,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_p3_t_trigonometry",
+        "module_id": "9709_p3_t_trigonometry_m04",
+        "lesson_id": "9709_p3_t_trigonometry_m04_l04"
+      },
+      "skills": {
+        "primary_skill_id": "9709_p3_skill_graphical_root_analysis",
+        "skill_tags": [
+          "Graphical Root Analysis"
+        ]
+      },
+      "question_pattern_ids": [
+        "9709_p3_pattern_solve_equation",
+        "9709_p3_pattern_solve_inequality",
+        "9709_p3_pattern_prove_or_show",
+        "9709_p3_pattern_graph_or_locus",
+        "9709_p3_pattern_exact_value"
+      ],
+      "knowledge_refs": {
+        "formula_ids": [],
+        "identity_ids": [],
+        "method_ids": [
+          "9709_p3_method_graphical_root_analysis"
+        ],
+        "fact_ids": []
+      },
+      "hints": [
+        "Sketch $y=\\cot(x/2)$ and $y=1+e^{-x}$ on the same axes for $0<x\\le\\pi$.",
+        "Show $\\cot(x/2)$ falling from $+\\infty$ as $x\\to0^+$ to $0$ at $x=\\pi$, while $1+e^{-x}$ falls gently from $2$ towards $1$.",
+        "Draw the relative shapes accurately so that they cross once, then state that this single intersection represents exactly one root in the interval."
+      ],
+      "walkthrough": [
+        "Analyze the behaviour of the two functions $y_1 = \\cot\\left(\\dfrac{1}{2}x\\right)$ and $y_2 = 1 + \\mathrm{e}^{-x}$ on the interval $0 < x \\le \\pi$:\n- For $y_1 = \\cot\\left(\\dfrac{1}{2}x\\right)$:\n  As $x \\to 0^+$, $\\dfrac{1}{2}x \\to 0^+$, so $y_1 \\to +\\infty$.\n  As $x$ increases from $0$ to $\\pi$, $y_1$ is strictly decreasing, reaching $y_1(\\pi) = \\cot\\left(\\dfrac{\\pi}{2}\\right) = 0$.\n- For $y_2 = 1 + \\mathrm{e}^{-x}$:\n  At $x = 0$, $y_2 = 1 + 1 = 2$.\n  As $x$ increases from $0$ to $\\pi$, $y_2$ is strictly decreasing, reaching $y_2(\\pi) = 1 + \\mathrm{e}^{-\\pi} \\approx 1.0432 > 0$.",
+        "Compare the two curves:\nAt $x \\to 0^+$, $y_1 > y_2$ since $y_1 \\to +\\infty$ while $y_2 \\to 2$.\nAt $x = \\pi$, $y_1(\\pi) = 0 < 1.0432 = y_2(\\pi)$.",
+        "Conclude root existence and uniqueness:\nSince $y_1$ continuously decreases from $+\\infty$ to $0$ and $y_2$ remains strictly bounded above $1$, the curves must intersect exactly once on the interval $0 < x \\le \\pi$, proving the equation has exactly one root."
+      ],
+      "checking": {
+        "mode": "ai",
+        "ai_rubric": {
+          "Graphical Root Analysis": "Sketches a relevant graph, e.g. $y=\\cot(\\frac12x)$. Sketches a second relevant graph, e.g. $y=1+e^{-x}$, and justifies. Concludes that graphs $y=\\cot(x/2)$ and $y=1+e^{-x}$ intersect exactly once for $0<x\\leq\\pi$."
+        },
+        "criteria_source": "mark_scheme_structured"
+      }
+    },
+    {
+      "part_id": "9709_s21_33_q6_b",
+      "difficulty": 1,
+      "practice_tier": "revision",
+      "mapping": {
+        "topic_id": "9709_p3_t_numerical_solution_of_equations",
+        "module_id": "9709_p3_t_numerical_solution_of_equations_m01",
+        "lesson_id": "9709_p3_t_numerical_solution_of_equations_m01_l02"
+      },
+      "skills": {
+        "primary_skill_id": "9709_p3_skill_numerical_root_bracketing",
+        "skill_tags": [
+          "Numerical Root Bracketing"
+        ]
+      },
+      "question_pattern_ids": [
+        "9709_p3_pattern_solve_inequality",
+        "9709_p3_pattern_prove_or_show",
+        "9709_p3_pattern_complex_number"
+      ],
+      "knowledge_refs": {
+        "formula_ids": [
+          "9709_p3_formula_complex_polar"
+        ],
+        "identity_ids": [],
+        "method_ids": [
+          "9709_p3_method_numerical_root_bracketing"
+        ],
+        "fact_ids": []
+      },
+      "hints": [
+        "Use a continuous residual for the root equation and evaluate it at both endpoints in radians.",
+        "Calculate $g(x)=\\cot(x/2)-1-e^{-x}$ at $x=1$ and $x=1.5$.",
+        "Show the values have opposite signs and conclude the root is bracketed."
+      ],
+      "walkthrough": [
+        "Define the continuous function $g(x) = \\cot\\left(\\dfrac{1}{2}x\\right) - 1 - \\mathrm{e}^{-x}$.",
+        "Evaluate $g(x)$ at $x = 1$:\n$$\\cot(0.5) \\approx 1.830488$$\n$$1 + \\mathrm{e}^{-1} \\approx 1 + 0.367879 = 1.367879$$\n$$g(1) = 1.830488 - 1.367879 = +0.462609 > 0$$",
+        "Evaluate $g(x)$ at $x = 1.5$:\n$$\\cot(0.75) \\approx 1.073426$$\n$$1 + \\mathrm{e}^{-1.5} \\approx 1 + 0.223130 = 1.223130$$\n$$g(1.5) = 1.073426 - 1.223130 = -0.149704 < 0$$",
+        "Conclude using the intermediate value theorem:\nSince $g(1) > 0$ and $g(1.5) < 0$, there is a sign change across $[1, 1.5]$. By the intermediate value theorem, the root lies strictly between $1$ and $1.5$."
+      ],
+      "checking": {
+        "mode": "ai",
+        "ai_rubric": {
+          "Numerical Root Bracketing": "Endpoint evaluations at 1 and 1.5 establish the sign change or ordering. The diagram or calculation gives a sign change or inequality comparison occurs between $x=1$ and $x=1.5$."
+        },
+        "criteria_source": "mark_scheme_structured"
+      }
+    },
+    {
+      "part_id": "9709_s21_33_q6_c",
+      "difficulty": 3,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_p3_t_numerical_solution_of_equations",
+        "module_id": "9709_p3_t_numerical_solution_of_equations_m02",
+        "lesson_id": "9709_p3_t_numerical_solution_of_equations_m02_l02"
+      },
+      "skills": {
+        "primary_skill_id": "9709_p3_skill_fixed_point_iteration",
+        "skill_tags": [
+          "Fixed-Point Iteration"
+        ]
+      },
+      "question_pattern_ids": [
+        "9709_p3_pattern_numerical_approximation",
+        "9709_p3_pattern_trigonometric_reasoning"
+      ],
+      "knowledge_refs": {
+        "formula_ids": [],
+        "identity_ids": [
+          "9709_p3_identity_double_angle",
+          "9709_p3_identity_pythagorean"
+        ],
+        "method_ids": [
+          "9709_p3_method_fixed_point_iteration"
+        ],
+        "fact_ids": [
+          "9709_p3_fact_iteration_convergence"
+        ]
+      },
+      "hints": [
+        "Apply the supplied fixed-point rule in radian mode from a starting value between $1$ and $1.5$.",
+        "Use each output as the next input and record every iterate to 4 decimal places.",
+        "Continue until successive values justify the root to 2 decimal places without premature rounding."
+      ],
+      "walkthrough": [
+        "Use the given iterative formula $x_{n+1} = 2\\tan^{-1}\\!\\left(\\dfrac{1}{1 + \\mathrm{e}^{-x_n}}\\right)$ with an initial guess inside the interval, such as $x_1 = 1.3$:\n$$x_2 = 2\\tan^{-1}\\!\\left(\\dfrac{1}{1 + \\mathrm{e}^{-1.3}}\\right) \\approx 1.3364$$\n$$x_3 = 2\\tan^{-1}\\!\\left(\\dfrac{1}{1 + \\mathrm{e}^{-1.3364}}\\right) \\approx 1.3418$$\n$$x_4 = 2\\tan^{-1}\\!\\left(\\dfrac{1}{1 + \\mathrm{e}^{-1.3418}}\\right) \\approx 1.3426$$\n$$x_5 = 2\\tan^{-1}\\!\\left(\\dfrac{1}{1 + \\mathrm{e}^{-1.3426}}\\right) \\approx 1.3427$$\n$$x_6 = 2\\tan^{-1}\\!\\left(\\dfrac{1}{1 + \\mathrm{e}^{-1.3427}}\\right) \\approx 1.3428$$",
+        "Observe that the iterations stabilize and round to $1.34$ to 2 decimal places.\n(Checking interval $(1.335, 1.345)$: $g(1.335) > 0$ and $g(1.345) < 0$, verifying stability.)\nThus:\n$$x = 1.34$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "ai_rubric": {
+          "Fixed-Point Iteration": "Substitution into $x_{n+1}=2\\tan^{-1}\\!\\left(\\dfrac1{1+e^{-x_n}}\\right)$ gives consecutive iterates $1.34\\to1.335\\to1.345$, converging to $x=1.34$."
+        },
+        "criteria_source": "mark_scheme_structured"
+      }
+    }
+  ]
+}

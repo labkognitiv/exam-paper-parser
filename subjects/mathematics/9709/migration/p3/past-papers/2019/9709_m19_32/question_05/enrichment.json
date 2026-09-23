@@ -1,0 +1,75 @@
+{
+  "schema_version": "9709_math_enrichment_v3",
+  "paper_code": "9709_m19_32",
+  "question_id": "9709_m19_32_q5",
+  "question_num": 5,
+  "subject_code": "9709",
+  "component": "P3",
+  "year": 2019,
+  "session": "Feb/March",
+  "variant": "32",
+  "difficulty": 2,
+  "numerical_values_checked": false,
+  "parts": [
+    {
+      "part_id": "9709_m19_32_q5",
+      "difficulty": 2,
+      "practice_tier": "revision",
+      "mapping": {
+        "topic_id": "9709_p3_t_differential_equations",
+        "module_id": "9709_p3_t_differential_equations_m01",
+        "lesson_id": "9709_p3_t_differential_equations_m01_l01"
+      },
+      "skills": {
+        "primary_skill_id": "9709_p3_skill_implicit_differentiation",
+        "skill_tags": [
+          "Implicit Differentiation"
+        ]
+      },
+      "question_pattern_ids": [
+        "9709_p3_pattern_solve_inequality",
+        "9709_p3_pattern_prove_or_show",
+        "9709_p3_pattern_calculus_process",
+        "9709_p3_pattern_trigonometric_reasoning"
+      ],
+      "knowledge_refs": {
+        "formula_ids": [
+          "9709_p3_formula_scalar_product"
+        ],
+        "identity_ids": [
+          "9709_p3_identity_double_angle",
+          "9709_p3_identity_pythagorean"
+        ],
+        "method_ids": [
+          "9709_p3_method_implicit_differentiation"
+        ],
+        "fact_ids": []
+      },
+      "hints": [
+        "Differentiate the relation implicitly, treating $y$ as a function of $x$.",
+        "From $\\sin y=\\tan x$, obtain $\\cos y\\,\\dfrac{dy}{dx}=\\sec^2x$.",
+        "The restriction on $y$ makes $\\cos y$ positive, so replace it by $\\sqrt{1-\\tan^2x}$.",
+        "Rewrite the square root using $\\cos2x=\\cos^2x-\\sin^2x$ and simplify the powers of $\\cos x$."
+      ],
+      "walkthrough": [
+        "Start with the relation between $x$ and $y$:\n$$\\sin y = \\tan x$$",
+        "Differentiate both sides implicitly with respect to $x$:\n$$\\dfrac{\\mathrm{d}}{\\mathrm{d}x}(\\sin y) = \\dfrac{\\mathrm{d}}{\\mathrm{d}x}(\\tan x)$$\n$$\\cos y\\,\\dfrac{\\mathrm{d}y}{\\mathrm{d}x} = \\sec^2 x$$",
+        "Isolate $\\dfrac{\\mathrm{d}y}{\\mathrm{d}x}$:\n$$\\dfrac{\\mathrm{d}y}{\\mathrm{d}x} = \\dfrac{\\sec^2 x}{\\cos y} = \\dfrac{1}{\\cos^2 x\\cos y}$$",
+        "Express $\\cos y$ in terms of $x$ using the Pythagorean identity $\\cos^2 y + \\sin^2 y = 1$:\n$$\\cos y = \\sqrt{1 - \\sin^2 y}$$\n(The positive square root is chosen because $-\\frac{1}{2}\\pi < y < \\frac{1}{2}\\pi$, where $\\cos y > 0$.)",
+        "Substitute $\\sin y = \\tan x$ into the square root:\n$$\\cos y = \\sqrt{1 - \\tan^2 x}$$",
+        "Substitute this expression for $\\cos y$ into the derivative:\n$$\\dfrac{\\mathrm{d}y}{\\mathrm{d}x} = \\dfrac{1}{\\cos^2 x\\sqrt{1 - \\tan^2 x}}$$",
+        "Group one factor of $\\cos x$ with the square root and bring it inside:\n$$\\cos^2 x\\sqrt{1 - \\tan^2 x} = \\cos x \\left(\\cos x\\sqrt{1 - \\tan^2 x}\\right) = \\cos x\\sqrt{\\cos^2 x(1 - \\tan^2 x)}$$",
+        "Expand inside the square root using $\\tan x = \\dfrac{\\sin x}{\\cos x}$:\n$$\\cos^2 x(1 - \\tan^2 x) = \\cos^2 x - \\cos^2 x\\left(\\dfrac{\\sin^2 x}{\\cos^2 x}\\right) = \\cos^2 x - \\sin^2 x$$",
+        "Apply the double angle identity $\\cos 2x = \\cos^2 x - \\sin^2 x$:\n$$\\cos^2 x - \\sin^2 x = \\cos 2x$$",
+        "Substitute back to obtain the final expression:\n$$\\dfrac{\\mathrm{d}y}{\\mathrm{d}x} = \\dfrac{1}{\\cos x\\sqrt{\\cos 2x}}$$\nThis completes the proof as required."
+      ],
+      "checking": {
+        "mode": "ai",
+        "ai_rubric": {
+          "Implicit Differentiation": "Identifies $\\cos y\\,\\dfrac{dy}{dx}$ as the derivative of $\\sin y$; Identifies a derivative in terms of $x$, e.g. $\\dfrac{\\sec^2x}{\\sqrt{1-\\tan^2x}}$; Concludes with $\\dfrac{dy}{dx}=\\dfrac1{\\cos x\\sqrt{\\cos2x}}$."
+        },
+        "criteria_source": "mark_scheme_structured"
+      }
+    }
+  ]
+}

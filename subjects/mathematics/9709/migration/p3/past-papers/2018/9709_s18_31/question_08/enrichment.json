@@ -1,0 +1,165 @@
+{
+  "schema_version": "9709_math_enrichment_v3",
+  "paper_code": "9709_s18_31",
+  "question_id": "9709_s18_31_q8",
+  "question_num": 8,
+  "subject_code": "9709",
+  "component": "P3",
+  "year": 2018,
+  "session": "May/June",
+  "variant": "31",
+  "difficulty": 3,
+  "numerical_values_checked": false,
+  "parts": [
+    {
+      "part_id": "9709_s18_31_q8_i",
+      "difficulty": 3,
+      "practice_tier": "revision",
+      "mapping": {
+        "topic_id": "9709_p3_t_logarithmic_and_exponential_functions",
+        "module_id": "9709_p3_t_logarithmic_and_exponential_functions_m03",
+        "lesson_id": "9709_p3_t_logarithmic_and_exponential_functions_m03_l01"
+      },
+      "skills": {
+        "primary_skill_id": "9709_p3_skill_integration_by_parts",
+        "skill_tags": [
+          "Integration by Parts"
+        ]
+      },
+      "question_pattern_ids": [
+        "9709_p3_pattern_solve_equation",
+        "9709_p3_pattern_prove_or_show",
+        "9709_p3_pattern_calculus_process"
+      ],
+      "knowledge_refs": {
+        "formula_ids": [
+          "9709_p3_formula_integration_by_parts"
+        ],
+        "identity_ids": [],
+        "method_ids": [
+          "9709_p3_method_integration_by_parts"
+        ],
+        "fact_ids": []
+      },
+      "hints": [
+        "Evaluate the given definite integral by integration by parts.",
+        "Choose $u=x$ and integrate $e^{-x/2}$ carefully, retaining the factor introduced by the exponent.",
+        "Complete the remaining exponential integral, then substitute the limits $0$ and $a$.",
+        "Set the resulting expression equal to $2$, isolate the exponential term, and take logarithms to reach the required form."
+      ],
+      "walkthrough": [
+        "Evaluate $\\int_0^a x\\mathrm{e}^{-\\frac{x}{2}}\\,\\mathrm{d}x$ using integration by parts $\\int u\\,\\mathrm{d}v = uv - \\int v\\,\\mathrm{d}u$:\n$$u = x \\implies \\mathrm{d}u = \\mathrm{d}x$$\n$$\\mathrm{d}v = \\mathrm{e}^{-\\frac{x}{2}}\\,\\mathrm{d}x \\implies v = -2\\mathrm{e}^{-\\frac{x}{2}}$$",
+        "Apply the integration by parts formula:\n$$\\int x\\mathrm{e}^{-\\frac{x}{2}}\\,\\mathrm{d}x = -2x\\mathrm{e}^{-\\frac{x}{2}} - \\int (-2\\mathrm{e}^{-\\frac{x}{2}})\\,\\mathrm{d}x = -2x\\mathrm{e}^{-\\frac{x}{2}} - 4\\mathrm{e}^{-\\frac{x}{2}} = -2(x + 2)\\mathrm{e}^{-\\frac{x}{2}}$$",
+        "Substitute the limits from $0$ to $a$:\n$$\\left[ -2(x + 2)\\mathrm{e}^{-\\frac{x}{2}} \\right]_0^a = -2(a + 2)\\mathrm{e}^{-\\frac{a}{2}} - \\left(-2(0 + 2)\\mathrm{e}^0\\right) = 4 - 2(a + 2)\\mathrm{e}^{-\\frac{a}{2}}$$",
+        "Set the integral equal to 2:\n$$4 - 2(a + 2)\\mathrm{e}^{-\\frac{a}{2}} = 2$$\n$$2(a + 2)\\mathrm{e}^{-\\frac{a}{2}} = 2$$\n$$(a + 2)\\mathrm{e}^{-\\frac{a}{2}} = 1$$",
+        "Multiply both sides by $\\mathrm{e}^{\\frac{a}{2}}$ and take natural logarithms:\n$$\\mathrm{e}^{\\frac{a}{2}} = a + 2$$\n$$\\dfrac{a}{2} = \\ln(a + 2)$$\n$$a = 2\\ln(a + 2)$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "ai_rubric": {
+          "Integration by Parts": "Integrates by parts and reaches $lx e^{-x/2}+m\\int e^{-x/2}\\,dx$. Completes the integration and derives $-2xe^{-x/2}-4e^{-x/2}$, or equivalent. The final result is $a=2\\ln(a+2)$."
+        },
+        "criteria_source": "mark_scheme_structured"
+      }
+    },
+    {
+      "part_id": "9709_s18_31_q8_ii",
+      "difficulty": 1,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_p3_t_logarithmic_and_exponential_functions",
+        "module_id": "9709_p3_t_logarithmic_and_exponential_functions_m03",
+        "lesson_id": "9709_p3_t_logarithmic_and_exponential_functions_m03_l01"
+      },
+      "skills": {
+        "primary_skill_id": "9709_p3_skill_numerical_root_bracketing",
+        "skill_tags": [
+          "Numerical Root Bracketing"
+        ]
+      },
+      "question_pattern_ids": [
+        "9709_p3_pattern_prove_or_show",
+        "9709_p3_pattern_complex_number"
+      ],
+      "knowledge_refs": {
+        "formula_ids": [
+          "9709_p3_formula_complex_polar"
+        ],
+        "identity_ids": [],
+        "method_ids": [
+          "9709_p3_method_numerical_root_bracketing"
+        ],
+        "fact_ids": []
+      },
+      "hints": [
+        "Turn the equation from part (i) into a root equation $f(a)=0$.",
+        "Use one consistent choice, such as $f(a)=a-2\\ln(a+2)$.",
+        "Calculate $f(3)$ and $f(3.5)$ to sufficient accuracy.",
+        "Compare their signs and use continuity to justify the stated bracket."
+      ],
+      "walkthrough": [
+        "Define the continuous function $f(a) = a - 2\\ln(a + 2)$.",
+        "Evaluate $f(a)$ at $a = 3$:\n$$f(3) = 3 - 2\\ln(3 + 2) = 3 - 2\\ln 5$$\n$$\\ln 5 \\approx 1.6094379$$\n$$f(3) \\approx 3 - 2(1.6094379) = 3 - 3.2188758 = -0.2188758 < 0$$",
+        "Evaluate $f(a)$ at $a = 3.5$:\n$$f(3.5) = 3.5 - 2\\ln(3.5 + 2) = 3.5 - 2\\ln(5.5)$$\n$$\\ln(5.5) \\approx 1.7047481$$\n$$f(3.5) \\approx 3.5 - 2(1.7047481) = 3.5 - 3.4094962 = +0.0905038 > 0$$",
+        "Conclude using the Intermediate Value Theorem:\nBecause $f(a)$ is continuous on the closed interval $[3, 3.5]$ and changes sign from negative to positive ($f(3) < 0$ and $f(3.5) > 0$), the root $a$ lies between 3 and 3.5."
+      ],
+      "checking": {
+        "mode": "ai",
+        "ai_rubric": {
+          "Numerical Root Bracketing": "Endpoint evaluations at 3 and 3.5 establish the sign change or ordering. The diagram or calculation gives a sign change occurs between $a=3$ and $a=3.5$."
+        },
+        "criteria_source": "mark_scheme_structured"
+      }
+    },
+    {
+      "part_id": "9709_s18_31_q8_iii",
+      "difficulty": 3,
+      "practice_tier": "revision",
+      "mapping": {
+        "topic_id": "9709_p3_t_numerical_solution_of_equations",
+        "module_id": "9709_p3_t_numerical_solution_of_equations_m02",
+        "lesson_id": "9709_p3_t_numerical_solution_of_equations_m02_l02"
+      },
+      "skills": {
+        "primary_skill_id": "9709_p3_skill_fixed_point_iteration",
+        "skill_tags": [
+          "Fixed-Point Iteration"
+        ]
+      },
+      "question_pattern_ids": [
+        "9709_p3_pattern_solve_equation",
+        "9709_p3_pattern_numerical_approximation"
+      ],
+      "knowledge_refs": {
+        "formula_ids": [],
+        "identity_ids": [],
+        "method_ids": [
+          "9709_p3_method_fixed_point_iteration"
+        ],
+        "fact_ids": [
+          "9709_p3_fact_iteration_convergence"
+        ]
+      },
+      "hints": [
+        "Read the equation from part (i) directly as a fixed-point iteration rule.",
+        "Choose a starting value inside the bracket established in part (ii).",
+        "Apply the rule repeatedly, recording every iterate to four decimal places.",
+        "Continue until successive iterates unambiguously round to the same value at two decimal places."
+      ],
+      "walkthrough": [
+        "Set up the iterative formula $a_{n+1} = 2\\ln(a_n + 2)$ using an initial value in $[3, 3.5]$, for instance $a_1 = 3.3$.",
+        "Compute the first iteration $a_2$:\n$$a_2 = 2\\ln(3.3 + 2) = 2\\ln(5.3) \\approx 2(1.667707) \\approx 3.3354$$",
+        "Compute subsequent iterations, recording each to 4 decimal places:\n$$a_3 = 2\\ln(3.3354 + 2) = 2\\ln(5.3354) \\approx 2(1.674374) \\approx 3.3487$$\n$$a_4 = 2\\ln(3.3487 + 2) = 2\\ln(5.3487) \\approx 2(1.676866) \\approx 3.3537$$\n$$a_5 = 2\\ln(3.3537 + 2) = 2\\ln(5.3537) \\approx 2(1.677801) \\approx 3.3556$$\n$$a_6 = 2\\ln(3.3556 + 2) = 2\\ln(5.3556) \\approx 2(1.678155) \\approx 3.3563$$\n$$a_7 = 2\\ln(3.3563 + 2) = 2\\ln(5.3563) \\approx 2(1.678286) \\approx 3.3566$$",
+        "Confirm the value to 2 decimal places using a sign change test of $f(a) = a - 2\\ln(a + 2)$ on $[3.355, 3.365]$:\n$$f(3.355) = 3.355 - 2\\ln(5.355) \\approx 3.355 - 2(1.678044) = -0.00109 < 0$$\n$$f(3.365) = 3.365 - 2\\ln(5.365) \\approx 3.365 - 2(1.679909) = +0.00518 > 0$$",
+        "Conclude that $a = 3.36$ correct to 2 decimal places."
+      ],
+      "checking": {
+        "mode": "ai",
+        "ai_rubric": {
+          "Fixed-Point Iteration": "Substitution into $a$ gives consecutive iterates $3.36\\to3.355\\to3.365$, converging to $a=3.36$."
+        },
+        "criteria_source": "mark_scheme_structured"
+      }
+    }
+  ]
+}

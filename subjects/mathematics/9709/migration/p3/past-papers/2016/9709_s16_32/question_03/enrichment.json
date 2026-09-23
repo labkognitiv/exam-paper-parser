@@ -1,0 +1,71 @@
+{
+  "schema_version": "9709_math_enrichment_v3",
+  "paper_code": "9709_s16_32",
+  "question_id": "9709_s16_32_q3",
+  "question_num": 3,
+  "subject_code": "9709",
+  "component": "P3",
+  "year": 2016,
+  "session": "May/June",
+  "variant": "32",
+  "difficulty": 2,
+  "numerical_values_checked": false,
+  "parts": [
+    {
+      "part_id": "9709_s16_32_q3",
+      "difficulty": 2,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_p3_t_trigonometry",
+        "module_id": "9709_p3_t_trigonometry_m04",
+        "lesson_id": "9709_p3_t_trigonometry_m04_l02"
+      },
+      "skills": {
+        "primary_skill_id": "9709_p3_skill_integration_by_parts",
+        "skill_tags": [
+          "Integration by Parts"
+        ]
+      },
+      "question_pattern_ids": [
+        "9709_p3_pattern_exact_value",
+        "9709_p3_pattern_calculus_process",
+        "9709_p3_pattern_trigonometric_reasoning"
+      ],
+      "knowledge_refs": {
+        "formula_ids": [
+          "9709_p3_formula_integration_by_parts"
+        ],
+        "identity_ids": [
+          "9709_p3_identity_double_angle",
+          "9709_p3_identity_pythagorean"
+        ],
+        "method_ids": [
+          "9709_p3_method_integration_by_parts"
+        ],
+        "fact_ids": []
+      },
+      "hints": [
+        "Integrate by parts first with $u=x^2$ and $dv=\\sin2x\\,dx$.",
+        "Apply integration by parts again to the remaining $\\int x\\cos2x\\,dx$.",
+        "Combine the terms into one antiderivative before substituting $0$ and $\\pi/2$.",
+        "Use the exact sine and cosine values at both limits and simplify without decimals."
+      ],
+      "walkthrough": [
+        "Apply integration by parts $\\int u\\,\\mathrm{d}v = uv - \\int v\\,\\mathrm{d}u$ with:\n$$u = x^2 \\implies \\mathrm{d}u = 2x\\,\\mathrm{d}x$$\n$$\\mathrm{d}v = \\sin 2x\\,\\mathrm{d}x \\implies v = -\\dfrac{1}{2}\\cos 2x$$",
+        "Substitute into the integration by parts formula:\n$$\\int x^2\\sin 2x\\,\\mathrm{d}x = -\\dfrac{1}{2}x^2\\cos 2x - \\int \\left(-\\dfrac{1}{2}\\cos 2x\\right)(2x)\\,\\mathrm{d}x = -\\dfrac{1}{2}x^2\\cos 2x + \\int x\\cos 2x\\,\\mathrm{d}x$$",
+        "Apply integration by parts a second time to $\\int x\\cos 2x\\,\\mathrm{d}x$ with $u_1 = x \\implies \\mathrm{d}u_1 = \\mathrm{d}x$ and $\\mathrm{d}v_1 = \\cos 2x\\,\\mathrm{d}x \\implies v_1 = \\dfrac{1}{2}\\sin 2x$:\n$$\\int x\\cos 2x\\,\\mathrm{d}x = \\dfrac{1}{2}x\\sin 2x - \\int \\dfrac{1}{2}\\sin 2x\\,\\mathrm{d}x = \\dfrac{1}{2}x\\sin 2x - \\dfrac{1}{2}\\left(-\\dfrac{1}{2}\\cos 2x\\right) = \\dfrac{1}{2}x\\sin 2x + \\dfrac{1}{4}\\cos 2x$$",
+        "Combine to obtain the complete antiderivative:\n$$\\int_0^{\\pi/2} x^2\\sin 2x\\,\\mathrm{d}x = \\left[-\\dfrac{1}{2}x^2\\cos 2x + \\dfrac{1}{2}x\\sin 2x + \\dfrac{1}{4}\\cos 2x\\right]_0^{\\pi/2}$$",
+        "Evaluate at the upper limit $x = \\dfrac{\\pi}{2}$:\n$$-\\dfrac{1}{2}\\left(\\dfrac{\\pi}{2}\\right)^2\\cos\\pi + \\dfrac{1}{2}\\left(\\dfrac{\\pi}{2}\\right)\\sin\\pi + \\dfrac{1}{4}\\cos\\pi = -\\dfrac{1}{2}\\left(\\dfrac{\\pi^2}{4}\\right)(-1) + 0 + \\dfrac{1}{4}(-1) = \\dfrac{\\pi^2}{8} - \\dfrac{1}{4}$$",
+        "Evaluate at the lower limit $x = 0$:\n$$-\\dfrac{1}{2}(0)^2\\cos 0 + \\dfrac{1}{2}(0)\\sin 0 + \\dfrac{1}{4}\\cos 0 = 0 + 0 + \\dfrac{1}{4}(1) = \\dfrac{1}{4}$$",
+        "Subtract the lower limit value from the upper limit value:\n$$\\left(\\dfrac{\\pi^2}{8} - \\dfrac{1}{4}\\right) - \\dfrac{1}{4} = \\dfrac{\\pi^2}{8} - \\dfrac{2}{4} = \\dfrac{\\pi^2}{8} - \\dfrac{1}{2} = \\dfrac{1}{8}(\\pi^2 - 4)$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "ai_rubric": {
+          "Integration by Parts": "Integrates by parts and reaches $ax^2\\cos2x+b\\int x\\cos2x\\,dx$. Completes the integration and derives $-\\frac12x^2\\cos2x+\\frac12x\\sin2x+\\frac14\\cos2x$, or equivalent. The final result is $\\frac18(\\pi^2-4)$."
+        },
+        "criteria_source": "mark_scheme_structured"
+      }
+    }
+  ]
+}

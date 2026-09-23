@@ -1,0 +1,65 @@
+{
+  "schema_version": "9709_math_enrichment_v3",
+  "paper_code": "9709_s21_33",
+  "question_id": "9709_s21_33_q2",
+  "question_num": 2,
+  "subject_code": "9709",
+  "component": "P3",
+  "year": 2021,
+  "session": "May/June",
+  "variant": "33",
+  "difficulty": 2,
+  "numerical_values_checked": false,
+  "parts": [
+    {
+      "part_id": "9709_s21_33_q2",
+      "difficulty": 2,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_p3_t_algebra",
+        "module_id": "9709_p3_t_algebra_m01",
+        "lesson_id": "9709_p3_t_algebra_m01_l02"
+      },
+      "skills": {
+        "primary_skill_id": "9709_p3_skill_solving_exponential_and_logarithmic_equations",
+        "skill_tags": [
+          "Solving Exponential and Logarithmic Equations"
+        ]
+      },
+      "question_pattern_ids": [
+        "9709_p3_pattern_solve_equation",
+        "9709_p3_pattern_numerical_approximation"
+      ],
+      "knowledge_refs": {
+        "formula_ids": [],
+        "identity_ids": [],
+        "method_ids": [
+          "9709_p3_method_solving_exponential_and_logarithmic_equations"
+        ],
+        "fact_ids": [
+          "9709_p3_fact_log_domain"
+        ]
+      },
+      "hints": [
+        "Turn the equation into a quadratic in the positive quantity $u=4^x$.",
+        "After multiplying by $4^x$, solve $u^2-3u-1=0$ and reject the negative root because $u>0$.",
+        "Use $x=\\log_4u=\\ln u/\\ln4$ for the remaining root, rounding only at the end."
+      ],
+      "walkthrough": [
+        "Multiply both sides of the equation $4^x = 3 + 4^{-x}$ by $4^x$:\n$$(4^x)^2 = 3(4^x) + 4^x \\times 4^{-x}$$\n$$(4^x)^2 = 3(4^x) + 1$$",
+        "Let $u = 4^x$ and rearrange into a standard 3-term quadratic equation:\n$$u^2 - 3u - 1 = 0$$",
+        "Solve for $u$ using the quadratic formula with $a = 1, b = -3, c = -1$:\n$$u = \\dfrac{-(-3) \\pm \\sqrt{(-3)^2 - 4(1)(-1)}}{2(1)} = \\dfrac{3 \\pm \\sqrt{9 + 4}}{2} = \\dfrac{3 \\pm \\sqrt{13}}{2}$$",
+        "Determine the valid real root for $u = 4^x$:\nSince $4^x > 0$ for all real $x$:\n- $u = \\dfrac{3 - \\sqrt{13}}{2} \\approx \\dfrac{3 - 3.605551}{2} < 0$, which must be rejected.\n- $u = \\dfrac{3 + \\sqrt{13}}{2} \\approx \\dfrac{3 + 3.605551}{2} \\approx 3.302776 > 0$, which is accepted.\nThis demonstrates clearly that there is only one real root.",
+        "Solve for $x$ by taking natural logarithms:\n$$4^x = \\dfrac{3 + \\sqrt{13}}{2}$$\n$$x\\ln 4 = \\ln\\left(\\dfrac{3 + \\sqrt{13}}{2}\\right)$$\n$$x = \\dfrac{\\ln(3.302776)}{\\ln 4} \\approx \\dfrac{1.194763}{1.386294} \\approx 0.861839 \\dots$$",
+        "Round the solution to 3 decimal places:\n$$x = 0.862$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "ai_rubric": {
+          "Solving Exponential and Logarithmic Equations": "Identifies $u^2-3u-1=0$, or equivalent in $4^x$; Derives root $\\frac12(3+\\sqrt{13})$, or a decimal in $[3.30,3.31]$; Concludes with $x=0.862$."
+        },
+        "criteria_source": "mark_scheme_structured"
+      }
+    }
+  ]
+}

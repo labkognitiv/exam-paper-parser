@@ -1,0 +1,622 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>When a line meets a curve · Kognitiv</title>
+<meta name="description" content="Use substitution, roots, discriminants and domain checks to understand how lines meet curves.">
+<link rel="stylesheet" href="assets/lesson.css">
+<link rel="stylesheet" href="assets/revision.css">
+<link rel="stylesheet" href="assets/katex/katex.min.css">
+<link rel="stylesheet" href="assets/brand-theme.css">
+<link rel="stylesheet" href="assets/curve.css">
+<link rel="stylesheet" href="assets/plain-emphasis.css">
+<script defer src="assets/katex/katex.min.js">
+</script>
+<script defer src="assets/math.js">
+</script>
+<script defer src="assets/check-ins.js">
+</script>
+</head>
+<body>
+<a class="skip-link" href="#core">Skip to lesson</a>
+<div class="top">
+<div class="brand">Kognitiv <span> / Mathematics 9709 · Pure Mathematics 1</span>
+</div>
+<button type="button" onclick="window.print()">Print / save PDF</button>
+</div>
+<main data-lesson-id="9709_p1_t_coordinate_geometry_m03_l01">
+<nav class="lesson-nav" aria-label="Lesson navigation">
+<span>Coordinate Geometry · Module 3 · Lesson 1</span>
+<a href="#recap">Key ideas</a>
+<a href="#examples">More worked examples</a>
+</nav>
+<header class="hero">
+<div class="kicker">Line meets curve</div>
+<h1>Count intersections with algebra.</h1>
+<p class="lead">Replace y in the curve by the line expression. The real solutions for x tell you where the two graphs meet.</p>
+<p class="lesson-route">
+<a href="#core">Start the lesson</a>
+</p>
+</header>
+
+<section id="core" data-source-pages="1">
+<h2>Turn two equations into one</h2>
+<ul class="explanation-points">
+<li>For a straight line, use <strong>m</strong> for its gradient and <strong>c</strong> for its y-intercept, where it crosses the y-axis.</li>
+<li>The line can then be written <span data-tex="y=mx+c">y = mx+c</span>.</li>
+<li>A <strong>curve</strong> has a non-linear equation, such as one containing <span data-tex="x^2">x²</span>, a fraction in x, or <span data-tex="\sqrt{x}">√x</span>.</li>
+<li>At an <strong>intersection</strong>, the line and curve have the same x-coordinate and the same y-coordinate.</li>
+<li>
+<strong>Substitute</strong> means replace one expression by an equal expression.</li>
+<li>A <strong>root</strong> is a solution for x: an x-value that makes an equation equal zero.</li>
+<li>The <strong>domain</strong> is the set of x-values allowed by the original equations.</li>
+</ul>
+<article class="worked-example">
+<p class="example-label">Worked example</p>
+<h3>Substitute a line into a parabola</h3>
+<p>The curve is <span data-tex="y=x^2-4x+3">y=x²−4x+3</span>. The line is <span data-tex="y=2x-6">y=2x−6</span>.</p>
+<div class="solution-body">
+<p class="solution-label">Solution</p>
+<ol class="steps">
+<li>
+<p>Both right sides equal y, so set them equal:</p>
+<div class="math-line" data-tex="2x-6=x^2-4x+3" data-display="true">2x−6 = x²−4x+3</div>
+</li>
+<li>
+<p>Subtract <span data-tex="2x-6">2x−6</span> from both sides:</p>
+<div class="math-line" data-tex="x^2-6x+9=0" data-display="true">x²−6x+9 = 0</div>
+</li>
+<li>
+<p>Factor and solve:</p>
+<div class="math-line" data-tex="x^2-6x+9=(x-3)^2=0\quad\Rightarrow\quad x=3" data-display="true">x²−6x+9=(x−3)²=0 ⇒ x=3</div>
+</li>
+<li>
+<p>The root x=3 occurs twice. Substitute into the line: <span data-tex="y=2(3)-6=0">y=2(3)−6=0</span>. At (3,0), the line touches the curve locally in the same direction. This is called tangent contact.</p>
+</li>
+</ol>
+</div>
+</article>
+<img class="diagram" src="assets/intersection-cases.svg" alt="Three panels showing a line cutting a parabola twice, touching once, and missing it.">
+<ul class="explanation-points">
+<li>A <strong>real root</strong> is a root on the real number line. Two <strong>distinct</strong> real roots are two different x-values, so they give two intersection points.</li>
+<li>A <strong>repeated root</strong> occurs twice. For example, <span data-tex="(x-3)^2=0">(x−3)²=0</span> gives x=3 twice.</li>
+<li>At that repeated root, the line <strong>touches</strong> the curve locally in the same direction. This is a <strong>tangent</strong> contact.</li>
+<li>No real roots mean the graphs do not meet.</li>
+<li>This root count describes intersections only when the substituted equation remains valid in the original domain.</li>
+</ul>
+</section>
+
+<section data-source-pages="2,3">
+<h2>Use the discriminant for a genuine quadratic</h2>
+<ul class="explanation-points">
+<li>A quadratic has the form <span data-tex="Ax^2+Bx+C=0">Ax²+Bx+C=0</span> with <span data-tex="A\ne0">A≠0</span>.</li>
+<li>Uppercase A, B, C below name quadratic coefficients. They are separate from a line’s lowercase c.</li>
+<li>The <strong>discriminant</strong> is <span data-tex="\Delta=B^2-4AC">Δ=B²−4AC</span>. The Greek letter Δ is read “delta”.</li>
+<li>Its sign counts real roots without solving the quadratic.</li>
+</ul>
+<table class="case-table">
+<thead>
+<tr>
+<th>Condition</th>
+<th>Roots</th>
+<th>Geometry</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<span data-tex="\Delta>0">Δ&gt;0</span>
+</td>
+<td>Two distinct real roots</td>
+<td>The line cuts the curve twice.</td>
+</tr>
+<tr>
+<td>
+<span data-tex="\Delta=0">Δ=0</span>
+</td>
+<td>One repeated real root</td>
+<td>The line is tangent at one point.</td>
+</tr>
+<tr>
+<td>
+<span data-tex="\Delta<0">Δ&lt;0</span>
+</td>
+<td>No real roots</td>
+<td>The line misses the curve.</td>
+</tr>
+</tbody>
+</table>
+<div class="formula-box">
+<h3>Tangent method</h3>
+<ol class="steps">
+<li>Substitute the line into the curve and eliminate y.</li>
+<li>Rearrange to <span data-tex="Ax^2+Bx+C=0">Ax²+Bx+C=0</span>.</li>
+<li>Confirm <span data-tex="A\ne0">A≠0</span> and keep all original domain restrictions.</li>
+<li>Set <span data-tex="\Delta=B^2-4AC=0">Δ=B²−4AC=0</span> and solve for the unknown line parameter.</li>
+<li>For a contact point, use the repeated root <span data-tex="x=-\frac{B}{2A}">x=−B/(2A)</span>, then substitute for y.</li>
+</ol>
+</div>
+<p class="teacher-note">Find the line parameter first. Find the contact point second.</p>
+<aside class="quick-check">
+<p class="check-label">Check 1</p>
+<p class="check-question">Substitution gives x²−6x+10=0. Does the line cut, touch, or miss the parabola?</p>
+<div class="check-options">
+<button type="button" aria-pressed="false" data-correct="false" data-feedback="Not this time. Δ = (−6)² − 4(1)(10) = −4, so there are no real intersections.">A · It touches once</button>
+<button type="button" aria-pressed="false" data-correct="true" data-feedback="Correct. Δ = 36 − 40 = −4. A negative discriminant means no real roots, so the line misses the parabola.">B · It misses</button>
+</div>
+<p class="check-feedback" aria-live="polite">
+</p>
+</aside>
+</section>
+
+<section data-source-pages="4">
+<h2>Find a line that is tangent</h2>
+<article class="worked-example">
+<p class="example-label">Worked example</p>
+<h3>Horizontal tangent to a rational curve</h3>
+<p>The curve is <span data-tex="y=\frac{3x+1}{x^2-x}">y=(3x+1)/(x²−x)</span>. A horizontal line <span data-tex="y=c">y=c</span> is tangent. Find c.</p>
+<div class="solution-body">
+<p class="solution-label">Solution</p>
+<ol class="steps">
+<li>
+<p>The denominator requires <span data-tex="x\ne0,1">x≠0,1</span>.</p>
+</li>
+<li>
+<p>Substitute and multiply by <span data-tex="x^2-x">x²−x</span>:</p>
+<div class="math-line" data-tex="c=\frac{3x+1}{x^2-x}\quad\Rightarrow\quad c(x^2-x)=3x+1" data-display="true">c=(3x+1)/(x²−x) ⇒ c(x²−x)=3x+1</div>
+</li>
+<li>
+<p>Collect terms:</p>
+<div class="math-line" data-tex="cx^2-(c+3)x-1=0" data-display="true">cx²−(c+3)x−1 = 0</div>
+</li>
+<li>
+<p>Test c=0 before using a quadratic rule. It gives <span data-tex="-3x-1=0">−3x−1=0</span>, so x=−1/3 and y=0. This is one crossing of the rational curve, not a tangent.</p>
+</li>
+<li>
+<p>For c≠0 this is a genuine quadratic:</p>
+<div class="math-line" data-tex="\Delta=(c+3)^2+4c=c^2+10c+9" data-display="true">Δ=(c+3)²+4c = c²+10c+9</div>
+</li>
+<li>
+<p>Set Δ=0 and factor:</p>
+<div class="math-line" data-tex="c^2+10c+9=(c+1)(c+9)=0" data-display="true">c²+10c+9 = (c+1)(c+9) = 0</div>
+</li>
+<li>
+<p>For c=−1, the quadratic is <span data-tex="-(x+1)^2=0">−(x+1)²=0</span>, so x=−1. For c=−9, it is <span data-tex="-(3x-1)^2=0">−(3x−1)²=0</span>, so x=1/3. Both roots meet x≠0,1.</p>
+<div class="math-line final-answer" data-tex="c=-1\text{ at }x=-1\qquad\text{or}\qquad c=-9\text{ at }x=\frac13" data-display="true">c=−1 at x=−1, or c=−9 at x=1/3</div>
+</li>
+</ol>
+</div>
+</article>
+<article class="worked-example">
+<p class="example-label">Worked example</p>
+<h3>Two slanted tangents</h3>
+<p>The line <span data-tex="y=mx-6">y=mx−6</span> is tangent to <span data-tex="y=x^2-4x+3">y=x²−4x+3</span>. Find m and each contact point.</p>
+<div class="solution-body">
+<p class="solution-label">Solution</p>
+<ol class="steps">
+<li>
+<div class="math-line" data-tex="mx-6=x^2-4x+3\quad\Rightarrow\quad x^2-(4+m)x+9=0" data-display="true">mx−6=x²−4x+3 ⇒ x²−(4+m)x+9=0</div>
+</li>
+<li>
+<div class="math-line" data-tex="\Delta=(4+m)^2-36=0" data-display="true">Δ=(4+m)²−36=0</div>
+</li>
+<li>
+<div class="math-line" data-tex="(4+m)^2=36\quad\Rightarrow\quad4+m=\pm6" data-display="true">(4+m)²=36 ⇒ 4+m=±6</div>
+</li>
+<li>
+<div class="math-line" data-tex="m=2\quad\text{or}\quad m=-10" data-display="true">m=2 or m=−10</div>
+</li>
+<li>
+<p>For m=2, the repeated root is x=3 and y=2(3)−6=0.</p>
+</li>
+<li>
+<p>For m=−10, the repeated root is x=−3 and y=−10(−3)−6=24.</p>
+<div class="math-line final-answer" data-tex="m=2,\ (3,0)\qquad\text{or}\qquad m=-10,\ (-3,24)" data-display="true">m=2 at (3,0), or m=−10 at (−3,24)</div>
+</li>
+</ol>
+</div>
+</article>
+</section>
+
+<section data-source-pages="5">
+<h2>Build a tangent through a known point</h2>
+<article class="worked-example">
+<p class="example-label">Worked example</p>
+<h3>Through (0,−2)</h3>
+<p>A line through (0,−2) with gradient m is tangent to <span data-tex="y=x^2-2x+7">y=x²−2x+7</span>.</p>
+<div class="solution-body">
+<p class="solution-label">Solution</p>
+<ol class="steps">
+<li>
+<p>The line is <span data-tex="y=mx-2">y=mx−2</span>.</p>
+</li>
+<li>
+<div class="math-line" data-tex="mx-2=x^2-2x+7\quad\Rightarrow\quad x^2-(2+m)x+9=0" data-display="true">mx−2=x²−2x+7 ⇒ x²−(2+m)x+9=0</div>
+</li>
+<li>
+<div class="math-line" data-tex="(2+m)^2-36=0\quad\Rightarrow\quad(m+2)^2=36" data-display="true">(2+m)²−36=0 ⇒ (m+2)²=36</div>
+</li>
+<li>
+<div class="math-line" data-tex="m+2=\pm6\quad\Rightarrow\quad m=4\text{ or }m=-8" data-display="true">m+2=±6 ⇒ m=4 or m=−8</div>
+</li>
+<li>
+<p>For m=4, x=3 and y=4(3)−2=10.</p>
+</li>
+<li>
+<p>For m=−8, x=−3 and y=−8(−3)−2=22.</p>
+<div class="math-line final-answer" data-tex="m=4,\ (3,10)\qquad\text{or}\qquad m=-8,\ (-3,22)" data-display="true">m=4 at (3,10), or m=−8 at (−3,22)</div>
+</li>
+</ol>
+</div>
+</article>
+<article class="worked-example">
+<p class="example-label">Worked example</p>
+<h3>A rational curve</h3>
+<p>The positive constant k makes <span data-tex="y=kx-k">y=kx−k</span> tangent to <span data-tex="y=-\frac1{2x}">y=−1/(2x)</span>. Find k and the contact point.</p>
+<div class="solution-body">
+<p class="solution-label">Solution</p>
+<ol class="steps">
+<li>
+<p>The curve requires <span data-tex="x\ne0">x≠0</span>.</p>
+</li>
+<li>
+<div class="math-line" data-tex="kx-k=-\frac1{2x}\quad\Rightarrow\quad2kx^2-2kx+1=0" data-display="true">kx−k=−1/(2x) ⇒ 2kx²−2kx+1=0</div>
+</li>
+<li>
+<div class="math-line" data-tex="\Delta=(-2k)^2-4(2k)(1)=4k(k-2)=0" data-display="true">Δ=(−2k)²−4(2k)(1)=4k(k−2)=0</div>
+</li>
+<li>
+<p>k=0 would remove the x² term and gives the line y=0, which never touches this curve. Also k is positive. Keep k=2.</p>
+</li>
+<li>
+<div class="math-line" data-tex="4x^2-4x+1=(2x-1)^2=0\quad\Rightarrow\quad x=\frac12" data-display="true">4x²−4x+1=(2x−1)²=0 ⇒ x=1/2</div>
+</li>
+<li>
+<div class="math-line final-answer" data-tex="k=2,\quad y=2\left(\frac12\right)-2=-1,\quad\left(\frac12,-1\right)" data-display="true">k=2, contact (1/2,−1)</div>
+</li>
+</ol>
+</div>
+</article>
+</section>
+
+<section data-source-pages="6,7">
+<h2>Find a range for a miss or two cuts</h2>
+<ul class="explanation-points">
+<li>“Find the set of values” usually asks for a range, so the discriminant condition becomes an inequality.</li>
+<li>For no intersection use <span data-tex="\Delta<0">Δ&lt;0</span>.</li>
+<li>For two distinct intersections use <span data-tex="\Delta>0">Δ&gt;0</span>.</li>
+<li>For an upward-opening quadratic expression, its values are negative between its roots and positive outside them.</li>
+</ul>
+<table class="case-table">
+<tbody>
+<tr>
+<td>
+<span data-tex="k^2-144<0">k²−144&lt;0</span>
+</td>
+<td>
+<span data-tex="-12<k<12">−12&lt;k&lt;12</span>
+</td>
+</tr>
+<tr>
+<td>
+<span data-tex="k^2-144>0">k²−144&gt;0</span>
+</td>
+<td>
+<span data-tex="k<-12\text{ or }k>12">k&lt;−12 or k&gt;12</span>
+</td>
+</tr>
+<tr>
+<td>
+<span data-tex="(k-1)(k-9)<0">(k−1)(k−9)&lt;0</span>
+</td>
+<td>
+<span data-tex="1<k<9">1&lt;k&lt;9</span>
+</td>
+</tr>
+<tr>
+<td>
+<span data-tex="(k+1)(k+9)>0">(k+1)(k+9)&gt;0</span>
+</td>
+<td>
+<span data-tex="k<-9\text{ or }k>-1">k&lt;−9 or k&gt;−1</span>
+</td>
+</tr>
+</tbody>
+</table>
+<article class="worked-example">
+<p class="example-label">Worked example</p>
+<h3>A line that misses a rational curve</h3>
+<p>The curve is <span data-tex="y=2x+\frac{12}{x}">y=2x+12/x</span> with x≠0. The line is <span data-tex="y+x=k">y+x=k</span>. Find k when they do not meet.</p>
+<div class="solution-body">
+<p class="solution-label">Solution</p>
+<ol class="steps">
+<li>
+<div class="math-line" data-tex="y=k-x" data-display="true">y=k−x</div>
+</li>
+<li>
+<div class="math-line" data-tex="k-x=2x+\frac{12}{x}\quad\Rightarrow\quad3x^2-kx+12=0" data-display="true">k−x=2x+12/x ⇒ 3x²−kx+12=0</div>
+</li>
+<li>
+<div class="math-line" data-tex="\Delta=k^2-144<0" data-display="true">Δ=k²−144&lt;0</div>
+</li>
+<li>
+<div class="math-line" data-tex="k^2<144\quad\Rightarrow\quad |k|<12" data-display="true">k²&lt;144 ⇒ |k|&lt;12</div>
+</li>
+<li>
+<div class="math-line final-answer" data-tex="-12<k<12" data-display="true">−12&lt;k&lt;12</div>
+</li>
+</ol>
+</div>
+</article>
+<article class="worked-example">
+<p class="example-label">Worked example</p>
+<h3>Two intersections with xy=16</h3>
+<p>The line is <span data-tex="y=-4x+c">y=−4x+c</span>. Find c so it meets <span data-tex="xy=16">xy=16</span> twice.</p>
+<div class="solution-body">
+<p class="solution-label">Solution</p>
+<ol class="steps">
+<li>
+<p>The curve requires x≠0.</p>
+</li>
+<li>
+<div class="math-line" data-tex="x(-4x+c)=16\quad\Rightarrow\quad4x^2-cx+16=0" data-display="true">x(−4x+c)=16 ⇒ 4x²−cx+16=0</div>
+</li>
+<li>
+<div class="math-line" data-tex="\Delta=c^2-256>0" data-display="true">Δ=c²−256&gt;0</div>
+</li>
+<li>
+<div class="math-line" data-tex="(c-16)(c+16)>0" data-display="true">(c−16)(c+16)&gt;0</div>
+</li>
+<li>
+<div class="math-line final-answer" data-tex="c<-16\quad\text{or}\quad c>16" data-display="true">c&lt;−16 or c&gt;16</div>
+</li>
+</ol>
+</div>
+</article>
+<aside class="quick-check" data-tone="violet">
+<p class="check-label">Check 2</p>
+<p class="check-question">A miss condition simplifies to (h−2)(h+6)&lt;0. Which range works?</p>
+<div class="check-options">
+<button type="button" aria-pressed="false" data-correct="true" data-feedback="Correct. The roots are −6 and 2. An upward-opening product is negative between them, so −6&lt;h&lt;2.">A · −6&lt;h&lt;2</button>
+<button type="button" aria-pressed="false" data-correct="false" data-feedback="No. Outside the roots the product is positive, which would describe two roots. A miss needs the negative interval between −6 and 2.">B · h&lt;−6 or h&gt;2</button>
+</div>
+<p class="check-feedback" aria-live="polite">
+</p>
+</aside>
+</section>
+
+<section data-source-pages="8">
+<h2>Find the actual intersection points</h2>
+<article class="worked-example">
+<p class="example-label">Worked example</p>
+<h3>Two points on a rational curve</h3>
+<p>
+<span data-tex="y=2x+\frac{12}{x}">y=2x+12/x</span> meets <span data-tex="y+x=15">y+x=15</span>. Find both points.</p>
+<div class="solution-body">
+<p class="solution-label">Solution</p>
+<ol class="steps">
+<li>
+<p>x≠0 and y=15−x.</p>
+</li>
+<li>
+<div class="math-line" data-tex="15-x=2x+\frac{12}{x}\quad\Rightarrow\quad3x^2-15x+12=0" data-display="true">15−x=2x+12/x ⇒ 3x²−15x+12=0</div>
+</li>
+<li>
+<div class="math-line" data-tex="x^2-5x+4=(x-1)(x-4)=0" data-display="true">x²−5x+4=(x−1)(x−4)=0</div>
+</li>
+<li>
+<p>x=1 gives y=14. x=4 gives y=11.</p>
+<div class="math-line final-answer" data-tex="(1,14)\quad\text{and}\quad(4,11)" data-display="true">(1,14) and (4,11)</div>
+</li>
+</ol>
+</div>
+</article>
+<article class="worked-example">
+<p class="example-label">Worked example</p>
+<h3>A hidden quadratic from a square root</h3>
+<p>
+<span data-tex="y=3-2x">y=3−2x</span> meets <span data-tex="y=4-3\sqrt{x}">y=4−3√x</span>. Find both x-coordinates.</p>
+<div class="solution-body">
+<p class="solution-label">Solution</p>
+<ol class="steps">
+<li>
+<p>The square root requires x≥0.</p>
+</li>
+<li>
+<div class="math-line" data-tex="4-3\sqrt{x}=3-2x\quad\Rightarrow\quad2x-3\sqrt{x}+1=0" data-display="true">4−3√x=3−2x ⇒ 2x−3√x+1=0</div>
+</li>
+<li>
+<p>Let <span data-tex="u=\sqrt{x}">u=√x</span>. Then u≥0 and x=u².</p>
+<div class="math-line" data-tex="2u^2-3u+1=(2u-1)(u-1)=0" data-display="true">2u²−3u+1=(2u−1)(u−1)=0</div>
+</li>
+<li>
+<p>u=1/2 or u=1; both meet u≥0.</p>
+</li>
+<li>
+<div class="math-line final-answer" data-tex="x=u^2=\frac14\quad\text{or}\quad x=1" data-display="true">x=1/4 or x=1</div>
+</li>
+</ol>
+</div>
+</article>
+</section>
+
+<section id="recap" data-source-pages="1,2,3,6">
+<h2>Key ideas</h2>
+<ul class="explanation-points recap-list">
+<li>Substitute the line into the curve to eliminate y.</li>
+<li>Real x-roots count valid intersection points.</li>
+<li>Use the discriminant only when the result is genuinely quadratic.</li>
+<li>Δ=0: tangent. Δ&lt;0: miss. Δ&gt;0: two cuts.</li>
+<li>Keep rational denominators non-zero.</li>
+<li>Keep square-root inputs non-negative.</li>
+<li>An equation gives isolated values; an inequality gives a range.</li>
+<li>For points, solve x and then substitute back for y.</li>
+</ul>
+<p>
+<a href="#examples">Continue to more worked examples</a>
+</p>
+</section>
+
+<section id="examples" class="optional-section" data-source-pages="9,10">
+<h2>More worked examples</h2>
+<article id="pdf-p9-your-turn-1" class="worked-example">
+<p class="example-label">Your turn</p>
+<h3>Check an impossible tangent claim</h3>
+<p>The line y=mx+5 is claimed to be tangent to y=x²+1. Find possible real m.</p>
+<div class="solution-body">
+<p class="solution-label">Solution</p>
+<ol class="steps">
+<li>
+<div class="math-line" data-tex="mx+5=x^2+1\quad\Rightarrow\quad x^2-mx-4=0" data-display="true">mx+5=x²+1 ⇒ x²−mx−4=0</div>
+</li>
+<li>
+<div class="math-line" data-tex="\Delta=m^2+16" data-display="true">Δ=m²+16</div>
+</li>
+<li>
+<p>For every real m, m²≥0, so Δ≥16 and can never be zero.</p>
+<div class="math-line final-answer" data-tex="\text{No real value of }m" data-display="true">No real value of m</div>
+</li>
+</ol>
+</div>
+</article>
+<article id="pdf-p9-your-turn-2" class="worked-example">
+<p class="example-label">Your turn</p>
+<h3>Find a miss range</h3>
+<p>The line y=x+k does not meet y=x²+2x+4. Find k.</p>
+<div class="solution-body">
+<p class="solution-label">Solution</p>
+<ol class="steps">
+<li>
+<div class="math-line" data-tex="x+k=x^2+2x+4\quad\Rightarrow\quad x^2+x+(4-k)=0" data-display="true">x+k=x²+2x+4 ⇒ x²+x+(4−k)=0</div>
+</li>
+<li>
+<div class="math-line" data-tex="\Delta=1-4(4-k)=4k-15<0" data-display="true">Δ=1−4(4−k)=4k−15&lt;0</div>
+</li>
+<li>
+<div class="math-line" data-tex="4k<15" data-display="true">4k&lt;15</div>
+</li>
+<li>
+<div class="math-line final-answer" data-tex="k<\frac{15}{4}" data-display="true">k&lt;15/4</div>
+</li>
+</ol>
+</div>
+</article>
+<article id="pdf-p9-your-turn-3" class="worked-example">
+<p class="example-label">Your turn</p>
+<h3>Check a false two-intersection premise</h3>
+<p>The line y=2x−3 is claimed to cut y=x²−x+1 twice. Find the points if they exist.</p>
+<div class="solution-body">
+<p class="solution-label">Solution</p>
+<ol class="steps">
+<li>
+<div class="math-line" data-tex="2x-3=x^2-x+1\quad\Rightarrow\quad x^2-3x+4=0" data-display="true">2x−3=x²−x+1 ⇒ x²−3x+4=0</div>
+</li>
+<li>
+<div class="math-line" data-tex="\Delta=(-3)^2-4(1)(4)=9-16=-7<0" data-display="true">Δ=9−16=−7&lt;0</div>
+</li>
+<li>
+<p>The algebra contradicts the claim: there are no real intersections.</p>
+<div class="math-line final-answer" data-tex="\text{No real intersection points}" data-display="true">No real intersection points</div>
+</li>
+</ol>
+</div>
+</article>
+<article id="pdf-p9-your-turn-4" class="worked-example">
+<p class="example-label">Your turn</p>
+<h3>Tangent to xy=2</h3>
+<p>The line y=mx−2 is tangent to xy=2. Find m.</p>
+<div class="solution-body">
+<p class="solution-label">Solution</p>
+<ol class="steps">
+<li>
+<p>x≠0.</p>
+</li>
+<li>
+<div class="math-line" data-tex="x(mx-2)=2\quad\Rightarrow\quad mx^2-2x-2=0" data-display="true">x(mx−2)=2 ⇒ mx²−2x−2=0</div>
+</li>
+<li>
+<p>m=0 makes the equation linear and gives one crossing, not tangency. For a genuine quadratic:</p>
+<div class="math-line" data-tex="\Delta=4+8m=0" data-display="true">Δ=4+8m=0</div>
+</li>
+<li>
+<div class="math-line" data-tex="8m=-4" data-display="true">8m=−4</div>
+</li>
+<li>
+<div class="math-line final-answer" data-tex="m=-\frac12" data-display="true">m=−1/2</div>
+</li>
+</ol>
+</div>
+</article>
+<article id="pdf-p10-exam-1" class="worked-example">
+<p class="example-label">Exam-style practice</p>
+<h3>Parameter in both equations</h3>
+<p>The line is y=6x−c and the curve is y=cx²+2x−3. The line is tangent. Find c and the contact point P. [6]</p>
+<div class="solution-body">
+<p class="solution-label">Solution</p>
+<ol class="steps">
+<li>
+<p>Check c=0 separately: the “curve” becomes the line y=2x−3, which crosses y=6x at x=−3/4. It is not tangent.</p>
+</li>
+<li>
+<div class="math-line" data-tex="cx^2+2x-3=6x-c\quad\Rightarrow\quad cx^2-4x+(c-3)=0" data-display="true">cx²+2x−3=6x−c ⇒ cx²−4x+(c−3)=0</div>
+</li>
+<li>
+<div class="math-line" data-tex="\Delta=16-4c(c-3)=0" data-display="true">Δ=16−4c(c−3)=0</div>
+</li>
+<li>
+<div class="math-line" data-tex="16-4c^2+12c=0\quad\Rightarrow\quad c^2-3c-4=0" data-display="true">16−4c²+12c=0 ⇒ c²−3c−4=0</div>
+</li>
+<li>
+<div class="math-line" data-tex="c^2-3c-4=(c-4)(c+1)=0" data-display="true">c²−3c−4=(c−4)(c+1)=0</div>
+</li>
+<li>
+<p>For c=4, x=2/c=1/2 and y=6(1/2)−4=−1.</p>
+</li>
+<li>
+<p>For c=−1, x=2/c=−2 and y=6(−2)+1=−11.</p>
+<div class="math-line final-answer" data-tex="c=4,\ P\left(\frac12,-1\right)\quad\text{or}\quad c=-1,\ P(-2,-11)" data-display="true">c=4, P(1/2,−1), or c=−1, P(−2,−11)</div>
+</li>
+</ol>
+</div>
+</article>
+<article id="pdf-p10-exam-2" class="worked-example">
+<p class="example-label">Exam-style practice</p>
+<h3>A rational curve that the line misses</h3>
+<p>The curve is <span data-tex="y=\frac{3x+1}{x^2-x}">y=(3x+1)/(x²−x)</span>. The line y=c does not intersect it. Find c. [6]</p>
+<div class="solution-body">
+<p class="solution-label">Solution</p>
+<ol class="steps">
+<li>
+<p>The curve requires x≠0,1.</p>
+</li>
+<li>
+<div class="math-line" data-tex="c(x^2-x)=3x+1\quad\Rightarrow\quad cx^2-(c+3)x-1=0" data-display="true">c(x²−x)=3x+1 ⇒ cx²−(c+3)x−1=0</div>
+</li>
+<li>
+<p>c=0 gives the linear equation −3x−1=0, with x=−1/3, so the graphs cross. Exclude c=0 before using the discriminant.</p>
+</li>
+<li>
+<div class="math-line" data-tex="\Delta=(c+3)^2+4c=c^2+10c+9<0" data-display="true">Δ=(c+3)²+4c=c²+10c+9&lt;0</div>
+</li>
+<li>
+<div class="math-line" data-tex="(c+1)(c+9)<0" data-display="true">(c+1)(c+9)&lt;0</div>
+</li>
+<li>
+<div class="math-line final-answer" data-tex="-9<c<-1" data-display="true">−9&lt;c&lt;−1</div>
+</li>
+</ol>
+</div>
+</article>
+<p>
+<a href="#recap">Return to key ideas</a>
+</p>
+</section>
+<nav class="lesson-nav" aria-label="End of lesson">
+<a href="#core">Back to lesson start</a>
+<a href="#recap">Key ideas</a>
+</nav>
+<footer class="footer">Kognitiv · Mathematics 9709 · Coordinate Geometry</footer>
+</main>
+</body>
+</html>

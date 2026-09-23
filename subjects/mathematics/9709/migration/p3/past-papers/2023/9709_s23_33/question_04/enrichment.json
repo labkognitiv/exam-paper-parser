@@ -1,0 +1,67 @@
+{
+  "schema_version": "9709_math_enrichment_v3",
+  "paper_code": "9709_s23_33",
+  "question_id": "9709_s23_33_q4",
+  "question_num": 4,
+  "subject_code": "9709",
+  "component": "P3",
+  "year": 2023,
+  "session": "May/June",
+  "variant": "33",
+  "difficulty": 3,
+  "numerical_values_checked": false,
+  "parts": [
+    {
+      "part_id": "9709_s23_33_q4",
+      "difficulty": 3,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_p3_t_differential_equations",
+        "module_id": "9709_p3_t_differential_equations_m01",
+        "lesson_id": "9709_p3_t_differential_equations_m01_l01"
+      },
+      "skills": {
+        "primary_skill_id": "9709_p3_skill_differentiating_parametric_curves",
+        "skill_tags": [
+          "Differentiating Parametric Curves"
+        ]
+      },
+      "question_pattern_ids": [
+        "9709_p3_pattern_prove_or_show",
+        "9709_p3_pattern_calculus_process",
+        "9709_p3_pattern_trigonometric_reasoning"
+      ],
+      "knowledge_refs": {
+        "formula_ids": [],
+        "identity_ids": [
+          "9709_p3_identity_double_angle",
+          "9709_p3_identity_pythagorean"
+        ],
+        "method_ids": [
+          "9709_p3_method_differentiating_parametric_curves"
+        ],
+        "fact_ids": []
+      },
+      "hints": [
+        "For a parametric curve, use $\\dfrac{dy}{dx}=\\dfrac{dy/d\\theta}{dx/d\\theta}$.",
+        "Differentiate $y=\\theta+2\\cos\\theta$ to get $1-2\\sin\\theta$, and apply the quotient rule carefully to $x=\\dfrac{\\cos\\theta}{2-\\sin\\theta}$.",
+        "In the numerator of $dx/d\\theta$, use $\\sin^2\\theta+\\cos^2\\theta=1$ to expose a factor related to $1-2\\sin\\theta$.",
+        "Divide the two parameter derivatives and cancel the common factor to reach the required squared expression."
+      ],
+      "walkthrough": [
+        "Differentiate $y = \\theta + 2\\cos\\theta$ with respect to $\\theta$:\n$$\\dfrac{\\mathrm{d}y}{\\mathrm{d}\\theta} = 1 - 2\\sin\\theta$$",
+        "Differentiate $x = \\dfrac{\\cos\\theta}{2 - \\sin\\theta}$ with respect to $\\theta$ using the quotient rule $\\dfrac{\\mathrm{d}}{\\mathrm{d}\\theta}\\left(\\dfrac{u}{v}\\right) = \\dfrac{u'v - uv'}{v^2}$:\n$$u = \\cos\\theta \\implies u' = -\\sin\\theta$$\n$$v = 2 - \\sin\\theta \\implies v' = -\\cos\\theta$$\n$$\\dfrac{\\mathrm{d}x}{\\mathrm{d}\\theta} = \\dfrac{(-\\sin\\theta)(2 - \\sin\\theta) - (\\cos\\theta)(-\\cos\\theta)}{(2 - \\sin\\theta)^2}$$",
+        "Simplify the numerator of $\\dfrac{\\mathrm{d}x}{\\mathrm{d}\\theta}$ using the Pythagorean identity $\\sin^2\\theta + \\cos^2\\theta = 1$:\n$$\\text{Numerator} = -2\\sin\\theta + \\sin^2\\theta + \\cos^2\\theta = 1 - 2\\sin\\theta$$\n$$\\dfrac{\\mathrm{d}x}{\\mathrm{d}\\theta} = \\dfrac{1 - 2\\sin\\theta}{(2 - \\sin\\theta)^2}$$",
+        "Apply the parametric differentiation rule $\\dfrac{\\mathrm{d}y}{\\mathrm{d}x} = \\dfrac{\\mathrm{d}y/\\mathrm{d}\\theta}{\\mathrm{d}x/\\mathrm{d}\\theta}$:\n$$\\dfrac{\\mathrm{d}y}{\\mathrm{d}x} = \\dfrac{1 - 2\\sin\\theta}{\\dfrac{1 - 2\\sin\\theta}{(2 - \\sin\\theta)^2}}$$",
+        "Cancel the non-zero common factor $(1 - 2\\sin\\theta)$:\n$$\\dfrac{\\mathrm{d}y}{\\mathrm{d}x} = (2 - \\sin\\theta)^2$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "ai_rubric": {
+          "Differentiating Parametric Curves": "Identifies $\\frac{dy}{d\\theta}=1-2\\sin\\theta$; Derives $\\frac{dx}{d\\theta}=\\frac{-2\\sin\\theta+\\sin^2\\theta-\\cos^2\\theta}{(2-\\sin\\theta)^2}$ or equivalent; Concludes with $\\dfrac{dy}{dx}=(2-\\sin\\theta)^2$."
+        },
+        "criteria_source": "mark_scheme_structured"
+      }
+    }
+  ]
+}

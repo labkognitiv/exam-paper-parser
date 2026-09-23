@@ -1,0 +1,126 @@
+{
+  "schema_version": "9709_math_enrichment_v3",
+  "paper_code": "9709_w25_52",
+  "question_id": "9709_w25_52_q3",
+  "question_num": 3,
+  "subject_code": "9709",
+  "component": "S1",
+  "year": 2025,
+  "session": "Oct/Nov",
+  "variant": "52",
+  "difficulty": 3,
+  "numerical_values_checked": false,
+  "parts": [
+    {
+      "part_id": "9709_w25_52_q3_a",
+      "difficulty": 2,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_s1_t_the_normal_distribution",
+        "module_id": "9709_s1_t_the_normal_distribution_m01",
+        "lesson_id": "9709_s1_t_the_normal_distribution_m01_l03"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_finding_expected_counts_from_a_normal_model",
+        "skill_tags": [
+          "Finding Expected Counts from a Normal Model",
+          "Calculating Normal Probabilities"
+        ]
+      },
+      "question_pattern_ids": [
+        "9709_s1_pattern_normal_symmetric_interval_around_mean"
+      ],
+      "knowledge_refs": {
+        "formula_ids": [
+          "9709_s1_formula_normal_standardisation"
+        ],
+        "identity_ids": [],
+        "method_ids": [
+          "9709_s1_method_finding_expected_counts_from_a_normal_model",
+          "9709_s1_method_calculating_normal_probabilities"
+        ],
+        "fact_ids": []
+      },
+      "hints": [
+        "Senior members: H ~ N(185.0, 7.8^2). N = 124.",
+        "Within 5 cm of the mean corresponds to heights between 180.0 cm and 190.0 cm.",
+        "Standardise: z = 5 / 7.8 = 0.641. The symmetric probability is 2*Phi(0.641) - 1 = 2(0.7392) - 1 = 0.4784.",
+        "Multiply by 124 members: 124 * 0.4784 = 59.32, which gives 59 members."
+      ],
+      "walkthrough": [
+        "Identify the symmetric height interval around the mean $\\mu = 185.0$ with $\\sigma = 7.8$:\n$$180.0 < H < 190.0 \\implies z = \\pm \\frac{5}{7.8} \\approx \\pm 0.641$$",
+        "Compute the probability using standard normal tables:\n$$\\mathrm{P}(|Z| < 0.641) = 2\\Phi(0.641) - 1 = 2(0.7392) - 1 = 1.4784 - 1 = 0.4784$$",
+        "Multiply by the total number of Senior members $N = 124$:\n$$\\text{Expected count} = 124 \\times 0.4784 = 59.32 \\implies 59\\text{ members}$$"
+      ],
+      "teacher_walkthrough": [
+        "Step 1: Define model parameters and interval:\nSenior heights $H \\sim N(185.0, 7.8^2)$ with $\\mu = 185.0$ and $\\sigma = 7.8$.\nWithin 5 cm of the mean means:\n$$185.0 - 5 < H < 185.0 + 5 \\implies 180.0 < H < 190.0$$",
+        "Step 2: Standardise the boundary values:\n$$z = \\frac{190.0 - 185.0}{7.8} = \\frac{5}{7.8} \\approx 0.6410$$",
+        "Step 3: Calculate the probability using symmetry:\n$$\\mathrm{P}(-0.641 < Z < 0.641) = \\Phi(0.641) - \\Phi(-0.641) = 2\\Phi(0.641) - 1$$\nFrom normal tables: $\\Phi(0.641) = 0.7392$.\n$$2(0.7392) - 1 = 1.4784 - 1 = 0.4784$$",
+        "Step 4: Compute expected frequency:\n$$\\text{Expected members} = 124 \\times 0.4784 = 59.3216$$\nRounding gives $59$ members."
+      ],
+      "checking": {
+        "mode": "ai",
+        "ai_rubric": {
+          "Finding Expected Counts from a Normal Model": "Standardises to z = 0.641, finds probability 0.4784, and multiplies by 124 to get 59."
+        },
+        "criteria_source": "mark_scheme_structured"
+      }
+    },
+    {
+      "part_id": "9709_w25_52_q3_b",
+      "difficulty": 3,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_s1_t_the_normal_distribution",
+        "module_id": "9709_s1_t_the_normal_distribution_m02",
+        "lesson_id": "9709_s1_t_the_normal_distribution_m02_l01"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_finding_normal_distribution_parameters",
+        "skill_tags": [
+          "Finding Normal Distribution Parameters",
+          "Using Inverse Normal Values"
+        ]
+      },
+      "question_pattern_ids": [
+        "9709_s1_pattern_normal_inverse_find_standard_deviation"
+      ],
+      "knowledge_refs": {
+        "formula_ids": [
+          "9709_s1_formula_normal_standardisation"
+        ],
+        "identity_ids": [],
+        "method_ids": [
+          "9709_s1_method_finding_normal_distribution_parameters",
+          "9709_s1_method_using_inverse_normal_values"
+        ],
+        "fact_ids": [
+          "9709_s1_fact_normal_symmetry_lower_tail"
+        ]
+      },
+      "hints": [
+        "Junior heights: H ~ N(172.7, v^2). Condition: P(H < 170.3) = 0.23.",
+        "Because 0.23 < 0.5, the z-score is negative: look up 1 - 0.23 = 0.77, giving z = -0.739.",
+        "Set up the standardisation equation: (170.3 - 172.7) / v = -0.739.",
+        "Solve for v: -2.4 / v = -0.739, so v = 2.4 / 0.739 = 3.25 cm."
+      ],
+      "walkthrough": [
+        "Translate the percentile condition $P(H < 170.3) = 0.23$ into a standard normal z-score:\n$$\\mathrm{P}(Z < z) = 0.23 \\implies \\Phi(-z) = 0.77 \\implies z = -0.7388\\text{ (or }-0.739\\text{)}$$",
+        "Apply the standardisation equation with $\\mu = 172.7$ and unknown standard deviation $v$:\n$$\\frac{170.3 - 172.7}{v} = -0.7388 \\implies \\frac{-2.4}{v} = -0.7388$$",
+        "Solve for $v$:\n$$v = \\frac{2.4}{0.7388} \\approx 3.2485 \\approx 3.25\\text{ cm (3 s.f.)}$$"
+      ],
+      "teacher_walkthrough": [
+        "Step 1: Set up the distribution and given information:\nLet $H$ be the height of a Junior member in cm.\n$$H \\sim N(172.7, v^2)$$\nWe are given $\\mathrm{P}(H < 170.3) = 0.23$.",
+        "Step 2: Find the critical z-value:\nSince the lower-tail probability $0.23$ is less than $0.5$, the z-score must be negative.\n$$\\mathrm{P}(Z < z) = 0.23 \\iff \\Phi(-z) = 1 - 0.23 = 0.77$$\nFrom normal tables: $\\Phi(0.739) \\approx 0.7700 \\implies z = -0.739$ (or $-0.7388$).",
+        "Step 3: Standardise and solve for $v$:\n$$\\frac{170.3 - 172.7}{v} = -0.7388$$\n$$\\frac{-2.4}{v} = -0.7388$$\n$$v = \\frac{2.4}{0.7388} \\approx 3.2485\\text{ cm}$$\nRounding to 3 significant figures gives $v = 3.25$ cm."
+      ],
+      "checking": {
+        "mode": "ai",
+        "ai_rubric": {
+          "Finding Normal Distribution Parameters": "Uses z = -0.739 to solve (170.3 - 172.7)/v = -0.739, finding v = 3.25 cm."
+        },
+        "criteria_source": "mark_scheme_structured"
+      }
+    }
+  ]
+}

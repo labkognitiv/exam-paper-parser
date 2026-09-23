@@ -1,0 +1,117 @@
+{
+  "schema_version": "9709_math_enrichment_v3",
+  "paper_code": "9709_s19_33",
+  "question_id": "9709_s19_33_q4",
+  "question_num": 4,
+  "subject_code": "9709",
+  "component": "P3",
+  "year": 2019,
+  "session": "May/June",
+  "variant": "33",
+  "difficulty": 3,
+  "numerical_values_checked": false,
+  "parts": [
+    {
+      "part_id": "9709_s19_33_q4_i",
+      "difficulty": 1,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_p3_t_differential_equations",
+        "module_id": "9709_p3_t_differential_equations_m01",
+        "lesson_id": "9709_p3_t_differential_equations_m01_l01"
+      },
+      "skills": {
+        "primary_skill_id": "9709_p3_skill_determining_monotonicity",
+        "skill_tags": [
+          "Determining Monotonicity"
+        ]
+      },
+      "question_pattern_ids": [
+        "9709_p3_pattern_solve_inequality",
+        "9709_p3_pattern_prove_or_show"
+      ],
+      "knowledge_refs": {
+        "formula_ids": [],
+        "identity_ids": [],
+        "method_ids": [
+          "9709_p3_method_determining_monotonicity"
+        ],
+        "fact_ids": []
+      },
+      "hints": [
+        "Differentiate the quotient, noting that $d(e^{-x})/dx=-e^{-x}$.",
+        "Simplify the derivative to a single fraction with denominator $(1-e^{-x})^2$.",
+        "For $x>0$, $e^{-x}>0$ and the squared denominator is positive, so determine the sign from the numerator."
+      ],
+      "walkthrough": [
+        "Given $y = \\dfrac{1 + \\mathrm{e}^{-x}}{1 - \\mathrm{e}^{-x}}$, differentiate with respect to $x$ using the quotient rule $\\dfrac{\\mathrm{d}}{\\mathrm{d}x}\\left(\\dfrac{u}{v}\\right) = \\dfrac{u'v - uv'}{v^2}$ with $u = 1 + \\mathrm{e}^{-x}$ and $v = 1 - \\mathrm{e}^{-x}$:\n$$u' = -\\mathrm{e}^{-x}, \\quad v' = \\mathrm{e}^{-x}$$",
+        "Form the derivative expression:\n$$\\dfrac{\\mathrm{d}y}{\\mathrm{d}x} = \\dfrac{(-\\mathrm{e}^{-x})(1 - \\mathrm{e}^{-x}) - (1 + \\mathrm{e}^{-x})(\\mathrm{e}^{-x})}{(1 - \\mathrm{e}^{-x})^2}$$",
+        "Expand the numerator:\n$$(-\\mathrm{e}^{-x})(1 - \\mathrm{e}^{-x}) - (1 + \\mathrm{e}^{-x})(\\mathrm{e}^{-x}) = -\\mathrm{e}^{-x} + \\mathrm{e}^{-2x} - \\mathrm{e}^{-x} - \\mathrm{e}^{-2x} = -2\\mathrm{e}^{-x}$$",
+        "Simplify the derivative:\n$$\\dfrac{\\mathrm{d}y}{\\mathrm{d}x} = -\\dfrac{2\\mathrm{e}^{-x}}{(1 - \\mathrm{e}^{-x})^2}$$",
+        "Analyze the sign of the derivative for $x > 0$:\n- Since the exponential function is strictly positive, $\\mathrm{e}^{-x} > 0$ for all real $x$, which makes the numerator $-2\\mathrm{e}^{-x} < 0$ strictly negative.\n- For $x > 0$, $0 < \\mathrm{e}^{-x} < 1$, which ensures $1 - \\mathrm{e}^{-x} \\neq 0$, so the denominator $(1 - \\mathrm{e}^{-x})^2 > 0$ is strictly positive.\n- A negative numerator divided by a positive denominator is strictly negative:\n$$\\dfrac{\\mathrm{d}y}{\\mathrm{d}x} < 0 \\quad \\text{for all } x > 0$$\nTherefore, $\\dfrac{\\mathrm{d}y}{\\mathrm{d}x}$ is always negative."
+      ],
+      "checking": {
+        "mode": "ai",
+        "ai_rubric": {
+          "Determining Monotonicity": "Applies the quotient or product rule; Reduces to $-\\dfrac{2e^{-x}}{(1-e^{-x})^2}$, or equivalent, and explain why this is always negative; Concludes with $\\displaystyle \\frac{dy}{dx}=-\\frac{2e^{-x}}{(1-e^{-x})^2}<0$ for $x>0$."
+        },
+        "criteria_source": "mark_scheme_structured"
+      }
+    },
+    {
+      "part_id": "9709_s19_33_q4_ii",
+      "difficulty": 3,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_p3_t_logarithmic_and_exponential_functions",
+        "module_id": "9709_p3_t_logarithmic_and_exponential_functions_m03",
+        "lesson_id": "9709_p3_t_logarithmic_and_exponential_functions_m03_l01"
+      },
+      "skills": {
+        "primary_skill_id": "9709_p3_skill_solving_exponential_and_logarithmic_equations",
+        "skill_tags": [
+          "Solving Exponential and Logarithmic Equations"
+        ]
+      },
+      "question_pattern_ids": [
+        "9709_p3_pattern_solve_equation",
+        "9709_p3_pattern_prove_or_show",
+        "9709_p3_pattern_exact_value",
+        "9709_p3_pattern_multi_part_dependency"
+      ],
+      "knowledge_refs": {
+        "formula_ids": [],
+        "identity_ids": [],
+        "method_ids": [
+          "9709_p3_method_solving_exponential_and_logarithmic_equations"
+        ],
+        "fact_ids": [
+          "9709_p3_fact_log_domain"
+        ]
+      },
+      "hints": [
+        "Set the derivative from part (i) equal to $-1$ at $x=a$ and clear the squared denominator.",
+        "Multiply through by $e^{2a}$ to obtain the stated quadratic expression in $e^a$.",
+        "Let $u=e^a>0$, solve $u^2-4u+1=0$, and use $a>0$ to choose the admissible root.",
+        "Take the natural logarithm of that exact root to obtain $a$."
+      ],
+      "walkthrough": [
+        "Set the gradient $\\dfrac{\\mathrm{d}y}{\\mathrm{d}x} = -1$ at $x = a$:\n$$-\\dfrac{2\\mathrm{e}^{-a}}{(1 - \\mathrm{e}^{-a})^2} = -1$$",
+        "Multiply both sides by $-(1 - \\mathrm{e}^{-a})^2$:\n$$2\\mathrm{e}^{-a} = (1 - \\mathrm{e}^{-a})^2$$",
+        "Expand the right-hand side:\n$$2\\mathrm{e}^{-a} = 1 - 2\\mathrm{e}^{-a} + \\mathrm{e}^{-2a}$$",
+        "Collect all terms on one side:\n$$\\mathrm{e}^{-2a} - 4\\mathrm{e}^{-a} + 1 = 0$$",
+        "Multiply the entire equation by $\\mathrm{e}^{2a}$ (since $\\mathrm{e}^{2a} \\neq 0$):\n$$\\mathrm{e}^{2a}\\left(\\mathrm{e}^{-2a} - 4\\mathrm{e}^{-a} + 1\\right) = 0$$\n$$1 - 4\\mathrm{e}^a + \\mathrm{e}^{2a} = 0 \\implies \\mathrm{e}^{2a} - 4\\mathrm{e}^a + 1 = 0$$\nThis shows that $a$ satisfies the given equation.",
+        "Solve the quadratic equation in $\\mathrm{e}^a$ using the quadratic formula:\n$$\\mathrm{e}^a = \\dfrac{-(-4) \\pm \\sqrt{(-4)^2 - 4(1)(1)}}{2(1)} = \\dfrac{4 \\pm \\sqrt{16 - 4}}{2} = \\dfrac{4 \\pm \\sqrt{12}}{2} = \\dfrac{4 \\pm 2\\sqrt{3}}{2} = 2 \\pm \\sqrt{3}$$",
+        "Select the valid root based on the domain restriction $x > 0$:\nSince $a > 0$, we require $\\mathrm{e}^a > \\mathrm{e}^0 = 1$.\n- If $\\mathrm{e}^a = 2 - \\sqrt{3} \\approx 2 - 1.732 = 0.268 < 1$, this gives $a < 0$, which is outside the domain and must be rejected.\n- If $\\mathrm{e}^a = 2 + \\sqrt{3} \\approx 2 + 1.732 = 3.732 > 1$, this gives $a > 0$, which is the unique valid root.",
+        "Take the natural logarithm to find the exact value of $a$:\n$$a = \\ln(2 + \\sqrt{3})$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "ai_rubric": {
+          "Solving Exponential and Logarithmic Equations": "Equates the derivative to $-1$ and derives the given equation; Identifies $u^2-4u+1=0$, or equivalent in $e^a$; Concludes with $a=\\ln(2+\\sqrt3)$."
+        },
+        "criteria_source": "mark_scheme_structured"
+      }
+    }
+  ]
+}

@@ -1,0 +1,130 @@
+{
+  "schema_version": "9709_math_enrichment_v3",
+  "paper_code": "9709_s23_51",
+  "question_id": "9709_s23_51_q4",
+  "question_num": 4,
+  "subject_code": "9709",
+  "component": "S1",
+  "year": 2023,
+  "session": "May/June",
+  "variant": "51",
+  "difficulty": 4,
+  "numerical_values_checked": false,
+  "parts": [
+    {
+      "part_id": "9709_s23_51_q4_a",
+      "difficulty": 2,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_s1_t_the_normal_distribution",
+        "module_id": "9709_s1_t_the_normal_distribution_m01",
+        "lesson_id": "9709_s1_t_the_normal_distribution_m01_l03"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_finding_expected_counts_from_a_normal_model",
+        "skill_tags": [
+          "Finding Expected Counts from a Normal Model"
+        ]
+      },
+      "question_pattern_ids": [
+        "9709_s1_pattern_expected_frequency_from_mean",
+        "9709_s1_pattern_normal_upper_tail_probability"
+      ],
+      "knowledge_refs": {
+        "formula_ids": [
+          "9709_s1_formula_normal_standardisation"
+        ],
+        "identity_ids": [],
+        "method_ids": [
+          "9709_s1_method_finding_expected_counts_from_a_normal_model",
+          "9709_s1_method_calculating_normal_probabilities"
+        ],
+        "fact_ids": [
+          "9709_s1_fact_normal_upper_tail"
+        ]
+      },
+      "hints": [
+        "Standardise 20 using Z = (X - mu) / sigma = (20 - 14.6) / 5.2.",
+        "Find Z = 1.038, then calculate the upper tail probability: P(X > 20) = 1 - Phi(1.038).",
+        "Look up Phi(1.038) = 0.8504, giving probability 0.1496, then multiply by 250 to find the expected count."
+      ],
+      "walkthrough": [
+        "Standardise the threshold value $X = 20$ using $\\mu = 14.6$ and $\\sigma = 5.2$:\n$$Z = \\frac{20 - 14.6}{5.2} = \\frac{5.4}{5.2} \\approx 1.03846 \\approx 1.038$$",
+        "Compute the upper-tail probability:\n$$\\mathrm{P}(X > 20) = \\mathrm{P}(Z > 1.038) = 1 - \\Phi(1.038)$$\n$$\\Phi(1.038) = 0.8485 + 0.0019 = 0.8504$$\n$$\\mathrm{P}(X > 20) = 1 - 0.8504 = 0.1496$$",
+        "Multiply by the sample size $n = 250$ to find the expected count:\n$$\\text{Expected count} = 250 \\times 0.1496 = 37.4$$\n$$\\text{Expected number of students} = 37 \\text{ or } 38$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "ai_rubric": {
+          "Finding Expected Counts from a Normal Model": "Standardises 20 to z = 1.038, evaluates 1 - Phi(1.038) = 0.1496, and multiplies by 250 to obtain 37 or 38 students."
+        },
+        "criteria_source": "mark_scheme_structured"
+      },
+      "teacher_walkthrough": [
+        "Step 1: Identify the normal distribution parameters:\n- Variable $X$: time taken to complete the puzzle (in minutes)\n- Mean $\\mu = 14.6$\n- Standard deviation $\\sigma = 5.2$\n- Model: $X \\sim \\mathrm{N}(14.6, 5.2^2)$.",
+        "Step 2: Standardise $X = 20$:\n$$Z = \\frac{X - \\mu}{\\sigma} = \\frac{20 - 14.6}{5.2} = \\frac{5.4}{5.2} \\approx 1.03846$$\nRounding to 3 decimal places gives $z = 1.038$.",
+        "Step 3: Calculate the upper-tail probability $\\mathrm{P}(X > 20)$:\n$$\\mathrm{P}(X > 20) = 1 - \\Phi(1.038)$$",
+        "Step 4: Look up $\\Phi(1.038)$ in the MF19 normal distribution table:\n- Base value for $1.03$: $\\Phi(1.03) = 0.8485$\n- Add the difference for $8$: $+19$ (which represents $0.0019$)\n$$\\Phi(1.038) = 0.8485 + 0.0019 = 0.8504$$\n$$\\mathrm{P}(X > 20) = 1 - 0.8504 = 0.1496$$",
+        "Step 5: Multiply by the sample size $n = 250$ to find the expected frequency:\n$$\\mathrm{E}(\\text{Count}) = 250 \\times 0.1496 = 37.4$$\nSince student counts must be whole integers, accept $37$ or $38$ students."
+      ]
+    },
+    {
+      "part_id": "9709_s23_51_q4_b",
+      "difficulty": 4,
+      "practice_tier": "revision",
+      "mapping": {
+        "topic_id": "9709_s1_t_the_normal_distribution",
+        "module_id": "9709_s1_t_the_normal_distribution_m02",
+        "lesson_id": "9709_s1_t_the_normal_distribution_m02_l03"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_finding_normal_distribution_parameters",
+        "skill_tags": [
+          "Finding Normal Distribution Parameters"
+        ]
+      },
+      "question_pattern_ids": [
+        "9709_s1_pattern_finding_normal_parameters_two_percentiles"
+      ],
+      "knowledge_refs": {
+        "formula_ids": [
+          "9709_s1_formula_normal_standardisation"
+        ],
+        "identity_ids": [],
+        "method_ids": [
+          "9709_s1_method_finding_normal_distribution_parameters"
+        ],
+        "fact_ids": [
+          "9709_s1_fact_normal_symmetry_lower_tail",
+          "9709_s1_fact_normal_upper_tail"
+        ]
+      },
+      "hints": [
+        "Express the two conditions in terms of cumulative normal probabilities: P(Y < 14.5) = 0.20 and P(Y < 18.5) = 1 - 0.67 = 0.33.",
+        "Both probabilities are below 0.5, so both z-values are negative. Use Phi(-z) = 1 - p: Phi(-z1) = 0.80 gives z1 = -0.842, and Phi(-z2) = 0.67 gives z2 = -0.440.",
+        "Set up two equations: (14.5 - mu) / sigma = -0.842 and (18.5 - mu) / sigma = -0.440, and solve simultaneously."
+      ],
+      "walkthrough": [
+        "Formulate the probability equations for the normal model $Y \\sim \\mathrm{N}(\\mu, \\sigma^2)$:\n$$\\mathrm{P}(Y < 14.5) = 0.20$$\n$$\\mathrm{P}(Y > 18.5) = 0.67 \\implies \\mathrm{P}(Y < 18.5) = 1 - 0.67 = 0.33$$",
+        "Find the corresponding $z$-values from normal distribution tables:\n$$\\Phi(-z_1) = 1 - 0.20 = 0.8000 \\implies z_1 = -0.842$$\n$$\\Phi(-z_2) = 1 - 0.33 = 0.6700 \\implies z_2 = -0.440$$",
+        "Form the simultaneous standardisation equations:\n$$\\frac{14.5 - \\mu}{\\sigma} = -0.842 \\implies 14.5 - \\mu = -0.842\\sigma$$\n$$\\frac{18.5 - \\mu}{\\sigma} = -0.440 \\implies 18.5 - \\mu = -0.440\\sigma$$",
+        "Subtract the first equation from the second to eliminate $\\mu$:\n$$(18.5 - \\mu) - (14.5 - \\mu) = -0.440\\sigma - (-0.842\\sigma)$$\n$$4.0 = 0.402\\sigma$$\n$$\\sigma = \\frac{4.0}{0.402} \\approx 9.9502 \\approx 9.95\\text{ minutes}$$",
+        "Substitute $\\sigma$ back to find $\\mu$:\n$$\\mu = 14.5 + 0.842(9.9502) = 14.5 + 8.3781 \\approx 22.878 \\approx 22.9\\text{ minutes}$$\n$$\\mu \\approx 22.9\\text{ minutes}, \\quad \\sigma \\approx 9.95\\text{ minutes}$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "ai_rubric": {
+          "Finding Normal Distribution Parameters": "Identifies z1 = -0.842 and z2 = -0.440, sets up simultaneous equations, and solves for mu = 22.9 and sigma = 9.95."
+        },
+        "criteria_source": "mark_scheme_structured"
+      },
+      "teacher_walkthrough": [
+        "Step 1: Convert the percentage conditions into cumulative normal probabilities:\n- 20% take less than 14.5 minutes:\n$$\\mathrm{P}(Y < 14.5) = 0.20$$\n- 67% take greater than 18.5 minutes:\n$$\\mathrm{P}(Y > 18.5) = 0.67 \\implies \\mathrm{P}(Y < 18.5) = 1 - 0.67 = 0.33$$",
+        "Step 2: Determine the $z$-values:\n- For $Y = 14.5$: since $0.20 < 0.5$, $z_1$ is negative:\n$$\\Phi(-z_1) = 1 - 0.20 = 0.8000$$\nFrom MF19 tables, $\\Phi(0.84) = 0.7995$; difference $+6$ gives the last digit $2$.\nThus, $-z_1 = 0.842 \\implies z_1 = -0.842$.\n- For $Y = 18.5$: since $0.33 < 0.5$, $z_2$ is negative:\n$$\\Phi(-z_2) = 1 - 0.33 = 0.6700$$\nFrom MF19 tables, $\\Phi(0.44) = 0.6700$.\nThus, $-z_2 = 0.440 \\implies z_2 = -0.440$.",
+        "Step 3: Set up the standardisation equations:\n$$\\frac{14.5 - \\mu}{\\sigma} = -0.842 \\implies 14.5 - \\mu = -0.842\\sigma \\quad \\text{(Equation 1)}$$\n$$\\frac{18.5 - \\mu}{\\sigma} = -0.440 \\implies 18.5 - \\mu = -0.440\\sigma \\quad \\text{(Equation 2)}$$",
+        "Step 4: Subtract Equation 1 from Equation 2:\n$$(18.5 - \\mu) - (14.5 - \\mu) = -0.440\\sigma - (-0.842\\sigma)$$\n$$4.0 = 0.402\\sigma$$\nDivide by $0.402$:\n$$\\sigma = \\frac{4.0}{0.402} \\approx 9.9502$$\nRounding to 3 significant figures gives $\\sigma = 9.95$ minutes.",
+        "Step 5: Substitute $\\sigma = 9.9502$ into Equation 1 to find $\\mu$:\n$$\\mu = 14.5 + 0.842(9.9502) = 14.5 + 8.3781 = 22.8781$$\nCheck with Equation 2:\n$$\\mu = 18.5 + 0.440(9.9502) = 18.5 + 4.3781 = 22.8781$$\nRounding to 3 significant figures gives $\\mu = 22.9$ minutes."
+      ]
+    }
+  ]
+}

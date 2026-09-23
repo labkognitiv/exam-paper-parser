@@ -1,0 +1,1253 @@
+{
+  "lesson_id": "9709_s1_t_probability_m02_l01",
+  "questions": [
+    {
+      "question_id": "9709_s1_t_probability_m02_l01_drq01",
+      "parts": [
+        {
+          "part_id": "9709_s1_t_probability_m02_l01_drq01_p01",
+          "label": "a",
+          "difficulty": "easy",
+          "pattern_ids": [
+            "9709_s1_pattern_tree_diagram_construction",
+            "9709_s1_pattern_independent_trials_product"
+          ],
+          "hints": [
+            "At any branch split, the probabilities leaving the node must sum to 1: $P(E) + P(E') = 1$.",
+            "For independent events along a path, multiply the branch probabilities: $P(E \\cap E) = P(E) \\times P(E)$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Find the complement probability at the first node:\n$$P(E') = 1 - P(E) = 1 - 0.68 = 0.32$$"
+            },
+            {
+              "step": 2,
+              "text": "Multiply along the path $(E, E)$:\n$$P(E \\cap E) = 0.68 \\times 0.68 = 0.4624$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "Apply the node sum rule where outgoing probabilities must total 1:\n$$P(E') = 1 - 0.68 = 0.32$$"
+            },
+            {
+              "step": 2,
+              "text": "Multiply along the desired path for independent trials:\n$$P(E \\cap E) = 0.68 \\times 0.68 = 0.4624 = \\frac{289}{625}$$"
+            }
+          ],
+          "checking": {
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_s1_t_probability_m02_l01_drq01_p01_c01",
+                "mark": "M1",
+                "observable": "State or calculate P(E') = 1 - 0.68 = 0.32."
+              },
+              {
+                "criterion_id": "9709_s1_t_probability_m02_l01_drq01_p01_c02",
+                "mark": "A1",
+                "observable": "Calculate P(E and E) = 0.68 * 0.68 = 0.4624 (or 289/625)."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_s1_t_probability_m02_l01_drq02",
+      "parts": [
+        {
+          "part_id": "9709_s1_t_probability_m02_l01_drq02_p01",
+          "label": "a",
+          "difficulty": "easy",
+          "pattern_ids": [
+            "9709_s1_pattern_tree_diagram_construction",
+            "9709_s1_pattern_independent_trials_product"
+          ],
+          "hints": [
+            "The three outgoing branches from the node must add up to 1: $P(L) + P(S) + P(R) = 1$.",
+            "Since Straight and Right are equally likely, divide the remaining probability $1 - 0.40 = 0.60$ by 2."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Compute the probability for the Straight branch:\n$$P(S) = \\frac{1 - 0.40}{2} = \\frac{0.60}{2} = 0.30$$"
+            },
+            {
+              "step": 2,
+              "text": "Multiply along the path $(L, R)$:\n$$P(L \\cap R) = 0.40 \\times 0.30 = 0.12$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "Partition the remaining probability equally between the two symmetric branches:\n$$P(S) = P(R) = \\frac{1 - 0.40}{2} = 0.30$$"
+            },
+            {
+              "step": 2,
+              "text": "Traverse the sequence of two independent decisions by multiplying branch values:\n$$P(L \\text{ then } R) = 0.40 \\times 0.30 = 0.12 = \\frac{3}{25}$$"
+            }
+          ],
+          "checking": {
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_s1_t_probability_m02_l01_drq02_p01_c01",
+                "mark": "M1",
+                "observable": "Calculate P(Straight) = (1 - 0.40) / 2 = 0.30."
+              },
+              {
+                "criterion_id": "9709_s1_t_probability_m02_l01_drq02_p01_c02",
+                "mark": "A1",
+                "observable": "Calculate P(Left then Right) = 0.40 * 0.30 = 0.12 (or 3/25)."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_s1_t_probability_m02_l01_drq03",
+      "parts": [
+        {
+          "part_id": "9709_s1_t_probability_m02_l01_drq03_p01",
+          "label": "a",
+          "difficulty": "easy",
+          "pattern_ids": [
+            "9709_s1_pattern_conditional_probability_tree",
+            "9709_s1_pattern_tree_diagram_construction"
+          ],
+          "hints": [
+            "Without replacement, the total number of markers drops from 8 to 7 on the second draw.",
+            "If a red marker was removed, the number of red markers decreases to 4 while blue markers remain 3."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Update the contents after removing one red marker:\n$$P(\\text{Blue}_2 \\mid \\text{Red}_1) = \\frac{3}{7}$$"
+            },
+            {
+              "step": 2,
+              "text": "Multiply branch probabilities along the path $(\\text{Red}, \\text{Red})$:\n$$P(\\text{Red}_1 \\cap \\text{Red}_2) = \\frac{5}{8} \\times \\frac{4}{7} = \\frac{20}{56} = \\frac{5}{14}$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "Adjust the sample space composition after the first red draw:\n$$\\text{Remaining: 4 Red, 3 Blue (Total 7)} \\implies P(B_2 \\mid R_1) = \\frac{3}{7}$$"
+            },
+            {
+              "step": 2,
+              "text": "Compute the joint path probability using the multiplication rule:\n$$P(R_1 \\cap R_2) = \\frac{5}{8} \\times \\frac{4}{7} = \\frac{5}{14} \\approx 0.357$$"
+            }
+          ],
+          "checking": {
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_s1_t_probability_m02_l01_drq03_p01_c01",
+                "mark": "M1",
+                "observable": "State P(Blue on 2nd | Red on 1st) = 3/7 and formulate P(Red, Red) = (5/8) * (4/7)."
+              },
+              {
+                "criterion_id": "9709_s1_t_probability_m02_l01_drq03_p01_c02",
+                "mark": "A1",
+                "observable": "Obtain P(Red, Red) = 20/56 = 5/14 (or 0.357)."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_s1_t_probability_m02_l01_drq04",
+      "parts": [
+        {
+          "part_id": "9709_s1_t_probability_m02_l01_drq04_p01",
+          "label": "a",
+          "difficulty": "easy",
+          "pattern_ids": [
+            "9709_s1_pattern_conditional_probability_tree",
+            "9709_s1_pattern_tree_diagram_construction"
+          ],
+          "hints": [
+            "Find the probability of Wednesday being Wet from the Dry Tuesday condition: $P(W \\mid D) = 0.25$.",
+            "Find the complement probability for Thursday being Dry given Wednesday is Wet: $1 - 0.60 = 0.40$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Identify the conditional branch probabilities:\n$$P(W_{\\text{Wed}} \\mid D_{\\text{Tue}}) = 0.25, \\quad P(D_{\\text{Thu}} \\mid W_{\\text{Wed}}) = 1 - 0.60 = 0.40$$"
+            },
+            {
+              "step": 2,
+              "text": "Multiply along the path $(W_{\\text{Wed}}, D_{\\text{Thu}})$:\n$$P(W_{\\text{Wed}} \\cap D_{\\text{Thu}}) = 0.25 \\times 0.40 = 0.10$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "Determine the state transition values for both successive days:\n$$P(\\text{Wed Wet}) = 0.25, \\quad P(\\text{Thu Dry} \\mid \\text{Wed Wet}) = 1 - 0.60 = 0.40$$"
+            },
+            {
+              "step": 2,
+              "text": "Evaluate the path probability by multiplying sequential branches:\n$$P(\\text{Wet then Dry}) = 0.25 \\times 0.40 = 0.10 = \\frac{1}{10}$$"
+            }
+          ],
+          "checking": {
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_s1_t_probability_m02_l01_drq04_p01_c01",
+                "mark": "M1",
+                "observable": "Identify transition probabilities P(Wed Wet | Tue Dry) = 0.25 and P(Thu Dry | Wed Wet) = 1 - 0.60 = 0.40."
+              },
+              {
+                "criterion_id": "9709_s1_t_probability_m02_l01_drq04_p01_c02",
+                "mark": "A1",
+                "observable": "Multiply path probabilities to obtain 0.25 * 0.40 = 0.10 (or 1/10)."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_s1_t_probability_m02_l01_drq05",
+      "parts": [
+        {
+          "part_id": "9709_s1_t_probability_m02_l01_drq05_p01",
+          "label": "a",
+          "difficulty": "easy",
+          "pattern_ids": [
+            "9709_s1_pattern_tree_diagram_total_probability",
+            "9709_s1_pattern_independent_trials_product"
+          ],
+          "hints": [
+            "Exactly one Head corresponds to two distinct paths: $(H, T)$ and $(T, H)$.",
+            "Multiply branch probabilities along each path and add the results."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Calculate the probabilities of the two valid paths:\n$$P(H, T) = 0.7 \\times 0.3 = 0.21, \\quad P(T, H) = 0.3 \\times 0.7 = 0.21$$"
+            },
+            {
+              "step": 2,
+              "text": "Sum the probabilities of the mutually exclusive paths:\n$$P(\\text{exactly one Head}) = 0.21 + 0.21 = 0.42$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "Identify the two separate paths meeting the condition of exactly one Head:\n$$\\text{Paths: } (H, T) \\text{ and } (T, H)$$"
+            },
+            {
+              "step": 2,
+              "text": "Sum the independent path multiplications:\n$$P = (0.7 \\times 0.3) + (0.3 \\times 0.7) = 0.21 + 0.21 = 0.42$$"
+            }
+          ],
+          "checking": {
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_s1_t_probability_m02_l01_drq05_p01_c01",
+                "mark": "M1",
+                "observable": "Identify the two mutually exclusive paths (H, T) and (T, H) and calculate (0.7 * 0.3) + (0.3 * 0.7)."
+              },
+              {
+                "criterion_id": "9709_s1_t_probability_m02_l01_drq05_p01_c02",
+                "mark": "A1",
+                "observable": "Obtain final probability = 0.21 + 0.21 = 0.42 (or 21/50)."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_s1_t_probability_m02_l01_drq06",
+      "parts": [
+        {
+          "part_id": "9709_s1_t_probability_m02_l01_drq06_p01",
+          "label": "a",
+          "difficulty": "easy",
+          "pattern_ids": [
+            "9709_s1_pattern_tree_diagram_construction",
+            "9709_s1_pattern_tree_diagram_total_probability"
+          ],
+          "hints": [
+            "An outcome that cannot happen is assigned a probability of 0 on a tree diagram branch.",
+            "The only path that can yield a bonus is $(\\text{Red}, \\text{Bonus})$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "State the probability for the impossible branch:\n$$P(\\text{Bonus} \\mid \\text{Blue}) = 0$$"
+            },
+            {
+              "step": 2,
+              "text": "Calculate the total probability along the only valid path:\n$$P(\\text{Bonus}) = P(\\text{Red}) \\times P(\\text{Bonus} \\mid \\text{Red}) = 0.6 \\times \\frac{1}{6} = 0.1$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "Recognize that impossible branches carry zero probability:\n$$P(\\text{Bonus} \\mid \\text{Blue}) = 0$$"
+            },
+            {
+              "step": 2,
+              "text": "Evaluate the single active branch path yielding the bonus:\n$$P(\\text{Bonus}) = 0.6 \\times \\frac{1}{6} = 0.1 = \\frac{1}{10}$$"
+            }
+          ],
+          "checking": {
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_s1_t_probability_m02_l01_drq06_p01_c01",
+                "mark": "B1",
+                "observable": "State that the probability of scoring a bonus after Blue is 0 (impossible branch)."
+              },
+              {
+                "criterion_id": "9709_s1_t_probability_m02_l01_drq06_p01_c02",
+                "mark": "B1",
+                "observable": "Calculate the overall probability of scoring a bonus as 0.6 * (1/6) = 0.1 (or 1/10)."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_s1_t_probability_m02_l01_cpq01",
+      "parts": [
+        {
+          "part_id": "9709_s1_t_probability_m02_l01_cpq01_p01",
+          "label": "a",
+          "difficulty": "easy",
+          "pattern_ids": [
+            "9709_s1_pattern_conditional_probability_tree",
+            "9709_s1_pattern_tree_diagram_construction"
+          ],
+          "hints": [
+            "On the first draw, the probability of selecting silver is $4/6$.",
+            "After taking one silver coin, 3 silver coins remain out of 5 total coins."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Set up the conditional product along the silver-silver branch:\n$$P(S_1 \\cap S_2) = P(S_1) \\times P(S_2 \\mid S_1) = \\frac{4}{6} \\times \\frac{3}{5}$$"
+            },
+            {
+              "step": 2,
+              "text": "Simplify the resulting fraction:\n$$P(S_1 \\cap S_2) = \\frac{12}{30} = \\frac{2}{5} = 0.4$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "Formulate the branch probabilities for two sequential draws without replacement:\n$$P(S_1) = \\frac{4}{6}, \\quad P(S_2 \\mid S_1) = \\frac{3}{5}$$"
+            },
+            {
+              "step": 2,
+              "text": "Multiply along the path to evaluate the joint probability:\n$$P(S_1 \\cap S_2) = \\frac{4}{6} \\times \\frac{3}{5} = \\frac{2}{5}$$"
+            }
+          ],
+          "checking": {
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_s1_t_probability_m02_l01_cpq01_p01_c01",
+                "mark": "M1",
+                "observable": "Write product of branch probabilities (4/6) * (3/5)."
+              },
+              {
+                "criterion_id": "9709_s1_t_probability_m02_l01_cpq01_p01_c02",
+                "mark": "A1",
+                "observable": "Obtain probability = 12/30 = 2/5 (or 0.4)."
+              }
+            ]
+          }
+        },
+        {
+          "part_id": "9709_s1_t_probability_m02_l01_cpq01_p02",
+          "label": "b",
+          "difficulty": "easy",
+          "pattern_ids": [
+            "9709_s1_pattern_tree_diagram_total_probability"
+          ],
+          "hints": [
+            "Different metals means either (Silver then Gold) or (Gold then Silver).",
+            "Calculate the probability of each path and sum them."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Calculate the probability for each path of different metals:\n$$P(S, G) = \\frac{4}{6} \\times \\frac{2}{5} = \\frac{8}{30}, \\quad P(G, S) = \\frac{2}{6} \\times \\frac{4}{5} = \\frac{8}{30}$$"
+            },
+            {
+              "step": 2,
+              "text": "Add the mutually exclusive path probabilities:\n$$P(\\text{different}) = \\frac{8}{30} + \\frac{8}{30} = \\frac{16}{30} = \\frac{8}{15}$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "Identify the two mutually exclusive branch sequences yielding different metals:\n$$\\text{Paths: } (S_1, G_2) \\text{ and } (G_1, S_2)$$"
+            },
+            {
+              "step": 2,
+              "text": "Add their path products:\n$$P = \\left(\\frac{4}{6} \\times \\frac{2}{5}\\right) + \\left(\\frac{2}{6} \\times \\frac{4}{5}\\right) = \\frac{8}{30} + \\frac{8}{30} = \\frac{16}{30} = \\frac{8}{15} \\approx 0.533$$"
+            }
+          ],
+          "checking": {
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_s1_t_probability_m02_l01_cpq01_p02_c01",
+                "mark": "M1",
+                "observable": "Identify and sum the probabilities of the two paths (S, G) and (G, S): (4/6 * 2/5) + (2/6 * 4/5)."
+              },
+              {
+                "criterion_id": "9709_s1_t_probability_m02_l01_cpq01_p02_c02",
+                "mark": "A1",
+                "observable": "Obtain probability = 8/30 + 8/30 = 16/30 = 8/15 (or 0.533)."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_s1_t_probability_m02_l01_cpq02",
+      "parts": [
+        {
+          "part_id": "9709_s1_t_probability_m02_l01_cpq02_p01",
+          "label": "a",
+          "difficulty": "easy",
+          "pattern_ids": [
+            "9709_s1_pattern_conditional_probability_tree",
+            "9709_s1_pattern_tree_diagram_construction"
+          ],
+          "hints": [
+            "Find the complement probability for no dessert following Pasta: $1 - 0.35 = 0.65$.",
+            "Multiply along the path: $P(P \\cap D') = P(P) \\times P(D' \\mid P)$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Find the conditional probability of not taking dessert after choosing pasta:\n$$P(D' \\mid P) = 1 - 0.35 = 0.65$$"
+            },
+            {
+              "step": 2,
+              "text": "Multiply along the branch path $(P, D')$:\n$$P(P \\cap D') = 0.60 \\times 0.65 = 0.39$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "Determine the branch value for the complement outcome following pasta:\n$$P(D' \\mid P) = 1 - P(D \\mid P) = 1 - 0.35 = 0.65$$"
+            },
+            {
+              "step": 2,
+              "text": "Traverse the path by taking the product of the branch probabilities:\n$$P(P \\cap D') = 0.60 \\times 0.65 = 0.39 = \\frac{39}{100}$$"
+            }
+          ],
+          "checking": {
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_s1_t_probability_m02_l01_cpq02_p01_c01",
+                "mark": "M1",
+                "observable": "Identify P(D' | P) = 1 - 0.35 = 0.65 and calculate 0.60 * 0.65."
+              },
+              {
+                "criterion_id": "9709_s1_t_probability_m02_l01_cpq02_p01_c02",
+                "mark": "A1",
+                "observable": "Obtain probability = 0.39 (or 39/100)."
+              }
+            ]
+          }
+        },
+        {
+          "part_id": "9709_s1_t_probability_m02_l01_cpq02_p02",
+          "label": "b",
+          "difficulty": "easy",
+          "pattern_ids": [
+            "9709_s1_pattern_tree_diagram_total_probability"
+          ],
+          "hints": [
+            "Students can take dessert through two routes: choosing Pasta then Dessert, or choosing Rice then Dessert.",
+            "The probability of choosing Rice is $1 - 0.60 = 0.40$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Determine the two routes leading to dessert:\n$$P(P \\cap D) = 0.60 \\times 0.35 = 0.21, \\quad P(R \\cap D) = (1 - 0.60) \\times 0.55 = 0.40 \\times 0.55 = 0.22$$"
+            },
+            {
+              "step": 2,
+              "text": "Sum both branch path probabilities:\n$$P(D) = 0.21 + 0.22 = 0.43$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "Identify the complementary main course probability:\n$$P(R) = 1 - 0.60 = 0.40$$"
+            },
+            {
+              "step": 2,
+              "text": "Formulate the total probability sum across both meal paths:\n$$P(D) = P(P)P(D \\mid P) + P(R)P(D \\mid R) = (0.60 \\times 0.35) + (0.40 \\times 0.55)$$"
+            },
+            {
+              "step": 3,
+              "text": "Sum the path values to find the total probability:\n$$P(D) = 0.21 + 0.22 = 0.43$$"
+            }
+          ],
+          "checking": {
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_s1_t_probability_m02_l01_cpq02_p02_c01",
+                "mark": "M1",
+                "observable": "Identify P(Rice) = 1 - 0.60 = 0.40 and the two paths leading to dessert: (Pasta, Dessert) and (Rice, Dessert)."
+              },
+              {
+                "criterion_id": "9709_s1_t_probability_m02_l01_cpq02_p02_c02",
+                "mark": "M1",
+                "observable": "Calculate the sum of path probabilities: (0.60 * 0.35) + (0.40 * 0.55)."
+              },
+              {
+                "criterion_id": "9709_s1_t_probability_m02_l01_cpq02_p02_c03",
+                "mark": "A1",
+                "observable": "Obtain probability = 0.21 + 0.22 = 0.43 (or 43/100)."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_s1_t_probability_m02_l01_cpq03",
+      "parts": [
+        {
+          "part_id": "9709_s1_t_probability_m02_l01_cpq03_p01",
+          "label": "a",
+          "difficulty": "medium",
+          "pattern_ids": [
+            "9709_s1_pattern_conditional_probability_tree",
+            "9709_s1_pattern_tree_diagram_construction"
+          ],
+          "hints": [
+            "First find the probability of losing match 1: $P(L_1) = 1 - 0.65 = 0.35$.",
+            "Next find the probability of losing match 2 given she lost match 1: $1 - 0.30 = 0.70$.",
+            "Multiply along the path: $P(L_1 \\cap L_2) = P(L_1) \\times P(L_2 \\mid L_1)$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Find the complement probabilities for each stage:\n$$P(L_1) = 1 - 0.65 = 0.35, \\quad P(L_2 \\mid L_1) = 1 - 0.30 = 0.70$$"
+            },
+            {
+              "step": 2,
+              "text": "Multiply along the loss-loss path:\n$$P(L_1 \\cap L_2) = 0.35 \\times 0.70 = 0.245$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "Evaluate the complement values for the first match and the subsequent conditioned match:\n$$P(L_1) = 1 - 0.65 = 0.35, \\quad P(L_2 \\mid L_1) = 1 - 0.30 = 0.70$$"
+            },
+            {
+              "step": 2,
+              "text": "Traverse the lower branch path by computing the product:\n$$P(L_1 \\cap L_2) = 0.35 \\times 0.70 = 0.245 = \\frac{49}{200}$$"
+            }
+          ],
+          "checking": {
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_s1_t_probability_m02_l01_cpq03_p01_c01",
+                "mark": "M1",
+                "observable": "Identify P(Loss 1) = 1 - 0.65 = 0.35 and P(Loss 2 | Loss 1) = 1 - 0.30 = 0.70, and calculate 0.35 * 0.70."
+              },
+              {
+                "criterion_id": "9709_s1_t_probability_m02_l01_cpq03_p01_c02",
+                "mark": "A1",
+                "observable": "Obtain probability = 0.245 (or 49/200)."
+              }
+            ]
+          }
+        },
+        {
+          "part_id": "9709_s1_t_probability_m02_l01_cpq03_p02",
+          "label": "b",
+          "difficulty": "medium",
+          "pattern_ids": [
+            "9709_s1_pattern_tree_diagram_total_probability"
+          ],
+          "hints": [
+            "Winning exactly one match corresponds to the paths $(W_1, L_2)$ and $(L_1, W_2)$.",
+            "For $(W_1, L_2)$, the second branch probability is $1 - 0.80 = 0.20$.",
+            "Add the probabilities of both paths: $P(W_1, L_2) + P(L_1, W_2)$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Compute the probability of winning the first match and losing the second:\n$$P(W_1 \\cap L_2) = 0.65 \\times (1 - 0.80) = 0.65 \\times 0.20 = 0.13$$"
+            },
+            {
+              "step": 2,
+              "text": "Compute the probability of losing the first match and winning the second:\n$$P(L_1 \\cap W_2) = (1 - 0.65) \\times 0.30 = 0.35 \\times 0.30 = 0.105$$"
+            },
+            {
+              "step": 3,
+              "text": "Sum the mutually exclusive path values:\n$$P(\\text{exactly one win}) = 0.13 + 0.105 = 0.235$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "Calculate the path probability for a win followed by a loss:\n$$P(W_1 \\cap L_2) = 0.65 \\times 0.20 = 0.13$$"
+            },
+            {
+              "step": 2,
+              "text": "Calculate the path probability for a loss followed by a win:\n$$P(L_1 \\cap W_2) = 0.35 \\times 0.30 = 0.105$$"
+            },
+            {
+              "step": 3,
+              "text": "Add the two disjoint path probabilities:\n$$P = 0.13 + 0.105 = 0.235 = \\frac{47}{200}$$"
+            }
+          ],
+          "checking": {
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_s1_t_probability_m02_l01_cpq03_p02_c01",
+                "mark": "M1",
+                "observable": "Identify the two mutually exclusive paths: (Win 1, Loss 2) and (Loss 1, Win 2)."
+              },
+              {
+                "criterion_id": "9709_s1_t_probability_m02_l01_cpq03_p02_c02",
+                "mark": "M1",
+                "observable": "Calculate path probabilities: (0.65 * 0.20) + (0.35 * 0.30)."
+              },
+              {
+                "criterion_id": "9709_s1_t_probability_m02_l01_cpq03_p02_c03",
+                "mark": "A1",
+                "observable": "Obtain probability = 0.13 + 0.105 = 0.235 (or 47/200)."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_s1_t_probability_m02_l01_cpq04",
+      "parts": [
+        {
+          "part_id": "9709_s1_t_probability_m02_l01_cpq04_p01",
+          "label": "a",
+          "difficulty": "medium",
+          "pattern_ids": [
+            "9709_s1_pattern_tree_diagram_total_probability"
+          ],
+          "hints": [
+            "Draw or visualize a tree diagram with three initial branches for $B$, $C$, and $W$.",
+            "Multiply each transport mode probability by its corresponding conditional probability of being late.",
+            "Sum the three path products to obtain the overall probability: $P(L) = P(B \\cap L) + P(C \\cap L) + P(W \\cap L)$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Formulate the total probability across all three transport paths:\n$$P(L) = P(B)P(L \\mid B) + P(C)P(L \\mid C) + P(W)P(L \\mid W)$$"
+            },
+            {
+              "step": 2,
+              "text": "Calculate each individual path probability:\n$$P(B \\cap L) = 0.50 \\times 0.10 = 0.050, \\quad P(C \\cap L) = 0.30 \\times 0.05 = 0.015, \\quad P(W \\cap L) = 0.20 \\times 0.25 = 0.050$$"
+            },
+            {
+              "step": 3,
+              "text": "Add the three path values together:\n$$P(L) = 0.050 + 0.015 + 0.050 = 0.115$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "Express the overall probability of being late as the sum of three disjoint paths:\n$$P(L) = \\sum_{m \\in \\{B, C, W\\}} P(m) P(L \\mid m)$$"
+            },
+            {
+              "step": 2,
+              "text": "Substitute the branch probabilities for each route:\n$$P(L) = (0.50 \\times 0.10) + (0.30 \\times 0.05) + (0.20 \\times 0.25)$$"
+            },
+            {
+              "step": 3,
+              "text": "Sum the numerical products to find the final value:\n$$P(L) = 0.050 + 0.015 + 0.050 = 0.115 = \\frac{23}{200}$$"
+            }
+          ],
+          "checking": {
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_s1_t_probability_m02_l01_cpq04_p01_c01",
+                "mark": "M1",
+                "observable": "Set up the total probability sum across all three transport branches: P(B)P(L | B) + P(C)P(L | C) + P(W)P(L | W)."
+              },
+              {
+                "criterion_id": "9709_s1_t_probability_m02_l01_cpq04_p01_c02",
+                "mark": "M1",
+                "observable": "Substitute numerical values: (0.50 * 0.10) + (0.30 * 0.05) + (0.20 * 0.25)."
+              },
+              {
+                "criterion_id": "9709_s1_t_probability_m02_l01_cpq04_p01_c03",
+                "mark": "A1",
+                "observable": "Obtain probability = 0.050 + 0.015 + 0.050 = 0.115 (or 23/200)."
+              }
+            ]
+          }
+        },
+        {
+          "part_id": "9709_s1_t_probability_m02_l01_cpq04_p02",
+          "label": "b",
+          "difficulty": "medium",
+          "pattern_ids": [
+            "9709_s1_pattern_tree_diagram_total_probability"
+          ],
+          "hints": [
+            "Arriving on time is the complement of arriving late: $P(L') = 1 - P(L)$.",
+            "For the conditional probability, the restricted sample space is $P(C \\cup W) = 0.30 + 0.20 = 0.50$.",
+            "The favourable outcomes in this restricted space are late arrivals by bicycle or walking: $0.015 + 0.050 = 0.065$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Calculate the probability of arriving on time using the complement:\n$$P(\\text{On time}) = 1 - P(L) = 1 - 0.115 = 0.885$$"
+            },
+            {
+              "step": 2,
+              "text": "Calculate the numerator and denominator for the conditional probability:\n$$P((C \\cup W) \\cap L) = 0.015 + 0.050 = 0.065, \\quad P(C \\cup W) = 0.30 + 0.20 = 0.50$$"
+            },
+            {
+              "step": 3,
+              "text": "Evaluate the conditional fraction:\n$$P(L \\mid (C \\cup W)) = \\frac{0.065}{0.50} = 0.13$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "Apply the complement rule to obtain the on-time probability:\n$$P(L') = 1 - 0.115 = 0.885 = \\frac{177}{200}$$"
+            },
+            {
+              "step": 2,
+              "text": "Set up the conditional probability definition for the subset condition:\n$$P(L \\mid C \\cup W) = \\frac{P(L \\cap (C \\cup W))}{P(C \\cup W)} = \\frac{0.015 + 0.050}{0.30 + 0.20}$$"
+            },
+            {
+              "step": 3,
+              "text": "Divide to find the exact conditional rate:\n$$P(L \\mid C \\cup W) = \\frac{0.065}{0.50} = 0.13 = \\frac{13}{100}$$"
+            }
+          ],
+          "checking": {
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_s1_t_probability_m02_l01_cpq04_p02_c01",
+                "mark": "B1",
+                "observable": "State or calculate P(On time) = 1 - 0.115 = 0.885 (or 177/200)."
+              },
+              {
+                "criterion_id": "9709_s1_t_probability_m02_l01_cpq04_p02_c02",
+                "mark": "M1",
+                "observable": "Formulate conditional probability P((C or W) and Late) / P(C or W) = (0.015 + 0.050) / (0.30 + 0.20)."
+              },
+              {
+                "criterion_id": "9709_s1_t_probability_m02_l01_cpq04_p02_c03",
+                "mark": "A1",
+                "observable": "Obtain 0.065 / 0.50 = 0.13 (or 13/100)."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_s1_t_probability_m02_l01_cpq05",
+      "parts": [
+        {
+          "part_id": "9709_s1_t_probability_m02_l01_cpq05_p01",
+          "label": "a",
+          "difficulty": "medium",
+          "pattern_ids": [
+            "9709_s1_pattern_conditional_two_stage_transfer",
+            "9709_s1_pattern_tree_diagram_total_probability"
+          ],
+          "hints": [
+            "Box $P$ gives a Red marble with probability $3/5$ and a Yellow marble with probability $2/5$.",
+            "When a marble is added to Box $Q$, its total count increases from 8 to 9.",
+            "Multiply each transfer probability by the probability of drawing Red from Box $Q$ and sum the results."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Determine the composition of Box $Q$ after each transfer:\n$$\\text{If Red moved: } 5R, 4Y \\text{ (total 9)}; \\quad \\text{If Yellow moved: } 4R, 5Y \\text{ (total 9)}$$"
+            },
+            {
+              "step": 2,
+              "text": "Formulate the total probability of selecting Red from Box $Q$:\n$$P(R_Q) = \\left(\\frac{3}{5} \\times \\frac{5}{9}\\right) + \\left(\\frac{2}{5} \\times \\frac{4}{9}\\right)$$"
+            },
+            {
+              "step": 3,
+              "text": "Sum the path probabilities:\n$$P(R_Q) = \\frac{15}{45} + \\frac{8}{45} = \\frac{23}{45}$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "Update the sample space in Box $Q$ conditioned on the transferred marble colour:\n$$\\text{Condition } R_P: P(R_Q \\mid R_P) = \\frac{5}{9}, \\quad \\text{Condition } Y_P: P(R_Q \\mid Y_P) = \\frac{4}{9}$$"
+            },
+            {
+              "step": 2,
+              "text": "Apply the law of total probability using the branch probabilities from Box $P$:\n$$P(R_Q) = P(R_P)P(R_Q \\mid R_P) + P(Y_P)P(R_Q \\mid Y_P) = \\left(\\frac{3}{5} \\times \\frac{5}{9}\\right) + \\left(\\frac{2}{5} \\times \\frac{4}{9}\\right)$$"
+            },
+            {
+              "step": 3,
+              "text": "Evaluate the resulting sum:\n$$P(R_Q) = \\frac{15 + 8}{45} = \\frac{23}{45} \\approx 0.511$$"
+            }
+          ],
+          "checking": {
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_s1_t_probability_m02_l01_cpq05_p01_c01",
+                "mark": "M1",
+                "observable": "Identify updated contents of Box Q: if Red transferred, 5 red and 4 yellow (total 9); if Yellow transferred, 4 red and 5 yellow (total 9)."
+              },
+              {
+                "criterion_id": "9709_s1_t_probability_m02_l01_cpq05_p01_c02",
+                "mark": "M1",
+                "observable": "Apply the total probability formula: (3/5 * 5/9) + (2/5 * 4/9)."
+              },
+              {
+                "criterion_id": "9709_s1_t_probability_m02_l01_cpq05_p01_c03",
+                "mark": "A1",
+                "observable": "Obtain probability = 15/45 + 8/45 = 23/45 (or 0.511)."
+              }
+            ]
+          }
+        },
+        {
+          "part_id": "9709_s1_t_probability_m02_l01_cpq05_p02",
+          "label": "b",
+          "difficulty": "medium",
+          "pattern_ids": [
+            "9709_s1_pattern_conditional_two_stage_transfer",
+            "9709_s1_pattern_tree_diagram_total_probability"
+          ],
+          "hints": [
+            "The two marbles are of the same colour if both are Red or both are Yellow.",
+            "For both Yellow: $P(Y_P) = 2/5$, and in Box $Q$ there are now 5 yellow marbles out of 9.",
+            "Sum the two path probabilities: $P(R_P \\cap R_Q) + P(Y_P \\cap Y_Q)$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Calculate the probability of transferring Red and drawing Red:\n$$P(R_P \\cap R_Q) = \\frac{3}{5} \\times \\frac{5}{9} = \\frac{15}{45}$$"
+            },
+            {
+              "step": 2,
+              "text": "Calculate the probability of transferring Yellow and drawing Yellow:\n$$P(Y_P \\cap Y_Q) = \\frac{2}{5} \\times \\frac{5}{9} = \\frac{10}{45}$$"
+            },
+            {
+              "step": 3,
+              "text": "Sum the two mutually exclusive path probabilities:\n$$P(\\text{same colour}) = \\frac{15}{45} + \\frac{10}{45} = \\frac{25}{45} = \\frac{5}{9}$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "Calculate the first matching path product where both items are red:\n$$P(R_P \\cap R_Q) = \\frac{3}{5} \\times \\frac{5}{9} = \\frac{15}{45}$$"
+            },
+            {
+              "step": 2,
+              "text": "Calculate the second matching path product where both items are yellow:\n$$P(Y_P \\cap Y_Q) = \\frac{2}{5} \\times \\frac{5}{9} = \\frac{10}{45}$$"
+            },
+            {
+              "step": 3,
+              "text": "Add the two disjoint path probabilities together:\n$$P = \\frac{15 + 10}{45} = \\frac{25}{45} = \\frac{5}{9} \\approx 0.556$$"
+            }
+          ],
+          "checking": {
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_s1_t_probability_m02_l01_cpq05_p02_c01",
+                "mark": "M1",
+                "observable": "Identify the two matching paths: (Red from P, Red from Q) and (Yellow from P, Yellow from Q)."
+              },
+              {
+                "criterion_id": "9709_s1_t_probability_m02_l01_cpq05_p02_c02",
+                "mark": "M1",
+                "observable": "Calculate path probabilities: (3/5 * 5/9) + (2/5 * 5/9)."
+              },
+              {
+                "criterion_id": "9709_s1_t_probability_m02_l01_cpq05_p02_c03",
+                "mark": "A1",
+                "observable": "Obtain probability = 15/45 + 10/45 = 25/45 = 5/9 (or 0.556)."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_s1_t_probability_m02_l01_cpq06",
+      "parts": [
+        {
+          "part_id": "9709_s1_t_probability_m02_l01_cpq06_p01",
+          "label": "a",
+          "difficulty": "hard",
+          "pattern_ids": [
+            "9709_s1_pattern_conditional_probability_tree",
+            "9709_s1_pattern_tree_diagram_construction"
+          ],
+          "hints": [
+            "Identify Monday Sunny probability: $P(S_M) = 0.70$.",
+            "From the Sunny node on Monday, read the branch for Tuesday being Sunny: $0.80$.",
+            "Multiply along the branch: $P(S_M \\cap S_T) = P(S_M) \\times P(S_T \\mid S_M)$.",
+            "Compute $0.70 \\times 0.80 = 0.56$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Identify the relevant branch values:\n$$P(S_M) = 0.70, \\quad P(S_T \\mid S_M) = 0.80$$"
+            },
+            {
+              "step": 2,
+              "text": "Multiply along the branch path $(S_M, S_T)$:\n$$P(S_M \\cap S_T) = 0.70 \\times 0.80 = 0.56$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "Extract the initial state probability and the transition probability:\n$$P(S_M) = 0.70, \\quad P(S_T \\mid S_M) = 0.80$$"
+            },
+            {
+              "step": 2,
+              "text": "Multiply along the path to obtain the joint probability for Monday and Tuesday:\n$$P(S_M \\cap S_T) = 0.70 \\times 0.80 = 0.56 = \\frac{14}{25}$$"
+            }
+          ],
+          "checking": {
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_s1_t_probability_m02_l01_cpq06_p01_c01",
+                "mark": "M1",
+                "observable": "Multiply branch probabilities P(Mon Sunny) * P(Tue Sunny | Mon Sunny) = 0.70 * 0.80."
+              },
+              {
+                "criterion_id": "9709_s1_t_probability_m02_l01_cpq06_p01_c02",
+                "mark": "A1",
+                "observable": "Obtain probability = 0.56 (or 14/25)."
+              }
+            ]
+          }
+        },
+        {
+          "part_id": "9709_s1_t_probability_m02_l01_cpq06_p02",
+          "label": "b",
+          "difficulty": "hard",
+          "pattern_ids": [
+            "9709_s1_pattern_tree_diagram_total_probability"
+          ],
+          "hints": [
+            "Find the total probability that Tuesday is Sunny: $P(S_T) = P(S_M \\cap S_T) + P(R_M \\cap S_T)$.",
+            "Use $P(R_M) = 1 - 0.70 = 0.30$ to find $P(S_T) = 0.56 + (0.30 \\times 0.30) = 0.65$.",
+            "Tuesday Rainy has probability $P(R_T) = 1 - 0.65 = 0.35$.",
+            "Wednesday Sunny follows from either a Sunny Tuesday or a Rainy Tuesday: $(0.65 \\times 0.80) + (0.35 \\times 0.30)$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Calculate the probability of each weather state on Tuesday:\n$$P(S_T) = (0.70 \\times 0.80) + (0.30 \\times 0.30) = 0.56 + 0.09 = 0.65, \\quad P(R_T) = 1 - 0.65 = 0.35$$"
+            },
+            {
+              "step": 2,
+              "text": "Set up the total probability for Wednesday Sunny:\n$$P(S_W) = P(S_T)P(S_W \\mid S_T) + P(R_T)P(S_W \\mid R_T) = (0.65 \\times 0.80) + (0.35 \\times 0.30)$$"
+            },
+            {
+              "step": 3,
+              "text": "Evaluate the numerical sum:\n$$P(S_W) = 0.52 + 0.105 = 0.625$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "Determine the marginal distribution of weather outcomes on Tuesday:\n$$P(S_T) = (0.70 \\times 0.80) + (0.30 \\times 0.30) = 0.65, \\quad P(R_T) = 0.35$$"
+            },
+            {
+              "step": 2,
+              "text": "Propagate the probabilities to Wednesday using the Chapman-Kolmogorov transition structure:\n$$P(S_W) = (0.65 \\times 0.80) + (0.35 \\times 0.30)$$"
+            },
+            {
+              "step": 3,
+              "text": "Compute the combined total probability for Wednesday:\n$$P(S_W) = 0.52 + 0.105 = 0.625 = \\frac{5}{8}$$"
+            }
+          ],
+          "checking": {
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_s1_t_probability_m02_l01_cpq06_p02_c01",
+                "mark": "M1",
+                "observable": "Calculate Tuesday weather probabilities: P(Tue Sunny) = (0.70 * 0.80) + (0.30 * 0.30) = 0.56 + 0.09 = 0.65, and P(Tue Rainy) = 0.35."
+              },
+              {
+                "criterion_id": "9709_s1_t_probability_m02_l01_cpq06_p02_c02",
+                "mark": "M1",
+                "observable": "Apply total probability to Wednesday: P(Wed Sunny) = (0.65 * 0.80) + (0.35 * 0.30)."
+              },
+              {
+                "criterion_id": "9709_s1_t_probability_m02_l01_cpq06_p02_c03",
+                "mark": "A1",
+                "observable": "Obtain probability = 0.52 + 0.105 = 0.625 (or 5/8)."
+              }
+            ]
+          }
+        },
+        {
+          "part_id": "9709_s1_t_probability_m02_l01_cpq06_p03",
+          "label": "c",
+          "difficulty": "hard",
+          "pattern_ids": [
+            "9709_s1_pattern_conditional_probability_tree"
+          ],
+          "hints": [
+            "Apply Bayes theorem or conditional probability: $P(S_M \\mid S_W) = \\frac{P(S_M \\cap S_W)}{P(S_W)}$.",
+            "From part (b), the denominator is $P(S_W) = 0.625$.",
+            "Find the numerator by summing all 3-day paths starting with $S_M$ and ending with $S_W$: $(S, S, S)$ and $(S, R, S)$.",
+            "Calculate: $P(S, S, S) = 0.70 \\times 0.80 \\times 0.80 = 0.448$ and $P(S, R, S) = 0.70 \\times 0.20 \\times 0.30 = 0.042$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Identify the paths starting Sunny on Monday and ending Sunny on Wednesday:\n$$P(S_M \\cap S_T \\cap S_W) = 0.70 \\times 0.80 \\times 0.80 = 0.448, \\quad P(S_M \\cap R_T \\cap S_W) = 0.70 \\times 0.20 \\times 0.30 = 0.042$$"
+            },
+            {
+              "step": 2,
+              "text": "Sum these paths to find the joint probability:\n$$P(S_M \\cap S_W) = 0.448 + 0.042 = 0.490$$"
+            },
+            {
+              "step": 3,
+              "text": "Evaluate the conditional probability using the result from part (b):\n$$P(S_M \\mid S_W) = \\frac{P(S_M \\cap S_W)}{P(S_W)} = \\frac{0.490}{0.625} = \\frac{98}{125} = 0.784$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "Sum the probabilities of the two paths originating from a Sunny Monday that terminate in a Sunny Wednesday:\n$$P(S_M \\cap S_W) = (0.70 \\times 0.80 \\times 0.80) + (0.70 \\times 0.20 \\times 0.30) = 0.448 + 0.042 = 0.490$$"
+            },
+            {
+              "step": 2,
+              "text": "Formulate the conditional probability definition with the prior total probability from part (b):\n$$P(S_M \\mid S_W) = \\frac{P(S_M \\cap S_W)}{P(S_W)} = \\frac{0.490}{0.625}$$"
+            },
+            {
+              "step": 3,
+              "text": "Simplify the fraction to find the final posterior probability:\n$$P(S_M \\mid S_W) = \\frac{490}{625} = \\frac{98}{125} = 0.784$$"
+            }
+          ],
+          "checking": {
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_s1_t_probability_m02_l01_cpq06_p03_c01",
+                "mark": "M1",
+                "observable": "Identify the two paths where Monday is Sunny and Wednesday is Sunny: (S, S, S) and (S, R, S)."
+              },
+              {
+                "criterion_id": "9709_s1_t_probability_m02_l01_cpq06_p03_c02",
+                "mark": "M1",
+                "observable": "Calculate P(Mon Sunny and Wed Sunny) = (0.70 * 0.80 * 0.80) + (0.70 * 0.20 * 0.30) = 0.448 + 0.042 = 0.490."
+              },
+              {
+                "criterion_id": "9709_s1_t_probability_m02_l01_cpq06_p03_c03",
+                "mark": "A1",
+                "observable": "Obtain conditional probability = 0.490 / 0.625 = 98/125 = 0.784."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_s1_t_probability_m02_l01_cpq07",
+      "parts": [
+        {
+          "part_id": "9709_s1_t_probability_m02_l01_cpq07_p01",
+          "label": "a",
+          "difficulty": "hard",
+          "pattern_ids": [
+            "9709_s1_pattern_conditional_two_stage_transfer",
+            "9709_s1_pattern_tree_diagram_construction"
+          ],
+          "hints": [
+            "If Green is transferred, Jar 2 has $3 + 1 = 4$ green counters and 5 white counters, giving 9 counters in total.",
+            "For two green counters without replacement, multiply $\\frac{4}{9} \\times \\frac{3}{8}$.",
+            "If White is transferred, Jar 2 has 3 green counters and $5 + 1 = 6$ white counters, giving 9 counters in total.",
+            "For two green counters in this second scenario, multiply $\\frac{3}{9} \\times \\frac{2}{8}$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Analyze Jar 2 after a green counter is transferred:\n$$\\text{Jar 2 has } 4G, 5W \\text{ (total 9)} \\implies P(GG \\mid G_{\\text{trans}}) = \\frac{4}{9} \\times \\frac{3}{8} = \\frac{12}{72} = \\frac{1}{6}$$"
+            },
+            {
+              "step": 2,
+              "text": "Analyze Jar 2 after a white counter is transferred:\n$$\\text{Jar 2 has } 3G, 6W \\text{ (total 9)} \\implies P(GG \\mid W_{\\text{trans}}) = \\frac{3}{9} \\times \\frac{2}{8} = \\frac{6}{72} = \\frac{1}{12}$$"
+            },
+            {
+              "step": 3,
+              "text": "State both established conditional values:\n$$P(GG \\mid G_{\\text{trans}}) = \\frac{1}{6}, \\quad P(GG \\mid W_{\\text{trans}}) = \\frac{1}{12}$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "Evaluate the product of branch probabilities following a green counter addition:\n$$P(GG \\mid G_{\\text{trans}}) = \\frac{4}{9} \\times \\frac{3}{8} = \\frac{12}{72} = \\frac{1}{6}$$"
+            },
+            {
+              "step": 2,
+              "text": "Evaluate the product of branch probabilities following a white counter addition:\n$$P(GG \\mid W_{\\text{trans}}) = \\frac{3}{9} \\times \\frac{2}{8} = \\frac{6}{72} = \\frac{1}{12}$$"
+            },
+            {
+              "step": 3,
+              "text": "Summarize the two conditional branch probabilities for the second stage:\n$$P(GG \\mid G_{\\text{trans}}) = \\frac{1}{6}, \\quad P(GG \\mid W_{\\text{trans}}) = \\frac{1}{12}$$"
+            }
+          ],
+          "checking": {
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_s1_t_probability_m02_l01_cpq07_p01_c01",
+                "mark": "M1",
+                "observable": "Update Jar 2 contents after green transfer (4 green, 5 white, total 9) and calculate (4/9) * (3/8)."
+              },
+              {
+                "criterion_id": "9709_s1_t_probability_m02_l01_cpq07_p01_c02",
+                "mark": "A1",
+                "observable": "Confirm probability = 12/72 = 1/6."
+              },
+              {
+                "criterion_id": "9709_s1_t_probability_m02_l01_cpq07_p01_c03",
+                "mark": "B1",
+                "observable": "Update Jar 2 contents after white transfer (3 green, 6 white, total 9) and obtain P(GG | White transferred) = (3/9) * (2/8) = 6/72 = 1/12."
+              }
+            ]
+          }
+        },
+        {
+          "part_id": "9709_s1_t_probability_m02_l01_cpq07_p02",
+          "label": "b",
+          "difficulty": "hard",
+          "pattern_ids": [
+            "9709_s1_pattern_conditional_two_stage_transfer",
+            "9709_s1_pattern_tree_diagram_total_probability"
+          ],
+          "hints": [
+            "Find the initial transfer probabilities from Jar 1: $P(G) = 4/6 = 2/3$ and $P(W) = 2/6 = 1/3$.",
+            "Use the conditional probabilities calculated in part (a): $1/6$ and $1/12$.",
+            "Apply the law of total probability: $P(GG) = P(G)P(GG \\mid G) + P(W)P(GG \\mid W)$.",
+            "Calculate $\\left(\\frac{2}{3} \\times \\frac{1}{6}\\right) + \\left(\\frac{1}{3} \\times \\frac{1}{12}\\right) = \\frac{1}{9} + \\frac{1}{36}$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Determine the transfer probabilities from Jar 1:\n$$P(G_{\\text{trans}}) = \\frac{4}{6} = \\frac{2}{3}, \\quad P(W_{\\text{trans}}) = \\frac{2}{6} = \\frac{1}{3}$$"
+            },
+            {
+              "step": 2,
+              "text": "Set up the total probability sum across both paths:\n$$P(GG) = \\left(\\frac{2}{3} \\times \\frac{1}{6}\\right) + \\left(\\frac{1}{3} \\times \\frac{1}{12}\\right) = \\frac{2}{18} + \\frac{1}{36}$$"
+            },
+            {
+              "step": 3,
+              "text": "Combine the fractions using a common denominator:\n$$P(GG) = \\frac{4}{36} + \\frac{1}{36} = \\frac{5}{36}$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "State the primary stage probabilities for the transfer event:\n$$P(G_{\\text{trans}}) = \\frac{4}{6} = \\frac{2}{3}, \\quad P(W_{\\text{trans}}) = \\frac{2}{6} = \\frac{1}{3}$$"
+            },
+            {
+              "step": 2,
+              "text": "Formulate the total probability equation using the conditional outcomes from part (a):\n$$P(GG) = P(G_{\\text{trans}})P(GG \\mid G_{\\text{trans}}) + P(W_{\\text{trans}})P(GG \\mid W_{\\text{trans}}) = \\left(\\frac{2}{3} \\times \\frac{1}{6}\\right) + \\left(\\frac{1}{3} \\times \\frac{1}{12}\\right)$$"
+            },
+            {
+              "step": 3,
+              "text": "Evaluate the resulting exact fraction:\n$$P(GG) = \\frac{4}{36} + \\frac{1}{36} = \\frac{5}{36} \\approx 0.139$$"
+            }
+          ],
+          "checking": {
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_s1_t_probability_m02_l01_cpq07_p02_c01",
+                "mark": "M1",
+                "observable": "Identify the transfer probabilities from Jar 1: P(Green transferred) = 4/6 = 2/3 and P(White transferred) = 2/6 = 1/3."
+              },
+              {
+                "criterion_id": "9709_s1_t_probability_m02_l01_cpq07_p02_c02",
+                "mark": "M1",
+                "observable": "Apply total probability formula: (2/3 * 1/6) + (1/3 * 1/12)."
+              },
+              {
+                "criterion_id": "9709_s1_t_probability_m02_l01_cpq07_p02_c03",
+                "mark": "A1",
+                "observable": "Obtain probability = 4/36 + 1/36 = 5/36 (or 0.139)."
+              }
+            ]
+          }
+        },
+        {
+          "part_id": "9709_s1_t_probability_m02_l01_cpq07_p03",
+          "label": "c",
+          "difficulty": "hard",
+          "pattern_ids": [
+            "9709_s1_pattern_conditional_probability_tree"
+          ],
+          "hints": [
+            "Set up the conditional probability formula: $P(G_{\\text{trans}} \\mid GG) = \\frac{P(G_{\\text{trans}} \\cap GG)}{P(GG)}$.",
+            "The numerator is the probability of the path where Green is transferred and two Greens are drawn: $\\frac{2}{3} \\times \\frac{1}{6} = \\frac{4}{36}$.",
+            "The denominator is the total probability found in part (b): $\\frac{5}{36}$.",
+            "Divide the numerator by the denominator: $\\frac{4/36}{5/36} = \\frac{4}{5}$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Express the joint probability of transferring Green and drawing two Greens:\n$$P(G_{\\text{trans}} \\cap GG) = \\frac{2}{3} \\times \\frac{1}{6} = \\frac{2}{18} = \\frac{4}{36}$$"
+            },
+            {
+              "step": 2,
+              "text": "Formulate the conditional probability using Bayes theorem:\n$$P(G_{\\text{trans}} \\mid GG) = \\frac{P(G_{\\text{trans}} \\cap GG)}{P(GG)} = \\frac{4/36}{5/36}$$"
+            },
+            {
+              "step": 3,
+              "text": "Simplify the ratio:\n$$P(G_{\\text{trans}} \\mid GG) = \\frac{4}{5} = 0.8$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "Determine the intersection probability along the green-green-green trajectory:\n$$P(G_{\\text{trans}} \\cap GG) = \\frac{2}{3} \\times \\frac{1}{6} = \\frac{4}{36}$$"
+            },
+            {
+              "step": 2,
+              "text": "Apply the definition of conditional probability using the total probability from part (b):\n$$P(G_{\\text{trans}} \\mid GG) = \\frac{P(G_{\\text{trans}} \\cap GG)}{P(GG)} = \\frac{4/36}{5/36}$$"
+            },
+            {
+              "step": 3,
+              "text": "Simplify the rational expression to obtain the final exact posterior probability:\n$$P(G_{\\text{trans}} \\mid GG) = \\frac{4}{5} = 0.8$$"
+            }
+          ],
+          "checking": {
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_s1_t_probability_m02_l01_cpq07_p03_c01",
+                "mark": "M1",
+                "observable": "State Bayes theorem or conditional probability formula: P(Green transferred | GG) = P(Green transferred and GG) / P(GG)."
+              },
+              {
+                "criterion_id": "9709_s1_t_probability_m02_l01_cpq07_p03_c02",
+                "mark": "M1",
+                "observable": "Substitute values: numerator = (2/3) * (1/6) = 4/36, denominator = 5/36."
+              },
+              {
+                "criterion_id": "9709_s1_t_probability_m02_l01_cpq07_p03_c03",
+                "mark": "A1",
+                "observable": "Obtain probability = (4/36) / (5/36) = 4/5 (or 0.8)."
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

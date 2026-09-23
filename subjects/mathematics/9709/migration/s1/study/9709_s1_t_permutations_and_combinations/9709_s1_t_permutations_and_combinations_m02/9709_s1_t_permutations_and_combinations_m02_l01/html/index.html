@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Counting numbers and codes · Kognitiv</title>
+  <meta name="description" content="Cambridge Mathematics 9709 S1: counting ordered numbers and codes with restrictions.">
+  <link rel="stylesheet" href="assets/lesson.css">
+  <link rel="stylesheet" href="assets/revision.css">
+  <link rel="stylesheet" href="assets/katex/katex.min.css">
+  <link rel="stylesheet" href="assets/counting.css">
+  <link rel="stylesheet" href="assets/brand-theme.css">
+  <link rel="stylesheet" href="assets/plain-emphasis.css">
+  <script defer src="assets/katex/katex.min.js"></script>
+  <script defer src="assets/math.js"></script>
+  <script defer src="assets/check-ins.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#core">Skip to lesson</a>
+<div class="top"><div class="brand">Kognitiv <span> / Mathematics 9709 · Probability &amp; Statistics 1</span></div><button type="button" onclick="window.print()">Print / save PDF</button></div>
+<main data-lesson-id="9709_s1_t_permutations_and_combinations_m02_l01">
+  <nav class="lesson-nav" aria-label="Lesson navigation"><a href="../../../topic-overview/index.html">Topic lessons</a><span>Module 2 · Lesson 1</span><a href="#recap">Key ideas</a><a href="#more-examples">More worked examples</a></nav>
+  <header class="hero">
+    <div class="kicker">Counting numbers and codes</div>
+    <h1>Which slot should you fill first?</h1>
+    <p class="lead">A four-digit number has four positions, but those positions may not have the same choices. Count each legal choice in order, then multiply.</p>
+    <p class="lesson-route"><a href="#core">Start the lesson</a> · <a href="#recap">See the key ideas</a></p>
+  </header>
+
+  <section id="core" data-source-pages="1,2">
+    <h2>One choice follows another</h2>
+    <ul class="explanation-points">
+      <li>A <strong>slot</strong> is one position in a number or code.</li>
+      <li>An <strong>ordered outcome</strong> changes when its positions change. For example, AB and BA are different codes.</li>
+      <li>If the first slot has <span class="math" data-tex="a">a</span> choices and the next has <span class="math" data-tex="b">b</span> choices, each first choice can be paired with every second choice.</li>
+      <li>There are therefore <span class="math" data-tex="a\times b">a × b</span> ordered pairs. This is the <strong>product rule</strong>.</li>
+      <li><strong>Without replacement</strong> means that an item cannot be used again. The number of available choices falls after each selection.</li>
+    </ul>
+    <div class="formula-box"><h3>Product rule</h3><p class="equation math" data-tex="\text{total outcomes}=\text{choices for slot 1}\times\text{choices for slot 2}\times\cdots">total outcomes = choices for slot 1 × choices for slot 2 × …</p><p>For three ordered choices from five distinct items, with no repetition:</p><p class="equation math" data-tex="5\times4\times3=60">5 × 4 × 3 = 60</p></div>
+    <div class="slot-demo" role="img" aria-label="Three ordered slots with five, four and three choices"><span><b>5</b><small>first</small></span><i>×</i><span><b>4</b><small>second</small></span><i>×</i><span><b>3</b><small>third</small></span><i>=</i><strong>60</strong></div>
+
+    <h2>Build the slots</h2>
+    <ol class="steps">
+      <li><p><strong>Write the positions in order.</strong></p><p>Ask what each position is allowed to contain.</p></li>
+      <li><p><strong>Fill a restricted position first.</strong></p><p>Place value is the value a digit receives from its position. In a 4-digit number, the first slot is the thousands digit. The final digit controls whether the number is odd or even.</p></li>
+      <li><p><strong>Update the later counts.</strong></p><p>If repetition is forbidden, remove a chosen item before counting the next slot.</p></li>
+      <li><p><strong>Multiply along one case.</strong></p><p>Add counts only for separate cases that cannot describe the same outcome. Such cases are called <strong>disjoint</strong>.</p></li>
+    </ol>
+    <div class="definition"><h3>Zero needs care</h3><p class="exact">A number cannot begin with 0, because 0 in the first position would make the number shorter. A code may begin with 0 unless the question says otherwise.</p></div>
+
+    <article class="worked-example compact-example" data-source-pages="2">
+      <p class="example-label">Worked example</p>
+      <h3>Three distinct digits from five</h3>
+      <p>From <span class="math" data-tex="\{0,1,2,3,4\}">{0, 1, 2, 3, 4}</span>, the first digit has 4 choices because it cannot be 0.</p>
+      <p>After that choice, 4 digits remain, then 3.</p>
+      <p class="math" data-tex="4\times4\times3=48">4 × 4 × 3 = 48</p>
+      <p class="final-answer"><strong>There are 48 distinct 3-digit numbers.</strong></p>
+    </article>
+
+    <article class="worked-example" data-source-pages="2,3">
+      <p class="example-label">Worked example</p>
+      <h3>Distinct three-digit numbers</h3>
+      <p class="question">How many 3-digit numbers can be formed from <span class="math" data-tex="\{0,1,2,3,4,5\}">{0, 1, 2, 3, 4, 5}</span> if no digit is repeated?</p>
+      <p class="solution-label">Solution</p>
+      <ol class="steps solution-body">
+        <li><p>The hundreds digit cannot be 0, so it has <strong>5 choices</strong>.</p></li>
+        <li><p>One digit has been used. Five digits remain for the tens digit, including 0 if it is unused.</p></li>
+        <li><p>Four digits then remain for the units digit.</p></li>
+        <li><p class="math" data-tex="5\times5\times4=100">5 × 5 × 4 = 100</p><p class="final-answer"><strong>There are 100 numbers.</strong></p></li>
+      </ol>
+      <p class="teacher-note">Do not start with 6 × 5 × 4: that includes arrangements beginning with 0.</p>
+    </article>
+
+    <aside class="quick-check" data-tone="violet">
+      <p class="check-label">Check-in 1</p>
+      <p class="check-question">A tag uses 3 different letters from {J, K, L, M, N, O}. How many tags are possible?</p>
+      <div class="check-options"><button type="button" data-correct="true" data-feedback="Correct. The three ordered slots have 6, then 5, then 4 choices: 6 × 5 × 4 = 120." aria-pressed="false">A · 120</button><button type="button" data-correct="false" data-feedback="Not quite. 6 × 3 does not update the choices after each letter. Without repetition, use 6 × 5 × 4 = 120." aria-pressed="false">B · 18</button></div>
+      <p class="check-feedback" aria-live="polite"></p>
+    </aside>
+  </section>
+
+  <section data-source-pages="4">
+    <h2>Several ordered stages still multiply</h2>
+    <article class="worked-example">
+      <p class="example-label">Worked example</p>
+      <h3>A letter-digit code</h3>
+      <p class="question">A code has 2 different letters from {A, B, C, D}, followed by 3 different digits from {1, 2, 3, 4, 5, 6}. How many codes are possible?</p>
+      <p class="solution-label">Solution</p>
+      <ol class="steps solution-body">
+        <li><p>The letter slots have <span class="math" data-tex="4\times3=12">4 × 3 = 12</span> arrangements.</p></li>
+        <li><p>The digit slots have <span class="math" data-tex="6\times5\times4=120">6 × 5 × 4 = 120</span> arrangements.</p></li>
+        <li><p>Any legal letter arrangement can be followed by any legal digit arrangement, so multiply the two stages.</p><p class="math" data-tex="12\times120=1440">12 × 120 = 1440</p><p class="final-answer"><strong>There are 1440 codes.</strong></p></li>
+      </ol>
+      <div class="definition"><h3>Permutation notation</h3><p class="exact">An ordered selection without replacement is a <strong>permutation</strong>. Let <span class="math" data-tex="n">n</span> be the number available and <span class="math" data-tex="r">r</span> the number selected. The notation <span class="math" data-tex="{}^nP_r">ⁿPᵣ</span> counts those selections. Here <span class="math" data-tex="{}^4P_2\times{}^6P_3=1440">⁴P₂ × ⁶P₃ = 1440</span>.</p></div>
+    </article>
+  </section>
+
+  <section data-source-pages="5,6,7">
+    <h2>Choose the restricted slot first</h2>
+    <ul class="explanation-points">
+      <li>For a number between 2000 and 5000, the thousands digit must be 2, 3 or 4.</li>
+      <li><strong>Parity</strong> means whether an integer is odd or even.</li>
+      <li>An odd number ends in 1, 3, 5, 7 or 9. An even number ends in 0, 2, 4, 6 or 8.</li>
+      <li>When there is no repetition, fixing one digit may change the choices for another restricted slot.</li>
+      <li>If two restrictions draw from the same set, split into separate cases when their counts differ.</li>
+    </ul>
+    <article class="worked-example">
+      <p class="example-label">Worked example</p>
+      <h3>A number range</h3>
+      <p class="question">How many numbers between 2000 and 5000 can be formed from <span class="math" data-tex="\{0,1,2,3,4,5,6\}">{0, 1, 2, 3, 4, 5, 6}</span> if no digit is repeated?</p>
+      <p class="solution-label">Solution</p>
+      <ol class="steps solution-body">
+        <li><p>The thousands digit must be 2, 3 or 4, so it has <strong>3 choices</strong>.</p></li>
+        <li><p>After it is chosen, the remaining slots have 6, then 5, then 4 choices. Zero is allowed after the first position.</p></li>
+        <li><p class="math" data-tex="3\times6\times5\times4=360">3 × 6 × 5 × 4 = 360</p><p class="final-answer"><strong>There are 360 numbers.</strong></p></li>
+      </ol>
+    </article>
+    <article class="worked-example">
+      <p class="example-label">Worked example</p>
+      <h3>Repetition allowed</h3>
+      <p class="question">How many even 4-digit numbers can be formed from <span class="math" data-tex="\{0,1,2,3,4,5\}">{0, 1, 2, 3, 4, 5}</span> if digits may be repeated?</p>
+      <p class="solution-label">Solution</p>
+      <ol class="steps solution-body">
+        <li><p>The first digit has 5 choices because it cannot be 0.</p></li>
+        <li><p>Each middle digit has all 6 choices. Repetition means an earlier choice does not reduce these counts.</p></li>
+        <li><p>The final digit must be 0, 2 or 4, so it has 3 choices.</p></li>
+        <li><p class="math" data-tex="5\times6\times6\times3=540">5 × 6 × 6 × 3 = 540</p><p class="final-answer"><strong>There are 540 numbers.</strong></p></li>
+      </ol>
+    </article>
+
+    <aside class="quick-check">
+      <p class="check-label">Check-in 2</p>
+      <p class="check-question">Using {0, 2, 4, 5, 7} without repetition, how many even 3-digit numbers are possible?</p>
+      <div class="check-options"><button type="button" data-correct="false" data-feedback="Not quite. Ending in 0 and ending in 2 or 4 have different leading-digit counts. Ending in 0 gives 4 × 3 = 12. Ending in 2 or 4 gives 2 × 3 × 3 = 18. Total: 30." aria-pressed="false">A · 24</button><button type="button" data-correct="true" data-feedback="Correct. Split by the final digit. Ending in 0 gives 4 × 3 = 12. Ending in 2 or 4 gives 2 × 3 × 3 = 18. Total: 30." aria-pressed="false">B · 30</button></div>
+      <p class="check-feedback" aria-live="polite"></p>
+    </aside>
+  </section>
+
+  <section data-source-pages="9">
+    <h2>Count “at least one” by removing neither</h2>
+    <ul class="explanation-points">
+      <li>An <strong>inclusive or</strong> allows the first feature, the second feature, or both.</li>
+      <li>The <strong>complement</strong> contains every outcome outside the group we want.</li>
+      <li>For “A or B or both”, the complement contains outcomes with neither A nor B.</li>
+      <li>Count all outcomes, count the complement, then subtract.</li>
+    </ul>
+    <div class="formula-box"><h3>At least one</h3><p class="equation math" data-tex="\text{at least one}=\text{total}-\text{neither}">at least one = total − neither</p></div>
+  </section>
+
+  <section id="recap" data-source-pages="10">
+    <h2>Key ideas</h2>
+    <ul class="method-grid">
+      <li><strong>Ordered slots</strong><span>Draw the positions. Count legal choices for each, then multiply.</span></li>
+      <li><strong>No repetition</strong><span>Remove each selected item before counting later slots.</span></li>
+      <li><strong>Range or parity</strong><span>Restrict the first or final slot before filling the others.</span></li>
+      <li><strong>Several cases</strong><span>Add cases that cannot overlap. For an inclusive “or”, consider total minus neither.</span></li>
+    </ul>
+    <div class="decision-list" aria-label="Counting checklist"><p>Can zero lead?</p><p>Does order matter?</p><p>Is repetition allowed?</p><p>Do the cases overlap?</p></div>
+  </section>
+
+  <section id="more-examples" class="optional-section" data-source-pages="8,9">
+    <h2>More worked examples</h2>
+    <article class="worked-example">
+      <p class="example-label">Worked example</p>
+      <h3>Several lengths</h3>
+      <p class="question">Using some or all of <span class="math" data-tex="\{0,2,3,5,7\}">{0, 2, 3, 5, 7}</span>, with no repetition, how many odd numbers with at most 4 digits can be formed?</p>
+      <p class="solution-label">Solution</p>
+      <ol class="steps solution-body">
+        <li><p>“At most 4 digits” means the number may have 1, 2, 3 or 4 digits.</p></li>
+        <li><p>Different lengths cannot describe the same number, so count each length separately and add.</p></li>
+        <li><p>The units digit has 3 odd choices. For lengths above 1, the first digit then has 3 non-zero choices.</p></li>
+      </ol>
+      <div class="table-wrap" tabindex="0"><table><thead><tr><th>Length</th><th>Count</th></tr></thead><tbody><tr><td>1 digit</td><td class="math" data-tex="3">3</td></tr><tr><td>2 digits</td><td class="math" data-tex="3\times3=9">3 × 3 = 9</td></tr><tr><td>3 digits</td><td class="math" data-tex="3\times3\times3=27">3 × 3 × 3 = 27</td></tr><tr><td>4 digits</td><td class="math" data-tex="3\times3\times3\times2=54">3 × 3 × 3 × 2 = 54</td></tr></tbody></table></div>
+      <p class="final-answer"><strong>Total: <span class="math" data-tex="3+9+27+54=93">3 + 9 + 27 + 54 = 93</span> odd numbers.</strong></p>
+    </article>
+    <article class="worked-example">
+      <p class="example-label">Worked example</p>
+      <h3>At least one named feature</h3>
+      <p class="question">A code has 2 different letters from {A, B, C, D, E, F}, followed by 3 different digits from {1, 2, 3, 4, 5, 6, 7, 8}. How many codes contain A or 5 or both?</p>
+      <ul class="explanation-points"><li>A code qualifies if it contains A.</li><li>It also qualifies if it contains 5.</li><li>A code containing both still counts once.</li><li>The complement contains codes with neither A nor 5.</li><li>Subtracting that complement leaves exactly the required codes.</li></ul>
+      <p class="solution-label">Solution</p>
+      <ol class="steps solution-body">
+        <li><p>Count all codes.</p><p class="math" data-tex="{}^6P_2\times{}^8P_3=(6\times5)(8\times7\times6)=10080">⁶P₂ × ⁸P₃ = (6 × 5)(8 × 7 × 6) = 10080</p></li>
+        <li><p>For neither A nor 5, only 5 letters and 7 digits remain available.</p><p class="math" data-tex="{}^5P_2\times{}^7P_3=(5\times4)(7\times6\times5)=4200">⁵P₂ × ⁷P₃ = (5 × 4)(7 × 6 × 5) = 4200</p></li>
+        <li><p class="math" data-tex="10080-4200=5880">10080 − 4200 = 5880</p><p class="final-answer"><strong>There are 5880 codes.</strong></p></li>
+      </ol>
+    </article>
+    <p class="reading-route"><a href="#recap">Return to key ideas</a> · <a href="#core">Return to the lesson start</a></p>
+  </section>
+
+  <nav class="lesson-nav lesson-nav-bottom" aria-label="End of lesson navigation"><a href="../../../topic-overview/index.html">Topic lessons</a><a href="#recap">Key ideas</a><a href="#core">Lesson start</a></nav>
+</main>
+</body>
+</html>

@@ -1,0 +1,216 @@
+{
+  "schema_version": "9709_math_enrichment_v3",
+  "paper_code": "9709_w22_51",
+  "question_id": "9709_w22_51_q5",
+  "question_num": 5,
+  "subject_code": "9709",
+  "component": "S1",
+  "year": 2022,
+  "session": "October/November",
+  "variant": "51",
+  "difficulty": 4,
+  "numerical_values_checked": false,
+  "parts": [
+    {
+      "part_id": "9709_w22_51_q5_a",
+      "difficulty": 2,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_s1_t_probability",
+        "module_id": "9709_s1_t_probability_m03",
+        "lesson_id": "9709_s1_t_probability_m03_l01"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_constructing_tree_diagrams",
+        "skill_tags": [
+          "Constructing Tree Diagrams"
+        ]
+      },
+      "question_pattern_ids": [
+        "9709_s1_pattern_tree_diagram_construction"
+      ],
+      "knowledge_refs": {
+        "formula_ids": [],
+        "identity_ids": [],
+        "method_ids": [
+          "9709_s1_method_constructing_tree_diagrams"
+        ],
+        "fact_ids": []
+      },
+      "hints": [
+        "First throw has 6 equally likely outcomes: 1, 2, 3, 4, 5, 6, each with probability $1/6$.",
+        "Outcomes 2, 3, 4, 5 stop after the first throw with the score equal to that number.",
+        "Outcomes 1 and 6 each branch into 6 second-throw branches (1 to 6) each with probability $1/6$, with final score equal to the sum of the two throws."
+      ],
+      "walkthrough": [
+        "Draw the initial branch for Throw 1 with six outcomes $1, 2, 3, 4, 5, 6$, each having probability $\\frac{1}{6}$.",
+        "Identify outcomes stopping after one throw:\n- Throw 1 is $2$: score is $2$\n- Throw 1 is $3$: score is $3$\n- Throw 1 is $4$: score is $4$\n- Throw 1 is $5$: score is $5$",
+        "Draw second-throw branches for outcomes $1$ and $6$:\n- From $1$: six branches $1, 2, 3, 4, 5, 6$ (each probability $\\frac{1}{6}$), resulting in scores $2, 3, 4, 5, 6, 7$\n- From $6$: six branches $1, 2, 3, 4, 5, 6$ (each probability $\\frac{1}{6}$), resulting in scores $7, 8, 9, 10, 11, 12$"
+      ],
+      "teacher_walkthrough": [
+        "Step 1: First throw stage.\nAn ordinary fair 6-sided die is rolled once.\nThere are 6 possible outcomes: $1, 2, 3, 4, 5, 6$, each with probability $\\frac{1}{6}$.\n\nStep 2: Identify terminal nodes vs continuation nodes.\n- If the result is $2, 3, 4$, or $5$, the game terminates immediately:\n  - Score $= 2$ (prob $\\frac{1}{6}$)\n  - Score $= 3$ (prob $\\frac{1}{6}$)\n  - Score $= 4$ (prob $\\frac{1}{6}$)\n  - Score $= 5$ (prob $\\frac{1}{6}$)\n- If the result is $1$ or $6$, a second throw is made.\n\nStep 3: Second throw stage.\n- After $1$: six branches $1, 2, 3, 4, 5, 6$ with probability $\\frac{1}{6}$ each.\n  Scores are sums: $1+1=2, 1+2=3, 1+3=4, 1+4=5, 1+5=6, 1+6=7$.\n- After $6$: six branches $1, 2, 3, 4, 5, 6$ with probability $\\frac{1}{6}$ each.\n  Scores are sums: $6+1=7, 6+2=8, 6+3=9, 6+4=10, 6+5=11, 6+6=12$."
+      ],
+      "checking": {
+        "mode": "ai",
+        "ai_rubric": {
+          "Constructing Tree Diagrams": "Draws fully labelled tree diagram showing 1st throw 1-6 each with prob 1/6, and 2nd throw branches 1-6 following 1 and 6 with scores identified. For this part: Draw a fully labelled tree diagram to represent this information."
+        },
+        "criteria_source": "mark_scheme_structured"
+      }
+    },
+    {
+      "part_id": "9709_w22_51_q5_b",
+      "difficulty": 3,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_s1_t_probability",
+        "module_id": "9709_s1_t_probability_m03",
+        "lesson_id": "9709_s1_t_probability_m03_l02"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_applying_the_addition_rule",
+        "skill_tags": [
+          "Applying the Addition Rule"
+        ]
+      },
+      "question_pattern_ids": [
+        "9709_s1_pattern_tree_diagram_total_probability"
+      ],
+      "knowledge_refs": {
+        "formula_ids": [],
+        "identity_ids": [],
+        "method_ids": [
+          "9709_s1_method_applying_the_addition_rule"
+        ],
+        "fact_ids": [
+          "9709_s1_fact_addition_principle_counting"
+        ]
+      },
+      "hints": [
+        "Event $A$ is that the player's final score is 5, 6, 7, 8, or 9.",
+        "Consider scores from 1 throw: rolling 5 on the first throw gives score 5 (probability $1/6 = 6/36$).",
+        "Consider scores from 2 throws starting with 1: sums 5, 6, 7 arise from $(1, 4), (1, 5), (1, 6)$ (each probability $1/36$).",
+        "Consider scores from 2 throws starting with 6: sums 7, 8, 9 arise from $(6, 1), (6, 2), (6, 3)$ (each probability $1/36$). Sum all probabilities."
+      ],
+      "walkthrough": [
+        "Identify all mutually exclusive outcomes that produce a final score in $\\{5, 6, 7, 8, 9\\}$:",
+        "Case 1 (Single throw): Throw 1 results in $5$:\n$$\\mathrm{P}(\\text{Throw 1} = 5) = \\frac{1}{6} = \\frac{6}{36}$$",
+        "Case 2 (Two throws starting with 1): Sums in $\\{5, 6, 7, 8, 9\\}$ are $(1, 4) \\to 5$, $(1, 5) \\to 6$, $(1, 6) \\to 7$:\n$$\\mathrm{P}(1 \\cap \\{4, 5, 6\\}) = 3 \\times \\left(\\frac{1}{6} \\times \\frac{1}{6}\\right) = \\frac{3}{36}$$",
+        "Case 3 (Two throws starting with 6): Sums in $\\{5, 6, 7, 8, 9\\}$ are $(6, 1) \\to 7$, $(6, 2) \\to 8$, $(6, 3) \\to 9$:\n$$\\mathrm{P}(6 \\cap \\{1, 2, 3\\}) = 3 \\times \\left(\\frac{1}{6} \\times \\frac{1}{6}\\right) = \\frac{3}{36}$$",
+        "Add the probabilities together:\n$$\\mathrm{P}(A) = \\frac{6}{36} + \\frac{3}{36} + \\frac{3}{36} = \\frac{12}{36} = \\frac{1}{3}$$"
+      ],
+      "teacher_walkthrough": [
+        "Step 1: Understand Event $A$.\nEvent $A$: the final score is in $\\{5, 6, 7, 8, 9\\}$.\n\nStep 2: Collect favorable outcomes by path.\n- Path 1: 1st throw is 5 (stops immediately).\n  $$\\mathrm{P}(\\text{score } 5 \\text{ on throw 1}) = \\frac{1}{6} = \\frac{6}{36}$$\n- Path 2: 1st throw is 1, followed by a second throw.\n  - $(1, 4) \\implies \\text{score } 5$\n  - $(1, 5) \\implies \\text{score } 6$\n  - $(1, 6) \\implies \\text{score } 7$\n  Each branch has probability $\\frac{1}{6} \\times \\frac{1}{6} = \\frac{1}{36}$.\n  Total for this path $= 3 \\times \\frac{1}{36} = \\frac{3}{36}$.\n- Path 3: 1st throw is 6, followed by a second throw.\n  - $(6, 1) \\implies \\text{score } 7$\n  - $(6, 2) \\implies \\text{score } 8$\n  - $(6, 3) \\implies \\text{score } 9$\n  Total for this path $= 3 \\times \\frac{1}{36} = \\frac{3}{36}$.\n\nStep 3: Sum the probabilities of all disjoint paths.\n$$\\mathrm{P}(A) = \\frac{6}{36} + \\frac{3}{36} + \\frac{3}{36} = \\frac{12}{36} = \\frac{1}{3}$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "ai_rubric": {
+          "Applying the Addition Rule": "Shows P(A) = 6/36 + 3/36 + 3/36 = 12/36 = 1/3. For this part: Show that P(A)=1/3."
+        },
+        "criteria_source": "mark_scheme_structured"
+      }
+    },
+    {
+      "part_id": "9709_w22_51_q5_c",
+      "difficulty": 3,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_s1_t_probability",
+        "module_id": "9709_s1_t_probability_m02",
+        "lesson_id": "9709_s1_t_probability_m02_l01"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_testing_for_independence",
+        "skill_tags": [
+          "Testing for Independence"
+        ]
+      },
+      "question_pattern_ids": [
+        "9709_s1_pattern_testing_event_independence"
+      ],
+      "knowledge_refs": {
+        "formula_ids": [],
+        "identity_ids": [
+          "9709_s1_identity_independent_events_product"
+        ],
+        "method_ids": [
+          "9709_s1_method_testing_or_using_independence"
+        ],
+        "fact_ids": []
+      },
+      "hints": [
+        "Recall the definition of independence: events $A$ and $B$ are independent if and only if $\\mathrm{P}(A \\cap B) = \\mathrm{P}(A) \\times \\mathrm{P}(B)$.",
+        "Find $\\mathrm{P}(B)$: Event $B$ is having two throws (first throw is 1 or 6), so $\\mathrm{P}(B) = 2/6 = 1/3$.",
+        "Find $\\mathrm{P}(A \\cap B)$: two throws AND score $\\in \\{5, 6, 7, 8, 9\\}$ (there are $3 + 3 = 6$ such outcomes out of 36).",
+        "Compare $\\mathrm{P}(A \\cap B) = 6/36 = 1/6$ with $\\mathrm{P}(A) \\times \\mathrm{P}(B) = (1/3)(1/3) = 1/9$."
+      ],
+      "walkthrough": [
+        "Determine the probability of event $B$ (the player has two throws):\n$$\\mathrm{P}(B) = \\mathrm{P}(\\text{Throw 1 is } 1 \\text{ or } 6) = \\frac{2}{6} = \\frac{1}{3}$$",
+        "Determine the probability of the intersection event $A \\cap B$:\n$A \\cap B$ comprises outcomes where the player has two throws AND scores $5, 6, 7, 8, 9$, which are $(1, 4), (1, 5), (1, 6), (6, 1), (6, 2), (6, 3)$ ($6$ outcomes):\n$$\\mathrm{P}(A \\cap B) = \\frac{6}{36} = \\frac{1}{6}$$",
+        "Compute the product of individual probabilities:\n$$\\mathrm{P}(A) \\times \\mathrm{P}(B) = \\frac{1}{3} \\times \\frac{1}{3} = \\frac{1}{9}$$",
+        "Compare $\\mathrm{P}(A \\cap B)$ and $\\mathrm{P}(A) \\times \\mathrm{P}(B)$:\n$$\\frac{1}{6} \\ne \\frac{1}{9} \\implies \\mathrm{P}(A \\cap B) \\ne \\mathrm{P}(A) \\times \\mathrm{P}(B)$$\nTherefore, events $A$ and $B$ are not independent."
+      ],
+      "teacher_walkthrough": [
+        "Step 1: Recall the mathematical test for independent events.\nTwo events $A$ and $B$ are independent if and only if:\n$$\\mathrm{P}(A \\cap B) = \\mathrm{P}(A) \\times \\mathrm{P}(B)$$\n\nStep 2: State $\\mathrm{P}(A)$ and calculate $\\mathrm{P}(B)$.\n- From part (b): $\\mathrm{P}(A) = \\frac{1}{3}$.\n- Event $B$: player throws the die twice.\nA second throw occurs if and only if the first roll is $1$ or $6$:\n$$\\mathrm{P}(B) = \\frac{2}{6} = \\frac{1}{3}$$\n\nStep 3: Calculate the product $\\mathrm{P}(A) \\times \\mathrm{P}(B)$.\n$$\\mathrm{P}(A) \\times \\mathrm{P}(B) = \\frac{1}{3} \\times \\frac{1}{3} = \\frac{1}{9}$$\n\nStep 4: Find $\\mathrm{P}(A \\cap B)$.\n$A \\cap B$ means having two throws AND obtaining a score of $5, 6, 7, 8$, or $9$.\nFrom part (b), these are:\n- From 1: $(1, 4), (1, 5), (1, 6)$ ($3$ outcomes)\n- From 6: $(6, 1), (6, 2), (6, 3)$ ($3$ outcomes)\nTotal outcomes in $A \\cap B = 6$.\n$$\\mathrm{P}(A \\cap B) = \\frac{6}{36} = \\frac{1}{6}$$\n\nStep 5: Conclude.\nSince $\\frac{1}{6} \\ne \\frac{1}{9}$, $\\mathrm{P}(A \\cap B) \\ne \\mathrm{P}(A) \\times \\mathrm{P}(B)$.\nTherefore, events $A$ and $B$ are not independent."
+      ],
+      "checking": {
+        "mode": "ai",
+        "ai_rubric": {
+          "Testing for Independence": "Shows P(A cap B) = 6/36 = 1/6 is not equal to P(A)P(B) = 1/9, concluding not independent. For this part: Determine whether or not events A and B are independent."
+        },
+        "criteria_source": "mark_scheme_structured"
+      }
+    },
+    {
+      "part_id": "9709_w22_51_q5_d",
+      "difficulty": 3,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_s1_t_probability",
+        "module_id": "9709_s1_t_probability_m04",
+        "lesson_id": "9709_s1_t_probability_m04_l01"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_calculating_conditional_probability",
+        "skill_tags": [
+          "Calculating Conditional Probability"
+        ]
+      },
+      "question_pattern_ids": [
+        "9709_s1_pattern_conditional_probability_complement_conditioning"
+      ],
+      "knowledge_refs": {
+        "formula_ids": [],
+        "identity_ids": [
+          "9709_s1_identity_conditional_probability"
+        ],
+        "method_ids": [
+          "9709_s1_method_calculating_conditional_probability"
+        ],
+        "fact_ids": []
+      },
+      "hints": [
+        "Use the conditional probability formula: $\\mathrm{P}(B \\mid A') = \\frac{\\mathrm{P}(B \\cap A')}{\\mathrm{P}(A')}$.",
+        "Find $\\mathrm{P}(A') = 1 - \\mathrm{P}(A) = 1 - 1/3 = 2/3 = 24/36$.",
+        "Find $\\mathrm{P}(B \\cap A')$: having two throws AND score NOT in $\\{5, 6, 7, 8, 9\\}$.",
+        "Divide the intersection probability by $2/3$."
+      ],
+      "walkthrough": [
+        "Apply the definition of conditional probability:\n$$\\mathrm{P}(B \\mid A') = \\frac{\\mathrm{P}(B \\cap A')}{\\mathrm{P}(A')}$$",
+        "Calculate the denominator $\\mathrm{P}(A')$ using the complement rule:\n$$\\mathrm{P}(A') = 1 - \\mathrm{P}(A) = 1 - \\frac{1}{3} = \\frac{2}{3} = \\frac{24}{36}$$",
+        "Calculate the numerator $\\mathrm{P}(B \\cap A')$:\nEvent $B$ has $12$ outcomes in total (6 after rolling 1, and 6 after rolling 6).\nSince $6$ of these outcomes belong to $A$, the remaining $12 - 6 = 6$ belong to $B \\cap A'$:\n- After $1$: $(1, 1) \\to 2$, $(1, 2) \\to 3$, $(1, 3) \\to 4$\n- After $6$: $(6, 4) \\to 10$, $(6, 5) \\to 11$, $(6, 6) \\to 12$\n$$\\mathrm{P}(B \\cap A') = \\frac{6}{36}$$",
+        "Evaluate the conditional probability:\n$$\\mathrm{P}(B \\mid A') = \\frac{6/36}{24/36} = \\frac{6}{24} = \\frac{1}{4} = 0.25$$"
+      ],
+      "teacher_walkthrough": [
+        "Step 1: State the conditional probability formula.\n$$\\mathrm{P}(B \\mid A') = \\frac{\\mathrm{P}(B \\cap A')}{\\mathrm{P}(A')}$$\n\nStep 2: Find the denominator $\\mathrm{P}(A')$.\nBy the complement rule:\n$$\\mathrm{P}(A') = 1 - \\mathrm{P}(A) = 1 - \\frac{1}{3} = \\frac{2}{3}$$\nIn 36ths: $\\mathrm{P}(A') = \\frac{24}{36}$.\n\nStep 3: Find the numerator $\\mathrm{P}(B \\cap A')$.\n$B \\cap A'$ is the event that the player makes two throws AND the final score is NOT in $\\{5, 6, 7, 8, 9\\}$.\nEvent $B$ consists of $12$ two-throw outcomes:\n- 6 branches from 1: sums are $2, 3, 4, 5, 6, 7$\n  Scores not in $\\{5, 6, 7, 8, 9\\}$: $(1, 1) \\to 2, (1, 2) \\to 3, (1, 3) \\to 4$ ($3$ outcomes)\n- 6 branches from 6: sums are $7, 8, 9, 10, 11, 12$\n  Scores not in $\\{5, 6, 7, 8, 9\\}$: $(6, 4) \\to 10, (6, 5) \\to 11, (6, 6) \\to 12$ ($3$ outcomes)\nTotal outcomes in $B \\cap A' = 3 + 3 = 6$.\n$$\\mathrm{P}(B \\cap A') = \\frac{6}{36}$$\n\nStep 4: Compute the fraction.\n$$\\mathrm{P}(B \\mid A') = \\frac{\\frac{6}{36}}{\\frac{24}{36}} = \\frac{6}{24} = \\frac{1}{4}$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "ai_rubric": {
+          "Calculating Conditional Probability": "Calculates P(B cap A') / P(A') = (6/36) / (24/36) = 1/4. For this part: Find P(B|A')."
+        },
+        "criteria_source": "mark_scheme_structured"
+      }
+    }
+  ]
+}

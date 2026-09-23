@@ -1,0 +1,1329 @@
+{
+  "schema_version": "9709_math_lesson_enrichment_v1",
+  "lesson_id": "9709_p3_t_algebra_m03_l01",
+  "topic_id": "9709_p3_t_algebra",
+  "numerical_values_checked": false,
+  "lesson_scope": "Finding rational roots, factorising cubics $(x-r)(ax^2+bx+c)$, solving polynomial equations with exact real roots, and substitutions like $u = \\ln x, u = e^x, u = \\sin\\theta$.",
+  "questions": [
+    {
+      "question_id": "9709_p3_t_algebra_m03_l01_drq01",
+      "sequence": 1,
+      "difficulty": "easy",
+      "difficulty_reason": "Drill: factorising a cubic polynomial given a known linear factor.",
+      "source_question_id": "drill_p3_alg_factorise_cubic_basic",
+      "source_role": "foundational_drill",
+      "dependency_role": "none",
+      "dependency_refs": [],
+      "parts": [
+        {
+          "part_id": "9709_p3_t_algebra_m03_l01_drq01_p01",
+          "difficulty": "easy",
+          "question_pattern_ids": [
+            "9709_p3_pattern_solve_equation"
+          ],
+          "source_evidence": {
+            "question_id": "drill_p3_alg_factorise_cubic_basic",
+            "part_id": "drill_p3_alg_factorise_cubic_basic_p01",
+            "legacy_practice_tier": "foundational",
+            "product_role": "warm_up_drill",
+            "structural_inspiration": "Factorising cubic by dividing by known factor (x-1) and factorising quadratic quotient."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Divide $p(x) = 2x^3 + x^2 - 5x + 2$ by $(x - 1)$ using polynomial division or equating coefficients.",
+            "The resulting quadratic quotient is $2x^2 + 3x - 2$.",
+            "Factorise $2x^2 + 3x - 2$ into two linear factors to write $p(x)$ as a product of three linear factors."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Divide $2x^3 + x^2 - 5x + 2$ by $(x - 1)$ by polynomial division:\n$$2x^3 + x^2 - 5x + 2 = (x - 1)(2x^2 + 3x - 2)$$"
+            },
+            {
+              "step": 2,
+              "text": "Factorise the quadratic factor $2x^2 + 3x - 2$:\n$$2x^2 + 3x - 2 = (2x - 1)(x + 2)$$"
+            },
+            {
+              "step": 3,
+              "text": "Combine all factors into the complete linear factorisation:\n$$p(x) = (x - 1)(2x - 1)(x + 2)$$"
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_algebra_m03_l01_drq01_p01_mp01",
+                "observable": "Divides $p(x)$ by $(x - 1)$ or uses inspection to obtain the quadratic factor $2x^2 + 3x - 2$."
+              },
+              {
+                "criterion_id": "9709_p3_t_algebra_m03_l01_drq01_p01_mp02",
+                "observable": "Obtains complete factorisation $(x - 1)(2x - 1)(x + 2)$ (or equivalent product of linear factors)."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_polynomial_factorisation"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_polynomial_factorisation"
+            ],
+            "method_ids": [
+              "9709_p3_method_polynomial_factorisation"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        }
+      ],
+      "_numerical_values_checked": false
+    },
+    {
+      "question_id": "9709_p3_t_algebra_m03_l01_drq02",
+      "sequence": 2,
+      "difficulty": "easy",
+      "difficulty_reason": "Drill: finding a rational root and showing the quadratic factor has no real roots.",
+      "source_question_id": "drill_p3_alg_cubic_one_real_root",
+      "source_role": "foundational_drill",
+      "dependency_role": "none",
+      "dependency_refs": [],
+      "parts": [
+        {
+          "part_id": "9709_p3_t_algebra_m03_l01_drq02_p01",
+          "difficulty": "easy",
+          "question_pattern_ids": [
+            "9709_p3_pattern_solve_equation"
+          ],
+          "source_evidence": {
+            "question_id": "drill_p3_alg_cubic_one_real_root",
+            "part_id": "drill_p3_alg_cubic_one_real_root_p01",
+            "legacy_practice_tier": "foundational",
+            "product_role": "warm_up_drill",
+            "structural_inspiration": "Testing integer root x = -1 and checking negative discriminant of quadratic factor."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Test small integer divisors of the constant term $3$ (such as $x = -1$) to locate a factor using the factor theorem.",
+            "Divide $x^3 + 2x^2 + 4x + 3$ by $(x + 1)$ to get the quadratic factor $x^2 + x + 3$.",
+            "Compute the discriminant $b^2 - 4ac$ of $x^2 + x + 3 = 0$ to confirm there are no further real roots, and state $x = -1$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Test $x = -1$ in $p(x) = x^3 + 2x^2 + 4x + 3$:\n$$p(-1) = (-1)^3 + 2(-1)^2 + 4(-1) + 3 = -1 + 2 - 4 + 3 = 0$$\nThus $(x + 1)$ is a factor."
+            },
+            {
+              "step": 2,
+              "text": "Divide $p(x)$ by $(x + 1)$ to find the quadratic quotient:\n$$x^3 + 2x^2 + 4x + 3 = (x + 1)(x^2 + x + 3)$$"
+            },
+            {
+              "step": 3,
+              "text": "Check the roots of $x^2 + x + 3 = 0$ using the discriminant:\n$$\\Delta = 1^2 - 4(1)(3) = 1 - 12 = -11 < 0$$\nSince $\\Delta < 0$, there are no real roots from the quadratic factor. The only real root is $x = -1$."
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_algebra_m03_l01_drq02_p01_mp01",
+                "observable": "Identifies root $x = -1$ (or factor $(x + 1)$) and obtains the quadratic factor $x^2 + x + 3$."
+              },
+              {
+                "criterion_id": "9709_p3_t_algebra_m03_l01_drq02_p01_mp02",
+                "observable": "Obtains $x = -1$ and confirms that $x^2 + x + 3 = 0$ has no real solutions (e.g. by evaluating discriminant $1 - 12 = -11 < 0$)."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_polynomial_factorisation",
+            "9709_p3_skill_solving_polynomial_equations"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_polynomial_factorisation",
+              "9709_p3_skill_solving_polynomial_equations"
+            ],
+            "method_ids": [
+              "9709_p3_method_polynomial_factorisation",
+              "9709_p3_method_solving_polynomial_equations"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        }
+      ],
+      "_numerical_values_checked": false
+    },
+    {
+      "question_id": "9709_p3_t_algebra_m03_l01_drq03",
+      "sequence": 3,
+      "difficulty": "easy",
+      "difficulty_reason": "Drill: finding exact surd roots from a quadratic factor.",
+      "source_question_id": "drill_p3_alg_cubic_surd_roots",
+      "source_role": "foundational_drill",
+      "dependency_role": "none",
+      "dependency_refs": [],
+      "parts": [
+        {
+          "part_id": "9709_p3_t_algebra_m03_l01_drq03_p01",
+          "difficulty": "easy",
+          "question_pattern_ids": [
+            "9709_p3_pattern_solve_equation"
+          ],
+          "source_evidence": {
+            "question_id": "drill_p3_alg_cubic_surd_roots",
+            "part_id": "drill_p3_alg_cubic_surd_roots_p01",
+            "legacy_practice_tier": "foundational",
+            "product_role": "warm_up_drill",
+            "structural_inspiration": "Dividing by (x-1) and using quadratic formula on x^2 - 4x + 1 to find exact surds."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Divide $x^3 - 5x^2 + 5x - 1$ by $(x - 1)$ to obtain the quadratic quotient.",
+            "The quadratic equation to solve is $x^2 - 4x + 1 = 0$.",
+            "Use the quadratic formula or complete the square to find $x = 2 \\pm \\sqrt{3}$, and state all three exact roots including $x = 1$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Divide $p(x)$ by $(x - 1)$:\n$$x^3 - 5x^2 + 5x - 1 = (x - 1)(x^2 - 4x + 1)$$"
+            },
+            {
+              "step": 2,
+              "text": "Solve $x^2 - 4x + 1 = 0$ using the quadratic formula:\n$$x = \\frac{4 \\pm \\sqrt{(-4)^2 - 4(1)(1)}}{2} = \\frac{4 \\pm \\sqrt{12}}{2} = 2 \\pm \\sqrt{3}$$"
+            },
+            {
+              "step": 3,
+              "text": "List all three exact roots of $p(x) = 0$:\n$$x = 1, \\quad x = 2 + \\sqrt{3}, \\quad x = 2 - \\sqrt{3}$$"
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_algebra_m03_l01_drq03_p01_mp01",
+                "observable": "Divides by $(x - 1)$ to obtain quadratic quotient $x^2 - 4x + 1$ and applies quadratic formula or completes the square."
+              },
+              {
+                "criterion_id": "9709_p3_t_algebra_m03_l01_drq03_p01_mp02",
+                "observable": "Obtains all three exact roots $x = 1$ and $x = 2 \\pm \\sqrt{3}$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_polynomial_factorisation",
+            "9709_p3_skill_solving_polynomial_equations"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_polynomial_factorisation",
+              "9709_p3_skill_solving_polynomial_equations"
+            ],
+            "method_ids": [
+              "9709_p3_method_polynomial_factorisation",
+              "9709_p3_method_solving_polynomial_equations"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        }
+      ],
+      "_numerical_values_checked": false
+    },
+    {
+      "question_id": "9709_p3_t_algebra_m03_l01_drq04",
+      "sequence": 4,
+      "difficulty": "easy",
+      "difficulty_reason": "Drill: solving a hidden cubic equation via exponential substitution u = e^x.",
+      "source_question_id": "drill_p3_alg_substitution_exp",
+      "source_role": "foundational_drill",
+      "dependency_role": "none",
+      "dependency_refs": [],
+      "parts": [
+        {
+          "part_id": "9709_p3_t_algebra_m03_l01_drq04_p01",
+          "difficulty": "easy",
+          "question_pattern_ids": [
+            "9709_p3_pattern_solve_equation"
+          ],
+          "source_evidence": {
+            "question_id": "drill_p3_alg_substitution_exp",
+            "part_id": "drill_p3_alg_substitution_exp_p01",
+            "legacy_practice_tier": "foundational",
+            "product_role": "warm_up_drill",
+            "structural_inspiration": "Setting u = e^x to obtain u^3 - 4u^2 + u + 6 = 0, solving for u and rejecting u < 0."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Let $u = e^x$ to transform the equation into a cubic: $u^3 - 4u^2 + u + 6 = 0$.",
+            "Factorise the cubic into $(u + 1)(u - 2)(u - 3) = 0$ to find the roots $u = -1, 2, 3$.",
+            "Since $e^x > 0$ for all real $x$, reject $u = -1$. Solve $e^x = 2$ and $e^x = 3$ by taking natural logs."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Substitute $u = e^x$. The equation becomes:\n$$u^3 - 4u^2 + u + 6 = 0$$"
+            },
+            {
+              "step": 2,
+              "text": "Factorise the polynomial:\n$$(u + 1)(u^2 - 5u + 6) = (u + 1)(u - 2)(u - 3) = 0$$\nSo $u = -1$, $u = 2$, or $u = 3$."
+            },
+            {
+              "step": 3,
+              "text": "Substitute back $u = e^x$:\n- $e^x = -1$ has no real solutions since $e^x > 0$ for all $x \\in \\mathbb{R}$.\n- $e^x = 2 \\implies x = \\ln 2$\n- $e^x = 3 \\implies x = \\ln 3$\nThus the exact solutions are $x = \\ln 2$ and $x = \\ln 3$."
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_algebra_m03_l01_drq04_p01_mp01",
+                "observable": "Substitutes $u = e^x$, solves the cubic equation to get $u = 2, 3$, and notes that $e^x = -1$ has no real solution."
+              },
+              {
+                "criterion_id": "9709_p3_t_algebra_m03_l01_drq04_p01_mp02",
+                "observable": "Obtains exact roots $x = \\ln 2$ and $x = \\ln 3$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_polynomial_factorisation",
+            "9709_p3_skill_solving_polynomial_equations"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_polynomial_factorisation",
+              "9709_p3_skill_solving_polynomial_equations"
+            ],
+            "method_ids": [
+              "9709_p3_method_polynomial_factorisation",
+              "9709_p3_method_solving_polynomial_equations"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        }
+      ],
+      "_numerical_values_checked": false
+    },
+    {
+      "question_id": "9709_p3_t_algebra_m03_l01_drq05",
+      "sequence": 5,
+      "difficulty": "easy",
+      "difficulty_reason": "Drill: solving a hidden cubic equation via logarithmic substitution u = ln x.",
+      "source_question_id": "drill_p3_alg_substitution_ln",
+      "source_role": "foundational_drill",
+      "dependency_role": "none",
+      "dependency_refs": [],
+      "parts": [
+        {
+          "part_id": "9709_p3_t_algebra_m03_l01_drq05_p01",
+          "difficulty": "easy",
+          "question_pattern_ids": [
+            "9709_p3_pattern_solve_equation"
+          ],
+          "source_evidence": {
+            "question_id": "drill_p3_alg_substitution_ln",
+            "part_id": "drill_p3_alg_substitution_ln_p01",
+            "legacy_practice_tier": "foundational",
+            "product_role": "warm_up_drill",
+            "structural_inspiration": "Setting u = ln x to obtain 2u^3 + u^2 - 5u + 2 = 0, solving for u and taking exponentials."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Substitute $u = \\ln x$ to express the equation as a cubic: $2u^3 + u^2 - 5u + 2 = 0$.",
+            "Factorise the cubic into $(u - 1)(2u - 1)(u + 2) = 0$ to get $u = 1, \\frac{1}{2}, -2$.",
+            "Invert each value using $x = e^u$ to find all three exact solutions $x = e, \\sqrt{e}, e^{-2}$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Let $u = \\ln x$. The equation becomes:\n$$2u^3 + u^2 - 5u + 2 = 0$$"
+            },
+            {
+              "step": 2,
+              "text": "Factorise the cubic expression:\n$$(u - 1)(2u - 1)(u + 2) = 0$$\nThis gives $u = 1$, $u = \\frac{1}{2}$, and $u = -2$."
+            },
+            {
+              "step": 3,
+              "text": "Convert each $u$ back to $x$ using $x = e^u$:\n$$\\ln x = 1 \\implies x = e$$\n$$\\ln x = \\frac{1}{2} \\implies x = e^{1/2} = \\sqrt{e}$$\n$$\\ln x = -2 \\implies x = e^{-2} = \\frac{1}{e^2}$$\nAll three values of $x$ are positive and valid."
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_algebra_m03_l01_drq05_p01_mp01",
+                "observable": "Substitutes $u = \\ln x$ and solves the cubic equation to find $u = 1, \\frac{1}{2}, -2$."
+              },
+              {
+                "criterion_id": "9709_p3_t_algebra_m03_l01_drq05_p01_mp02",
+                "observable": "Obtains all three exact solutions $x = e, \\sqrt{e}$ (or $e^{1/2}$), $e^{-2}$ (or $\\frac{1}{e^2}$)."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_polynomial_factorisation",
+            "9709_p3_skill_solving_polynomial_equations"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_polynomial_factorisation",
+              "9709_p3_skill_solving_polynomial_equations"
+            ],
+            "method_ids": [
+              "9709_p3_method_polynomial_factorisation",
+              "9709_p3_method_solving_polynomial_equations"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        }
+      ],
+      "_numerical_values_checked": false
+    },
+    {
+      "question_id": "9709_p3_t_algebra_m03_l01_drq06",
+      "sequence": 6,
+      "difficulty": "easy",
+      "difficulty_reason": "Drill: solving a polynomial inequality with an always-positive quadratic factor.",
+      "source_question_id": "drill_p3_alg_inequality_irreducible_quadratic",
+      "source_role": "foundational_drill",
+      "dependency_role": "none",
+      "dependency_refs": [],
+      "parts": [
+        {
+          "part_id": "9709_p3_t_algebra_m03_l01_drq06_p01",
+          "difficulty": "easy",
+          "question_pattern_ids": [
+            "9709_p3_pattern_solve_inequality"
+          ],
+          "source_evidence": {
+            "question_id": "drill_p3_alg_inequality_irreducible_quadratic",
+            "part_id": "drill_p3_alg_inequality_irreducible_quadratic_p01",
+            "legacy_practice_tier": "foundational",
+            "product_role": "warm_up_drill",
+            "structural_inspiration": "Evaluating sign of irreducible quadratic factor x^2 + 2x + 4 to deduce inequality x <= 2."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Check the discriminant of the quadratic factor $x^2 + 2x + 4$.",
+            "Since $\\Delta = 2^2 - 4(1)(4) = -12 < 0$ and the coefficient of $x^2$ is positive, $x^2 + 2x + 4 > 0$ for all real $x$.",
+            "Because the quadratic factor is strictly positive for all $x$, the sign of the product depends solely on $(x - 2) \\le 0$, yielding $x \\le 2$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Analyze the quadratic factor $x^2 + 2x + 4$:\n$$\\Delta = b^2 - 4ac = 2^2 - 4(1)(4) = 4 - 16 = -12 < 0$$\nAlternatively, completing the square gives $(x + 1)^2 + 3 > 0$ for all real $x$."
+            },
+            {
+              "step": 2,
+              "text": "Because $x^2 + 2x + 4$ is strictly positive for all $x \\in \\mathbb{R}$, we can divide both sides of $(x - 2)(x^2 + 2x + 4) \\le 0$ by $(x^2 + 2x + 4)$ without changing the inequality direction:\n$$x - 2 \\le 0$$"
+            },
+            {
+              "step": 3,
+              "text": "State the final solution:\n$$x \\le 2$$"
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_algebra_m03_l01_drq06_p01_mp01",
+                "observable": "Demonstrates or states that $x^2 + 2x + 4 > 0$ for all real $x$ (e.g. via discriminant $b^2 - 4ac = -12 < 0$ or $(x+1)^2 + 3 > 0$)."
+              },
+              {
+                "criterion_id": "9709_p3_t_algebra_m03_l01_drq06_p01_mp02",
+                "observable": "Obtains correct inequality $x \\le 2$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_solving_inequalities"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_solving_inequalities"
+            ],
+            "method_ids": [
+              "9709_p3_method_solving_inequalities"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        }
+      ],
+      "_numerical_values_checked": false
+    },
+    {
+      "question_id": "9709_p3_t_algebra_m03_l01_cpq01",
+      "sequence": 7,
+      "difficulty": "easy",
+      "difficulty_reason": "Structured practice: verifying a rational root using the factor theorem, dividing to find a quadratic quotient, and obtaining exact surd roots.",
+      "source_question_id": "9709_m25_32_q9_b",
+      "source_role": "direct_pattern_adaptation",
+      "dependency_role": "none",
+      "dependency_refs": [],
+      "parts": [
+        {
+          "part_id": "9709_p3_t_algebra_m03_l01_cpq01_p01",
+          "difficulty": "easy",
+          "question_pattern_ids": [
+            "9709_p3_pattern_prove_or_show",
+            "9709_p3_pattern_solve_equation"
+          ],
+          "source_evidence": {
+            "question_id": "9709_m25_32_q9_b",
+            "part_id": "9709_m25_32_q9_b",
+            "legacy_practice_tier": "exam_level",
+            "product_role": "core_practice",
+            "structural_inspiration": "Verifying linear factor (2x-1) and solving quadratic quotient for exact surds."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Evaluate $p(\\frac{1}{2})$ to verify that $(2x - 1)$ is a factor of $p(x) = 2x^3 - 5x^2 + 1$.",
+            "Divide $p(x)$ by $(2x - 1)$ using polynomial long division or synthetic division to find the quadratic quotient $x^2 - 2x - 1$.",
+            "Solve $x^2 - 2x - 1 = 0$ using the quadratic formula $x = \\frac{2 \\pm \\sqrt{4 - 4(1)(-1)}}{2}$ and list all three roots including $x = \\frac{1}{2}$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Apply the Factor Theorem for $x = \\frac{1}{2}$:\n$$p\\left(\\frac{1}{2}\\right) = 2\\left(\\frac{1}{8}\\right) - 5\\left(\\frac{1}{4}\\right) + 1 = \\frac{1}{4} - \\frac{5}{4} + 1 = 0$$\nHence $(2x - 1)$ is a factor of $p(x)$."
+            },
+            {
+              "step": 2,
+              "text": "Divide $2x^3 - 5x^2 + 1$ by $(2x - 1)$ to obtain the quadratic quotient:\n$$2x^3 - 5x^2 + 1 = (2x - 1)(x^2 - 2x - 1)$$"
+            },
+            {
+              "step": 3,
+              "text": "Solve $x^2 - 2x - 1 = 0$:\n$$x = \\frac{2 \\pm \\sqrt{(-2)^2 - 4(1)(-1)}}{2} = \\frac{2 \\pm \\sqrt{8}}{2} = 1 \\pm \\sqrt{2}$$"
+            },
+            {
+              "step": 4,
+              "text": "State all exact real roots:\n$$x = \\frac{1}{2}, \\quad x = 1 + \\sqrt{2}, \\quad x = 1 - \\sqrt{2}$$"
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_algebra_m03_l01_cpq01_p01_mp01",
+                "observable": "Substitutes $x = \\frac{1}{2}$ to show $p(\\frac{1}{2}) = 2(\\frac{1}{8}) - 5(\\frac{1}{4}) + 1 = 0$ (or divides $p(x)$ by $(2x - 1)$ showing zero remainder)."
+              },
+              {
+                "criterion_id": "9709_p3_t_algebra_m03_l01_cpq01_p01_mp02",
+                "observable": "Obtains quadratic quotient $x^2 - 2x - 1$ by polynomial division or inspection."
+              },
+              {
+                "criterion_id": "9709_p3_t_algebra_m03_l01_cpq01_p01_mp03",
+                "observable": "Applies quadratic formula or completes square to solve $x^2 - 2x - 1 = 0$."
+              },
+              {
+                "criterion_id": "9709_p3_t_algebra_m03_l01_cpq01_p01_mp04",
+                "observable": "Obtains all three exact roots $x = \\frac{1}{2}$ and $x = 1 \\pm \\sqrt{2}$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_polynomial_factorisation",
+            "9709_p3_skill_solving_polynomial_equations"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_polynomial_factorisation",
+              "9709_p3_skill_solving_polynomial_equations"
+            ],
+            "method_ids": [
+              "9709_p3_method_polynomial_factorisation",
+              "9709_p3_method_solving_polynomial_equations"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        }
+      ],
+      "_numerical_values_checked": false
+    },
+    {
+      "question_id": "9709_p3_t_algebra_m03_l01_cpq02",
+      "sequence": 8,
+      "difficulty": "medium",
+      "difficulty_reason": "Structured practice: cubic factorisation leading to an irreducible quadratic factor and solving a polynomial inequality with rigorous justification.",
+      "source_question_id": "9709_w22_32_q2_b",
+      "source_role": "direct_pattern_adaptation",
+      "dependency_role": "none",
+      "dependency_refs": [],
+      "parts": [
+        {
+          "part_id": "9709_p3_t_algebra_m03_l01_cpq02_p01",
+          "difficulty": "medium",
+          "question_pattern_ids": [
+            "9709_p3_pattern_solve_inequality"
+          ],
+          "source_evidence": {
+            "question_id": "9709_w22_32_q2_b",
+            "part_id": "9709_w22_32_q2_b",
+            "legacy_practice_tier": "exam_level",
+            "product_role": "core_practice",
+            "structural_inspiration": "Dividing by (3x+2) and showing quadratic factor has negative discriminant to solve cubic inequality."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Divide $3x^3 - 10x^2 + 13x + 14$ by $(3x + 2)$ to find the quadratic quotient.",
+            "The factorisation gives $p(x) = (3x + 2)(x^2 - 4x + 7)$.",
+            "Analyze the quadratic factor $x^2 - 4x + 7$ by checking its discriminant $\\Delta = (-4)^2 - 4(1)(7) = -12 < 0$ or by completing the square $(x - 2)^2 + 3 > 0$.",
+            "Since $x^2 - 4x + 7 > 0$ for all real $x$, the sign of $p(x)$ is determined entirely by $(3x + 2) \\ge 0$. Solve for $x$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Divide $p(x) = 3x^3 - 10x^2 + 13x + 14$ by $(3x + 2)$:\n$$p(x) = (3x + 2)(x^2 - 4x + 7)$$"
+            },
+            {
+              "step": 2,
+              "text": "Check the sign of the quadratic quotient $x^2 - 4x + 7$:\n$$\\Delta = b^2 - 4ac = (-4)^2 - 4(1)(7) = 16 - 28 = -12 < 0$$\nAlternatively, completing the square gives $(x - 2)^2 + 3 \\ge 3 > 0$ for all $x \\in \\mathbb{R}$."
+            },
+            {
+              "step": 3,
+              "text": "Because $x^2 - 4x + 7$ is strictly positive for all real numbers, $p(x) \\ge 0$ is equivalent to:\n$$3x + 2 \\ge 0$$"
+            },
+            {
+              "step": 4,
+              "text": "Solve for $x$:\n$$x \\ge -\\frac{2}{3}$$"
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_algebra_m03_l01_cpq02_p01_mp01",
+                "observable": "Commences division by $(3x + 2)$ or inspection to obtain quadratic quotient $x^2 - 4x + 7$."
+              },
+              {
+                "criterion_id": "9709_p3_t_algebra_m03_l01_cpq02_p01_mp02",
+                "observable": "Correctly obtains factorisation $(3x + 2)(x^2 - 4x + 7)$."
+              },
+              {
+                "criterion_id": "9709_p3_t_algebra_m03_l01_cpq02_p01_mp03",
+                "observable": "Demonstrates that $x^2 - 4x + 7 > 0$ for all real $x$ (e.g. discriminant $\\Delta = 16 - 28 = -12 < 0$ or $(x - 2)^2 + 3 > 0$)."
+              },
+              {
+                "criterion_id": "9709_p3_t_algebra_m03_l01_cpq02_p01_mp04",
+                "observable": "Deduces and states final answer $x \\ge -\\frac{2}{3}$ from fully justified working."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_polynomial_factorisation",
+            "9709_p3_skill_solving_inequalities"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_polynomial_factorisation",
+              "9709_p3_skill_solving_inequalities"
+            ],
+            "method_ids": [
+              "9709_p3_method_polynomial_factorisation",
+              "9709_p3_method_solving_inequalities"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        }
+      ],
+      "_numerical_values_checked": false
+    },
+    {
+      "question_id": "9709_p3_t_algebra_m03_l01_cpq03",
+      "sequence": 9,
+      "difficulty": "medium",
+      "difficulty_reason": "Structured practice: multi-part question factorising a cubic in u and solving a trigonometric cubic equation in sin theta.",
+      "source_question_id": "9709_m16_32_q4_ii_a",
+      "source_role": "direct_pattern_adaptation",
+      "dependency_role": "none",
+      "dependency_refs": [],
+      "parts": [
+        {
+          "part_id": "9709_p3_t_algebra_m03_l01_cpq03_p01",
+          "difficulty": "easy",
+          "question_pattern_ids": [
+            "9709_p3_pattern_solve_equation"
+          ],
+          "source_evidence": {
+            "question_id": "9709_m16_32_q4_ii_a",
+            "part_id": "9709_m16_32_q4_ii_a",
+            "legacy_practice_tier": "exam_level",
+            "product_role": "core_practice",
+            "structural_inspiration": "Factorising cubic into 3 linear factors."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Test integer divisors of $2$, such as $u = -1$, using the factor theorem.",
+            "Since $2(-1)^3 - 3(-1)^2 - 3(-1) + 2 = 0$, $(u + 1)$ is a factor. Divide to find the quadratic quotient $2u^2 - 5u + 2$.",
+            "Factorise $2u^2 - 5u + 2$ into $(2u - 1)(u - 2)$ and write out all three linear factors."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Notice that $u = -1$ is a root:\n$$2(-1)^3 - 3(-1)^2 - 3(-1) + 2 = -2 - 3 + 3 + 2 = 0$$\nHence $(u + 1)$ is a linear factor."
+            },
+            {
+              "step": 2,
+              "text": "Divide by $(u + 1)$ to get the quadratic factor:\n$$2u^3 - 3u^2 - 3u + 2 = (u + 1)(2u^2 - 5u + 2)$$"
+            },
+            {
+              "step": 3,
+              "text": "Factorise the quadratic factor:\n$$2u^2 - 5u + 2 = (2u - 1)(u - 2)$$"
+            },
+            {
+              "step": 4,
+              "text": "State the complete factorisation:\n$$(u + 1)(2u - 1)(u - 2)$$"
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_algebra_m03_l01_cpq03_p01_mp01",
+                "observable": "Identifies a linear factor (e.g. $(u + 1)$ or $(u - 2)$ or $(2u - 1)$) and finds the quadratic quotient $2u^2 - 5u + 2$ (or equivalent)."
+              },
+              {
+                "criterion_id": "9709_p3_t_algebra_m03_l01_cpq03_p01_mp02",
+                "observable": "Obtains complete factorisation $(u + 1)(2u - 1)(u - 2)$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_polynomial_factorisation"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_polynomial_factorisation"
+            ],
+            "method_ids": [
+              "9709_p3_method_polynomial_factorisation"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        },
+        {
+          "part_id": "9709_p3_t_algebra_m03_l01_cpq03_p02",
+          "difficulty": "medium",
+          "question_pattern_ids": [
+            "9709_p3_pattern_trigonometric_reasoning",
+            "9709_p3_pattern_multi_part_dependency"
+          ],
+          "source_evidence": {
+            "question_id": "9709_m16_32_q4_ii_b",
+            "part_id": "9709_m16_32_q4_ii_b",
+            "legacy_practice_tier": "exam_level",
+            "product_role": "core_practice",
+            "structural_inspiration": "Substituting u = sin theta and solving trigonometric equation."
+          },
+          "dependency_role": "target",
+          "dependency_refs": [
+            "9709_p3_t_algebra_m03_l01_cpq03_p01"
+          ],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Use your factorisation from part (a) by substituting $u = \\sin\\theta$.",
+            "The equation becomes $(\\sin\\theta + 1)(2\\sin\\theta - 1)(\\sin\\theta - 2) = 0$.",
+            "Notice that $\\sin\\theta = 2$ has no real solutions because $-1 \\le \\sin\\theta \\le 1$.",
+            "Solve $\\sin\\theta = \\frac{1}{2}$ and $\\sin\\theta = -1$ for $0 \\le \\theta \\le 2\\pi$ to find all exact solutions in terms of $\\pi$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Substitute $u = \\sin\\theta$ using the factorisation from part (a):\n$$(\\sin\\theta + 1)(2\\sin\\theta - 1)(\\sin\\theta - 2) = 0$$"
+            },
+            {
+              "step": 2,
+              "text": "Examine the roots for $\\sin\\theta$:\n- $\\sin\\theta = 2$: no solution because $-1 \\le \\sin\\theta \\le 1$.\n- $\\sin\\theta = \\frac{1}{2} \\implies \\theta = \\frac{\\pi}{6}, \\frac{5\\pi}{6}$.\n- $\\sin\\theta = -1 \\implies \\theta = \\frac{3\\pi}{2}$."
+            },
+            {
+              "step": 3,
+              "text": "List all solutions in the interval $[0, 2\\pi]$:\n$$\\theta = \\frac{\\pi}{6}, \\quad \\theta = \\frac{5\\pi}{6}, \\quad \\theta = \\frac{3\\pi}{2}$$"
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_algebra_m03_l01_cpq03_p02_mp01",
+                "observable": "Sets $\\sin\\theta = -1, \\frac{1}{2}, 2$ and rejects $\\sin\\theta = 2$."
+              },
+              {
+                "criterion_id": "9709_p3_t_algebra_m03_l01_cpq03_p02_mp02",
+                "observable": "Obtains roots $\\theta = \\frac{\\pi}{6}$ and $\\theta = \\frac{5\\pi}{6}$ from $\\sin\\theta = \\frac{1}{2}$."
+              },
+              {
+                "criterion_id": "9709_p3_t_algebra_m03_l01_cpq03_p02_mp03",
+                "observable": "Obtains $\\theta = \\frac{3\\pi}{2}$ from $\\sin\\theta = -1$, and gives all three exact solutions in range without extraneous roots."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_solving_polynomial_equations"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_solving_polynomial_equations"
+            ],
+            "method_ids": [
+              "9709_p3_method_solving_polynomial_equations"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        }
+      ],
+      "_numerical_values_checked": false
+    },
+    {
+      "question_id": "9709_p3_t_algebra_m03_l01_cpq04",
+      "sequence": 10,
+      "difficulty": "medium",
+      "difficulty_reason": "Structured practice: quartic polynomial with two known linear factors, requiring division by a quadratic divisor and proving the quotient has no real roots.",
+      "source_question_id": "9709_w16_33_q4_ii",
+      "source_role": "direct_pattern_adaptation",
+      "dependency_role": "none",
+      "dependency_refs": [],
+      "parts": [
+        {
+          "part_id": "9709_p3_t_algebra_m03_l01_cpq04_p01",
+          "difficulty": "medium",
+          "question_pattern_ids": [
+            "9709_p3_pattern_solve_equation"
+          ],
+          "source_evidence": {
+            "question_id": "9709_w16_33_q4_ii",
+            "part_id": "9709_w16_33_q4_ii",
+            "legacy_practice_tier": "exam_level",
+            "product_role": "core_practice",
+            "structural_inspiration": "Factoring quartic using quadratic product (x-3)(x+1) and finding real roots."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Multiply the two known factors together: $(x - 3)(x + 1) = x^2 - 2x - 3$.",
+            "Divide the quartic $p(x) = 2x^4 - 3x^3 - 4x^2 - 11x - 12$ by $(x^2 - 2x - 3)$ using polynomial long division.",
+            "The division yields the quotient $2x^2 + x + 4$.",
+            "Check the discriminant $\\Delta = 1^2 - 4(2)(4) = -31 < 0$ to demonstrate that $2x^2 + x + 4 = 0$ has no real roots, and state the two real roots from the linear factors."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Combine the known linear factors into a quadratic divisor:\n$$(x - 3)(x + 1) = x^2 - 2x - 3$$"
+            },
+            {
+              "step": 2,
+              "text": "Divide $2x^4 - 3x^3 - 4x^2 - 11x - 12$ by $x^2 - 2x - 3$:\n$$2x^4 - 3x^3 - 4x^2 - 11x - 12 = (x^2 - 2x - 3)(2x^2 + x + 4)$$"
+            },
+            {
+              "step": 3,
+              "text": "Check for roots of the quotient quadratic $2x^2 + x + 4 = 0$:\n$$\\Delta = b^2 - 4ac = 1^2 - 4(2)(4) = 1 - 32 = -31 < 0$$\nBecause $\\Delta < 0$, the quadratic factor produces no real roots."
+            },
+            {
+              "step": 4,
+              "text": "Conclude that the only real roots of $p(x) = 0$ are:\n$$x = 3 \\quad \\text{and} \\quad x = -1$$"
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_algebra_m03_l01_cpq04_p01_mp01",
+                "observable": "Forms quadratic divisor $(x - 3)(x + 1) = x^2 - 2x - 3$ or commences sequential division by linear factors."
+              },
+              {
+                "criterion_id": "9709_p3_t_algebra_m03_l01_cpq04_p01_mp02",
+                "observable": "Obtains the quotient quadratic factor $2x^2 + x + 4$."
+              },
+              {
+                "criterion_id": "9709_p3_t_algebra_m03_l01_cpq04_p01_mp03",
+                "observable": "Evaluates discriminant of $2x^2 + x + 4 = 0$ as $\\Delta = 1 - 32 = -31 < 0$ and concludes it has no real roots."
+              },
+              {
+                "criterion_id": "9709_p3_t_algebra_m03_l01_cpq04_p01_mp04",
+                "observable": "States final exact real roots $x = 3$ and $x = -1$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_polynomial_factorisation",
+            "9709_p3_skill_solving_polynomial_equations"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_polynomial_factorisation",
+              "9709_p3_skill_solving_polynomial_equations"
+            ],
+            "method_ids": [
+              "9709_p3_method_polynomial_factorisation",
+              "9709_p3_method_solving_polynomial_equations"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        }
+      ],
+      "_numerical_values_checked": false
+    },
+    {
+      "question_id": "9709_p3_t_algebra_m03_l01_cpq05",
+      "sequence": 11,
+      "difficulty": "medium",
+      "difficulty_reason": "Structured practice: complete factorisation of a cubic in u followed by solving an exponential substitution in e^x.",
+      "source_question_id": "9709_m16_32_q4_ii_a",
+      "source_role": "direct_pattern_adaptation",
+      "dependency_role": "none",
+      "dependency_refs": [],
+      "parts": [
+        {
+          "part_id": "9709_p3_t_algebra_m03_l01_cpq05_p01",
+          "difficulty": "easy",
+          "question_pattern_ids": [
+            "9709_p3_pattern_solve_equation"
+          ],
+          "source_evidence": {
+            "question_id": "9709_m16_32_q4_ii_a",
+            "part_id": "9709_m16_32_q4_ii_a",
+            "legacy_practice_tier": "exam_level",
+            "product_role": "core_practice",
+            "structural_inspiration": "Proving factor (u-2) and factorising cubic into 3 linear factors."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Substitute $u = 2$ into $2u^3 - 7u^2 + 7u - 2$ to verify that it equals zero.",
+            "Divide $2u^3 - 7u^2 + 7u - 2$ by $(u - 2)$ to find the quadratic quotient $2u^2 - 3u + 1$.",
+            "Factorise $2u^2 - 3u + 1$ into $(2u - 1)(u - 1)$ to obtain the three linear factors."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Verify $(u - 2)$ is a factor using the factor theorem:\n$$2(2)^3 - 7(2)^2 + 7(2) - 2 = 16 - 28 + 14 - 2 = 0$$\nThus $(u - 2)$ is a factor."
+            },
+            {
+              "step": 2,
+              "text": "Divide by $(u - 2)$ to obtain the quadratic quotient:\n$$2u^3 - 7u^2 + 7u - 2 = (u - 2)(2u^2 - 3u + 1)$$"
+            },
+            {
+              "step": 3,
+              "text": "Factorise the quadratic factor:\n$$2u^2 - 3u + 1 = (2u - 1)(u - 1)$$"
+            },
+            {
+              "step": 4,
+              "text": "State the complete linear factorisation:\n$$(u - 2)(u - 1)(2u - 1)$$"
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_algebra_m03_l01_cpq05_p01_mp01",
+                "observable": "Evaluates $2(2)^3 - 7(2)^2 + 7(2) - 2 = 16 - 28 + 14 - 2 = 0$ to show $(u - 2)$ is a factor."
+              },
+              {
+                "criterion_id": "9709_p3_t_algebra_m03_l01_cpq05_p01_mp02",
+                "observable": "Divides by $(u - 2)$ to get $(2u^2 - 3u + 1)$ and obtains complete factorisation $(u - 2)(u - 1)(2u - 1)$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_polynomial_factorisation"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_polynomial_factorisation"
+            ],
+            "method_ids": [
+              "9709_p3_method_polynomial_factorisation"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        },
+        {
+          "part_id": "9709_p3_t_algebra_m03_l01_cpq05_p02",
+          "difficulty": "medium",
+          "question_pattern_ids": [
+            "9709_p3_pattern_solve_equation",
+            "9709_p3_pattern_multi_part_dependency"
+          ],
+          "source_evidence": {
+            "question_id": "9709_m16_32_q4_ii_b",
+            "part_id": "9709_m16_32_q4_ii_b",
+            "legacy_practice_tier": "exam_level",
+            "product_role": "core_practice",
+            "structural_inspiration": "Solving exponential equation using cubic roots in u = e^x."
+          },
+          "dependency_role": "target",
+          "dependency_refs": [
+            "9709_p3_t_algebra_m03_l01_cpq05_p01"
+          ],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Let $u = e^x$ to rewrite the equation as $(e^x - 2)(e^x - 1)(2e^x - 1) = 0$.",
+            "Set each factor to zero: $e^x = 2$, $e^x = 1$, and $e^x = \\frac{1}{2}$.",
+            "Solve each equation by taking the natural logarithm: $x = \\ln 2$, $x = \\ln 1 = 0$, and $x = \\ln(\\frac{1}{2}) = -\\ln 2$.",
+            "Verify that all three solutions are real and exact."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Substitute $u = e^x$ using the result from part (a):\n$$(e^x - 2)(e^x - 1)(2e^x - 1) = 0$$"
+            },
+            {
+              "step": 2,
+              "text": "Set each linear factor to zero:\n$$e^x = 2 \\implies x = \\ln 2$$\n$$e^x = 1 \\implies x = 0$$\n$$e^x = \\frac{1}{2} \\implies x = \\ln\\left(\\frac{1}{2}\\right) = -\\ln 2$$"
+            },
+            {
+              "step": 3,
+              "text": "List all exact solutions:\n$$x = 0, \\quad x = \\ln 2, \\quad x = -\\ln 2$$"
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_algebra_m03_l01_cpq05_p02_mp01",
+                "observable": "Substitutes $u = e^x$ into the equation and sets $e^x = 1, 2, \\frac{1}{2}$."
+              },
+              {
+                "criterion_id": "9709_p3_t_algebra_m03_l01_cpq05_p02_mp02",
+                "observable": "Obtains $x = 0$ (from $e^x = 1$) and $x = \\ln 2$ (from $e^x = 2$)."
+              },
+              {
+                "criterion_id": "9709_p3_t_algebra_m03_l01_cpq05_p02_mp03",
+                "observable": "Obtains $x = -\\ln 2$ or $\\ln(\\frac{1}{2})$ (from $e^x = \\frac{1}{2}$), stating all three exact real roots."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_solving_polynomial_equations"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_solving_polynomial_equations"
+            ],
+            "method_ids": [
+              "9709_p3_method_solving_polynomial_equations"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        }
+      ],
+      "_numerical_values_checked": false
+    },
+    {
+      "question_id": "9709_p3_t_algebra_m03_l01_cpq06",
+      "sequence": 12,
+      "difficulty": "hard",
+      "difficulty_reason": "Structured practice: non-standard rational polynomial inequality requiring cubic factorisation, proving positivity of a quadratic factor, and rigorous boundary sign testing.",
+      "source_question_id": "9709_w22_32_q2_b",
+      "source_role": "extension_practice",
+      "dependency_role": "none",
+      "dependency_refs": [],
+      "parts": [
+        {
+          "part_id": "9709_p3_t_algebra_m03_l01_cpq06_p01",
+          "difficulty": "hard",
+          "question_pattern_ids": [
+            "9709_p3_pattern_solve_inequality"
+          ],
+          "source_evidence": {
+            "question_id": "9709_w22_32_q2_b",
+            "part_id": "9709_w22_32_q2_b",
+            "legacy_practice_tier": "advanced",
+            "product_role": "stretch_practice",
+            "structural_inspiration": "Factorising cubic numerator into (x-2)(x^2+x+4) and solving rational inequality with excluded pole x=3."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Factorise the numerator $x^3 - x^2 + 2x - 8$ by testing $x = 2$ using the factor theorem.",
+            "The numerator factorises as $(x - 2)(x^2 + x + 4)$. Check the discriminant of $x^2 + x + 4$: $\\Delta = 1 - 16 = -15 < 0$, showing $x^2 + x + 4 > 0$ for all real $x$.",
+            "Since $x^2 + x + 4$ is always positive, divide by it to simplify the inequality to $\\frac{x - 2}{x - 3} \\le 0$.",
+            "Identify the critical points $x = 2$ and $x = 3$. Test the signs in the intervals $x < 2$, $2 < x < 3$, and $x > 3$.",
+            "Note that $x = 2$ gives $0 \\le 0$ (included) while $x = 3$ makes the denominator zero (excluded), yielding $2 \\le x < 3$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Factorise the numerator $N(x) = x^3 - x^2 + 2x - 8$:\nTest $x = 2$: $2^3 - 2^2 + 2(2) - 8 = 8 - 4 + 4 - 8 = 0$. Hence $(x - 2)$ is a factor.\n$$x^3 - x^2 + 2x - 8 = (x - 2)(x^2 + x + 4)$$"
+            },
+            {
+              "step": 2,
+              "text": "Analyze the quadratic factor $x^2 + x + 4$:\n$$\\Delta = 1^2 - 4(1)(4) = -15 < 0$$\nSince the leading coefficient is positive and $\\Delta < 0$, $x^2 + x + 4 > 0$ for all $x \\in \\mathbb{R}$."
+            },
+            {
+              "step": 3,
+              "text": "Simplify the rational inequality:\n$$\\frac{(x - 2)(x^2 + x + 4)}{x - 3} \\le 0 \\iff \\frac{x - 2}{x - 3} \\le 0 \\quad (x \\ne 3)$$"
+            },
+            {
+              "step": 4,
+              "text": "Determine the sign of $\\frac{x - 2}{x - 3}$ on intervals:\n- For $x < 2$: $\\frac{-}{-} = + > 0$\n- For $2 \\le x < 3$: $\\frac{+}{-} = - \\le 0$ (valid)\n- For $x > 3$: $\\frac{+}{+} = + > 0$\nAt $x = 2$, the expression equals 0 (included). At $x = 3$, the denominator is undefined (excluded).\nThus the solution is $2 \\le x < 3$."
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_algebra_m03_l01_cpq06_p01_mp01",
+                "observable": "Factorises numerator into $(x - 2)(x^2 + x + 4)$ and shows $x^2 + x + 4 > 0$ for all real $x$ (discriminant $\\Delta = -15 < 0$ or $(x+\\frac{1}{2})^2 + \\frac{15}{4} > 0$)."
+              },
+              {
+                "criterion_id": "9709_p3_t_algebra_m03_l01_cpq06_p01_mp02",
+                "observable": "Identifies critical boundaries $x = 2$ and $x = 3$ for the rational inequality $\\frac{x - 2}{x - 3} \\le 0$."
+              },
+              {
+                "criterion_id": "9709_p3_t_algebra_m03_l01_cpq06_p01_mp03",
+                "observable": "Obtains final correct inequality $2 \\le x < 3$ with proper inclusion of $x = 2$ and exclusion of $x = 3$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_polynomial_factorisation",
+            "9709_p3_skill_solving_inequalities"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_polynomial_factorisation",
+              "9709_p3_skill_solving_inequalities"
+            ],
+            "method_ids": [
+              "9709_p3_method_polynomial_factorisation",
+              "9709_p3_method_solving_inequalities"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        }
+      ],
+      "_numerical_values_checked": false
+    },
+    {
+      "question_id": "9709_p3_t_algebra_m03_l01_cpq07",
+      "sequence": 13,
+      "difficulty": "hard",
+      "difficulty_reason": "Structured practice: determining a polynomial coefficient from a factor condition and solving a logarithmic cubic equation with proof of root uniqueness.",
+      "source_question_id": "9709_m16_32_q4",
+      "source_role": "extension_practice",
+      "dependency_role": "none",
+      "dependency_refs": [],
+      "parts": [
+        {
+          "part_id": "9709_p3_t_algebra_m03_l01_cpq07_p01",
+          "difficulty": "easy",
+          "question_pattern_ids": [
+            "9709_p3_pattern_find_parameter"
+          ],
+          "source_evidence": {
+            "question_id": "9709_m16_32_q4_i",
+            "part_id": "9709_m16_32_q4_i",
+            "legacy_practice_tier": "exam_level",
+            "product_role": "core_practice",
+            "structural_inspiration": "Finding coefficient k by evaluating p(4) = 0."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Apply the factor theorem: since $(x - 4)$ is a factor of $p(x)$, $p(4) = 0$.",
+            "Substitute $x = 4$ into $4^3 - 3(4^2) + k(4) - 4 = 0$ and solve for $k$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Set $p(4) = 0$:\n$$4^3 - 3(4^2) + k(4) - 4 = 0$$\n$$64 - 48 + 4k - 4 = 0$$\n$$12 + 4k = 0$$\n$$k = -3$$"
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_algebra_m03_l01_cpq07_p01_mp01",
+                "observable": "Substitutes $x = 4$ into $p(x) = 0$: $4^3 - 3(4^2) + 4k - 4 = 0 \\implies 12 + 4k = 0 \\implies k = -3$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_polynomial_factorisation"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_polynomial_factorisation"
+            ],
+            "method_ids": [
+              "9709_p3_method_polynomial_factorisation"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        },
+        {
+          "part_id": "9709_p3_t_algebra_m03_l01_cpq07_p02",
+          "difficulty": "hard",
+          "question_pattern_ids": [
+            "9709_p3_pattern_solve_equation",
+            "9709_p3_pattern_multi_part_dependency"
+          ],
+          "source_evidence": {
+            "question_id": "9709_m16_32_q4_ii_b",
+            "part_id": "9709_m16_32_q4_ii_b",
+            "legacy_practice_tier": "advanced",
+            "product_role": "stretch_practice",
+            "structural_inspiration": "Solving cubic in u = ln y and proving quadratic quotient has negative discriminant."
+          },
+          "dependency_role": "target",
+          "dependency_refs": [
+            "9709_p3_t_algebra_m03_l01_cpq07_p01"
+          ],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Substitute $u = \\ln y$ with $k = -3$ to obtain the cubic equation $u^3 - 3u^2 - 3u - 4 = 0$.",
+            "From part (a), $(u - 4)$ is a factor. Divide $u^3 - 3u^2 - 3u - 4$ by $(u - 4)$ to get the quotient $u^2 + u + 1$.",
+            "Check the discriminant of $u^2 + u + 1 = 0$: $\\Delta = 1 - 4 = -3 < 0$, which proves that there are no additional real roots for $u$.",
+            "Solve $\\ln y = 4$ to obtain the exact value $y = e^4$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Let $u = \\ln y$. With $k = -3$, the equation is:\n$$u^3 - 3u^2 - 3u - 4 = 0$$"
+            },
+            {
+              "step": 2,
+              "text": "Divide by $(u - 4)$:\n$$u^3 - 3u^2 - 3u - 4 = (u - 4)(u^2 + u + 1) = 0$$"
+            },
+            {
+              "step": 3,
+              "text": "Check roots of $u^2 + u + 1 = 0$:\n$$\\Delta = 1^2 - 4(1)(1) = -3 < 0$$\nThus $u^2 + u + 1 = 0$ has no real solutions."
+            },
+            {
+              "step": 4,
+              "text": "The only real root for $u$ is $u = 4$. Convert back to $y$:\n$$\\ln y = 4 \\implies y = e^4$$"
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_algebra_m03_l01_cpq07_p02_mp01",
+                "observable": "Substitutes $u = \\ln y$, factors $u^3 - 3u^2 - 3u - 4 = (u - 4)(u^2 + u + 1)$, and shows $u^2 + u + 1 = 0$ has no real roots ($\\Delta = -3 < 0$)."
+              },
+              {
+                "criterion_id": "9709_p3_t_algebra_m03_l01_cpq07_p02_mp02",
+                "observable": "Obtains only real root $u = 4$ and deduces $y = e^4$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_polynomial_factorisation",
+            "9709_p3_skill_solving_polynomial_equations"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_polynomial_factorisation",
+              "9709_p3_skill_solving_polynomial_equations"
+            ],
+            "method_ids": [
+              "9709_p3_method_polynomial_factorisation",
+              "9709_p3_method_solving_polynomial_equations"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        }
+      ],
+      "_numerical_values_checked": false
+    }
+  ]
+}

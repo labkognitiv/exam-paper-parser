@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Mixed repeated-object restrictions · Kognitiv</title>
+  <meta name="description" content="Cambridge Mathematics 9709 S1: repeated objects with fixed places, blocks, complements, gaps and separation.">
+  <link rel="stylesheet" href="assets/fonts.css">
+  <link rel="stylesheet" href="assets/lesson.css">
+  <link rel="stylesheet" href="assets/mixed.css">
+  <script defer src="assets/check-ins.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#core">Skip to lesson</a>
+<div class="top"><div class="brand">Kognitiv <span> / Mathematics 9709 · Probability &amp; Statistics 1</span></div><button type="button" onclick="window.print()">Print / save PDF</button></div>
+<main data-lesson-id="9709_s1_t_permutations_and_combinations_m03_l04">
+  <nav class="lesson-nav" aria-label="Lesson navigation">
+    <a href="../../../topic-overview/index.html">← Topic</a>
+    <span>Permutations and combinations · Module 3 · Lesson 4</span>
+    <a href="#recap">Key ideas</a>
+    <a href="#examples">More worked examples</a>
+  </nav>
+  <header class="hero">
+    <div class="kicker">Mixed repeated-object restrictions</div>
+    <h1>Handle one restriction at a time.</h1>
+    <p class="lead">Repeated letters already create overcounting. Fixed places, together conditions, separation and gaps add another decision. Translate each condition before multiplying or subtracting.</p>
+    <p class="lesson-route"><a href="#core">Start the lesson</a> · <a href="#recap">Review the key ideas</a></p>
+  </header>
+
+  <section id="core" data-source-pages="1">
+    <h2>Start with the repeated-object rule</h2>
+    <ul class="explanation-points">
+      <li>A <strong>permutation</strong> is an arrangement where order matters.</li>
+      <li><strong>Distinct objects</strong> can be told apart.</li>
+      <li>The symbol ! means <strong>factorial</strong>: 4! = 4 × 3 × 2 × 1 = 24.</li>
+      <li>The letter n represents the total number of objects.</li>
+      <li>If all n objects are distinct, there are n! arrangements.</li>
+      <li><strong>Identical objects</strong> cannot be told apart.</li>
+      <li>If one kind repeats a times, divide by a! because its internal swaps do not make new arrangements.</li>
+      <li>If another kind repeats b times, divide by b! as well.</li>
+      <li>The <strong>denominator</strong> is the part below the fraction bar. Here it contains a! × b! × ... .</li>
+    </ul>
+    <div class="formula-box">
+      <h3>Repeated-object rule</h3>
+      <div class="formula" tabindex="0" role="region" aria-label="Repeated-object formula; scroll horizontally if needed">arrangements = n! / (a! × b! × ...)</div>
+      <p>Use one denominator factor for each kind of repeated object. Count each repetition once.</p>
+    </div>
+    <ul class="explanation-points">
+      <li>A <strong>fixed place</strong> has a named object that is already assigned to it.</li>
+      <li>A <strong>block</strong> ties objects together and treats them as one unit.</li>
+      <li>A <strong>complement</strong> count subtracts unwanted arrangements from all possible arrangements.</li>
+      <li>A <strong>gap</strong> is a space before, between or after already arranged objects.</li>
+      <li>A <strong>specified separation</strong> states exactly or at least how many objects must lie between two chosen objects.</li>
+    </ul>
+  </section>
+
+  <section data-source-pages="2,3">
+    <h2>Fix repeated letters or join them into a block</h2>
+    <article class="worked-example">
+      <div class="example-label">Worked example</div>
+      <h3>SUMMERTIME with E at each end</h3>
+      <p>SUMMERTIME has 10 letters. M repeats 3 times and E repeats twice.</p>
+      <div class="solution-body"><div class="solution-label">Solution</div><ol class="steps">
+        <li>Fix one E at each end. Both Es are now placed.</li>
+        <li>The 8 remaining letters are S, U, M, M, M, R, T and I.</li>
+        <li>Only M repeats, three times.</li>
+        <li><div class="worked-math" tabindex="0" role="region" aria-label="SUMMERTIME fixed ends calculation; scroll horizontally if needed">8! / 3! = 40 320 / 6</div></li>
+        <li class="final-answer">There are 6720 arrangements.</li>
+      </ol></div>
+    </article>
+    <article class="worked-example">
+      <div class="example-label">Worked example</div>
+      <h3>SHOPKEEPER with all three Es together</h3>
+      <p>Replace EEE by one block. The block must stay intact, so it behaves as one unit.</p>
+      <div class="solution-body"><div class="solution-label">Solution</div><ol class="steps">
+        <li>All three Es are already inside the single EEE block, so do not list another E.</li>
+        <li>The eight units are EEE, S, H, O, P, P, K and R.</li>
+        <li>P is the only repeated unit, and it appears twice.</li>
+        <li><div class="worked-math" tabindex="0" role="region" aria-label="SHOPKEEPER block calculation; scroll horizontally if needed">8! / 2! = 40 320 / 2</div></li>
+        <li class="final-answer">There are 20 160 arrangements.</li>
+      </ol></div>
+    </article>
+    <div class="quick-check">
+      <div class="check-label">Check-in A</div>
+      <p class="check-question">ARRANGER has A fixed at each end. The middle letters are R, R, R, N, G and E. Which count is correct?</p>
+      <div class="check-options">
+        <button type="button" aria-pressed="false" data-feedback="Correct. Six middle letters are arranged, and the three identical Rs require division by 3!: 6!/3! = 120.">A. 6! / 3! = 120</button>
+        <button type="button" aria-pressed="false" data-feedback="That counts swaps of the three identical Rs as different. Divide 6! by 3! to get 120.">B. 6! = 720</button>
+      </div>
+      <p class="check-feedback" aria-live="polite"></p>
+    </div>
+  </section>
+
+  <section data-source-pages="4">
+    <h2>Use a complement for one specified pair</h2>
+    <ul class="explanation-points">
+      <li>Directly listing every separated arrangement is often awkward.</li>
+      <li>Instead count all arrangements.</li>
+      <li>For one specified pair, count the unwanted arrangements where that pair forms one block.</li>
+      <li>Then subtract: pair apart = all arrangements - pair together.</li>
+      <li>For three or more objects, <strong>not all together</strong> only rules out one whole block. It may still allow two objects next to each other.</li>
+      <li><strong>No two adjacent</strong> is stricter: no pair may occupy neighbouring positions. The gap method enforces this.</li>
+    </ul>
+    <article class="worked-example">
+      <div class="example-label">Worked example</div>
+      <h3>The Ls are separated in JEWELLERY</h3>
+      <p>JEWELLERY has 9 letters. E repeats 3 times and L repeats twice.</p>
+      <div class="solution-body"><div class="solution-label">Solution</div><ol class="steps">
+        <li>Count every arrangement, dividing for both repeated kinds: <div class="worked-math" tabindex="0" role="region" aria-label="All JEWELLERY arrangements; scroll horizontally if needed">9! / (3! × 2!) = 30 240.</div></li>
+        <li>For the unwanted case, treat LL as one block.</li>
+        <li>There are now 8 units. The three Es still repeat: <div class="worked-math" tabindex="0" role="region" aria-label="JEWELLERY arrangements with L together; scroll horizontally if needed">8! / 3! = 6720.</div></li>
+        <li>Subtract the together case from the total.</li>
+        <li class="final-answer">30 240 - 6720 = 23 520 arrangements.</li>
+      </ol></div>
+    </article>
+    <div class="quick-check">
+      <div class="check-label">Check-in B</div>
+      <p class="check-question">How many arrangements of RABBIT have the two Bs separated?</p>
+      <div class="check-options">
+        <button type="button" aria-pressed="false" data-feedback="Correct. All arrangements give 6!/2! = 360. Treating BB as one block gives 5! = 120. The separated count is 360 - 120 = 240.">A. 6!/2! - 5! = 240</button>
+        <button type="button" aria-pressed="false" data-feedback="The together case is counted by treating BB as one block, giving 5!, not 4!. Use 6!/2! - 5! = 240.">B. 6!/2! - 4! = 336</button>
+      </div>
+      <p class="check-feedback" aria-live="polite"></p>
+    </div>
+  </section>
+
+  <section data-source-pages="5">
+    <h2>Place identical objects into gaps</h2>
+    <ul class="explanation-points">
+      <li>Use the gap method when identical objects must be separated.</li>
+      <li>Arrange all other objects first.</li>
+      <li>Each space before, between or after them is a gap.</li>
+      <li>Putting at most one chosen object in each gap guarantees separation.</li>
+    </ul>
+    <article class="worked-example">
+      <div class="example-label">Worked example</div>
+      <h3>The Es are not together in SUMMERTIME</h3>
+      <div class="solution-body"><div class="solution-label">Solution</div><ol class="steps">
+        <li>First arrange the 8 non-E letters S, U, M, M, M, R, T and I.</li>
+        <li>The three Ms repeat, so this gives 8!/3! arrangements.</li>
+        <li>Eight arranged letters create 9 gaps, including both end gaps.</li>
+      </ol>
+      <figure>
+        <svg class="gap-diagram" viewBox="0 0 780 150" role="img" aria-labelledby="gaps-title gaps-desc">
+          <title id="gaps-title">Nine gaps around eight arranged letters</title>
+          <desc id="gaps-desc">Eight letter boxes have a gap before the first, seven gaps between consecutive boxes, and one gap after the last, making nine gaps labelled g0 to g8.</desc>
+          <g transform="translate(28 58)">
+            <path class="gap" d="M0,-20V62 M90,-20V62 M180,-20V62 M270,-20V62 M360,-20V62 M450,-20V62 M540,-20V62 M630,-20V62 M720,-20V62"/>
+            <g><rect class="object" x="8" y="0" width="74" height="50"/><rect class="object" x="98" y="0" width="74" height="50"/><rect class="object" x="188" y="0" width="74" height="50"/><rect class="object" x="278" y="0" width="74" height="50"/><rect class="object" x="368" y="0" width="74" height="50"/><rect class="object" x="458" y="0" width="74" height="50"/><rect class="object" x="548" y="0" width="74" height="50"/><rect class="object" x="638" y="0" width="74" height="50"/></g>
+            <g class="gap-label"><text x="0" y="-30">g0</text><text x="90" y="-30">g1</text><text x="180" y="-30">g2</text><text x="270" y="-30">g3</text><text x="360" y="-30">g4</text><text x="450" y="-30">g5</text><text x="540" y="-30">g6</text><text x="630" y="-30">g7</text><text x="720" y="-30">g8</text></g>
+          </g>
+        </svg>
+        <figcaption>Eight objects create nine gaps: one at each end and seven between them.</figcaption>
+      </figure>
+      <ol class="steps" start="4">
+        <li>Choose 2 different gaps for the two identical Es.</li>
+        <li>The notation C(9,2), also written <span class="choose"><sup>9</sup>C<sub>2</sub></span>, means choose 2 gaps from 9 without order.</li>
+        <li>There are 9 × 8 ordered choices of two different gaps. Each pair appears in two orders, so divide by 2: <div class="worked-math" tabindex="0" role="region" aria-label="Choose two gaps calculation; scroll horizontally if needed">C(9,2) = (9 × 8) / 2 = 36.</div></li>
+        <li><div class="worked-math" tabindex="0" role="region" aria-label="SUMMERTIME gap calculation; scroll horizontally if needed">(8! / 3!) × 36 = 6720 × 36</div></li>
+        <li class="final-answer">There are 241 920 arrangements.</li>
+      </ol></div>
+    </article>
+  </section>
+
+  <section data-source-pages="6,7">
+    <h2>Count exact and minimum separation</h2>
+    <ul class="explanation-points">
+      <li>If exactly k objects lie between two positions, their position numbers differ by k + 1.</li>
+      <li>List every possible position pair before arranging the remaining objects.</li>
+      <li>Identical chosen objects do not swap into a second order.</li>
+      <li>For “at least”, include every allowed difference from the smallest one upward.</li>
+    </ul>
+    <article class="worked-example">
+      <div class="example-label">Worked example</div>
+      <h3>Exactly three letters between identical Rs</h3>
+      <p>Eleven positions contain two identical Rs, three identical Es, and six other distinct letters. Exactly 3 letters must lie between the Rs.</p>
+      <div class="solution-body"><div class="solution-label">Solution</div><ol class="steps">
+        <li>Exactly 3 letters between the Rs means their position numbers differ by 4.</li>
+        <li>The pairs are (1,5), (2,6), (3,7), (4,8), (5,9), (6,10) and (7,11): 7 pairs.</li>
+        <li>The Rs are identical, so there is no extra factor of 2.</li>
+        <li>The other 9 letters contain three identical Es and six distinct letters. They can be arranged in 9!/3! ways.</li>
+        <li><div class="worked-math" tabindex="0" role="region" aria-label="Exact separation calculation; scroll horizontally if needed">7 × (9! / 3!) = 7 × 60 480</div></li>
+        <li class="final-answer">There are 423 360 arrangements.</li>
+      </ol></div>
+    </article>
+    <article class="worked-example">
+      <div class="example-label">Worked example</div>
+      <h3>At least five letters between identical As</h3>
+      <p>Nine positions contain two identical As, another identical pair, and five other distinct letters. At least 5 letters must lie between the As.</p>
+      <div class="solution-body"><div class="solution-label">Solution</div>
+        <table class="count-table"><thead><tr><th>Position difference</th><th>Possible pairs</th></tr></thead><tbody><tr><td>6 apart</td><td>3</td></tr><tr><td>7 apart</td><td>2</td></tr><tr><td>8 apart</td><td>1</td></tr><tr><td>Total</td><td>6</td></tr></tbody></table>
+        <ol class="steps">
+          <li>At least 5 letters between the As means their position numbers differ by 6, 7 or 8.</li>
+          <li>The As are identical, so the 6 position pairs need no swap factor.</li>
+          <li>Arrange the other 7 letters. One pair among them is identical, so there are 7!/2! arrangements.</li>
+          <li><div class="worked-math" tabindex="0" role="region" aria-label="Minimum separation calculation; scroll horizontally if needed">6 × (7! / 2!) = 6 × 2520</div></li>
+          <li class="final-answer">There are 15 120 arrangements.</li>
+        </ol>
+      </div>
+    </article>
+  </section>
+
+  <section id="recap">
+    <h2>Key ideas</h2>
+    <table class="decision"><thead><tr><th>Restriction</th><th>Counting move</th></tr></thead><tbody>
+      <tr><td>Repeated identical objects</td><td>Divide by one factorial for each repeated kind.</td></tr>
+      <tr><td>Fixed places</td><td>Fill them first; count only what remains.</td></tr>
+      <tr><td>Objects together</td><td>Treat the whole group as one block.</td></tr>
+      <tr><td>One specified pair apart</td><td>Use all - that pair together.</td></tr>
+      <tr><td>Three or more objects not all together</td><td>Use all - one whole block; some adjacency is still allowed.</td></tr>
+      <tr><td>No two of several objects adjacent</td><td>Place them in different gaps.</td></tr>
+      <tr><td>Exactly k between</td><td>List position pairs whose numbers differ by k + 1.</td></tr>
+      <tr><td>At least k between</td><td>Add the pair counts for every allowed larger difference.</td></tr>
+      <tr><td>Identical pair in chosen positions</td><td>Do not multiply by 2 for swapping them.</td></tr>
+    </tbody></table>
+    <p class="teacher-note">Count identical objects once. Never divide for the same repetition twice.</p>
+  </section>
+
+  <section id="examples" data-source-pages="8,9,10">
+    <h2>More worked examples</h2>
+    <article class="worked-example">
+      <div class="example-label">Worked example</div>
+      <h3>CATERPILLAR with fixed Rs and separated As</h3>
+      <p>Arrange CATERPILLAR with R at each end and the two As not together.</p>
+      <div class="solution-body"><div class="solution-label">Solution</div><ol class="steps">
+        <li>Fix the two Rs at the ends.</li>
+        <li>The remaining letters are C, A, T, E, P, I, L, L and A.</li>
+        <li>Count all middle arrangements. A repeats twice and L repeats twice: <div class="worked-math" tabindex="0" role="region" aria-label="All CATERPILLAR middle arrangements; scroll horizontally if needed">9! / (2! × 2!) = 90 720.</div></li>
+        <li>For the unwanted case, treat AA as one block. There are 8 units, with L repeated twice: <div class="worked-math" tabindex="0" role="region" aria-label="CATERPILLAR arrangements with A together; scroll horizontally if needed">8! / 2! = 20 160.</div></li>
+        <li class="final-answer">Required = 90 720 - 20 160 = 70 560 arrangements.</li>
+      </ol></div>
+    </article>
+    <article class="worked-example">
+      <div class="example-label">Worked example</div>
+      <h3>DELIVERED with EEE together and Ds separated</h3>
+      <div class="solution-body"><div class="solution-label">Solution</div><ol class="steps">
+        <li>Treat EEE as one block.</li>
+        <li>The seven units are EEE, D, D, L, I, V and R. D repeats twice.</li>
+        <li>Count all arrangements of these units: <div class="worked-math" tabindex="0" role="region" aria-label="DELIVERED with E together; scroll horizontally if needed">7! / 2! = 2520.</div></li>
+        <li>For the unwanted case, DD is also one block. The six units EEE, DD, L, I, V and R are distinct: <div class="worked-math" tabindex="0" role="region" aria-label="DELIVERED with E and D blocks; scroll horizontally if needed">6! = 720.</div></li>
+        <li class="final-answer">Required = 2520 - 720 = 1800 arrangements.</li>
+      </ol></div>
+    </article>
+    <article class="worked-example">
+      <div class="example-label">Worked example</div>
+      <h3>TOMORROW with fixed Rs and Os not all together</h3>
+      <p>TOMORROW has T, O, M, O, R, R, O and W.</p>
+      <div class="solution-body"><div class="solution-label">Solution</div><ol class="steps">
+        <li>Fix both Rs at the ends.</li>
+        <li>The remaining letters are T, O, M, O, O and W.</li>
+        <li>Count all middle arrangements, dividing for the three Os: <div class="worked-math" tabindex="0" role="region" aria-label="All TOMORROW middle arrangements; scroll horizontally if needed">6! / 3! = 120.</div></li>
+        <li>For the unwanted case, treat OOO as one block. The four units OOO, T, M and W are distinct: <div class="worked-math" tabindex="0" role="region" aria-label="TOMORROW with O block; scroll horizontally if needed">4! = 24.</div></li>
+        <li>The condition is “not all together”. Two Os may still be adjacent; only the single OOO block is forbidden.</li>
+        <li class="final-answer">Required = 120 - 24 = 96 arrangements.</li>
+      </ol></div>
+    </article>
+  </section>
+
+  <nav class="footer-nav" aria-label="End of lesson"><a href="../../../topic-overview/index.html">← Topic</a><a href="#recap">Back to key ideas</a></nav>
+</main>
+</body>
+</html>

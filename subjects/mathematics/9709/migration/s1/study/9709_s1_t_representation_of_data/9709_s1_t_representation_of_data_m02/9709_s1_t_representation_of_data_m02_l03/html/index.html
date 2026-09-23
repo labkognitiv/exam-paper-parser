@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Box plots and outliers · Kognitiv</title>
+<meta name="description" content="Cambridge Mathematics 9709 S1: five-number summaries, box plots, comparisons, skew and the 1.5 IQR outlier rule.">
+<link rel="stylesheet" href="assets/lesson.css">
+<link rel="stylesheet" href="assets/revision.css">
+<link rel="stylesheet" href="assets/katex/katex.min.css">
+<link rel="stylesheet" href="assets/statistics.css">
+<link rel="stylesheet" href="assets/boxplots.css">
+<link rel="stylesheet" href="assets/brand-theme.css">
+<link rel="stylesheet" href="assets/plain-emphasis.css">
+<script defer src="assets/katex/katex.min.js"></script>
+<script defer src="assets/check-ins.js"></script>
+<script defer src="assets/math.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#core">Skip to lesson</a>
+<div class="top"><div class="brand">Kognitiv <span> / Mathematics 9709 · Probability &amp; Statistics 1</span></div><button type="button" onclick="window.print()">Print / save PDF</button></div>
+<main data-lesson-id="9709_s1_t_representation_of_data_m02_l03">
+<nav class="lesson-nav" aria-label="Lesson navigation"><span>Representation of data · Module 2 · Lesson 3</span><a href="#recap">Key ideas</a><a href="#examples">More examples</a></nav>
+<header class="hero">
+<div class="kicker">Summarise and compare</div>
+<h1>Five values.<br>One clear picture.</h1>
+<p class="lead">A box plot places the centre and spread of a data set on a linear scale. The same five values can also help us spot skew and possible outliers.</p>
+<p><a href="#core">Start the lesson</a> · <a href="#recap">Key ideas</a></p>
+</header>
+
+<section id="core" data-source-pages="1">
+<h2>The five-number summary</h2>
+<ul class="explanation-points">
+<li>The <strong>minimum</strong> and <strong>maximum</strong> are the smallest and largest observed values.</li>
+<li>The <strong>lower quartile</strong>, <span class="tex" data-tex="Q_1"></span>, marks the lower quarter of the ordered data.</li>
+<li>The <strong>median</strong> is the middle of the ordered data.</li>
+<li>The <strong>upper quartile</strong>, <span class="tex" data-tex="Q_3"></span>, marks the upper quarter.</li>
+<li>The small numerals in <span class="tex" data-tex="Q_1"></span> and <span class="tex" data-tex="Q_3"></span> are <strong>subscripts</strong>.</li>
+</ul>
+<p>A valid summary is always in this order:</p>
+<div class="summary-order"><span class="tex" data-tex="\text{minimum}\le Q_1\le\text{median}\le Q_3\le\text{maximum}"></span></div>
+<p>For minimum 4, <span class="tex" data-tex="Q_1=7"></span>, median 11, <span class="tex" data-tex="Q_3=16"></span> and maximum 23:</p>
+<ol class="steps">
+<li>Check the order: <span class="tex" data-tex="4\le7\le11\le16\le23"></span>.</li>
+<li>The <strong>interquartile range</strong>, or IQR, measures the spread of the middle half: <span class="tex" data-tex="\mathrm{IQR}=Q_3-Q_1=16-7=9"></span>.</li>
+<li>The <strong>range</strong> measures the full spread: <span class="tex" data-tex="\text{range}=23-4=19"></span>.</li>
+</ol>
+</section>
+
+<section data-source-pages="2">
+<h2>Build the box plot</h2>
+<ul class="explanation-points">
+<li>A <strong>horizontal axis</strong> runs from left to right. Here it shows time in seconds.</li>
+<li>A <strong>linear scale</strong> gives equal distances to equal changes in value.</li>
+<li>The <strong>box</strong> runs from <span class="tex" data-tex="Q_1"></span> to <span class="tex" data-tex="Q_3"></span>.</li>
+<li>A line inside the box marks the median.</li>
+<li>The <strong>whiskers</strong> join the middle of each box end to the minimum and maximum.</li>
+</ul>
+<p>Use minimum 10, <span class="tex" data-tex="Q_1=15"></span>, median 20, <span class="tex" data-tex="Q_3=25"></span> and maximum 30.</p>
+<p class="scroll-cue">Scroll sideways to read the full linear scale on a narrow screen.</p>
+<div class="diagram-scroll" tabindex="0" role="region" aria-label="Box plot of time in seconds; scroll horizontally if needed">
+<svg class="boxplot" viewBox="0 0 760 300" role="img" aria-labelledby="p2-title p2-desc"><title id="p2-title">Box plot from 10 to 30 seconds</title><desc id="p2-desc">Linear horizontal scale from 5 to 35 seconds. Whiskers end at 10 and 30, box edges are 15 and 25, and median is 20.</desc>
+<line class="axis" x1="80" y1="235" x2="680" y2="235"/><text x="380" y="286" text-anchor="middle">time (seconds)</text>
+<g aria-hidden="true"><line class="tick" x1="80" y1="228" x2="80" y2="242"/><text x="80" y="264" text-anchor="middle">5</text><line class="tick" x1="180" y1="228" x2="180" y2="242"/><text x="180" y="264" text-anchor="middle">10</text><line class="tick" x1="280" y1="228" x2="280" y2="242"/><text x="280" y="264" text-anchor="middle">15</text><line class="tick" x1="380" y1="228" x2="380" y2="242"/><text x="380" y="264" text-anchor="middle">20</text><line class="tick" x1="480" y1="228" x2="480" y2="242"/><text x="480" y="264" text-anchor="middle">25</text><line class="tick" x1="580" y1="228" x2="580" y2="242"/><text x="580" y="264" text-anchor="middle">30</text><line class="tick" x1="680" y1="228" x2="680" y2="242"/><text x="680" y="264" text-anchor="middle">35</text></g>
+<line class="whisker" x1="180" y1="135" x2="280" y2="135"/><line class="whisker" x1="480" y1="135" x2="580" y2="135"/><line class="whisker" x1="180" y1="118" x2="180" y2="152"/><line class="whisker" x1="580" y1="118" x2="580" y2="152"/><rect class="box" x="280" y="92" width="200" height="86"/><line class="median" x1="380" y1="92" x2="380" y2="178"/>
+<text x="180" y="72" text-anchor="middle">minimum</text><text x="280" y="72" text-anchor="middle">Q₁</text><text x="380" y="72" text-anchor="middle">median</text><text x="480" y="72" text-anchor="middle">Q₃</text><text x="580" y="72" text-anchor="middle">maximum</text>
+</svg></div>
+<ol class="steps"><li>Draw and label the linear scale.</li><li>Draw the box from 15 to 25.</li><li>Draw the median at 20.</li><li>Add whiskers to 10 and 30.</li></ol>
+</section>
+
+<section data-source-pages="3">
+<h2>Guided construction</h2>
+<p>For minimum 5, <span class="tex" data-tex="Q_1=10"></span>, median 15, <span class="tex" data-tex="Q_3=20"></span> and maximum 25:</p>
+<p class="scroll-cue">Scroll sideways to read the full score scale on a narrow screen.</p>
+<div class="diagram-scroll" tabindex="0" role="region" aria-label="Box plot of score; scroll horizontally if needed">
+<svg class="boxplot" viewBox="0 0 760 270" role="img" aria-labelledby="p3-title p3-desc"><title id="p3-title">Box plot for scores from 5 to 25</title><desc id="p3-desc">Linear score scale from 0 to 30. Box from 10 to 20, median at 15, whiskers at 5 and 25.</desc>
+<line class="axis" x1="80" y1="205" x2="680" y2="205"/><text x="380" y="256" text-anchor="middle">score</text>
+<g aria-hidden="true"><line class="tick" x1="80" y1="198" x2="80" y2="212"/><text x="80" y="234" text-anchor="middle">0</text><line class="tick" x1="180" y1="198" x2="180" y2="212"/><text x="180" y="234" text-anchor="middle">5</text><line class="tick" x1="280" y1="198" x2="280" y2="212"/><text x="280" y="234" text-anchor="middle">10</text><line class="tick" x1="380" y1="198" x2="380" y2="212"/><text x="380" y="234" text-anchor="middle">15</text><line class="tick" x1="480" y1="198" x2="480" y2="212"/><text x="480" y="234" text-anchor="middle">20</text><line class="tick" x1="580" y1="198" x2="580" y2="212"/><text x="580" y="234" text-anchor="middle">25</text><line class="tick" x1="680" y1="198" x2="680" y2="212"/><text x="680" y="234" text-anchor="middle">30</text></g>
+<line class="whisker" x1="180" y1="115" x2="280" y2="115"/><line class="whisker" x1="480" y1="115" x2="580" y2="115"/><line class="whisker" x1="180" y1="98" x2="180" y2="132"/><line class="whisker" x1="580" y1="98" x2="580" y2="132"/><rect class="box" x="280" y="72" width="200" height="86"/><line class="median" x1="380" y1="72" x2="380" y2="158"/>
+</svg></div>
+<ol class="steps"><li>Put all five values on one linear scale.</li><li>Join 10 to 20 with the box and mark 15 inside it.</li><li>Join the whiskers to 5 and 25.</li></ol>
+</section>
+
+<section data-source-pages="4">
+<h2>Compare plots on one scale</h2>
+<p>Group A has summary 5, 10, 15, 20, 25. Group B has summary 0, 10, 20, 25, 30.</p>
+<p class="compare-note"><strong>Use the same labelled linear scale.</strong> Positions, centres and spreads are then directly comparable.</p>
+<p class="scroll-cue">Scroll sideways to compare both complete plots on a narrow screen.</p>
+<div class="diagram-scroll" tabindex="0" role="region" aria-label="Comparative box plots for groups A and B; scroll horizontally if needed">
+<svg class="boxplot" viewBox="0 0 760 360" role="img" aria-labelledby="p4-title p4-desc"><title id="p4-title">Box plots for Group A and Group B</title><desc id="p4-desc">Both plots use one linear value scale from 0 to 30. Group A has median 15 and Group B has median 20.</desc>
+<text x="42" y="95" text-anchor="middle">A</text><text x="42" y="205" text-anchor="middle">B</text>
+<line class="whisker" x1="180" y1="90" x2="280" y2="90"/><line class="whisker" x1="480" y1="90" x2="580" y2="90"/><line class="whisker" x1="180" y1="74" x2="180" y2="106"/><line class="whisker" x1="580" y1="74" x2="580" y2="106"/><rect class="box" x="280" y="52" width="200" height="76"/><line class="median" x1="380" y1="52" x2="380" y2="128"/>
+<line class="whisker" x1="80" y1="200" x2="280" y2="200"/><line class="whisker" x1="580" y1="200" x2="680" y2="200"/><line class="whisker" x1="80" y1="184" x2="80" y2="216"/><line class="whisker" x1="680" y1="184" x2="680" y2="216"/><rect class="box" x="280" y="162" width="300" height="76"/><line class="median" x1="480" y1="162" x2="480" y2="238"/>
+<line class="axis" x1="80" y1="280" x2="680" y2="280"/><text x="380" y="338" text-anchor="middle">value</text>
+<g aria-hidden="true"><line class="tick" x1="80" y1="273" x2="80" y2="287"/><text x="80" y="310" text-anchor="middle">0</text><line class="tick" x1="180" y1="273" x2="180" y2="287"/><text x="180" y="310" text-anchor="middle">5</text><line class="tick" x1="280" y1="273" x2="280" y2="287"/><text x="280" y="310" text-anchor="middle">10</text><line class="tick" x1="380" y1="273" x2="380" y2="287"/><text x="380" y="310" text-anchor="middle">15</text><line class="tick" x1="480" y1="273" x2="480" y2="287"/><text x="480" y="310" text-anchor="middle">20</text><line class="tick" x1="580" y1="273" x2="580" y2="287"/><text x="580" y="310" text-anchor="middle">25</text><line class="tick" x1="680" y1="273" x2="680" y2="287"/><text x="680" y="310" text-anchor="middle">30</text></g>
+</svg></div>
+<p>Group B has the higher median, 20 rather than 15. Its range is also larger: 30 rather than 20.</p>
+</section>
+
+<section data-source-pages="5">
+<h2>A second comparison</h2>
+<p>Set A has summary 40, 45, 50, 55, 60. Set B has summary 35, 40, 45, 55, 65.</p>
+<p class="scroll-cue">Scroll sideways to compare both complete plots on a narrow screen.</p>
+<div class="diagram-scroll" tabindex="0" role="region" aria-label="Comparative box plots for sets A and B; scroll horizontally if needed">
+<svg class="boxplot" viewBox="0 0 760 360" role="img" aria-labelledby="p5-title p5-desc"><title id="p5-title">Box plots for Set A and Set B</title><desc id="p5-desc">Both use one scale from 35 to 65. Set A median is 50 and Set B median is 45.</desc>
+<text x="42" y="95" text-anchor="middle">A</text><text x="42" y="205" text-anchor="middle">B</text>
+<line class="whisker" x1="180" y1="90" x2="280" y2="90"/><line class="whisker" x1="480" y1="90" x2="580" y2="90"/><line class="whisker" x1="180" y1="74" x2="180" y2="106"/><line class="whisker" x1="580" y1="74" x2="580" y2="106"/><rect class="box" x="280" y="52" width="200" height="76"/><line class="median" x1="380" y1="52" x2="380" y2="128"/>
+<line class="whisker" x1="80" y1="200" x2="180" y2="200"/><line class="whisker" x1="480" y1="200" x2="680" y2="200"/><line class="whisker" x1="80" y1="184" x2="80" y2="216"/><line class="whisker" x1="680" y1="184" x2="680" y2="216"/><rect class="box" x="180" y="162" width="300" height="76"/><line class="median" x1="280" y1="162" x2="280" y2="238"/>
+<line class="axis" x1="80" y1="280" x2="680" y2="280"/><text x="380" y="338" text-anchor="middle">measurement</text>
+<g aria-hidden="true"><line class="tick" x1="80" y1="273" x2="80" y2="287"/><text x="80" y="310" text-anchor="middle">35</text><line class="tick" x1="180" y1="273" x2="180" y2="287"/><text x="180" y="310" text-anchor="middle">40</text><line class="tick" x1="280" y1="273" x2="280" y2="287"/><text x="280" y="310" text-anchor="middle">45</text><line class="tick" x1="380" y1="273" x2="380" y2="287"/><text x="380" y="310" text-anchor="middle">50</text><line class="tick" x1="480" y1="273" x2="480" y2="287"/><text x="480" y="310" text-anchor="middle">55</text><line class="tick" x1="580" y1="273" x2="580" y2="287"/><text x="580" y="310" text-anchor="middle">60</text><line class="tick" x1="680" y1="273" x2="680" y2="287"/><text x="680" y="310" text-anchor="middle">65</text></g>
+</svg></div>
+<ol class="steps"><li>Set A: median 50, IQR <span class="tex" data-tex="55-45=10"></span>, range <span class="tex" data-tex="60-40=20"></span>.</li><li>Set B: median 45, IQR <span class="tex" data-tex="55-40=15"></span>, range <span class="tex" data-tex="65-35=30"></span>.</li></ol>
+<p><strong>Set A has the higher centre and smaller spread.</strong></p>
+</section>
+
+<section data-source-pages="6">
+<h2>Read spread and skew</h2>
+<p><strong>Skew</strong> means the distribution stretches farther on one side. <strong>Right skew</strong>, also called positive skew, means the longer tail is towards larger values.</p>
+<p>Consider minimum 5, <span class="tex" data-tex="Q_1=10"></span>, median 15, <span class="tex" data-tex="Q_3=20"></span> and maximum 40.</p>
+<p class="scroll-cue">Scroll sideways to read the complete scale on a narrow screen.</p>
+<div class="diagram-scroll" tabindex="0" role="region" aria-label="Right-skewed box plot; scroll horizontally if needed">
+<svg class="boxplot" viewBox="0 0 760 290" role="img" aria-labelledby="p6-title p6-desc"><title id="p6-title">Box plot with a long right whisker</title><desc id="p6-desc">Values run from 5 to 40. The box is from 10 to 20, median 15, with a much longer whisker to 40.</desc>
+<line class="whisker" x1="146.67" y1="125" x2="213.33" y2="125"/><line class="whisker" x1="346.67" y1="125" x2="613.33" y2="125"/><line class="whisker" x1="146.67" y1="108" x2="146.67" y2="142"/><line class="whisker" x1="613.33" y1="108" x2="613.33" y2="142"/><rect class="box" x="213.33" y="82" width="133.34" height="86"/><line class="median" x1="280" y1="82" x2="280" y2="168"/>
+<line class="axis" x1="80" y1="215" x2="680" y2="215"/><text x="380" y="276" text-anchor="middle">value</text>
+<g aria-hidden="true"><line class="tick" x1="80" y1="208" x2="80" y2="222"/><text x="80" y="247" text-anchor="middle">0</text><line class="tick" x1="146.67" y1="208" x2="146.67" y2="222"/><text x="146.67" y="247" text-anchor="middle">5</text><line class="tick" x1="213.33" y1="208" x2="213.33" y2="222"/><text x="213.33" y="247" text-anchor="middle">10</text><line class="tick" x1="280" y1="208" x2="280" y2="222"/><text x="280" y="247" text-anchor="middle">15</text><line class="tick" x1="346.67" y1="208" x2="346.67" y2="222"/><text x="346.67" y="247" text-anchor="middle">20</text><line class="tick" x1="413.33" y1="208" x2="413.33" y2="222"/><text x="413.33" y="247" text-anchor="middle">25</text><line class="tick" x1="480" y1="208" x2="480" y2="222"/><text x="480" y="247" text-anchor="middle">30</text><line class="tick" x1="546.67" y1="208" x2="546.67" y2="222"/><text x="546.67" y="247" text-anchor="middle">35</text><line class="tick" x1="613.33" y1="208" x2="613.33" y2="222"/><text x="613.33" y="247" text-anchor="middle">40</text><line class="tick" x1="680" y1="208" x2="680" y2="222"/><text x="680" y="247" text-anchor="middle">45</text></g>
+</svg></div>
+<ol class="steps"><li><span class="tex" data-tex="\mathrm{IQR}=20-10=10"></span>.</li><li><span class="tex" data-tex="\text{range}=40-5=35"></span>.</li><li>The right whisker has length <span class="tex" data-tex="40-20=20"></span>, much longer than the left whisker, <span class="tex" data-tex="10-5=5"></span>.</li></ol>
+<p><strong>The box plot suggests right skew.</strong> Relative lengths suggest the shape; a box plot does not show every observation.</p>
+</section>
+
+<section data-source-pages="7">
+<h2>The 1.5 IQR outlier rule</h2>
+<ul class="explanation-points"><li>An <strong>outlier</strong> is an unusually distant observed value.</li><li>A <strong>fence</strong> is a calculated boundary used to test for outliers.</li><li>A value is an outlier only when it is <strong>below</strong> the lower fence or <strong>above</strong> the upper fence.</li><li>A value exactly on a fence is not an outlier.</li></ul>
+<div class="formula-box"><div class="math tex" data-tex="\text{lower fence}=Q_1-1.5(\mathrm{IQR})"></div><div class="math tex" data-tex="\text{upper fence}=Q_3+1.5(\mathrm{IQR})"></div></div>
+<p>For <span class="tex" data-tex="Q_1=20"></span> and <span class="tex" data-tex="Q_3=32"></span>:</p>
+<ol class="steps"><li><span class="tex" data-tex="\mathrm{IQR}=32-20=12"></span>.</li><li><span class="tex" data-tex="1.5\times12=18"></span>.</li><li>Lower fence: <span class="tex" data-tex="20-18=2"></span>.</li><li>Upper fence: <span class="tex" data-tex="32+18=50"></span>.</li></ol>
+<p class="scroll-cue">Scroll sideways to read both quartiles and fences on a narrow screen.</p>
+<div class="diagram-scroll" tabindex="0" role="region" aria-label="Number line showing quartiles and outlier fences; scroll horizontally if needed">
+<svg class="boxplot" viewBox="0 0 760 230" role="img" aria-labelledby="p7-title p7-desc"><title id="p7-title">Quartiles and outlier fences</title><desc id="p7-desc">On a linear value line, the lower fence is 2, Q1 is 20, Q3 is 32 and the upper fence is 50.</desc>
+<line class="axis" x1="80" y1="125" x2="630" y2="125"/><text x="355" y="215" text-anchor="middle">value</text>
+<line class="fence" x1="100" y1="72" x2="100" y2="153"/><line class="tick" x1="280" y1="108" x2="280" y2="142"/><line class="tick" x1="400" y1="108" x2="400" y2="142"/><line class="fence" x1="580" y1="72" x2="580" y2="153"/>
+<text x="100" y="48" text-anchor="middle">lower fence</text><text x="280" y="92" text-anchor="middle">Q₁</text><text x="400" y="92" text-anchor="middle">Q₃</text><text x="580" y="48" text-anchor="middle">upper fence</text>
+<text x="100" y="179" text-anchor="middle">2</text><text x="280" y="179" text-anchor="middle">20</text><text x="400" y="179" text-anchor="middle">32</text><text x="580" y="179" text-anchor="middle">50</text>
+</svg></div>
+<p><strong>Only observed values below 2 or above 50 are outliers.</strong></p>
+</section>
+
+<section data-source-pages="8">
+<h2>Check both ends</h2>
+<p>A data set has minimum 5, <span class="tex" data-tex="Q_1=18"></span>, <span class="tex" data-tex="Q_3=30"></span> and maximum 44.</p>
+<ol class="steps"><li><span class="tex" data-tex="\mathrm{IQR}=30-18=12"></span>.</li><li><span class="tex" data-tex="1.5\times\mathrm{IQR}=1.5\times12=18"></span>.</li><li>Lower fence: <span class="tex" data-tex="18-18=0"></span>.</li><li>Upper fence: <span class="tex" data-tex="30+18=48"></span>.</li><li>The minimum, 5, is above 0. It is not an outlier.</li><li>The maximum, 44, is below 48. It is not an outlier.</li></ol>
+<p class="scroll-cue">Scroll sideways to read both fences and endpoints on a narrow screen.</p>
+<div class="diagram-scroll" tabindex="0" role="region" aria-label="Number line comparing minimum and maximum with both outlier fences; scroll horizontally if needed">
+<svg class="boxplot" viewBox="0 0 760 250" role="img" aria-labelledby="p8-title p8-desc"><title id="p8-title">Endpoints inside the outlier fences</title><desc id="p8-desc">On a linear value line from 0 to 50, lower fence 0 and upper fence 48 enclose minimum 5 and maximum 44.</desc>
+<line class="axis" x1="80" y1="125" x2="680" y2="125"/><text x="380" y="235" text-anchor="middle">value</text>
+<line class="fence" x1="80" y1="66" x2="80" y2="153"/><line class="tick" x1="140" y1="108" x2="140" y2="142"/><line class="tick" x1="608" y1="108" x2="608" y2="142"/><line class="fence" x1="656" y1="66" x2="656" y2="153"/>
+<text x="84" y="42" text-anchor="start">lower fence</text><text x="140" y="92" text-anchor="middle">minimum</text><text x="608" y="92" text-anchor="middle">maximum</text><text x="656" y="42" text-anchor="end">upper fence</text>
+<text x="80" y="178" text-anchor="middle">0</text><text x="140" y="202" text-anchor="middle">5</text><text x="608" y="178" text-anchor="middle">44</text><text x="656" y="202" text-anchor="middle">48</text>
+</svg></div>
+<p class="final-answer"><strong>There are no outliers at either endpoint.</strong></p>
+</section>
+
+<section class="quick-check" aria-labelledby="check-one-title">
+<h2 id="check-one-title">Check 1</h2>
+<p>Can minimum 8, <span class="tex" data-tex="Q_1=13"></span>, median 12, <span class="tex" data-tex="Q_3=19"></span> and maximum 25 form a valid five-number summary?</p>
+<button type="button" aria-pressed="false" data-correct="true" data-feedback="Correct. No. The required order fails because Q₁ = 13 is greater than the median, 12.">A. No</button>
+<button type="button" aria-pressed="false" data-correct="false" data-feedback="Check the order. Q₁ must be at most the median, but 13 is greater than 12.">B. Yes</button>
+<p class="check-feedback" aria-live="polite">Choose an answer.</p>
+</section>
+
+<section class="recap" id="recap">
+<h2>Key ideas</h2>
+<ul class="explanation-points"><li>Check the five values are ordered before drawing.</li><li>Use one labelled linear scale.</li><li>The box shows the middle half; its width is the IQR.</li><li>The median line shows the centre. Whiskers show the spread beyond the box.</li><li>Comparative plots need the same scale.</li><li>Use both outlier fences and compare each endpoint with the correct boundary.</li></ul>
+</section>
+
+<section id="examples" data-source-pages="9">
+<h2>More worked examples</h2>
+<h3>Transfer five values</h3>
+<p>Draw the summary minimum 10, <span class="tex" data-tex="Q_1=15"></span>, median 20, <span class="tex" data-tex="Q_3=25"></span> and maximum 30.</p>
+<p class="scroll-cue">Scroll sideways to read the full value scale on a narrow screen.</p>
+<div class="diagram-scroll" tabindex="0" role="region" aria-label="Box plot with values 10 to 30; scroll horizontally if needed">
+<svg class="boxplot" viewBox="0 0 760 270" role="img" aria-labelledby="p9-title p9-desc"><title id="p9-title">Box plot from five supplied values</title><desc id="p9-desc">Linear value scale from 5 to 35, box 15 to 25, median 20, whiskers 10 and 30.</desc>
+<line class="whisker" x1="180" y1="115" x2="280" y2="115"/><line class="whisker" x1="480" y1="115" x2="580" y2="115"/><line class="whisker" x1="180" y1="98" x2="180" y2="132"/><line class="whisker" x1="580" y1="98" x2="580" y2="132"/><rect class="box" x="280" y="72" width="200" height="86"/><line class="median" x1="380" y1="72" x2="380" y2="158"/>
+<line class="axis" x1="80" y1="205" x2="680" y2="205"/><text x="380" y="256" text-anchor="middle">value</text>
+<g aria-hidden="true"><line class="tick" x1="80" y1="198" x2="80" y2="212"/><text x="80" y="234" text-anchor="middle">5</text><line class="tick" x1="180" y1="198" x2="180" y2="212"/><text x="180" y="234" text-anchor="middle">10</text><line class="tick" x1="280" y1="198" x2="280" y2="212"/><text x="280" y="234" text-anchor="middle">15</text><line class="tick" x1="380" y1="198" x2="380" y2="212"/><text x="380" y="234" text-anchor="middle">20</text><line class="tick" x1="480" y1="198" x2="480" y2="212"/><text x="480" y="234" text-anchor="middle">25</text><line class="tick" x1="580" y1="198" x2="580" y2="212"/><text x="580" y="234" text-anchor="middle">30</text><line class="tick" x1="680" y1="198" x2="680" y2="212"/><text x="680" y="234" text-anchor="middle">35</text></g>
+</svg></div>
+<ol class="steps"><li>Place 15 and 25 as the box ends.</li><li>Place the median line at 20.</li><li>Join whiskers to 10 and 30.</li></ol>
+</section>
+
+<section data-source-pages="10">
+<h2>Raw data to box plot</h2>
+<p>The ordered values are 10, 15, 20, 25, 28, 30, 35, 38, 40, 45, 50.</p>
+<ol class="steps"><li>Minimum = 10 and maximum = 50.</li><li>There are 11 values, so the sixth value is the median: 30.</li><li>Leave out the median. The lower half is 10, 15, 20, 25, 28, so <span class="tex" data-tex="Q_1=20"></span>.</li><li>The upper half is 35, 38, 40, 45, 50, so <span class="tex" data-tex="Q_3=40"></span>.</li><li>Check: <span class="tex" data-tex="10\le20\le30\le40\le50"></span>.</li></ol>
+<p class="scroll-cue">Scroll sideways to read the full value scale on a narrow screen.</p>
+<div class="diagram-scroll" tabindex="0" role="region" aria-label="Box plot calculated from eleven raw values; scroll horizontally if needed">
+<svg class="boxplot" viewBox="0 0 760 270" role="img" aria-labelledby="p10-title p10-desc"><title id="p10-title">Box plot calculated from raw data</title><desc id="p10-desc">Scale from 5 to 55, box from 20 to 40, median 30, whiskers 10 and 50.</desc>
+<line class="whisker" x1="140" y1="115" x2="260" y2="115"/><line class="whisker" x1="500" y1="115" x2="620" y2="115"/><line class="whisker" x1="140" y1="98" x2="140" y2="132"/><line class="whisker" x1="620" y1="98" x2="620" y2="132"/><rect class="box" x="260" y="72" width="240" height="86"/><line class="median" x1="380" y1="72" x2="380" y2="158"/>
+<line class="axis" x1="80" y1="205" x2="680" y2="205"/><text x="380" y="256" text-anchor="middle">value</text>
+<g aria-hidden="true"><line class="tick" x1="80" y1="198" x2="80" y2="212"/><text x="80" y="234" text-anchor="middle">5</text><line class="tick" x1="140" y1="198" x2="140" y2="212"/><text x="140" y="234" text-anchor="middle">10</text><line class="tick" x1="200" y1="198" x2="200" y2="212"/><text x="200" y="234" text-anchor="middle">15</text><line class="tick" x1="260" y1="198" x2="260" y2="212"/><text x="260" y="234" text-anchor="middle">20</text><line class="tick" x1="320" y1="198" x2="320" y2="212"/><text x="320" y="234" text-anchor="middle">25</text><line class="tick" x1="380" y1="198" x2="380" y2="212"/><text x="380" y="234" text-anchor="middle">30</text><line class="tick" x1="440" y1="198" x2="440" y2="212"/><text x="440" y="234" text-anchor="middle">35</text><line class="tick" x1="500" y1="198" x2="500" y2="212"/><text x="500" y="234" text-anchor="middle">40</text><line class="tick" x1="560" y1="198" x2="560" y2="212"/><text x="560" y="234" text-anchor="middle">45</text><line class="tick" x1="620" y1="198" x2="620" y2="212"/><text x="620" y="234" text-anchor="middle">50</text><line class="tick" x1="680" y1="198" x2="680" y2="212"/><text x="680" y="234" text-anchor="middle">55</text></g>
+</svg></div>
+<p><strong>Summary: 10, 20, 30, 40, 50.</strong></p>
+</section>
+
+<section data-source-pages="11">
+<h2>Identify an outlier</h2>
+<p>A data set has minimum 8, <span class="tex" data-tex="Q_1=14"></span>, <span class="tex" data-tex="Q_3=26"></span> and maximum 52.</p>
+<ol class="steps"><li><span class="tex" data-tex="\mathrm{IQR}=26-14=12"></span>, so <span class="tex" data-tex="1.5\times\mathrm{IQR}=18"></span>.</li><li>Lower fence: <span class="tex" data-tex="14-18=-4"></span>.</li><li>Upper fence: <span class="tex" data-tex="26+18=44"></span>.</li><li>The minimum 8 is above −4, so it is not an outlier.</li><li>The maximum 52 is above 44, so it is an outlier.</li></ol>
+<p class="scroll-cue">Scroll sideways to read both fences and endpoints on a narrow screen.</p>
+<div class="diagram-scroll" tabindex="0" role="region" aria-label="Number line comparing endpoints with outlier fences; scroll horizontally if needed">
+<svg class="boxplot" viewBox="0 0 760 210" role="img" aria-labelledby="p11-title p11-desc"><title id="p11-title">Outlier fences and endpoints</title><desc id="p11-desc">On a linear number line, lower fence is minus 4, minimum is 8, upper fence is 44, and maximum 52 lies above the upper fence.</desc>
+<line class="axis" x1="80" y1="120" x2="680" y2="120"/>
+<line class="fence" x1="131.43" y1="70" x2="131.43" y2="150"/><line class="tick" x1="234.29" y1="105" x2="234.29" y2="135"/><line class="fence" x1="542.86" y1="70" x2="542.86" y2="150"/><circle class="outlier" cx="611.43" cy="120" r="9"/>
+<text x="131.43" y="48" text-anchor="middle">lower fence</text><text x="131.43" y="178" text-anchor="middle">−4</text><text x="234.29" y="92" text-anchor="middle">minimum</text><text x="234.29" y="178" text-anchor="middle">8</text><text x="542.86" y="48" text-anchor="middle">upper fence</text><text x="542.86" y="178" text-anchor="middle">44</text><text x="611.43" y="92" text-anchor="middle">maximum</text><text x="611.43" y="178" text-anchor="middle">52</text>
+</svg></div>
+<p class="final-answer"><strong>52 is an outlier; 8 is not.</strong></p>
+</section>
+
+<section class="quick-check" aria-labelledby="check-two-title">
+<h2 id="check-two-title">Check 2</h2>
+<p>For <span class="tex" data-tex="Q_1=14"></span> and <span class="tex" data-tex="Q_3=22"></span>, is an observed value of 34 an outlier?</p>
+<button type="button" aria-pressed="false" data-correct="true" data-feedback="Correct. IQR = 8, so 1.5 × IQR = 12 and the upper fence is 22 + 12 = 34. A value exactly on the fence is not an outlier.">A. No</button>
+<button type="button" aria-pressed="false" data-correct="false" data-feedback="IQR = 8 and the upper fence is 34. Only a value above 34 is an outlier; 34 is exactly on the fence.">B. Yes</button>
+<p class="check-feedback" aria-live="polite">Choose an answer.</p>
+</section>
+
+<footer><div class="route"><a href="#core">Back to start</a><a href="#recap">Review key ideas</a></div><p>Representation of data · Module 2 · Lesson 3</p></footer>
+<nav class="topic-navigation" aria-label="Topic navigation" style="display:flex;flex-wrap:wrap;gap:1rem;max-width:840px;margin:2rem auto;padding:1rem"><a href="../../../topic-overview/index.html">All lessons</a><a href="../../../9709_s1_t_representation_of_data_m02/9709_s1_t_representation_of_data_m02_l02/html/index.html">Previous lesson</a><a href="../../../9709_s1_t_representation_of_data_m02/9709_s1_t_representation_of_data_m02_l04/html/index.html">Next lesson</a></nav></main>
+</body>
+</html>

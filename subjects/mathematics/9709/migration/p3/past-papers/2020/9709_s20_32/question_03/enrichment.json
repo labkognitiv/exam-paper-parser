@@ -1,0 +1,69 @@
+{
+  "schema_version": "9709_math_enrichment_v3",
+  "paper_code": "9709_s20_32",
+  "question_id": "9709_s20_32_q3",
+  "question_num": 3,
+  "subject_code": "9709",
+  "component": "P3",
+  "year": 2020,
+  "session": "May/June",
+  "variant": "32",
+  "difficulty": 3,
+  "numerical_values_checked": false,
+  "parts": [
+    {
+      "part_id": "9709_s20_32_q3",
+      "difficulty": 3,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_p3_t_logarithmic_and_exponential_functions",
+        "module_id": "9709_p3_t_logarithmic_and_exponential_functions_m03",
+        "lesson_id": "9709_p3_t_logarithmic_and_exponential_functions_m03_l01"
+      },
+      "skills": {
+        "primary_skill_id": "9709_p3_skill_integration",
+        "skill_tags": [
+          "Integration"
+        ]
+      },
+      "question_pattern_ids": [
+        "9709_p3_pattern_exact_value",
+        "9709_p3_pattern_calculus_process"
+      ],
+      "knowledge_refs": {
+        "formula_ids": [],
+        "identity_ids": [],
+        "method_ids": [
+          "9709_p3_method_integration"
+        ],
+        "fact_ids": []
+      },
+      "hints": [
+        "Apply integration by parts to \\(\\int_1^4 x^{3/2}\\ln x\\,dx\\), choosing \\(u=\\ln x\\) and \\(dv=x^{3/2}dx\\).",
+        "Use \\(du=dx/x\\) and \\(v=\\tfrac25x^{5/2}\\), then simplify the remaining power integral completely.",
+        "Evaluate the full antiderivative at 4 and 1, keeping \\(\\ln4=2\\ln2\\) so the result remains exact."
+      ],
+      "walkthrough": [
+        "State the given definite integral:\n$$I = \\int_1^4 x^{3/2}\\ln x\\,dx$$",
+        "Apply integration by parts using the formula $\\int u\\,dv = uv - \\int v\\,du$:\nChoose $u = \\ln x$ (to be differentiated) and $dv = x^{3/2}\\,dx$ (to be integrated).",
+        "Differentiate $u$ with respect to $x$:\n$$du = \\dfrac{1}{x}\\,dx$$",
+        "Integrate $dv$ using the power rule $\\int x^n\\,dx = \\dfrac{x^{n+1}}{n+1}$ with $n = \\dfrac{3}{2}$:\n$$v = \\dfrac{x^{3/2 + 1}}{\\frac{3}{2} + 1} = \\dfrac{x^{5/2}}{\\frac{5}{2}} = \\dfrac{2}{5}x^{5/2}$$",
+        "Substitute $u, v, du$ into the integration by parts formula:\n$$\\int x^{3/2}\\ln x\\,dx = \\left( \\ln x \\right)\\left( \\dfrac{2}{5}x^{5/2} \\right) - \\int \\left( \\dfrac{2}{5}x^{5/2} \\right)\\left( \\dfrac{1}{x} \\right)\\,dx$$\n$$= \\dfrac{2}{5}x^{5/2}\\ln x - \\dfrac{2}{5}\\int x^{3/2}\\,dx$$",
+        "Compute the remaining integral $\\int x^{3/2}\\,dx$:\n$$\\int x^{3/2}\\,dx = \\dfrac{2}{5}x^{5/2}$$",
+        "Multiply by the constant factor $-\\dfrac{2}{5}$ to find the full antiderivative $F(x)$:\n$$-\\dfrac{2}{5}\\left(\\dfrac{2}{5}x^{5/2}\\right) = -\\dfrac{4}{25}x^{5/2}$$\n$$F(x) = \\dfrac{2}{5}x^{5/2}\\ln x - \\dfrac{4}{25}x^{5/2}$$",
+        "Evaluate the antiderivative at the upper limit $x = 4$:\nCompute $4^{5/2} = (\\sqrt{4})^5 = 2^5 = 32$.\n$$F(4) = \\dfrac{2}{5}(32)\\ln(4) - \\dfrac{4}{25}(32) = \\dfrac{64}{5}\\ln(4) - \\dfrac{128}{25}$$",
+        "Rewrite $\\ln(4)$ in terms of $\\ln 2$ using $\\ln(4) = \\ln(2^2) = 2\\ln 2$:\n$$\\dfrac{64}{5}\\ln(4) = \\dfrac{64}{5}(2\\ln 2) = \\dfrac{128}{5}\\ln 2$$\n$$F(4) = \\dfrac{128}{5}\\ln 2 - \\dfrac{128}{25}$$",
+        "Evaluate the antiderivative at the lower limit $x = 1$:\nSince $\\ln(1) = 0$ and $1^{5/2} = 1$:\n$$F(1) = \\dfrac{2}{5}(1)(0) - \\dfrac{4}{25}(1) = 0 - \\dfrac{4}{25} = -\\dfrac{4}{25}$$",
+        "Subtract $F(1)$ from $F(4)$:\n$$I = F(4) - F(1) = \\left( \\dfrac{128}{5}\\ln 2 - \\dfrac{128}{25} \\right) - \\left( -\\dfrac{4}{25} \\right)$$\n$$= \\dfrac{128}{5}\\ln 2 - \\dfrac{128}{25} + \\dfrac{4}{25} = \\dfrac{128}{5}\\ln 2 - \\dfrac{124}{25}$$",
+        "State the exact value of the integral:\n$$I = \\dfrac{128}{5}\\ln 2 - \\dfrac{124}{25}$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "ai_rubric": {
+          "Integration": "Integration begins with \\(ax^{5/2}\\ln x+b\\int x^{5/2}\\frac1x\\,dx\\). Completes the integration and derives \\(\\frac25x^{5/2}\\ln x-\\frac4{25}x^{5/2}\\), or equivalent. Concludes with \\(\\displaystyle\\frac{128}{5}\\ln2-\\frac{124}{25}\\)."
+        },
+        "criteria_source": "mark_scheme_structured"
+      }
+    }
+  ]
+}

@@ -1,0 +1,113 @@
+{
+  "schema_version": "9709_math_enrichment_v3",
+  "paper_code": "9709_s17_31",
+  "question_id": "9709_s17_31_q3",
+  "question_num": 3,
+  "subject_code": "9709",
+  "component": "P3",
+  "year": 2017,
+  "session": "May/June",
+  "variant": "31",
+  "difficulty": 4,
+  "numerical_values_checked": false,
+  "parts": [
+    {
+      "part_id": "9709_s17_31_q3_i",
+      "difficulty": 2,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_p3_t_logarithmic_and_exponential_functions",
+        "module_id": "9709_p3_t_logarithmic_and_exponential_functions_m01",
+        "lesson_id": "9709_p3_t_logarithmic_and_exponential_functions_m01_l02"
+      },
+      "skills": {
+        "primary_skill_id": "9709_p3_skill_solving_exponential_and_logarithmic_equations",
+        "skill_tags": [
+          "Solving Exponential and Logarithmic Equations"
+        ]
+      },
+      "question_pattern_ids": [
+        "9709_p3_pattern_solve_equation",
+        "9709_p3_pattern_prove_or_show"
+      ],
+      "knowledge_refs": {
+        "formula_ids": [],
+        "identity_ids": [],
+        "method_ids": [
+          "9709_p3_method_solving_exponential_and_logarithmic_equations"
+        ],
+        "fact_ids": [
+          "9709_p3_fact_log_domain"
+        ]
+      },
+      "hints": [
+        "Combine the logarithms first: $x=\\ln((1-y)/y)$.",
+        "Exponentiate, rearrange the resulting linear equation in $y$, then multiply numerator and denominator by $e^{-x}$ to reach the requested form."
+      ],
+      "walkthrough": [
+        "Combine the two logarithmic terms using the quotient property $\\ln A - \\ln B = \\ln\\left(\\dfrac{A}{B}\\right)$:\n$$x = \\ln(1 - y) - \\ln y = \\ln\\left(\\dfrac{1 - y}{y}\\right)$$",
+        "Exponentiate both sides of the equation with base $e$:\n$$e^x = \\dfrac{1 - y}{y}$$",
+        "Clear the fraction by multiplying both sides by $y$ (given $0 < y < 1$):\n$$y e^x = 1 - y$$",
+        "Collect all terms involving $y$ on the left-hand side:\n$$y e^x + y = 1$$\n$$y(e^x + 1) = 1$$",
+        "Divide by $(e^x + 1)$ to isolate $y$:\n$$y = \\dfrac{1}{e^x + 1}$$",
+        "Multiply the numerator and the denominator by $e^{-x}$:\n$$y = \\dfrac{1 \\cdot e^{-x}}{(e^x + 1)e^{-x}} = \\dfrac{e^{-x}}{e^x e^{-x} + e^{-x}} = \\dfrac{e^{-x}}{1 + e^{-x}}$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "ai_rubric": {
+          "Solving Exponential and Logarithmic Equations": "Remove logarithms and derives $e^x=\\frac{1-y}{y}$. Derives the given answer $y=\\frac{e^{-x}}{1+e^{-x}}$ following. The final result is $y=\\frac{e^{-x}}{1+e^{-x}}$."
+        },
+        "criteria_source": "mark_scheme_structured"
+      }
+    },
+    {
+      "part_id": "9709_s17_31_q3_ii",
+      "difficulty": 4,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_p3_t_integration",
+        "module_id": "9709_p3_t_integration_m01",
+        "lesson_id": "9709_p3_t_integration_m01_l02"
+      },
+      "skills": {
+        "primary_skill_id": "9709_p3_skill_integration",
+        "skill_tags": [
+          "Integration"
+        ]
+      },
+      "question_pattern_ids": [
+        "9709_p3_pattern_prove_or_show",
+        "9709_p3_pattern_calculus_process",
+        "9709_p3_pattern_multi_part_dependency"
+      ],
+      "knowledge_refs": {
+        "formula_ids": [],
+        "identity_ids": [],
+        "method_ids": [
+          "9709_p3_method_integration"
+        ],
+        "fact_ids": []
+      },
+      "hints": [
+        "Insert the expression for $y$ from part (i) into the integral over $0\\le x\\le1$.",
+        "Recognise $e^{-x}/(1+e^{-x})$ as the derivative pattern for $-\\ln(1+e^{-x})$.",
+        "Evaluate at $x=0$ and $x=1$, then combine the logarithms into the stated single logarithm."
+      ],
+      "walkthrough": [
+        "Substitute the expression for $y$ derived in part (i) into the definite integral:\n$$\\int_0^1 y\\,\\mathrm{d}x = \\int_0^1 \\dfrac{e^{-x}}{1 + e^{-x}}\\,\\mathrm{d}x$$",
+        "Identify the integrand as matching the standard derivative form $\\dfrac{f'(x)}{f(x)}$:\nLet $f(x) = 1 + e^{-x}$. Then $f'(x) = \\dfrac{\\mathrm{d}}{\\mathrm{d}x}(1 + e^{-x}) = -e^{-x}$.\nThus, rewrite the integrand with a compensating negative sign:\n$$\\dfrac{e^{-x}}{1 + e^{-x}} = -\\dfrac{-e^{-x}}{1 + e^{-x}} = -\\dfrac{f'(x)}{f(x)}$$",
+        "Integrate to obtain the antiderivative:\n$$\\int \\dfrac{e^{-x}}{1 + e^{-x}}\\,\\mathrm{d}x = -\\ln(1 + e^{-x})$$",
+        "Apply the limits of integration from $x = 0$ to $x = 1$:\n$$\\Big[-\\ln(1 + e^{-x})\\Big]_0^1 = \\big(-\\ln(1 + e^{-1})\\big) - \\big(-\\ln(1 + e^{-0})\\big)$$\n$$= -\\ln(1 + e^{-1}) + \\ln(1 + 1) = \\ln 2 - \\ln(1 + e^{-1})$$",
+        "Express $1 + e^{-1}$ as a single fraction:\n$$1 + e^{-1} = 1 + \\dfrac{1}{e} = \\dfrac{e + 1}{e}$$",
+        "Combine the two logarithmic terms using $\\ln A - \\ln B = \\ln\\left(\\dfrac{A}{B}\\right)$:\n$$\\ln 2 - \\ln\\left(\\dfrac{e + 1}{e}\\right) = \\ln\\left(\\dfrac{2}{\\dfrac{e + 1}{e}}\\right) = \\ln\\left(2 \\times \\dfrac{e}{e + 1}\\right) = \\ln\\left(\\dfrac{2e}{e + 1}\\right)$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "ai_rubric": {
+          "Integration": "Identifies integral $k\\ln(1+e^{-x})$ where $k=\\pm1$; Identifies integral $-\\ln(1+e^{-x})$; Concludes with $\\int_0^1y\\,dx=\\ln\\left(\\frac{2e}{e+1}\\right)$."
+        },
+        "criteria_source": "mark_scheme_structured"
+      }
+    }
+  ]
+}

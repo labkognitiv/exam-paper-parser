@@ -1,0 +1,78 @@
+{
+  "schema_version": "9709_math_enrichment_v3",
+  "paper_code": "9709_s20_32",
+  "question_id": "9709_s20_32_q4",
+  "question_num": 4,
+  "subject_code": "9709",
+  "component": "P3",
+  "year": 2020,
+  "session": "May/June",
+  "variant": "32",
+  "difficulty": 3,
+  "numerical_values_checked": false,
+  "parts": [
+    {
+      "part_id": "9709_s20_32_q4",
+      "difficulty": 3,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_p3_t_differentiation",
+        "module_id": "9709_p3_t_differentiation_m01",
+        "lesson_id": "9709_p3_t_differentiation_m01_l02"
+      },
+      "skills": {
+        "primary_skill_id": "9709_p3_skill_finding_stationary_points",
+        "skill_tags": [
+          "Finding Stationary Points"
+        ]
+      },
+      "question_pattern_ids": [
+        "9709_p3_pattern_solve_equation",
+        "9709_p3_pattern_solve_inequality",
+        "9709_p3_pattern_numerical_approximation",
+        "9709_p3_pattern_calculus_process",
+        "9709_p3_pattern_trigonometric_reasoning"
+      ],
+      "knowledge_refs": {
+        "formula_ids": [
+          "9709_p3_formula_scalar_product"
+        ],
+        "identity_ids": [
+          "9709_p3_identity_double_angle",
+          "9709_p3_identity_pythagorean"
+        ],
+        "method_ids": [
+          "9709_p3_method_finding_stationary_points"
+        ],
+        "fact_ids": [
+          "9709_p3_fact_stationary_point"
+        ]
+      },
+      "hints": [
+        "A stationary point occurs where the derivative of \\(y=\\cos x\\sin2x\\) is zero; differentiate with the product and chain rules.",
+        "Rewrite \\(\\sin2x\\) and \\(\\cos2x\\) in terms of \\(\\sin x\\) and \\(\\cos x\\) to reduce the zero-gradient equation to one trigonometric function.",
+        "Solve the resulting squared-trigonometric equation subject to \\(0<x<\\pi/2\\), then give the unique admissible value to 3 significant figures."
+      ],
+      "walkthrough": [
+        "State the given function:\n$$y = \\cos x\\sin 2x$$",
+        "Apply the product rule $\\dfrac{d}{dx}(uv) = u'v + uv'$ to differentiate $y$ with respect to $x$:\nLet $u = \\cos x \\implies u' = -\\sin x$.\nLet $v = \\sin 2x \\implies v' = 2\\cos 2x$.",
+        "Form the derivative $\\dfrac{dy}{dx}$:\n$$\\dfrac{dy}{dx} = -\\sin x\\sin 2x + 2\\cos x\\cos 2x$$",
+        "Express the double-angle terms in terms of single-angle functions using standard double-angle identities:\n$$\\sin 2x = 2\\sin x\\cos x$$\n$$\\cos 2x = 1 - 2\\sin^2 x \\quad \\left(\\text{or } 2\\cos^2 x - 1\\right)$$",
+        "Substitute these identities into the expression for $\\dfrac{dy}{dx}$:\n$$\\dfrac{dy}{dx} = -\\sin x(2\\sin x\\cos x) + 2\\cos x(1 - 2\\sin^2 x)$$\n$$= -2\\sin^2 x\\cos x + 2\\cos x - 4\\sin^2 x\\cos x$$\n$$= 2\\cos x - 6\\sin^2 x\\cos x$$",
+        "Factor out $2\\cos x$:\n$$\\dfrac{dy}{dx} = 2\\cos x(1 - 3\\sin^2 x)$$",
+        "Set the derivative equal to zero to find the stationary points:\n$$2\\cos x(1 - 3\\sin^2 x) = 0$$",
+        "Analyze the factors in the specified interval $0 < x < \\dfrac{1}{2}\\pi$:\nIn this open interval, $\\cos x > 0$, so $\\cos x \\ne 0$.\nTherefore, set the remaining factor to zero:\n$$1 - 3\\sin^2 x = 0$$\n$$3\\sin^2 x = 1 \\implies \\sin^2 x = \\dfrac{1}{3}$$",
+        "Take the positive square root since $\\sin x > 0$ for $x \\in \\left(0, \\dfrac{1}{2}\\pi\\right)$:\n$$\\sin x = \\dfrac{1}{\\sqrt{3}} = \\dfrac{\\sqrt{3}}{3} \\approx 0.577350$$",
+        "Solve for $x$ in radians:\n$$x = \\sin^{-1}\\left(\\dfrac{1}{\\sqrt{3}}\\right) \\approx 0.615480\\text{ radians}$$",
+        "Round to $3$ significant figures:\n$$x = 0.615$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "ai_rubric": {
+          "Finding Stationary Points": "Derives the derivative, e.g. \\(-\\sin x\\sin2x+2\\cos x\\cos2x\\). Applies a double-angle formula to express the derivative in terms of \\(\\sin x\\) and \\(\\cos x\\). The final result is \\(x=0.615\\)."
+        },
+        "criteria_source": "mark_scheme_structured"
+      }
+    }
+  ]
+}

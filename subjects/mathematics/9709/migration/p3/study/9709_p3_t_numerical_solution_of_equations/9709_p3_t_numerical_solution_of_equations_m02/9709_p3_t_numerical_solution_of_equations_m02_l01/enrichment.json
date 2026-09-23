@@ -1,0 +1,1526 @@
+{
+  "schema_version": "9709_math_lesson_enrichment_v1",
+  "lesson_id": "9709_p3_t_numerical_solution_of_equations_m02_l01",
+  "topic_id": "9709_p3_t_numerical_solution_of_equations",
+  "numerical_values_checked": false,
+  "lesson_scope": "Rearranging equations f(x)=0 into fixed-point iteration forms x=F(x), verifying algebraic equivalence in forward and reverse directions, assessing convergence conditions via |F'(x)| < 1, and understanding staircase and cobweb diagrams.",
+  "questions": [
+    {
+      "question_id": "9709_p3_t_numerical_solution_of_equations_m02_l01_drq01",
+      "sequence": 1,
+      "difficulty": "easy",
+      "difficulty_reason": "Drill: rearranging a cubic equation into a square root fixed-point iteration form.",
+      "source_question_id": "drill_p3_num_rearrange_cubic_sqrt",
+      "source_role": "foundational_drill",
+      "dependency_role": "none",
+      "dependency_refs": [],
+      "parts": [
+        {
+          "part_id": "9709_p3_t_numerical_solution_of_equations_m02_l01_drq01_p01",
+          "difficulty": "easy",
+          "question_pattern_ids": [
+            "9709_p3_pattern_rearrange_equation_to_iterative_formula"
+          ],
+          "source_evidence": {
+            "question_id": "drill_p3_num_rearrange_cubic_sqrt",
+            "part_id": "drill_p3_num_rearrange_cubic_sqrt_p01",
+            "legacy_practice_tier": "foundational",
+            "product_role": "warm_up_drill",
+            "structural_inspiration": "Foundational practice of isolating x^2 to form a square root iteration."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Start by isolating the highest power term $x^3$ on one side: $x^3 = 3x + 5$.",
+            "Since $x > 0$, divide both sides of $x^3 = 3x + 5$ by $x$ to express $x^2$ in terms of $x$.",
+            "Take the positive square root of both sides to conclude $x = \\sqrt{3 + \\dfrac{5}{x}}$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Isolate $x^3$ on the left-hand side:\n$$x^3 = 3x + 5$$"
+            },
+            {
+              "step": 2,
+              "text": "Divide throughout by $x$ (valid as $x > 0$):\n$$x^2 = \\dfrac{3x + 5}{x} = 3 + \\dfrac{5}{x}$$"
+            },
+            {
+              "step": 3,
+              "text": "Take the square root of both sides, taking the positive root since $x > 0$:\n$$x = \\sqrt{3 + \\dfrac{5}{x}}$$"
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_numerical_solution_of_equations_m02_l01_drq01_p01_mp01",
+                "observable": "Rearranges the cubic equation to make $x^2$ the subject, e.g. $x^3 = 3x + 5 \\implies x^2 = 3 + \\dfrac{5}{x}$ (or divides $x^3 - 3x - 5 = 0$ by $x$)."
+              },
+              {
+                "criterion_id": "9709_p3_t_numerical_solution_of_equations_m02_l01_drq01_p01_mp02",
+                "observable": "Takes the positive square root to obtain the given form $x = \\sqrt{3 + \\dfrac{5}{x}}$ with clear algebraic steps shown."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_rearranging_equations_to_iterative_forms"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_rearranging_equations_to_iterative_forms"
+            ],
+            "method_ids": [
+              "9709_p3_method_fixed_point_rearrangement"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        }
+      ],
+      "_numerical_values_checked": false
+    },
+    {
+      "question_id": "9709_p3_t_numerical_solution_of_equations_m02_l01_drq02",
+      "sequence": 2,
+      "difficulty": "easy",
+      "difficulty_reason": "Drill: rearranging an exponential-polynomial equation using natural logarithms.",
+      "source_question_id": "drill_p3_num_rearrange_exp_ln",
+      "source_role": "foundational_drill",
+      "dependency_role": "none",
+      "dependency_refs": [],
+      "parts": [
+        {
+          "part_id": "9709_p3_t_numerical_solution_of_equations_m02_l01_drq02_p01",
+          "difficulty": "easy",
+          "question_pattern_ids": [
+            "9709_p3_pattern_rearrange_equation_to_iterative_formula"
+          ],
+          "source_evidence": {
+            "question_id": "drill_p3_num_rearrange_exp_ln",
+            "part_id": "drill_p3_num_rearrange_exp_ln_p01",
+            "legacy_practice_tier": "foundational",
+            "product_role": "warm_up_drill",
+            "structural_inspiration": "Standard logarithm rearrangement to linearize the exponent and form an iteration."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Take the natural logarithm ($\\ln$) of both sides of the equation $x^3 = \\mathrm{e}^{2x - 1}$.",
+            "Apply the power law $\\ln(x^3) = 3\\ln x$ and the inverse property $\\ln(\\mathrm{e}^{2x - 1}) = 2x - 1$.",
+            "Isolate $x$ from $3\\ln x = 2x - 1$ and add iteration subscripts $n+1$ and $n$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Take the natural logarithm of both sides:\n$$\\ln(x^3) = \\ln\\left(\\mathrm{e}^{2x - 1}\\right)$$"
+            },
+            {
+              "step": 2,
+              "text": "Apply the logarithm laws $\\ln(x^3) = 3\\ln x$ and $\\ln(\\mathrm{e}^{2x - 1}) = 2x - 1$:\n$$3\\ln x = 2x - 1$$"
+            },
+            {
+              "step": 3,
+              "text": "Rearrange to make $x$ the subject and add subscripts:\n$$2x = 3\\ln x + 1 \\implies x = \\dfrac{1}{2}(3\\ln x + 1)$$\nHence, $x_{n+1} = \\dfrac{1}{2}(3\\ln x_n + 1)$."
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_numerical_solution_of_equations_m02_l01_drq02_p01_mp01",
+                "observable": "Takes the natural logarithm of both sides and applies laws of logarithms to obtain $3\\ln x = 2x - 1$."
+              },
+              {
+                "criterion_id": "9709_p3_t_numerical_solution_of_equations_m02_l01_drq02_p01_mp02",
+                "observable": "Makes $x$ the subject to obtain $x = \\dfrac{1}{2}(3\\ln x + 1)$ and correctly introduces iteration subscripts $x_{n+1} = \\dfrac{1}{2}(3\\ln x_n + 1)$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_rearranging_equations_to_iterative_forms"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_rearranging_equations_to_iterative_forms"
+            ],
+            "method_ids": [
+              "9709_p3_method_fixed_point_rearrangement"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        }
+      ],
+      "_numerical_values_checked": false
+    },
+    {
+      "question_id": "9709_p3_t_numerical_solution_of_equations_m02_l01_drq03",
+      "sequence": 3,
+      "difficulty": "easy",
+      "difficulty_reason": "Drill: rearranging a trigonometric equation using inverse trigonometric functions.",
+      "source_question_id": "drill_p3_num_rearrange_trig_arctan",
+      "source_role": "foundational_drill",
+      "dependency_role": "none",
+      "dependency_refs": [],
+      "parts": [
+        {
+          "part_id": "9709_p3_t_numerical_solution_of_equations_m02_l01_drq03_p01",
+          "difficulty": "easy",
+          "question_pattern_ids": [
+            "9709_p3_pattern_rearrange_equation_to_iterative_formula"
+          ],
+          "source_evidence": {
+            "question_id": "drill_p3_num_rearrange_trig_arctan",
+            "part_id": "drill_p3_num_rearrange_trig_arctan_p01",
+            "legacy_practice_tier": "foundational",
+            "product_role": "warm_up_drill",
+            "structural_inspiration": "Rearranging x tan x = c into an arctan fixed-point iteration."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Isolate the trigonometric term $\\tan x$ by dividing both sides of $x\\tan x = 3$ by $x$.",
+            "Apply the inverse tangent function $\\tan^{-1}$ to both sides and attach the iterative subscripts $x_{n+1}$ and $x_n$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Divide both sides of $x\\tan x = 3$ by $x$ (valid since $x \\in (0, \\pi/2)$ so $x \\neq 0$):\n$$\\tan x = \\dfrac{3}{x}$$"
+            },
+            {
+              "step": 2,
+              "text": "Apply the inverse tangent function $\\tan^{-1}$ to both sides:\n$$x = \\tan^{-1}\\!\\left(\\dfrac{3}{x}\\right)$$"
+            },
+            {
+              "step": 3,
+              "text": "Express as an iterative formula:\n$$x_{n+1} = \\tan^{-1}\\!\\left(\\dfrac{3}{x_n}\\right)$$"
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_numerical_solution_of_equations_m02_l01_drq03_p01_mp01",
+                "observable": "Rearranges the equation to isolate $\\tan x$, giving $\\tan x = \\dfrac{3}{x}$."
+              },
+              {
+                "criterion_id": "9709_p3_t_numerical_solution_of_equations_m02_l01_drq03_p01_mp02",
+                "observable": "Applies the inverse tangent function to express $x = \\tan^{-1}\\!\\left(\\dfrac{3}{x}\\right)$ and writes the iterative formula $x_{n+1} = \\tan^{-1}\\!\\left(\\dfrac{3}{x_n}\\right)$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_rearranging_equations_to_iterative_forms"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_rearranging_equations_to_iterative_forms"
+            ],
+            "method_ids": [
+              "9709_p3_method_fixed_point_rearrangement"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        }
+      ],
+      "_numerical_values_checked": false
+    },
+    {
+      "question_id": "9709_p3_t_numerical_solution_of_equations_m02_l01_drq04",
+      "sequence": 4,
+      "difficulty": "easy",
+      "difficulty_reason": "Drill: proving that the limit of an iterative sequence satisfies the original algebraic equation.",
+      "source_question_id": "9709_w24_33_q2",
+      "source_role": "foundational_drill",
+      "dependency_role": "none",
+      "dependency_refs": [],
+      "parts": [
+        {
+          "part_id": "9709_p3_t_numerical_solution_of_equations_m02_l01_drq04_p01",
+          "difficulty": "easy",
+          "question_pattern_ids": [
+            "9709_p3_pattern_verify_iteration_limit_satisfies_equation"
+          ],
+          "source_evidence": {
+            "question_id": "9709_w24_33_q2",
+            "part_id": "9709_w24_33_q2_a",
+            "legacy_practice_tier": "foundational",
+            "product_role": "warm_up_drill",
+            "structural_inspiration": "Reverse verification showing limit alpha satisfies the underlying polynomial."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "At convergence, the limit $\\alpha$ satisfies $\\lim_{n\\to\\infty} x_{n+1} = \\lim_{n\\to\\infty} x_n = \\alpha$. Substitute $\\alpha$ for both $x_{n+1}$ and $x_n$.",
+            "Multiply both sides by $(3\\alpha^2 - 1)$ to clear the denominator.",
+            "Expand the left side to get $3\\alpha^3 - \\alpha$ and rearrange all terms to one side to show $\\alpha^3 - \\alpha - 7 = 0$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "At convergence, let $x_{n+1} \\to \\alpha$ and $x_n \\to \\alpha$:\n$$\\alpha = \\dfrac{2\\alpha^3 + 7}{3\\alpha^2 - 1}$$"
+            },
+            {
+              "step": 2,
+              "text": "Multiply both sides by $(3\\alpha^2 - 1)$:\n$$\\alpha(3\\alpha^2 - 1) = 2\\alpha^3 + 7$$"
+            },
+            {
+              "step": 3,
+              "text": "Expand and rearrange:\n$$3\\alpha^3 - \\alpha = 2\\alpha^3 + 7 \\implies 3\\alpha^3 - 2\\alpha^3 - \\alpha - 7 = 0 \\implies \\alpha^3 - \\alpha - 7 = 0$$\nThus, $\\alpha$ satisfies the equation $x^3 - x - 7 = 0$."
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_numerical_solution_of_equations_m02_l01_drq04_p01_mp01",
+                "observable": "Substitutes $x_{n+1} = x_n = \\alpha$ into the iterative formula to obtain $\\alpha = \\dfrac{2\\alpha^3 + 7}{3\\alpha^2 - 1}$ and clears the fraction."
+              },
+              {
+                "criterion_id": "9709_p3_t_numerical_solution_of_equations_m02_l01_drq04_p01_mp02",
+                "observable": "Expands $\\alpha(3\\alpha^2 - 1) = 3\\alpha^3 - \\alpha$ and simplifies to $\\alpha^3 - \\alpha - 7 = 0$, concluding that $\\alpha$ satisfies $x^3 - x - 7 = 0$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_rearranging_equations_to_iterative_forms"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_rearranging_equations_to_iterative_forms"
+            ],
+            "method_ids": [
+              "9709_p3_method_fixed_point_rearrangement"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        }
+      ],
+      "_numerical_values_checked": false
+    },
+    {
+      "question_id": "9709_p3_t_numerical_solution_of_equations_m02_l01_drq05",
+      "sequence": 5,
+      "difficulty": "easy",
+      "difficulty_reason": "Drill: applying the derivative convergence criterion |F'(x)| < 1 to justify convergence.",
+      "source_question_id": "drill_p3_num_convergence_derivative_check",
+      "source_role": "foundational_drill",
+      "dependency_role": "none",
+      "dependency_refs": [],
+      "parts": [
+        {
+          "part_id": "9709_p3_t_numerical_solution_of_equations_m02_l01_drq05_p01",
+          "difficulty": "easy",
+          "question_pattern_ids": [
+            "9709_p3_pattern_evaluate_convergence_criterion"
+          ],
+          "source_evidence": {
+            "question_id": "drill_p3_num_convergence_derivative_check",
+            "part_id": "drill_p3_num_convergence_derivative_check_p01",
+            "legacy_practice_tier": "foundational",
+            "product_role": "warm_up_drill",
+            "structural_inspiration": "Assessing fixed-point iteration convergence by computing |F'(x)| at an approximate root."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Differentiate $F(x) = (5 - 2x)^{1/3}$ with respect to $x$ using the chain rule: $\\dfrac{\\mathrm{d}}{\\mathrm{d}x}[u^{1/3}] = \\dfrac{1}{3}u^{-2/3} \\cdot u'$.",
+            "Substitute $x = 1.33$ into $F'(x) = -\\dfrac{2}{3(5 - 2x)^{2/3}}$ to calculate its numerical value.",
+            "State the convergence condition $|F'(\\alpha)| < 1$ and observe that $|-0.38| < 1$, confirming convergence."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Differentiate $F(x) = (5 - 2x)^{1/3}$ using the chain rule:\n$$F'(x) = \\dfrac{1}{3}(5 - 2x)^{-2/3} \\cdot (-2) = -\\dfrac{2}{3(5 - 2x)^{2/3}}$$"
+            },
+            {
+              "step": 2,
+              "text": "Evaluate $F'(x)$ at $x = 1.33$:\n$$5 - 2(1.33) = 2.34$$\n$$F'(1.33) = -\\dfrac{2}{3(2.34)^{2/3}} \\approx -\\dfrac{2}{3(1.7626)} = -\\dfrac{2}{5.2878} \\approx -0.378$$"
+            },
+            {
+              "step": 3,
+              "text": "Since $|F'(1.33)| \\approx 0.38 < 1$, the fixed-point iteration satisfies the convergence criterion $|F'(x)| < 1$ near the root, so the sequence converges to $\\alpha$."
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_numerical_solution_of_equations_m02_l01_drq05_p01_mp01",
+                "observable": "Correctly differentiates $F(x) = (5 - 2x)^{1/3}$ using the chain rule to obtain $F'(x) = -\\dfrac{2}{3}(5 - 2x)^{-2/3}$."
+              },
+              {
+                "criterion_id": "9709_p3_t_numerical_solution_of_equations_m02_l01_drq05_p01_mp02",
+                "observable": "Evaluates $F'(1.33) \\approx -0.38$ (or $|F'(1.33)| \\approx 0.38$) and concludes that the iteration converges because $|F'(1.33)| < 1$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_rearranging_equations_to_iterative_forms"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_rearranging_equations_to_iterative_forms"
+            ],
+            "method_ids": [
+              "9709_p3_method_evaluating_iteration_convergence"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        }
+      ],
+      "_numerical_values_checked": false
+    },
+    {
+      "question_id": "9709_p3_t_numerical_solution_of_equations_m02_l01_drq06",
+      "sequence": 6,
+      "difficulty": "easy",
+      "difficulty_reason": "Drill: interpreting cobweb vs staircase geometric iteration behaviour and gradient magnitude.",
+      "source_question_id": "drill_p3_num_cobweb_staircase_diagram",
+      "source_role": "foundational_drill",
+      "dependency_role": "none",
+      "dependency_refs": [],
+      "parts": [
+        {
+          "part_id": "9709_p3_t_numerical_solution_of_equations_m02_l01_drq06_p01",
+          "difficulty": "easy",
+          "question_pattern_ids": [
+            "9709_p3_pattern_interpret_iteration_diagram"
+          ],
+          "source_evidence": {
+            "question_id": "drill_p3_num_cobweb_staircase_diagram",
+            "part_id": "drill_p3_num_cobweb_staircase_diagram_p01",
+            "legacy_practice_tier": "foundational",
+            "product_role": "warm_up_drill",
+            "structural_inspiration": "Interpreting graphical iteration steps on y = x and y = F(x)."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Recall that when $F'(x) < 0$, successive iterations alternate above and below the root, forming an enclosed rectangular spiral known as a cobweb diagram.",
+            "Convergence occurs whenever the magnitude of the derivative satisfies $|F'(\\alpha)| < 1$, causing each step towards the line $y = x$ to move closer to the root."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Identify the pattern: Because the gradient of $y = F(x)$ is negative ($F'(\\alpha) = -0.4 < 0$), iterates oscillate between values greater than and less than the root, producing a cobweb (or spiral) pattern."
+            },
+            {
+              "step": 2,
+              "text": "Explain convergence: The sequence converges because $|F'(\\alpha)| = |-0.4| = 0.4 < 1$. Each reflection between $y = F(x)$ and $y = x$ contracts towards the point of intersection $(2, 2)$."
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_numerical_solution_of_equations_m02_l01_drq06_p01_mp01",
+                "observable": "States that the diagram represents a cobweb (or spiral) pattern (due to the negative gradient $F'(x) < 0$)."
+              },
+              {
+                "criterion_id": "9709_p3_t_numerical_solution_of_equations_m02_l01_drq06_p01_mp02",
+                "observable": "Explains that the iteration converges because $|F'(\\alpha)| = |-0.4| = 0.4 < 1$ (or because successive iterations spiral inwards towards the root $(2, 2)$)."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_rearranging_equations_to_iterative_forms"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_rearranging_equations_to_iterative_forms"
+            ],
+            "method_ids": [
+              "9709_p3_method_evaluating_iteration_convergence"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        }
+      ],
+      "figure_refs": [
+        "fig_9709_p3_t_numerical_solution_of_equations_m02_l01_drq06"
+      ],
+      "figure": {
+        "figure_id": "fig_9709_p3_t_numerical_solution_of_equations_m02_l01_drq06",
+        "asset_path": "figures/fig_9709_p3_t_numerical_solution_of_equations_m02_l01_drq06.svg",
+        "status": "planned",
+        "placement": "after_question_context",
+        "purpose": "Provide visual cobweb iteration context on y = x and y = F(x) to test graphical interpretation of convergence and oscillation.",
+        "alt_text": "Cobweb iteration diagram showing y = x and y = F(x) with negative gradient -0.4 intersecting at (2, 2), spiraling inward towards the root.",
+        "brief": "Draw Cartesian axes with line y = x and curve y = F(x) intersecting at (2, 2) with slope -0.4. Show vertical and horizontal line segments starting from x_0 = 1.6 on the x-axis, going vertically to y = F(x_0), horizontally to y = x, vertically to y = F(x_1), horizontally to y = x, illustrating a cobweb spiraling inwards toward (2, 2)."
+      },
+      "_numerical_values_checked": false
+    },
+    {
+      "question_id": "9709_p3_t_numerical_solution_of_equations_m02_l01_cpq01",
+      "sequence": 7,
+      "difficulty": "easy",
+      "difficulty_reason": "Easy: multi-part question exploring two distinct algebraic rearrangements of a cubic polynomial.",
+      "source_question_id": "9709_w24_33_q2",
+      "source_role": "direct_syllabus_exemplar",
+      "dependency_role": "within_question_context",
+      "dependency_refs": [],
+      "parts": [
+        {
+          "part_id": "9709_p3_t_numerical_solution_of_equations_m02_l01_cpq01_p01",
+          "difficulty": "easy",
+          "question_pattern_ids": [
+            "9709_p3_pattern_rearrange_equation_to_iterative_formula"
+          ],
+          "source_evidence": {
+            "question_id": "9709_w24_33_q2",
+            "part_id": "9709_w24_33_q2_a",
+            "legacy_practice_tier": "core_foundation",
+            "product_role": "structured_introductory",
+            "structural_inspiration": "Rearranging a cubic to a rational square-root fixed point formula."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Isolate the highest power term $2x^3$ on the left-hand side: $2x^3 = 7x - 3$.",
+            "Divide both sides by $2x$ to express $x^2$ in terms of $x$.",
+            "Take the positive square root of both sides to obtain $x = \\sqrt{\\dfrac{7x - 3}{2x}}$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Isolate $2x^3$ on one side of the equation:\n$$2x^3 = 7x - 3$$"
+            },
+            {
+              "step": 2,
+              "text": "Divide through by $2x$ (valid since $x > 3/7 > 0$):\n$$x^2 = \\dfrac{7x - 3}{2x}$$"
+            },
+            {
+              "step": 3,
+              "text": "Take the square root of both sides:\n$$x = \\sqrt{\\dfrac{7x - 3}{2x}}$$"
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_numerical_solution_of_equations_m02_l01_cpq01_p01_mp01",
+                "observable": "Isolates $2x^3 = 7x - 3$ and divides both sides by $2x$ to obtain $x^2 = \\dfrac{7x - 3}{2x}$."
+              },
+              {
+                "criterion_id": "9709_p3_t_numerical_solution_of_equations_m02_l01_cpq01_p01_mp02",
+                "observable": "Takes the positive square root to complete the rearrangement to $x = \\sqrt{\\dfrac{7x - 3}{2x}}$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_rearranging_equations_to_iterative_forms"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_rearranging_equations_to_iterative_forms"
+            ],
+            "method_ids": [
+              "9709_p3_method_fixed_point_rearrangement"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        },
+        {
+          "part_id": "9709_p3_t_numerical_solution_of_equations_m02_l01_cpq01_p02",
+          "difficulty": "easy",
+          "question_pattern_ids": [
+            "9709_p3_pattern_rearrange_equation_to_iterative_formula"
+          ],
+          "source_evidence": {
+            "question_id": "9709_w24_33_q2",
+            "part_id": "9709_w24_33_q2_a",
+            "legacy_practice_tier": "core_foundation",
+            "product_role": "structured_introductory",
+            "structural_inspiration": "Forming the simple polynomial iteration by isolating the linear term."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Isolate the linear term $7x$ on one side of $2x^3 - 7x + 3 = 0$.",
+            "Divide by $7$ to make $x$ the subject and attach subscripts $x_{n+1}$ and $x_n$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Isolate $7x$ on one side:\n$$7x = 2x^3 + 3$$"
+            },
+            {
+              "step": 2,
+              "text": "Divide by $7$ and write in iterative notation:\n$$x = \\dfrac{2x^3 + 3}{7} \\implies x_{n+1} = \\dfrac{2x_n^3 + 3}{7}$$"
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_numerical_solution_of_equations_m02_l01_cpq01_p02_mp01",
+                "observable": "Isolates $7x = 2x^3 + 3$, divides by $7$ to make $x$ the subject, and attaches recurrence subscripts to obtain $x_{n+1} = \\dfrac{2x_n^3 + 3}{7}$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_rearranging_equations_to_iterative_forms"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_rearranging_equations_to_iterative_forms"
+            ],
+            "method_ids": [
+              "9709_p3_method_fixed_point_rearrangement"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        }
+      ],
+      "_numerical_values_checked": false
+    },
+    {
+      "question_id": "9709_p3_t_numerical_solution_of_equations_m02_l01_cpq02",
+      "sequence": 8,
+      "difficulty": "medium",
+      "difficulty_reason": "Medium: combines exponential-logarithmic algebraic rearrangement with chain rule differentiation and fixed-point convergence analysis.",
+      "source_question_id": "9709_s24_32_q5",
+      "source_role": "direct_syllabus_exemplar",
+      "dependency_role": "within_question_context",
+      "dependency_refs": [],
+      "parts": [
+        {
+          "part_id": "9709_p3_t_numerical_solution_of_equations_m02_l01_cpq02_p01",
+          "difficulty": "medium",
+          "question_pattern_ids": [
+            "9709_p3_pattern_rearrange_equation_to_iterative_formula"
+          ],
+          "source_evidence": {
+            "question_id": "9709_s24_32_q5",
+            "part_id": "9709_s24_32_q5_b",
+            "legacy_practice_tier": "core_application",
+            "product_role": "structured_core",
+            "structural_inspiration": "Rearranging exponential equation by taking logs on both sides."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Rearrange $\\mathrm{e}^{2x} - 4x - 5 = 0$ so that the exponential term $\\mathrm{e}^{2x}$ is isolated on one side.",
+            "Take the natural logarithm ($\\ln$) of both sides to remove the exponential base $\\mathrm{e}$.",
+            "Use $\\ln(\\mathrm{e}^{2x}) = 2x$ and divide by $2$ to express $x$ in terms of $\\ln(4x + 5)$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Isolate the exponential term:\n$$\\mathrm{e}^{2x} = 4x + 5$$"
+            },
+            {
+              "step": 2,
+              "text": "Take natural logarithms of both sides:\n$$\\ln\\left(\\mathrm{e}^{2x}\\right) = \\ln(4x + 5)$$"
+            },
+            {
+              "step": 3,
+              "text": "Simplify using $\\ln(\\mathrm{e}^u) = u$ and solve for $x$:\n$$2x = \\ln(4x + 5) \\implies x = \\dfrac{1}{2}\\ln(4x + 5)$$"
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_numerical_solution_of_equations_m02_l01_cpq02_p01_mp01",
+                "observable": "Isolates the exponential term $\\mathrm{e}^{2x} = 4x + 5$ and takes the natural logarithm of both sides."
+              },
+              {
+                "criterion_id": "9709_p3_t_numerical_solution_of_equations_m02_l01_cpq02_p01_mp02",
+                "observable": "Applies $\\ln(\\mathrm{e}^{2x}) = 2x$ and divides by $2$ to complete the derivation of $x = \\dfrac{1}{2}\\ln(4x + 5)$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_rearranging_equations_to_iterative_forms"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_rearranging_equations_to_iterative_forms"
+            ],
+            "method_ids": [
+              "9709_p3_method_fixed_point_rearrangement"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        },
+        {
+          "part_id": "9709_p3_t_numerical_solution_of_equations_m02_l01_cpq02_p02",
+          "difficulty": "medium",
+          "question_pattern_ids": [
+            "9709_p3_pattern_evaluate_convergence_criterion"
+          ],
+          "source_evidence": {
+            "question_id": "9709_s24_32_q5",
+            "part_id": "9709_s24_32_q5_b",
+            "legacy_practice_tier": "core_application",
+            "product_role": "structured_core",
+            "structural_inspiration": "Assessing convergence via chain rule derivative of logarithmic iteration function."
+          },
+          "dependency_role": "consumes_prior_part",
+          "dependency_refs": [
+            "9709_p3_t_numerical_solution_of_equations_m02_l01_cpq02_p01"
+          ],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Differentiate $F(x) = \\dfrac{1}{2}\\ln(4x + 5)$ with respect to $x$ using the chain rule: $\\dfrac{\\mathrm{d}}{\\mathrm{d}x}[\\ln(u)] = \\dfrac{u'}{u}$.",
+            "Substitute $x = 1.2$ into your expression for $F'(x)$ to find its numerical value.",
+            "Compare the magnitude $|F'(1.2)|$ to $1$: because $|F'(1.2)| < 1$, the fixed-point iteration condition for convergence is satisfied."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Differentiate $F(x)$ using the chain rule:\n$$F'(x) = \\dfrac{1}{2} \\cdot \\dfrac{1}{4x + 5} \\cdot 4 = \\dfrac{2}{4x + 5}$$"
+            },
+            {
+              "step": 2,
+              "text": "Evaluate $F'(x)$ at $x = 1.2$:\n$$F'(1.2) = \\dfrac{2}{4(1.2) + 5} = \\dfrac{2}{4.8 + 5} = \\dfrac{2}{9.8} = \\dfrac{10}{49} \\approx 0.204$$"
+            },
+            {
+              "step": 3,
+              "text": "Since $|F'(1.2)| \\approx 0.204 < 1$, the iteration satisfies $|F'(\\alpha)| < 1$ near the root, guaranteeing convergence."
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_numerical_solution_of_equations_m02_l01_cpq02_p02_mp01",
+                "observable": "Differentiates $F(x) = \\dfrac{1}{2}\\ln(4x + 5)$ correctly using the chain rule to obtain $F'(x) = \\dfrac{2}{4x + 5}$ (or $\\dfrac{1}{2} \\cdot \\dfrac{4}{4x + 5}$)."
+              },
+              {
+                "criterion_id": "9709_p3_t_numerical_solution_of_equations_m02_l01_cpq02_p02_mp02",
+                "observable": "Evaluates $F'(1.2) \\approx 0.204$ (or $10/49$) and concludes convergence since $|F'(1.2)| < 1$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_rearranging_equations_to_iterative_forms"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_rearranging_equations_to_iterative_forms"
+            ],
+            "method_ids": [
+              "9709_p3_method_evaluating_iteration_convergence"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        }
+      ],
+      "_numerical_values_checked": false
+    },
+    {
+      "question_id": "9709_p3_t_numerical_solution_of_equations_m02_l01_cpq03",
+      "sequence": 9,
+      "difficulty": "medium",
+      "difficulty_reason": "Medium: rigorous comparative convergence problem requiring trigonometric differentiation, inverse trig calculus, and identifying divergence.",
+      "source_question_id": "9709_s24_31_q6",
+      "source_role": "direct_syllabus_exemplar",
+      "dependency_role": "within_question_context",
+      "dependency_refs": [],
+      "parts": [
+        {
+          "part_id": "9709_p3_t_numerical_solution_of_equations_m02_l01_cpq03_p01",
+          "difficulty": "medium",
+          "question_pattern_ids": [
+            "9709_p3_pattern_rearrange_equation_to_iterative_formula"
+          ],
+          "source_evidence": {
+            "question_id": "9709_s24_31_q6",
+            "part_id": "9709_s24_31_q6_c",
+            "legacy_practice_tier": "core_application",
+            "product_role": "structured_core",
+            "structural_inspiration": "Rearranging trigonometric equation into reciprocal iteration."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Isolate $x$ by dividing both sides of $x\\sin x = 1$ by $\\sin x$.",
+            "Recall the reciprocal trigonometric definition $\\operatorname{cosec} x = \\dfrac{1}{\\sin x}$.",
+            "Write the result in iterative form by attaching recurrence indices $x_{n+1}$ and $x_n$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Divide both sides of $x\\sin x = 1$ by $\\sin x$ (valid since $\\sin x \\neq 0$ for $x \\in (\\pi/6, \\pi/2)$):\n$$x = \\dfrac{1}{\\sin x}$$"
+            },
+            {
+              "step": 2,
+              "text": "Apply the reciprocal trigonometric identity $\\dfrac{1}{\\sin x} = \\operatorname{cosec} x$:\n$$x = \\operatorname{cosec} x$$"
+            },
+            {
+              "step": 3,
+              "text": "Attach recurrence subscripts:\n$$x_{n+1} = \\operatorname{cosec} x_n$$"
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_numerical_solution_of_equations_m02_l01_cpq03_p01_mp01",
+                "observable": "Divides $x\\sin x = 1$ by $\\sin x$ to express $x = \\dfrac{1}{\\sin x}$ (valid for $x \\in (\\pi/6, \\pi/2)$)."
+              },
+              {
+                "criterion_id": "9709_p3_t_numerical_solution_of_equations_m02_l01_cpq03_p01_mp02",
+                "observable": "Uses the reciprocal identity $\\dfrac{1}{\\sin x} = \\operatorname{cosec} x$ to write $x_{n+1} = \\operatorname{cosec} x_n$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_rearranging_equations_to_iterative_forms"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_rearranging_equations_to_iterative_forms"
+            ],
+            "method_ids": [
+              "9709_p3_method_fixed_point_rearrangement"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        },
+        {
+          "part_id": "9709_p3_t_numerical_solution_of_equations_m02_l01_cpq03_p02",
+          "difficulty": "medium",
+          "question_pattern_ids": [
+            "9709_p3_pattern_evaluate_convergence_criterion"
+          ],
+          "source_evidence": {
+            "question_id": "9709_s24_31_q6",
+            "part_id": "9709_s24_31_q6_c",
+            "legacy_practice_tier": "core_application",
+            "product_role": "structured_core",
+            "structural_inspiration": "Proving that an alternative rearrangement diverges by demonstrating |F'(x)| > 1."
+          },
+          "dependency_role": "consumes_prior_part",
+          "dependency_refs": [
+            "9709_p3_t_numerical_solution_of_equations_m02_l01_cpq03_p01"
+          ],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Use the standard derivative formula $\\dfrac{\\mathrm{d}}{\\mathrm{d}u}[\\sin^{-1} u] = \\dfrac{1}{\\sqrt{1 - u^2}}$ with $u = \\dfrac{1}{x}$.",
+            "Apply the chain rule with $\\dfrac{\\mathrm{d}}{\\mathrm{d}x}[x^{-1}] = -\\dfrac{1}{x^2}$.",
+            "Simplify the algebraic fraction by writing $\\sqrt{1 - 1/x^2} = \\dfrac{\\sqrt{x^2 - 1}}{x}$ so that one factor of $x$ cancels.",
+            "Evaluate $F'(1.114)$ numerically and compare its absolute value with $1$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Differentiate $F(x) = \\sin^{-1}(1/x)$ using the chain rule:\n$$F'(x) = \\dfrac{1}{\\sqrt{1 - (1/x)^2}} \\cdot \\left(-\\dfrac{1}{x^2}\\right)$$"
+            },
+            {
+              "step": 2,
+              "text": "Simplify the square root term for $x > 1$:\n$$\\sqrt{1 - \\dfrac{1}{x^2}} = \\sqrt{\\dfrac{x^2 - 1}{x^2}} = \\dfrac{\\sqrt{x^2 - 1}}{x}$$\n$$F'(x) = \\dfrac{1}{\\frac{\\sqrt{x^2 - 1}}{x}} \\cdot \\left(-\\dfrac{1}{x^2}\\right) = \\dfrac{x}{\\sqrt{x^2 - 1}} \\cdot \\left(-\\dfrac{1}{x^2}\\right) = -\\dfrac{1}{x\\sqrt{x^2 - 1}}$$"
+            },
+            {
+              "step": 3,
+              "text": "Evaluate at $x = 1.114$:\n$$x^2 - 1 = 1.114^2 - 1 = 1.240996 - 1 = 0.240996$$\n$$\\sqrt{x^2 - 1} = \\sqrt{0.240996} \\approx 0.4909$$\n$$F'(1.114) = -\\dfrac{1}{1.114 \\times 0.4909} \\approx -\\dfrac{1}{0.5469} \\approx -1.828$$"
+            },
+            {
+              "step": 4,
+              "text": "Since $|F'(1.114)| \\approx 1.83 > 1$, the derivative magnitude exceeds $1$ at the root, which causes successive iterations to diverge away from $\\alpha$."
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_numerical_solution_of_equations_m02_l01_cpq03_p02_mp01",
+                "observable": "Applies standard derivative of inverse sine with chain rule: $F'(x) = \\dfrac{1}{\\sqrt{1 - (1/x)^2}} \\cdot \\left(-\\dfrac{1}{x^2}\\right)$."
+              },
+              {
+                "criterion_id": "9709_p3_t_numerical_solution_of_equations_m02_l01_cpq03_p02_mp02",
+                "observable": "Simplifies denominator $\\sqrt{1 - 1/x^2} = \\dfrac{\\sqrt{x^2 - 1}}{x}$ and multiplies by $-\\dfrac{1}{x^2}$ to obtain $F'(x) = -\\dfrac{1}{x\\sqrt{x^2 - 1}}$."
+              },
+              {
+                "criterion_id": "9709_p3_t_numerical_solution_of_equations_m02_l01_cpq03_p02_mp03",
+                "observable": "Evaluates $|F'(1.114)| \\approx 1.83$ (or $F'(1.114) \\approx -1.83$) and explains that the iteration diverges because $|F'(\\alpha)| > 1$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_rearranging_equations_to_iterative_forms"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_rearranging_equations_to_iterative_forms"
+            ],
+            "method_ids": [
+              "9709_p3_method_evaluating_iteration_convergence"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        }
+      ],
+      "_numerical_values_checked": false
+    },
+    {
+      "question_id": "9709_p3_t_numerical_solution_of_equations_m02_l01_cpq04",
+      "sequence": 10,
+      "difficulty": "medium",
+      "difficulty_reason": "Medium: links geometric staircase diagram analysis with algebraic differentiation, quadratic roots, and derivative convergence conditions.",
+      "source_question_id": "9709_w22_33_q5",
+      "source_role": "direct_syllabus_exemplar",
+      "dependency_role": "within_question_context",
+      "dependency_refs": [],
+      "parts": [
+        {
+          "part_id": "9709_p3_t_numerical_solution_of_equations_m02_l01_cpq04_p01",
+          "difficulty": "medium",
+          "question_pattern_ids": [
+            "9709_p3_pattern_rearrange_equation_to_iterative_formula"
+          ],
+          "source_evidence": {
+            "question_id": "9709_w22_33_q5",
+            "part_id": "9709_w22_33_q5_b",
+            "legacy_practice_tier": "core_application",
+            "product_role": "structured_core",
+            "structural_inspiration": "Rearranging a quadratic to a square-root fixed point iteration and finding the exact root."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Isolate $2x^2$ in the equation $2x^2 - x - 6 = 0$ to get $2x^2 = x + 6$.",
+            "Divide by $2$ and take the positive square root to obtain $x = \\sqrt{\\dfrac{x + 6}{2}}$.",
+            "Factorise the quadratic $2x^2 - x - 6 = (2x + 3)(x - 2) = 0$ to find the positive root $\\alpha$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Rearrange the quadratic equation to isolate $x^2$:\n$$2x^2 = x + 6 \\implies x^2 = \\dfrac{x + 6}{2}$$"
+            },
+            {
+              "step": 2,
+              "text": "Take the square root for $x > 0$:\n$$x = \\sqrt{\\dfrac{x + 6}{2}}$$"
+            },
+            {
+              "step": 3,
+              "text": "Solve $2x^2 - x - 6 = 0$ by factorisation:\n$$(2x + 3)(x - 2) = 0 \\implies x = -\\dfrac{3}{2} \\quad \\text{or} \\quad x = 2$$\nSince $\\alpha > 0$, the exact root is $\\alpha = 2$."
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_numerical_solution_of_equations_m02_l01_cpq04_p01_mp01",
+                "observable": "Rearranges $2x^2 - x - 6 = 0$ to $2x^2 = x + 6$ and divides by $2$ to obtain $x = \\sqrt{\\dfrac{x + 6}{2}}$."
+              },
+              {
+                "criterion_id": "9709_p3_t_numerical_solution_of_equations_m02_l01_cpq04_p01_mp02",
+                "observable": "Factorises $(2x + 3)(x - 2) = 0$ (or applies quadratic formula) to identify the positive root $\\alpha = 2$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_rearranging_equations_to_iterative_forms"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_rearranging_equations_to_iterative_forms"
+            ],
+            "method_ids": [
+              "9709_p3_method_fixed_point_rearrangement"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        },
+        {
+          "part_id": "9709_p3_t_numerical_solution_of_equations_m02_l01_cpq04_p02",
+          "difficulty": "medium",
+          "question_pattern_ids": [
+            "9709_p3_pattern_evaluate_convergence_criterion",
+            "9709_p3_pattern_interpret_iteration_diagram"
+          ],
+          "source_evidence": {
+            "question_id": "9709_w22_33_q5",
+            "part_id": "9709_w22_33_q5_b",
+            "legacy_practice_tier": "core_application",
+            "product_role": "structured_core",
+            "structural_inspiration": "Interpreting staircase behaviour from positive derivative and confirming convergence."
+          },
+          "dependency_role": "consumes_prior_part",
+          "dependency_refs": [
+            "9709_p3_t_numerical_solution_of_equations_m02_l01_cpq04_p01"
+          ],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Differentiate $F(x) = \\left(\\dfrac{x + 6}{2}\\right)^{1/2}$ with respect to $x$ using the chain rule.",
+            "Substitute $\\alpha = 2$ into $F'(x)$ to find the exact numerical gradient $F'(2)$.",
+            "Recall that when the gradient is positive ($F'(x) > 0$), the iteration values increase (or decrease) monotonically without oscillating, producing a staircase pattern.",
+            "Check that $|F'(2)| < 1$ to confirm that the steps get progressively closer to $(2, 2)$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Differentiate $F(x) = \\left(\\dfrac{x + 6}{2}\\right)^{1/2}$:\n$$F'(x) = \\dfrac{1}{2}\\left(\\dfrac{x + 6}{2}\\right)^{-1/2} \\cdot \\dfrac{1}{2} = \\dfrac{1}{4\\sqrt{\\dfrac{x + 6}{2}}} = \\dfrac{1}{2\\sqrt{2x + 12}}$$"
+            },
+            {
+              "step": 2,
+              "text": "Evaluate $F'(x)$ at $\\alpha = 2$:\n$$F'(2) = \\dfrac{1}{4\\sqrt{\\dfrac{2 + 6}{2}}} = \\dfrac{1}{4\\sqrt{4}} = \\dfrac{1}{4 \\times 2} = \\dfrac{1}{8} = 0.125$$"
+            },
+            {
+              "step": 3,
+              "text": "Explain pattern and convergence:\nSince $F'(2) = 0.125 > 0$, successive values of $x_n$ approach the root monotonically from one side, creating a staircase pattern.\nBecause $|F'(2)| = 0.125 < 1$, the distance to the root contracts at each iteration, confirming convergence to $2$."
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_numerical_solution_of_equations_m02_l01_cpq04_p02_mp01",
+                "observable": "Differentiates $F(x) = \\left(\\dfrac{x + 6}{2}\\right)^{1/2}$ using chain rule to get $F'(x) = \\dfrac{1}{4}\\left(\\dfrac{x + 6}{2}\\right)^{-1/2}$ (or $\\dfrac{1}{2\\sqrt{2x + 12}}$)."
+              },
+              {
+                "criterion_id": "9709_p3_t_numerical_solution_of_equations_m02_l01_cpq04_p02_mp02",
+                "observable": "Evaluates $F'(2) = \\dfrac{1}{8} = 0.125$."
+              },
+              {
+                "criterion_id": "9709_p3_t_numerical_solution_of_equations_m02_l01_cpq04_p02_mp03",
+                "observable": "Explains that $F'(2) > 0$ yields a monotonic staircase pattern, and $0 < F'(2) < 1$ (or $|F'(2)| < 1$) confirms convergence."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_rearranging_equations_to_iterative_forms"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_rearranging_equations_to_iterative_forms"
+            ],
+            "method_ids": [
+              "9709_p3_method_evaluating_iteration_convergence"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        }
+      ],
+      "figure_refs": [
+        "fig_9709_p3_t_numerical_solution_of_equations_m02_l01_cpq04"
+      ],
+      "figure": {
+        "figure_id": "fig_9709_p3_t_numerical_solution_of_equations_m02_l01_cpq04",
+        "asset_path": "figures/fig_9709_p3_t_numerical_solution_of_equations_m02_l01_cpq04.svg",
+        "status": "planned",
+        "placement": "after_question_context",
+        "purpose": "Provide visual staircase iteration context on y = x and y = F(x) to test graphical interpretation of monotonic convergence.",
+        "alt_text": "Staircase iteration diagram showing y = x and y = sqrt((x+6)/2) intersecting at (2, 2), with stepped iteration path starting at x0 = 1 approaching (2, 2).",
+        "brief": "Draw Cartesian axes with line y = x and curve y = sqrt((x+6)/2) intersecting at (2, 2). Starting at x0 = 1 on the x-axis, draw vertical line to y = F(x0) = sqrt(3.5) approx 1.87, horizontal line to y = x at (1.87, 1.87), vertical line to y = F(1.87) approx 1.98, forming a monotonic staircase stepping towards (2, 2)."
+      },
+      "_numerical_values_checked": false
+    },
+    {
+      "question_id": "9709_p3_t_numerical_solution_of_equations_m02_l01_cpq05",
+      "sequence": 11,
+      "difficulty": "medium",
+      "difficulty_reason": "Medium: comparative analysis of two cubic rearrangements demonstrating rapid divergence when derivative magnitude greatly exceeds 1.",
+      "source_question_id": "9709_s21_31_q6",
+      "source_role": "direct_syllabus_exemplar",
+      "dependency_role": "within_question_context",
+      "dependency_refs": [],
+      "parts": [
+        {
+          "part_id": "9709_p3_t_numerical_solution_of_equations_m02_l01_cpq05_p01",
+          "difficulty": "medium",
+          "question_pattern_ids": [
+            "9709_p3_pattern_rearrange_equation_to_iterative_formula"
+          ],
+          "source_evidence": {
+            "question_id": "9709_s21_31_q6",
+            "part_id": "9709_s21_31_q6_b",
+            "legacy_practice_tier": "core_application",
+            "product_role": "structured_core",
+            "structural_inspiration": "Isolating linear term to form convergent polynomial iteration."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Isolate the linear term $3x$ on one side of $x^3 + 3x - 1 = 0$.",
+            "Divide by $3$ to make $x$ the subject.",
+            "Add iteration subscripts $x_{n+1}$ and $x_n$ to complete the iterative formula."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Isolate $3x$:\n$$3x = 1 - x^3$$"
+            },
+            {
+              "step": 2,
+              "text": "Divide by $3$ and attach subscripts:\n$$x = \\dfrac{1 - x^3}{3} \\implies x_{n+1} = \\dfrac{1 - x_n^3}{3}$$"
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_numerical_solution_of_equations_m02_l01_cpq05_p01_mp01",
+                "observable": "Isolates $3x = 1 - x^3$, divides by $3$ to make $x$ the subject, and attaches iteration subscripts $x_{n+1} = \\dfrac{1 - x_n^3}{3}$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_rearranging_equations_to_iterative_forms"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_rearranging_equations_to_iterative_forms"
+            ],
+            "method_ids": [
+              "9709_p3_method_fixed_point_rearrangement"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        },
+        {
+          "part_id": "9709_p3_t_numerical_solution_of_equations_m02_l01_cpq05_p02",
+          "difficulty": "medium",
+          "question_pattern_ids": [
+            "9709_p3_pattern_evaluate_convergence_criterion"
+          ],
+          "source_evidence": {
+            "question_id": "9709_s21_31_q6",
+            "part_id": "9709_s21_31_q6_b",
+            "legacy_practice_tier": "core_application",
+            "product_role": "structured_core",
+            "structural_inspiration": "Proving that cube-root rearrangement fails due to steep derivative near root."
+          },
+          "dependency_role": "consumes_prior_part",
+          "dependency_refs": [
+            "9709_p3_t_numerical_solution_of_equations_m02_l01_cpq05_p01"
+          ],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Differentiate $G(x) = (1 - 3x)^{1/3}$ with respect to $x$ using the chain rule.",
+            "Substitute $x = 0.32$ into $G'(x) = -\\dfrac{1}{(1 - 3x)^{2/3}}$ to find its value.",
+            "Observe that $|G'(0.32)| \\approx 8.55 \\gg 1$, violating the convergence requirement $|G'(\\alpha)| < 1$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Differentiate using the chain rule:\n$$G'(x) = \\dfrac{1}{3}(1 - 3x)^{-2/3} \\cdot (-3) = -\\dfrac{1}{(1 - 3x)^{2/3}}$$"
+            },
+            {
+              "step": 2,
+              "text": "Evaluate at $x = 0.32$:\n$$1 - 3(0.32) = 1 - 0.96 = 0.04$$\n$$G'(0.32) = -\\dfrac{1}{(0.04)^{2/3}} \\approx -\\dfrac{1}{0.11696} \\approx -8.55$$"
+            },
+            {
+              "step": 3,
+              "text": "Since $|G'(0.32)| \\approx 8.55 > 1$, errors multiply by a factor of over $8$ at each step, causing severe divergence away from $\\alpha$."
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_numerical_solution_of_equations_m02_l01_cpq05_p02_mp01",
+                "observable": "Differentiates $G(x) = (1 - 3x)^{1/3}$ using the chain rule to obtain $G'(x) = \\dfrac{1}{3}(1 - 3x)^{-2/3}(-3) = -\\dfrac{1}{(1 - 3x)^{2/3}}$."
+              },
+              {
+                "criterion_id": "9709_p3_t_numerical_solution_of_equations_m02_l01_cpq05_p02_mp02",
+                "observable": "Evaluates $|G'(0.32)| = \\dfrac{1}{(0.04)^{2/3}} \\approx 8.55$ and concludes that the iteration fails to converge because $|G'(\\alpha)| > 1$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_rearranging_equations_to_iterative_forms"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_rearranging_equations_to_iterative_forms"
+            ],
+            "method_ids": [
+              "9709_p3_method_evaluating_iteration_convergence"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        }
+      ],
+      "_numerical_values_checked": false
+    },
+    {
+      "question_id": "9709_p3_t_numerical_solution_of_equations_m02_l01_cpq06",
+      "sequence": 12,
+      "difficulty": "hard",
+      "difficulty_reason": "Hard: full comparative analysis of dual transcendental rearrangements requiring simultaneous exponential and logarithmic differentiation.",
+      "source_question_id": "9709_m22_32_q5",
+      "source_role": "direct_syllabus_exemplar",
+      "dependency_role": "within_question_context",
+      "dependency_refs": [],
+      "parts": [
+        {
+          "part_id": "9709_p3_t_numerical_solution_of_equations_m02_l01_cpq06_p01",
+          "difficulty": "hard",
+          "question_pattern_ids": [
+            "9709_p3_pattern_rearrange_equation_to_iterative_formula"
+          ],
+          "source_evidence": {
+            "question_id": "9709_m22_32_q5",
+            "part_id": "9709_m22_32_q5_b",
+            "legacy_practice_tier": "stretch_capstone",
+            "product_role": "capstone_challenge",
+            "structural_inspiration": "Deriving two distinct transcendental iteration schemes from x^2 e^x = k."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "To obtain the logarithmic formula, divide $x^2 \\mathrm{e}^x = 8$ by $x^2$ to isolate $\\mathrm{e}^x = \\dfrac{8}{x^2}$, then take natural logarithms.",
+            "To obtain the square root formula, divide $x^2 \\mathrm{e}^x = 8$ by $\\mathrm{e}^x$ to get $x^2 = 8\\mathrm{e}^{-x}$, then take the positive square root.",
+            "Attach recurrence subscripts $x_{n+1}$ and $x_n$ to both resulting equations.",
+            "Check that both formulas are algebraically equivalent to the original equation $x^2 \\mathrm{e}^x = 8$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Derive Formula 1 (logarithmic):\n$$x^2 \\mathrm{e}^x = 8 \\implies \\mathrm{e}^x = \\dfrac{8}{x^2}$$\n$$\\ln(\\mathrm{e}^x) = \\ln\\left(\\dfrac{8}{x^2}\\right) \\implies x = \\ln\\left(\\dfrac{8}{x^2}\\right) \\implies x_{n+1} = \\ln\\left(\\dfrac{8}{x_n^2}\\right)$$"
+            },
+            {
+              "step": 2,
+              "text": "Derive Formula 2 (square root):\n$$x^2 \\mathrm{e}^x = 8 \\implies x^2 = \\dfrac{8}{\\mathrm{e}^x} = 8\\mathrm{e}^{-x}$$\n$$x = \\sqrt{8\\mathrm{e}^{-x}} = \\sqrt{8}\\,\\mathrm{e}^{-x/2} \\implies x_{n+1} = \\sqrt{8\\mathrm{e}^{-x_n}}$$"
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_numerical_solution_of_equations_m02_l01_cpq06_p01_mp01",
+                "observable": "Rearranges $x^2 \\mathrm{e}^x = 8$ to $\\mathrm{e}^x = \\dfrac{8}{x^2}$ and takes natural logarithms to obtain $x_{n+1} = \\ln\\!\\left(\\dfrac{8}{x_n^2}\\right)$."
+              },
+              {
+                "criterion_id": "9709_p3_t_numerical_solution_of_equations_m02_l01_cpq06_p01_mp02",
+                "observable": "Rearranges $x^2 \\mathrm{e}^x = 8$ to $x^2 = 8\\mathrm{e}^{-x}$ and takes the positive square root to obtain $x_{n+1} = \\sqrt{8\\mathrm{e}^{-x_n}}$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_rearranging_equations_to_iterative_forms"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_rearranging_equations_to_iterative_forms"
+            ],
+            "method_ids": [
+              "9709_p3_method_fixed_point_rearrangement"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        },
+        {
+          "part_id": "9709_p3_t_numerical_solution_of_equations_m02_l01_cpq06_p02",
+          "difficulty": "hard",
+          "question_pattern_ids": [
+            "9709_p3_pattern_evaluate_convergence_criterion"
+          ],
+          "source_evidence": {
+            "question_id": "9709_m22_32_q5",
+            "part_id": "9709_m22_32_q5_b",
+            "legacy_practice_tier": "stretch_capstone",
+            "product_role": "capstone_challenge",
+            "structural_inspiration": "Proving that the reciprocal nature of the two arrangements causes one derivative to be > 1 and the other < 1."
+          },
+          "dependency_role": "consumes_prior_part",
+          "dependency_refs": [
+            "9709_p3_t_numerical_solution_of_equations_m02_l01_cpq06_p01"
+          ],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Write $F(x) = \\ln 8 - 2\\ln x$ and differentiate: $F'(x) = -\\dfrac{2}{x}$.",
+            "Write $G(x) = \\sqrt{8}\\,\\mathrm{e}^{-x/2}$ and differentiate using chain rule: $G'(x) = -\\dfrac{\\sqrt{8}}{2}\\,\\mathrm{e}^{-x/2}$.",
+            "Substitute $\\alpha \\approx 1.34$ into both derivatives to find numerical values $F'(1.34)$ and $G'(1.34)$.",
+            "Apply the fixed-point convergence criterion $|F'(x)| < 1$ to conclude which sequence converges."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Differentiate $F(x) = \\ln 8 - 2\\ln x$:\n$$F'(x) = -\\dfrac{2}{x}$$\nAt $x = 1.34$:\n$$F'(1.34) = -\\dfrac{2}{1.34} \\approx -1.493$$"
+            },
+            {
+              "step": 2,
+              "text": "Differentiate $G(x) = \\sqrt{8}\\,\\mathrm{e}^{-x/2}$:\n$$G'(x) = \\sqrt{8} \\cdot \\left(-\\dfrac{1}{2}\\right)\\mathrm{e}^{-x/2} = -\\dfrac{1}{2}G(x)$$\nAt $x = 1.34$, since $G(1.34) \\approx 1.34$:\n$$G'(1.34) \\approx -\\dfrac{1.34}{2} = -0.67$$"
+            },
+            {
+              "step": 3,
+              "text": "Compare magnitudes:\n$|F'(1.34)| \\approx 1.49 > 1$, so the logarithmic iteration diverges.\n$|G'(1.34)| \\approx 0.67 < 1$, so the square root iteration $x_{n+1} = \\sqrt{8\\mathrm{e}^{-x_n}}$ converges to $\\alpha$."
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_numerical_solution_of_equations_m02_l01_cpq06_p02_mp01",
+                "observable": "Finds derivatives $F'(x) = -\\dfrac{2}{x}$ and $G'(x) = -\\dfrac{\\sqrt{2}}{2}\\sqrt{8}\\,\\mathrm{e}^{-x/2} = -\\dfrac{1}{2}G(x)$, evaluating $F'(1.34) \\approx -1.49$ and $G'(1.34) \\approx -0.67$."
+              },
+              {
+                "criterion_id": "9709_p3_t_numerical_solution_of_equations_m02_l01_cpq06_p02_mp02",
+                "observable": "Concludes that $x_{n+1} = \\sqrt{8\\mathrm{e}^{-x_n}}$ converges because $|G'(1.34)| < 1$, while $x_{n+1} = \\ln\\!\\left(\\dfrac{8}{x_n^2}\\right)$ diverges because $|F'(1.34)| > 1$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_rearranging_equations_to_iterative_forms"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_rearranging_equations_to_iterative_forms"
+            ],
+            "method_ids": [
+              "9709_p3_method_evaluating_iteration_convergence"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        }
+      ],
+      "_numerical_values_checked": false
+    },
+    {
+      "question_id": "9709_p3_t_numerical_solution_of_equations_m02_l01_cpq07",
+      "sequence": 13,
+      "difficulty": "hard",
+      "difficulty_reason": "Hard: multi-root selective convergence theorem testing why a single rearrangement cannot find all roots and proving why a complementary rearrangement converges.",
+      "source_question_id": "9709_w22_33_q5",
+      "source_role": "direct_syllabus_exemplar",
+      "dependency_role": "within_question_context",
+      "dependency_refs": [],
+      "parts": [
+        {
+          "part_id": "9709_p3_t_numerical_solution_of_equations_m02_l01_cpq07_p01",
+          "difficulty": "hard",
+          "question_pattern_ids": [
+            "9709_p3_pattern_evaluate_convergence_criterion"
+          ],
+          "source_evidence": {
+            "question_id": "9709_w22_33_q5",
+            "part_id": "9709_w22_33_q5_b",
+            "legacy_practice_tier": "stretch_capstone",
+            "product_role": "capstone_challenge",
+            "structural_inspiration": "Testing derivative magnitude across multiple roots of a cubic."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Differentiate $F(x) = \\dfrac{x^3 + 1}{5}$ directly with respect to $x$ to get $F'(x) = \\dfrac{3x^2}{5}$.",
+            "Substitute each of the three root estimates $\\alpha_1 = -2.33$, $\\alpha_2 = 0.20$, and $\\alpha_3 = 2.13$ into $F'(x)$.",
+            "Check which of the three values satisfies the convergence condition $|F'(\\alpha)| < 1$.",
+            "Conclude that only $\\alpha_2$ produces a derivative with absolute value strictly less than $1$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Differentiate $F(x) = \\dfrac{1}{5}(x^3 + 1)$:\n$$F'(x) = \\dfrac{3x^2}{5}$$"
+            },
+            {
+              "step": 2,
+              "text": "Evaluate $F'(x)$ at each root:\n- At $\\alpha_1 = -2.33$: $F'(-2.33) = \\dfrac{3(-2.33)^2}{5} = \\dfrac{3(5.4289)}{5} \\approx 3.26 > 1$ (diverges)\n- At $\\alpha_2 = 0.20$: $F'(0.20) = \\dfrac{3(0.04)}{5} = 0.024 < 1$ (converges)\n- At $\\alpha_3 = 2.13$: $F'(2.13) = \\dfrac{3(2.13)^2}{5} = \\dfrac{3(4.5369)}{5} \\approx 2.72 > 1$ (diverges)"
+            },
+            {
+              "step": 3,
+              "text": "Conclusion:\nThe iteration $x_{n+1} = \\dfrac{x_n^3 + 1}{5}$ can only converge to the middle root $\\alpha_2 \\approx 0.20$."
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_numerical_solution_of_equations_m02_l01_cpq07_p01_mp01",
+                "observable": "Differentiates $F(x) = \\dfrac{x^3 + 1}{5}$ to obtain $F'(x) = \\dfrac{3x^2}{5}$."
+              },
+              {
+                "criterion_id": "9709_p3_t_numerical_solution_of_equations_m02_l01_cpq07_p01_mp02",
+                "observable": "Calculates $F'(-2.33) \\approx 3.26$, $F'(0.20) = 0.024$, $F'(2.13) \\approx 2.72$ and concludes convergence only to $\\alpha_2 \\approx 0.20$ as $|F'(0.20)| < 1$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_rearranging_equations_to_iterative_forms"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_rearranging_equations_to_iterative_forms"
+            ],
+            "method_ids": [
+              "9709_p3_method_evaluating_iteration_convergence"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        },
+        {
+          "part_id": "9709_p3_t_numerical_solution_of_equations_m02_l01_cpq07_p02",
+          "difficulty": "hard",
+          "question_pattern_ids": [
+            "9709_p3_pattern_evaluate_convergence_criterion"
+          ],
+          "source_evidence": {
+            "question_id": "9709_w22_33_q5",
+            "part_id": "9709_w22_33_q5_b",
+            "legacy_practice_tier": "stretch_capstone",
+            "product_role": "capstone_challenge",
+            "structural_inspiration": "Proving that the inverted/cube-root rearrangement converges at the outer root."
+          },
+          "dependency_role": "consumes_prior_part",
+          "dependency_refs": [
+            "9709_p3_t_numerical_solution_of_equations_m02_l01_cpq07_p01"
+          ],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Differentiate $H(x) = (5x - 1)^{1/3}$ using the chain rule: $H'(x) = \\dfrac{1}{3}(5x - 1)^{-2/3} \\cdot 5$.",
+            "Notice that since $\\alpha_3^3 - 5\\alpha_3 + 1 = 0$, we have $5\\alpha_3 - 1 = \\alpha_3^3$, so $(5\\alpha_3 - 1)^{2/3} = (\\alpha_3^3)^{2/3} = \\alpha_3^2$.",
+            "Substitute $\\alpha_3 = 2.13$ into $H'(x) = \\dfrac{5}{3x^2}$ to calculate $H'(2.13)$.",
+            "Verify that $|H'(2.13)| < 1$, proving that this cube-root iteration successfully converges to $\\alpha_3$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Differentiate $H(x) = (5x - 1)^{1/3}$ using the chain rule:\n$$H'(x) = \\dfrac{1}{3}(5x - 1)^{-2/3} \\cdot 5 = \\dfrac{5}{3(5x - 1)^{2/3}}$$"
+            },
+            {
+              "step": 2,
+              "text": "Evaluate at $\\alpha_3 \\approx 2.13$:\n$$5(2.13) - 1 = 10.65 - 1 = 9.65$$\n$$(9.65)^{2/3} = (9.65^{1/3})^2 \\approx (2.129)^2 \\approx 4.533$$\n$$H'(2.13) = \\dfrac{5}{3(4.533)} = \\dfrac{5}{13.60} \\approx 0.368$$"
+            },
+            {
+              "step": 3,
+              "text": "Prove convergence:\nBecause $|H'(2.13)| \\approx 0.368 < 1$, the iteration $x_{n+1} = (5x_n - 1)^{1/3}$ contracts errors by approximately $63\\%$ per step, guaranteeing rapid convergence to the root $\\alpha_3$."
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_numerical_solution_of_equations_m02_l01_cpq07_p02_mp01",
+                "observable": "Differentiates $H(x) = (5x - 1)^{1/3}$ using chain rule to obtain $H'(x) = \\dfrac{5}{3}(5x - 1)^{-2/3} = \\dfrac{5}{3(5x - 1)^{2/3}}$."
+              },
+              {
+                "criterion_id": "9709_p3_t_numerical_solution_of_equations_m02_l01_cpq07_p02_mp02",
+                "observable": "Evaluates $H'(2.13) \\approx 0.37$ (or $\\dfrac{5}{3(2.13)^2}$) and concludes convergence to $\\alpha_3$ since $|H'(2.13)| < 1$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_rearranging_equations_to_iterative_forms"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_rearranging_equations_to_iterative_forms"
+            ],
+            "method_ids": [
+              "9709_p3_method_evaluating_iteration_convergence"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        }
+      ],
+      "_numerical_values_checked": false
+    }
+  ]
+}

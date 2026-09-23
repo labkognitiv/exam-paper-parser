@@ -1,0 +1,74 @@
+{
+  "schema_version": "9709_math_enrichment_v3",
+  "paper_code": "9709_s25_51",
+  "question_id": "9709_s25_51_q1",
+  "question_num": 1,
+  "subject_code": "9709",
+  "component": "S1",
+  "year": 2025,
+  "session": "May/June",
+  "variant": "51",
+  "difficulty": 3,
+  "numerical_values_checked": false,
+  "parts": [
+    {
+      "part_id": "9709_s25_51_q1",
+      "difficulty": 3,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_s1_t_the_normal_distribution",
+        "module_id": "9709_s1_t_the_normal_distribution_m02",
+        "lesson_id": "9709_s1_t_the_normal_distribution_m02_l01"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_finding_normal_distribution_parameters",
+        "skill_tags": [
+          "Finding Normal Distribution Parameters",
+          "Using Inverse Normal Values"
+        ]
+      },
+      "question_pattern_ids": [
+        "9709_s1_pattern_normal_inverse_find_mean"
+      ],
+      "knowledge_refs": {
+        "formula_ids": [
+          "9709_s1_formula_normal_standardisation"
+        ],
+        "identity_ids": [],
+        "method_ids": [
+          "9709_s1_method_finding_normal_distribution_parameters",
+          "9709_s1_method_using_inverse_normal_values"
+        ],
+        "fact_ids": [
+          "9709_s1_fact_normal_symmetry_lower_tail"
+        ]
+      },
+      "hints": [
+        "Express the given condition as an upper-tail probability statement: P(X > 9.75) = 0.74, where X ~ N(n, 0.42^2).",
+        "Because 74% of the area lies above 9.75 kg, the value 9.75 kg lies below the mean n, so the corresponding standard normal z-score must be negative.",
+        "Use standard normal tables to find the z-score with upper area 0.74: Phi(-z) = 0.74 implies Phi(z) = 0.74, so z = -0.643 (or -0.644).",
+        "Set up the standardisation equation (9.75 - n) / 0.42 = -0.643 and solve for n: n = 9.75 + 0.643 * 0.42 = 10.02 kg (or 10.0 kg to 3 s.f.)."
+      ],
+      "walkthrough": [
+        "State the distribution of bag masses $X$ and the given condition:\n$$X \\sim N(n, 0.42^2), \\quad \\mathrm{P}(X > 9.75) = 0.74$$",
+        "Standardise $X = 9.75$ using $Z = \\dfrac{X - \\mu}{\\sigma}$:\n$$\\mathrm{P}\\left(Z > \\frac{9.75 - n}{0.42}\\right) = 0.74$$",
+        "Because the upper-tail probability exceeds $0.5$, the z-score must be negative:\n$$\\Phi\\left(-\\frac{9.75 - n}{0.42}\\right) = 0.74 \\implies -\\left(\\frac{9.75 - n}{0.42}\\right) = 0.643 \\implies \\frac{9.75 - n}{0.42} = -0.643$$",
+        "Solve the linear equation for the unknown mean $n$:\n$$9.75 - n = -0.643 \\times 0.42 = -0.27006$$\n$$n = 9.75 + 0.27006 = 10.02006 \\approx 10.0\\text{ kg (3 s.f.)}$$"
+      ],
+      "teacher_walkthrough": [
+        "Step 1: Identify the random variable and its parameters:\nLet $X$ be the mass of a randomly chosen bag of rice in kg. We are given:\n$$X \\sim N(n, 0.42^2)$$\nwhere the mean is $n$ (to be found) and the standard deviation is $\\sigma = 0.42$ kg.",
+        "Step 2: Translate the word problem into a probability equation:\nWe are told that $74\\%$ of the bags have a mass greater than $9.75$ kg:\n$$\\mathrm{P}(X > 9.75) = 0.74$$",
+        "Step 3: Standardise the threshold value:\n$$Z = \\frac{X - \\mu}{\\sigma} = \\frac{9.75 - n}{0.42}$$\n$$\\mathrm{P}\\left(Z > \\frac{9.75 - n}{0.42}\\right) = 0.74$$",
+        "Step 4: Find the appropriate critical value from the normal distribution table:\nSince the area to the right of the boundary is $0.74 > 0.5$, the boundary lies to the left of the mean, meaning its standard score $z$ is negative.\nBy symmetry of the standard normal curve:\n$$\\mathrm{P}(Z > z) = 0.74 \\iff \\mathrm{P}(Z < -z) = 0.74 \\iff \\Phi(-z) = 0.74$$\nLooking up $0.74$ in the normal distribution table:\n$$\\Phi(0.64) = 0.7389, \\quad \\Phi(0.65) = 0.7422$$\nUsing the differences table: $0.7400 - 0.7389 = 11$, corresponding to an additional digit of $3$:\n$$-z = 0.643 \\implies z = -0.643$$\n(Using a four-figure table or calculator gives $-0.6433\\dots$).",
+        "Step 5: Equate the standardised expression to the z-score and solve for $n$:\n$$\\frac{9.75 - n}{0.42} = -0.643$$\nMultiply both sides by $0.42$:\n$$9.75 - n = -0.643 \\times 0.42 = -0.27006$$\nRearrange to make $n$ the subject:\n$$n = 9.75 - (-0.27006) = 9.75 + 0.27006 = 10.02006$$\nRounding to 3 significant figures:\n$$n = 10.0\\text{ kg}$$\n(Values in the range $10.01$ to $10.03$ are also accepted)."
+      ],
+      "checking": {
+        "mode": "ai",
+        "ai_rubric": {
+          "Finding Normal Distribution Parameters": "Standardises (9.75 - n)/0.42, equates to -0.643 (or -0.644), and solves for n = 10.0 kg."
+        },
+        "criteria_source": "mark_scheme_structured"
+      }
+    }
+  ]
+}

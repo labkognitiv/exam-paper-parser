@@ -1,0 +1,1573 @@
+{
+  "schema_version": "9709_math_lesson_enrichment_v1",
+  "lesson_id": "9709_p3_t_numerical_solution_of_equations_m01_l02",
+  "topic_id": "9709_p3_t_numerical_solution_of_equations",
+  "numerical_values_checked": false,
+  "lesson_scope": "Locating and bracketing roots of equations using sign change calculations: defining $f(x) = 0$, evaluating $f(a)$ and $f(b)$, showing $f(a) \\cdot f(b) < 0$, and concluding the existence of a root in $(a, b)$ by continuity for polynomial, exponential, logarithmic, and trigonometric equations in radians.",
+  "questions": [
+    {
+      "question_id": "9709_p3_t_numerical_solution_of_equations_m01_l02_drq01",
+      "sequence": 1,
+      "difficulty": "easy",
+      "difficulty_reason": "Foundational drill: evaluating a polynomial function at integer endpoints and establishing a sign change.",
+      "source_question_id": "drill_p3_num_root_bracket_poly_basic",
+      "source_role": "foundational_drill",
+      "dependency_role": "none",
+      "dependency_refs": [],
+      "parts": [
+        {
+          "part_id": "9709_p3_t_numerical_solution_of_equations_m01_l02_drq01_p01",
+          "difficulty": "easy",
+          "question_pattern_ids": [
+            "9709_p3_pattern_prove_or_show",
+            "9709_p3_pattern_numerical_approximation"
+          ],
+          "source_evidence": {
+            "question_id": "drill_p3_num_root_bracket_poly_basic",
+            "part_id": "drill_p3_num_root_bracket_poly_basic_p01",
+            "legacy_practice_tier": "foundational",
+            "product_role": "warm_up_drill",
+            "structural_inspiration": "Standard sign change test evaluating polynomial endpoints to bracket a root."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Define a function $f(x) = x^3 + 2x - 7$. A root of the equation occurs where $f(x) = 0$.",
+            "Substitute $x = 1$ and $x = 2$ into $f(x)$ to evaluate $f(1)$ and $f(2)$ separately.",
+            "Observe that $f(1) = -4 < 0$ and $f(2) = 5 > 0$. Conclude that since $f(x)$ is continuous and changes sign, a root lies between $1$ and $2$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Define the continuous function $f(x) = x^3 + 2x - 7$."
+            },
+            {
+              "step": 2,
+              "text": "Evaluate the function at the interval endpoints:\n$$f(1) = 1^3 + 2(1) - 7 = 1 + 2 - 7 = -4 < 0$$\n$$f(2) = 2^3 + 2(2) - 7 = 8 + 4 - 7 = 5 > 0$$"
+            },
+            {
+              "step": 3,
+              "text": "Since $f(x)$ is a polynomial (and therefore continuous on $[1, 2]$) and changes sign between $x = 1$ and $x = 2$, there exists at least one root in the interval $1 < x < 2$."
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_numerical_solution_of_equations_m01_l02_drq01_p01_mp01",
+                "observable": "Evaluates $f(1)$ and $f(2)$ for a suitable function $f(x) = x^3 + 2x - 7$ (or equivalent difference)."
+              },
+              {
+                "criterion_id": "9709_p3_t_numerical_solution_of_equations_m01_l02_drq01_p01_mp02",
+                "observable": "Obtains correct values $f(1) = -4$ and $f(2) = 5$, notes the change of sign, and concludes that a root lies between $1$ and $2$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_numerical_root_bracketing"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_numerical_root_bracketing"
+            ],
+            "method_ids": [
+              "9709_p3_method_numerical_root_bracketing"
+            ],
+            "pattern_ids": [
+              "9709_p3_pattern_prove_or_show",
+              "9709_p3_pattern_numerical_approximation"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_p3_t_numerical_solution_of_equations_m01_l02_drq02",
+      "sequence": 2,
+      "difficulty": "easy",
+      "difficulty_reason": "Foundational drill: evaluating an exponential and linear combination to bracket a root.",
+      "source_question_id": "drill_p3_num_root_bracket_exp_basic",
+      "source_role": "foundational_drill",
+      "dependency_role": "none",
+      "dependency_refs": [],
+      "parts": [
+        {
+          "part_id": "9709_p3_t_numerical_solution_of_equations_m01_l02_drq02_p01",
+          "difficulty": "easy",
+          "question_pattern_ids": [
+            "9709_p3_pattern_prove_or_show",
+            "9709_p3_pattern_numerical_approximation"
+          ],
+          "source_evidence": {
+            "question_id": "drill_p3_num_root_bracket_exp_basic",
+            "part_id": "drill_p3_num_root_bracket_exp_basic_p01",
+            "legacy_practice_tier": "foundational",
+            "product_role": "warm_up_drill",
+            "structural_inspiration": "Sign change test for an exponential-linear difference on integer endpoints."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Rearrange the equation $\\text{e}^x = 3x + 2$ to form $f(x) = \\text{e}^x - 3x - 2 = 0$.",
+            "Compute the numerical values of $f(2) = \\text{e}^2 - 8$ and $f(3) = \\text{e}^3 - 11$.",
+            "Show that $f(2) \\approx -0.611 < 0$ and $f(3) \\approx 9.09 > 0$. State that the sign change proves a root lies between $2$ and $3$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Rearrange the equation into $f(x) = \\text{e}^x - 3x - 2 = 0$."
+            },
+            {
+              "step": 2,
+              "text": "Evaluate $f(x)$ at $x = 2$ and $x = 3$:\n$$f(2) = \\text{e}^2 - 3(2) - 2 = \\text{e}^2 - 8 \\approx 7.3891 - 8 = -0.6109 < 0$$\n$$f(3) = \\text{e}^3 - 3(3) - 2 = \\text{e}^3 - 11 \\approx 20.0855 - 11 = 9.0855 > 0$$"
+            },
+            {
+              "step": 3,
+              "text": "Since $f(x)$ is continuous on $[2, 3]$ and changes sign ($f(2) < 0$ and $f(3) > 0$), a root of $\\text{e}^x = 3x + 2$ lies in the interval $2 < x < 3$."
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_numerical_solution_of_equations_m01_l02_drq02_p01_mp01",
+                "observable": "Evaluates $f(2)$ and $f(3)$ for $f(x) = \\text{e}^x - 3x - 2$ (or $f(x) = 3x + 2 - \\text{e}^x$)."
+              },
+              {
+                "criterion_id": "9709_p3_t_numerical_solution_of_equations_m01_l02_drq02_p01_mp02",
+                "observable": "Obtains correct values $f(2) \\approx -0.611$ and $f(3) \\approx 9.09$, notes the change of sign, and concludes that a root lies between $2$ and $3$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_numerical_root_bracketing"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_numerical_root_bracketing"
+            ],
+            "method_ids": [
+              "9709_p3_method_numerical_root_bracketing"
+            ],
+            "pattern_ids": [
+              "9709_p3_pattern_prove_or_show",
+              "9709_p3_pattern_numerical_approximation"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_p3_t_numerical_solution_of_equations_m01_l02_drq03",
+      "sequence": 3,
+      "difficulty": "easy",
+      "difficulty_reason": "Foundational drill: testing sign change on a logarithmic and rational combination across a decimal interval.",
+      "source_question_id": "drill_p3_num_root_bracket_ln_rational",
+      "source_role": "foundational_drill",
+      "dependency_role": "none",
+      "dependency_refs": [],
+      "parts": [
+        {
+          "part_id": "9709_p3_t_numerical_solution_of_equations_m01_l02_drq03_p01",
+          "difficulty": "easy",
+          "question_pattern_ids": [
+            "9709_p3_pattern_prove_or_show",
+            "9709_p3_pattern_numerical_approximation"
+          ],
+          "source_evidence": {
+            "question_id": "drill_p3_num_root_bracket_ln_rational",
+            "part_id": "drill_p3_num_root_bracket_ln_rational_p01",
+            "legacy_practice_tier": "foundational",
+            "product_role": "warm_up_drill",
+            "structural_inspiration": "Sign change test for natural log and reciprocal functions across a decimal interval."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Define $f(x) = \\ln(2x + 1) - \\dfrac{3}{x}$.",
+            "Evaluate $f(1.5) = \\ln(4) - 2$ and $f(2.0) = \\ln(5) - 1.5$ to at least 2 decimal places.",
+            "Verify that $f(1.5) < 0$ and $f(2.0) > 0$. Conclude that since $f(x)$ is continuous for $x > 0$, the sign change shows a root lies in $1.5 < x < 2.0$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Define $f(x) = \\ln(2x + 1) - \\dfrac{3}{x}$."
+            },
+            {
+              "step": 2,
+              "text": "Calculate $f(1.5)$ and $f(2.0)$:\n$$f(1.5) = \\ln(2(1.5) + 1) - \\dfrac{3}{1.5} = \\ln(4) - 2 \\approx 1.3863 - 2 = -0.6137 < 0$$\n$$f(2.0) = \\ln(2(2.0) + 1) - \\dfrac{3}{2.0} = \\ln(5) - 1.5 \\approx 1.6094 - 1.5 = +0.1094 > 0$$"
+            },
+            {
+              "step": 3,
+              "text": "Because $f(x)$ is continuous on $[1.5, 2.0]$ and changes sign from negative at $x = 1.5$ to positive at $x = 2.0$, a root exists in the interval $1.5 < x < 2.0$."
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_numerical_solution_of_equations_m01_l02_drq03_p01_mp01",
+                "observable": "Evaluates $f(1.5)$ and $f(2.0)$ for $f(x) = \\ln(2x + 1) - \\dfrac{3}{x}$ (or $f(x) = x\\ln(2x+1) - 3$)."
+              },
+              {
+                "criterion_id": "9709_p3_t_numerical_solution_of_equations_m01_l02_drq03_p01_mp02",
+                "observable": "Obtains correct values $f(1.5) \\approx -0.614$ and $f(2.0) \\approx 0.109$ (or $g(1.5) \\approx -0.921$ and $g(2.0) \\approx 0.219$), notes the change of sign, and concludes that a root lies in $1.5 < x < 2.0$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_numerical_root_bracketing"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_numerical_root_bracketing"
+            ],
+            "method_ids": [
+              "9709_p3_method_numerical_root_bracketing"
+            ],
+            "pattern_ids": [
+              "9709_p3_pattern_prove_or_show",
+              "9709_p3_pattern_numerical_approximation"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_p3_t_numerical_solution_of_equations_m01_l02_drq04",
+      "sequence": 4,
+      "difficulty": "easy",
+      "difficulty_reason": "Foundational drill: calculating sign change for a trigonometric equation in radians.",
+      "source_question_id": "drill_p3_num_root_bracket_trig_cos",
+      "source_role": "foundational_drill",
+      "dependency_role": "none",
+      "dependency_refs": [],
+      "parts": [
+        {
+          "part_id": "9709_p3_t_numerical_solution_of_equations_m01_l02_drq04_p01",
+          "difficulty": "easy",
+          "question_pattern_ids": [
+            "9709_p3_pattern_prove_or_show",
+            "9709_p3_pattern_numerical_approximation",
+            "9709_p3_pattern_trigonometric_reasoning"
+          ],
+          "source_evidence": {
+            "question_id": "drill_p3_num_root_bracket_trig_cos",
+            "part_id": "drill_p3_num_root_bracket_trig_cos_p01",
+            "legacy_practice_tier": "foundational",
+            "product_role": "warm_up_drill",
+            "structural_inspiration": "Trigonometric sign change test requiring calculator in radian mode."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Set $f(x) = \\cos x - 2x + 1$ and ensure your calculator is in radian mode.",
+            "Calculate $f(0.8) = \\cos(0.8) - 1.6 + 1$ and $f(1.0) = \\cos(1.0) - 2.0 + 1$.",
+            "Notice that $f(0.8) \\approx 0.0967 > 0$ and $f(1.0) \\approx -0.460 < 0$. Conclude that the change of sign confirms a root in the interval $0.8 < x < 1.0$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Let $f(x) = \\cos x - 2x + 1$, where $x$ is measured in radians."
+            },
+            {
+              "step": 2,
+              "text": "Evaluate $f(x)$ at $x = 0.8$ and $x = 1.0$ using radian mode:\n$$f(0.8) = \\cos(0.8) - 2(0.8) + 1 \\approx 0.6967 - 1.6 + 1 = +0.0967 > 0$$\n$$f(1.0) = \\cos(1.0) - 2(1.0) + 1 \\approx 0.5403 - 2.0 + 1 = -0.4597 < 0$$"
+            },
+            {
+              "step": 3,
+              "text": "Since $f(x)$ is continuous on $[0.8, 1.0]$ and changes sign, there is a root of the equation in $0.8 < x < 1.0$."
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_numerical_solution_of_equations_m01_l02_drq04_p01_mp01",
+                "observable": "Evaluates $f(0.8)$ and $f(1.0)$ in radians for $f(x) = \\cos x - 2x + 1$ (or $f(x) = 2x - 1 - \\cos x$)."
+              },
+              {
+                "criterion_id": "9709_p3_t_numerical_solution_of_equations_m01_l02_drq04_p01_mp02",
+                "observable": "Obtains correct values $f(0.8) \\approx 0.0967$ and $f(1.0) \\approx -0.460$, notes the change of sign, and concludes that a root lies in $0.8 < x < 1.0$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_numerical_root_bracketing"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_numerical_root_bracketing"
+            ],
+            "method_ids": [
+              "9709_p3_method_numerical_root_bracketing"
+            ],
+            "pattern_ids": [
+              "9709_p3_pattern_prove_or_show",
+              "9709_p3_pattern_numerical_approximation",
+              "9709_p3_pattern_trigonometric_reasoning"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_p3_t_numerical_solution_of_equations_m01_l02_drq05",
+      "sequence": 5,
+      "difficulty": "easy",
+      "difficulty_reason": "Foundational drill: testing sign change for a tangent and rational equation in radians.",
+      "source_question_id": "drill_p3_num_root_bracket_trig_tan",
+      "source_role": "foundational_drill",
+      "dependency_role": "none",
+      "dependency_refs": [],
+      "parts": [
+        {
+          "part_id": "9709_p3_t_numerical_solution_of_equations_m01_l02_drq05_p01",
+          "difficulty": "easy",
+          "question_pattern_ids": [
+            "9709_p3_pattern_prove_or_show",
+            "9709_p3_pattern_numerical_approximation",
+            "9709_p3_pattern_trigonometric_reasoning"
+          ],
+          "source_evidence": {
+            "question_id": "drill_p3_num_root_bracket_trig_tan",
+            "part_id": "drill_p3_num_root_bracket_trig_tan_p01",
+            "legacy_practice_tier": "foundational",
+            "product_role": "warm_up_drill",
+            "structural_inspiration": "Sign change calculation for tangent functions in radians on an open interval without asymptotes."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Define $f(x) = \\tan x - \\dfrac{4}{x}$ (or $f(x) = x\\tan x - 4$) with your calculator set to radians.",
+            "Evaluate $f(1.2)$ and $f(1.4)$ to at least 2 significant figures.",
+            "Observe that $f(1.2) \\approx -0.761 < 0$ and $f(1.4) \\approx 2.94 > 0$. Conclude that since $f(x)$ is continuous on $[1.2, 1.4]$, a root lies in the interval $1.2 < x < 1.4$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Let $f(x) = \\tan x - \\dfrac{4}{x}$. Note that $[1.2, 1.4] \\subset \\left(0, \\dfrac{\\pi}{2}\\right)$, so $f(x)$ is continuous on this interval."
+            },
+            {
+              "step": 2,
+              "text": "Evaluate $f(x)$ at the endpoints in radian mode:\n$$f(1.2) = \\tan(1.2) - \\dfrac{4}{1.2} \\approx 2.5722 - 3.3333 = -0.7611 < 0$$\n$$f(1.4) = \\tan(1.4) - \\dfrac{4}{1.4} \\approx 5.7979 - 2.8571 = +2.9408 > 0$$"
+            },
+            {
+              "step": 3,
+              "text": "The change in sign from negative at $x = 1.2$ to positive at $x = 1.4$, combined with continuity, confirms that a root lies in $1.2 < x < 1.4$."
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_numerical_solution_of_equations_m01_l02_drq05_p01_mp01",
+                "observable": "Evaluates $f(1.2)$ and $f(1.4)$ in radians for $f(x) = \\tan x - \\dfrac{4}{x}$ (or $f(x) = x\\tan x - 4$)."
+              },
+              {
+                "criterion_id": "9709_p3_t_numerical_solution_of_equations_m01_l02_drq05_p01_mp02",
+                "observable": "Obtains correct values $f(1.2) \\approx -0.761$ and $f(1.4) \\approx 2.94$ (or $g(1.2) \\approx -0.913$ and $g(1.4) \\approx 4.12$), notes the change of sign, and concludes that a root lies in $1.2 < x < 1.4$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_numerical_root_bracketing"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_numerical_root_bracketing"
+            ],
+            "method_ids": [
+              "9709_p3_method_numerical_root_bracketing"
+            ],
+            "pattern_ids": [
+              "9709_p3_pattern_prove_or_show",
+              "9709_p3_pattern_numerical_approximation",
+              "9709_p3_pattern_trigonometric_reasoning"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_p3_t_numerical_solution_of_equations_m01_l02_drq06",
+      "sequence": 6,
+      "difficulty": "easy",
+      "difficulty_reason": "Foundational drill: bracketing a root on a tight interval of width 0.1 for a combined exponential-polynomial equation.",
+      "source_question_id": "drill_p3_num_root_bracket_tight_exp_poly",
+      "source_role": "foundational_drill",
+      "dependency_role": "none",
+      "dependency_refs": [],
+      "parts": [
+        {
+          "part_id": "9709_p3_t_numerical_solution_of_equations_m01_l02_drq06_p01",
+          "difficulty": "easy",
+          "question_pattern_ids": [
+            "9709_p3_pattern_prove_or_show",
+            "9709_p3_pattern_numerical_approximation"
+          ],
+          "source_evidence": {
+            "question_id": "drill_p3_num_root_bracket_tight_exp_poly",
+            "part_id": "drill_p3_num_root_bracket_tight_exp_poly_p01",
+            "legacy_practice_tier": "foundational",
+            "product_role": "warm_up_drill",
+            "structural_inspiration": "Tight decimal interval sign change test on a composite transcendental function."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Form the continuous function $f(x) = 2\\text{e}^{-x} + x^2 - 4$.",
+            "Substitute $x = 1.9$ and $x = 2.0$ to evaluate $f(1.9) = 2\\text{e}^{-1.9} + 3.61 - 4$ and $f(2.0) = 2\\text{e}^{-2.0}$.",
+            "Check that $f(1.9) \\approx -0.0909 < 0$ and $f(2.0) \\approx 0.271 > 0$. Conclude that the change of sign confirms a root lies between $1.9$ and $2.0$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Define $f(x) = 2\\text{e}^{-x} + x^2 - 4$."
+            },
+            {
+              "step": 2,
+              "text": "Evaluate $f(x)$ at $x = 1.9$ and $x = 2.0$:\n$$f(1.9) = 2\\text{e}^{-1.9} + 1.9^2 - 4 = 2(0.14957) + 3.61 - 4 = 0.2991 - 0.39 = -0.0909 < 0$$\n$$f(2.0) = 2\\text{e}^{-2.0} + 2.0^2 - 4 = 2(0.13534) + 4 - 4 = +0.2707 > 0$$"
+            },
+            {
+              "step": 3,
+              "text": "Since $f(x)$ is continuous on $[1.9, 2.0]$ and changes sign ($f(1.9) < 0$ and $f(2.0) > 0$), there is a root of $2\\text{e}^{-x} + x^2 = 4$ in the interval $1.9 < x < 2.0$."
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_numerical_solution_of_equations_m01_l02_drq06_p01_mp01",
+                "observable": "Evaluates $f(1.9)$ and $f(2.0)$ for $f(x) = 2\\text{e}^{-x} + x^2 - 4$ (or $f(x) = 4 - 2\\text{e}^{-x} - x^2$)."
+              },
+              {
+                "criterion_id": "9709_p3_t_numerical_solution_of_equations_m01_l02_drq06_p01_mp02",
+                "observable": "Obtains correct values $f(1.9) \\approx -0.0909$ and $f(2.0) \\approx 0.271$, notes the change of sign, and concludes that a root lies between $1.9$ and $2.0$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_numerical_root_bracketing"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_numerical_root_bracketing"
+            ],
+            "method_ids": [
+              "9709_p3_method_numerical_root_bracketing"
+            ],
+            "pattern_ids": [
+              "9709_p3_pattern_prove_or_show",
+              "9709_p3_pattern_numerical_approximation"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_p3_t_numerical_solution_of_equations_m01_l02_cpq01",
+      "sequence": 7,
+      "difficulty": "easy",
+      "difficulty_reason": "Structured core: two-part root bracketing using the bisection method to narrow down the bracket interval.",
+      "source_question_id": "9709_s21_31_q7_b",
+      "source_role": "adapted_source",
+      "dependency_role": "none",
+      "dependency_refs": [],
+      "parts": [
+        {
+          "part_id": "9709_p3_t_numerical_solution_of_equations_m01_l02_cpq01_p01",
+          "difficulty": "easy",
+          "question_pattern_ids": [
+            "9709_p3_pattern_prove_or_show",
+            "9709_p3_pattern_numerical_approximation"
+          ],
+          "source_evidence": {
+            "question_id": "9709_s21_31_q7",
+            "part_id": "9709_s21_31_q7_b",
+            "legacy_practice_tier": "core_practice",
+            "product_role": "concept_application",
+            "structural_inspiration": "Standard Cambridge sign change question verifying a root between consecutive integers."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Rearrange the equation into $f(x) = x^3 - 2^x - 5 = 0$.",
+            "Substitute $x = 2$ and $x = 3$ to find $f(2) = 8 - 4 - 5 = -1$ and $f(3) = 27 - 8 - 5 = 14$.",
+            "State that because $f(x)$ is continuous on $[2, 3]$ and changes sign ($f(2) < 0$ and $f(3) > 0$), a root lies in the interval $(2, 3)$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Define $f(x) = x^3 - 2^x - 5$."
+            },
+            {
+              "step": 2,
+              "text": "Calculate $f(2)$ and $f(3)$:\n$$f(2) = 2^3 - 2^2 - 5 = 8 - 4 - 5 = -1 < 0$$\n$$f(3) = 3^3 - 2^3 - 5 = 27 - 8 - 5 = 14 > 0$$"
+            },
+            {
+              "step": 3,
+              "text": "Since $f(x)$ is continuous on $[2, 3]$ and changes sign from negative to positive, by the Intermediate Value Theorem a root $\\alpha$ lies between $2$ and $3$."
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_numerical_solution_of_equations_m01_l02_cpq01_p01_mp01",
+                "observable": "Evaluates $f(2)$ and $f(3)$ for $f(x) = x^3 - 2^x - 5$ (or $f(x) = 2^x + 5 - x^3$)."
+              },
+              {
+                "criterion_id": "9709_p3_t_numerical_solution_of_equations_m01_l02_cpq01_p01_mp02",
+                "observable": "Obtains $f(2) = -1$ and $f(3) = 14$, notes the change of sign, and concludes that $\\alpha$ lies between $2$ and $3$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_numerical_root_bracketing"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_numerical_root_bracketing"
+            ],
+            "method_ids": [
+              "9709_p3_method_numerical_root_bracketing"
+            ],
+            "pattern_ids": [
+              "9709_p3_pattern_prove_or_show",
+              "9709_p3_pattern_numerical_approximation"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        },
+        {
+          "part_id": "9709_p3_t_numerical_solution_of_equations_m01_l02_cpq01_p02",
+          "difficulty": "easy",
+          "question_pattern_ids": [
+            "9709_p3_pattern_numerical_approximation",
+            "9709_p3_pattern_multi_part_dependency"
+          ],
+          "source_evidence": {
+            "question_id": "9709_s21_31_q7",
+            "part_id": "9709_s21_31_q7_b",
+            "legacy_practice_tier": "core_practice",
+            "product_role": "concept_application",
+            "structural_inspiration": "Progressive interval tightening via midpoint evaluation."
+          },
+          "dependency_role": "uses_previous_part",
+          "dependency_refs": [
+            "9709_p3_t_numerical_solution_of_equations_m01_l02_cpq01_p01"
+          ],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Calculate $f(2.5) = 2.5^3 - 2^{2.5} - 5 \\approx 4.97 > 0$. Since $f(2) = -1 < 0$, $\\alpha$ is trapped in $(2, 2.5)$.",
+            "Evaluate $f(2.25) = 2.25^3 - 2^{2.25} - 5 \\approx 1.63 > 0$.",
+            "Compare the sign of $f(2.25)$ with $f(2)$: since $f(2) < 0$ and $f(2.25) > 0$, conclude that $\\alpha$ lies in $(2, 2.25)$, which is an interval of width $0.25$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Evaluate $f(2.5)$ at the midpoint of $[2, 3]$:\n$$f(2.5) = 2.5^3 - 2^{2.5} - 5 = 15.625 - 5.6569 - 5 = +4.9681 > 0$$"
+            },
+            {
+              "step": 2,
+              "text": "Since $f(2) < 0$ and $f(2.5) > 0$, the root is in $(2, 2.5)$. Now evaluate at the midpoint $x = 2.25$:\n$$f(2.25) = 2.25^3 - 2^{2.25} - 5 = 11.3906 - 4.7568 - 5 = +1.6338 > 0$$"
+            },
+            {
+              "step": 3,
+              "text": "Since $f(2) = -1 < 0$ and $f(2.25) > 0$, the root must lie in the interval $2 < \\alpha < 2.25$ (width $0.25$)."
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_numerical_solution_of_equations_m01_l02_cpq01_p02_mp01",
+                "observable": "Evaluates $f(2.5) \\approx 4.97$ and $f(2.25) \\approx 1.63$ to identify sign changes."
+              },
+              {
+                "criterion_id": "9709_p3_t_numerical_solution_of_equations_m01_l02_cpq01_p02_mp02",
+                "observable": "Concludes correctly with supporting values that $\\alpha$ lies in the interval $(2, 2.25)$ (or $2 < \\alpha < 2.25$)."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_numerical_root_bracketing"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_numerical_root_bracketing"
+            ],
+            "method_ids": [
+              "9709_p3_method_numerical_root_bracketing"
+            ],
+            "pattern_ids": [
+              "9709_p3_pattern_numerical_approximation",
+              "9709_p3_pattern_multi_part_dependency"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_p3_t_numerical_solution_of_equations_m01_l02_cpq02",
+      "sequence": 8,
+      "difficulty": "medium",
+      "difficulty_reason": "Structured core: differentiation of a quotient involving ln(x) followed by root bracketing of the resulting stationary equation.",
+      "source_question_id": "9709_w21_31_q8_b",
+      "source_role": "adapted_source",
+      "dependency_role": "none",
+      "dependency_refs": [],
+      "parts": [
+        {
+          "part_id": "9709_p3_t_numerical_solution_of_equations_m01_l02_cpq02_p01",
+          "difficulty": "medium",
+          "question_pattern_ids": [
+            "9709_p3_pattern_prove_or_show",
+            "9709_p3_pattern_solve_equation"
+          ],
+          "source_evidence": {
+            "question_id": "9709_w21_31_q8",
+            "part_id": "9709_w21_31_q8_b",
+            "legacy_practice_tier": "core_practice",
+            "product_role": "concept_application",
+            "structural_inspiration": "Calculus stationary point yielding an equation to be solved numerically."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Recall the quotient rule: $\\dfrac{\\text{d}}{\\text{d}x}\\left(\\dfrac{u}{v}\\right) = \\dfrac{u'v - uv'}{v^2}$ where $u = \\ln x$ and $v = x^2 + 3$.",
+            "Compute $u' = \\dfrac{1}{x}$ and $v' = 2x$, giving numerator $\\dfrac{1}{x}(x^2 + 3) - 2x\\ln x$.",
+            "At a stationary point, set the numerator equal to $0$: $\\dfrac{x^2+3}{x} - 2x\\ln x = 0$.",
+            "Multiply throughout by $x$ to get $x^2 + 3 - 2x^2 \\ln x = 0$, then rearrange to $2x^2 \\ln x - x^2 = 3$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Differentiate $y = \\dfrac{\\ln x}{x^2 + 3}$ using the quotient rule:\n$$\\dfrac{\\text{d}y}{\\text{d}x} = \\dfrac{\\frac{1}{x}(x^2 + 3) - (\\ln x)(2x)}{(x^2 + 3)^2} = \\dfrac{\\frac{x^2 + 3}{x} - 2x\\ln x}{(x^2 + 3)^2}$$"
+            },
+            {
+              "step": 2,
+              "text": "Set $\\dfrac{\\text{d}y}{\\text{d}x} = 0$, which requires the numerator to be zero:\n$$\\dfrac{x^2 + 3}{x} - 2x\\ln x = 0$$"
+            },
+            {
+              "step": 3,
+              "text": "Multiply by $x$:\n$$x^2 + 3 - 2x^2 \\ln x = 0 \\implies 2x^2 \\ln x - x^2 = 3$$"
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_numerical_solution_of_equations_m01_l02_cpq02_p01_mp01",
+                "observable": "Applies quotient rule (or product rule) to differentiate $y = \\dfrac{\\ln x}{x^2 + 3}$ and sets $\\dfrac{\\text{d}y}{\\text{d}x} = 0$."
+              },
+              {
+                "criterion_id": "9709_p3_t_numerical_solution_of_equations_m01_l02_cpq02_p01_mp02",
+                "observable": "Simplifies the numerator $\\dfrac{1}{x}(x^2 + 3) - 2x\\ln x = 0$ to obtain $2x^2 \\ln x - x^2 = 3$ correctly."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_numerical_root_bracketing"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_numerical_root_bracketing"
+            ],
+            "method_ids": [
+              "9709_p3_method_numerical_root_bracketing"
+            ],
+            "pattern_ids": [
+              "9709_p3_pattern_prove_or_show",
+              "9709_p3_pattern_solve_equation"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        },
+        {
+          "part_id": "9709_p3_t_numerical_solution_of_equations_m01_l02_cpq02_p02",
+          "difficulty": "medium",
+          "question_pattern_ids": [
+            "9709_p3_pattern_prove_or_show",
+            "9709_p3_pattern_numerical_approximation",
+            "9709_p3_pattern_multi_part_dependency"
+          ],
+          "source_evidence": {
+            "question_id": "9709_w21_31_q8",
+            "part_id": "9709_w21_31_q8_b",
+            "legacy_practice_tier": "core_practice",
+            "product_role": "concept_application",
+            "structural_inspiration": "Numerical sign change verification of stationary point root."
+          },
+          "dependency_role": "uses_previous_part",
+          "dependency_refs": [
+            "9709_p3_t_numerical_solution_of_equations_m01_l02_cpq02_p01"
+          ],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Define $f(x) = 2x^2 \\ln x - x^2 - 3$.",
+            "Substitute $x = 2.2$ into $f(x)$: $f(2.2) = 2(2.2)^2 \\ln(2.2) - 2.2^2 - 3$.",
+            "Substitute $x = 2.3$ into $f(x)$: $f(2.3) = 2(2.3)^2 \\ln(2.3) - 2.3^2 - 3$.",
+            "Verify that $f(2.2) \\approx -0.208 < 0$ and $f(2.3) \\approx +0.522 > 0$, and state that the change of sign confirms a root in $(2.2, 2.3)$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Let $f(x) = 2x^2 \\ln x - x^2 - 3$."
+            },
+            {
+              "step": 2,
+              "text": "Evaluate $f(2.2)$ and $f(2.3)$:\n$$f(2.2) = 2(4.84)\\ln(2.2) - 4.84 - 3 = 9.68(0.78846) - 7.84 \\approx 7.6323 - 7.84 = -0.2077 < 0$$\n$$f(2.3) = 2(5.29)\\ln(2.3) - 5.29 - 3 = 10.58(0.83291) - 8.29 \\approx 8.8122 - 8.29 = +0.5222 > 0$$"
+            },
+            {
+              "step": 3,
+              "text": "Since $f(x)$ is continuous on $[2.2, 2.3]$ and changes sign, the equation $2x^2 \\ln x - x^2 = 3$ has a root in $2.2 < x < 2.3$."
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_numerical_solution_of_equations_m01_l02_cpq02_p02_mp01",
+                "observable": "Evaluates $f(2.2)$ and $f(2.3)$ for $f(x) = 2x^2 \\ln x - x^2 - 3$ (or equivalent difference)."
+              },
+              {
+                "criterion_id": "9709_p3_t_numerical_solution_of_equations_m01_l02_cpq02_p02_mp02",
+                "observable": "Obtains correct values $f(2.2) \\approx -0.208$ and $f(2.3) \\approx 0.522$, notes the change of sign, and concludes that a root lies in $2.2 < x < 2.3$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_numerical_root_bracketing"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_numerical_root_bracketing"
+            ],
+            "method_ids": [
+              "9709_p3_method_numerical_root_bracketing"
+            ],
+            "pattern_ids": [
+              "9709_p3_pattern_prove_or_show",
+              "9709_p3_pattern_numerical_approximation",
+              "9709_p3_pattern_multi_part_dependency"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_p3_t_numerical_solution_of_equations_m01_l02_cpq03",
+      "sequence": 9,
+      "difficulty": "medium",
+      "difficulty_reason": "Structured core: root bracketing of an intersecting trig-log system followed by justification of decimal rounding.",
+      "source_question_id": "9709_m22_32_q7_b",
+      "source_role": "adapted_source",
+      "dependency_role": "none",
+      "dependency_refs": [],
+      "parts": [
+        {
+          "part_id": "9709_p3_t_numerical_solution_of_equations_m01_l02_cpq03_p01",
+          "difficulty": "medium",
+          "question_pattern_ids": [
+            "9709_p3_pattern_prove_or_show",
+            "9709_p3_pattern_numerical_approximation",
+            "9709_p3_pattern_trigonometric_reasoning"
+          ],
+          "source_evidence": {
+            "question_id": "9709_m22_32_q7",
+            "part_id": "9709_m22_32_q7_b",
+            "legacy_practice_tier": "core_practice",
+            "product_role": "concept_application",
+            "structural_inspiration": "Trigonometric and logarithmic root location across an interval."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Let $f(x) = 2\\sin x - \\ln(x + 1)$ and check that your calculator is in radian mode.",
+            "Calculate $f(2.4) = 2\\sin(2.4) - \\ln(3.4) \\approx 1.3509 - 1.2238$.",
+            "Calculate $f(2.6) = 2\\sin(2.6) - \\ln(3.6) \\approx 1.0310 - 1.2809$.",
+            "Confirm that $f(2.4) > 0$ and $f(2.6) < 0$, and conclude that the sign change shows $\\alpha \\in (2.4, 2.6)$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Define $f(x) = 2\\sin x - \\ln(x + 1)$ with $x$ in radians."
+            },
+            {
+              "step": 2,
+              "text": "Evaluate $f(2.4)$ and $f(2.6)$:\n$$f(2.4) = 2\\sin(2.4) - \\ln(3.4) \\approx 2(0.67546) - 1.22378 = 1.3509 - 1.2238 = +0.1271 > 0$$\n$$f(2.6) = 2\\sin(2.6) - \\ln(3.6) \\approx 2(0.51550) - 1.28093 = 1.0310 - 1.2809 = -0.2499 < 0$$"
+            },
+            {
+              "step": 3,
+              "text": "Since $f(x)$ is continuous on $[2.4, 2.6]$ and changes sign, the root $\\alpha$ lies in $2.4 < x < 2.6$."
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_numerical_solution_of_equations_m01_l02_cpq03_p01_mp01",
+                "observable": "Evaluates $f(2.4)$ and $f(2.6)$ in radians for $f(x) = 2\\sin x - \\ln(x + 1)$ (or $f(x) = \\ln(x + 1) - 2\\sin x$)."
+              },
+              {
+                "criterion_id": "9709_p3_t_numerical_solution_of_equations_m01_l02_cpq03_p01_mp02",
+                "observable": "Obtains correct values $f(2.4) \\approx 0.127$ and $f(2.6) \\approx -0.250$, notes the change of sign, and concludes that $\\alpha$ lies in $2.4 < x < 2.6$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_numerical_root_bracketing"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_numerical_root_bracketing"
+            ],
+            "method_ids": [
+              "9709_p3_method_numerical_root_bracketing"
+            ],
+            "pattern_ids": [
+              "9709_p3_pattern_prove_or_show",
+              "9709_p3_pattern_numerical_approximation",
+              "9709_p3_pattern_trigonometric_reasoning"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        },
+        {
+          "part_id": "9709_p3_t_numerical_solution_of_equations_m01_l02_cpq03_p02",
+          "difficulty": "medium",
+          "question_pattern_ids": [
+            "9709_p3_pattern_prove_or_show",
+            "9709_p3_pattern_numerical_approximation",
+            "9709_p3_pattern_multi_part_dependency"
+          ],
+          "source_evidence": {
+            "question_id": "9709_m22_32_q7",
+            "part_id": "9709_m22_32_q7_b",
+            "legacy_practice_tier": "core_practice",
+            "product_role": "concept_application",
+            "structural_inspiration": "Rigorous justification of rounded solution via boundary test values."
+          },
+          "dependency_role": "uses_previous_part",
+          "dependency_refs": [
+            "9709_p3_t_numerical_solution_of_equations_m01_l02_cpq03_p01"
+          ],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "To show $\\alpha = 2.5$ correct to 1 decimal place, we need to show that $\\alpha$ lies in the interval $[2.45, 2.55)$.",
+            "Calculate $f(2.45) = 2\\sin(2.45) - \\ln(3.45) \\approx +0.0372 > 0$.",
+            "Calculate $f(2.5) = 2\\sin(2.5) - \\ln(3.5) \\approx -0.0558 < 0$.",
+            "Since $f(2.45) > 0$ and $f(2.5) < 0$, the root $\\alpha$ satisfies $2.45 < \\alpha < 2.50$. Every number in this interval rounds to $2.5$ to 1 decimal place."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "To justify rounding to $2.5$ to 1 decimal place, we test the boundary value $x = 2.45$."
+            },
+            {
+              "step": 2,
+              "text": "Calculate $f(2.45)$ and $f(2.50)$:\n$$f(2.45) = 2\\sin(2.45) - \\ln(3.45) \\approx 1.2755 - 1.2384 = +0.0372 > 0$$\n$$f(2.50) = 2\\sin(2.50) - \\ln(3.50) \\approx 1.1969 - 1.2528 = -0.0558 < 0$$"
+            },
+            {
+              "step": 3,
+              "text": "Because $f(2.45) > 0$ and $f(2.50) < 0$, the root lies strictly in $2.45 < \\alpha < 2.50$. Since all numbers in this interval round to $2.5$ to 1 decimal place, $\\alpha = 2.5$ to 1 d.p."
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_numerical_solution_of_equations_m01_l02_cpq03_p02_mp01",
+                "observable": "Evaluates $f(2.45) \\approx 0.0372$ and $f(2.5) \\approx -0.0558$ (or notes $f(2.55)$)."
+              },
+              {
+                "criterion_id": "9709_p3_t_numerical_solution_of_equations_m01_l02_cpq03_p02_mp02",
+                "observable": "Shows that $f(2.45) > 0$ and $f(2.5) < 0$ (or $f(2.55) < 0$), establishing that $2.45 < \\alpha < 2.50$, and correctly concludes $\\alpha = 2.5$ to 1 decimal place."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_numerical_root_bracketing"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_numerical_root_bracketing"
+            ],
+            "method_ids": [
+              "9709_p3_method_numerical_root_bracketing"
+            ],
+            "pattern_ids": [
+              "9709_p3_pattern_prove_or_show",
+              "9709_p3_pattern_numerical_approximation",
+              "9709_p3_pattern_multi_part_dependency"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_p3_t_numerical_solution_of_equations_m01_l02_cpq04",
+      "sequence": 10,
+      "difficulty": "medium",
+      "difficulty_reason": "Structured core: testing trigonometric root bracketing on a valid domain alongside conceptual analysis of sign change failure at an asymptote.",
+      "source_question_id": "9709_w24_31_q5_b",
+      "source_role": "adapted_source",
+      "dependency_role": "none",
+      "dependency_refs": [],
+      "parts": [
+        {
+          "part_id": "9709_p3_t_numerical_solution_of_equations_m01_l02_cpq04_p01",
+          "difficulty": "medium",
+          "question_pattern_ids": [
+            "9709_p3_pattern_prove_or_show",
+            "9709_p3_pattern_numerical_approximation",
+            "9709_p3_pattern_trigonometric_reasoning"
+          ],
+          "source_evidence": {
+            "question_id": "9709_w24_31_q5",
+            "part_id": "9709_w24_31_q5_b",
+            "legacy_practice_tier": "core_practice",
+            "product_role": "concept_application",
+            "structural_inspiration": "Secant function root location in radians."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Express $\\sec x$ as $\\dfrac{1}{\\cos x}$ so that $f(x) = \\dfrac{1}{\\cos x} + x^2 - 3$.",
+            "Ensure your calculator is set to radians.",
+            "Compute $f(1.0) = \\dfrac{1}{\\cos(1.0)} + 1 - 3 \\approx 1.8508 - 2 = -0.1492$.",
+            "Compute $f(1.2) = \\dfrac{1}{\\cos(1.2)} + 1.44 - 3 \\approx 2.7597 - 1.56 = 1.1997$, and conclude by sign change that a root lies in $(1.0, 1.2)$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Write $f(x) = \\sec x + x^2 - 3 = \\dfrac{1}{\\cos x} + x^2 - 3$."
+            },
+            {
+              "step": 2,
+              "text": "Evaluate $f(1.0)$ and $f(1.2)$ in radians:\n$$f(1.0) = \\dfrac{1}{\\cos(1.0)} + 1.0^2 - 3 \\approx 1.8508 - 2 = -0.1492 < 0$$\n$$f(1.2) = \\dfrac{1}{\\cos(1.2)} + 1.2^2 - 3 \\approx 2.7597 + 1.44 - 3 = +1.1997 > 0$$"
+            },
+            {
+              "step": 3,
+              "text": "Since $f(x)$ is continuous on $[1.0, 1.2]$ (as $\\cos x \\neq 0$ on this interval) and changes sign, there is a root in $1.0 < x < 1.2$."
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_numerical_solution_of_equations_m01_l02_cpq04_p01_mp01",
+                "observable": "Evaluates $f(1.0)$ and $f(1.2)$ in radians for $f(x) = \\sec x + x^2 - 3 = \\dfrac{1}{\\cos x} + x^2 - 3$."
+              },
+              {
+                "criterion_id": "9709_p3_t_numerical_solution_of_equations_m01_l02_cpq04_p01_mp02",
+                "observable": "Obtains correct values $f(1.0) \\approx -0.149$ and $f(1.2) \\approx 1.20$, notes the change of sign, and concludes that a root lies in $1.0 < x < 1.2$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_numerical_root_bracketing"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_numerical_root_bracketing"
+            ],
+            "method_ids": [
+              "9709_p3_method_numerical_root_bracketing"
+            ],
+            "pattern_ids": [
+              "9709_p3_pattern_prove_or_show",
+              "9709_p3_pattern_numerical_approximation",
+              "9709_p3_pattern_trigonometric_reasoning"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        },
+        {
+          "part_id": "9709_p3_t_numerical_solution_of_equations_m01_l02_cpq04_p02",
+          "difficulty": "medium",
+          "question_pattern_ids": [
+            "9709_p3_pattern_trigonometric_reasoning"
+          ],
+          "source_evidence": {
+            "question_id": "9709_w24_31_q5",
+            "part_id": "9709_w24_31_q5_b",
+            "legacy_practice_tier": "core_practice",
+            "product_role": "concept_application",
+            "structural_inspiration": "Conceptual examination of the essential continuity requirement for sign change theorems."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Recall the condition required for the sign change rule (Intermediate Value Theorem) to guarantee a root: the function must be continuous on the closed interval.",
+            "Check if $g(x)$ is continuous on $[1.5, 1.6]$. Note that $\\dfrac{\\pi}{2} \\approx 1.5708$.",
+            "Observe that $1.5 < 1.5708 < 1.6$, which means $x = \\dfrac{\\pi}{2}$ lies inside the interval.",
+            "Explain that because $g(x)$ has an infinite discontinuity (vertical asymptote) at $x = \\dfrac{\\pi}{2}$, the sign change is caused by the jump across the asymptote rather than crossing zero, so a root is not guaranteed."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "The Intermediate Value Theorem requires $g(x)$ to be continuous on $[a, b]$ for a change of sign to guarantee a root."
+            },
+            {
+              "step": 2,
+              "text": "Notice that $x = \\dfrac{\\pi}{2} \\approx 1.5708$ lies inside the interval $[1.5, 1.6]$. At $x = \\dfrac{\\pi}{2}$, both $\\tan x$ and $\\dfrac{1}{x - \\pi/2}$ are undefined with vertical asymptotes."
+            },
+            {
+              "step": 3,
+              "text": "Because $g(x)$ is not continuous on $[1.5, 1.6]$, the change of sign across the vertical asymptote does not imply that $g(x) = 0$ anywhere in the interval. Hence a root is not guaranteed."
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_numerical_solution_of_equations_m01_l02_cpq04_p02_mp01",
+                "observable": "Identifies that $x = \\dfrac{\\pi}{2} \\approx 1.571$ lies strictly inside the interval $(1.5, 1.6)$."
+              },
+              {
+                "criterion_id": "9709_p3_t_numerical_solution_of_equations_m01_l02_cpq04_p02_mp02",
+                "observable": "States that $g(x)$ (or $\\tan x$ / $\\dfrac{1}{x - \\pi/2}$) has a discontinuity / vertical asymptote at $x = \\dfrac{\\pi}{2}$."
+              },
+              {
+                "criterion_id": "9709_p3_t_numerical_solution_of_equations_m01_l02_cpq04_p02_mp03",
+                "observable": "Concludes that because $g(x)$ is not continuous on $[1.5, 1.6]$, the change of sign does not guarantee the existence of a root."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_numerical_root_bracketing"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_numerical_root_bracketing"
+            ],
+            "method_ids": [
+              "9709_p3_method_numerical_root_bracketing"
+            ],
+            "pattern_ids": [
+              "9709_p3_pattern_trigonometric_reasoning"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_p3_t_numerical_solution_of_equations_m01_l02_cpq05",
+      "sequence": 11,
+      "difficulty": "hard",
+      "difficulty_reason": "Hard capstone: root bracketing for an exponential-trigonometric product combined with derivative monotonicity proof for root uniqueness.",
+      "source_question_id": "9709_s25_31_q9_b",
+      "source_role": "adapted_source",
+      "dependency_role": "none",
+      "dependency_refs": [],
+      "parts": [
+        {
+          "part_id": "9709_p3_t_numerical_solution_of_equations_m01_l02_cpq05_p01",
+          "difficulty": "hard",
+          "question_pattern_ids": [
+            "9709_p3_pattern_prove_or_show",
+            "9709_p3_pattern_numerical_approximation",
+            "9709_p3_pattern_trigonometric_reasoning"
+          ],
+          "source_evidence": {
+            "question_id": "9709_s25_31_q9",
+            "part_id": "9709_s25_31_q9_b",
+            "legacy_practice_tier": "stretch",
+            "product_role": "stretch_capstone",
+            "structural_inspiration": "Exponential-trigonometric root location in radians."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Let $f(x) = \\text{e}^{2x}\\cos x - 2$ with your calculator set to radians.",
+            "Substitute $x = 0.3$: $f(0.3) = \\text{e}^{0.6}\\cos(0.3) - 2$.",
+            "Substitute $x = 0.4$: $f(0.4) = \\text{e}^{0.8}\\cos(0.4) - 2$.",
+            "Compute the values: $f(0.3) \\approx 1.7407 - 2 = -0.2593$ and $f(0.4) \\approx 2.0499 - 2 = +0.0499$.",
+            "State that since $f(x)$ is continuous on $[0.3, 0.4]$ and changes sign, a root lies in the interval $0.3 < x < 0.4$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Define $f(x) = \\text{e}^{2x}\\cos x - 2$ with $x$ in radians."
+            },
+            {
+              "step": 2,
+              "text": "Evaluate $f(0.3)$ and $f(0.4)$:\n$$f(0.3) = \\text{e}^{0.6}\\cos(0.3) - 2 \\approx (1.82212)(0.95534) - 2 = 1.7407 - 2 = -0.2593 < 0$$\n$$f(0.4) = \\text{e}^{0.8}\\cos(0.4) - 2 \\approx (2.22554)(0.92106) - 2 = 2.0499 - 2 = +0.0499 > 0$$"
+            },
+            {
+              "step": 3,
+              "text": "Because $f(x)$ is continuous on $[0.3, 0.4]$ and changes sign, there is a root in $0.3 < x < 0.4$."
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_numerical_solution_of_equations_m01_l02_cpq05_p01_mp01",
+                "observable": "Evaluates $f(0.3)$ and $f(0.4)$ in radians for $f(x) = \\text{e}^{2x}\\cos x - 2$ (or $f(x) = 2 - \\text{e}^{2x}\\cos x$)."
+              },
+              {
+                "criterion_id": "9709_p3_t_numerical_solution_of_equations_m01_l02_cpq05_p01_mp02",
+                "observable": "Obtains correct values $f(0.3) \\approx -0.259$ and $f(0.4) \\approx 0.050$, notes the change of sign, and concludes that a root lies in $0.3 < x < 0.4$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_numerical_root_bracketing"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_numerical_root_bracketing"
+            ],
+            "method_ids": [
+              "9709_p3_method_numerical_root_bracketing"
+            ],
+            "pattern_ids": [
+              "9709_p3_pattern_prove_or_show",
+              "9709_p3_pattern_numerical_approximation",
+              "9709_p3_pattern_trigonometric_reasoning"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        },
+        {
+          "part_id": "9709_p3_t_numerical_solution_of_equations_m01_l02_cpq05_p02",
+          "difficulty": "hard",
+          "question_pattern_ids": [
+            "9709_p3_pattern_prove_or_show",
+            "9709_p3_pattern_multi_part_dependency"
+          ],
+          "source_evidence": {
+            "question_id": "9709_s25_31_q9",
+            "part_id": "9709_s25_31_q9_b",
+            "legacy_practice_tier": "stretch",
+            "product_role": "stretch_capstone",
+            "structural_inspiration": "Proving root uniqueness via strict monotonicity."
+          },
+          "dependency_role": "uses_previous_part",
+          "dependency_refs": [
+            "9709_p3_t_numerical_solution_of_equations_m01_l02_cpq05_p01"
+          ],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Differentiate $g(x) = 2x + \\ln(\\cos x) - \\ln 2$ with respect to $x$.",
+            "Recall that $\\dfrac{\\text{d}}{\\text{d}x}(\\ln(\\cos x)) = \\dfrac{-\\sin x}{\\cos x} = -\\tan x$.",
+            "Thus, $g'(x) = 2 - \\tan x$.",
+            "For $x \\in [0, 1]$, the maximum of $\\tan x$ is $\\tan(1) \\approx 1.5574 < 2$, so $g'(x) > 0$ everywhere on $[0, 1]$.",
+            "Since $g(x)$ is strictly increasing on $[0, 1]$, it can have at most one root in this interval, proving the root from part (a) is unique."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Differentiate $g(x)$:\n$$g'(x) = \\dfrac{\\text{d}}{\\text{d}x}\\left(2x + \\ln(\\cos x) - \\ln 2\\right) = 2 + \\dfrac{-\\sin x}{\\cos x} = 2 - \\tan x$$"
+            },
+            {
+              "step": 2,
+              "text": "Examine the sign of $g'(x)$ on $0 \\leqslant x \\leqslant 1$:\nSince $\\tan x$ is strictly increasing on $\\left[0, \\dfrac{\\pi}{2}\\right)$, for $x \\in [0, 1]$ we have $0 \\leqslant \\tan x \\leqslant \\tan(1) \\approx 1.5574 < 2$."
+            },
+            {
+              "step": 3,
+              "text": "Therefore, $g'(x) = 2 - \\tan x > 0$ for all $x \\in [0, 1]$. Because $g(x)$ is strictly increasing, it is a one-to-one function on $[0, 1]$ and can cross the $x$-axis at most once. Hence, the root in $(0.3, 0.4)$ is the unique root in $[0, 1]$."
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_numerical_solution_of_equations_m01_l02_cpq05_p02_mp01",
+                "observable": "Differentiates $g(x) = 2x + \\ln(\\cos x) - \\ln 2$ to obtain $g'(x) = 2 - \\tan x$."
+              },
+              {
+                "criterion_id": "9709_p3_t_numerical_solution_of_equations_m01_l02_cpq05_p02_mp02",
+                "observable": "States that $\\tan x < 2$ for $0 \\leqslant x \\leqslant 1$, so $g'(x) > 0$ (strictly increasing), which proves the root in $[0, 1]$ is unique."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_numerical_root_bracketing"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_numerical_root_bracketing"
+            ],
+            "method_ids": [
+              "9709_p3_method_numerical_root_bracketing"
+            ],
+            "pattern_ids": [
+              "9709_p3_pattern_prove_or_show",
+              "9709_p3_pattern_multi_part_dependency"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_p3_t_numerical_solution_of_equations_m01_l02_cpq06",
+      "sequence": 12,
+      "difficulty": "hard",
+      "difficulty_reason": "Hard capstone: definite integration of a reciprocal function leading to an equation solved and justified to 1 decimal place via boundary testing.",
+      "source_question_id": "9709_w25_31_q9_b",
+      "source_role": "adapted_source",
+      "dependency_role": "none",
+      "dependency_refs": [],
+      "parts": [
+        {
+          "part_id": "9709_p3_t_numerical_solution_of_equations_m01_l02_cpq06_p01",
+          "difficulty": "hard",
+          "question_pattern_ids": [
+            "9709_p3_pattern_prove_or_show",
+            "9709_p3_pattern_solve_equation"
+          ],
+          "source_evidence": {
+            "question_id": "9709_w25_31_q9",
+            "part_id": "9709_w25_31_q9_b",
+            "legacy_practice_tier": "stretch",
+            "product_role": "stretch_capstone",
+            "structural_inspiration": "Calculus area integration leading to a transcendental equation."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Set up the integral for the area under the curve: $\\text{Area} = \\int_0^p \\dfrac{1}{2x + 1}\\,\\text{d}x$.",
+            "Use the standard result $\\int \\dfrac{1}{ax+b}\\,\\text{d}x = \\dfrac{1}{a}\\ln|ax+b|$ to integrate.",
+            "Evaluate $\\left[\\dfrac{1}{2}\\ln(2x+1)\\right]_0^p = \\dfrac{1}{2}\\ln(2p+1) - \\dfrac{1}{2}\\ln(1) = \\dfrac{1}{2}\\ln(2p+1)$.",
+            "Set the area equal to the rectangle area $0.4p$, giving $\\dfrac{1}{2}\\ln(2p+1) = 0.4p \\implies \\ln(2p+1) = 0.8p$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Calculate the area under the curve from $x = 0$ to $x = p$:\n$$\\int_0^p \\dfrac{1}{2x + 1}\\,\\text{d}x = \\left[ \\dfrac{1}{2}\\ln(2x + 1) \\right]_0^p = \\dfrac{1}{2}\\ln(2p + 1) - \\dfrac{1}{2}\\ln(1) = \\dfrac{1}{2}\\ln(2p + 1)$$"
+            },
+            {
+              "step": 2,
+              "text": "The area of the rectangle is $\\text{width} \\times \\text{height} = p \\times 0.4 = 0.4p$."
+            },
+            {
+              "step": 3,
+              "text": "Equate the two areas:\n$$\\dfrac{1}{2}\\ln(2p + 1) = 0.4p \\implies \\ln(2p + 1) = 0.8p$$"
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_numerical_solution_of_equations_m01_l02_cpq06_p01_mp01",
+                "observable": "Integrates $\\dfrac{1}{2x+1}$ to obtain $\\dfrac{1}{2}\\ln(2x+1)$ and evaluates between $0$ and $p$."
+              },
+              {
+                "criterion_id": "9709_p3_t_numerical_solution_of_equations_m01_l02_cpq06_p01_mp02",
+                "observable": "Equates $\\dfrac{1}{2}\\ln(2p+1)$ to $0.4p$ and completes algebraic steps to establish $\\ln(2p+1) = 0.8p$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_numerical_root_bracketing"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_numerical_root_bracketing"
+            ],
+            "method_ids": [
+              "9709_p3_method_numerical_root_bracketing"
+            ],
+            "pattern_ids": [
+              "9709_p3_pattern_prove_or_show",
+              "9709_p3_pattern_solve_equation"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        },
+        {
+          "part_id": "9709_p3_t_numerical_solution_of_equations_m01_l02_cpq06_p02",
+          "difficulty": "hard",
+          "question_pattern_ids": [
+            "9709_p3_pattern_prove_or_show",
+            "9709_p3_pattern_numerical_approximation",
+            "9709_p3_pattern_multi_part_dependency"
+          ],
+          "source_evidence": {
+            "question_id": "9709_w25_31_q9",
+            "part_id": "9709_w25_31_q9_b",
+            "legacy_practice_tier": "stretch",
+            "product_role": "stretch_capstone",
+            "structural_inspiration": "Rigorous decimal rounding justification using boundary test values."
+          },
+          "dependency_role": "uses_previous_part",
+          "dependency_refs": [
+            "9709_p3_t_numerical_solution_of_equations_m01_l02_cpq06_p01"
+          ],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Define $f(p) = \\ln(2p + 1) - 0.8p$.",
+            "Evaluate $f(2.0) = \\ln(5) - 1.6 \\approx +0.0094 > 0$ and $f(2.1) = \\ln(5.2) - 1.68 \\approx -0.0313 < 0$.",
+            "Confirm that the sign change proves the non-zero root lies in $(2.0, 2.1)$.",
+            "To determine whether $p$ rounds to $2.0$ or $2.1$, test the midpoint boundary value $p = 2.05$: $f(2.05) = \\ln(5.1) - 0.8(2.05) \\approx -0.0108 < 0$.",
+            "Because $f(2.0) > 0$ and $f(2.05) < 0$, the root satisfies $2.00 < p < 2.05$. Therefore, $p = 2.0$ correct to 1 decimal place."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Let $f(p) = \\ln(2p + 1) - 0.8p$."
+            },
+            {
+              "step": 2,
+              "text": "Evaluate $f(2.0)$ and $f(2.1)$:\n$$f(2.0) = \\ln(5) - 0.8(2.0) = 1.6094 - 1.60 = +0.0094 > 0$$\n$$f(2.1) = \\ln(5.2) - 0.8(2.1) = 1.6487 - 1.68 = -0.0313 < 0$$"
+            },
+            {
+              "step": 3,
+              "text": "The change of sign establishes that a root lies in the interval $2.0 < p < 2.1$."
+            },
+            {
+              "step": 4,
+              "text": "To decide whether $p$ rounds to $2.0$ or $2.1$, evaluate at the boundary $p = 2.05$:\n$$f(2.05) = \\ln(2(2.05) + 1) - 0.8(2.05) = \\ln(5.1) - 1.64 = 1.6292 - 1.64 = -0.0108 < 0$$"
+            },
+            {
+              "step": 5,
+              "text": "Since $f(2.0) > 0$ and $f(2.05) < 0$, the root is strictly in the interval $2.00 < p < 2.05$. All numbers in this interval round to $2.0$ to 1 decimal place, so $p = 2.0$ to 1 d.p."
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_numerical_solution_of_equations_m01_l02_cpq06_p02_mp01",
+                "observable": "Evaluates $f(2.0) \\approx 0.0094$, $f(2.1) \\approx -0.0313$, and $f(2.05) \\approx -0.0108$ for $f(p) = \\ln(2p + 1) - 0.8p$."
+              },
+              {
+                "criterion_id": "9709_p3_t_numerical_solution_of_equations_m01_l02_cpq06_p02_mp02",
+                "observable": "Concludes that because $f(2.0) > 0$ and $f(2.05) < 0$, the root lies in $2.0 < p < 2.05$, so $p = 2.0$ correct to 1 decimal place."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_numerical_root_bracketing"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_numerical_root_bracketing"
+            ],
+            "method_ids": [
+              "9709_p3_method_numerical_root_bracketing"
+            ],
+            "pattern_ids": [
+              "9709_p3_pattern_prove_or_show",
+              "9709_p3_pattern_numerical_approximation",
+              "9709_p3_pattern_multi_part_dependency"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_p3_t_numerical_solution_of_equations_m01_l02_cpq07",
+      "sequence": 13,
+      "difficulty": "hard",
+      "difficulty_reason": "Hard capstone: subtle domain discontinuity analysis combined with numerical root isolation for a rational-exponential equation.",
+      "source_question_id": "9709_w25_32_q6_b",
+      "source_role": "adapted_source",
+      "dependency_role": "none",
+      "dependency_refs": [],
+      "parts": [
+        {
+          "part_id": "9709_p3_t_numerical_solution_of_equations_m01_l02_cpq07_p01",
+          "difficulty": "hard",
+          "question_pattern_ids": [
+            "9709_p3_pattern_prove_or_show",
+            "9709_p3_pattern_numerical_approximation"
+          ],
+          "source_evidence": {
+            "question_id": "9709_w25_32_q6",
+            "part_id": "9709_w25_32_q6_b",
+            "legacy_practice_tier": "stretch",
+            "product_role": "stretch_capstone",
+            "structural_inspiration": "Domain restriction and numerical verification under algebraic simplification."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "For part (i), substitute $x = 2.1$ and $x = 2.2$ into $h(x) = x - \\text{e}^{-x} - 2$.",
+            "Calculate $h(2.1) = 2.1 - \\text{e}^{-2.1} - 2 \\approx 0.1 - 0.1225 = -0.0225 < 0$.",
+            "Calculate $h(2.2) = 2.2 - \\text{e}^{-2.2} - 2 \\approx 0.2 - 0.1108 = +0.0892 > 0$.",
+            "For part (ii), observe that the original left-hand side $\\dfrac{x^2 - 4}{x - 2}$ has $x - 2$ in the denominator, so $x = 2$ is outside the natural domain (point discontinuity).",
+            "Explain that for any value $x \\neq 2$, the algebraic identity $\\dfrac{x^2 - 4}{x - 2} = \\dfrac{(x-2)(x+2)}{x-2} = x + 2$ holds exactly. Because the root $\\alpha \\in (2.1, 2.2)$ is strictly greater than $2$, it is a genuine root of the original equation."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Evaluate $h(x) = x - \\text{e}^{-x} - 2$ at the endpoints:\n$$h(2.1) = 2.1 - \\text{e}^{-2.1} - 2 = 0.1 - 0.12246 = -0.0225 < 0$$\n$$h(2.2) = 2.2 - \\text{e}^{-2.2} - 2 = 0.2 - 0.11080 = +0.0892 > 0$$"
+            },
+            {
+              "step": 2,
+              "text": "Since $h(x)$ is continuous on $[2.1, 2.2]$ and changes sign, a root of $h(x) = 0$ lies in $2.1 < x < 2.2$."
+            },
+            {
+              "step": 3,
+              "text": "Examine the original equation domain:\nThe expression $\\dfrac{x^2 - 4}{x - 2}$ requires $x \\neq 2$ to avoid division by zero. Thus $x = 2$ is an excluded point (a hole / removable discontinuity) where the equation is undefined."
+            },
+            {
+              "step": 4,
+              "text": "However, for all $x \\neq 2$, $\\dfrac{x^2 - 4}{x - 2} = x + 2$ is strictly valid. Since the root lies in $(2.1, 2.2)$, we have $x > 2$, which satisfies the domain restriction $x \\neq 2$. Therefore, the root is a completely valid solution to the original equation."
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_numerical_solution_of_equations_m01_l02_cpq07_p01_mp01",
+                "observable": "Evaluates $h(2.1) \\approx -0.0225$ and $h(2.2) \\approx 0.0892$ to show a change of sign."
+              },
+              {
+                "criterion_id": "9709_p3_t_numerical_solution_of_equations_m01_l02_cpq07_p01_mp02",
+                "observable": "Notes that $h(2.1) < 0$ and $h(2.2) > 0$, confirming a root of $h(x) = 0$ in $(2.1, 2.2)$."
+              },
+              {
+                "criterion_id": "9709_p3_t_numerical_solution_of_equations_m01_l02_cpq07_p01_mp03",
+                "observable": "Explains that although the original equation is undefined at the point discontinuity $x = 2$, the root $\\alpha \\in (2.1, 2.2)$ satisfies $x \\neq 2$ where the simplification $\\dfrac{x^2-4}{x-2} = x+2$ is algebraically exact and valid."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_numerical_root_bracketing"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_numerical_root_bracketing"
+            ],
+            "method_ids": [
+              "9709_p3_method_numerical_root_bracketing"
+            ],
+            "pattern_ids": [
+              "9709_p3_pattern_prove_or_show",
+              "9709_p3_pattern_numerical_approximation"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        }
+      ]
+    }
+  ]
+}

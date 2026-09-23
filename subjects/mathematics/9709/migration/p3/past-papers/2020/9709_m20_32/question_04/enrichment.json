@@ -1,0 +1,74 @@
+{
+  "schema_version": "9709_math_enrichment_v3",
+  "paper_code": "9709_m20_32",
+  "question_id": "9709_m20_32_q4",
+  "question_num": 4,
+  "subject_code": "9709",
+  "component": "P3",
+  "year": 2020,
+  "session": "Feb/March",
+  "variant": "32",
+  "difficulty": 4,
+  "numerical_values_checked": false,
+  "parts": [
+    {
+      "part_id": "9709_m20_32_q4",
+      "difficulty": 4,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_p3_t_trigonometry",
+        "module_id": "9709_p3_t_trigonometry_m01",
+        "lesson_id": "9709_p3_t_trigonometry_m01_l03"
+      },
+      "skills": {
+        "primary_skill_id": "9709_p3_skill_integration",
+        "skill_tags": [
+          "Integration"
+        ]
+      },
+      "question_pattern_ids": [
+        "9709_p3_pattern_exact_value",
+        "9709_p3_pattern_calculus_process",
+        "9709_p3_pattern_trigonometric_reasoning"
+      ],
+      "knowledge_refs": {
+        "formula_ids": [],
+        "identity_ids": [
+          "9709_p3_identity_double_angle",
+          "9709_p3_identity_pythagorean"
+        ],
+        "method_ids": [
+          "9709_p3_method_integration"
+        ],
+        "fact_ids": [
+          "9709_p3_fact_log_domain"
+        ]
+      },
+      "hints": [
+        "Use integration by parts because the integrand is the product of \\(x\\) and \\(\\sec^2x\\).",
+        "Take \\(u=x\\) and \\(dv=\\sec^2x\\,dx\\), giving an integral involving \\(\\tan x\\).",
+        "Use \\(\\int\\tan x\\,dx=-\\ln(\\cos x)\\), then evaluate the complete antiderivative at \\(\\pi/3\\) and \\(\\pi/6\\) and combine the logarithms exactly."
+      ],
+      "walkthrough": [
+        "State the definite integral to be evaluated:\n$$I = \\int_{\\pi/6}^{\\pi/3} x\\sec^2x\\,dx$$",
+        "Apply integration by parts using the formula $\\int u \\dfrac{dv}{dx}\\,dx = uv - \\int v \\dfrac{du}{dx}\\,dx$:\nLet $u = x \\implies \\dfrac{du}{dx} = 1$.\nLet $\\dfrac{dv}{dx} = \\sec^2x \\implies v = \\int \\sec^2x\\,dx = \\tan x$.",
+        "Express the indefinite integral in terms of $u$ and $v$:\n$$\\int x\\sec^2x\\,dx = x\\tan x - \\int 1 \\cdot \\tan x\\,dx = x\\tan x - \\int \\tan x\\,dx$$",
+        "Integrate $\\tan x$ using the standard integral $\\int \\tan x\\,dx = -\\ln|\\cos x| = \\ln|\\sec x|$:\n$$\\int x\\sec^2x\\,dx = x\\tan x - (-\\ln|\\cos x|) = x\\tan x + \\ln|\\cos x|$$",
+        "Set up the evaluation with the limits $\\dfrac{\\pi}{6}$ and $\\dfrac{\\pi}{3}$:\n$$I = \\left[ x\\tan x + \\ln(\\cos x) \\right]_{\\pi/6}^{\\pi/3}$$",
+        "Evaluate the upper limit expression at $x = \\dfrac{\\pi}{3}$:\n$$\\tan\\left(\\dfrac{\\pi}{3}\\right) = \\sqrt{3}$$\n$$\\cos\\left(\\dfrac{\\pi}{3}\\right) = \\dfrac{1}{2}$$\n$$\\text{Upper limit value} = \\dfrac{\\pi}{3}\\sqrt{3} + \\ln\\left(\\dfrac{1}{2}\\right) = \\dfrac{\\pi\\sqrt{3}}{3} - \\ln 2$$",
+        "Evaluate the lower limit expression at $x = \\dfrac{\\pi}{6}$:\n$$\\tan\\left(\\dfrac{\\pi}{6}\\right) = \\dfrac{1}{\\sqrt{3}} = \\dfrac{\\sqrt{3}}{3}$$\n$$\\cos\\left(\\dfrac{\\pi}{6}\\right) = \\dfrac{\\sqrt{3}}{2}$$\n$$\\text{Lower limit value} = \\dfrac{\\pi}{6}\\left(\\dfrac{\\sqrt{3}}{3}\\right) + \\ln\\left(\\dfrac{\\sqrt{3}}{2}\\right) = \\dfrac{\\pi\\sqrt{3}}{18} + \\ln\\left(\\dfrac{\\sqrt{3}}{2}\\right)$$",
+        "Subtract the lower limit value from the upper limit value:\n$$I = \\left( \\dfrac{\\pi\\sqrt{3}}{3} + \\ln\\left(\\dfrac{1}{2}\\right) \\right) - \\left( \\dfrac{\\pi\\sqrt{3}}{18} + \\ln\\left(\\dfrac{\\sqrt{3}}{2}\\right) \\right)$$",
+        "Group and simplify the terms involving $\\pi\\sqrt{3}$:\n$$\\dfrac{\\pi\\sqrt{3}}{3} - \\dfrac{\\pi\\sqrt{3}}{18} = \\left(\\dfrac{6}{18} - \\dfrac{1}{18}\\right)\\pi\\sqrt{3} = \\dfrac{5\\pi\\sqrt{3}}{18}$$",
+        "Group and simplify the logarithmic terms using laws of logarithms:\n$$\\ln\\left(\\dfrac{1}{2}\\right) - \\ln\\left(\\dfrac{\\sqrt{3}}{2}\\right) = \\ln\\left( \\dfrac{1/2}{\\sqrt{3}/2} \\right) = \\ln\\left(\\dfrac{1}{\\sqrt{3}}\\right) = \\ln\\left(3^{-1/2}\\right) = -\\dfrac{1}{2}\\ln 3$$",
+        "Combine the simplified components to obtain the final exact value:\n$$I = \\dfrac{5\\sqrt{3}\\,\\pi}{18} - \\dfrac{1}{2}\\ln 3 \\quad \\left(\\text{or } \\dfrac{5\\pi}{6\\sqrt{3}} - \\dfrac{1}{2}\\ln 3\\right)$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "ai_rubric": {
+          "Integration": "Integrates by parts and reaches \\(ax\\tan x+b\\int\\tan x\\,dx\\). Derives integral \\(x\\tan x+\\ln\\cos x\\), or equivalent. The final result is \\(\\frac{5\\pi}{18}-\\frac12\\ln3\\)."
+        },
+        "criteria_source": "mark_scheme_structured"
+      }
+    }
+  ]
+}

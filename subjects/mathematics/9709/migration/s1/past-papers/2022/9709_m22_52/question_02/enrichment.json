@@ -1,0 +1,119 @@
+{
+  "schema_version": "9709_math_enrichment_v3",
+  "paper_code": "9709_m22_52",
+  "question_id": "9709_m22_52_q2",
+  "question_num": 2,
+  "subject_code": "9709",
+  "component": "S1",
+  "year": 2022,
+  "session": "Feb/March",
+  "variant": "52",
+  "difficulty": 3,
+  "numerical_values_checked": false,
+  "parts": [
+    {
+      "part_id": "9709_m22_52_q2_a",
+      "difficulty": 3,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_s1_t_discrete_random_variables",
+        "module_id": "9709_s1_t_discrete_random_variables_m03",
+        "lesson_id": "9709_s1_t_discrete_random_variables_m03_l02"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_calculating_binomial_tail_probabilities",
+        "skill_tags": [
+          "Calculating Binomial Tail Probabilities"
+        ]
+      },
+      "question_pattern_ids": [
+        "9709_s1_pattern_binomial_more_than_k_complement"
+      ],
+      "knowledge_refs": {
+        "formula_ids": [
+          "9709_s1_formula_binomial_probability"
+        ],
+        "identity_ids": [],
+        "method_ids": [
+          "9709_s1_method_calculating_binomial_tail_probabilities",
+          "9709_s1_method_using_complementary_events"
+        ],
+        "fact_ids": [
+          "9709_s1_fact_complement_rule"
+        ]
+      },
+      "hints": [
+        "Identify the distribution: let $X$ be the number of days with more than 10 cm of rain out of 7 days, so $X \\sim \\mathrm{B}(7, 0.18)$.",
+        "Use the complement rule to calculate the tail probability: $\\mathrm{P}(X > 2) = 1 - \\mathrm{P}(X \\le 2) = 1 - [\\mathrm{P}(X = 0) + \\mathrm{P}(X = 1) + \\mathrm{P}(X = 2)]$.",
+        "Apply the binomial formula $\\binom{7}{x}(0.18)^x(0.82)^{7-x}$ for $x = 0, 1, 2$, sum the results, and subtract from 1."
+      ],
+      "walkthrough": [
+        "Identify the distribution as $X \\sim \\mathrm{B}(7, 0.18)$, where $X$ denotes the number of days with more than 10 cm of rain in a 7-day period. Express the tail probability using the complement:\n$$\\mathrm{P}(X > 2) = 1 - \\sum_{x=0}^{2} \\binom{7}{x} (0.18)^x (0.82)^{7-x}$$",
+        "Evaluate the terms for $x = 0, 1, 2$:\n$$\\mathrm{P}(X = 0) = \\binom{7}{0}(0.18)^0(0.82)^7 = (0.82)^7 \\approx 0.249285$$\n$$\\mathrm{P}(X = 1) = \\binom{7}{1}(0.18)^1(0.82)^6 = 7(0.18)(0.304006) \\approx 0.383048$$\n$$\\mathrm{P}(X = 2) = \\binom{7}{2}(0.18)^2(0.82)^5 = 21(0.0324)(0.370740) \\approx 0.252251$$\nSum the three probabilities:\n$$\\mathrm{P}(X \\le 2) = 0.249285 + 0.383048 + 0.252251 = 0.884584$$",
+        "Subtract from 1 to obtain the required probability:\n$$\\mathrm{P}(X > 2) = 1 - 0.884584 = 0.115416 \\approx 0.115$$"
+      ],
+      "teacher_walkthrough": [
+        "Step 1: Identify the binomial model.\nEach day has two possible outcomes regarding rainfall exceeding 10 cm:\n- Success (more than 10 cm of rain): $p = 0.18$\n- Failure (10 cm or less of rain): $q = 1 - p = 1 - 0.18 = 0.82$\nSince the days are independent and the period has $n = 7$ days, the number of days with more than 10 cm of rain is distributed as:\n$$X \\sim \\mathrm{B}(7, 0.18)$$\n\nStep 2: Formulate the complement probability.\nWe want $\\mathrm{P}(X > 2)$, which corresponds to $X \\in \\{3, 4, 5, 6, 7\\}$.\nSumming five terms directly is longer, so we use the complement rule:\n$$\\mathrm{P}(X > 2) = 1 - \\mathrm{P}(X \\le 2) = 1 - [\\mathrm{P}(X = 0) + \\mathrm{P}(X = 1) + \\mathrm{P}(X = 2)]$$\n\nStep 3: Calculate each binomial probability using $\\mathrm{P}(X = x) = \\binom{n}{x} p^x q^{n-x}$.\n- For $x = 0$:\n  $$\\mathrm{P}(X = 0) = \\binom{7}{0} (0.18)^0 (0.82)^7 = 1 \\times 1 \\times 0.249285 = 0.249285$$\n- For $x = 1$:\n  $$\\mathrm{P}(X = 1) = \\binom{7}{1} (0.18)^1 (0.82)^6 = 7 \\times 0.18 \\times 0.304006 = 0.383048$$\n- For $x = 2$:\n  $$\\binom{7}{2} = \\frac{7 \\times 6}{2 \\times 1} = 21$$\n  $$\\mathrm{P}(X = 2) = 21 \\times (0.18)^2 \\times (0.82)^5 = 21 \\times 0.0324 \\times 0.370740 = 0.252251$$\n\nStep 4: Sum the unsimplified terms and subtract from 1.\n$$\\mathrm{P}(X \\le 2) = 0.249285 + 0.383048 + 0.252251 = 0.884584$$\n$$\\mathrm{P}(X > 2) = 1 - 0.884584 = 0.115416$$\nRounding to 3 significant figures gives $0.115$."
+      ],
+      "checking": {
+        "mode": "ai",
+        "ai_rubric": {
+          "Calculating Binomial Tail Probabilities": "Translates the stated bound and evaluates the required binomial sum or complement. For this part: Find the probability that in any randomly chosen 7-day period, more than 2 days have more than 10 cm of rain."
+        },
+        "criteria_source": "mark_scheme_structured"
+      }
+    },
+    {
+      "part_id": "9709_m22_52_q2_b",
+      "difficulty": 2,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_s1_t_discrete_random_variables",
+        "module_id": "9709_s1_t_discrete_random_variables_m03",
+        "lesson_id": "9709_s1_t_discrete_random_variables_m03_l05"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_calculating_exact_binomial_probabilities",
+        "skill_tags": [
+          "Calculating Exact Binomial Probabilities"
+        ]
+      },
+      "question_pattern_ids": [
+        "9709_s1_pattern_two_stage_binomial_probability"
+      ],
+      "knowledge_refs": {
+        "formula_ids": [
+          "9709_s1_formula_binomial_probability"
+        ],
+        "identity_ids": [],
+        "method_ids": [
+          "9709_s1_method_calculating_exact_binomial_probabilities",
+          "9709_s1_method_using_complementary_events"
+        ],
+        "fact_ids": [
+          "9709_s1_fact_complement_rule"
+        ]
+      },
+      "hints": [
+        "First find the probability that a single 7-day period has at least one day with more than 10 cm of rain using the complement of no rainy days.",
+        "Calculate $p_1 = 1 - (0.82)^7$ for one period.",
+        "Define a new binomial variable $Y \\sim \\mathrm{B}(3, p_1)$ representing the number of such 7-day periods out of 3, and calculate $\\mathrm{P}(Y = 2) = \\binom{3}{2} p_1^2 (1 - p_1)$."
+      ],
+      "walkthrough": [
+        "First determine the probability that a randomly chosen 7-day period has at least one day with more than 10 cm of rain, using the complement of having zero rainy days:\n$$\\mathrm{P}(\\text{at least one rainy day}) = 1 - (0.82)^7 = 1 - 0.249285 = 0.750715 \\approx 0.7507$$",
+        "Set up a binomial model for the 3 randomly chosen periods, where each period independently has a rainy day with probability $p = 0.7507$:\n$$\\mathrm{P}(\\text{exactly 2 periods}) = \\binom{3}{2} (0.750715)^2 (1 - 0.750715)^1$$",
+        "Evaluate the expression:\n$$\\mathrm{P}(\\text{exactly 2 periods}) = 3 \\times (0.563573) \\times (0.249285) = 0.42146 \\approx 0.421$$"
+      ],
+      "teacher_walkthrough": [
+        "Step 1: Calculate the single-period probability.\nLet event $A$ be that a 7-day period has at least one day with more than 10 cm of rain.\nThe complement event $A'$ is that the period has zero days with more than 10 cm of rain.\nSince each day has rain $\\le 10$ cm with probability $0.82$ independently:\n$$\\mathrm{P}(A') = (0.82)^7 \\approx 0.249285$$\nTherefore, the probability for one period is:\n$$\\mathrm{P}(A) = 1 - \\mathrm{P}(A') = 1 - (0.82)^7 = 1 - 0.249285 = 0.750715$$\n\nStep 2: Model the number of successful periods.\nWe are considering $n = 3$ independent 7-day periods.\nLet $Y$ denote the number of periods that have at least one day with more than 10 cm of rain.\nThen $Y$ follows a binomial distribution:\n$$Y \\sim \\mathrm{B}(3, p)$$\nwhere $p = 0.750715$ and $q = 1 - p = 0.249285$.\n\nStep 3: Calculate the probability of exactly two periods.\nUsing the binomial probability formula $\\mathrm{P}(Y = y) = \\binom{n}{y} p^y q^{n-y}$ with $y = 2$:\n$$\\mathrm{P}(Y = 2) = \\binom{3}{2} p^2 q^{3-2} = \\binom{3}{2} p^2 q^1$$\nCalculate the combination factor:\n$$\\binom{3}{2} = \\frac{3!}{2!1!} = 3$$\nSubstitute the numerical values:\n$$\\mathrm{P}(Y = 2) = 3 \\times (0.750715)^2 \\times (0.249285)$$\nCompute $(0.750715)^2$:\n$$(0.750715)^2 \\approx 0.563573$$\nMultiply the three terms:\n$$\\mathrm{P}(Y = 2) = 3 \\times 0.563573 \\times 0.249285 = 1.690719 \\times 0.249285 \\approx 0.42146$$\nRounding to 3 significant figures gives $0.421$."
+      ],
+      "checking": {
+        "mode": "ai",
+        "ai_rubric": {
+          "Calculating Exact Binomial Probabilities": "Forms the required binomial term with the correct success probability and coefficient. For this part: For 3 randomly chosen 7-day periods, find the probability that exactly two periods have at least one day with more than 10 cm of rain."
+        },
+        "criteria_source": "mark_scheme_structured"
+      }
+    }
+  ]
+}

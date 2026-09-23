@@ -1,0 +1,178 @@
+{
+  "schema_version": "9709_math_enrichment_v3",
+  "paper_code": "9709_w19_32",
+  "question_id": "9709_w19_32_q9",
+  "question_num": 9,
+  "subject_code": "9709",
+  "component": "P3",
+  "year": 2019,
+  "session": "Oct/Nov",
+  "variant": "32",
+  "difficulty": 3,
+  "numerical_values_checked": false,
+  "parts": [
+    {
+      "part_id": "9709_w19_32_q9_i",
+      "difficulty": 3,
+      "practice_tier": "revision",
+      "mapping": {
+        "topic_id": "9709_p3_t_trigonometry",
+        "module_id": "9709_p3_t_trigonometry_m04",
+        "lesson_id": "9709_p3_t_trigonometry_m04_l04"
+      },
+      "skills": {
+        "primary_skill_id": "9709_p3_skill_forming_and_testing_fixed_point_rearrangements",
+        "skill_tags": [
+          "Forming and Testing Fixed-Point Rearrangements"
+        ]
+      },
+      "question_pattern_ids": [
+        "9709_p3_pattern_solve_equation",
+        "9709_p3_pattern_prove_or_show",
+        "9709_p3_pattern_calculus_process",
+        "9709_p3_pattern_trigonometric_reasoning"
+      ],
+      "knowledge_refs": {
+        "formula_ids": [
+          "9709_p3_formula_integration_by_parts"
+        ],
+        "identity_ids": [
+          "9709_p3_identity_double_angle",
+          "9709_p3_identity_pythagorean"
+        ],
+        "method_ids": [
+          "9709_p3_method_forming_and_testing_fixed_point_rearrangements"
+        ],
+        "fact_ids": [
+          "9709_p3_fact_iteration_convergence"
+        ]
+      },
+      "hints": [
+        "Evaluate the given integral by parts with $u=x$ and $dv=\\cos(x/3)\\,dx$.",
+        "Use $v=3\\sin(x/3)$ and complete the remaining sine integral.",
+        "Apply the bounds $0$ and $a$, then equate the result to $3$.",
+        "Collect the term containing $a\\sin(a/3)$ and divide by $\\sin(a/3)$ to make $a$ the subject."
+      ],
+      "walkthrough": [
+        "Apply integration by parts $\\int u v' = uv - \\int u' v$ to $\\int x\\cos\\tfrac{1}{3}x\\,\\mathrm{d}x$:\nLet $u = x \\implies u' = 1$, and $v' = \\cos\\tfrac{1}{3}x \\implies v = 3\\sin\\tfrac{1}{3}x$:\n$$\\int x\\cos\\tfrac{1}{3}x\\,\\mathrm{d}x = 3x\\sin\\tfrac{1}{3}x - \\int 3\\sin\\tfrac{1}{3}x\\,\\mathrm{d}x$$",
+        "Integrate $3\\sin\\tfrac{1}{3}x$:\n$$\\int 3\\sin\\tfrac{1}{3}x\\,\\mathrm{d}x = 3(-3\\cos\\tfrac{1}{3}x) = -9\\cos\\tfrac{1}{3}x$$",
+        "Write the full antiderivative:\n$$\\left[3x\\sin\\tfrac{1}{3}x + 9\\cos\\tfrac{1}{3}x\\right]_0^a$$",
+        "Evaluate at the limits:\n- At $x = a$: $3a\\sin\\tfrac{1}{3}a + 9\\cos\\tfrac{1}{3}a$\n- At $x = 0$: $3(0)\\sin(0) + 9\\cos(0) = 9$",
+        "Equate the definite integral to $3$:\n$$(3a\\sin\\tfrac{1}{3}a + 9\\cos\\tfrac{1}{3}a) - 9 = 3$$\n$$3a\\sin\\tfrac{1}{3}a + 9\\cos\\tfrac{1}{3}a = 12$$",
+        "Divide by $3$ and isolate $a$:\n$$a\\sin\\tfrac{1}{3}a + 3\\cos\\tfrac{1}{3}a = 4$$\n$$a\\sin\\tfrac{1}{3}a = 4 - 3\\cos\\tfrac{1}{3}a$$\n$$a = \\dfrac{4 - 3\\cos\\frac{1}{3}a}{\\sin\\frac{1}{3}a}$$\nThis confirms the equation."
+      ],
+      "checking": {
+        "mode": "ai",
+        "ai_rubric": {
+          "Forming and Testing Fixed-Point Rearrangements": "Integration by parts gives $ax\\sin(x/3)-b\\int\\sin(x/3)\\,dx$. Completes the integration and derives $3x\\sin(x/3)+9\\cos(x/3)$. Concludes with $a=\\frac{4-3\\cos(a/3)}{\\sin(a/3)}$."
+        },
+        "criteria_source": "mark_scheme_structured"
+      }
+    },
+    {
+      "part_id": "9709_w19_32_q9_ii",
+      "difficulty": 1,
+      "practice_tier": "revision",
+      "mapping": {
+        "topic_id": "9709_p3_t_integration",
+        "module_id": "9709_p3_t_integration_m05",
+        "lesson_id": "9709_p3_t_integration_m05_l02"
+      },
+      "skills": {
+        "primary_skill_id": "9709_p3_skill_numerical_root_bracketing",
+        "skill_tags": [
+          "Numerical Root Bracketing"
+        ]
+      },
+      "question_pattern_ids": [
+        "9709_p3_pattern_solve_inequality",
+        "9709_p3_pattern_prove_or_show",
+        "9709_p3_pattern_complex_number",
+        "9709_p3_pattern_trigonometric_reasoning"
+      ],
+      "knowledge_refs": {
+        "formula_ids": [
+          "9709_p3_formula_complex_polar"
+        ],
+        "identity_ids": [
+          "9709_p3_identity_double_angle",
+          "9709_p3_identity_pythagorean"
+        ],
+        "method_ids": [
+          "9709_p3_method_numerical_root_bracketing"
+        ],
+        "fact_ids": []
+      },
+      "hints": [
+        "Use a continuous zero-function derived from part (i), such as $F(a)=(4-3\\cos(a/3))/\\sin(a/3)-a$.",
+        "Evaluate $F(2.5)$ and $F(3)$ in radian mode.",
+        "Show the endpoint values have opposite signs, so a root lies between $2.5$ and $3$."
+      ],
+      "walkthrough": [
+        "Define $\\mathrm{f}(a) = a\\sin\\tfrac{1}{3}a + 3\\cos\\tfrac{1}{3}a - 4$:",
+        "Evaluate at $a = 2.5$ (working in radians):\n- $\\tfrac{1}{3}a = \\dfrac{2.5}{3} \\approx 0.833333$\n- $\\sin(0.833333) \\approx 0.740177$\n- $\\cos(0.833333) \\approx 0.672412$\n- $\\mathrm{f}(2.5) = 2.5(0.740177) + 3(0.672412) - 4 = 1.850442 + 2.017237 - 4 = -0.132321 < 0$",
+        "Evaluate at $a = 3$:\n- $\\tfrac{1}{3}a = 1$\n- $\\sin(1) \\approx 0.841471$\n- $\\cos(1) \\approx 0.540302$\n- $\\mathrm{f}(3) = 3(0.841471) + 3(0.540302) - 4 = 2.524413 + 1.620907 - 4 = +0.145320 > 0$",
+        "Conclude using the sign change:\nSince $\\mathrm{f}(a)$ is continuous and changes sign between $2.5$ and $3$, the root $a$ lies between $2.5$ and $3$."
+      ],
+      "checking": {
+        "mode": "ai",
+        "ai_rubric": {
+          "Numerical Root Bracketing": "Endpoint evaluations at 2.5 and 3 establish the sign change or ordering. The endpoint calculations give a sign change between $a=2.5$ and $a=3$ (for example, $f(2.5)=0.179\\ldots$ and $f(3)=-0.173\\ldots$ for a suitable $f$)."
+        },
+        "criteria_source": "mark_scheme_structured"
+      }
+    },
+    {
+      "part_id": "9709_w19_32_q9_iii",
+      "difficulty": 2,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_p3_t_numerical_solution_of_equations",
+        "module_id": "9709_p3_t_numerical_solution_of_equations_m02",
+        "lesson_id": "9709_p3_t_numerical_solution_of_equations_m02_l02"
+      },
+      "skills": {
+        "primary_skill_id": "9709_p3_skill_fixed_point_iteration",
+        "skill_tags": [
+          "Fixed-Point Iteration"
+        ]
+      },
+      "question_pattern_ids": [
+        "9709_p3_pattern_solve_equation",
+        "9709_p3_pattern_numerical_approximation",
+        "9709_p3_pattern_trigonometric_reasoning"
+      ],
+      "knowledge_refs": {
+        "formula_ids": [],
+        "identity_ids": [
+          "9709_p3_identity_double_angle",
+          "9709_p3_identity_pythagorean"
+        ],
+        "method_ids": [
+          "9709_p3_method_fixed_point_iteration"
+        ],
+        "fact_ids": [
+          "9709_p3_fact_iteration_convergence"
+        ]
+      },
+      "hints": [
+        "Use the fixed-point equation as $a_{n+1}=(4-3\\cos(a_n/3))/\\sin(a_n/3)$ in radians.",
+        "Start with a value in the verified interval and display each iterate to 5 decimal places.",
+        "Continue until successive iterates settle enough to justify the same value to 3 decimal places."
+      ],
+      "walkthrough": [
+        "Set up the iterative formula:\n$$a_{n+1} = \\dfrac{4 - 3\\cos\\frac{1}{3}a_n}{\\sin\\frac{1}{3}a_n}$$",
+        "Choose an initial approximation $a_1 = 2.70000$:\n$$a_1 = 2.70000$$",
+        "Compute successive iterations to 5 decimal places:\n- $a_2 = \\dfrac{4 - 3\\cos(0.9)}{\\sin(0.9)} \\approx 2.72577$\n- $a_3 = \\dfrac{4 - 3\\cos(2.72577/3)}{\\sin(2.72577/3)} \\approx 2.73310$\n- $a_4 \\approx 2.73523$\n- $a_5 \\approx 2.73586$\n- $a_6 \\approx 2.73604$\n- $a_7 \\approx 2.73610$\n- $a_8 \\approx 2.73611$",
+        "Notice convergence to $2.73611$.\nRound to 3 decimal places:\n$$a \\approx 2.736$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "ai_rubric": {
+          "Fixed-Point Iteration": "Substitution into $a$ gives consecutive iterates $2.736\\to2.7355\\to2.7365$, converging to $a=2.736$."
+        },
+        "criteria_source": "mark_scheme_structured"
+      }
+    }
+  ]
+}

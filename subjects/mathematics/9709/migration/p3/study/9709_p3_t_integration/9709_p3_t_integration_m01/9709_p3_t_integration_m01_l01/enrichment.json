@@ -1,0 +1,1686 @@
+{
+  "schema_version": "9709_math_lesson_enrichment_v1",
+  "lesson_id": "9709_p3_t_integration_m01_l01",
+  "topic_id": "9709_p3_t_integration",
+  "numerical_values_checked": false,
+  "lesson_scope": "Integration by substitution (change of variables), transforming integration limits directly, reversing limits under negative differentials, algebraic and trigonometric substitutions, rational integrand reductions, and definite area applications.",
+  "questions": [
+    {
+      "question_id": "9709_p3_t_integration_m01_l01_drq01",
+      "sequence": 1,
+      "difficulty": "easy",
+      "difficulty_reason": "Drill: Linear substitution u = 3x + 1 with direct limit transformation.",
+      "source_question_id": "9709_m19_32_q10",
+      "source_role": "foundational_drill",
+      "dependency_role": "none",
+      "dependency_refs": [],
+      "parts": [
+        {
+          "part_id": "9709_p3_t_integration_m01_l01_drq01_p01",
+          "difficulty": "easy",
+          "question_pattern_ids": [
+            "9709_p3_pattern_integration_by_substitution",
+            "9709_p3_pattern_exact_value"
+          ],
+          "source_evidence": {
+            "question_id": "9709_m19_32_q10",
+            "part_id": "9709_m19_32_q10_i",
+            "legacy_practice_tier": "core",
+            "product_role": "warm_up_drill",
+            "structural_inspiration": "Linear radical substitution u = 3x + 1 with direct limit transformation."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Find the differential relation by differentiating $u = 3x + 1$: $\\mathrm{d}u = 3\\,\\mathrm{d}x \\implies \\mathrm{d}x = \\frac{1}{3}\\mathrm{d}u$.",
+            "Transform the limits: when $x = 0$, $u = 1$; when $x = 5$, $u = 16$.",
+            "Integrate $\\frac{1}{3}u^{1/2}$ to get $\\frac{2}{9}u^{3/2}$ and evaluate $\\frac{2}{9}(16^{3/2} - 1^{3/2}) = \\frac{2}{9}(64 - 1) = 14$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Differentiate the substitution to relate differentials and transform limits:\n$$u = 3x + 1 \\implies \\mathrm{d}u = 3\\,\\mathrm{d}x \\implies \\mathrm{d}x = \\frac{1}{3}\\mathrm{d}u$$\n$$\\text{At } x = 0: u = 3(0) + 1 = 1$$\n$$\\text{At } x = 5: u = 3(5) + 1 = 16$$"
+            },
+            {
+              "step": 2,
+              "text": "Substitute into the integral and evaluate:\n$$\\int_{0}^{5} \\sqrt{3x+1}\\,\\mathrm{d}x = \\int_{1}^{16} u^{1/2} \\left(\\frac{1}{3}\\mathrm{d}u\\right) = \\frac{1}{3} \\left[ \\frac{2}{3}u^{3/2} \\right]_{1}^{16}$$\n$$= \\frac{2}{9} \\left( 16^{3/2} - 1^{3/2} \\right) = \\frac{2}{9} (64 - 1) = \\frac{2(63)}{9} = 14$$"
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_integration_m01_l01_drq01_p01_mp01",
+                "observable": "Substitutes $u = 3x+1$, $\\mathrm{d}x = \\frac{1}{3}\\mathrm{d}u$, transforms limits to $1$ and $16$, and integrates to $\\frac{2}{9}u^{3/2}$."
+              },
+              {
+                "criterion_id": "9709_p3_t_integration_m01_l01_drq01_p01_mp02",
+                "observable": "Obtains final exact value $14$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_integration_by_substitution",
+            "9709_p3_skill_definite_integration_limits"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_integration_by_substitution",
+              "9709_p3_skill_definite_integration_limits"
+            ],
+            "method_ids": [
+              "9709_p3_method_integration_by_substitution",
+              "9709_p3_method_transforming_integration_limits"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_p3_t_integration_m01_l01_drq02",
+      "sequence": 2,
+      "difficulty": "easy",
+      "difficulty_reason": "Drill: Linear power substitution expressing x in terms of u.",
+      "source_question_id": "9709_s16_31_q9",
+      "source_role": "foundational_drill",
+      "dependency_role": "none",
+      "dependency_refs": [],
+      "parts": [
+        {
+          "part_id": "9709_p3_t_integration_m01_l01_drq02_p01",
+          "difficulty": "easy",
+          "question_pattern_ids": [
+            "9709_p3_pattern_integration_by_substitution",
+            "9709_p3_pattern_exact_value"
+          ],
+          "source_evidence": {
+            "question_id": "9709_s16_31_q9",
+            "part_id": "9709_s16_31_q9",
+            "legacy_practice_tier": "core",
+            "product_role": "warm_up_drill",
+            "structural_inspiration": "Linear power substitution expressing x in terms of u."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Express $x$ in terms of $u$: $u = x - 3 \\implies x = u + 3 \\implies x + 1 = u + 4$, and $\\mathrm{d}x = \\mathrm{d}u$.",
+            "Transform the limits: $x = 3 \\implies u = 0$, and $x = 6 \\implies u = 3$.",
+            "Expand the integrand $(u + 4)u^3 = u^4 + 4u^3$ and integrate to $\\frac{1}{5}u^5 + u^4$ from $0$ to $3$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Express the integrand and limits in terms of $u$:\n$$u = x - 3 \\implies x = u + 3 \\implies x + 1 = u + 4, \\quad \\mathrm{d}x = \\mathrm{d}u$$\n$$\\text{At } x = 3: u = 0; \\quad \\text{At } x = 6: u = 3$$"
+            },
+            {
+              "step": 2,
+              "text": "Expand and integrate across the transformed limits:\n$$\\int_{3}^{6} (x+1)(x-3)^3\\,\\mathrm{d}x = \\int_{0}^{3} (u+4)u^3\\,\\mathrm{d}u = \\int_{0}^{3} (u^4 + 4u^3)\\,\\mathrm{d}u$$\n$$= \\left[ \\frac{1}{5}u^5 + u^4 \\right]_{0}^{3} = \\left( \\frac{243}{5} + 81 \\right) - 0 = \\frac{243 + 405}{5} = \\frac{648}{5} = 129.6$$"
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_integration_m01_l01_drq02_p01_mp01",
+                "observable": "Substitutes $u = x-3$, expresses $x+1 = u+4$, transforms limits to $0$ and $3$, and integrates $u^4 + 4u^3$ to $\\frac{1}{5}u^5 + u^4$."
+              },
+              {
+                "criterion_id": "9709_p3_t_integration_m01_l01_drq02_p01_mp02",
+                "observable": "Obtains final exact value $\\frac{648}{5}$ (or $129.6$)."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_integration_by_substitution",
+            "9709_p3_skill_definite_integration_limits"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_integration_by_substitution",
+              "9709_p3_skill_definite_integration_limits"
+            ],
+            "method_ids": [
+              "9709_p3_method_integration_by_substitution",
+              "9709_p3_method_transforming_integration_limits"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_p3_t_integration_m01_l01_drq03",
+      "sequence": 3,
+      "difficulty": "easy",
+      "difficulty_reason": "Drill: Exponential chain substitution u = x^2 + 1.",
+      "source_question_id": "9709_s16_32_q7",
+      "source_role": "foundational_drill",
+      "dependency_role": "none",
+      "dependency_refs": [],
+      "parts": [
+        {
+          "part_id": "9709_p3_t_integration_m01_l01_drq03_p01",
+          "difficulty": "easy",
+          "question_pattern_ids": [
+            "9709_p3_pattern_integration_by_substitution",
+            "9709_p3_pattern_exact_value"
+          ],
+          "source_evidence": {
+            "question_id": "9709_s16_32_q7",
+            "part_id": "9709_s16_32_q7",
+            "legacy_practice_tier": "core",
+            "product_role": "warm_up_drill",
+            "structural_inspiration": "Exponential chain substitution u = x^2 + 1 with limit transformation."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Find the differential: $u = x^2 + 1 \\implies \\mathrm{d}u = 2x\\,\\mathrm{d}x \\implies x\\,\\mathrm{d}x = \\frac{1}{2}\\mathrm{d}u$.",
+            "Transform limits: $x = 0 \\implies u = 1$; $x = \\sqrt{\\ln 4} \\implies u = \\ln 4 + 1$.",
+            "Integrate $\\frac{1}{2}\\mathrm{e}^u$ to $\\frac{1}{2}\\mathrm{e}^u$ and evaluate $\\frac{1}{2}(\\mathrm{e}^{\\ln 4 + 1} - \\mathrm{e}^1) = \\frac{1}{2}(4\\mathrm{e} - \\mathrm{e}) = \\frac{3}{2}\\mathrm{e}$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Differentiate and transform integration limits:\n$$u = x^2 + 1 \\implies \\mathrm{d}u = 2x\\,\\mathrm{d}x \\implies x\\,\\mathrm{d}x = \\frac{1}{2}\\mathrm{d}u$$\n$$\\text{At } x = 0: u = 0^2 + 1 = 1$$\n$$\\text{At } x = \\sqrt{\\ln 4}: u = (\\sqrt{\\ln 4})^2 + 1 = \\ln 4 + 1$$"
+            },
+            {
+              "step": 2,
+              "text": "Integrate and evaluate in terms of $\\mathrm{e}$:\n$$\\int_{0}^{\\sqrt{\\ln 4}} x \\mathrm{e}^{x^2+1}\\,\\mathrm{d}x = \\int_{1}^{\\ln 4 + 1} \\frac{1}{2}\\mathrm{e}^u\\,\\mathrm{d}u = \\left[ \\frac{1}{2}\\mathrm{e}^u \\right]_{1}^{\\ln 4 + 1}$$\n$$= \\frac{1}{2}\\left( \\mathrm{e}^{\\ln 4 + 1} - \\mathrm{e}^1 \\right) = \\frac{1}{2}\\left( \\mathrm{e}^{\\ln 4} \\cdot \\mathrm{e} - \\mathrm{e} \\right) = \\frac{1}{2}(4\\mathrm{e} - \\mathrm{e}) = \\frac{3}{2}\\mathrm{e}$$"
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_integration_m01_l01_drq03_p01_mp01",
+                "observable": "Substitutes $u = x^2+1$, $x\\,\\mathrm{d}x = \\frac{1}{2}\\mathrm{d}u$, transforms limits to $1$ and $\\ln 4 + 1$, and integrates to $\\frac{1}{2}\\mathrm{e}^u$."
+              },
+              {
+                "criterion_id": "9709_p3_t_integration_m01_l01_drq03_p01_mp02",
+                "observable": "Obtains exact value $\\frac{3}{2}\\mathrm{e}$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_integration_by_substitution",
+            "9709_p3_skill_definite_integration_limits"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_integration_by_substitution",
+              "9709_p3_skill_definite_integration_limits"
+            ],
+            "method_ids": [
+              "9709_p3_method_integration_by_substitution",
+              "9709_p3_method_transforming_integration_limits"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_p3_t_integration_m01_l01_drq04",
+      "sequence": 4,
+      "difficulty": "easy",
+      "difficulty_reason": "Drill: Natural log substitution u = ln x with powers.",
+      "source_question_id": "9709_s16_33_q10",
+      "source_role": "foundational_drill",
+      "dependency_role": "none",
+      "dependency_refs": [],
+      "parts": [
+        {
+          "part_id": "9709_p3_t_integration_m01_l01_drq04_p01",
+          "difficulty": "easy",
+          "question_pattern_ids": [
+            "9709_p3_pattern_integration_by_substitution",
+            "9709_p3_pattern_exact_value"
+          ],
+          "source_evidence": {
+            "question_id": "9709_s16_33_q10",
+            "part_id": "9709_s16_33_q10",
+            "legacy_practice_tier": "core",
+            "product_role": "warm_up_drill",
+            "structural_inspiration": "Natural logarithm substitution u = ln x with powers."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Relate differentials: $u = \\ln x \\implies \\mathrm{d}u = \\frac{1}{x}\\mathrm{d}x$.",
+            "Transform the limits: $x = \\mathrm{e} \\implies u = \\ln \\mathrm{e} = 1$; $x = \\mathrm{e}^3 \\implies u = \\ln(\\mathrm{e}^3) = 3$.",
+            "Integrate $\\int_1^3 u^2\\,\\mathrm{d}u = \\left[\\frac{1}{3}u^3\\right]_1^3 = \\frac{1}{3}(27 - 1) = \\frac{26}{3}$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Differentiate $u = \\ln x$ and transform limits:\n$$u = \\ln x \\implies \\mathrm{d}u = \\frac{1}{x}\\mathrm{d}x$$\n$$\\text{At } x = \\mathrm{e}: u = \\ln \\mathrm{e} = 1$$\n$$\\text{At } x = \\mathrm{e}^3: u = \\ln(\\mathrm{e}^3) = 3$$"
+            },
+            {
+              "step": 2,
+              "text": "Substitute and evaluate:\n$$\\int_{\\mathrm{e}}^{\\mathrm{e}^3} \\frac{(\\ln x)^2}{x}\\,\\mathrm{d}x = \\int_{1}^{3} u^2\\,\\mathrm{d}u = \\left[ \\frac{1}{3}u^3 \\right]_{1}^{3} = \\frac{1}{3}(27 - 1) = \\frac{26}{3}$$"
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_integration_m01_l01_drq04_p01_mp01",
+                "observable": "Substitutes $u = \\ln x$, $\\frac{1}{x}\\mathrm{d}x = \\mathrm{d}u$, transforms limits to $1$ and $3$, and integrates $u^2$ to $\\frac{1}{3}u^3$."
+              },
+              {
+                "criterion_id": "9709_p3_t_integration_m01_l01_drq04_p01_mp02",
+                "observable": "Obtains exact value $\\frac{26}{3}$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_integration_by_substitution",
+            "9709_p3_skill_definite_integration_limits"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_integration_by_substitution",
+              "9709_p3_skill_definite_integration_limits"
+            ],
+            "method_ids": [
+              "9709_p3_method_integration_by_substitution",
+              "9709_p3_method_transforming_integration_limits"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_p3_t_integration_m01_l01_drq05",
+      "sequence": 5,
+      "difficulty": "easy",
+      "difficulty_reason": "Drill: Trigonometric substitution u = cos x with negative differential and limit swap.",
+      "source_question_id": "9709_s19_32_q10",
+      "source_role": "foundational_drill",
+      "dependency_role": "none",
+      "dependency_refs": [],
+      "parts": [
+        {
+          "part_id": "9709_p3_t_integration_m01_l01_drq05_p01",
+          "difficulty": "easy",
+          "question_pattern_ids": [
+            "9709_p3_pattern_integration_by_substitution",
+            "9709_p3_pattern_exact_value"
+          ],
+          "source_evidence": {
+            "question_id": "9709_s19_32_q10",
+            "part_id": "9709_s19_32_q10",
+            "legacy_practice_tier": "core",
+            "product_role": "warm_up_drill",
+            "structural_inspiration": "Trigonometric substitution u = cos x with negative differential and limit swap."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Find the differential: $u = \\cos x \\implies \\mathrm{d}u = -\\sin x\\,\\mathrm{d}x \\implies \\sin x\\,\\mathrm{d}x = -\\mathrm{d}u$.",
+            "Transform limits: $x = 0 \\implies u = \\cos 0 = 1$; $x = \\frac{\\pi}{3} \\implies u = \\cos(\\frac{\\pi}{3}) = \\frac{1}{2}$.",
+            "Reverse limits to absorb the minus sign: $\\int_1^{1/2} -u^4\\,\\mathrm{d}u = \\int_{1/2}^1 u^4\\,\\mathrm{d}u = \\left[\\frac{1}{5}u^5\\right]_{1/2}^1 = \\frac{1}{5}\\left(1 - \\frac{1}{32}\\right) = \\frac{31}{160}$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Differentiate $u = \\cos x$ and transform the limits:\n$$u = \\cos x \\implies \\mathrm{d}u = -\\sin x\\,\\mathrm{d}x \\implies \\sin x\\,\\mathrm{d}x = -\\mathrm{d}u$$\n$$\\text{At } x = 0: u = \\cos 0 = 1$$\n$$\\text{At } x = \\frac{1}{3}\\pi: u = \\cos\\left(\\frac{\\pi}{3}\\right) = \\frac{1}{2}$$"
+            },
+            {
+              "step": 2,
+              "text": "Substitute and reverse integration limits to absorb the negative sign:\n$$\\int_{0}^{\\frac{1}{3}\\pi} \\sin x \\cos^4 x\\,\\mathrm{d}x = \\int_{1}^{1/2} u^4 (-\\mathrm{d}u) = \\int_{1/2}^{1} u^4\\,\\mathrm{d}u$$\n$$= \\left[ \\frac{1}{5}u^5 \\right]_{1/2}^{1} = \\frac{1}{5}\\left( 1^5 - \\left(\\frac{1}{2}\\right)^5 \\right) = \\frac{1}{5}\\left( 1 - \\frac{1}{32} \\right) = \\frac{1}{5}\\left(\\frac{31}{32}\\right) = \\frac{31}{160}$$"
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_integration_m01_l01_drq05_p01_mp01",
+                "observable": "States or implies $\\mathrm{d}u = -\\sin x\\,\\mathrm{d}x$ and transforms limits correctly to $1$ and $\\frac{1}{2}$."
+              },
+              {
+                "criterion_id": "9709_p3_t_integration_m01_l01_drq05_p01_mp02",
+                "observable": "Integrates $-u^4$ to $-\\frac{1}{5}u^5$ (or $\\int_{1/2}^1 u^4\\,\\mathrm{d}u$ to $\\frac{1}{5}u^5$) and applies limits."
+              },
+              {
+                "criterion_id": "9709_p3_t_integration_m01_l01_drq05_p01_mp03",
+                "observable": "Obtains exact rational fraction $\\frac{31}{160}$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_integration_by_substitution",
+            "9709_p3_skill_definite_integration_limits"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_integration_by_substitution",
+              "9709_p3_skill_definite_integration_limits"
+            ],
+            "method_ids": [
+              "9709_p3_method_integration_by_substitution",
+              "9709_p3_method_transforming_integration_limits"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": [
+              "9709_p3_fact_limit_inversion_negative_sign"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_p3_t_integration_m01_l01_drq06",
+      "sequence": 6,
+      "difficulty": "easy",
+      "difficulty_reason": "Drill: Rational denominator substitution u = x^2 + 4.",
+      "source_question_id": "9709_s20_31_q9",
+      "source_role": "foundational_drill",
+      "dependency_role": "none",
+      "dependency_refs": [],
+      "parts": [
+        {
+          "part_id": "9709_p3_t_integration_m01_l01_drq06_p01",
+          "difficulty": "easy",
+          "question_pattern_ids": [
+            "9709_p3_pattern_integration_by_substitution",
+            "9709_p3_pattern_exact_value"
+          ],
+          "source_evidence": {
+            "question_id": "9709_s20_31_q9",
+            "part_id": "9709_s20_31_q9",
+            "legacy_practice_tier": "core",
+            "product_role": "warm_up_drill",
+            "structural_inspiration": "Rational denominator substitution u = x^2 + 4."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Find the differential: $u = x^2 + 4 \\implies \\mathrm{d}u = 2x\\,\\mathrm{d}x \\implies x\\,\\mathrm{d}x = \\frac{1}{2}\\mathrm{d}u$.",
+            "Transform limits: $x = 0 \\implies u = 4$; $x = \\sqrt{5} \\implies u = 5 + 4 = 9$.",
+            "Integrate $\\frac{1}{2}u^{-2}$ to $-\\frac{1}{2u}$ and evaluate $-\\frac{1}{18} - \\left(-\\frac{1}{8}\\right) = \\frac{5}{72}$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Differentiate $u = x^2 + 4$ and transform limits:\n$$u = x^2 + 4 \\implies \\mathrm{d}u = 2x\\,\\mathrm{d}x \\implies x\\,\\mathrm{d}x = \\frac{1}{2}\\mathrm{d}u$$\n$$\\text{At } x = 0: u = 0^2 + 4 = 4$$\n$$\\text{At } x = \\sqrt{5}: u = (\\sqrt{5})^2 + 4 = 5 + 4 = 9$$"
+            },
+            {
+              "step": 2,
+              "text": "Substitute and integrate:\n$$\\int_{0}^{\\sqrt{5}} \\frac{x}{(x^2+4)^2}\\,\\mathrm{d}x = \\int_{4}^{9} \\frac{1}{2} u^{-2}\\,\\mathrm{d}u = \\left[ -\\frac{1}{2u} \\right]_{4}^{9}$$\n$$= \\left( -\\frac{1}{18} \\right) - \\left( -\\frac{1}{8} \\right) = -\\frac{4}{72} + \\frac{9}{72} = \\frac{5}{72}$$"
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_integration_m01_l01_drq06_p01_mp01",
+                "observable": "States or implies $\\mathrm{d}u = 2x\\,\\mathrm{d}x$ and transforms limits correctly to $4$ and $9$."
+              },
+              {
+                "criterion_id": "9709_p3_t_integration_m01_l01_drq06_p01_mp02",
+                "observable": "Integrates $\\frac{1}{2}u^{-2}$ to $-\\frac{1}{2}u^{-1}$ and substitutes limits $4$ and $9$."
+              },
+              {
+                "criterion_id": "9709_p3_t_integration_m01_l01_drq06_p01_mp03",
+                "observable": "Obtains exact value $\\frac{5}{72}$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_integration_by_substitution",
+            "9709_p3_skill_definite_integration_limits"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_integration_by_substitution",
+              "9709_p3_skill_definite_integration_limits"
+            ],
+            "method_ids": [
+              "9709_p3_method_integration_by_substitution",
+              "9709_p3_method_transforming_integration_limits"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_p3_t_integration_m01_l01_cpq01",
+      "sequence": 7,
+      "difficulty": "easy",
+      "difficulty_reason": "Core: Radical substitution u = sqrt(2x+3) with linear numerator rearrangement.",
+      "source_question_id": "9709_s20_32_q6",
+      "source_role": "core_practice",
+      "dependency_role": "none",
+      "dependency_refs": [],
+      "parts": [
+        {
+          "part_id": "9709_p3_t_integration_m01_l01_cpq01_p01",
+          "difficulty": "easy",
+          "question_pattern_ids": [
+            "9709_p3_pattern_show_that_integral",
+            "9709_p3_pattern_integration_by_substitution"
+          ],
+          "source_evidence": {
+            "question_id": "9709_s20_32_q6",
+            "part_id": "9709_s20_32_q6",
+            "legacy_practice_tier": "core",
+            "product_role": "core_question",
+            "structural_inspiration": "Radical substitution u = sqrt(2x+3) transforming numerator linearly."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Square both sides of $u = \\sqrt{2x+3}$ to get $u^2 = 2x + 3$, then isolate $x = \\frac{1}{2}(u^2 - 3)$.",
+            "Differentiate $u^2 = 2x+3$ implicitly to relate differentials: $2u\\,\\mathrm{d}u = 2\\,\\mathrm{d}x \\implies \\mathrm{d}x = u\\,\\mathrm{d}u$.",
+            "Calculate new limits: $x = 0 \\implies u = \\sqrt{3}$ and $x = 3 \\implies u = 3$. Substitute into $I$ and simplify."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Express $x$ and $\\mathrm{d}x$ in terms of $u$:\n$$u = \\sqrt{2x + 3} \\implies u^2 = 2x + 3 \\implies x = \\frac{1}{2}(u^2 - 3)$$\n$$2u\\,\\mathrm{d}u = 2\\,\\mathrm{d}x \\implies \\mathrm{d}x = u\\,\\mathrm{d}u$$"
+            },
+            {
+              "step": 2,
+              "text": "Transform limits and substitute into $I$:\n$$\\text{At } x = 0: u = \\sqrt{2(0) + 3} = \\sqrt{3}$$\n$$\\text{At } x = 3: u = \\sqrt{2(3) + 3} = \\sqrt{9} = 3$$\n$$I = \\int_{0}^{3} \\frac{x}{\\sqrt{2x+3}}\\,\\mathrm{d}x = \\int_{\\sqrt{3}}^{3} \\frac{\\frac{1}{2}(u^2-3)}{u} (u\\,\\mathrm{d}u) = \\int_{\\sqrt{3}}^{3} \\frac{1}{2}(u^2-3)\\,\\mathrm{d}u$$"
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_integration_m01_l01_cpq01_p01_mp01",
+                "observable": "Substitutes $u = \\sqrt{2x+3}$, expressing $x = \\frac{1}{2}(u^2-3)$ and $\\mathrm{d}x = u\\,\\mathrm{d}u$, and transforms limits to $\\sqrt{3}$ and $3$."
+              },
+              {
+                "criterion_id": "9709_p3_t_integration_m01_l01_cpq01_p01_mp02",
+                "observable": "Simplifies integrand $\\frac{\\frac{1}{2}(u^2-3)}{u}(u\\,\\mathrm{d}u)$ to obtain the given integral $\\int_{\\sqrt{3}}^3 \\frac{1}{2}(u^2-3)\\,\\mathrm{d}u$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_integration_by_substitution",
+            "9709_p3_skill_definite_integration_limits"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_integration_by_substitution",
+              "9709_p3_skill_definite_integration_limits"
+            ],
+            "method_ids": [
+              "9709_p3_method_integration_by_substitution",
+              "9709_p3_method_transforming_integration_limits"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        },
+        {
+          "part_id": "9709_p3_t_integration_m01_l01_cpq01_p02",
+          "difficulty": "easy",
+          "question_pattern_ids": [
+            "9709_p3_pattern_exact_value"
+          ],
+          "source_evidence": {
+            "question_id": "9709_s20_32_q6",
+            "part_id": "9709_s20_32_q6",
+            "legacy_practice_tier": "core",
+            "product_role": "core_question",
+            "structural_inspiration": "Exact evaluation across irrational and integer limits."
+          },
+          "dependency_role": "progressive_scaffold",
+          "dependency_refs": [
+            "9709_p3_t_integration_m01_l01_cpq01_p01"
+          ],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Integrate the polynomial in $u$: $\\int \\frac{1}{2}(u^2 - 3)\\,\\mathrm{d}u = \\frac{1}{6}u^3 - \\frac{3}{2}u$.",
+            "Substitute upper limit $u = 3$: $\\frac{1}{6}(27) - \\frac{3}{2}(3) = \\frac{9}{2} - \\frac{9}{2} = 0$.",
+            "Substitute lower limit $u = \\sqrt{3}$: $\\frac{1}{6}(3\\sqrt{3}) - \\frac{3}{2}(\\sqrt{3}) = \\frac{1}{2}\\sqrt{3} - \\frac{3}{2}\\sqrt{3} = -\\sqrt{3}$.",
+            "Subtract lower from upper: $0 - (-\\sqrt{3}) = \\sqrt{3}$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Integrate with respect to $u$:\n$$\\int_{\\sqrt{3}}^{3} \\frac{1}{2}(u^2 - 3)\\,\\mathrm{d}u = \\left[ \\frac{1}{6}u^3 - \\frac{3}{2}u \\right]_{\\sqrt{3}}^{3}$$"
+            },
+            {
+              "step": 2,
+              "text": "Evaluate across the $u$-limits:\n$$\\text{At } u = 3: \\frac{1}{6}(27) - \\frac{3}{2}(3) = \\frac{9}{2} - \\frac{9}{2} = 0$$\n$$\\text{At } u = \\sqrt{3}: \\frac{1}{6}(3\\sqrt{3}) - \\frac{3}{2}\\sqrt{3} = \\frac{1}{2}\\sqrt{3} - \\frac{3}{2}\\sqrt{3} = -\\sqrt{3}$$\n$$I = 0 - (-\\sqrt{3}) = \\sqrt{3} = 0 + 1\\sqrt{3}$$"
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_integration_m01_l01_cpq01_p02_mp01",
+                "observable": "Integrates $\\frac{1}{2}(u^2-3)$ to obtain $\\frac{1}{6}u^3 - \\frac{3}{2}u$ (or $\\frac{1}{2}(\\frac{1}{3}u^3 - 3u)$)."
+              },
+              {
+                "criterion_id": "9709_p3_t_integration_m01_l01_cpq01_p02_mp02",
+                "observable": "Substitutes upper limit $3$ and lower limit $\\sqrt{3}$ correctly into the antiderivative."
+              },
+              {
+                "criterion_id": "9709_p3_t_integration_m01_l01_cpq01_p02_mp03",
+                "observable": "Obtains exact value $\\sqrt{3}$ (with $a=0, b=1$)."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_integration_by_substitution",
+            "9709_p3_skill_definite_integration_limits"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_integration_by_substitution",
+              "9709_p3_skill_definite_integration_limits"
+            ],
+            "method_ids": [
+              "9709_p3_method_integration_by_substitution",
+              "9709_p3_method_transforming_integration_limits"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_p3_t_integration_m01_l01_cpq02",
+      "sequence": 8,
+      "difficulty": "medium",
+      "difficulty_reason": "Core: Trigonometric substitution x = tan(theta) with double-angle identity evaluation.",
+      "source_question_id": "9709_s22_31_q9",
+      "source_role": "core_practice",
+      "dependency_role": "none",
+      "dependency_refs": [],
+      "parts": [
+        {
+          "part_id": "9709_p3_t_integration_m01_l01_cpq02_p01",
+          "difficulty": "medium",
+          "question_pattern_ids": [
+            "9709_p3_pattern_show_that_integral",
+            "9709_p3_pattern_integration_by_substitution"
+          ],
+          "source_evidence": {
+            "question_id": "9709_s22_31_q9",
+            "part_id": "9709_s22_31_q9",
+            "legacy_practice_tier": "core",
+            "product_role": "core_question",
+            "structural_inspiration": "Trigonometric substitution x = tan theta reducing rational power."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Find the differential: $x = \\tan\\theta \\implies \\mathrm{d}x = \\sec^2\\theta\\,\\mathrm{d}\\theta$.",
+            "Use identity $1 + x^2 = 1 + \\tan^2\\theta = \\sec^2\\theta$, so $(1+x^2)^2 = \\sec^4\\theta$.",
+            "Transform limits: $x = 0 \\implies \\theta = 0$; $x = 1 \\implies \\theta = \\frac{\\pi}{4}$. Simplify $\\frac{\\sec^2\\theta}{\\sec^4\\theta} = \\frac{1}{\\sec^2\\theta} = \\cos^2\\theta$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Differentiate $x = \\tan\\theta$ and use the Pythagorean identity:\n$$\\mathrm{d}x = \\sec^2\\theta\\,\\mathrm{d}\\theta$$\n$$1 + x^2 = 1 + \\tan^2\\theta = \\sec^2\\theta \\implies (1+x^2)^2 = \\sec^4\\theta$$"
+            },
+            {
+              "step": 2,
+              "text": "Transform limits and substitute into $J$:\n$$\\text{At } x = 0: \\tan\\theta = 0 \\implies \\theta = 0$$\n$$\\text{At } x = 1: \\tan\\theta = 1 \\implies \\theta = \\frac{1}{4}\\pi$$\n$$J = \\int_{0}^{1} \\frac{1}{(1+x^2)^2}\\,\\mathrm{d}x = \\int_{0}^{\\frac{1}{4}\\pi} \\frac{1}{\\sec^4\\theta} (\\sec^2\\theta\\,\\mathrm{d}\\theta) = \\int_{0}^{\\frac{1}{4}\\pi} \\frac{1}{\\sec^2\\theta}\\,\\mathrm{d}\\theta = \\int_{0}^{\\frac{1}{4}\\pi} \\cos^2\\theta\\,\\mathrm{d}\\theta$$"
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_integration_m01_l01_cpq02_p01_mp01",
+                "observable": "States or implies $\\mathrm{d}x = \\sec^2\\theta\\,\\mathrm{d}\\theta$."
+              },
+              {
+                "criterion_id": "9709_p3_t_integration_m01_l01_cpq02_p01_mp02",
+                "observable": "Substitutes $1+x^2 = 1+\\tan^2\\theta = \\sec^2\\theta$, transforms limits to $0$ and $\\frac{\\pi}{4}$, and simplifies integrand."
+              },
+              {
+                "criterion_id": "9709_p3_t_integration_m01_l01_cpq02_p01_mp03",
+                "observable": "Obtains given integral $\\int_0^{\\frac{1}{4}\\pi} \\cos^2\\theta\\,\\mathrm{d}\\theta$ convincingly."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_integration_by_substitution",
+            "9709_p3_skill_definite_integration_limits"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_integration_by_substitution",
+              "9709_p3_skill_definite_integration_limits"
+            ],
+            "method_ids": [
+              "9709_p3_method_integration_by_substitution",
+              "9709_p3_method_transforming_integration_limits"
+            ],
+            "formula_ids": [],
+            "identity_ids": [
+              "9709_p3_identity_tan_sec_pythagorean",
+              "9709_p3_identity_cos2x_double_angle"
+            ],
+            "fact_ids": []
+          }
+        },
+        {
+          "part_id": "9709_p3_t_integration_m01_l01_cpq02_p02",
+          "difficulty": "medium",
+          "question_pattern_ids": [
+            "9709_p3_pattern_exact_value"
+          ],
+          "source_evidence": {
+            "question_id": "9709_s22_31_q9",
+            "part_id": "9709_s22_31_q9",
+            "legacy_practice_tier": "core",
+            "product_role": "core_question",
+            "structural_inspiration": "Double angle identity integration of cos^2(theta)."
+          },
+          "dependency_role": "progressive_scaffold",
+          "dependency_refs": [
+            "9709_p3_t_integration_m01_l01_cpq02_p01"
+          ],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Use the double-angle formula $\\cos^2\\theta = \\frac{1}{2}(1 + \\cos 2\\theta)$.",
+            "Integrate: $\\int \\frac{1}{2}(1 + \\cos 2\\theta)\\,\\mathrm{d}theta = \\frac{1}{2}\\theta + \\frac{1}{4}\\sin 2\\theta$.",
+            "Evaluate between $0$ and $\\frac{\\pi}{4}$: $\\left(\\frac{\\pi}{8} + \\frac{1}{4}\\sin\\frac{\\pi}{2}\\right) - 0 = \\frac{\\pi}{8} + \\frac{1}{4} = \\frac{\\pi + 2}{8}$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Apply the double-angle identity to rewrite $\\cos^2\\theta$:\n$$\\cos^2\\theta = \\frac{1 + \\cos 2\\theta}{2}$$"
+            },
+            {
+              "step": 2,
+              "text": "Integrate and evaluate between $0$ and $\\frac{1}{4}\\pi$:\n$$\\int_{0}^{\\frac{1}{4}\\pi} \\frac{1}{2}(1 + \\cos 2\\theta)\\,\\mathrm{d}\\theta = \\left[ \\frac{1}{2}\\theta + \\frac{1}{4}\\sin 2\\theta \\right]_{0}^{\\frac{1}{4}\\pi}$$\n$$= \\left( \\frac{1}{2}\\left(\\frac{\\pi}{4}\\right) + \\frac{1}{4}\\sin\\left(\\frac{\\pi}{2}\\right) \\right) - (0 + 0) = \\frac{\\pi}{8} + \\frac{1}{4}(1) = \\frac{\\pi + 2}{8}$$"
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_integration_m01_l01_cpq02_p02_mp01",
+                "observable": "Applies the double angle identity $\\cos^2\\theta = \\frac{1}{2}(1 + \\cos 2\\theta)$."
+              },
+              {
+                "criterion_id": "9709_p3_t_integration_m01_l01_cpq02_p02_mp02",
+                "observable": "Integrates to $\\frac{1}{2}\\theta + \\frac{1}{4}\\sin 2\\theta$ and evaluates between $0$ and $\\frac{\\pi}{4}$."
+              },
+              {
+                "criterion_id": "9709_p3_t_integration_m01_l01_cpq02_p02_mp03",
+                "observable": "Obtains exact value $\\frac{\\pi + 2}{8}$ with $a=2, b=8$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_integration_by_substitution",
+            "9709_p3_skill_definite_integration_limits"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_integration_by_substitution",
+              "9709_p3_skill_definite_integration_limits"
+            ],
+            "method_ids": [
+              "9709_p3_method_integration_by_substitution",
+              "9709_p3_method_transforming_integration_limits"
+            ],
+            "formula_ids": [],
+            "identity_ids": [
+              "9709_p3_identity_tan_sec_pythagorean",
+              "9709_p3_identity_cos2x_double_angle"
+            ],
+            "fact_ids": []
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_p3_t_integration_m01_l01_cpq03",
+      "sequence": 9,
+      "difficulty": "medium",
+      "difficulty_reason": "Core: Higher-power splitting x^3 = x^2 * x under radical substitution u = sqrt(x^2+1).",
+      "source_question_id": "9709_s22_33_q8",
+      "source_role": "core_practice",
+      "dependency_role": "none",
+      "dependency_refs": [],
+      "parts": [
+        {
+          "part_id": "9709_p3_t_integration_m01_l01_cpq03_p01",
+          "difficulty": "medium",
+          "question_pattern_ids": [
+            "9709_p3_pattern_show_that_integral",
+            "9709_p3_pattern_integration_by_substitution"
+          ],
+          "source_evidence": {
+            "question_id": "9709_s22_33_q8",
+            "part_id": "9709_s22_33_q8",
+            "legacy_practice_tier": "core",
+            "product_role": "core_question",
+            "structural_inspiration": "Splitting x^3 = x^2 * x under radical substitution u = sqrt(x^2+1)."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Square $u = \\sqrt{x^2+1}$ to get $u^2 = x^2 + 1 \\implies x^2 = u^2 - 1$.",
+            "Differentiate: $2u\\,\\mathrm{d}u = 2x\\,\\mathrm{d}x \\implies x\\,\\mathrm{d}x = u\\,\\mathrm{d}u$.",
+            "Rewrite $x^3\\sqrt{x^2+1}\\,\\mathrm{d}x = x^2\\sqrt{x^2+1}(x\\,\\mathrm{d}x) = (u^2-1)u(u\\,\\mathrm{d}u) = (u^4-u^2)\\,\\mathrm{d}u$, and transform limits to $1$ and $\\sqrt{5}$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Express $x^2$ and the differential product $x\\,\\mathrm{d}x$ in terms of $u$:\n$$u = \\sqrt{x^2 + 1} \\implies u^2 = x^2 + 1 \\implies x^2 = u^2 - 1$$\n$$2u\\,\\mathrm{d}u = 2x\\,\\mathrm{d}x \\implies x\\,\\mathrm{d}x = u\\,\\mathrm{d}u$$"
+            },
+            {
+              "step": 2,
+              "text": "Transform limits and substitute into $I$:\n$$\\text{At } x = 0: u = \\sqrt{0^2 + 1} = 1$$\n$$\\text{At } x = 2: u = \\sqrt{2^2 + 1} = \\sqrt{5}$$\n$$I = \\int_{0}^{2} x^2 \\sqrt{x^2+1} (x\\,\\mathrm{d}x) = \\int_{1}^{\\sqrt{5}} (u^2 - 1) u (u\\,\\mathrm{d}u) = \\int_{1}^{\\sqrt{5}} (u^4 - u^2)\\,\\mathrm{d}u$$"
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_integration_m01_l01_cpq03_p01_mp01",
+                "observable": "States or implies $u^2 = x^2+1$, $x^2 = u^2-1$, and $u\\,\\mathrm{d}u = x\\,\\mathrm{d}x$."
+              },
+              {
+                "criterion_id": "9709_p3_t_integration_m01_l01_cpq03_p01_mp02",
+                "observable": "Rewrites $x^3\\sqrt{x^2+1}\\,\\mathrm{d}x = x^2\\sqrt{x^2+1}(x\\,\\mathrm{d}x) = (u^2-1)u(u\\,\\mathrm{d}u)$ and transforms limits to $1$ and $\\sqrt{5}$."
+              },
+              {
+                "criterion_id": "9709_p3_t_integration_m01_l01_cpq03_p01_mp03",
+                "observable": "Obtains given integral $\\int_{1}^{\\sqrt{5}} (u^4 - u^2)\\,\\mathrm{d}u$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_integration_by_substitution",
+            "9709_p3_skill_definite_integration_limits"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_integration_by_substitution",
+              "9709_p3_skill_definite_integration_limits"
+            ],
+            "method_ids": [
+              "9709_p3_method_integration_by_substitution",
+              "9709_p3_method_transforming_integration_limits"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        },
+        {
+          "part_id": "9709_p3_t_integration_m01_l01_cpq03_p02",
+          "difficulty": "medium",
+          "question_pattern_ids": [
+            "9709_p3_pattern_exact_value"
+          ],
+          "source_evidence": {
+            "question_id": "9709_s22_33_q8",
+            "part_id": "9709_s22_33_q8",
+            "legacy_practice_tier": "core",
+            "product_role": "core_question",
+            "structural_inspiration": "Exact evaluation with odd powers of surds."
+          },
+          "dependency_role": "progressive_scaffold",
+          "dependency_refs": [
+            "9709_p3_t_integration_m01_l01_cpq03_p01"
+          ],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Integrate the polynomial: $\\int (u^4 - u^2)\\,\\mathrm{d}u = \\frac{1}{5}u^5 - \\frac{1}{3}u^3$.",
+            "Evaluate powers of $\\sqrt{5}$: $(\\sqrt{5})^5 = 25\\sqrt{5}$ and $(\\sqrt{5})^3 = 5\\sqrt{5}$.",
+            "Evaluate at $u = \\sqrt{5}$: $\\frac{25\\sqrt{5}}{5} - \\frac{5\\sqrt{5}}{3} = 5\\sqrt{5} - \\frac{5}{3}\\sqrt{5} = \\frac{10}{3}\\sqrt{5}$.",
+            "Evaluate at $u = 1$: $\\frac{1}{5} - \\frac{1}{3} = -\\frac{2}{15}$. Subtract to get $\\frac{10}{3}\\sqrt{5} - \\left(-\\frac{2}{15}\\right) = \\frac{50\\sqrt{5} + 2}{15}$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Integrate $(u^4 - u^2)$ with respect to $u$:\n$$\\int_{1}^{\\sqrt{5}} (u^4 - u^2)\\,\\mathrm{d}u = \\left[ \\frac{1}{5}u^5 - \\frac{1}{3}u^3 \\right]_{1}^{\\sqrt{5}}$$"
+            },
+            {
+              "step": 2,
+              "text": "Evaluate at upper limit $u = \\sqrt{5}$ and lower limit $u = 1$:\n$$\\text{At } u = \\sqrt{5}: \\frac{1}{5}(25\\sqrt{5}) - \\frac{1}{3}(5\\sqrt{5}) = 5\\sqrt{5} - \\frac{5}{3}\\sqrt{5} = \\frac{10}{3}\\sqrt{5}$$\n$$\\text{At } u = 1: \\frac{1}{5}(1) - \\frac{1}{3}(1) = -\\frac{2}{15}$$\n$$I = \\frac{10}{3}\\sqrt{5} - \\left(-\\frac{2}{15}\\right) = \\frac{50\\sqrt{5} + 2}{15}$$"
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_integration_m01_l01_cpq03_p02_mp01",
+                "observable": "Integrates $(u^4 - u^2)$ to obtain $\\frac{1}{5}u^5 - \\frac{1}{3}u^3$."
+              },
+              {
+                "criterion_id": "9709_p3_t_integration_m01_l01_cpq03_p02_mp02",
+                "observable": "Substitutes limits $\\sqrt{5}$ and $1$, simplifying $(\\sqrt{5})^5 = 25\\sqrt{5}$ and $(\\sqrt{5})^3 = 5\\sqrt{5}$."
+              },
+              {
+                "criterion_id": "9709_p3_t_integration_m01_l01_cpq03_p02_mp03",
+                "observable": "Obtains final exact answer $\\frac{50\\sqrt{5} + 2}{15}$ with $a=50, b=2$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_integration_by_substitution",
+            "9709_p3_skill_definite_integration_limits"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_integration_by_substitution",
+              "9709_p3_skill_definite_integration_limits"
+            ],
+            "method_ids": [
+              "9709_p3_method_integration_by_substitution",
+              "9709_p3_method_transforming_integration_limits"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_p3_t_integration_m01_l01_cpq04",
+      "sequence": 10,
+      "difficulty": "medium",
+      "difficulty_reason": "Core: Double angle numerator substitution u = 2 + cos x with logarithmic evaluation.",
+      "source_question_id": "9709_s23_32_q9",
+      "source_role": "core_practice",
+      "dependency_role": "none",
+      "dependency_refs": [],
+      "parts": [
+        {
+          "part_id": "9709_p3_t_integration_m01_l01_cpq04_p01",
+          "difficulty": "medium",
+          "question_pattern_ids": [
+            "9709_p3_pattern_show_that_integral",
+            "9709_p3_pattern_integration_by_substitution"
+          ],
+          "source_evidence": {
+            "question_id": "9709_s23_32_q9",
+            "part_id": "9709_s23_32_q9",
+            "legacy_practice_tier": "core",
+            "product_role": "core_question",
+            "structural_inspiration": "Double angle numerator substitution u = 2 + cos x."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Use the double-angle identity in the numerator: $\\sin 2x = 2\\sin x\\cos x$.",
+            "Differentiate $u = 2 + \\cos x$: $\\mathrm{d}u = -\\sin x\\,\\mathrm{d}x \\implies \\sin x\\,\\mathrm{d}x = -\\mathrm{d}u$, and note $\\cos x = u - 2$.",
+            "Transform limits: $x = 0 \\implies u = 3$; $x = \\frac{\\pi}{2} \\implies u = 2$. Reverse limits $\\int_3^2 \\dots (-\\mathrm{d}u) = \\int_2^3 \\frac{2(u-2)}{u}\\,\\mathrm{d}u = \\int_2^3 (2 - \\frac{4}{u})\\,\\mathrm{d}u$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Expand $\\sin 2x$ and express variables and differentials in terms of $u$:\n$$\\sin 2x = 2\\sin x\\cos x$$\n$$u = 2 + \\cos x \\implies \\cos x = u - 2$$\n$$\\mathrm{d}u = -\\sin x\\,\\mathrm{d}x \\implies \\sin x\\,\\mathrm{d}x = -\\mathrm{d}u$$"
+            },
+            {
+              "step": 2,
+              "text": "Transform limits and absorb the negative differential by reversing limits:\n$$\\text{At } x = 0: u = 2 + \\cos 0 = 3$$\n$$\\text{At } x = \\frac{1}{2}\\pi: u = 2 + \\cos\\left(\\frac{\\pi}{2}\\right) = 2$$\n$$K = \\int_{3}^{2} \\frac{2(u-2)}{u}(-\\mathrm{d}u) = \\int_{2}^{3} \\frac{2u - 4}{u}\\,\\mathrm{d}u = \\int_{2}^{3} \\left( 2 - \\frac{4}{u} \\right)\\,\\mathrm{d}u$$"
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_integration_m01_l01_cpq04_p01_mp01",
+                "observable": "Applies $\\sin 2x = 2\\sin x\\cos x$ and states $\\mathrm{d}u = -\\sin x\\,\\mathrm{d}x$."
+              },
+              {
+                "criterion_id": "9709_p3_t_integration_m01_l01_cpq04_p01_mp02",
+                "observable": "Substitutes $\\cos x = u-2$, transforms limits to $3$ and $2$, and reverses limits to absorb the negative sign."
+              },
+              {
+                "criterion_id": "9709_p3_t_integration_m01_l01_cpq04_p01_mp03",
+                "observable": "Obtains given integral $\\int_{2}^{3} \\left(2 - \\frac{4}{u}\\right)\\,\\mathrm{d}u$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_integration_by_substitution",
+            "9709_p3_skill_definite_integration_limits"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_integration_by_substitution",
+              "9709_p3_skill_definite_integration_limits"
+            ],
+            "method_ids": [
+              "9709_p3_method_integration_by_substitution",
+              "9709_p3_method_transforming_integration_limits"
+            ],
+            "formula_ids": [],
+            "identity_ids": [
+              "9709_p3_identity_sin2x_double_angle"
+            ],
+            "fact_ids": [
+              "9709_p3_fact_limit_inversion_negative_sign"
+            ]
+          }
+        },
+        {
+          "part_id": "9709_p3_t_integration_m01_l01_cpq04_p02",
+          "difficulty": "medium",
+          "question_pattern_ids": [
+            "9709_p3_pattern_exact_value"
+          ],
+          "source_evidence": {
+            "question_id": "9709_s23_32_q9",
+            "part_id": "9709_s23_32_q9",
+            "legacy_practice_tier": "core",
+            "product_role": "core_question",
+            "structural_inspiration": "Logarithmic antiderivative and exact quotient evaluation."
+          },
+          "dependency_role": "progressive_scaffold",
+          "dependency_refs": [
+            "9709_p3_t_integration_m01_l01_cpq04_p01"
+          ],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Integrate the terms directly: $\\int \\left(2 - \\frac{4}{u}\\right)\\,\\mathrm{d}u = 2u - 4\\ln u$.",
+            "Evaluate at upper limit $u = 3$: $2(3) - 4\\ln 3 = 6 - 4\\ln 3$.",
+            "Evaluate at lower limit $u = 2$: $2(2) - 4\\ln 2 = 4 - 4\\ln 2$.",
+            "Subtract and apply logarithm laws: $(6 - 4\\ln 3) - (4 - 4\\ln 2) = 2 + 4(\\ln 2 - \\ln 3) = 2 + 4\\ln(2/3)$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Integrate the terms with respect to $u$:\n$$\\int_{2}^{3} \\left( 2 - \\frac{4}{u} \\right)\\,\\mathrm{d}u = \\left[ 2u - 4\\ln u \\right]_{2}^{3}$$"
+            },
+            {
+              "step": 2,
+              "text": "Evaluate across limits and combine logarithms:\n$$= (2(3) - 4\\ln 3) - (2(2) - 4\\ln 2)$$\n$$= 6 - 4\\ln 3 - 4 + 4\\ln 2 = 2 + 4(\\ln 2 - \\ln 3) = 2 + 4\\ln\\left(\\frac{2}{3}\\right)$$"
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_integration_m01_l01_cpq04_p02_mp01",
+                "observable": "Integrates $2 - \\frac{4}{u}$ to obtain $2u - 4\\ln u$."
+              },
+              {
+                "criterion_id": "9709_p3_t_integration_m01_l01_cpq04_p02_mp02",
+                "observable": "Substitutes upper limit $3$ and lower limit $2$ into the antiderivative."
+              },
+              {
+                "criterion_id": "9709_p3_t_integration_m01_l01_cpq04_p02_mp03",
+                "observable": "Applies logarithm quotient law to express $-4\\ln 3 + 4\\ln 2$ as $4\\ln(2/3)$ or $-4\\ln(3/2)$."
+              },
+              {
+                "criterion_id": "9709_p3_t_integration_m01_l01_cpq04_p02_mp04",
+                "observable": "Obtains exact value $2 + 4\\ln\\left(\\frac{2}{3}\\right)$ with $p=2, q=4$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_integration_by_substitution",
+            "9709_p3_skill_definite_integration_limits"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_integration_by_substitution",
+              "9709_p3_skill_definite_integration_limits"
+            ],
+            "method_ids": [
+              "9709_p3_method_integration_by_substitution",
+              "9709_p3_method_transforming_integration_limits"
+            ],
+            "formula_ids": [],
+            "identity_ids": [
+              "9709_p3_identity_sin2x_double_angle"
+            ],
+            "fact_ids": [
+              "9709_p3_fact_limit_inversion_negative_sign"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_p3_t_integration_m01_l01_cpq05",
+      "sequence": 11,
+      "difficulty": "hard",
+      "difficulty_reason": "Capstone: Radical substitution leading to rational division and arctan antiderivative.",
+      "source_question_id": "9709_w16_31_q9",
+      "source_role": "capstone_practice",
+      "dependency_role": "none",
+      "dependency_refs": [],
+      "parts": [
+        {
+          "part_id": "9709_p3_t_integration_m01_l01_cpq05_p01",
+          "difficulty": "hard",
+          "question_pattern_ids": [
+            "9709_p3_pattern_show_that_integral",
+            "9709_p3_pattern_integration_by_substitution"
+          ],
+          "source_evidence": {
+            "question_id": "9709_w16_31_q9",
+            "part_id": "9709_w16_31_q9",
+            "legacy_practice_tier": "core",
+            "product_role": "capstone_question",
+            "structural_inspiration": "Radical substitution leading to rational division."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Differentiate $u = \\sqrt{x} \\implies u^2 = x \\implies \\mathrm{d}x = 2u\\,\\mathrm{d}u$.",
+            "Transform limits: $x = 1 \\implies u = 1$; $x = 4 \\implies u = 2$.",
+            "Substitute into $I$ to obtain $\\int_1^2 \\frac{u}{u^2+4}(2u\\,\\mathrm{d}u) = \\int_1^2 \\frac{2u^2}{u^2+4}\\,\\mathrm{d}u$.",
+            "Perform algebraic division: $\\frac{2u^2}{u^2+4} = \\frac{2(u^2+4) - 8}{u^2+4} = 2 - \\frac{8}{u^2+4}$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Relate variables and differentials:\n$$u = \\sqrt{x} \\implies u^2 = x \\implies \\mathrm{d}x = 2u\\,\\mathrm{d}u$$\n$$\\text{At } x = 1: u = \\sqrt{1} = 1$$\n$$\\text{At } x = 4: u = \\sqrt{4} = 2$$"
+            },
+            {
+              "step": 2,
+              "text": "Substitute and perform polynomial division:\n$$I = \\int_{1}^{4} \\frac{\\sqrt{x}}{x+4}\\,\\mathrm{d}x = \\int_{1}^{2} \\frac{u}{u^2+4} (2u\\,\\mathrm{d}u) = \\int_{1}^{2} \\frac{2u^2}{u^2+4}\\,\\mathrm{d}u$$\n$$\\frac{2u^2}{u^2+4} = \\frac{2(u^2+4) - 8}{u^2+4} = 2 - \\frac{8}{u^2+4}$$\n$$I = \\int_{1}^{2} \\left( 2 - \\frac{8}{u^2+4} \\right)\\,\\mathrm{d}u$$"
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_integration_m01_l01_cpq05_p01_mp01",
+                "observable": "States or implies $u = \\sqrt{x} \\implies \\mathrm{d}x = 2u\\,\\mathrm{d}u$ and transforms limits to $1$ and $2$."
+              },
+              {
+                "criterion_id": "9709_p3_t_integration_m01_l01_cpq05_p01_mp02",
+                "observable": "Substitutes into integral to obtain $\\int \\frac{2u^2}{u^2+4}\\,\\mathrm{d}u$."
+              },
+              {
+                "criterion_id": "9709_p3_t_integration_m01_l01_cpq05_p01_mp03",
+                "observable": "Performs polynomial division or writes $2u^2 = 2(u^2+4) - 8$ to split the integrand."
+              },
+              {
+                "criterion_id": "9709_p3_t_integration_m01_l01_cpq05_p01_mp04",
+                "observable": "Obtains given integral $\\int_{1}^{2} \\left(2 - \\frac{8}{u^2+4}\\right)\\,\\mathrm{d}u$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_integration_by_substitution",
+            "9709_p3_skill_definite_integration_limits"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_integration_by_substitution",
+              "9709_p3_skill_definite_integration_limits"
+            ],
+            "method_ids": [
+              "9709_p3_method_integration_by_substitution",
+              "9709_p3_method_transforming_integration_limits"
+            ],
+            "formula_ids": [
+              "9709_p3_formula_arctan_integral"
+            ],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        },
+        {
+          "part_id": "9709_p3_t_integration_m01_l01_cpq05_p02",
+          "difficulty": "hard",
+          "question_pattern_ids": [
+            "9709_p3_pattern_exact_value"
+          ],
+          "source_evidence": {
+            "question_id": "9709_w16_31_q9",
+            "part_id": "9709_w16_31_q9",
+            "legacy_practice_tier": "core",
+            "product_role": "capstone_question",
+            "structural_inspiration": "Standard arctan integration and exact evaluation."
+          },
+          "dependency_role": "progressive_scaffold",
+          "dependency_refs": [
+            "9709_p3_t_integration_m01_l01_cpq05_p01"
+          ],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Use the standard integral $\\int \\frac{1}{u^2+a^2}\\,\\mathrm{d}u = \\frac{1}{a}\\arctan\\left(\\frac{u}{a}\\right)$ with $a = 2$.",
+            "Here $\\int \\frac{8}{u^2+4}\\,\\mathrm{d}u = 8 \\cdot \\frac{1}{2}\\arctan\\left(\\frac{u}{2}\\right) = 4\\arctan\\left(\\frac{u}{2}\\right)$.",
+            "Antiderivative is $2u - 4\\arctan\\left(\\frac{u}{2}\\right)$.",
+            "Evaluate at $u = 2$: $4 - 4\\arctan(1) = 4 - 4\\left(\\frac{\\pi}{4}\\right) = 4 - \\pi$.",
+            "Evaluate at $u = 1$: $2 - 4\\arctan\\left(\\frac{1}{2}\\right)$.",
+            "Subtract: $(4 - \\pi) - \\left(2 - 4\\arctan\\left(\\frac{1}{2}\\right)\\right) = 2 - \\pi + 4\\arctan\\left(\\frac{1}{2}\\right)$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Integrate using the standard inverse tangent antiderivative:\n$$\\int \\frac{1}{u^2+a^2}\\,\\mathrm{d}u = \\frac{1}{a}\\arctan\\left(\\frac{u}{a}\\right)$$\n$$\\int \\left( 2 - \\frac{8}{u^2+4} \\right)\\,\\mathrm{d}u = 2u - 8\\left(\\frac{1}{2}\\arctan\\left(\\frac{u}{2}\\right)\\right) = 2u - 4\\arctan\\left(\\frac{u}{2}\\right)$$"
+            },
+            {
+              "step": 2,
+              "text": "Evaluate across limits $1$ and $2$:\n$$\\text{At } u = 2: 2(2) - 4\\arctan(1) = 4 - 4\\left(\\frac{\\pi}{4}\\right) = 4 - \\pi$$\n$$\\text{At } u = 1: 2(1) - 4\\arctan\\left(\\frac{1}{2}\\right) = 2 - 4\\arctan\\left(\\frac{1}{2}\\right)$$\n$$I = (4 - \\pi) - \\left( 2 - 4\\arctan\\left(\\frac{1}{2}\\right) \\right) = 2 - \\pi + 4\\arctan\\left(\\frac{1}{2}\\right)$$"
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_integration_m01_l01_cpq05_p02_mp01",
+                "observable": "Integrates $2 - \\frac{8}{u^2+4}$ to obtain $2u - 4\\arctan\\left(\\frac{u}{2}\\right)$."
+              },
+              {
+                "criterion_id": "9709_p3_t_integration_m01_l01_cpq05_p02_mp02",
+                "observable": "Substitutes upper limit $u=2$ to obtain $4 - 4\\arctan(1) = 4 - \\pi$."
+              },
+              {
+                "criterion_id": "9709_p3_t_integration_m01_l01_cpq05_p02_mp03",
+                "observable": "Substitutes lower limit $u=1$ to obtain $2 - 4\\arctan\\left(\\frac{1}{2}\\right)$."
+              },
+              {
+                "criterion_id": "9709_p3_t_integration_m01_l01_cpq05_p02_mp04",
+                "observable": "Obtains final exact answer $2 - \\pi + 4\\arctan\\left(\\frac{1}{2}\\right)$ with $a=2, b=4$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_integration_by_substitution",
+            "9709_p3_skill_definite_integration_limits"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_integration_by_substitution",
+              "9709_p3_skill_definite_integration_limits"
+            ],
+            "method_ids": [
+              "9709_p3_method_integration_by_substitution",
+              "9709_p3_method_transforming_integration_limits"
+            ],
+            "formula_ids": [
+              "9709_p3_formula_arctan_integral"
+            ],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_p3_t_integration_m01_l01_cpq06",
+      "sequence": 12,
+      "difficulty": "hard",
+      "difficulty_reason": "Capstone: Exponential radical substitution u = sqrt(e^x + 1) with rational simplification.",
+      "source_question_id": "9709_w19_32_q10",
+      "source_role": "capstone_practice",
+      "dependency_role": "none",
+      "dependency_refs": [],
+      "parts": [
+        {
+          "part_id": "9709_p3_t_integration_m01_l01_cpq06_p01",
+          "difficulty": "hard",
+          "question_pattern_ids": [
+            "9709_p3_pattern_show_that_integral",
+            "9709_p3_pattern_integration_by_substitution"
+          ],
+          "source_evidence": {
+            "question_id": "9709_w19_32_q10",
+            "part_id": "9709_w19_32_q10",
+            "legacy_practice_tier": "core",
+            "product_role": "capstone_question",
+            "structural_inspiration": "Exponential radical substitution u = sqrt(e^x + 1)."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Square $u = \\sqrt{\\mathrm{e}^x + 1}$ to get $u^2 = \\mathrm{e}^x + 1 \\implies \\mathrm{e}^x = u^2 - 1$.",
+            "Differentiate implicitly: $2u\\,\\mathrm{d}u = \\mathrm{e}^x\\,\\mathrm{d}x$.",
+            "Transform limits: $x = 0 \\implies u = \\sqrt{1+1} = \\sqrt{2}$; $x = \\ln 3 \\implies u = \\sqrt{3+1} = 2$.",
+            "Rewrite $\\mathrm{e}^{2x}\\,\\mathrm{d}x = \\mathrm{e}^x(\\mathrm{e}^x\\,\\mathrm{d}x) = (u^2-1)(2u\\,\\mathrm{d}u)$. Divide by $\\sqrt{\\mathrm{e}^x+1} = u$ to obtain $\\int_{\\sqrt{2}}^2 2(u^2-1)\\,\\mathrm{d}u$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Express exponential terms and differential in terms of $u$:\n$$u = \\sqrt{\\mathrm{e}^x + 1} \\implies u^2 = \\mathrm{e}^x + 1 \\implies \\mathrm{e}^x = u^2 - 1$$\n$$2u\\,\\mathrm{d}u = \\mathrm{e}^x\\,\\mathrm{d}x$$\n$$\\text{At } x = 0: u = \\sqrt{\\mathrm{e}^0 + 1} = \\sqrt{2}$$\n$$\\text{At } x = \\ln 3: u = \\sqrt{\\mathrm{e}^{\\ln 3} + 1} = \\sqrt{3 + 1} = 2$$"
+            },
+            {
+              "step": 2,
+              "text": "Substitute into $I$ and simplify:\n$$I = \\int_{0}^{\\ln 3} \\frac{\\mathrm{e}^x \\cdot \\mathrm{e}^x\\,\\mathrm{d}x}{\\sqrt{\\mathrm{e}^x+1}} = \\int_{\\sqrt{2}}^{2} \\frac{(u^2 - 1)(2u\\,\\mathrm{d}u)}{u} = \\int_{\\sqrt{2}}^{2} 2(u^2 - 1)\\,\\mathrm{d}u$$"
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_integration_m01_l01_cpq06_p01_mp01",
+                "observable": "States or implies $\\mathrm{e}^x = u^2-1$ and transforms limits to $\\sqrt{2}$ and $2$."
+              },
+              {
+                "criterion_id": "9709_p3_t_integration_m01_l01_cpq06_p01_mp02",
+                "observable": "Relates differentials $2u\\,\\mathrm{d}u = \\mathrm{e}^x\\,\\mathrm{d}x$ (or $\\mathrm{d}x = \\frac{2u}{u^2-1}\\mathrm{d}u$)."
+              },
+              {
+                "criterion_id": "9709_p3_t_integration_m01_l01_cpq06_p01_mp03",
+                "observable": "Substitutes into integral and cancels $u$ in numerator and denominator."
+              },
+              {
+                "criterion_id": "9709_p3_t_integration_m01_l01_cpq06_p01_mp04",
+                "observable": "Obtains given integral $\\int_{\\sqrt{2}}^{2} 2(u^2 - 1)\\,\\mathrm{d}u$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_integration_by_substitution",
+            "9709_p3_skill_definite_integration_limits"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_integration_by_substitution",
+              "9709_p3_skill_definite_integration_limits"
+            ],
+            "method_ids": [
+              "9709_p3_method_integration_by_substitution",
+              "9709_p3_method_transforming_integration_limits"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        },
+        {
+          "part_id": "9709_p3_t_integration_m01_l01_cpq06_p02",
+          "difficulty": "hard",
+          "question_pattern_ids": [
+            "9709_p3_pattern_exact_value"
+          ],
+          "source_evidence": {
+            "question_id": "9709_w19_32_q10",
+            "part_id": "9709_w19_32_q10",
+            "legacy_practice_tier": "core",
+            "product_role": "capstone_question",
+            "structural_inspiration": "Exact evaluation with irrational limits and fraction simplification."
+          },
+          "dependency_role": "progressive_scaffold",
+          "dependency_refs": [
+            "9709_p3_t_integration_m01_l01_cpq06_p01"
+          ],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Integrate the polynomial: $\\int 2(u^2 - 1)\\,\\mathrm{d}u = \\frac{2}{3}u^3 - 2u$.",
+            "Evaluate at upper limit $u = 2$: $\\frac{2}{3}(8) - 2(2) = \\frac{16}{3} - 4 = \\frac{4}{3}$.",
+            "Evaluate at lower limit $u = \\sqrt{2}$: $\\frac{2}{3}(2\\sqrt{2}) - 2\\sqrt{2} = \\frac{4\\sqrt{2}}{3} - \\frac{6\\sqrt{2}}{3} = -\\frac{2\\sqrt{2}}{3}$.",
+            "Subtract: $\\frac{4}{3} - \\left(-\\frac{2\\sqrt{2}}{3}\\right) = \\frac{4 + 2\\sqrt{2}}{3}$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Integrate $2(u^2 - 1)$ with respect to $u$:\n$$\\int_{\\sqrt{2}}^{2} 2(u^2 - 1)\\,\\mathrm{d}u = \\left[ \\frac{2}{3}u^3 - 2u \\right]_{\\sqrt{2}}^{2}$$"
+            },
+            {
+              "step": 2,
+              "text": "Evaluate across the limits and simplify:\n$$\\text{At } u = 2: \\frac{2}{3}(8) - 2(2) = \\frac{16}{3} - 4 = \\frac{4}{3}$$\n$$\\text{At } u = \\sqrt{2}: \\frac{2}{3}(2\\sqrt{2}) - 2\\sqrt{2} = \\frac{4\\sqrt{2} - 6\\sqrt{2}}{3} = -\\frac{2\\sqrt{2}}{3}$$\n$$I = \\frac{4}{3} - \\left( -\\frac{2\\sqrt{2}}{3} \\right) = \\frac{4 + 2\\sqrt{2}}{3}$$"
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_integration_m01_l01_cpq06_p02_mp01",
+                "observable": "Integrates $2(u^2-1)$ to obtain $\\frac{2}{3}u^3 - 2u$."
+              },
+              {
+                "criterion_id": "9709_p3_t_integration_m01_l01_cpq06_p02_mp02",
+                "observable": "Substitutes upper limit $u=2$ to obtain $\\frac{16}{3} - 4 = \\frac{4}{3}$."
+              },
+              {
+                "criterion_id": "9709_p3_t_integration_m01_l01_cpq06_p02_mp03",
+                "observable": "Substitutes lower limit $u=\\sqrt{2}$ to obtain $\\frac{4\\sqrt{2}}{3} - 2\\sqrt{2} = -\\frac{2\\sqrt{2}}{3}$."
+              },
+              {
+                "criterion_id": "9709_p3_t_integration_m01_l01_cpq06_p02_mp04",
+                "observable": "Obtains final exact answer $\\frac{4 + 2\\sqrt{2}}{3}$ with $a=4, b=2$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_integration_by_substitution",
+            "9709_p3_skill_definite_integration_limits"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_integration_by_substitution",
+              "9709_p3_skill_definite_integration_limits"
+            ],
+            "method_ids": [
+              "9709_p3_method_integration_by_substitution",
+              "9709_p3_method_transforming_integration_limits"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_p3_t_integration_m01_l01_cpq07",
+      "sequence": 13,
+      "difficulty": "hard",
+      "difficulty_reason": "Capstone: Multi-path substitution (algebraic radical vs trigonometric) and bounded area calculation.",
+      "source_question_id": "9709_w20_32_q9",
+      "source_role": "capstone_practice",
+      "dependency_role": "none",
+      "dependency_refs": [],
+      "parts": [
+        {
+          "part_id": "9709_p3_t_integration_m01_l01_cpq07_p01",
+          "difficulty": "hard",
+          "question_pattern_ids": [
+            "9709_p3_pattern_show_that_integral",
+            "9709_p3_pattern_integration_by_substitution"
+          ],
+          "source_evidence": {
+            "question_id": "9709_w20_32_q9",
+            "part_id": "9709_w20_32_q9",
+            "legacy_practice_tier": "core",
+            "product_role": "capstone_question",
+            "structural_inspiration": "Algebraic radical substitution with limit inversion on odd cubic power."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Square $u = \\sqrt{9 - x^2}$ to get $u^2 = 9 - x^2 \\implies x^2 = 9 - u^2$.",
+            "Differentiate: $2u\\,\\mathrm{d}u = -2x\\,\\mathrm{d}x \\implies x\\,\\mathrm{d}x = -u\\,\\mathrm{d}u$.",
+            "Transform limits: $x = 0 \\implies u = 3$; $x = \\sqrt{5} \\implies u = \\sqrt{9-5} = 2$.",
+            "Substitute $x^3\\,\\mathrm{d}x = x^2(x\\,\\mathrm{d}x) = (9-u^2)(-u\\,\\mathrm{d}u)$ and divide by $u$. Reverse limits to absorb the minus sign: $\\int_3^2 -(9-u^2)\\,\\mathrm{d}u = \\int_2^3 (9-u^2)\\,\\mathrm{d}u$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Relate variables and differentials:\n$$u = \\sqrt{9 - x^2} \\implies u^2 = 9 - x^2 \\implies x^2 = 9 - u^2$$\n$$2u\\,\\mathrm{d}u = -2x\\,\\mathrm{d}x \\implies x\\,\\mathrm{d}x = -u\\,\\mathrm{d}u$$\n$$\\text{At } x = 0: u = \\sqrt{9 - 0} = 3$$\n$$\\text{At } x = \\sqrt{5}: u = \\sqrt{9 - 5} = \\sqrt{4} = 2$$"
+            },
+            {
+              "step": 2,
+              "text": "Substitute and reverse integration limits:\n$$\\int_{0}^{\\sqrt{5}} \\frac{x^3}{\\sqrt{9-x^2}}\\,\\mathrm{d}x = \\int_{3}^{2} \\frac{(9-u^2)(-u\\,\\mathrm{d}u)}{u} = \\int_{3}^{2} -(9-u^2)\\,\\mathrm{d}u = \\int_{2}^{3} (9-u^2)\\,\\mathrm{d}u$$"
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_integration_m01_l01_cpq07_p01_mp01",
+                "observable": "States or implies $x^2 = 9-u^2$ and $x\\,\\mathrm{d}x = -u\\,\\mathrm{d}u$."
+              },
+              {
+                "criterion_id": "9709_p3_t_integration_m01_l01_cpq07_p01_mp02",
+                "observable": "Rewrites $x^3 = x^2 \\cdot x$, transforms limits to $3$ and $2$, and reverses limits to absorb the negative sign."
+              },
+              {
+                "criterion_id": "9709_p3_t_integration_m01_l01_cpq07_p01_mp03",
+                "observable": "Obtains given integral $\\int_{2}^{3} (9 - u^2)\\,\\mathrm{d}u$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_integration_by_substitution",
+            "9709_p3_skill_definite_integration_limits"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_integration_by_substitution",
+              "9709_p3_skill_definite_integration_limits"
+            ],
+            "method_ids": [
+              "9709_p3_method_integration_by_substitution",
+              "9709_p3_method_transforming_integration_limits"
+            ],
+            "formula_ids": [],
+            "identity_ids": [
+              "9709_p3_identity_sin_cos_pythagorean"
+            ],
+            "fact_ids": [
+              "9709_p3_fact_limit_inversion_negative_sign"
+            ]
+          }
+        },
+        {
+          "part_id": "9709_p3_t_integration_m01_l01_cpq07_p02",
+          "difficulty": "hard",
+          "question_pattern_ids": [
+            "9709_p3_pattern_exact_area"
+          ],
+          "source_evidence": {
+            "question_id": "9709_w20_32_q9",
+            "part_id": "9709_w20_32_q9",
+            "legacy_practice_tier": "core",
+            "product_role": "capstone_question",
+            "structural_inspiration": "Exact area evaluation from transformed integral."
+          },
+          "dependency_role": "progressive_scaffold",
+          "dependency_refs": [
+            "9709_p3_t_integration_m01_l01_cpq07_p01"
+          ],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Integrate $(9 - u^2)$ with respect to $u$: $\\int (9 - u^2)\\,\\mathrm{d}u = 9u - \\frac{1}{3}u^3$.",
+            "Evaluate at upper limit $u = 3$: $9(3) - \\frac{1}{3}(27) = 27 - 9 = 18$.",
+            "Evaluate at lower limit $u = 2$: $9(2) - \\frac{1}{3}(8) = 18 - \\frac{8}{3} = \\frac{46}{3}$.",
+            "Subtract: $18 - \\frac{46}{3} = \\frac{54 - 46}{3} = \\frac{8}{3}$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Integrate $(9 - u^2)$ with respect to $u$:\n$$\\int_{2}^{3} (9 - u^2)\\,\\mathrm{d}u = \\left[ 9u - \\frac{1}{3}u^3 \\right]_{2}^{3}$$"
+            },
+            {
+              "step": 2,
+              "text": "Evaluate across the limits:\n$$\\text{At } u = 3: 9(3) - \\frac{1}{3}(27) = 27 - 9 = 18$$\n$$\\text{At } u = 2: 9(2) - \\frac{1}{3}(8) = 18 - \\frac{8}{3} = \\frac{46}{3}$$\n$$\\text{Area} = 18 - \\frac{46}{3} = \\frac{54 - 46}{3} = \\frac{8}{3}$$"
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_integration_m01_l01_cpq07_p02_mp01",
+                "observable": "Integrates $(9 - u^2)$ to obtain $9u - \\frac{1}{3}u^3$."
+              },
+              {
+                "criterion_id": "9709_p3_t_integration_m01_l01_cpq07_p02_mp02",
+                "observable": "Substitutes upper limit $3$ and lower limit $2$ into the antiderivative."
+              },
+              {
+                "criterion_id": "9709_p3_t_integration_m01_l01_cpq07_p02_mp03",
+                "observable": "Obtains exact bounded area $\\frac{8}{3}$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_integration_by_substitution",
+            "9709_p3_skill_definite_integration_limits"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_integration_by_substitution",
+              "9709_p3_skill_definite_integration_limits"
+            ],
+            "method_ids": [
+              "9709_p3_method_integration_by_substitution",
+              "9709_p3_method_transforming_integration_limits"
+            ],
+            "formula_ids": [],
+            "identity_ids": [
+              "9709_p3_identity_sin_cos_pythagorean"
+            ],
+            "fact_ids": [
+              "9709_p3_fact_limit_inversion_negative_sign"
+            ]
+          }
+        },
+        {
+          "part_id": "9709_p3_t_integration_m01_l01_cpq07_p03",
+          "difficulty": "hard",
+          "question_pattern_ids": [
+            "9709_p3_pattern_trigonometric_substitution",
+            "9709_p3_pattern_show_that_integral"
+          ],
+          "source_evidence": {
+            "question_id": "9709_w20_32_q9",
+            "part_id": "9709_w20_32_q9",
+            "legacy_practice_tier": "core",
+            "product_role": "capstone_question",
+            "structural_inspiration": "Trigonometric substitution x = 3 sin theta transforming integral and limits."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Find the differential: $x = 3\\sin\\theta \\implies \\mathrm{d}x = 3\\cos\\theta\\,\\mathrm{d}\\theta$.",
+            "Simplify the denominator: $\\sqrt{9 - x^2} = \\sqrt{9 - 9\\sin^2\\theta} = 3\\cos\\theta$.",
+            "Substitute into $\\frac{x^3}{\\sqrt{9-x^2}}\\,\\mathrm{d}x = \\frac{27\\sin^3\\theta}{3\\cos\\theta}(3\\cos\\theta\\,\\mathrm{d}\\theta) = 27\\sin^3\\theta\\,\\mathrm{d}\\theta \\implies k = 27$.",
+            "Transform the upper limit: at $x = \\sqrt{5}$, $3\\sin\\alpha = \\sqrt{5} \\implies \\sin\\alpha = \\frac{\\sqrt{5}}{3} \\implies \\alpha = \\arcsin\\left(\\frac{\\sqrt{5}}{3}\\right)$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Differentiate $x = 3\\sin\\theta$ and simplify the denominator:\n$$\\mathrm{d}x = 3\\cos\\theta\\,\\mathrm{d}\\theta$$\n$$\\sqrt{9 - x^2} = \\sqrt{9 - 9\\sin^2\\theta} = \\sqrt{9\\cos^2\\theta} = 3\\cos\\theta$$"
+            },
+            {
+              "step": 2,
+              "text": "Substitute into the integral and determine constant $k$ and upper limit $\\alpha$:\n$$\\int \\frac{x^3}{\\sqrt{9-x^2}}\\,\\mathrm{d}x = \\int \\frac{(3\\sin\\theta)^3}{3\\cos\\theta} (3\\cos\\theta\\,\\mathrm{d}\\theta) = \\int 27\\sin^3\\theta\\,\\mathrm{d}\\theta \\implies k = 27$$\n$$\\text{At } x = 0: 3\\sin\\theta = 0 \\implies \\theta = 0$$\n$$\\text{At } x = \\sqrt{5}: 3\\sin\\alpha = \\sqrt{5} \\implies \\sin\\alpha = \\frac{\\sqrt{5}}{3} \\implies \\alpha = \\arcsin\\left(\\frac{\\sqrt{5}}{3}\\right)$$\n$$\\int_{0}^{\\sqrt{5}} y\\,\\mathrm{d}x = \\int_{0}^{\\arcsin(\\sqrt{5}/3)} 27\\sin^3\\theta\\,\\mathrm{d}\\theta$$"
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_integration_m01_l01_cpq07_p03_mp01",
+                "observable": "States or implies $\\mathrm{d}x = 3\\cos\\theta\\,\\mathrm{d}\\theta$ and $\\sqrt{9-x^2} = 3\\cos\\theta$."
+              },
+              {
+                "criterion_id": "9709_p3_t_integration_m01_l01_cpq07_p03_mp02",
+                "observable": "Substitutes $x=3\\sin\\theta$ into the integrand and simplifies $\\frac{27\\sin^3\\theta}{3\\cos\\theta}(3\\cos\\theta\\,\\mathrm{d}\\theta)$ to obtain $k = 27$."
+              },
+              {
+                "criterion_id": "9709_p3_t_integration_m01_l01_cpq07_p03_mp03",
+                "observable": "Determines exact upper limit $\\alpha = \\arcsin\\left(\\frac{\\sqrt{5}}{3}\\right)$ from $3\\sin\\alpha = \\sqrt{5}$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_integration_by_substitution",
+            "9709_p3_skill_definite_integration_limits"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_integration_by_substitution",
+              "9709_p3_skill_definite_integration_limits"
+            ],
+            "method_ids": [
+              "9709_p3_method_integration_by_substitution",
+              "9709_p3_method_transforming_integration_limits"
+            ],
+            "formula_ids": [],
+            "identity_ids": [
+              "9709_p3_identity_sin_cos_pythagorean"
+            ],
+            "fact_ids": [
+              "9709_p3_fact_limit_inversion_negative_sign"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

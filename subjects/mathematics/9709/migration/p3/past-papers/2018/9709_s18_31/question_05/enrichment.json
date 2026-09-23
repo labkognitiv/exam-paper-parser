@@ -1,0 +1,121 @@
+{
+  "schema_version": "9709_math_enrichment_v3",
+  "paper_code": "9709_s18_31",
+  "question_id": "9709_s18_31_q5",
+  "question_num": 5,
+  "subject_code": "9709",
+  "component": "P3",
+  "year": 2018,
+  "session": "May/June",
+  "variant": "31",
+  "difficulty": 3,
+  "numerical_values_checked": false,
+  "parts": [
+    {
+      "part_id": "9709_s18_31_q5_i",
+      "difficulty": 3,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_p3_t_integration",
+        "module_id": "9709_p3_t_integration_m01",
+        "lesson_id": "9709_p3_t_integration_m01_l01"
+      },
+      "skills": {
+        "primary_skill_id": "9709_p3_skill_integration_by_substitution",
+        "skill_tags": [
+          "Integration by Substitution"
+        ]
+      },
+      "question_pattern_ids": [
+        "9709_p3_pattern_prove_or_show",
+        "9709_p3_pattern_calculus_process",
+        "9709_p3_pattern_trigonometric_reasoning"
+      ],
+      "knowledge_refs": {
+        "formula_ids": [],
+        "identity_ids": [
+          "9709_p3_identity_double_angle",
+          "9709_p3_identity_pythagorean"
+        ],
+        "method_ids": [
+          "9709_p3_method_integration_by_substitution"
+        ],
+        "fact_ids": []
+      },
+      "hints": [
+        "Make the stated substitution consistently in the integrand, differential, and limits.",
+        "Differentiate $x=\\cos^2\\theta$ to obtain $dx$ in terms of $d\\theta$.",
+        "On the relevant angular interval, use $1-\\cos^2\\theta=\\sin^2\\theta$ and choose the correct sign of the square root.",
+        "Convert both $x$-limits to angles; note that $\\cos^2\\theta$ decreases across this interval, so the reversal of limits absorbs the negative sign."
+      ],
+      "walkthrough": [
+        "Differentiate the substitution $x = \\cos^2\\theta$ with respect to $\\theta$:\n$$\\dfrac{\\mathrm{d}x}{\\mathrm{d}\\theta} = 2\\cos\\theta(-\\sin\\theta) = -2\\cos\\theta\\sin\\theta$$\n$$\\mathrm{d}x = -2\\cos\\theta\\sin\\theta\\,\\mathrm{d}\\theta$$",
+        "Transform the integrand using $1 - x = 1 - \\cos^2\\theta = \\sin^2\\theta$:\n$$\\sqrt{\\dfrac{x}{1 - x}} = \\sqrt{\\dfrac{\\cos^2\\theta}{\\sin^2\\theta}} = \\dfrac{\\cos\\theta}{\\sin\\theta}$$",
+        "Determine the new integration limits for $\\theta$:\n- Lower limit: when $x = \\dfrac{1}{4}$, $\\cos^2\\theta = \\dfrac{1}{4} \\implies \\cos\\theta = \\dfrac{1}{2} \\implies \\theta = \\dfrac{\\pi}{3}$.\n- Upper limit: when $x = \\dfrac{3}{4}$, $\\cos^2\\theta = \\dfrac{3}{4} \\implies \\cos\\theta = \\dfrac{\\sqrt{3}}{2} \\implies \\theta = \\dfrac{\\pi}{6}$.",
+        "Substitute the integrand, differential, and limits into $I$:\n$$I = \\int_{\\frac{\\pi}{3}}^{\\frac{\\pi}{6}} \\left(\\dfrac{\\cos\\theta}{\\sin\\theta}\\right)(-2\\cos\\theta\\sin\\theta)\\,\\mathrm{d}\\theta$$",
+        "Simplify the integrand:\n$$\\left(\\dfrac{\\cos\\theta}{\\sin\\theta}\\right)(-2\\cos\\theta\\sin\\theta) = -2\\cos^2\\theta$$\n$$I = \\int_{\\frac{\\pi}{3}}^{\\frac{\\pi}{6}} (-2\\cos^2\\theta)\\,\\mathrm{d}\\theta$$",
+        "Reverse the order of integration limits to absorb the negative sign:\n$$I = \\int_{\\frac{1}{6}\\pi}^{\\frac{1}{3}\\pi} 2\\cos^2\\theta\\,\\mathrm{d}\\theta$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "ai_rubric": {
+          "Integration by Substitution": "Identifies $dx=-2\\cos\\theta\\sin\\theta\\,d\\theta$, or equivalent; Derives integrand $\\pm2\\cos^2\\theta$; Concludes with $I=\\int_{\\pi/6}^{\\pi/3}2\\cos^2\\theta\\,d\\theta$."
+        },
+        "criteria_source": "mark_scheme_structured"
+      }
+    },
+    {
+      "part_id": "9709_s18_31_q5_ii",
+      "difficulty": 2,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_p3_t_integration",
+        "module_id": "9709_p3_t_integration_m01",
+        "lesson_id": "9709_p3_t_integration_m01_l02"
+      },
+      "skills": {
+        "primary_skill_id": "9709_p3_skill_trigonometric_integration",
+        "skill_tags": [
+          "Trigonometric Integration"
+        ]
+      },
+      "question_pattern_ids": [
+        "9709_p3_pattern_exact_value",
+        "9709_p3_pattern_calculus_process",
+        "9709_p3_pattern_trigonometric_reasoning",
+        "9709_p3_pattern_multi_part_dependency"
+      ],
+      "knowledge_refs": {
+        "formula_ids": [],
+        "identity_ids": [
+          "9709_p3_identity_double_angle",
+          "9709_p3_identity_pythagorean"
+        ],
+        "method_ids": [
+          "9709_p3_method_trigonometric_integration"
+        ],
+        "fact_ids": []
+      },
+      "hints": [
+        "Begin with the transformed definite integral established in part (i).",
+        "Use $2\\cos^2\\theta=1+\\cos 2\\theta$ before integrating.",
+        "Find an exact antiderivative in terms of $\\theta$ and $\\sin 2\\theta$.",
+        "Apply the angular limits carefully and simplify the exact special-angle values."
+      ],
+      "walkthrough": [
+        "Apply the double angle formula $2\\cos^2\\theta = 1 + \\cos 2\\theta$ to rewrite the integrand:\n$$I = \\int_{\\frac{1}{6}\\pi}^{\\frac{1}{3}\\pi} (1 + \\cos 2\\theta)\\,\\mathrm{d}\\theta$$",
+        "Integrate each term with respect to $\\theta$:\n$$\\int (1 + \\cos 2\\theta)\\,\\mathrm{d}\\theta = \\left[ \\theta + \\dfrac{1}{2}\\sin 2\\theta \\right]_{\\frac{1}{6}\\pi}^{\\frac{1}{3}\\pi}$$",
+        "Evaluate at the upper limit $\\theta = \\dfrac{\\pi}{3}$:\n$$2\\left(\\dfrac{\\pi}{3}\\right) = \\dfrac{2\\pi}{3} \\implies \\sin\\left(\\dfrac{2\\pi}{3}\\right) = \\dfrac{\\sqrt{3}}{2}$$\n$$\\text{Upper value} = \\dfrac{\\pi}{3} + \\dfrac{1}{2}\\left(\\dfrac{\\sqrt{3}}{2}\\right) = \\dfrac{\\pi}{3} + \\dfrac{\\sqrt{3}}{4}$$",
+        "Evaluate at the lower limit $\\theta = \\dfrac{\\pi}{6}$:\n$$2\\left(\\dfrac{\\pi}{6}\\right) = \\dfrac{\\pi}{3} \\implies \\sin\\left(\\dfrac{\\pi}{3}\\right) = \\dfrac{\\sqrt{3}}{2}$$\n$$\\text{Lower value} = \\dfrac{\\pi}{6} + \\dfrac{1}{2}\\left(\\dfrac{\\sqrt{3}}{2}\\right) = \\dfrac{\\pi}{6} + \\dfrac{\\sqrt{3}}{4}$$",
+        "Subtract the lower evaluation from the upper evaluation:\n$$I = \\left(\\dfrac{\\pi}{3} + \\dfrac{\\sqrt{3}}{4}\\right) - \\left(\\dfrac{\\pi}{6} + \\dfrac{\\sqrt{3}}{4}\\right) = \\dfrac{\\pi}{3} - \\dfrac{\\pi}{6} = \\dfrac{\\pi}{6}$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "ai_rubric": {
+          "Trigonometric Integration": "Derives an indefinite integral $a\\theta+b\\sin2\\theta$; Derives $\\theta+\\frac12\\sin2\\theta$; Concludes with $\\frac{\\pi}{6}$."
+        },
+        "criteria_source": "mark_scheme_structured"
+      }
+    }
+  ]
+}

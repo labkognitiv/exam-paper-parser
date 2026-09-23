@@ -1,0 +1,2 @@
+document.addEventListener('click',event=>{const button=event.target.closest('.check-options button');if(!button)return;const card=button.closest('.quick-check');card.querySelectorAll('button').forEach(b=>b.setAttribute('aria-pressed',String(b===button)));card.querySelector('.check-feedback').textContent=button.dataset.feedback;});
+document.addEventListener('DOMContentLoaded',()=>{document.querySelectorAll('[data-tex]').forEach(el=>{if(window.katex){try{katex.render(el.dataset.tex,el,{throwOnError:false,displayMode:el.classList.contains('display')});}catch(_){}}});});

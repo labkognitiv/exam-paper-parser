@@ -1,0 +1,1243 @@
+{
+  "lesson_id": "9709_s1_t_permutations_and_combinations_m04_l03",
+  "numerical_values_checked": false,
+  "questions": [
+    {
+      "question_id": "9709_s1_t_permutations_and_combinations_m04_l03_drq01",
+      "parts": [
+        {
+          "part_id": "9709_s1_t_permutations_and_combinations_m04_l03_drq01_p01",
+          "label": "a",
+          "difficulty": "easy",
+          "pattern_ids": [
+            "9709_s1_pattern_combinations_at_least_k_category_members"
+          ],
+          "hints": [
+            "At least 3 pianists means the quintet can contain 3, 4, or 5 pianists.",
+            "Form combinations for each case: 3P 2S, 4P 1S, 5P 0S, and sum them."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Partition into disjoint cases based on the number of pianists:\n$$\\text{3 pianists}: {}^6 C_3 \\times {}^5 C_2 = 20 \\times 10 = 200, \\quad \\text{4 pianists}: {}^6 C_4 \\times {}^5 C_1 = 15 \\times 5 = 75$$"
+            },
+            {
+              "step": 2,
+              "text": "Calculate the case of 5 pianists and sum all cases:\n$$\\text{5 pianists}: {}^6 C_5 \\times {}^5 C_0 = 6 \\times 1 = 6 \\implies \\text{Total} = 200 + 75 + 6 = 281$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "Translate the lower bound into exhaustive cases of pianists:\n$$\\text{Pianists} \\in \\{3, 4, 5\\}$$$"
+            },
+            {
+              "step": 2,
+              "text": "Sum the products across all three scenarios:\n$$200 + 75 + 6 = 281$$"
+            }
+          ],
+          "checking": {
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_s1_t_permutations_and_combinations_m04_l03_drq01_p01_c01",
+                "mark": "M1",
+                "observable": "Partition into cases by pianist count: 3P 2S (6C3 * 5C2), 4P 1S (6C4 * 5C1), 5P 0S (6C5 * 5C0)."
+              },
+              {
+                "criterion_id": "9709_s1_t_permutations_and_combinations_m04_l03_drq01_p01_c02",
+                "mark": "A1",
+                "observable": "Sum the cases 200 + 75 + 6 to obtain 281 quintets."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_s1_t_permutations_and_combinations_m04_l03_drq02",
+      "parts": [
+        {
+          "part_id": "9709_s1_t_permutations_and_combinations_m04_l03_drq02_p01",
+          "label": "a",
+          "difficulty": "easy",
+          "pattern_ids": [
+            "9709_s1_pattern_combinations_with_case_splits"
+          ],
+          "hints": [
+            "At most 1 junior means the team contains either 0 juniors or 1 junior.",
+            "Calculate ways for 0 juniors (all 4 seniors) and 1 junior (1 junior and 3 seniors), then add."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Identify the two disjoint cases for junior count:\n$$\\text{0 juniors}: {}^5 C_0 \\times {}^7 C_4 = 1 \\times 35 = 35, \\quad \\text{1 junior}: {}^5 C_1 \\times {}^7 C_3 = 5 \\times 35 = 175$$"
+            },
+            {
+              "step": 2,
+              "text": "Sum the two cases:\n$$\\text{Total teams} = 35 + 175 = 210$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "List the two valid junior quotas:\n$$\\text{Junior count} \\in \\{0, 1\\}$$$"
+            },
+            {
+              "step": 2,
+              "text": "Add the counts from both outcomes:\n$$35 + 175 = 210$$"
+            }
+          ],
+          "checking": {
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_s1_t_permutations_and_combinations_m04_l03_drq02_p01_c01",
+                "mark": "M1",
+                "observable": "Set up disjoint cases for 0 juniors (5C0 * 7C4) and 1 junior (5C1 * 7C3)."
+              },
+              {
+                "criterion_id": "9709_s1_t_permutations_and_combinations_m04_l03_drq02_p01_c02",
+                "mark": "A1",
+                "observable": "Sum the cases 35 + 175 to obtain 210 teams."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_s1_t_permutations_and_combinations_m04_l03_drq03",
+      "parts": [
+        {
+          "part_id": "9709_s1_t_permutations_and_combinations_m04_l03_drq03_p01",
+          "label": "a",
+          "difficulty": "easy",
+          "pattern_ids": [
+            "9709_s1_pattern_combinations_at_least_k_category_members"
+          ],
+          "hints": [
+            "Use the complement method: subtract selections with fewer than 2 red balls from the total.",
+            "Total selections is ${}^{13}C_5$. Bad selections have 0 red or 1 red."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Find total selections and the count of unacceptable selections (0 or 1 red):\n$$\\text{Total} = {}^{13}C_5 = 1287, \\quad \\text{0 red}: {}^5 C_5 = 1, \\quad \\text{1 red}: {}^8 C_1 \\times {}^5 C_4 = 40$$"
+            },
+            {
+              "step": 2,
+              "text": "Subtract the bad selections from the total:\n$$\\text{Required selections} = 1287 - (1 + 40) = 1287 - 41 = 1246$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "Apply the complement principle:\n$$\\text{Required} = \\binom{13}{5} - \\left[\\binom{5}{5} + \\binom{8}{1}\\binom{5}{4}\\right]$$"
+            },
+            {
+              "step": 2,
+              "text": "Compute the difference:\n$$1287 - 41 = 1246$$"
+            }
+          ],
+          "checking": {
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_s1_t_permutations_and_combinations_m04_l03_drq03_p01_c01",
+                "mark": "M1",
+                "observable": "Subtract cases with fewer than 2 red balls from total selections: 13C5 - 5C5 - (8C1 * 5C4)."
+              },
+              {
+                "criterion_id": "9709_s1_t_permutations_and_combinations_m04_l03_drq03_p01_c02",
+                "mark": "A1",
+                "observable": "Evaluate the difference 1287 - 41 to obtain 1246 selections."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_s1_t_permutations_and_combinations_m04_l03_drq04",
+      "parts": [
+        {
+          "part_id": "9709_s1_t_permutations_and_combinations_m04_l03_drq04_p01",
+          "label": "a",
+          "difficulty": "easy",
+          "pattern_ids": [
+            "9709_s1_pattern_combinations_with_case_splits"
+          ],
+          "hints": [
+            "Use the complement method: subtract single-colour selections from all selections.",
+            "Total selections is ${}^{13}C_4$. Monocolour selections can only be all silver or all black."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Determine the total selections and the single-colour selections:\n$$\\text{Total} = {}^{13}C_4 = 715, \\quad \\text{All silver}: {}^6 C_4 = 15, \\quad \\text{All black}: {}^4 C_4 = 1$$"
+            },
+            {
+              "step": 2,
+              "text": "Subtract the single-colour selections from the total:\n$$\\text{Required selections} = 715 - (15 + 1) = 715 - 16 = 699$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "Subtract monochrome sets from the unrestricted total:\n$$\\text{Selections} = \\binom{13}{4} - \\binom{6}{4} - \\binom{4}{4}$$"
+            },
+            {
+              "step": 2,
+              "text": "Evaluate the subtraction:\n$$715 - 16 = 699$$"
+            }
+          ],
+          "checking": {
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_s1_t_permutations_and_combinations_m04_l03_drq04_p01_c01",
+                "mark": "M1",
+                "observable": "Subtract single-colour selections from total selections: 13C4 - 6C4 - 4C4."
+              },
+              {
+                "criterion_id": "9709_s1_t_permutations_and_combinations_m04_l03_drq04_p01_c02",
+                "mark": "A1",
+                "observable": "Evaluate the difference 715 - 16 to obtain 699 selections."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_s1_t_permutations_and_combinations_m04_l03_drq05",
+      "parts": [
+        {
+          "part_id": "9709_s1_t_permutations_and_combinations_m04_l03_drq05_p01",
+          "label": "a",
+          "difficulty": "easy",
+          "pattern_ids": [
+            "9709_s1_pattern_combinations_category_majority"
+          ],
+          "hints": [
+            "Strictly more men than women in a committee of 5 means men must number 3, 4, or 5.",
+            "Calculate combinations for 3M 2W, 4M 1W, and 5M 0W, then sum."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Partition into cases where men outnumber women:\n$$\\text{3M 2W}: {}^7 C_3 \\times {}^6 C_2 = 35 \\times 15 = 525, \\quad \\text{4M 1W}: {}^7 C_4 \\times {}^6 C_1 = 35 \\times 6 = 210$$"
+            },
+            {
+              "step": 2,
+              "text": "Calculate the 5M 0W case and sum all cases:\n$$\\text{5M 0W}: {}^7 C_5 \\times {}^6 C_0 = 21 \\times 1 = 21 \\implies \\text{Total} = 525 + 210 + 21 = 756$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "Identify majority cases for men in a group of 5:\n$$\\text{Men count} \\in \\{3, 4, 5\\}$$$"
+            },
+            {
+              "step": 2,
+              "text": "Sum the three terms:\n$$525 + 210 + 21 = 756$$"
+            }
+          ],
+          "checking": {
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_s1_t_permutations_and_combinations_m04_l03_drq05_p01_c01",
+                "mark": "M1",
+                "observable": "Sum cases with 3 men (7C3 * 6C2), 4 men (7C4 * 6C1), and 5 men (7C5 * 6C0)."
+              },
+              {
+                "criterion_id": "9709_s1_t_permutations_and_combinations_m04_l03_drq05_p01_c02",
+                "mark": "A1",
+                "observable": "Sum the cases 525 + 210 + 21 to obtain 756 committees."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_s1_t_permutations_and_combinations_m04_l03_drq06",
+      "parts": [
+        {
+          "part_id": "9709_s1_t_permutations_and_combinations_m04_l03_drq06_p01",
+          "label": "a",
+          "difficulty": "easy",
+          "pattern_ids": [
+            "9709_s1_pattern_combinations_with_case_splits"
+          ],
+          "hints": [
+            "At least 5 of the same colour means either at least 5 red or all 5 blue (with 1 red).",
+            "Evaluate cases: 5R 1B, 6R 0B, and 1R 5B."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Calculate selections with at least 5 red marbles:\n$$\\text{5R 1B}: {}^9 C_5 \\times {}^5 C_1 = 126 \\times 5 = 630, \\quad \\text{6R 0B}: {}^9 C_6 \\times {}^5 C_0 = 84 \\times 1 = 84$$"
+            },
+            {
+              "step": 2,
+              "text": "Calculate selections with 5 blue marbles and sum all cases:\n$$\\text{1R 5B}: {}^9 C_1 \\times {}^5 C_5 = 9 \\times 1 = 9 \\implies \\text{Total} = 630 + 84 + 9 = 723$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "Group into monochromatic quotas: 5+ red or 5 blue:\n$$\\text{Cases}: \\quad (5\\text{R}, 1\\text{B}), \\; (6\\text{R}, 0\\text{B}), \\; (1\\text{R}, 5\\text{B})$$"
+            },
+            {
+              "step": 2,
+              "text": "Sum the outcomes:\n$$630 + 84 + 9 = 723$$"
+            }
+          ],
+          "checking": {
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_s1_t_permutations_and_combinations_m04_l03_drq06_p01_c01",
+                "mark": "M1",
+                "observable": "Sum cases for at least 5 of one colour: 5R 1B (9C5 * 5C1), 6R 0B (9C6), 1R 5B (9C1 * 5C5)."
+              },
+              {
+                "criterion_id": "9709_s1_t_permutations_and_combinations_m04_l03_drq06_p01_c02",
+                "mark": "A1",
+                "observable": "Sum the counts 630 + 84 + 9 to obtain 723 selections."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_s1_t_permutations_and_combinations_m04_l03_cpq01",
+      "parts": [
+        {
+          "part_id": "9709_s1_t_permutations_and_combinations_m04_l03_cpq01_p01",
+          "label": "a",
+          "difficulty": "easy",
+          "pattern_ids": [
+            "9709_s1_pattern_combinations_at_least_k_category_members"
+          ],
+          "hints": [
+            "Choose 1 swimmer from 6 in ${}^6 C_1$ ways.",
+            "The remaining 6 athletes must contain at least 5 cyclists: either 5C 1R or 6C 0R."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Fix 1 swimmer and split remaining 6 places into cyclist cases:\n$$\\text{Swimmer}: {}^6 C_1 = 6, \\quad \\text{5C 1R}: {}^8 C_5 \\times {}^5 C_1 = 280, \\quad \\text{6C 0R}: {}^8 C_6 \\times {}^5 C_0 = 28$$"
+            },
+            {
+              "step": 2,
+              "text": "Multiply swimmer choices by the sum of cyclist cases:\n$$\\text{Total teams} = 6 \\times (280 + 28) = 6 \\times 308 = 1848$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "Combine the single swimmer with the two cyclist cases:\n$$\\text{Teams} = \\binom{6}{1} \\times \\left[\\binom{8}{5}\\binom{5}{1} + \\binom{8}{6}\\binom{5}{0}\\right]$$"
+            },
+            {
+              "step": 2,
+              "text": "Calculate the numerical product:\n$$6 \\times 308 = 1848$$"
+            }
+          ],
+          "checking": {
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_s1_t_permutations_and_combinations_m04_l03_cpq01_p01_c01",
+                "mark": "M1",
+                "observable": "Fix 1 swimmer (6C1) and multiply by cases for cyclists and runners: 5C 1R (8C5 * 5C1) and 6C 0R (8C6 * 5C0)."
+              },
+              {
+                "criterion_id": "9709_s1_t_permutations_and_combinations_m04_l03_cpq01_p01_c02",
+                "mark": "A1",
+                "observable": "Evaluate 6 * (280 + 28) to obtain 1848 teams."
+              }
+            ]
+          }
+        },
+        {
+          "part_id": "9709_s1_t_permutations_and_combinations_m04_l03_cpq01_p02",
+          "label": "b",
+          "difficulty": "easy",
+          "pattern_ids": [
+            "9709_s1_pattern_combinations_with_case_splits"
+          ],
+          "hints": [
+            "With 1 swimmer, cyclists (C) and runners (R) must sum to 6.",
+            "Conditions C >= 4 and R <= 2 give valid triples (S, C, R): (1,4,2), (1,5,1), (1,6,0)."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "List valid cases (S, C, R) and compute counts:\n$$(1,4,2): 6 \\times {}^8 C_4 \\times {}^5 C_2 = 4200, \\quad (1,5,1): 6 \\times {}^8 C_5 \\times {}^5 C_1 = 1680$$"
+            },
+            {
+              "step": 2,
+              "text": "Calculate the (1,6,0) case and sum:\n$$(1,6,0): 6 \\times {}^8 C_6 \\times {}^5 C_0 = 168 \\implies \\text{Total} = 4200 + 1680 + 168 = 6048$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "Establish the three cases matching the runner and cyclist bounds:\n$$\\text{Cases}: \\quad (1,4,2), \\; (1,5,1), \\; (1,6,0)$$"
+            },
+            {
+              "step": 2,
+              "text": "Sum the results:\n$$4200 + 1680 + 168 = 6048$$"
+            }
+          ],
+          "checking": {
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_s1_t_permutations_and_combinations_m04_l03_cpq01_p02_c01",
+                "mark": "M1",
+                "observable": "Sum valid cases (S, C, R): (1,4,2) with 6 * 8C4 * 5C2, (1,5,1) with 6 * 8C5 * 5C1, (1,6,0) with 6 * 8C6 * 5C0."
+              },
+              {
+                "criterion_id": "9709_s1_t_permutations_and_combinations_m04_l03_cpq01_p02_c02",
+                "mark": "A1",
+                "observable": "Sum the cases 4200 + 1680 + 168 to obtain 6048 teams."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_s1_t_permutations_and_combinations_m04_l03_cpq02",
+      "parts": [
+        {
+          "part_id": "9709_s1_t_permutations_and_combinations_m04_l03_cpq02_p01",
+          "label": "a",
+          "difficulty": "easy",
+          "pattern_ids": [
+            "9709_s1_pattern_combinations_independent_groups"
+          ],
+          "hints": [
+            "With exactly 3 archers, choose 3 remaining members from 6 bowlers and 4 climbers.",
+            "Each must have at least one member: cases are 2 bowlers, 1 climber or 1 bowler, 2 climbers."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Choose 3 archers and split the other 3 places between bowlers and climbers:\n$$\\text{Archers}: {}^5 C_3 = 10, \\quad \\text{2B 1C}: {}^6 C_2 \\times {}^4 C_1 = 60, \\quad \\text{1B 2C}: {}^6 C_1 \\times {}^4 C_2 = 36$$"
+            },
+            {
+              "step": 2,
+              "text": "Multiply archer choices by the sum of bowler/climber combinations:\n$$\\text{Total teams} = 10 \\times (60 + 36) = 10 \\times 96 = 960$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "Multiply archer combinations by the valid partitions of the remaining 3 places:\n$$\\text{Teams} = \\binom{5}{3} \\times \\left[\\binom{6}{2}\\binom{4}{1} + \\binom{6}{1}\\binom{4}{2}\\right]$$"
+            },
+            {
+              "step": 2,
+              "text": "Evaluate the arithmetic:\n$$10 \\times 96 = 960$$"
+            }
+          ],
+          "checking": {
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_s1_t_permutations_and_combinations_m04_l03_cpq02_p01_c01",
+                "mark": "M1",
+                "observable": "Fix 3 archers (5C3) and choose remaining 3 from bowlers and climbers: 2B 1C (6C2 * 4C1) + 1B 2C (6C1 * 4C2)."
+              },
+              {
+                "criterion_id": "9709_s1_t_permutations_and_combinations_m04_l03_cpq02_p01_c02",
+                "mark": "A1",
+                "observable": "Evaluate 10 * (60 + 36) to obtain 960 teams."
+              }
+            ]
+          }
+        },
+        {
+          "part_id": "9709_s1_t_permutations_and_combinations_m04_l03_cpq02_p02",
+          "label": "b",
+          "difficulty": "medium",
+          "pattern_ids": [
+            "9709_s1_pattern_combinations_with_case_splits"
+          ],
+          "hints": [
+            "We require A + B + C = 6, with A >= 1, B >= 1, C >= 1, and B > C.",
+            "Since C >= 1, the smallest value of B is 2.",
+            "Find all valid integer triples (A, B, C) and compute the combinations for each."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "List all integer triples $(A, B, C)$ summing to 6 with $A, B, C \\ge 1$ and $B > C$:\n$$(3,2,1), \\quad (2,3,1), \\quad (1,4,1), \\quad (1,3,2)$$"
+            },
+            {
+              "step": 2,
+              "text": "Evaluate the combination product for each case:\n$$(3,2,1): 600, \\quad (2,3,1): 800, \\quad (1,4,1): 300, \\quad (1,3,2): 600$$"
+            },
+            {
+              "step": 3,
+              "text": "Sum the four cases:\n$$\\text{Total teams} = 600 + 800 + 300 + 600 = 2300$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "Enumerate the valid category partitions:\n$$\\text{Triples}: \\quad (3,2,1), \\; (2,3,1), \\; (1,4,1), \\; (1,3,2)$$"
+            },
+            {
+              "step": 2,
+              "text": "Compute each product of combinations:\n$$600 + 800 + 300 + 600$$"
+            },
+            {
+              "step": 3,
+              "text": "State the final sum:\n$$2300$$"
+            }
+          ],
+          "checking": {
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_s1_t_permutations_and_combinations_m04_l03_cpq02_p02_c01",
+                "mark": "B1",
+                "observable": "Identify valid triples (A, B, C) satisfying A + B + C = 6, all >= 1, and B > C: (3,2,1), (2,3,1), (1,4,1), (1,3,2)."
+              },
+              {
+                "criterion_id": "9709_s1_t_permutations_and_combinations_m04_l03_cpq02_p02_c02",
+                "mark": "M1",
+                "observable": "Compute products 5CA * 6CB * 4CC for each case: 600, 800, 300, 600."
+              },
+              {
+                "criterion_id": "9709_s1_t_permutations_and_combinations_m04_l03_cpq02_p02_c03",
+                "mark": "A1",
+                "observable": "Sum the cases to obtain 2300 teams."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_s1_t_permutations_and_combinations_m04_l03_cpq03",
+      "parts": [
+        {
+          "part_id": "9709_s1_t_permutations_and_combinations_m04_l03_cpq03_p01",
+          "label": "a",
+          "difficulty": "medium",
+          "pattern_ids": [
+            "9709_s1_pattern_combinations_at_least_k_category_members"
+          ],
+          "hints": [
+            "No bass players means all 6 musicians come from the 9 violinists and 5 cellists.",
+            "With at least 4 violinists, the cases are 4V 2C, 5V 1C, and 6V 0C.",
+            "Sum the counts from each case."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Partition selections into violinist cases with 0 bass players:\n$$\\text{4V 2C}: {}^9 C_4 \\times {}^5 C_2 = 1260, \\quad \\text{5V 1C}: {}^9 C_5 \\times {}^5 C_1 = 630, \\quad \\text{6V 0C}: {}^9 C_6 \\times {}^5 C_0 = 84$$"
+            },
+            {
+              "step": 2,
+              "text": "Sum the three cases:\n$$\\text{Total ensembles} = 1260 + 630 + 84 = 1974$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "Form cases without bass players:\n$$\\text{Cases}: \\quad (4\\text{V}, 2\\text{C}), \\; (5\\text{V}, 1\\text{C}), \\; (6\\text{V}, 0\\text{C})$$"
+            },
+            {
+              "step": 2,
+              "text": "Sum the three combination values:\n$$1260 + 630 + 84 = 1974$$"
+            }
+          ],
+          "checking": {
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_s1_t_permutations_and_combinations_m04_l03_cpq03_p01_c01",
+                "mark": "M1",
+                "observable": "Sum cases with 0 bass players: 4V 2C (9C4 * 5C2), 5V 1C (9C5 * 5C1), 6V 0C (9C6 * 5C0)."
+              },
+              {
+                "criterion_id": "9709_s1_t_permutations_and_combinations_m04_l03_cpq03_p01_c02",
+                "mark": "A1",
+                "observable": "Sum the cases 1260 + 630 + 84 to obtain 1974 ensembles."
+              }
+            ]
+          }
+        },
+        {
+          "part_id": "9709_s1_t_permutations_and_combinations_m04_l03_cpq03_p02",
+          "label": "b",
+          "difficulty": "medium",
+          "pattern_ids": [
+            "9709_s1_pattern_combinations_with_case_splits"
+          ],
+          "hints": [
+            "The constraints are V >= 4, C >= 1, B <= 1, summing to 6.",
+            "List the valid triples (V, C, B): (4,1,1), (4,2,0), (5,1,0).",
+            "Calculate combinations for each triple and sum."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "List the valid triples $(V, C, B)$ satisfying the constraints:\n$$(4,1,1), \\quad (4,2,0), \\quad (5,1,0)$$"
+            },
+            {
+              "step": 2,
+              "text": "Evaluate the products for each triple:\n$$(4,1,1): {}^9 C_4 \\times {}^5 C_1 \\times {}^3 C_1 = 1890, \\quad (4,2,0): {}^9 C_4 \\times {}^5 C_2 = 1260, \\quad (5,1,0): {}^9 C_5 \\times {}^5 C_1 = 630$$"
+            },
+            {
+              "step": 3,
+              "text": "Sum the cases:\n$$\\text{Total ensembles} = 1890 + 1260 + 630 = 3780$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "Identify the three configurations fulfilling all musician requirements:\n$$\\text{Triples}: \\quad (4,1,1), \\; (4,2,0), \\; (5,1,0)$$"
+            },
+            {
+              "step": 2,
+              "text": "Compute each scenario's count:\n$$1890 + 1260 + 630$$"
+            },
+            {
+              "step": 3,
+              "text": "State the total:\n$$3780$$"
+            }
+          ],
+          "checking": {
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_s1_t_permutations_and_combinations_m04_l03_cpq03_p02_c01",
+                "mark": "B1",
+                "observable": "Identify valid triples (V, C, B) satisfying V >= 4, C >= 1, B <= 1, and V + C + B = 6: (4,1,1), (4,2,0), (5,1,0)."
+              },
+              {
+                "criterion_id": "9709_s1_t_permutations_and_combinations_m04_l03_cpq03_p02_c02",
+                "mark": "M1",
+                "observable": "Evaluate products for each case: 9C4 * 5C1 * 3C1, 9C4 * 5C2, 9C5 * 5C1."
+              },
+              {
+                "criterion_id": "9709_s1_t_permutations_and_combinations_m04_l03_cpq03_p02_c03",
+                "mark": "A1",
+                "observable": "Sum the cases 1890 + 1260 + 630 to obtain 3780 ensembles."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_s1_t_permutations_and_combinations_m04_l03_cpq04",
+      "parts": [
+        {
+          "part_id": "9709_s1_t_permutations_and_combinations_m04_l03_cpq04_p01",
+          "label": "a",
+          "difficulty": "medium",
+          "pattern_ids": [
+            "9709_s1_pattern_selections_with_repeated_items",
+            "9709_s1_pattern_combinations_exclusion_restriction"
+          ],
+          "hints": [
+            "Exclude all Ls, leaving E (up to 3) and the 4 single letters {M, N, T, A}.",
+            "We need 5 letters with at least two Es: cases are 2 Es or 3 Es.",
+            "Count ways to complete each case from the 4 single letters."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Exclude L, leaving letter types E (up to 3) and 4 singles $\\{\\text{M, N, T, A}\\}$:\n$$\\text{Eligible pool}: \\quad \\text{E} \\times 3, \\; \\{\\text{M, N, T, A}\\}$$"
+            },
+            {
+              "step": 2,
+              "text": "Partition 5-letter selections by count of E:\n$$2\\text{Es}: {}^4 C_3 = 4, \\quad 3\\text{Es}: {}^4 C_2 = 6$$"
+            },
+            {
+              "step": 3,
+              "text": "Sum the cases:\n$$\\text{Total selections} = 4 + 6 = 10$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "Isolate E and single letters:\n$$\\text{Pool}: \\quad \\{\\text{E, E, E, M, N, T, A}\\}$$"
+            },
+            {
+              "step": 2,
+              "text": "Count completions for 2 Es and 3 Es:\n$$4 + 6$$"
+            },
+            {
+              "step": 3,
+              "text": "State the count:\n$$10$$"
+            }
+          ],
+          "checking": {
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_s1_t_permutations_and_combinations_m04_l03_cpq04_p01_c01",
+                "mark": "B1",
+                "observable": "Exclude L, leaving letter types E (up to 3) and 4 singles {M, N, T, A}."
+              },
+              {
+                "criterion_id": "9709_s1_t_permutations_and_combinations_m04_l03_cpq04_p01_c02",
+                "mark": "M1",
+                "observable": "Partition selections of 5 letters by count of E: 2 Es with 4C3 singles, 3 Es with 4C2 singles."
+              },
+              {
+                "criterion_id": "9709_s1_t_permutations_and_combinations_m04_l03_cpq04_p01_c03",
+                "mark": "A1",
+                "observable": "Sum the cases 4 + 6 to obtain 10 selections."
+              }
+            ]
+          }
+        },
+        {
+          "part_id": "9709_s1_t_permutations_and_combinations_m04_l03_cpq04_p02",
+          "label": "b",
+          "difficulty": "medium",
+          "pattern_ids": [
+            "9709_s1_pattern_selections_with_repeated_items"
+          ],
+          "hints": [
+            "Allowed counts of E are 1, 2, or 3. Allowed counts of L are 0 or 1.",
+            "There are 6 possible pairs of counts (E, L): (1,0), (2,0), (3,0), (1,1), (2,1), (3,1).",
+            "Fill remaining slots for each pair from the 4 singles {M, N, T, A} and sum."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "List the 6 valid multiplicity pairs $(E, L)$:\n$$(1,0), \\; (2,0), \\; (3,0), \\; (1,1), \\; (2,1), \\; (3,1)$$"
+            },
+            {
+              "step": 2,
+              "text": "Determine the number of singles chosen from 4 for each pair:\n$$(1,0): {}^4 C_4 = 1, \\; (2,0): {}^4 C_3 = 4, \\; (3,0): {}^4 C_2 = 6, \\; (1,1): {}^4 C_3 = 4, \\; (2,1): {}^4 C_2 = 6, \\; (3,1): {}^4 C_1 = 4$$"
+            },
+            {
+              "step": 3,
+              "text": "Sum all cases:\n$$\\text{Total selections} = 1 + 4 + 6 + 4 + 6 + 4 = 25$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "Tabulate all combinations of E and L:\n$$(E, L) \\in \\{1,2,3\\} \\times \\{0,1\\}$$$"
+            },
+            {
+              "step": 2,
+              "text": "Compute the selections of singles for each pair:\n$$1 + 4 + 6 + 4 + 6 + 4$$"
+            },
+            {
+              "step": 3,
+              "text": "State the sum:\n$$25$$"
+            }
+          ],
+          "checking": {
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_s1_t_permutations_and_combinations_m04_l03_cpq04_p02_c01",
+                "mark": "B1",
+                "observable": "Identify 6 valid pairs of counts (E, L) with E in {1,2,3} and L in {0,1}: (1,0), (2,0), (3,0), (1,1), (2,1), (3,1)."
+              },
+              {
+                "criterion_id": "9709_s1_t_permutations_and_combinations_m04_l03_cpq02_c02",
+                "mark": "M1",
+                "observable": "Calculate combinations of singles for each case: 4C4, 4C3, 4C2, 4C3, 4C2, 4C1."
+              },
+              {
+                "criterion_id": "9709_s1_t_permutations_and_combinations_m04_l03_cpq04_p02_c03",
+                "mark": "A1",
+                "observable": "Sum the counts 1 + 4 + 6 + 4 + 6 + 4 to obtain 25 selections."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_s1_t_permutations_and_combinations_m04_l03_cpq05",
+      "parts": [
+        {
+          "part_id": "9709_s1_t_permutations_and_combinations_m04_l03_cpq05_p01",
+          "label": "a",
+          "difficulty": "medium",
+          "pattern_ids": [
+            "9709_s1_pattern_combinations_category_majority"
+          ],
+          "hints": [
+            "In a board of 6, strictly more women than men means women count 4, 5, or 6.",
+            "Form cases: 4W 2M, 5W 1M, 6W 0M.",
+            "Multiply combinations within each case and sum."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Identify majority cases for women in a group of 6:\n$$\\text{4W 2M}: {}^6 C_4 \\times {}^8 C_2 = 15 \\times 28 = 420, \\quad \\text{5W 1M}: {}^6 C_5 \\times {}^8 C_1 = 6 \\times 8 = 48$$"
+            },
+            {
+              "step": 2,
+              "text": "Calculate the 6W 0M case:\n$$\\text{6W 0M}: {}^6 C_6 \\times {}^8 C_0 = 1 \\times 1 = 1$$"
+            },
+            {
+              "step": 3,
+              "text": "Sum all cases:\n$$\\text{Total boards} = 420 + 48 + 1 = 469$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "Enumerate cases where women exceed men:\n$$\\text{Women} \\in \\{4, 5, 6\\}$$$"
+            },
+            {
+              "step": 2,
+              "text": "Evaluate the terms:\n$$420 + 48 + 1$$"
+            },
+            {
+              "step": 3,
+              "text": "State the total:\n$$469$$"
+            }
+          ],
+          "checking": {
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_s1_t_permutations_and_combinations_m04_l03_cpq05_p01_c01",
+                "mark": "B1",
+                "observable": "Identify valid distributions of women and men with W > M: 4W 2M, 5W 1M, 6W 0M."
+              },
+              {
+                "criterion_id": "9709_s1_t_permutations_and_combinations_m04_l03_cpq05_p01_c02",
+                "mark": "M1",
+                "observable": "Evaluate products 6CW * 8CM for each case: 15 * 28, 6 * 8, 1 * 1."
+              },
+              {
+                "criterion_id": "9709_s1_t_permutations_and_combinations_m04_l03_cpq05_p01_c03",
+                "mark": "A1",
+                "observable": "Sum the cases 420 + 48 + 1 to obtain 469 boards."
+              }
+            ]
+          }
+        },
+        {
+          "part_id": "9709_s1_t_permutations_and_combinations_m04_l03_cpq05_p02",
+          "label": "b",
+          "difficulty": "medium",
+          "pattern_ids": [
+            "9709_s1_pattern_combinations_with_case_splits"
+          ],
+          "hints": [
+            "At least 2 men and at least 2 women means the distribution of (M, W) can be (2,4), (3,3), or (4,2).",
+            "Calculate the combinations for each of the three distributions.",
+            "Sum the counts across the three distributions."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "List the valid distributions of men and women:\n$$(2\\text{M}, 4\\text{W}), \\quad (3\\text{M}, 3\\text{W}), \\quad (4\\text{M}, 2\\text{W})$$"
+            },
+            {
+              "step": 2,
+              "text": "Calculate combinations for each distribution:\n$$(2\\text{M}, 4\\text{W}): 420, \\quad (3\\text{M}, 3\\text{W}): {}^8 C_3 \\times {}^6 C_3 = 1120, \\quad (4\\text{M}, 2\\text{W}): {}^8 C_4 \\times {}^6 C_2 = 1050$$"
+            },
+            {
+              "step": 3,
+              "text": "Sum the three cases:\n$$\\text{Total boards} = 420 + 1120 + 1050 = 2590$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "Set up the three balanced gender cases:\n$$\\text{Distributions}: \\quad (2,4), \\; (3,3), \\; (4,2)$$"
+            },
+            {
+              "step": 2,
+              "text": "Compute the combination products:\n$$420 + 1120 + 1050$$"
+            },
+            {
+              "step": 3,
+              "text": "State the total count:\n$$2590$$"
+            }
+          ],
+          "checking": {
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_s1_t_permutations_and_combinations_m04_l03_cpq05_p02_c01",
+                "mark": "B1",
+                "observable": "Identify valid distributions with at least 2 of each gender: 2M 4W, 3M 3W, 4M 2W."
+              },
+              {
+                "criterion_id": "9709_s1_t_permutations_and_combinations_m04_l03_cpq05_p02_c02",
+                "mark": "M1",
+                "observable": "Evaluate products 8CM * 6CW for each case: 8C2 * 6C4, 8C3 * 6C3, 8C4 * 6C2."
+              },
+              {
+                "criterion_id": "9709_s1_t_permutations_and_combinations_m04_l03_cpq05_p02_c03",
+                "mark": "A1",
+                "observable": "Sum the cases 420 + 1120 + 1050 to obtain 2590 boards."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_s1_t_permutations_and_combinations_m04_l03_cpq06",
+      "parts": [
+        {
+          "part_id": "9709_s1_t_permutations_and_combinations_m04_l03_cpq06_p01",
+          "label": "a",
+          "difficulty": "easy",
+          "pattern_ids": [
+            "9709_s1_pattern_combinations_basic"
+          ],
+          "hints": [
+            "With no restrictions, choose 5 personnel from all 12 available staff.",
+            "Use the standard combination formula ${}^{12}C_5$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "State the unrestricted combination formula:\n$$\\text{Committees} = {}^{12}C_5 = \\frac{12!}{5!(12 - 5)!} = \\frac{12!}{5! \\times 7!}$$"
+            },
+            {
+              "step": 2,
+              "text": "Evaluate the arithmetic quotient:\n$${}^{12}C_5 = \\frac{12 \\times 11 \\times 10 \\times 9 \\times 8}{5 \\times 4 \\times 3 \\times 2 \\times 1} = 792$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "Form an unconstrained team of 5 from 12 candidates:\n$$\\text{Committees} = \\binom{12}{5}$$"
+            },
+            {
+              "step": 2,
+              "text": "Calculate the result:\n$$792$$"
+            }
+          ],
+          "checking": {
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_s1_t_permutations_and_combinations_m04_l03_cpq06_p01_c01",
+                "mark": "M1",
+                "observable": "Formulate 12C5 for unrestricted selection of 5 from 12 medical personnel."
+              },
+              {
+                "criterion_id": "9709_s1_t_permutations_and_combinations_m04_l03_cpq06_p01_c02",
+                "mark": "A1",
+                "observable": "Evaluate 12C5 to obtain 792 committees."
+              }
+            ]
+          }
+        },
+        {
+          "part_id": "9709_s1_t_permutations_and_combinations_m04_l03_cpq06_p02",
+          "label": "b",
+          "difficulty": "hard",
+          "pattern_ids": [
+            "9709_s1_pattern_combinations_with_case_splits"
+          ],
+          "hints": [
+            "Use the complement: subtract committees with no doctors or no nurses from the total.",
+            "Total is 792 from part (a).",
+            "Committees with no doctors consists of all 5 nurses (${}^5 C_5 = 1$).",
+            "Committees with no nurses consists of 5 doctors from 7 (${}^7 C_5 = 21$)."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Find the bad cases violating the requirement:\n$$\\text{All nurses (0 doctors)}: {}^5 C_5 = 1, \\quad \\text{All doctors (0 nurses)}: {}^7 C_5 = 21$$"
+            },
+            {
+              "step": 2,
+              "text": "Subtract the bad cases from the unrestricted total:\n$$\\text{Required committees} = 792 - (1 + 21) = 792 - 22$$"
+            },
+            {
+              "step": 3,
+              "text": "Evaluate the difference:\n$$\\text{Total committees} = 770$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "Use the complement approach:\n$$\\text{Required} = \\text{Total} - (\\text{all nurses}) - (\\text{all doctors})$$"
+            },
+            {
+              "step": 2,
+              "text": "Substitute the calculated values:\n$$792 - 1 - 21$$"
+            },
+            {
+              "step": 3,
+              "text": "State the result:\n$$770$$"
+            }
+          ],
+          "checking": {
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_s1_t_permutations_and_combinations_m04_l03_cpq06_p02_c01",
+                "mark": "B1",
+                "observable": "Identify complementary cases with no doctors (5C5) or no nurses (7C5)."
+              },
+              {
+                "criterion_id": "9709_s1_t_permutations_and_combinations_m04_l03_cpq06_p02_c02",
+                "mark": "M1",
+                "observable": "Subtract bad cases from total selections: 792 - 21 - 1."
+              },
+              {
+                "criterion_id": "9709_s1_t_permutations_and_combinations_m04_l03_cpq06_p02_c03",
+                "mark": "A1",
+                "observable": "Evaluate the difference to obtain 770 committees."
+              }
+            ]
+          }
+        },
+        {
+          "part_id": "9709_s1_t_permutations_and_combinations_m04_l03_cpq06_p03",
+          "label": "c",
+          "difficulty": "hard",
+          "pattern_ids": [
+            "9709_s1_pattern_combinations_at_least_k_category_members"
+          ],
+          "hints": [
+            "At least 2 of each profession in a team of 5 leaves only two possibilities.",
+            "Either 2 doctors and 3 nurses, or 3 doctors and 2 nurses.",
+            "Calculate the number of committees for each case and add them together.",
+            "Confirm each product: ${}^7 C_2 \\times {}^5 C_3$ and ${}^7 C_3 \\times {}^5 C_2$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Identify the two possible distributions:\n$$(2\\text{D}, 3\\text{N}) \\quad \\text{and} \\quad (3\\text{D}, 2\\text{N})$$"
+            },
+            {
+              "step": 2,
+              "text": "Calculate combinations for both distributions:\n$$\\text{2D 3N}: {}^7 C_2 \\times {}^5 C_3 = 21 \\times 10 = 210, \\quad \\text{3D 2N}: {}^7 C_3 \\times {}^5 C_2 = 35 \\times 10 = 350$$"
+            },
+            {
+              "step": 3,
+              "text": "Sum the two cases:\n$$\\text{Total committees} = 210 + 350 = 560$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "Break down into the two allowable quotas:\n$$\\text{Quotas}: \\quad (2,3) \\; \\text{or} \\; (3,2)$$"
+            },
+            {
+              "step": 2,
+              "text": "Compute each scenario's count:\n$$210 + 350$$"
+            },
+            {
+              "step": 3,
+              "text": "State the total:\n$$560$$"
+            }
+          ],
+          "checking": {
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_s1_t_permutations_and_combinations_m04_l03_cpq06_p03_c01",
+                "mark": "B1",
+                "observable": "Identify valid distributions of doctors and nurses: 2D 3N or 3D 2N."
+              },
+              {
+                "criterion_id": "9709_s1_t_permutations_and_combinations_m04_l03_cpq06_p03_c02",
+                "mark": "M1",
+                "observable": "Formulate sum of products: (7C2 * 5C3) + (7C3 * 5C2)."
+              },
+              {
+                "criterion_id": "9709_s1_t_permutations_and_combinations_m04_l03_cpq06_p03_c03",
+                "mark": "A1",
+                "observable": "Sum the cases 210 + 350 to obtain 560 committees."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_s1_t_permutations_and_combinations_m04_l03_cpq07",
+      "parts": [
+        {
+          "part_id": "9709_s1_t_permutations_and_combinations_m04_l03_cpq07_p01",
+          "label": "a",
+          "difficulty": "medium",
+          "pattern_ids": [
+            "9709_s1_pattern_combinations_independent_groups"
+          ],
+          "hints": [
+            "Choose 3 red counters from the 7 available red counters.",
+            "Choose the other 2 counters from the remaining 9 non-red counters (5 green + 4 yellow).",
+            "Multiply the two combinations together."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Select 3 red counters and 2 non-red counters:\n$$\\text{Red}: {}^7 C_3 = 35, \\quad \\text{Non-red}: {}^9 C_2 = 36$$"
+            },
+            {
+              "step": 2,
+              "text": "Multiply the selections:\n$$\\text{Total selections} = 35 \\times 36$$"
+            },
+            {
+              "step": 3,
+              "text": "Evaluate the product:\n$$\\text{Total selections} = 1260$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "Structure the selection into red and non-red categories:\n$$\\text{Selections} = \\binom{7}{3} \\times \\binom{9}{2}$$"
+            },
+            {
+              "step": 2,
+              "text": "Multiply the combination values:\n$$35 \\times 36$$"
+            },
+            {
+              "step": 3,
+              "text": "State the count:\n$$1260$$"
+            }
+          ],
+          "checking": {
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_s1_t_permutations_and_combinations_m04_l03_cpq07_p01_c01",
+                "mark": "B1",
+                "observable": "Choose 3 red counters from 7 (7C3) and 2 non-red counters from 9 (9C2)."
+              },
+              {
+                "criterion_id": "9709_s1_t_permutations_and_combinations_m04_l03_cpq07_p01_c02",
+                "mark": "M1",
+                "observable": "Formulate the product 7C3 * 9C2 (or 35 * 36)."
+              },
+              {
+                "criterion_id": "9709_s1_t_permutations_and_combinations_m04_l03_cpq07_p01_c03",
+                "mark": "A1",
+                "observable": "Evaluate the product to obtain 1260 selections."
+              }
+            ]
+          }
+        },
+        {
+          "part_id": "9709_s1_t_permutations_and_combinations_m04_l03_cpq07_p02",
+          "label": "b",
+          "difficulty": "hard",
+          "pattern_ids": [
+            "9709_s1_pattern_combinations_with_case_splits"
+          ],
+          "hints": [
+            "At least 4 of the same colour can occur with red, green, or yellow.",
+            "For red: 4 red (and 1 non-red) or 5 red.",
+            "For green: 4 green (and 1 non-green) or 5 green.",
+            "For yellow: 4 yellow (and 1 non-yellow). 5 yellow is impossible."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Calculate selections with at least 4 red counters:\n$$\\text{4R 1 non-R}: {}^7 C_4 \\times {}^9 C_1 = 315, \\quad \\text{5R}: {}^7 C_5 = 21 \\implies 315 + 21 = 336$$"
+            },
+            {
+              "step": 2,
+              "text": "Calculate selections with at least 4 green counters and 4 yellow counters:\n$$\\text{Green}: {}^5 C_4 \\times {}^{11}C_1 + {}^5 C_5 = 55 + 1 = 56, \\quad \\text{Yellow}: {}^4 C_4 \\times {}^{12}C_1 = 12$$"
+            },
+            {
+              "step": 3,
+              "text": "Sum across all three colours:\n$$\\text{Total selections} = 336 + 56 + 12 = 404$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "Group by the dominant colour:\n$$\\text{Red} \\ge 4, \\quad \\text{Green} \\ge 4, \\quad \\text{Yellow} \\ge 4$$"
+            },
+            {
+              "step": 2,
+              "text": "Sum each colour's contributions:\n$$336 + 56 + 12$$"
+            },
+            {
+              "step": 3,
+              "text": "State the total:\n$$404$$"
+            }
+          ],
+          "checking": {
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_s1_t_permutations_and_combinations_m04_l03_cpq07_p02_c01",
+                "mark": "B1",
+                "observable": "Partition into cases for at least 4 of each colour: Red >= 4, Green >= 4, Yellow >= 4."
+              },
+              {
+                "criterion_id": "9709_s1_t_permutations_and_combinations_m04_l03_cpq07_p02_c02",
+                "mark": "M1",
+                "observable": "Compute counts: Red (7C4 * 9C1 + 7C5 = 336), Green (5C4 * 11C1 + 5C5 = 56), Yellow (4C4 * 12C1 = 12)."
+              },
+              {
+                "criterion_id": "9709_s1_t_permutations_and_combinations_m04_l03_cpq07_p02_c03",
+                "mark": "A1",
+                "observable": "Sum the colour counts 336 + 56 + 12 to obtain 404 selections."
+              }
+            ]
+          }
+        },
+        {
+          "part_id": "9709_s1_t_permutations_and_combinations_m04_l03_cpq07_p03",
+          "label": "c",
+          "difficulty": "hard",
+          "pattern_ids": [
+            "9709_s1_pattern_combinations_with_case_splits"
+          ],
+          "hints": [
+            "We require R + G + Y = 5 with each count at least 1.",
+            "The partitions of 5 into 3 positive integers are 3+1+1 and 2+2+1.",
+            "There are 3 arrangements of 3+1+1 and 3 arrangements of 2+2+1, giving 6 cases in total.",
+            "Evaluate ${}^7 C_R \\times {}^5 C_G \\times {}^4 C_Y$ for all 6 cases and sum."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "List the 6 valid integer distributions for $(R, G, Y)$:\n$$(3,1,1), \\; (1,3,1), \\; (1,1,3), \\; (2,2,1), \\; (2,1,2), \\; (1,2,2)$$"
+            },
+            {
+              "step": 2,
+              "text": "Compute each distribution's count:\n$$(3,1,1): 700, \\; (1,3,1): 280, \\; (1,1,3): 140, \\; (2,2,1): 840, \\; (2,1,2): 630, \\; (1,2,2): 420$$"
+            },
+            {
+              "step": 3,
+              "text": "Sum all 6 cases:\n$$\\text{Total selections} = 700 + 280 + 140 + 840 + 630 + 420 = 3010$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "Enumerate all 6 integer partitions of 5 with each element positive:\n$$\\text{Partitions}: \\quad \\{3,1,1\\} \\text{ and } \\{2,2,1\\}$$$"
+            },
+            {
+              "step": 2,
+              "text": "Calculate the products for all 6 permutations:\n$$700 + 280 + 140 + 840 + 630 + 420$$"
+            },
+            {
+              "step": 3,
+              "text": "State the final sum:\n$$3010$$"
+            }
+          ],
+          "checking": {
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_s1_t_permutations_and_combinations_m04_l03_cpq07_p03_c01",
+                "mark": "B1",
+                "observable": "Identify all 6 valid distributions (R, G, Y) with sum 5 and each >= 1: (3,1,1), (1,3,1), (1,1,3), (2,2,1), (2,1,2), (1,2,2)."
+              },
+              {
+                "criterion_id": "9709_s1_t_permutations_and_combinations_m04_l03_cpq07_p03_c02",
+                "mark": "M1",
+                "observable": "Evaluate products 7CR * 5CG * 4CY for each distribution: 700, 280, 140, 840, 630, 420."
+              },
+              {
+                "criterion_id": "9709_s1_t_permutations_and_combinations_m04_l03_cpq07_p03_c03",
+                "mark": "A1",
+                "observable": "Sum the counts to obtain 3010 selections."
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

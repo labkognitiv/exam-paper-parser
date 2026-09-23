@@ -1,0 +1,163 @@
+{
+  "schema_version": "9709_math_enrichment_v3",
+  "paper_code": "9709_s23_31",
+  "question_id": "9709_s23_31_q9",
+  "question_num": 9,
+  "subject_code": "9709",
+  "component": "P3",
+  "year": 2023,
+  "session": "May/June",
+  "variant": "31",
+  "difficulty": 2,
+  "numerical_values_checked": false,
+  "parts": [
+    {
+      "part_id": "9709_s23_31_q9_a",
+      "difficulty": 2,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_p3_t_integration",
+        "module_id": "9709_p3_t_integration_m05",
+        "lesson_id": "9709_p3_t_integration_m05_l02"
+      },
+      "skills": {
+        "primary_skill_id": "9709_p3_skill_forming_equations_for_numerical_solution",
+        "skill_tags": [
+          "Forming Equations for Numerical Solution"
+        ]
+      },
+      "question_pattern_ids": [
+        "9709_p3_pattern_solve_equation",
+        "9709_p3_pattern_prove_or_show",
+        "9709_p3_pattern_calculus_process"
+      ],
+      "knowledge_refs": {
+        "formula_ids": [],
+        "identity_ids": [],
+        "method_ids": [
+          "9709_p3_method_forming_equations_for_numerical_solution"
+        ],
+        "fact_ids": []
+      },
+      "hints": [
+        "Evaluate $\\int xe^{-2x}\\,dx$ by parts, taking $u=x$ and $dv=e^{-2x}\\,dx$.",
+        "Apply the limits $0$ and $a$, and set the resulting expression equal to $\\frac18$.",
+        "Rearrange to isolate $e^{-2a}$, then take logarithms to reach the required fixed-point form."
+      ],
+      "walkthrough": [
+        "Evaluate the integral $\\int_0^a x\\mathrm{e}^{-2x}\\,\\mathrm{d}x$ using integration by parts, $\\int u\\,v'\\,\\mathrm{d}x = uv - \\int u'v\\,\\mathrm{d}x$:\nLet $u = x \\implies u' = 1$\nLet $v' = \\mathrm{e}^{-2x} \\implies v = -\\dfrac{1}{2}\\mathrm{e}^{-2x}$",
+        "Perform the integration:\n$$\\int x\\mathrm{e}^{-2x}\\,\\mathrm{d}x = -\\dfrac{1}{2}x\\mathrm{e}^{-2x} - \\int \\left(-\\dfrac{1}{2}\\mathrm{e}^{-2x}\\right)\\,\\mathrm{d}x = -\\dfrac{1}{2}x\\mathrm{e}^{-2x} - \\dfrac{1}{4}\\mathrm{e}^{-2x}$$",
+        "Evaluate the definite integral between limits $0$ and $a$:\n$$\\left[-\\dfrac{1}{2}x\\mathrm{e}^{-2x} - \\dfrac{1}{4}\\mathrm{e}^{-2x}\\right]_0^a = \\left(-\\dfrac{1}{2}a\\mathrm{e}^{-2a} - \\dfrac{1}{4}\\mathrm{e}^{-2a}\\right) - \\left(0 - \\dfrac{1}{4}\\mathrm{e}^0\\right)$$\n$$= -\\left(\\dfrac{1}{2}a + \\dfrac{1}{4}\\right)\\mathrm{e}^{-2a} + \\dfrac{1}{4}$$",
+        "Set the integral equal to $\\dfrac{1}{8}$:\n$$\\dfrac{1}{4} - \\left(\\dfrac{1}{2}a + \\dfrac{1}{4}\\right)\\mathrm{e}^{-2a} = \\dfrac{1}{8}$$\n$$\\left(\\dfrac{1}{2}a + \\dfrac{1}{4}\\right)\\mathrm{e}^{-2a} = \\dfrac{1}{4} - \\dfrac{1}{8} = \\dfrac{1}{8}$$",
+        "Multiply both sides by 8 to clear fractions:\n$$(4a + 2)\\mathrm{e}^{-2a} = 1$$\n$$\\mathrm{e}^{2a} = 4a + 2$$",
+        "Take the natural logarithm of both sides and solve for $a$:\n$$2a = \\ln(4a + 2)$$\n$$a = \\dfrac{1}{2}\\ln(4a + 2)$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "ai_rubric": {
+          "Forming Equations for Numerical Solution": "Integrates by parts and reaches $pxe^{-2x}+q\\int e^{-2x}dx$. Applies limits and equates to $1/8$: $-\\frac12ae^{-2a}-\\frac14e^{-2a}+\\frac14=\\frac18$. The final result is $a=\\frac12\\ln(4a+2)$."
+        },
+        "criteria_source": "mark_scheme_structured"
+      }
+    },
+    {
+      "part_id": "9709_s23_31_q9_b",
+      "difficulty": 1,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_p3_t_numerical_solution_of_equations",
+        "module_id": "9709_p3_t_numerical_solution_of_equations_m01",
+        "lesson_id": "9709_p3_t_numerical_solution_of_equations_m01_l02"
+      },
+      "skills": {
+        "primary_skill_id": "9709_p3_skill_numerical_root_bracketing",
+        "skill_tags": [
+          "Numerical Root Bracketing"
+        ]
+      },
+      "question_pattern_ids": [
+        "9709_p3_pattern_solve_inequality",
+        "9709_p3_pattern_prove_or_show"
+      ],
+      "knowledge_refs": {
+        "formula_ids": [],
+        "identity_ids": [],
+        "method_ids": [
+          "9709_p3_method_numerical_root_bracketing"
+        ],
+        "fact_ids": []
+      },
+      "hints": [
+        "Define the fixed-point residual $g(a)=\\frac12\\ln(4a+2)-a$ from part (a).",
+        "Calculate $g(0.5)$ and $g(1)$ and use their opposite signs, together with continuity, to verify that a root lies between the endpoints."
+      ],
+      "walkthrough": [
+        "Define the root-finding function $g(a)$ based on the equation from part (a):\n$$g(a) = \\dfrac{1}{2}\\ln(4a + 2) - a$$",
+        "Evaluate $g(0.5)$:\n$$4(0.5) + 2 = 2 + 2 = 4$$\n$$g(0.5) = \\dfrac{1}{2}\\ln(4) - 0.5 = \\ln(2) - 0.5 \\approx 0.693147 - 0.5 = +0.193147 > 0$$",
+        "Evaluate $g(1)$:\n$$4(1) + 2 = 6$$\n$$g(1) = \\dfrac{1}{2}\\ln(6) - 1 \\approx \\dfrac{1}{2}(1.791759) - 1 = 0.895880 - 1 = -0.104120 < 0$$",
+        "Conclude the verification argument:\nSince $g(a)$ is continuous on $[0.5, 1]$ and changes sign between $a = 0.5$ ($g(0.5) > 0$) and $a = 1$ ($g(1) < 0$), there is at least one root lying strictly between $0.5$ and $1$."
+      ],
+      "checking": {
+        "mode": "ai",
+        "ai_rubric": {
+          "Numerical Root Bracketing": "Endpoint evaluations at 0.5 and 1 establish the sign change or ordering. Substitution at $a=1$, it is $0.896\\ldots<1$. Substitution at $a=0.5$, $\\frac12\\ln(4a+2)=0.693\\ldots>0.5$; at $a=1$, it is $0.896\\ldots<1$."
+        },
+        "criteria_source": "mark_scheme_structured"
+      }
+    },
+    {
+      "part_id": "9709_s23_31_q9_c",
+      "difficulty": 2,
+      "practice_tier": "revision",
+      "mapping": {
+        "topic_id": "9709_p3_t_numerical_solution_of_equations",
+        "module_id": "9709_p3_t_numerical_solution_of_equations_m02",
+        "lesson_id": "9709_p3_t_numerical_solution_of_equations_m02_l02"
+      },
+      "skills": {
+        "primary_skill_id": "9709_p3_skill_fixed_point_iteration",
+        "skill_tags": [
+          "Fixed-Point Iteration"
+        ]
+      },
+      "question_pattern_ids": [
+        "9709_p3_pattern_numerical_approximation",
+        "9709_p3_pattern_trigonometric_reasoning"
+      ],
+      "knowledge_refs": {
+        "formula_ids": [],
+        "identity_ids": [
+          "9709_p3_identity_double_angle",
+          "9709_p3_identity_pythagorean"
+        ],
+        "method_ids": [
+          "9709_p3_method_fixed_point_iteration"
+        ],
+        "fact_ids": [
+          "9709_p3_fact_iteration_convergence"
+        ]
+      },
+      "hints": [
+        "Use the fixed-point equation from part (a) as $a_{n+1}=\\frac12\\ln(4a_n+2)$.",
+        "Start with a value in the verified interval $(0.5,1)$ and record every iterate to 4 decimal places.",
+        "Continue until successive iterates settle sufficiently to justify the value of $a$ to 2 decimal places."
+      ],
+      "walkthrough": [
+        "State the iterative formula based on part (a):\n$$a_{n+1} = \\dfrac{1}{2}\\ln(4a_n + 2)$$",
+        "Choose starting value $a_1 = 0.75$ and compute subsequent iterations to 4 decimal places:\n$$a_2 = \\dfrac{1}{2}\\ln(4(0.75) + 2) = \\dfrac{1}{2}\\ln(5) \\approx \\dfrac{1}{2}(1.609438) = 0.8047$$",
+        "Calculate $a_3$:\n$$a_3 = \\dfrac{1}{2}\\ln(4(0.8047) + 2) = \\dfrac{1}{2}\\ln(5.2188) \\approx \\dfrac{1}{2}(1.652250) = 0.8261$$",
+        "Calculate $a_4$:\n$$a_4 = \\dfrac{1}{2}\\ln(4(0.8261) + 2) = \\dfrac{1}{2}\\ln(5.3044) \\approx \\dfrac{1}{2}(1.668538) = 0.8343$$",
+        "Calculate $a_5$:\n$$a_5 = \\dfrac{1}{2}\\ln(4(0.8343) + 2) = \\dfrac{1}{2}\\ln(5.3372) \\approx \\dfrac{1}{2}(1.674697) = 0.8373$$",
+        "Calculate $a_6$ and $a_7$ to confirm convergence:\n$$a_6 = \\dfrac{1}{2}\\ln(4(0.8373) + 2) = \\dfrac{1}{2}\\ln(5.3492) \\approx \\dfrac{1}{2}(1.676944) = 0.8385$$\n$$a_7 = \\dfrac{1}{2}\\ln(4(0.8385) + 2) = \\dfrac{1}{2}\\ln(5.3540) \\approx \\dfrac{1}{2}(1.677841) = 0.8389$$",
+        "Round the final result correct to 2 decimal places:\n$$a = 0.84$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "ai_rubric": {
+          "Fixed-Point Iteration": "Substitution into $a$ gives consecutive iterates $0.84\\to0.835\\to0.845$, converging to $a=0.84$, using $a_{n+1}=\\frac12\\ln(4a_n+2)$."
+        },
+        "criteria_source": "mark_scheme_structured"
+      }
+    }
+  ]
+}

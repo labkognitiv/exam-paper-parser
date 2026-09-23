@@ -1,0 +1,1246 @@
+{
+  "lesson_id": "9709_s1_t_permutations_and_combinations_m02_l01",
+  "numerical_values_checked": false,
+  "questions": [
+    {
+      "question_id": "9709_s1_t_permutations_and_combinations_m02_l01_drq01",
+      "parts": [
+        {
+          "part_id": "9709_s1_t_permutations_and_combinations_m02_l01_drq01_p01",
+          "label": "a",
+          "difficulty": "easy",
+          "pattern_ids": [
+            "9709_s1_pattern_digits_without_repetition"
+          ],
+          "hints": [
+            "There are 7 distinct digits available and 3 positions to fill without repetition.",
+            "Use the product rule: the first position has 7 choices, the second has 6, and the third has 5."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Apply the product rule for filling 3 distinct positions from the set of 7 non-zero digits:\n$$\\text{Total 3-digit numbers} = 7 \\times 6 \\times 5 = 210$$"
+            },
+            {
+              "step": 2,
+              "text": "Confirm the result using permutation notation:\n$${}^7P_3 = \\frac{7!}{(7-3)!} = \\frac{7!}{4!} = 7 \\times 6 \\times 5 = 210$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "Set up the 3 ordered slots for the hundreds, tens, and units places:\n$$\\text{Slots}: \\quad [\\underline{7}] \\times [\\underline{6}] \\times [\\underline{5}]$$"
+            },
+            {
+              "step": 2,
+              "text": "Multiply the number of choices along the three positions to find the total:\n$$\\text{Total} = 7 \\times 6 \\times 5 = 210$$"
+            }
+          ],
+          "checking": {
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_s1_t_permutations_and_combinations_m02_l01_drq01_p01_c01",
+                "mark": "M1",
+                "observable": "Apply the product rule for 3 distinct positions from 7 digits by calculating 7 * 6 * 5 or 7P3."
+              },
+              {
+                "criterion_id": "9709_s1_t_permutations_and_combinations_m02_l01_drq01_p01_c02",
+                "mark": "A1",
+                "observable": "Obtain 210 numbers."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_s1_t_permutations_and_combinations_m02_l01_drq02",
+      "parts": [
+        {
+          "part_id": "9709_s1_t_permutations_and_combinations_m02_l01_drq02_p01",
+          "label": "a",
+          "difficulty": "easy",
+          "pattern_ids": [
+            "9709_s1_pattern_digits_without_repetition"
+          ],
+          "hints": [
+            "A 3-digit number cannot begin with 0, so the first digit has only 5 possible choices.",
+            "Once the first digit is chosen, 0 becomes available again for the tens and units places."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Fill the restricted leading slot first. The hundreds digit can be any digit from $\\{1, 2, 3, 4, 5\\}$, giving 5 choices:\n$$\\text{Hundreds digit choices} = 5$$"
+            },
+            {
+              "step": 2,
+              "text": "After fixing the first digit, 5 digits remain (including 0) for the tens place, and 4 digits remain for the units place:\n$$\\text{Total numbers} = 5 \\times 5 \\times 4 = 100$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "Identify the positional restriction on the hundreds digit. A leading zero produces a two-digit number, so zero is forbidden in the first slot:\n$$\\text{Hundreds slot} \\in \\{1, 2, 3, 4, 5\\} \\implies 5 \\text{ choices}$$"
+            },
+            {
+              "step": 2,
+              "text": "Fill the remaining slots from the remaining pool without repetition:\n$$\\text{Total} = 5 \\times 5 \\times 4 = 100$$"
+            }
+          ],
+          "checking": {
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_s1_t_permutations_and_combinations_m02_l01_drq02_p01_c01",
+                "mark": "M1",
+                "observable": "Recognize that the hundreds digit cannot be 0, giving 5 * 5 * 4."
+              },
+              {
+                "criterion_id": "9709_s1_t_permutations_and_combinations_m02_l01_drq02_p01_c02",
+                "mark": "A1",
+                "observable": "Obtain 100 numbers."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_s1_t_permutations_and_combinations_m02_l01_drq03",
+      "parts": [
+        {
+          "part_id": "9709_s1_t_permutations_and_combinations_m02_l01_drq03_p01",
+          "label": "a",
+          "difficulty": "easy",
+          "pattern_ids": [
+            "9709_s1_pattern_permutations_ordered_selection"
+          ],
+          "hints": [
+            "The letter part and digit part are independent ordered selections.",
+            "Calculate the number of ways to choose 2 letters and 2 digits separately, then multiply."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Find the number of 2-letter arrangements from 5 distinct letters:\n$$\\text{Letter choices} = {}^5P_2 = 5 \\times 4 = 20$$"
+            },
+            {
+              "step": 2,
+              "text": "Find the number of 2-digit arrangements from 6 distinct digits and multiply by the letter choices:\n$$\\text{Digit choices} = {}^6P_2 = 6 \\times 5 = 30, \\quad \\text{Total passcodes} = 20 \\times 30 = 600$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "Break the passcode into two sequential independent stages: the letter block followed by the digit block:\n$$\\text{Letter choices} = 5 \\times 4 = 20, \\quad \\text{Digit choices} = 6 \\times 5 = 30$$"
+            },
+            {
+              "step": 2,
+              "text": "Combine the independent stages using the product rule:\n$$\\text{Total passcodes} = 20 \\times 30 = 600$$"
+            }
+          ],
+          "checking": {
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_s1_t_permutations_and_combinations_m02_l01_drq03_p01_c01",
+                "mark": "M1",
+                "observable": "Multiply the ordered letter choices by the ordered digit choices: 5P2 * 6P2 = 20 * 30."
+              },
+              {
+                "criterion_id": "9709_s1_t_permutations_and_combinations_m02_l01_drq03_p01_c02",
+                "mark": "A1",
+                "observable": "Obtain 600 passcodes."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_s1_t_permutations_and_combinations_m02_l01_drq04",
+      "parts": [
+        {
+          "part_id": "9709_s1_t_permutations_and_combinations_m02_l01_drq04_p01",
+          "label": "a",
+          "difficulty": "easy",
+          "pattern_ids": [
+            "9709_s1_pattern_digits_without_repetition"
+          ],
+          "hints": [
+            "A number is odd if its final digit is odd. From $\\{1, 2, 3, 4, 5, 6, 7\\}$, the odd digits are $1, 3, 5, 7$.",
+            "Fill the units slot first with one of the 4 odd digits, then fill the first 3 slots from the remaining 6 digits."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Identify the restriction on the units digit. An odd number must end in an odd digit from $\\{1, 3, 5, 7\\}$, giving 4 choices:\n$$\\text{Units slot choices} = 4$$"
+            },
+            {
+              "step": 2,
+              "text": "Fill the first 3 slots with the remaining 6 digits without repetition:\n$$\\text{Remaining 3 slots} = 6 \\times 5 \\times 4 = 120, \\quad \\text{Total} = 120 \\times 4 = 480$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "Apply the parity rule by restricting the units digit first:\n$$\\text{Units place} \\in \\{1, 3, 5, 7\\} \\implies 4 \\text{ options}$$"
+            },
+            {
+              "step": 2,
+              "text": "Fill the thousands, hundreds, and tens places from the remaining 6 available digits:\n$$\\text{Total odd numbers} = 6 \\times 5 \\times 4 \\times 4 = 480$$"
+            }
+          ],
+          "checking": {
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_s1_t_permutations_and_combinations_m02_l01_drq04_p01_c01",
+                "mark": "M1",
+                "observable": "Identify 4 odd choices for the units slot and multiply by 6 * 5 * 4 for the remaining slots."
+              },
+              {
+                "criterion_id": "9709_s1_t_permutations_and_combinations_m02_l01_drq04_p01_c02",
+                "mark": "A1",
+                "observable": "Obtain 480 odd numbers."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_s1_t_permutations_and_combinations_m02_l01_drq05",
+      "parts": [
+        {
+          "part_id": "9709_s1_t_permutations_and_combinations_m02_l01_drq05_p01",
+          "label": "a",
+          "difficulty": "easy",
+          "pattern_ids": [
+            "9709_s1_pattern_digits_arrangement_even_with_replacement"
+          ],
+          "hints": [
+            "Because digits may be repeated, earlier choices do not reduce subsequent options.",
+            "The thousands digit cannot be 0, giving 5 choices. Each of the other 3 digits has 6 choices."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Determine the allowed choices for each of the 4 slots when repetition is allowed:\n$$\\text{Thousands slot}: 5 \\text{ choices } (1, 2, 3, 4, 5), \\quad \\text{Other 3 slots}: 6 \\text{ choices each}$$"
+            },
+            {
+              "step": 2,
+              "text": "Multiply choices across all 4 positions:\n$$\\text{Total 4-digit numbers} = 5 \\times 6 \\times 6 \\times 6 = 5 \\times 216 = 1080$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "Account for repetition and the non-zero leading digit restriction:\n$$\\text{Slot capacities}: \\quad [\\underline{5}] \\times [\\underline{6}] \\times [\\underline{6}] \\times [\\underline{6}]$$"
+            },
+            {
+              "step": 2,
+              "text": "Calculate the product across the independent positions:\n$$\\text{Total} = 5 \\times 6^3 = 1080$$"
+            }
+          ],
+          "checking": {
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_s1_t_permutations_and_combinations_m02_l01_drq05_p01_c01",
+                "mark": "M1",
+                "observable": "Identify 5 choices for the first digit and 6 choices for each of the remaining 3 digits: 5 * 6^3."
+              },
+              {
+                "criterion_id": "9709_s1_t_permutations_and_combinations_m02_l01_drq05_p01_c02",
+                "mark": "A1",
+                "observable": "Obtain 1080 numbers."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_s1_t_permutations_and_combinations_m02_l01_drq06",
+      "parts": [
+        {
+          "part_id": "9709_s1_t_permutations_and_combinations_m02_l01_drq06_p01",
+          "label": "a",
+          "difficulty": "easy",
+          "pattern_ids": [
+            "9709_s1_pattern_digits_arrangement_range_without_replacement"
+          ],
+          "hints": [
+            "For a 4-digit number to be greater than 4000, its first digit must be at least 4.",
+            "From $\\{2, 3, 4, 5, 6, 7\\}$, the thousands digit can be 4, 5, 6, or 7 (4 choices)."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Identify the allowed digits for the first position to ensure the number exceeds 4000:\n$$\\text{Thousands digit} \\in \\{4, 5, 6, 7\\} \\implies 4 \\text{ choices}$$"
+            },
+            {
+              "step": 2,
+              "text": "Fill the remaining 3 positions from the remaining 5 digits without repetition:\n$$\\text{Remaining choices} = 5 \\times 4 \\times 3 = 60, \\quad \\text{Total} = 4 \\times 60 = 240$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "Restrict the leading position according to the threshold value:\n$$\\text{Leading slot} \\in \\{4, 5, 6, 7\\} \\implies 4 \\text{ options}$$"
+            },
+            {
+              "step": 2,
+              "text": "Complete the remaining three slots from the remaining five unused digits:\n$$\\text{Total numbers} = 4 \\times (5 \\times 4 \\times 3) = 240$$"
+            }
+          ],
+          "checking": {
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_s1_t_permutations_and_combinations_m02_l01_drq06_p01_c01",
+                "mark": "M1",
+                "observable": "Identify 4 choices (4, 5, 6, 7) for the thousands digit and multiply by 5 * 4 * 3."
+              },
+              {
+                "criterion_id": "9709_s1_t_permutations_and_combinations_m02_l01_drq06_p01_c02",
+                "mark": "A1",
+                "observable": "Obtain 240 numbers."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_s1_t_permutations_and_combinations_m02_l01_cpq01",
+      "parts": [
+        {
+          "part_id": "9709_s1_t_permutations_and_combinations_m02_l01_cpq01_p01",
+          "label": "a",
+          "difficulty": "easy",
+          "pattern_ids": [
+            "9709_s1_pattern_digits_without_repetition"
+          ],
+          "hints": [
+            "An even number must end in an even digit: 2, 4, 6, or 8 (4 choices).",
+            "Since digits cannot be repeated, 7 digits remain for the first 3 positions."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Select the units digit from the even digits $\\{2, 4, 6, 8\\}$, giving 4 choices:\n$$\\text{Units slot choices} = 4$$"
+            },
+            {
+              "step": 2,
+              "text": "Fill the first 3 positions with the remaining 7 digits:\n$$\\text{Total} = 7 \\times 6 \\times 5 \\times 4 = 210 \\times 4 = 840$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "Begin by assigning the most restricted position, which is the units place controlling parity:\n$$\\text{Units place} \\in \\{2, 4, 6, 8\\} \\implies 4 \\text{ choices}$$"
+            },
+            {
+              "step": 2,
+              "text": "Fill the three preceding places from the remaining seven distinct digits:\n$$\\text{Total} = 7 \\times 6 \\times 5 \\times 4 = 840$$"
+            }
+          ],
+          "checking": {
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_s1_t_permutations_and_combinations_m02_l01_cpq01_p01_c01",
+                "mark": "M1",
+                "observable": "Identify 4 even choices for the units digit and multiply by 7 * 6 * 5 for the other slots."
+              },
+              {
+                "criterion_id": "9709_s1_t_permutations_and_combinations_m02_l01_cpq01_p01_c02",
+                "mark": "A1",
+                "observable": "Obtain 840 even numbers."
+              }
+            ]
+          }
+        },
+        {
+          "part_id": "9709_s1_t_permutations_and_combinations_m02_l01_cpq01_p02",
+          "label": "b",
+          "difficulty": "easy",
+          "pattern_ids": [
+            "9709_s1_pattern_digits_arrangement_even_with_replacement"
+          ],
+          "hints": [
+            "When digits may be repeated, each of the first 3 positions can take any of the 8 digits.",
+            "The units position still has 4 even choices (2, 4, 6, 8)."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Determine the number of choices for each slot with repetition allowed:\n$$\\text{Slots}: \\quad [\\underline{8}] \\times [\\underline{8}] \\times [\\underline{8}] \\times [\\underline{4}]$$"
+            },
+            {
+              "step": 2,
+              "text": "Multiply choices across all positions:\n$$\\text{Total} = 8^3 \\times 4 = 512 \\times 4 = 2048$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "With replacement permitted, earlier digit choices do not diminish the candidate pool:\n$$\\text{First three slots} = 8 \\times 8 \\times 8 = 512$$"
+            },
+            {
+              "step": 2,
+              "text": "Multiply by the 4 even choices for the final position:\n$$\\text{Total even numbers} = 512 \\times 4 = 2048$$"
+            }
+          ],
+          "checking": {
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_s1_t_permutations_and_combinations_m02_l01_cpq01_p02_c01",
+                "mark": "M1",
+                "observable": "Calculate 8 * 8 * 8 * 4 for repeated digits with an even units digit."
+              },
+              {
+                "criterion_id": "9709_s1_t_permutations_and_combinations_m02_l01_cpq01_p02_c02",
+                "mark": "A1",
+                "observable": "Obtain 2048 even numbers."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_s1_t_permutations_and_combinations_m02_l01_cpq02",
+      "parts": [
+        {
+          "part_id": "9709_s1_t_permutations_and_combinations_m02_l01_cpq02_p01",
+          "label": "a",
+          "difficulty": "easy",
+          "pattern_ids": [
+            "9709_s1_pattern_digits_without_repetition"
+          ],
+          "hints": [
+            "The thousands digit cannot be 0, so choose from 1, 2, 3, 4, 5, 6 (6 choices).",
+            "After filling the thousands slot, 0 returns to the available pool, leaving 6 digits for the hundreds place."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Fill the thousands place with any non-zero digit from $\\{1, 2, 3, 4, 5, 6\\}$ (6 choices):\n$$\\text{Thousands choices} = 6$$"
+            },
+            {
+              "step": 2,
+              "text": "Fill the remaining 3 places from the 6 unused digits without repetition:\n$$\\text{Total 4-digit numbers} = 6 \\times 6 \\times 5 \\times 4 = 720$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "Notice that zero cannot occupy the leading position in any genuine 4-digit number:\n$$\\text{Thousands slot} \\in \\{1, 2, 3, 4, 5, 6\\} \\implies 6 \\text{ choices}$$"
+            },
+            {
+              "step": 2,
+              "text": "Complete the remaining positions from the remaining six available digits including zero:\n$$\\text{Total} = 6 \\times 6 \\times 5 \\times 4 = 720$$"
+            }
+          ],
+          "checking": {
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_s1_t_permutations_and_combinations_m02_l01_cpq02_p01_c01",
+                "mark": "M1",
+                "observable": "Calculate 6 choices for the leading digit multiplied by 6 * 5 * 4 for the remaining slots."
+              },
+              {
+                "criterion_id": "9709_s1_t_permutations_and_combinations_m02_l01_cpq02_p01_c02",
+                "mark": "A1",
+                "observable": "Obtain 720 numbers."
+              }
+            ]
+          }
+        },
+        {
+          "part_id": "9709_s1_t_permutations_and_combinations_m02_l01_cpq02_p02",
+          "label": "b",
+          "difficulty": "easy",
+          "pattern_ids": [
+            "9709_s1_pattern_digits_arrangement_range_without_replacement"
+          ],
+          "hints": [
+            "For a number to lie between 3000 and 6000, its thousands digit must be 3, 4, or 5.",
+            "The remaining 3 digits can be any 3 distinct digits chosen from the 6 remaining digits."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Identify the allowed thousands digits to remain strictly between 3000 and 6000:\n$$\\text{Thousands digit} \\in \\{3, 4, 5\\} \\implies 3 \\text{ choices}$$"
+            },
+            {
+              "step": 2,
+              "text": "Fill the hundreds, tens, and units places using the 6 remaining digits:\n$$\\text{Remaining choices} = 6 \\times 5 \\times 4 = 120$$"
+            },
+            {
+              "step": 3,
+              "text": "Multiply the thousands choices by the remaining slot permutations:\n$$\\text{Total numbers} = 3 \\times 120 = 360$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "Establish the range restriction on the leading place. The number must be $\\ge 3000$ and $< 6000$:\n$$\\text{Leading digit} \\in \\{3, 4, 5\\} \\implies 3 \\text{ options}$$"
+            },
+            {
+              "step": 2,
+              "text": "Fill the other three slots from the remaining pool of six distinct digits:\n$$\\text{Three subsequent slots} = 6 \\times 5 \\times 4 = 120$$"
+            },
+            {
+              "step": 3,
+              "text": "Compute the final count by multiplying the independent choices:\n$$\\text{Total} = 3 \\times 120 = 360$$"
+            }
+          ],
+          "checking": {
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_s1_t_permutations_and_combinations_m02_l01_cpq02_p02_c01",
+                "mark": "B1",
+                "observable": "Identify 3 possible choices (3, 4, 5) for the thousands digit."
+              },
+              {
+                "criterion_id": "9709_s1_t_permutations_and_combinations_m02_l01_cpq02_p02_c02",
+                "mark": "M1",
+                "observable": "Multiply by 6 * 5 * 4 for the remaining slots: 3 * 120."
+              },
+              {
+                "criterion_id": "9709_s1_t_permutations_and_combinations_m02_l01_cpq02_p02_c03",
+                "mark": "A1",
+                "observable": "Obtain 360 numbers."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_s1_t_permutations_and_combinations_m02_l01_cpq03",
+      "parts": [
+        {
+          "part_id": "9709_s1_t_permutations_and_combinations_m02_l01_cpq03_p01",
+          "label": "a",
+          "difficulty": "medium",
+          "pattern_ids": [
+            "9709_s1_pattern_permutations_ordered_selection"
+          ],
+          "hints": [
+            "The badge has two sequential blocks: 2 letters then 3 digits.",
+            "Choose and arrange 2 letters from 5 distinct letters: 5P2.",
+            "Choose and arrange 3 digits from 7 distinct digits: 7P3, then multiply."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Calculate the arrangements for the 2 letters chosen from $\\{\\text{P, Q, R, S, T}\\}$:\n$$\\text{Letter arrangements} = {}^5P_2 = 5 \\times 4 = 20$$"
+            },
+            {
+              "step": 2,
+              "text": "Calculate the arrangements for the 3 digits chosen from $\\{2, 3, 4, 5, 6, 7, 8\\}$ and multiply:\n$$\\text{Digit arrangements} = {}^7P_3 = 7 \\times 6 \\times 5 = 210, \\quad \\text{Total badges} = 20 \\times 210 = 4200$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "Structure the problem into two sequential stages: ordered letters followed by ordered digits:\n$${}^5P_2 = 20, \\quad {}^7P_3 = 210$$"
+            },
+            {
+              "step": 2,
+              "text": "Combine both stages via the product rule of counting:\n$$\\text{Total badges} = 20 \\times 210 = 4200$$"
+            }
+          ],
+          "checking": {
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_s1_t_permutations_and_combinations_m02_l01_cpq03_p01_c01",
+                "mark": "M1",
+                "observable": "Calculate 5P2 * 7P3 = (5 * 4) * (7 * 6 * 5) = 20 * 210."
+              },
+              {
+                "criterion_id": "9709_s1_t_permutations_and_combinations_m02_l01_cpq03_p01_c02",
+                "mark": "A1",
+                "observable": "Obtain 4200 badges."
+              }
+            ]
+          }
+        },
+        {
+          "part_id": "9709_s1_t_permutations_and_combinations_m02_l01_cpq03_p02",
+          "label": "b",
+          "difficulty": "medium",
+          "pattern_ids": [
+            "9709_s1_pattern_permutations_subtraction_method"
+          ],
+          "hints": [
+            "Use the subtraction rule: Total badges minus badges that contain neither P nor 7.",
+            "To form badges with neither P nor 7, select 2 letters from 4 letters and 3 digits from 6 digits.",
+            "Subtract this complement count from the 4200 total badges found in part a."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Apply the complement principle:\n$$\\text{Badges with P or 7 or both} = \\text{Total badges} - \\text{Badges with neither P nor 7}$$"
+            },
+            {
+              "step": 2,
+              "text": "Count badges with neither P nor 7 by choosing letters from $\\{\\text{Q, R, S, T}\\}$ and digits from $\\{2, 3, 4, 5, 6, 8\\}$:\n$$\\text{Neither count} = {}^4P_2 \\times {}^6P_3 = (4 \\times 3) \\times (6 \\times 5 \\times 4) = 12 \\times 120 = 1440$$"
+            },
+            {
+              "step": 3,
+              "text": "Subtract from the total of 4200:\n$$\\text{Required badges} = 4200 - 1440 = 2760$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "Recognize that 'P or 7 or both' is most cleanly counted by subtracting the complement:\n$$\\text{Required} = \\text{Total} - n(\\text{no P and no 7})$$"
+            },
+            {
+              "step": 2,
+              "text": "Evaluate the complement arrangements with P removed from the letters and 7 removed from the digits:\n$$n(\\text{no P and no 7}) = {}^4P_2 \\times {}^6P_3 = 12 \\times 120 = 1440$$"
+            },
+            {
+              "step": 3,
+              "text": "Deduct this value from the total count established in part a:\n$$\\text{Desired badges} = 4200 - 1440 = 2760$$"
+            }
+          ],
+          "checking": {
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_s1_t_permutations_and_combinations_m02_l01_cpq03_p02_c01",
+                "mark": "M1",
+                "observable": "Calculate the number of badges containing neither P nor 7 as 4P2 * 6P3 = 12 * 120 = 1440."
+              },
+              {
+                "criterion_id": "9709_s1_t_permutations_and_combinations_m02_l01_cpq03_p02_c02",
+                "mark": "M1",
+                "observable": "Subtract the complement count from the total: 4200 - 1440."
+              },
+              {
+                "criterion_id": "9709_s1_t_permutations_and_combinations_m02_l01_cpq03_p02_c03",
+                "mark": "A1",
+                "observable": "Obtain 2760 badges."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_s1_t_permutations_and_combinations_m02_l01_cpq04",
+      "parts": [
+        {
+          "part_id": "9709_s1_t_permutations_and_combinations_m02_l01_cpq04_p01",
+          "label": "a",
+          "difficulty": "medium",
+          "pattern_ids": [
+            "9709_s1_pattern_case_splitting_digit_restrictions"
+          ],
+          "hints": [
+            "The available digits are $\\{0, 2, 3, 5, 7, 8\\}$. The even digits are 0, 2, and 8.",
+            "Because 0 cannot lead, split the count into two cases based on whether the units digit is 0 or not.",
+            "Case 1: Units digit is 0. Case 2: Units digit is 2 or 8."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Separate the calculation into two disjoint cases based on the units digit:\n$$\\text{Case 1: ends in 0}, \\quad \\text{Case 2: ends in 2 or 8}$$"
+            },
+            {
+              "step": 2,
+              "text": "Calculate the count for each case:\n$$\\text{Case 1 (ends in 0)}: 5 \\times 4 \\times 3 \\times 1 = 60, \\quad \\text{Case 2 (ends in 2 or 8)}: 4 \\times 4 \\times 3 \\times 2 = 96$$"
+            },
+            {
+              "step": 3,
+              "text": "Add the counts of both mutually exclusive cases:\n$$\\text{Total 4-digit even numbers} = 60 + 96 = 156$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "Analyze the clash between the units digit restriction (even) and the thousands digit restriction (non-zero):\n$$\\text{Zero is both an even digit and the forbidden leading digit}$$"
+            },
+            {
+              "step": 2,
+              "text": "Split into two clean cases depending on whether zero is placed in the units position:\n$$\\text{Ends in 0}: [\\underline{5}] \\times [\\underline{4}] \\times [\\underline{3}] \\times [\\underline{1}] = 60, \\quad \\text{Ends in 2, 8}: [\\underline{4}] \\times [\\underline{4}] \\times [\\underline{3}] \\times [\\underline{2}] = 96$$"
+            },
+            {
+              "step": 3,
+              "text": "Sum the disjoint counts:\n$$\\text{Total} = 60 + 96 = 156$$"
+            }
+          ],
+          "checking": {
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_s1_t_permutations_and_combinations_m02_l01_cpq04_p01_c01",
+                "mark": "M1",
+                "observable": "Split into mutually exclusive cases: ending in 0 and ending in 2 or 8."
+              },
+              {
+                "criterion_id": "9709_s1_t_permutations_and_combinations_m02_l01_cpq04_p01_c02",
+                "mark": "M1",
+                "observable": "Calculate 5 * 4 * 3 * 1 = 60 for ending in 0, and 4 * 4 * 3 * 2 = 96 for ending in 2 or 8."
+              },
+              {
+                "criterion_id": "9709_s1_t_permutations_and_combinations_m02_l01_cpq04_p01_c03",
+                "mark": "A1",
+                "observable": "Sum the cases to obtain 156 even numbers."
+              }
+            ]
+          }
+        },
+        {
+          "part_id": "9709_s1_t_permutations_and_combinations_m02_l01_cpq04_p02",
+          "label": "b",
+          "difficulty": "medium",
+          "pattern_ids": [
+            "9709_s1_pattern_digits_arrangement_range_without_replacement"
+          ],
+          "hints": [
+            "For a 4-digit number to exceed 5000, its thousands digit must be 5, 7, or 8.",
+            "There are 3 choices for the thousands digit, leaving 5 remaining digits for the next 3 positions.",
+            "Multiply the 3 thousands options by the arrangements of the remaining slots."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Identify the allowed thousands digits from $\\{0, 2, 3, 5, 7, 8\\}$:\n$$\\text{Thousands digit} \\in \\{5, 7, 8\\} \\implies 3 \\text{ choices}$$"
+            },
+            {
+              "step": 2,
+              "text": "Fill the hundreds, tens, and units places with the remaining 5 digits:\n$$\\text{Subsequent slots} = 5 \\times 4 \\times 3 = 60$$"
+            },
+            {
+              "step": 3,
+              "text": "Multiply the choices to get the total:\n$$\\text{Total numbers} = 3 \\times 60 = 180$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "Isolate the threshold constraint at the first position:\n$$\\text{Leading digit} \\in \\{5, 7, 8\\} \\implies 3 \\text{ options}$$"
+            },
+            {
+              "step": 2,
+              "text": "Fill the three remaining slots without repetition from the five remaining digits:\n$${}^5P_3 = 5 \\times 4 \\times 3 = 60$$"
+            },
+            {
+              "step": 3,
+              "text": "Calculate the overall product:\n$$\\text{Total} = 3 \\times 60 = 180$$"
+            }
+          ],
+          "checking": {
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_s1_t_permutations_and_combinations_m02_l01_cpq04_p02_c01",
+                "mark": "B1",
+                "observable": "Identify 3 valid choices (5, 7, 8) for the thousands digit."
+              },
+              {
+                "criterion_id": "9709_s1_t_permutations_and_combinations_m02_l01_cpq04_p02_c02",
+                "mark": "M1",
+                "observable": "Multiply by 5 * 4 * 3 for the remaining slots: 3 * 60."
+              },
+              {
+                "criterion_id": "9709_s1_t_permutations_and_combinations_m02_l01_cpq04_p02_c03",
+                "mark": "A1",
+                "observable": "Obtain 180 numbers."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_s1_t_permutations_and_combinations_m02_l01_cpq05",
+      "parts": [
+        {
+          "part_id": "9709_s1_t_permutations_and_combinations_m02_l01_cpq05_p01",
+          "label": "a",
+          "difficulty": "medium",
+          "pattern_ids": [
+            "9709_s1_pattern_case_splitting_digit_restrictions"
+          ],
+          "hints": [
+            "Numbers with at most 3 digits can have 1 digit, 2 digits, or 3 digits.",
+            "The odd digits are 1, 3, and 7 (3 choices). Remember that multi-digit numbers cannot start with 0.",
+            "Calculate the count for each length separately and add them together."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Count 1-digit odd numbers from $\\{0, 1, 3, 4, 6, 7\\}$:\n$$\\text{1-digit odd} \\in \\{1, 3, 7\\} \\implies 3$$"
+            },
+            {
+              "step": 2,
+              "text": "Count 2-digit and 3-digit odd numbers where the leading digit cannot be 0:\n$$\\text{2-digit}: 4 \\times 3 = 12, \\quad \\text{3-digit}: 4 \\times 4 \\times 3 = 48$$"
+            },
+            {
+              "step": 3,
+              "text": "Sum all three disjoint lengths:\n$$\\text{Total} = 3 + 12 + 48 = 63$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "Break the question into three disjoint cases according to number length:\n$$\\text{Lengths}: \\quad \\text{1 digit}, \\quad \\text{2 digits}, \\quad \\text{3 digits}$$"
+            },
+            {
+              "step": 2,
+              "text": "Determine the counts for each length with odd units place and non-zero lead:\n$$\\text{1-digit} = 3, \\quad \\text{2-digit} = 4 \\times 3 = 12, \\quad \\text{3-digit} = 4 \\times 4 \\times 3 = 48$$"
+            },
+            {
+              "step": 3,
+              "text": "Add the mutually exclusive cases:\n$$\\text{Total odd numbers} = 3 + 12 + 48 = 63$$"
+            }
+          ],
+          "checking": {
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_s1_t_permutations_and_combinations_m02_l01_cpq05_p01_c01",
+                "mark": "M1",
+                "observable": "Calculate 12 two-digit odd numbers from 4 * 3."
+              },
+              {
+                "criterion_id": "9709_s1_t_permutations_and_combinations_m02_l01_cpq05_p01_c02",
+                "mark": "M1",
+                "observable": "Calculate 48 three-digit odd numbers from 4 * 4 * 3."
+              },
+              {
+                "criterion_id": "9709_s1_t_permutations_and_combinations_m02_l01_cpq05_p01_c03",
+                "mark": "A1",
+                "observable": "Add the three disjoint counts (3 + 12 + 48) to obtain 63 odd numbers."
+              }
+            ]
+          }
+        },
+        {
+          "part_id": "9709_s1_t_permutations_and_combinations_m02_l01_cpq05_p02",
+          "label": "b",
+          "difficulty": "medium",
+          "pattern_ids": [
+            "9709_s1_pattern_digits_arrangement_even_with_replacement"
+          ],
+          "hints": [
+            "Digits may be repeated, so availability is not reduced by previous selections.",
+            "The thousands digit can be any non-zero digit: 1, 3, 4, 6, 7 (5 choices).",
+            "The units digit must be even: 0, 4, 6 (3 choices). The middle two digits have 6 choices each."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Identify slot capacities with repetition allowed:\n$$\\text{Thousands}: 5, \\quad \\text{Hundreds}: 6, \\quad \\text{Tens}: 6, \\quad \\text{Units}: 3$$"
+            },
+            {
+              "step": 2,
+              "text": "Multiply across the 4 positions:\n$$\\text{Total} = 5 \\times 6 \\times 6 \\times 3 = 540$$"
+            },
+            {
+              "step": 3,
+              "text": "Verify the calculation by grouping factors:\n$$(5 \\times 3) \\times 36 = 15 \\times 36 = 540$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "Identify the boundary constraints: thousands cannot be 0, and units must be even:\n$$\\text{Thousands} \\in \\{1, 3, 4, 6, 7\\} \\implies 5, \\quad \\text{Units} \\in \\{0, 4, 6\\} \\implies 3$$"
+            },
+            {
+              "step": 2,
+              "text": "Fill the middle two slots freely from all six available digits:\n$$\\text{Middle slots} = 6 \\times 6 = 36$$"
+            },
+            {
+              "step": 3,
+              "text": "Compute the total count:\n$$\\text{Total even numbers} = 5 \\times 36 \\times 3 = 540$$"
+            }
+          ],
+          "checking": {
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_s1_t_permutations_and_combinations_m02_l01_cpq05_p02_c01",
+                "mark": "B1",
+                "observable": "Identify 5 choices for the first digit and 3 choices for the units digit."
+              },
+              {
+                "criterion_id": "9709_s1_t_permutations_and_combinations_m02_l01_cpq05_p02_c02",
+                "mark": "M1",
+                "observable": "Calculate 5 * 6 * 6 * 3 for 4-digit even numbers with repetition."
+              },
+              {
+                "criterion_id": "9709_s1_t_permutations_and_combinations_m02_l01_cpq05_p02_c03",
+                "mark": "A1",
+                "observable": "Obtain 540 numbers."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_s1_t_permutations_and_combinations_m02_l01_cpq06",
+      "parts": [
+        {
+          "part_id": "9709_s1_t_permutations_and_combinations_m02_l01_cpq06_p01",
+          "label": "a",
+          "difficulty": "hard",
+          "pattern_ids": [
+            "9709_s1_pattern_permutations_ordered_selection"
+          ],
+          "hints": [
+            "Each key has 2 distinct letters from 6 followed by 3 distinct digits from 9.",
+            "Calculate 6P2 for the letter part.",
+            "Calculate 9P3 for the digit part.",
+            "Multiply the two results using the product rule."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Calculate permutations for the 2 letter slots from 6 letters:\n$${}^6P_2 = 6 \\times 5 = 30$$"
+            },
+            {
+              "step": 2,
+              "text": "Calculate permutations for the 3 digit slots from 9 digits and multiply:\n$${}^9P_3 = 9 \\times 8 \\times 7 = 504, \\quad \\text{Total keys} = 30 \\times 504 = 15120$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "Model the access key as two sequential independent permutations:\n$${}^6P_2 = 30, \\quad {}^9P_3 = 504$$"
+            },
+            {
+              "step": 2,
+              "text": "Combine via multiplication along independent stages:\n$$\\text{Total keys} = 30 \\times 504 = 15120$$"
+            }
+          ],
+          "checking": {
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_s1_t_permutations_and_combinations_m02_l01_cpq06_p01_c01",
+                "mark": "M1",
+                "observable": "Calculate 6P2 * 9P3 = 30 * 504."
+              },
+              {
+                "criterion_id": "9709_s1_t_permutations_and_combinations_m02_l01_cpq06_p01_c02",
+                "mark": "A1",
+                "observable": "Obtain 15120 access keys."
+              }
+            ]
+          }
+        },
+        {
+          "part_id": "9709_s1_t_permutations_and_combinations_m02_l01_cpq06_p02",
+          "label": "b",
+          "difficulty": "hard",
+          "pattern_ids": [
+            "9709_s1_pattern_permutations_subtraction_method"
+          ],
+          "hints": [
+            "Use the subtraction principle: Total keys minus keys containing neither A nor 9.",
+            "To exclude A, choose 2 letters from the remaining 5 letters.",
+            "To exclude 9, choose 3 digits from the remaining 8 digits.",
+            "Multiply the restricted counts and subtract from the total of 15120."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Formulate the complement strategy:\n$$\\text{Keys with A or 9 or both} = 15120 - n(\\text{neither A nor 9})$$"
+            },
+            {
+              "step": 2,
+              "text": "Compute keys formed without letter A and without digit 9:\n$$n(\\text{neither}) = {}^5P_2 \\times {}^8P_3 = (5 \\times 4) \\times (8 \\times 7 \\times 6) = 20 \\times 336 = 6720$$"
+            },
+            {
+              "step": 3,
+              "text": "Subtract the complement from the total:\n$$\\text{Required keys} = 15120 - 6720 = 8400$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "State the complement counting principle clearly:\n$$\\text{Target} = \\text{Total} - n(\\text{neither A nor 9})$$"
+            },
+            {
+              "step": 2,
+              "text": "Calculate the arrangements that avoid letter A and avoid digit 9:\n$$n(\\text{neither}) = {}^5P_2 \\times {}^8P_3 = 20 \\times 336 = 6720$$"
+            },
+            {
+              "step": 3,
+              "text": "Subtract from the grand total calculated in part a:\n$$\\text{Total required keys} = 15120 - 6720 = 8400$$"
+            }
+          ],
+          "checking": {
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_s1_t_permutations_and_combinations_m02_l01_cpq06_p02_c01",
+                "mark": "M1",
+                "observable": "State or use the complement subtraction principle: Total minus keys with neither A nor 9."
+              },
+              {
+                "criterion_id": "9709_s1_t_permutations_and_combinations_m02_l01_cpq06_p02_c02",
+                "mark": "M1",
+                "observable": "Calculate keys with neither as 5P2 * 8P3 = 20 * 336 = 6720."
+              },
+              {
+                "criterion_id": "9709_s1_t_permutations_and_combinations_m02_l01_cpq06_p02_c03",
+                "mark": "A1",
+                "observable": "Obtain 15120 - 6720 = 8400 access keys."
+              }
+            ]
+          }
+        },
+        {
+          "part_id": "9709_s1_t_permutations_and_combinations_m02_l01_cpq06_p03",
+          "label": "c",
+          "difficulty": "hard",
+          "pattern_ids": [
+            "9709_s1_pattern_case_splitting_digit_restrictions"
+          ],
+          "hints": [
+            "The digit part is a 3-digit number from $\\{1, 2, 3, 4, 5, 6, 7, 8, 9\\}$ that must be odd and greater than 500.",
+            "For the number to exceed 500, its first digit must be 5, 6, 7, 8, or 9.",
+            "For the number to be odd, its last digit must be 1, 3, 5, 7, or 9.",
+            "Split into two cases based on whether the first digit is even (6, 8) or odd (5, 7, 9).",
+            "After finding the valid digit combinations, multiply by the 30 letter combinations."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Split the digit part into two cases depending on whether the hundreds digit is even or odd:\n$$\\text{Case 1: hundreds} \\in \\{6, 8\\}, \\quad \\text{Case 2: hundreds} \\in \\{5, 7, 9\\}$$"
+            },
+            {
+              "step": 2,
+              "text": "Calculate the digit arrangements for each case:\n$$\\text{Case 1}: 2 \\times 7 \\times 5 = 70, \\quad \\text{Case 2}: 3 \\times 7 \\times 4 = 84, \\quad \\text{Total digit parts} = 70 + 84 = 154$$"
+            },
+            {
+              "step": 3,
+              "text": "Multiply by the 30 letter choices from part a:\n$$\\text{Total access keys} = 30 \\times 154 = 4620$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "Analyze the overlapping parity and range restrictions on the 3-digit number:\n$$\\text{Hundreds} \\in \\{5, 6, 7, 8, 9\\}, \\quad \\text{Units} \\in \\{1, 3, 5, 7, 9\\}$$"
+            },
+            {
+              "step": 2,
+              "text": "Partition into disjoint cases based on whether the hundreds digit is even or odd:\n$$\\text{Even hundreds}: 2 \\times 7 \\times 5 = 70, \\quad \\text{Odd hundreds}: 3 \\times 7 \\times 4 = 84, \\quad \\text{Sum} = 154$$"
+            },
+            {
+              "step": 3,
+              "text": "Combine with the independent letter selections:\n$$\\text{Total keys} = 30 \\times 154 = 4620$$"
+            }
+          ],
+          "checking": {
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_s1_t_permutations_and_combinations_m02_l01_cpq06_p03_c01",
+                "mark": "M1",
+                "observable": "Split the digit part into cases where the hundreds digit is even (6, 8) or odd (5, 7, 9)."
+              },
+              {
+                "criterion_id": "9709_s1_t_permutations_and_combinations_m02_l01_cpq06_p03_c02",
+                "mark": "M1",
+                "observable": "Calculate digit arrangements as (2 * 7 * 5) + (3 * 7 * 4) = 70 + 84 = 154."
+              },
+              {
+                "criterion_id": "9709_s1_t_permutations_and_combinations_m02_l01_cpq06_p03_c03",
+                "mark": "A1",
+                "observable": "Multiply by 30 letter choices to obtain 4620 access keys."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_s1_t_permutations_and_combinations_m02_l01_cpq07",
+      "parts": [
+        {
+          "part_id": "9709_s1_t_permutations_and_combinations_m02_l01_cpq07_p01",
+          "label": "a",
+          "difficulty": "hard",
+          "pattern_ids": [
+            "9709_s1_pattern_digits_arrangement_range_without_replacement"
+          ],
+          "hints": [
+            "The available digits are $\\{0, 2, 4, 5, 7, 9\\}$. Numbers must lie strictly between 2500 and 8000.",
+            "If the thousands digit is 2, the hundreds digit must be 5, 7, or 9 to exceed 2500.",
+            "If the thousands digit is 4, 5, or 7, any of the remaining digits can fill the hundreds place.",
+            "Calculate each case separately and add the results."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Calculate numbers with thousands digit equal to 2 (hundreds digit must be 5, 7, or 9):\n$$\\text{Numbers beginning with 2} = 1 \\times 3 \\times 4 \\times 3 = 36$$"
+            },
+            {
+              "step": 2,
+              "text": "Calculate numbers with thousands digit in $\\{4, 5, 7\\}$:\n$$\\text{Numbers beginning with 4, 5, 7} = 3 \\times 5 \\times 4 \\times 3 = 180$$"
+            },
+            {
+              "step": 3,
+              "text": "Sum the two disjoint cases:\n$$\\text{Total numbers} = 36 + 180 = 216$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "Notice that the boundary 2500 splits the leading digit 2 into a constrained subcase:\n$$\\text{First digit 2} \\implies \\text{Second digit} \\in \\{5, 7, 9\\} \\implies 1 \\times 3 \\times 4 \\times 3 = 36$$"
+            },
+            {
+              "step": 2,
+              "text": "For leading digits 4, 5, or 7, all subsequent distinct digit assignments naturally satisfy the range:\n$$\\text{First digit} \\in \\{4, 5, 7\\} \\implies 3 \\times (5 \\times 4 \\times 3) = 180$$"
+            },
+            {
+              "step": 3,
+              "text": "Sum the mutually exclusive sets:\n$$\\text{Total} = 36 + 180 = 216$$"
+            }
+          ],
+          "checking": {
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_s1_t_permutations_and_combinations_m02_l01_cpq07_p01_c01",
+                "mark": "M1",
+                "observable": "Calculate numbers beginning with 2: 1 * 3 * 4 * 3 = 36."
+              },
+              {
+                "criterion_id": "9709_s1_t_permutations_and_combinations_m02_l01_cpq07_p01_c02",
+                "mark": "M1",
+                "observable": "Calculate numbers beginning with 4, 5, or 7: 3 * 5 * 4 * 3 = 180."
+              },
+              {
+                "criterion_id": "9709_s1_t_permutations_and_combinations_m02_l01_cpq07_p01_c03",
+                "mark": "A1",
+                "observable": "Add the cases to obtain 216 numbers."
+              }
+            ]
+          }
+        },
+        {
+          "part_id": "9709_s1_t_permutations_and_combinations_m02_l01_cpq07_p02",
+          "label": "b",
+          "difficulty": "hard",
+          "pattern_ids": [
+            "9709_s1_pattern_case_splitting_digit_restrictions"
+          ],
+          "hints": [
+            "The number must be greater than 4000 and odd, chosen from $\\{0, 2, 4, 5, 7, 9\\}$.",
+            "Thousands digits exceeding 4000 are 4, 5, 7, 9. Odd digits are 5, 7, 9.",
+            "Because 5, 7, 9 can appear in either the first or last position, split into cases based on whether the thousands digit is 4 or an odd digit.",
+            "Case 1: Thousands digit is 4. Case 2: Thousands digit is 5, 7, or 9."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Split into two cases based on whether the thousands digit is even (4) or odd (5, 7, 9):\n$$\\text{Case 1: thousands digit is 4}, \\quad \\text{Case 2: thousands digit} \\in \\{5, 7, 9\\}$$"
+            },
+            {
+              "step": 2,
+              "text": "Evaluate the counts for each case:\n$$\\text{Case 1}: 1 \\times 4 \\times 3 \\times 3 = 36, \\quad \\text{Case 2}: 3 \\times 4 \\times 3 \\times 2 = 72$$"
+            },
+            {
+              "step": 3,
+              "text": "Sum the disjoint cases:\n$$\\text{Total 4-digit odd numbers} = 36 + 72 = 108$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "Identify the competition between the leading place (>4000) and the ending place (odd) for the odd digits 5, 7, 9:\n$$\\text{Leading} \\in \\{4, 5, 7, 9\\}, \\quad \\text{Ending} \\in \\{5, 7, 9\\}$$"
+            },
+            {
+              "step": 2,
+              "text": "Partition into mutually exclusive cases:\n$$\\text{First digit 4}: 1 \\times 12 \\times 3 = 36, \\quad \\text{First digit in } \\{5, 7, 9\\}: 3 \\times 12 \\times 2 = 72$$"
+            },
+            {
+              "step": 3,
+              "text": "Add the counts together:\n$$\\text{Total} = 36 + 72 = 108$$"
+            }
+          ],
+          "checking": {
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_s1_t_permutations_and_combinations_m02_l01_cpq07_p02_c01",
+                "mark": "M1",
+                "observable": "Split into cases where the thousands digit is 4 vs thousands digit in {5, 7, 9}."
+              },
+              {
+                "criterion_id": "9709_s1_t_permutations_and_combinations_m02_l01_cpq07_p02_c02",
+                "mark": "M1",
+                "observable": "Evaluate (1 * 4 * 3 * 3) + (3 * 4 * 3 * 2) = 36 + 72 = 108."
+              },
+              {
+                "criterion_id": "9709_s1_t_permutations_and_combinations_m02_l01_cpq07_p02_c03",
+                "mark": "A1",
+                "observable": "Obtain 108 odd numbers."
+              }
+            ]
+          }
+        },
+        {
+          "part_id": "9709_s1_t_permutations_and_combinations_m02_l01_cpq07_p03",
+          "label": "c",
+          "difficulty": "hard",
+          "pattern_ids": [
+            "9709_s1_pattern_case_splitting_digit_restrictions"
+          ],
+          "hints": [
+            "Positive even numbers less than 500 can be 1-digit, 2-digit, or 3-digit numbers.",
+            "Available digits are $\\{0, 2, 4, 5, 7, 9\\}$. Even digits are 0, 2, 4.",
+            "For 1-digit numbers, the only positive even digits are 2 and 4 (2 numbers).",
+            "For 2-digit numbers, count those ending in 0 (5 numbers) and those ending in 2 or 4 (8 numbers), giving 13 numbers.",
+            "For 3-digit numbers less than 500, the hundreds digit must be 2 or 4. Find the remaining valid slot assignments and sum all lengths."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Count 1-digit positive even numbers and 2-digit positive even numbers:\n$$\\text{1-digit}: \\{2, 4\\} \\implies 2, \\quad \\text{2-digit}: (5 \\times 1) + (4 \\times 2) = 5 + 8 = 13$$"
+            },
+            {
+              "step": 2,
+              "text": "Count 3-digit positive even numbers less than 500 (hundreds place must be 2 or 4):\n$$\\text{Hundreds} \\in \\{2, 4\\} \\implies 2, \\quad \\text{Units (even)}: 2 \\text{ remaining}, \\quad \\text{Tens}: 4 \\text{ remaining} \\implies 2 \\times 4 \\times 2 = 16$$"
+            },
+            {
+              "step": 3,
+              "text": "Sum all valid lengths:\n$$\\text{Total positive even numbers} = 2 + 13 + 16 = 31$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "Categorize by length for numbers less than 500: single-digit, two-digit, and three-digit:\n$$\\text{1-digit}: 2, \\quad \\text{2-digit}: 5 + 8 = 13$$"
+            },
+            {
+              "step": 2,
+              "text": "Evaluate 3-digit even numbers strictly below 500. The hundreds digit must be 2 or 4, which takes one even digit, leaving 2 even digits for the units slot:\n$$\\text{3-digit} = 2 \\times 4 \\times 2 = 16$$"
+            },
+            {
+              "step": 3,
+              "text": "Add all three mutually exclusive lengths together:\n$$\\text{Total} = 2 + 13 + 16 = 31$$"
+            }
+          ],
+          "checking": {
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_s1_t_permutations_and_combinations_m02_l01_cpq07_p03_c01",
+                "mark": "B1",
+                "observable": "Find 2 one-digit even numbers and 13 two-digit even numbers (5 + 8)."
+              },
+              {
+                "criterion_id": "9709_s1_t_permutations_and_combinations_m02_l01_cpq07_p03_c02",
+                "mark": "M1",
+                "observable": "Calculate three-digit even numbers less than 500 as 2 * 4 * 2 = 16."
+              },
+              {
+                "criterion_id": "9709_s1_t_permutations_and_combinations_m02_l01_cpq07_p03_c03",
+                "mark": "A1",
+                "observable": "Add 2 + 13 + 16 to obtain 31 positive even numbers."
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

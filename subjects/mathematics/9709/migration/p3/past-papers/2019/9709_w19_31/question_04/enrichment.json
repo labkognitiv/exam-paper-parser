@@ -1,0 +1,163 @@
+{
+  "schema_version": "9709_math_enrichment_v3",
+  "paper_code": "9709_w19_31",
+  "question_id": "9709_w19_31_q4",
+  "question_num": 4,
+  "subject_code": "9709",
+  "component": "P3",
+  "year": 2019,
+  "session": "Oct/Nov",
+  "variant": "31",
+  "difficulty": 5,
+  "numerical_values_checked": false,
+  "parts": [
+    {
+      "part_id": "9709_w19_31_q4_i",
+      "difficulty": 3,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_p3_t_differentiation",
+        "module_id": "9709_p3_t_differentiation_m04",
+        "lesson_id": "9709_p3_t_differentiation_m04_l01"
+      },
+      "skills": {
+        "primary_skill_id": "9709_p3_skill_solving_separable_differential_equations",
+        "skill_tags": [
+          "Solving Separable Differential Equations"
+        ]
+      },
+      "question_pattern_ids": [
+        "9709_p3_pattern_solve_equation",
+        "9709_p3_pattern_prove_or_show",
+        "9709_p3_pattern_calculus_process"
+      ],
+      "knowledge_refs": {
+        "formula_ids": [],
+        "identity_ids": [],
+        "method_ids": [
+          "9709_p3_method_solving_separable_differential_equations"
+        ],
+        "fact_ids": []
+      },
+      "hints": [
+        "Translate 'decreasing at a rate proportional to $Ne^{-0.02t}$' into a differential equation with a negative proportionality constant.",
+        "Write $dN/dt=kNe^{-0.02t}$ and substitute $t=0$, $N=1000$, $dN/dt=-10$.",
+        "Solve for $k$ and insert it into the model."
+      ],
+      "walkthrough": [
+        "Translate the statement that the population decreases at a rate proportional to $N\\mathrm{e}^{-0.02t}$ into a differential equation:\n$$\\dfrac{\\mathrm{d}N}{\\mathrm{d}t} = -k N\\mathrm{e}^{-0.02t} \\quad (\\text{where } k > 0)$$",
+        "Substitute the given initial conditions $t = 0$, $N = 1000$, and $\\dfrac{\\mathrm{d}N}{\\mathrm{d}t} = -10$:\n$$-10 = -k(1000)\\mathrm{e}^0$$\n$$-10 = -1000k \\implies k = \\dfrac{10}{1000} = 0.01$$",
+        "Substitute $k = 0.01$ into the differential equation:\n$$\\dfrac{\\mathrm{d}N}{\\mathrm{d}t} = -0.01\\mathrm{e}^{-0.02t}N$$\nThis confirms the given differential equation."
+      ],
+      "checking": {
+        "mode": "ai",
+        "ai_rubric": {
+          "Solving Separable Differential Equations": "Identifies $\\dfrac{dN}{dt}=ke^{-0.02t}N$ and show $k=-0.01$; Concludes with $\\displaystyle \\frac{dN}{dt}=-0.01e^{-0.02t}N$."
+        },
+        "criteria_source": "mark_scheme_structured"
+      }
+    },
+    {
+      "part_id": "9709_w19_31_q4_ii",
+      "difficulty": 5,
+      "practice_tier": "revision",
+      "mapping": {
+        "topic_id": "9709_p3_t_logarithmic_and_exponential_functions",
+        "module_id": "9709_p3_t_logarithmic_and_exponential_functions_m03",
+        "lesson_id": "9709_p3_t_logarithmic_and_exponential_functions_m03_l02"
+      },
+      "skills": {
+        "primary_skill_id": "9709_p3_skill_solving_separable_differential_equations",
+        "skill_tags": [
+          "Solving Separable Differential Equations"
+        ]
+      },
+      "question_pattern_ids": [
+        "9709_p3_pattern_solve_equation",
+        "9709_p3_pattern_find_parameter",
+        "9709_p3_pattern_calculus_process",
+        "9709_p3_pattern_trigonometric_reasoning"
+      ],
+      "knowledge_refs": {
+        "formula_ids": [],
+        "identity_ids": [
+          "9709_p3_identity_double_angle",
+          "9709_p3_identity_pythagorean"
+        ],
+        "method_ids": [
+          "9709_p3_method_solving_separable_differential_equations"
+        ],
+        "fact_ids": []
+      },
+      "hints": [
+        "Separate the model from part (i) as $dN/N=-0.01e^{-0.02t}dt$.",
+        "Integrate both sides; the time integral gains a factor $-1/0.02$.",
+        "Apply $N=1000$ at $t=0$ to determine the constant or use definite limits.",
+        "Set $N=800$, isolate $e^{-0.02t}$, then take logarithms to solve for $t$ in weeks."
+      ],
+      "walkthrough": [
+        "Separate variables in the differential equation $\\dfrac{\\mathrm{d}N}{\\mathrm{d}t} = -0.01\\mathrm{e}^{-0.02t}N$:\n$$\\dfrac{1}{N}\\,\\mathrm{d}N = -0.01\\mathrm{e}^{-0.02t}\\,\\mathrm{d}t$$",
+        "Integrate both sides:\n$$\\int \\dfrac{1}{N}\\,\\mathrm{d}N = \\int -0.01\\mathrm{e}^{-0.02t}\\,\\mathrm{d}t$$\n$$\\ln N = -0.01\\left(\\dfrac{\\mathrm{e}^{-0.02t}}{-0.02}\\right) + C = \\dfrac{0.01}{0.02}\\mathrm{e}^{-0.02t} + C = 0.5\\mathrm{e}^{-0.02t} + C$$",
+        "Use the initial condition $t = 0$ when $N = 1000$ to find $C$:\n$$\\ln 1000 = 0.5\\mathrm{e}^0 + C = 0.5 + C$$\n$$C = \\ln 1000 - 0.5$$",
+        "Substitute $C$ back to obtain the particular solution:\n$$\\ln N = 0.5\\mathrm{e}^{-0.02t} + \\ln 1000 - 0.5$$\n$$\\ln\\left(\\dfrac{N}{1000}\\right) = 0.5\\left(\\mathrm{e}^{-0.02t} - 1\\right)$$",
+        "Substitute $N = 800$ to solve for $t$:\n$$\\ln\\left(\\dfrac{800}{1000}\\right) = 0.5\\left(\\mathrm{e}^{-0.02t} - 1\\right)$$\n$$\\ln(0.8) = 0.5\\left(\\mathrm{e}^{-0.02t} - 1\\right)$$",
+        "Multiply by $2$ and compute numerical values:\n$$2\\ln(0.8) = \\mathrm{e}^{-0.02t} - 1$$\n$$2(-0.223144) = -0.446287 = \\mathrm{e}^{-0.02t} - 1$$\n$$\\mathrm{e}^{-0.02t} = 1 - 0.446287 = 0.553713$$",
+        "Take the natural logarithm of both sides:\n$$-0.02t = \\ln(0.553713) \\approx -0.591104$$\n$$t = \\dfrac{-0.591104}{-0.02} \\approx 29.5552$$",
+        "Round to 3 significant figures:\n$$t \\approx 29.6 \\text{ weeks}$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "ai_rubric": {
+          "Solving Separable Differential Equations": "Separates variables and integrates the separated equation. Derives the term $\\ln N$. The final result is $\\ln N-\\ln1000=0.5(e^{-0.02t}-1)$, and $t=29.6$ weeks."
+        },
+        "criteria_source": "mark_scheme_structured"
+      }
+    },
+    {
+      "part_id": "9709_w19_31_q4_iii",
+      "difficulty": 1,
+      "practice_tier": "revision",
+      "mapping": {
+        "topic_id": "9709_p3_t_differentiation",
+        "module_id": "9709_p3_t_differentiation_m04",
+        "lesson_id": "9709_p3_t_differentiation_m04_l01"
+      },
+      "skills": {
+        "primary_skill_id": "9709_p3_skill_solving_separable_differential_equations",
+        "skill_tags": [
+          "Solving Separable Differential Equations"
+        ]
+      },
+      "question_pattern_ids": [
+        "9709_p3_pattern_solve_equation",
+        "9709_p3_pattern_calculus_process"
+      ],
+      "knowledge_refs": {
+        "formula_ids": [],
+        "identity_ids": [],
+        "method_ids": [
+          "9709_p3_method_solving_separable_differential_equations"
+        ],
+        "fact_ids": []
+      },
+      "hints": [
+        "Use the solved relation from part (ii) and take the limit as $t\\to\\infty$.",
+        "Since $e^{-0.02t}\\to0$, simplify the limiting logarithmic equation and exponentiate to identify the positive limiting population."
+      ],
+      "walkthrough": [
+        "Examine the limiting behavior of the particular solution as $t \\to \\infty$:\n$$\\ln N = 0.5\\mathrm{e}^{-0.02t} + \\ln 1000 - 0.5$$",
+        "As $t \\to \\infty$, the decaying exponential term approaches zero: $\\mathrm{e}^{-0.02t} \\to 0$.",
+        "Therefore, the logarithm of the population approaches:\n$$\\ln N \\to \\ln 1000 - 0.5$$",
+        "Exponentiate to find the limiting population:\n$$N \\to \\mathrm{e}^{\\ln 1000 - 0.5} = 1000\\mathrm{e}^{-0.5} = \\dfrac{1000}{\\sqrt{\\mathrm{e}}} \\approx 607$$",
+        "State that $N$ approaches $\\dfrac{1000}{\\sqrt{\\mathrm{e}}}$ (or approximately $607$)."
+      ],
+      "checking": {
+        "mode": "ai",
+        "ai_rubric": {
+          "Solving Separable Differential Equations": "Concludes that $N$ approaches $\\dfrac{1000}{\\sqrt e}$; Concludes with $N$ approaches $1000/\\sqrt e$ (approximately $606.5$)."
+        },
+        "criteria_source": "mark_scheme_structured"
+      }
+    }
+  ]
+}

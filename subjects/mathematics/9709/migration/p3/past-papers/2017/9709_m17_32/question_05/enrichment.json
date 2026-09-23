@@ -1,0 +1,77 @@
+{
+  "schema_version": "9709_math_enrichment_v3",
+  "paper_code": "9709_m17_32",
+  "question_id": "9709_m17_32_q5",
+  "question_num": 5,
+  "subject_code": "9709",
+  "component": "P3",
+  "year": 2017,
+  "session": "Feb/March",
+  "variant": "32",
+  "difficulty": 5,
+  "numerical_values_checked": false,
+  "parts": [
+    {
+      "part_id": "9709_m17_32_q5",
+      "difficulty": 5,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_p3_t_differentiation",
+        "module_id": "9709_p3_t_differentiation_m02",
+        "lesson_id": "9709_p3_t_differentiation_m02_l03"
+      },
+      "skills": {
+        "primary_skill_id": "9709_p3_skill_differentiation",
+        "skill_tags": [
+          "Differentiation"
+        ]
+      },
+      "question_pattern_ids": [
+        "9709_p3_pattern_solve_equation",
+        "9709_p3_pattern_solve_inequality",
+        "9709_p3_pattern_exact_value",
+        "9709_p3_pattern_find_parameter",
+        "9709_p3_pattern_calculus_process",
+        "9709_p3_pattern_trigonometric_reasoning"
+      ],
+      "knowledge_refs": {
+        "formula_ids": [],
+        "identity_ids": [
+          "9709_p3_identity_double_angle",
+          "9709_p3_identity_pythagorean"
+        ],
+        "method_ids": [
+          "9709_p3_method_differentiation"
+        ],
+        "fact_ids": []
+      },
+      "hints": [
+        "A horizontal tangent occurs where the derivative of $e^{-ax}\\tan x$ is zero.",
+        "Use the product rule, then divide by the non-zero exponential factor and rewrite $\\sec^2x$ as $1+\\tan^2x$.",
+        "Treat the resulting relation as a quadratic in $\\tan x$.",
+        "The statement that there is only one stationary point in $0<x<\\pi/2$ forces this quadratic to have a repeated positive root; use its discriminant.",
+        "Use that repeated value of $\\tan x$ to identify the exact $x$-coordinate in the stated interval."
+      ],
+      "walkthrough": [
+        "Differentiate the curve equation $y = e^{-ax}\\tan x$ using the product rule:\nLet $u = e^{-ax}$ and $v = \\tan x$.\nThen $\\dfrac{\\mathrm{d}u}{\\mathrm{d}x} = -ae^{-ax}$ and $\\dfrac{\\mathrm{d}v}{\\mathrm{d}x} = \\sec^2 x$.",
+        "Apply the product rule formula $\\dfrac{\\mathrm{d}y}{\\mathrm{d}x} = u\\dfrac{\\mathrm{d}v}{\\mathrm{d}x} + v\\dfrac{\\mathrm{d}u}{\\mathrm{d}x}$:\n$$\\dfrac{\\mathrm{d}y}{\\mathrm{d}x} = e^{-ax}\\sec^2 x + (\\tan x)(-ae^{-ax}) = e^{-ax}(\\sec^2 x - a\\tan x)$$",
+        "A tangent parallel to the $x$-axis occurs where the gradient is zero:\n$$\\dfrac{\\mathrm{d}y}{\\mathrm{d}x} = 0 \\implies e^{-ax}(\\sec^2 x - a\\tan x) = 0$$",
+        "Since the exponential function $e^{-ax} > 0$ for all real $x$, divide both sides by $e^{-ax}$:\n$$\\sec^2 x - a\\tan x = 0$$",
+        "Use the Pythagorean trigonometric identity $\\sec^2 x = 1 + \\tan^2 x$ to rewrite the equation purely in terms of $\\tan x$:\n$$(1 + \\tan^2 x) - a\\tan x = 0$$\n$$\\tan^2 x - a\\tan x + 1 = 0$$",
+        "Treat this equation as a quadratic in $T$, where $T = \\tan x$:\n$$T^2 - aT + 1 = 0$$",
+        "The problem specifies that there is only one point in the interval $0 < x < \\dfrac{1}{2}\\pi$ where the tangent is horizontal.\nSince $x \\mapsto \\tan x$ is strictly increasing and bijective from $\\left(0, \\dfrac{1}{2}\\pi\\right)$ to $(0, \\infty)$, there must be exactly one positive solution for $T$.\nFor this quadratic to have a single repeated root, its discriminant must be zero:\n$$\\Delta = (-a)^2 - 4(1)(1) = a^2 - 4 = 0$$\n$$a^2 = 4$$",
+        "Since $a$ is given as a positive constant ($a > 0$):\n$$a = 2$$",
+        "Substitute $a = 2$ back into the quadratic equation:\n$$T^2 - 2T + 1 = 0 \\implies (T - 1)^2 = 0 \\implies T = 1$$\nSince $T = 1 > 0$, this yields the unique solution in the interval.",
+        "Solve for the exact $x$-coordinate:\n$$\\tan x = 1 \\quad \\text{for } 0 < x < \\dfrac{1}{2}\\pi$$\n$$x = \\arctan(1) = \\dfrac{1}{4}\\pi$$",
+        "State the final exact values:\n$$a = 2 \\quad \\text{and} \\quad x = \\dfrac{1}{4}\\pi$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "ai_rubric": {
+          "Differentiation": "Applies product rule; Equates derivative to zero, use Pythagoras and derives a quadratic equation in $\\tan x$; Concludes with $a=2$ and $x=\\frac14\\pi$."
+        },
+        "criteria_source": "mark_scheme_structured"
+      }
+    }
+  ]
+}

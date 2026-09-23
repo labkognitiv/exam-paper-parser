@@ -1,0 +1,117 @@
+{
+  "schema_version": "9709_math_enrichment_v3",
+  "paper_code": "9709_w18_63",
+  "question_id": "9709_w18_63_q5",
+  "question_num": 5,
+  "subject_code": "9709",
+  "component": "S1",
+  "year": 2018,
+  "session": "Oct/Nov",
+  "variant": "63",
+  "difficulty": 3,
+  "numerical_values_checked": false,
+  "parts": [
+    {
+      "part_id": "9709_w18_63_q5_i",
+      "difficulty": 2,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_s1_t_the_normal_distribution",
+        "module_id": "9709_s1_t_the_normal_distribution_m02",
+        "lesson_id": "9709_s1_t_the_normal_distribution_m02_l02"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_calculating_normal_probabilities",
+        "skill_tags": [
+          "Calculating Normal Probabilities"
+        ]
+      },
+      "question_pattern_ids": [
+        "9709_s1_pattern_normal_interval_between_two_values"
+      ],
+      "knowledge_refs": {
+        "formula_ids": [
+          "9709_s1_formula_standardisation"
+        ],
+        "identity_ids": [],
+        "method_ids": [
+          "9709_s1_method_calculating_normal_probabilities"
+        ],
+        "fact_ids": []
+      },
+      "hints": [
+        "Medium apples have weights between 90 g and 140 g, where $W \\sim \\mathrm{N}(120, 24^2)$.",
+        "Standardize both boundaries: $z_1 = \\frac{90 - 120}{24}$ and $z_2 = \\frac{140 - 120}{24}$.",
+        "Evaluate $\\Phi(z_2) - \\Phi(z_1) = \\Phi(0.833) - [1 - \\Phi(1.25)]$ using the standard normal distribution table."
+      ],
+      "walkthrough": [
+        "Standardize both boundary values for medium apples ($90 \\le W \\le 140$):\n$$z_1 = \\frac{90 - 120}{24} = -\\frac{30}{24} = -1.25$$\n$$z_2 = \\frac{140 - 120}{24} = \\frac{20}{24} = \\frac{5}{6} \\approx 0.8333$$",
+        "Express the interval probability using the cumulative standard normal function:\n$$\\mathrm{P}(90 \\le W \\le 140) = \\Phi(0.833) - \\Phi(-1.25) = \\Phi(0.833) - [1 - \\Phi(1.25)]$$",
+        "Look up the values in the standard normal table:\n$$\\Phi(0.833) \\approx 0.7976$$\n$$\\Phi(1.25) = 0.8944 \\implies 1 - \\Phi(1.25) = 0.1056$$",
+        "Subtract to show the required value:\n$$\\mathrm{P}(\\text{medium}) = 0.7976 - 0.1056 = 0.6920 \\approx 0.692\\text{ (to 3 sf)}$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "ai_rubric": {
+          "Calculating Normal Probabilities": "Standardizes (90-120)/24 = -1.25 and (140-120)/24 = 0.833, evaluating Phi(0.833) - (1 - Phi(1.25)) = 0.7976 - 0.1056 = 0.692."
+        },
+        "criteria_source": "mark_scheme_structured"
+      },
+      "teacher_walkthrough": [
+        "Step 1: Define the normal random variable.\nLet $W$ be the weight of an apple in grams: $W \\sim \\mathrm{N}(120, 24^2)$.\nMedium apples satisfy $90 \\le W \\le 140$.\n\nStep 2: Standardize the lower and upper limits:\n$$Z_1 = \\frac{90 - 120}{24} = \\frac{-30}{24} = -1.25$$\n$$Z_2 = \\frac{140 - 120}{24} = \\frac{20}{24} = \\frac{5}{6} \\approx 0.8333$$\n\nStep 3: Write in terms of $\\Phi(z)$:\n$$\\mathrm{P}(90 \\le W \\le 140) = \\mathrm{P}(-1.25 \\le Z \\le 0.8333) = \\Phi(0.8333) - \\Phi(-1.25)$$\nUsing normal symmetry $\\Phi(-z) = 1 - \\Phi(z)$:\n$$\\mathrm{P}(90 \\le W \\le 140) = \\Phi(0.8333) - [1 - \\Phi(1.25)]$$\n\nStep 4: Look up table values:\nFrom normal tables:\n$$\\Phi(0.83) = 0.7967, \\quad \\text{difference for } 3 = 9 \\implies \\Phi(0.833) = 0.7976$$\n$$\\Phi(1.25) = 0.8944$$\nTherefore:\n$$\\mathrm{P}(\\text{medium}) = 0.7976 - (1 - 0.8944) = 0.7976 - 0.1056 = 0.6920 \\approx 0.692$$"
+      ]
+    },
+    {
+      "part_id": "9709_w18_63_q5_ii",
+      "difficulty": 2,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_s1_t_discrete_random_variables",
+        "module_id": "9709_s1_t_discrete_random_variables_m03",
+        "lesson_id": "9709_s1_t_discrete_random_variables_m03_l02"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_calculating_exact_binomial_probabilities",
+        "skill_tags": [
+          "Calculating Exact Binomial Probabilities",
+          "Modelling with a Binomial Distribution"
+        ]
+      },
+      "question_pattern_ids": [
+        "9709_s1_pattern_binomial_at_least_k_complement"
+      ],
+      "knowledge_refs": {
+        "formula_ids": [
+          "9709_s1_formula_binomial_probability"
+        ],
+        "identity_ids": [],
+        "method_ids": [],
+        "fact_ids": [
+          "9709_s1_fact_complement_rule"
+        ]
+      },
+      "hints": [
+        "Model the number of medium apples among 4 chosen apples as $M \\sim \\mathrm{B}(4, 0.692)$.",
+        "At least two means $M \\ge 2$. Use the complement $1 - \\mathrm{P}(M = 0) - \\mathrm{P}(M = 1)$ (or sum $M = 2, 3, 4$).",
+        "Calculate the binomial terms with $p = 0.692$ and $q = 1 - 0.692 = 0.308$."
+      ],
+      "walkthrough": [
+        "Model the number of medium apples $M$ out of $n = 4$ as a binomial distribution:\n$$M \\sim \\mathrm{B}(4, 0.692) \\quad \\text{with } q = 1 - 0.692 = 0.308$$",
+        "Express at least two medium apples using the complement rule:\n$$\\mathrm{P}(M \\ge 2) = 1 - \\mathrm{P}(M = 0) - \\mathrm{P}(M = 1)$$",
+        "Evaluate the individual terms:\n$$\\mathrm{P}(M = 0) = (0.308)^4 \\approx 0.008998$$\n$$\\mathrm{P}(M = 1) = \\binom{4}{1} (0.692)^1 (0.308)^3 = 4(0.692)(0.029218) \\approx 0.080876$$",
+        "Calculate the final probability:\n$$\\mathrm{P}(M \\ge 2) = 1 - (0.008998 + 0.080876) = 1 - 0.089874 = 0.910126 \\approx 0.910$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "ai_rubric": {
+          "Calculating Exact Binomial Probabilities": "Computes 1 - P(0) - P(1) = 1 - (0.308^4 + 4*0.692*0.308^3) = 0.910 (or sums P(2) + P(3) + P(4)).",
+          "Modelling with a Binomial Distribution": "Uses n = 4 and p = 0.692."
+        },
+        "criteria_source": "mark_scheme_structured"
+      },
+      "teacher_walkthrough": [
+        "Step 1: Formulate the binomial model.\nLet $M$ denote the number of medium apples chosen out of $n = 4$.\nFrom part (i), each apple independently has probability $p = 0.692$ of being graded as medium:\n$$M \\sim \\mathrm{B}(4, 0.692), \\quad q = 1 - 0.692 = 0.308$$\n\nStep 2: Strategy by complement:\n$$\\mathrm{P}(M \\ge 2) = 1 - [\\mathrm{P}(M = 0) + \\mathrm{P}(M = 1)]$$\n\nStep 3: Calculate the individual probabilities:\n$$\\mathrm{P}(M = 0) = \\binom{4}{0} (0.692)^0 (0.308)^4 = (0.308)^4 \\approx 0.008998$$\n$$\\mathrm{P}(M = 1) = \\binom{4}{1} (0.692)^1 (0.308)^3 = 4 \\times 0.692 \\times 0.029218 \\approx 0.080876$$\n\nStep 4: Subtract from $1$:\n$$\\mathrm{P}(M \\le 1) = 0.008998 + 0.080876 = 0.089874$$\n$$\\mathrm{P}(M \\ge 2) = 1 - 0.089874 = 0.910126 \\approx 0.910$$\n\n(Alternative direct sum: $\\binom{4}{2}(0.692)^2(0.308)^2 + \\binom{4}{3}(0.692)^3(0.308) + (0.692)^4 = 0.27219 + 0.40798 + 0.22996 = 0.91013 \\approx 0.910$)."
+      ]
+    }
+  ]
+}

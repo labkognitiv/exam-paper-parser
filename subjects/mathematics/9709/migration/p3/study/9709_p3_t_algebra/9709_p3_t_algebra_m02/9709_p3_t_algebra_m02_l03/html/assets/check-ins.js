@@ -1,0 +1,1 @@
+document.querySelectorAll('.check').forEach(c=>c.querySelectorAll('button').forEach(b=>b.addEventListener('click',()=>{c.querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',String(x===b)));c.querySelector('.feedback').textContent=b.dataset.feedback;})));

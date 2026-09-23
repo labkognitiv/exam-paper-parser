@@ -1,0 +1,136 @@
+{
+  "schema_version": "9709_math_enrichment_v3",
+  "paper_code": "9709_w19_61",
+  "question_id": "9709_w19_61_q2",
+  "question_num": 2,
+  "subject_code": "9709",
+  "component": "S1",
+  "year": 2019,
+  "session": "Oct/Nov",
+  "variant": "61",
+  "difficulty": 2,
+  "numerical_values_checked": false,
+  "parts": [
+    {
+      "part_id": "9709_w19_61_q2_i",
+      "difficulty": 2,
+      "practice_tier": "revision",
+      "mapping": {
+        "topic_id": "9709_s1_t_discrete_random_variables",
+        "module_id": "9709_s1_t_discrete_random_variables_m03",
+        "lesson_id": "9709_s1_t_discrete_random_variables_m03_l03"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_calculating_exact_binomial_probabilities",
+        "skill_tags": [
+          "Calculating Exact Binomial Probabilities",
+          "Calculating Binomial Tail Probabilities",
+          "Using Complementary Events"
+        ]
+      },
+      "question_pattern_ids": [
+        "9709_s1_pattern_binomial_from_probability_distribution"
+      ],
+      "knowledge_refs": {
+        "formula_ids": [
+          "9709_s1_formula_binomial_probability"
+        ],
+        "identity_ids": [],
+        "method_ids": [
+          "9709_s1_method_calculating_binomial_tail_probabilities",
+          "9709_s1_method_using_complementary_events"
+        ],
+        "fact_ids": [
+          "9709_s1_fact_complement_rule"
+        ]
+      },
+      "hints": [
+        "Model the number of customers rating the logo as good as $X \\sim \\mathrm{B}(10, 0.42)$.",
+        "The condition 'fewer than 8' means $\\mathrm{P}(X \\le 7)$. Use the complement rule: $1 - \\mathrm{P}(X \\ge 8) = 1 - [\\mathrm{P}(X = 8) + \\mathrm{P}(X = 9) + \\mathrm{P}(X = 10)]$.",
+        "Calculate each binomial probability $\\binom{10}{r} (0.42)^r (0.58)^{10 - r}$ for $r = 8, 9, 10$.",
+        "Add the three probabilities and subtract from 1."
+      ],
+      "walkthrough": [
+        "Model the number of favourable ratings using a binomial distribution:\n$$X \\sim \\mathrm{B}(10, 0.42)$$\nwhere $n = 10$, $p = 0.42$, and $1 - p = 0.58$.",
+        "Express 'fewer than 8' using the complement of the upper tail:\n$$\\mathrm{P}(X < 8) = \\mathrm{P}(X \\le 7) = 1 - [\\mathrm{P}(X = 8) + \\mathrm{P}(X = 9) + \\mathrm{P}(X = 10)]$$",
+        "Evaluate the individual binomial terms:\n$$\\mathrm{P}(X = 8) = \\binom{10}{8} (0.42)^8 (0.58)^2 = 45 \\times 0.00096826 \\times 0.3364 \\approx 0.014658$$\n$$\\mathrm{P}(X = 9) = \\binom{10}{9} (0.42)^9 (0.58)^1 = 10 \\times 0.00040667 \\times 0.58 \\approx 0.002359$$\n$$\\mathrm{P}(X = 10) = \\binom{10}{10} (0.42)^{10} (0.58)^0 = 1 \\times 0.00017080 \\times 1 \\approx 0.000171$$",
+        "Sum the upper-tail probabilities and subtract from 1:\n$$\\mathrm{P}(X \\ge 8) = 0.014658 + 0.002359 + 0.000171 = 0.017188$$\n$$\\mathrm{P}(X < 8) = 1 - 0.017188 = 0.982812 \\approx 0.983$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "ai_rubric": {
+          "Calculating Exact Binomial Probabilities": "Computes 1 - P(8, 9, 10) for B(10, 0.42) to obtain probability 0.983."
+        },
+        "criteria_source": "mark_scheme_structured"
+      },
+      "teacher_walkthrough": [
+        "Let $X$ denote the number of customers out of 10 who rate the logo as good. Since each customer rates it good with probability $p = 0.42$ independently, $X \\sim \\mathrm{B}(10, 0.42)$.",
+        "Step 1: Identify the required probability.\n'Fewer than 8' means $X \\le 7$:\n$$\\mathrm{P}(X < 8) = \\mathrm{P}(X \\le 7)$$",
+        "Step 2: Apply the complement rule:\n$$\\mathrm{P}(X \\le 7) = 1 - \\mathrm{P}(X \\ge 8) = 1 - [\\mathrm{P}(X = 8) + \\mathrm{P}(X = 9) + \\mathrm{P}(X = 10)]$$",
+        "Step 3: Calculate each upper-tail term:\n- For $X = 8$:\n$$\\binom{10}{8} = 45$$\n$$\\mathrm{P}(X = 8) = 45 \\times (0.42)^8 \\times (0.58)^2 = 45 \\times 0.000968262 \\times 0.3364 \\approx 0.0146578$$\n- For $X = 9$:\n$$\\binom{10}{9} = 10$$\n$$\\mathrm{P}(X = 9) = 10 \\times (0.42)^9 \\times (0.58)^1 = 10 \\times 0.000406670 \\times 0.58 \\approx 0.0023587$$\n- For $X = 10$:\n$$\\binom{10}{10} = 1$$\n$$\\mathrm{P}(X = 10) = 1 \\times (0.42)^{10} \\times (0.58)^0 = 1 \\times 0.000170801 \\times 1 \\approx 0.0001708$$",
+        "Step 4: Sum the three probabilities:\n$$\\mathrm{P}(X \\ge 8) = 0.0146578 + 0.0023587 + 0.0001708 = 0.0171873$$",
+        "Step 5: Subtract from 1:\n$$\\mathrm{P}(X < 8) = 1 - 0.0171873 = 0.982813$$\nRounding to 3 significant figures gives $0.983$."
+      ]
+    },
+    {
+      "part_id": "9709_w19_61_q2_ii",
+      "difficulty": 2,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_s1_t_discrete_random_variables",
+        "module_id": "9709_s1_t_discrete_random_variables_m03",
+        "lesson_id": "9709_s1_t_discrete_random_variables_m03_l03"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_calculating_binomial_tail_probabilities",
+        "skill_tags": [
+          "Calculating Binomial Tail Probabilities",
+          "Using Complementary Events"
+        ]
+      },
+      "question_pattern_ids": [
+        "9709_s1_pattern_independent_trials_sample_size_inequality"
+      ],
+      "knowledge_refs": {
+        "formula_ids": [],
+        "identity_ids": [],
+        "method_ids": [
+          "9709_s1_method_using_complementary_events"
+        ],
+        "fact_ids": [
+          "9709_s1_fact_complement_rule",
+          "9709_s1_fact_log_inequality_division_negative"
+        ]
+      },
+      "hints": [
+        "The probability that at least one person rates the logo as good is $1 - \\mathrm{P}(\\text{none of the } n \\text{ people rate it good})$.",
+        "The probability of zero good ratings in $n$ customers is $(1 - 0.42)^n = (0.58)^n$.",
+        "Set up the inequality $1 - (0.58)^n > 0.995$ and rearrange to $(0.58)^n < 0.005$.",
+        "Take logarithms on both sides and divide by $\\ln(0.58)$, reversing the inequality sign to find the smallest integer $n$."
+      ],
+      "walkthrough": [
+        "Express 'at least one person' using the complement rule:\n$$\\mathrm{P}(X \\ge 1) = 1 - \\mathrm{P}(X = 0) = 1 - (0.58)^n$$",
+        "Set up the given inequality:\n$$1 - (0.58)^n > 0.995$$\n$$(0.58)^n < 1 - 0.995 = 0.005$$",
+        "Take the natural logarithm of both sides:\n$$\\ln\\left((0.58)^n\\right) < \\ln(0.005)$$\n$$n \\ln(0.58) < \\ln(0.005)$$",
+        "Divide by $\\ln(0.58) \\approx -0.5447$. Reverse the inequality sign because dividing by a negative number:\n$$n > \\frac{\\ln(0.005)}{\\ln(0.58)} = \\frac{-5.29832}{-0.54473} \\approx 9.726$$",
+        "Identify the smallest integer $n$:\n$$n = 10$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "ai_rubric": {
+          "Calculating Binomial Tail Probabilities": "Sets up 1 - 0.58^n > 0.995, solves with logs to find n > 9.73, and states smallest integer n = 10."
+        },
+        "criteria_source": "mark_scheme_structured"
+      },
+      "teacher_walkthrough": [
+        "We want to find the minimum sample size $n$ such that the probability of at least one customer rating the logo as good exceeds $0.995$.",
+        "Step 1: Write down the complement event.\nThe complement of 'at least one person rates it good' is 'no one rates it good' in the sample of $n$ customers:\n$$\\mathrm{P}(X = 0) = (1 - 0.42)^n = (0.58)^n$$",
+        "Step 2: Formulate the inequality:\n$$\\mathrm{P}(X \\ge 1) = 1 - (0.58)^n > 0.995$$",
+        "Step 3: Isolate the exponential term:\n$$-(0.58)^n > 0.995 - 1$$\n$$-(0.58)^n > -0.005$$\nMultiply by $-1$ and reverse the inequality sign:\n$$(0.58)^n < 0.005$$",
+        "Step 4: Take natural logarithms on both sides:\n$$\\ln((0.58)^n) < \\ln(0.005)$$\n$$n \\ln(0.58) < \\ln(0.005)$$",
+        "Step 5: Solve for $n$:\nNote that $\\ln(0.58) \\approx -0.54473$ is negative, so dividing by it reverses the inequality sign:\n$$n > \\frac{\\ln(0.005)}{\\ln(0.58)} = \\frac{-5.29832}{-0.54473} \\approx 9.726$$",
+        "Step 6: Determine the smallest integer $n$:\nSince $n$ must be a whole number of customers, the smallest possible value is $n = 10$."
+      ]
+    }
+  ]
+}

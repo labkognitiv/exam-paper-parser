@@ -1,0 +1,186 @@
+{
+  "schema_version": "9709_math_enrichment_v3",
+  "paper_code": "9709_m17_62",
+  "question_id": "9709_m17_62_q7",
+  "question_num": 7,
+  "subject_code": "9709",
+  "component": "S1",
+  "year": 2017,
+  "session": "Feb/March",
+  "variant": "62",
+  "difficulty": 5,
+  "numerical_values_checked": false,
+  "parts": [
+    {
+      "part_id": "9709_m17_62_q7_a_i",
+      "difficulty": 5,
+      "practice_tier": "revision",
+      "mapping": {
+        "topic_id": "9709_s1_t_the_normal_distribution",
+        "module_id": "9709_s1_t_the_normal_distribution_m02",
+        "lesson_id": "9709_s1_t_the_normal_distribution_m02_l03"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_finding_normal_distribution_parameters",
+        "skill_tags": [
+          "Finding Normal Distribution Parameters",
+          "Using Inverse Normal Values"
+        ]
+      },
+      "question_pattern_ids": [
+        "9709_s1_pattern_simultaneous_normal_parameters"
+      ],
+      "knowledge_refs": {
+        "formula_ids": [
+          "9709_s1_formula_standardisation"
+        ],
+        "identity_ids": [],
+        "method_ids": [
+          "9709_s1_method_finding_normal_distribution_parameters",
+          "9709_s1_method_using_inverse_normal_values"
+        ],
+        "fact_ids": [
+          "9709_s1_fact_normal_symmetry_lower_tail",
+          "9709_s1_fact_normal_upper_tail"
+        ]
+      },
+      "hints": [
+        "Convert the given percentages into standard normal cumulative probabilities: $\\mathrm{P}(X < 8.8) = 0.75$ and $\\mathrm{P}(X < 7.7) = 0.175$.",
+        "Use standard normal tables to find the corresponding $z$-scores: $z_1 = 0.674$ for the upper tail, and $z_2 = -0.935$ for the lower tail using symmetry $\\Phi(-z) = 1 - \\Phi(z)$.",
+        "Form two linear equations in $\\mu$ and $\\sigma$ using $z = \\dfrac{x - \\mu}{\\sigma}$, eliminate $\\mu$ to solve for $\\sigma$, then back-substitute to find $\\mu$."
+      ],
+      "walkthrough": [
+        "Standardize the upper tail condition $25\\%$ longer than $8.8$ cm:\n$$\\mathrm{P}(X > 8.8) = 0.25 \\implies \\mathrm{P}(X < 8.8) = 0.75$$\n$$\\Phi(z_1) = 0.75 \\implies z_1 = 0.674$$\n$$\\frac{8.8 - \\mu}{\\sigma} = 0.674 \\implies \\mu + 0.674\\sigma = 8.8 \\quad \\text{--- (1)}$$",
+        "Standardize the lower tail condition $17.5\\%$ shorter than $7.7$ cm:\n$$\\mathrm{P}(X < 7.7) = 0.175$$\nSince this probability is less than $0.5$, $z_2$ is negative:\n$$1 - \\Phi(-z_2) = 0.175 \\implies \\Phi(-z_2) = 0.825 \\implies -z_2 = 0.935 \\implies z_2 = -0.935$$\n$$\\frac{7.7 - \\mu}{\\sigma} = -0.935 \\implies \\mu - 0.935\\sigma = 7.7 \\quad \\text{--- (2)}$$",
+        "Solve the simultaneous equations for $\\mu$ and $\\sigma$:\nSubtract equation (2) from equation (1):\n$$(0.674 - (-0.935))\\sigma = 8.8 - 7.7$$\n$$1.609\\sigma = 1.1 \\implies \\sigma = \\frac{1.1}{1.609} \\approx 0.6837 \\approx 0.684$$\nSubstitute $\\sigma$ back into equation (1):\n$$\\mu = 8.8 - 0.674(0.68365) = 8.8 - 0.4608 = 8.3392 \\approx 8.34$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "ai_rubric": {
+          "Finding Normal Distribution Parameters": "Forms two simultaneous standardization equations and solves for mu and sigma.",
+          "Using Inverse Normal Values": "Identifies correct z-values 0.674 and -0.935 from tail probabilities."
+        },
+        "criteria_source": "mark_scheme_structured"
+      },
+      "teacher_walkthrough": [
+        "Set up the first standardization equation from the upper tail data.\n$25\\%$ of women have finger lengths exceeding $8.8$ cm:\n$$\\mathrm{P}(X > 8.8) = 0.25 \\implies \\mathrm{P}(X < 8.8) = 1 - 0.25 = 0.75$$\nLook up $0.75$ in the standard normal cumulative distribution table:\n$$\\Phi(0.674) \\approx 0.7498, \\quad \\Phi(0.675) \\approx 0.7502 \\implies z = 0.674$$\nApply the standardization formula $Z = \\dfrac{X - \\mu}{\\sigma}$:\n$$\\frac{8.8 - \\mu}{\\sigma} = 0.674$$\nMultiply both sides by $\\sigma$ and rearrange:\n$$8.8 - \\mu = 0.674\\sigma \\implies \\mu + 0.674\\sigma = 8.8 \\quad \\text{[Equation 1]}$$",
+        "Set up the second standardization equation from the lower tail data.\n$17.5\\%$ of women have finger lengths shorter than $7.7$ cm:\n$$\\mathrm{P}(X < 7.7) = 0.175$$\nBecause the area is less than $0.5$, the $z$-score is negative ($z < 0$).\nUse the symmetry property $\\Phi(z) = 1 - \\Phi(-z)$:\n$$1 - \\Phi(-z) = 0.175 \\implies \\Phi(-z) = 1 - 0.175 = 0.825$$\nLook up $0.825$ in the standard normal table:\n$$\\Phi(0.935) \\approx 0.8251 \\implies -z = 0.935 \\implies z = -0.935$$\nSubstitute into the standardization formula:\n$$\\frac{7.7 - \\mu}{\\sigma} = -0.935$$\nMultiply both sides by $\\sigma$ and rearrange:\n$$7.7 - \\mu = -0.935\\sigma \\implies \\mu - 0.935\\sigma = 7.7 \\quad \\text{[Equation 2]}$$",
+        "Eliminate $\\mu$ by subtracting Equation 2 from Equation 1:\n$$(\\mu + 0.674\\sigma) - (\\mu - 0.935\\sigma) = 8.8 - 7.7$$\n$$(0.674 + 0.935)\\sigma = 1.1$$\n$$1.609\\sigma = 1.1$$\nDivide both sides by $1.609$:\n$$\\sigma = \\frac{1.1}{1.609} \\approx 0.68365 \\approx 0.684$$",
+        "Substitute $\\sigma = 0.68365$ into Equation 1 to find $\\mu$:\n$$\\mu = 8.8 - 0.674 \\times 0.68365 = 8.8 - 0.46078 = 8.3392 \\approx 8.34$$\nVerify using Equation 2:\n$$\\mu = 7.7 + 0.935 \\times 0.68365 = 7.7 + 0.63921 = 8.3392 \\approx 8.34$$\nThe parameters are $\\mu = 8.34$ and $\\sigma = 0.684$."
+      ]
+    },
+    {
+      "part_id": "9709_m17_62_q7_a_ii",
+      "difficulty": 4,
+      "practice_tier": "revision",
+      "mapping": {
+        "topic_id": "9709_s1_t_the_normal_distribution",
+        "module_id": "9709_s1_t_the_normal_distribution_m01",
+        "lesson_id": "9709_s1_t_the_normal_distribution_m01_l04"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_calculating_normal_probabilities",
+        "skill_tags": [
+          "Calculating Normal Probabilities",
+          "Calculating Exact Binomial Probabilities"
+        ]
+      },
+      "question_pattern_ids": [
+        "9709_s1_pattern_normal_probability_combined_with_independent_trials"
+      ],
+      "knowledge_refs": {
+        "formula_ids": [
+          "9709_s1_formula_standardisation",
+          "9709_s1_formula_binomial_probability"
+        ],
+        "identity_ids": [],
+        "method_ids": [
+          "9709_s1_method_calculating_normal_probabilities",
+          "9709_s1_method_modelling_with_a_binomial_distribution"
+        ],
+        "fact_ids": [
+          "9709_s1_fact_normal_cumulative_area"
+        ]
+      },
+      "hints": [
+        "Find the probability $p$ that a single randomly selected woman has a middle finger shorter than 8.2 cm using normal standardization $Z = \\dfrac{X - \\mu}{\\sigma}$.",
+        "Look up $\\Phi(z)$ in the normal distribution tables to obtain the value of $p$.",
+        "Model the number of women out of 5 with fingers shorter than 8.2 cm as a binomial variable $W \\sim \\mathrm{B}(5, p)$ and calculate $\\mathrm{P}(W = 3) = \\binom{5}{3} p^3 (1-p)^2$."
+      ],
+      "walkthrough": [
+        "Standardize to find the probability that a single woman has a middle finger shorter than $8.2$ cm:\n$$X \\sim \\mathrm{N}(7.9, 0.44^2)$$\n$$Z = \\frac{X - \\mu}{\\sigma} = \\frac{8.2 - 7.9}{0.44} = \\frac{0.3}{0.44} = \\frac{15}{22} \\approx 0.6818$$",
+        "Find the cumulative probability from standard normal tables:\n$$p = \\mathrm{P}(X < 8.2) = \\Phi(0.6818) \\approx 0.7524$$",
+        "Define the binomial random variable $W$, the number of women out of $5$ with finger length shorter than $8.2$ cm:\n$$W \\sim \\mathrm{B}(5, p) \\quad \\text{where } p = 0.7524, \\; 1 - p = 0.2476$$",
+        "Calculate the binomial probability for $W = 3$:\n$$\\mathrm{P}(W = 3) = \\binom{5}{3} p^3 (1 - p)^2 = \\binom{5}{3} (0.7524)^3 (0.2476)^2$$\n$$\\mathrm{P}(W = 3) = 10 \\times 0.42594 \\times 0.061306 \\approx 0.2611 \\approx 0.261$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "ai_rubric": {
+          "Calculating Normal Probabilities": "Finds individual normal probability p = 0.7524 correctly.",
+          "Calculating Exact Binomial Probabilities": "Uses binomial formula 5C3 * p^3 * (1-p)^2 to obtain 0.261."
+        },
+        "criteria_source": "mark_scheme_structured"
+      },
+      "teacher_walkthrough": [
+        "Recognize this as a two-stage probability problem: first find the probability $p$ for an individual woman using the normal distribution, then find the probability for a sample of $5$ women using the binomial distribution.",
+        "For one woman, finger length $X$ follows $\\mathrm{N}(7.9, 0.44^2)$. Standardize $X = 8.2$:\n$$Z = \\frac{X - \\mu}{\\sigma} = \\frac{8.2 - 7.9}{0.44} = \\frac{0.30}{0.44} \\approx 0.6818$$\nLook up $z = 0.6818$ in the normal distribution tables:\n$$\\Phi(0.68) = 0.7517, \\quad \\text{difference for } 2 \\text{ is } 7 \\implies \\Phi(0.682) = 0.7524$$\nThus, the probability of success for an individual is $p = 0.7524$, and the probability of failure is:\n$$q = 1 - p = 1 - 0.7524 = 0.2476$$",
+        "Let $W$ denote the number of women in the sample of $n = 5$ with finger length shorter than $8.2$ cm.\n$W$ follows a binomial distribution $W \\sim \\mathrm{B}(5, 0.7524)$. Write the binomial probability formula:\n$$\\mathrm{P}(W = r) = \\binom{n}{r} p^r (1 - p)^{n - r}$$",
+        "Substitute $n = 5$, $r = 3$, $p = 0.7524$, and $1 - p = 0.2476$:\n$$\\mathrm{P}(W = 3) = \\binom{5}{3} (0.7524)^3 (0.2476)^{5 - 3} = 10 \\times (0.7524)^3 \\times (0.2476)^2$$\nCompute each term:\n$$(0.7524)^3 \\approx 0.42594$$\n$$(0.2476)^2 \\approx 0.061306$$\nMultiply all factors:\n$$\\mathrm{P}(W = 3) = 10 \\times 0.42594 \\times 0.061306 = 0.26113 \\approx 0.261$$"
+      ]
+    },
+    {
+      "part_id": "9709_m17_62_q7_b",
+      "difficulty": 3,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_s1_t_the_normal_distribution",
+        "module_id": "9709_s1_t_the_normal_distribution_m01",
+        "lesson_id": "9709_s1_t_the_normal_distribution_m01_l01"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_calculating_normal_probabilities",
+        "skill_tags": [
+          "Calculating Normal Probabilities",
+          "Standardising a Normal Variable"
+        ]
+      },
+      "question_pattern_ids": [
+        "9709_s1_pattern_normal_standardisation_algebraic_cancellation"
+      ],
+      "knowledge_refs": {
+        "formula_ids": [
+          "9709_s1_formula_standardisation"
+        ],
+        "identity_ids": [],
+        "method_ids": [
+          "9709_s1_method_calculating_normal_probabilities"
+        ],
+        "fact_ids": [
+          "9709_s1_fact_normal_cumulative_area"
+        ]
+      },
+      "hints": [
+        "Write the standardization equation $Z = \\dfrac{X - \\mu}{\\sigma}$ for the boundary value $1.5\\mu$.",
+        "Substitute the given condition $\\sigma = \\mu$ into the expression so that $\\mu$ cancels, then look up $\\Phi(z)$ in the normal distribution table."
+      ],
+      "walkthrough": [
+        "Write down the standardization formula for $X < 1.5\\mu$:\n$$Z = \\frac{X - \\mu}{\\sigma} = \\frac{1.5\\mu - \\mu}{\\sigma}$$",
+        "Use the given condition that the mean equals the standard deviation ($\\sigma = \\mu$) to simplify the fraction:\n$$Z = \\frac{1.5\\mu - \\mu}{\\mu} = \\frac{0.5\\mu}{\\mu} = 0.5$$",
+        "Find the cumulative probability from the standard normal tables:\n$$\\mathrm{P}(X < 1.5\\mu) = \\mathrm{P}(Z < 0.5) = \\Phi(0.5) = 0.6915 \\approx 0.692$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "ai_rubric": {
+          "Calculating Normal Probabilities": "Evaluates Phi(0.5) = 0.692.",
+          "Standardising a Normal Variable": "Substitutes sigma = mu and simplifies (1.5mu - mu)/mu to 0.5."
+        },
+        "criteria_source": "mark_scheme_structured"
+      },
+      "teacher_walkthrough": [
+        "Start with the standard normal transformation:\n$$Z = \\frac{X - \\mu}{\\sigma}$$\nWe want to evaluate $\\mathrm{P}(X < 1.5\\mu)$.",
+        "Substitute the upper limit $X = 1.5\\mu$ and replace $\\sigma$ with $\\mu$ since the problem states that the mean equals the standard deviation ($\\sigma = \\mu$):\n$$Z = \\frac{1.5\\mu - \\mu}{\\mu}$$\nFactor out $\\mu$ in the numerator:\n$$1.5\\mu - \\mu = (1.5 - 1)\\mu = 0.5\\mu$$\nCancel $\\mu$ from numerator and denominator:\n$$Z = \\frac{0.5\\mu}{\\mu} = 0.5$$\nThe unknown parameter $\\mu$ cancels out completely, leaving an exact $z$-value of $0.5$.",
+        "Look up $z = 0.5$ in the standard normal distribution table:\n$$\\Phi(0.50) = 0.6915$$\nRound to $3$ significant figures:\n$$\\mathrm{P}(X < 1.5\\mu) = 0.6915 \\approx 0.692$$"
+      ]
+    }
+  ]
+}

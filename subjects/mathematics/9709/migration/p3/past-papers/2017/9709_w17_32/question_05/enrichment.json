@@ -1,0 +1,71 @@
+{
+  "schema_version": "9709_math_enrichment_v3",
+  "paper_code": "9709_w17_32",
+  "question_id": "9709_w17_32_q5",
+  "question_num": 5,
+  "subject_code": "9709",
+  "component": "P3",
+  "year": 2017,
+  "session": "Oct/Nov",
+  "variant": "32",
+  "difficulty": 5,
+  "numerical_values_checked": false,
+  "parts": [
+    {
+      "part_id": "9709_w17_32_q5",
+      "difficulty": 5,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_p3_t_differential_equations",
+        "module_id": "9709_p3_t_differential_equations_m02",
+        "lesson_id": "9709_p3_t_differential_equations_m02_l01"
+      },
+      "skills": {
+        "primary_skill_id": "9709_p3_skill_solving_separable_differential_equations",
+        "skill_tags": [
+          "Solving Separable Differential Equations"
+        ]
+      },
+      "question_pattern_ids": [
+        "9709_p3_pattern_solve_equation",
+        "9709_p3_pattern_find_parameter",
+        "9709_p3_pattern_calculus_process",
+        "9709_p3_pattern_trigonometric_reasoning"
+      ],
+      "knowledge_refs": {
+        "formula_ids": [],
+        "identity_ids": [
+          "9709_p3_identity_double_angle",
+          "9709_p3_identity_pythagorean"
+        ],
+        "method_ids": [
+          "9709_p3_method_solving_separable_differential_equations"
+        ],
+        "fact_ids": []
+      },
+      "hints": [
+        "Separate variables to obtain $dy/y=(x+2)/(x+1)\\,dx$.",
+        "Rewrite $(x+2)/(x+1)$ as $1+1/(x+1)$ before integrating.",
+        "Use $x=1$, $y=2$ to determine the constant, then exponentiate and isolate $y$."
+      ],
+      "walkthrough": [
+        "Separate variables in $(x + 1)\\dfrac{\\mathrm{d}y}{\\mathrm{d}x} = y(x + 2)$:\n$$\\dfrac{1}{y}\\,\\mathrm{d}y = \\dfrac{x + 2}{x + 1}\\,\\mathrm{d}x$$",
+        "Integrate both sides with respect to their variables:\n$$\\int \\dfrac{1}{y}\\,\\mathrm{d}y = \\int \\dfrac{x + 2}{x + 1}\\,\\mathrm{d}x$$",
+        "Evaluate the left-hand integral:\n$$\\int \\dfrac{1}{y}\\,\\mathrm{d}y = \\ln y$$",
+        "Rewrite the integrand on the right-hand side using algebraic division:\n$$\\dfrac{x + 2}{x + 1} = \\dfrac{(x + 1) + 1}{x + 1} = 1 + \\dfrac{1}{x + 1}$$",
+        "Evaluate the right-hand integral term by term:\n$$\\int \\left(1 + \\dfrac{1}{x + 1}\\right)\\,\\mathrm{d}x = x + \\ln(x + 1)$$",
+        "Write down the general solution with constant of integration $c$:\n$$\\ln y = x + \\ln(x + 1) + c$$",
+        "Substitute the initial condition $x = 1$ and $y = 2$ to find $c$:\n$$\\ln 2 = 1 + \\ln(1 + 1) + c \\implies \\ln 2 = 1 + \\ln 2 + c \\implies c = -1$$",
+        "State the equation with the evaluated constant:\n$$\\ln y = x + \\ln(x + 1) - 1$$",
+        "Exponentiate both sides to express $y$ explicitly in terms of $x$:\n$$y = \\mathrm{e}^{x + \\ln(x + 1) - 1} = \\mathrm{e}^{\\ln(x + 1)} \\cdot \\mathrm{e}^{x - 1} = (x + 1)\\mathrm{e}^{x - 1}$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "ai_rubric": {
+          "Solving Separable Differential Equations": "Separates variables and derives $\\int\\frac1y\\,dy=\\int\\frac{x+2}{x+1}\\,dx$. Derives the integral $x+\\ln(x+1)$, or equivalent, e.g. $\\ln(x+1)+x+1$. The final result is $y=(x+1)e^{x-1}$."
+        },
+        "criteria_source": "mark_scheme_structured"
+      }
+    }
+  ]
+}

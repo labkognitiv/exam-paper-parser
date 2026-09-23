@@ -1,0 +1,143 @@
+{
+  "schema_version": "9709_math_enrichment_v3",
+  "paper_code": "9709_m20_52",
+  "question_id": "9709_m20_52_q5",
+  "question_num": 5,
+  "subject_code": "9709",
+  "component": "S1",
+  "year": 2020,
+  "session": "Feb/March",
+  "variant": "52",
+  "difficulty": 4,
+  "numerical_values_checked": false,
+  "parts": [
+    {
+      "part_id": "9709_m20_52_q5_a",
+      "difficulty": 2,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_s1_t_discrete_random_variables",
+        "module_id": "9709_s1_t_discrete_random_variables_m03",
+        "lesson_id": "9709_s1_t_discrete_random_variables_m03_l02"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_calculating_binomial_tail_probabilities",
+        "skill_tags": [
+          "Calculating Binomial Tail Probabilities"
+        ]
+      },
+      "question_pattern_ids": [
+        "9709_s1_pattern_binomial_from_probability_distribution"
+      ],
+      "knowledge_refs": {
+        "formula_ids": [
+          "9709_s1_formula_binomial_probability"
+        ],
+        "identity_ids": [],
+        "method_ids": [
+          "9709_s1_method_calculating_binomial_tail_probabilities"
+        ],
+        "fact_ids": [
+          "9709_s1_fact_complement_rule"
+        ]
+      },
+      "hints": [
+        "Identify the distribution: let $X$ be the number of car owners in a sample of 8 adults, so $X \\sim B(8, 0.7)$.",
+        "The condition 'less than 6' means $X < 6$, which corresponds to $X \\in \\{0, 1, 2, 3, 4, 5\\}$.",
+        "Using the complement rule is more efficient: $\\mathrm{P}(X < 6) = 1 - \\mathrm{P}(X \\ge 6) = 1 - [\\mathrm{P}(X = 6) + \\mathrm{P}(X = 7) + \\mathrm{P}(X = 8)]$.",
+        "Calculate each binomial term $\\binom{8}{x} (0.7)^x (0.3)^{8 - x}$ for $x = 6, 7, 8$, add them, and subtract from 1 to obtain 0.448."
+      ],
+      "walkthrough": [
+        "Model the number of car owners $X$ in a random sample of 8 adults with the binomial distribution:\n$$X \\sim B(8, 0.7)$$",
+        "Use the complement rule to calculate $\\mathrm{P}(X < 6)$:\n$$\\mathrm{P}(X < 6) = 1 - \\mathrm{P}(X \\ge 6) = 1 - [\\mathrm{P}(X = 6) + \\mathrm{P}(X = 7) + \\mathrm{P}(X = 8)]$$",
+        "Calculate each term using the binomial formula $\\mathrm{P}(X = x) = \\binom{8}{x}(0.7)^x(0.3)^{8-x}$:\n$$\\mathrm{P}(X = 6) = \\binom{8}{6}(0.7)^6(0.3)^2 = 28 \\times 0.117649 \\times 0.09 \\approx 0.29648$$\n$$\\mathrm{P}(X = 7) = \\binom{8}{7}(0.7)^7(0.3)^1 = 8 \\times 0.0823543 \\times 0.3 \\approx 0.19765$$\n$$\\mathrm{P}(X = 8) = \\binom{8}{8}(0.7)^8(0.3)^0 = 1 \\times 0.05764801 \\times 1 \\approx 0.05765$$",
+        "Sum the terms and subtract from 1:\n$$\\mathrm{P}(X \\ge 6) = 0.29648 + 0.19765 + 0.05765 = 0.55177$$\n$$\\mathrm{P}(X < 6) = 1 - 0.55177 = 0.44823 \\approx 0.448$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "ai_rubric": {
+          "Calculating Binomial Tail Probabilities": "Uses the binomial formula to evaluate the sum P(X >= 6) = P(6) + P(7) + P(8) and subtracts from 1 to obtain 0.448."
+        },
+        "criteria_source": "mark_scheme_structured"
+      },
+      "teacher_walkthrough": [
+        "In Greenton, 70% of adults own a car, so the probability that a randomly chosen adult owns a car is $p = 0.7$, and the failure probability is $q = 1 - p = 0.3$.",
+        "A random sample of $n = 8$ adults is chosen. Let $X$ denote the number of adults in the sample who own a car. Since each adult is chosen independently, $X$ follows a binomial distribution:\n$$X \\sim B(n, p) = B(8, 0.7)$$",
+        "Step 1: State the probability required.\nWe need the probability that the number of adults who own a car is strictly less than 6:\n$$\\mathrm{P}(X < 6) = \\mathrm{P}(X = 0) + \\mathrm{P}(X = 1) + \\mathrm{P}(X = 2) + \\mathrm{P}(X = 3) + \\mathrm{P}(X = 4) + \\mathrm{P}(X = 5)$$",
+        "Step 2: Apply the complement rule to minimise calculations.\nSince the sum of all probabilities is 1:\n$$\\mathrm{P}(X < 6) = 1 - \\mathrm{P}(X \\ge 6) = 1 - [\\mathrm{P}(X = 6) + \\mathrm{P}(X = 7) + \\mathrm{P}(X = 8)]$$\nThis requires computing only 3 probabilities instead of 6.",
+        "Step 3: Compute $\\mathrm{P}(X = 6)$:\n$$\\mathrm{P}(X = 6) = \\binom{8}{6} (0.7)^6 (0.3)^2$$\nEvaluate each factor:\n$$\\binom{8}{6} = \\frac{8 \\times 7}{2 \\times 1} = 28$$\n$$(0.7)^6 = 0.117649$$\n$$(0.3)^2 = 0.09$$\n$$\\mathrm{P}(X = 6) = 28 \\times 0.117649 \\times 0.09 = 28 \\times 0.01058841 = 0.29647548$$",
+        "Step 4: Compute $\\mathrm{P}(X = 7)$:\n$$\\mathrm{P}(X = 7) = \\binom{8}{7} (0.7)^7 (0.3)^1$$\n$$\\binom{8}{7} = 8$$\n$$(0.7)^7 = 0.0823543$$\n$$(0.3)^1 = 0.3$$\n$$\\mathrm{P}(X = 7) = 8 \\times 0.0823543 \\times 0.3 = 8 \\times 0.02470629 = 0.19765032$$",
+        "Step 5: Compute $\\mathrm{P}(X = 8)$:\n$$\\mathrm{P}(X = 8) = \\binom{8}{8} (0.7)^8 (0.3)^0 = 1 \\times 0.05764801 \\times 1 = 0.05764801$$",
+        "Step 6: Sum the three upper-tail probabilities:\n$$\\mathrm{P}(X \\ge 6) = 0.29647548 + 0.19765032 + 0.05764801 = 0.55177381$$",
+        "Step 7: Subtract from 1:\n$$\\mathrm{P}(X < 6) = 1 - 0.55177381 = 0.44822619 \\approx 0.448$$\nRounding to 3 significant figures gives $0.448$."
+      ]
+    },
+    {
+      "part_id": "9709_m20_52_q5_b",
+      "difficulty": 4,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_s1_t_the_normal_distribution",
+        "module_id": "9709_s1_t_the_normal_distribution_m03",
+        "lesson_id": "9709_s1_t_the_normal_distribution_m03_l02"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_applying_a_normal_approximation",
+        "skill_tags": [
+          "Applying a Normal Approximation",
+          "Applying a Continuity Correction"
+        ]
+      },
+      "question_pattern_ids": [
+        "9709_s1_pattern_normal_approximation_to_binomial"
+      ],
+      "knowledge_refs": {
+        "formula_ids": [
+          "9709_s1_formula_normal_approximation_parameters",
+          "9709_s1_formula_normal_standardisation"
+        ],
+        "identity_ids": [],
+        "method_ids": [
+          "9709_s1_method_applying_a_normal_approximation",
+          "9709_s1_method_applying_a_continuity_correction"
+        ],
+        "fact_ids": [
+          "9709_s1_fact_continuity_correction_greater_equal",
+          "9709_s1_fact_normal_symmetry_upper_tail_negative_z"
+        ]
+      },
+      "hints": [
+        "Identify the distribution parameters: a sample of $n = 120$ adults with $p = 0.7$ gives $X \\sim B(120, 0.7)$.",
+        "Calculate the mean $\\mu = np$ and variance $\\sigma^2 = np(1 - p)$ for the approximating normal distribution $Y \\sim \\mathrm{N}(\\mu, \\sigma^2)$.",
+        "Apply a continuity correction: 'more than 75' means $X \\ge 76$, so the continuous cutoff is $75.5$.",
+        "Standardise $Z = \\dfrac{75.5 - \\mu}{\\sigma}$, use symmetry $\\mathrm{P}(Z > -z) = \\Phi(z)$, and find the probability from normal tables to 3 significant figures."
+      ],
+      "walkthrough": [
+        "Calculate the mean and variance of the binomial distribution $B(120, 0.7)$:\n$$\\mu = np = 120 \\times 0.7 = 84$$\n$$\\sigma^2 = np(1 - p) = 120 \\times 0.7 \\times 0.3 = 25.2$$",
+        "State the approximating normal model: $Y \\sim \\mathrm{N}(84, 25.2)$.\nApply a continuity correction for $X > 75$ (which means $X \\ge 76$):\n$$\\mathrm{P}(X > 75) \\approx \\mathrm{P}(Y > 75.5)$$",
+        "Standardise using $Z = \\dfrac{Y - \\mu}{\\sigma}$:\n$$Z = \\dfrac{75.5 - 84}{\\sqrt{25.2}} = \\dfrac{-8.5}{5.01996} \\approx -1.693$$",
+        "Evaluate the probability using symmetry of the standard normal distribution:\n$$\\mathrm{P}(Z > -1.693) = \\mathrm{P}(Z < 1.693) = \\Phi(1.693)$$",
+        "Look up $\\Phi(1.693)$ in the normal tables:\n$$\\Phi(1.693) \\approx 0.9548 \\approx 0.955$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "ai_rubric": {
+          "Applying a Normal Approximation": "Calculates mean = 84 and variance = 25.2 for B(120, 0.7) and standardises with them.",
+          "Applying a Continuity Correction": "Applies the continuity correction by using the boundary 75.5 for X > 75 to reach Z = -1.693 and probability 0.955."
+        },
+        "criteria_source": "mark_scheme_structured"
+      },
+      "teacher_walkthrough": [
+        "We have a sample of $n = 120$ adults from Greenton, where the probability of owning a car is $p = 0.7$.",
+        "Let $X$ be the number of adults in the sample who own a car. Then $X \\sim B(120, 0.7)$.",
+        "Because $n = 120$ is large, $np = 120 \\times 0.7 = 84 > 5$ and $nq = 120 \\times 0.3 = 36 > 5$, a normal distribution provides an accurate approximation.",
+        "Step 1: Calculate the mean $\\mu$ and variance $\\sigma^2$:\n$$\\mu = np = 120 \\times 0.7 = 84$$\n$$\\sigma^2 = npq = 120 \\times 0.7 \\times 0.3 = 25.2$$\nStandard deviation:\n$$\\sigma = \\sqrt{25.2} \\approx 5.01996$$",
+        "Step 2: Approximate $X$ with the continuous variable $Y \\sim \\mathrm{N}(84, 25.2)$.",
+        "Step 3: Apply the continuity correction.\nThe question asks for the probability that 'more than 75' adults own a car:\n$$X > 75 \\iff X \\ge 76$$\nBecause discrete integer values occupy intervals of unit width in the continuous model, the integer 76 is represented by the interval $[75.5, 76.5]$.\nTo include 76 and all values above it, we take the lower boundary $75.5$:\n$$\\mathrm{P}(X > 75) \\approx \\mathrm{P}(Y > 75.5)$$",
+        "Step 4: Standardise the continuous boundary:\n$$Z = \\frac{75.5 - \\mu}{\\sigma} = \\frac{75.5 - 84}{\\sqrt{25.2}} = \\frac{-8.5}{5.01996} \\approx -1.6932$$",
+        "Step 5: Calculate the probability using normal symmetry.\nBy symmetry of the standard normal curve about 0:\n$$\\mathrm{P}(Z > -1.693) = \\mathrm{P}(Z < 1.693) = \\Phi(1.693)$$",
+        "Step 6: Look up $\\Phi(1.693)$ in the normal distribution table:\n$$\\Phi(1.69) = 0.9545$$\n$$\\text{difference for } 3 = 3 \\implies \\Phi(1.693) = 0.9545 + 0.0003 = 0.9548$$\nRounding to 3 significant figures gives $0.955$."
+      ]
+    }
+  ]
+}

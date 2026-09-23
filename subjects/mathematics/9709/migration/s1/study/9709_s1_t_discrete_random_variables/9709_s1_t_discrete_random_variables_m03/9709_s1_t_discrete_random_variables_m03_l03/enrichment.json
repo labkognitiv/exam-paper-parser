@@ -1,0 +1,1140 @@
+{
+  "lesson_id": "9709_s1_t_discrete_random_variables_m03_l03",
+  "numerical_values_checked": false,
+  "questions": [
+    {
+      "question_id": "9709_s1_t_discrete_random_variables_m03_l03_drq01",
+      "parts": [
+        {
+          "part_id": "9709_s1_t_discrete_random_variables_m03_l03_drq01_p01",
+          "difficulty": "easy",
+          "hints": [
+            "The complement of 'at least one seed germinates' is 'zero seeds germinate'.",
+            "Calculate $1 - (0.72)^6$ and round to 3 significant figures."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Express the event 'at least one' using the zero-success complement:\n$$P(X \\ge 1) = 1 - P(X = 0) = 1 - (1 - 0.28)^6 = 1 - (0.72)^6$$"
+            },
+            {
+              "step": 2,
+              "text": "Calculate the value to 3 significant figures:\n$$(0.72)^6 \\approx 0.139314$$\n$$P(X \\ge 1) = 1 - 0.139314 = 0.860686 \\dots \\approx 0.861 \\text{ (3 s.f.)}$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "Instead of summing six terms from 1 to 6, calculate the single complement of zero successes:\n$$P(X \\ge 1) = 1 - (0.72)^6$$"
+            },
+            {
+              "step": 2,
+              "text": "Subtract from 1 and round to 3 significant figures:\n$$P(X \\ge 1) = 1 - 0.1393 = 0.861$$"
+            }
+          ],
+          "checking": {
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_s1_t_discrete_random_variables_m03_l03_drq01_p01_c1",
+                "points": 1,
+                "observable": "Applies complement of zero germinations: $1 - P(X = 0) = 1 - (0.72)^6$."
+              },
+              {
+                "criterion_id": "9709_s1_t_discrete_random_variables_m03_l03_drq01_p01_c2",
+                "points": 1,
+                "observable": "Evaluates $1 - 0.139314 = 0.860686 \\dots \\approx 0.861$ (to 3 s.f.)."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_s1_t_discrete_random_variables_m03_l03_drq02",
+      "parts": [
+        {
+          "part_id": "9709_s1_t_discrete_random_variables_m03_l03_drq02_p01",
+          "difficulty": "easy",
+          "hints": [
+            "Express the condition as $1 - (0.70)^n > 0.98$, which simplifies to $(0.70)^n < 0.02$.",
+            "Take logarithms to solve $n > \\frac{\\log(0.02)}{\\log(0.70)} \\approx 10.97$, noting that dividing by $\\log(0.70)$ reverses the inequality, giving $n = 11$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Set up the inequality using the complement of no purchases:\n$$P(X \\ge 1) > 0.98 \\implies 1 - (0.70)^n > 0.98 \\implies (0.70)^n < 0.02$$"
+            },
+            {
+              "step": 2,
+              "text": "Solve for $n$ using natural logarithms, reversing the inequality because $\\ln(0.70) < 0$:\n$$n \\ln(0.70) < \\ln(0.02) \\implies n > \\frac{\\ln(0.02)}{\\ln(0.70)} = \\frac{-3.91202}{-0.35667} \\approx 10.968$$\n$$\\text{Smallest integer } n = 11$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "Rearrange the threshold inequality:\n$$(0.70)^n < 0.02$$"
+            },
+            {
+              "step": 2,
+              "text": "Take logarithms and round up to the next whole number since $n$ must be an integer:\n$$n > 10.97 \\implies n = 11$$"
+            }
+          ],
+          "checking": {
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_s1_t_discrete_random_variables_m03_l03_drq02_p01_c1",
+                "points": 1,
+                "observable": "Sets up inequality $1 - (0.70)^n > 0.98 \\implies (0.70)^n < 0.02$."
+              },
+              {
+                "criterion_id": "9709_s1_t_discrete_random_variables_m03_l03_drq02_p01_c2",
+                "points": 1,
+                "observable": "Solves $n > \\frac{\\ln(0.02)}{\\ln(0.70)} \\approx 10.97$ and concludes smallest integer is $n = 11$."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_s1_t_discrete_random_variables_m03_l03_drq03",
+      "parts": [
+        {
+          "part_id": "9709_s1_t_discrete_random_variables_m03_l03_drq03_p01",
+          "difficulty": "easy",
+          "hints": [
+            "'Fewer than 6 spins' means success occurs on spin 1, 2, 3, 4, or 5.",
+            "The complement is that all first 5 spins fail to land on blue: calculate $1 - (0.80)^5$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Translate the event: first success in fewer than 6 spins means at least one success in the first 5 spins:\n$$P(\\text{first success } < 6) = 1 - P(\\text{no blue in first 5 spins}) = 1 - (1 - 0.20)^5 = 1 - (0.80)^5$$"
+            },
+            {
+              "step": 2,
+              "text": "Evaluate the probability to 3 significant figures:\n$$(0.80)^5 = 0.32768$$\n$$P(\\text{first success } < 6) = 1 - 0.32768 = 0.67232 \\approx 0.672 \\text{ (3 s.f.)}$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "If blue appears before the 6th spin, the first 5 spins cannot all be non-blue:\n$$P = 1 - (0.80)^5$$"
+            },
+            {
+              "step": 2,
+              "text": "Evaluate the difference:\n$$1 - 0.32768 = 0.672$$"
+            }
+          ],
+          "checking": {
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_s1_t_discrete_random_variables_m03_l03_drq03_p01_c1",
+                "points": 1,
+                "observable": "Applies complement of no successes in the first 5 spins: $1 - (0.80)^5$."
+              },
+              {
+                "criterion_id": "9709_s1_t_discrete_random_variables_m03_l03_drq03_p01_c2",
+                "points": 1,
+                "observable": "Evaluates $1 - 0.32768 = 0.67232 \\approx 0.672$ (to 3 s.f.)."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_s1_t_discrete_random_variables_m03_l03_drq04",
+      "parts": [
+        {
+          "part_id": "9709_s1_t_discrete_random_variables_m03_l03_drq04_p01",
+          "difficulty": "easy",
+          "hints": [
+            "'More than 2' means $X \\ge 3$. Its complement is $X \\le 2$ ($X = 0, 1, 2$).",
+            "Compute $1 - [P(X=0) + P(X=1) + P(X=2)]$ with $n = 9$ and $p = 0.22$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Express 'more than 2' using the complement of at most 2 for $X \\sim B(9, 0.22)$:\n$$P(X > 2) = 1 - P(X \\le 2) = 1 - [P(X = 0) + P(X = 1) + P(X = 2)]$$"
+            },
+            {
+              "step": 2,
+              "text": "Calculate the terms of the complement and subtract from 1:\n$$P(X = 0) = (0.78)^9 \\approx 0.106871$$\n$$P(X = 1) = \\binom{9}{1}(0.22)^1(0.78)^8 = 9 \\times 0.22 \\times 0.137014 \\approx 0.271457$$\n$$P(X = 2) = \\binom{9}{2}(0.22)^2(0.78)^7 = 36 \\times 0.0484 \\times 0.175659 \\approx 0.305886$$\n$$P(X > 2) = 1 - (0.106871 + 0.271457 + 0.305886) = 1 - 0.684214 = 0.315786 \\dots \\approx 0.316 \\text{ (3 s.f.)}$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "Notice that the complement of 3 through 9 is only 0, 1, and 2:\n$$P(X > 2) = 1 - [P(0) + P(1) + P(2)]$$"
+            },
+            {
+              "step": 2,
+              "text": "Sum the three lower terms and subtract from 1:\n$$P(X > 2) = 1 - 0.6842 = 0.316$$"
+            }
+          ],
+          "checking": {
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_s1_t_discrete_random_variables_m03_l03_drq04_p01_c1",
+                "points": 1,
+                "observable": "Applies complement $P(X > 2) = 1 - P(X \\le 2) = 1 - [(0.78)^9 + 9(0.22)(0.78)^8 + 36(0.22)^2(0.78)^7]$."
+              },
+              {
+                "criterion_id": "9709_s1_t_discrete_random_variables_m03_l03_drq04_p01_c2",
+                "points": 1,
+                "observable": "Evaluates $1 - (0.106871 + 0.271457 + 0.305886) = 1 - 0.684214 = 0.315786 \\dots \\approx 0.316$ (to 3 s.f.)."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_s1_t_discrete_random_variables_m03_l03_drq05",
+      "parts": [
+        {
+          "part_id": "9709_s1_t_discrete_random_variables_m03_l03_drq05_p01",
+          "difficulty": "easy",
+          "hints": [
+            "Strict inequalities exclude both endpoints: $4 < X < 8$ means $X = 5, 6, 7$.",
+            "Calculate $P(5) + P(6) + P(7)$ with $n = 10$ and $p = 0.25$, then round to 3 significant figures."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Identify the integer values strictly between 4 and 8:\n$$P(4 < X < 8) = P(X = 5) + P(X = 6) + P(X = 7)$$"
+            },
+            {
+              "step": 2,
+              "text": "Evaluate each term for $X \\sim B(10, 0.25)$:\n$$P(X = 5) = \\binom{10}{5}(0.25)^5(0.75)^5 = 252 \\times 0.00097656 \\times 0.237305 \\approx 0.058399$$\n$$P(X = 6) = \\binom{10}{6}(0.25)^6(0.75)^4 = 210 \\times 0.00024414 \\times 0.316406 \\approx 0.016222$$\n$$P(X = 7) = \\binom{10}{7}(0.25)^7(0.75)^3 = 120 \\times 0.00006104 \\times 0.421875 \\approx 0.003090$$\n$$P(4 < X < 8) = 0.058399 + 0.016222 + 0.003090 = 0.077711 \\dots \\approx 0.0777 \\text{ (3 s.f.)}$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "Strict inequalities exclude 4 and 8, leaving $X = 5, 6, 7$:\n$$P(4 < X < 8) = P(5) + P(6) + P(7)$$"
+            },
+            {
+              "step": 2,
+              "text": "Sum the three probabilities and round to 3 significant figures:\n$$P(4 < X < 8) = 0.0584 + 0.0162 + 0.0031 = 0.0777$$"
+            }
+          ],
+          "checking": {
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_s1_t_discrete_random_variables_m03_l03_drq05_p01_c1",
+                "points": 1,
+                "observable": "Translates strict range into integer outcomes $P(X = 5) + P(X = 6) + P(X = 7)$."
+              },
+              {
+                "criterion_id": "9709_s1_t_discrete_random_variables_m03_l03_drq05_p01_c2",
+                "points": 1,
+                "observable": "Evaluates $0.058399 + 0.016222 + 0.003090 = 0.077711 \\dots \\approx 0.0777$ (to 3 s.f.)."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_s1_t_discrete_random_variables_m03_l03_drq06",
+      "parts": [
+        {
+          "part_id": "9709_s1_t_discrete_random_variables_m03_l03_drq06_p01",
+          "difficulty": "easy",
+          "hints": [
+            "First find the probability of getting at least 5 on a single roll: faces 5 and 6 give $p = \\frac{2}{6} = \\frac{1}{3}$.",
+            "Use the complement rule for 'at least 3' out of 8 rolls: calculate $1 - [P(0) + P(1) + P(2)]$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Determine the success probability for one roll and state the model:\n$$p = P(\\text{score } \\ge 5) = P(\\{5, 6\\}) = \\frac{2}{6} = \\frac{1}{3} \\implies X \\sim B\\left(8, \\frac{1}{3}\\right)$$"
+            },
+            {
+              "step": 2,
+              "text": "Apply the complement rule for $X \\ge 3$:\n$$P(X \\ge 3) = 1 - [P(X = 0) + P(X = 1) + P(X = 2)]$$\n$$P(X = 0) = \\left(\\frac{2}{3}\\right)^8 = \\frac{256}{6561} \\approx 0.039018$$\n$$P(X = 1) = 8\\left(\\frac{1}{3}\\right)\\left(\\frac{2}{3}\\right)^7 = \\frac{1024}{6561} \\approx 0.156074$$\n$$P(X = 2) = 28\\left(\\frac{1}{3}\\right)^2\\left(\\frac{2}{3}\\right)^6 = \\frac{1792}{6561} \\approx 0.273129$$\n$$P(X \\ge 3) = 1 - \\frac{256 + 1024 + 1792}{6561} = 1 - \\frac{3072}{6561} = \\frac{3489}{6561} \\approx 0.531779 \\dots = 0.532 \\text{ (3 s.f.)}$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "Find $p$ first: scores 5 or 6 give $p = \\frac{1}{3}$ and $q = \\frac{2}{3}$:\n$$X \\sim B\\left(8, \\frac{1}{3}\\right)$$"
+            },
+            {
+              "step": 2,
+              "text": "Subtract the lower tail $X \\le 2$ from 1:\n$$P(X \\ge 3) = 1 - [P(0) + P(1) + P(2)] = 1 - 0.4682 = 0.532$$"
+            }
+          ],
+          "checking": {
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_s1_t_discrete_random_variables_m03_l03_drq06_p01_c1",
+                "points": 1,
+                "observable": "Finds single-roll probability $p = \\frac{2}{6} = \\frac{1}{3}$ and sets up complement $1 - [P(X=0) + P(X=1) + P(X=2)]$ with $n = 8$."
+              },
+              {
+                "criterion_id": "9709_s1_t_discrete_random_variables_m03_l03_drq06_p01_c2",
+                "points": 1,
+                "observable": "Evaluates $1 - \\left[\\left(\\frac{2}{3}\\right)^8 + 8\\left(\\frac{1}{3}\\right)\\left(\\frac{2}{3}\\right)^7 + 28\\left(\\frac{1}{3}\\right)^2\\left(\\frac{2}{3}\\right)^6\\right] \\approx 0.532$ (to 3 s.f.)."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_s1_t_discrete_random_variables_m03_l03_cpq01",
+      "parts": [
+        {
+          "part_id": "9709_s1_t_discrete_random_variables_m03_l03_cpq01_p01",
+          "difficulty": "easy",
+          "hints": [
+            "The complement of $X \\ge 1$ is $X = 0$.",
+            "Calculate $1 - (0.6)^7$ and round to 3 significant figures."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Use the complement rule for at least one success:\n$$P(X \\ge 1) = 1 - P(X = 0) = 1 - (1 - 0.4)^7 = 1 - (0.6)^7$$"
+            },
+            {
+              "step": 2,
+              "text": "Evaluate the expression:\n$$(0.6)^7 = 0.0279936$$\n$$P(X \\ge 1) = 1 - 0.0279936 = 0.972006 \\dots \\approx 0.972 \\text{ (3 s.f.)}$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "Subtract the probability of 0 successes from 1:\n$$P(X \\ge 1) = 1 - (0.6)^7$$"
+            },
+            {
+              "step": 2,
+              "text": "Compute and round to 3 significant figures:\n$$1 - 0.0280 = 0.972$$"
+            }
+          ],
+          "checking": {
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_s1_t_discrete_random_variables_m03_l03_cpq01_p01_c1",
+                "points": 1,
+                "observable": "Applies complement formula $P(X \\ge 1) = 1 - P(X = 0) = 1 - (0.6)^7$."
+              },
+              {
+                "criterion_id": "9709_s1_t_discrete_random_variables_m03_l03_cpq01_p01_c2",
+                "points": 1,
+                "observable": "Evaluates $1 - 0.0279936 = 0.972006 \\dots \\approx 0.972$ (to 3 s.f.)."
+              }
+            ]
+          }
+        },
+        {
+          "part_id": "9709_s1_t_discrete_random_variables_m03_l03_cpq01_p02",
+          "difficulty": "easy",
+          "hints": [
+            "Form the inequality $1 - (0.6)^n > 0.999$, so $(0.6)^n < 0.001$.",
+            "Take logarithms to find $n > \\frac{\\ln(0.001)}{\\ln(0.6)} \\approx 13.52$, which rounds up to $n = 14$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Set up the inequality for at least one success:\n$$1 - (0.6)^n > 0.999 \\implies (0.6)^n < 0.001$$"
+            },
+            {
+              "step": 2,
+              "text": "Solve for $n$ using logarithms, reversing the inequality because $\\ln(0.6) < 0$:\n$$n > \\frac{\\ln(0.001)}{\\ln(0.6)} = \\frac{-6.90776}{-0.51083} \\approx 13.523$$\n$$\\text{Smallest integer } n = 14$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "Rearrange the condition:\n$$(0.6)^n < 0.001$$"
+            },
+            {
+              "step": 2,
+              "text": "Evaluate using logarithms: $n > 13.52$, so the smallest integer number of trials is 14:\n$$n = 14$$"
+            }
+          ],
+          "checking": {
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_s1_t_discrete_random_variables_m03_l03_cpq01_p02_c1",
+                "points": 1,
+                "observable": "Sets up inequality $1 - (0.6)^n > 0.999 \\implies (0.6)^n < 0.001$."
+              },
+              {
+                "criterion_id": "9709_s1_t_discrete_random_variables_m03_l03_cpq01_p02_c2",
+                "points": 1,
+                "observable": "Solves $n > \\frac{\\ln(0.001)}{\\ln(0.6)} \\approx 13.52$ and states smallest integer $n = 14$."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_s1_t_discrete_random_variables_m03_l03_cpq02",
+      "parts": [
+        {
+          "part_id": "9709_s1_t_discrete_random_variables_m03_l03_cpq02_p01",
+          "difficulty": "easy",
+          "hints": [
+            "The complement of 'at least one fails' is 'none fail'.",
+            "Calculate $1 - (0.95)^8$ and round to 3 significant figures."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Use the complement rule for at least one failure:\n$$P(X \\ge 1) = 1 - P(X = 0) = 1 - (1 - 0.05)^8 = 1 - (0.95)^8$$"
+            },
+            {
+              "step": 2,
+              "text": "Evaluate the probability to 3 significant figures:\n$$(0.95)^8 \\approx 0.663420$$\n$$P(X \\ge 1) = 1 - 0.663420 = 0.336580 \\dots \\approx 0.337 \\text{ (3 s.f.)}$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "Subtract the probability that all 8 components survive from 1:\n$$P(\\text{at least 1 fails}) = 1 - (0.95)^8$$"
+            },
+            {
+              "step": 2,
+              "text": "Compute the difference:\n$$1 - 0.6634 = 0.337$$"
+            }
+          ],
+          "checking": {
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_s1_t_discrete_random_variables_m03_l03_cpq02_p01_c1",
+                "points": 1,
+                "observable": "Applies complement of zero failures: $1 - (0.95)^8$."
+              },
+              {
+                "criterion_id": "9709_s1_t_discrete_random_variables_m03_l03_cpq02_p01_c2",
+                "points": 1,
+                "observable": "Evaluates $1 - 0.663420 = 0.336580 \\dots \\approx 0.337$ (to 3 s.f.)."
+              }
+            ]
+          }
+        },
+        {
+          "part_id": "9709_s1_t_discrete_random_variables_m03_l03_cpq02_p02",
+          "difficulty": "easy",
+          "hints": [
+            "Form the inequality $1 - (0.95)^n > 0.90$, so $(0.95)^n < 0.10$.",
+            "Take logarithms to solve for $n$: $n > \\frac{\\ln(0.10)}{\\ln(0.95)} \\approx 44.89$, giving minimum integer $n = 45$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Set up the threshold condition:\n$$P(\\text{at least 1 fails}) > 0.90 \\implies 1 - (0.95)^n > 0.90 \\implies (0.95)^n < 0.10$$"
+            },
+            {
+              "step": 2,
+              "text": "Apply logarithms, reversing the inequality sign because $\\ln(0.95) < 0$:\n$$n \\ln(0.95) < \\ln(0.10) \\implies n > \\frac{\\ln(0.10)}{\\ln(0.95)}$$"
+            },
+            {
+              "step": 3,
+              "text": "Evaluate the numerical value and round up to the next integer:\n$$n > \\frac{-2.302585}{-0.051293} \\approx 44.891$$\n$$\\text{Minimum integer } n = 45$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "Rearrange the inequality so that the power of $0.95$ is isolated:\n$$(0.95)^n < 0.10$$"
+            },
+            {
+              "step": 2,
+              "text": "Divide $\\ln(0.10)$ by $\\ln(0.95)$:\n$$n > 44.89$$"
+            },
+            {
+              "step": 3,
+              "text": "The number of components must be a whole number, so round up:\n$$n = 45$$"
+            }
+          ],
+          "checking": {
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_s1_t_discrete_random_variables_m03_l03_cpq02_p02_c1",
+                "points": 1,
+                "observable": "Sets up inequality $1 - (0.95)^n > 0.90 \\implies (0.95)^n < 0.10$."
+              },
+              {
+                "criterion_id": "9709_s1_t_discrete_random_variables_m03_l03_cpq02_p02_c2",
+                "points": 1,
+                "observable": "Applies logarithms: $n > \\frac{\\ln(0.10)}{\\ln(0.95)}$."
+              },
+              {
+                "criterion_id": "9709_s1_t_discrete_random_variables_m03_l03_cpq02_p02_c3",
+                "points": 1,
+                "observable": "Evaluates $n > \\frac{-2.30259}{-0.05129} \\approx 44.89$ and concludes minimum $n = 45$."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_s1_t_discrete_random_variables_m03_l03_cpq03",
+      "parts": [
+        {
+          "part_id": "9709_s1_t_discrete_random_variables_m03_l03_cpq03_p01",
+          "difficulty": "medium",
+          "hints": [
+            "'Fewer than 3' means $X = 0, 1, 2$.",
+            "Calculate $P(0) = (0.85)^{11}$, $P(1) = 11(0.15)(0.85)^{10}$, and $P(2) = 55(0.15)^2(0.85)^9$, then sum.",
+            "Round the sum to 3 significant figures."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Write the event as the sum of three terms for $X \\sim B(11, 0.15)$:\n$$P(X < 3) = P(X \\le 2) = P(X = 0) + P(X = 1) + P(X = 2)$$"
+            },
+            {
+              "step": 2,
+              "text": "Evaluate the individual probabilities:\n$$P(X = 0) = (0.85)^{11} \\approx 0.167331$$\n$$P(X = 1) = \\binom{11}{1}(0.15)^1(0.85)^{10} = 11 \\times 0.15 \\times 0.196874 \\approx 0.324843$$\n$$P(X = 2) = \\binom{11}{2}(0.15)^2(0.85)^9 = 55 \\times 0.0225 \\times 0.231617 \\approx 0.286638$$\n$$P(X < 3) = 0.167331 + 0.324843 + 0.286638 = 0.778812 \\dots \\approx 0.779 \\text{ (3 s.f.)}$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "Translate 'fewer than 3' to $X = 0, 1, 2$:\n$$P(X < 3) = P(0) + P(1) + P(2)$$"
+            },
+            {
+              "step": 2,
+              "text": "Add the three probabilities:\n$$0.1673 + 0.3248 + 0.2866 = 0.779$$"
+            }
+          ],
+          "checking": {
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_s1_t_discrete_random_variables_m03_l03_cpq03_p01_c1",
+                "points": 1,
+                "observable": "Translates 'fewer than 3' into $P(X < 3) = P(X = 0) + P(X = 1) + P(X = 2)$."
+              },
+              {
+                "criterion_id": "9709_s1_t_discrete_random_variables_m03_l03_cpq03_p01_c2",
+                "points": 1,
+                "observable": "Evaluates $(0.85)^{11} + 11(0.15)(0.85)^{10} + 55(0.15)^2(0.85)^9 \\approx 0.779$ (to 3 s.f.)."
+              }
+            ]
+          }
+        },
+        {
+          "part_id": "9709_s1_t_discrete_random_variables_m03_l03_cpq03_p02",
+          "difficulty": "medium",
+          "hints": [
+            "Notice the word 'Hence': $X \\ge 3$ is the exact complement of $X < 3$.",
+            "Do not recalculate the terms: simply subtract the answer from part (a) from 1.",
+            "Use $1 - 0.778812$ and round to 3 significant figures."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Apply the complement rule directly to the result of part (a):\n$$P(X \\ge 3) = 1 - P(X < 3)$$"
+            },
+            {
+              "step": 2,
+              "text": "Substitute the unrounded probability from part (a):\n$$P(X < 3) \\approx 0.778812$$\n$$P(X \\ge 3) = 1 - 0.778812 = 0.221188 \\dots \\approx 0.221 \\text{ (3 s.f.)}$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "The event 'at least 3' is the exact opposite of 'fewer than 3':\n$$P(X \\ge 3) = 1 - P(X < 3)$$"
+            },
+            {
+              "step": 2,
+              "text": "Subtract from 1:\n$$P(X \\ge 3) = 1 - 0.7788 = 0.221$$"
+            }
+          ],
+          "checking": {
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_s1_t_discrete_random_variables_m03_l03_cpq03_p02_c1",
+                "points": 1,
+                "observable": "Identifies that 'at least 3' is the complement of 'fewer than 3': $P(X \\ge 3) = 1 - P(X < 3)$."
+              },
+              {
+                "criterion_id": "9709_s1_t_discrete_random_variables_m03_l03_cpq03_p02_c2",
+                "points": 1,
+                "observable": "Substitutes unrounded value $1 - 0.778812$."
+              },
+              {
+                "criterion_id": "9709_s1_t_discrete_random_variables_m03_l03_cpq03_p02_c3",
+                "points": 1,
+                "observable": "Evaluates $1 - 0.778812 = 0.221188 \\dots \\approx 0.221$ (to 3 s.f.)."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_s1_t_discrete_random_variables_m03_l03_cpq04",
+      "parts": [
+        {
+          "part_id": "9709_s1_t_discrete_random_variables_m03_l03_cpq04_p01",
+          "difficulty": "medium",
+          "hints": [
+            "Model the shots as $X \\sim B(8, 0.35)$.",
+            "'More than 2' means $X \\ge 3$. Its complement is $X \\le 2$ ($X = 0, 1, 2$).",
+            "Evaluate $P(0) + P(1) + P(2)$ and subtract the sum from 1."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Define the distribution and set up the complement for $X > 2$:\n$$X \\sim B(8, 0.35), \\quad P(X > 2) = 1 - P(X \\le 2) = 1 - [P(X = 0) + P(X = 1) + P(X = 2)]$$"
+            },
+            {
+              "step": 2,
+              "text": "Calculate the terms of the complement:\n$$P(X = 0) = (0.65)^8 \\approx 0.031864$$\n$$P(X = 1) = \\binom{8}{1}(0.35)^1(0.65)^7 = 8 \\times 0.35 \\times 0.049022 \\approx 0.137262$$\n$$P(X = 2) = \\binom{8}{2}(0.35)^2(0.65)^6 = 28 \\times 0.1225 \\times 0.075419 \\approx 0.258687$$\n$$P(X \\le 2) = 0.031864 + 0.137262 + 0.258687 = 0.427814$$"
+            },
+            {
+              "step": 3,
+              "text": "Subtract from 1:\n$$P(X > 2) = 1 - 0.427814 = 0.572186 \\dots \\approx 0.572 \\text{ (3 s.f.)}$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "Subtract the lower tail $X \\le 2$ from 1:\n$$P(X > 2) = 1 - [P(0) + P(1) + P(2)]$$"
+            },
+            {
+              "step": 2,
+              "text": "Evaluate the terms:\n$$P(X \\le 2) = 0.0319 + 0.1373 + 0.2587 = 0.4278$$"
+            },
+            {
+              "step": 3,
+              "text": "Subtract from 1:\n$$P(X > 2) = 1 - 0.4278 = 0.572$$"
+            }
+          ],
+          "checking": {
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_s1_t_discrete_random_variables_m03_l03_cpq04_p01_c1",
+                "points": 1,
+                "observable": "States $X \\sim B(8, 0.35)$ and writes $P(X > 2) = 1 - P(X \\le 2)$."
+              },
+              {
+                "criterion_id": "9709_s1_t_discrete_random_variables_m03_l03_cpq04_p01_c2",
+                "points": 1,
+                "observable": "Evaluates lower tail: $(0.65)^8 + 8(0.35)(0.65)^7 + 28(0.35)^2(0.65)^6 = 0.031864 + 0.137262 + 0.258687 = 0.427814$."
+              },
+              {
+                "criterion_id": "9709_s1_t_discrete_random_variables_m03_l03_cpq04_p01_c3",
+                "points": 1,
+                "observable": "Subtracts from 1 to obtain $1 - 0.427814 = 0.572186 \\dots \\approx 0.572$ (to 3 s.f.)."
+              }
+            ]
+          }
+        },
+        {
+          "part_id": "9709_s1_t_discrete_random_variables_m03_l03_cpq04_p02",
+          "difficulty": "medium",
+          "hints": [
+            "The inclusive interval $3 \\le X \\le 5$ requires summing $P(X = 3)$, $P(X = 4)$, and $P(X = 5)$.",
+            "Compute each binomial term with $n = 8, p = 0.35, q = 0.65$.",
+            "Sum the three probabilities and round to 3 significant figures."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Express the inclusive range as the sum of three exact terms:\n$$P(3 \\le X \\le 5) = P(X = 3) + P(X = 4) + P(X = 5)$$"
+            },
+            {
+              "step": 2,
+              "text": "Calculate each probability:\n$$P(X = 3) = \\binom{8}{3}(0.35)^3(0.65)^5 = 56 \\times 0.042875 \\times 0.116029 \\approx 0.278587$$\n$$P(X = 4) = \\binom{8}{4}(0.35)^4(0.65)^4 = 70 \\times 0.015006 \\times 0.178506 \\approx 0.187510$$\n$$P(X = 5) = \\binom{8}{5}(0.35)^5(0.65)^3 = 56 \\times 0.005252 \\times 0.274625 \\approx 0.080772$$"
+            },
+            {
+              "step": 3,
+              "text": "Sum the probabilities and round to 3 significant figures:\n$$P(3 \\le X \\le 5) = 0.278587 + 0.187510 + 0.080772 = 0.546869 \\dots \\approx 0.547 \\text{ (3 s.f.)}$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "Include all values from 3 to 5: $X = 3, 4, 5$:\n$$P(3 \\le X \\le 5) = P(3) + P(4) + P(5)$$"
+            },
+            {
+              "step": 2,
+              "text": "Evaluate each term:\n$$P(3) = 0.2786, \\quad P(4) = 0.1875, \\quad P(5) = 0.0808$$"
+            },
+            {
+              "step": 3,
+              "text": "Sum the three values:\n$$P(3 \\le X \\le 5) = 0.547$$"
+            }
+          ],
+          "checking": {
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_s1_t_discrete_random_variables_m03_l03_cpq04_p02_c1",
+                "points": 1,
+                "observable": "Sets up inclusive sum $P(3 \\le X \\le 5) = P(X = 3) + P(X = 4) + P(X = 5)$."
+              },
+              {
+                "criterion_id": "9709_s1_t_discrete_random_variables_m03_l03_cpq04_p02_c2",
+                "points": 1,
+                "observable": "Evaluates terms: $\\binom{8}{3}(0.35)^3(0.65)^5 + \\binom{8}{4}(0.35)^4(0.65)^4 + \\binom{8}{5}(0.35)^5(0.65)^3$."
+              },
+              {
+                "criterion_id": "9709_s1_t_discrete_random_variables_m03_l03_cpq04_p02_c3",
+                "points": 1,
+                "observable": "Evaluates sum $0.278587 + 0.187510 + 0.080772 = 0.546869 \\dots \\approx 0.547$ (to 3 s.f.)."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_s1_t_discrete_random_variables_m03_l03_cpq05",
+      "parts": [
+        {
+          "part_id": "9709_s1_t_discrete_random_variables_m03_l03_cpq05_p01",
+          "difficulty": "medium",
+          "hints": [
+            "'Fewer than 5 spins' means red appears on spin 1, 2, 3, or 4.",
+            "The complement is that the first 4 spins all fail to land on red.",
+            "Calculate $1 - (0.75)^4 = 1 - \\frac{81}{256} = \\frac{175}{256}$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Translate the condition: red appears on spin 1, 2, 3, or 4:\n$$P(\\text{first red } < 5) = 1 - P(\\text{no red in first 4 spins}) = 1 - (1 - 0.25)^4 = 1 - (0.75)^4$$"
+            },
+            {
+              "step": 2,
+              "text": "Evaluate the power of the failure probability:\n$$(0.75)^4 = \\left(\\frac{3}{4}\\right)^4 = \\frac{81}{256} = 0.31640625$$"
+            },
+            {
+              "step": 3,
+              "text": "Subtract from 1:\n$$P(\\text{first red } < 5) = 1 - \\frac{81}{256} = \\frac{175}{256} = 0.68359375 \\approx 0.684 \\text{ (3 s.f.)}$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "Fewer than 5 spins means a red must occur within the first 4 spins:\n$$P = 1 - (0.75)^4$$"
+            },
+            {
+              "step": 2,
+              "text": "Calculate $(0.75)^4 = \\frac{81}{256}$:\n$$P = 1 - \\frac{81}{256} = \\frac{175}{256} = 0.684$$"
+            }
+          ],
+          "checking": {
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_s1_t_discrete_random_variables_m03_l03_cpq05_p01_c1",
+                "points": 1,
+                "observable": "Translates 'first appears in fewer than 5 spins' to at least one red in the first 4 spins."
+              },
+              {
+                "criterion_id": "9709_s1_t_discrete_random_variables_m03_l03_cpq05_p01_c2",
+                "points": 1,
+                "observable": "Applies complement of 4 consecutive non-red spins: $1 - (0.75)^4$."
+              },
+              {
+                "criterion_id": "9709_s1_t_discrete_random_variables_m03_l03_cpq05_p01_c3",
+                "points": 1,
+                "observable": "Evaluates $1 - \\frac{81}{256} = \\frac{175}{256} = 0.68359375$ (or $0.684$ to 3 s.f.)."
+              }
+            ]
+          }
+        },
+        {
+          "part_id": "9709_s1_t_discrete_random_variables_m03_l03_cpq05_p02",
+          "difficulty": "medium",
+          "hints": [
+            "Let $p = \\frac{175}{256}$ be the probability of winning a round. Then losing a round has probability $q = \\frac{81}{256} \\approx 0.316406$.",
+            "The probability of winning at least one round in $N$ rounds is $1 - q^N > 0.95$, so $q^N < 0.05$.",
+            "Use logarithms: $N > \\frac{\\ln(0.05)}{\\ln(0.316406)} \\approx 2.60$, giving smallest integer $N = 3$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Find the probability of losing a single round:\n$$P(\\text{lose round}) = 1 - P(\\text{win round}) = 1 - \\frac{175}{256} = \\frac{81}{256} \\approx 0.316406$$"
+            },
+            {
+              "step": 2,
+              "text": "Set up the threshold inequality for winning at least one round in $N$ rounds:\n$$1 - (0.316406)^N > 0.95 \\implies (0.316406)^N < 0.05$$"
+            },
+            {
+              "step": 3,
+              "text": "Solve for $N$ using logarithms:\n$$N > \\frac{\\ln(0.05)}{\\ln(0.316406)} = \\frac{-2.99573}{-1.15073} \\approx 2.603$$\n$$\\text{Smallest integer } N = 3$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "The probability of losing a round is $(0.75)^4 = 0.3164$:\n$$q = 0.3164$$"
+            },
+            {
+              "step": 2,
+              "text": "For the probability of winning at least one round to exceed $0.95$:\n$$(0.3164)^N < 0.05$$"
+            },
+            {
+              "step": 3,
+              "text": "Check integer values: $N = 2$ gives $1 - (0.3164)^2 = 0.900 < 0.95$, while $N = 3$ gives $1 - (0.3164)^3 = 0.968 > 0.95$:\n$$N = 3$$"
+            }
+          ],
+          "checking": {
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_s1_t_discrete_random_variables_m03_l03_cpq05_p02_c1",
+                "points": 1,
+                "observable": "Identifies probability of losing a round as $q = 1 - \\frac{175}{256} = \\frac{81}{256} \\approx 0.316406$."
+              },
+              {
+                "criterion_id": "9709_s1_t_discrete_random_variables_m03_l03_cpq05_p02_c2",
+                "points": 1,
+                "observable": "Sets up inequality $1 - (q)^N > 0.95 \\implies (0.316406)^N < 0.05$."
+              },
+              {
+                "criterion_id": "9709_s1_t_discrete_random_variables_m03_l03_cpq05_p02_c3",
+                "points": 1,
+                "observable": "Solves $N > \\frac{\\ln(0.05)}{\\ln(0.316406)} \\approx 2.60$ and concludes smallest $N = 3$."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_s1_t_discrete_random_variables_m03_l03_cpq06",
+      "parts": [
+        {
+          "part_id": "9709_s1_t_discrete_random_variables_m03_l03_cpq06_p01",
+          "difficulty": "hard",
+          "hints": [
+            "Let $X \\sim B(5, 0.70)$. 'At most 3' means $X \\le 3$.",
+            "Use the shorter upper complement: $P(X \\le 3) = 1 - [P(X = 4) + P(X = 5)]$.",
+            "Calculate $P(4) = 5(0.70)^4(0.30) = 0.36015$ and $P(5) = (0.70)^5 = 0.16807$.",
+            "Subtract their sum from 1 and round to 3 significant figures."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "State the distribution for the 5-day week and set up the upper complement:\n$$X \\sim B(5, 0.70), \\quad P(X \\le 3) = 1 - [P(X = 4) + P(X = 5)]$$"
+            },
+            {
+              "step": 2,
+              "text": "Evaluate the probabilities for 4 and 5 solved puzzles:\n$$P(X = 4) = \\binom{5}{4}(0.70)^4(0.30)^1 = 5 \\times 0.2401 \\times 0.30 = 0.36015$$\n$$P(X = 5) = (0.70)^5 = 0.16807$$\n$$P(X \\le 3) = 1 - (0.36015 + 0.16807) = 1 - 0.52822 = 0.47178 \\dots \\approx 0.472 \\text{ (3 s.f.)}$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "Instead of adding four terms (0, 1, 2, 3), subtract 4 and 5 from 1:\n$$P(X \\le 3) = 1 - [P(4) + P(5)]$$"
+            },
+            {
+              "step": 2,
+              "text": "Compute the difference:\n$$1 - (0.3602 + 0.1681) = 0.472$$"
+            }
+          ],
+          "checking": {
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_s1_t_discrete_random_variables_m03_l03_cpq06_p01_c1",
+                "points": 1,
+                "observable": "Applies complement $P(X \\le 3) = 1 - [P(X = 4) + P(X = 5)] = 1 - [5(0.7)^4(0.3) + (0.7)^5]$."
+              },
+              {
+                "criterion_id": "9709_s1_t_discrete_random_variables_m03_l03_cpq06_p01_c2",
+                "points": 1,
+                "observable": "Evaluates $1 - (0.36015 + 0.16807) = 1 - 0.52822 = 0.47178 \\dots \\approx 0.472$ (to 3 s.f.)."
+              }
+            ]
+          }
+        },
+        {
+          "part_id": "9709_s1_t_discrete_random_variables_m03_l03_cpq06_p02",
+          "difficulty": "hard",
+          "hints": [
+            "This is a two-tier problem: let $Y$ count weeks where at most 3 puzzles are solved, so $Y \\sim B(8, p)$ where $p = 0.47178$ from part (a).",
+            "The failure probability per week is $1 - 0.47178 = 0.52822$.",
+            "Compute $P(Y = 2) = \\binom{8}{2}(0.47178)^2(0.52822)^6$.",
+            "Round the result to 3 significant figures."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Define the secondary binomial model for the 8 weeks:\n$$Y \\sim B(8, p), \\quad \\text{where } p = 0.47178, \\quad 1 - p = 0.52822$$"
+            },
+            {
+              "step": 2,
+              "text": "Apply the binomial formula for $Y = 2$:\n$$P(Y = 2) = \\binom{8}{2}(0.47178)^2(0.52822)^6$$"
+            },
+            {
+              "step": 3,
+              "text": "Evaluate the terms to 3 significant figures:\n$$\\binom{8}{2} = 28, \\quad (0.47178)^2 \\approx 0.222576, \\quad (0.52822)^6 \\approx 0.021721$$\n$$P(Y = 2) = 28 \\times 0.222576 \\times 0.021721 = 0.135371 \\dots \\approx 0.135 \\text{ (3 s.f.)}$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "Each week is now a single trial with success probability $0.4718$:\n$$Y \\sim B(8, 0.4718)$$"
+            },
+            {
+              "step": 2,
+              "text": "Calculate the probability of 2 such weeks:\n$$P(Y = 2) = 28(0.4718)^2(0.5282)^6 = 0.135$$"
+            }
+          ],
+          "checking": {
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_s1_t_discrete_random_variables_m03_l03_cpq06_p02_c1",
+                "points": 1,
+                "observable": "States secondary distribution $Y \\sim B(8, p)$ with $p = 0.47178$."
+              },
+              {
+                "criterion_id": "9709_s1_t_discrete_random_variables_m03_l03_cpq06_p02_c2",
+                "points": 1,
+                "observable": "Substitutes into formula: $P(Y = 2) = \\binom{8}{2}(0.47178)^2(0.52822)^6$."
+              },
+              {
+                "criterion_id": "9709_s1_t_discrete_random_variables_m03_l03_cpq06_p02_c3",
+                "points": 1,
+                "observable": "Evaluates $28 \\times 0.222576 \\times 0.021721 = 0.135371 \\dots \\approx 0.135$ (to 3 s.f.)."
+              }
+            ]
+          }
+        },
+        {
+          "part_id": "9709_s1_t_discrete_random_variables_m03_l03_cpq06_p03",
+          "difficulty": "hard",
+          "hints": [
+            "We need $P(Y \\ge 3)$. Use the complement $1 - [P(Y = 0) + P(Y = 1) + P(Y = 2)]$.",
+            "We already calculated $P(Y = 2) \\approx 0.135371$ in part (b).",
+            "Compute $P(Y = 0) = (0.52822)^8$ and $P(Y = 1) = 8(0.47178)(0.52822)^7$.",
+            "Sum $P(0), P(1), P(2)$ and subtract from 1."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Express $P(Y \\ge 3)$ using the complement of at most 2 weeks:\n$$P(Y \\ge 3) = 1 - P(Y \\le 2) = 1 - [P(Y = 0) + P(Y = 1) + P(Y = 2)]$$"
+            },
+            {
+              "step": 2,
+              "text": "Calculate $P(Y = 0)$ and $P(Y = 1)$:\n$$P(Y = 0) = (0.52822)^8 \\approx 0.006060$$\n$$P(Y = 1) = \\binom{8}{1}(0.47178)^1(0.52822)^7 = 8 \\times 0.47178 \\times 0.011473 \\approx 0.043305$$\n$$P(Y \\le 2) = 0.006060 + 0.043305 + 0.135371 = 0.184736$$"
+            },
+            {
+              "step": 3,
+              "text": "Subtract from 1:\n$$P(Y \\ge 3) = 1 - 0.184736 = 0.815264 \\dots \\approx 0.815 \\text{ (3 s.f.)}$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "At least 3 weeks has the complement 0, 1, or 2 weeks:\n$$P(Y \\ge 3) = 1 - [P(0) + P(1) + P(2)]$$"
+            },
+            {
+              "step": 2,
+              "text": "Combine $P(0)$ and $P(1)$ with $P(2)$ from part (b):\n$$P(Y \\le 2) = 0.0061 + 0.0433 + 0.1354 = 0.1847$$"
+            },
+            {
+              "step": 3,
+              "text": "Subtract from 1:\n$$P(Y \\ge 3) = 1 - 0.1847 = 0.815$$"
+            }
+          ],
+          "checking": {
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_s1_t_discrete_random_variables_m03_l03_cpq06_p03_c1",
+                "points": 1,
+                "observable": "Applies complement rule $P(Y \\ge 3) = 1 - [P(Y = 0) + P(Y = 1) + P(Y = 2)]$."
+              },
+              {
+                "criterion_id": "9709_s1_t_discrete_random_variables_m03_l03_cpq06_p03_c2",
+                "points": 1,
+                "observable": "Evaluates lower tail: $(0.52822)^8 + 8(0.47178)(0.52822)^7 + 0.135371 = 0.006060 + 0.043305 + 0.135371 = 0.184736$."
+              },
+              {
+                "criterion_id": "9709_s1_t_discrete_random_variables_m03_l03_cpq06_p03_c3",
+                "points": 1,
+                "observable": "Subtracts from 1 to obtain $1 - 0.184736 = 0.815264 \\dots \\approx 0.815$ (to 3 s.f.)."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_s1_t_discrete_random_variables_m03_l03_cpq07",
+      "parts": [
+        {
+          "part_id": "9709_s1_t_discrete_random_variables_m03_l03_cpq07_p01",
+          "difficulty": "hard",
+          "hints": [
+            "Let $X \\sim B(10, 0.12)$ count defectives. A batch is rejected if $X > 1$.",
+            "The complement is $X \\le 1$, meaning $X = 0$ or $X = 1$.",
+            "Calculate $P(0) = (0.88)^{10}$ and $P(1) = 10(0.12)(0.88)^9$.",
+            "Subtract their sum from 1 and show that it rounds to $0.342$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Define the distribution of defective items $X$ in a sample of 10:\n$$X \\sim B(10, 0.12), \\quad P(\\text{batch rejected}) = P(X > 1) = 1 - [P(X = 0) + P(X = 1)]$$"
+            },
+            {
+              "step": 2,
+              "text": "Calculate the probabilities for 0 and 1 defective items:\n$$P(X = 0) = (0.88)^{10} \\approx 0.278501$$\n$$P(X = 1) = \\binom{10}{1}(0.12)^1(0.88)^9 = 10 \\times 0.12 \\times 0.316478 \\approx 0.379774$$\n$$P(X \\le 1) = 0.278501 + 0.379774 = 0.658275$$"
+            },
+            {
+              "step": 3,
+              "text": "Subtract from 1 to confirm the required rejection probability:\n$$P(\\text{reject}) = 1 - 0.658275 = 0.341725 \\dots \\approx 0.342 \\text{ (3 s.f.)}$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "A batch is rejected if there are 2 or more defectives, so calculate $1 - P(X \\le 1)$:\n$$P(X > 1) = 1 - [P(0) + P(1)]$$"
+            },
+            {
+              "step": 2,
+              "text": "Calculate each term:\n$$P(0) = 0.2785, \\quad P(1) = 0.3798$$"
+            },
+            {
+              "step": 3,
+              "text": "Subtract from 1 to show the target probability:\n$$1 - 0.6583 = 0.342$$"
+            }
+          ],
+          "checking": {
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_s1_t_discrete_random_variables_m03_l03_cpq07_p01_c1",
+                "points": 1,
+                "observable": "States binomial model $X \\sim B(10, 0.12)$ where $X$ is the number of defective items."
+              },
+              {
+                "criterion_id": "9709_s1_t_discrete_random_variables_m03_l03_cpq07_p01_c2",
+                "points": 1,
+                "observable": "Applies complement $P(\\text{reject}) = P(X > 1) = 1 - [P(X = 0) + P(X = 1)] = 1 - [(0.88)^{10} + 10(0.12)(0.88)^9]$."
+              },
+              {
+                "criterion_id": "9709_s1_t_discrete_random_variables_m03_l03_cpq07_p01_c3",
+                "points": 1,
+                "observable": "Shows $1 - (0.278501 + 0.379774) = 1 - 0.658275 = 0.341725 \\dots = 0.342$ (to 3 s.f.)."
+              }
+            ]
+          }
+        },
+        {
+          "part_id": "9709_s1_t_discrete_random_variables_m03_l03_cpq07_p02",
+          "difficulty": "hard",
+          "hints": [
+            "Let $Z$ be the number of rejected batches: $Z \\sim B(12, p)$ with $p = 0.341725$ from part (a).",
+            "'At most 2' means $Z = 0, 1, 2$.",
+            "Compute $P(0) = (1-p)^{12}$, $P(1) = 12p(1-p)^{11}$, and $P(2) = 66p^2(1-p)^{10}$ with $1 - p = 0.658275$.",
+            "Sum the three terms and round to 3 significant figures."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Define the distribution for the number of rejected batches $Z$:\n$$Z \\sim B(12, p_r), \\quad \\text{where } p_r = 0.341725, \\quad 1 - p_r = 0.658275$$"
+            },
+            {
+              "step": 2,
+              "text": "Calculate the probabilities for 0, 1, and 2 rejected batches:\n$$P(Z = 0) = (0.658275)^{12} \\approx 0.006616$$\n$$P(Z = 1) = \\binom{12}{1}(0.341725)^1(0.658275)^{11} = 12 \\times 0.341725 \\times 0.010050 \\approx 0.041214$$\n$$P(Z = 2) = \\binom{12}{2}(0.341725)^2(0.658275)^{10} = 66 \\times 0.116776 \\times 0.015267 \\approx 0.117785$$"
+            },
+            {
+              "step": 3,
+              "text": "Sum the three probabilities:\n$$P(Z \\le 2) = 0.006616 + 0.041214 + 0.117785 = 0.165615 \\dots \\approx 0.166 \\text{ (3 s.f.)}$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "Each batch has rejection probability $0.3417$ and survival probability $0.6583$:\n$$Z \\sim B(12, 0.3417)$$"
+            },
+            {
+              "step": 2,
+              "text": "Sum the probabilities for 0, 1, and 2 rejected batches:\n$$P(Z \\le 2) = P(0) + P(1) + P(2) = 0.0066 + 0.0412 + 0.1178$$"
+            },
+            {
+              "step": 3,
+              "text": "Evaluate the cumulative probability:\n$$P(Z \\le 2) = 0.166$$"
+            }
+          ],
+          "checking": {
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_s1_t_discrete_random_variables_m03_l03_cpq07_p02_c1",
+                "points": 1,
+                "observable": "Defines secondary model $Z \\sim B(12, p_r)$ where $p_r \\approx 0.341725$."
+              },
+              {
+                "criterion_id": "9709_s1_t_discrete_random_variables_m03_l03_cpq07_p02_c2",
+                "points": 1,
+                "observable": "Sets up $P(Z \\le 2) = P(Z = 0) + P(Z = 1) + P(Z = 2)$."
+              },
+              {
+                "criterion_id": "9709_s1_t_discrete_random_variables_m03_l03_cpq07_p02_c3",
+                "points": 1,
+                "observable": "Evaluates $0.007551 + 0.046985 + 0.134105 \\dots = 0.165615 \\approx 0.166$ (to 3 s.f.)."
+              }
+            ]
+          }
+        },
+        {
+          "part_id": "9709_s1_t_discrete_random_variables_m03_l03_cpq07_p03",
+          "difficulty": "hard",
+          "hints": [
+            "Form the conditional probability definition: $P(Z = 2 \\mid Z \\ge 1) = \\frac{P(Z = 2)}{P(Z \\ge 1)}$.",
+            "Notice that $P(Z \\ge 1) = 1 - P(Z = 0)$.",
+            "We already have $P(Z = 2) \\approx 0.117785$ and $P(Z = 0) \\approx 0.006616$ from part (b).",
+            "Divide $P(Z = 2)$ by $1 - P(Z = 0)$ and round to 3 significant figures."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Apply the conditional probability formula:\n$$P(Z = 2 \\mid Z \\ge 1) = \\frac{P(Z = 2 \\text{ and } Z \\ge 1)}{P(Z \\ge 1)} = \\frac{P(Z = 2)}{1 - P(Z = 0)}$$"
+            },
+            {
+              "step": 2,
+              "text": "Retrieve the unrounded components from part (b):\n$$P(Z = 2) = 0.1177848$$\n$$P(Z = 0) = 0.0066158 \\implies P(Z \\ge 1) = 1 - 0.0066158 = 0.9933842$$"
+            },
+            {
+              "step": 3,
+              "text": "Evaluate the quotient:\n$$P(Z = 2 \\mid Z \\ge 1) = \\frac{0.1177848}{0.9933842} = 0.118569 \\dots \\approx 0.119 \\text{ (3 s.f.)}$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "The condition restricts our universe to outcomes where $Z \\ge 1$:\n$$P(Z = 2 \\mid Z \\ge 1) = \\frac{P(Z = 2)}{1 - P(Z = 0)}$$"
+            },
+            {
+              "step": 2,
+              "text": "Substitute the values from part (b):\n$$\\frac{0.1178}{1 - 0.0066} = \\frac{0.1178}{0.9934}$$"
+            },
+            {
+              "step": 3,
+              "text": "Evaluate the fraction to 3 significant figures:\n$$P(Z = 2 \\mid Z \\ge 1) = 0.119$$"
+            }
+          ],
+          "checking": {
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_s1_t_discrete_random_variables_m03_l03_cpq07_p03_c1",
+                "points": 1,
+                "observable": "Sets up conditional probability $P(Z = 2 \\mid Z \\ge 1) = \\frac{P(Z = 2)}{P(Z \\ge 1)} = \\frac{P(Z = 2)}{1 - P(Z = 0)}$."
+              },
+              {
+                "criterion_id": "9709_s1_t_discrete_random_variables_m03_l03_cpq07_p03_c2",
+                "points": 1,
+                "observable": "Substitutes unrounded probabilities: $\\frac{0.117785}{1 - 0.006616} = \\frac{0.117785}{0.993384}$."
+              },
+              {
+                "criterion_id": "9709_s1_t_discrete_random_variables_m03_l03_cpq07_p03_c3",
+                "points": 1,
+                "observable": "Evaluates ratio $\\frac{0.117785}{0.993384} = 0.118569 \\dots \\approx 0.119$ (to 3 s.f.)."
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

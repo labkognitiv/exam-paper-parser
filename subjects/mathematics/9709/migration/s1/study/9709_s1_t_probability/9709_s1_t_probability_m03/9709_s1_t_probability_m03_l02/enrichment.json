@@ -1,0 +1,1427 @@
+{
+  "lesson_id": "9709_s1_t_probability_m03_l02",
+  "questions": [
+    {
+      "question_id": "9709_s1_t_probability_m03_l02_drq01",
+      "parts": [
+        {
+          "part_id": "9709_s1_t_probability_m03_l02_drq01_p01",
+          "label": "(a)",
+          "difficulty": "easy",
+          "pattern_ids": [
+            "two_branch_tree_inversion"
+          ],
+          "hints": [
+            "Write out the law of total probability for a defective component by summing the two machine pathways: $P(\\text{Defective}) = P(A \\cap \\text{Defective}) + P(B \\cap \\text{Defective})$.",
+            "Apply the conditional probability definition in reverse: $P(A \\mid \\text{Defective}) = \\frac{P(A \\cap \\text{Defective})}{P(\\text{Defective})}$, substituting the known branch probabilities."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Calculate the probability of drawing a defective item produced by Machine $A$:\n$$P(A \\cap \\text{Def}) = P(A) \\times P(\\text{Def} \\mid A) = 0.60 \\times 0.05 = 0.030$$"
+            },
+            {
+              "step": 2,
+              "text": "Calculate the probability of drawing a defective item produced by Machine $B$:\n$$P(B \\cap \\text{Def}) = P(B) \\times P(\\text{Def} \\mid B) = 0.40 \\times 0.10 = 0.040$$"
+            },
+            {
+              "step": 3,
+              "text": "Sum both disjoint paths to find the total probability that a chosen item is defective:\n$$P(\\text{Def}) = 0.030 + 0.040 = 0.070$$"
+            },
+            {
+              "step": 4,
+              "text": "Divide the favorable pathway by the total probability of a defective component:\n$$P(A \\mid \\text{Def}) = \\frac{P(A \\cap \\text{Def})}{P(\\text{Def})} = \\frac{0.030}{0.070} = \\frac{3}{7} \\approx 0.429$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "Identify the prior machine probabilities and branch defect rates:\n$$P(A) = 0.60,\\quad P(B) = 0.40,\\quad P(\\text{Def} \\mid A) = 0.05,\\quad P(\\text{Def} \\mid B) = 0.10$$"
+            },
+            {
+              "step": 2,
+              "text": "Determine the joint branch probabilities along each tree branch:\n$$P(A \\cap \\text{Def}) = 0.60 \\times 0.05 = 0.03,\\quad P(B \\cap \\text{Def}) = 0.40 \\times 0.10 = 0.04$$"
+            },
+            {
+              "step": 3,
+              "text": "Compute the total probability forming the denominator:\n$$P(\\text{Def}) = 0.03 + 0.04 = 0.07$$"
+            },
+            {
+              "step": 4,
+              "text": "Invert the conditional probability to find the posterior:\n$$P(A \\mid \\text{Def}) = \\frac{0.03}{0.07} = \\frac{3}{7}$$"
+            }
+          ],
+          "checking": {
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_s1_t_probability_m03_l02_drq01_p01_c01",
+                "mark": "M1",
+                "observable": "Calculate $P(\\text{defective}) = 0.60 \\times 0.05 + 0.40 \\times 0.10 = 0.07$ or set up the ratio $\\frac{0.03}{0.03 + 0.04}$."
+              },
+              {
+                "criterion_id": "9709_s1_t_probability_m03_l02_drq01_p01_c02",
+                "mark": "A1",
+                "observable": "Obtain exact fraction $\\frac{3}{7}$ (or $0.429$ to 3 significant figures)."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_s1_t_probability_m03_l02_drq02",
+      "parts": [
+        {
+          "part_id": "9709_s1_t_probability_m03_l02_drq02_p01",
+          "label": "(a)",
+          "difficulty": "easy",
+          "pattern_ids": [
+            "reverse_conditioning_complement_outcome"
+          ],
+          "hints": [
+            "Identify the two ways a bus can be late: either it rains and the bus is late, or it is dry and the bus is late: $P(\\text{Late}) = P(\\text{Rain} \\cap \\text{Late}) + P(\\text{Dry} \\cap \\text{Late})$.",
+            "Compute the numerator $P(\\text{Rain} \\cap \\text{Late}) = 0.3 \\times 0.6$ and divide by the total probability of being late."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Calculate the probability that it rains and the bus is late:\n$$P(\\text{Rain} \\cap \\text{Late}) = 0.3 \\times 0.6 = 0.18$$"
+            },
+            {
+              "step": 2,
+              "text": "Calculate the probability that it is dry and the bus is late:\n$$P(\\text{Dry} \\cap \\text{Late}) = 0.7 \\times 0.1 = 0.07$$"
+            },
+            {
+              "step": 3,
+              "text": "Find the total probability that the bus arrives late on a randomly chosen morning:\n$$P(\\text{Late}) = 0.18 + 0.07 = 0.25$$"
+            },
+            {
+              "step": 4,
+              "text": "Apply the conditional probability formula to find the posterior probability of rain:\n$$P(\\text{Rain} \\mid \\text{Late}) = \\frac{P(\\text{Rain} \\cap \\text{Late})}{P(\\text{Late})} = \\frac{0.18}{0.25} = \\frac{18}{25} = 0.72$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "Extract the branch probabilities from the problem statement:\n$$P(\\text{Rain}) = 0.3,\\quad P(\\text{Dry}) = 0.7,\\quad P(\\text{Late} \\mid \\text{Rain}) = 0.6,\\quad P(\\text{Late} \\mid \\text{Dry}) = 0.1$$"
+            },
+            {
+              "step": 2,
+              "text": "Calculate the two branch products leading to a late arrival:\n$$P(\\text{Rain} \\cap \\text{Late}) = 0.3 \\times 0.6 = 0.18,\\quad P(\\text{Dry} \\cap \\text{Late}) = 0.7 \\times 0.1 = 0.07$$"
+            },
+            {
+              "step": 3,
+              "text": "Sum to obtain the denominator representing the total late probability:\n$$P(\\text{Late}) = 0.18 + 0.07 = 0.25$$"
+            },
+            {
+              "step": 4,
+              "text": "Form the inverted conditional ratio:\n$$P(\\text{Rain} \\mid \\text{Late}) = \\frac{0.18}{0.25} = \\frac{18}{25} = 0.72$$"
+            }
+          ],
+          "checking": {
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_s1_t_probability_m03_l02_drq02_p01_c01",
+                "mark": "M1",
+                "observable": "Evaluate total probability of late bus as $0.3 \\times 0.6 + 0.7 \\times 0.1 = 0.25$ and identify numerator as $0.3 \\times 0.6 = 0.18$."
+              },
+              {
+                "criterion_id": "9709_s1_t_probability_m03_l02_drq02_p01_c02",
+                "mark": "A1",
+                "observable": "Obtain $\\frac{18}{25}$ or $0.72$."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_s1_t_probability_m03_l02_drq03",
+      "parts": [
+        {
+          "part_id": "9709_s1_t_probability_m03_l02_drq03_p01",
+          "label": "(a)",
+          "difficulty": "easy",
+          "pattern_ids": [
+            "sequential_retake_tree_inversion"
+          ],
+          "hints": [
+            "Note the sequential structure: passing can occur immediately on attempt 1, or after failing attempt 1 and passing attempt 2: $P(\\text{Pass}) = P(\\text{Pass}_1) + P(\\text{Fail}_1 \\cap \\text{Pass}_2)$.",
+            "Evaluate the favorable path $P(\\text{Fail}_1 \\cap \\text{Pass}_2) = 0.3 \\times 0.6$ and divide by $P(\\text{Pass})$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Identify the probability of passing on the first attempt directly:\n$$P(\\text{Pass}_1) = 0.7$$"
+            },
+            {
+              "step": 2,
+              "text": "Determine the probability of failing the first test and passing the second test:\n$$P(\\text{Fail}_1 \\cap \\text{Pass}_2) = 0.3 \\times 0.6 = 0.18$$"
+            },
+            {
+              "step": 3,
+              "text": "Calculate the overall probability that the candidate passes the test:\n$$P(\\text{Pass}) = 0.7 + 0.18 = 0.88$$"
+            },
+            {
+              "step": 4,
+              "text": "Divide the probability of passing on the second attempt by the overall passing probability:\n$$P(\\text{Pass}_2 \\mid \\text{Pass}) = \\frac{0.18}{0.88} = \\frac{18}{88} = \\frac{9}{44} \\approx 0.205$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "Set up the sequential tree branches with unequal lengths:\n$$P(\\text{Pass}_1) = 0.7,\\quad P(\\text{Fail}_1) = 1 - 0.7 = 0.3$$"
+            },
+            {
+              "step": 2,
+              "text": "Trace the path to passing on the second attempt:\n$$P(\\text{Fail}_1 \\cap \\text{Pass}_2) = 0.3 \\times 0.6 = 0.18$$"
+            },
+            {
+              "step": 3,
+              "text": "Sum all paths resulting in eventual success to find the condition:\n$$P(\\text{Pass}) = 0.7 + 0.18 = 0.88$$"
+            },
+            {
+              "step": 4,
+              "text": "Calculate the inverted probability that success was achieved on attempt 2:\n$$P(\\text{2nd attempt} \\mid \\text{Pass}) = \\frac{0.18}{0.88} = \\frac{9}{44}$$"
+            }
+          ],
+          "checking": {
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_s1_t_probability_m03_l02_drq03_p01_c01",
+                "mark": "M1",
+                "observable": "Find total probability of passing as $0.7 + 0.3 \\times 0.6 = 0.88$ with numerator $0.3 \\times 0.6 = 0.18$."
+              },
+              {
+                "criterion_id": "9709_s1_t_probability_m03_l02_drq03_p01_c02",
+                "mark": "A1",
+                "observable": "Obtain exact fraction $\\frac{9}{44}$ (or $0.205$ to 3 significant figures)."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_s1_t_probability_m03_l02_drq04",
+      "parts": [
+        {
+          "part_id": "9709_s1_t_probability_m03_l02_drq04_p01",
+          "label": "(a)",
+          "difficulty": "easy",
+          "pattern_ids": [
+            "three_branch_tree_inversion"
+          ],
+          "hints": [
+            "Calculate the total probability of selecting a faulty item by summing the fault rates across all three production lines: $P(\\text{Fault}) = \\sum P(\\text{Line}) \\times P(\\text{Fault} \\mid \\text{Line})$.",
+            "The required posterior probability is $P(Y \\mid \\text{Fault}) = \\frac{P(Y \\cap \\text{Fault})}{P(\\text{Fault})}$. Substitute the values to find the exact fraction."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Calculate the joint probability of producing a faulty item on Line $X$:\n$$P(X \\cap \\text{Fault}) = 0.50 \\times 0.02 = 0.010$$"
+            },
+            {
+              "step": 2,
+              "text": "Calculate the joint probability of producing a faulty item on Line $Y$:\n$$P(Y \\cap \\text{Fault}) = 0.30 \\times 0.04 = 0.012$$"
+            },
+            {
+              "step": 3,
+              "text": "Calculate the joint probability of producing a faulty item on Line $Z$:\n$$P(Z \\cap \\text{Fault}) = 0.20 \\times 0.05 = 0.010$$"
+            },
+            {
+              "step": 4,
+              "text": "Sum the three joint probabilities to find the total probability of a faulty item:\n$$P(\\text{Fault}) = 0.010 + 0.012 + 0.010 = 0.032$$"
+            },
+            {
+              "step": 5,
+              "text": "Evaluate the posterior probability that the faulty item originated from Line $Y$:\n$$P(Y \\mid \\text{Fault}) = \\frac{0.012}{0.032} = \\frac{12}{32} = \\frac{3}{8} = 0.375$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "Write down the three prior output shares and their respective defect probabilities:\n$$P(X) = 0.5,\\; P(Y) = 0.3,\\; P(Z) = 0.2;\\quad P(F \\mid X) = 0.02,\\; P(F \\mid Y) = 0.04,\\; P(F \\mid Z) = 0.05$$"
+            },
+            {
+              "step": 2,
+              "text": "Compute the numerator for Line $Y$:\n$$P(Y \\cap F) = 0.30 \\times 0.04 = 0.012$$"
+            },
+            {
+              "step": 3,
+              "text": "Sum all three branches for the denominator:\n$$P(F) = (0.50 \\times 0.02) + (0.30 \\times 0.04) + (0.20 \\times 0.05) = 0.010 + 0.012 + 0.010 = 0.032$$"
+            },
+            {
+              "step": 4,
+              "text": "Form the ratio to invert the condition:\n$$P(Y \\mid F) = \\frac{0.012}{0.032} = \\frac{3}{8}$$"
+            }
+          ],
+          "checking": {
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_s1_t_probability_m03_l02_drq04_p01_c01",
+                "mark": "M1",
+                "observable": "Calculate total probability of faulty item $P(\\text{faulty}) = 0.5 \\times 0.02 + 0.3 \\times 0.04 + 0.2 \\times 0.05 = 0.032$ with numerator $0.3 \\times 0.04 = 0.012$."
+              },
+              {
+                "criterion_id": "9709_s1_t_probability_m03_l02_drq04_p01_c02",
+                "mark": "A1",
+                "observable": "Obtain $\\frac{12}{32} = \\frac{3}{8}$ or $0.375$."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_s1_t_probability_m03_l02_drq05",
+      "parts": [
+        {
+          "part_id": "9709_s1_t_probability_m03_l02_drq05_p01",
+          "label": "(a)",
+          "difficulty": "easy",
+          "pattern_ids": [
+            "multi_route_inversion"
+          ],
+          "hints": [
+            "Find the conditional probability of receiving no discount for each payment method: $P(\\text{No Disc} \\mid \\text{Cash}) = 1.0$, $P(\\text{No Disc} \\mid \\text{Card}) = 0.90$, and $P(\\text{No Disc} \\mid \\text{App}) = 0.80$.",
+            "The numerator requires the union of two distinct payment methods with no discount: $P((\\text{Card} \\cup \\text{App}) \\cap \\text{No Disc}) = P(\\text{Card} \\cap \\text{No Disc}) + P(\\text{App} \\cap \\text{No Disc})$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Calculate the probability of paying by cash and receiving no discount:\n$$P(\\text{Cash} \\cap \\text{No Disc}) = 0.2 \\times 1.0 = 0.20$$"
+            },
+            {
+              "step": 2,
+              "text": "Calculate the probability of paying by card and receiving no discount:\n$$P(\\text{Card} \\cap \\text{No Disc}) = 0.5 \\times 0.90 = 0.45$$"
+            },
+            {
+              "step": 3,
+              "text": "Calculate the probability of paying by mobile app and receiving no discount:\n$$P(\\text{App} \\cap \\text{No Disc}) = 0.3 \\times 0.80 = 0.24$$"
+            },
+            {
+              "step": 4,
+              "text": "Sum the three branches to obtain the total probability of receiving no discount:\n$$P(\\text{No Disc}) = 0.20 + 0.45 + 0.24 = 0.89$$"
+            },
+            {
+              "step": 5,
+              "text": "Sum the card and app paths in the numerator and divide by the total probability:\n$$P(\\text{Card or App} \\mid \\text{No Disc}) = \\frac{0.45 + 0.24}{0.89} = \\frac{0.69}{0.89} = \\frac{69}{89} \\approx 0.775$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "Establish the complement probabilities of no discount for each branch:\n$$P(D' \\mid \\text{Cash}) = 1 - 0 = 1.0,\\quad P(D' \\mid \\text{Card}) = 1 - 0.10 = 0.90,\\quad P(D' \\mid \\text{App}) = 1 - 0.20 = 0.80$$"
+            },
+            {
+              "step": 2,
+              "text": "Calculate the joint probabilities along all branches:\n$$P(\\text{Cash} \\cap D') = 0.20,\\quad P(\\text{Card} \\cap D') = 0.45,\\quad P(\\text{App} \\cap D') = 0.24$$"
+            },
+            {
+              "step": 3,
+              "text": "Find the total probability of no discount:\n$$P(D') = 0.20 + 0.45 + 0.24 = 0.89$$"
+            },
+            {
+              "step": 4,
+              "text": "Combine the electronic payment branches in the numerator:\n$$P(\\text{Card or App} \\mid D') = \\frac{0.45 + 0.24}{0.89} = \\frac{69}{89}$$"
+            }
+          ],
+          "checking": {
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_s1_t_probability_m03_l02_drq05_p01_c01",
+                "mark": "M1",
+                "observable": "Calculate total probability of no discount as $0.2 \\times 1.0 + 0.5 \\times 0.90 + 0.3 \\times 0.80 = 0.89$ and combine card and mobile app in numerator as $0.45 + 0.24 = 0.69$."
+              },
+              {
+                "criterion_id": "9709_s1_t_probability_m03_l02_drq05_p01_c02",
+                "mark": "A1",
+                "observable": "Obtain exact fraction $\\frac{69}{89}$ (or $0.775$ to 3 significant figures)."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_s1_t_probability_m03_l02_drq06",
+      "parts": [
+        {
+          "part_id": "9709_s1_t_probability_m03_l02_drq06_p01",
+          "label": "(a)",
+          "difficulty": "easy",
+          "pattern_ids": [
+            "medical_screening_inversion"
+          ],
+          "hints": [
+            "Break down the population into two disjoint groups: having the condition ($2\\%$) and healthy ($98\\%$): $P(D) = 0.02,\\; P(D') = 0.98$.",
+            "Calculate the two ways of receiving a positive test result: a true positive ($0.02 \\times 0.90$) and a false positive ($0.98 \\times 0.05$)."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Calculate the probability of a person having the condition and testing positive:\n$$P(D \\cap +) = 0.02 \\times 0.90 = 0.018$$"
+            },
+            {
+              "step": 2,
+              "text": "Calculate the probability of a person not having the condition and testing positive:\n$$P(D' \\cap +) = 0.98 \\times 0.05 = 0.049$$"
+            },
+            {
+              "step": 3,
+              "text": "Find the total probability of obtaining a positive test result:\n$$P(+) = 0.018 + 0.049 = 0.067$$"
+            },
+            {
+              "step": 4,
+              "text": "Evaluate the posterior probability that a person testing positive actually has the condition:\n$$P(D \\mid +) = \\frac{P(D \\cap +)}{P(+)} = \\frac{0.018}{0.067} = \\frac{18}{67} \\approx 0.269$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "State the prior and conditional parameters:\n$$P(D) = 0.02,\\quad P(D') = 0.98,\\quad P(+ \\mid D) = 0.90,\\quad P(+ \\mid D') = 0.05$$"
+            },
+            {
+              "step": 2,
+              "text": "Compute the numerator representing the true positive branch:\n$$P(D \\cap +) = 0.02 \\times 0.90 = 0.018$$"
+            },
+            {
+              "step": 3,
+              "text": "Compute the total positive rate for the denominator:\n$$P(+) = (0.02 \\times 0.90) + (0.98 \\times 0.05) = 0.018 + 0.049 = 0.067$$"
+            },
+            {
+              "step": 4,
+              "text": "Calculate the posterior probability:\n$$P(D \\mid +) = \\frac{0.018}{0.067} = \\frac{18}{67}$$"
+            }
+          ],
+          "checking": {
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_s1_t_probability_m03_l02_drq06_p01_c01",
+                "mark": "M1",
+                "observable": "Find total positive rate as $0.02 \\times 0.90 + 0.98 \\times 0.05 = 0.018 + 0.049 = 0.067$ with numerator $0.018$."
+              },
+              {
+                "criterion_id": "9709_s1_t_probability_m03_l02_drq06_p01_c02",
+                "mark": "A1",
+                "observable": "Obtain exact fraction $\\frac{18}{67}$ (or $0.269$ to 3 significant figures)."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_s1_t_probability_m03_l02_cpq01",
+      "parts": [
+        {
+          "part_id": "9709_s1_t_probability_m03_l02_cpq01_p01",
+          "label": "(a)",
+          "difficulty": "easy",
+          "pattern_ids": [
+            "total_probability_two_branch"
+          ],
+          "hints": [
+            "Identify the two pathways to acceptance: applying for Engineering and being accepted, or applying for Science and being accepted: $P(\\text{Acc}) = P(E \\cap \\text{Acc}) + P(S \\cap \\text{Acc})$.",
+            "Multiply along each branch and sum: $P(\\text{Acc}) = (0.60 \\times 0.35) + (0.40 \\times 0.50)$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Calculate the probability of an applicant applying for Engineering and being accepted:\n$$P(E \\cap \\text{Acc}) = P(E) \\times P(\\text{Acc} \\mid E) = 0.60 \\times 0.35 = 0.21$$"
+            },
+            {
+              "step": 2,
+              "text": "Calculate the probability of an applicant applying for Science and being accepted:\n$$P(S \\cap \\text{Acc}) = P(S) \\times P(\\text{Acc} \\mid S) = 0.40 \\times 0.50 = 0.20$$"
+            },
+            {
+              "step": 3,
+              "text": "Sum the two disjoint probabilities to find the overall acceptance rate:\n$$P(\\text{Acc}) = 0.21 + 0.20 = 0.41$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "Identify the given probabilities for each branch:\n$$P(E) = 0.60,\\quad P(S) = 0.40,\\quad P(\\text{Acc} \\mid E) = 0.35,\\quad P(\\text{Acc} \\mid S) = 0.50$$"
+            },
+            {
+              "step": 2,
+              "text": "Apply the law of total probability across both disciplines:\n$$P(\\text{Acc}) = (0.60 \\times 0.35) + (0.40 \\times 0.50)$$"
+            },
+            {
+              "step": 3,
+              "text": "Evaluate the arithmetic:\n$$P(\\text{Acc}) = 0.21 + 0.20 = 0.41$$"
+            }
+          ],
+          "checking": {
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_s1_t_probability_m03_l02_cpq01_p01_c01",
+                "mark": "M1",
+                "observable": "Use law of total probability with correct branch products: $0.60 \\times 0.35 + 0.40 \\times 0.50$."
+              },
+              {
+                "criterion_id": "9709_s1_t_probability_m03_l02_cpq01_p01_c02",
+                "mark": "A1",
+                "observable": "Obtain $0.41$ (or $\\frac{41}{100}$)."
+              }
+            ]
+          }
+        },
+        {
+          "part_id": "9709_s1_t_probability_m03_l02_cpq01_p02",
+          "label": "(b)",
+          "difficulty": "easy",
+          "pattern_ids": [
+            "bayes_reverse_two_branch"
+          ],
+          "hints": [
+            "Recall the definition of conditional probability: $P(E \\mid \\text{Acc}) = \\frac{P(E \\cap \\text{Acc})}{P(\\text{Acc})}$.",
+            "Use the branch probability $P(E \\cap \\text{Acc}) = 0.21$ and the total probability from part (a) $P(\\text{Acc}) = 0.41$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Retrieve the joint probability of applying for Engineering and being accepted:\n$$P(E \\cap \\text{Acc}) = 0.21$$"
+            },
+            {
+              "step": 2,
+              "text": "Retrieve the total probability of acceptance from part (a):\n$$P(\\text{Acc}) = 0.41$$"
+            },
+            {
+              "step": 3,
+              "text": "Compute the conditional probability:\n$$P(E \\mid \\text{Acc}) = \\frac{P(E \\cap \\text{Acc})}{P(\\text{Acc})} = \\frac{0.21}{0.41} = \\frac{21}{41} \\approx 0.512$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "State the formula for reversing the conditional probability:\n$$P(E \\mid \\text{Acc}) = \\frac{P(E \\cap \\text{Acc})}{P(\\text{Acc})}$$"
+            },
+            {
+              "step": 2,
+              "text": "Substitute the numerator and denominator from part (a):\n$$P(E \\mid \\text{Acc}) = \\frac{0.21}{0.41}$$"
+            },
+            {
+              "step": 3,
+              "text": "Simplify to an irreducible fraction:\n$$P(E \\mid \\text{Acc}) = \\frac{21}{41}$$"
+            }
+          ],
+          "checking": {
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_s1_t_probability_m03_l02_cpq01_p02_c01",
+                "mark": "M1",
+                "observable": "Use Bayes inversion formula $\\frac{0.60 \\times 0.35}{0.41}$."
+              },
+              {
+                "criterion_id": "9709_s1_t_probability_m03_l02_cpq01_p02_c02",
+                "mark": "A1",
+                "observable": "Obtain exact fraction $\\frac{21}{41}$ (or $0.512$ to 3 significant figures)."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_s1_t_probability_m03_l02_cpq02",
+      "parts": [
+        {
+          "part_id": "9709_s1_t_probability_m03_l02_cpq02_p01",
+          "label": "(a)",
+          "difficulty": "easy",
+          "pattern_ids": [
+            "urn_selection_coin_toss"
+          ],
+          "hints": [
+            "Each bag is chosen with probability $1/2$. Find the fraction of red counters in each bag: Bag $X$ has $3/8$ and Bag $Y$ has $6/8$.",
+            "Sum the two products: $P(R) = P(\\text{Heads}) \\times P(R \\mid X) + P(\\text{Tails}) \\times P(R \\mid Y)$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Identify the probabilities of selecting each bag:\n$$P(X) = \\frac{1}{2},\\quad P(Y) = \\frac{1}{2}$$"
+            },
+            {
+              "step": 2,
+              "text": "Determine the conditional probability of drawing red from Bag $X$ and Bag $Y$:\n$$P(R \\mid X) = \\frac{3}{8},\\quad P(R \\mid Y) = \\frac{6}{8}$$"
+            },
+            {
+              "step": 3,
+              "text": "Calculate the total probability of drawing a red counter:\n$$P(R) = \\left(\\frac{1}{2} \\times \\frac{3}{8}\\right) + \\left(\\frac{1}{2} \\times \\frac{6}{8}\\right) = \\frac{3}{16} + \\frac{6}{16} = \\frac{9}{16} = 0.5625$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "Set up the tree branches for coin toss followed by counter colour:\n$$P(X) = \\frac{1}{2},\\; P(Y) = \\frac{1}{2};\\quad P(R \\mid X) = \\frac{3}{8},\\; P(R \\mid Y) = \\frac{6}{8}$$"
+            },
+            {
+              "step": 2,
+              "text": "Calculate the total red probability:\n$$P(R) = \\frac{1}{2}\\left(\\frac{3}{8} + \\frac{6}{8}\\right) = \\frac{1}{2} \\times \\frac{9}{8} = \\frac{9}{16}$$"
+            }
+          ],
+          "checking": {
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_s1_t_probability_m03_l02_cpq02_p01_c01",
+                "mark": "M1",
+                "observable": "Set up sum of products for red counter: $\\frac{1}{2} \\times \\frac{3}{8} + \\frac{1}{2} \\times \\frac{6}{8}$."
+              },
+              {
+                "criterion_id": "9709_s1_t_probability_m03_l02_cpq02_p01_c02",
+                "mark": "A1",
+                "observable": "Obtain $\\frac{9}{16}$ (or $0.5625$)."
+              }
+            ]
+          }
+        },
+        {
+          "part_id": "9709_s1_t_probability_m03_l02_cpq02_p02",
+          "label": "(b)",
+          "difficulty": "easy",
+          "pattern_ids": [
+            "urn_inversion_bayes"
+          ],
+          "hints": [
+            "First determine the probability of drawing a blue counter from each bag: $P(B \\mid X) = 5/8$ and $P(B \\mid Y) = 2/8$.",
+            "Use Bayes' theorem to reverse the condition: $P(X \\mid B) = \\frac{P(X \\cap B)}{P(B)}$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Determine the probability of selecting Bag $X$ and drawing a blue counter:\n$$P(X \\cap B) = \\frac{1}{2} \\times \\frac{5}{8} = \\frac{5}{16}$$"
+            },
+            {
+              "step": 2,
+              "text": "Determine the probability of selecting Bag $Y$ and drawing a blue counter:\n$$P(Y \\cap B) = \\frac{1}{2} \\times \\frac{2}{8} = \\frac{2}{16}$$"
+            },
+            {
+              "step": 3,
+              "text": "Sum to find the total probability of drawing a blue counter:\n$$P(B) = \\frac{5}{16} + \\frac{2}{16} = \\frac{7}{16}$$"
+            },
+            {
+              "step": 4,
+              "text": "Evaluate the conditional probability that Bag $X$ was chosen given a blue counter was drawn:\n$$P(X \\mid B) = \\frac{P(X \\cap B)}{P(B)} = \\frac{5/16}{7/16} = \\frac{5}{7} \\approx 0.714$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "Find the conditional blue probabilities from each bag:\n$$P(B \\mid X) = 1 - \\frac{3}{8} = \\frac{5}{8},\\quad P(B \\mid Y) = 1 - \\frac{6}{8} = \\frac{2}{8}$$"
+            },
+            {
+              "step": 2,
+              "text": "Compute the numerator for Bag $X$:\n$$P(X \\cap B) = \\frac{1}{2} \\times \\frac{5}{8} = \\frac{5}{16}$$"
+            },
+            {
+              "step": 3,
+              "text": "Compute the denominator:\n$$P(B) = 1 - P(R) = 1 - \\frac{9}{16} = \\frac{7}{16}$$"
+            },
+            {
+              "step": 4,
+              "text": "Evaluate the posterior probability:\n$$P(X \\mid B) = \\frac{5/16}{7/16} = \\frac{5}{7}$$"
+            }
+          ],
+          "checking": {
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_s1_t_probability_m03_l02_cpq02_p02_c01",
+                "mark": "M1",
+                "observable": "Identify conditional blue branch probabilities $\\frac{5}{8}$ for Bag $X$ and $\\frac{2}{8}$ for Bag $Y$."
+              },
+              {
+                "criterion_id": "9709_s1_t_probability_m03_l02_cpq02_p02_c02",
+                "mark": "M1",
+                "observable": "Calculate total blue probability $P(B) = \\frac{1}{2} \\times \\frac{5}{8} + \\frac{1}{2} \\times \\frac{2}{8} = \\frac{7}{16}$."
+              },
+              {
+                "criterion_id": "9709_s1_t_probability_m03_l02_cpq02_p02_c03",
+                "mark": "A1",
+                "observable": "Evaluate $\\frac{5/16}{7/16}$ to obtain exact fraction $\\frac{5}{7}$ (or $0.714$ to 3 significant figures)."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_s1_t_probability_m03_l02_cpq03",
+      "parts": [
+        {
+          "part_id": "9709_s1_t_probability_m03_l02_cpq03_p01",
+          "label": "(a)",
+          "difficulty": "medium",
+          "pattern_ids": [
+            "stopping_tree_success"
+          ],
+          "hints": [
+            "Identify the two disjoint ways to clear the stage: clearing on attempt 1, or failing attempt 1 and clearing on attempt 2.",
+            "Set up the tree calculation: $P(\\text{Clear}) = P(C_1) + P(F_1 \\cap C_2)$.",
+            "Substitute the values $P(C_1) = 0.4$ and $P(F_1 \\cap C_2) = (1 - 0.4) \\times 0.7$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Identify the probability of clearing on the first attempt directly:\n$$P(C_1) = 0.4$$"
+            },
+            {
+              "step": 2,
+              "text": "Calculate the probability of failing the first attempt:\n$$P(F_1) = 1 - 0.4 = 0.6$$"
+            },
+            {
+              "step": 3,
+              "text": "Calculate the joint probability of failing the first attempt and clearing on the second attempt:\n$$P(F_1 \\cap C_2) = 0.6 \\times 0.7 = 0.42$$"
+            },
+            {
+              "step": 4,
+              "text": "Sum the two mutually exclusive winning outcomes:\n$$P(\\text{Clear}) = 0.4 + 0.42 = 0.82$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "Structure the stopping tree diagram:\n$$P(\\text{Pass}_1) = 0.4,\\quad P(\\text{Fail}_1) = 0.6$$"
+            },
+            {
+              "step": 2,
+              "text": "Calculate the two-attempt success route:\n$$P(\\text{Fail}_1 \\cap \\text{Pass}_2) = 0.6 \\times 0.7 = 0.42$$"
+            },
+            {
+              "step": 3,
+              "text": "Combine to find the overall clearance probability:\n$$P(\\text{Clear}) = 0.40 + 0.42 = 0.82$$"
+            }
+          ],
+          "checking": {
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_s1_t_probability_m03_l02_cpq03_p01_c01",
+                "mark": "M1",
+                "observable": "Apply addition of disjoint successful routes: $0.4 + 0.6 \\times 0.7$."
+              },
+              {
+                "criterion_id": "9709_s1_t_probability_m03_l02_cpq03_p01_c02",
+                "mark": "A1",
+                "observable": "Obtain $0.82$ (or $\\frac{41}{50}$)."
+              }
+            ]
+          }
+        },
+        {
+          "part_id": "9709_s1_t_probability_m03_l02_cpq03_p02",
+          "label": "(b)",
+          "difficulty": "medium",
+          "pattern_ids": [
+            "stopping_tree_inversion"
+          ],
+          "hints": [
+            "Notice the condition: we are given that the player cleared the stage, so the sample space is restricted to $P(\\text{Clear}) = 0.82$.",
+            "Failing on the first attempt while clearing means clearing specifically on the second attempt: $P(F_1 \\cap \\text{Clear}) = P(F_1 \\cap C_2)$.",
+            "Apply the conditional formula: $P(F_1 \\mid \\text{Clear}) = \\frac{P(F_1 \\cap C_2)}{P(\\text{Clear})}$, using values from part (a)."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Identify the event that the player failed on their first attempt and cleared the stage:\n$$P(F_1 \\cap \\text{Clear}) = P(F_1 \\cap C_2) = 0.6 \\times 0.7 = 0.42$$"
+            },
+            {
+              "step": 2,
+              "text": "Retrieve the total probability of clearing from part (a):\n$$P(\\text{Clear}) = 0.82$$"
+            },
+            {
+              "step": 3,
+              "text": "Evaluate the conditional probability:\n$$P(F_1 \\mid \\text{Clear}) = \\frac{0.42}{0.82} = \\frac{42}{82} = \\frac{21}{41} \\approx 0.512$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "Express the conditional event formally:\n$$P(F_1 \\mid \\text{Clear}) = \\frac{P(F_1 \\cap \\text{Clear})}{P(\\text{Clear})}$$"
+            },
+            {
+              "step": 2,
+              "text": "Substitute the two-attempt clearance probability as the numerator:\n$$P(F_1 \\cap C_2) = 0.42$$"
+            },
+            {
+              "step": 3,
+              "text": "Divide by the total clearance probability and simplify:\n$$P(F_1 \\mid \\text{Clear}) = \\frac{0.42}{0.82} = \\frac{21}{41}$$"
+            }
+          ],
+          "checking": {
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_s1_t_probability_m03_l02_cpq03_p02_c01",
+                "mark": "M1",
+                "observable": "Identify that clearing after failing the first attempt corresponds to the route Fail on 1st then Pass on 2nd with probability $0.6 \\times 0.7 = 0.42$."
+              },
+              {
+                "criterion_id": "9709_s1_t_probability_m03_l02_cpq03_p02_c02",
+                "mark": "M1",
+                "observable": "Set up conditional probability quotient $\\frac{0.42}{0.82}$."
+              },
+              {
+                "criterion_id": "9709_s1_t_probability_m03_l02_cpq03_p02_c03",
+                "mark": "A1",
+                "observable": "Obtain exact fraction $\\frac{21}{41}$ (or $0.512$ to 3 significant figures)."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_s1_t_probability_m03_l02_cpq04",
+      "parts": [
+        {
+          "part_id": "9709_s1_t_probability_m03_l02_cpq04_p01",
+          "label": "(a)",
+          "difficulty": "medium",
+          "pattern_ids": [
+            "three_branch_complement_total"
+          ],
+          "hints": [
+            "Find the on-time probability for each delivery service by taking the complement of late delivery: $1 - P(\\text{Late})$.",
+            "Compute the on-time probabilities: $P(\\text{On time} \\mid E) = 0.96$, $P(\\text{On time} \\mid S) = 0.92$, and $P(\\text{On time} \\mid B) = 0.85$.",
+            "Sum the products of service share and on-time probability: $P(\\text{On time}) = (0.45 \\times 0.96) + (0.35 \\times 0.92) + (0.20 \\times 0.85)$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Calculate the conditional on-time probabilities for all three services:\n$$P(T \\mid E) = 1 - 0.04 = 0.96,\\quad P(T \\mid S) = 1 - 0.08 = 0.92,\\quad P(T \\mid B) = 1 - 0.15 = 0.85$$"
+            },
+            {
+              "step": 2,
+              "text": "Calculate the joint probability of on-time delivery for each service:\n$$P(E \\cap T) = 0.45 \\times 0.96 = 0.432,\\quad P(S \\cap T) = 0.35 \\times 0.92 = 0.322,\\quad P(B \\cap T) = 0.20 \\times 0.85 = 0.170$$"
+            },
+            {
+              "step": 3,
+              "text": "Sum the three joint probabilities to find the overall on-time probability:\n$$P(T) = 0.432 + 0.322 + 0.170 = 0.924$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "Write down the three branch probabilities and on-time complements:\n$$P(E) = 0.45,\\; P(S) = 0.35,\\; P(B) = 0.20;\\quad P(T \\mid E) = 0.96,\\; P(T \\mid S) = 0.92,\\; P(T \\mid B) = 0.85$$"
+            },
+            {
+              "step": 2,
+              "text": "Compute the total on-time probability by combining the three paths:\n$$P(T) = (0.45 \\times 0.96) + (0.35 \\times 0.92) + (0.20 \\times 0.85)$$"
+            },
+            {
+              "step": 3,
+              "text": "Sum the decimal terms:\n$$P(T) = 0.432 + 0.322 + 0.170 = 0.924 = \\frac{231}{250}$$"
+            }
+          ],
+          "checking": {
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_s1_t_probability_m03_l02_cpq04_p01_c01",
+                "mark": "B1",
+                "observable": "Deduce on-time conditional probabilities: $0.96$ for Express, $0.92$ for Standard, $0.85$ for Economy."
+              },
+              {
+                "criterion_id": "9709_s1_t_probability_m03_l02_cpq04_p01_c02",
+                "mark": "M1",
+                "observable": "Compute total on-time probability $0.45 \\times 0.96 + 0.35 \\times 0.92 + 0.20 \\times 0.85$ (or calculate total late probability $0.076$ and subtract from 1)."
+              },
+              {
+                "criterion_id": "9709_s1_t_probability_m03_l02_cpq04_p01_c02_2",
+                "mark": "A1",
+                "observable": "Obtain $0.924$ (or $\\frac{231}{250}$)."
+              }
+            ]
+          }
+        },
+        {
+          "part_id": "9709_s1_t_probability_m03_l02_cpq04_p02",
+          "label": "(b)",
+          "difficulty": "medium",
+          "pattern_ids": [
+            "three_branch_late_inversion"
+          ],
+          "hints": [
+            "First find the total probability that a package is delivered late using the result from part (a): $P(\\text{Late}) = 1 - P(\\text{On time})$.",
+            "Calculate the joint probability that a package was sent by Economy and was delivered late: $P(B \\cap \\text{Late}) = 0.20 \\times 0.15$.",
+            "Evaluate the conditional probability: $P(B \\mid \\text{Late}) = \\frac{P(B \\cap \\text{Late})}{P(\\text{Late})}$, simplifying the fraction."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Determine the total probability that a package is late using the complement of part (a):\n$$P(\\text{Late}) = 1 - 0.924 = 0.076$$"
+            },
+            {
+              "step": 2,
+              "text": "Calculate the joint probability of sending by Economy and arriving late:\n$$P(B \\cap \\text{Late}) = 0.20 \\times 0.15 = 0.030$$"
+            },
+            {
+              "step": 3,
+              "text": "Apply Bayes' theorem to reverse the condition:\n$$P(B \\mid \\text{Late}) = \\frac{P(B \\cap \\text{Late})}{P(\\text{Late})} = \\frac{0.030}{0.076} = \\frac{30}{76} = \\frac{15}{38} \\approx 0.395$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "Find the denominator using complement rule:\n$$P(\\text{Late}) = 1 - 0.924 = 0.076$$"
+            },
+            {
+              "step": 2,
+              "text": "Compute the numerator for Economy:\n$$P(B \\cap \\text{Late}) = 0.20 \\times 0.15 = 0.030$$"
+            },
+            {
+              "step": 3,
+              "text": "Form the posterior probability and simplify:\n$$P(B \\mid \\text{Late}) = \\frac{0.030}{0.076} = \\frac{30}{76} = \\frac{15}{38}$$"
+            }
+          ],
+          "checking": {
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_s1_t_probability_m03_l02_cpq04_p02_c01",
+                "mark": "M1",
+                "observable": "Calculate joint late probability for Economy service $P(B \\cap \\text{Late}) = 0.20 \\times 0.15 = 0.030$."
+              },
+              {
+                "criterion_id": "9709_s1_t_probability_m03_l02_cpq04_p02_c02",
+                "mark": "M1",
+                "observable": "Find total late probability $P(\\text{Late}) = 1 - 0.924 = 0.076$ (or evaluate $0.45 \\times 0.04 + 0.35 \\times 0.08 + 0.20 \\times 0.15$)."
+              },
+              {
+                "criterion_id": "9709_s1_t_probability_m03_l02_cpq04_p02_c03",
+                "mark": "A1",
+                "observable": "Obtain exact fraction $\\frac{15}{38}$ (or $0.395$ to 3 significant figures)."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_s1_t_probability_m03_l02_cpq05",
+      "parts": [
+        {
+          "part_id": "9709_s1_t_probability_m03_l02_cpq05_p01",
+          "label": "(a)",
+          "difficulty": "medium",
+          "pattern_ids": [
+            "multi_grade_competition_total"
+          ],
+          "hints": [
+            "Partition the school into three grades: $G_{10}$ ($0.30$), $G_{11}$ ($0.45$), and $G_{12}$ ($0.25$).",
+            "Multiply each grade proportion by its competition participation rate: $P(M) = \\sum P(G_i) \\times P(M \\mid G_i)$.",
+            "Evaluate each product and sum them together to find the overall probability."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Calculate the probability of choosing a Grade 10 participant:\n$$P(G_{10} \\cap M) = 0.30 \\times 0.20 = 0.06$$"
+            },
+            {
+              "step": 2,
+              "text": "Calculate the probability of choosing a Grade 11 participant:\n$$P(G_{11} \\cap M) = 0.45 \\times 0.40 = 0.18$$"
+            },
+            {
+              "step": 3,
+              "text": "Calculate the probability of choosing a Grade 12 participant:\n$$P(G_{12} \\cap M) = 0.25 \\times 0.60 = 0.15$$"
+            },
+            {
+              "step": 4,
+              "text": "Sum the three joint probabilities:\n$$P(M) = 0.06 + 0.18 + 0.15 = 0.39$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "Set up the law of total probability for entering the competition:\n$$P(M) = P(G_{10})P(M \\mid G_{10}) + P(G_{11})P(M \\mid G_{11}) + P(G_{12})P(M \\mid G_{12})$$"
+            },
+            {
+              "step": 2,
+              "text": "Substitute the values for each grade:\n$$P(M) = (0.30 \\times 0.20) + (0.45 \\times 0.40) + (0.25 \\times 0.60)$$"
+            },
+            {
+              "step": 3,
+              "text": "Evaluate the sum:\n$$P(M) = 0.06 + 0.18 + 0.15 = 0.39$$"
+            }
+          ],
+          "checking": {
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_s1_t_probability_m03_l02_cpq05_p01_c01",
+                "mark": "M1",
+                "observable": "Set up the total probability sum across all three grades: $0.30 \\times 0.20 + 0.45 \\times 0.40 + 0.25 \\times 0.60$."
+              },
+              {
+                "criterion_id": "9709_s1_t_probability_m03_l02_cpq05_p01_c02",
+                "mark": "A1",
+                "observable": "Correctly evaluate intermediate products $0.06 + 0.18 + 0.15$."
+              },
+              {
+                "criterion_id": "9709_s1_t_probability_m03_l02_cpq05_p01_c03",
+                "mark": "A1",
+                "observable": "Obtain $0.39$ (or $\\frac{39}{100}$)."
+              }
+            ]
+          }
+        },
+        {
+          "part_id": "9709_s1_t_probability_m03_l02_cpq05_p02",
+          "label": "(b)",
+          "difficulty": "medium",
+          "pattern_ids": [
+            "non_participation_posterior"
+          ],
+          "hints": [
+            "Find the total probability of non-participation using the complement of part (a): $P(M') = 1 - P(M)$.",
+            "Identify the non-participants from Grade 10 and Grade 11: $P(G_{10} \\cap M') = 0.30 \\times 0.80$ and $P(G_{11} \\cap M') = 0.45 \\times 0.60$.",
+            "Sum these two branches in the numerator and divide by $P(M')$: $P(G_{12}' \\mid M') = \\frac{P(G_{10} \\cap M') + P(G_{11} \\cap M')}{P(M')}$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Find the total probability that a student does not participate:\n$$P(M') = 1 - 0.39 = 0.61$$"
+            },
+            {
+              "step": 2,
+              "text": "Calculate the probability that a student is in Grade 10 and does not participate:\n$$P(G_{10} \\cap M') = 0.30 \\times (1 - 0.20) = 0.30 \\times 0.80 = 0.24$$"
+            },
+            {
+              "step": 3,
+              "text": "Calculate the probability that a student is in Grade 11 and does not participate:\n$$P(G_{11} \\cap M') = 0.45 \\times (1 - 0.40) = 0.45 \\times 0.60 = 0.27$$"
+            },
+            {
+              "step": 4,
+              "text": "Sum the non-Grade-12 non-participants:\n$$P(G_{12}' \\cap M') = 0.24 + 0.27 = 0.51$$"
+            },
+            {
+              "step": 5,
+              "text": "Divide the favorable non-Grade-12 path by the total non-participation probability:\n$$P(G_{12}' \\mid M') = \\frac{0.51}{0.61} = \\frac{51}{61} \\approx 0.836$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "Determine the denominator using the complement rule:\n$$P(M') = 1 - 0.39 = 0.61$$"
+            },
+            {
+              "step": 2,
+              "text": "Calculate the Grade 12 non-participation branch:\n$$P(G_{12} \\cap M') = 0.25 \\times (1 - 0.60) = 0.25 \\times 0.40 = 0.10$$"
+            },
+            {
+              "step": 3,
+              "text": "Subtract the Grade 12 path from total non-participants for the numerator:\n$$P(G_{12}' \\cap M') = 0.61 - 0.10 = 0.51$$"
+            },
+            {
+              "step": 4,
+              "text": "Form the conditional probability ratio:\n$$P(G_{12}' \\mid M') = \\frac{0.51}{0.61} = \\frac{51}{61}$$"
+            }
+          ],
+          "checking": {
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_s1_t_probability_m03_l02_cpq05_p02_c01",
+                "mark": "M1",
+                "observable": "Find total non-participation probability $P(\\text{Not Part}) = 1 - 0.39 = 0.61$ (or $0.30 \\times 0.80 + 0.45 \\times 0.60 + 0.25 \\times 0.40 = 0.61$)."
+              },
+              {
+                "criterion_id": "9709_s1_t_probability_m03_l02_cpq05_p02_c02",
+                "mark": "M1",
+                "observable": "Compute the numerator for non-Grade-12 non-participants as $P(G_{10} \\cap \\text{Not Part}) + P(G_{11} \\cap \\text{Not Part}) = 0.24 + 0.27 = 0.51$."
+              },
+              {
+                "criterion_id": "9709_s1_t_probability_m03_l02_cpq05_p02_c03",
+                "mark": "A1",
+                "observable": "Obtain exact fraction $\\frac{51}{61}$ (or $0.836$ to 3 significant figures)."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_s1_t_probability_m03_l02_cpq06",
+      "parts": [
+        {
+          "part_id": "9709_s1_t_probability_m03_l02_cpq06_p01",
+          "label": "(a)",
+          "difficulty": "hard",
+          "pattern_ids": [
+            "diagnostic_testing_total"
+          ],
+          "hints": [
+            "Identify the two states of health: having the condition ($D$) with probability $0.01$, and not having the condition ($D'$) with probability $0.99$.",
+            "Find the false positive rate: if specificity is $0.94$, then $P(+ \\mid D') = 1 - 0.94 = 0.06$.",
+            "Set up the total probability of a positive test: $P(+) = P(D)P(+ \\mid D) + P(D')P(+ \\mid D')$.",
+            "Evaluate $(0.01 \\times 0.96) + (0.99 \\times 0.06)$ carefully to show $0.069$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Identify the probability of having the condition and testing positive:\n$$P(D \\cap +) = 0.01 \\times 0.96 = 0.0096$$"
+            },
+            {
+              "step": 2,
+              "text": "Calculate the false positive probability:\n$$P(+ \\mid D') = 1 - 0.94 = 0.06$$"
+            },
+            {
+              "step": 3,
+              "text": "Calculate the probability of not having the condition and testing positive:\n$$P(D' \\cap +) = 0.99 \\times 0.06 = 0.0594$$"
+            },
+            {
+              "step": 4,
+              "text": "Sum both terms to show the total probability of testing positive:\n$$P(+) = 0.0096 + 0.0594 = 0.0690 = 0.069$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "Define the tree branches for health status and test results:\n$$P(D) = 0.01,\\; P(D') = 0.99;\\quad P(+ \\mid D) = 0.96,\\; P(+ \\mid D') = 0.06$$"
+            },
+            {
+              "step": 2,
+              "text": "Form the total probability expression:\n$$P(+) = (0.01 \\times 0.96) + (0.99 \\times 0.06)$$"
+            },
+            {
+              "step": 3,
+              "text": "Compute intermediate values and verify the given total:\n$$P(+) = 0.0096 + 0.0594 = 0.069$$"
+            }
+          ],
+          "checking": {
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_s1_t_probability_m03_l02_cpq06_p01_c01",
+                "mark": "M1",
+                "observable": "Identify false positive rate $1 - 0.94 = 0.06$ and set up total positive probability $0.01 \\times 0.96 + 0.99 \\times 0.06$."
+              },
+              {
+                "criterion_id": "9709_s1_t_probability_m03_l02_cpq06_p01_c02",
+                "mark": "A1",
+                "observable": "Evaluate $0.0096 + 0.0594$ and conclude with $0.069$ (or $0.0690$) convincingly."
+              }
+            ]
+          }
+        },
+        {
+          "part_id": "9709_s1_t_probability_m03_l02_cpq06_p02",
+          "label": "(b)",
+          "difficulty": "hard",
+          "pattern_ids": [
+            "screening_test_posterior"
+          ],
+          "hints": [
+            "Use the definition of conditional probability: $P(D \\mid +) = \\frac{P(D \\cap +)}{P(+)}$.",
+            "Retrieve the true positive joint probability $P(D \\cap +) = 0.0096$ and total positive probability $P(+) = 0.069$ from part (a).",
+            "Form the fraction $\\frac{0.0096}{0.069} = \\frac{96}{690}$.",
+            "Divide numerator and denominator by common factors to find the irreducible fraction."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Retrieve the joint probability of having the condition and testing positive:\n$$P(D \\cap +) = 0.0096$$"
+            },
+            {
+              "step": 2,
+              "text": "Retrieve the total probability of a positive test from part (a):\n$$P(+) = 0.069$$"
+            },
+            {
+              "step": 3,
+              "text": "Compute the posterior probability:\n$$P(D \\mid +) = \\frac{0.0096}{0.069} = \\frac{96}{690} = \\frac{16}{115} \\approx 0.139$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "Set up the Bayes inversion ratio:\n$$P(D \\mid +) = \\frac{P(D \\cap +)}{P(+)}$$"
+            },
+            {
+              "step": 2,
+              "text": "Substitute the values from part (a):\n$$P(D \\mid +) = \\frac{0.0096}{0.069}$$"
+            },
+            {
+              "step": 3,
+              "text": "Simplify the fraction:\n$$P(D \\mid +) = \\frac{16}{115}$$"
+            }
+          ],
+          "checking": {
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_s1_t_probability_m03_l02_cpq06_p02_c01",
+                "mark": "M1",
+                "observable": "Identify joint probability $P(\\text{Condition} \\cap \\text{Positive}) = 0.01 \\times 0.96 = 0.0096$."
+              },
+              {
+                "criterion_id": "9709_s1_t_probability_m03_l02_cpq06_p02_c02",
+                "mark": "M1",
+                "observable": "Set up Bayes ratio $\\frac{0.0096}{0.069}$."
+              },
+              {
+                "criterion_id": "9709_s1_t_probability_m03_l02_cpq06_p02_c03",
+                "mark": "A1",
+                "observable": "Obtain exact fraction $\\frac{16}{115}$ (or $0.139$ to 3 significant figures)."
+              }
+            ]
+          }
+        },
+        {
+          "part_id": "9709_s1_t_probability_m03_l02_cpq06_p03",
+          "label": "(c)",
+          "difficulty": "hard",
+          "pattern_ids": [
+            "sequential_independent_tests"
+          ],
+          "hints": [
+            "Since the two tests are independent, calculate the probability of two positive results for a diseased person: $P(+_1 \\cap +_2 \\mid D) = 0.96^2$.",
+            "Calculate the probability of two positive results for a healthy person: $P(+_1 \\cap +_2 \\mid D') = 0.06^2$.",
+            "Find the joint probabilities: $P(D \\cap +_1 \\cap +_2) = 0.01 \\times 0.96^2$ and $P(D' \\cap +_1 \\cap +_2) = 0.99 \\times 0.06^2$.",
+            "Compute the revised posterior probability: $P(D \\mid +_1 \\cap +_2) = \\frac{P(D \\cap +_1 \\cap +_2)}{P(+_1 \\cap +_2)}$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Calculate the joint probability of having the condition and testing positive twice:\n$$P(D \\cap +_1 \\cap +_2) = 0.01 \\times 0.96^2 = 0.01 \\times 0.9216 = 0.009216$$"
+            },
+            {
+              "step": 2,
+              "text": "Calculate the joint probability of not having the condition and testing positive twice:\n$$P(D' \\cap +_1 \\cap +_2) = 0.99 \\times 0.06^2 = 0.99 \\times 0.0036 = 0.003564$$"
+            },
+            {
+              "step": 3,
+              "text": "Sum both joint probabilities to find the total probability of testing positive twice:\n$$P(+_1 \\cap +_2) = 0.009216 + 0.003564 = 0.012780$$"
+            },
+            {
+              "step": 4,
+              "text": "Divide the favorable joint probability by the total probability:\n$$P(D \\mid +_1 \\cap +_2) = \\frac{0.009216}{0.012780} = \\frac{9216}{12780} = \\frac{256}{355} \\approx 0.721$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "Update the model using independence for two successive test administrations:\n$$P(+_1 \\cap +_2 \\mid D) = 0.96^2 = 0.9216,\\quad P(+_1 \\cap +_2 \\mid D') = 0.06^2 = 0.0036$$"
+            },
+            {
+              "step": 2,
+              "text": "Calculate the numerator:\n$$P(D \\cap +_1 \\cap +_2) = 0.01 \\times 0.9216 = 0.009216$$"
+            },
+            {
+              "step": 3,
+              "text": "Calculate the denominator:\n$$P(+_1 \\cap +_2) = 0.009216 + (0.99 \\times 0.0036) = 0.009216 + 0.003564 = 0.01278$$"
+            },
+            {
+              "step": 4,
+              "text": "Evaluate the posterior probability after two positive tests:\n$$P(D \\mid +_1 \\cap +_2) = \\frac{0.009216}{0.01278} = \\frac{256}{355}$$"
+            }
+          ],
+          "checking": {
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_s1_t_probability_m03_l02_cpq06_p03_c01",
+                "mark": "M1",
+                "observable": "Calculate joint probability of two positive tests for diseased person $0.01 \\times 0.96^2 = 0.009216$ and for healthy person $0.99 \\times 0.06^2 = 0.003564$."
+              },
+              {
+                "criterion_id": "9709_s1_t_probability_m03_l02_cpq06_p03_c02",
+                "mark": "M1",
+                "observable": "Sum total probability of two positive tests $0.009216 + 0.003564 = 0.01278$."
+              },
+              {
+                "criterion_id": "9709_s1_t_probability_m03_l02_cpq06_p03_c03",
+                "mark": "A1",
+                "observable": "Obtain exact fraction $\\frac{256}{355}$ (or $0.721$ to 3 significant figures)."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_s1_t_probability_m03_l02_cpq07",
+      "parts": [
+        {
+          "part_id": "9709_s1_t_probability_m03_l02_cpq07_p01",
+          "label": "(a)",
+          "difficulty": "hard",
+          "pattern_ids": [
+            "urn_transfer_total"
+          ],
+          "hints": [
+            "Find the probability of transferring a white ball from Urn $A$: $P(W_A) = 4/6 = 2/3$, and black: $P(B_A) = 2/6 = 1/3$.",
+            "Determine the contents of Urn $B$ after each transfer: if white is added, Urn $B$ has $4$ white out of $9$; if black is added, Urn $B$ has $3$ white out of $9$.",
+            "Apply the law of total probability: $P(W_B) = P(W_A)P(W_B \\mid W_A) + P(B_A)P(W_B \\mid B_A)$.",
+            "Multiply and sum: $\\left(\\frac{2}{3} \\times \\frac{4}{9}\\right) + \\left(\\frac{1}{3} \\times \\frac{3}{9}\\right)$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Calculate the probabilities of each ball transferred from Urn $A$:\n$$P(W_A) = \\frac{4}{6} = \\frac{2}{3},\\quad P(B_A) = \\frac{2}{6} = \\frac{1}{3}$$"
+            },
+            {
+              "step": 2,
+              "text": "Determine the conditional probability of drawing white from Urn $B$ if a white ball was transferred:\n$$P(W_B \\mid W_A) = \\frac{3 + 1}{8 + 1} = \\frac{4}{9}$$"
+            },
+            {
+              "step": 3,
+              "text": "Determine the conditional probability of drawing white from Urn $B$ if a black ball was transferred:\n$$P(W_B \\mid B_A) = \\frac{3}{8 + 1} = \\frac{3}{9} = \\frac{1}{3}$$"
+            },
+            {
+              "step": 4,
+              "text": "Calculate the total probability of drawing a white ball from Urn $B$:\n$$P(W_B) = \\left(\\frac{2}{3} \\times \\frac{4}{9}\\right) + \\left(\\frac{1}{3} \\times \\frac{3}{9}\\right) = \\frac{8}{27} + \\frac{3}{27} = \\frac{11}{27} \\approx 0.407$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "Identify the transfer probabilities from Urn $A$:\n$$P(W_A) = \\frac{2}{3},\\quad P(B_A) = \\frac{1}{3}$$"
+            },
+            {
+              "step": 2,
+              "text": "Write the updated compositions of Urn $B$:\n$$\\text{After } W_A: 4W, 5B\\; (\\text{total } 9);\\quad \\text{After } B_A: 3W, 6B\\; (\\text{total } 9)$$"
+            },
+            {
+              "step": 3,
+              "text": "Compute the total probability of drawing white from Urn $B$:\n$$P(W_B) = \\frac{2}{3}\\left(\\frac{4}{9}\\right) + \\frac{1}{3}\\left(\\frac{3}{9}\\right) = \\frac{8}{27} + \\frac{3}{27} = \\frac{11}{27}$$"
+            }
+          ],
+          "checking": {
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_s1_t_probability_m03_l02_cpq07_p01_c01",
+                "mark": "B1",
+                "observable": "Determine probabilities of transferred ball $P(W_A) = \\frac{4}{6} = \\frac{2}{3}$ and $P(B_A) = \\frac{2}{6} = \\frac{1}{3}$."
+              },
+              {
+                "criterion_id": "9709_s1_t_probability_m03_l02_cpq07_p01_c02",
+                "mark": "M1",
+                "observable": "Evaluate conditional probabilities from Urn $B$: $P(W_B \\mid W_A) = \\frac{4}{9}$ and $P(W_B \\mid B_A) = \\frac{3}{9}$."
+              },
+              {
+                "criterion_id": "9709_s1_t_probability_m03_l02_cpq07_p01_c03",
+                "mark": "A1",
+                "observable": "Compute total probability $\\frac{2}{3} \\times \\frac{4}{9} + \\frac{1}{3} \\times \\frac{3}{9} = \\frac{8}{27} + \\frac{3}{27} = \\frac{11}{27}$ (or $0.407$ to 3 significant figures)."
+              }
+            ]
+          }
+        },
+        {
+          "part_id": "9709_s1_t_probability_m03_l02_cpq07_p02",
+          "label": "(b)",
+          "difficulty": "hard",
+          "pattern_ids": [
+            "urn_transfer_posterior_white"
+          ],
+          "hints": [
+            "We are given that the ball drawn from Urn $B$ is white. The condition is $W_B$, with probability $11/27$ from part (a).",
+            "Identify the joint probability that the transferred ball was white and the drawn ball was white: $P(W_A \\cap W_B) = \\frac{2}{3} \\times \\frac{4}{9} = \\frac{8}{27}$.",
+            "Invert the conditional probability: $P(W_A \\mid W_B) = \\frac{P(W_A \\cap W_B)}{P(W_B)}$.",
+            "Simplify $\\frac{8/27}{11/27}$ to obtain the final fraction."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Retrieve the joint probability of transferring white and drawing white:\n$$P(W_A \\cap W_B) = \\frac{2}{3} \\times \\frac{4}{9} = \\frac{8}{27}$$"
+            },
+            {
+              "step": 2,
+              "text": "Retrieve the total probability of drawing white from part (a):\n$$P(W_B) = \\frac{11}{27}$$"
+            },
+            {
+              "step": 3,
+              "text": "Evaluate the conditional probability:\n$$P(W_A \\mid W_B) = \\frac{P(W_A \\cap W_B)}{P(W_B)} = \\frac{8/27}{11/27} = \\frac{8}{11} \\approx 0.727$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "Set up the Bayes ratio for the transferred ball colour:\n$$P(W_A \\mid W_B) = \\frac{P(W_A \\cap W_B)}{P(W_B)}$$"
+            },
+            {
+              "step": 2,
+              "text": "Substitute the values obtained in part (a):\n$$P(W_A \\mid W_B) = \\frac{8/27}{11/27}$$"
+            },
+            {
+              "step": 3,
+              "text": "Simplify to find the exact fraction:\n$$P(W_A \\mid W_B) = \\frac{8}{11}$$"
+            }
+          ],
+          "checking": {
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_s1_t_probability_m03_l02_cpq07_p02_c01",
+                "mark": "M1",
+                "observable": "Identify joint numerator probability $P(\\text{transferred } W \\cap \\text{chosen } W) = \\frac{2}{3} \\times \\frac{4}{9} = \\frac{8}{27}$."
+              },
+              {
+                "criterion_id": "9709_s1_t_probability_m03_l02_cpq07_p02_c02",
+                "mark": "M1",
+                "observable": "Form conditional quotient $\\frac{8/27}{11/27}$."
+              },
+              {
+                "criterion_id": "9709_s1_t_probability_m03_l02_cpq07_p02_c03",
+                "mark": "A1",
+                "observable": "Obtain exact fraction $\\frac{8}{11}$ (or $0.727$ to 3 significant figures)."
+              }
+            ]
+          }
+        },
+        {
+          "part_id": "9709_s1_t_probability_m03_l02_cpq07_p03",
+          "label": "(c)",
+          "difficulty": "hard",
+          "pattern_ids": [
+            "urn_transfer_posterior_black"
+          ],
+          "hints": [
+            "Find the total probability that the ball chosen from Urn $B$ is black using the complement rule: $P(B_B) = 1 - P(W_B)$.",
+            "Determine the joint probability of transferring a black ball and drawing a black ball: if a black ball is transferred, Urn $B$ has $6$ black out of $9$, so $P(B_A \\cap B_B) = \\frac{1}{3} \\times \\frac{6}{9}$.",
+            "Evaluate the conditional probability: $P(B_A \\mid B_B) = \\frac{P(B_A \\cap B_B)}{P(B_B)}$.",
+            "Calculate $\\frac{6/27}{16/27} = \\frac{6}{16}$ and reduce to lowest terms."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Calculate the total probability of drawing a black ball from Urn $B$:\n$$P(B_B) = 1 - P(W_B) = 1 - \\frac{11}{27} = \\frac{16}{27}$$"
+            },
+            {
+              "step": 2,
+              "text": "Determine the probability of transferring black from Urn $A$ and drawing black from Urn $B$:\n$$P(B_A \\cap B_B) = P(B_A) \\times P(B_B \\mid B_A) = \\frac{1}{3} \\times \\frac{6}{9} = \\frac{6}{27}$$"
+            },
+            {
+              "step": 3,
+              "text": "Compute the conditional probability that the transferred ball was black:\n$$P(B_A \\mid B_B) = \\frac{P(B_A \\cap B_B)}{P(B_B)} = \\frac{6/27}{16/27} = \\frac{6}{16} = \\frac{3}{8} = 0.375$$"
+            }
+          ],
+          "teacher_walkthrough": [
+            {
+              "step": 1,
+              "text": "Find the denominator probability using the complement of part (a):\n$$P(B_B) = 1 - \\frac{11}{27} = \\frac{16}{27}$$"
+            },
+            {
+              "step": 2,
+              "text": "Calculate the joint probability of both events being black:\n$$P(B_A \\cap B_B) = \\frac{1}{3} \\times \\frac{6}{9} = \\frac{2}{9} = \\frac{6}{27}$$"
+            },
+            {
+              "step": 3,
+              "text": "Form the posterior probability and simplify:\n$$P(B_A \\mid B_B) = \\frac{6/27}{16/27} = \\frac{6}{16} = \\frac{3}{8}$$"
+            }
+          ],
+          "checking": {
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_s1_t_probability_m03_l02_cpq07_p03_c01",
+                "mark": "M1",
+                "observable": "Find total probability of drawing black from Urn $B$ as $1 - \\frac{11}{27} = \\frac{16}{27}$."
+              },
+              {
+                "criterion_id": "9709_s1_t_probability_m03_l02_cpq07_p03_c02",
+                "mark": "M1",
+                "observable": "Find joint probability of transferred black and chosen black as $\\frac{1}{3} \\times \\frac{6}{9} = \\frac{6}{27}$."
+              },
+              {
+                "criterion_id": "9709_s1_t_probability_m03_l02_cpq07_p03_c03",
+                "mark": "A1",
+                "observable": "Evaluate $\\frac{6/27}{16/27}$ to obtain exact fraction $\\frac{3}{8}$ (or $0.375$)."
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

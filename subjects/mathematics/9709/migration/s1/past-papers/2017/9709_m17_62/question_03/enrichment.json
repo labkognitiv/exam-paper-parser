@@ -1,0 +1,79 @@
+{
+  "schema_version": "9709_math_enrichment_v3",
+  "paper_code": "9709_m17_62",
+  "question_id": "9709_m17_62_q3",
+  "question_num": 3,
+  "subject_code": "9709",
+  "component": "S1",
+  "year": 2017,
+  "session": "Feb/March",
+  "variant": "62",
+  "difficulty": 4,
+  "numerical_values_checked": false,
+  "parts": [
+    {
+      "part_id": "9709_m17_62_q3",
+      "difficulty": 4,
+      "practice_tier": "revision",
+      "mapping": {
+        "topic_id": "9709_s1_t_the_normal_distribution",
+        "module_id": "9709_s1_t_the_normal_distribution_m03",
+        "lesson_id": "9709_s1_t_the_normal_distribution_m03_l02"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_applying_a_normal_approximation",
+        "skill_tags": [
+          "Applying a Normal Approximation",
+          "Applying a Continuity Correction",
+          "Standardising a Normal Variable",
+          "Calculating Normal Probabilities"
+        ]
+      },
+      "question_pattern_ids": [
+        "9709_s1_pattern_normal_approximation_to_binomial"
+      ],
+      "knowledge_refs": {
+        "formula_ids": [
+          "9709_s1_formula_normal_approximation_parameters",
+          "9709_s1_formula_standardisation"
+        ],
+        "identity_ids": [],
+        "method_ids": [
+          "9709_s1_method_applying_a_normal_approximation",
+          "9709_s1_method_calculating_normal_probabilities"
+        ],
+        "fact_ids": [
+          "9709_s1_fact_normal_approximation_validity_condition",
+          "9709_s1_fact_continuity_correction_greater_equal",
+          "9709_s1_fact_normal_upper_tail"
+        ]
+      },
+      "hints": [
+        "Identify the discrete distribution $X \\sim \\mathrm{B}(160, 0.10)$ and verify that $np > 5$ and $np(1-p) > 5$ to justify a normal approximation.",
+        "Calculate the approximating normal parameters $\\mu = np$ and $\\sigma^2 = np(1-p)$, then apply a continuity correction to the strict inequality $X > 17$.",
+        "Standardize the continuous boundary using $Z = \\dfrac{17.5 - \\mu}{\\sigma}$ and evaluate the upper tail area $1 - \\Phi(z)$."
+      ],
+      "walkthrough": [
+        "Define the distribution of $X$, the number of people who enjoy Historical Drama:\n$$X \\sim \\mathrm{B}(160, 0.1)$$\nCheck the validity conditions for a normal approximation:\n$$np = 160 \\times 0.1 = 16 > 5, \\quad np(1 - p) = 160 \\times 0.1 \\times 0.9 = 14.4 > 5$$",
+        "Calculate the mean $\\mu$ and variance $\\sigma^2$ for the approximating normal distribution $Y \\sim \\mathrm{N}(\\mu, \\sigma^2)$:\n$$\\mu = np = 160 \\times 0.1 = 16$$\n$$\\sigma^2 = np(1 - p) = 160 \\times 0.1 \\times 0.9 = 14.4 \\implies \\sigma = \\sqrt{14.4}$$",
+        "Apply the continuity correction for the strict inequality $X > 17$:\n$$\\mathrm{P}(X > 17) = \\mathrm{P}(X \\ge 18) \\approx \\mathrm{P}(Y > 17.5)$$",
+        "Standardize to the standard normal variable $Z$ and compute the probability:\n$$Z = \\frac{17.5 - \\mu}{\\sigma} = \\frac{17.5 - 16}{\\sqrt{14.4}} = \\frac{1.5}{3.7947} \\approx 0.3953$$\n$$\\mathrm{P}(Z > 0.3953) = 1 - \\Phi(0.3953) = 1 - 0.6537 = 0.3463 \\approx 0.346$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "ai_rubric": {
+          "Applying a Normal Approximation": "Computes approximating mean np and variance npq and applies the continuity correction correctly.",
+          "Standardising a Normal Variable": "Standardises the corrected boundary with correct mean and standard deviation."
+        },
+        "criteria_source": "mark_scheme_structured"
+      },
+      "teacher_walkthrough": [
+        "Start by identifying the exact distribution. The number of people $X$ out of $160$ who enjoy Historical Drama follows a binomial distribution:\n$$X \\sim \\mathrm{B}(n, p) \\quad \\text{with } n = 160, \\; p = 0.1$$\nCheck that the conditions for using a normal approximation are satisfied:\n$$np = 160 \\times 0.1 = 16 > 5$$\n$$np(1 - p) = 160 \\times 0.1 \\times 0.9 = 14.4 > 5$$\nBoth conditions hold, so we approximate $X$ using a continuous normal random variable $Y \\sim \\mathrm{N}(\\mu, \\sigma^2)$.",
+        "Calculate the parameters of the approximating normal distribution:\n$$\\mu = np = 160 \\times 0.1 = 16$$\n$$\\sigma^2 = np(1 - p) = 16 \\times 0.9 = 14.4 \\implies \\sigma = \\sqrt{14.4} \\approx 3.794733$$",
+        "Apply a continuity correction. The discrete inequality $X > 17$ means the integer values $18, 19, 20, \\dots$.\nIn the continuous domain, the integer $18$ is represented by the interval $[17.5, 18.5]$, so values greater than $17$ correspond to $Y > 17.5$:\n$$\\mathrm{P}(X > 17) \\approx \\mathrm{P}(Y > 17.5)$$",
+        "Write down the standardization formula:\n$$Z = \\frac{Y - \\mu}{\\sigma}$$\nSubstitute $Y = 17.5$, $\\mu = 16$, and $\\sigma = \\sqrt{14.4}$:\n$$Z = \\frac{17.5 - 16}{\\sqrt{14.4}} = \\frac{1.5}{3.794733} \\approx 0.3953$$",
+        "Look up $z = 0.3953$ in the standard normal distribution table:\n$$\\Phi(0.395) = 0.6536, \\quad \\text{difference for } 3 \\text{ is } 1 \\implies \\Phi(0.3953) = 0.6537$$\nCalculate the upper tail area:\n$$\\mathrm{P}(Z > 0.3953) = 1 - \\Phi(0.3953) = 1 - 0.6537 = 0.3463 \\approx 0.346$$"
+      ]
+    }
+  ]
+}

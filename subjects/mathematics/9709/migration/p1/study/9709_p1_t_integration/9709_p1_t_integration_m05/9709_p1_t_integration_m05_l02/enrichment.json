@@ -1,0 +1,1286 @@
+{
+  "schema_version": "9709_math_lesson_enrichment_v1",
+  "lesson_id": "9709_p1_t_integration_m05_l02",
+  "topic_id": "9709_p1_t_integration",
+  "numerical_values_checked": false,
+  "lesson_scope": "Volumes of revolution about the x-axis for regions with inner and outer boundaries (washers), subtractive cylinder formulations, changing radial rules, and regions enclosed between two curves.",
+  "questions": [
+    {
+      "question_id": "9709_p1_t_integration_m05_l02_drq01",
+      "sequence": 1,
+      "difficulty": "easy",
+      "difficulty_reason": "Drill: rotating region between two horizontal lines to form a hollow tube.",
+      "source_question_id": "drill_integ_washer_lines",
+      "source_role": "foundational_drill",
+      "dependency_role": "none",
+      "dependency_refs": [],
+      "parts": [
+        {
+          "part_id": "9709_p1_t_integration_m05_l02_drq01_p01",
+          "difficulty": "easy",
+          "question_pattern_ids": [
+            "9709_p1_pattern_area_or_volume"
+          ],
+          "source_evidence": {
+            "question_id": "drill_integ_washer_lines",
+            "part_id": "drill_integ_washer_lines_p01",
+            "legacy_practice_tier": "foundational",
+            "product_role": "warm_up_drill",
+            "structural_inspiration": "Foundational check of the washer method formula V = pi * int(y_outer^2 - y_inner^2 dx)."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Recall the washer method formula for rotation about the $x$-axis: $V = \\pi \\int_a^b (y_{\\text{outer}}^2 - y_{\\text{inner}}^2) \\, dx$.",
+            "Here $y_{\\text{outer}} = 3$ and $y_{\\text{inner}} = 1$, so $y_{\\text{outer}}^2 - y_{\\text{inner}}^2 = 3^2 - 1^2 = 9 - 1 = 8$.",
+            "Integrate across $[0, 4]$: $\\pi \\int_0^4 8 \\, dx = \\pi [8x]_0^4 = \\pi (32 - 0) = 32\\pi$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "State the washer method volume formula for rotation about the $x$-axis:\n$$V = \\pi \\int_a^b \\left(y_{\\text{outer}}^2 - y_{\\text{inner}}^2\\right) \\, dx$$"
+            },
+            {
+              "step": 2,
+              "text": "Identify outer and inner radii and compute the difference of squares:\n$$y_{\\text{outer}} = 3 \\implies y_{\\text{outer}}^2 = 9$$\n$$y_{\\text{inner}} = 1 \\implies y_{\\text{inner}}^2 = 1$$\n$$y_{\\text{outer}}^2 - y_{\\text{inner}}^2 = 9 - 1 = 8$$"
+            },
+            {
+              "step": 3,
+              "text": "Integrate across the interval $[0, 4]$:\n$$V = \\pi \\int_0^4 8 \\, dx = \\pi [8x]_0^4 = \\pi (8(4) - 0) = 32\\pi \\text{ cubic units}$$"
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p1_t_integration_m05_l02_drq01_p01_mp01",
+                "observable": "Sets up $\\pi \\int_0^4 (3^2 - 1^2) \\, dx = \\pi \\int_0^4 8 \\, dx = \\pi [8x]_0^4$."
+              },
+              {
+                "criterion_id": "9709_p1_t_integration_m05_l02_drq01_p01_mp02",
+                "observable": "Evaluates to obtain $32\\pi$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p1_skill_volume_of_revolution"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p1_skill_volume_of_revolution"
+            ],
+            "method_ids": [
+              "9709_p1_method_volume_of_revolution"
+            ],
+            "formula_ids": [
+              "9709_p1_formula_volume_revolution"
+            ],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_p1_t_integration_m05_l02_drq02",
+      "sequence": 2,
+      "difficulty": "easy",
+      "difficulty_reason": "Drill: rotating region between horizontal line y = 2 and y = x.",
+      "source_question_id": "drill_integ_washer_line_linear",
+      "source_role": "foundational_drill",
+      "dependency_role": "none",
+      "dependency_refs": [],
+      "parts": [
+        {
+          "part_id": "9709_p1_t_integration_m05_l02_drq02_p01",
+          "difficulty": "easy",
+          "question_pattern_ids": [
+            "9709_p1_pattern_area_or_volume"
+          ],
+          "source_evidence": {
+            "question_id": "drill_integ_washer_line_linear",
+            "part_id": "drill_integ_washer_line_linear_p01",
+            "legacy_practice_tier": "foundational",
+            "product_role": "warm_up_drill",
+            "structural_inspiration": "Foundational check of washer method with outer cylinder minus inner cone."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "For $x \\in [0, 2]$, the line $y = 2$ lies above $y = x$, so $y_{\\text{outer}} = 2$ and $y_{\\text{inner}} = x$.",
+            "Calculate $y_{\\text{outer}}^2 - y_{\\text{inner}}^2 = 2^2 - x^2 = 4 - x^2$.",
+            "Set up and evaluate: $V = \\pi \\int_0^2 (4 - x^2) \\, dx = \\pi \\left[4x - \\dfrac{x^3}{3}\\right]_0^2 = \\pi \\left(8 - \\dfrac{8}{3}\\right) = \\dfrac{16}{3}\\pi$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Identify outer and inner boundaries on $[0, 2]$:\n$$y_{\\text{outer}} = 2, \\quad y_{\\text{inner}} = x$$"
+            },
+            {
+              "step": 2,
+              "text": "Form the difference of squares for the integrand:\n$$y_{\\text{outer}}^2 - y_{\\text{inner}}^2 = 2^2 - x^2 = 4 - x^2$$"
+            },
+            {
+              "step": 3,
+              "text": "Evaluate the definite integral from $x = 0$ to $x = 2$:\n$$V = \\pi \\int_0^2 (4 - x^2) \\, dx = \\pi \\left[4x - \\frac{1}{3}x^3\\right]_0^2 = \\pi \\left(8 - \\frac{8}{3} - 0\\right) = \\frac{16}{3}\\pi \\text{ cubic units}$$"
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p1_t_integration_m05_l02_drq02_p01_mp01",
+                "observable": "Identifies outer radius $2$ and inner radius $x$, setting up $\\pi \\int_0^2 (4 - x^2) \\, dx = \\pi \\left[4x - \\frac{1}{3}x^3\\right]_0^2$."
+              },
+              {
+                "criterion_id": "9709_p1_t_integration_m05_l02_drq02_p01_mp02",
+                "observable": "Evaluates limits to obtain $\\frac{16}{3}\\pi$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p1_skill_volume_of_revolution"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p1_skill_volume_of_revolution"
+            ],
+            "method_ids": [
+              "9709_p1_method_volume_of_revolution"
+            ],
+            "formula_ids": [
+              "9709_p1_formula_volume_revolution"
+            ],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_p1_t_integration_m05_l02_drq03",
+      "sequence": 3,
+      "difficulty": "easy",
+      "difficulty_reason": "Drill: rotating region between y = sqrt(x) and y = x^2.",
+      "source_question_id": "drill_integ_washer_sqrt_sq",
+      "source_role": "foundational_drill",
+      "dependency_role": "none",
+      "dependency_refs": [],
+      "parts": [
+        {
+          "part_id": "9709_p1_t_integration_m05_l02_drq03_p01",
+          "difficulty": "easy",
+          "question_pattern_ids": [
+            "9709_p1_pattern_area_or_volume"
+          ],
+          "source_evidence": {
+            "question_id": "drill_integ_washer_sqrt_sq",
+            "part_id": "drill_integ_washer_sqrt_sq_p01",
+            "legacy_practice_tier": "foundational",
+            "product_role": "warm_up_drill",
+            "structural_inspiration": "Foundational check of washer method between two intersecting power curves."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "On $[0, 1]$, $\\sqrt{x} \\ge x^2$, so $y_{\\text{outer}} = \\sqrt{x}$ and $y_{\\text{inner}} = x^2$.",
+            "Square each function individually: $y_{\\text{outer}}^2 = (\\sqrt{x})^2 = x$ and $y_{\\text{inner}}^2 = (x^2)^2 = x^4$.",
+            "Integrate the difference: $\\pi \\int_0^1 (x - x^4) \\, dx = \\pi \\left[\\dfrac{x^2}{2} - \\dfrac{x^5}{5}\\right]_0^1 = \\pi \\left(\\dfrac{1}{2} - \\dfrac{1}{5}\\right) = \\dfrac{3}{10}\\pi$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Determine outer and inner curves on $[0, 1]$ and square each:\n$$y_{\\text{outer}} = \\sqrt{x} \\implies y_{\\text{outer}}^2 = x$$\n$$y_{\\text{inner}} = x^2 \\implies y_{\\text{inner}}^2 = x^4$$"
+            },
+            {
+              "step": 2,
+              "text": "Set up the washer integral on $[0, 1]$:\n$$V = \\pi \\int_0^1 \\left(y_{\\text{outer}}^2 - y_{\\text{inner}}^2\\right) \\, dx = \\pi \\int_0^1 (x - x^4) \\, dx$$"
+            },
+            {
+              "step": 3,
+              "text": "Integrate and substitute the limits:\n$$= \\pi \\left[\\frac{x^2}{2} - \\frac{x^5}{5}\\right]_0^1 = \\pi \\left(\\frac{1}{2} - \\frac{1}{5} - 0\\right) = \\pi \\left(\\frac{5 - 2}{10}\\right) = \\frac{3}{10}\\pi \\text{ cubic units}$$"
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p1_t_integration_m05_l02_drq03_p01_mp01",
+                "observable": "Identifies $y_1^2 - y_2^2 = x - x^4$ and integrates $\\pi \\left[\\frac{1}{2}x^2 - \\frac{1}{5}x^5\\right]_0^1$."
+              },
+              {
+                "criterion_id": "9709_p1_t_integration_m05_l02_drq03_p01_mp02",
+                "observable": "Evaluates to obtain $\\frac{3}{10}\\pi$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p1_skill_volume_of_revolution"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p1_skill_volume_of_revolution"
+            ],
+            "method_ids": [
+              "9709_p1_method_volume_of_revolution"
+            ],
+            "formula_ids": [
+              "9709_p1_formula_volume_revolution"
+            ],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_p1_t_integration_m05_l02_drq04",
+      "sequence": 4,
+      "difficulty": "easy",
+      "difficulty_reason": "Drill: rotating region between y = 2x and y = 1 on [1, 2].",
+      "source_question_id": "drill_integ_washer_linear_shift",
+      "source_role": "foundational_drill",
+      "dependency_role": "none",
+      "dependency_refs": [],
+      "parts": [
+        {
+          "part_id": "9709_p1_t_integration_m05_l02_drq04_p01",
+          "difficulty": "easy",
+          "question_pattern_ids": [
+            "9709_p1_pattern_area_or_volume"
+          ],
+          "source_evidence": {
+            "question_id": "drill_integ_washer_linear_shift",
+            "part_id": "drill_integ_washer_linear_shift_p01",
+            "legacy_practice_tier": "foundational",
+            "product_role": "warm_up_drill",
+            "structural_inspiration": "Foundational check of washer method with non-zero lower bound."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "On $[1, 2]$, $y = 2x \\ge 1$, so $y_{\\text{outer}} = 2x$ and $y_{\\text{inner}} = 1$.",
+            "Square both expressions: $y_{\\text{outer}}^2 = 4x^2$ and $y_{\\text{inner}}^2 = 1$, giving $y_{\\text{outer}}^2 - y_{\\text{inner}}^2 = 4x^2 - 1$.",
+            "Integrate: $\\pi \\left[\\dfrac{4}{3}x^3 - x\\right]_1^2 = \\pi \\left(\\left(\\dfrac{32}{3} - 2\\right) - \\left(\\dfrac{4}{3} - 1\\right)\\right) = \\pi \\left(\\dfrac{26}{3} - \\dfrac{1}{3}\\right) = \\dfrac{25}{3}\\pi$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Square the outer and inner functions on $[1, 2]$:\n$$y_{\\text{outer}} = 2x \\implies y_{\\text{outer}}^2 = 4x^2$$\n$$y_{\\text{inner}} = 1 \\implies y_{\\text{inner}}^2 = 1$$"
+            },
+            {
+              "step": 2,
+              "text": "Set up the integral for the hollow solid from $x = 1$ to $x = 2$:\n$$V = \\pi \\int_1^2 (4x^2 - 1) \\, dx = \\pi \\left[\\frac{4}{3}x^3 - x\\right]_1^2$$"
+            },
+            {
+              "step": 3,
+              "text": "Substitute the limits:\n$$= \\pi \\left(\\left(\\frac{4(8)}{3} - 2\\right) - \\left(\\frac{4(1)}{3} - 1\\right)\\right) = \\pi \\left(\\left(\\frac{32}{3} - \\frac{6}{3}\\right) - \\left(\\frac{4}{3} - \\frac{3}{3}\\right)\\right)$$\n$$= \\pi \\left(\\frac{26}{3} - \\frac{1}{3}\\right) = \\frac{25}{3}\\pi \\text{ cubic units}$$"
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p1_t_integration_m05_l02_drq04_p01_mp01",
+                "observable": "Sets up $\\pi \\int_1^2 ((2x)^2 - 1^2) \\, dx = \\pi \\left[\\frac{4}{3}x^3 - x\\right]_1^2$."
+              },
+              {
+                "criterion_id": "9709_p1_t_integration_m05_l02_drq04_p01_mp02",
+                "observable": "Evaluates limits to obtain $\\frac{25}{3}\\pi$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p1_skill_volume_of_revolution"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p1_skill_volume_of_revolution"
+            ],
+            "method_ids": [
+              "9709_p1_method_volume_of_revolution"
+            ],
+            "formula_ids": [
+              "9709_p1_formula_volume_revolution"
+            ],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_p1_t_integration_m05_l02_drq05",
+      "sequence": 5,
+      "difficulty": "easy",
+      "difficulty_reason": "Drill: rotating region between constant line and reciprocal curve.",
+      "source_question_id": "drill_integ_washer_reciprocal",
+      "source_role": "foundational_drill",
+      "dependency_role": "none",
+      "dependency_refs": [],
+      "parts": [
+        {
+          "part_id": "9709_p1_t_integration_m05_l02_drq05_p01",
+          "difficulty": "easy",
+          "question_pattern_ids": [
+            "9709_p1_pattern_area_or_volume"
+          ],
+          "source_evidence": {
+            "question_id": "drill_integ_washer_reciprocal",
+            "part_id": "drill_integ_washer_reciprocal_p01",
+            "legacy_practice_tier": "foundational",
+            "product_role": "warm_up_drill",
+            "structural_inspiration": "Foundational check of washer method with negative power integrand."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "On $[1, 2]$, $y = 2 \\ge \\dfrac{1}{x}$, so $y_{\\text{outer}} = 2$ and $y_{\\text{inner}} = x^{-1}$.",
+            "Square each function: $y_{\\text{outer}}^2 = 4$ and $y_{\\text{inner}}^2 = x^{-2}$.",
+            "Integrate: $\\pi \\int_1^2 (4 - x^{-2}) \\, dx = \\pi \\left[4x + \\dfrac{1}{x}\\right]_1^2 = \\pi \\left(\\left(8 + \\dfrac{1}{2}\\right) - (4 + 1)\\right) = \\pi \\left(\\dfrac{17}{2} - 5\\right) = \\dfrac{7}{2}\\pi$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Square the outer and inner boundaries on $[1, 2]$:\n$$y_{\\text{outer}} = 2 \\implies y_{\\text{outer}}^2 = 4$$\n$$y_{\\text{inner}} = \\frac{1}{x} = x^{-1} \\implies y_{\\text{inner}}^2 = x^{-2}$$"
+            },
+            {
+              "step": 2,
+              "text": "Set up and evaluate the washer integral:\n$$V = \\pi \\int_1^2 (4 - x^{-2}) \\, dx = \\pi \\left[4x - \\frac{x^{-1}}{-1}\\right]_1^2 = \\pi \\left[4x + \\frac{1}{x}\\right]_1^2$$"
+            },
+            {
+              "step": 3,
+              "text": "Substitute the limits:\n$$= \\pi \\left(\\left(4(2) + \\frac{1}{2}\\right) - \\left(4(1) + \\frac{1}{1}\\right)\\right) = \\pi \\left(\\left(8 + \\frac{1}{2}\\right) - 5\\right) = \\pi \\left(\\frac{17}{2} - \\frac{10}{2}\\right) = \\frac{7}{2}\\pi \\text{ cubic units}$$"
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p1_t_integration_m05_l02_drq05_p01_mp01",
+                "observable": "Sets up $\\pi \\int_1^2 (4 - x^{-2}) \\, dx = \\pi \\left[4x + \\frac{1}{x}\\right]_1^2$."
+              },
+              {
+                "criterion_id": "9709_p1_t_integration_m05_l02_drq05_p01_mp02",
+                "observable": "Evaluates limits to obtain $\\frac{7}{2}\\pi$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p1_skill_volume_of_revolution"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p1_skill_volume_of_revolution"
+            ],
+            "method_ids": [
+              "9709_p1_method_volume_of_revolution"
+            ],
+            "formula_ids": [
+              "9709_p1_formula_power_integral",
+              "9709_p1_formula_volume_revolution"
+            ],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_p1_t_integration_m05_l02_drq06",
+      "sequence": 6,
+      "difficulty": "easy",
+      "difficulty_reason": "Drill: rotating region between radical curve y = sqrt(x+2) and y = 1.",
+      "source_question_id": "drill_integ_washer_comp_radical",
+      "source_role": "foundational_drill",
+      "dependency_role": "none",
+      "dependency_refs": [],
+      "parts": [
+        {
+          "part_id": "9709_p1_t_integration_m05_l02_drq06_p01",
+          "difficulty": "easy",
+          "question_pattern_ids": [
+            "9709_p1_pattern_area_or_volume"
+          ],
+          "source_evidence": {
+            "question_id": "drill_integ_washer_comp_radical",
+            "part_id": "drill_integ_washer_comp_radical_p01",
+            "legacy_practice_tier": "foundational",
+            "product_role": "warm_up_drill",
+            "structural_inspiration": "Foundational check of squaring a radical curve and subtracting an inner constant boundary."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "On $[0, 2]$, $y = \\sqrt{x + 2} \\ge 1$, so $y_{\\text{outer}} = \\sqrt{x + 2}$ and $y_{\\text{inner}} = 1$.",
+            "Square each boundary: $y_{\\text{outer}}^2 = x + 2$ and $y_{\\text{inner}}^2 = 1$, giving $y_{\\text{outer}}^2 - y_{\\text{inner}}^2 = (x + 2) - 1 = x + 1$.",
+            "Integrate: $\\pi \\int_0^2 (x + 1) \\, dx = \\pi \\left[\\dfrac{x^2}{2} + x\\right]_0^2 = \\pi \\left(\\dfrac{4}{2} + 2 - 0\\right) = 4\\pi$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Square the outer and inner functions on $[0, 2]$:\n$$y_{\\text{outer}} = \\sqrt{x + 2} \\implies y_{\\text{outer}}^2 = x + 2$$\n$$y_{\\text{inner}} = 1 \\implies y_{\\text{inner}}^2 = 1$$"
+            },
+            {
+              "step": 2,
+              "text": "Form the difference and set up the integral:\n$$y_{\\text{outer}}^2 - y_{\\text{inner}}^2 = (x + 2) - 1 = x + 1$$\n$$V = \\pi \\int_0^2 (x + 1) \\, dx = \\pi \\left[\\frac{1}{2}x^2 + x\\right]_0^2$$"
+            },
+            {
+              "step": 3,
+              "text": "Evaluate at the limits:\n$$= \\pi \\left(\\frac{2^2}{2} + 2 - 0\\right) = \\pi (2 + 2) = 4\\pi \\text{ cubic units}$$"
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p1_t_integration_m05_l02_drq06_p01_mp01",
+                "observable": "Forms difference $y_1^2 - y_2^2 = (x + 2) - 1 = x + 1$ and integrates $\\pi \\left[\\frac{1}{2}x^2 + x\\right]_0^2$."
+              },
+              {
+                "criterion_id": "9709_p1_t_integration_m05_l02_drq06_p01_mp02",
+                "observable": "Evaluates limits to obtain $4\\pi$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p1_skill_volume_of_revolution"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p1_skill_volume_of_revolution"
+            ],
+            "method_ids": [
+              "9709_p1_method_volume_of_revolution"
+            ],
+            "formula_ids": [
+              "9709_p1_formula_power_integral",
+              "9709_p1_formula_volume_revolution"
+            ],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_p1_t_integration_m05_l02_cpq01",
+      "sequence": 7,
+      "difficulty": "easy",
+      "difficulty_reason": "Easy: subtracts a square-root curve from a horizontal upper boundary.",
+      "source_question_id": "9709_s17_12_q6",
+      "source_role": "revision_design_evidence",
+      "dependency_role": "none",
+      "dependency_refs": [],
+      "parts": [
+        {
+          "part_id": "9709_p1_t_integration_m05_l02_cpq01_p01",
+          "difficulty": "easy",
+          "difficulty_reason": "Easy: subtracts a square-root curve from a horizontal upper boundary.",
+          "question_pattern_ids": [
+            "9709_p1_pattern_area_or_volume"
+          ],
+          "source_evidence": {
+            "question_id": "9709_s17_12_q6",
+            "part_id": "9709_s17_12_q6_b",
+            "legacy_practice_tier": "mandatory",
+            "product_role": "revision",
+            "structural_inspiration": "Requires using a cylinder minus single curve volume formulation."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "domain_and_existence_restrictions": [
+            "On $1 \\le x \\le 4$, $y = \\sqrt{x} \\le 2$, so $y = 2$ is the outer radius."
+          ],
+          "hints": [
+            "Identify the outer radius $y_{\\text{outer}} = 2$ and inner radius $y_{\\text{inner}} = \\sqrt{x}$ on $[1, 4]$.",
+            "Square each radius: $y_{\\text{outer}}^2 = 4$ and $y_{\\text{inner}}^2 = x$, giving $y_{\\text{outer}}^2 - y_{\\text{inner}}^2 = 4 - x$.",
+            "Set up the integral: $V = \\pi \\int_1^4 (4 - x) \\, dx$.",
+            "Integrate: $\\pi \\left[4x - \\dfrac{x^2}{2}\\right]_1^4 = \\pi \\left((16 - 8) - \\left(4 - \\dfrac{1}{2}\\right)\\right) = \\pi \\left(8 - \\dfrac{7}{2}\\right) = \\dfrac{9}{2}\\pi$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Identify outer and inner boundaries on $[1, 4]$:\n$$y_{\\text{outer}} = 2 \\implies y_{\\text{outer}}^2 = 4$$\n$$y_{\\text{inner}} = \\sqrt{x} \\implies y_{\\text{inner}}^2 = x$$"
+            },
+            {
+              "step": 2,
+              "text": "Form the difference of squares and set up the washer integral:\n$$V = \\pi \\int_1^4 (4 - x) \\, dx$$"
+            },
+            {
+              "step": 3,
+              "text": "Find the antiderivative:\n$$= \\pi \\left[4x - \\frac{1}{2}x^2\\right]_1^4$$"
+            },
+            {
+              "step": 4,
+              "text": "Substitute the limits $x = 4$ and $x = 1$:\n$$= \\pi \\left(\\left(4(4) - \\frac{4^2}{2}\\right) - \\left(4(1) - \\frac{1^2}{2}\\right)\\right) = \\pi \\left((16 - 8) - \\left(4 - \\frac{1}{2}\\right)\\right)$$\n$$= \\pi \\left(8 - \\frac{7}{2}\\right) = \\frac{9}{2}\\pi \\text{ cubic units}$$"
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p1_t_integration_m05_l02_cpq01_p01_mp01",
+                "observable": "Identifies outer radius $2$ and inner radius $\\sqrt{x}$."
+              },
+              {
+                "criterion_id": "9709_p1_t_integration_m05_l02_cpq01_p01_mp02",
+                "observable": "Forms $V = \\pi \\int_1^4 (4 - x) \\, dx$."
+              },
+              {
+                "criterion_id": "9709_p1_t_integration_m05_l02_cpq01_p01_mp03",
+                "observable": "Integrates to $4x - \\frac{1}{2}x^2$ and applies both limits."
+              },
+              {
+                "criterion_id": "9709_p1_t_integration_m05_l02_cpq01_p01_mp04",
+                "observable": "Obtains $V = \\frac{9}{2}\\pi$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p1_skill_volume_of_revolution"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p1_skill_volume_of_revolution"
+            ],
+            "method_ids": [
+              "9709_p1_method_volume_of_revolution"
+            ],
+            "formula_ids": [
+              "9709_p1_formula_volume_revolution"
+            ],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        }
+      ],
+      "figure_refs": [
+        "9709_p1_t_integration_m05_l02_cpq01_fig01"
+      ],
+      "figure": {
+        "figure_id": "9709_p1_t_integration_m05_l02_cpq01_fig01",
+        "asset_path": "figures/9709_p1_t_integration_m05_l02_cpq01_fig01.svg",
+        "status": "planned",
+        "placement": "after_question_context",
+        "purpose": "Fix the coordinate region and visual context for students without revealing the integration method or final answer.",
+        "alt_text": "Coordinate diagram showing the curve, boundaries, and shaded region for 9709_p1_t_integration_m05_l02_cpq01.",
+        "brief": "Draw coordinate axes, the line $y = 2$, and the curve $y = \\sqrt{x}$ from $x = 1$ to $x = 4$. Shade the washer region between $y = 2$ and $y = \\sqrt{x}$, and draw a rotation arrow around the $x$-axis."
+      }
+    },
+    {
+      "question_id": "9709_p1_t_integration_m05_l02_cpq02",
+      "sequence": 8,
+      "difficulty": "easy",
+      "difficulty_reason": "Easy: volume between two linear boundaries where quadratic terms cancel.",
+      "source_question_id": "9709_s18_12_q11",
+      "source_role": "revision_design_evidence",
+      "dependency_role": "none",
+      "dependency_refs": [],
+      "parts": [
+        {
+          "part_id": "9709_p1_t_integration_m05_l02_cpq02_p01",
+          "difficulty": "easy",
+          "difficulty_reason": "Easy: volume between two linear boundaries where quadratic terms cancel.",
+          "question_pattern_ids": [
+            "9709_p1_pattern_area_or_volume"
+          ],
+          "source_evidence": {
+            "question_id": "9709_s18_12_q11",
+            "part_id": "9709_s18_12_q11_b",
+            "legacy_practice_tier": "mandatory",
+            "product_role": "revision",
+            "structural_inspiration": "Requires evaluating volume between two linear boundaries."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "domain_and_existence_restrictions": [
+            "On $0 \\le x \\le 2$, $x + 2 > x + 1 > 0$."
+          ],
+          "hints": [
+            "Outer radius is $y_{\\text{outer}} = x + 2$ and inner radius is $y_{\\text{inner}} = x + 1$.",
+            "Expand the difference of squares: $(x + 2)^2 - (x + 1)^2 = (x^2 + 4x + 4) - (x^2 + 2x + 1) = 2x + 3$.",
+            "Set up the integral: $V = \\pi \\int_0^2 (2x + 3) \\, dx$.",
+            "Integrate: $\\pi \\left[x^2 + 3x\\right]_0^2 = \\pi (2^2 + 3(2) - 0) = \\pi (4 + 6) = 10\\pi$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Square both linear boundary expressions:\n$$y_{\\text{outer}}^2 = (x + 2)^2 = x^2 + 4x + 4$$\n$$y_{\\text{inner}}^2 = (x + 1)^2 = x^2 + 2x + 1$$"
+            },
+            {
+              "step": 2,
+              "text": "Subtract $y_{\text{inner}}^2$ from $y_{\text{outer}}^2$:\n$$y_{\\text{outer}}^2 - y_{\\text{inner}}^2 = (x^2 + 4x + 4) - (x^2 + 2x + 1) = 2x + 3$$"
+            },
+            {
+              "step": 3,
+              "text": "Set up and evaluate the definite integral from $x = 0$ to $x = 2$:\n$$V = \\pi \\int_0^2 (2x + 3) \\, dx = \\pi \\left[x^2 + 3x\\right]_0^2$$"
+            },
+            {
+              "step": 4,
+              "text": "Substitute the limits:\n$$= \\pi \\left((2^2 + 3(2)) - 0\\right) = \\pi (4 + 6) = 10\\pi \\text{ cubic units}$$"
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p1_t_integration_m05_l02_cpq02_p01_mp01",
+                "observable": "Identifies $(x + 2)$ as the outer radius and $(x + 1)$ as the inner radius."
+              },
+              {
+                "criterion_id": "9709_p1_t_integration_m05_l02_cpq02_p01_mp02",
+                "observable": "Forms $V = \\pi \\int_0^2 ((x + 2)^2 - (x + 1)^2) \\, dx$ and expands to $2x + 3$."
+              },
+              {
+                "criterion_id": "9709_p1_t_integration_m05_l02_cpq02_p01_mp03",
+                "observable": "Integrates to $x^2 + 3x$ and evaluates at both limits."
+              },
+              {
+                "criterion_id": "9709_p1_t_integration_m05_l02_cpq02_p01_mp04",
+                "observable": "Obtains $V = 10\\pi$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p1_skill_volume_of_revolution"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p1_skill_volume_of_revolution"
+            ],
+            "method_ids": [
+              "9709_p1_method_volume_of_revolution"
+            ],
+            "formula_ids": [
+              "9709_p1_formula_volume_revolution"
+            ],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        }
+      ],
+      "figure_refs": [
+        "9709_p1_t_integration_m05_l02_cpq02_fig01"
+      ],
+      "figure": {
+        "figure_id": "9709_p1_t_integration_m05_l02_cpq02_fig01",
+        "asset_path": "figures/9709_p1_t_integration_m05_l02_cpq02_fig01.svg",
+        "status": "planned",
+        "placement": "after_question_context",
+        "purpose": "Fix the coordinate region and visual context for students without revealing the integration method or final answer.",
+        "alt_text": "Coordinate diagram showing the curve, boundaries, and shaded region for 9709_p1_t_integration_m05_l02_cpq02.",
+        "brief": "Draw coordinate axes and the parallel lines $y = x+2$ and $y = x+1$ from $x = 0$ to $x = 2$. Shade the strip between them and show a rotation arrow around the $x$-axis."
+      }
+    },
+    {
+      "question_id": "9709_p1_t_integration_m05_l02_cpq03",
+      "sequence": 9,
+      "difficulty": "medium",
+      "difficulty_reason": "Medium: washer method involving an inner rational function (x+1)^(-1) needing power rule integration.",
+      "source_question_id": "9709_s20_11_q11",
+      "source_role": "revision_design_evidence",
+      "dependency_role": "none",
+      "dependency_refs": [],
+      "parts": [
+        {
+          "part_id": "9709_p1_t_integration_m05_l02_cpq03_p01",
+          "difficulty": "medium",
+          "difficulty_reason": "Medium: washer method involving an inner rational function (x+1)^(-1) needing power rule integration.",
+          "question_pattern_ids": [
+            "9709_p1_pattern_area_or_volume"
+          ],
+          "source_evidence": {
+            "question_id": "9709_s20_11_q11",
+            "part_id": "9709_s20_11_q11_b",
+            "legacy_practice_tier": "mandatory",
+            "product_role": "revision",
+            "structural_inspiration": "Requires integrating an expression containing a negative power in a washer setup."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "domain_and_existence_restrictions": [
+            "On $0 \\le x \\le 1$, $0 < \\frac{1}{x+1} \\le 1$."
+          ],
+          "hints": [
+            "Outer radius is $y_{\\text{outer}} = 1$ and inner radius is $y_{\\text{inner}} = (x + 1)^{-1}$.",
+            "Square each boundary: $y_{\\text{outer}}^2 = 1$ and $y_{\\text{inner}}^2 = (x + 1)^{-2}$.",
+            "Integrate: $\\pi \\int_0^1 \\left(1 - (x + 1)^{-2}\\right) \\, dx = \\pi \\left[x + (x + 1)^{-1}\\right]_0^1$.",
+            "Substitute limits: $\\pi \\left(\\left(1 + \\dfrac{1}{2}\\right) - (0 + 1)\\right) = \\pi \\left(\\dfrac{3}{2} - 1\\right) = \\dfrac{1}{2}\\pi$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Square the outer and inner boundaries:\n$$y_{\\text{outer}} = 1 \\implies y_{\\text{outer}}^2 = 1$$\n$$y_{\\text{inner}} = \\frac{1}{x + 1} = (x + 1)^{-1} \\implies y_{\\text{inner}}^2 = (x + 1)^{-2}$$"
+            },
+            {
+              "step": 2,
+              "text": "Form the washer integral on $[0, 1]$:\n$$V = \\pi \\int_0^1 \\left(1 - (x + 1)^{-2}\\right) \\, dx$$"
+            },
+            {
+              "step": 3,
+              "text": "Find the antiderivative:\n$$= \\pi \\left[x - \\frac{(x + 1)^{-1}}{-1}\\right]_0^1 = \\pi \\left[x + \\frac{1}{x + 1}\\right]_0^1$$"
+            },
+            {
+              "step": 4,
+              "text": "Substitute the limits $x = 1$ and $x = 0$:\n$$= \\pi \\left(\\left(1 + \\frac{1}{1 + 1}\\right) - \\left(0 + \\frac{1}{0 + 1}\\right)\\right) = \\pi \\left(\\left(1 + \\frac{1}{2}\\right) - 1\\right) = \\frac{1}{2}\\pi \\text{ cubic units}$$"
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p1_t_integration_m05_l02_cpq03_p01_mp01",
+                "observable": "Identifies outer radius $1$ and inner radius $(x + 1)^{-1}$."
+              },
+              {
+                "criterion_id": "9709_p1_t_integration_m05_l02_cpq03_p01_mp02",
+                "observable": "Forms $V = \\pi \\int_0^1 (1 - (x + 1)^{-2}) \\, dx$."
+              },
+              {
+                "criterion_id": "9709_p1_t_integration_m05_l02_cpq03_p01_mp03",
+                "observable": "Integrates to $x + (x + 1)^{-1}$ and applies both limits."
+              },
+              {
+                "criterion_id": "9709_p1_t_integration_m05_l02_cpq03_p01_mp04",
+                "observable": "Obtains $V = \\frac{1}{2}\\pi$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p1_skill_volume_of_revolution"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p1_skill_volume_of_revolution"
+            ],
+            "method_ids": [
+              "9709_p1_method_volume_of_revolution"
+            ],
+            "formula_ids": [
+              "9709_p1_formula_power_integral",
+              "9709_p1_formula_volume_revolution"
+            ],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        }
+      ],
+      "figure_refs": [
+        "9709_p1_t_integration_m05_l02_cpq03_fig01"
+      ],
+      "figure": {
+        "figure_id": "9709_p1_t_integration_m05_l02_cpq03_fig01",
+        "asset_path": "figures/9709_p1_t_integration_m05_l02_cpq03_fig01.svg",
+        "status": "planned",
+        "placement": "after_question_context",
+        "purpose": "Fix the coordinate region and visual context for students without revealing the integration method or final answer.",
+        "alt_text": "Coordinate diagram showing the curve, boundaries, and shaded region for 9709_p1_t_integration_m05_l02_cpq03.",
+        "brief": "Draw coordinate axes, the line $y = 1$, and the curve $y = \\frac{1}{x+1}$ from $x = 0$ to $x = 1$. Shade the region between the line and the curve, and show a rotation arrow around the $x$-axis."
+      }
+    },
+    {
+      "question_id": "9709_p1_t_integration_m05_l02_cpq04",
+      "sequence": 10,
+      "difficulty": "medium",
+      "difficulty_reason": "Medium: hollow cylinder minus radical curve volume.",
+      "source_question_id": "9709_s21_12_q9",
+      "source_role": "revision_design_evidence",
+      "dependency_role": "none",
+      "dependency_refs": [],
+      "parts": [
+        {
+          "part_id": "9709_p1_t_integration_m05_l02_cpq04_p01",
+          "difficulty": "medium",
+          "difficulty_reason": "Medium: hollow cylinder minus radical curve volume.",
+          "question_pattern_ids": [
+            "9709_p1_pattern_area_or_volume"
+          ],
+          "source_evidence": {
+            "question_id": "9709_s21_12_q9",
+            "part_id": "9709_s21_12_q9_b",
+            "legacy_practice_tier": "mandatory",
+            "product_role": "revision",
+            "structural_inspiration": "Requires cylinder minus radical curve volume computation."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "domain_and_existence_restrictions": [
+            "On $0 \\le x \\le 3$, $\\sqrt{x + 1} \\le 2 < 3$."
+          ],
+          "hints": [
+            "Outer radius is $y_{\\text{outer}} = 3$ and inner radius is $y_{\\text{inner}} = \\sqrt{x + 1}$.",
+            "Square each boundary: $y_{\\text{outer}}^2 = 9$ and $y_{\\text{inner}}^2 = x + 1$, giving $y_{\\text{outer}}^2 - y_{\\text{inner}}^2 = 9 - (x + 1) = 8 - x$.",
+            "Set up the integral: $V = \\pi \\int_0^3 (8 - x) \\, dx$.",
+            "Integrate: $\\pi \\left[8x - \\dfrac{x^2}{2}\\right]_0^3 = \\pi \\left(24 - \\dfrac{9}{2} - 0\\right) = \\dfrac{39}{2}\\pi$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Square the outer and inner boundaries on $[0, 3]$:\n$$y_{\\text{outer}} = 3 \\implies y_{\\text{outer}}^2 = 9$$\n$$y_{\\text{inner}} = \\sqrt{x + 1} \\implies y_{\\text{inner}}^2 = x + 1$$"
+            },
+            {
+              "step": 2,
+              "text": "Form the difference $y_{\text{outer}}^2 - y_{\text{inner}}^2$:\n$$9 - (x + 1) = 8 - x$$"
+            },
+            {
+              "step": 3,
+              "text": "Set up and evaluate the definite integral:\n$$V = \\pi \\int_0^3 (8 - x) \\, dx = \\pi \\left[8x - \\frac{1}{2}x^2\\right]_0^3$$"
+            },
+            {
+              "step": 4,
+              "text": "Substitute the limits $x = 3$ and $x = 0$:\n$$= \\pi \\left(\\left(8(3) - \\frac{3^2}{2}\\right) - 0\\right) = \\pi \\left(24 - \\frac{9}{2}\\right) = \\frac{39}{2}\\pi \\text{ cubic units}$$"
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p1_t_integration_m05_l02_cpq04_p01_mp01",
+                "observable": "Identifies the solid as a radius-$3$ cylinder with the curve-generated solid removed."
+              },
+              {
+                "criterion_id": "9709_p1_t_integration_m05_l02_cpq04_p01_mp02",
+                "observable": "Forms $V = \\pi \\int_0^3 [9 - (x + 1)] \\, dx$."
+              },
+              {
+                "criterion_id": "9709_p1_t_integration_m05_l02_cpq04_p01_mp03",
+                "observable": "Integrates to $8x - \\frac{1}{2}x^2$ and applies both limits."
+              },
+              {
+                "criterion_id": "9709_p1_t_integration_m05_l02_cpq04_p01_mp04",
+                "observable": "Obtains $V = \\frac{39}{2}\\pi$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p1_skill_volume_of_revolution"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p1_skill_volume_of_revolution"
+            ],
+            "method_ids": [
+              "9709_p1_method_volume_of_revolution"
+            ],
+            "formula_ids": [
+              "9709_p1_formula_volume_revolution"
+            ],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        }
+      ],
+      "figure_refs": [
+        "9709_p1_t_integration_m05_l02_cpq04_fig01"
+      ],
+      "figure": {
+        "figure_id": "9709_p1_t_integration_m05_l02_cpq04_fig01",
+        "asset_path": "figures/9709_p1_t_integration_m05_l02_cpq04_fig01.svg",
+        "status": "planned",
+        "placement": "after_question_context",
+        "purpose": "Fix the coordinate region and visual context for students without revealing the integration method or final answer.",
+        "alt_text": "Coordinate diagram showing the curve, boundaries, and shaded region for 9709_p1_t_integration_m05_l02_cpq04.",
+        "brief": "Draw coordinate axes, the line $y = 3$, and the curve $y = \\sqrt{x+1}$ from $x = 0$ to $x = 3$. Shade the region between the line and curve, and show a rotation arrow around the $x$-axis."
+      }
+    },
+    {
+      "question_id": "9709_p1_t_integration_m05_l02_cpq05",
+      "sequence": 11,
+      "difficulty": "medium",
+      "difficulty_reason": "Medium: piecewise upper boundary requiring splitting the volume into two distinct integrals over [0, 1] and [1, 3].",
+      "source_question_id": "9709_s23_11_q10",
+      "source_role": "revision_design_evidence",
+      "dependency_role": "none",
+      "dependency_refs": [],
+      "parts": [
+        {
+          "part_id": "9709_p1_t_integration_m05_l02_cpq05_p01",
+          "difficulty": "medium",
+          "difficulty_reason": "Medium: piecewise upper boundary requiring splitting the volume into two distinct integrals over [0, 1] and [1, 3].",
+          "question_pattern_ids": [
+            "9709_p1_pattern_area_or_volume"
+          ],
+          "source_evidence": {
+            "question_id": "9709_s23_11_q10",
+            "part_id": "9709_s23_11_q10_b",
+            "legacy_practice_tier": "mandatory",
+            "product_role": "revision",
+            "structural_inspiration": "Requires piecewise volume calculation across multiple boundary definitions."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "domain_and_existence_restrictions": [
+            "On $[0, 1]$, $y = x + 2 \\ge 1$; on $[1, 3]$, $y = 4 - x \\ge 1$."
+          ],
+          "hints": [
+            "Split the region into two sections at $x = 1$: section 1 on $[0, 1]$ and section 2 on $[1, 3]$. Inner boundary is $y = 1$ throughout.",
+            "On $[0, 1]$: $y_{\\text{outer}}^2 - 1^2 = (x + 2)^2 - 1 = x^2 + 4x + 3$. Integrate: $\\pi \\left[\\dfrac{x^3}{3} + 2x^2 + 3x\\right]_0^1 = \\dfrac{16}{3}\\pi$.",
+            "On $[1, 3]$: $y_{\\text{outer}}^2 - 1^2 = (4 - x)^2 - 1 = x^2 - 8x + 15$. Integrate: $\\pi \\left[\\dfrac{x^3}{3} - 4x^2 + 15x\\right]_1^3 = \\dfrac{20}{3}\\pi$.",
+            "Sum the two piecewise volumes: $\\dfrac{16}{3}\\pi + \\dfrac{20}{3}\\pi = \\dfrac{36}{3}\\pi = 12\\pi$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Recognize that the upper boundary changes definition at $x = 1$, while the inner radius is $y = 1$ ($y_{\text{inner}}^2 = 1$) throughout:\n$$V = V_1 + V_2 = \\pi \\int_0^1 \\left((x + 2)^2 - 1\\right) \\, dx + \\pi \\int_1^3 \\left((4 - x)^2 - 1\\right) \\, dx$$"
+            },
+            {
+              "step": 2,
+              "text": "Evaluate $V_1$ over $[0, 1]$:\n$$\\text{Integrand } = (x + 2)^2 - 1 = x^2 + 4x + 3$$\n$$V_1 = \\pi \\left[\\frac{x^3}{3} + 2x^2 + 3x\\right]_0^1 = \\pi \\left(\\frac{1}{3} + 2 + 3\\right) = \\frac{16}{3}\\pi$$"
+            },
+            {
+              "step": 3,
+              "text": "Evaluate $V_2$ over $[1, 3]$:\n$$\\text{Integrand } = (4 - x)^2 - 1 = x^2 - 8x + 15$$\n$$V_2 = \\pi \\left[\\frac{x^3}{3} - 4x^2 + 15x\\right]_1^3 = \\pi \\left((9 - 36 + 45) - \\left(\\frac{1}{3} - 4 + 15\\right)\\right)$$\n$$= \\pi \\left(18 - \\frac{34}{3}\\right) = \\frac{20}{3}\\pi$$"
+            },
+            {
+              "step": 4,
+              "text": "Add the two volumes together:\n$$V = V_1 + V_2 = \\frac{16}{3}\\pi + \\frac{20}{3}\\pi = \\frac{36}{3}\\pi = 12\\pi \\text{ cubic units}$$"
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p1_t_integration_m05_l02_cpq05_p01_mp01",
+                "observable": "Recognises that the radial rule changes at $x = 1$ and uses inner radius $1$ throughout."
+              },
+              {
+                "criterion_id": "9709_p1_t_integration_m05_l02_cpq05_p01_mp02",
+                "observable": "Forms $V = \\pi \\int_0^1 [(x + 2)^2 - 1] \\, dx + \\pi \\int_1^3 [(4 - x)^2 - 1] \\, dx$."
+              },
+              {
+                "criterion_id": "9709_p1_t_integration_m05_l02_cpq05_p01_mp03",
+                "observable": "Evaluates the first integral as $\\frac{16}{3}\\pi$."
+              },
+              {
+                "criterion_id": "9709_p1_t_integration_m05_l02_cpq05_p01_mp04",
+                "observable": "Evaluates the second integral as $\\frac{20}{3}\\pi$."
+              },
+              {
+                "criterion_id": "9709_p1_t_integration_m05_l02_cpq05_p01_mp05",
+                "observable": "Adds the pieces to obtain $V = 12\\pi$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p1_skill_volume_of_revolution"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p1_skill_volume_of_revolution"
+            ],
+            "method_ids": [
+              "9709_p1_method_volume_of_revolution"
+            ],
+            "formula_ids": [
+              "9709_p1_formula_power_integral",
+              "9709_p1_formula_volume_revolution"
+            ],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        }
+      ],
+      "figure_refs": [
+        "9709_p1_t_integration_m05_l02_cpq05_fig01"
+      ],
+      "figure": {
+        "figure_id": "9709_p1_t_integration_m05_l02_cpq05_fig01",
+        "asset_path": "figures/9709_p1_t_integration_m05_l02_cpq05_fig01.svg",
+        "status": "planned",
+        "placement": "after_question_context",
+        "purpose": "Fix the coordinate region and visual context for students without revealing the integration method or final answer.",
+        "alt_text": "Coordinate diagram showing the curve, boundaries, and shaded region for 9709_p1_t_integration_m05_l02_cpq05.",
+        "brief": "Draw coordinate axes and the piecewise upper boundary $y = x+2$ ($0 \\le x \\le 1$) and $y = 4-x$ ($1 \\le x \\le 3$) above the base line $y = 1$. Shade the region and show a rotation arrow about the $x$-axis."
+      }
+    },
+    {
+      "question_id": "9709_p1_t_integration_m05_l02_cpq06",
+      "sequence": 12,
+      "difficulty": "hard",
+      "difficulty_reason": "Hard: find intersection limits by solving a quadratic, determine the upper curve, expand a quartic polynomial difference, and integrate across limits [-1, 3].",
+      "source_question_id": "9709_s24_11_q9",
+      "source_role": "revision_design_evidence",
+      "dependency_role": "none",
+      "dependency_refs": [],
+      "parts": [
+        {
+          "part_id": "9709_p1_t_integration_m05_l02_cpq06_p01",
+          "difficulty": "hard",
+          "difficulty_reason": "Hard: find intersection limits by solving a quadratic, determine the upper curve, expand a quartic polynomial difference, and integrate across limits [-1, 3].",
+          "question_pattern_ids": [
+            "9709_p1_pattern_area_or_volume"
+          ],
+          "source_evidence": {
+            "question_id": "9709_s24_11_q9",
+            "part_id": "9709_s24_11_q9_b",
+            "legacy_practice_tier": "mandatory",
+            "product_role": "revision",
+            "structural_inspiration": "Requires solving for intersection limits, squaring both curves and integrating the polynomial difference."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "domain_and_existence_restrictions": [
+            "Curves intersect at $x = -1$ and $x = 3$; on $[-1, 3]$, $2x + 4 \\ge x^2 + 1 \\ge 0$."
+          ],
+          "hints": [
+            "Find the intersection points by equating equations: $2x + 4 = x^2 + 1 \\implies x^2 - 2x - 3 = 0 \\implies (x - 3)(x + 1) = 0 \\implies x = -1, 3$.",
+            "On $[-1, 3]$, the line is upper ($y_{\\text{outer}} = 2x + 4$) and the parabola is lower ($y_{\\text{inner}} = x^2 + 1$).",
+            "Square each function: $y_{\\text{outer}}^2 = 4x^2 + 16x + 16$ and $y_{\\text{inner}}^2 = x^4 + 2x^2 + 1$. Difference: $-x^4 + 2x^2 + 16x + 15$.",
+            "Integrate: $\\pi \\left[-\\dfrac{x^5}{5} + \\dfrac{2}{3}x^3 + 8x^2 + 15x\\right]_{-1}^3 = \\pi \\left(\\dfrac{432}{5} - \\left(-\\dfrac{112}{15}\\right)\\right) = \\dfrac{1408}{15}\\pi$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Find the intersection limits by solving $2x + 4 = x^2 + 1$:\n$$x^2 - 2x - 3 = 0 \\implies (x - 3)(x + 1) = 0 \\implies x = -1, \\quad x = 3$$"
+            },
+            {
+              "step": 2,
+              "text": "Square both curves and form the washer difference on $[-1, 3]$:\n$$y_{\\text{outer}}^2 = (2x + 4)^2 = 4x^2 + 16x + 16$$\n$$y_{\\text{inner}}^2 = (x^2 + 1)^2 = x^4 + 2x^2 + 1$$\n$$y_{\\text{outer}}^2 - y_{\\text{inner}}^2 = -x^4 + 2x^2 + 16x + 15$$"
+            },
+            {
+              "step": 3,
+              "text": "Set up and evaluate the definite integral:\n$$V = \\pi \\int_{-1}^3 (-x^4 + 2x^2 + 16x + 15) \\, dx = \\pi \\left[-\\frac{x^5}{5} + \\frac{2}{3}x^3 + 8x^2 + 15x\\right]_{-1}^3$$"
+            },
+            {
+              "step": 4,
+              "text": "Evaluate at the upper and lower limits:\n$$\\text{At } x = 3: \\quad -\\frac{243}{5} + 18 + 72 + 45 = 135 - \\frac{243}{5} = \\frac{432}{5}$$$$\\text{At } x = -1: \\quad \\frac{1}{5} - \\frac{2}{3} + 8 - 15 = -7 + \\frac{3 - 10}{15} = -\\frac{112}{15}$$$$V = \\pi \\left(\\frac{432}{5} - \\left(-\\frac{112}{15}\\right)\\right) = \\pi \\left(\\frac{1296 + 112}{15}\\right) = \\frac{1408}{15}\\pi \\text{ cubic units}$$"
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p1_t_integration_m05_l02_cpq06_p01_mp01",
+                "observable": "Solves $2x + 4 = x^2 + 1$ to obtain the limits $x = -1$ and $x = 3$."
+              },
+              {
+                "criterion_id": "9709_p1_t_integration_m05_l02_cpq06_p01_mp02",
+                "observable": "Establishes that $2x + 4$ is the outer radius throughout the interval."
+              },
+              {
+                "criterion_id": "9709_p1_t_integration_m05_l02_cpq06_p01_mp03",
+                "observable": "Forms $V = \\pi \\int_{-1}^3 [(2x + 4)^2 - (x^2 + 1)^2] \\, dx$."
+              },
+              {
+                "criterion_id": "9709_p1_t_integration_m05_l02_cpq06_p01_mp04",
+                "observable": "Expands the integrand to $-x^4 + 2x^2 + 16x + 15$."
+              },
+              {
+                "criterion_id": "9709_p1_t_integration_m05_l02_cpq06_p01_mp05",
+                "observable": "Integrates to $-\\frac{1}{5}x^5 + \\frac{2}{3}x^3 + 8x^2 + 15x$."
+              },
+              {
+                "criterion_id": "9709_p1_t_integration_m05_l02_cpq06_p01_mp06",
+                "observable": "Applies both limits correctly."
+              },
+              {
+                "criterion_id": "9709_p1_t_integration_m05_l02_cpq06_p01_mp07",
+                "observable": "Obtains $V = \\frac{1408}{15}\\pi$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p1_skill_volume_of_revolution"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p1_skill_volume_of_revolution"
+            ],
+            "method_ids": [
+              "9709_p1_method_volume_of_revolution"
+            ],
+            "formula_ids": [
+              "9709_p1_formula_power_integral",
+              "9709_p1_formula_volume_revolution"
+            ],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        }
+      ],
+      "figure_refs": [
+        "9709_p1_t_integration_m05_l02_cpq06_fig01"
+      ],
+      "figure": {
+        "figure_id": "9709_p1_t_integration_m05_l02_cpq06_fig01",
+        "asset_path": "figures/9709_p1_t_integration_m05_l02_cpq06_fig01.svg",
+        "status": "planned",
+        "placement": "after_question_context",
+        "purpose": "Fix the coordinate region and visual context for students without revealing the integration method or final answer.",
+        "alt_text": "Coordinate diagram showing the curve, boundaries, and shaded region for 9709_p1_t_integration_m05_l02_cpq06.",
+        "brief": "Draw coordinate axes, the line $y = 2x+4$, and the parabola $y = x^2+1$ intersecting at $x = -1$ and $x = 3$. Shade the enclosed region and show a rotation arrow around the $x$-axis."
+      }
+    },
+    {
+      "question_id": "9709_p1_t_integration_m05_l02_cpq07",
+      "sequence": 13,
+      "difficulty": "hard",
+      "difficulty_reason": "Hard: find irrational surd intersection limits x = 3 ± sqrt(3) by solving quadratic x(6-x) = 6, set up washer difference of line and reciprocal curve, and carry through exact surd arithmetic to reach 8*sqrt(3)*pi.",
+      "source_question_id": "9709_w19_13_q11",
+      "source_role": "revision_design_evidence",
+      "dependency_role": "none",
+      "dependency_refs": [],
+      "parts": [
+        {
+          "part_id": "9709_p1_t_integration_m05_l02_cpq07_p01",
+          "difficulty": "hard",
+          "difficulty_reason": "Hard: find irrational surd intersection limits x = 3 ± sqrt(3) by solving quadratic x(6-x) = 6, set up washer difference of line and reciprocal curve, and carry through exact surd arithmetic to reach 8*sqrt(3)*pi.",
+          "question_pattern_ids": [
+            "9709_p1_pattern_area_or_volume"
+          ],
+          "source_evidence": {
+            "question_id": "9709_w19_13_q11",
+            "part_id": "9709_w19_13_q11_b",
+            "legacy_practice_tier": "mandatory",
+            "product_role": "revision",
+            "structural_inspiration": "Requires exact evaluation of volume of revolution between line and reciprocal curve with irrational limits."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "domain_and_existence_restrictions": [
+            "Intersection roots $x = 3 \\pm \\sqrt{3} > 0$; on $[3 - \\sqrt{3}, 3 + \\sqrt{3}]$, $6 - x \\ge \\frac{6}{x} > 0$."
+          ],
+          "hints": [
+            "Find the intersection points: $6 - x = \\dfrac{6}{x} \\implies x^2 - 6x + 6 = 0 \\implies x = \\dfrac{6 \\pm \\sqrt{36 - 24}}{2} = 3 \\pm \\sqrt{3}$.",
+            "Between the intersections, the line lies above the reciprocal curve: $y_{\\text{outer}}^2 - y_{\\text{inner}}^2 = (6 - x)^2 - 36x^{-2} = 36 - 12x + x^2 - 36x^{-2}$.",
+            "Find the antiderivative: $\\int (36 - 12x + x^2 - 36x^{-2}) \\, dx = 36x - 6x^2 + \\dfrac{x^3}{3} + \\dfrac{36}{x}$.",
+            "Substitute $b = 3 + \\sqrt{3}$ and $a = 3 - \\sqrt{3}$ using $b - a = 2\\sqrt{3}$, $b^2 - a^2 = 12\\sqrt{3}$, $b^3 - a^3 = 60\\sqrt{3}$, and $\\dfrac{1}{b} - \\dfrac{1}{a} = -\\dfrac{\\sqrt{3}}{3}$ to obtain $8\\sqrt{3}\\pi$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Find the $x$-coordinates of the intersections by solving $6 - x = \\dfrac{6}{x}$:\n$$x(6 - x) = 6 \\implies 6x - x^2 = 6 \\implies x^2 - 6x + 6 = 0$$\n$$x = \\frac{6 \\pm \\sqrt{(-6)^2 - 4(1)(6)}}{2} = \\frac{6 \\pm \\sqrt{12}}{2} = 3 \\pm \\sqrt{3}$$"
+            },
+            {
+              "step": 2,
+              "text": "Square the outer line and inner reciprocal curve:\n$$y_{\\text{outer}}^2 = (6 - x)^2 = 36 - 12x + x^2$$\n$$y_{\\text{inner}}^2 = \\left(\\frac{6}{x}\\right)^2 = \\frac{36}{x^2} = 36x^{-2}$$\n$$\\text{Integrand } = 36 - 12x + x^2 - 36x^{-2}$$"
+            },
+            {
+              "step": 3,
+              "text": "Find the indefinite integral:\n$$\\int (36 - 12x + x^2 - 36x^{-2}) \\, dx = 36x - 6x^2 + \\frac{1}{3}x^3 + \\frac{36}{x}$$"
+            },
+            {
+              "step": 4,
+              "text": "Evaluate the difference between limits $b = 3 + \\sqrt{3}$ and $a = 3 - \\sqrt{3}$:\n$$b - a = 2\\sqrt{3}, \\quad b^2 - a^2 = 12\\sqrt{3}, \\quad b^3 - a^3 = 60\\sqrt{3}, \\quad \\frac{1}{b} - \\frac{1}{a} = -\\frac{\\sqrt{3}}{3}$$$$\\Delta = 36(2\\sqrt{3}) - 6(12\\sqrt{3}) + \\frac{1}{3}(60\\sqrt{3}) + 36\\left(-\\frac{\\sqrt{3}}{3}\\right)$$$$= 72\\sqrt{3} - 72\\sqrt{3} + 20\\sqrt{3} - 12\\sqrt{3} = 8\\sqrt{3}$$$$V = 8\\sqrt{3}\\pi \\text{ cubic units}$$"
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p1_t_integration_m05_l02_cpq07_p01_mp01",
+                "observable": "Solves $6 - x = \\frac{6}{x}$ to obtain $x = 3 \\pm \\sqrt{3}$."
+              },
+              {
+                "criterion_id": "9709_p1_t_integration_m05_l02_cpq07_p01_mp02",
+                "observable": "Identifies $6 - x$ as the outer radius between the intersections."
+              },
+              {
+                "criterion_id": "9709_p1_t_integration_m05_l02_cpq07_p01_mp03",
+                "observable": "Forms $V = \\pi \\int_{3 - \\sqrt{3}}^{3 + \\sqrt{3}} [(6 - x)^2 - 36x^{-2}] \\, dx$."
+              },
+              {
+                "criterion_id": "9709_p1_t_integration_m05_l02_cpq07_p01_mp04",
+                "observable": "Integrates to $36x - 6x^2 + \\frac{1}{3}x^3 + \\frac{36}{x}$."
+              },
+              {
+                "criterion_id": "9709_p1_t_integration_m05_l02_cpq07_p01_mp05",
+                "observable": "Substitutes both irrational limits without decimal approximation."
+              },
+              {
+                "criterion_id": "9709_p1_t_integration_m05_l02_cpq07_p01_mp06",
+                "observable": "Uses the relations for $3 \\pm \\sqrt{3}$ or equivalent exact algebra to simplify the difference."
+              },
+              {
+                "criterion_id": "9709_p1_t_integration_m05_l02_cpq07_p01_mp07",
+                "observable": "Obtains $V = 8\\sqrt{3}\\pi$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p1_skill_volume_of_revolution"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p1_skill_volume_of_revolution"
+            ],
+            "method_ids": [
+              "9709_p1_method_volume_of_revolution"
+            ],
+            "formula_ids": [
+              "9709_p1_formula_power_integral",
+              "9709_p1_formula_volume_revolution"
+            ],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        }
+      ],
+      "figure_refs": [
+        "9709_p1_t_integration_m05_l02_cpq07_fig01"
+      ],
+      "figure": {
+        "figure_id": "9709_p1_t_integration_m05_l02_cpq07_fig01",
+        "asset_path": "figures/9709_p1_t_integration_m05_l02_cpq07_fig01.svg",
+        "status": "planned",
+        "placement": "after_question_context",
+        "purpose": "Fix the coordinate region and visual context for students without revealing the integration method or final answer.",
+        "alt_text": "Coordinate diagram showing the curve, boundaries, and shaded region for 9709_p1_t_integration_m05_l02_cpq07.",
+        "brief": "Draw coordinate axes, the line $y = 6-x$, and the hyperbola $y = 6/x$ intersecting at $(1,5)$ and $(5,1)$ in the first quadrant. Shade the enclosed region and show a rotation arrow around the $x$-axis."
+      }
+    }
+  ]
+}

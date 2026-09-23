@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Multi-collision chains | Mathematics 9709</title>
+  <link rel="stylesheet" href="assets/katex/katex.min.css">
+  <link rel="stylesheet" href="assets/momentum.css">
+  <script defer src="assets/katex/katex.min.js"></script>
+  <script defer src="assets/lesson.js"></script>
+<link rel="stylesheet" href="assets/manager-polish.css"></head>
+<body data-lesson-id="9709_m1_t_momentum_m06_l01" data-manager-diagrams="true"><a class="manager-skip" href="#main">Skip to lesson</a>
+<header class="hero">
+  <div class="eyebrow">Mathematics 9709 · Mechanics 1 · Momentum</div>
+  <h1>Multi-collision chains</h1>
+  <p>Follow one collision at a time, carry each new velocity forward, then decide which objects can meet again.</p>
+</header>
+<nav class="topnav" aria-label="Lesson sections">
+  <a href="#method">Method</a><a href="#chain">Three particles</a><a href="#meet">Will they meet?</a><a href="#wall">Wall rebound</a><a href="#recap">Recap</a><a href="#more">More examples</a>
+</nav>
+<main class="lesson" id="main">
+<section id="method">
+  <p class="prompt">One event changes the starting conditions for the next.</p>
+  <h2>Build the chain stage by stage</h2>
+  <ul class="points">
+    <li>An <strong>impact</strong> is a collision. A <strong>stage</strong> is one impact or rebound.</li>
+    <li>Choose a <strong>positive direction</strong>. A signed velocity is positive in that direction and negative in the opposite direction.</li>
+    <li>A stationary particle has velocity <span data-tex="0"></span>. Velocity is measured in metres per second, <span data-tex="\mathrm{m\,s^{-1}}"></span>.</li>
+    <li>When particles <strong>coalesce</strong>, they stick together and move with one common velocity.</li>
+  </ul>
+  <div class="definition">
+    <p class="label">Symbols before the formula</p>
+    <p><span data-tex="m_A,m_B"></span> are masses in kilograms. <span data-tex="u_A,u_B"></span> are velocities before one impact; <span data-tex="v_A,v_B"></span> are velocities after it. Subscripts name the particle.</p>
+    <p><strong>Momentum</strong> is mass multiplied by signed velocity. A <strong>system</strong> is the group being considered. An <strong>external impulse</strong> is a push from outside that group which changes its total momentum.</p>
+  </div>
+  <div class="formula">
+    <p class="label">Momentum for one isolated impact</p>
+    <span class="display-math" data-tex="m_Au_A+m_Bu_B=m_Av_A+m_Bv_B" tabindex="0" role="region" aria-label="Equation"></span>
+    <p>Use this only when the system has no external impulse during that impact.</p>
+  </div>
+  <ol class="steps">
+    <li>Draw the state immediately before and after the current event.</li>
+    <li>Write one momentum equation for that event.</li>
+    <li>Carry every resulting signed velocity into the next state.</li>
+    <li>Use positions and relative velocity to decide whether another meeting occurs.</li>
+  </ol>
+  <div class="quick-check" data-check-id="check-carry">
+    <p class="label">Check 1</p>
+    <p>After the first collision, cart B moves right at <span data-tex="5\mathrm{\,m\,s^{-1}}"></span>. Which value enters B's next collision?</p>
+    <div class="choices">
+      <button type="button" aria-pressed="false" data-correct="true" data-feedback="Correct. The end state of stage 1 is the start state of stage 2.">A. <span data-tex="+5\mathrm{\,m\,s^{-1}}"></span></button>
+      <button type="button" aria-pressed="false" data-correct="false" data-feedback="Use B's velocity after the first collision, with its sign.">B. B's original velocity</button>
+    </div>
+    <p class="check-feedback" aria-live="polite"></p>
+  </div>
+</section>
+
+<section id="chain">
+  <p class="prompt">First A meets B. Then B meets C.</p>
+  <h2>A complete three-particle chain</h2>
+  <div class="example">
+    <p class="label">Setup</p>
+    <p>A has mass <span data-tex="3\mathrm{\,kg}"></span> and velocity <span data-tex="+8\mathrm{\,m\,s^{-1}}"></span>. B has mass <span data-tex="2\mathrm{\,kg}"></span> and C has mass <span data-tex="1\mathrm{\,kg}"></span>; both are stationary. After A hits B, A continues at <span data-tex="+4\mathrm{\,m\,s^{-1}}"></span>. When B hits C, C's speed is twice B's speed.</p>
+    <figure class="diagram">
+      
+      <p class="diagram-scroll-hint">Swipe or scroll to see the full diagram.</p><div class="diagram-scroll" tabindex="0" role="region" aria-label="Scrollable collision diagram" style="--diagram-width:720px"><svg viewBox="0 0 720 250" role="img" aria-labelledby="chain-title chain-desc">
+        <title id="chain-title">Three states in the collision chain</title>
+        <desc id="chain-desc">A moves right towards stationary B and C. After the first collision A moves at 4 and B at 6. After the second, A moves at 4, B at 3 and C at 6 metres per second.</desc>
+        <defs><marker id="arr1" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0L8 4L0 8Z" fill="#08756f"/></marker></defs>
+        <g font-family="SourceSans,Arial" fill="#302b40">
+          <text x="12" y="24" font-weight="700">Before A–B</text><text x="252" y="24" font-weight="700">After A–B</text><text x="492" y="24" font-weight="700">After B–C</text>
+          <g transform="translate(12 45)"><rect width="62" height="38" rx="7" fill="#f5f3f8" stroke="#493e60"/><text x="24" y="25">A</text><rect x="100" width="62" height="38" rx="7" fill="#f5f3f8" stroke="#493e60"/><text x="124" y="25">B</text><rect x="188" width="62" height="38" rx="7" fill="#f5f3f8" stroke="#493e60"/><text x="212" y="25">C</text><path d="M8 104H85" stroke="#08756f" stroke-width="3" marker-end="url(#arr1)"/><text x="12" y="132">A: +8</text><text x="103" y="132">B: 0</text><text x="190" y="132">C: 0</text></g>
+          <g transform="translate(252 45)"><rect width="62" height="38" rx="7" fill="#f5f3f8" stroke="#493e60"/><text x="24" y="25">A</text><rect x="100" width="62" height="38" rx="7" fill="#f5f3f8" stroke="#493e60"/><text x="124" y="25">B</text><rect x="188" width="62" height="38" rx="7" fill="#f5f3f8" stroke="#493e60"/><text x="212" y="25">C</text><path d="M7 104H48" stroke="#08756f" stroke-width="3" marker-end="url(#arr1)"/><path d="M105 104H166" stroke="#08756f" stroke-width="3" marker-end="url(#arr1)"/><text x="8" y="132">A: +4</text><text x="103" y="132">B: +6</text><text x="190" y="132">C: 0</text></g>
+          <g transform="translate(492 45)"><rect width="62" height="38" rx="7" fill="#f5f3f8" stroke="#493e60"/><text x="24" y="25">A</text><rect x="100" width="62" height="38" rx="7" fill="#f5f3f8" stroke="#493e60"/><text x="124" y="25">B</text><rect x="188" width="62" height="38" rx="7" fill="#f5f3f8" stroke="#493e60"/><text x="212" y="25">C</text><path d="M7 104H48" stroke="#08756f" stroke-width="3" marker-end="url(#arr1)"/><path d="M105 104H142" stroke="#08756f" stroke-width="3" marker-end="url(#arr1)"/><path d="M191 104H248" stroke="#08756f" stroke-width="3" marker-end="url(#arr1)"/><text x="8" y="132">A: +4</text><text x="103" y="132">B: +3</text><text x="190" y="132">C: +6</text></g>
+        </g>
+      </svg></div>
+      <figcaption>Exact before-and-after states. Each arrow uses the chosen rightward positive direction.</figcaption>
+    </figure>
+    <ol class="steps">
+      <li>First impact: <span data-tex="3(8)+2(0)=3(4)+2v_B"></span>.</li>
+      <li><span data-tex="24=12+2v_B"></span>, so <span data-tex="v_B=6\mathrm{\,m\,s^{-1}}"></span>.</li>
+      <li>Let B's velocity after hitting C be <span data-tex="w"></span>. The speed ratio gives C velocity <span data-tex="2w"></span>.</li>
+      <li>Second impact: <span data-tex="2(6)=2w+1(2w)"></span>, so <span data-tex="w=3\mathrm{\,m\,s^{-1}}"></span>.</li>
+      <li>C's velocity is <span data-tex="2w=6\mathrm{\,m\,s^{-1}}"></span>.</li>
+    </ol>
+    <p class="answer">Answer: A = 4, B = 3, C = 6 m s⁻¹ to the right. A is behind B and faster, so A can catch B.</p>
+  </div>
+</section>
+
+<section id="meet">
+  <p class="prompt">Direction alone does not decide whether particles meet.</p>
+  <h2>Compare position and relative velocity</h2>
+  <div class="definition">
+    <p><strong>Relative velocity</strong> is the rate at which the gap changes. If P is behind Q and both move right, P closes the gap at</p>
+    <span class="display-math" data-tex="v_{P\text{ relative to }Q}=v_P-v_Q" tabindex="0" role="region" aria-label="Equation"></span>
+  </div>
+  <div class="example">
+    <p class="label">Worked example</p>
+    <p>Initially P is behind Q, which is behind R. Their velocities are <span data-tex="+3,+1,0"></span>. After P hits Q, their velocities are <span data-tex="+1"></span> and <span data-tex="+2"></span>. Q then hits R; Q leaves at <span data-tex="+u"></span> and R at <span data-tex="+V"></span>. At that instant P is a distance <span data-tex="d>0"></span> behind Q.</p>
+    <ol class="steps">
+      <li>P remains behind Q.</li>
+      <li>The closing velocity of P on Q is <span data-tex="1-u"></span>.</li>
+      <li>P catches Q only if <span data-tex="1-u>0"></span>, equivalently <span data-tex="u<1"></span>.</li>
+      <li>If <span data-tex="u\geq1"></span>, P does not catch Q.</li>
+    </ol>
+    <p class="answer">Decision: position first, then compare signed velocities.</p>
+  </div>
+  <div class="quick-check" data-check-id="check-catch">
+    <p class="label">Check 2</p>
+    <p>A is behind B. A moves right at <span data-tex="3\mathrm{\,m\,s^{-1}}"></span> and B at <span data-tex="5\mathrm{\,m\,s^{-1}}"></span>. Will A catch B?</p>
+    <div class="choices">
+      <button type="button" aria-pressed="false" data-correct="false" data-feedback="Both move right, but B increases the gap because B is faster.">A. Yes</button>
+      <button type="button" aria-pressed="false" data-correct="true" data-feedback="Correct. The closing velocity is 3 − 5 = −2, so the gap grows.">B. No</button>
+    </div>
+    <p class="check-feedback" aria-live="polite"></p>
+  </div>
+</section>
+
+<section id="wall">
+  <p class="prompt">A wall separates two momentum calculations.</p>
+  <h2>Collision, rebound, then possible return</h2>
+  <div class="example">
+    <p class="label">Setup</p>
+    <p>P has mass <span data-tex="m\mathrm{\,kg}"></span> and moves right at speed <span data-tex="u"></span>. Q has mass <span data-tex="2\mathrm{\,kg}"></span> and moves left at speed <span data-tex="2u"></span>. After they collide, P moves left at speed <span data-tex="u/4"></span> and Q moves right at speed <span data-tex="v"></span>. Q hits a wall and <strong>rebounds</strong>, meaning it reverses direction, at speed <span data-tex="v/3"></span>.</p>
+    <figure class="diagram">
+      
+      <p class="diagram-scroll-hint">Swipe or scroll to see the full diagram.</p><div class="diagram-scroll" tabindex="0" role="region" aria-label="Scrollable collision diagram" style="--diagram-width:720px"><svg viewBox="0 0 720 190" role="img" aria-labelledby="wall-title wall-desc">
+        <title id="wall-title">Particle collision followed by a wall rebound</title>
+        <desc id="wall-desc">P and Q approach, separate with P leftward and Q rightward, then Q rebounds from the wall and moves left.</desc>
+        <defs><marker id="arr2" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0L8 4L0 8Z" fill="#08756f"/></marker></defs>
+        <g font-family="SourceSans,Arial" fill="#302b40"><text x="15" y="24" font-weight="700">Before collision</text><text x="254" y="24" font-weight="700">After collision</text><text x="493" y="24" font-weight="700">After wall rebound</text>
+        <g transform="translate(15 50)"><rect width="55" height="38" rx="7" fill="#f5f3f8" stroke="#493e60"/><text x="21" y="25">P</text><rect x="145" width="55" height="38" rx="7" fill="#f5f3f8" stroke="#493e60"/><text x="166" y="25">Q</text><path d="M20 108H92" stroke="#08756f" stroke-width="3" marker-end="url(#arr2)"/><path d="M185 108H113" stroke="#08756f" stroke-width="3" marker-end="url(#arr2)"/><text y="138">+u</text><text x="145" y="138">−2u</text></g>
+        <g transform="translate(254 50)"><rect width="55" height="38" rx="7" fill="#f5f3f8" stroke="#493e60"/><text x="21" y="25">P</text><rect x="145" width="55" height="38" rx="7" fill="#f5f3f8" stroke="#493e60"/><text x="166" y="25">Q</text><path d="M49 108H4" stroke="#08756f" stroke-width="3" marker-end="url(#arr2)"/><path d="M150 108H207" stroke="#08756f" stroke-width="3" marker-end="url(#arr2)"/><text y="138">−u/4</text><text x="145" y="138">+v</text></g>
+        <g transform="translate(493 50)"><rect width="55" height="38" rx="7" fill="#f5f3f8" stroke="#493e60"/><text x="21" y="25">P</text><rect x="145" width="55" height="38" rx="7" fill="#f5f3f8" stroke="#493e60"/><text x="166" y="25">Q</text><path d="M49 108H4" stroke="#08756f" stroke-width="3" marker-end="url(#arr2)"/><path d="M190 108H124" stroke="#08756f" stroke-width="3" marker-end="url(#arr2)"/><path d="M216 0V145" stroke="#493e60" stroke-width="6"/><text y="138">−u/4</text><text x="145" y="138">−v/3</text></g></g>
+      </svg></div>
+      <figcaption>The wall supplies an external impulse to Q, so momentum is not conserved across the rebound.</figcaption>
+    </figure>
+    <ol class="steps">
+      <li>For the P–Q impact, <span data-tex="mu+2(-2u)=m(-u/4)+2v"></span>.</li>
+      <li>Hence <span data-tex="v=\frac58mu-2u"></span>.</li>
+      <li>After the wall, Q has velocity <span data-tex="-v/3"></span>. The wall's external impulse prevents one conservation equation spanning both events.</li>
+      <li>Q does not catch P when its leftward speed is no greater: <span data-tex="\frac v3\leq\frac u4"></span>, so <span data-tex="v\leq\frac34u"></span>.</li>
+      <li>Substitution gives <span data-tex="\frac58m-2\leq\frac34"></span>, hence <span data-tex="m\leq\frac{22}{5}"></span>.</li>
+      <li>The stated chain also requires Q to move right towards the wall: <span data-tex="v>0"></span>, so <span data-tex="m>\frac{16}{5}"></span>.</li>
+    </ol>
+    <p class="answer">Combined range for the described chain: <span data-tex="\frac{16}{5}<m\leq\frac{22}{5}\mathrm{\,kg}"></span>.</p>
+  </div>
+</section>
+
+<section id="recap">
+  <p class="prompt">Pause before the longer examples.</p>
+  <h2>Key ideas</h2>
+  <div class="recap">
+    <ul class="points">
+      <li>Choose one positive direction and keep every velocity signed.</li>
+      <li>Use one momentum equation per isolated collision.</li>
+      <li>Carry each answer into the next before-state.</li>
+      <li>At a wall, use the stated rebound rule; the wall supplies external impulse.</li>
+      <li>Use position and relative velocity to test whether another collision happens.</li>
+      <li>Total kinetic-energy change measures collision loss only when no work or energy transfer occurs between the chosen start and end states.</li>
+    </ul>
+  </div>
+</section>
+
+<section id="more">
+  <p class="prompt">Now apply the same structure to longer chains.</p>
+  <h2>More worked examples</h2>
+  <div class="example">
+    <p class="label">Example 1 · A second collision</p>
+    <p>A, B and C have masses <span data-tex="4,2,3\mathrm{\,kg}"></span>. A moves right at <span data-tex="9\mathrm{\,m\,s^{-1}}"></span>; B and C are stationary. After A hits B, A continues at <span data-tex="5\mathrm{\,m\,s^{-1}}"></span>. B then hits C; C's speed is three times B's. Finally A catches B and they coalesce.</p>
+    <ol class="steps">
+      <li>A–B: <span data-tex="4(9)=4(5)+2v_B"></span>, so <span data-tex="v_B=8"></span>.</li>
+      <li>B–C: let B leave at <span data-tex="v"></span> and C at <span data-tex="3v"></span>. Then <span data-tex="2(8)=2v+3(3v)"></span>.</li>
+      <li><span data-tex="v=\frac{16}{11}"></span>, so C has velocity <span data-tex="\frac{48}{11}"></span>.</li>
+      <li>A is behind B and <span data-tex="5>\frac{16}{11}"></span>, so A catches B.</li>
+      <li>Coalescence: <span data-tex="4(5)+2(16/11)=6V"></span>, so <span data-tex="V=\frac{42}{11}\mathrm{\,m\,s^{-1}}"></span>.</li>
+    </ol>
+    <p class="answer">Answer: A and B move together at <span data-tex="42/11\mathrm{\,m\,s^{-1}}"></span>; C moves at <span data-tex="48/11\mathrm{\,m\,s^{-1}}"></span>.</p>
+  </div>
+  <div class="example">
+    <p class="label">Example 2 · Total kinetic-energy change</p>
+    <p><strong>Kinetic energy</strong>, <span data-tex="E_k"></span>, is energy of motion, measured in joules (<span data-tex="\mathrm J"></span>). The formula <span data-tex="E_k=\frac12mu^2"></span> uses the square <span data-tex="u^2=u\times u"></span>.</p>
+    <p>A <span data-tex="4\mathrm{\,kg}"></span> particle initially moves at <span data-tex="10\mathrm{\,m\,s^{-1}}"></span>; B of mass <span data-tex="2\mathrm{\,kg}"></span> and C of mass <span data-tex="1\mathrm{\,kg}"></span> are stationary. At the stated final state, A and B move together at <span data-tex="14/3\mathrm{\,m\,s^{-1}}"></span> and C moves at <span data-tex="12\mathrm{\,m\,s^{-1}}"></span>.</p>
+    <ol class="steps">
+      <li>Initial energy: <span data-tex="\frac12(4)(10^2)=200\mathrm{\,J}"></span>.</li>
+      <li>Final A–B energy: <span data-tex="\frac12(6)(14/3)^2=\frac{196}{3}\mathrm{\,J}"></span>.</li>
+      <li>Final C energy: <span data-tex="\frac12(1)(12^2)=72\mathrm{\,J}"></span>.</li>
+      <li>Final total: <span data-tex="\frac{196}{3}+72=\frac{412}{3}\mathrm{\,J}"></span>.</li>
+      <li>Decrease from the stated start to end: <span data-tex="200-\frac{412}{3}=\frac{188}{3}\mathrm{\,J}"></span>.</li>
+    </ol>
+    <p class="answer">Stated start-to-end decrease: <span data-tex="188/3\mathrm{\,J}"></span>.</p>
+    <p class="conflict">Mathematical qualification: after the intermediate A–B coalescence, momentum gives speed <span data-tex="20/3"></span> and kinetic energy <span data-tex="400/3\mathrm{\,J}"></span>. The stated final total is <span data-tex="412/3\mathrm{\,J}"></span>, an increase of <span data-tex="4\mathrm{\,J}"></span> in the later event. That later step needs energy release or input; it is not an ordinary passive collision chain.</p>
+  </div>
+  <div class="example">
+    <p class="label">Example 3 · An algebraic final velocity</p>
+    <p>A of mass <span data-tex="5\mathrm{\,kg}"></span> moves right at <span data-tex="6\mathrm{\,m\,s^{-1}}"></span> and coalesces with stationary B of mass <span data-tex="1\mathrm{\,kg}"></span>. Their combined particle D then meets C of mass <span data-tex="2\mathrm{\,kg}"></span>, moving left at speed <span data-tex="v"></span>. All three coalesce.</p>
+    <ol class="steps">
+      <li>A–B: <span data-tex="5(6)=6u_D"></span>, so <span data-tex="u_D=5"></span>.</li>
+      <li>D–C: <span data-tex="6(5)+2(-v)=8v_E"></span>.</li>
+      <li><span data-tex="v_E=\frac{15-v}{4}\mathrm{\,m\,s^{-1}}"></span>.</li>
+    </ol>
+    <p class="answer">Answer: signed final velocity <span data-tex="(15-v)/4\mathrm{\,m\,s^{-1}}"></span>. It is leftward if <span data-tex="v>15"></span>, zero if <span data-tex="v=15"></span>, and rightward if <span data-tex="v<15"></span>.</p>
+  </div>
+  <div class="example">
+    <p class="label">Try it yourself · Then check</p>
+    <p>A of mass <span data-tex="2\mathrm{\,kg}"></span> moves right at <span data-tex="7\mathrm{\,m\,s^{-1}}"></span> and hits stationary B of mass <span data-tex="3\mathrm{\,kg}"></span>. A continues right at <span data-tex="1\mathrm{\,m\,s^{-1}}"></span>. B then hits stationary C of mass <span data-tex="1\mathrm{\,kg}"></span> and they coalesce. Find both new velocities.</p>
+    <ol class="steps">
+      <li>A–B: <span data-tex="2(7)=2(1)+3v_B"></span>, so <span data-tex="v_B=4"></span>.</li>
+      <li>B–C: <span data-tex="3(4)+1(0)=4V"></span>, so <span data-tex="V=3"></span>.</li>
+    </ol>
+    <p class="answer">Answer: B leaves the first impact at <span data-tex="4\mathrm{\,m\,s^{-1}}"></span>; B and C then move together at <span data-tex="3\mathrm{\,m\,s^{-1}}"></span>.</p>
+  </div>
+  <div class="example">
+    <p class="label">Exam-style example</p>
+    <p>A, B and C have masses <span data-tex="3,2,1\mathrm{\,kg}"></span>. A moves right at <span data-tex="8\mathrm{\,m\,s^{-1}}"></span>; B and C are stationary. After the first impact A continues at <span data-tex="4\mathrm{\,m\,s^{-1}}"></span>. After B hits C, C moves at twice B's speed. Decide whether A and B collide again.</p>
+    <ol class="steps">
+      <li><span data-tex="3(8)=3(4)+2v_B"></span>, giving <span data-tex="v_B=6"></span>.</li>
+      <li><span data-tex="2(6)=2w+1(2w)"></span>, giving B velocity <span data-tex="w=3"></span> and C velocity <span data-tex="6"></span>.</li>
+      <li>A is behind B. Since <span data-tex="4>3"></span>, A closes the gap.</li>
+    </ol>
+    <p class="answer">Answer: yes, A collides with B again.</p>
+  </div>
+  <div class="example">
+    <p class="label">Final checklist and mini example</p>
+    <ul class="points">
+      <li>Let <span data-tex="k"></span> be the fraction of the incoming speed retained after rebound, with <span data-tex="0\leq k\leq1"></span>. Then <span data-tex="v_{\mathrm{after}}=-k v_{\mathrm{before}}"></span>.</li>
+      <li>For total kinetic-energy loss, compare the chosen start and end only if no intervening work or energy transfer occurs.</li>
+    </ul>
+    <p>A wall changes velocity <span data-tex="+v"></span> to <span data-tex="-v/4"></span>. P is to the left of Q, so Q is behind P while both move left. P moves at <span data-tex="-2"></span> and Q at <span data-tex="-v/4"></span>.</p>
+    <ol class="steps">
+      <li>For Q not to catch P, Q must move left no faster than P: <span data-tex="-v/4\geq-2"></span>.</li>
+      <li>Therefore <span data-tex="v\leq8"></span>.</li>
+    </ol>
+    <p class="answer">Answer: no catch-up when <span data-tex="v\leq8\mathrm{\,m\,s^{-1}}"></span>.</p>
+  </div>
+</section>
+</main>
+<nav class="bottomnav" aria-label="Topic navigation"><a href="../../../topic-overview/index.html">← Momentum topic</a><a href="#method">Back to top ↑</a></nav>
+<footer class="footer">Cambridge International AS &amp; A Level Mathematics 9709 · Mechanics 1</footer>
+<nav class="manager-nav" aria-label="Topic lesson navigation"><a href="../../../9709_m1_t_momentum_m05/9709_m1_t_momentum_m05_l01/html/index.html">Previous lesson</a> <a href="../../../topic-overview/index.html">Momentum topic</a> <a href="../../../9709_m1_t_momentum_m07/9709_m1_t_momentum_m07_l01/html/index.html">Next lesson</a></nav></body>
+</html>

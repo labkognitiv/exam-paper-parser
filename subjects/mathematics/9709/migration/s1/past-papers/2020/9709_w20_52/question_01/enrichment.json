@@ -1,0 +1,130 @@
+{
+  "schema_version": "9709_math_enrichment_v3",
+  "paper_code": "9709_w20_52",
+  "question_id": "9709_w20_52_q1",
+  "question_num": 1,
+  "subject_code": "9709",
+  "component": "S1",
+  "year": 2020,
+  "session": "October/November",
+  "variant": "52",
+  "difficulty": 3,
+  "numerical_values_checked": false,
+  "parts": [
+    {
+      "part_id": "9709_w20_52_q1_a",
+      "difficulty": 2,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_s1_t_discrete_random_variables",
+        "module_id": "9709_s1_t_discrete_random_variables_m04",
+        "lesson_id": "9709_s1_t_discrete_random_variables_m04_l01"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_calculating_geometric_distribution_probabilities",
+        "skill_tags": [
+          "Calculating Geometric Distribution Probabilities"
+        ]
+      },
+      "question_pattern_ids": [
+        "9709_s1_pattern_geometric_tail_probability"
+      ],
+      "knowledge_refs": {
+        "formula_ids": [
+          "9709_s1_formula_geometric_cumulative_probability"
+        ],
+        "identity_ids": [],
+        "method_ids": [
+          "9709_s1_method_calculating_geometric_distribution_probabilities"
+        ],
+        "fact_ids": [
+          "9709_s1_fact_complement_rule"
+        ]
+      },
+      "hints": [
+        "A 4 is obtained with probability $p = \\frac{1}{6}$, so the failure probability is $q = 1 - \\frac{1}{6} = \\frac{5}{6}$.",
+        "The condition 'requires fewer than 6 throws' means obtaining a 4 on throw 1, 2, 3, 4, or 5 ($X \\le 5$).",
+        "Use the complement rule: $\\mathrm{P}(X \\le 5) = 1 - q^5 = 1 - \\left(\\frac{5}{6}\\right)^5$.",
+        "Evaluate the power and subtract to find the probability as a fraction $\\frac{4651}{7776}$ or decimal $0.598$."
+      ],
+      "walkthrough": [
+        "Identify the geometric distribution: let $X$ be the number of throws until the first 4, then $X \\sim \\mathrm{Geo}\\left(\\dfrac{1}{6}\\right)$ with $q = \\dfrac{5}{6}$:\n$$\\mathrm{P}(X < 6) = \\mathrm{P}(X \\le 5)$$",
+        "Apply the complement rule for the geometric cumulative distribution:\n$$\\mathrm{P}(X \\le 5) = 1 - q^5 = 1 - \\left(\\dfrac{5}{6}\\right)^5$$",
+        "Evaluate the power:\n$$\\left(\\dfrac{5}{6}\\right)^5 = \\dfrac{3125}{7776}$$",
+        "Calculate the required probability:\n$$\\mathrm{P}(X < 6) = 1 - \\dfrac{3125}{7776} = \\dfrac{4651}{7776} \\approx 0.598$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "ai_rubric": {
+          "Calculating Geometric Distribution Probabilities": "Applies 1 - (5/6)^5 to obtain 4651/7776 or 0.598."
+        },
+        "criteria_source": "mark_scheme_structured"
+      },
+      "teacher_walkthrough": [
+        "A fair six-sided die is thrown repeatedly until a 4 is obtained.",
+        "Step 1: Identify the distribution.\nEach throw is an independent trial with:\n$$\\text{Success probability } p = \\mathrm{P}(\\text{rolling a 4}) = \\frac{1}{6}$$\n$$\\text{Failure probability } q = 1 - \\frac{1}{6} = \\frac{5}{6}$$\nLet $X$ denote the number of throws up to and including the first 4. Then $X \\sim \\mathrm{Geo}\\left(\\frac{1}{6}\\right)$.",
+        "Step 2: Express the required event algebraically.\n'Fewer than 6 throws' means:\n$$X < 6 \\iff X \\le 5$$",
+        "Step 3: Apply the complement rule for geometric distributions.\nThe event of getting the first success within the first 5 throws is the complement of failing on all of the first 5 throws:\n$$\\mathrm{P}(X \\le 5) = 1 - \\mathrm{P}(\\text{first 5 throws all fail}) = 1 - q^5$$\nSubstitute $q = \\frac{5}{6}$:\n$$\\mathrm{P}(X \\le 5) = 1 - \\left(\\frac{5}{6}\\right)^5$$",
+        "Step 4: Compute the numerical value:\n$$5^5 = 3125$$\n$$6^5 = 7776$$\n$$\\mathrm{P}(X \\le 5) = 1 - \\frac{3125}{7776} = \\frac{7776 - 3125}{7776} = \\frac{4651}{7776}$$\nIn decimal form:\n$$\\frac{4651}{7776} \\approx 0.598122... \\approx 0.598$$\nRounding to 3 significant figures gives $0.598$."
+      ]
+    },
+    {
+      "part_id": "9709_w20_52_q1_b",
+      "difficulty": 3,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_s1_t_discrete_random_variables",
+        "module_id": "9709_s1_t_discrete_random_variables_m03",
+        "lesson_id": "9709_s1_t_discrete_random_variables_m03_l01"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_calculating_binomial_tail_probabilities",
+        "skill_tags": [
+          "Calculating Binomial Tail Probabilities"
+        ]
+      },
+      "question_pattern_ids": [
+        "9709_s1_pattern_binomial_from_probability_distribution"
+      ],
+      "knowledge_refs": {
+        "formula_ids": [
+          "9709_s1_formula_binomial_probability"
+        ],
+        "identity_ids": [],
+        "method_ids": [
+          "9709_s1_method_calculating_binomial_tail_probabilities"
+        ],
+        "fact_ids": [
+          "9709_s1_fact_complement_rule"
+        ]
+      },
+      "hints": [
+        "In a fixed series of $n = 10$ throws, let $Y$ be the number of 4s obtained: $Y \\sim B\\left(10, \\frac{1}{6}\\right)$.",
+        "The condition 'a 4 is obtained at least 3 times' means $Y \\ge 3$.",
+        "Use the complement rule: $\\mathrm{P}(Y \\ge 3) = 1 - [\\mathrm{P}(Y = 0) + \\mathrm{P}(Y = 1) + \\mathrm{P}(Y = 2)]$.",
+        "Calculate the three binomial terms using $\\binom{10}{y}\\left(\\frac{1}{6}\\right)^y\\left(\\frac{5}{6}\\right)^{10-y}$ for $y = 0, 1, 2$, sum them, and subtract from 1."
+      ],
+      "walkthrough": [
+        "Model the number of 4s obtained in 10 throws with $Y \\sim B\\left(10, \\dfrac{1}{6}\\right)$:\n$$\\mathrm{P}(Y \\ge 3) = 1 - [\\mathrm{P}(Y = 0) + \\mathrm{P}(Y = 1) + \\mathrm{P}(Y = 2)]$$",
+        "Calculate the lower-tail probabilities:\n$$\\mathrm{P}(Y = 0) = \\binom{10}{0}\\left(\\dfrac{1}{6}\\right)^0\\left(\\dfrac{5}{6}\\right)^{10} = \\left(\\dfrac{5}{6}\\right)^{10} \\approx 0.161506$$\n$$\\mathrm{P}(Y = 1) = \\binom{10}{1}\\left(\\dfrac{1}{6}\\right)^1\\left(\\dfrac{5}{6}\\right)^9 = 10 \\times \\dfrac{1}{6} \\times 0.193807 \\approx 0.323011$$\n$$\\mathrm{P}(Y = 2) = \\binom{10}{2}\\left(\\dfrac{1}{6}\\right)^2\\left(\\dfrac{5}{6}\\right)^8 = 45 \\times \\dfrac{1}{36} \\times 0.232568 \\approx 0.290710$$",
+        "Sum the lower-tail probabilities:\n$$\\mathrm{P}(Y \\le 2) = 0.161506 + 0.323011 + 0.290710 = 0.775227$$",
+        "Subtract from 1:\n$$\\mathrm{P}(Y \\ge 3) = 1 - 0.775227 = 0.224773 \\approx 0.225$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "ai_rubric": {
+          "Calculating Binomial Tail Probabilities": "Applies 1 - [P(0) + P(1) + P(2)] for B(10, 1/6) to obtain 0.225."
+        },
+        "criteria_source": "mark_scheme_structured"
+      },
+      "teacher_walkthrough": [
+        "The die is thrown $n = 10$ times. Let $Y$ denote the number of 4s obtained.",
+        "Since each throw is independent and the probability of rolling a 4 is constant ($p = \\frac{1}{6}$), $Y$ follows a binomial distribution:\n$$Y \\sim B\\left(10, \\frac{1}{6}\\right)$$\nwith failure probability $q = 1 - \\frac{1}{6} = \\frac{5}{6}$.",
+        "Step 1: Set up the complement probability.\nWe want the probability of obtaining at least three 4s:\n$$\\mathrm{P}(Y \\ge 3) = 1 - \\mathrm{P}(Y \\le 2) = 1 - [\\mathrm{P}(Y = 0) + \\mathrm{P}(Y = 1) + \\mathrm{P}(Y = 2)]$$",
+        "Step 2: Evaluate each term using $\\mathrm{P}(Y = y) = \\binom{10}{y} p^y q^{10 - y}$:\nFor $y = 0$:\n$$\\mathrm{P}(Y = 0) = \\binom{10}{0} \\left(\\frac{1}{6}\\right)^0 \\left(\\frac{5}{6}\\right)^{10} = \\left(\\frac{5}{6}\\right)^{10} \\approx 0.1615056$$\n\nFor $y = 1$:\n$$\\mathrm{P}(Y = 1) = \\binom{10}{1} \\left(\\frac{1}{6}\\right)^1 \\left(\\frac{5}{6}\\right)^9 = 10 \\times \\frac{1}{6} \\times 0.1938067 \\approx 0.3230112$$\n\nFor $y = 2$:\n$$\\mathrm{P}(Y = 2) = \\binom{10}{2} \\left(\\frac{1}{6}\\right)^2 \\left(\\frac{5}{6}\\right)^8 = 45 \\times \\frac{1}{36} \\times 0.2325680 \\approx 0.2907100$$",
+        "Step 3: Sum the terms:\n$$\\mathrm{P}(Y \\le 2) = 0.1615056 + 0.3230112 + 0.2907100 = 0.7752268$$",
+        "Step 4: Subtract from 1:\n$$\\mathrm{P}(Y \\ge 3) = 1 - 0.7752268 = 0.2247732 \\approx 0.225$$\nRounding to 3 significant figures gives $0.225$."
+      ]
+    }
+  ]
+}

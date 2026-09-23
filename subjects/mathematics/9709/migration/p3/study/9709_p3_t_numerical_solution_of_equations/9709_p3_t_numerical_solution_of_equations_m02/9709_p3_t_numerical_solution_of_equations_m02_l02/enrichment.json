@@ -1,0 +1,1547 @@
+{
+  "schema_version": "9709_math_lesson_enrichment_v1",
+  "lesson_id": "9709_p3_t_numerical_solution_of_equations_m02_l02",
+  "topic_id": "9709_p3_t_numerical_solution_of_equations",
+  "numerical_values_checked": false,
+  "lesson_scope": "Executing fixed-point iteration formulas x_{n+1} = F(x_n), recording successive values to specified decimal places, determining roots to required precision, and testing sign change on interval [alpha - 0.5 * 10^(-k), alpha + 0.5 * 10^(-k)] to justify accuracy.",
+  "questions": [
+    {
+      "question_id": "9709_p3_t_numerical_solution_of_equations_m02_l02_drq01",
+      "sequence": 1,
+      "difficulty": "easy",
+      "difficulty_reason": "Drill: direct substitution into a given cube-root iterative formula to compute the first two successive iterates to 4 decimal places.",
+      "source_question_id": "drill_num_sol_iterate_cuberoot",
+      "source_role": "foundational_drill",
+      "dependency_role": "none",
+      "dependency_refs": [],
+      "parts": [
+        {
+          "part_id": "9709_p3_t_numerical_solution_of_equations_m02_l02_drq01_p01",
+          "difficulty": "easy",
+          "question_pattern_ids": [
+            "9709_p3_pattern_numerical_approximation"
+          ],
+          "source_evidence": {
+            "question_id": "drill_num_sol_iterate_cuberoot",
+            "part_id": "drill_num_sol_iterate_cuberoot_p01",
+            "legacy_practice_tier": "foundational",
+            "product_role": "warm_up_drill",
+            "structural_inspiration": "Direct calculation of successive iterates x_2 and x_3 from an initial value x_1."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Substitute $x_1 = 2$ directly into the formula $x_{n+1} = \\sqrt[3]{3x_n + 5}$ to calculate $x_2$.",
+            "Take the unrounded value of $x_2 = \\sqrt[3]{11} \\approx 2.223980...$ and substitute it back into the iterative formula to find $x_3 = \\sqrt[3]{3x_2 + 5}$.",
+            "Round both $x_2$ and $x_3$ to 4 decimal places ($2.2240$ and $2.2684$)."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Substitute $x_1 = 2$ into the iterative formula:\n$$x_2 = \\sqrt[3]{3(2) + 5} = \\sqrt[3]{11} \\approx 2.22398009... \\implies x_2 = 2.2240$$"
+            },
+            {
+              "step": 2,
+              "text": "Substitute the precise value of $x_2$ back into the formula:\n$$x_3 = \\sqrt[3]{3(2.22398009...) + 5} = \\sqrt[3]{11.67194027...} \\approx 2.26837248... \\implies x_3 = 2.2684$$"
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_numerical_solution_of_equations_m02_l02_drq01_p01_mp01",
+                "observable": "Substitutes $x_1 = 2$ into the iterative formula to evaluate $x_2 = \\sqrt[3]{3(2) + 5} = \\sqrt[3]{11} \\approx 2.2240$."
+              },
+              {
+                "criterion_id": "9709_p3_t_numerical_solution_of_equations_m02_l02_drq01_p01_mp02",
+                "observable": "Obtains $x_2 = 2.2240$ and $x_3 = 2.2684$ correct to 4 decimal places."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_fixed_point_iteration"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_fixed_point_iteration"
+            ],
+            "method_ids": [
+              "9709_p3_method_fixed_point_iteration"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": [
+              "9709_p3_fact_iteration_convergence"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_p3_t_numerical_solution_of_equations_m02_l02_drq02",
+      "sequence": 2,
+      "difficulty": "easy",
+      "difficulty_reason": "Drill: applying logarithmic iteration until successive values agree to 2 decimal places, recording iterates to 4 decimal places.",
+      "source_question_id": "drill_num_sol_iterate_ln",
+      "source_role": "foundational_drill",
+      "dependency_role": "none",
+      "dependency_refs": [],
+      "parts": [
+        {
+          "part_id": "9709_p3_t_numerical_solution_of_equations_m02_l02_drq02_p01",
+          "difficulty": "easy",
+          "question_pattern_ids": [
+            "9709_p3_pattern_numerical_approximation"
+          ],
+          "source_evidence": {
+            "question_id": "drill_num_sol_iterate_ln",
+            "part_id": "drill_num_sol_iterate_ln_p01",
+            "legacy_practice_tier": "foundational",
+            "product_role": "warm_up_drill",
+            "structural_inspiration": "Executing successive iterations with a natural logarithm function and stating root to 2 d.p."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Start with $x_1 = 1.7$ and compute $x_2 = \\ln(1.7 + 4) = \\ln(5.7)$ using the natural logarithm function on your calculator.",
+            "Record each iterate to 4 decimal places: $x_2 = 1.7405$, $x_3 = \\ln(1.740466... + 4) = 1.7475$, $x_4 = 1.7488$, $x_5 = 1.7490$.",
+            "Notice that the iterations stabilize at $1.749...$, which rounds to $1.75$ to 2 decimal places."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Using $x_1 = 1.7$, calculate successive values using $x_{n+1} = \\ln(x_n + 4)$:\n$$x_2 = \\ln(5.7) \\approx 1.7405$$\n$$x_3 = \\ln(1.740466... + 4) \\approx 1.7475$$\n$$x_4 = \\ln(1.747540... + 4) \\approx 1.7488$$\n$$x_5 = \\ln(1.748772... + 4) \\approx 1.7490$$\n$$x_6 = \\ln(1.748986... + 4) \\approx 1.7490$$"
+            },
+            {
+              "step": 2,
+              "text": "Since consecutive values round consistently to $1.75$ at 2 decimal places, the root is $1.75$."
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_numerical_solution_of_equations_m02_l02_drq02_p01_mp01",
+                "observable": "Applies the iterative formula $x_{n+1} = \\ln(x_n + 4)$ with $x_1 = 1.7$ to calculate at least $x_2 = 1.7405$ and $x_3 = 1.7475$."
+              },
+              {
+                "criterion_id": "9709_p3_t_numerical_solution_of_equations_m02_l02_drq02_p01_mp02",
+                "observable": "Obtains successive iterations $x_2 = 1.7405$, $x_3 = 1.7475$, $x_4 = 1.7488$, $x_5 = 1.7490$, and states the final root as $1.75$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_fixed_point_iteration"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_fixed_point_iteration"
+            ],
+            "method_ids": [
+              "9709_p3_method_fixed_point_iteration"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": [
+              "9709_p3_fact_iteration_convergence"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_p3_t_numerical_solution_of_equations_m02_l02_drq03",
+      "sequence": 3,
+      "difficulty": "easy",
+      "difficulty_reason": "Drill: applying trigonometric iteration in radian mode, recording iterates to 4 decimal places.",
+      "source_question_id": "drill_num_sol_iterate_trig",
+      "source_role": "foundational_drill",
+      "dependency_role": "none",
+      "dependency_refs": [],
+      "parts": [
+        {
+          "part_id": "9709_p3_t_numerical_solution_of_equations_m02_l02_drq03_p01",
+          "difficulty": "easy",
+          "question_pattern_ids": [
+            "9709_p3_pattern_numerical_approximation"
+          ],
+          "source_evidence": {
+            "question_id": "drill_num_sol_iterate_trig",
+            "part_id": "drill_num_sol_iterate_trig_p01",
+            "legacy_practice_tier": "foundational",
+            "product_role": "warm_up_drill",
+            "structural_inspiration": "Standard trigonometric iteration in radians, ensuring calculator is set to radian mode."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Ensure your calculator is in radian mode before evaluating trigonometric functions.",
+            "Substitute $x_1 = 1.3$: $x_2 = \\dfrac{\\cos(1.3) + 4}{3} \\approx \\dfrac{0.267499 + 4}{3} = 1.4225$.",
+            "Continue iterating: $x_3 = 1.3826$, $x_4 = 1.3957$, $x_5 = 1.3914$, $x_6 = 1.3928$, and conclude the value rounded to 2 decimal places."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "With the calculator in radian mode, start with $x_1 = 1.3$ and use $x_{n+1} = \\frac{1}{3}(\\cos x_n + 4)$:\n$$x_2 = \\frac{\\cos(1.3) + 4}{3} \\approx 1.4225$$\n$$x_3 = \\frac{\\cos(1.422500...) + 4}{3} \\approx 1.3826$$\n$$x_4 = \\frac{\\cos(1.382585...) + 4}{3} \\approx 1.3957$$\n$$x_5 = \\frac{\\cos(1.395701...) + 4}{3} \\approx 1.3914$$\n$$x_6 = \\frac{\\cos(1.391401...) + 4}{3} \\approx 1.3928$$\n$$x_7 = \\frac{\\cos(1.392812...) + 4}{3} \\approx 1.3923$$"
+            },
+            {
+              "step": 2,
+              "text": "The values oscillate around $1.3925$, giving the root as $1.39$ correct to 2 decimal places."
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_numerical_solution_of_equations_m02_l02_drq03_p01_mp01",
+                "observable": "Evaluates iterations in radians, obtaining at least $x_2 = 1.4225$ and $x_3 = 1.3826$."
+              },
+              {
+                "criterion_id": "9709_p3_t_numerical_solution_of_equations_m02_l02_drq03_p01_mp02",
+                "observable": "Obtains successive iterations $x_4 = 1.3957$, $x_5 = 1.3914$, $x_6 = 1.3928$, and concludes that the root is $1.39$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_fixed_point_iteration"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_fixed_point_iteration"
+            ],
+            "method_ids": [
+              "9709_p3_method_fixed_point_iteration"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": [
+              "9709_p3_fact_iteration_convergence"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_p3_t_numerical_solution_of_equations_m02_l02_drq04",
+      "sequence": 4,
+      "difficulty": "easy",
+      "difficulty_reason": "Drill: applying sign-change test on [alpha - 0.005, alpha + 0.005] to justify accuracy to 2 decimal places.",
+      "source_question_id": "drill_num_sol_justify_2dp",
+      "source_role": "foundational_drill",
+      "dependency_role": "none",
+      "dependency_refs": [],
+      "parts": [
+        {
+          "part_id": "9709_p3_t_numerical_solution_of_equations_m02_l02_drq04_p01",
+          "difficulty": "easy",
+          "question_pattern_ids": [
+            "9709_p3_pattern_numerical_approximation"
+          ],
+          "source_evidence": {
+            "question_id": "drill_num_sol_justify_2dp",
+            "part_id": "drill_num_sol_justify_2dp_p01",
+            "legacy_practice_tier": "foundational",
+            "product_role": "warm_up_drill",
+            "structural_inspiration": "Standard interval evaluation [alpha - 0.005, alpha + 0.005] to rigorously prove 2 decimal place accuracy."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "To justify that a root rounds to $1.58$ at 2 decimal places, evaluate $f(x) = \\mathrm{e}^x + 2x - 8$ at the upper and lower bounds of the rounding interval: $[1.58 - 0.005, 1.58 + 0.005] = [1.575, 1.585]$.",
+            "Calculate $f(1.575) = \\mathrm{e}^{1.575} + 2(1.575) - 8$ and $f(1.585) = \\mathrm{e}^{1.585} + 2(1.585) - 8$.",
+            "Show that one value is negative and the other is positive, and conclude that the change of sign in a continuous function proves the root lies in $[1.575, 1.585]$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Define $f(x) = \\mathrm{e}^x + 2x - 8$. To justify accuracy to 2 decimal places for $\\alpha = 1.58$, evaluate at the interval boundaries $x = 1.575$ and $x = 1.585$:\n$$f(1.575) = \\mathrm{e}^{1.575} + 2(1.575) - 8 \\approx 4.83074 + 3.150 - 8 = -0.0193 < 0$$\n$$f(1.585) = \\mathrm{e}^{1.585} + 2(1.585) - 8 \\approx 4.87929 + 3.170 - 8 = +0.0493 > 0$$"
+            },
+            {
+              "step": 2,
+              "text": "Since $f(x)$ is continuous and changes sign between $1.575$ and $1.585$, the exact root lies in the interval $(1.575, 1.585)$. Every value in this interval rounds to $1.58$ to 2 decimal places, justifying the accuracy."
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_numerical_solution_of_equations_m02_l02_drq04_p01_mp01",
+                "observable": "Evaluates $f(x) = \\mathrm{e}^x + 2x - 8$ at the interval endpoints $x = 1.575$ and $x = 1.585$."
+              },
+              {
+                "criterion_id": "9709_p3_t_numerical_solution_of_equations_m02_l02_drq04_p01_mp02",
+                "observable": "Obtains $f(1.575) \\approx -0.019$ (or $-0.0193$) and $f(1.585) \\approx 0.049$ (or $0.0493$) and concludes with a valid sign-change statement."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_fixed_point_iteration"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_fixed_point_iteration"
+            ],
+            "method_ids": [
+              "9709_p3_method_fixed_point_iteration"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": [
+              "9709_p3_fact_iteration_convergence"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_p3_t_numerical_solution_of_equations_m02_l02_drq05",
+      "sequence": 5,
+      "difficulty": "easy",
+      "difficulty_reason": "Drill: applying oscillating iteration with logarithmic term, recording successive iterates to 4 decimal places.",
+      "source_question_id": "drill_num_sol_iterate_oscillating",
+      "source_role": "foundational_drill",
+      "dependency_role": "none",
+      "dependency_refs": [],
+      "parts": [
+        {
+          "part_id": "9709_p3_t_numerical_solution_of_equations_m02_l02_drq05_p01",
+          "difficulty": "easy",
+          "question_pattern_ids": [
+            "9709_p3_pattern_numerical_approximation"
+          ],
+          "source_evidence": {
+            "question_id": "drill_num_sol_iterate_oscillating",
+            "part_id": "drill_num_sol_iterate_oscillating_p01",
+            "legacy_practice_tier": "foundational",
+            "product_role": "warm_up_drill",
+            "structural_inspiration": "Iterative sequence displaying cobweb / alternating convergence toward the root."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Substitute $x_1 = 2$ into $x_{n+1} = \\dfrac{1}{2}(5 - \\ln x_n)$ to find $x_2 = \\dfrac{1}{2}(5 - \\ln 2) \\approx 2.1534$.",
+            "Compute subsequent terms, keeping unrounded values in your calculator memory: $x_3 = 2.1165$, $x_4 = 2.1251$, $x_5 = 2.1231$, $x_6 = 2.1236$.",
+            "Observe that iterates oscillate around $2.1235$, which rounds to $2.12$ correct to 2 decimal places."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Starting with $x_1 = 2$, evaluate successive iterates using $x_{n+1} = \\frac{1}{2}(5 - \\ln x_n)$:\n$$x_2 = \\frac{5 - \\ln 2}{2} \\approx 2.1534$$\n$$x_3 = \\frac{5 - \\ln(2.153426...)}{2} \\approx 2.1165$$\n$$x_4 = \\frac{5 - \\ln(2.116470...)}{2} \\approx 2.1251$$\n$$x_5 = \\frac{5 - \\ln(2.125125...)}{2} \\approx 2.1231$$\n$$x_6 = \\frac{5 - \\ln(2.123085...)}{2} \\approx 2.1236$$\n$$x_7 = \\frac{5 - \\ln(2.123565...)}{2} \\approx 2.1235$$"
+            },
+            {
+              "step": 2,
+              "text": "The successive values clearly converge to $2.12$ when rounded to 2 decimal places."
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_numerical_solution_of_equations_m02_l02_drq05_p01_mp01",
+                "observable": "Applies the iterative formula $x_{n+1} = \\dfrac{1}{2}(5 - \\ln x_n)$ with $x_1 = 2$ to calculate at least $x_2 = 2.1534$ and $x_3 = 2.1165$."
+              },
+              {
+                "criterion_id": "9709_p3_t_numerical_solution_of_equations_m02_l02_drq05_p01_mp02",
+                "observable": "Obtains successive iterations $x_4 = 2.1251$, $x_5 = 2.1231$, $x_6 = 2.1236$, and states the root as $2.12$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_fixed_point_iteration"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_fixed_point_iteration"
+            ],
+            "method_ids": [
+              "9709_p3_method_fixed_point_iteration"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": [
+              "9709_p3_fact_iteration_convergence"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_p3_t_numerical_solution_of_equations_m02_l02_drq06",
+      "sequence": 6,
+      "difficulty": "easy",
+      "difficulty_reason": "Drill: testing interval [alpha - 0.05, alpha + 0.05] to justify accuracy to 1 decimal place.",
+      "source_question_id": "drill_num_sol_justify_1dp",
+      "source_role": "foundational_drill",
+      "dependency_role": "none",
+      "dependency_refs": [],
+      "parts": [
+        {
+          "part_id": "9709_p3_t_numerical_solution_of_equations_m02_l02_drq06_p01",
+          "difficulty": "easy",
+          "question_pattern_ids": [
+            "9709_p3_pattern_numerical_approximation"
+          ],
+          "source_evidence": {
+            "question_id": "drill_num_sol_justify_1dp",
+            "part_id": "drill_num_sol_justify_1dp_p01",
+            "legacy_practice_tier": "foundational",
+            "product_role": "warm_up_drill",
+            "structural_inspiration": "Evaluating a cubic function at bounds [alpha - 0.05, alpha + 0.05] for 1 decimal place verification."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "For accuracy to 1 decimal place around $\\alpha = 2.6$, the test interval is $[2.6 - 0.05, 2.6 + 0.05] = [2.55, 2.65]$.",
+            "Define $f(x) = x^3 - 5x - 4$ and evaluate $f(2.55)$ and $f(2.65)$.",
+            "Confirm that $f(2.55) < 0$ and $f(2.65) > 0$, then state that the sign change confirms the root is $2.6$ to 1 decimal place."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Let $f(x) = x^3 - 5x - 4$. For 1 decimal place accuracy at $\\alpha = 2.6$, evaluate at the interval boundaries $x = 2.55$ and $x = 2.65$:\n$$f(2.55) = (2.55)^3 - 5(2.55) - 4 = 16.581375 - 12.75 - 4 = -0.168625 < 0$$\n$$f(2.65) = (2.65)^3 - 5(2.65) - 4 = 18.609625 - 13.25 - 4 = +1.359625 > 0$$"
+            },
+            {
+              "step": 2,
+              "text": "Since $f(x)$ is a polynomial and therefore continuous, the change of sign between $2.55$ and $2.65$ proves that a root lies in $(2.55, 2.65)$. All values in this interval round to $2.6$ to 1 decimal place."
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_numerical_solution_of_equations_m02_l02_drq06_p01_mp01",
+                "observable": "Evaluates $f(x) = x^3 - 5x - 4$ at the interval endpoints $x = 2.55$ and $x = 2.65$."
+              },
+              {
+                "criterion_id": "9709_p3_t_numerical_solution_of_equations_m02_l02_drq06_p01_mp02",
+                "observable": "Obtains $f(2.55) = -0.168625$ (or $-0.169$) and $f(2.65) = 1.359625$ (or $1.360$) and concludes with a valid sign-change statement."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_fixed_point_iteration"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_fixed_point_iteration"
+            ],
+            "method_ids": [
+              "9709_p3_method_fixed_point_iteration"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": [
+              "9709_p3_fact_iteration_convergence"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_p3_t_numerical_solution_of_equations_m02_l02_cpq01",
+      "sequence": 7,
+      "difficulty": "easy",
+      "difficulty_reason": "Core: two-part structured question carrying out fixed-point iteration to 4 decimal places followed by interval sign-change justification to 2 decimal places.",
+      "source_question_id": "9709_m22_32_q7",
+      "source_role": "direct_adaptation",
+      "dependency_role": "none",
+      "dependency_refs": [],
+      "parts": [
+        {
+          "part_id": "9709_p3_t_numerical_solution_of_equations_m02_l02_cpq01_p01",
+          "difficulty": "easy",
+          "question_pattern_ids": [
+            "9709_p3_pattern_numerical_approximation"
+          ],
+          "source_evidence": {
+            "question_id": "9709_m22_32_q7",
+            "part_id": "9709_m22_32_q7_c",
+            "legacy_practice_tier": "core",
+            "product_role": "core_practice",
+            "structural_inspiration": "Standard iterative evaluation to 4 d.p. to determine a 2 d.p. root."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Substitute $x_1 = 2$ into the iteration formula $x_{n+1} = \\sqrt{4 + \\dfrac{1}{x_n}}$ to find $x_2 = \\sqrt{4.5} \\approx 2.1213$.",
+            "Continue iterating: $x_3 = \\sqrt{4 + \\dfrac{1}{2.121320...}} \\approx 2.1146$, $x_4 \\approx 2.1149$, $x_5 \\approx 2.1149$.",
+            "Observe that consecutive values round consistently to $2.11$ to 2 decimal places."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Start with $x_1 = 2$ and calculate successive values using $x_{n+1} = \\sqrt{4 + \\frac{1}{x_n}}$:\n$$x_2 = \\sqrt{4 + \\frac{1}{2}} = \\sqrt{4.5} \\approx 2.1213$$\n$$x_3 = \\sqrt{4 + \\frac{1}{2.121320...}} \\approx 2.1146$$\n$$x_4 = \\sqrt{4 + \\frac{1}{2.114570...}} \\approx 2.1149$$\n$$x_5 = \\sqrt{4 + \\frac{1}{2.114925...}} \\approx 2.1149$$"
+            },
+            {
+              "step": 2,
+              "text": "The values have stabilized at $2.1149$, giving $\\alpha = 2.11$ correct to 2 decimal places."
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_numerical_solution_of_equations_m02_l02_cpq01_p01_mp01",
+                "observable": "Applies the iterative formula $x_{n+1} = \\sqrt{4 + \\dfrac{1}{x_n}}$ with $x_1 = 2$ to calculate at least $x_2 = 2.1213$ and $x_3 = 2.1146$."
+              },
+              {
+                "criterion_id": "9709_p3_t_numerical_solution_of_equations_m02_l02_cpq01_p01_mp02",
+                "observable": "Obtains successive iterations $x_4 = 2.1149$, $x_5 = 2.1149$, and states the root as $2.11$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_fixed_point_iteration"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_fixed_point_iteration"
+            ],
+            "method_ids": [
+              "9709_p3_method_fixed_point_iteration"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": [
+              "9709_p3_fact_iteration_convergence"
+            ]
+          }
+        },
+        {
+          "part_id": "9709_p3_t_numerical_solution_of_equations_m02_l02_cpq01_p02",
+          "difficulty": "easy",
+          "question_pattern_ids": [
+            "9709_p3_pattern_numerical_approximation"
+          ],
+          "source_evidence": {
+            "question_id": "9709_m22_32_q7",
+            "part_id": "9709_m22_32_q7_c",
+            "legacy_practice_tier": "core",
+            "product_role": "core_practice",
+            "structural_inspiration": "Rigorous interval evaluation to justify rounding to 2 decimal places."
+          },
+          "dependency_role": "input_only",
+          "dependency_refs": [
+            "9709_p3_t_numerical_solution_of_equations_m02_l02_cpq01_p01"
+          ],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "To test accuracy to 2 decimal places for $\\alpha = 2.11$, the bounding interval is $[2.11 - 0.005, 2.11 + 0.005] = [2.105, 2.115]$.",
+            "Evaluate $f(2.105) = (2.105)^3 - 4(2.105) - 1$ and $f(2.115) = (2.115)^3 - 4(2.115) - 1$.",
+            "Confirm that $f(2.105) < 0$ and $f(2.115) > 0$. Conclude that by the Intermediate Value Property, the root lies in $(2.105, 2.115)$, so $\\alpha = 2.11$ to 2 d.p."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Evaluate $f(x) = x^3 - 4x - 1$ at the bounding values $x = 2.105$ and $x = 2.115$:\n$$f(2.105) = (2.105)^3 - 4(2.105) - 1 = 9.327308 - 8.42 - 1 = -0.09269... < 0$$\n$$f(2.115) = (2.115)^3 - 4(2.115) - 1 = 9.460871 - 8.46 - 1 = +0.00087... > 0$$"
+            },
+            {
+              "step": 2,
+              "text": "Since $f(x)$ is continuous and exhibits a change of sign between $2.105$ and $2.115$, a root lies in $(2.105, 2.115)$. Every number in this interval rounds to $2.11$ to 2 decimal places, justifying the accuracy."
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_numerical_solution_of_equations_m02_l02_cpq01_p02_mp01",
+                "observable": "Evaluates $f(x) = x^3 - 4x - 1$ at the interval endpoints $x = 2.105$ and $x = 2.115$."
+              },
+              {
+                "criterion_id": "9709_p3_t_numerical_solution_of_equations_m02_l02_cpq01_p02_mp02",
+                "observable": "Obtains $f(2.105) \\approx -0.093$ (or $-0.0927$) and $f(2.115) \\approx 0.001$ (or $0.00087$), and gives a concluding statement confirming the change of sign."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_fixed_point_iteration"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_fixed_point_iteration"
+            ],
+            "method_ids": [
+              "9709_p3_method_fixed_point_iteration"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": [
+              "9709_p3_fact_iteration_convergence"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_p3_t_numerical_solution_of_equations_m02_l02_cpq02",
+      "sequence": 8,
+      "difficulty": "medium",
+      "difficulty_reason": "Core: rearranging an exponential-algebraic equation into a logarithmic iterative formula, performing iteration with oscillatory convergence, and verifying accuracy via sign-change test.",
+      "source_question_id": "9709_s23_32_q6",
+      "source_role": "direct_adaptation",
+      "dependency_role": "none",
+      "dependency_refs": [],
+      "parts": [
+        {
+          "part_id": "9709_p3_t_numerical_solution_of_equations_m02_l02_cpq02_p01",
+          "difficulty": "medium",
+          "question_pattern_ids": [
+            "9709_p3_pattern_prove_or_show",
+            "9709_p3_pattern_numerical_approximation"
+          ],
+          "source_evidence": {
+            "question_id": "9709_s23_32_q6",
+            "part_id": "9709_s23_32_q6_b",
+            "legacy_practice_tier": "core",
+            "product_role": "core_practice",
+            "structural_inspiration": "Rearrangement to x = ln(...) followed by fixed-point iteration."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "To show the rearrangement, isolate $\\mathrm{e}^x$ in $(x + 2)\\mathrm{e}^x = 7$ to get $\\mathrm{e}^x = \\dfrac{7}{x + 2}$, then take the natural logarithm of both sides.",
+            "Substitute $x_1 = 0.8$ into $x_{n+1} = \\ln\\left(\\dfrac{7}{x_n + 2}\\right)$ to calculate $x_2 = \\ln\\left(\\dfrac{7}{2.8}\\right) = \\ln(2.5) \\approx 0.9163$.",
+            "Continue iterating: $x_3 = 0.8756$, $x_4 = 0.8897$, $x_5 = 0.8848$, $x_6 = 0.8865$, $x_7 = 0.8859$.",
+            "Notice that the values oscillate above and below $0.886$, converging to $0.89$ to 2 decimal places."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Rearrange $(x + 2)\\mathrm{e}^x = 7$:\n$$\\mathrm{e}^x = \\frac{7}{x + 2} \\implies x = \\ln\\left(\\frac{7}{x + 2}\\right)$$"
+            },
+            {
+              "step": 2,
+              "text": "Using $x_1 = 0.8$, calculate successive terms:\n$$x_2 = \\ln\\left(\\frac{7}{2.8}\\right) \\approx 0.9163$$\n$$x_3 = \\ln\\left(\\frac{7}{2.916291...}\\right) \\approx 0.8756$$\n$$x_4 = \\ln\\left(\\frac{7}{2.875598...}\\right) \\approx 0.8897$$\n$$x_5 = \\ln\\left(\\frac{7}{2.889650...}\\right) \\approx 0.8848$$\n$$x_6 = \\ln\\left(\\frac{7}{2.884775...}\\right) \\approx 0.8865$$\n$$x_7 = \\ln\\left(\\frac{7}{2.886463...}\\right) \\approx 0.8859$$"
+            },
+            {
+              "step": 3,
+              "text": "The values converge to $0.89$ correct to 2 decimal places."
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_numerical_solution_of_equations_m02_l02_cpq02_p01_mp01",
+                "observable": "Demonstrates the rearrangement to $x = \\ln\\left(\\dfrac{7}{x+2}\\right)$ and calculates at least $x_2 = 0.9163$ and $x_3 = 0.8756$."
+              },
+              {
+                "criterion_id": "9709_p3_t_numerical_solution_of_equations_m02_l02_cpq02_p01_mp02",
+                "observable": "Obtains successive iterates $x_4 = 0.8897$, $x_5 = 0.8848$, $x_6 = 0.8865$, $x_7 = 0.8859$, and concludes $\\alpha = 0.89$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_forming_and_testing_fixed_point_rearrangements",
+            "9709_p3_skill_fixed_point_iteration"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_forming_and_testing_fixed_point_rearrangements",
+              "9709_p3_skill_fixed_point_iteration"
+            ],
+            "method_ids": [
+              "9709_p3_method_forming_and_testing_fixed_point_rearrangements",
+              "9709_p3_method_fixed_point_iteration"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": [
+              "9709_p3_fact_iteration_convergence"
+            ]
+          }
+        },
+        {
+          "part_id": "9709_p3_t_numerical_solution_of_equations_m02_l02_cpq02_p02",
+          "difficulty": "medium",
+          "question_pattern_ids": [
+            "9709_p3_pattern_numerical_approximation"
+          ],
+          "source_evidence": {
+            "question_id": "9709_s23_32_q6",
+            "part_id": "9709_s23_32_q6_c",
+            "legacy_practice_tier": "core",
+            "product_role": "core_practice",
+            "structural_inspiration": "Justification of root accuracy using continuous function evaluation at [alpha - 0.005, alpha + 0.005]."
+          },
+          "dependency_role": "input_only",
+          "dependency_refs": [
+            "9709_p3_t_numerical_solution_of_equations_m02_l02_cpq02_p01"
+          ],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Define $f(x) = (x + 2)\\mathrm{e}^x - 7$. For $\\alpha = 0.89$ to 2 decimal places, test at the bounds $0.885$ and $0.895$.",
+            "Calculate $f(0.885) = (0.885 + 2)\\mathrm{e}^{0.885} - 7$ and $f(0.895) = (0.895 + 2)\\mathrm{e}^{0.895} - 7$.",
+            "Ensure that $f(0.885) < 0$ and $f(0.895) > 0$.",
+            "Conclude that because $f(x)$ is continuous and changes sign on $[0.885, 0.895]$, the root is $0.89$ correct to 2 decimal places."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Evaluate $f(x) = (x + 2)\\mathrm{e}^x - 7$ at $x = 0.885$ and $x = 0.895$:\n$$f(0.885) = 2.885\\mathrm{e}^{0.885} - 7 \\approx 2.885(2.422987) - 7 = -0.00969 < 0$$\n$$f(0.895) = 2.895\\mathrm{e}^{0.895} - 7 \\approx 2.895(2.447335) - 7 = +0.08504 > 0$$"
+            },
+            {
+              "step": 2,
+              "text": "Since $f(x)$ is continuous and undergoes a sign change on the interval $(0.885, 0.895)$, the root lies within this interval. Because every value in $[0.885, 0.895]$ rounds to $0.89$ to 2 decimal places, the accuracy of $\\alpha = 0.89$ is justified."
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_numerical_solution_of_equations_m02_l02_cpq02_p02_mp01",
+                "observable": "Evaluates $f(0.885)$ and $f(0.895)$ using $f(x) = (x + 2)\\mathrm{e}^x - 7$."
+              },
+              {
+                "criterion_id": "9709_p3_t_numerical_solution_of_equations_m02_l02_cpq02_p02_mp02",
+                "observable": "Obtains $f(0.885) \\approx -0.0097$ and $f(0.895) \\approx 0.0850$, and correctly concludes that the change of sign confirms $\\alpha = 0.89$ to 2 decimal places."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_fixed_point_iteration"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_fixed_point_iteration"
+            ],
+            "method_ids": [
+              "9709_p3_method_fixed_point_iteration"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": [
+              "9709_p3_fact_iteration_convergence"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_p3_t_numerical_solution_of_equations_m02_l02_cpq03",
+      "sequence": 9,
+      "difficulty": "medium",
+      "difficulty_reason": "Core: trigonometric radian iteration with arctan, computing successive values to 5 decimal places and establishing 3 decimal places accuracy via sign change.",
+      "source_question_id": "9709_w23_32_q6",
+      "source_role": "direct_adaptation",
+      "dependency_role": "none",
+      "dependency_refs": [],
+      "parts": [
+        {
+          "part_id": "9709_p3_t_numerical_solution_of_equations_m02_l02_cpq03_p01",
+          "difficulty": "medium",
+          "question_pattern_ids": [
+            "9709_p3_pattern_trigonometric_reasoning",
+            "9709_p3_pattern_numerical_approximation"
+          ],
+          "source_evidence": {
+            "question_id": "9709_w23_32_q6",
+            "part_id": "9709_w23_32_q6_c",
+            "legacy_practice_tier": "core",
+            "product_role": "core_practice",
+            "structural_inspiration": "Trigonometric fixed-point iteration in radians requiring high precision calculation."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Set your calculator to radians before beginning any calculations.",
+            "With $x_1 = 1.0$, calculate $x_2 = \\arctan\\left(\\dfrac{3(1.0) + 1}{2}\\right) = \\arctan(2.0) \\approx 1.10715$.",
+            "Keep full precision in memory to compute $x_3 = 1.13734$, $x_4 = 1.14520$, $x_5 = 1.14720$, $x_6 = 1.14770$, $x_7 = 1.14783$, $x_8 = 1.14786$.",
+            "Identify that the sequence converges to $1.148$ when rounded to 3 decimal places."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Working in radians, evaluate the iteration formula $x_{n+1} = \\arctan\\left(\\frac{3x_n + 1}{2}\\right)$ with $x_1 = 1.0$:\n$$x_2 = \\arctan(2) \\approx 1.10715$$\n$$x_3 = \\arctan(2.160723) \\approx 1.13734$$\n$$x_4 = \\arctan(2.206013) \\approx 1.14520$$\n$$x_5 = \\arctan(2.217794) \\approx 1.14720$$\n$$x_6 = \\arctan(2.220794) \\approx 1.14770$$\n$$x_7 = \\arctan(2.221553) \\approx 1.14783$$\n$$x_8 = \\arctan(2.221745) \\approx 1.14786$$"
+            },
+            {
+              "step": 2,
+              "text": "Successive iterations stabilize at $1.14786...$, which gives $\\alpha = 1.148$ correct to 3 decimal places."
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_numerical_solution_of_equations_m02_l02_cpq03_p01_mp01",
+                "observable": "Evaluates iterations in radian mode, obtaining at least $x_2 = 1.10715$ and $x_3 = 1.13734$."
+              },
+              {
+                "criterion_id": "9709_p3_t_numerical_solution_of_equations_m02_l02_cpq03_p01_mp02",
+                "observable": "Obtains successive iterations $x_4 = 1.14520$, $x_5 = 1.14720$, $x_6 = 1.14770$, $x_7 = 1.14783$, $x_8 = 1.14786$, and states $\\alpha = 1.148$ correct to 3 decimal places."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_fixed_point_iteration"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_fixed_point_iteration"
+            ],
+            "method_ids": [
+              "9709_p3_method_fixed_point_iteration"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": [
+              "9709_p3_fact_iteration_convergence"
+            ]
+          }
+        },
+        {
+          "part_id": "9709_p3_t_numerical_solution_of_equations_m02_l02_cpq03_p02",
+          "difficulty": "medium",
+          "question_pattern_ids": [
+            "9709_p3_pattern_trigonometric_reasoning",
+            "9709_p3_pattern_numerical_approximation"
+          ],
+          "source_evidence": {
+            "question_id": "9709_w23_32_q6",
+            "part_id": "9709_w23_32_q6_c",
+            "legacy_practice_tier": "core",
+            "product_role": "core_practice",
+            "structural_inspiration": "Justification of 3 d.p. accuracy using interval [alpha - 0.0005, alpha + 0.0005]."
+          },
+          "dependency_role": "input_only",
+          "dependency_refs": [
+            "9709_p3_t_numerical_solution_of_equations_m02_l02_cpq03_p01"
+          ],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "For accuracy to 3 decimal places with $\\alpha = 1.148$, the interval bounds are $1.148 \\pm 0.0005$, giving $[1.1475, 1.1485]$.",
+            "Evaluate $f(1.1475) = 2\\tan(1.1475) - 3(1.1475) - 1$ in radian mode.",
+            "Evaluate $f(1.1485) = 2\\tan(1.1485) - 3(1.1485) - 1$ in radian mode.",
+            "Verify that $f(1.1475) < 0$ and $f(1.1485) > 0$, concluding that the sign change justifies $\\alpha = 1.148$ to 3 decimal places."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Working in radians, evaluate $f(x) = 2\\tan x - 3x - 1$ at $x = 1.1475$ and $x = 1.1485$:\n$$f(1.1475) = 2\\tan(1.1475) - 3(1.1475) - 1 = 4.439196 - 4.4425 = -0.00330 < 0$$\n$$f(1.1485) = 2\\tan(1.1485) - 3(1.1485) - 1 = 4.451075 - 4.4455 = +0.00558 > 0$$"
+            },
+            {
+              "step": 2,
+              "text": "Since $f(x)$ is continuous on this interval and changes sign between $1.1475$ and $1.1485$, a root lies in $(1.1475, 1.1485)$. Every value in this interval rounds to $1.148$ to 3 decimal places, establishing the required accuracy."
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_numerical_solution_of_equations_m02_l02_cpq03_p02_mp01",
+                "observable": "Evaluates $f(x) = 2\\tan x - 3x - 1$ at $x = 1.1475$ and $x = 1.1485$."
+              },
+              {
+                "criterion_id": "9709_p3_t_numerical_solution_of_equations_m02_l02_cpq03_p02_mp02",
+                "observable": "Obtains $f(1.1475) \\approx -0.0033$ and $f(1.1485) \\approx 0.0056$, and concludes with a valid sign-change statement."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_fixed_point_iteration"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_fixed_point_iteration"
+            ],
+            "method_ids": [
+              "9709_p3_method_fixed_point_iteration"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": [
+              "9709_p3_fact_iteration_convergence"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_p3_t_numerical_solution_of_equations_m02_l02_cpq04",
+      "sequence": 10,
+      "difficulty": "medium",
+      "difficulty_reason": "Core: comprehensive 3-part question covering cubic-logarithmic iteration to 3 decimal places, sign-change proof, and geometric sequence classification (monotonic staircase vs oscillating cobweb).",
+      "source_question_id": "9709_w24_31_q5",
+      "source_role": "direct_adaptation",
+      "dependency_role": "none",
+      "dependency_refs": [],
+      "parts": [
+        {
+          "part_id": "9709_p3_t_numerical_solution_of_equations_m02_l02_cpq04_p01",
+          "difficulty": "medium",
+          "question_pattern_ids": [
+            "9709_p3_pattern_numerical_approximation"
+          ],
+          "source_evidence": {
+            "question_id": "9709_w24_31_q5",
+            "part_id": "9709_w24_31_q5_c",
+            "legacy_practice_tier": "core",
+            "product_role": "core_practice",
+            "structural_inspiration": "Executing cube-root iteration with natural logarithm term."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Use the iterative formula $x_{n+1} = \\sqrt[3]{\\ln(x_n + 5)}$ with starting value $x_1 = 1.2$.",
+            "Calculate $x_2 = \\sqrt[3]{\\ln(6.2)} \\approx 1.22195$.",
+            "Evaluate subsequent iterates: $x_3 = 1.22273$, $x_4 = 1.22276$.",
+            "Round the stabilized value to 3 decimal places to state $\\alpha = 1.223$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Using $x_1 = 1.2$, evaluate $x_{n+1} = \\sqrt[3]{\\ln(x_n + 5)}$ to 5 decimal places:\n$$x_2 = \\sqrt[3]{\\ln(6.2)} \\approx 1.22195$$\n$$x_3 = \\sqrt[3]{\\ln(6.221946)} \\approx 1.22273$$\n$$x_4 = \\sqrt[3]{\\ln(6.222734)} \\approx 1.22276$$\n$$x_5 = \\sqrt[3]{\\ln(6.222762)} \\approx 1.22276$$"
+            },
+            {
+              "step": 2,
+              "text": "The iterates converge to $1.22276...$, which gives $\\alpha = 1.223$ correct to 3 decimal places."
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_numerical_solution_of_equations_m02_l02_cpq04_p01_mp01",
+                "observable": "Evaluates iterations using $x_{n+1} = \\sqrt[3]{\\ln(x_n + 5)}$, finding $x_2 = 1.22195$ and $x_3 = 1.22273$."
+              },
+              {
+                "criterion_id": "9709_p3_t_numerical_solution_of_equations_m02_l02_cpq04_p01_mp02",
+                "observable": "Obtains $x_4 = 1.22276$ and states $\\alpha = 1.223$ correct to 3 decimal places."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_fixed_point_iteration"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_fixed_point_iteration"
+            ],
+            "method_ids": [
+              "9709_p3_method_fixed_point_iteration"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": [
+              "9709_p3_fact_iteration_convergence"
+            ]
+          }
+        },
+        {
+          "part_id": "9709_p3_t_numerical_solution_of_equations_m02_l02_cpq04_p02",
+          "difficulty": "medium",
+          "question_pattern_ids": [
+            "9709_p3_pattern_numerical_approximation"
+          ],
+          "source_evidence": {
+            "question_id": "9709_w24_31_q5",
+            "part_id": "9709_w24_31_q5_c",
+            "legacy_practice_tier": "core",
+            "product_role": "core_practice",
+            "structural_inspiration": "Interval evaluation to prove accuracy to 3 decimal places."
+          },
+          "dependency_role": "input_only",
+          "dependency_refs": [
+            "9709_p3_t_numerical_solution_of_equations_m02_l02_cpq04_p01"
+          ],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Define $f(x) = x^3 - \\ln(x + 5)$. For 3 decimal places accuracy at $\\alpha = 1.223$, the test interval is $[1.2225, 1.2235]$.",
+            "Calculate $f(1.2225) = (1.2225)^3 - \\ln(6.2225)$.",
+            "Calculate $f(1.2235) = (1.2235)^3 - \\ln(6.2235)$.",
+            "Show $f(1.2225) < 0$ and $f(1.2235) > 0$, concluding that the sign change proves the root is $1.223$ to 3 decimal places."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Evaluate $f(x) = x^3 - \\ln(x + 5)$ at the interval endpoints $x = 1.2225$ and $x = 1.2235$:\n$$f(1.2225) = (1.2225)^3 - \\ln(6.2225) = 1.827021 - 1.828159 = -0.001138 < 0$$\n$$f(1.2235) = (1.2235)^3 - \\ln(6.2235) = 1.831508 - 1.828320 = +0.003189 > 0$$"
+            },
+            {
+              "step": 2,
+              "text": "Because $f(x)$ is continuous on $[1.2225, 1.2235]$ and changes sign, the root lies in the interval $(1.2225, 1.2235)$. Every point in this interval rounds to $1.223$ to 3 decimal places, proving the result."
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_numerical_solution_of_equations_m02_l02_cpq04_p02_mp01",
+                "observable": "Evaluates $f(1.2225)$ and $f(1.2235)$ for $f(x) = x^3 - \\ln(x + 5)$."
+              },
+              {
+                "criterion_id": "9709_p3_t_numerical_solution_of_equations_m02_l02_cpq04_p02_mp02",
+                "observable": "Obtains $f(1.2225) \\approx -0.0011$ and $f(1.2235) \\approx 0.0032$, and concludes with a valid sign-change statement."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_fixed_point_iteration"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_fixed_point_iteration"
+            ],
+            "method_ids": [
+              "9709_p3_method_fixed_point_iteration"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": [
+              "9709_p3_fact_iteration_convergence"
+            ]
+          }
+        },
+        {
+          "part_id": "9709_p3_t_numerical_solution_of_equations_m02_l02_cpq04_p03",
+          "difficulty": "medium",
+          "question_pattern_ids": [
+            "9709_p3_pattern_numerical_approximation"
+          ],
+          "source_evidence": {
+            "question_id": "9709_w24_31_q5",
+            "part_id": "9709_w24_31_q5_c",
+            "legacy_practice_tier": "core",
+            "product_role": "core_practice",
+            "structural_inspiration": "Conceptual classification of iteration sequence dynamics (monotonic vs cobweb/oscillating)."
+          },
+          "dependency_role": "input_only",
+          "dependency_refs": [
+            "9709_p3_t_numerical_solution_of_equations_m02_l02_cpq04_p01"
+          ],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Look at the sequence of iterates: $x_1 = 1.20000$, $x_2 = 1.22195$, $x_3 = 1.22273$, $x_4 = 1.22276$.",
+            "Check whether the iterates increase steadily in one direction or alternate above and below the root.",
+            "Since $x_1 < x_2 < x_3 < x_4$, the iterates increase monotonically, corresponding to a staircase pattern."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Examine the order of successive iterates:\n$$x_1 = 1.20000 < x_2 = 1.22195 < x_3 = 1.22273 < x_4 = 1.22276$$\nBecause each iterate is strictly greater than the previous one, the values approach the root from below without oscillating."
+            },
+            {
+              "step": 2,
+              "text": "Therefore, the sequence converges **monotonically** (forming a staircase diagram)."
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_numerical_solution_of_equations_m02_l02_cpq04_p03_mp01",
+                "observable": "States that the sequence converges monotonically (or forms a staircase) because the successive values are strictly increasing ($x_1 < x_2 < x_3 < x_4$)."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_fixed_point_iteration"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_fixed_point_iteration"
+            ],
+            "method_ids": [
+              "9709_p3_method_fixed_point_iteration"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": [
+              "9709_p3_fact_iteration_convergence"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_p3_t_numerical_solution_of_equations_m02_l02_cpq05",
+      "sequence": 11,
+      "difficulty": "hard",
+      "difficulty_reason": "Capstone: high-precision fixed-point iteration combining trigonometric and exponential functions, followed by tight interval sign testing.",
+      "source_question_id": "9709_s24_32_q5",
+      "source_role": "direct_adaptation",
+      "dependency_role": "none",
+      "dependency_refs": [],
+      "parts": [
+        {
+          "part_id": "9709_p3_t_numerical_solution_of_equations_m02_l02_cpq05_p01",
+          "difficulty": "hard",
+          "question_pattern_ids": [
+            "9709_p3_pattern_trigonometric_reasoning",
+            "9709_p3_pattern_numerical_approximation"
+          ],
+          "source_evidence": {
+            "question_id": "9709_s24_32_q5",
+            "part_id": "9709_s24_32_q5_c",
+            "legacy_practice_tier": "capstone",
+            "product_role": "capstone_practice",
+            "structural_inspiration": "High precision iteration with inverse trigonometric and exponential interaction."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Ensure your calculator is strictly in radian mode.",
+            "Substitute $x_1 = 0.3$ into $x_{n+1} = \\arcsin\\left(\\dfrac{1}{3}\\mathrm{e}^{-x_n/2}\\right)$ to calculate $x_2 = \\arcsin\\left(\\dfrac{1}{3}\\mathrm{e}^{-0.15}\\right) \\approx 0.29099$.",
+            "Continue iterating while retaining full precision in calculator memory: $x_3 = 0.29234$, $x_4 = 0.29214$, $x_5 = 0.29217$, $x_6 = 0.29217$.",
+            "Notice that the sequence oscillates very narrowly around $0.29217$, which stabilizes to $0.292$ when rounded to 3 decimal places.",
+            "State the final value clearly as $\\alpha = 0.292$ correct to 3 decimal places."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "With calculator in radian mode, start with $x_1 = 0.3$ and evaluate $x_{n+1} = \\arcsin\\left(\\frac{1}{3}\\mathrm{e}^{-x_n/2}\\right)$:\n$$x_2 = \\arcsin\\left(\\frac{1}{3}\\mathrm{e}^{-0.15}\\right) \\approx 0.29099$$\n$$x_3 = \\arcsin\\left(\\frac{1}{3}\\mathrm{e}^{-0.145496...}\\right) \\approx 0.29234$$\n$$x_4 = \\arcsin\\left(\\frac{1}{3}\\mathrm{e}^{-0.146172...}\\right) \\approx 0.29214$$\n$$x_5 = \\arcsin\\left(\\frac{1}{3}\\mathrm{e}^{-0.146070...}\\right) \\approx 0.29217$$\n$$x_6 = \\arcsin\\left(\\frac{1}{3}\\mathrm{e}^{-0.146086...}\\right) \\approx 0.29217$$"
+            },
+            {
+              "step": 2,
+              "text": "The sequence has converged to $0.29217...$, giving $\\alpha = 0.292$ correct to 3 decimal places."
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_numerical_solution_of_equations_m02_l02_cpq05_p01_mp01",
+                "observable": "Evaluates iterations in radians using $x_{n+1} = \\arcsin\\left(\\dfrac{1}{3}\\mathrm{e}^{-x_n/2}\\right)$, calculating $x_2 = 0.29099$ and $x_3 = 0.29234$."
+              },
+              {
+                "criterion_id": "9709_p3_t_numerical_solution_of_equations_m02_l02_cpq05_p01_mp02",
+                "observable": "Obtains successive iterates $x_4 = 0.29214$, $x_5 = 0.29217$, and states $\\alpha = 0.292$ correct to 3 decimal places."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_fixed_point_iteration"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_fixed_point_iteration"
+            ],
+            "method_ids": [
+              "9709_p3_method_fixed_point_iteration"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": [
+              "9709_p3_fact_iteration_convergence"
+            ]
+          }
+        },
+        {
+          "part_id": "9709_p3_t_numerical_solution_of_equations_m02_l02_cpq05_p02",
+          "difficulty": "hard",
+          "question_pattern_ids": [
+            "9709_p3_pattern_trigonometric_reasoning",
+            "9709_p3_pattern_numerical_approximation"
+          ],
+          "source_evidence": {
+            "question_id": "9709_s24_32_q5",
+            "part_id": "9709_s24_32_q5_c",
+            "legacy_practice_tier": "capstone",
+            "product_role": "capstone_practice",
+            "structural_inspiration": "High precision interval bounding on 3 decimal place roots."
+          },
+          "dependency_role": "input_only",
+          "dependency_refs": [
+            "9709_p3_t_numerical_solution_of_equations_m02_l02_cpq05_p01"
+          ],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "To prove 3 decimal place accuracy for $\\alpha = 0.292$, set up the interval $[0.292 - 0.0005, 0.292 + 0.0005] = [0.2915, 0.2925]$.",
+            "Evaluate $f(0.2915) = 3\\sin(0.2915) - \\mathrm{e}^{-0.2915/2}$ in radian mode.",
+            "Evaluate $f(0.2925) = 3\\sin(0.2925) - \\mathrm{e}^{-0.2925/2}$ in radian mode.",
+            "Check that $f(0.2915) < 0$ and $f(0.2925) > 0$.",
+            "Conclude that because $f(x)$ is continuous, the change of sign confirms that $\\alpha = 0.292$ to 3 decimal places."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Evaluate $f(x) = 3\\sin x - \\mathrm{e}^{-x/2}$ at the interval boundaries $x = 0.2915$ and $x = 0.2925$:\n$$f(0.2915) = 3\\sin(0.2915) - \\mathrm{e}^{-0.14575} \\approx 0.862168 - 0.864391 = -0.002223 < 0$$\n$$f(0.2925) = 3\\sin(0.2925) - \\mathrm{e}^{-0.14625} \\approx 0.865033 - 0.863959 = +0.001074 > 0$$"
+            },
+            {
+              "step": 2,
+              "text": "Since $f(x)$ is continuous and changes sign across $(0.2915, 0.2925)$, the exact root lies within this interval. Every number in this range rounds to $0.292$ to 3 decimal places, justifying the accuracy."
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_numerical_solution_of_equations_m02_l02_cpq05_p02_mp01",
+                "observable": "Evaluates $f(x) = 3\\sin x - \\mathrm{e}^{-x/2}$ at $x = 0.2915$ and $x = 0.2925$ in radians."
+              },
+              {
+                "criterion_id": "9709_p3_t_numerical_solution_of_equations_m02_l02_cpq05_p02_mp02",
+                "observable": "Obtains $f(0.2915) \\approx -0.0022$ and $f(0.2925) \\approx 0.0011$, and concludes with a valid sign-change statement."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_fixed_point_iteration"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_fixed_point_iteration"
+            ],
+            "method_ids": [
+              "9709_p3_method_fixed_point_iteration"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": [
+              "9709_p3_fact_iteration_convergence"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_p3_t_numerical_solution_of_equations_m02_l02_cpq06",
+      "sequence": 12,
+      "difficulty": "hard",
+      "difficulty_reason": "Capstone: square-root logarithmic fixed-point iteration with 5-decimal place tracking and 3-decimal place sign-change proof.",
+      "source_question_id": "9709_s25_31_q9",
+      "source_role": "direct_adaptation",
+      "dependency_role": "none",
+      "dependency_refs": [],
+      "parts": [
+        {
+          "part_id": "9709_p3_t_numerical_solution_of_equations_m02_l02_cpq06_p01",
+          "difficulty": "hard",
+          "question_pattern_ids": [
+            "9709_p3_pattern_numerical_approximation"
+          ],
+          "source_evidence": {
+            "question_id": "9709_s25_31_q9",
+            "part_id": "9709_s25_31_q9_c",
+            "legacy_practice_tier": "capstone",
+            "product_role": "capstone_practice",
+            "structural_inspiration": "Complex logarithmic rational root iteration formula."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Substitute $x_1 = 3.0$ into $x_{n+1} = \\sqrt{\\dfrac{15}{\\ln(x_n + 3)}}$ to find $x_2 = \\sqrt{\\dfrac{15}{\\ln 6}} \\approx 2.89338$.",
+            "Evaluate $x_3 = \\sqrt{\\dfrac{15}{\\ln(5.893382)}} \\approx 2.90797$.",
+            "Continue iterating: $x_4 = 2.90594$, $x_5 = 2.90622$, $x_6 = 2.90619$.",
+            "Observe that the iterates oscillate tightly and converge to $2.90619...$.",
+            "Round to 3 decimal places to give $\\alpha = 2.906$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Start with $x_1 = 3.0$ and calculate successive values using $x_{n+1} = \\sqrt{\\frac{15}{\\ln(x_n + 3)}}$:\n$$x_2 = \\sqrt{\\frac{15}{\\ln 6}} \\approx 2.89338$$\n$$x_3 = \\sqrt{\\frac{15}{\\ln(5.893382)}} \\approx 2.90797$$\n$$x_4 = \\sqrt{\\frac{15}{\\ln(5.907968)}} \\approx 2.90594$$\n$$x_5 = \\sqrt{\\frac{15}{\\ln(5.905944)}} \\approx 2.90622$$\n$$x_6 = \\sqrt{\\frac{15}{\\ln(5.906224)}} \\approx 2.90619$$\n$$x_7 = \\sqrt{\\frac{15}{\\ln(5.906185)}} \\approx 2.90619$$"
+            },
+            {
+              "step": 2,
+              "text": "The sequence has converged to $2.90619...$, giving $\\alpha = 2.906$ correct to 3 decimal places."
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_numerical_solution_of_equations_m02_l02_cpq06_p01_mp01",
+                "observable": "Evaluates iterations using $x_{n+1} = \\sqrt{\\dfrac{15}{\\ln(x_n + 3)}}$, calculating $x_2 = 2.89338$ and $x_3 = 2.90797$."
+              },
+              {
+                "criterion_id": "9709_p3_t_numerical_solution_of_equations_m02_l02_cpq06_p01_mp02",
+                "observable": "Obtains successive iterates $x_4 = 2.90594$, $x_5 = 2.90622$, $x_6 = 2.90619$, and states $\\alpha = 2.906$ correct to 3 decimal places."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_fixed_point_iteration"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_fixed_point_iteration"
+            ],
+            "method_ids": [
+              "9709_p3_method_fixed_point_iteration"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": [
+              "9709_p3_fact_iteration_convergence"
+            ]
+          }
+        },
+        {
+          "part_id": "9709_p3_t_numerical_solution_of_equations_m02_l02_cpq06_p02",
+          "difficulty": "hard",
+          "question_pattern_ids": [
+            "9709_p3_pattern_numerical_approximation"
+          ],
+          "source_evidence": {
+            "question_id": "9709_s25_31_q9",
+            "part_id": "9709_s25_31_q9_c",
+            "legacy_practice_tier": "capstone",
+            "product_role": "capstone_practice",
+            "structural_inspiration": "High accuracy bounding test for multi-term function."
+          },
+          "dependency_role": "input_only",
+          "dependency_refs": [
+            "9709_p3_t_numerical_solution_of_equations_m02_l02_cpq06_p01"
+          ],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "To test 3 decimal place accuracy for $\\alpha = 2.906$, the bounding interval is $[2.906 - 0.0005, 2.906 + 0.0005] = [2.9055, 2.9065]$.",
+            "Evaluate $f(2.9055) = (2.9055)^2\\ln(5.9055) - 15$.",
+            "Evaluate $f(2.9065) = (2.9065)^2\\ln(5.9065) - 15$.",
+            "Confirm that $f(2.9055) < 0$ and $f(2.9065) > 0$.",
+            "State clearly that the change of sign across the continuous function guarantees that $\\alpha = 2.906$ to 3 decimal places."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Evaluate $f(x) = x^2\\ln(x + 3) - 15$ at $x = 2.9055$ and $x = 2.9065$:\n$$f(2.9055) = (2.9055)^2\\ln(5.9055) - 15 \\approx (8.441930)(1.775883) - 15 = 14.99188 - 15 = -0.00812 < 0$$\n$$f(2.9065) = (2.9065)^2\\ln(5.9065) - 15 \\approx (8.447742)(1.776052) - 15 = 15.00363 - 15 = +0.00363 > 0$$"
+            },
+            {
+              "step": 2,
+              "text": "Since $f(x)$ is continuous on $[2.9055, 2.9065]$ and changes sign, a root lies in $(2.9055, 2.9065)$. Every point in this interval rounds to $2.906$ to 3 decimal places, proving the result."
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_numerical_solution_of_equations_m02_l02_cpq06_p02_mp01",
+                "observable": "Evaluates $f(2.9055)$ and $f(2.9065)$ using $f(x) = x^2\\ln(x + 3) - 15$."
+              },
+              {
+                "criterion_id": "9709_p3_t_numerical_solution_of_equations_m02_l02_cpq06_p02_mp02",
+                "observable": "Obtains $f(2.9055) \\approx -0.0081$ and $f(2.9065) \\approx 0.0036$, and concludes with a valid sign-change statement."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_fixed_point_iteration"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_fixed_point_iteration"
+            ],
+            "method_ids": [
+              "9709_p3_method_fixed_point_iteration"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": [
+              "9709_p3_fact_iteration_convergence"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "9709_p3_t_numerical_solution_of_equations_m02_l02_cpq07",
+      "sequence": 13,
+      "difficulty": "hard",
+      "difficulty_reason": "Capstone: slow oscillating cobweb convergence with nonlinear argument, concluding with a 3-decimal place interval verification.",
+      "source_question_id": "9709_w25_31_q9",
+      "source_role": "direct_adaptation",
+      "dependency_role": "none",
+      "dependency_refs": [],
+      "parts": [
+        {
+          "part_id": "9709_p3_t_numerical_solution_of_equations_m02_l02_cpq07_p01",
+          "difficulty": "hard",
+          "question_pattern_ids": [
+            "9709_p3_pattern_numerical_approximation"
+          ],
+          "source_evidence": {
+            "question_id": "9709_w25_31_q9",
+            "part_id": "9709_w25_31_q9_c",
+            "legacy_practice_tier": "capstone",
+            "product_role": "capstone_practice",
+            "structural_inspiration": "Fixed-point iteration with slow oscillatory behavior across the root."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Use the formula $x_{n+1} = \\dfrac{1}{2}\\left(4 - \\ln(x_n^2 + 1)\\right)$ with $x_1 = 1.5$.",
+            "Calculate $x_2 = \\dfrac{1}{2}(4 - \\ln 3.25) \\approx 1.41067$.",
+            "Substitute $x_2$ back to get $x_3 = \\dfrac{1}{2}(4 - \\ln(1.410672^2 + 1)) \\approx 1.45236$.",
+            "Continue iterating: $x_4 = 1.43279$, $x_5 = 1.44196$, $x_6 = 1.43766$, $x_7 = 1.43967$, $x_8 = 1.43873$, $x_9 = 1.43917$, $x_{10} = 1.43896$, $x_{11} = 1.43906$.",
+            "Conclude that the iterations converge to $1.439$ correct to 3 decimal places."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Start with $x_1 = 1.5$ and evaluate $x_{n+1} = \\frac{1}{2}(4 - \\ln(x_n^2 + 1))$:\n$$x_2 = \\frac{4 - \\ln(3.25)}{2} \\approx 1.41067$$\n$$x_3 = \\frac{4 - \\ln(1.410672^2 + 1)}{2} \\approx 1.45236$$\n$$x_4 = \\frac{4 - \\ln(1.452364^2 + 1)}{2} \\approx 1.43279$$\n$$x_5 = \\frac{4 - \\ln(1.432791^2 + 1)}{2} \\approx 1.44196$$\n$$x_6 = \\frac{4 - \\ln(1.441955^2 + 1)}{2} \\approx 1.43766$$\n$$x_7 = \\frac{4 - \\ln(1.437659^2 + 1)}{2} \\approx 1.43967$$\n$$x_8 = \\frac{4 - \\ln(1.439672^2 + 1)}{2} \\approx 1.43873$$\n$$x_9 = \\frac{4 - \\ln(1.438729^2 + 1)}{2} \\approx 1.43917$$\n$$x_{10} = \\frac{4 - \\ln(1.439171^2 + 1)}{2} \\approx 1.43896$$\n$$x_{11} = \\frac{4 - \\ln(1.438964^2 + 1)}{2} \\approx 1.43906$$"
+            },
+            {
+              "step": 2,
+              "text": "The iterates converge to $1.43903...$, which gives $\\alpha = 1.439$ correct to 3 decimal places."
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_numerical_solution_of_equations_m02_l02_cpq07_p01_mp01",
+                "observable": "Applies the iterative formula with $x_1 = 1.5$ to calculate at least $x_2 = 1.41067$ and $x_3 = 1.45236$."
+              },
+              {
+                "criterion_id": "9709_p3_t_numerical_solution_of_equations_m02_l02_cpq07_p01_mp02",
+                "observable": "Obtains successive iterates showing oscillating convergence and states $\\alpha = 1.439$ correct to 3 decimal places."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_fixed_point_iteration"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_fixed_point_iteration"
+            ],
+            "method_ids": [
+              "9709_p3_method_fixed_point_iteration"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": [
+              "9709_p3_fact_iteration_convergence"
+            ]
+          }
+        },
+        {
+          "part_id": "9709_p3_t_numerical_solution_of_equations_m02_l02_cpq07_p02",
+          "difficulty": "hard",
+          "question_pattern_ids": [
+            "9709_p3_pattern_numerical_approximation"
+          ],
+          "source_evidence": {
+            "question_id": "9709_w25_31_q9",
+            "part_id": "9709_w25_31_q9_d",
+            "legacy_practice_tier": "capstone",
+            "product_role": "capstone_practice",
+            "structural_inspiration": "Sign-change accuracy justification on a 3-decimal place interval."
+          },
+          "dependency_role": "input_only",
+          "dependency_refs": [
+            "9709_p3_t_numerical_solution_of_equations_m02_l02_cpq07_p01"
+          ],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "To confirm accuracy to 3 decimal places for $\\alpha = 1.439$, test the interval boundaries $[1.4385, 1.4395]$.",
+            "Evaluate $f(1.4385) = 2(1.4385) + \\ln(1.4385^2 + 1) - 4$.",
+            "Evaluate $f(1.4395) = 2(1.4395) + \\ln(1.4395^2 + 1) - 4$.",
+            "Verify that $f(1.4385) < 0$ and $f(1.4395) > 0$.",
+            "Conclude that the sign change proves the root is $1.439$ correct to 3 decimal places."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Evaluate $f(x) = 2x + \\ln(x^2 + 1) - 4$ at the interval boundaries $x = 1.4385$ and $x = 1.4395$:\n$$f(1.4385) = 2(1.4385) + \\ln(1.4385^2 + 1) - 4 = 2.8770 + 1.121444 - 4 = -0.001556 < 0$$\n$$f(1.4395) = 2(1.4395) + \\ln(1.4395^2 + 1) - 4 = 2.8790 + 1.122381 - 4 = +0.001381 > 0$$"
+            },
+            {
+              "step": 2,
+              "text": "Since $f(x)$ is continuous and undergoes a sign change on $(1.4385, 1.4395)$, the root lies in this interval. Every value in $[1.4385, 1.4395]$ rounds to $1.439$ to 3 decimal places, confirming the accuracy."
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_numerical_solution_of_equations_m02_l02_cpq07_p02_mp01",
+                "observable": "Evaluates $f(1.4385) \\approx -0.0016$ and $f(1.4395) \\approx 0.0014$ for $f(x) = 2x + \\ln(x^2 + 1) - 4$, and concludes with a valid sign-change statement."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_fixed_point_iteration"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_fixed_point_iteration"
+            ],
+            "method_ids": [
+              "9709_p3_method_fixed_point_iteration"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": [
+              "9709_p3_fact_iteration_convergence"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

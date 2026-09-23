@@ -1,0 +1,69 @@
+{
+  "schema_version": "9709_math_enrichment_v3",
+  "paper_code": "9709_w25_33",
+  "question_id": "9709_w25_33_q6",
+  "question_num": 6,
+  "subject_code": "9709",
+  "component": "P3",
+  "year": 2025,
+  "session": "Oct/Nov",
+  "variant": "33",
+  "difficulty": 5,
+  "numerical_values_checked": false,
+  "parts": [
+    {
+      "part_id": "9709_w25_33_q6",
+      "difficulty": 5,
+      "practice_tier": "revision",
+      "mapping": {
+        "topic_id": "9709_p3_t_integration",
+        "module_id": "9709_p3_t_integration_m02",
+        "lesson_id": "9709_p3_t_integration_m02_l01"
+      },
+      "skills": {
+        "primary_skill_id": "9709_p3_skill_integration_by_parts",
+        "skill_tags": [
+          "Integration by Parts"
+        ]
+      },
+      "question_pattern_ids": [
+        "9709_p3_pattern_exact_value",
+        "9709_p3_pattern_calculus_process",
+        "9709_p3_pattern_trigonometric_reasoning"
+      ],
+      "knowledge_refs": {
+        "formula_ids": [
+          "9709_p3_formula_integration_by_parts"
+        ],
+        "identity_ids": [
+          "9709_p3_identity_double_angle",
+          "9709_p3_identity_pythagorean"
+        ],
+        "method_ids": [
+          "9709_p3_method_integration_by_parts"
+        ],
+        "fact_ids": []
+      },
+      "hints": [
+        "Integrate by parts with u=x² and dv=sin2x dx.",
+        "Apply integration by parts again to the remaining x cos2x term, checking chain-rule factors.",
+        "Evaluate the complete primitive at 0 and π/6 using exact sine and cosine values."
+      ],
+      "walkthrough": [
+        "Apply integration by parts $\\int u\\dfrac{\\mathrm{d}v}{\\mathrm{d}x}\\,\\mathrm{d}x = uv - \\int v\\dfrac{\\mathrm{d}u}{\\mathrm{d}x}\\,\\mathrm{d}x$ with:\n$$u = x^2 \\implies \\dfrac{\\mathrm{d}u}{\\mathrm{d}x} = 2x$$\n$$\\dfrac{\\mathrm{d}v}{\\mathrm{d}x} = \\sin(2x) \\implies v = -\\dfrac{1}{2}\\cos(2x)$$\n$$\\int x^2\\sin(2x)\\,\\mathrm{d}x = -\\dfrac{1}{2}x^2\\cos(2x) - \\int \\left(-\\dfrac{1}{2}\\cos(2x)\\right)(2x)\\,\\mathrm{d}x = -\\dfrac{1}{2}x^2\\cos(2x) + \\int x\\cos(2x)\\,\\mathrm{d}x$$",
+        "Apply integration by parts a second time to $\\int x\\cos(2x)\\,\\mathrm{d}x$ with:\n$$u = x \\implies \\dfrac{\\mathrm{d}u}{\\mathrm{d}x} = 1$$\n$$\\dfrac{\\mathrm{d}v}{\\mathrm{d}x} = \\cos(2x) \\implies v = \\dfrac{1}{2}\\sin(2x)$$\n$$\\int x\\cos(2x)\\,\\mathrm{d}x = \\dfrac{1}{2}x\\sin(2x) - \\int \\dfrac{1}{2}\\sin(2x)\\,\\mathrm{d}x = \\dfrac{1}{2}x\\sin(2x) - \\dfrac{1}{2}\\left(-\\dfrac{1}{2}\\cos(2x)\\right) = \\dfrac{1}{2}x\\sin(2x) + \\dfrac{1}{4}\\cos(2x)$$",
+        "Combine the terms to obtain the complete antiderivative $F(x)$:\n$$F(x) = -\\dfrac{1}{2}x^2\\cos(2x) + \\dfrac{1}{2}x\\sin(2x) + \\dfrac{1}{4}\\cos(2x)$$",
+        "Evaluate $F(x)$ at the upper limit $x = \\dfrac{1}{6}\\pi$ where $2x = \\dfrac{\\pi}{3}$:\n$$\\cos\\left(\\dfrac{\\pi}{3}\\right) = \\dfrac{1}{2}, \\quad \\sin\\left(\\dfrac{\\pi}{3}\\right) = \\dfrac{\\sqrt{3}}{2}$$\n$$F\\left(\\dfrac{\\pi}{6}\\right) = -\\dfrac{1}{2}\\left(\\dfrac{\\pi}{6}\\right)^2\\left(\\dfrac{1}{2}\\right) + \\dfrac{1}{2}\\left(\\dfrac{\\pi}{6}\\right)\\left(\\dfrac{\\sqrt{3}}{2}\\right) + \\dfrac{1}{4}\\left(\\dfrac{1}{2}\\right)$$\n$$= -\\dfrac{1}{4}\\left(\\dfrac{\\pi^2}{36}\\right) + \\dfrac{\\sqrt{3}\\pi}{24} + \\dfrac{1}{8} = -\\dfrac{\\pi^2}{144} + \\dfrac{\\sqrt{3}\\pi}{24} + \\dfrac{1}{8}$$",
+        "Evaluate $F(x)$ at the lower limit $x = 0$:\n$$F(0) = -\\dfrac{1}{2}(0)^2\\cos(0) + \\dfrac{1}{2}(0)\\sin(0) + \\dfrac{1}{4}\\cos(0) = 0 + 0 + \\dfrac{1}{4}(1) = \\dfrac{1}{4} = \\dfrac{2}{8}$$",
+        "Subtract $F(0)$ from $F(\\pi/6)$ to obtain the final exact value:\n$$F\\left(\\dfrac{\\pi}{6}\\right) - F(0) = -\\dfrac{\\pi^2}{144} + \\dfrac{\\sqrt{3}\\pi}{24} + \\dfrac{1}{8} - \\dfrac{2}{8} = -\\dfrac{\\pi^2}{144} + \\dfrac{\\sqrt{3}\\pi}{24} - \\dfrac{1}{8}$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "ai_rubric": {
+          "Integration by Parts": "Integration by parts gives $Ax^2\\cos2x-\\int Bx\\cos2x\\,dx$. Derives $-\\dfrac12x^2\\cos2x+\\dfrac12x\\sin2x+\\dfrac14\\cos2x$. The final result is $-\\dfrac{\\pi^2}{144}+\\dfrac{\\sqrt3\\pi}{24}-\\dfrac18$."
+        },
+        "criteria_source": "mark_scheme_structured"
+      }
+    }
+  ]
+}

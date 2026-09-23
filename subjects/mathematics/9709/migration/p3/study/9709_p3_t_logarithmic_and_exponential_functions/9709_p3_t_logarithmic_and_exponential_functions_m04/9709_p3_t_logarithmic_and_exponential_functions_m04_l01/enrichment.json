@@ -1,0 +1,1589 @@
+{
+  "schema_version": "9709_math_lesson_enrichment_v1",
+  "lesson_id": "9709_p3_t_logarithmic_and_exponential_functions_m04_l01",
+  "topic_id": "9709_p3_t_logarithmic_and_exponential_functions",
+  "numerical_values_checked": false,
+  "lesson_scope": "Numerical solutions of transcendental exponential and logarithmic equations, sign-change root bracketing, fixed-point iterations, convergence analysis, and decimal precision verification.",
+  "questions": [
+    {
+      "question_id": "9709_p3_t_logarithmic_and_exponential_functions_m04_l01_drq01",
+      "sequence": 1,
+      "difficulty": "easy",
+      "difficulty_reason": "Drill: Sign change root location for exponential equation.",
+      "source_question_id": "9709_m19_32_q2",
+      "source_role": "foundational_drill",
+      "dependency_role": "none",
+      "dependency_refs": [],
+      "parts": [
+        {
+          "part_id": "9709_p3_t_logarithmic_and_exponential_functions_m04_l01_drq01_p01",
+          "difficulty": "easy",
+          "question_pattern_ids": [
+            "9709_p3_pattern_root_finding_sign_change",
+            "9709_p3_pattern_fixed_point_iteration"
+          ],
+          "source_evidence": {
+            "question_id": "9709_m19_32_q2",
+            "part_id": "9709_m19_32_q2",
+            "legacy_practice_tier": "core",
+            "product_role": "warm_up_drill",
+            "structural_inspiration": "Sign change root location for exponential equation."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Define $f(x) = \\mathrm{e}^x + x - 3$.",
+            "Evaluate $f(0)$ and $f(1)$.",
+            "Note that $f(0) < 0$ and $f(1) > 0$, confirming a root by sign change."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Evaluate $f(x) = \\mathrm{e}^x + x - 3$ at $x = 0$ and $x = 1$:\n$$f(0) = \\mathrm{e}^0 + 0 - 3 = 1 - 3 = -2 < 0$$\n$$f(1) = \\mathrm{e}^1 + 1 - 3 = \\mathrm{e} - 2 \\approx 0.718 > 0$$"
+            },
+            {
+              "step": 2,
+              "text": "Conclude that because $f(x)$ is continuous and changes sign, a root exists in $[0, 1]$."
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_logarithmic_and_exponential_functions_m04_l01_drq01_p01_mp01",
+                "observable": "Evaluates $f(0) = 1 + 0 - 3 = -2$ and $f(1) = \\mathrm{e} + 1 - 3 = \\mathrm{e} - 2 \\approx 0.718$."
+              },
+              {
+                "criterion_id": "9709_p3_t_logarithmic_and_exponential_functions_m04_l01_drq01_p01_mp02",
+                "observable": "States that the sign change proves the existence of a root in $[0, 1]$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_applying_logarithm_laws"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_applying_logarithm_laws"
+            ],
+            "method_ids": [
+              "9709_p3_method_applying_logarithm_laws"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        }
+      ],
+      "_numerical_values_checked": false
+    },
+    {
+      "question_id": "9709_p3_t_logarithmic_and_exponential_functions_m04_l01_drq02",
+      "sequence": 2,
+      "difficulty": "easy",
+      "difficulty_reason": "Drill: Logarithmic iterative rearrangement.",
+      "source_question_id": "9709_m21_32_q9",
+      "source_role": "foundational_drill",
+      "dependency_role": "none",
+      "dependency_refs": [],
+      "parts": [
+        {
+          "part_id": "9709_p3_t_logarithmic_and_exponential_functions_m04_l01_drq02_p01",
+          "difficulty": "easy",
+          "question_pattern_ids": [
+            "9709_p3_pattern_root_finding_sign_change",
+            "9709_p3_pattern_fixed_point_iteration"
+          ],
+          "source_evidence": {
+            "question_id": "9709_m21_32_q9",
+            "part_id": "9709_m21_32_q9",
+            "legacy_practice_tier": "core",
+            "product_role": "warm_up_drill",
+            "structural_inspiration": "Logarithmic iterative rearrangement."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Take the natural logarithm of both sides: $\\ln(\\mathrm{e}^{2x}) = \\ln(4x + 1)$.",
+            "Simplify $\\ln(\\mathrm{e}^{2x}) = 2x$.",
+            "Divide by 2."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Apply natural logarithm to both sides:\n$$\\ln(\\mathrm{e}^{2x}) = \\ln(4x + 1) \\implies 2x = \\ln(4x + 1)$$"
+            },
+            {
+              "step": 2,
+              "text": "Divide by 2:\n$$x = \\frac{1}{2}\\ln(4x + 1)$$"
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_logarithmic_and_exponential_functions_m04_l01_drq02_p01_mp01",
+                "observable": "Takes natural logarithms on both sides: $2x = \\ln(4x + 1)$."
+              },
+              {
+                "criterion_id": "9709_p3_t_logarithmic_and_exponential_functions_m04_l01_drq02_p01_mp02",
+                "observable": "Divides by 2 to obtain $x = \\frac{1}{2}\\ln(4x + 1)$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_applying_logarithm_laws"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_applying_logarithm_laws"
+            ],
+            "method_ids": [
+              "9709_p3_method_applying_logarithm_laws"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        }
+      ],
+      "_numerical_values_checked": false
+    },
+    {
+      "question_id": "9709_p3_t_logarithmic_and_exponential_functions_m04_l01_drq03",
+      "sequence": 3,
+      "difficulty": "easy",
+      "difficulty_reason": "Drill: Fixed-point iteration step computation.",
+      "source_question_id": "9709_s17_31_q5",
+      "source_role": "foundational_drill",
+      "dependency_role": "none",
+      "dependency_refs": [],
+      "parts": [
+        {
+          "part_id": "9709_p3_t_logarithmic_and_exponential_functions_m04_l01_drq03_p01",
+          "difficulty": "easy",
+          "question_pattern_ids": [
+            "9709_p3_pattern_root_finding_sign_change",
+            "9709_p3_pattern_fixed_point_iteration"
+          ],
+          "source_evidence": {
+            "question_id": "9709_s17_31_q5",
+            "part_id": "9709_s17_31_q5",
+            "legacy_practice_tier": "core",
+            "product_role": "warm_up_drill",
+            "structural_inspiration": "Fixed-point iteration step computation."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "For $x_2$: $\\frac{1}{2}\\ln(3(1) + 2) = \\frac{1}{2}\\ln(5) = 0.8047$.",
+            "For $x_3$: $\\frac{1}{2}\\ln(3(0.8047) + 2) = \\frac{1}{2}\\ln(4.4141) = 0.7424$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Compute $x_2$ from $x_1 = 1.0$:\n$$x_2 = \\frac{1}{2}\\ln(3(1.0) + 2) = \\frac{1}{2}\\ln(5) = \\frac{1}{2}(1.60944) = 0.8047$$"
+            },
+            {
+              "step": 2,
+              "text": "Compute $x_3$ using $x_2$:\n$$x_3 = \\frac{1}{2}\\ln(3(0.8047) + 2) = \\frac{1}{2}\\ln(4.4141) = \\frac{1}{2}(1.48480) = 0.7424$$"
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_logarithmic_and_exponential_functions_m04_l01_drq03_p01_mp01",
+                "observable": "Calculates $x_2 = \\frac{1}{2}\\ln(5) \\approx 0.8047$."
+              },
+              {
+                "criterion_id": "9709_p3_t_logarithmic_and_exponential_functions_m04_l01_drq03_p01_mp02",
+                "observable": "Calculates $x_3 = \\frac{1}{2}\\ln(3(0.8047) + 2) = \\frac{1}{2}\\ln(4.4141) \\approx 0.7424$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_applying_logarithm_laws"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_applying_logarithm_laws"
+            ],
+            "method_ids": [
+              "9709_p3_method_applying_logarithm_laws"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        }
+      ],
+      "_numerical_values_checked": false
+    },
+    {
+      "question_id": "9709_p3_t_logarithmic_and_exponential_functions_m04_l01_drq04",
+      "sequence": 4,
+      "difficulty": "easy",
+      "difficulty_reason": "Drill: Logarithmic root location.",
+      "source_question_id": "9709_s17_33_q6",
+      "source_role": "foundational_drill",
+      "dependency_role": "none",
+      "dependency_refs": [],
+      "parts": [
+        {
+          "part_id": "9709_p3_t_logarithmic_and_exponential_functions_m04_l01_drq04_p01",
+          "difficulty": "easy",
+          "question_pattern_ids": [
+            "9709_p3_pattern_root_finding_sign_change",
+            "9709_p3_pattern_fixed_point_iteration"
+          ],
+          "source_evidence": {
+            "question_id": "9709_s17_33_q6",
+            "part_id": "9709_s17_33_q6",
+            "legacy_practice_tier": "core",
+            "product_role": "warm_up_drill",
+            "structural_inspiration": "Logarithmic root location."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Define $g(x) = x\\ln x - 2$.",
+            "Compute $g(2) = 2\\ln 2 - 2 = 1.3863 - 2 = -0.6137 < 0$.",
+            "Compute $g(3) = 3\\ln 3 - 2 = 3.2958 - 2 = +1.2958 > 0$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Define $g(x) = x\\ln x - 2$ and evaluate at the endpoints:\n$$g(2) = 2\\ln 2 - 2 \\approx 1.3863 - 2 = -0.6137 < 0$$\n$$g(3) = 3\\ln 3 - 2 \\approx 3.2958 - 2 = +1.2958 > 0$$"
+            },
+            {
+              "step": 2,
+              "text": "State that the change in sign proves the root lies between $2$ and $3$."
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_logarithmic_and_exponential_functions_m04_l01_drq04_p01_mp01",
+                "observable": "Evaluates $g(2) = 2\\ln 2 - 2 \\approx -0.6137$ and $g(3) = 3\\ln 3 - 2 \\approx +1.2958$."
+              },
+              {
+                "criterion_id": "9709_p3_t_logarithmic_and_exponential_functions_m04_l01_drq04_p01_mp02",
+                "observable": "Concludes root exists in $[2, 3]$ due to sign change."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_applying_logarithm_laws"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_applying_logarithm_laws"
+            ],
+            "method_ids": [
+              "9709_p3_method_applying_logarithm_laws"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        }
+      ],
+      "_numerical_values_checked": false
+    },
+    {
+      "question_id": "9709_p3_t_logarithmic_and_exponential_functions_m04_l01_drq05",
+      "sequence": 5,
+      "difficulty": "easy",
+      "difficulty_reason": "Drill: Decimal precision verification interval rule.",
+      "source_question_id": "9709_s20_33_q6",
+      "source_role": "foundational_drill",
+      "dependency_role": "none",
+      "dependency_refs": [],
+      "parts": [
+        {
+          "part_id": "9709_p3_t_logarithmic_and_exponential_functions_m04_l01_drq05_p01",
+          "difficulty": "easy",
+          "question_pattern_ids": [
+            "9709_p3_pattern_root_finding_sign_change",
+            "9709_p3_pattern_fixed_point_iteration"
+          ],
+          "source_evidence": {
+            "question_id": "9709_s20_33_q6",
+            "part_id": "9709_s20_33_q6",
+            "legacy_practice_tier": "core",
+            "product_role": "warm_up_drill",
+            "structural_inspiration": "Decimal precision verification interval rule."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "The precision is 2 decimal places, so the tolerance is $\\pm 0.005$.",
+            "Interval: $[1.445, 1.455]$.",
+            "Evaluate $f(1.445)$ and $f(1.455)$ and confirm opposite signs."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Determine the bounding interval using the half-unit rule for 2 decimal places:\n$$[1.45 - 0.005, \\; 1.45 + 0.005] = [1.445, \\; 1.455]$$"
+            },
+            {
+              "step": 2,
+              "text": "Evaluate $f(1.445)$ and $f(1.455)$ and verify they have opposite signs, which proves the root rounds to $1.45$."
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_logarithmic_and_exponential_functions_m04_l01_drq05_p01_mp01",
+                "observable": "Identifies the bounding interval $[1.45 - 0.005, 1.45 + 0.005] = [1.445, 1.455]$."
+              },
+              {
+                "criterion_id": "9709_p3_t_logarithmic_and_exponential_functions_m04_l01_drq05_p01_mp02",
+                "observable": "States that $f(1.445)$ and $f(1.455)$ must be evaluated."
+              },
+              {
+                "criterion_id": "9709_p3_t_logarithmic_and_exponential_functions_m04_l01_drq05_p01_mp03",
+                "observable": "States that a sign change between $f(1.445)$ and $f(1.455)$ proves the root rounds to $1.45$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_applying_logarithm_laws"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_applying_logarithm_laws"
+            ],
+            "method_ids": [
+              "9709_p3_method_applying_logarithm_laws"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        }
+      ],
+      "_numerical_values_checked": false
+    },
+    {
+      "question_id": "9709_p3_t_logarithmic_and_exponential_functions_m04_l01_drq06",
+      "sequence": 6,
+      "difficulty": "easy",
+      "difficulty_reason": "Drill: Rational log iteration calculation.",
+      "source_question_id": "9709_w22_32_q9",
+      "source_role": "foundational_drill",
+      "dependency_role": "none",
+      "dependency_refs": [],
+      "parts": [
+        {
+          "part_id": "9709_p3_t_logarithmic_and_exponential_functions_m04_l01_drq06_p01",
+          "difficulty": "easy",
+          "question_pattern_ids": [
+            "9709_p3_pattern_root_finding_sign_change",
+            "9709_p3_pattern_fixed_point_iteration"
+          ],
+          "source_evidence": {
+            "question_id": "9709_w22_32_q9",
+            "part_id": "9709_w22_32_q9",
+            "legacy_practice_tier": "core",
+            "product_role": "warm_up_drill",
+            "structural_inspiration": "Rational log iteration calculation."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "$x_2 = \\ln(10 / 3.2) = \\ln(3.125) = 1.1394$.",
+            "$x_3 = \\ln(10 / (1.1394 + 2)) = \\ln(10 / 3.1394) = \\ln(3.1853) = 1.1585$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Calculate $x_2$ using $x_1 = 1.2$:\n$$x_2 = \\ln\\left(\\frac{10}{1.2 + 2}\\right) = \\ln\\left(\\frac{10}{3.2}\\right) = \\ln(3.125) \\approx 1.1394$$"
+            },
+            {
+              "step": 2,
+              "text": "Calculate $x_3$ using $x_2 = 1.1394$:\n$$x_3 = \\ln\\left(\\frac{10}{1.1394 + 2}\\right) = \\ln\\left(\\frac{10}{3.1394}\\right) = \\ln(3.1853) \\approx 1.1585$$"
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_logarithmic_and_exponential_functions_m04_l01_drq06_p01_mp01",
+                "observable": "Calculates $x_2 = \\ln(10/3.2) = \\ln(3.125) \\approx 1.1394$."
+              },
+              {
+                "criterion_id": "9709_p3_t_logarithmic_and_exponential_functions_m04_l01_drq06_p01_mp02",
+                "observable": "Substitutes $x_2$ into formula: $x_3 = \\ln(10 / 3.1394)$."
+              },
+              {
+                "criterion_id": "9709_p3_t_logarithmic_and_exponential_functions_m04_l01_drq06_p01_mp03",
+                "observable": "Obtains $x_3 \\approx 1.1585$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_applying_logarithm_laws"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_applying_logarithm_laws"
+            ],
+            "method_ids": [
+              "9709_p3_method_applying_logarithm_laws"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        }
+      ],
+      "_numerical_values_checked": false
+    },
+    {
+      "question_id": "9709_p3_t_logarithmic_and_exponential_functions_m04_l01_cpq01",
+      "sequence": 7,
+      "difficulty": "easy",
+      "difficulty_reason": "Structured: Exponential linear equation root location.",
+      "source_question_id": "9709_m19_32_q2",
+      "source_role": "core_concept",
+      "dependency_role": "none",
+      "dependency_refs": [],
+      "parts": [
+        {
+          "part_id": "9709_p3_t_logarithmic_and_exponential_functions_m04_l01_cpq01_p01",
+          "difficulty": "easy",
+          "question_pattern_ids": [
+            "9709_p3_pattern_root_finding_sign_change",
+            "9709_p3_pattern_fixed_point_iteration"
+          ],
+          "source_evidence": {
+            "question_id": "9709_m19_32_q2",
+            "part_id": "9709_m19_32_q2",
+            "legacy_practice_tier": "core",
+            "product_role": "core_practice",
+            "structural_inspiration": "Exponential linear equation root location."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Define $f(x) = \\mathrm{e}^{-x} - 2x + 1$.",
+            "Calculate $f(0.6) = 0.5488 - 1.2 + 1 = +0.3488 > 0$.",
+            "Calculate $f(0.8) = 0.4493 - 1.6 + 1 = -0.1507 < 0$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Set $f(x) = \\mathrm{e}^{-x} - 2x + 1$ and evaluate at the interval limits:\n$$f(0.6) = \\mathrm{e}^{-0.6} - 2(0.6) + 1 = 0.5488 - 1.2 + 1 = +0.3488 > 0$$\n$$f(0.8) = \\mathrm{e}^{-0.8} - 2(0.8) + 1 = 0.4493 - 1.6 + 1 = -0.1507 < 0$$"
+            },
+            {
+              "step": 2,
+              "text": "Conclude that the sign change across the continuous function guarantees a root in $[0.6, 0.8]$."
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_logarithmic_and_exponential_functions_m04_l01_cpq01_p01_mp01",
+                "observable": "Evaluates $f(0.6) = \\mathrm{e}^{-0.6} - 2(0.6) + 1 \\approx +0.3488$ and $f(0.8) = \\mathrm{e}^{-0.8} - 2(0.8) + 1 \\approx -0.1507$."
+              },
+              {
+                "criterion_id": "9709_p3_t_logarithmic_and_exponential_functions_m04_l01_cpq01_p01_mp02",
+                "observable": "Concludes that the sign change proves the root lies in $[0.6, 0.8]$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_applying_logarithm_laws"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_applying_logarithm_laws"
+            ],
+            "method_ids": [
+              "9709_p3_method_applying_logarithm_laws"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        },
+        {
+          "part_id": "9709_p3_t_logarithmic_and_exponential_functions_m04_l01_cpq01_p02",
+          "difficulty": "easy",
+          "question_pattern_ids": [
+            "9709_p3_pattern_root_finding_sign_change",
+            "9709_p3_pattern_fixed_point_iteration"
+          ],
+          "source_evidence": {
+            "question_id": "9709_m19_32_q2",
+            "part_id": "9709_m19_32_q2",
+            "legacy_practice_tier": "core",
+            "product_role": "core_practice",
+            "structural_inspiration": "Fixed-point iteration to 2 decimal places."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [
+            "9709_p3_t_logarithmic_and_exponential_functions_m04_l01_cpq01_p01"
+          ],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "$x_2 = 0.5(1 + \\mathrm{e}^{-0.7}) = 0.7483$.",
+            "$x_3 = 0.5(1 + \\mathrm{e}^{-0.7483}) = 0.7366$.",
+            "$x_4 = 0.5(1 + \\mathrm{e}^{-0.7366}) = 0.7394$.",
+            "$x_5 = 0.5(1 + \\mathrm{e}^{-0.7394}) = 0.7387 \\implies 0.74$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Perform sequential iterations starting from $x_1 = 0.7$:\n$$x_2 = \\frac{1}{2}\\left(1 + \\mathrm{e}^{-0.7}\\right) = \\frac{1}{2}(1 + 0.49659) = 0.7483$$\n$$x_3 = \\frac{1}{2}\\left(1 + \\mathrm{e}^{-0.7483}\\right) = \\frac{1}{2}(1 + 0.47317) = 0.7366$$\n$$x_4 = \\frac{1}{2}\\left(1 + \\mathrm{e}^{-0.7366}\\right) = \\frac{1}{2}(1 + 0.47874) = 0.7394$$\n$$x_5 = \\frac{1}{2}\\left(1 + \\mathrm{e}^{-0.7394}\\right) = \\frac{1}{2}(1 + 0.47740) = 0.7387$$"
+            },
+            {
+              "step": 2,
+              "text": "Round the stabilized values to 2 decimal places:\n$$x = 0.74$$"
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_logarithmic_and_exponential_functions_m04_l01_cpq01_p02_mp01",
+                "observable": "Computes iterations correctly: $x_2 \\approx 0.7483, x_3 \\approx 0.7366$."
+              },
+              {
+                "criterion_id": "9709_p3_t_logarithmic_and_exponential_functions_m04_l01_cpq01_p02_mp02",
+                "observable": "Continues iteration: $x_4 \\approx 0.7394, x_5 \\approx 0.7387$."
+              },
+              {
+                "criterion_id": "9709_p3_t_logarithmic_and_exponential_functions_m04_l01_cpq01_p02_mp03",
+                "observable": "Concludes with $x = 0.74$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_applying_logarithm_laws"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_applying_logarithm_laws"
+            ],
+            "method_ids": [
+              "9709_p3_method_applying_logarithm_laws"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        }
+      ],
+      "_numerical_values_checked": false
+    },
+    {
+      "question_id": "9709_p3_t_logarithmic_and_exponential_functions_m04_l01_cpq02",
+      "sequence": 8,
+      "difficulty": "medium",
+      "difficulty_reason": "Structured: Logarithmic cubic equation root location.",
+      "source_question_id": "9709_m21_32_q9",
+      "source_role": "core_concept",
+      "dependency_role": "none",
+      "dependency_refs": [],
+      "parts": [
+        {
+          "part_id": "9709_p3_t_logarithmic_and_exponential_functions_m04_l01_cpq02_p01",
+          "difficulty": "medium",
+          "question_pattern_ids": [
+            "9709_p3_pattern_root_finding_sign_change",
+            "9709_p3_pattern_fixed_point_iteration"
+          ],
+          "source_evidence": {
+            "question_id": "9709_m21_32_q9",
+            "part_id": "9709_m21_32_q9",
+            "legacy_practice_tier": "core",
+            "product_role": "core_practice",
+            "structural_inspiration": "Logarithmic cubic equation root location."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Let $f(x) = x^3 - \\ln(x + 2)$.",
+            "$f(0.9) = 0.9^3 - \\ln(2.9) = 0.729 - 1.0647 = -0.3357 < 0$.",
+            "$f(1.1) = 1.1^3 - \\ln(3.1) = 1.331 - 1.1314 = +0.1996 > 0$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Define $f(x) = x^3 - \\ln(x + 2)$ and evaluate at the boundary points:\n$$f(0.9) = 0.9^3 - \\ln(0.9 + 2) = 0.729 - \\ln(2.9) = 0.729 - 1.0647 = -0.3357 < 0$$\n$$f(1.1) = 1.1^3 - \\ln(1.1 + 2) = 1.331 - \\ln(3.1) = 1.331 - 1.1314 = +0.1996 > 0$$"
+            },
+            {
+              "step": 2,
+              "text": "Conclude that because $f(x)$ changes sign on $[0.9, 1.1]$, a root exists."
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_logarithmic_and_exponential_functions_m04_l01_cpq02_p01_mp01",
+                "observable": "Defines continuous function $f(x) = x^3 - \\ln(x + 2)$."
+              },
+              {
+                "criterion_id": "9709_p3_t_logarithmic_and_exponential_functions_m04_l01_cpq02_p01_mp02",
+                "observable": "Evaluates $f(0.9) = 0.729 - 1.0647 = -0.3357$ and $f(1.1) = 1.331 - 1.1314 = +0.1996$."
+              },
+              {
+                "criterion_id": "9709_p3_t_logarithmic_and_exponential_functions_m04_l01_cpq02_p01_mp03",
+                "observable": "Concludes root exists in $[0.9, 1.1]$ by sign change."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_applying_logarithm_laws"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_applying_logarithm_laws"
+            ],
+            "method_ids": [
+              "9709_p3_method_applying_logarithm_laws"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        },
+        {
+          "part_id": "9709_p3_t_logarithmic_and_exponential_functions_m04_l01_cpq02_p02",
+          "difficulty": "medium",
+          "question_pattern_ids": [
+            "9709_p3_pattern_root_finding_sign_change",
+            "9709_p3_pattern_fixed_point_iteration"
+          ],
+          "source_evidence": {
+            "question_id": "9709_m21_32_q9",
+            "part_id": "9709_m21_32_q9",
+            "legacy_practice_tier": "core",
+            "product_role": "core_practice",
+            "structural_inspiration": "Cube root logarithmic iteration to 3 decimal places."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [
+            "9709_p3_t_logarithmic_and_exponential_functions_m04_l01_cpq02_p01"
+          ],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "$x_2 = (\\ln 3)^{1/3} = (1.0986)^{1/3} = 1.0319$.",
+            "$x_3 = (\\ln 3.0319)^{1/3} = (1.1092)^{1/3} = 1.0352$.",
+            "$x_4 = (\\ln 3.0352)^{1/3} = (1.1103)^{1/3} = 1.0355$.",
+            "Round to 3 d.p.: $1.036$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Carry out fixed-point iterations from $x_1 = 1.0$:\n$$x_2 = (\\ln(1.0 + 2))^{1/3} = (\\ln 3)^{1/3} = (1.098612)^{1/3} = 1.0319$$\n$$x_3 = (\\ln(1.0319 + 2))^{1/3} = (\\ln 3.0319)^{1/3} = (1.109189)^{1/3} = 1.0352$$\n$$x_4 = (\\ln(1.0352 + 2))^{1/3} = (\\ln 3.0352)^{1/3} = (1.110277)^{1/3} = 1.0355$$\n$$x_5 = (\\ln(1.0355 + 2))^{1/3} = (\\ln 3.0355)^{1/3} = (1.110376)^{1/3} = 1.0355$$"
+            },
+            {
+              "step": 2,
+              "text": "Round to 3 decimal places:\n$$x = 1.036$$"
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_logarithmic_and_exponential_functions_m04_l01_cpq02_p02_mp01",
+                "observable": "Computes $x_2 = (\\ln 3)^{1/3} \\approx 1.0319$."
+              },
+              {
+                "criterion_id": "9709_p3_t_logarithmic_and_exponential_functions_m04_l01_cpq02_p02_mp02",
+                "observable": "Computes subsequent iterations: $x_3 \\approx 1.0352, x_4 \\approx 1.0355$."
+              },
+              {
+                "criterion_id": "9709_p3_t_logarithmic_and_exponential_functions_m04_l01_cpq02_p02_mp03",
+                "observable": "Obtains $x = 1.036$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_applying_logarithm_laws"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_applying_logarithm_laws"
+            ],
+            "method_ids": [
+              "9709_p3_method_applying_logarithm_laws"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        }
+      ],
+      "_numerical_values_checked": false
+    },
+    {
+      "question_id": "9709_p3_t_logarithmic_and_exponential_functions_m04_l01_cpq03",
+      "sequence": 9,
+      "difficulty": "medium",
+      "difficulty_reason": "Structured: Exponential linear curve intersection formulation.",
+      "source_question_id": "9709_s17_31_q5",
+      "source_role": "core_concept",
+      "dependency_role": "none",
+      "dependency_refs": [],
+      "parts": [
+        {
+          "part_id": "9709_p3_t_logarithmic_and_exponential_functions_m04_l01_cpq03_p01",
+          "difficulty": "medium",
+          "question_pattern_ids": [
+            "9709_p3_pattern_root_finding_sign_change",
+            "9709_p3_pattern_fixed_point_iteration"
+          ],
+          "source_evidence": {
+            "question_id": "9709_s17_31_q5",
+            "part_id": "9709_s17_31_q5",
+            "legacy_practice_tier": "core",
+            "product_role": "core_practice",
+            "structural_inspiration": "Exponential linear curve intersection formulation."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Equate equations: $x - 1 = 3\\mathrm{e}^{-2x} \\implies x = 1 + 3\\mathrm{e}^{-2x}$.",
+            "Let $f(x) = x - 1 - 3\\mathrm{e}^{-2x}$.",
+            "Calculate $f(1.2) = 0.2 - 3(0.0907) = -0.0722 < 0$.",
+            "Calculate $f(1.5) = 0.5 - 3(0.0498) = +0.3506 > 0$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Equate curve equations to form the intersection relation:\n$$x - 1 = 3\\mathrm{e}^{-2x} \\implies x = 1 + 3\\mathrm{e}^{-2x}$$"
+            },
+            {
+              "step": 2,
+              "text": "Evaluate $f(x) = x - 1 - 3\\mathrm{e}^{-2x}$ at $x = 1.2$ and $x = 1.5$:\n$$f(1.2) = 1.2 - 1 - 3\\mathrm{e}^{-2.4} = 0.2 - 3(0.09072) = -0.0722 < 0$$\n$$f(1.5) = 1.5 - 1 - 3\\mathrm{e}^{-3.0} = 0.5 - 3(0.04979) = +0.3506 > 0$$"
+            },
+            {
+              "step": 3,
+              "text": "Conclude that the sign change proves the root lies in $[1.2, 1.5]$."
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_logarithmic_and_exponential_functions_m04_l01_cpq03_p01_mp01",
+                "observable": "Equates $x - 1 = 3\\mathrm{e}^{-2x} \\implies x = 1 + 3\\mathrm{e}^{-2x}$."
+              },
+              {
+                "criterion_id": "9709_p3_t_logarithmic_and_exponential_functions_m04_l01_cpq03_p01_mp02",
+                "observable": "Evaluates $f(1.2) = 1.2 - 1 - 3\\mathrm{e}^{-2.4} \\approx -0.0722$ and $f(1.5) = 1.5 - 1 - 3\\mathrm{e}^{-3.0} \\approx +0.3506$."
+              },
+              {
+                "criterion_id": "9709_p3_t_logarithmic_and_exponential_functions_m04_l01_cpq03_p01_mp03",
+                "observable": "Concludes root exists in $[1.2, 1.5]$ by sign change."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_applying_logarithm_laws"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_applying_logarithm_laws"
+            ],
+            "method_ids": [
+              "9709_p3_method_applying_logarithm_laws"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        },
+        {
+          "part_id": "9709_p3_t_logarithmic_and_exponential_functions_m04_l01_cpq03_p02",
+          "difficulty": "medium",
+          "question_pattern_ids": [
+            "9709_p3_pattern_root_finding_sign_change",
+            "9709_p3_pattern_fixed_point_iteration"
+          ],
+          "source_evidence": {
+            "question_id": "9709_s17_31_q5",
+            "part_id": "9709_s17_31_q5",
+            "legacy_practice_tier": "core",
+            "product_role": "core_practice",
+            "structural_inspiration": "Intersection coordinate evaluation via fixed-point iteration."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [
+            "9709_p3_t_logarithmic_and_exponential_functions_m04_l01_cpq03_p01"
+          ],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "$x_2 = 1 + 3\\mathrm{e}^{-2.6} = 1.2228$.",
+            "$x_3 = 1 + 3\\mathrm{e}^{-2.4456} = 1.2600$.",
+            "$x_4 = 1 + 3\\mathrm{e}^{-2.5200} = 1.2414$.",
+            "$x_5 = 1 + 3\\mathrm{e}^{-2.4828} = 1.2505 \\implies x = 1.25$.",
+            "$y = x - 1 = 1.25 - 1 = 0.25$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Compute iterative sequence starting from $x_1 = 1.3$:\n$$x_2 = 1 + 3\\mathrm{e}^{-2(1.3)} = 1 + 3\\mathrm{e}^{-2.6} = 1.2228$$\n$$x_3 = 1 + 3\\mathrm{e}^{-2(1.2228)} = 1.2600$$\n$$x_4 = 1 + 3\\mathrm{e}^{-2(1.2600)} = 1.2414$$\n$$x_5 = 1 + 3\\mathrm{e}^{-2(1.2414)} = 1.2505$$\n$$x_6 = 1.2460, \\quad x_7 = 1.2482$$"
+            },
+            {
+              "step": 2,
+              "text": "Round to 2 decimal places and find $y$:\n$$x = 1.25$$\n$$y = x - 1 = 1.25 - 1 = 0.25$$"
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_logarithmic_and_exponential_functions_m04_l01_cpq03_p02_mp01",
+                "observable": "Calculates iterations: $x_2 \\approx 1.2228, x_3 \\approx 1.2600, x_4 \\approx 1.2414$."
+              },
+              {
+                "criterion_id": "9709_p3_t_logarithmic_and_exponential_functions_m04_l01_cpq03_p02_mp02",
+                "observable": "Obtains $x = 1.25$ correct to 2 decimal places."
+              },
+              {
+                "criterion_id": "9709_p3_t_logarithmic_and_exponential_functions_m04_l01_cpq03_p02_mp03",
+                "observable": "Finds $y = 1.25 - 1 = 0.25$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_applying_logarithm_laws"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_applying_logarithm_laws"
+            ],
+            "method_ids": [
+              "9709_p3_method_applying_logarithm_laws"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        }
+      ],
+      "_numerical_values_checked": false
+    },
+    {
+      "question_id": "9709_p3_t_logarithmic_and_exponential_functions_m04_l01_cpq04",
+      "sequence": 10,
+      "difficulty": "medium",
+      "difficulty_reason": "Structured: Logarithmic rational equation rearrangement and root bracketing.",
+      "source_question_id": "9709_s17_33_q6",
+      "source_role": "core_concept",
+      "dependency_role": "none",
+      "dependency_refs": [],
+      "parts": [
+        {
+          "part_id": "9709_p3_t_logarithmic_and_exponential_functions_m04_l01_cpq04_p01",
+          "difficulty": "medium",
+          "question_pattern_ids": [
+            "9709_p3_pattern_root_finding_sign_change",
+            "9709_p3_pattern_fixed_point_iteration"
+          ],
+          "source_evidence": {
+            "question_id": "9709_s17_33_q6",
+            "part_id": "9709_s17_33_q6",
+            "legacy_practice_tier": "core",
+            "product_role": "core_practice",
+            "structural_inspiration": "Logarithmic rational equation rearrangement and root bracketing."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Multiply by $x$ and divide by $\\ln(2x + 1)$ to get $x = \\frac{3}{\\ln(2x + 1)}$.",
+            "Let $f(x) = x\\ln(2x + 1) - 3$.",
+            "Evaluate $f(1.5) = 1.5\\ln(4) - 3 = 2.0794 - 3 = -0.9206 < 0$.",
+            "Evaluate $f(2.0) = 2\\ln(5) - 3 = 3.2189 - 3 = +0.2189 > 0$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Rearrange the equation:\n$$\\ln(2x + 1) = \\frac{3}{x} \\implies x\\ln(2x + 1) = 3 \\implies x = \\frac{3}{\\ln(2x + 1)}$$"
+            },
+            {
+              "step": 2,
+              "text": "Evaluate $f(x) = x\\ln(2x + 1) - 3$ at $x = 1.5$ and $x = 2.0$:\n$$f(1.5) = 1.5\\ln(2(1.5) + 1) - 3 = 1.5\\ln(4) - 3 = 2.0794 - 3 = -0.9206 < 0$$\n$$f(2.0) = 2.0\\ln(2(2.0) + 1) - 3 = 2.0\\ln(5) - 3 = 3.2189 - 3 = +0.2189 > 0$$"
+            },
+            {
+              "step": 3,
+              "text": "Conclude that the sign change across $[1.5, 2.0]$ confirms the presence of a root."
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_logarithmic_and_exponential_functions_m04_l01_cpq04_p01_mp01",
+                "observable": "Rearranges $\\ln(2x + 1) = \\frac{3}{x} \\implies x = \\frac{3}{\\ln(2x + 1)}$."
+              },
+              {
+                "criterion_id": "9709_p3_t_logarithmic_and_exponential_functions_m04_l01_cpq04_p01_mp02",
+                "observable": "Evaluates $f(1.5) = 1.5\\ln(4) - 3 \\approx -0.9206$ and $f(2.0) = 2.0\\ln(5) - 3 \\approx +0.2189$."
+              },
+              {
+                "criterion_id": "9709_p3_t_logarithmic_and_exponential_functions_m04_l01_cpq04_p01_mp03",
+                "observable": "Concludes root exists in $[1.5, 2.0]$ by sign change."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_applying_logarithm_laws"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_applying_logarithm_laws"
+            ],
+            "method_ids": [
+              "9709_p3_method_applying_logarithm_laws"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        },
+        {
+          "part_id": "9709_p3_t_logarithmic_and_exponential_functions_m04_l01_cpq04_p02",
+          "difficulty": "medium",
+          "question_pattern_ids": [
+            "9709_p3_pattern_root_finding_sign_change",
+            "9709_p3_pattern_fixed_point_iteration"
+          ],
+          "source_evidence": {
+            "question_id": "9709_s17_33_q6",
+            "part_id": "9709_s17_33_q6",
+            "legacy_practice_tier": "core",
+            "product_role": "core_practice",
+            "structural_inspiration": "Fixed-point iteration with bounding interval verification."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [
+            "9709_p3_t_logarithmic_and_exponential_functions_m04_l01_cpq04_p01"
+          ],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "$x_2 = 3/\\ln(4.4) = 2.0248$.",
+            "$x_3 = 3/\\ln(5.0496) = 1.8526$.",
+            "$x_4 = 3/\\ln(4.7052) = 1.9371$.",
+            "$x_5 = 3/\\ln(4.8742) = 1.8940 \\dots \\implies x = 1.91$.",
+            "Test $[1.905, 1.915]$: $f(1.905) = -0.0078 < 0$ and $f(1.915) = +0.0158 > 0$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Perform iterative calculations from $x_1 = 1.7$:\n$$x_2 = \\frac{3}{\\ln(2(1.7) + 1)} = \\frac{3}{\\ln(4.4)} = 2.0248$$\n$$x_3 = \\frac{3}{\\ln(2(2.0248) + 1)} = \\frac{3}{\\ln(5.0496)} = 1.8526$$\n$$x_4 = \\frac{3}{\\ln(2(1.8526) + 1)} = 1.9371$$\n$$x_5 = 1.8940, \\quad x_6 = 1.9156, \\quad x_7 = 1.9046, \\quad x_8 = 1.9102$$"
+            },
+            {
+              "step": 2,
+              "text": "Verify the candidate value $x = 1.91$ on interval $[1.905, 1.915]$:\n$$f(1.905) = 1.905\\ln(2(1.905) + 1) - 3 = 1.905\\ln(4.810) - 3 = 2.9922 - 3 = -0.0078 < 0$$\n$$f(1.915) = 1.915\\ln(2(1.915) + 1) - 3 = 1.915\\ln(4.830) - 3 = 3.0158 - 3 = +0.0158 > 0$$"
+            },
+            {
+              "step": 3,
+              "text": "Conclude that the sign change rigorously confirms $x = 1.91$ to 2 decimal places."
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_logarithmic_and_exponential_functions_m04_l01_cpq04_p02_mp01",
+                "observable": "Calculates iterations: $x_2 \\approx 2.0248, x_3 \\approx 1.8526, x_4 \\approx 1.9371$."
+              },
+              {
+                "criterion_id": "9709_p3_t_logarithmic_and_exponential_functions_m04_l01_cpq04_p02_mp02",
+                "observable": "Identifies $x = 1.91$."
+              },
+              {
+                "criterion_id": "9709_p3_t_logarithmic_and_exponential_functions_m04_l01_cpq04_p02_mp03",
+                "observable": "Tests bounding interval $[1.905, 1.915]$ on $f(x) = x\\ln(2x + 1) - 3$."
+              },
+              {
+                "criterion_id": "9709_p3_t_logarithmic_and_exponential_functions_m04_l01_cpq04_p02_mp04",
+                "observable": "Evaluates $f(1.905) \\approx -0.0078 < 0$ and $f(1.915) \\approx +0.0158 > 0$ to verify $1.91$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_applying_logarithm_laws"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_applying_logarithm_laws"
+            ],
+            "method_ids": [
+              "9709_p3_method_applying_logarithm_laws"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        }
+      ],
+      "_numerical_values_checked": false
+    },
+    {
+      "question_id": "9709_p3_t_logarithmic_and_exponential_functions_m04_l01_cpq05",
+      "sequence": 11,
+      "difficulty": "hard",
+      "difficulty_reason": "Structured: Stationary point analysis linked to unique root location.",
+      "source_question_id": "9709_s20_33_q6",
+      "source_role": "capstone_synthesis",
+      "dependency_role": "none",
+      "dependency_refs": [],
+      "parts": [
+        {
+          "part_id": "9709_p3_t_logarithmic_and_exponential_functions_m04_l01_cpq05_p01",
+          "difficulty": "hard",
+          "question_pattern_ids": [
+            "9709_p3_pattern_root_finding_sign_change",
+            "9709_p3_pattern_fixed_point_iteration"
+          ],
+          "source_evidence": {
+            "question_id": "9709_s20_33_q6",
+            "part_id": "9709_s20_33_q6",
+            "legacy_practice_tier": "capstone",
+            "product_role": "capstone_practice",
+            "structural_inspiration": "Stationary point analysis linked to unique root location."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Differentiate: $f'(x) = (2x + x^2)\\mathrm{e}^x = x(x + 2)\\mathrm{e}^x$.",
+            "Stationary points: $x = 0$ and $x = -2$.",
+            "For $x > 0$, $f'(x) > 0$, meaning $f(x)$ is strictly increasing from $f(0) = -5$, guaranteeing exactly one positive root.",
+            "Evaluate $f(1.0) = \\mathrm{e} - 5 = -2.28 < 0$ and $f(1.5) = 2.25(4.48) - 5 = +5.08 > 0$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Differentiate $f(x) = x^2 \\mathrm{e}^x - 5$ using the product rule:\n$$f'(x) = 2x\\mathrm{e}^x + x^2\\mathrm{e}^x = x(x + 2)\\mathrm{e}^x$$\n$$f'(x) = 0 \\implies x = 0 \\quad \\text{or} \\quad x = -2$$"
+            },
+            {
+              "step": 2,
+              "text": "Analyze the behavior for $x > 0$:\n$$\\text{For all } x > 0, \\; x > 0, \\; x + 2 > 0, \\; \\text{and } \\mathrm{e}^x > 0 \\implies f'(x) > 0$$\n$$\\text{Since } f(0) = -5 < 0 \\text{ and } f(x) \\text{ is strictly increasing, there is exactly one positive root.}$$"
+            },
+            {
+              "step": 3,
+              "text": "Evaluate at the interval boundaries $[1.0, 1.5]$:\n$$f(1.0) = 1.0^2 \\mathrm{e}^{1.0} - 5 = 2.718 - 5 = -2.282 < 0$$\n$$f(1.5) = 1.5^2 \\mathrm{e}^{1.5} - 5 = 2.25(4.4817) - 5 = +5.084 > 0$$\n$$\\text{Sign change confirms the root lies in } [1.0, 1.5].$$"
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_logarithmic_and_exponential_functions_m04_l01_cpq05_p01_mp01",
+                "observable": "Differentiates $f'(x) = 2x\\mathrm{e}^x + x^2\\mathrm{e}^x = x(x + 2)\\mathrm{e}^x$."
+              },
+              {
+                "criterion_id": "9709_p3_t_logarithmic_and_exponential_functions_m04_l01_cpq05_p01_mp02",
+                "observable": "Sets $f'(x) = 0 \\implies x = 0$ and $x = -2$."
+              },
+              {
+                "criterion_id": "9709_p3_t_logarithmic_and_exponential_functions_m04_l01_cpq05_p01_mp03",
+                "observable": "Explains that for $x > 0$, $f'(x) > 0$, so $f(x)$ is strictly increasing for $x > 0$, with $f(0) = -5 < 0$."
+              },
+              {
+                "criterion_id": "9709_p3_t_logarithmic_and_exponential_functions_m04_l01_cpq05_p01_mp04",
+                "observable": "Evaluates $f(1.0) = \\mathrm{e} - 5 \\approx -2.282 < 0$ and $f(1.5) = 2.25\\mathrm{e}^{1.5} - 5 \\approx +5.084 > 0$ to confirm root in $[1.0, 1.5]$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_applying_logarithm_laws"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_applying_logarithm_laws"
+            ],
+            "method_ids": [
+              "9709_p3_method_applying_logarithm_laws"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        },
+        {
+          "part_id": "9709_p3_t_logarithmic_and_exponential_functions_m04_l01_cpq05_p02",
+          "difficulty": "hard",
+          "question_pattern_ids": [
+            "9709_p3_pattern_root_finding_sign_change",
+            "9709_p3_pattern_fixed_point_iteration"
+          ],
+          "source_evidence": {
+            "question_id": "9709_s20_33_q6",
+            "part_id": "9709_s20_33_q6",
+            "legacy_practice_tier": "capstone",
+            "product_role": "capstone_practice",
+            "structural_inspiration": "Square root exponential iterative solution."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [
+            "9709_p3_t_logarithmic_and_exponential_functions_m04_l01_cpq05_p01"
+          ],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "$x^2 = 5/\\mathrm{e}^x = 5\\mathrm{e}^{-x} \\implies x = \\sqrt{5\\mathrm{e}^{-x}}$.",
+            "$x_2 = \\sqrt{5\\mathrm{e}^{-1.2}} = 1.2272$.",
+            "$x_3 = \\sqrt{5\\mathrm{e}^{-1.2272}} = 1.2106$.",
+            "$x_4 = \\sqrt{5\\mathrm{e}^{-1.2106}} = 1.2207$.",
+            "Continue until successive terms round to $1.217$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Rearrange the equation for positive $x$:\n$$x^2 \\mathrm{e}^x = 5 \\implies x^2 = \\frac{5}{\\mathrm{e}^x} = 5\\mathrm{e}^{-x} \\implies x = \\sqrt{5\\mathrm{e}^{-x}}$$"
+            },
+            {
+              "step": 2,
+              "text": "Compute iterations starting from $x_1 = 1.2$:\n$$x_2 = \\sqrt{5\\mathrm{e}^{-1.2}} = 1.2272$$\n$$x_3 = \\sqrt{5\\mathrm{e}^{-1.2272}} = 1.2106$$\n$$x_4 = \\sqrt{5\\mathrm{e}^{-1.2106}} = 1.2207$$\n$$x_5 = 1.2146, \\quad x_6 = 1.2183, \\quad x_7 = 1.2160, \\quad x_8 = 1.2174, \\quad x_9 = 1.2166$$"
+            },
+            {
+              "step": 3,
+              "text": "Round the stabilized values to 3 decimal places:\n$$\\alpha = 1.217$$"
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_logarithmic_and_exponential_functions_m04_l01_cpq05_p02_mp01",
+                "observable": "Rewrites $x^2 = 5\\mathrm{e}^{-x} \\implies x = \\sqrt{5\\mathrm{e}^{-x}}$."
+              },
+              {
+                "criterion_id": "9709_p3_t_logarithmic_and_exponential_functions_m04_l01_cpq05_p02_mp02",
+                "observable": "Calculates early iterations: $x_2 \\approx 1.2272, x_3 \\approx 1.2106, x_4 \\approx 1.2207$."
+              },
+              {
+                "criterion_id": "9709_p3_t_logarithmic_and_exponential_functions_m04_l01_cpq05_p02_mp03",
+                "observable": "Continues iteration: $x_5 \\approx 1.2146, x_6 \\approx 1.2183, x_7 \\approx 1.2160, x_8 \\approx 1.2174$."
+              },
+              {
+                "criterion_id": "9709_p3_t_logarithmic_and_exponential_functions_m04_l01_cpq05_p02_mp04",
+                "observable": "Concludes with $\\alpha = 1.217$."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_applying_logarithm_laws"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_applying_logarithm_laws"
+            ],
+            "method_ids": [
+              "9709_p3_method_applying_logarithm_laws"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        }
+      ],
+      "_numerical_values_checked": false
+    },
+    {
+      "question_id": "9709_p3_t_logarithmic_and_exponential_functions_m04_l01_cpq06",
+      "sequence": 12,
+      "difficulty": "hard",
+      "difficulty_reason": "Structured: Transcendental exponential rational equation root bracketing.",
+      "source_question_id": "9709_w22_32_q9",
+      "source_role": "capstone_synthesis",
+      "dependency_role": "none",
+      "dependency_refs": [],
+      "parts": [
+        {
+          "part_id": "9709_p3_t_logarithmic_and_exponential_functions_m04_l01_cpq06_p01",
+          "difficulty": "hard",
+          "question_pattern_ids": [
+            "9709_p3_pattern_root_finding_sign_change",
+            "9709_p3_pattern_fixed_point_iteration"
+          ],
+          "source_evidence": {
+            "question_id": "9709_w22_32_q9",
+            "part_id": "9709_w22_32_q9",
+            "legacy_practice_tier": "capstone",
+            "product_role": "capstone_practice",
+            "structural_inspiration": "Transcendental exponential rational equation root bracketing."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Take $\\ln$ on both sides: $\\ln(\\mathrm{e}^{0.5x}) = \\ln(10 / (x + 2)) \\implies 0.5x = \\ln(10 / (x + 2))$.",
+            "Multiply by 2: $x = 2\\ln\\left(\\frac{10}{x + 2}\\right)$.",
+            "Let $f(x) = \\mathrm{e}^{0.5x}(x + 2) - 10$.",
+            "Calculate $f(1.5) = 3.5(2.117) - 10 = -2.59 < 0$.",
+            "Calculate $f(2.0) = 4.0(2.718) - 10 = +0.87 > 0$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Take natural logarithms of both sides:\n$$\\mathrm{e}^{0.5x} = \\frac{10}{x + 2} \\implies 0.5x = \\ln\\left(\\frac{10}{x + 2}\\right) \\implies x = 2\\ln\\left(\\frac{10}{x + 2}\\right)$$"
+            },
+            {
+              "step": 2,
+              "text": "Define $f(x) = \\mathrm{e}^{0.5x}(x + 2) - 10$ and evaluate at the boundary points:\n$$f(1.5) = \\mathrm{e}^{0.75}(1.5 + 2) - 10 = (2.1170)(3.5) - 10 = 7.4095 - 10 = -2.5905 < 0$$\n$$f(2.0) = \\mathrm{e}^{1.0}(2.0 + 2) - 10 = (2.7183)(4.0) - 10 = 10.8731 - 10 = +0.8731 > 0$$"
+            },
+            {
+              "step": 3,
+              "text": "Conclude that the sign change proves the root lies in $[1.5, 2.0]$."
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_logarithmic_and_exponential_functions_m04_l01_cpq06_p01_mp01",
+                "observable": "Takes natural logs: $0.5x = \\ln\\left(\\frac{10}{x + 2}\\right) \\implies x = 2\\ln\\left(\\frac{10}{x + 2}\\right)$."
+              },
+              {
+                "criterion_id": "9709_p3_t_logarithmic_and_exponential_functions_m04_l01_cpq06_p01_mp02",
+                "observable": "Defines $f(x) = \\mathrm{e}^{0.5x}(x + 2) - 10$."
+              },
+              {
+                "criterion_id": "9709_p3_t_logarithmic_and_exponential_functions_m04_l01_cpq06_p01_mp03",
+                "observable": "Evaluates $f(1.5) = 3.5\\mathrm{e}^{0.75} - 10 \\approx -2.5905$ and $f(2.0) = 4.0\\mathrm{e}^{1.0} - 10 \\approx +0.8731$."
+              },
+              {
+                "criterion_id": "9709_p3_t_logarithmic_and_exponential_functions_m04_l01_cpq06_p01_mp04",
+                "observable": "Concludes root exists in $[1.5, 2.0]$ by sign change."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_applying_logarithm_laws"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_applying_logarithm_laws"
+            ],
+            "method_ids": [
+              "9709_p3_method_applying_logarithm_laws"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        },
+        {
+          "part_id": "9709_p3_t_logarithmic_and_exponential_functions_m04_l01_cpq06_p02",
+          "difficulty": "hard",
+          "question_pattern_ids": [
+            "9709_p3_pattern_root_finding_sign_change",
+            "9709_p3_pattern_fixed_point_iteration"
+          ],
+          "source_evidence": {
+            "question_id": "9709_w22_32_q9",
+            "part_id": "9709_w22_32_q9",
+            "legacy_practice_tier": "capstone",
+            "product_role": "capstone_practice",
+            "structural_inspiration": "Iterative sequence and 3 d.p. interval verification."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [
+            "9709_p3_t_logarithmic_and_exponential_functions_m04_l01_cpq06_p01"
+          ],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "$x_2 = 2\\ln(10 / 3.7) = 1.9885$.",
+            "$x_3 = 2\\ln(10 / 3.9885) = 1.8383$.",
+            "$x_4 = 2\\ln(10 / 3.8383) = 1.9150$.",
+            "$x_5 = 1.8755, x_6 = 1.8958 \\dots \\implies x = 1.889$.",
+            "Test $[1.8885, 1.8895]$: $f(1.8885) = -0.0032 < 0$, $f(1.8895) = +0.0044 > 0$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Iterate using $x_{n+1} = 2\\ln\\left(\\frac{10}{x_n + 2}\\right)$ starting from $x_1 = 1.7$:\n$$x_2 = 2\\ln\\left(\\frac{10}{3.7}\\right) = 1.9885$$\n$$x_3 = 2\\ln\\left(\\frac{10}{3.9885}\\right) = 1.8383$$\n$$x_4 = 2\\ln\\left(\\frac{10}{3.8383}\\right) = 1.9150$$\n$$x_5 = 1.8755, \\quad x_6 = 1.8958, \\quad x_7 = 1.8854, \\quad x_8 = 1.8907, \\quad x_9 = 1.8880, \\quad x_{10} = 1.8894$$"
+            },
+            {
+              "step": 2,
+              "text": "Verify the candidate value $x = 1.889$ on $[1.8885, 1.8895]$:\n$$f(1.8885) = \\mathrm{e}^{0.94425}(3.8885) - 10 = (2.57088)(3.8885) - 10 = -0.0032 < 0$$\n$$f(1.8895) = \\mathrm{e}^{0.94475}(3.8895) - 10 = (2.57217)(3.8895) - 10 = +0.0044 > 0$$"
+            },
+            {
+              "step": 3,
+              "text": "Conclude that the sign change verifies $x = 1.889$ correct to 3 decimal places."
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_logarithmic_and_exponential_functions_m04_l01_cpq06_p02_mp01",
+                "observable": "Calculates early iterations: $x_2 \\approx 1.9885, x_3 \\approx 1.8383, x_4 \\approx 1.9150$."
+              },
+              {
+                "criterion_id": "9709_p3_t_logarithmic_and_exponential_functions_m04_l01_cpq06_p02_mp02",
+                "observable": "Finds candidate root $x = 1.889$."
+              },
+              {
+                "criterion_id": "9709_p3_t_logarithmic_and_exponential_functions_m04_l01_cpq06_p02_mp03",
+                "observable": "Evaluates $f(1.8885) \\approx -0.0032$ and $f(1.8895) \\approx +0.0044$."
+              },
+              {
+                "criterion_id": "9709_p3_t_logarithmic_and_exponential_functions_m04_l01_cpq06_p02_mp04",
+                "observable": "Concludes that sign change verifies $x = 1.889$ correct to 3 decimal places."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_applying_logarithm_laws"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_applying_logarithm_laws"
+            ],
+            "method_ids": [
+              "9709_p3_method_applying_logarithm_laws"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        }
+      ],
+      "_numerical_values_checked": false
+    },
+    {
+      "question_id": "9709_p3_t_logarithmic_and_exponential_functions_m04_l01_cpq07",
+      "sequence": 13,
+      "difficulty": "hard",
+      "difficulty_reason": "Structured: Multiple stationary point bracketing for exponential-polynomial curve.",
+      "source_question_id": "9709_w22_32_q9",
+      "source_role": "capstone_synthesis",
+      "dependency_role": "none",
+      "dependency_refs": [],
+      "parts": [
+        {
+          "part_id": "9709_p3_t_logarithmic_and_exponential_functions_m04_l01_cpq07_p01",
+          "difficulty": "hard",
+          "question_pattern_ids": [
+            "9709_p3_pattern_root_finding_sign_change",
+            "9709_p3_pattern_fixed_point_iteration"
+          ],
+          "source_evidence": {
+            "question_id": "9709_w22_32_q9",
+            "part_id": "9709_w22_32_q9",
+            "legacy_practice_tier": "capstone",
+            "product_role": "capstone_practice",
+            "structural_inspiration": "Multiple stationary point bracketing for exponential-polynomial curve."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "Differentiate: $\\frac{\\mathrm{d}y}{\\mathrm{d}x} = \\mathrm{e}^x - 6x = 0$.",
+            "Let $g(x) = \\mathrm{e}^x - 6x$.",
+            "Test $[0.2, 0.3]$: $g(0.2) = 1.2214 - 1.2 = +0.0214 > 0$, $g(0.3) = 1.3499 - 1.8 = -0.4501 < 0$.",
+            "Test $[2.8, 2.9]$: $g(2.8) = 16.4446 - 16.8 = -0.3554 < 0$, $g(2.9) = 18.1741 - 17.4 = +0.7741 > 0$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Differentiate $y = \\mathrm{e}^x - 3x^2$ to locate stationary points:\n$$\\frac{\\mathrm{d}y}{\\mathrm{d}x} = \\mathrm{e}^x - 6x = 0$$"
+            },
+            {
+              "step": 2,
+              "text": "Define $g(x) = \\mathrm{e}^x - 6x$ and test the interval $[0.2, 0.3]$ for the first stationary point $\\alpha$:\n$$g(0.2) = \\mathrm{e}^{0.2} - 6(0.2) = 1.2214 - 1.2 = +0.0214 > 0$$\n$$g(0.3) = \\mathrm{e}^{0.3} - 6(0.3) = 1.3499 - 1.8 = -0.4501 < 0$$\n$$\\text{Sign change confirms } \\alpha \\in [0.2, 0.3].$$"
+            },
+            {
+              "step": 3,
+              "text": "Test the interval $[2.8, 2.9]$ for the second stationary point $\\beta$:\n$$g(2.8) = \\mathrm{e}^{2.8} - 6(2.8) = 16.4446 - 16.8 = -0.3554 < 0$$\n$$g(2.9) = \\mathrm{e}^{2.9} - 6(2.9) = 18.1741 - 17.4 = +0.7741 > 0$$\n$$\\text{Sign change confirms } \\beta \\in [2.8, 2.9].$$"
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_logarithmic_and_exponential_functions_m04_l01_cpq07_p01_mp01",
+                "observable": "Differentiates $\\frac{\\mathrm{d}y}{\\mathrm{d}x} = \\mathrm{e}^x - 6x$ and sets to zero."
+              },
+              {
+                "criterion_id": "9709_p3_t_logarithmic_and_exponential_functions_m04_l01_cpq07_p01_mp02",
+                "observable": "Evaluates $g(0.2) = \\mathrm{e}^{0.2} - 1.2 \\approx +0.0214$ and $g(0.3) = \\mathrm{e}^{0.3} - 1.8 \\approx -0.4501$."
+              },
+              {
+                "criterion_id": "9709_p3_t_logarithmic_and_exponential_functions_m04_l01_cpq07_p01_mp03",
+                "observable": "Evaluates $g(2.8) = \\mathrm{e}^{2.8} - 16.8 \\approx -0.3554$ and $g(2.9) = \\mathrm{e}^{2.9} - 17.4 \\approx +0.7741$."
+              },
+              {
+                "criterion_id": "9709_p3_t_logarithmic_and_exponential_functions_m04_l01_cpq07_p01_mp04",
+                "observable": "Concludes roots $\\alpha \\in [0.2, 0.3]$ and $\\beta \\in [2.8, 2.9]$ exist by sign changes."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_applying_logarithm_laws"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_applying_logarithm_laws"
+            ],
+            "method_ids": [
+              "9709_p3_method_applying_logarithm_laws"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        },
+        {
+          "part_id": "9709_p3_t_logarithmic_and_exponential_functions_m04_l01_cpq07_p02",
+          "difficulty": "hard",
+          "question_pattern_ids": [
+            "9709_p3_pattern_root_finding_sign_change",
+            "9709_p3_pattern_fixed_point_iteration"
+          ],
+          "source_evidence": {
+            "question_id": "9709_w22_32_q9",
+            "part_id": "9709_w22_32_q9",
+            "legacy_practice_tier": "capstone",
+            "product_role": "capstone_practice",
+            "structural_inspiration": "Dual complementary iteration schemes for distinct roots."
+          },
+          "dependency_role": "none",
+          "dependency_refs": [
+            "9709_p3_t_logarithmic_and_exponential_functions_m04_l01_cpq07_p01"
+          ],
+          "prerequisite_lesson_dependency": {
+            "role": "none",
+            "lesson_ids": []
+          },
+          "hints": [
+            "For $\\alpha$: $x_2 = \\frac{1}{6}\\mathrm{e}^{0.2} = 0.2036$, $x_3 = \\frac{1}{6}\\mathrm{e}^{0.2036} = 0.2043$, $x_4 = 0.2045 \\implies \\alpha = 0.204$.",
+            "For $\\beta$: $x_2 = \\ln(6 \\times 2.8) = \\ln(16.8) = 2.8214$, $x_3 = \\ln(6 \\times 2.8214) = 2.8290$, $x_4 = 2.8317$, $x_5 = 2.8326 \\implies \\beta = 2.833$."
+          ],
+          "walkthrough": [
+            {
+              "step": 1,
+              "text": "Compute $\\alpha$ using $x_{n+1} = \\frac{1}{6}\\mathrm{e}^{x_n}$ starting from $x_1 = 0.2$:\n$$x_2 = \\frac{1}{6}\\mathrm{e}^{0.2} = 0.20357$$\n$$x_3 = \\frac{1}{6}\\mathrm{e}^{0.20357} = 0.20430$$\n$$x_4 = \\frac{1}{6}\\mathrm{e}^{0.20430} = 0.20445$$\n$$x_5 = 0.20448 \\implies \\alpha = 0.204$$"
+            },
+            {
+              "step": 2,
+              "text": "Compute $\\beta$ using $x_{n+1} = \\ln(6x_n)$ starting from $x_1 = 2.8$:\n$$x_2 = \\ln(6(2.8)) = \\ln(16.8) = 2.82138$$\n$$x_3 = \\ln(6(2.82138)) = \\ln(16.928) = 2.82897$$\n$$x_4 = \\ln(6(2.82897)) = \\ln(16.974) = 2.83167$$\n$$x_5 = \\ln(6(2.83167)) = \\ln(16.990) = 2.83262$$\n$$x_6 = \\ln(6(2.83262)) = 2.83296 \\implies \\beta = 2.833$$"
+            }
+          ],
+          "checking": {
+            "mode": "ai",
+            "ai_rubric": [
+              {
+                "criterion_id": "9709_p3_t_logarithmic_and_exponential_functions_m04_l01_cpq07_p02_mp01",
+                "observable": "Calculates iterations for $\\alpha$: $x_2 \\approx 0.2036, x_3 \\approx 0.2043, x_4 \\approx 0.2045$."
+              },
+              {
+                "criterion_id": "9709_p3_t_logarithmic_and_exponential_functions_m04_l01_cpq07_p02_mp02",
+                "observable": "Obtains $\\alpha = 0.204$ correct to 3 decimal places."
+              },
+              {
+                "criterion_id": "9709_p3_t_logarithmic_and_exponential_functions_m04_l01_cpq07_p02_mp03",
+                "observable": "Calculates iterations for $\\beta$: $x_2 \\approx 2.8214, x_3 \\approx 2.8290, x_4 \\approx 2.8317$."
+              },
+              {
+                "criterion_id": "9709_p3_t_logarithmic_and_exponential_functions_m04_l01_cpq07_p02_mp04",
+                "observable": "Continues iteration: $x_5 \\approx 2.8326, x_6 \\approx 2.8330$."
+              },
+              {
+                "criterion_id": "9709_p3_t_logarithmic_and_exponential_functions_m04_l01_cpq07_p02_mp05",
+                "observable": "Obtains $\\beta = 2.833$ correct to 3 decimal places."
+              }
+            ]
+          },
+          "skill_refs": [
+            "9709_p3_skill_applying_logarithm_laws"
+          ],
+          "knowledge_refs": {
+            "skill_ids": [
+              "9709_p3_skill_applying_logarithm_laws"
+            ],
+            "method_ids": [
+              "9709_p3_method_applying_logarithm_laws"
+            ],
+            "formula_ids": [],
+            "identity_ids": [],
+            "fact_ids": []
+          }
+        }
+      ],
+      "_numerical_values_checked": false
+    }
+  ]
+}

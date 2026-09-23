@@ -1,0 +1,197 @@
+{
+  "schema_version": "9709_math_enrichment_v3",
+  "paper_code": "9709_m19_62",
+  "question_id": "9709_m19_62_q6",
+  "question_num": 6,
+  "subject_code": "9709",
+  "component": "S1",
+  "year": 2019,
+  "session": "Feb/March",
+  "variant": "62",
+  "difficulty": 3,
+  "numerical_values_checked": false,
+  "parts": [
+    {
+      "part_id": "9709_m19_62_q6_i",
+      "difficulty": 3,
+      "practice_tier": "revision",
+      "mapping": {
+        "topic_id": "9709_s1_t_discrete_random_variables",
+        "module_id": "9709_s1_t_discrete_random_variables_m03",
+        "lesson_id": "9709_s1_t_discrete_random_variables_m03_l02"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_calculating_binomial_tail_probabilities",
+        "skill_tags": [
+          "Calculating Binomial Tail Probabilities",
+          "Calculating Exact Binomial Probabilities",
+          "Modelling with a Binomial Distribution"
+        ]
+      },
+      "question_pattern_ids": [
+        "9709_s1_pattern_binomial_from_probability_distribution"
+      ],
+      "knowledge_refs": {
+        "formula_ids": [
+          "9709_s1_formula_binomial_probability"
+        ],
+        "identity_ids": [],
+        "method_ids": [
+          "9709_s1_method_calculating_binomial_tail_probabilities",
+          "9709_s1_method_calculating_exact_binomial_probabilities",
+          "9709_s1_method_modelling_with_a_binomial_distribution"
+        ],
+        "fact_ids": []
+      },
+      "hints": [
+        "Identify the binomial parameters: sample size $n = 6$, probability of shopping online $p = 0.35$, so $X \\sim \\mathrm{B}(6, 0.35)$.",
+        "Express 'more than three' as the sum of probabilities: $\\mathrm{P}(X > 3) = \\mathrm{P}(X = 4) + \\mathrm{P}(X = 5) + \\mathrm{P}(X = 6)$.",
+        "Apply the binomial probability formula $\\mathrm{P}(X = r) = \\binom{n}{r} p^r (1 - p)^{n - r}$ for $r = 4, 5, 6$.",
+        "Calculate each term and sum them, rounding the final answer to 3 significant figures."
+      ],
+      "walkthrough": [
+        "Model the number of customers shopping online with a binomial distribution:\n$$X \\sim \\mathrm{B}(6, 0.35)$$\nwhere $n = 6$, $p = 0.35$, and $1 - p = 0.65$.",
+        "Identify the required probability for more than three customers:\n$$\\mathrm{P}(X > 3) = \\mathrm{P}(X = 4) + \\mathrm{P}(X = 5) + \\mathrm{P}(X = 6)$$",
+        "Apply the binomial formula $\\mathrm{P}(X = r) = \\binom{n}{r} p^r (1 - p)^{n - r}$ for each term:\n$$\\mathrm{P}(X = 4) = \\binom{6}{4} (0.35)^4 (0.65)^2 = 15 \\times 0.01500625 \\times 0.4225 \\approx 0.095107$$\n$$\\mathrm{P}(X = 5) = \\binom{6}{5} (0.35)^5 (0.65)^1 = 6 \\times 0.0052521875 \\times 0.65 \\approx 0.020484$$\n$$\\mathrm{P}(X = 6) = \\binom{6}{6} (0.35)^6 (0.65)^0 = 1 \\times 0.001838265625 \\approx 0.001838$$",
+        "Sum the probabilities:\n$$\\mathrm{P}(X > 3) = 0.095107 + 0.020484 + 0.001838 = 0.117429 \\approx 0.117$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "ai_rubric": {
+          "Calculating Binomial Tail Probabilities": "Uses the binomial formula for X = 4, 5, 6 and sums them to obtain 0.117."
+        },
+        "criteria_source": "mark_scheme_structured"
+      },
+      "teacher_walkthrough": [
+        "Let $X$ represent the number of customers in the sample who shop online. Each of the 6 customers independently shops online with probability $p = 0.35$, so $X \\sim \\mathrm{B}(6, 0.35)$.",
+        "Step 1: Write down the binomial probability formula:\n$$\\mathrm{P}(X = r) = \\binom{n}{r} p^r (1 - p)^{n - r}$$\nwith $n = 6$, $p = 0.35$, and $1 - p = 0.65$.",
+        "Step 2: 'More than three' means $X$ is strictly greater than 3, so $r$ can be 4, 5, or 6:\n$$\\mathrm{P}(X > 3) = \\mathrm{P}(X = 4) + \\mathrm{P}(X = 5) + \\mathrm{P}(X = 6)$$",
+        "Step 3: Calculate each term step by step:\n- For $r = 4$:\n$$\\binom{6}{4} = \\frac{6 \\times 5}{2 \\times 1} = 15$$\n$$(0.35)^4 = 0.01500625, \\quad (0.65)^2 = 0.4225$$\n$$\\mathrm{P}(X = 4) = 15 \\times 0.01500625 \\times 0.4225 = 0.095107$$\n- For $r = 5$:\n$$\\binom{6}{5} = 6$$\n$$(0.35)^5 = 0.0052521875, \\quad (0.65)^1 = 0.65$$\n$$\\mathrm{P}(X = 5) = 6 \\times 0.0052521875 \\times 0.65 = 0.020484$$\n- For $r = 6$:\n$$\\binom{6}{6} = 1$$\n$$(0.35)^6 = 0.001838265625, \\quad (0.65)^0 = 1$$\n$$\\mathrm{P}(X = 6) = 1 \\times 0.001838265625 = 0.001838$$",
+        "Step 4: Add the three values:\n$$\\mathrm{P}(X > 3) = 0.095107 + 0.020484 + 0.001838 = 0.117429$$\nRounding to 3 significant figures gives $0.117$."
+      ]
+    },
+    {
+      "part_id": "9709_m19_62_q6_ii",
+      "difficulty": 3,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_s1_t_discrete_random_variables",
+        "module_id": "9709_s1_t_discrete_random_variables_m03",
+        "lesson_id": "9709_s1_t_discrete_random_variables_m03_l03"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_using_complementary_events",
+        "skill_tags": [
+          "Using Complementary Events",
+          "Modelling with a Binomial Distribution"
+        ]
+      },
+      "question_pattern_ids": [
+        "9709_s1_pattern_independent_trials_sample_size_inequality"
+      ],
+      "knowledge_refs": {
+        "formula_ids": [],
+        "identity_ids": [],
+        "method_ids": [
+          "9709_s1_method_using_complementary_events"
+        ],
+        "fact_ids": [
+          "9709_s1_fact_complement_rule",
+          "9709_s1_fact_log_inequality_division_negative"
+        ]
+      },
+      "hints": [
+        "Express 'at least one customer shops online' using the complement rule: $\\mathrm{P}(X \\ge 1) = 1 - \\mathrm{P}(X = 0)$.",
+        "For a sample of $n$, the probability that none shop online is $(1 - 0.35)^n = (0.65)^n$.",
+        "Set up the inequality $1 - (0.65)^n > 0.95$ and rearrange to $(0.65)^n < 0.05$.",
+        "Take logarithms of both sides, reversing the inequality sign when dividing by $\\ln(0.65) < 0$, then find the smallest integer $n$."
+      ],
+      "walkthrough": [
+        "Use the complement rule to express the probability of at least one customer shopping online:\n$$\\mathrm{P}(X \\ge 1) = 1 - \\mathrm{P}(X = 0) = 1 - (0.65)^n$$",
+        "Set up the inequality and isolate the exponential term:\n$$1 - (0.65)^n > 0.95$$\n$$(0.65)^n < 1 - 0.95$$\n$$(0.65)^n < 0.05$$",
+        "Take natural logarithms of both sides, noting that $\\ln(0.65) < 0$ reverses the inequality:\n$$n \\ln(0.65) < \\ln(0.05)$$\n$$n > \\frac{\\ln(0.05)}{\\ln(0.65)} = \\frac{-2.99573}{-0.43078} \\approx 6.954$$",
+        "Conclude the least possible integer value:\n$$n = 7$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "ai_rubric": {
+          "Using Complementary Events": "Sets up 1 - 0.65^n > 0.95, solves the exponential inequality using logarithms, and states the smallest integer n = 7."
+        },
+        "criteria_source": "mark_scheme_structured"
+      },
+      "teacher_walkthrough": [
+        "We need to find the smallest sample size $n$ such that the probability of at least one customer shopping online is strictly greater than 0.95.",
+        "Step 1: Use the complement rule. The event 'at least one customer shops online' is the complement of 'zero customers shop online':\n$$\\mathrm{P}(\\text{at least 1}) = 1 - \\mathrm{P}(X = 0)$$\nwhere $\\mathrm{P}(X = 0) = (1 - 0.35)^n = (0.65)^n$.",
+        "Step 2: Set up the given inequality:\n$$1 - (0.65)^n > 0.95$$",
+        "Step 3: Rearrange to isolate the exponential power:\nSubtract 1 from both sides:\n$$-(0.65)^n > -0.05$$\nMultiply both sides by $-1$, which reverses the inequality sign:\n$$(0.65)^n < 0.05$$",
+        "Step 4: Solve for $n$ by taking natural logarithms:\n$$\\ln((0.65)^n) < \\ln(0.05)$$\n$$n \\ln(0.65) < \\ln(0.05)$$\nBecause $0.65 < 1$, its logarithm is negative: $\\ln(0.65) \\approx -0.43078$. Dividing by a negative quantity flips the inequality sign:\n$$n > \\frac{\\ln(0.05)}{\\ln(0.65)}$$\n$$n > \\frac{-2.99573}{-0.43078} \\approx 6.954$$",
+        "Step 5: Determine the least integer value:\nSince $n$ must be an integer number of customers and $n > 6.954$, the least possible value is $n = 7$."
+      ]
+    },
+    {
+      "part_id": "9709_m19_62_q6_iii",
+      "difficulty": 4,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_s1_t_the_normal_distribution",
+        "module_id": "9709_s1_t_the_normal_distribution_m03",
+        "lesson_id": "9709_s1_t_the_normal_distribution_m03_l01"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_applying_a_normal_approximation",
+        "skill_tags": [
+          "Applying a Normal Approximation",
+          "Applying a Continuity Correction",
+          "Calculating Normal Probabilities"
+        ]
+      },
+      "question_pattern_ids": [
+        "9709_s1_pattern_normal_approximation_to_binomial"
+      ],
+      "knowledge_refs": {
+        "formula_ids": [
+          "9709_s1_formula_normal_approximation_parameters",
+          "9709_s1_formula_normal_standardisation"
+        ],
+        "identity_ids": [],
+        "method_ids": [
+          "9709_s1_method_applying_a_normal_approximation",
+          "9709_s1_method_applying_a_continuity_correction",
+          "9709_s1_method_calculating_normal_probabilities"
+        ],
+        "fact_ids": [
+          "9709_s1_fact_continuity_correction_greater_equal",
+          "9709_s1_fact_normal_approximation_validity_condition",
+          "9709_s1_fact_normal_upper_tail"
+        ]
+      },
+      "hints": [
+        "Identify the distribution: $X \\sim \\mathrm{B}(100, 0.35)$. Check validity for a normal approximation: $np = 35 > 5$ and $n(1-p) = 65 > 5$.",
+        "Compute the parameters of the approximating normal distribution: $\\mu = np$ and $\\sigma^2 = np(1 - p)$.",
+        "Apply the continuity correction to the strict inequality: $\\mathrm{P}(X > 39) = \\mathrm{P}(X \\ge 40) \\approx \\mathrm{P}(Y > 39.5)$.",
+        "Standardize $Y = 39.5$ using $Z = \\frac{39.5 - \\mu}{\\sigma}$ and find $1 - \\Phi(z)$."
+      ],
+      "walkthrough": [
+        "State the approximating normal distribution and verify its validity:\n$$X \\sim \\mathrm{B}(100, 0.35)$$\n$$\\mu = np = 100 \\times 0.35 = 35$$\n$$\\sigma^2 = np(1 - p) = 100 \\times 0.35 \\times 0.65 = 22.75 \\implies \\sigma = \\sqrt{22.75} \\approx 4.7697$$\nSince $np = 35 > 5$ and $n(1 - p) = 65 > 5$, the normal approximation $Y \\sim \\mathrm{N}(35, 22.75)$ is valid.",
+        "Apply the continuity correction to the strict inequality $X > 39$:\n$$\\mathrm{P}(X > 39) = \\mathrm{P}(X \\ge 40) \\approx \\mathrm{P}(Y > 39.5)$$",
+        "Standardise $Y = 39.5$:\n$$Z = \\frac{39.5 - 35}{\\sqrt{22.75}} = \\frac{4.5}{4.7697} \\approx 0.943$$",
+        "Calculate the upper-tail probability from the standard normal table:\n$$\\mathrm{P}(Z > 0.943) = 1 - \\Phi(0.943)$$\n$$\\Phi(0.943) = 0.8272$$\n$$\\mathrm{P}(Z > 0.943) = 1 - 0.8272 = 0.1728 \\approx 0.173$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "ai_rubric": {
+          "Applying a Normal Approximation": "Calculates mean 35 and variance 22.75, applies continuity correction 39.5, standardises correctly, and evaluates 1 - Phi(0.943) = 0.173."
+        },
+        "criteria_source": "mark_scheme_structured"
+      },
+      "teacher_walkthrough": [
+        "We have a sample of $n = 100$ customers with $p = 0.35$, so $X \\sim \\mathrm{B}(100, 0.35)$. Because $n$ is large, we approximate this binomial distribution with a normal distribution.",
+        "Step 1: Calculate the mean $\\mu$ and variance $\\sigma^2$:\n$$\\mu = np = 100 \\times 0.35 = 35$$\n$$\\sigma^2 = np(1 - p) = 100 \\times 0.35 \\times 0.65 = 22.75$$\n$$\\sigma = \\sqrt{22.75} \\approx 4.7697$$\nCheck validity: $np = 35 > 5$ and $n(1 - p) = 65 > 5$, confirming the normal approximation $Y \\sim \\mathrm{N}(35, 22.75)$ is appropriate.",
+        "Step 2: Apply the continuity correction.\nWe want $\\mathrm{P}(X > 39)$. Because $X$ takes integer values, $X > 39$ corresponds to $X \\in \\{40, 41, 42, \\dots\\}$.\nThe continuous bar for 40 starts at $39.5$, so:\n$$\\mathrm{P}(X > 39) = \\mathrm{P}(X \\ge 40) \\approx \\mathrm{P}(Y > 39.5)$$",
+        "Step 3: Standardise $Y = 39.5$ using $Z = \\frac{Y - \\mu}{\\sigma}$:\n$$Z = \\frac{39.5 - 35}{\\sqrt{22.75}} = \\frac{4.5}{4.7697} \\approx 0.9434$$",
+        "Step 4: Look up $\\Phi(0.943)$ in the normal tables:\n$$\\Phi(0.94) = 0.8264$$\n$$\\text{Add for 3} = 0.0008$$\n$$\\Phi(0.943) = 0.8264 + 0.0008 = 0.8272$$",
+        "Step 5: Compute the upper-tail probability:\n$$\\mathrm{P}(Y > 39.5) = 1 - \\Phi(0.943) = 1 - 0.8272 = 0.1728 \\approx 0.173$$"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,68 @@
+{
+  "schema_version": "9709_math_enrichment_v3",
+  "paper_code": "9709_s21_31",
+  "question_id": "9709_s21_31_q2",
+  "question_num": 2,
+  "subject_code": "9709",
+  "component": "P3",
+  "year": 2021,
+  "session": "May/June",
+  "variant": "31",
+  "difficulty": 2,
+  "numerical_values_checked": false,
+  "parts": [
+    {
+      "part_id": "9709_s21_31_q2",
+      "difficulty": 2,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_p3_t_logarithmic_and_exponential_functions",
+        "module_id": "9709_p3_t_logarithmic_and_exponential_functions_m04",
+        "lesson_id": "9709_p3_t_logarithmic_and_exponential_functions_m04_l02"
+      },
+      "skills": {
+        "primary_skill_id": "9709_p3_skill_solving_exponential_and_logarithmic_equations",
+        "skill_tags": [
+          "Solving Exponential and Logarithmic Equations"
+        ]
+      },
+      "question_pattern_ids": [
+        "9709_p3_pattern_solve_equation",
+        "9709_p3_pattern_solve_inequality",
+        "9709_p3_pattern_numerical_approximation"
+      ],
+      "knowledge_refs": {
+        "formula_ids": [],
+        "identity_ids": [],
+        "method_ids": [
+          "9709_p3_method_solving_exponential_and_logarithmic_equations"
+        ],
+        "fact_ids": [
+          "9709_p3_fact_iteration_convergence",
+          "9709_p3_fact_log_domain"
+        ]
+      },
+      "hints": [
+        "Convert the exponential equation to a quadratic in one positive variable.",
+        "Multiply through by the denominator and let $u=e^x>0$; after clearing $e^{-x}$, reduce to $u^2+6u-1=0$.",
+        "Solve the quadratic and explicitly reject the negative root because $e^x$ cannot be negative.",
+        "Take $x=\\ln u$ for the sole admissible value and round only at the end."
+      ],
+      "walkthrough": [
+        "Multiply both sides of the equation $\\dfrac{2\\mathrm{e}^x + \\mathrm{e}^{-x}}{2 + \\mathrm{e}^x} = 3$ by $(2 + \\mathrm{e}^x)$, which is non-zero and positive for all real $x$:\n$$2\\mathrm{e}^x + \\mathrm{e}^{-x} = 3(2 + \\mathrm{e}^x)$$\n$$2\\mathrm{e}^x + \\mathrm{e}^{-x} = 6 + 3\\mathrm{e}^x$$",
+        "Multiply through by $\\mathrm{e}^x$ to clear the negative exponent $\\mathrm{e}^{-x} = \\dfrac{1}{\\mathrm{e}^x}$:\n$$2(\\mathrm{e}^x)^2 + 1 = 6\\mathrm{e}^x + 3(\\mathrm{e}^x)^2$$",
+        "Rearrange all terms to one side to form a 3-term quadratic in $\\mathrm{e}^x$:\n$$(3 - 2)(\\mathrm{e}^x)^2 + 6\\mathrm{e}^x - 1 = 0$$\n$$(\\mathrm{e}^x)^2 + 6\\mathrm{e}^x - 1 = 0$$",
+        "Let $u = \\mathrm{e}^x$ and solve the quadratic equation $u^2 + 6u - 1 = 0$ using the quadratic formula:\n$$u = \\dfrac{-6 \\pm \\sqrt{6^2 - 4(1)(-1)}}{2(1)} = \\dfrac{-6 \\pm \\sqrt{36 + 4}}{2} = \\dfrac{-6 \\pm \\sqrt{40}}{2}$$\nSimplify the radical $\\sqrt{40} = 2\\sqrt{10}$:\n$$u = \\dfrac{-6 \\pm 2\\sqrt{10}}{2} = -3 \\pm \\sqrt{10}$$",
+        "Examine both roots for $u = \\mathrm{e}^x$:\n- For $u = -3 - \\sqrt{10}$: since $\\sqrt{10} > 3$, $-3 - \\sqrt{10} < 0$. But $\\mathrm{e}^x > 0$ for all real $x$, so this root must be rejected.\n- For $u = -3 + \\sqrt{10} = \\sqrt{10} - 3$: since $\\sqrt{10} \\approx 3.162278 > 3$, this root is strictly positive ($u \\approx 0.162278 > 0$).\nThis shows clearly that the equation has only one real root.",
+        "Solve for $x$ using the natural logarithm:\n$$x = \\ln(\\sqrt{10} - 3)$$\nEvaluate numerically:\n$$x = \\ln(3.1622777 - 3) = \\ln(0.1622777) \\approx -1.81844 \\dots$$\nRounding to 3 decimal places gives:\n$$x = -1.818$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "ai_rubric": {
+          "Solving Exponential and Logarithmic Equations": "Reduces to a 3-term quadratic $u^2+6u-1=0$. Solving a 3-term quadratic for $u$. The final result is $x=-1.818$."
+        },
+        "criteria_source": "mark_scheme_structured"
+      }
+    }
+  ]
+}

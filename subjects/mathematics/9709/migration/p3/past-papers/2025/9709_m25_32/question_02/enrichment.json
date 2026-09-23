@@ -1,0 +1,64 @@
+{
+  "schema_version": "9709_math_enrichment_v3",
+  "paper_code": "9709_m25_32",
+  "question_id": "9709_m25_32_q2",
+  "question_num": 2,
+  "subject_code": "9709",
+  "component": "P3",
+  "year": 2025,
+  "session": "Feb/March",
+  "variant": "32",
+  "difficulty": 2,
+  "numerical_values_checked": false,
+  "parts": [
+    {
+      "part_id": "9709_m25_32_q2",
+      "difficulty": 2,
+      "practice_tier": "revision",
+      "mapping": {
+        "topic_id": "9709_p3_t_differentiation",
+        "module_id": "9709_p3_t_differentiation_m02",
+        "lesson_id": "9709_p3_t_differentiation_m02_l02"
+      },
+      "skills": {
+        "primary_skill_id": "9709_p3_skill_implicit_differentiation",
+        "skill_tags": [
+          "Implicit Differentiation"
+        ]
+      },
+      "question_pattern_ids": [
+        "9709_p3_pattern_calculus_process"
+      ],
+      "knowledge_refs": {
+        "formula_ids": [],
+        "identity_ids": [],
+        "method_ids": [
+          "9709_p3_method_implicit_differentiation"
+        ],
+        "fact_ids": []
+      },
+      "hints": [
+        "Differentiate $xy^2+\\ln(x+2y)=1$ implicitly, treating $y$ as a function of $x$.",
+        "Use the product rule on $xy^2$ and the chain rule to obtain $\\frac{1+2\\,dy/dx}{x+2y}$ from the logarithm.",
+        "Before evaluating the gradient, put $x=0$ into the original curve equation to find the corresponding positive value of $y$.",
+        "Substitute $x=0$ and that value of $y$ into the differentiated equation, then isolate $dy/dx$."
+      ],
+      "walkthrough": [
+        "Find the corresponding $y$-coordinate on the curve when $x = 0$:\n$$(0)y^2 + \\ln(0 + 2y) = 1$$\n$$0 + \\ln(2y) = 1 \\implies \\ln(2y) = 1$$\n$$2y = \\mathrm{e}^1 = \\mathrm{e} \\implies y = \\dfrac{\\mathrm{e}}{2}$$",
+        "Differentiate the first term $xy^2$ with respect to $x$ using the product rule $(uv)' = u'v + uv'$:\n$$\\dfrac{\\mathrm{d}}{\\mathrm{d}x}[xy^2] = (1)y^2 + x\\left(2y\\dfrac{\\mathrm{d}y}{\\mathrm{d}x}\\right) = y^2 + 2xy\\dfrac{\\mathrm{d}y}{\\mathrm{d}x}$$",
+        "Differentiate the second term $\\ln(x + 2y)$ using the chain rule $\\dfrac{\\mathrm{d}}{\\mathrm{d}x}[\\ln u] = \\dfrac{1}{u}\\dfrac{\\mathrm{d}u}{\\mathrm{d}x}$:\n$$\\dfrac{\\mathrm{d}}{\\mathrm{d}x}[\\ln(x + 2y)] = \\dfrac{1}{x + 2y}\\left(1 + 2\\dfrac{\\mathrm{d}y}{\\mathrm{d}x}\\right) = \\dfrac{1 + 2\\dfrac{\\mathrm{d}y}{\\mathrm{d}x}}{x + 2y}$$",
+        "Set the derivative of the entire equation equal to $0$ (since the RHS constant $1$ has derivative $0$):\n$$y^2 + 2xy\\dfrac{\\mathrm{d}y}{\\mathrm{d}x} + \\dfrac{1 + 2\\dfrac{\\mathrm{d}y}{\\mathrm{d}x}}{x + 2y} = 0$$",
+        "Substitute $x = 0$ and $y = \\dfrac{\\mathrm{e}}{2}$ into the differentiated equation:\n$$\\left(\\dfrac{\\mathrm{e}}{2}\\right)^2 + 2(0)\\left(\\dfrac{\\mathrm{e}}{2}\\right)\\dfrac{\\mathrm{d}y}{\\mathrm{d}x} + \\dfrac{1 + 2\\dfrac{\\mathrm{d}y}{\\mathrm{d}x}}{0 + 2\\left(\\dfrac{\\mathrm{e}}{2}\\right)} = 0$$\n$$\\dfrac{\\mathrm{e}^2}{4} + 0 + \\dfrac{1 + 2\\dfrac{\\mathrm{d}y}{\\mathrm{d}x}}{\\mathrm{e}} = 0$$\n$$\\dfrac{\\mathrm{e}^2}{4} + \\dfrac{1 + 2\\dfrac{\\mathrm{d}y}{\\mathrm{d}x}}{\\mathrm{e}} = 0$$",
+        "Solve for the gradient $\\dfrac{\\mathrm{d}y}{\\mathrm{d}x}$ algebraically:\n$$\\dfrac{1 + 2\\dfrac{\\mathrm{d}y}{\\mathrm{d}x}}{\\mathrm{e}} = -\\dfrac{\\mathrm{e}^2}{4}$$\n$$1 + 2\\dfrac{\\mathrm{d}y}{\\mathrm{d}x} = -\\dfrac{\\mathrm{e}^3}{4}$$\n$$2\\dfrac{\\mathrm{d}y}{\\mathrm{d}x} = -\\dfrac{\\mathrm{e}^3}{4} - 1 = -\\dfrac{\\mathrm{e}^3 + 4}{4}$$\n$$\\dfrac{\\mathrm{d}y}{\\mathrm{d}x} = -\\dfrac{\\mathrm{e}^3 + 4}{8}$$",
+        "Evaluate the numerical decimal value:\n$$\\mathrm{e} \\approx 2.7182818 \\implies \\mathrm{e}^3 \\approx 20.0855369$$\n$$\\mathrm{e}^3 + 4 = 20.0855369 + 4 = 24.0855369$$\n$$\\dfrac{\\mathrm{d}y}{\\mathrm{d}x} = -\\dfrac{24.0855369}{8} \\approx -3.0107 \\approx -3.01$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "ai_rubric": {
+          "Implicit Differentiation": "Differentiation of $\\ln(x+2y)$ is $(1+2dy/dx)/(x+2y)$. Solving gives $y^2+2xy(dy/dx)+(1+2dy/dx)/(x+2y)=0$. dy/dx = −(e³ + 4)/8 (approximately −3.01). dy/dx = −(e³ + 4)/8 (approximately −3.01)."
+        },
+        "criteria_source": "mark_scheme_structured"
+      }
+    }
+  ]
+}
