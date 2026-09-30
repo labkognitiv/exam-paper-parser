@@ -1,0 +1,68 @@
+{
+  "schema_version": "9709_math_enrichment_v7",
+  "question_id": "9709_w18_31_q9",
+  "difficulty": 3,
+  "parts": [
+    {
+      "part_id": "9709_w18_31_q9_i",
+      "difficulty": 2,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_p3_t_logarithmic_and_exponential_functions",
+        "lesson_id": "9709_p3_t_logarithmic_and_exponential_functions_m02_l02"
+      },
+      "skills": {
+        "primary_skill_id": "9709_p3_skill_partial_fractions"
+      },
+      "hints": [
+        "A repeated linear factor requires one partial-fraction term for each of its powers.",
+        "Write $f(x)=\\frac{A}{2-x}+\\frac{B}{3+2x}+\\frac{C}{(3+2x)^2}$ and clear the denominator.",
+        "Use $x=2$ and $x=-\\frac32$ to isolate two constants.",
+        "Find the remaining constant by comparing a convenient coefficient or substituting another value, then check the identity."
+      ],
+      "walkthrough": [
+        "State the partial fraction decomposition for a linear factor and a repeated linear factor:\n$$\\dfrac{6x^2 + 8x + 9}{(2 - x)(3 + 2x)^2} = \\dfrac{A}{2 - x} + \\dfrac{B}{3 + 2x} + \\dfrac{C}{(3 + 2x)^2}$$",
+        "Multiply both sides by the common denominator $(2 - x)(3 + 2x)^2$:\n$$6x^2 + 8x + 9 = A(3 + 2x)^2 + B(2 - x)(3 + 2x) + C(2 - x)$$",
+        "Determine $A$ by setting $x = 2$:\n$$6(2)^2 + 8(2) + 9 = A(3 + 2(2))^2 + 0 + 0$$\n$$24 + 16 + 9 = A(7)^2$$\n$$49 = 49A \\implies A = 1$$",
+        "Determine $C$ by setting $x = -\\dfrac{3}{2}$:\n$$6\\left(-\\dfrac{3}{2}\\right)^2 + 8\\left(-\\dfrac{3}{2}\\right) + 9 = 0 + 0 + C\\left(2 - \\left(-\\dfrac{3}{2}\\right)\\right)$$\n$$6\\left(\\dfrac{9}{4}\\right) - 12 + 9 = C\\left(\\dfrac{7}{2}\\right)$$\n$$\\dfrac{27}{2} - 3 = \\dfrac{7}{2}C$$\n$$\\dfrac{21}{2} = \\dfrac{7}{2}C \\implies 7C = 21 \\implies C = 3$$",
+        "Determine $B$ by equating coefficients of $x^2$ on both sides:\n$$6 = 4A - 2B$$\nSubstitute $A = 1$:\n$$6 = 4(1) - 2B \\implies 2B = 4 - 6 = -2 \\implies B = -1$$",
+        "Assemble the partial fractions:\n$$f(x) = \\dfrac{1}{2 - x} - \\dfrac{1}{3 + 2x} + \\dfrac{3}{(3 + 2x)^2}$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      }
+    },
+    {
+      "part_id": "9709_w18_31_q9_ii",
+      "difficulty": 3,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_p3_t_logarithmic_and_exponential_functions",
+        "lesson_id": "9709_p3_t_logarithmic_and_exponential_functions_m02_l02"
+      },
+      "skills": {
+        "primary_skill_id": "9709_p3_skill_partial_fractions"
+      },
+      "hints": [
+        "Integrate the three partial fractions from part (i) separately.",
+        "Account for the inner derivative signs and factors in the logarithmic terms involving $2-x$ and $3+2x$.",
+        "For the squared denominator, use a substitution or recognise the derivative of $(3+2x)^{-1}$.",
+        "Apply the limits $-1$ and $0$, then combine the logarithms and simplify the rational contribution to reach the stated form."
+      ],
+      "walkthrough": [
+        "Integrate each partial fraction term with respect to $x$:\n$$\\int \\dfrac{1}{2 - x}\\,\\mathrm{d}x = -\\ln(2 - x)$$\n$$\\int -\\dfrac{1}{3 + 2x}\\,\\mathrm{d}x = -\\dfrac{1}{2}\\ln(3 + 2x)$$\n$$\\int \\dfrac{3}{(3 + 2x)^2}\\,\\mathrm{d}x = 3 \\times \\dfrac{(3 + 2x)^{-1}}{(-1)(2)} = -\\dfrac{3}{2(3 + 2x)}$$",
+        "Write the combined antiderivative:\n$$F(x) = -\\ln(2 - x) - \\dfrac{1}{2}\\ln(3 + 2x) - \\dfrac{3}{2(3 + 2x)}$$",
+        "Evaluate at the upper limit $x = 0$:\n$$F(0) = -\\ln 2 - \\dfrac{1}{2}\\ln 3 - \\dfrac{3}{2(3)} = -\\ln 2 - \\dfrac{1}{2}\\ln 3 - \\dfrac{1}{2}$$",
+        "Evaluate at the lower limit $x = -1$:\n$$F(-1) = -\\ln(2 - (-1)) - \\dfrac{1}{2}\\ln(3 + 2(-1)) - \\dfrac{3}{2(3 + 2(-1))}$$\n$$= -\\ln 3 - \\dfrac{1}{2}\\ln(1) - \\dfrac{3}{2(1)} = -\\ln 3 - \\dfrac{3}{2}$$",
+        "Subtract $F(-1)$ from $F(0)$:\n$$\\int_{-1}^0 f(x)\\,\\mathrm{d}x = \\left(-\\ln 2 - \\dfrac{1}{2}\\ln 3 - \\dfrac{1}{2}\\right) - \\left(-\\ln 3 - \\dfrac{3}{2}\\right)$$\n$$= -\\dfrac{1}{2} + \\dfrac{3}{2} + \\ln 3 - \\dfrac{1}{2}\\ln 3 - \\ln 2 = 1 + \\dfrac{1}{2}\\ln 3 - \\ln 2$$",
+        "Rewrite the logarithmic terms using $\\ln 2 = \\dfrac{1}{2}\\ln(2^2) = \\dfrac{1}{2}\\ln 4$:\n$$\\dfrac{1}{2}\\ln 3 - \\ln 2 = \\dfrac{1}{2}\\ln 3 - \\dfrac{1}{2}\\ln 4 = \\dfrac{1}{2}\\ln\\left(\\dfrac{3}{4}\\right)$$",
+        "Conclude with the exact given value:\n$$1 + \\dfrac{1}{2}\\ln\\left(\\dfrac{3}{4}\\right)$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      }
+    }
+  ]
+}

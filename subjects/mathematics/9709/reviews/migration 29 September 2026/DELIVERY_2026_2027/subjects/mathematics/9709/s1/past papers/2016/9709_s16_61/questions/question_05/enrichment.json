@@ -1,0 +1,104 @@
+{
+  "schema_version": "9709_math_enrichment_v7",
+  "question_id": "9709_s16_61_q5",
+  "difficulty": 4,
+  "parts": [
+    {
+      "part_id": "9709_s16_61_q5_i",
+      "difficulty": 3,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_s1_t_the_normal_distribution",
+        "lesson_id": "9709_s1_t_the_normal_distribution_m01_l01"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_calculating_normal_probabilities"
+      },
+      "hints": [
+        "A straw fits into the hole when its diameter $X$ is strictly less than $3\\text{ mm}$, with $X \\sim \\mathrm{N}(2.6, 0.25^2)$.",
+        "Standardise $3.0$ using the formula $Z = \\dfrac{X - \\mu}{\\sigma}$ with $\\mu = 2.6$ and $\\sigma = 0.25$.",
+        "Look up $\\Phi(z)$ for the resulting positive $z$-value in standard normal distribution tables."
+      ],
+      "walkthrough": [
+        "State the normal distribution for the straw diameter $X \\sim \\mathrm{N}(2.6, 0.25^2)$ and write the probability that a straw fits into the carton hole ($X < 3.0$):\n$$\\mathrm{P}(X < 3.0) = \\mathrm{P}\\left(Z < \\dfrac{3.0 - 2.6}{0.25}\\right)$$",
+        "Compute the standard normal score $z$:\n$$z = \\dfrac{3.0 - 2.6}{0.25} = \\dfrac{0.4}{0.25} = 1.6$$",
+        "Evaluate the probability using the standard normal cumulative distribution function $\\Phi(1.6)$:\n$$\\mathrm{P}(Z < 1.6) = \\Phi(1.6) \\approx 0.9452 \\approx 0.945$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      },
+      "teacher_walkthrough": [
+        "We are given diameter $X \\sim \\mathrm{N}(2.6, 0.25^2)$ and want $\\mathrm{P}(X < 3.0)$. Standardize $3.0$ into a Z-score:\n$$Z = \\frac{3.0 - 2.6}{0.25} = \\frac{0.4}{0.25} = 1.6$$",
+        "Look up $Z = 1.6$ directly in the cumulative normal distribution table:\n$$\\mathrm{P}(X < 3.0) = \\Phi(1.6) \\approx 0.945$$"
+      ]
+    },
+    {
+      "part_id": "9709_s16_61_q5_ii",
+      "difficulty": 4,
+      "practice_tier": "revision",
+      "mapping": {
+        "topic_id": "9709_s1_t_the_normal_distribution",
+        "lesson_id": "9709_s1_t_the_normal_distribution_m03_l02"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_applying_a_normal_approximation"
+      },
+      "hints": [
+        "Let $Y$ be the number of fitting straws in a sample of $n = 500$, modeled as $Y \\sim \\mathrm{B}(500, p)$ where $p = 0.9452$.",
+        "Calculate the mean $\\mu = np$ and variance $\\sigma^2 = np(1-p)$ for the approximating normal distribution.",
+        "Apply a continuity correction to the discrete event 'at least 480' ($Y \\ge 480$), converting it to $X_{\\text{norm}} > 479.5$.",
+        "Standardise $479.5$ using $Z = \\dfrac{479.5 - \\mu}{\\sigma}$ and find the upper tail $1 - \\Phi(z)$."
+      ],
+      "walkthrough": [
+        "Model the number of straws that fit out of $500$ as a binomial distribution $Y \\sim \\mathrm{B}(500, 0.9452)$:\n$$n = 500, \\quad p = 0.9452, \\quad q = 1 - p = 0.0548$$",
+        "Calculate the parameters $\\mu$ and $\\sigma^2$ for the approximating normal distribution:\n$$\\mu = np = 500 \\times 0.9452 = 472.6$$\n$$\\sigma^2 = np(1 - p) = 472.6 \\times 0.0548 = 25.89848 \\implies \\sigma = \\sqrt{25.89848} \\approx 5.08906$$",
+        "Apply a continuity correction to the discrete event $Y \\ge 480$:\n$$\\mathrm{P}(Y \\ge 480) \\approx \\mathrm{P}(X_{\\text{norm}} > 479.5)$$",
+        "Standardise the continuous boundary $479.5$:\n$$z = \\dfrac{479.5 - 472.6}{\\sqrt{25.89848}} = \\dfrac{6.9}{5.08906} \\approx 1.3558 \\approx 1.356$$",
+        "Find the upper-tail probability from standard normal tables:\n$$\\mathrm{P}(Z > 1.356) = 1 - \\Phi(1.356) = 1 - 0.9125 = 0.0875$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      },
+      "teacher_walkthrough": [
+        "In a sample of $n = 500$ straws, where the probability of a straw having diameter under 3.0 cm is $p = 0.9452$, calculate the mean $\\mu$ and variance $\\sigma^2$ for the normal approximation:\n$$\\mu = np = 500 \\times 0.9452 = 472.6$$\n$$\\sigma^2 = np(1 - p) = 500 \\times 0.9452 \\times (1 - 0.9452) = 472.6 \\times 0.0548 = 25.89848$$",
+        "Take the square root of the variance to find the standard deviation $\\sigma$:\n$$\\sigma = \\sqrt{25.89848} \\approx 5.08905$$",
+        "We want the probability that at least 480 straws meet the condition ($Y \\ge 480$). Because we are approximating a discrete integer count with a continuous normal curve, apply a continuity correction by subtracting $0.5$:\n$$Y \\ge 480 \\implies X_{\\text{cont}} > 479.5$$",
+        "Standardize the value $479.5$ into a Z-score using $Z = \\frac{X - \\mu}{\\sigma}$:\n$$Z = \\frac{479.5 - 472.6}{5.08905} = \\frac{6.9}{5.08905} \\approx 1.35585 \\approx 1.356$$",
+        "Calculate the upper-tail probability by subtracting the cumulative table value $\\Phi(1.356)$ from 1:\n$$\\mathrm{P}(Z > 1.356) = 1 - \\Phi(1.356) = 1 - 0.9125 = 0.0875$$"
+      ]
+    },
+    {
+      "part_id": "9709_s16_61_q5_iii",
+      "difficulty": 1,
+      "practice_tier": "revision",
+      "mapping": {
+        "topic_id": "9709_s1_t_the_normal_distribution",
+        "lesson_id": "9709_s1_t_the_normal_distribution_m03_l01"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_applying_a_normal_approximation"
+      },
+      "hints": [
+        "Recall the criterion required by Cambridge for a binomial distribution $\\mathrm{B}(n, p)$ to be approximated by a normal distribution.",
+        "Evaluate both $np$ and $nq = n(1-p)$ for $n = 500$ and $p = 0.9452$.",
+        "Verify that both values are strictly greater than $5$."
+      ],
+      "walkthrough": [
+        "State the two conditions required to justify approximating a binomial distribution $\\mathrm{B}(n, p)$ by a normal distribution:\n$$np > 5 \\quad \\text{and} \\quad n(1 - p) > 5$$",
+        "Calculate and test both quantities using $n = 500$ and $p = 0.9452$:\n$$np = 500 \\times 0.9452 = 472.6 > 5$$\n$$n(1 - p) = 500 \\times (1 - 0.9452) = 500 \\times 0.0548 = 27.4 > 5$$",
+        "Conclude that because both $np > 5$ and $nq > 5$, the normal approximation is valid."
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      },
+      "teacher_walkthrough": [
+        "To justify using a normal distribution to approximate a binomial distribution, both the expected number of successes ($np$) and expected failures ($n(1-p)$) must be greater than 5.",
+        "Calculate both quantities using $n = 500$ and $p = 0.9452$:\n$$np = 500 \\times 0.9452 = 472.6 > 5$$\n$$n(1-p) = 500 \\times 0.0548 = 27.4 > 5$$",
+        "Because both $472.6 > 5$ and $27.4 > 5$, the normal approximation is fully justified."
+      ]
+    }
+  ]
+}

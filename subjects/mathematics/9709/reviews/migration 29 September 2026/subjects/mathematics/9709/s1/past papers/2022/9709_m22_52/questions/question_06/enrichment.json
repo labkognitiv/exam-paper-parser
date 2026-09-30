@@ -1,0 +1,152 @@
+{
+  "schema_version": "9709_math_enrichment_v7",
+  "question_id": "9709_m22_52_q6",
+  "difficulty": 4,
+  "parts": [
+    {
+      "part_id": "9709_m22_52_q6_a",
+      "difficulty": 2,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_s1_t_discrete_random_variables",
+        "lesson_id": "9709_s1_t_discrete_random_variables_m05_l01"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_calculating_geometric_distribution_probabilities"
+      },
+      "hints": [
+        "Find the probability of picking a lemon chocolate: the ratio of lemon, orange, strawberry is 3 : 5 : 7, so total parts = 3 + 5 + 7 = 15.",
+        "The probability of lemon is $p = 3/15 = 1/5 = 0.2$, and non-lemon is $q = 1 - 0.2 = 4/5 = 0.8$.",
+        "For the first lemon to be the 7th chocolate checked, the first 6 must be non-lemon followed by a lemon: $\\mathrm{P}(X = 7) = (4/5)^6(1/5)$."
+      ],
+      "walkthrough": [
+        "Determine the probability of choosing a lemon chocolate from the production ratio $3 : 5 : 7$:\n$$\\text{Total parts} = 3 + 5 + 7 = 15$$\n$$p = \\mathrm{P}(\\text{lemon}) = \\frac{3}{15} = \\frac{1}{5} = 0.2$$\n$$q = \\mathrm{P}(\\text{not lemon}) = 1 - \\frac{1}{5} = \\frac{4}{5} = 0.8$$",
+        "Use the geometric distribution probability formula $\\mathrm{P}(X = r) = q^{r-1}p$ with $r = 7$:\n$$\\mathrm{P}(\\text{first lemon is 7th}) = \\left(\\frac{4}{5}\\right)^6 \\left(\\frac{1}{5}\\right)$$",
+        "Evaluate the power and product:\n$$\\left(\\frac{4}{5}\\right)^6 \\left(\\frac{1}{5}\\right) = \\frac{4096}{15\\,625} \\times \\frac{1}{5} = \\frac{4096}{78\\,125} \\approx 0.0524$$"
+      ],
+      "teacher_walkthrough": [
+        "Step 1: Calculate the trial probabilities.\nThe factory produces chocolates in the ratio $3 : 5 : 7$ for lemon, orange, and strawberry respectively.\nTotal parts in the ratio:\n$$3 + 5 + 7 = 15$$\nTherefore, the probability of selecting a lemon chocolate on any single trial is:\n$$p = \\frac{3}{15} = \\frac{1}{5} = 0.2$$\nThe probability of not selecting a lemon chocolate is:\n$$q = 1 - p = 1 - \\frac{1}{5} = \\frac{4}{5} = 0.8$$\n\nStep 2: Identify the distribution.\nLet $X$ denote the number of chocolates checked until the first lemon chocolate is found.\nSince each chocolate is chosen randomly and independently from an ongoing production line with constant probability of success $p = 0.2$:\n$$X \\sim \\mathrm{Geo}(0.2)$$\n\nStep 3: Apply the geometric probability formula.\nThe probability that the first success occurs on the $r$th trial is:\n$$\\mathrm{P}(X = r) = (1 - p)^{r - 1} p$$\nFor $r = 7$:\n$$\\mathrm{P}(X = 7) = \\left(\\frac{4}{5}\\right)^{7 - 1} \\left(\\frac{1}{5}\\right) = \\left(\\frac{4}{5}\\right)^6 \\left(\\frac{1}{5}\\right)$$\n\nStep 4: Compute the arithmetic explicitly.\n$$4^6 = 4096$$\n$$5^6 = 15\\,625$$\n$$\\left(\\frac{4}{5}\\right)^6 = \\frac{4096}{15\\,625}$$\nMultiply by $\\frac{1}{5}$:\n$$\\mathrm{P}(X = 7) = \\frac{4096}{15\\,625 \\times 5} = \\frac{4096}{78\\,125} = 0.0524288$$\nRounding to 3 significant figures gives $0.0524$."
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      }
+    },
+    {
+      "part_id": "9709_m22_52_q6_b",
+      "difficulty": 2,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_s1_t_discrete_random_variables",
+        "lesson_id": "9709_s1_t_discrete_random_variables_m04_l02"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_calculating_geometric_distribution_probabilities"
+      },
+      "hints": [
+        "The condition 'the first lemon is chosen after checking at least 6 chocolates' means that the first lemon occurs on the 7th chocolate or later ($X \\ge 7$).",
+        "This requires that none of the first 6 chocolates checked is lemon.",
+        "Calculate the probability that all of the first 6 chocolates are non-lemon: $(4/5)^6$."
+      ],
+      "walkthrough": [
+        "Interpret the condition: the first lemon chocolate occurs after checking at least $6$ chocolates, which means the first $6$ chocolates checked are all non-lemon:\n$$\\mathrm{P}(\\text{first lemon after } \\ge 6 \\text{ checks}) = \\mathrm{P}(X \\ge 7) = \\mathrm{P}(\\text{first 6 are not lemon})$$",
+        "Calculate the probability of obtaining $6$ non-lemon chocolates in succession:\n$$\\mathrm{P}(X \\ge 7) = \\left(\\frac{4}{5}\\right)^6 = \\frac{4096}{15\\,625} \\approx 0.262$$"
+      ],
+      "teacher_walkthrough": [
+        "Step 1: Translate the verbal condition into mathematics.\nThe question states: 'the first chocolate with lemon flavour that Nell chooses is after she has checked at least 6 chocolates.'\nChecking at least 6 chocolates before getting a lemon means:\n- Chocolate 1 is not lemon.\n- Chocolate 2 is not lemon.\n- Chocolate 3 is not lemon.\n- Chocolate 4 is not lemon.\n- Chocolate 5 is not lemon.\n- Chocolate 6 is not lemon.\nThe first lemon may appear on chocolate 7, 8, 9, and so on ($X \\ge 7$).\n\nStep 2: Apply the geometric tail probability rule.\nFor a geometric distribution $X \\sim \\mathrm{Geo}(p)$, the probability that the first success occurs after trial $k$ (that is, $X > k$ or $X \\ge k + 1$) is simply the probability that the first $k$ trials are all failures:\n$$\\mathrm{P}(X \\ge k + 1) = q^k$$\nHere $k = 6$ and $q = 1 - p = \\frac{4}{5} = 0.8$:\n$$\\mathrm{P}(X \\ge 7) = \\left(\\frac{4}{5}\\right)^6$$\n\nStep 3: Evaluate the power.\n$$4^6 = 4096$$\n$$5^6 = 15\\,625$$\n$$\\mathrm{P}(X \\ge 7) = \\frac{4096}{15\\,625} = 0.262144$$\nRounding to 3 significant figures gives $0.262$."
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      }
+    },
+    {
+      "part_id": "9709_m22_52_q6_c",
+      "difficulty": 3,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_s1_t_probability",
+        "lesson_id": "9709_s1_t_probability_m05_l01"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_applying_the_multiplication_rule"
+      },
+      "hints": [
+        "The box contains 15 chocolates in total: 3 lemon, 5 orange, and 7 strawberry. Non-orange chocolates total 3 + 7 = 10.",
+        "Petra chooses 3 chocolates without replacement.",
+        "Use combinations C(10,3) / C(15,3) or successive probabilities (10/15) * (9/14) * (8/13)."
+      ],
+      "walkthrough": [
+        "Count the chocolates in the box: $3$ lemon, $5$ orange, and $7$ strawberry, giving $15$ chocolates in total, of which $3 + 7 = 10$ are not orange.",
+        "Method 1: Using successive probabilities without replacement:\n$$\\mathrm{P}(\\text{no orange}) = \\frac{10}{15} \\times \\frac{9}{14} \\times \\frac{8}{13}$$\nSimplify the fractions:\n$$\\frac{10}{15} = \\frac{2}{3}, \\quad \\frac{2}{3} \\times \\frac{9}{14} = \\frac{18}{42} = \\frac{3}{7}, \\quad \\frac{3}{7} \\times \\frac{8}{13} = \\frac{24}{91} \\approx 0.264$$",
+        "Method 2: Using combinations:\n$$\\mathrm{P}(\\text{no orange}) = \\frac{\\binom{10}{3}}{\\binom{15}{3}} = \\frac{120}{455} = \\frac{24}{91} \\approx 0.264$$"
+      ],
+      "teacher_walkthrough": [
+        "Step 1: Understand the sample space and constraints.\nThe box contains $15$ chocolates:\n- Lemon: $3$\n- Orange: $5$\n- Strawberry: $7$\nNon-orange chocolates (lemon or strawberry): $3 + 7 = 10$.\nPetra chooses $3$ chocolates at random without replacement.\n\nStep 2: Method 1 (Successive probabilities without replacement).\nFor none of the $3$ chosen chocolates to be orange, all $3$ selections must be non-orange:\n- First chocolate is non-orange: $10$ non-orange out of $15$ total:\n  $$\\mathrm{P}(\\text{1st non-orange}) = \\frac{10}{15}$$\n- Second chocolate is non-orange: $9$ non-orange remaining out of $14$ total:\n  $$\\mathrm{P}(\\text{2nd non-orange} \\mid \\text{1st non-orange}) = \\frac{9}{14}$$\n- Third chocolate is non-orange: $8$ non-orange remaining out of $13$ total:\n  $$\\mathrm{P}(\\text{3rd non-orange} \\mid \\text{first 2 non-orange}) = \\frac{8}{13}$$\nMultiply these successive probabilities:\n$$\\mathrm{P}(\\text{no orange}) = \\frac{10}{15} \\times \\frac{9}{14} \\times \\frac{8}{13}$$\nSimplify before multiplying:\n$$\\frac{10}{15} = \\frac{2}{3}$$\n$$\\frac{2}{3} \\times \\frac{9}{14} = \\frac{2 \\times 9}{3 \\times 14} = \\frac{18}{42} = \\frac{3}{7}$$\n$$\\frac{3}{7} \\times \\frac{8}{13} = \\frac{3 \\times 8}{7 \\times 13} = \\frac{24}{91} \\approx 0.263736$$\n\nStep 3: Method 2 (Combinations).\n- Total ways to choose $3$ chocolates from $15$:\n  $$\\binom{15}{3} = \\frac{15 \\times 14 \\times 13}{3 \\times 2 \\times 1} = 5 \\times 7 \\times 13 = 455$$\n- Favourable ways to choose $3$ non-orange chocolates from $10$:\n  $$\\binom{10}{3} = \\frac{10 \\times 9 \\times 8}{3 \\times 2 \\times 1} = 10 \\times 3 \\times 4 = 120$$\n- Probability:\n  $$\\mathrm{P}(\\text{no orange}) = \\frac{120}{455} = \\frac{24 \\times 5}{91 \\times 5} = \\frac{24}{91} \\approx 0.264$$\nBoth methods yield $\\frac{24}{91} \\approx 0.264$."
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      }
+    },
+    {
+      "part_id": "9709_m22_52_q6_d",
+      "difficulty": 3,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_s1_t_probability",
+        "lesson_id": "9709_s1_t_probability_m05_l01"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_applying_the_multiplication_rule"
+      },
+      "hints": [
+        "Each of the 3 chocolates having a different flavour means Petra selects exactly 1 lemon, 1 orange, and 1 strawberry.",
+        "Using combinations, choose 1 from 3 lemons, 1 from 5 oranges, and 1 from 7 strawberries, and divide by C(15, 3).",
+        "Alternatively, calculate the probability of one specific order (e.g. L then O then S) and multiply by 3! = 6 possible orderings."
+      ],
+      "walkthrough": [
+        "Identify the required selection: exactly $1$ lemon, $1$ orange, and $1$ strawberry from the available $3$ lemons, $5$ oranges, and $7$ strawberries.",
+        "Method 1: Using combinations:\n$$\\mathrm{P}(\\text{all different}) = \\frac{\\binom{3}{1}\\binom{5}{1}\\binom{7}{1}}{\\binom{15}{3}}$$\n$$\\binom{3}{1} = 3, \\quad \\binom{5}{1} = 5, \\quad \\binom{7}{1} = 7, \\quad \\binom{15}{3} = 455$$\n$$\\mathrm{P}(\\text{all different}) = \\frac{3 \\times 5 \\times 7}{455} = \\frac{105}{455} = \\frac{3}{13} \\approx 0.231$$",
+        "Method 2: Using ordered probabilities:\n$$\\mathrm{P}(\\text{L, O, S in that order}) = \\frac{3}{15} \\times \\frac{5}{14} \\times \\frac{7}{13} = \\frac{105}{2730}$$\nAccount for all $3! = 6$ possible orders of the three flavours:\n$$\\mathrm{P}(\\text{all different}) = 3! \\times \\left(\\frac{3}{15} \\times \\frac{5}{14} \\times \\frac{7}{13}\\right) = 6 \\times \\frac{105}{2730} = \\frac{630}{2730} = \\frac{3}{13} \\approx 0.231$$"
+      ],
+      "teacher_walkthrough": [
+        "Step 1: Understand the condition.\nThere are three distinct flavours available: Lemon (3), Orange (5), Strawberry (7).\nFor each of the $3$ chosen chocolates to have a different flavour, Petra must select:\n- Exactly $1$ Lemon\n- Exactly $1$ Orange\n- Exactly $1$ Strawberry\n\nStep 2: Method 1 (Combinations).\n- Total number of ways to choose $3$ chocolates from $15$:\n  $$\\binom{15}{3} = \\frac{15 \\times 14 \\times 13}{3 \\times 2 \\times 1} = 5 \\times 7 \\times 13 = 455$$\n- Favourable selections choosing $1$ from each flavour category:\n  $$\\text{Favourable} = \\binom{3}{1} \\times \\binom{5}{1} \\times \\binom{7}{1} = 3 \\times 5 \\times 7 = 105$$\n- Ratio:\n  $$\\mathrm{P}(\\text{all different}) = \\frac{105}{455}$$\nDivide numerator and denominator by $35$:\n$$\\frac{105 \\div 35}{455 \\div 35} = \\frac{3}{13} \\approx 0.230769$$\n\nStep 3: Method 2 (Ordered probabilities).\nConsider one specific draw sequence, say Lemon then Orange then Strawberry (L, O, S):\n$$\\mathrm{P}(L_1) = \\frac{3}{15}$$\n$$\\mathrm{P}(O_2 \\mid L_1) = \\frac{5}{14}$$\n$$\\mathrm{P}(S_3 \\mid L_1 \\cap O_2) = \\frac{7}{13}$$\n$$\\mathrm{P}(L, O, S) = \\frac{3}{15} \\times \\frac{5}{14} \\times \\frac{7}{13} = \\frac{105}{2730}$$\nThe three distinct flavours can be ordered in $3!$ ways:\n$$3! = 3 \\times 2 \\times 1 = 6$$\nSince each permutation has the same product of numerators and denominators:\n$$\\mathrm{P}(\\text{all different}) = 6 \\times \\frac{105}{2730} = \\frac{630}{2730} = \\frac{63}{273} = \\frac{3}{13} \\approx 0.231$$\nBoth methods give $\\frac{3}{13} \\approx 0.231$."
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      }
+    },
+    {
+      "part_id": "9709_m22_52_q6_e",
+      "difficulty": 4,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_s1_t_probability",
+        "lesson_id": "9709_s1_t_probability_m05_l01"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_calculating_conditional_probability"
+      },
+      "hints": [
+        "Recall the conditional probability definition: $\\mathrm{P}(A \\mid B) = \\frac{\\mathrm{P}(A \\cap B)}{\\mathrm{P}(B)}$.",
+        "Here event $B$ is 'none of the 3 chocolates has orange flavour', which was evaluated in part (c) as $24/91$.",
+        "Given no orange, all 3 chocolates come from the 10 non-orange chocolates (3 lemon, 7 strawberry). The condition 'at least 2 strawberry' consists of two cases: exactly 2 strawberry (and 1 lemon), or all 3 strawberry.",
+        "Calculate the favourable ways C(7,2)*C(3,1) + C(7,3) and divide by the reduced sample space C(10,3) (or divide joint probability by part (c) probability)."
+      ],
+      "walkthrough": [
+        "Use conditional probability on the reduced sample space where no chocolates are orange. The pool consists of $3$ lemon and $7$ strawberry chocolates ($10$ chocolates in total):\n$$\\text{Total ways to choose 3 non-orange} = \\binom{10}{3} = 120$$",
+        "Count the favourable selections with at least $2$ strawberry chocolates:\n- Case 1 ($2$ strawberry, $1$ lemon):\n  $$\\binom{7}{2}\\binom{3}{1} = \\frac{7 \\times 6}{2 \\times 1} \\times 3 = 21 \\times 3 = 63$$\n- Case 2 ($3$ strawberry, $0$ lemon):\n  $$\\binom{7}{3}\\binom{3}{0} = \\frac{7 \\times 6 \\times 5}{3 \\times 2 \\times 1} \\times 1 = 35 \\times 1 = 35$$\n$$\\text{Total favourable ways} = 63 + 35 = 98$$",
+        "Divide the favourable ways by the reduced sample space size:\n$$\\mathrm{P}(\\ge 2\\text{ strawberry} \\mid \\text{no orange}) = \\frac{98}{120} = \\frac{49}{60} \\approx 0.817$$"
+      ],
+      "teacher_walkthrough": [
+        "Step 1: Formulate the conditional probability.\nLet $A$ be the event that at least $2$ of Petra's chocolates are strawberry.\nLet $B$ be the event that none of Petra's chocolates are orange.\nBy definition of conditional probability:\n$$\\mathrm{P}(A \\mid B) = \\frac{\\mathrm{P}(A \\cap B)}{\\mathrm{P}(B)}$$\n\nStep 2: Method 1 (Reduced sample space).\nConditioning on $B$ (no orange chocolates) restricts the available pool of chocolates to only the non-orange ones:\n- $3$ Lemon\n- $7$ Strawberry\n- Total non-orange pool = $10$ chocolates.\nTotal number of ways to choose $3$ chocolates from this pool of $10$ is:\n$$\\binom{10}{3} = \\frac{10 \\times 9 \\times 8}{3 \\times 2 \\times 1} = 120$$\nNow, count the selections within this reduced pool that satisfy event $A$ (at least $2$ strawberry):\n- Case 1: Exactly $2$ strawberry and $1$ lemon:\n  $$\\binom{7}{2} \\times \\binom{3}{1} = 21 \\times 3 = 63$$\n- Case 2: Exactly $3$ strawberry and $0$ lemon:\n  $$\\binom{7}{3} \\times \\binom{3}{0} = 35 \\times 1 = 35$$\nSum of favourable outcomes:\n$$\\text{Favourable} = 63 + 35 = 98$$\nDivide by the total outcomes in the reduced sample space:\n$$\\mathrm{P}(A \\mid B) = \\frac{98}{120} = \\frac{49}{60} \\approx 0.816667$$\n\nStep 3: Method 2 (Formula using original sample space).\nFrom part (c), $\\mathrm{P}(B) = \\mathrm{P}(\\text{no orange}) = \\frac{24}{91}$.\nNow compute $\\mathrm{P}(A \\cap B)$ from the original $15$ chocolates:\n$$\\mathrm{P}(A \\cap B) = \\frac{\\binom{7}{2}\\binom{3}{1} + \\binom{7}{3}}{\\binom{15}{3}} = \\frac{63 + 35}{455} = \\frac{98}{455}$$\nSimplify $\\frac{98}{455}$ by dividing by $7$:\n$$\\frac{98 \\div 7}{455 \\div 7} = \\frac{14}{65}$$\nNow divide by $\\mathrm{P}(B)$:\n$$\\mathrm{P}(A \\mid B) = \\frac{\\frac{14}{65}}{\\frac{24}{91}} = \\frac{14}{65} \\times \\frac{91}{24}$$\nSimplify cross terms:\n$$\\frac{14}{24} = \\frac{7}{12}, \\quad \\frac{91}{65} = \\frac{7 \\times 13}{5 \\times 13} = \\frac{7}{5}$$\n$$\\mathrm{P}(A \\mid B) = \\frac{7 \\times 7}{12 \\times 5} = \\frac{49}{60} \\approx 0.817$$\nBoth methods give $\\frac{49}{60} \\approx 0.817$."
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      }
+    }
+  ]
+}

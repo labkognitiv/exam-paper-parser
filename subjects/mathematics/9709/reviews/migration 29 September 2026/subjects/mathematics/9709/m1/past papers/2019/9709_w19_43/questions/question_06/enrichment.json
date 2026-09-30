@@ -1,0 +1,73 @@
+{
+  "schema_version": "9709_math_enrichment_v7",
+  "question_id": "9709_w19_43_q6",
+  "difficulty": 5,
+  "parts": [
+    {
+      "part_id": "9709_w19_43_q6_i",
+      "difficulty": 5,
+      "practice_tier": "revision",
+      "mapping": {
+        "topic_id": "9709_m1_t_kinematics_of_motion_in_a_straight_line",
+        "lesson_id": "9709_m1_t_kinematics_of_motion_in_a_straight_line_m07_l01"
+      },
+      "skills": {
+        "primary_skill_id": "9709_m1_skill_solving_motion_function_conditions"
+      },
+      "hints": [
+        "Substitute $t = 5$ and $v = 10$ into the velocity equation to get a relation between $c$ and $k$: $5c + k = 1$.",
+        "Integrate velocity with respect to time to find displacement: $s(t) = 0.01t^4 + \\frac{c}{3}t^3 + \\frac{k}{2}t^2$.",
+        "Substitute $t = 5$ and $s = 25$ to obtain a second linear equation in $c$ and $k$.",
+        "Solve the simultaneous equations to find $c$ and $k$."
+      ],
+      "walkthrough": [
+        "Use the boundary condition $v(5) = 10\\text{ m s}^{-1}$:\n$$10 = 0.04(5^3) + c(5^2) + k(5)$$\n$$10 = 0.04(125) + 25c + 5k = 5 + 25c + 5k$$\n$$25c + 5k = 5 \\implies 5c + k = 1 \\quad \\text{[Equation 1]}$$",
+        "Integrate velocity with respect to time to obtain displacement $s(t)$, with $s(0) = 0$:\n$$s = \\int \\left(0.04t^3 + ct^2 + kt\\right) dt = 0.01t^4 + \\frac{c}{3}t^3 + \\frac{k}{2}t^2$$",
+        "Use the boundary condition $s(5) = 25\\text{ m}$:\n$$25 = 0.01(5^4) + \\frac{c}{3}(5^3) + \\frac{k}{2}(5^2)$$\n$$25 = 6.25 + \\frac{125}{3}c + 12.5k$$\n$$\\frac{125}{3}c + 12.5k = 18.75 \\quad \\text{[Equation 2]}$$",
+        "Solve the system of equations. From Equation 1, $k = 1 - 5c$. Substitute into Equation 2 multiplied by $6$:\n$$250c + 75k = 112.5$$\n$$250c + 75(1 - 5c) = 112.5$$\n$$250c + 75 - 375c = 112.5$$\n$$-125c = 37.5 \\implies c = -\\frac{37.5}{125} = -0.3$$\n$$k = 1 - 5(-0.3) = 1 + 1.5 = 2.5$$"
+      ],
+      "teacher_walkthrough": [
+        "Form the first linear relation using the velocity at $t = 5\\text{ s}$:\n$$v(t) = 0.04t^3 + ct^2 + kt$$\nSubstitute $t = 5$ and $v = 10$:\n$$10 = 0.04(5^3) + c(5^2) + k(5)$$\n$$5^3 = 125, \\quad 0.04 \\times 125 = 5$$\n$$10 = 5 + 25c + 5k$$\nSubtract $5$ and divide by $5$:\n$$25c + 5k = 5 \\implies 5c + k = 1 \\quad \\text{[Equation 1]}$$",
+        "Integrate velocity to find the displacement function:\n$$s(t) = \\int v(t)\\,dt = \\int \\left(0.04t^3 + ct^2 + kt\\right) dt$$\n$$s(t) = \\frac{0.04t^4}{4} + \\frac{ct^3}{3} + \\frac{kt^2}{2} + C = 0.01t^4 + \\frac{c}{3}t^3 + \\frac{k}{2}t^2 + C$$\nSince $P$ starts from $A$ at $t = 0$, $s(0) = 0$, which gives $C = 0$.",
+        "Form the second linear relation using the displacement at $t = 5\\text{ s}$ ($s = 25\\text{ m}$):\n$$25 = 0.01(5^4) + \\frac{c}{3}(5^3) + \\frac{k}{2}(5^2)$$\n$$5^4 = 625, \\quad 0.01 \\times 625 = 6.25$$\n$$25 = 6.25 + \\frac{125}{3}c + 12.5k$$\nSubtract $6.25$:\n$$\\frac{125}{3}c + 12.5k = 18.75$$\nMultiply entire equation by $6$ to clear fractions:\n$$250c + 75k = 112.5$$\nDivide by $25$:\n$$10c + 3k = 4.5 \\quad \\text{[Equation 2]}$$",
+        "Solve Equations 1 and 2 simultaneously:\nFrom Equation 1, express $k$ in terms of $c$:\n$$k = 1 - 5c$$\nSubstitute into Equation 2:\n$$10c + 3(1 - 5c) = 4.5$$\n$$10c + 3 - 15c = 4.5$$\n$$-5c = 4.5 - 3 = 1.5$$\nDivide by $-5$:\n$$c = -0.3$$\nSubstitute $c = -0.3$ back into Equation 1:\n$$k = 1 - 5(-0.3) = 1 + 1.5 = 2.5$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      }
+    },
+    {
+      "part_id": "9709_w19_43_q6_ii",
+      "difficulty": 2,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_m1_t_kinematics_of_motion_in_a_straight_line",
+        "lesson_id": "9709_m1_t_kinematics_of_motion_in_a_straight_line_m07_l01"
+      },
+      "skills": {
+        "primary_skill_id": "9709_m1_skill_differentiating_motion_functions"
+      },
+      "hints": [
+        "Differentiate velocity $v(t) = 0.04t^3 - 0.3t^2 + 2.5t$ to find acceleration $a(t)$.",
+        "Differentiate acceleration with respect to time to find $\\frac{da}{dt}$.",
+        "Set $\\frac{da}{dt} = 0$ to show that the stationary point occurs at $t = 2.5\\text{ s}$, and verify it is a minimum."
+      ],
+      "walkthrough": [
+        "Differentiate velocity to obtain the acceleration function:\n$$a(t) = \\frac{dv}{dt} = \\frac{d}{dt}\\left(0.04t^3 - 0.3t^2 + 2.5t\\right) = 0.12t^2 - 0.6t + 2.5$$",
+        "Find the derivative of acceleration with respect to time:\n$$\\frac{da}{dt} = 0.24t - 0.6$$",
+        "Set $\\frac{da}{dt} = 0$ to locate the stationary point:\n$$0.24t - 0.6 = 0 \\implies 0.24t = 0.6 \\implies t = \\frac{0.6}{0.24} = 2.5\\text{ s}$$\nSince $\\frac{d^2a}{dt^2} = 0.24 > 0$, this confirms that the acceleration is a minimum at $t = 2.5\\text{ s}$."
+      ],
+      "teacher_walkthrough": [
+        "Find the acceleration function by differentiating the velocity function:\n$$a(t) = \\frac{dv}{dt} = \\frac{d}{dt}\\left(0.04t^3 - 0.3t^2 + 2.5t\\right)$$\n$$a(t) = 3(0.04)t^2 - 2(0.3)t + 2.5 = 0.12t^2 - 0.6t + 2.5$$",
+        "Find the stationary value of the acceleration by differentiating with respect to $t$:\n$$\\frac{da}{dt} = \\frac{d}{dt}\\left(0.12t^2 - 0.6t + 2.5\\right) = 0.24t - 0.6$$",
+        "Set the derivative to zero:\n$$0.24t - 0.6 = 0$$\nAdd $0.6$ to both sides and divide by $0.24$:\n$$0.24t = 0.6 \\implies t = \\frac{0.6}{0.24} = \\frac{60}{24} = 2.5\\text{ s}$$",
+        "Confirm that this stationary point is a local minimum:\n$$\\frac{d^2a}{dt^2} = 0.24 > 0$$\nSince the second derivative is strictly positive, the acceleration is indeed a minimum when $t = 2.5\\text{ s}$."
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      }
+    }
+  ]
+}

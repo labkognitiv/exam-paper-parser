@@ -1,0 +1,84 @@
+{
+  "schema_version": "9709_math_enrichment_v7",
+  "question_id": "9709_w21_31_q7",
+  "difficulty": 4,
+  "parts": [
+    {
+      "part_id": "9709_w21_31_q7_a",
+      "difficulty": 1,
+      "practice_tier": "revision",
+      "mapping": {
+        "topic_id": "9709_p3_t_differential_equations",
+        "lesson_id": "9709_p3_t_differential_equations_m02_l01"
+      },
+      "skills": {
+        "primary_skill_id": "9709_p3_skill_differentiation"
+      },
+      "hints": [
+        "Differentiate the outer logarithm first and then the inner logarithm by the chain rule.",
+        "For $y=\\ln(\\ln x)$, multiply $1/\\ln x$ by $d(\\ln x)/dx$ and simplify."
+      ],
+      "walkthrough": [
+        "Differentiate $y = \\ln(\\ln x)$ with respect to $x$ using the chain rule $\\dfrac{\\mathrm{d}y}{\\mathrm{d}x} = \\dfrac{\\mathrm{d}y}{\\mathrm{d}u}\\dfrac{\\mathrm{d}u}{\\mathrm{d}x}$ where $u = \\ln x$:\n$$\\dfrac{\\mathrm{d}y}{\\mathrm{d}u} = \\dfrac{1}{u} = \\dfrac{1}{\\ln x}$$\n$$\\dfrac{\\mathrm{d}u}{\\mathrm{d}x} = \\dfrac{1}{x}$$",
+        "Multiply the derivatives:\n$$\\dfrac{\\mathrm{d}y}{\\mathrm{d}x} = \\dfrac{1}{\\ln x} \\times \\dfrac{1}{x} = \\dfrac{1}{x\\ln x}$$\nThis completes the proof."
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      }
+    },
+    {
+      "part_id": "9709_w21_31_q7_b",
+      "difficulty": 4,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_p3_t_logarithmic_and_exponential_functions",
+        "lesson_id": "9709_p3_t_logarithmic_and_exponential_functions_m03_l01"
+      },
+      "skills": {
+        "primary_skill_id": "9709_p3_skill_solving_separable_differential_equations"
+      },
+      "hints": [
+        "Separate the differential equation using the derivative identified in part (a).",
+        "Rearrange to $dx/(x\\ln x)=-dt/t$ and integrate to $\\ln(\\ln x)=-\\ln t+C$.",
+        "Apply $x=e$ when $t=2$, then use logarithm laws and exponentiate twice to isolate $x$."
+      ],
+      "walkthrough": [
+        "Separate variables in the differential equation $x\\ln x + t\\dfrac{\\mathrm{d}x}{\\mathrm{d}t} = 0$:\n$$t\\dfrac{\\mathrm{d}x}{\\mathrm{d}t} = -x\\ln x$$\n$$\\dfrac{1}{x\\ln x}\\,\\mathrm{d}x = -\\dfrac{1}{t}\\,\\mathrm{d}t$$",
+        "Integrate both sides, using the result from part (a) that $\\int \\dfrac{1}{x\\ln x}\\,\\mathrm{d}x = \\ln(\\ln x)$:\n$$\\int \\dfrac{1}{x\\ln x}\\,\\mathrm{d}x = -\\int \\dfrac{1}{t}\\,\\mathrm{d}t$$\n$$\\ln(\\ln x) = -\\ln t + c$$",
+        "Use the given initial condition $x = \\mathrm{e}$ when $t = 2$ to find the constant $c$:\n$$\\ln(\\ln\\mathrm{e}) = -\\ln 2 + c$$\n$$\\ln(1) = -\\ln 2 + c$$\n$$0 = -\\ln 2 + c \\implies c = \\ln 2$$",
+        "Substitute $c = \\ln 2$ into the equation and combine logarithms:\n$$\\ln(\\ln x) = -\\ln t + \\ln 2 = \\ln\\left(\\dfrac{2}{t}\\right)$$",
+        "Exponentiate once to eliminate the outer logarithm:\n$$\\ln x = \\dfrac{2}{t}$$",
+        "Exponentiate again to express $x$ explicitly in terms of $t$:\n$$x = \\mathrm{e}^{\\frac{2}{t}}$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      }
+    },
+    {
+      "part_id": "9709_w21_31_q7_c",
+      "difficulty": 2,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_p3_t_logarithmic_and_exponential_functions",
+        "lesson_id": "9709_p3_t_logarithmic_and_exponential_functions_m03_l01"
+      },
+      "skills": {
+        "primary_skill_id": "9709_p3_skill_interpreting_differential_equation_solutions"
+      },
+      "hints": [
+        "Use the explicit solution for $x$ from part (b) and take its limit as $t\\to\\infty$.",
+        "First determine the limit of the exponent $2/t$, then apply continuity of the exponential function."
+      ],
+      "walkthrough": [
+        "Analyze the limiting behaviour of $x = \\mathrm{e}^{\\frac{2}{t}}$ as $t \\to \\infty$:\nAs $t \\to \\infty$, the exponent $\\dfrac{2}{t} \\to 0$.",
+        "Evaluate the limit:\n$$\\lim_{t\\to\\infty} x = \\lim_{t\\to\\infty} \\mathrm{e}^{\\frac{2}{t}} = \\mathrm{e}^0 = 1$$\nTherefore, as $t$ tends to infinity, $x$ tends to $1$."
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      }
+    }
+  ]
+}

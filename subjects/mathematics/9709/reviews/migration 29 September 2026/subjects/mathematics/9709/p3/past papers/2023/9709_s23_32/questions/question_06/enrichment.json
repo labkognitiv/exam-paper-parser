@@ -1,0 +1,93 @@
+{
+  "schema_version": "9709_math_enrichment_v7",
+  "question_id": "9709_s23_32_q6",
+  "difficulty": 2,
+  "parts": [
+    {
+      "part_id": "9709_s23_32_q6_a",
+      "difficulty": 1,
+      "practice_tier": "revision",
+      "mapping": {
+        "topic_id": "9709_p3_t_numerical_solution_of_equations",
+        "lesson_id": "9709_p3_t_numerical_solution_of_equations_m01_l02"
+      },
+      "skills": {
+        "primary_skill_id": "9709_p3_skill_numerical_root_bracketing"
+      },
+      "hints": [
+        "Define a continuous residual such as $f(x)=\\cot(x/2)-3x$ and evaluate it in radians at both endpoints.",
+        "Compare $\\cot(0.25)$ with $1.5$, and $\\cot(0.5)$ with $3$.",
+        "Show that the two residuals have opposite signs, then invoke continuity to locate the root between $0.5$ and $1$."
+      ],
+      "walkthrough": [
+        "Define the root-finding function $f(x) = \\cot\\left(\\dfrac{x}{2}\\right) - 3x$.",
+        "Evaluate $f(x)$ at $x = 0.5$ in radians:\n$$\\dfrac{x}{2} = 0.25 \\text{ radians}$$\n$$\\cot(0.25) = \\dfrac{1}{\\tan(0.25)} \\approx \\dfrac{1}{0.2553419} \\approx 3.916317$$\n$$3x = 3(0.5) = 1.5$$\n$$f(0.5) = 3.916317 - 1.5 = +2.416317 > 0$$",
+        "Evaluate $f(x)$ at $x = 1$ in radians:\n$$\\dfrac{x}{2} = 0.5 \\text{ radians}$$\n$$\\cot(0.5) = \\dfrac{1}{\\tan(0.5)} \\approx \\dfrac{1}{0.5463025} \\approx 1.830488$$\n$$3x = 3(1) = 3$$\n$$f(1) = 1.830488 - 3 = -1.169512 < 0$$",
+        "Conclude the root location:\nSince $f(x)$ is continuous on $[0.5, 1]$ and changes sign between $x = 0.5$ ($f(0.5) > 0$) and $x = 1$ ($f(1) < 0$), the root $\\alpha$ lies strictly between $0.5$ and $1$."
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      }
+    },
+    {
+      "part_id": "9709_s23_32_q6_b",
+      "difficulty": 2,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_p3_t_numerical_solution_of_equations",
+        "lesson_id": "9709_p3_t_numerical_solution_of_equations_m02_l02"
+      },
+      "skills": {
+        "primary_skill_id": "9709_p3_skill_forming_and_testing_fixed_point_rearrangements"
+      },
+      "hints": [
+        "If the iteration converges, both $x_n$ and $x_{n+1}$ tend to the same limit; call it $x$.",
+        "Set $x=\\frac13\\left(x+4\\tan^{-1}\\!\\frac1{3x}\\right)$ and rearrange to isolate the inverse tangent.",
+        "Convert the resulting relation involving $\\tan(x/2)$ into $\\cot(x/2)=3x$; the unique root in $(0,\\pi)$ is therefore $\\alpha$."
+      ],
+      "walkthrough": [
+        "Assume the iterative formula converges to a limit $x$:\n$$x = \\dfrac{1}{3}\\left(x + 4\\tan^{-1}\\left(\\dfrac{1}{3x}\\right)\\right)$$",
+        "Multiply both sides by 3:\n$$3x = x + 4\\tan^{-1}\\left(\\dfrac{1}{3x}\\right)$$",
+        "Subtract $x$ from both sides:\n$$2x = 4\\tan^{-1}\\left(\\dfrac{1}{3x}\\right)$$",
+        "Divide both sides by 4:\n$$\\dfrac{x}{2} = \\tan^{-1}\\left(\\dfrac{1}{3x}\\right)$$",
+        "Take the tangent of both sides:\n$$\\tan\\left(\\dfrac{x}{2}\\right) = \\dfrac{1}{3x}$$",
+        "Take the reciprocal of both sides to obtain the original equation:\n$$\\cot\\left(\\dfrac{x}{2}\\right) = 3x$$\nSince this is the equation whose root in $(0, \\pi)$ is $\\alpha$, the sequence converges to $\\alpha$."
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      }
+    },
+    {
+      "part_id": "9709_s23_32_q6_c",
+      "difficulty": 2,
+      "practice_tier": "revision",
+      "mapping": {
+        "topic_id": "9709_p3_t_numerical_solution_of_equations",
+        "lesson_id": "9709_p3_t_numerical_solution_of_equations_m02_l02"
+      },
+      "skills": {
+        "primary_skill_id": "9709_p3_skill_fixed_point_iteration"
+      },
+      "hints": [
+        "Choose a starting value in the bracket from part (a) and substitute it into the given iteration, using radians.",
+        "Feed each new value back into the formula and record every iterate to $4$ decimal places.",
+        "Continue until successive iterates agree sufficiently to justify rounding the limiting value to $2$ decimal places."
+      ],
+      "walkthrough": [
+        "State the iterative formula:\n$$x_{n+1} = \\dfrac{1}{3}\\left(x_n + 4\\tan^{-1}\\left(\\dfrac{1}{3x_n}\\right)\\right)$$",
+        "Start with $x_1 = 0.75$ and compute subsequent iterations to 4 decimal places in radians:\n$$x_2 = \\dfrac{1}{3}\\left(0.75 + 4\\tan^{-1}\\left(\\dfrac{1}{3(0.75)}\\right)\\right) = \\dfrac{1}{3}(0.75 + 4(0.418224)) = 0.8076$$",
+        "Calculate $x_3$:\n$$x_3 = \\dfrac{1}{3}\\left(0.8076 + 4\\tan^{-1}\\left(\\dfrac{1}{3(0.8076)}\\right)\\right) = \\dfrac{1}{3}(0.8076 + 4(0.391438)) = 0.7911$$",
+        "Calculate $x_4$:\n$$x_4 = \\dfrac{1}{3}\\left(0.7911 + 4\\tan^{-1}\\left(\\dfrac{1}{3(0.7911)}\\right)\\right) = \\dfrac{1}{3}(0.7911 + 4(0.398801)) = 0.7954$$",
+        "Calculate $x_5$:\n$$x_5 = \\dfrac{1}{3}\\left(0.7954 + 4\\tan^{-1}\\left(\\dfrac{1}{3(0.7954)}\\right)\\right) = \\dfrac{1}{3}(0.7954 + 4(0.396860)) = 0.7943$$",
+        "Calculate $x_6$ and $x_7$ to confirm stability:\n$$x_6 = \\dfrac{1}{3}\\left(0.7943 + 4\\tan^{-1}\\left(\\dfrac{1}{3(0.7943)}\\right)\\right) = 0.7946$$\n$$x_7 = \\dfrac{1}{3}\\left(0.7946 + 4\\tan^{-1}\\left(\\dfrac{1}{3(0.7946)}\\right)\\right) = 0.7945$$",
+        "Round the final answer correct to 2 decimal places:\n$$\\alpha = 0.79$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      }
+    }
+  ]
+}

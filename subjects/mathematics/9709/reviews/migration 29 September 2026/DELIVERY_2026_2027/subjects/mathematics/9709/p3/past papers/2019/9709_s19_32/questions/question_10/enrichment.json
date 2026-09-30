@@ -1,0 +1,96 @@
+{
+  "schema_version": "9709_math_enrichment_v7",
+  "question_id": "9709_s19_32_q10",
+  "difficulty": 5,
+  "parts": [
+    {
+      "part_id": "9709_s19_32_q10_i",
+      "difficulty": 2,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_p3_t_trigonometry",
+        "lesson_id": "9709_p3_t_trigonometry_m01_l02"
+      },
+      "skills": {
+        "primary_skill_id": "9709_p3_skill_trigonometric_identities"
+      },
+      "hints": [
+        "Use the sine addition and subtraction identities on $\\sin(3x+x)$ and $\\sin(3x-x)$.",
+        "Add the two expansions: the terms involving $\\cos3x\\sin x$ cancel.",
+        "Divide the resulting identity by $2$ to isolate $\\sin3x\\cos x$."
+      ],
+      "walkthrough": [
+        "State the compound angle addition and subtraction formulas for sine:\n$$\\sin(A + B) = \\sin A\\cos B + \\cos A\\sin B$$\n$$\\sin(A - B) = \\sin A\\cos B - \\cos A\\sin B$$",
+        "Apply these formulas with $A = 3x$ and $B = x$:\n$$\\sin(3x + x) = \\sin 3x\\cos x + \\cos 3x\\sin x$$\n$$\\sin 4x = \\sin 3x\\cos x + \\cos 3x\\sin x \\quad \\text{(Equation 1)}$$\n$$\\sin(3x - x) = \\sin 3x\\cos x - \\cos 3x\\sin x$$\n$$\\sin 2x = \\sin 3x\\cos x - \\cos 3x\\sin x \\quad \\text{(Equation 2)}$$",
+        "Add Equation 1 and Equation 2:\n$$\\sin 4x + \\sin 2x = (\\sin 3x\\cos x + \\cos 3x\\sin x) + (\\sin 3x\\cos x - \\cos 3x\\sin x)$$\n$$\\sin 4x + \\sin 2x = 2\\sin 3x\\cos x$$",
+        "Divide both sides by $2$ to obtain the required identity:\n$$\\sin 3x\\cos x = \\dfrac{1}{2}(\\sin 4x + \\sin 2x)$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      }
+    },
+    {
+      "part_id": "9709_s19_32_q10_ii",
+      "difficulty": 5,
+      "practice_tier": "revision",
+      "mapping": {
+        "topic_id": "9709_p3_t_integration",
+        "lesson_id": "9709_p3_t_integration_m04_l01"
+      },
+      "skills": {
+        "primary_skill_id": "9709_p3_skill_differentiation"
+      },
+      "hints": [
+        "Use part (i) to replace the product by $\\tfrac12(\\sin4x+\\sin2x)$.",
+        "Identify the shaded region's bounds from the zeros surrounding its positive lobe: $x=0$ and $x=\\pi/3$.",
+        "Integrate both sine terms with their chain-rule factors, then evaluate upper minus lower exactly."
+      ],
+      "walkthrough": [
+        "Determine the limits of integration for region $R$:\nThe region $R$ is bounded by the curve and the $x$-axis from $x = 0$ to the first positive root where $y = 0$.\nSetting $y = 0$:\n$$\\sin 3x\\cos x = 0$$\nFor $0 < x < \\dfrac{1}{2}\\pi$:\n- $\\sin 3x = 0 \\implies 3x = \\pi \\implies x = \\dfrac{1}{3}\\pi$\n- $\\cos x = 0 \\implies x = \\dfrac{1}{2}\\pi$\nThus, the boundary intercept for region $R$ is $x = \\dfrac{1}{3}\\pi$.",
+        "Set up the definite integral for the area of $R$ using the identity from part (i):\n$$\\text{Area} = \\int_0^{\\frac{1}{3}\\pi} \\sin 3x\\cos x\\,\\mathrm{d}x = \\int_0^{\\frac{1}{3}\\pi} \\dfrac{1}{2}(\\sin 4x + \\sin 2x)\\,\\mathrm{d}x$$",
+        "Integrate each term:\n$$\\int \\dfrac{1}{2}\\sin 4x\\,\\mathrm{d}x = -\\dfrac{1}{8}\\cos 4x$$\n$$\\int \\dfrac{1}{2}\\sin 2x\\,\\mathrm{d}x = -\\dfrac{1}{4}\\cos 2x$$\n$$\\text{Area} = \\left[-\\dfrac{1}{8}\\cos 4x - \\dfrac{1}{4}\\cos 2x\\right]_0^{\\frac{1}{3}\\pi}$$",
+        "Evaluate at the upper limit $x = \\dfrac{1}{3}\\pi$:\n- $4x = 4\\left(\\dfrac{1}{3}\\pi\\right) = \\dfrac{4}{3}\\pi \\implies \\cos\\left(\\dfrac{4}{3}\\pi\\right) = -\\dfrac{1}{2}$\n- $2x = 2\\left(\\dfrac{1}{3}\\pi\\right) = \\dfrac{2}{3}\\pi \\implies \\cos\\left(\\dfrac{2}{3}\\pi\\right) = -\\dfrac{1}{2}$\n$$\\text{At } x = \\dfrac{1}{3}\\pi: \\quad -\\dfrac{1}{8}\\left(-\\dfrac{1}{2}\\right) - \\dfrac{1}{4}\\left(-\\dfrac{1}{2}\\right) = \\dfrac{1}{16} + \\dfrac{1}{8} = \\dfrac{1}{16} + \\dfrac{2}{16} = \\dfrac{3}{16}$$",
+        "Evaluate at the lower limit $x = 0$:\n- $\\cos(4 \\times 0) = \\cos 0 = 1$\n- $\\cos(2 \\times 0) = \\cos 0 = 1$\n$$\\text{At } x = 0: \\quad -\\dfrac{1}{8}(1) - \\dfrac{1}{4}(1) = -\\dfrac{1}{8} - \\dfrac{2}{8} = -\\dfrac{3}{8} = -\\dfrac{6}{16}$$",
+        "Subtract the lower limit value from the upper limit value:\n$$\\text{Area} = \\left(\\dfrac{3}{16}\\right) - \\left(-\\dfrac{6}{16}\\right) = \\dfrac{3}{16} + \\dfrac{6}{16} = \\dfrac{9}{16}$$\nThe exact area of region $R$ is $\\dfrac{9}{16}$."
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      }
+    },
+    {
+      "part_id": "9709_s19_32_q10_iii",
+      "difficulty": 2,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_p3_t_differential_equations",
+        "lesson_id": "9709_p3_t_differential_equations_m02_l02"
+      },
+      "skills": {
+        "primary_skill_id": "9709_p3_skill_finding_stationary_points"
+      },
+      "hints": [
+        "Differentiate the sum from part (i) to obtain $dy/dx$ as a combination of $\\cos4x$ and $\\cos2x$.",
+        "Use $\\cos4x=2\\cos^22x-1$ and set the derivative equal to zero.",
+        "Solve the resulting quadratic in $u=\\cos2x$ and retain values in $[-1,1]$.",
+        "Choose the solution corresponding to the minimum $M$ on $0\\le x\\le\\pi/2$, then round its $x$-coordinate to 2 decimal places."
+      ],
+      "walkthrough": [
+        "From part (i), write $y = \\dfrac{1}{2}\\sin 4x + \\dfrac{1}{2}\\sin 2x$.",
+        "Differentiate with respect to $x$:\n$$\\dfrac{\\mathrm{d}y}{\\mathrm{d}x} = \\dfrac{1}{2}(4\\cos 4x) + \\dfrac{1}{2}(2\\cos 2x) = 2\\cos 4x + \\cos 2x$$",
+        "Use the double angle identity $\\cos 4x = 2\\cos^2(2x) - 1$ to express the derivative entirely in terms of $\\cos 2x$:\n$$\\dfrac{\\mathrm{d}y}{\\mathrm{d}x} = 2\\bigl(2\\cos^2(2x) - 1\\bigr) + \\cos 2x = 4\\cos^2(2x) + \\cos 2x - 2$$",
+        "Set $\\dfrac{\\mathrm{d}y}{\\mathrm{d}x} = 0$ to locate stationary points:\n$$4\\cos^2(2x) + \\cos 2x - 2 = 0$$",
+        "Solve this quadratic equation for $\\cos 2x$ using the quadratic formula:\n$$\\cos 2x = \\dfrac{-1 \\pm \\sqrt{1^2 - 4(4)(-2)}}{2(4)} = \\dfrac{-1 \\pm \\sqrt{1 + 32}}{8} = \\dfrac{-1 \\pm \\sqrt{33}}{8}$$",
+        "Calculate the numerical values of both roots:\n$$\\sqrt{33} \\approx 5.744563$$\n$$(\\cos 2x)_1 = \\dfrac{-1 + 5.744563}{8} \\approx \\dfrac{4.744563}{8} \\approx 0.593070$$\n$$(\\cos 2x)_2 = \\dfrac{-1 - 5.744563}{8} \\approx \\dfrac{-6.744563}{8} \\approx -0.843070$$",
+        "Select the root corresponding to the minimum point $M$:\nFrom the given diagram, $M$ lies in the interval $\\dfrac{1}{3}\\pi < x < \\dfrac{1}{2}\\pi$.\nIn terms of $2x$, this corresponds to $\\dfrac{2}{3}\\pi < 2x < \\pi$ (Quadrant II), where $\\cos 2x < 0$.\nTherefore, choose the negative root:\n$$\\cos 2x = \\dfrac{-1 - \\sqrt{33}}{8} \\approx -0.843070$$",
+        "Solve for $2x$ and $x$ in radians:\n$$2x = \\cos^{-1}(-0.843070) \\approx 2.574347$$\n$$x = \\dfrac{2.574347}{2} \\approx 1.287173$$",
+        "Round to 2 decimal places:\n$$x \\approx 1.29$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      }
+    }
+  ]
+}

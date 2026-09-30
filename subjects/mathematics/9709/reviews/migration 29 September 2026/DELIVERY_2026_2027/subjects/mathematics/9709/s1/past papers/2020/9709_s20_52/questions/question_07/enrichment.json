@@ -1,0 +1,113 @@
+{
+  "schema_version": "9709_math_enrichment_v7",
+  "question_id": "9709_s20_52_q7",
+  "difficulty": 4,
+  "parts": [
+    {
+      "part_id": "9709_s20_52_q7_a",
+      "difficulty": 3,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_s1_t_discrete_random_variables",
+        "lesson_id": "9709_s1_t_discrete_random_variables_m03_l02"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_calculating_binomial_tail_probabilities"
+      },
+      "hints": [
+        "Identify the distribution: in a sample of $n = 12$ days with messaging probability $p = 0.72$, $X \\sim B(12, 0.72)$.",
+        "The condition 'no more than 9 days' means $X \\le 9$.",
+        "Use the complement rule: $\\mathrm{P}(X \\le 9) = 1 - [\\mathrm{P}(X = 10) + \\mathrm{P}(X = 11) + \\mathrm{P}(X = 12)]$.",
+        "Calculate each binomial probability $\\binom{12}{x} (0.72)^x (0.28)^{12 - x}$ for $x = 10, 11, 12$, add them, and subtract from 1."
+      ],
+      "walkthrough": [
+        "Model the number of days $X$ Moena messages Pasha with $X \\sim B(12, 0.72)$:\n$$\\mathrm{P}(X \\le 9) = 1 - \\mathrm{P}(X \\ge 10) = 1 - [\\mathrm{P}(X = 10) + \\mathrm{P}(X = 11) + \\mathrm{P}(X = 12)]$$",
+        "Calculate the upper-tail probabilities with $p = 0.72$ and $q = 0.28$:\n$$\\mathrm{P}(X = 10) = \\binom{12}{10}(0.72)^{10}(0.28)^2 = 66 \\times 0.037439 \\times 0.0784 \\approx 0.19372$$\n$$\\mathrm{P}(X = 11) = \\binom{12}{11}(0.72)^{11}(0.28)^1 = 12 \\times 0.026956 \\times 0.28 \\approx 0.09057$$\n$$\\mathrm{P}(X = 12) = \\binom{12}{12}(0.72)^{12}(0.28)^0 = 1 \\times 0.019408 \\times 1 \\approx 0.01941$$",
+        "Sum the upper-tail probabilities and subtract from 1:\n$$\\mathrm{P}(X \\ge 10) = 0.19372 + 0.09057 + 0.01941 = 0.30370$$\n$$\\mathrm{P}(X \\le 9) = 1 - 0.30370 = 0.69630 \\approx 0.696$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      },
+      "teacher_walkthrough": [
+        "On any given day, the probability that Moena messages Pasha is $p = 0.72$, so the failure probability is $q = 1 - p = 0.28$.",
+        "In a sample of $n = 12$ independent days, the number of days $X$ on which she messages Pasha follows a binomial distribution:\n$$X \\sim B(12, 0.72)$$",
+        "Step 1: State the required probability.\nWe want the probability of messaging on 'no more than 9 days':\n$$\\mathrm{P}(X \\le 9)$$",
+        "Step 2: Apply the complement rule.\nEvaluating 10 terms from $X = 0$ to $X = 9$ directly is inefficient. Instead, use:\n$$\\mathrm{P}(X \\le 9) = 1 - \\mathrm{P}(X \\ge 10) = 1 - [\\mathrm{P}(X = 10) + \\mathrm{P}(X = 11) + \\mathrm{P}(X = 12)]$$",
+        "Step 3: Calculate each term:\nFor $x = 10$:\n$$\\mathrm{P}(X = 10) = \\binom{12}{10} (0.72)^{10} (0.28)^2 = 66 \\times 0.0374390 \\times 0.0784 \\approx 0.193722$$\n\nFor $x = 11$:\n$$\\mathrm{P}(X = 11) = \\binom{12}{11} (0.72)^{11} (0.28)^1 = 12 \\times 0.0269561 \\times 0.28 \\approx 0.090572$$\n\nFor $x = 12$:\n$$\\mathrm{P}(X = 12) = \\binom{12}{12} (0.72)^{12} (0.28)^0 = 1 \\times (0.72)^{12} \\approx 0.019408$$",
+        "Step 4: Sum the tail terms:\n$$\\mathrm{P}(X \\ge 10) = 0.193722 + 0.090572 + 0.019408 = 0.303702$$",
+        "Step 5: Subtract from 1:\n$$\\mathrm{P}(X \\le 9) = 1 - 0.303702 = 0.696298 \\approx 0.696$$\nRounding to 3 significant figures gives $0.696$."
+      ]
+    },
+    {
+      "part_id": "9709_s20_52_q7_b",
+      "difficulty": 2,
+      "practice_tier": "revision",
+      "mapping": {
+        "topic_id": "9709_s1_t_discrete_random_variables",
+        "lesson_id": "9709_s1_t_discrete_random_variables_m05_l01"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_calculating_geometric_distribution_probabilities"
+      },
+      "hints": [
+        "Moena messages Pasha on 1 January. For the NEXT messaging day to be 5 January, what must happen on 2, 3, 4, and 5 January?",
+        "She must NOT message on 2 January, 3 January, and 4 January (3 consecutive failures).",
+        "She MUST message on 5 January (1 success).",
+        "Multiply the probabilities: $(0.28)^3 \\times 0.72$."
+      ],
+      "walkthrough": [
+        "Identify the sequence of outcomes for days 2, 3, 4, and 5 January:\n$$\\text{2 Jan}: \\text{No message } (0.28)$$\n$$\\text{3 Jan}: \\text{No message } (0.28)$$\n$$\\text{4 Jan}: \\text{No message } (0.28)$$\n$$\\text{5 Jan}: \\text{Message } (0.72)$$",
+        "Calculate the probability of this independent sequence:\n$$\\mathrm{P} = (0.28)^3 \\times 0.72 = 0.021952 \\times 0.72 = 0.01580544 \\approx 0.0158$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      },
+      "teacher_walkthrough": [
+        "Moena messages Pasha on 1 January. We are asked for the probability that the next day on which she messages Pasha is 5 January.",
+        "Step 1: Analyze the intervening days.\nBetween 1 January and 5 January, there are 3 days:\n2 January: She does NOT message Pasha (probability $q = 1 - 0.72 = 0.28$).\n3 January: She does NOT message Pasha (probability $q = 0.28$).\n4 January: She does NOT message Pasha (probability $q = 0.28$).\nOn 5 January, she DOES message Pasha (probability $p = 0.72$).",
+        "Step 2: Model as an independent trial sequence:\n$$\\text{Outcome sequence}: \\quad F \\; F \\; F \\; S$$\nBy the multiplication rule for independent trials:\n$$\\mathrm{P} = q^3 \\times p = (0.28)^3 \\times 0.72$$",
+        "Step 3: Carry out the arithmetic:\n$$(0.28)^3 = 0.021952$$\n$$0.021952 \\times 0.72 = 0.01580544$$\nRounding to 3 significant figures gives $0.0158$."
+      ]
+    },
+    {
+      "part_id": "9709_s20_52_q7_c",
+      "difficulty": 4,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_s1_t_the_normal_distribution",
+        "lesson_id": "9709_s1_t_the_normal_distribution_m03_l02"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_applying_a_normal_approximation"
+      },
+      "hints": [
+        "Model the number of days $X$ in a 100-day period with $X \\sim B(100, 0.72)$.",
+        "Calculate the mean $\\mu = np = 72$ and variance $\\sigma^2 = npq = 20.16$ of the approximating normal distribution.",
+        "Apply the continuity correction: 'fewer than 64 days' means $X < 64$, which is $X \\le 63$, so the continuous cutoff is $63.5$.",
+        "Standardise $Z = \\dfrac{63.5 - 72}{\\sqrt{20.16}}$, evaluate $\\mathrm{P}(Z < -1.893) = 1 - \\Phi(1.893)$, and look up the probability."
+      ],
+      "walkthrough": [
+        "Calculate the mean and variance of the binomial model $B(100, 0.72)$:\n$$\\mu = np = 100 \\times 0.72 = 72$$\n$$\\sigma^2 = np(1 - p) = 100 \\times 0.72 \\times 0.28 = 20.16$$",
+        "Apply the continuity correction for 'fewer than 64 days' ($X \\le 63$):\n$$\\mathrm{P}(X < 64) = \\mathrm{P}(X \\le 63) \\approx \\mathrm{P}(Y < 63.5)$$",
+        "Standardise using $Z = \\dfrac{Y - \\mu}{\\sigma}$:\n$$Z = \\dfrac{63.5 - 72}{\\sqrt{20.16}} = \\dfrac{-8.5}{4.48999} \\approx -1.893$$",
+        "Use the symmetry property $\\mathrm{P}(Z < -z) = 1 - \\Phi(z)$:\n$$\\mathrm{P}(Z < -1.893) = 1 - \\Phi(1.893)$$",
+        "Look up $\\Phi(1.893)$ in the normal tables and evaluate:\n$$\\Phi(1.893) \\approx 0.9708$$\n$$\\text{Probability} = 1 - 0.9708 = 0.0292$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      },
+      "teacher_walkthrough": [
+        "In a period of $n = 100$ days, let $X$ be the number of days on which Moena messages Pasha. Then $X \\sim B(100, 0.72)$.",
+        "Since $n$ is large and $np = 100 \\times 0.72 = 72 > 5$, $nq = 100 \\times 0.28 = 28 > 5$, we can approximate $X$ using a normal distribution $Y \\sim \\mathrm{N}(\\mu, \\sigma^2)$.",
+        "Step 1: Calculate the parameters of the approximating normal distribution:\n$$\\mu = np = 100 \\times 0.72 = 72$$\n$$\\sigma^2 = npq = 100 \\times 0.72 \\times 0.28 = 20.16$$\n$$\\sigma = \\sqrt{20.16} \\approx 4.489989$$",
+        "Step 2: Apply the continuity correction.\nWe need the probability that she messages on 'fewer than 64 days':\n$$X < 64 \\iff X \\le 63$$\nIn the continuous approximation, the integer 63 spans the interval $[62.5, 63.5]$.\nTo include 63 and all integers below it, we integrate up to the upper boundary $63.5$:\n$$\\mathrm{P}(X < 64) \\approx \\mathrm{P}(Y < 63.5)$$",
+        "Step 3: Standardise the boundary value $Y = 63.5$:\n$$Z = \\frac{63.5 - \\mu}{\\sigma} = \\frac{63.5 - 72}{\\sqrt{20.16}} = \\frac{-8.5}{4.489989} \\approx -1.8931$$",
+        "Step 4: Find the area in the lower tail:\n$$\\mathrm{P}(Z < -1.893) = 1 - \\Phi(1.893)$$",
+        "Step 5: Look up $\\Phi(1.893)$ in the standard normal table:\n$$\\Phi(1.89) = 0.9706$$\n$$\\text{Difference for } 3 = 2 \\implies \\Phi(1.893) = 0.9706 + 0.0002 = 0.9708$$\n$$1 - 0.9708 = 0.0292$$\nRounding to 3 significant figures gives $0.0292$."
+      ]
+    }
+  ]
+}

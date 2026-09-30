@@ -1,0 +1,43 @@
+{
+  "schema_version": "9709_math_enrichment_v7",
+  "question_id": "9709_m23_52_q5",
+  "difficulty": 3,
+  "parts": [
+    {
+      "part_id": "9709_m23_52_q5",
+      "difficulty": 3,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_s1_t_probability",
+        "lesson_id": "9709_s1_t_probability_m04_l01"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_testing_or_using_independence"
+      },
+      "hints": [
+        "Two events A and B are independent if and only if P(A and B) = P(A) * P(B).",
+        "There are 4! = 24 possible arrangements of the 4 marbles in the 4 boxes. Calculate P(A) from white in box L or M, and P(B) from red being to the left of green and yellow.",
+        "Calculate P(A and B) by counting arrangements satisfying both conditions, then compare P(A and B) with P(A) * P(B) to conclude."
+      ],
+      "walkthrough": [
+        "Find the total number of equally likely arrangements of the 4 marbles in boxes K, L, M, N:\n$$\\text{Total outcomes} = 4! = 24$$",
+        "Find $\\mathrm{P}(A)$ (white in box L or M):\nWhite can be placed in 2 of the 4 boxes, and the remaining 3 marbles can be arranged in $3! = 6$ ways:\n$$\\mathrm{P}(A) = \\frac{2 \\times 3!}{24} = \\frac{12}{24} = \\frac{1}{2}$$",
+        "Find $\\mathrm{P}(B)$ (red is to the left of both green and yellow):\nAmong the 3 marbles {R, G, Y}, all $3! = 6$ relative orderings are equally likely, and red is first in 2 of them (R-G-Y, R-Y-G):\n$$\\mathrm{P}(B) = \\frac{2}{3!} = \\frac{2}{6} = \\frac{1}{3} \\quad \\left(\\text{or } \\frac{8}{24} = \\frac{1}{3}\\right)$$",
+        "Find $\\mathrm{P}(A \\cap B)$:\nCount arrangements where white is in L or M and red is to the left of both green and yellow:\n- If white is in L (box 2): red must be in K (box 1); green and yellow are in M and N ($2! = 2$ ways):\n$$(K:\\text{R}, L:\\text{W}, M:\\text{G}, N:\\text{Y}), \\quad (K:\\text{R}, L:\\text{W}, M:\\text{Y}, N:\\text{G})$$\n- If white is in M (box 3): red must be in K (box 1); green and yellow are in L and N ($2! = 2$ ways):\n$$(K:\\text{R}, L:\\text{G}, M:\\text{W}, N:\\text{Y}), \\quad (K:\\text{R}, L:\\text{Y}, M:\\text{W}, N:\\text{G})$$\n$$\\text{Total favourable outcomes} = 2 + 2 = 4$$\n$$\\mathrm{P}(A \\cap B) = \\frac{4}{24} = \\frac{1}{6}$$",
+        "Test for independence:\n$$\\mathrm{P}(A) \\times \\mathrm{P}(B) = \\frac{1}{2} \\times \\frac{1}{3} = \\frac{1}{6}$$\n$$\\mathrm{P}(A \\cap B) = \\frac{1}{6} = \\mathrm{P}(A) \\times \\mathrm{P}(B)$$\n$$\\text{Therefore, events } A \\text{ and } B \\text{ are independent.}$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      },
+      "teacher_walkthrough": [
+        "Step 1: State the definition of independence:\nTwo events $A$ and $B$ are statistically independent if and only if:\n$$\\mathrm{P}(A \\cap B) = \\mathrm{P}(A) \\times \\mathrm{P}(B)$$",
+        "Step 2: Determine the total number of elements in the sample space:\nThere are 4 distinct marbles (Red, Green, White, Yellow) placed into 4 distinct boxes (K, L, M, N).\n$$n(S) = 4! = 4 \\times 3 \\times 2 \\times 1 = 24$$",
+        "Step 3: Calculate $\\mathrm{P}(A)$:\nEvent $A$ is that the White marble is in box L or box M (2 choices).\nThe other 3 marbles can be arranged in the remaining 3 boxes in $3! = 6$ ways:\n$$n(A) = 2 \\times 6 = 12$$\n$$\\mathrm{P}(A) = \\frac{12}{24} = \\frac{1}{2}$$",
+        "Step 4: Calculate $\\mathrm{P}(B)$:\nEvent $B$ is that Red is to the left of both Green and Yellow.\n- If Red is in box K: Green and Yellow occupy 2 of the 3 remaining boxes in $\\binom{3}{2} \\times 2! = 6$ ways, and White takes the remaining box: $6$ ways.\n- If Red is in box L: Green and Yellow must occupy boxes M and N ($2! = 2$ ways), and White takes box K: $2$ ways.\n- Red cannot be in box M or N because there must be at least two boxes to its right.\n$$n(B) = 6 + 2 = 8$$\n$$\\mathrm{P}(B) = \\frac{8}{24} = \\frac{1}{3}$$",
+        "Step 5: Calculate $\\mathrm{P}(A \\cap B)$ directly by counting favourable outcomes:\n- Case 1: White in L. Red must be in K. Green and Yellow take boxes M and N ($2$ outcomes).\n- Case 2: White in M. Red must be in K. Green and Yellow take boxes L and N ($2$ outcomes).\n$$n(A \\cap B) = 2 + 2 = 4$$\n$$\\mathrm{P}(A \\cap B) = \\frac{4}{24} = \\frac{1}{6}$$",
+        "Step 6: Verify whether $\\mathrm{P}(A \\cap B) = \\mathrm{P}(A)\\mathrm{P}(B)$:\n$$\\mathrm{P}(A) \\times \\mathrm{P}(B) = \\frac{1}{2} \\times \\frac{1}{3} = \\frac{1}{6}$$\nSince $\\mathrm{P}(A \\cap B) = \\mathrm{P}(A) \\times \\mathrm{P}(B) = \\frac{1}{6}$, the events $A$ and $B$ are independent."
+      ]
+    }
+  ]
+}

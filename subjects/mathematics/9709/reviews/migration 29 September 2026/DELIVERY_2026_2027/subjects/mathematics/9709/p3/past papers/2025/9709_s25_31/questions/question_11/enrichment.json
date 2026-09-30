@@ -1,0 +1,67 @@
+{
+  "schema_version": "9709_math_enrichment_v7",
+  "question_id": "9709_s25_31_q11",
+  "difficulty": 3,
+  "parts": [
+    {
+      "part_id": "9709_s25_31_q11_a",
+      "difficulty": 3,
+      "practice_tier": "revision",
+      "mapping": {
+        "topic_id": "9709_p3_t_differentiation",
+        "lesson_id": "9709_p3_t_differentiation_m03_l01"
+      },
+      "skills": {
+        "primary_skill_id": "9709_p3_skill_finding_stationary_points"
+      },
+      "hints": [
+        "At the interior maximum, differentiate $y=\\cos x\\sqrt{\\sin2x}$ and set the derivative to zero.",
+        "Use the product rule and $\\frac{d}{dx}\\sqrt{\\sin2x}=\\frac{\\cos2x}{\\sqrt{\\sin2x}}$.",
+        "After clearing the square root, simplify the stationary equation with double- or triple-angle identities to an equation in one trigonometric function.",
+        "Use $0\\le a\\le\\pi/2$ and the fact that $M$ is the interior maximum to select the exact value only."
+      ],
+      "walkthrough": [
+        "Differentiate $y = \\cos x\\sqrt{\\sin(2x)}$ with respect to $x$ using the product rule $(uv)' = u'v + uv'$:\n$$u = \\cos x \\implies \\dfrac{\\mathrm{d}u}{\\mathrm{d}x} = -\\sin x$$\n$$v = [\\sin(2x)]^{1/2} \\implies \\dfrac{\\mathrm{d}v}{\\mathrm{d}x} = \\dfrac{1}{2}[\\sin(2x)]^{-1/2}(2\\cos(2x)) = \\dfrac{\\cos(2x)}{\\sqrt{\\sin(2x)}}$$",
+        "Form the overall derivative:\n$$\\dfrac{\\mathrm{d}y}{\\mathrm{d}x} = -\\sin x\\sqrt{\\sin(2x)} + \\dfrac{\\cos x\\cos(2x)}{\\sqrt{\\sin(2x)}}$$",
+        "Place over a single common denominator $\\sqrt{\\sin(2x)}$:\n$$\\dfrac{\\mathrm{d}y}{\\mathrm{d}x} = \\dfrac{-\\sin x\\sin(2x) + \\cos x\\cos(2x)}{\\sqrt{\\sin(2x)}}$$",
+        "Apply the cosine compound angle identity $\\cos(A + B) = \\cos A\\cos B - \\sin A\\sin B$ with $A = 2x$ and $B = x$:\n$$\\cos(2x)\\cos x - \\sin(2x)\\sin x = \\cos(2x + x) = \\cos(3x)$$\n$$\\dfrac{\\mathrm{d}y}{\\mathrm{d}x} = \\dfrac{\\cos(3x)}{\\sqrt{\\sin(2x)}}$$",
+        "At the maximum point $M$ where $x = a$, set $\\dfrac{\\mathrm{d}y}{\\mathrm{d}x} = 0$:\n$$\\cos(3a) = 0$$",
+        "Solve for $a$ in the interval $0 \\leqslant a \\leqslant \\dfrac{\\pi}{2}$:\n$$\\text{For } 0 \\leqslant a \\leqslant \\dfrac{\\pi}{2}: \\quad 0 \\leqslant 3a \\leqslant \\dfrac{3\\pi}{2}$$\n$$3a = \\dfrac{\\pi}{2} \\implies a = \\dfrac{\\pi}{6}$$\n$$\\left(\\text{At } 3a = \\dfrac{3\\pi}{2}, \\; a = \\dfrac{\\pi}{2}, \\text{ which lies on the boundary where } y = 0\\right)$$\n$$a = \\dfrac{\\pi}{6}$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      }
+    },
+    {
+      "part_id": "9709_s25_31_q11_b",
+      "difficulty": 3,
+      "practice_tier": "revision",
+      "mapping": {
+        "topic_id": "9709_p3_t_integration",
+        "lesson_id": "9709_p3_t_integration_m04_l02"
+      },
+      "skills": {
+        "primary_skill_id": "9709_p3_skill_volumes_of_revolution"
+      },
+      "hints": [
+        "Rotation about the $x$-axis gives $V=\\pi\\int_0^{\\pi/2}y^2\\,dx$.",
+        "Square the curve carefully to obtain $y^2=\\cos^2x\\sin2x$.",
+        "Use $\\sin2x=2\\sin x\\cos x$ so the integrand becomes suitable for the substitution $u=\\cos x$.",
+        "Evaluate at $0$ and $\\pi/2$, retaining the outer factor $\\pi$ and simplifying exactly."
+      ],
+      "walkthrough": [
+        "State the formula for the volume of revolution about the $x$-axis from $x = 0$ to $x = \\dfrac{\\pi}{2}$:\n$$V = \\pi \\int_0^{\\pi/2} y^2\\,\\mathrm{d}x$$",
+        "Square the equation of the curve $y = \\cos x\\sqrt{\\sin(2x)}$:\n$$y^2 = \\left(\\cos x\\sqrt{\\sin(2x)}\\right)^2 = \\cos^2 x\\sin(2x)$$",
+        "Use the double angle formula $\\sin(2x) = 2\\sin x\\cos x$ to express $y^2$ as an integrable derivative form:\n$$y^2 = \\cos^2 x(2\\sin x\\cos x) = 2\\cos^3 x\\sin x$$",
+        "Integrate using the recognition method $\\int f'(x)[f(x)]^n\\,\\mathrm{d}x = \\dfrac{[f(x)]^{n+1}}{n+1}$:\n$$\\text{Since } \\dfrac{\\mathrm{d}}{\\mathrm{d}x}[\\cos^4 x] = 4\\cos^3 x(-\\sin x) = -4\\cos^3 x\\sin x:$$\n$$\\int 2\\cos^3 x\\sin x\\,\\mathrm{d}x = -\\dfrac{2}{4}\\cos^4 x = -\\dfrac{1}{2}\\cos^4 x$$",
+        "Evaluate the definite integral between the limits $0$ and $\\dfrac{\\pi}{2}$:\n$$\\int_0^{\\pi/2} 2\\cos^3 x\\sin x\\,\\mathrm{d}x = \\left[ -\\dfrac{1}{2}\\cos^4 x \\right]_0^{\\pi/2}$$\n$$\\text{At } x = \\dfrac{\\pi}{2}: \\quad -\\dfrac{1}{2}\\cos^4\\left(\\dfrac{\\pi}{2}\\right) = -\\dfrac{1}{2}(0)^4 = 0$$\n$$\\text{At } x = 0: \\quad -\\dfrac{1}{2}\\cos^4(0) = -\\dfrac{1}{2}(1)^4 = -\\dfrac{1}{2}$$\n$$\\int_0^{\\pi/2} y^2\\,\\mathrm{d}x = 0 - \\left(-\\dfrac{1}{2}\\right) = \\dfrac{1}{2}$$",
+        "Multiply by $\\pi$ to obtain the exact volume:\n$$V = \\pi \\times \\dfrac{1}{2} = \\dfrac{\\pi}{2}$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      }
+    }
+  ]
+}

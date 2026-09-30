@@ -1,0 +1,77 @@
+{
+  "schema_version": "9709_math_enrichment_v7",
+  "question_id": "9709_w20_53_q4",
+  "difficulty": 3,
+  "parts": [
+    {
+      "part_id": "9709_w20_53_q4_a",
+      "difficulty": 3,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_s1_t_discrete_random_variables",
+        "lesson_id": "9709_s1_t_discrete_random_variables_m03_l03"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_calculating_binomial_tail_probabilities"
+      },
+      "hints": [
+        "Let $X$ be the number of days the train arrives late out of 7 days: $X \\sim B(7, 0.35)$ with $q = 1 - 0.35 = 0.65$.",
+        "Fewer than 3 days means $X < 3$, which corresponds to $X = 0, 1, 2$.",
+        "Calculate the three binomial probabilities: $\\mathrm{P}(0) = 0.65^7$, $\\mathrm{P}(1) = \\binom{7}{1}(0.35)(0.65)^6$, and $\\mathrm{P}(2) = \\binom{7}{2}(0.35)^2(0.65)^5$.",
+        "Sum the three terms to find the total probability to 3 significant figures."
+      ],
+      "walkthrough": [
+        "Model the number of late days in a sample of 7 days using a binomial distribution $X \\sim B(7, 0.35)$:\n$$\\mathrm{P}(X < 3) = \\mathrm{P}(X = 0) + \\mathrm{P}(X = 1) + \\mathrm{P}(X = 2)$$",
+        "Evaluate each binomial term using $\\mathrm{P}(X = x) = \\binom{7}{x}(0.35)^x(0.65)^{7-x}$:\n$$\\mathrm{P}(X = 0) = (0.65)^7 \\approx 0.049022$$\n$$\\mathrm{P}(X = 1) = \\binom{7}{1}(0.35)(0.65)^6 = 7 \\times 0.35 \\times 0.075419 \\approx 0.184776$$\n$$\\mathrm{P}(X = 2) = \\binom{7}{2}(0.35)^2(0.65)^5 = 21 \\times 0.1225 \\times 0.116029 \\approx 0.298484$$",
+        "Add the three terms:\n$$\\mathrm{P}(X < 3) = 0.049022 + 0.184776 + 0.298484 = 0.532282 \\approx 0.532$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      },
+      "teacher_walkthrough": [
+        "Let $X$ denote the number of days the train is late in a sample of $n = 7$ days.",
+        "Since each day is an independent trial with a constant probability of being late $p = 0.35$, $X$ follows a binomial distribution:\n$$X \\sim B(7, 0.35)$$\nwith failure probability $q = 1 - 0.35 = 0.65$.",
+        "Step 1: State the required probability.\n'Fewer than 3 days' means:\n$$\\mathrm{P}(X < 3) = \\mathrm{P}(X \\le 2) = \\mathrm{P}(X = 0) + \\mathrm{P}(X = 1) + \\mathrm{P}(X = 2)$$",
+        "Step 2: Calculate each probability term:\n- For $X = 0$:\n$$\\mathrm{P}(X = 0) = \\binom{7}{0} (0.35)^0 (0.65)^7 = 0.65^7 \\approx 0.0490223$$\n\n- For $X = 1$:\n$$\\mathrm{P}(X = 1) = \\binom{7}{1} (0.35)^1 (0.65)^6 = 7 \\times 0.35 \\times 0.0754189 \\approx 0.1847763$$\n\n- For $X = 2$:\n$$\\mathrm{P}(X = 2) = \\binom{7}{2} (0.35)^2 (0.65)^5 = 21 \\times 0.1225 \\times 0.1160291 \\approx 0.2984843$$",
+        "Step 3: Sum the probabilities:\n$$\\mathrm{P}(X < 3) = 0.0490223 + 0.1847763 + 0.2984843 = 0.5322829$$\nRounding to 3 significant figures gives $0.532$."
+      ]
+    },
+    {
+      "part_id": "9709_w20_53_q4_b",
+      "difficulty": 3,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_s1_t_the_normal_distribution",
+        "lesson_id": "9709_s1_t_the_normal_distribution_m03_l02"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_applying_a_normal_approximation"
+      },
+      "hints": [
+        "For $n = 142$ and $p = 0.35$, check that $np = 142(0.35) = 49.7 > 5$ and $nq = 142(0.65) = 92.3 > 5$, justifying a normal approximation.",
+        "Calculate the mean and variance: $\\mu = np = 49.7$ and $\\sigma^2 = npq = 142(0.35)(0.65) = 32.305$.",
+        "Apply continuity correction to $X > 40$: since $X$ is discrete, $X > 40$ means $X \\ge 41$, which corresponds to $Y > 40.5$.",
+        "Standardise: $Z = \\dfrac{40.5 - 49.7}{\\sqrt{32.305}} \\approx -1.619$, and find $\\mathrm{P}(Z > -1.619) = \\Phi(1.619)$."
+      ],
+      "walkthrough": [
+        "Calculate the mean and variance of the approximating normal distribution for $X \\sim B(142, 0.35)$:\n$$\\mu = np = 142 \\times 0.35 = 49.7$$\n$$\\sigma^2 = np(1 - p) = 142 \\times 0.35 \\times 0.65 = 32.305 \\implies \\sigma = \\sqrt{32.305} \\approx 5.68375$$",
+        "Apply the continuity correction to the strict inequality $X > 40$:\n$$X > 40 \\iff X \\ge 41 \\implies Y > 40.5$$",
+        "Standardise using the normal parameters:\n$$Z = \\dfrac{40.5 - 49.7}{\\sqrt{32.305}} = \\dfrac{-9.2}{5.68375} \\approx -1.6186 \\approx -1.619$$",
+        "Evaluate the upper-tail probability:\n$$\\mathrm{P}(Y > 40.5) = \\mathrm{P}(Z > -1.619) = \\Phi(1.619) \\approx 0.9473 \\approx 0.947$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      },
+      "teacher_walkthrough": [
+        "We have a sample of $n = 142$ days, and we want the probability that the train arrives late on more than 40 days.",
+        "Step 1: Check conditions for the normal approximation to the binomial distribution.\n$$np = 142 \\times 0.35 = 49.7 > 5$$\n$$n(1 - p) = 142 \\times 0.65 = 92.3 > 5$$\nBoth $np$ and $nq$ are well above 5, so the normal approximation is appropriate.",
+        "Step 2: Calculate the mean and variance:\n$$\\mu = np = 49.7$$\n$$\\sigma^2 = npq = 142 \\times 0.35 \\times 0.65 = 32.305$$\n$$\\sigma = \\sqrt{32.305} \\approx 5.683749$$",
+        "Step 3: Apply the continuity correction.\nWe want $\\mathrm{P}(X > 40)$. Since $X$ is an integer-valued variable, the next possible value is 41:\n$$\\mathrm{P}(X > 40) = \\mathrm{P}(X \\ge 41)$$\nIn the continuous normal distribution, the discrete integer 41 spans the interval $[40.5, 41.5]$.\nTherefore, including 41 and above means taking values greater than $40.5$:\n$$Y > 40.5$$",
+        "Step 4: Standardise $40.5$:\n$$Z = \\frac{40.5 - 49.7}{\\sqrt{32.305}} = \\frac{-9.2}{5.683749} \\approx -1.61864... \\approx -1.619$$",
+        "Step 5: Find the area under the normal curve:\n$$\\mathrm{P}(Z > -1.619) = \\Phi(1.619)$$\nLook up $1.619$ in the normal table:\n$$\\Phi(1.61) = 0.9463$$\nDifferences for 9: add $10 \\implies 0.9463 + 0.0010 = 0.9473$\n$$\\mathrm{P}(Z > -1.619) \\approx 0.947$$\nRounding to 3 significant figures gives $0.947$."
+      ]
+    }
+  ]
+}

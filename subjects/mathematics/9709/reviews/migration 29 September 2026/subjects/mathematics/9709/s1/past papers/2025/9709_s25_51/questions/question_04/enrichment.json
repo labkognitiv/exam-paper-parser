@@ -1,0 +1,114 @@
+{
+  "schema_version": "9709_math_enrichment_v7",
+  "question_id": "9709_s25_51_q4",
+  "difficulty": 4,
+  "parts": [
+    {
+      "part_id": "9709_s25_51_q4_a",
+      "difficulty": 3,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_s1_t_the_normal_distribution",
+        "lesson_id": "9709_s1_t_the_normal_distribution_m01_l03"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_finding_expected_counts_from_a_normal_model"
+      },
+      "hints": [
+        "Identify the distribution of competitor times: T ~ N(8.4, 1.6^2).",
+        "Within 1.2 minutes of the mean means |T - 8.4| < 1.2, or 7.2 < T < 9.6.",
+        "Standardise the boundary: z = 1.2 / 1.6 = 0.75. The probability of being within 1.2 minutes is 2*Phi(0.75) - 1.",
+        "Look up Phi(0.75) = 0.7734 to find the probability 2(0.7734) - 1 = 0.5468, then multiply by 220 competitors to find the expected count: 220 * 0.5468 = 120."
+      ],
+      "walkthrough": [
+        "State the normal model for times $T$ and define the required interval:\n$$T \\sim N(8.4, 1.6^2), \\quad |T - 8.4| < 1.2 \\iff 7.2 < T < 9.6$$",
+        "Standardise the interval using $Z = \\dfrac{T - \\mu}{\\sigma}$:\n$$Z = \\frac{\\pm 1.2}{1.6} = \\pm 0.75$$\n$$\\mathrm{P}(-0.75 < Z < 0.75) = 2\\Phi(0.75) - 1$$",
+        "Evaluate the probability using standard normal tables:\n$$\\mathrm{P}(-0.75 < Z < 0.75) = 2(0.7734) - 1 = 1.5468 - 1 = 0.5468$$",
+        "Multiply by the total number of competitors (220):\n$$\\text{Expected competitors} = 220 \\times 0.5468 = 120.296 \\approx 120$$"
+      ],
+      "teacher_walkthrough": [
+        "Step 1: Identify the normal distribution parameters:\nLet $T$ be the time taken by a competitor in minutes.\n$$T \\sim N(8.4, 1.6^2)$$\nMean $\\mu = 8.4$ minutes, standard deviation $\\sigma = 1.6$ minutes.\nTotal competitors $N = 220$.",
+        "Step 2: Define within 1.2 minutes of the mean:\n$$\\mu - 1.2 < T < \\mu + 1.2 \\implies 8.4 - 1.2 < T < 8.4 + 1.2 \\implies 7.2 < T < 9.6$$",
+        "Step 3: Standardise the interval endpoints:\n$$z_1 = \\frac{7.2 - 8.4}{1.6} = \\frac{-1.2}{1.6} = -0.75$$\n$$z_2 = \\frac{9.6 - 8.4}{1.6} = \\frac{1.2}{1.6} = 0.75$$",
+        "Step 4: Express the probability using standard normal symmetry:\n$$\\mathrm{P}(7.2 < T < 9.6) = \\mathrm{P}(-0.75 < Z < 0.75) = \\Phi(0.75) - \\Phi(-0.75)$$\nUsing $\\Phi(-0.75) = 1 - \\Phi(0.75)$:\n$$\\mathrm{P}(-0.75 < Z < 0.75) = \\Phi(0.75) - [1 - \\Phi(0.75)] = 2\\Phi(0.75) - 1$$",
+        "Step 5: Look up $\\Phi(0.75)$ and compute the probability:\nFrom the normal distribution table:\n$$\\Phi(0.75) = 0.7734$$\n$$\\mathrm{P}(7.2 < T < 9.6) = 2(0.7734) - 1 = 1.5468 - 1 = 0.5468$$",
+        "Step 6: Compute the expected number of competitors:\n$$\\text{Expected count} = N \\times p = 220 \\times 0.5468 = 120.296$$\nRounding to the nearest integer gives $120$ competitors."
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      }
+    },
+    {
+      "part_id": "9709_s25_51_q4_b",
+      "difficulty": 3,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_s1_t_discrete_random_variables",
+        "lesson_id": "9709_s1_t_discrete_random_variables_m03_l03"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_calculating_binomial_tail_probabilities"
+      },
+      "hints": [
+        "First find the probability p that an individual competitor takes more than 9.2 minutes: standardise Z = (9.2 - 8.4) / 1.6 = 0.5, so p = 1 - Phi(0.5) = 1 - 0.6915 = 0.3085.",
+        "Model the number of competitors X out of 9 taking more than 9.2 minutes as a binomial distribution: X ~ B(9, 0.3085).",
+        "At least 2 and fewer than 5 means P(2 <= X <= 4) = P(X = 2) + P(X = 3) + P(X = 4).",
+        "Calculate each binomial probability and sum them: 0.2607 + 0.2714 + 0.1816 = 0.714 (3 s.f.)."
+      ],
+      "walkthrough": [
+        "Calculate the probability $p$ that a competitor takes more than 9.2 minutes:\n$$Z = \\frac{9.2 - 8.4}{1.6} = \\frac{0.8}{1.6} = 0.5$$\n$$p = \\mathrm{P}(T > 9.2) = 1 - \\Phi(0.5) = 1 - 0.6915 = 0.3085$$",
+        "Model the number of competitors $X$ as a binomial distribution:\n$$X \\sim B(9, 0.3085), \\quad n = 9, \\quad p = 0.3085, \\quad q = 0.6915$$",
+        "Calculate $\\mathrm{P}(2 \\le X < 5) = \\mathrm{P}(X = 2) + \\mathrm{P}(X = 3) + \\mathrm{P}(X = 4)$:\n$$\\mathrm{P}(X = 2) = \\binom{9}{2} (0.3085)^2 (0.6915)^7 = 36 \\times 0.095172 \\times 0.076099 \\approx 0.26072$$\n$$\\mathrm{P}(X = 3) = \\binom{9}{3} (0.3085)^3 (0.6915)^6 = 84 \\times 0.029361 \\times 0.110049 \\approx 0.27142$$\n$$\\mathrm{P}(X = 4) = \\binom{9}{4} (0.3085)^4 (0.6915)^5 = 126 \\times 0.009058 \\times 0.159145 \\approx 0.18163$$",
+        "Sum the three probabilities:\n$$\\mathrm{P}(2 \\le X < 5) = 0.26072 + 0.27142 + 0.18163 = 0.71377 \\approx 0.714\\text{ (3 s.f.)}$$"
+      ],
+      "teacher_walkthrough": [
+        "Step 1: Determine the single-trial success probability $p$:\nA success is defined as a competitor taking more than $9.2$ minutes.\nStandardise $T = 9.2$ with $\\mu = 8.4$ and $\\sigma = 1.6$:\n$$Z = \\frac{9.2 - 8.4}{1.6} = \\frac{0.8}{1.6} = 0.5$$\n$$\\mathrm{P}(T > 9.2) = 1 - \\Phi(0.5) = 1 - 0.6915 = 0.3085$$\nSo $p = 0.3085$ and $q = 1 - p = 0.6915$.",
+        "Step 2: Model the sample with a binomial distribution:\nLet $X$ be the number of competitors out of $n = 9$ who take more than $9.2$ minutes:\n$$X \\sim B(9, 0.3085)$$",
+        "Step 3: Define the required event:\nWe want at least 2 and fewer than 5 competitors:\n$$\\mathrm{P}(2 \\le X < 5) = \\mathrm{P}(X = 2) + \\mathrm{P}(X = 3) + \\mathrm{P}(X = 4)$$",
+        "Step 4: Compute each binomial term using $\\mathrm{P}(X = r) = \\binom{n}{r} p^r q^{n - r}$:\n- For $r = 2$:\n$$\\binom{9}{2} = \\frac{9 \\times 8}{2 \\times 1} = 36$$\n$$\\mathrm{P}(X = 2) = 36 \\times (0.3085)^2 \\times (0.6915)^7 = 36 \\times 0.095172 \\times 0.076099 \\approx 0.26072$$\n- For $r = 3$:\n$$\\binom{9}{3} = \\frac{9 \\times 8 \\times 7}{3 \\times 2 \\times 1} = 84$$\n$$\\mathrm{P}(X = 3) = 84 \\times (0.3085)^3 \\times (0.6915)^6 = 84 \\times 0.029361 \\times 0.110049 \\approx 0.27142$$\n- For $r = 4$:\n$$\\binom{9}{4} = \\frac{9 \\times 8 \\times 7 \\times 6}{4 \\times 3 \\times 2 \\times 1} = 126$$\n$$\\mathrm{P}(X = 4) = 126 \\times (0.3085)^4 \\times (0.6915)^5 = 126 \\times 0.009058 \\times 0.159145 \\approx 0.18163$$",
+        "Step 5: Sum the probabilities:\n$$\\mathrm{P}(2 \\le X < 5) = 0.26072 + 0.27142 + 0.18163 = 0.71377 \\approx 0.714\\text{ (3 s.f.)}$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      }
+    },
+    {
+      "part_id": "9709_s25_51_q4_c",
+      "difficulty": 4,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_s1_t_the_normal_distribution",
+        "lesson_id": "9709_s1_t_the_normal_distribution_m03_l02"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_applying_a_normal_approximation"
+      },
+      "hints": [
+        "State the exact distribution: X ~ B(80, 0.3085). Verify that np = 80 * 0.3085 = 24.68 > 5 and n(1 - p) = 80 * 0.6915 = 55.32 > 5.",
+        "Calculate the mean mu = np = 24.68 and variance sigma^2 = npq = 24.68 * 0.6915 = 17.066, giving sigma = 4.131.",
+        "Apply the continuity correction to the strict inequality X < 20 (X <= 19): the continuous boundary is Y < 19.5.",
+        "Standardise to find Z = (19.5 - 24.68) / 4.131 = -1.254, and evaluate Phi(-1.254) = 1 - Phi(1.254) = 1 - 0.8950 = 0.105 (3 s.f.)."
+      ],
+      "walkthrough": [
+        "Identify the binomial distribution parameters and verify the normal approximation conditions:\n$$X \\sim B(80, 0.3085), \\quad np = 24.68 > 5, \\quad n(1 - p) = 55.32 > 5$$",
+        "Compute the mean and standard deviation for the approximating normal distribution $Y$:\n$$\\mu = np = 24.68, \\quad \\sigma = \\sqrt{np(1 - p)} = \\sqrt{17.066} \\approx 4.1311$$",
+        "Apply the continuity correction for the discrete condition $X < 20$ ($X \\le 19$):\n$$\\mathrm{P}(X < 20) = \\mathrm{P}(X \\le 19) \\approx \\mathrm{P}(Y < 19.5)$$",
+        "Standardise the boundary $19.5$:\n$$Z = \\frac{19.5 - 24.68}{4.1311} = \\frac{-5.18}{4.1311} \\approx -1.254$$",
+        "Find the probability from standard normal tables:\n$$\\mathrm{P}(Z < -1.254) = 1 - \\Phi(1.254) = 1 - 0.8950 = 0.105\\text{ (3 s.f.)}$$"
+      ],
+      "teacher_walkthrough": [
+        "Step 1: Check conditions for a normal approximation to the binomial distribution:\nLet $X$ be the number of competitors out of $n = 80$ taking more than $9.2$ minutes.\nFrom part (b), $p = 0.3085$ and $q = 0.6915$.\n$$np = 80 \\times 0.3085 = 24.68 > 5$$\n$$nq = 80 \\times 0.6915 = 55.32 > 5$$\nBoth $np > 5$ and $nq > 5$ hold, so a normal approximation $Y \\sim N(\\mu, \\sigma^2)$ is justified.",
+        "Step 2: Calculate the mean $\\mu$ and standard deviation $\\sigma$:\n$$\\mu = np = 24.68$$\n$$\\sigma^2 = npq = 24.68 \\times 0.6915 = 17.06622$$\n$$\\sigma = \\sqrt{17.06622} \\approx 4.131128$$",
+        "Step 3: Apply the continuity correction:\nWe require the probability that fewer than 20 competitors take more than $9.2$ minutes:\n$$\\mathrm{P}(X < 20) = \\mathrm{P}(X \\le 19)$$\nThe discrete integer $19$ corresponds to the continuous interval $[18.5, 19.5]$.\nTherefore, the region $X \\le 19$ translates to:\n$$Y < 19.5$$",
+        "Step 4: Standardise $Y = 19.5$:\n$$Z = \\frac{Y - \\mu}{\\sigma} = \\frac{19.5 - 24.68}{4.131128} = \\frac{-5.18}{4.131128} \\approx -1.25389 \\approx -1.254$$",
+        "Step 5: Evaluate the standard normal probability:\n$$\\mathrm{P}(Z < -1.254) = 1 - \\Phi(1.254)$$\nFrom the standard normal cumulative tables:\n$$\\Phi(1.254) = 0.8950$$\n$$\\mathrm{P}(Z < -1.254) = 1 - 0.8950 = 0.105\\text{ (3 s.f.)}$$\n(Accept answers in the range $0.104$ to $0.106$)."
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      }
+    }
+  ]
+}

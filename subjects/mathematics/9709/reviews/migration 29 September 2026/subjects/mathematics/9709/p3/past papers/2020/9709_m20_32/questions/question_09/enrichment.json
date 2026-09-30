@@ -1,0 +1,71 @@
+{
+  "schema_version": "9709_math_enrichment_v7",
+  "question_id": "9709_m20_32_q9",
+  "difficulty": 2,
+  "parts": [
+    {
+      "part_id": "9709_m20_32_q9_a",
+      "difficulty": 2,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_p3_t_logarithmic_and_exponential_functions",
+        "lesson_id": "9709_p3_t_logarithmic_and_exponential_functions_m02_l03"
+      },
+      "skills": {
+        "primary_skill_id": "9709_p3_skill_partial_fractions"
+      },
+      "hints": [
+        "Because the denominator has three distinct linear factors, use one constant numerator over each factor.",
+        "Write \\(f(x)=A/(1+2x)+B/(1-2x)+C/(2+x)\\) and clear the denominator.",
+        "Substitute the zeros \\(x=-\\tfrac12,\\tfrac12,-2\\) to determine the three constants efficiently."
+      ],
+      "walkthrough": [
+        "State the given rational expression:\n$$f(x) = \\dfrac{2 + 11x - 10x^2}{(1 + 2x)(1 - 2x)(2 + x)}$$",
+        "Notice that the degree of the numerator polynomial is $2$ and the degree of the denominator polynomial is $3$. Since the degree of the numerator is strictly less than the degree of the denominator, this is a proper fraction with three distinct linear factors in the denominator.",
+        "Set up the partial fractions decomposition with unknown constants $A, B, C$:\n$$\\dfrac{2 + 11x - 10x^2}{(1 + 2x)(1 - 2x)(2 + x)} = \\dfrac{A}{1 + 2x} + \\dfrac{B}{1 - 2x} + \\dfrac{C}{2 + x}$$",
+        "Multiply both sides by the common denominator $(1 + 2x)(1 - 2x)(2 + x)$ to clear fractions:\n$$2 + 11x - 10x^2 = A(1 - 2x)(2 + x) + B(1 + 2x)(2 + x) + C(1 + 2x)(1 - 2x)$$",
+        "Determine constant $A$ by substituting $x = -\\dfrac{1}{2}$ (the zero of $1 + 2x$):\n$$\\text{LHS} = 2 + 11\\left(-\\dfrac{1}{2}\\right) - 10\\left(-\\dfrac{1}{2}\\right)^2 = 2 - \\dfrac{11}{2} - 10\\left(\\dfrac{1}{4}\\right) = 2 - \\dfrac{11}{2} - \\dfrac{5}{2} = 2 - \\dfrac{16}{2} = 2 - 8 = -6$$\n$$\\text{RHS} = A\\left(1 - 2\\left(-\\dfrac{1}{2}\\right)\\right)\\left(2 - \\dfrac{1}{2}\\right) + B(0) + C(0) = A(1 + 1)\\left(\\dfrac{3}{2}\\right) = A(2)\\left(\\dfrac{3}{2}\\right) = 3A$$\nEquating both sides gives:\n$$3A = -6 \\implies A = -2$$",
+        "Determine constant $B$ by substituting $x = \\dfrac{1}{2}$ (the zero of $1 - 2x$):\n$$\\text{LHS} = 2 + 11\\left(\\dfrac{1}{2}\\right) - 10\\left(\\dfrac{1}{2}\\right)^2 = 2 + \\dfrac{11}{2} - 10\\left(\\dfrac{1}{4}\\right) = 2 + \\dfrac{11}{2} - \\dfrac{5}{2} = 2 + \\dfrac{6}{2} = 2 + 3 = 5$$\n$$\\text{RHS} = A(0) + B\\left(1 + 2\\left(\\dfrac{1}{2}\\right)\\right)\\left(2 + \\dfrac{1}{2}\\right) + C(0) = B(1 + 1)\\left(\\dfrac{5}{2}\\right) = B(2)\\left(\\dfrac{5}{2}\\right) = 5B$$\nEquating both sides gives:\n$$5B = 5 \\implies B = 1$$",
+        "Determine constant $C$ by substituting $x = -2$ (the zero of $2 + x$):\n$$\\text{LHS} = 2 + 11(-2) - 10(-2)^2 = 2 - 22 - 10(4) = -20 - 40 = -60$$\n$$\\text{RHS} = A(0) + B(0) + C(1 + 2(-2))(1 - 2(-2)) = C(1 - 4)(1 + 4) = C(-3)(5) = -15C$$\nEquating both sides gives:\n$$-15C = -60 \\implies C = \\dfrac{-60}{-15} = 4$$",
+        "Substitute the values $A = -2$, $B = 1$, and $C = 4$ into the partial fraction decomposition:\n$$f(x) = -\\dfrac{2}{1 + 2x} + \\dfrac{1}{1 - 2x} + \\dfrac{4}{2 + x}$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      }
+    },
+    {
+      "part_id": "9709_m20_32_q9_b",
+      "difficulty": 2,
+      "practice_tier": "revision",
+      "mapping": {
+        "topic_id": "9709_p3_t_logarithmic_and_exponential_functions",
+        "lesson_id": "9709_p3_t_logarithmic_and_exponential_functions_m02_l03"
+      },
+      "skills": {
+        "primary_skill_id": "9709_p3_skill_binomial_expansion"
+      },
+      "hints": [
+        "Expand each partial fraction from part (a) using the geometric/binomial series \\((1+u)^{-1}=1-u+u^2+\\cdots\\).",
+        "For the \\((2+x)^{-1}\\) term, first factor out 2 so that the bracket is \\(1+\\tfrac12x\\).",
+        "Keep terms only through \\(x^2\\), multiply by the partial-fraction constants, and collect like powers."
+      ],
+      "walkthrough": [
+        "State the partial fraction decomposition from part (a):\n$$f(x) = -2(1 + 2x)^{-1} + (1 - 2x)^{-1} + 4(2 + x)^{-1}$$",
+        "Recall the binomial series expansion for $(1 + u)^{-1}$:\n$$(1 + u)^{-1} = 1 - u + u^2 - u^3 + \\cdots \\quad \\text{for } |u| < 1$$",
+        "Expand the first term $-2(1 + 2x)^{-1}$ with $u = 2x$:\n$$(1 + 2x)^{-1} = 1 - (2x) + (2x)^2 - \\cdots = 1 - 2x + 4x^2 - \\cdots$$\n$$-2(1 + 2x)^{-1} = -2\\left(1 - 2x + 4x^2\\right) = -2 + 4x - 8x^2$$",
+        "Expand the second term $(1 - 2x)^{-1}$ with $u = -2x$:\n$$(1 - 2x)^{-1} = 1 - (-2x) + (-2x)^2 - \\cdots = 1 + 2x + 4x^2$$",
+        "Expand the third term $4(2 + x)^{-1}$:\nFactor out $2$ from $(2 + x)$ to match standard form $(1 + u)^{-1}$:\n$$4(2 + x)^{-1} = 4\\left[2\\left(1 + \\dfrac{x}{2}\\right)\\right]^{-1} = 4\\left(\\dfrac{1}{2}\\right)\\left(1 + \\dfrac{x}{2}\\right)^{-1} = 2\\left(1 + \\dfrac{x}{2}\\right)^{-1}$$\nApply the binomial series with $u = \\dfrac{x}{2}$:\n$$\\left(1 + \\dfrac{x}{2}\\right)^{-1} = 1 - \\dfrac{x}{2} + \\left(\\dfrac{x}{2}\\right)^2 - \\cdots = 1 - \\dfrac{1}{2}x + \\dfrac{1}{4}x^2$$\n$$2\\left(1 + \\dfrac{x}{2}\\right)^{-1} = 2\\left(1 - \\dfrac{1}{2}x + \\dfrac{1}{4}x^2\\right) = 2 - x + \\dfrac{1}{2}x^2$$",
+        "Sum the three expansions together to obtain the expansion of $f(x)$ up to the term in $x^2$:\n$$f(x) = (-2 + 4x - 8x^2) + (1 + 2x + 4x^2) + \\left(2 - x + \\dfrac{1}{2}x^2\\right)$$",
+        "Collect the constant terms:\n$$\\text{Constant} = -2 + 1 + 2 = 1$$",
+        "Collect the linear terms in $x$:\n$$\\text{Linear} = (4 + 2 - 1)x = 5x$$",
+        "Collect the quadratic terms in $x^2$:\n$$\\text{Quadratic} = \\left(-8 + 4 + \\dfrac{1}{2}\\right)x^2 = \\left(-4 + \\dfrac{1}{2}\\right)x^2 = -\\dfrac{7}{2}x^2$$",
+        "Combine all terms to state the final expansion:\n$$f(x) = 1 + 5x - \\dfrac{7}{2}x^2$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      }
+    }
+  ]
+}

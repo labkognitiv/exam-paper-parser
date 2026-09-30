@@ -1,0 +1,65 @@
+{
+  "schema_version": "9709_math_enrichment_v7",
+  "question_id": "9709_s18_33_q7",
+  "difficulty": 5,
+  "parts": [
+    {
+      "part_id": "9709_s18_33_q7_i",
+      "difficulty": 1,
+      "practice_tier": "revision",
+      "mapping": {
+        "topic_id": "9709_p3_t_trigonometry",
+        "lesson_id": "9709_p3_t_trigonometry_m02_l01"
+      },
+      "skills": {
+        "primary_skill_id": "9709_p3_skill_r_form_trigonometry"
+      },
+      "hints": [
+        "Expand $R\\cos(\\theta-\\alpha)$ using the cosine subtraction formula.",
+        "Compare the coefficients of $\\cos\\theta$ and $\\sin\\theta$ to obtain equations for $R\\cos\\alpha$ and $R\\sin\\alpha$.",
+        "Square and add these equations to determine the positive value of $R$.",
+        "Divide the coefficient equations to find $\\tan\\alpha$, checking that the stated range for $\\alpha$ is satisfied."
+      ],
+      "walkthrough": [
+        "Expand $R\\cos(\\theta - \\alpha)$ using the compound angle identity:\n$$R\\cos(\\theta - \\alpha) = R\\cos\\theta\\cos\\alpha + R\\sin\\theta\\sin\\alpha = (R\\cos\\alpha)\\cos\\theta + (R\\sin\\alpha)\\sin\\theta$$",
+        "Equate coefficients with $\\cos\\theta + 2\\sin\\theta$:\n$$R\\cos\\alpha = 1$$\n$$R\\sin\\alpha = 2$$",
+        "Square and add both equations to find $R$:\n$$R^2\\cos^2\\alpha + R^2\\sin^2\\alpha = 1^2 + 2^2$$\n$$R^2(\\cos^2\\alpha + \\sin^2\\alpha) = 1 + 4 = 5$$\n$$R^2 = 5 \\implies R = \\sqrt{5} \\quad (\\text{since } R > 0)$$",
+        "Divide $R\\sin\\alpha$ by $R\\cos\\alpha$ to find $\\tan\\alpha$:\n$$\\tan\\alpha = \\dfrac{R\\sin\\alpha}{R\\cos\\alpha} = \\dfrac{2}{1} = 2$$",
+        "State the exact values:\n$$R = \\sqrt{5}, \\quad \\tan\\alpha = 2$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      }
+    },
+    {
+      "part_id": "9709_s18_33_q7_ii",
+      "difficulty": 5,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_p3_t_integration",
+        "lesson_id": "9709_p3_t_integration_m01_l02"
+      },
+      "skills": {
+        "primary_skill_id": "9709_p3_skill_trigonometric_integration"
+      },
+      "hints": [
+        "Replace the denominator using the form obtained in part (i), then square it.",
+        "Simplify the constant factor so the integrand becomes a multiple of $\\sec^2(\\theta-\\alpha)$.",
+        "Integrate and apply the limits $0$ and $\\pi/4$ in the correct order.",
+        "Use the tangent addition or subtraction formula together with the exact value of $\\tan\\alpha$ to simplify both endpoint values."
+      ],
+      "walkthrough": [
+        "Use the result from part (i) to rewrite the denominator of the integrand:\n$$\\cos\\theta + 2\\sin\\theta = \\sqrt{5}\\cos(\\theta - \\alpha)$$\n$$(\\cos\\theta + 2\\sin\\theta)^2 = 5\\cos^2(\\theta - \\alpha)$$\n$$\\dfrac{15}{(\\cos\\theta + 2\\sin\\theta)^2} = \\dfrac{15}{5\\cos^2(\\theta - \\alpha)} = 3\\sec^2(\\theta - \\alpha)$$",
+        "Integrate with respect to $\\theta$:\n$$\\int 3\\sec^2(\\theta - \\alpha)\\,\\mathrm{d}\\theta = 3\\tan(\\theta - \\alpha)$$",
+        "Apply the limits from $0$ to $\\dfrac{\\pi}{4}$:\n$$\\left[ 3\\tan(\\theta - \\alpha) \\right]_0^{\\frac{1}{4}\\pi} = 3\\tan\\left(\\dfrac{\\pi}{4} - \\alpha\\right) - 3\\tan(-\\alpha) = 3\\tan\\left(\\dfrac{\\pi}{4} - \\alpha\\right) + 3\\tan\\alpha$$",
+        "Use the tangent subtraction formula $\\tan(A - B) = \\dfrac{\\tan A - \\tan B}{1 + \\tan A\\tan B}$ with $A = \\dfrac{\\pi}{4}$ and $B = \\alpha$:\n$$\\tan\\left(\\dfrac{\\pi}{4} - \\alpha\\right) = \\dfrac{\\tan(\\pi/4) - \\tan\\alpha}{1 + \\tan(\\pi/4)\\tan\\alpha} = \\dfrac{1 - 2}{1 + (1)(2)} = \\dfrac{-1}{3} = -\\dfrac{1}{3}$$",
+        "Substitute $\\tan\\left(\\dfrac{\\pi}{4} - \\alpha\\right) = -\\dfrac{1}{3}$ and $\\tan\\alpha = 2$ into the limit evaluation:\n$$3\\left(-\\dfrac{1}{3}\\right) + 3(2) = -1 + 6 = 5$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      }
+    }
+  ]
+}

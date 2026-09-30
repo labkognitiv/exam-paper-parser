@@ -1,0 +1,111 @@
+{
+  "schema_version": "9709_math_enrichment_v7",
+  "question_id": "9709_s23_52_q6",
+  "difficulty": 4,
+  "parts": [
+    {
+      "part_id": "9709_s23_52_q6_a",
+      "difficulty": 3,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_s1_t_permutations_and_combinations",
+        "lesson_id": "9709_s1_t_permutations_and_combinations_m04_l03"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_handling_selection_restrictions"
+      },
+      "hints": [
+        "The team of 7 has exactly 1 swimmer from 6, leaving 6 places for cyclists (from 8) and runners (from 11).",
+        "Restrictions: at least 4 cyclists (C >= 4) and at most 2 runners (R <= 2) with C + R = 6.",
+        "List the possible combinations of (S, C, R): (1, 4, 2), (1, 5, 1), and (1, 6, 0).",
+        "Evaluate each case using combinations and add: 6C1 * 8C4 * 11C2 + 6C1 * 8C5 * 11C1 + 6C1 * 8C6 * 11C0."
+      ],
+      "walkthrough": [
+        "Identify the restrictions for selecting a team of 7 from 6 swimmers ($S$), 8 cyclists ($C$), and 11 runners ($R$):\n$$S = 1, \\quad C \\ge 4, \\quad R \\le 2, \\quad S + C + R = 7 \\implies C + R = 6$$",
+        "Identify all valid mutually exclusive cases:\n$$\\begin{aligned} \\text{Case 1 } (1S, 4C, 2R) &: \\quad \\binom{6}{1} \\times \\binom{8}{4} \\times \\binom{11}{2} = 6 \\times 70 \\times 55 = 23100 \\\\ \\text{Case 2 } (1S, 5C, 1R) &: \\quad \\binom{6}{1} \\times \\binom{8}{5} \\times \\binom{11}{1} = 6 \\times 56 \\times 11 = 3696 \\\\ \\text{Case 3 } (1S, 6C, 0R) &: \\quad \\binom{6}{1} \\times \\binom{8}{6} \\times \\binom{11}{0} = 6 \\times 28 \\times 1 = 168 \\end{aligned}$$",
+        "Sum the counts of all 3 cases:\n$$\\text{Total ways} = 23100 + 3696 + 168 = 26964$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      },
+      "teacher_walkthrough": [
+        "Step 1: Set up the team requirements:\n- Total team size $= 7$\n- Pool: 6 swimmers, 8 cyclists, 11 runners\n- Swimmers: exactly 1 ($S = 1$)\n- Cyclists: at least 4 ($C \\ge 4$)\n- Runners: at most 2 ($R \\le 2$)\nSince $S = 1$, we need $C + R = 6$.",
+        "Step 2: List the valid $(S, C, R)$ combinations:\n- Case 1: $1$ swimmer, $4$ cyclists, $2$ runners\n- Case 2: $1$ swimmer, $5$ cyclists, $1$ runner\n- Case 3: $1$ swimmer, $6$ cyclists, $0$ runners",
+        "Step 3: Calculate the number of selections for Case 1:\n$$\\binom{6}{1} \\times \\binom{8}{4} \\times \\binom{11}{2}$$\n$$\\binom{6}{1} = 6$$\n$$\\binom{8}{4} = \\frac{8 \\times 7 \\times 6 \\times 5}{4 \\times 3 \\times 2 \\times 1} = 70$$\n$$\\binom{11}{2} = \\frac{11 \\times 10}{2} = 55$$\n$$\\text{Ways} = 6 \\times 70 \\times 55 = 23100$$",
+        "Step 4: Calculate the number of selections for Case 2:\n$$\\binom{6}{1} \\times \\binom{8}{5} \\times \\binom{11}{1}$$\n$$\\binom{8}{5} = \\binom{8}{3} = 56$$\n$$\\binom{11}{1} = 11$$\n$$\\text{Ways} = 6 \\times 56 \\times 11 = 3696$$",
+        "Step 5: Calculate the number of selections for Case 3:\n$$\\binom{6}{1} \\times \\binom{8}{6} \\times \\binom{11}{0}$$\n$$\\binom{8}{6} = \\binom{8}{2} = 28$$\n$$\\binom{11}{0} = 1$$\n$$\\text{Ways} = 6 \\times 28 \\times 1 = 168$$",
+        "Step 6: Add all mutually exclusive cases:\n$$\\text{Total ways} = 23100 + 3696 + 168 = 26964$$"
+      ]
+    },
+    {
+      "part_id": "9709_s23_52_q6_b",
+      "difficulty": 2,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_s1_t_permutations_and_combinations",
+        "lesson_id": "9709_s1_t_permutations_and_combinations_m03_l02"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_handling_arrangement_restrictions"
+      },
+      "hints": [
+        "Treat each category as a single group or block: swimmers block (2 people), cyclists block (3 people), and runners block (4 people).",
+        "The 3 blocks can be arranged in 3! ways.",
+        "Multiply by the internal permutations within each block: 2! for swimmers, 3! for cyclists, and 4! for runners.",
+        "Calculate 3! * 2! * 3! * 4! = 6 * 2 * 6 * 24."
+      ],
+      "walkthrough": [
+        "Treat the 2 swimmers, 3 cyclists, and 4 runners as 3 separate blocks:\n$$\\text{Number of ways to arrange the 3 blocks} = 3! = 6$$",
+        "Calculate the internal arrangements within each block:\n$$\\begin{aligned} \\text{Swimmers block (2 people)} &: \\quad 2! = 2 \\\\ \\text{Cyclists block (3 people)} &: \\quad 3! = 6 \\\\ \\text{Runners block (4 people)} &: \\quad 4! = 24 \\end{aligned}$$",
+        "Multiply the block arrangements by all internal arrangements:\n$$\\text{Total arrangements} = 3! \\times 2! \\times 3! \\times 4! = 6 \\times 2 \\times 6 \\times 24 = 1728$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      },
+      "teacher_walkthrough": [
+        "Step 1: Apply the block method:\nWe have 9 people standing in a line:\n- 2 swimmers\n- 3 cyclists\n- 4 runners\nSince the people of each sport must stand together, treat each sport as a single unit or block:\n$B_S$ (swimmers), $B_C$ (cyclists), $B_R$ (runners).",
+        "Step 2: Arrange the 3 blocks in line:\n$$3! = 3 \\times 2 \\times 1 = 6$$",
+        "Step 3: Arrange the individuals within their respective blocks:\n- Within the swimmers block: $2! = 2$ ways\n- Within the cyclists block: $3! = 6$ ways\n- Within the runners block: $4! = 24$ ways",
+        "Step 4: Multiply all permutations together:\n$$\\text{Total arrangements} = 3! \\times 2! \\times 3! \\times 4! = 6 \\times 2 \\times 6 \\times 24 = 1728$$"
+      ]
+    },
+    {
+      "part_id": "9709_s23_52_q6_c",
+      "difficulty": 4,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_s1_t_permutations_and_combinations",
+        "lesson_id": "9709_s1_t_permutations_and_combinations_m03_l03"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_handling_arrangement_restrictions"
+      },
+      "hints": [
+        "To ensure none of the 3 cyclists stand next to each other, use the gap (insertion) method.",
+        "First, arrange the other 6 people (2 swimmers and 4 runners) in 6! ways.",
+        "The 6 arranged people create 7 spaces (gaps) at the ends and between them.",
+        "Place the 3 cyclists into 3 of these 7 spaces in 7P3 = 7 * 6 * 5 ways.",
+        "Multiply: 6! * 7P3 = 720 * 210 = 151200."
+      ],
+      "walkthrough": [
+        "Use the gap method to separate the 3 cyclists:\nFirst arrange the other $2 + 4 = 6$ people (swimmers and runners):\n$$\\text{Arrangements of non-cyclists} = 6! = 720$$",
+        "The 6 non-cyclists create 7 available positions (gaps) for the cyclists:\n$$\\text{\\_ } P_1 \\text{ \\_ } P_2 \\text{ \\_ } P_3 \\text{ \\_ } P_4 \\text{ \\_ } P_5 \\text{ \\_ } P_6 \\text{ \\_}$$",
+        "Place the 3 distinct cyclists into 3 of these 7 gaps:\n$${}^7P_3 = \\frac{7!}{(7-3)!} = 7 \\times 6 \\times 5 = 210$$",
+        "Multiply the two results to find the total arrangements:\n$$\\text{Total arrangements} = 6! \\times {}^7P_3 = 720 \\times 210 = 151200$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      },
+      "teacher_walkthrough": [
+        "Step 1: Identify the separation restriction:\nNone of the 3 cyclists may stand next to each other. When objects must be separated, we use the gap (insertion) method.",
+        "Step 2: Arrange the unrestricted individuals first:\nThe other people are the 2 swimmers and 4 runners, making $2 + 4 = 6$ people.\nNumber of ways to arrange these 6 people:\n$$6! = 720$$",
+        "Step 3: Count the number of available gaps:\nSix people in a line create $6 + 1 = 7$ available spaces:\n$$\\text{\\_ } P_1 \\text{ \\_ } P_2 \\text{ \\_ } P_3 \\text{ \\_ } P_4 \\text{ \\_ } P_5 \\text{ \\_ } P_6 \\text{ \\_}$$",
+        "Step 4: Place the 3 cyclists into the 7 spaces:\nSince order matters among distinct individuals, we select and arrange 3 of the 7 spaces:\n$${}^7P_3 = 7 \\times 6 \\times 5 = 210$$\n(Or choose 3 spaces in $\\binom{7}{3} = 35$ ways, then arrange the 3 cyclists in $3! = 6$ ways: $35 \\times 6 = 210$.)",
+        "Step 5: Multiply the two independent stages:\n$$\\text{Total arrangements} = 6! \\times {}^7P_3 = 720 \\times 210 = 151200$$"
+      ]
+    }
+  ]
+}

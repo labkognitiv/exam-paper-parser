@@ -1,0 +1,114 @@
+{
+  "schema_version": "9709_math_enrichment_v7",
+  "question_id": "9709_w20_52_q2",
+  "difficulty": 3,
+  "parts": [
+    {
+      "part_id": "9709_w20_52_q2_a",
+      "difficulty": 2,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_s1_t_discrete_random_variables",
+        "lesson_id": "9709_s1_t_discrete_random_variables_m01_l03"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_finding_probability_by_counting"
+      },
+      "hints": [
+        "The bag contains 5 red balls and 3 blue balls (total 8 balls). Sadie selects 3 balls without replacement.",
+        "Calculate the total number of ways to choose 3 balls from 8 using combinations: $\\binom{8}{3} = 56$.",
+        "To get exactly 1 red ball, she must choose 1 red ball from 5 and 2 blue balls from 3: $\\binom{5}{1} \\times \\binom{3}{2}$.",
+        "Divide the favorable selections by the total: $\\dfrac{5 \\times 3}{56} = \\dfrac{15}{56}$."
+      ],
+      "walkthrough": [
+        "Calculate the total number of ways to select 3 balls from 8 without replacement:\n$$\\text{Total outcomes} = \\binom{8}{3} = \\dfrac{8 \\times 7 \\times 6}{3 \\times 2 \\times 1} = 56$$",
+        "Calculate the number of ways to choose exactly 1 red ball (and 2 blue balls):\n$$\\text{Favorable ways} = \\binom{5}{1} \\times \\binom{3}{2} = 5 \\times 3 = 15$$",
+        "Form the probability:\n$$\\mathrm{P}(X = 1) = \\dfrac{\\binom{5}{1}\\binom{3}{2}}{\\binom{8}{3}} = \\dfrac{15}{56}$$",
+        "Alternative Method (Sequential selection):\n$$\\mathrm{P}(RBB) = \\dfrac{5}{8} \\times \\dfrac{3}{7} \\times \\dfrac{2}{6} = \\dfrac{30}{336} = \\dfrac{5}{56}$$\n$$\\text{Multiplying by } 3 \\text{ orderings}: \\quad 3 \\times \\dfrac{5}{56} = \\dfrac{15}{56}$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      },
+      "teacher_walkthrough": [
+        "A bag contains 5 red balls and 3 blue balls, giving a total of $5 + 3 = 8$ balls. Sadie takes 3 balls at random without replacement.",
+        "Let $X$ be the number of red balls chosen. We want to show that $\\mathrm{P}(X = 1) = \\frac{15}{56}$.",
+        "Method 1: Using combinations (hypergeometric model).",
+        "Step 1: Find the total number of ways to choose 3 balls from 8:\n$$\\binom{8}{3} = \\frac{8 \\times 7 \\times 6}{3 \\times 2 \\times 1} = 56$$",
+        "Step 2: Find the number of favorable ways.\nTo get exactly 1 red ball, the selection must consist of 1 red ball (from 5 available) and 2 blue balls (from 3 available):\n$$\\text{Ways to choose 1 red} = \\binom{5}{1} = 5$$\n$$\\text{Ways to choose 2 blue} = \\binom{3}{2} = 3$$\n$$\\text{Total favorable selections} = \\binom{5}{1} \\times \\binom{3}{2} = 5 \\times 3 = 15$$",
+        "Step 3: Compute the probability:\n$$\\mathrm{P}(X = 1) = \\frac{15}{56}$$",
+        "Method 2: Using individual draw probabilities.\nThe balls could be drawn in three orders: $RBB, BRB, BBR$.\n$$\\mathrm{P}(RBB) = \\frac{5}{8} \\times \\frac{3}{7} \\times \\frac{2}{6} = \\frac{30}{336} = \\frac{5}{56}$$\nSince all 3 orderings are equally likely:\n$$\\mathrm{P}(X = 1) = 3 \\times \\frac{5}{56} = \\frac{15}{56}$$"
+      ]
+    },
+    {
+      "part_id": "9709_w20_52_q2_b",
+      "difficulty": 3,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_s1_t_discrete_random_variables",
+        "lesson_id": "9709_s1_t_discrete_random_variables_m01_l01"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_constructing_discrete_probability_distributions"
+      },
+      "hints": [
+        "Identify all possible values of $X$: Sadie can take 0, 1, 2, or 3 red balls, so $x \\in \\{0, 1, 2, 3\\}$.",
+        "Calculate $\\mathrm{P}(X = 0)$: all 3 balls are blue, so $\\dfrac{\\binom{3}{3}}{\\binom{8}{3}} = \\dfrac{1}{56}$.",
+        "Calculate $\\mathrm{P}(X = 2)$: 2 red and 1 blue, so $\\dfrac{\\binom{5}{2}\\binom{3}{1}}{\\binom{8}{3}} = \\dfrac{10 \\times 3}{56} = \\dfrac{30}{56}$.",
+        "Calculate $\\mathrm{P}(X = 3)$: all 3 balls are red, so $\\dfrac{\\binom{5}{3}}{\\binom{8}{3}} = \\dfrac{10}{56}$, and write in a table."
+      ],
+      "walkthrough": [
+        "Identify the possible values of $X$:\n$$x \\in \\{0, 1, 2, 3\\}$$",
+        "Calculate the probabilities for each outcome with denominator $\\binom{8}{3} = 56$:\n$$\\mathrm{P}(X = 0) = \\dfrac{\\binom{5}{0}\\binom{3}{3}}{56} = \\dfrac{1 \\times 1}{56} = \\dfrac{1}{56}$$\n$$\\mathrm{P}(X = 1) = \\dfrac{15}{56} \\quad (\\text{from part (a)})$$\n$$\\mathrm{P}(X = 2) = \\dfrac{\\binom{5}{2}\\binom{3}{1}}{56} = \\dfrac{10 \\times 3}{56} = \\dfrac{30}{56}$$\n$$\\mathrm{P}(X = 3) = \\dfrac{\\binom{5}{3}\\binom{3}{0}}{56} = \\dfrac{10 \\times 1}{56} = \\dfrac{10}{56}$$",
+        "Present the probability distribution table for $X$:\n$$\\begin{array}{|c|c|c|c|c|}\\hline x & 0 & 1 & 2 & 3 \\\\\\hline \\mathrm{P}(X = x) & \\dfrac{1}{56} & \\dfrac{15}{56} & \\dfrac{30}{56} & \\dfrac{10}{56} \\\\\\hline\\end{array}$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      },
+      "teacher_walkthrough": [
+        "We need to draw up the complete probability distribution table for the random variable $X$, the number of red balls drawn.",
+        "Step 1: Identify all possible values for $X$.\nSince Sadie takes 3 balls and there are 5 red and 3 blue balls, the number of red balls can be 0, 1, 2, or 3:\n$$x \\in \\{0, 1, 2, 3\\}$$",
+        "Step 2: Calculate $\\mathrm{P}(X = 0)$:\nAll 3 balls are blue (0 red balls):\n$$\\mathrm{P}(X = 0) = \\frac{\\binom{5}{0} \\binom{3}{3}}{\\binom{8}{3}} = \\frac{1 \\times 1}{56} = \\frac{1}{56}$$",
+        "Step 3: State $\\mathrm{P}(X = 1)$:\nFrom part (a), $\\mathrm{P}(X = 1) = \\frac{15}{56}$.",
+        "Step 4: Calculate $\\mathrm{P}(X = 2)$:\n2 red balls and 1 blue ball:\n$$\\mathrm{P}(X = 2) = \\frac{\\binom{5}{2} \\binom{3}{1}}{\\binom{8}{3}} = \\frac{10 \\times 3}{56} = \\frac{30}{56}$$",
+        "Step 5: Calculate $\\mathrm{P}(X = 3)$:\nAll 3 balls are red (0 blue balls):\n$$\\mathrm{P}(X = 3) = \\frac{\\binom{5}{3} \\binom{3}{0}}{\\binom{8}{3}} = \\frac{10 \\times 1}{56} = \\frac{10}{56}$$",
+        "Step 6: Check that probabilities sum to 1:\n$$\\sum \\mathrm{P}(X = x) = \\frac{1 + 15 + 30 + 10}{56} = \\frac{56}{56} = 1$$",
+        "Step 7: Present the table:\n$$\\begin{array}{|c|c|c|c|c|}\\hline x & 0 & 1 & 2 & 3 \\\\\\hline \\mathrm{P}(X = x) & \\dfrac{1}{56} & \\dfrac{15}{56} & \\dfrac{30}{56} & \\dfrac{10}{56} \\\\\\hline\\end{array}$$"
+      ]
+    },
+    {
+      "part_id": "9709_w20_52_q2_c",
+      "difficulty": 2,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_s1_t_discrete_random_variables",
+        "lesson_id": "9709_s1_t_discrete_random_variables_m02_l02"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_calculating_variance_of_a_random_variable"
+      },
+      "hints": [
+        "We are given the mean $\\mathrm{E}(X) = \\frac{15}{8}$.",
+        "Calculate the second moment $\\mathrm{E}(X^2) = \\sum x^2 \\, \\mathrm{P}(X = x)$ using the distribution from part (b).",
+        "Use the variance formula: $\\operatorname{Var}(X) = \\mathrm{E}(X^2) - [\\mathrm{E}(X)]^2$.",
+        "Compute $\\frac{225}{56} - \\left(\\frac{15}{8}\\right)^2$ using the common denominator 448."
+      ],
+      "walkthrough": [
+        "Calculate $\\mathrm{E}(X^2) = \\sum x^2 \\, \\mathrm{P}(X = x)$:\n$$\\mathrm{E}(X^2) = 0^2\\left(\\dfrac{1}{56}\\right) + 1^2\\left(\\dfrac{15}{56}\\right) + 2^2\\left(\\dfrac{30}{56}\\right) + 3^2\\left(\\dfrac{10}{56}\\right)$$\n$$\\mathrm{E}(X^2) = \\dfrac{0 + 15 + 120 + 90}{56} = \\dfrac{225}{56}$$",
+        "Apply the variance formula with the given mean $\\mathrm{E}(X) = \\dfrac{15}{8}$:\n$$\\operatorname{Var}(X) = \\mathrm{E}(X^2) - [\\mathrm{E}(X)]^2 = \\dfrac{225}{56} - \\left(\\dfrac{15}{8}\\right)^2 = \\dfrac{225}{56} - \\dfrac{225}{64}$$",
+        "Factorize and express with common denominator $448 = 56 \\times 8 = 64 \\times 7$:\n$$\\operatorname{Var}(X) = 225\\left(\\dfrac{1}{56} - \\dfrac{1}{64}\\right) = 225\\left(\\dfrac{8 - 7}{448}\\right) = \\dfrac{225}{448} \\approx 0.502$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      },
+      "teacher_walkthrough": [
+        "We are given $\\mathrm{E}(X) = \\frac{15}{8}$ and need to find $\\operatorname{Var}(X)$.",
+        "Step 1: Calculate $\\mathrm{E}(X^2)$ using the definition $\\sum x^2 \\, \\mathrm{P}(X = x)$:\n$$\\mathrm{E}(X^2) = 0^2\\left(\\frac{1}{56}\\right) + 1^2\\left(\\frac{15}{56}\\right) + 2^2\\left(\\frac{30}{56}\\right) + 3^2\\left(\\frac{10}{56}\\right)$$\nEvaluate each term:\n$$0^2 \\times 1 = 0$$\n$$1^2 \\times 15 = 15$$\n$$2^2 \\times 30 = 4 \\times 30 = 120$$\n$$3^2 \\times 10 = 9 \\times 10 = 90$$\nSum the numerators:\n$$\\mathrm{E}(X^2) = \\frac{0 + 15 + 120 + 90}{56} = \\frac{225}{56}$$",
+        "Step 2: Apply the variance formula:\n$$\\operatorname{Var}(X) = \\mathrm{E}(X^2) - [\\mathrm{E}(X)]^2$$\nSubstitute $\\mathrm{E}(X^2) = \\frac{225}{56}$ and $\\mathrm{E}(X) = \\frac{15}{8}$:\n$$\\operatorname{Var}(X) = \\frac{225}{56} - \\left(\\frac{15}{8}\\right)^2 = \\frac{225}{56} - \\frac{225}{64}$$",
+        "Step 3: Simplify the fractions:\nFactor out $225$:\n$$\\operatorname{Var}(X) = 225 \\left(\\frac{1}{56} - \\frac{1}{64}\\right)$$\nNotice that $56 = 8 \\times 7$ and $64 = 8 \\times 8$.\nThe least common multiple of $56$ and $64$ is $8 \\times 7 \\times 8 = 448$:\n$$\\frac{1}{56} - \\frac{1}{64} = \\frac{8 - 7}{448} = \\frac{1}{448}$$\nTherefore:\n$$\\operatorname{Var}(X) = \\frac{225 \\times 1}{448} = \\frac{225}{448}$$\nIn decimal form:\n$$\\frac{225}{448} \\approx 0.50223... \\approx 0.502$$\nRounding to 3 significant figures gives $0.502$."
+      ]
+    }
+  ]
+}

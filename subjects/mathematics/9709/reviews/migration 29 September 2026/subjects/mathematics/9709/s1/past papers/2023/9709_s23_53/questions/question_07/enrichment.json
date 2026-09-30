@@ -1,0 +1,112 @@
+{
+  "schema_version": "9709_math_enrichment_v7",
+  "question_id": "9709_s23_53_q7",
+  "difficulty": 4,
+  "parts": [
+    {
+      "part_id": "9709_s23_53_q7_a",
+      "difficulty": 2,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_s1_t_permutations_and_combinations",
+        "lesson_id": "9709_s1_t_permutations_and_combinations_m03_l03"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_handling_arrangement_restrictions"
+      },
+      "hints": [
+        "Total letters in CASABLANCA: 10 letters with 4 As, 2 Cs, 1 B, 1 L, 1 N, 1 S.",
+        "Method 1 (Complement): find total unrestricted arrangements minus arrangements where the two Cs are together.",
+        "Total arrangements: 10! / (4! * 2!) = 75600. When (CC) is together: 9! / 4! = 15120.",
+        "Subtract: 75600 - 15120 = 60480."
+      ],
+      "walkthrough": [
+        "Find total unrestricted arrangements of the 10 letters in CASABLANCA (4 As, 2 Cs, B, L, N, S):\n$$\\text{Total unrestricted arrangements} = \\frac{10!}{4! \\, 2!} = \\frac{3628800}{24 \\times 2} = 75600$$",
+        "Find arrangements where the two Cs are together by treating $(CC)$ as a single entity (9 entities with 4 As):\n$$\\text{Arrangements with } (CC) \\text{ together} = \\frac{9!}{4!} = \\frac{362880}{24} = 15120$$",
+        "Subtract the together arrangements from the total:\n$$\\text{Arrangements with Cs not together} = 75600 - 15120 = 60480$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      },
+      "teacher_walkthrough": [
+        "Step 1: Count total letters and repetitions in the word CASABLANCA:\n- Total letters $n = 10$\n- Repetitions: 4 As, 2 Cs, 1 B, 1 L, 1 N, 1 S",
+        "Step 2: Calculate total unrestricted arrangements:\n$$\\text{Total} = \\frac{10!}{4! \\, 2!} = \\frac{3628800}{24 \\times 2} = \\frac{3628800}{48} = 75600$$",
+        "Step 3: Calculate arrangements where the two Cs are together:\nTreat the two Cs as one composite unit $(CC)$.\nWe now have 9 entities to arrange: $(CC)$, 4 As, B, L, N, S.\nSince A appears 4 times:\n$$\\text{Ways with Cs together} = \\frac{9!}{4!} = \\frac{362880}{24} = 15120$$",
+        "Step 4: Subtract to find the arrangements where the two Cs are not together:\n$$\\text{Ways} = 75600 - 15120 = 60480$$",
+        "Alternative gap method check:\n- Arrange the other 8 letters (4 As, B, L, N, S): $\\frac{8!}{4!} = 1680$ ways.\n- These 8 letters create 9 available spaces (gaps).\n- Place the 2 identical Cs into 2 of the 9 spaces: $\\binom{9}{2} = 36$ ways.\n$$\\text{Ways} = 1680 \\times 36 = 60480$$"
+      ]
+    },
+    {
+      "part_id": "9709_s23_53_q7_b",
+      "difficulty": 3,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_s1_t_permutations_and_combinations",
+        "lesson_id": "9709_s1_t_permutations_and_combinations_m03_l01"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_handling_arrangement_restrictions"
+      },
+      "hints": [
+        "An A is at the beginning (position 1) and an A is at the end (position 10): A _ _ _ _ _ _ _ _ A.",
+        "This leaves 8 positions (2 to 9) to arrange the remaining letters: 2 As, 2 Cs, B, L, N, S.",
+        "The two Cs have exactly 3 letters between them: the pair of Cs can occupy positions (2, 6), (3, 7), (4, 8), or (5, 9) (4 possible positions).",
+        "The remaining 6 positions are filled by the other 6 letters (2 As, B, L, N, S): 6! / 2! = 360.",
+        "Multiply: 4 * 360 = 1440."
+      ],
+      "walkthrough": [
+        "Place an A at position 1 and an A at position 10:\n$$A \\text{ \\_ \\_ \\_ \\_ \\_ \\_ \\_ \\_ } A$$",
+        "Count the number of valid positions for the two Cs with exactly 3 letters between them in positions 2 to 9:\n$$\\text{Positions for Cs: } (2, 6), \\quad (3, 7), \\quad (4, 8), \\quad (5, 9) \\implies 4\\text{ valid placements}$$",
+        "For any placement of the Cs, arrange the remaining 6 letters (2 As, B, L, N, S) in the remaining 6 slots:\n$$\\text{Arrangements of remaining letters} = \\frac{6!}{2!} = \\frac{720}{2} = 360$$",
+        "Multiply by the 4 placements of the Cs:\n$$\\text{Total arrangements} = 4 \\times 360 = 1440$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      },
+      "teacher_walkthrough": [
+        "Step 1: Fix the end letters:\n- Position 1 is fixed as A.\n- Position 10 is fixed as A.\nThis uses 2 of the 4 As, leaving 8 available positions: positions 2, 3, 4, 5, 6, 7, 8, 9.",
+        "Step 2: Place the two Cs with exactly 3 letters between them:\nThe structure $C \\text{ \\_ \\_ \\_ } C$ spans 5 consecutive positions.\nLet the position of the first C be $p$, and the second C be $p + 4$.\nSince both must lie within positions 2 to 9:\n- $p = 2 \\implies$ Cs at positions 2 and 6\n- $p = 3 \\implies$ Cs at positions 3 and 7\n- $p = 4 \\implies$ Cs at positions 4 and 8\n- $p = 5 \\implies$ Cs at positions 5 and 9\nThere are exactly 4 possible positions for the two identical Cs.",
+        "Step 3: Arrange the remaining 6 letters:\nThe remaining letters to place in the 6 empty positions are: 2 As, 1 B, 1 L, 1 N, 1 S.\nSince A is repeated 2 times, the number of permutations is:\n$$\\frac{6!}{2!} = \\frac{720}{2} = 360$$",
+        "Step 4: Multiply by the number of placements for the Cs:\n$$\\text{Total arrangements} = 4 \\times 360 = 1440$$"
+      ]
+    },
+    {
+      "part_id": "9709_s23_53_q7_c",
+      "difficulty": 3,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_s1_t_permutations_and_combinations",
+        "lesson_id": "9709_s1_t_permutations_and_combinations_m04_l02"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_handling_selection_restrictions"
+      },
+      "hints": [
+        "Five letters are selected from CASABLANCA. Restrictions: at least two As (2, 3, or 4 As) and at most one C (0 or 1 C).",
+        "Available letters: A (up to 4), C (up to 1 in selection), and distinct letters {B, L, N, S}.",
+        "Since at most one C can be included, all non-A choices come from the 5 distinct options {C, B, L, N, S}.",
+        "For 2 As: choose 3 letters from {C, B, L, N, S}: 5C3 = 10.",
+        "For 3 As: choose 2 letters from {C, B, L, N, S}: 5C2 = 10.",
+        "For 4 As: choose 1 letter from {C, B, L, N, S}: 5C1 = 5.",
+        "Add the counts: 10 + 10 + 5 = 25."
+      ],
+      "walkthrough": [
+        "Identify the available distinct choices for letters other than A:\nBecause the selection must include at most one C, the set of non-A letters selected must consist of distinct elements from $\\{C, B, L, N, S\\}$ (5 distinct letter options).",
+        "Divide into mutually exclusive cases based on the number of As (at least 2 As):\n$$\\begin{aligned} \\text{Case 1 (2 As)} &: \\quad \\text{Choose 3 letters from } \\{C, B, L, N, S\\} \\implies \\binom{5}{3} = 10 \\\\ \\text{Case 2 (3 As)} &: \\quad \\text{Choose 2 letters from } \\{C, B, L, N, S\\} \\implies \\binom{5}{2} = 10 \\\\ \\text{Case 3 (4 As)} &: \\quad \\text{Choose 1 letter from } \\{C, B, L, N, S\\} \\implies \\binom{5}{1} = 5 \\end{aligned}$$",
+        "Sum the selections across all cases:\n$$\\text{Total selections} = 10 + 10 + 5 = 25$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      },
+      "teacher_walkthrough": [
+        "Step 1: Understand the selection problem:\nWe are selecting 5 letters from the word CASABLANCA.\nLetter pool: $4$ As, $2$ Cs, $1$ B, $1$ L, $1$ N, $1$ S.\nRestrictions:\n- At least two As ($2, 3, \\text{ or } 4$ As)\n- At most one C ($0 \\text{ or } 1$ C)",
+        "Step 2: Key insight regarding non-A letters:\nSince at most one C is allowed, C can appear at most once in any valid selection.\nFurthermore, B, L, N, S each only exist once in the pool.\nTherefore, every non-A letter in any valid selection must be unique, chosen from the 5 available options: $\\{C, B, L, N, S\\}$.",
+        "Step 3: Analyze the cases by number of As:\n- Case 1: Exactly 2 As.\nWe need $5 - 2 = 3$ other letters from the 5 available choices $\\{C, B, L, N, S\\}$:\n$$\\binom{5}{3} = \\frac{5 \\times 4 \\times 3}{3 \\times 2 \\times 1} = 10$$\n- Case 2: Exactly 3 As.\nWe need $5 - 3 = 2$ other letters from $\\{C, B, L, N, S\\}$:\n$$\\binom{5}{2} = \\frac{5 \\times 4}{2 \\times 1} = 10$$\n- Case 3: Exactly 4 As.\nWe need $5 - 4 = 1$ other letter from $\\{C, B, L, N, S\\}$:\n$$\\binom{5}{1} = 5$$",
+        "Step 4: Sum the mutually exclusive cases:\n$$\\text{Total selections} = 10 + 10 + 5 = 25$$"
+      ]
+    }
+  ]
+}

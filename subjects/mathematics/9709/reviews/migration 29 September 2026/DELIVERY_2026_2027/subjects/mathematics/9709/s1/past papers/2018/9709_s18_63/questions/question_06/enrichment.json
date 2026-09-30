@@ -1,0 +1,79 @@
+{
+  "schema_version": "9709_math_enrichment_v7",
+  "question_id": "9709_s18_63_q6",
+  "difficulty": 3,
+  "parts": [
+    {
+      "part_id": "9709_s18_63_q6_i",
+      "difficulty": 2,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_s1_t_the_normal_distribution",
+        "lesson_id": "9709_s1_t_the_normal_distribution_m02_l02"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_calculating_normal_probabilities"
+      },
+      "hints": [
+        "Apple diameters follow $D \\sim \\mathrm{N}(5.7, 0.8^2)$.",
+        "Toffee apples have diameters between $4.1$ cm and $5.0$ cm: find $\\mathrm{P}(4.1 < D < 5.0)$.",
+        "Standardise both boundaries: $z_1 = \\frac{4.1 - 5.7}{0.8}$ and $z_2 = \\frac{5.0 - 5.7}{0.8}$.",
+        "Use symmetry $\\Phi(-0.875) - \\Phi(-2.0) = \\Phi(2.0) - \\Phi(0.875)$ with the normal table."
+      ],
+      "walkthrough": [
+        "Define the distribution of apple diameters: $D \\sim \\mathrm{N}(5.7, 0.8^2)$.",
+        "Standardise the boundary values $4.1$ and $5.0$:\n$$\\begin{aligned} z_1 &= \\dfrac{4.1 - 5.7}{0.8} = \\dfrac{-1.6}{0.8} = -2.00 \\\\ z_2 &= \\dfrac{5.0 - 5.7}{0.8} = \\dfrac{-0.7}{0.8} = -0.875 \\end{aligned}$$",
+        "Express the interval probability using standard normal symmetry:\n$$\\begin{aligned} \\mathrm{P}(4.1 < D < 5.0) &= \\mathrm{P}(-2.00 < Z < -0.875) \\\\ &= \\Phi(-0.875) - \\Phi(-2.00) \\\\ &= \\Phi(2.00) - \\Phi(0.875) \\end{aligned}$$",
+        "Look up values in the standard normal distribution table:\n$$\\begin{aligned} \\Phi(2.00) &= 0.9772 \\\\ \\Phi(0.875) &= 0.8078 + 0.0014 = 0.8092 \\end{aligned}$$\n$$\\mathrm{P}(4.1 < D < 5.0) = 0.9772 - 0.8092 = 0.168$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      },
+      "teacher_walkthrough": [
+        "Let $D$ denote the diameter of an apple, where $D \\sim \\mathrm{N}(5.7, 0.8^2)$ with mean $\\mu = 5.7$ cm and standard deviation $\\sigma = 0.8$ cm.",
+        "An apple is suitable for toffee apples if its diameter is between $4.1$ cm and $5.0$ cm: we need to find $\\mathrm{P}(4.1 < D < 5.0)$.",
+        "Step 1: Standardise both boundaries using $z = \\frac{D - \\mu}{\\sigma}$:\n- Lower boundary $D = 4.1$:\n  $$z_1 = \\frac{4.1 - 5.7}{0.8} = \\frac{-1.6}{0.8} = -2.00$$\n- Upper boundary $D = 5.0$:\n  $$z_2 = \\frac{5.0 - 5.7}{0.8} = \\frac{-0.7}{0.8} = -0.875$$",
+        "Step 2: Rewrite in terms of standard normal cumulative probabilities:\n$$\\mathrm{P}(-2.00 < Z < -0.875) = \\mathrm{P}(Z < -0.875) - \\mathrm{P}(Z < -2.00)$$\nBy the symmetry of the normal distribution, $\\mathrm{P}(Z < -z) = 1 - \\Phi(z)$:\n$$[1 - \\Phi(0.875)] - [1 - \\Phi(2.00)] = \\Phi(2.00) - \\Phi(0.875)$$",
+        "Step 3: Read values from the normal table:\n- $\\Phi(2.00) = 0.9772$\n- For $z = 0.875$: $\\Phi(0.87) = 0.8078$; the difference for $5$ is $14$ ($0.0014$), so $\\Phi(0.875) = 0.8078 + 0.0014 = 0.8092$",
+        "Step 4: Subtract the probabilities:\n$$\\mathrm{P}(4.1 < D < 5.0) = 0.9772 - 0.8092 = 0.168$$"
+      ]
+    },
+    {
+      "part_id": "9709_s18_63_q6_ii",
+      "difficulty": 3,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_s1_t_the_normal_distribution",
+        "lesson_id": "9709_s1_t_the_normal_distribution_m03_l02"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_applying_a_normal_approximation"
+      },
+      "hints": [
+        "For $n = 250$ and success probability $p = 0.168$, calculate the mean $\\mu = np$ and variance $\\sigma^2 = np(1 - p)$.",
+        "Check validity: $np = 42 > 5$ and $n(1 - p) = 208 > 5$.",
+        "Apply the continuity correction: 'fewer than 50' means $X < 50 \\iff X \\le 49$, corresponding to $Y < 49.5$.",
+        "Standardise $Z = \\frac{49.5 - 42}{\\sqrt{34.944}}$ and find $\\Phi(z)$."
+      ],
+      "walkthrough": [
+        "Calculate the mean and variance for the approximating normal distribution with $n = 250$ and $p = 0.168$:\n$$\\begin{aligned} \\mu &= np = 250 \\times 0.168 = 42 \\\\ \\sigma^2 &= np(1 - p) = 250 \\times 0.168 \\times 0.832 = 34.944 \\implies \\sigma = \\sqrt{34.944} \\approx 5.9113 \\end{aligned}$$\nSince $np = 42 > 5$ and $n(1 - p) = 208 > 5$, $X \\approx Y \\sim \\mathrm{N}(42, 34.944)$.",
+        "Apply the continuity correction for 'fewer than 50' ($X < 50 \\iff X \\le 49$):\n$$\\mathrm{P}(X < 50) = \\mathrm{P}(X \\le 49) \\approx \\mathrm{P}(Y < 49.5)$$",
+        "Standardise the boundary $49.5$:\n$$Z = \\dfrac{49.5 - 42}{\\sqrt{34.944}} = \\dfrac{7.5}{5.9113} \\approx 1.2687 \\approx 1.269$$",
+        "Evaluate the cumulative normal probability:\n$$\\mathrm{P}(Z < 1.269) = \\Phi(1.269) = \\Phi(1.26) + \\text{diff}(9) = 0.8962 + 0.0016 = 0.8978 \\approx 0.898$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      },
+      "teacher_walkthrough": [
+        "Let $X$ denote the number of apples suitable for toffee apples in a sample of $n = 250$. Since the probability for each apple is $p = 0.168$, $X \\sim \\mathrm{B}(250, 0.168)$.",
+        "Because $n$ is large, we approximate $X$ by a normal distribution.",
+        "Step 1: Compute the mean and variance:\n$$\\mu = np = 250 \\times 0.168 = 42$$\n$$\\sigma^2 = np(1 - p) = 250 \\times 0.168 \\times 0.832 = 34.944$$\n$$\\sigma = \\sqrt{34.944} \\approx 5.911345$$\nSince $np = 42 > 5$ and $n(1 - p) = 208 > 5$, the normal approximation $Y \\sim \\mathrm{N}(42, 34.944)$ is valid.",
+        "Step 2: Apply the continuity correction.\nWe want the probability of 'fewer than 50' apples: $X < 50$, which is $X \\le 49$.\nIn the continuous model, the integer $49$ spans up to $49.5$.\nTherefore, the region is $Y < 49.5$:\n$$\\mathrm{P}(X < 50) = \\mathrm{P}(X \\le 49) \\approx \\mathrm{P}(Y < 49.5)$$",
+        "Step 3: Standardise $Y = 49.5$:\n$$Z = \\frac{49.5 - 42}{\\sqrt{34.944}} = \\frac{7.5}{5.911345} \\approx 1.26875 \\approx 1.269$$",
+        "Step 4: Find $\\Phi(1.269)$ from the standard normal table:\n- For $z = 1.26$: $\\Phi(1.26) = 0.8962$\n- For the additional digit $9$: add $16$ ($0.0016$)\n$$\\Phi(1.269) = 0.8962 + 0.0016 = 0.8978$$\nRounding to 3 significant figures gives $0.898$."
+      ]
+    }
+  ]
+}

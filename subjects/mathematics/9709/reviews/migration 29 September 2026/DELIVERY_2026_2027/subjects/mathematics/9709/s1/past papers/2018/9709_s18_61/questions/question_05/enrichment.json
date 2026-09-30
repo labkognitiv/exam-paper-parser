@@ -1,0 +1,80 @@
+{
+  "schema_version": "9709_math_enrichment_v7",
+  "question_id": "9709_s18_61_q5",
+  "difficulty": 3,
+  "parts": [
+    {
+      "part_id": "9709_s18_61_q5_i",
+      "difficulty": 2,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_s1_t_discrete_random_variables",
+        "lesson_id": "9709_s1_t_discrete_random_variables_m03_l02"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_modelling_with_a_binomial_distribution"
+      },
+      "hints": [
+        "Model the number of families owning a dishwasher as a binomial distribution: $X \\sim \\mathrm{B}(15, 0.22)$.",
+        "The condition 'between 4 and 6 inclusive' means evaluate $X = 4, 5, 6$.",
+        "Calculate each term using $\\mathrm{P}(X = r) = \\binom{15}{r}(0.22)^r(0.78)^{15-r}$ for $r = 4, 5, 6$, and add the results."
+      ],
+      "walkthrough": [
+        "Define the binomial model for the number of families $X$ owning a dishwasher among 15 families:\n$$X \\sim \\mathrm{B}(15, 0.22)$$\nwhere $n = 15$, $p = 0.22$, and $1 - p = 0.78$.",
+        "Identify the required probability range: $\\mathrm{P}(4 \\le X \\le 6) = \\mathrm{P}(X = 4) + \\mathrm{P}(X = 5) + \\mathrm{P}(X = 6)$.",
+        "Compute each individual binomial probability:\n$$\\begin{aligned} \\mathrm{P}(X = 4) &= \\binom{15}{4}(0.22)^4(0.78)^{11} = 1365 \\times 0.00234256 \\times 0.0650965 \\approx 0.208154 \\\\ \\mathrm{P}(X = 5) &= \\binom{15}{5}(0.22)^5(0.78)^{10} = 3003 \\times 0.00051536 \\times 0.0834571 \\approx 0.129158 \\\\ \\mathrm{P}(X = 6) &= \\binom{15}{6}(0.22)^6(0.78)^9 = 5005 \\times 0.00011338 \\times 0.1069963 \\approx 0.060715 \\end{aligned}$$",
+        "Sum the three probabilities:\n$$\\mathrm{P}(4 \\le X \\le 6) = 0.208154 + 0.129158 + 0.060715 = 0.398027 \\approx 0.398$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      },
+      "teacher_walkthrough": [
+        "Let $X$ denote the number of families who own a dishwasher out of a random sample of 15 families.",
+        "Because each family independently owns a dishwasher with probability $p = 0.22$, $X$ follows a binomial distribution:\n$$X \\sim \\mathrm{B}(15, 0.22)$$",
+        "The formula for the probability of obtaining exactly $r$ successes in $n$ independent trials is:\n$$\\mathrm{P}(X = r) = \\binom{n}{r} p^r (1 - p)^{n - r}$$\nwhere $n = 15$, $p = 0.22$, and $1 - p = 0.78$.",
+        "'Between 4 and 6 inclusive' corresponds to three mutually exclusive outcomes: $X = 4$, $X = 5$, and $X = 6$:\n$$\\mathrm{P}(4 \\le X \\le 6) = \\mathrm{P}(X = 4) + \\mathrm{P}(X = 5) + \\mathrm{P}(X = 6)$$",
+        "Step 1: Compute $\\mathrm{P}(X = 4)$:\n$$\\mathrm{P}(X = 4) = \\binom{15}{4}(0.22)^4(0.78)^{11} = 1365 \\times (0.00234256) \\times (0.0650965) \\approx 0.208154$$",
+        "Step 2: Compute $\\mathrm{P}(X = 5)$:\n$$\\mathrm{P}(X = 5) = \\binom{15}{5}(0.22)^5(0.78)^{10} = 3003 \\times (0.00051536) \\times (0.0834571) \\approx 0.129158$$",
+        "Step 3: Compute $\\mathrm{P}(X = 6)$:\n$$\\mathrm{P}(X = 6) = \\binom{15}{6}(0.22)^6(0.78)^9 = 5005 \\times (0.00011338) \\times (0.1069963) \\approx 0.060715$$",
+        "Step 4: Sum the three values:\n$$\\mathrm{P}(4 \\le X \\le 6) = 0.208154 + 0.129158 + 0.060715 = 0.398027$$",
+        "Rounding to 3 significant figures gives $0.398$."
+      ]
+    },
+    {
+      "part_id": "9709_s18_61_q5_ii",
+      "difficulty": 3,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_s1_t_the_normal_distribution",
+        "lesson_id": "9709_s1_t_the_normal_distribution_m03_l02"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_applying_a_normal_approximation"
+      },
+      "hints": [
+        "For $n = 145$ and $p = 0.22$, calculate the mean $\\mu = np$ and variance $\\sigma^2 = np(1 - p)$ for the normal approximation.",
+        "Check validity: $np = 31.9 > 5$ and $n(1 - p) = 113.1 > 5$.",
+        "Apply a continuity correction: 'more than 26' means $X \\ge 27$, which corresponds to the continuous region $Y > 26.5$.",
+        "Standardise $Z = \\frac{26.5 - 31.9}{\\sqrt{24.882}}$ and find the probability $\\mathrm{P}(Z > z) = \\Phi(-z)$ using the normal tables."
+      ],
+      "walkthrough": [
+        "Calculate the parameters of the approximating normal distribution for $n = 145$ and $p = 0.22$:\n$$\\begin{aligned} \\mu &= np = 145 \\times 0.22 = 31.9 \\\\ \\sigma^2 &= np(1 - p) = 145 \\times 0.22 \\times 0.78 = 24.882 \\implies \\sigma = \\sqrt{24.882} \\approx 4.9882 \\end{aligned}$$\nSince $np = 31.9 > 5$ and $n(1 - p) = 113.1 > 5$, $X \\approx Y \\sim \\mathrm{N}(31.9, 24.882)$.",
+        "Apply the continuity correction for 'more than 26' ($X > 26 \\iff X \\ge 27$):\n$$\\mathrm{P}(X > 26) = \\mathrm{P}(X \\ge 27) \\approx \\mathrm{P}(Y > 26.5)$$",
+        "Standardise the continuous boundary $26.5$:\n$$Z = \\dfrac{26.5 - 31.9}{\\sqrt{24.882}} = \\dfrac{-5.4}{4.9882} \\approx -1.08255 \\approx -1.083$$",
+        "Evaluate the probability using symmetry of the normal distribution:\n$$\\mathrm{P}(Z > -1.083) = \\Phi(1.083) = \\Phi(1.08) + \\text{diff}(3) = 0.8599 + 0.0007 = 0.8606 \\approx 0.861$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      },
+      "teacher_walkthrough": [
+        "The exact number of families owning a dishwasher in a sample of $145$ is binomial: $X \\sim \\mathrm{B}(145, 0.22)$. Because $n$ is large, we approximate $X$ with a normal distribution.",
+        "Step 1: Calculate the mean and variance of the normal approximation:\n$$\\mu = np = 145 \\times 0.22 = 31.9$$\n$$\\sigma^2 = np(1 - p) = 145 \\times 0.22 \\times 0.78 = 24.882$$\n$$\\sigma = \\sqrt{24.882} \\approx 4.988186$$\nBoth $np = 31.9 > 5$ and $n(1 - p) = 113.1 > 5$, confirming the normal approximation $Y \\sim \\mathrm{N}(31.9, 24.882)$ is valid.",
+        "Step 2: Apply the continuity correction.\nThe problem asks for the probability that 'more than 26' families own a dishwasher: $X > 26$.\nBecause $X$ takes integer values, $X > 26$ is equivalent to $X \\ge 27$.\nIn a continuous model where each integer $k$ is represented by the interval $[k - 0.5, k + 0.5]$, the bar for 27 begins at $26.5$.\nTherefore, to include all values from 27 upwards, the continuous region is $Y > 26.5$:\n$$\\mathrm{P}(X > 26) = \\mathrm{P}(X \\ge 27) \\approx \\mathrm{P}(Y > 26.5)$$",
+        "Step 3: Standardise $Y = 26.5$ using $Z = \\frac{Y - \\mu}{\\sigma}$:\n$$Z = \\frac{26.5 - 31.9}{\\sqrt{24.882}} = \\frac{-5.4}{4.988186} \\approx -1.08255 \\approx -1.083$$",
+        "Step 4: Use the symmetry of the normal distribution to evaluate $\\mathrm{P}(Z > -1.083)$:\n$$\\mathrm{P}(Z > -1.083) = \\Phi(1.083)$$\nFrom the standard normal distribution table:\n- For $z = 1.08$: $\\Phi(1.08) = 0.8599$\n- For the additional digit 3: add $7$ ($0.0007$)\n$$\\Phi(1.083) = 0.8599 + 0.0007 = 0.8606$$\nRounding to 3 significant figures gives $0.861$."
+      ]
+    }
+  ]
+}

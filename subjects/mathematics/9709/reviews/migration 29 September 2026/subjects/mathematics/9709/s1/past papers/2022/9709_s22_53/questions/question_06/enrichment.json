@@ -1,0 +1,99 @@
+{
+  "schema_version": "9709_math_enrichment_v7",
+  "question_id": "9709_s22_53_q6",
+  "difficulty": 4,
+  "parts": [
+    {
+      "part_id": "9709_s22_53_q6_a",
+      "difficulty": 2,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_s1_t_probability",
+        "lesson_id": "9709_s1_t_probability_m03_l01"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_constructing_tree_diagrams"
+      },
+      "hints": [
+        "Jump 1 branches into Success (0.2) and Failure (0.8).",
+        "For Jump 2 and Jump 3: after a Success, branches are Success (0.3) and Failure (0.7); after a Failure, branches are Success (0.1) and Failure (0.9).",
+        "Ensure all 8 paths across the 3 jumps are labeled with their correct branch probabilities."
+      ],
+      "walkthrough": [
+        "Construct a 3-stage probability tree diagram with stages representing Jump 1, Jump 2, and Jump 3:",
+        "First jump branches:\n- Success ($S_1$): probability $0.2$\n- Failure ($F_1$): probability $0.8$",
+        "Second jump branches:\n- From $S_1$: $S_2$ with probability $0.3$, $F_2$ with probability $0.7$\n- From $F_1$: $S_2$ with probability $0.1$, $F_2$ with probability $0.9$",
+        "Third jump branches:\n- After any success ($S_2$): $S_3$ with probability $0.3$, $F_3$ with probability $0.7$\n- After any failure ($F_2$): $S_3$ with probability $0.1$, $F_3$ with probability $0.9$"
+      ],
+      "teacher_walkthrough": [
+        "Step 1: Structure the tree diagram.\nSajid makes 3 jumps. Each jump can result in Success ($S$) or Failure ($F$).\n\nStep 2: Assign branch probabilities for Jump 1.\n- $\\mathrm{P}(S_1) = 0.2$\n- $\\mathrm{P}(F_1) = 1 - 0.2 = 0.8$\n\nStep 3: Assign conditional probabilities for Jump 2.\n- Given $S_1$: $\\mathrm{P}(S_2 \\mid S_1) = 0.3$, $\\mathrm{P}(F_2 \\mid S_1) = 0.7$\n- Given $F_1$: $\\mathrm{P}(S_2 \\mid F_1) = 0.1$, $\\mathrm{P}(F_2 \\mid F_1) = 0.9$\n\nStep 4: Assign conditional probabilities for Jump 3.\n- From each second-jump success node: $\\mathrm{P}(S_3) = 0.3$, $\\mathrm{P}(F_3) = 0.7$\n- From each second-jump failure node: $\\mathrm{P}(S_3) = 0.1$, $\\mathrm{P}(F_3) = 0.9$\n\nThis generates 8 branches representing all combinations from SSS to FFF."
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      }
+    },
+    {
+      "part_id": "9709_s22_53_q6_b",
+      "difficulty": 4,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_s1_t_probability",
+        "lesson_id": "9709_s1_t_probability_m04_l01"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_calculating_conditional_probability"
+      },
+      "hints": [
+        "Use the conditional probability formula: $\\mathrm{P}(\\text{exactly 1 S} \\mid \\text{at least 1 S}) = \\frac{\\mathrm{P}(\\text{exactly 1 S})}{\\mathrm{P}(\\text{at least 1 S})}$.",
+        "Find $\\mathrm{P}(\\text{at least 1 S}) = 1 - \\mathrm{P}(\\text{FFF}) = 1 - 0.8(0.9)(0.9) = 1 - 0.648 = 0.352$.",
+        "Find $\\mathrm{P}(\\text{exactly 1 S})$ by summing the probabilities of the three paths SFF, FSF, and FFS.",
+        "Divide the probability of exactly 1 success by 0.352."
+      ],
+      "walkthrough": [
+        "Use the conditional probability formula:\n$$\\mathrm{P}(\\text{exactly 1 S} \\mid \\text{at least 1 S}) = \\frac{\\mathrm{P}(\\text{exactly 1 S})}{\\mathrm{P}(\\text{at least 1 S})}$$",
+        "Calculate the denominator $\\mathrm{P}(\\text{at least 1 S}) = 1 - \\mathrm{P}(\\text{FFF})$:\n$$\\mathrm{P}(\\text{FFF}) = 0.8 \\times 0.9 \\times 0.9 = 0.648$$\n$$\\mathrm{P}(\\text{at least 1 S}) = 1 - 0.648 = 0.352$$",
+        "Calculate the numerator $\\mathrm{P}(\\text{exactly 1 S})$ by summing the three disjoint paths:\n- SFF: $0.2 \\times 0.7 \\times 0.9 = 0.126$\n- FSF: $0.8 \\times 0.1 \\times 0.7 = 0.056$\n- FFS: $0.8 \\times 0.9 \\times 0.1 = 0.072$\n$$\\mathrm{P}(\\text{exactly 1 S}) = 0.126 + 0.056 + 0.072 = 0.254$$",
+        "Compute the conditional probability:\n$$\\mathrm{P}(\\text{exactly 1 S} \\mid \\text{at least 1 S}) = \\frac{0.254}{0.352} = \\frac{254}{352} = \\frac{127}{176} \\approx 0.722$$"
+      ],
+      "teacher_walkthrough": [
+        "Step 1: Set up the conditional probability formula.\n$$\\mathrm{P}(A \\mid B) = \\frac{\\mathrm{P}(A \\cap B)}{\\mathrm{P}(B)}$$\nwhere:\n- Event $A$: Sajid has exactly one success in the three jumps.\n- Event $B$: Sajid has at least one success in the three jumps.\nSince having exactly one success is a subset of having at least one success, $A \\cap B = A$.\n\nStep 2: Calculate $\\mathrm{P}(B) = \\mathrm{P}(\\text{at least 1 success})$.\nThe complement of at least one success is zero successes (FFF):\n$$\\mathrm{P}(\\text{FFF}) = \\mathrm{P}(F_1) \\times \\mathrm{P}(F_2 \\mid F_1) \\times \\mathrm{P}(F_3 \\mid F_2) = 0.8 \\times 0.9 \\times 0.9 = 0.648$$\n$$\\mathrm{P}(B) = 1 - 0.648 = 0.352$$\n\nStep 3: Calculate $\\mathrm{P}(A) = \\mathrm{P}(\\text{exactly 1 success})$.\nThe paths with exactly one success are:\n- Path 1 (SFF):\n  $$0.2 \\times 0.7 \\times 0.9 = 0.126$$\n- Path 2 (FSF):\n  $$0.8 \\times 0.1 \\times 0.7 = 0.056$$\n- Path 3 (FFS):\n  $$0.8 \\times 0.9 \\times 0.1 = 0.072$$\nSum of the three paths:\n$$\\mathrm{P}(A) = 0.126 + 0.056 + 0.072 = 0.254$$\n\nStep 4: Compute the conditional probability.\n$$\\mathrm{P}(A \\mid B) = \\frac{0.254}{0.352} = \\frac{254}{352}$$\nDivide by $2$:\n$$\\frac{127}{176} \\approx 0.72159...$$\nRounding to 3 significant figures gives $0.722$."
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      }
+    },
+    {
+      "part_id": "9709_s22_53_q6_c",
+      "difficulty": 3,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_s1_t_probability",
+        "lesson_id": "9709_s1_t_probability_m04_l01"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_applying_the_multiplication_rule"
+      },
+      "hints": [
+        "There are two mutually exclusive events to consider across six jumps: 'only first three are successes' (SSSFFF) and 'only last three are successes' (FFFSSS).",
+        "Calculate the probability of SSSFFF: $0.2 \\times 0.3 \\times 0.3 \\times 0.7 \\times 0.9 \\times 0.9$.",
+        "Calculate the probability of FFFSSS: $0.8 \\times 0.9 \\times 0.9 \\times 0.1 \\times 0.3 \\times 0.3$.",
+        "Sum the two probabilities."
+      ],
+      "walkthrough": [
+        "Identify the two mutually exclusive sequences across six jumps:\n- Sequence 1: Only the first three jumps are successes, meaning jumps 1, 2, 3 are S and jumps 4, 5, 6 are F (SSSFFF).\n- Sequence 2: Only the last three jumps are successes, meaning jumps 1, 2, 3 are F and jumps 4, 5, 6 are S (FFFSSS).",
+        "Calculate the probability of Sequence 1 (SSSFFF):\n$$\\mathrm{P}(\\text{SSSFFF}) = 0.2 \\times 0.3 \\times 0.3 \\times 0.7 \\times 0.9 \\times 0.9 = 0.010\\,206$$",
+        "Calculate the probability of Sequence 2 (FFFSSS):\n$$\\mathrm{P}(\\text{FFFSSS}) = 0.8 \\times 0.9 \\times 0.9 \\times 0.1 \\times 0.3 \\times 0.3 = 0.005\\,832$$",
+        "Sum the probabilities:\n$$\\text{Total Probability} = 0.010\\,206 + 0.005\\,832 = 0.016\\,038 \\approx 0.0160$$"
+      ],
+      "teacher_walkthrough": [
+        "Step 1: Understand the required event.\nIn a series of six jumps:\n- 'Only his first three jumps are successes' means the exact sequence SSSFFF.\n- 'Only his last three jumps are successes' means the exact sequence FFFSSS.\nThese two sequences are mutually exclusive.\n\nStep 2: Evaluate the probability of SSSFFF.\n- Jump 1 is S: $0.2$\n- Jump 2 is S (after S): $0.3$\n- Jump 3 is S (after S): $0.3$\n- Jump 4 is F (after S): $1 - 0.3 = 0.7$\n- Jump 5 is F (after F): $1 - 0.1 = 0.9$\n- Jump 6 is F (after F): $1 - 0.1 = 0.9$\n$$\\mathrm{P}(\\text{SSSFFF}) = 0.2 \\times 0.3 \\times 0.3 \\times 0.7 \\times 0.9 \\times 0.9 = 0.010\\,206$$\n\nStep 3: Evaluate the probability of FFFSSS.\n- Jump 1 is F: $1 - 0.2 = 0.8$\n- Jump 2 is F (after F): $1 - 0.1 = 0.9$\n- Jump 3 is F (after F): $1 - 0.1 = 0.9$\n- Jump 4 is S (after F): $0.1$\n- Jump 5 is S (after S): $0.3$\n- Jump 6 is S (after S): $0.3$\n$$\\mathrm{P}(\\text{FFFSSS}) = 0.8 \\times 0.9 \\times 0.9 \\times 0.1 \\times 0.3 \\times 0.3 = 0.005\\,832$$\n\nStep 4: Combine the two probabilities.\n$$\\text{Total} = 0.010\\,206 + 0.005\\,832 = 0.016\\,038$$\nRounding to 3 significant figures gives $0.0160$."
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      }
+    }
+  ]
+}

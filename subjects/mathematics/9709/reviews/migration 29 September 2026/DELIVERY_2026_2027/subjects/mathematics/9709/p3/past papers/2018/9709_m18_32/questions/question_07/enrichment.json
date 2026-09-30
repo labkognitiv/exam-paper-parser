@@ -1,0 +1,120 @@
+{
+  "schema_version": "9709_math_enrichment_v7",
+  "question_id": "9709_m18_32_q7",
+  "difficulty": 3,
+  "parts": [
+    {
+      "part_id": "9709_m18_32_q7_i",
+      "difficulty": 1,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_p3_t_numerical_solution_of_equations",
+        "lesson_id": "9709_p3_t_numerical_solution_of_equations_m01_l01"
+      },
+      "skills": {
+        "primary_skill_id": "9709_p3_skill_numerical_root_bracketing"
+      },
+      "hints": [
+        "Interpret the equation as intersections of $y=e^{2x}$ and $y=6+e^{-x}$.",
+        "Sketch $e^{2x}$ as strictly increasing from near $0$, and $6+e^{-x}$ as strictly decreasing towards the horizontal asymptote $y=6$.",
+        "Show that the curves cross and use their opposing monotonic behaviour to explain why a second crossing is impossible."
+      ],
+      "walkthrough": [
+        "Separate the equation $\\mathrm{e}^{2x} = 6 + \\mathrm{e}^{-x}$ into two functions:\n$$y_1 = \\mathrm{e}^{2x}$$\n$$y_2 = 6 + \\mathrm{e}^{-x}$$",
+        "Describe the graph of $y_1 = \\mathrm{e}^{2x}$:\n- Continuous and strictly increasing for all $x \\in \\mathbb{R}$.\n- As $x \\to -\\infty$, $y_1 \\to 0$ asymptotically above the $x$-axis.\n- Passes through the $y$-intercept $(0, 1)$ with positive gradient.\n- As $x \\to \\infty$, $y_1 \\to \\infty$.",
+        "Describe the graph of $y_2 = 6 + \\mathrm{e}^{-x}$:\n- Continuous and strictly decreasing for all $x \\in \\mathbb{R}$.\n- As $x \\to -\\infty$, $y_2 \\to \\infty$.\n- Passes through the $y$-intercept $(0, 7)$.\n- As $x \\to \\infty$, $\\mathrm{e}^{-x} \\to 0$, so $y_2 \\to 6$ asymptotically above the horizontal line $y = 6$.",
+        "Compare values to establish existence of an intersection:\n- At $x = 0$, $y_1(0) = 1 < 7 = y_2(0)$, so $y_1 < y_2$.\n- At $x = 1$, $y_1(1) = \\mathrm{e}^2 \\approx 7.389 > 6 + \\mathrm{e}^{-1} \\approx 6.368 = y_2(1)$, so $y_1 > y_2$.",
+        "Conclude uniqueness:\nBecause $y_1$ is strictly increasing and $y_2$ is strictly decreasing for all real $x$, their graphs can cross at most once. Having crossed between $x = 0$ and $x = 1$, the two curves intersect at exactly one point. Hence, the equation has exactly one real root."
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      }
+    },
+    {
+      "part_id": "9709_m18_32_q7_ii",
+      "difficulty": 1,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_p3_t_numerical_solution_of_equations",
+        "lesson_id": "9709_p3_t_numerical_solution_of_equations_m01_l02"
+      },
+      "skills": {
+        "primary_skill_id": "9709_p3_skill_numerical_root_bracketing"
+      },
+      "hints": [
+        "Use continuity and a sign change for $f(x)=e^{2x}-6-e^{-x}$.",
+        "Evaluate $f(0.5)$ and $f(1)$ with the same sign convention.",
+        "State the two signs explicitly and conclude that a root lies in $(0.5,1)$."
+      ],
+      "walkthrough": [
+        "Define the continuous function:\n$$f(x) = \\mathrm{e}^{2x} - 6 - \\mathrm{e}^{-x}$$",
+        "Evaluate $f(x)$ at $x = 0.5$:\n$$f(0.5) = \\mathrm{e}^{2(0.5)} - 6 - \\mathrm{e}^{-0.5} = \\mathrm{e}^1 - 6 - \\mathrm{e}^{-0.5}$$\n$$\\mathrm{e}^1 \\approx 2.71828$$\n$$\\mathrm{e}^{-0.5} \\approx 0.60653$$\n$$f(0.5) = 2.71828 - 6 - 0.60653 = -3.88825 < 0$$",
+        "Evaluate $f(x)$ at $x = 1$:\n$$f(1) = \\mathrm{e}^{2(1)} - 6 - \\mathrm{e}^{-1} = \\mathrm{e}^2 - 6 - \\mathrm{e}^{-1}$$\n$$\\mathrm{e}^2 \\approx 7.38906$$\n$$\\mathrm{e}^{-1} \\approx 0.36788$$\n$$f(1) = 7.38906 - 6 - 0.36788 = 1.02118 > 0$$",
+        "State conclusion from the sign change:\nSince $f(x)$ is continuous on the interval $[0.5, 1]$ and changes sign ($f(0.5) < 0$ and $f(1) > 0$), by the Intermediate Value Theorem the root of the equation lies between $0.5$ and $1$."
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      }
+    },
+    {
+      "part_id": "9709_m18_32_q7_iii",
+      "difficulty": 1,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_p3_t_numerical_solution_of_equations",
+        "lesson_id": "9709_p3_t_numerical_solution_of_equations_m02_l01"
+      },
+      "skills": {
+        "primary_skill_id": "9709_p3_skill_fixed_point_iteration"
+      },
+      "hints": [
+        "At convergence, both $x_n$ and $x_{n+1}$ tend to the same limit $L$.",
+        "Set $L=\\frac13\\ln(1+6e^L)$, multiply by $3$, and exponentiate.",
+        "Rearrange $e^{3L}=1+6e^L$ by dividing through by $e^L$ to recover the original root equation."
+      ],
+      "walkthrough": [
+        "Assume the sequence of values $(x_n)$ converges to a limit $\\alpha$, so that $\\lim_{n \\to \\infty} x_n = \\alpha$ and $\\lim_{n \\to \\infty} x_{n+1} = \\alpha$.",
+        "Substitute the limiting value $\\alpha$ into the iterative formula $x_{n+1} = \\dfrac{1}{3}\\ln(1 + 6\\mathrm{e}^{x_n})$:\n$$\\alpha = \\dfrac{1}{3}\\ln(1 + 6\\mathrm{e}^{\\alpha})$$",
+        "Multiply both sides by 3:\n$$3\\alpha = \\ln(1 + 6\\mathrm{e}^{\\alpha})$$",
+        "Exponentiate both sides with base $\\mathrm{e}$:\n$$\\mathrm{e}^{3\\alpha} = 1 + 6\\mathrm{e}^{\\alpha}$$",
+        "Divide both sides by $\\mathrm{e}^{\\alpha}$, which is strictly positive for all real $\\alpha$:\n$$\\dfrac{\\mathrm{e}^{3\\alpha}}{\\mathrm{e}^{\\alpha}} = \\dfrac{1 + 6\\mathrm{e}^{\\alpha}}{\\mathrm{e}^{\\alpha}}$$\n$$\\mathrm{e}^{3\\alpha - \\alpha} = \\dfrac{1}{\\mathrm{e}^{\\alpha}} + \\dfrac{6\\mathrm{e}^{\\alpha}}{\\mathrm{e}^{\\alpha}}$$\n$$\\mathrm{e}^{2\\alpha} = \\mathrm{e}^{-\\alpha} + 6$$\n$$\\mathrm{e}^{2\\alpha} = 6 + \\mathrm{e}^{-\\alpha}$$",
+        "Conclude that this matches the original equation $\\mathrm{e}^{2x} = 6 + \\mathrm{e}^{-x}$ from part (i). Therefore, if the sequence converges, it converges to the root of the equation."
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      }
+    },
+    {
+      "part_id": "9709_m18_32_q7_iv",
+      "difficulty": 3,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_p3_t_numerical_solution_of_equations",
+        "lesson_id": "9709_p3_t_numerical_solution_of_equations_m02_l02"
+      },
+      "skills": {
+        "primary_skill_id": "9709_p3_skill_fixed_point_iteration"
+      },
+      "hints": [
+        "Iterate the supplied fixed-point map, starting with a value in the established interval $0.5<x<1$.",
+        "For each step calculate $x_{n+1}=\\frac13\\ln(1+6e^{x_n})$, displaying every iterate to 5 decimal places.",
+        "Continue until successive values agree sufficiently to justify one common rounding to 3 decimal places; keep unrounded values in the calculator between steps."
+      ],
+      "walkthrough": [
+        "Use the iterative formula $x_{n+1} = \\dfrac{1}{3}\\ln(1 + 6\\mathrm{e}^{x_n})$ starting with $x_1 = 0.9$ (in the interval $[0.5, 1]$).",
+        "Compute the second iteration $x_2$:\n$$x_2 = \\dfrac{1}{3}\\ln(1 + 6\\mathrm{e}^{0.9}) = \\dfrac{1}{3}\\ln(1 + 6 \\times 2.459603) = \\dfrac{1}{3}\\ln(15.757619) \\approx 0.91911$$",
+        "Compute the third iteration $x_3$:\n$$x_3 = \\dfrac{1}{3}\\ln(1 + 6\\mathrm{e}^{0.91911}) = \\dfrac{1}{3}\\ln(1 + 6 \\times 2.507054) = \\dfrac{1}{3}\\ln(16.042323) \\approx 0.92507$$",
+        "Compute successive iterations displaying each result to 5 decimal places:\n$$x_4 = \\dfrac{1}{3}\\ln(1 + 6\\mathrm{e}^{0.92507}) \\approx 0.92694$$\n$$x_5 = \\dfrac{1}{3}\\ln(1 + 6\\mathrm{e}^{0.92694}) \\approx 0.92752$$\n$$x_6 = \\dfrac{1}{3}\\ln(1 + 6\\mathrm{e}^{0.92752}) \\approx 0.92771$$\n$$x_7 = \\dfrac{1}{3}\\ln(1 + 6\\mathrm{e}^{0.92771}) \\approx 0.92777$$\n$$x_8 = \\dfrac{1}{3}\\ln(1 + 6\\mathrm{e}^{0.92777}) \\approx 0.92778$$",
+        "Verify the accuracy to 3 decimal places by testing for a sign change of $f(x) = \\mathrm{e}^{2x} - 6 - \\mathrm{e}^{-x}$ on the interval $[0.9275, 0.9285]$:\n$$f(0.9275) = \\mathrm{e}^{1.855} - 6 - \\mathrm{e}^{-0.9275} \\approx 6.39169 - 6 - 0.39554 = -0.00385 < 0$$\n$$f(0.9285) = \\mathrm{e}^{1.857} - 6 - \\mathrm{e}^{-0.9285} \\approx 6.40449 - 6 - 0.39515 = +0.00934 > 0$$",
+        "Because $f(0.9275) < 0$ and $f(0.9285) > 0$, the root is confirmed to lie within $(0.9275, 0.9285)$, giving $0.928$ correct to 3 decimal places."
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      }
+    }
+  ]
+}

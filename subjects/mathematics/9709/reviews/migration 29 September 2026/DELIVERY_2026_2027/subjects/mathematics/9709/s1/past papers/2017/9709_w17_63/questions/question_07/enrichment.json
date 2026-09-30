@@ -1,0 +1,123 @@
+{
+  "schema_version": "9709_math_enrichment_v7",
+  "question_id": "9709_w17_63_q7",
+  "difficulty": 3,
+  "parts": [
+    {
+      "part_id": "9709_w17_63_q7_i",
+      "difficulty": 2,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_s1_t_the_normal_distribution",
+        "lesson_id": "9709_s1_t_the_normal_distribution_m01_l01"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_calculating_normal_probabilities"
+      },
+      "hints": [
+        "Josie's arrival time before the bus departs is $T \\sim \\mathrm{N}(5.3, 2.1^2)$.",
+        "Standardize 6 minutes using $z = \\frac{6 - 5.3}{2.1}$.",
+        "Calculate the upper tail probability $1 - \\Phi(z)$."
+      ],
+      "walkthrough": [
+        "Standardize the value $T = 6$ minutes:\n$$z = \\frac{6 - 5.3}{2.1} = \\frac{0.7}{2.1} = \\frac{1}{3} \\approx 0.333$$",
+        "Evaluate the upper tail probability using the standard normal distribution:\n$$\\mathrm{P}(T > 6) = \\mathrm{P}(Z > 0.333) = 1 - \\Phi(0.333)$$",
+        "From the normal distribution table:\n$$\\Phi(0.333) \\approx 0.6304$$\n$$\\mathrm{P}(T > 6) = 1 - 0.6304 = 0.3696 \\approx 0.370 \\quad (\\text{or } 0.369)$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      },
+      "teacher_walkthrough": [
+        "Step 1: Define the normal distribution.\nLet $T$ denote the time in minutes Josie arrives before the bus departs:\n$$T \\sim \\mathrm{N}(5.3, 2.1^2)$$\nwith mean $\\mu = 5.3$ and standard deviation $\\sigma = 2.1$.\n\nStep 2: Standardize the arrival time $6$ minutes:\n$$Z = \\frac{T - \\mu}{\\sigma} = \\frac{6 - 5.3}{2.1} = \\frac{0.7}{2.1} = \\frac{1}{3} \\approx 0.3333$$\n\nStep 3: Evaluate the tail probability:\n$$\\mathrm{P}(T > 6) = \\mathrm{P}(Z > 0.333) = 1 - \\Phi(0.333)$$\nFrom the standard normal table:\n$$\\Phi(0.33) = 0.6293, \\quad \\text{difference for } 3 = 11 \\implies \\Phi(0.333) = 0.6304$$\n$$\\mathrm{P}(T > 6) = 1 - 0.6304 = 0.3696 \\approx 0.370$$"
+      ]
+    },
+    {
+      "part_id": "9709_w17_63_q7_ii",
+      "difficulty": 2,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_s1_t_the_normal_distribution",
+        "lesson_id": "9709_s1_t_the_normal_distribution_m02_l01"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_using_inverse_normal_values"
+      },
+      "hints": [
+        "Josie waits longer than $x$ minutes on 5% of days: $\\mathrm{P}(T > x) = 0.05$.",
+        "This gives $\\Phi(z) = 0.95$. Look up the critical value $z$ from the critical values table.",
+        "Set $\\frac{x - 5.3}{2.1} = 1.645$ and solve for $x$."
+      ],
+      "walkthrough": [
+        "Translate the top 5% condition into a cumulative probability:\n$$\\mathrm{P}(T > x) = 0.05 \\implies \\mathrm{P}(T < x) = 0.95$$",
+        "Find the critical value $z$ corresponding to $0.95$ from the standard normal table:\n$$\\Phi(z) = 0.95 \\implies z = 1.645$$",
+        "Standardize and solve for $x$:\n$$\\frac{x - 5.3}{2.1} = 1.645$$\n$$x = 5.3 + 1.645 \\times 2.1 = 5.3 + 3.4545 = 8.7545 \\approx 8.75\\text{ minutes}$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      },
+      "teacher_walkthrough": [
+        "Step 1: Set up the probability statement.\nWe are given that on $5\\%$ of days Josie waits longer than $x$ minutes:\n$$\\mathrm{P}(T > x) = 0.05$$\nIn terms of the cumulative distribution function:\n$$\\mathrm{P}(T < x) = 1 - 0.05 = 0.95$$\n\nStep 2: Look up the critical value.\nFrom the critical values table for the standard normal distribution:\n$$\\Phi(1.645) = 0.9500 \\implies z = 1.645$$\n\nStep 3: Solve for $x$:\n$$\\frac{x - \\mu}{\\sigma} = 1.645$$\n$$\\frac{x - 5.3}{2.1} = 1.645$$\n$$x - 5.3 = 1.645 \\times 2.1 = 3.4545$$\n$$x = 5.3 + 3.4545 = 8.7545 \\approx 8.75\\text{ minutes}$$\n(Answers $8.75$, $8.755$, or $8.7545$ are fully acceptable)."
+      ]
+    },
+    {
+      "part_id": "9709_w17_63_q7_iii",
+      "difficulty": 3,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_s1_t_discrete_random_variables",
+        "lesson_id": "9709_s1_t_discrete_random_variables_m03_l03"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_calculating_binomial_tail_probabilities"
+      },
+      "hints": [
+        "The probability that Josie waits longer than $x$ minutes on any single day is $p = 0.05$.",
+        "Over 10 independent days, let $W$ be the number of days she waits longer than $x$ minutes: $W \\sim \\mathrm{B}(10, 0.05)$.",
+        "Fewer than 3 days means $W \\in \\{0, 1, 2\\}$. Calculate $\\mathrm{P}(W = 0) + \\mathrm{P}(W = 1) + \\mathrm{P}(W = 2)$."
+      ],
+      "walkthrough": [
+        "Model the number of days $W$ as a binomial distribution with $n = 10$ and success probability $p = 0.05$:\n$$W \\sim \\mathrm{B}(10, 0.05)$$\n$$\\mathrm{P}(W < 3) = \\mathrm{P}(W = 0) + \\mathrm{P}(W = 1) + \\mathrm{P}(W = 2)$$",
+        "Evaluate each binomial term with $q = 1 - 0.05 = 0.95$:\n$$\\mathrm{P}(W = 0) = (0.95)^{10} \\approx 0.598737$$\n$$\\mathrm{P}(W = 1) = \\binom{10}{1} (0.05)^1 (0.95)^9 = 10(0.05)(0.95)^9 \\approx 0.315125$$\n$$\\mathrm{P}(W = 2) = \\binom{10}{2} (0.05)^2 (0.95)^8 = 45(0.0025)(0.95)^8 \\approx 0.074635$$",
+        "Sum the terms:\n$$\\mathrm{P}(W < 3) \\approx 0.598737 + 0.315125 + 0.074635 = 0.988497 \\approx 0.988$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      },
+      "teacher_walkthrough": [
+        "Step 1: Set up the binomial model.\nFrom part (ii), the probability that Josie waits longer than $x$ minutes on any given day is $p = 0.05$.\nOver $n = 10$ independent days, the number of days $W$ on which she waits longer than $x$ minutes follows:\n$$W \\sim \\mathrm{B}(10, 0.05)$$\nwith failure probability $q = 1 - 0.05 = 0.95$.\n\nStep 2: Define the target condition.\nFewer than 3 days means $W < 3$, which includes $W = 0, 1, 2$:\n$$\\mathrm{P}(W < 3) = \\mathrm{P}(W = 0) + \\mathrm{P}(W = 1) + \\mathrm{P}(W = 2)$$\n\nStep 3: Calculate the individual probabilities:\n$$\\mathrm{P}(W = 0) = \\binom{10}{0} (0.05)^0 (0.95)^{10} = (0.95)^{10} \\approx 0.598737$$\n$$\\mathrm{P}(W = 1) = \\binom{10}{1} (0.05)^1 (0.95)^9 = 10 \\times 0.05 \\times (0.95)^9 \\approx 0.315125$$\n$$\\mathrm{P}(W = 2) = \\binom{10}{2} (0.05)^2 (0.95)^8 = 45 \\times 0.0025 \\times (0.95)^8 \\approx 0.074635$$\n\nStep 4: Sum the probabilities:\n$$\\mathrm{P}(W < 3) = 0.598737 + 0.315125 + 0.074635 = 0.988497 \\approx 0.988$$"
+      ]
+    },
+    {
+      "part_id": "9709_w17_63_q7_iv",
+      "difficulty": 2,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_s1_t_the_normal_distribution",
+        "lesson_id": "9709_s1_t_the_normal_distribution_m01_l01"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_calculating_normal_probabilities"
+      },
+      "hints": [
+        "Josie arrives $T$ minutes before the bus departs. Missing the bus means she arrives after departure time, so $T < 0$.",
+        "Standardize $T = 0$ using $z = \\frac{0 - 5.3}{2.1}$.",
+        "Calculate the lower tail probability $\\mathrm{P}(Z < -2.524) = 1 - \\Phi(2.524)$."
+      ],
+      "walkthrough": [
+        "Identify the condition for missing the bus:\nSince $T$ is the number of minutes she arrives before departure, she misses the bus if $T < 0$:\n$$\\mathrm{P}(\\text{misses bus}) = \\mathrm{P}(T < 0)$$",
+        "Standardize $T = 0$:\n$$z = \\frac{0 - 5.3}{2.1} = -\\frac{5.3}{2.1} \\approx -2.5238 \\approx -2.524$$",
+        "Compute the lower tail probability by symmetry:\n$$\\mathrm{P}(Z < -2.524) = 1 - \\Phi(2.524)$$\nFrom normal distribution tables, $\\Phi(2.524) \\approx 0.9942$:\n$$\\mathrm{P}(\\text{misses bus}) = 1 - 0.9942 = 0.0058$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      },
+      "teacher_walkthrough": [
+        "Step 1: Interpret the physical context.\n$T$ represents the arrival time in minutes before the bus departs.\n- If $T > 0$, Josie arrives before departure and catches the bus.\n- If $T = 0$, she arrives exactly as the bus departs.\n- If $T < 0$, she arrives after departure and therefore misses the bus.\nThus, the event Josie misses the bus corresponds to $T < 0$.\n\nStep 2: Standardize $T = 0$:\n$$Z = \\frac{0 - \\mu}{\\sigma} = \\frac{0 - 5.3}{2.1} = \\frac{-5.3}{2.1} \\approx -2.52381 \\approx -2.524$$\n\nStep 3: Evaluate the tail probability using standard normal symmetry:\n$$\\mathrm{P}(Z < -2.524) = 1 - \\Phi(2.524)$$\nFrom the standard normal table:\n$$\\Phi(2.52) = 0.9941, \\quad \\text{difference for } 4 = 1 \\implies \\Phi(2.524) = 0.9942$$\n$$\\mathrm{P}(T < 0) = 1 - 0.9942 = 0.0058$$"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "schema_version": "9709_math_enrichment_v7",
+  "question_id": "9709_s18_32_q5",
+  "difficulty": 3,
+  "parts": [
+    {
+      "part_id": "9709_s18_32_q5_i",
+      "difficulty": 2,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_p3_t_differential_equations",
+        "lesson_id": "9709_p3_t_differential_equations_m01_l01"
+      },
+      "skills": {
+        "primary_skill_id": "9709_p3_skill_implicit_differentiation"
+      },
+      "hints": [
+        "Differentiate the curve equation implicitly with respect to $x$.",
+        "Apply the product rule to $x^2(x+3y)$, remembering that $y$ depends on $x$.",
+        "Differentiate $y^3$ using the chain rule and set the derivative of the constant equal to zero.",
+        "Collect all terms containing $\\frac{dy}{dx}$ on one side and factor before dividing."
+      ],
+      "walkthrough": [
+        "Expand the given equation of the curve $x^2(x + 3y) - y^3 = 3$:\n$$x^3 + 3x^2y - y^3 = 3$$",
+        "Differentiate implicitly with respect to $x$ term by term:\n$$\\dfrac{\\mathrm{d}}{\\mathrm{d}x}(x^3) = 3x^2$$\n$$\\dfrac{\\mathrm{d}}{\\mathrm{d}x}(3x^2y) = 3(2x)y + 3x^2\\dfrac{\\mathrm{d}y}{\\mathrm{d}x} = 6xy + 3x^2\\dfrac{\\mathrm{d}y}{\\mathrm{d}x}$$\n$$\\dfrac{\\mathrm{d}}{\\mathrm{d}x}(y^3) = 3y^2\\dfrac{\\mathrm{d}y}{\\mathrm{d}x}$$\n$$\\dfrac{\\mathrm{d}}{\\mathrm{d}x}(3) = 0$$",
+        "Assemble the derivative equation:\n$$3x^2 + 6xy + 3x^2\\dfrac{\\mathrm{d}y}{\\mathrm{d}x} - 3y^2\\dfrac{\\mathrm{d}y}{\\mathrm{d}x} = 0$$",
+        "Divide the entire equation by 3:\n$$x^2 + 2xy + (x^2 - y^2)\\dfrac{\\mathrm{d}y}{\\mathrm{d}x} = 0$$",
+        "Isolate $\\dfrac{\\mathrm{d}y}{\\mathrm{d}x}$:\n$$(y^2 - x^2)\\dfrac{\\mathrm{d}y}{\\mathrm{d}x} = x^2 + 2xy$$\n$$\\dfrac{\\mathrm{d}y}{\\mathrm{d}x} = \\dfrac{x^2 + 2xy}{y^2 - x^2}$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      }
+    },
+    {
+      "part_id": "9709_s18_32_q5_ii",
+      "difficulty": 3,
+      "practice_tier": "revision",
+      "mapping": {
+        "topic_id": "9709_p3_t_differentiation",
+        "lesson_id": "9709_p3_t_differentiation_m02_l02"
+      },
+      "skills": {
+        "primary_skill_id": "9709_p3_skill_implicit_differentiation"
+      },
+      "hints": [
+        "A normal gradient of $1$ corresponds to a tangent gradient of $-1$.",
+        "Set the derivative from part (i) equal to $-1$ and simplify the resulting relation between $x$ and $y$.",
+        "Factor that relation to obtain two possible cases, and substitute each case into the original curve equation.",
+        "Solve both resulting equations exactly and retain the coordinates that satisfy the curve."
+      ],
+      "walkthrough": [
+        "Relate the gradient of the normal to the gradient of the tangent:\n$$m_{\\text{normal}} = -\\dfrac{1}{\\dfrac{\\mathrm{d}y}{\\mathrm{d}x}} = 1 \\implies \\dfrac{\\mathrm{d}y}{\\mathrm{d}x} = -1$$",
+        "Set the expression for $\\dfrac{\\mathrm{d}y}{\\mathrm{d}x}$ equal to $-1$:\n$$\\dfrac{x^2 + 2xy}{y^2 - x^2} = -1$$\n$$x^2 + 2xy = -(y^2 - x^2) = x^2 - y^2$$",
+        "Simplify by subtracting $x^2$ from both sides:\n$$2xy = -y^2$$\n$$y^2 + 2xy = 0$$\n$$y(y + 2x) = 0$$",
+        "This yields two algebraic cases: $y = 0$ or $y = -2x$:",
+        "Case 1 ($y = 0$):\nSubstitute $y = 0$ into the original curve equation $x^3 + 3x^2y - y^3 = 3$:\n$$x^3 + 0 - 0 = 3 \\implies x^3 = 3 \\implies x = \\sqrt[3]{3}$$\nFirst point: $(\\sqrt[3]{3}, 0)$.",
+        "Case 2 ($y = -2x$):\nSubstitute $y = -2x$ into $x^3 + 3x^2y - y^3 = 3$:\n$$x^3 + 3x^2(-2x) - (-2x)^3 = 3$$\n$$x^3 - 6x^3 - (-8x^3) = 3$$\n$$x^3 - 6x^3 + 8x^3 = 3$$\n$$3x^3 = 3 \\implies x^3 = 1 \\implies x = 1$$\nCalculate $y = -2(1) = -2$.\nSecond point: $(1, -2)$.",
+        "State the exact coordinates of both points:\n$$(1, -2) \\quad \\text{and} \\quad (\\sqrt[3]{3}, 0)$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      }
+    }
+  ]
+}

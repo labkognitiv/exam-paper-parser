@@ -1,0 +1,40 @@
+{
+  "schema_version": "9709_math_enrichment_v7",
+  "question_id": "9709_s22_31_q4",
+  "difficulty": 5,
+  "parts": [
+    {
+      "part_id": "9709_s22_31_q4",
+      "difficulty": 5,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_p3_t_differential_equations",
+        "lesson_id": "9709_p3_t_differential_equations_m02_l02"
+      },
+      "skills": {
+        "primary_skill_id": "9709_p3_skill_solving_separable_differential_equations"
+      },
+      "hints": [
+        "Separate the variables so that all $y$-terms are with $dy$ and all $x$-terms are with $dx$.",
+        "Integrate $\\dfrac1y$ and use the substitution $u=1+x^2$ for $\\dfrac{x}{1+x^2}$.",
+        "Use $x=0$, $y=2$ to determine the integration constant before exponentiating.",
+        "Since $1+x^2>0$ and the initial value is positive, choose the positive square-root form and simplify."
+      ],
+      "walkthrough": [
+        "Separate variables in the differential equation $\\dfrac{\\mathrm{d}y}{\\mathrm{d}x} = \\dfrac{xy}{1+x^2}$ by dividing by $y$ and multiplying by $\\mathrm{d}x$:\n$$\\dfrac{1}{y}\\,\\mathrm{d}y = \\dfrac{x}{1+x^2}\\,\\mathrm{d}x$$",
+        "Integrate both sides:\n$$\\int \\dfrac{1}{y}\\,\\mathrm{d}y = \\int \\dfrac{x}{1+x^2}\\,\\mathrm{d}x$$",
+        "Evaluate the left-hand integral directly:\n$$\\int \\dfrac{1}{y}\\,\\mathrm{d}y = \\ln|y|$$",
+        "Evaluate the right-hand integral by recognizing the derivative of the denominator, $\\dfrac{\\mathrm{d}}{\\mathrm{d}x}(1+x^2) = 2x$:\n$$\\int \\dfrac{x}{1+x^2}\\,\\mathrm{d}x = \\dfrac{1}{2} \\int \\dfrac{2x}{1+x^2}\\,\\mathrm{d}x = \\dfrac{1}{2}\\ln(1+x^2)$$",
+        "Combine into the general implicit equation with an integration constant $C$:\n$$\\ln|y| = \\dfrac{1}{2}\\ln(1+x^2) + C$$",
+        "Apply the initial condition $y = 2$ when $x = 0$ to find the constant $C$:\n$$\\ln(2) = \\dfrac{1}{2}\\ln(1+0^2) + C = \\dfrac{1}{2}\\ln(1) + C$$\nSince $\\ln(1) = 0$:\n$$C = \\ln 2$$",
+        "Substitute $C = \\ln 2$ back into the solution (noting that $y > 0$ so $|y| = y$):\n$$\\ln y = \\dfrac{1}{2}\\ln(1+x^2) + \\ln 2$$",
+        "Use logarithm laws to combine the terms on the right side:\n$$\\ln y = \\ln\\left[(1+x^2)^{1/2}\\right] + \\ln 2 = \\ln\\left[2(1+x^2)^{1/2}\\right]$$",
+        "Exponentiate both sides to obtain the explicit simplified expression for $y$:\n$$y = 2\\sqrt{1+x^2}$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      }
+    }
+  ]
+}

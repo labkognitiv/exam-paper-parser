@@ -1,0 +1,86 @@
+{
+  "schema_version": "9709_math_enrichment_v7",
+  "question_id": "9709_w23_43_q6",
+  "difficulty": 3,
+  "parts": [
+    {
+      "part_id": "9709_w23_43_q6_a",
+      "difficulty": 3,
+      "practice_tier": "revision",
+      "mapping": {
+        "topic_id": "9709_m1_t_kinematics_of_motion_in_a_straight_line",
+        "lesson_id": "9709_m1_t_kinematics_of_motion_in_a_straight_line_m05_l01"
+      },
+      "skills": {
+        "primary_skill_id": "9709_m1_skill_integrating_motion_functions"
+      },
+      "hints": [
+        "Integrate acceleration $a = 36 - 6t$ to find the velocity function $v(t) = 36t - 3t^2 + c$.",
+        "Substitute $t = 2$ and $v = 27$ to determine the constant of integration $c = -33$.",
+        "Set $v(t) = 0$ and solve $-3t^2 + 36t - 33 = 0$ by dividing by $-3$ and factorising $(t - 1)(t - 11) = 0$."
+      ],
+      "walkthrough": [
+        "Integrate the acceleration function to determine velocity:\n$$v = \\int (36 - 6t)\\,dt = 36t - 3t^2 + c$$",
+        "Use the boundary condition $v(2) = 27\\text{ m s}^{-1}$ to find constant $c$:\n$$27 = 36(2) - 3(2^2) + c = 72 - 12 + c = 60 + c$$\n$$c = 27 - 60 = -33 \\implies v(t) = -3t^2 + 36t - 33$$",
+        "Set $v(t) = 0$ for instantaneous rest and solve:\n$$-3t^2 + 36t - 33 = 0$$\n$$t^2 - 12t + 11 = 0$$\n$$(t - 1)(t - 11) = 0 \\implies t = 1\\text{ s}\\quad \\text{and}\\quad t = 11\\text{ s}$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      },
+      "teacher_walkthrough": [
+        "Relate velocity to acceleration: velocity is the indefinite integral of acceleration with respect to time:\n$$v(t) = \\int a(t)\\,dt$$",
+        "Integrate the linear acceleration $a = 36 - 6t$:\n$$v(t) = \\int (36 - 6t)\\,dt = 36t - \\frac{6}{2}t^2 + c = 36t - 3t^2 + c$$",
+        "Substitute the given condition $v = 27\\text{ m s}^{-1}$ at $t = 2\\text{ s}$:\n$$27 = 36(2) - 3(2^2) + c$$\n$$27 = 72 - 12 + c$$\n$$27 = 60 + c$$\n$$c = 27 - 60 = -33$$\n$$v(t) = -3t^2 + 36t - 33$$",
+        "Set the velocity function to zero to find the times of instantaneous rest:\n$$-3t^2 + 36t - 33 = 0$$",
+        "Divide through by $-3$ to simplify the quadratic:\n$$t^2 - 12t + 11 = 0$$",
+        "Factorise the quadratic expression:\n$$(t - 1)(t - 11) = 0$$\n$$t = 1\\text{ s}\\quad \\text{and}\\quad t = 11\\text{ s}$$"
+      ]
+    },
+    {
+      "part_id": "9709_w23_43_q6_b",
+      "difficulty": 2,
+      "practice_tier": "revision",
+      "mapping": {
+        "topic_id": "9709_m1_t_kinematics_of_motion_in_a_straight_line",
+        "lesson_id": "9709_m1_t_kinematics_of_motion_in_a_straight_line_m06_l03"
+      },
+      "skills": {
+        "primary_skill_id": "9709_m1_skill_integrating_motion_functions"
+      },
+      "hints": [
+        "Notice that the particle changes direction at the turning points $t = 1\\text{ s}$ and $t = 11\\text{ s}$.",
+        "Split the motion into three intervals: $[0, 1]$, $[1, 11]$, and $[11, 12]$.",
+        "Find the displacement function $s(t) = 18t^2 - t^3 - 33t$, and calculate $s(0) = 0$, $s(1) = -16$, $s(11) = 484$, and $s(12) = 468$.",
+        "Sum the absolute distances: $|-16| + |484 - (-16)| + |468 - 484| = 16 + 500 + 16 = 532\\text{ m}$."
+      ],
+      "walkthrough": [
+        "Identify that the particle reverses direction at $t = 1\\text{ s}$ and $t = 11\\text{ s}$, requiring integration across three intervals:\n$$[0, 1],\\quad [1, 11],\\quad [11, 12]$$",
+        "Integrate velocity to obtain the displacement function:\n$$s(t) = \\int (-3t^2 + 36t - 33)\\,dt = -t^3 + 18t^2 - 33t$$",
+        "Evaluate displacement at the key boundary times:\n$$s(0) = 0\\text{ m}$$\n$$s(1) = -(1)^3 + 18(1)^2 - 33(1) = -16\\text{ m}$$\n$$s(11) = -(11)^3 + 18(11)^2 - 33(11) = -1331 + 2178 - 363 = 484\\text{ m}$$\n$$s(12) = -(12)^3 + 18(12)^2 - 33(12) = -1728 + 2592 - 396 = 468\\text{ m}$$",
+        "Calculate the total distance travelled:\n$$\\text{Distance} = |s(1) - s(0)| + |s(11) - s(1)| + |s(12) - s(11)|$$\n$$\\text{Distance} = |-16| + |484 - (-16)| + |468 - 484| = 16 + 500 + 16 = 532\\text{ m}$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      },
+      "teacher_walkthrough": [
+        "Recognize that to find total distance (as opposed to displacement), we must account for changes in the direction of motion. The particle is at instantaneous rest at $t = 1\\text{ s}$ and $t = 11\\text{ s}$:",
+        "For $0 \\leq t \\leq 1$, $v(t) \\leq 0$ (moving in reverse).",
+        "For $1 \\leq t \\leq 11$, $v(t) \\geq 0$ (moving forwards).",
+        "For $11 \\leq t \\leq 12$, $v(t) \\leq 0$ (moving in reverse).",
+        "Find the displacement antiderivative by integrating $v(t) = -3t^2 + 36t - 33$:\n$$s(t) = -\\frac{3}{3}t^3 + \\frac{36}{2}t^2 - 33t = -t^3 + 18t^2 - 33t$$",
+        "Calculate the displacement at each critical boundary time:",
+        "s(0) = 0",
+        "s(1) = -(1) + 18(1) - 33 = -16\\text{ m}",
+        "s(11) = -1331 + 18(121) - 33(11) = -1331 + 2178 - 363 = 484\\text{ m}",
+        "s(12) = -1728 + 18(144) - 33(12) = -1728 + 2592 - 396 = 468\\text{ m}",
+        "Compute the distance travelled in each interval:",
+        "Interval 1 ($0 \\leq t \\leq 1$): $d_1 = |-16 - 0| = 16\\text{ m}$",
+        "Interval 2 ($1 \\leq t \\leq 11$): $d_2 = |484 - (-16)| = 500\\text{ m}$",
+        "Interval 3 ($11 \\leq t \\leq 12$): $d_3 = |468 - 484| = |-16| = 16\\text{ m}$",
+        "Sum all three distances:\n$$\\text{Total distance} = 16 + 500 + 16 = 532\\text{ m}$$"
+      ]
+    }
+  ]
+}

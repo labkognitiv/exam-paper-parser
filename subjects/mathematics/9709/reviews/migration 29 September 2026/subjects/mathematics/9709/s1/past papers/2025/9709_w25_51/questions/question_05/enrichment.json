@@ -1,0 +1,76 @@
+{
+  "schema_version": "9709_math_enrichment_v7",
+  "question_id": "9709_w25_51_q5",
+  "difficulty": 3,
+  "parts": [
+    {
+      "part_id": "9709_w25_51_q5_a",
+      "difficulty": 2,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_s1_t_discrete_random_variables",
+        "lesson_id": "9709_s1_t_discrete_random_variables_m03_l03"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_calculating_binomial_tail_probabilities"
+      },
+      "hints": [
+        "Let X be the number of days wearing a blue jumper in a week (7 days). Here X ~ B(7, 0.70).",
+        "At least 5 days means X = 5, 6, or 7.",
+        "Calculate P(X = 5) = 7C5 * (0.7)^5 * (0.3)^2 = 0.3177; P(X = 6) = 7C6 * (0.7)^6 * (0.3)^1 = 0.2471; P(X = 7) = (0.7)^7 = 0.0824.",
+        "Sum the three probabilities: 0.3177 + 0.2471 + 0.0824 = 0.647 (3 s.f.)."
+      ],
+      "walkthrough": [
+        "Model the number of blue jumper days as $X \\sim B(7, 0.70)$, with $q = 0.30$:\n$$\\mathrm{P}(X \\ge 5) = \\mathrm{P}(X = 5) + \\mathrm{P}(X = 6) + \\mathrm{P}(X = 7)$$",
+        "Compute each binomial term:\n$$\\mathrm{P}(X = 5) = \\binom{7}{5} (0.70)^5 (0.30)^2 = 21 \\times 0.16807 \\times 0.09 = 0.3176523$$\n$$\\mathrm{P}(X = 6) = \\binom{7}{6} (0.70)^6 (0.30)^1 = 7 \\times 0.117649 \\times 0.30 = 0.2470629$$\n$$\\mathrm{P}(X = 7) = \\binom{7}{7} (0.70)^7 (0.30)^0 = 0.0823543$$",
+        "Add the probabilities:\n$$\\mathrm{P}(X \\ge 5) = 0.3176523 + 0.2470629 + 0.0823543 = 0.6470695 \\approx 0.647\\text{ (3 s.f.)}$$"
+      ],
+      "teacher_walkthrough": [
+        "Step 1: Model setup:\nCooper wears a blue jumper with probability $p = 0.70$ each day.\nFailure probability $q = 1 - 0.70 = 0.30$.\nIn a week of $n = 7$ days, let $X$ be the number of days wearing a blue jumper:\n$$X \\sim B(7, 0.70)$$",
+        "Step 2: Express the required event:\nAt least 5 days means $X \\ge 5$:\n$$\\mathrm{P}(X \\ge 5) = \\mathrm{P}(X = 5) + \\mathrm{P}(X = 6) + \\mathrm{P}(X = 7)$$",
+        "Step 3: Evaluate each term using $\\binom{n}{r} p^r q^{n-r}$:\n- $r = 5$:\n$$\\binom{7}{5} = 21$$\n$$\\mathrm{P}(X = 5) = 21 \\times (0.7)^5 \\times (0.3)^2 = 21 \\times 0.16807 \\times 0.09 = 0.3176523$$\n- $r = 6$:\n$$\\binom{7}{6} = 7$$\n$$\\mathrm{P}(X = 6) = 7 \\times (0.7)^6 \\times (0.3)^1 = 7 \\times 0.117649 \\times 0.3 = 0.2470629$$\n- $r = 7$:\n$$\\binom{7}{7} = 1$$\n$$\\mathrm{P}(X = 7) = 1 \\times (0.7)^7 \\times (0.3)^0 = 0.0823543$$",
+        "Step 4: Sum the probabilities:\n$$\\mathrm{P}(X \\ge 5) = 0.3176523 + 0.2470629 + 0.0823543 = 0.6470695$$\nRounding to 3 significant figures gives $0.647$."
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      }
+    },
+    {
+      "part_id": "9709_w25_51_q5_b",
+      "difficulty": 4,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_s1_t_the_normal_distribution",
+        "lesson_id": "9709_s1_t_the_normal_distribution_m03_l02"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_applying_a_normal_approximation"
+      },
+      "hints": [
+        "Green jumper probability: p = 0.10, q = 0.90, n = 150 days.",
+        "Check conditions: np = 15 > 5 and nq = 135 > 5. Approximating normal parameters: mu = 15, sigma^2 = 150 * 0.10 * 0.90 = 13.5, so sigma = sqrt(13.5) = 3.674.",
+        "Apply continuity correction to fewer than 18 days (X <= 17): P(X < 18) = P(X <= 17) corresponds to Y < 17.5.",
+        "Standardise: z = (17.5 - 15) / sqrt(13.5) = 2.5 / 3.674 = 0.680. Find Phi(0.680) = 0.7517, giving 0.752 (3 s.f.)."
+      ],
+      "walkthrough": [
+        "State the exact distribution and parameters: $X \\sim B(150, 0.10)$, where $np = 15 > 5$ and $nq = 135 > 5$.",
+        "Calculate the mean and standard deviation for the normal approximation $Y$:\n$$\\mu = np = 15, \\quad \\sigma = \\sqrt{npq} = \\sqrt{150 \\times 0.10 \\times 0.90} = \\sqrt{13.5} \\approx 3.6742$$",
+        "Apply the continuity correction for fewer than 18 days ($X \\le 17$):\n$$\\mathrm{P}(X < 18) = \\mathrm{P}(X \\le 17) \\approx \\mathrm{P}(Y < 17.5)$$",
+        "Standardise $17.5$:\n$$Z = \\frac{17.5 - 15}{\\sqrt{13.5}} = \\frac{2.5}{3.6742} \\approx 0.680$$",
+        "Evaluate the cumulative normal probability:\n$$\\mathrm{P}(Z < 0.680) = \\Phi(0.680) = 0.7517 \\approx 0.752\\text{ (3 s.f.)}$$"
+      ],
+      "teacher_walkthrough": [
+        "Step 1: Identify distribution and verify normal approximation conditions:\nLet $X$ be the number of days Cooper wears a green jumper in $150$ days.\n$$X \\sim B(150, 0.10)$$\nCheck validity:\n$$np = 150 \\times 0.10 = 15 > 5$$\n$$nq = 150 \\times 0.90 = 135 > 5$$\nBoth $np > 5$ and $nq > 5$ are satisfied, so a normal approximation $Y \\sim N(\\mu, \\sigma^2)$ is appropriate.",
+        "Step 2: Calculate approximating normal parameters:\n$$\\mu = np = 15$$\n$$\\sigma^2 = npq = 150 \\times 0.10 \\times 0.90 = 13.5$$\n$$\\sigma = \\sqrt{13.5} \\approx 3.67423$$",
+        "Step 3: Apply the continuity correction:\nWe seek $\\mathrm{P}(X < 18)$. In discrete terms, $X < 18 \\iff X \\le 17$.\nThe discrete integer $17$ is represented by the interval $[16.5, 17.5]$ in the continuous model.\nThus, the event $X \\le 17$ becomes:\n$$Y < 17.5$$",
+        "Step 4: Standardise $Y = 17.5$:\n$$Z = \\frac{17.5 - 15}{\\sqrt{13.5}} = \\frac{2.5}{3.67423} \\approx 0.68041 \\approx 0.680$$",
+        "Step 5: Look up probability in standard normal table:\n$$\\Phi(0.680) = 0.7517$$\nRounding to 3 significant figures gives $0.752$.\n(Values in the range $0.751$ to $0.752$ are accepted)."
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      }
+    }
+  ]
+}

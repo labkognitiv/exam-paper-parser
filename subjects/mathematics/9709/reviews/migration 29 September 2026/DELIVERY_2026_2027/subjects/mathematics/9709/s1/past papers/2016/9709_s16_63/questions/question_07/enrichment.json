@@ -1,0 +1,110 @@
+{
+  "schema_version": "9709_math_enrichment_v7",
+  "question_id": "9709_s16_63_q7",
+  "difficulty": 4,
+  "parts": [
+    {
+      "part_id": "9709_s16_63_q7_i",
+      "difficulty": 3,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_s1_t_discrete_random_variables",
+        "lesson_id": "9709_s1_t_discrete_random_variables_m03_l01"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_calculating_binomial_tail_probabilities"
+      },
+      "hints": [
+        "Model the number of backpackers $X$ on a full 12-seater minibus as a binomial distribution: $X \\sim \\mathrm{B}(12, 0.65)$.",
+        "Express the required probability as a sum of individual binomial probabilities: $\\mathrm{P}(8 \\le X \\le 10) = \\mathrm{P}(X = 8) + \\mathrm{P}(X = 9) + \\mathrm{P}(X = 10)$.",
+        "Use the binomial formula $\\mathrm{P}(X = r) = \\binom{12}{r} (0.65)^r (0.35)^{12 - r}$ for $r = 8, 9, 10$, sum them, and round to 3 significant figures."
+      ],
+      "walkthrough": [
+        "Define the binomial random variable $X \\sim \\mathrm{B}(12, 0.65)$ representing the number of passengers carrying backpacks in a full minibus:",
+        "Write the expression for the required interval:\n$$\\mathrm{P}(8 \\le X \\le 10) = \\mathrm{P}(X = 8) + \\mathrm{P}(X = 9) + \\mathrm{P}(X = 10)$$",
+        "Calculate each binomial probability using $\\mathrm{P}(X = r) = \\binom{12}{r} (0.65)^r (0.35)^{12 - r}$:\n$$\\mathrm{P}(X = 8) = \\binom{12}{8} (0.65)^8 (0.35)^4 = 495 \\times (0.65)^8 \\times (0.35)^4 \\approx 0.23674$$\n$$\\mathrm{P}(X = 9) = \\binom{12}{9} (0.65)^9 (0.35)^3 = 220 \\times (0.65)^9 \\times (0.35)^3 \\approx 0.19544$$\n$$\\mathrm{P}(X = 10) = \\binom{12}{10} (0.65)^{10} (0.35)^2 = 66 \\times (0.65)^{10} \\times (0.35)^2 \\approx 0.10882$$",
+        "Sum the probabilities:\n$$\\mathrm{P}(8 \\le X \\le 10) = 0.23674 + 0.19544 + 0.10882 = 0.54100 \\approx 0.541$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      },
+      "teacher_walkthrough": [
+        "Let $X$ denote the number of passengers carrying backpacks on a full minibus with $n = 12$ passengers. Because each passenger independently has probability $p = 0.65$ of carrying a backpack:\n$$X \\sim \\mathrm{B}(12, 0.65)$$\nThe probability of not carrying a backpack is $q = 1 - 0.65 = 0.35$.",
+        "We need the probability that between 8 and 10 passengers inclusive carry backpacks:\n$$\\mathrm{P}(8 \\le X \\le 10) = \\mathrm{P}(X = 8) + \\mathrm{P}(X = 9) + \\mathrm{P}(X = 10)$$",
+        "Apply the binomial formula $\\mathrm{P}(X = r) = \\binom{n}{r} p^r (1 - p)^{n - r}$ for each value:\nFor $r = 8$:\n$$\\mathrm{P}(X = 8) = \\binom{12}{8} (0.65)^8 (0.35)^4 = 495 \\times (0.65)^8 \\times (0.35)^4 \\approx 0.23674$$\nFor $r = 9$:\n$$\\mathrm{P}(X = 9) = \\binom{12}{9} (0.65)^9 (0.35)^3 = 220 \\times (0.65)^9 \\times (0.35)^3 \\approx 0.19544$$\nFor $r = 10$:\n$$\\mathrm{P}(X = 10) = \\binom{12}{10} (0.65)^{10} (0.35)^2 = 66 \\times (0.65)^{10} \\times (0.35)^2 \\approx 0.10882$$",
+        "Add the three probabilities together:\n$$\\mathrm{P}(8 \\le X \\le 10) = 0.23674 + 0.19544 + 0.10882 = 0.54100$$\nRound to 3 significant figures to get $0.541$."
+      ]
+    },
+    {
+      "part_id": "9709_s16_63_q7_ii",
+      "difficulty": 2,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_s1_t_discrete_random_variables",
+        "lesson_id": "9709_s1_t_discrete_random_variables_m05_l01"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_applying_the_product_rule_for_counting"
+      },
+      "hints": [
+        "For the 4th passenger to be the first carrying a backpack, the first 3 passengers must not carry backpacks, and the 4th passenger must carry a backpack.",
+        "Use the independence of passengers to multiply their individual probabilities: $\\mathrm{P}(B') \\times \\mathrm{P}(B') \\times \\mathrm{P}(B') \\times \\mathrm{P}(B)$.",
+        "Substitute $\\mathrm{P}(B') = 0.35$ and $\\mathrm{P}(B) = 0.65$, then evaluate $(0.35)^3 \\times 0.65$ to 3 significant figures."
+      ],
+      "walkthrough": [
+        "Identify the sequential outcome required for the 4th passenger to be the first with a backpack:\n$$\\text{Passengers 1, 2, 3 do not carry backpacks, passenger 4 carries a backpack: } (B', B', B', B)$$",
+        "Multiply the probabilities of the independent events:\n$$\\mathrm{P} = (1 - 0.65)^3 \\times 0.65 = (0.35)^3 \\times 0.65$$",
+        "Calculate the numerical product:\n$$(0.35)^3 = 0.042875$$\n$$0.042875 \\times 0.65 = 0.02786875 \\approx 0.0279$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      },
+      "teacher_walkthrough": [
+        "Let $B$ denote carrying a backpack, with $\\mathrm{P}(B) = 0.65$, and $B'$ denote not carrying a backpack, with:\n$$\\mathrm{P}(B') = 1 - 0.65 = 0.35$$",
+        "The event that the 4th passenger is the first to carry a backpack requires a specific sequence of independent events:\n$$\\text{1st passenger: } B', \\quad \\text{2nd passenger: } B', \\quad \\text{3rd passenger: } B', \\quad \\text{4th passenger: } B$$",
+        "Because passengers are chosen independently, multiply their respective probabilities:\n$$\\mathrm{P} = \\mathrm{P}(B') \\times \\mathrm{P}(B') \\times \\mathrm{P}(B') \\times \\mathrm{P}(B)$$\nSubstitute the numbers:\n$$\\mathrm{P} = (0.35)^3 \\times 0.65$$",
+        "Evaluate step by step:\n$$(0.35)^3 = 0.042875$$\nMultiply by $0.65$:\n$$\\mathrm{P} = 0.042875 \\times 0.65 = 0.02786875$$\nRound to 3 significant figures:\n$$\\mathrm{P} \\approx 0.0279$$"
+      ]
+    },
+    {
+      "part_id": "9709_s16_63_q7_iii",
+      "difficulty": 4,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_s1_t_the_normal_distribution",
+        "lesson_id": "9709_s1_t_the_normal_distribution_m03_l02"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_applying_a_normal_approximation"
+      },
+      "hints": [
+        "First find the probability $p$ that a single full minibus has exactly 7 passengers carrying backpacks using $X \\sim \\mathrm{B}(12, 0.65)$ with $p = \\binom{12}{7} (0.65)^7 (0.35)^5 \\approx 0.2039$.",
+        "For the sample of $N = 250$ minibuses, let $Y \\sim \\mathrm{B}(250, p)$. Calculate the parameters for the approximating normal distribution: mean $\\mu = Np$ and variance $\\sigma^2 = Np(1-p)$.",
+        "Apply a continuity correction to the strict inequality $Y > 54$, which corresponds to continuous $\\mathrm{P}(W > 54.5)$.",
+        "Standardise $54.5$ using $Z = \\dfrac{54.5 - \\mu}{\\sigma}$ and evaluate $1 - \\Phi(z)$."
+      ],
+      "walkthrough": [
+        "Find the probability $p$ that a single minibus contains exactly 7 backpackers:\n$$p = \\mathrm{P}(X = 7) = \\binom{12}{7} (0.65)^7 (0.35)^5 = 792 \\times (0.65)^7 \\times (0.35)^5 \\approx 0.203855 \\approx 0.2039$$",
+        "For the random sample of $n = 250$ minibuses, let $Y \\sim \\mathrm{B}(250, 0.2039)$. Calculate the normal approximation parameters for $W \\sim \\mathrm{N}(\\mu, \\sigma^2)$:\n$$\\mu = np = 250 \\times 0.203855 = 50.9638 \\quad (\\text{or } 250 \\times 0.2039 = 50.975)$$\n$$\\sigma^2 = np(1 - p) = 250 \\times 0.203855 \\times 0.796145 = 40.5746 \\quad (\\text{or } 40.5851)$$\n$$\\sigma = \\sqrt{40.5851} \\approx 6.3706$$",
+        "Apply the continuity correction to the inequality $Y > 54$ ($Y \\ge 55$ in integers):\n$$\\mathrm{P}(Y > 54) \\approx \\mathrm{P}(W > 54.5)$$",
+        "Standardise the value $54.5$:\n$$Z = \\dfrac{54.5 - 50.9798}{6.3706} = \\dfrac{3.5202}{6.3706} \\approx 0.5526$$",
+        "Evaluate the upper tail probability:\n$$\\mathrm{P}(Z > 0.5526) = 1 - \\Phi(0.5526) = 1 - 0.7098 = 0.2902 \\approx 0.290$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      },
+      "teacher_walkthrough": [
+        "This problem consists of two distinct stages.",
+        "Stage 1: Find the probability $p$ that a single full minibus has exactly 7 passengers with backpacks. For one minibus of 12 passengers, $X \\sim \\mathrm{B}(12, 0.65)$:\n$$p = \\mathrm{P}(X = 7) = \\binom{12}{7} (0.65)^7 (0.35)^5$$\nEvaluate the combination:\n$$\\binom{12}{7} = 792$$\nMultiply:\n$$p = 792 \\times (0.65)^7 \\times (0.35)^5 \\approx 0.203855 \\approx 0.2039$$",
+        "Stage 2: Now consider a random sample of $n = 250$ full minibuses. Let $Y$ be the number of these minibuses that have exactly 7 backpackers:\n$$Y \\sim \\mathrm{B}(250, p) \\quad \\text{where } p \\approx 0.2039$$\nBecause $n = 250$ is large with $np \\approx 50.98 > 5$ and $n(1-p) \\approx 199.02 > 5$, we approximate $Y$ using a normal distribution $W \\sim \\mathrm{N}(\\mu, \\sigma^2)$.",
+        "Calculate the mean and variance for the normal model:\n$$\\mu = n p = 250 \\times 0.2039 = 50.975 \\quad (\\text{or } 50.9798)$$\n$$\\sigma^2 = n p (1 - p) = 50.975 \\times (1 - 0.2039) = 50.975 \\times 0.7961 \\approx 40.5851$$\nThe standard deviation is:\n$$\\sigma = \\sqrt{40.5851} \\approx 6.3706$$",
+        "Apply the continuity correction: we want the probability that strictly more than 54 minibuses contain 7 backpackers ($Y \\in \\{55, 56, \\dots\\}$). The discrete block at 55 begins at $54.5$ on a continuous scale:\n$$\\mathrm{P}(Y > 54) = \\mathrm{P}(Y \\ge 55) \\approx \\mathrm{P}(W > 54.5)$$",
+        "Standardise $W = 54.5$ using $Z = \\frac{W - \\mu}{\\sigma}$:\n$$Z = \\frac{54.5 - 50.9798}{6.3706}$$\nSubtract in the numerator:\n$$54.5 - 50.9798 = 3.5202$$\nDivide by $\\sigma$:\n$$Z = \\frac{3.5202}{6.3706} \\approx 0.5526$$",
+        "Look up $Z = 0.5526$ in the standard normal distribution table:\n$$\\mathrm{P}(Z > 0.5526) = 1 - \\Phi(0.5526)$$\nTable lookup gives:\n$$\\Phi(0.55) = 0.7088, \\quad \\text{difference for } 2.6 = 0.0009 \\implies \\Phi(0.5526) = 0.7098$$\nSubtract from 1:\n$$\\mathrm{P} = 1 - 0.7098 = 0.2902$$\nRound to 3 significant figures:\n$$\\mathrm{P} \\approx 0.290$$"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,77 @@
+{
+  "schema_version": "9709_math_enrichment_v7",
+  "question_id": "9709_s19_63_q1",
+  "difficulty": 2,
+  "parts": [
+    {
+      "part_id": "9709_s19_63_q1_i",
+      "difficulty": 2,
+      "practice_tier": "revision",
+      "mapping": {
+        "topic_id": "9709_s1_t_the_normal_distribution",
+        "lesson_id": "9709_s1_t_the_normal_distribution_m01_l02"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_calculating_normal_probabilities"
+      },
+      "hints": [
+        "Let $X$ be the crossing time in minutes, with $X \\sim \\mathrm{N}(85, 6.8^2)$.",
+        "Standardize both boundaries $79$ and $91$ using $Z = \\frac{X - 85}{6.8}$.",
+        "Notice the interval is symmetric about the mean: $z_1 = -0.8824$ and $z_2 = 0.8824$.",
+        "Evaluate $\\mathrm{P}(-0.8824 < Z < 0.8824) = 2\\Phi(0.8824) - 1$ using the standard normal distribution table."
+      ],
+      "walkthrough": [
+        "State the normal model for the ferry crossing time:\n$$X \\sim \\mathrm{N}(85, 6.8^2)$$\nwhere $\\mu = 85$ and $\\sigma = 6.8$.",
+        "Standardise both interval boundaries:\n$$Z_1 = \\frac{79 - 85}{6.8} = \\frac{-6}{6.8} \\approx -0.8824$$\n$$Z_2 = \\frac{91 - 85}{6.8} = \\frac{6}{6.8} \\approx 0.8824$$",
+        "Use the symmetry property for intervals symmetric about the mean:\n$$\\mathrm{P}(79 < X < 91) = \\mathrm{P}(-0.8824 < Z < 0.8824) = \\Phi(0.8824) - \\Phi(-0.8824) = 2\\Phi(0.8824) - 1$$",
+        "Look up $\\Phi(0.8824)$ from the standard normal tables:\n$$\\Phi(0.882) = 0.8111, \\quad \\text{difference for } 4 = 0.0001 \\implies \\Phi(0.8824) = 0.8112$$\n$$\\mathrm{P}(79 < X < 91) = 2(0.8112) - 1 = 1.6224 - 1 = 0.6224 \\approx 0.622$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      },
+      "teacher_walkthrough": [
+        "The ferry crossing time $X$ follows a normal distribution with mean $\\mu = 85\\text{ minutes}$ and standard deviation $\\sigma = 6.8\\text{ minutes}$. We need the probability that $X$ lies between $79$ and $91\\text{ minutes}$.",
+        "Step 1: Standardise the lower and upper limits using $Z = \\frac{X - \\mu}{\\sigma}$:\n$$Z_1 = \\frac{79 - 85}{6.8} = \\frac{-6}{6.8} \\approx -0.8824$$\n$$Z_2 = \\frac{91 - 85}{6.8} = \\frac{6}{6.8} \\approx 0.8824$$",
+        "Step 2: Express the probability in terms of the cumulative distribution function $\\Phi(z)$:\n$$\\mathrm{P}(79 < X < 91) = \\Phi(0.8824) - \\Phi(-0.8824)$$\nUsing the symmetry relation $\\Phi(-z) = 1 - \\Phi(z)$:\n$$\\Phi(0.8824) - (1 - \\Phi(0.8824)) = 2\\Phi(0.8824) - 1$$",
+        "Step 3: Read $\\Phi(0.8824)$ from standard normal tables:\n$$\\Phi(0.882) = 0.8111$$\n$$\\text{Add for 4 in the difference column} = 0.0001$$\n$$\\Phi(0.8824) = 0.8111 + 0.0001 = 0.8112$$",
+        "Step 4: Compute the probability:\n$$2 \\times 0.8112 - 1 = 1.6224 - 1 = 0.6224$$\nRounding to 3 significant figures gives $0.622$."
+      ]
+    },
+    {
+      "part_id": "9709_s19_63_q1_ii",
+      "difficulty": 2,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_s1_t_the_normal_distribution",
+        "lesson_id": "9709_s1_t_the_normal_distribution_m02_l01"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_using_inverse_normal_values"
+      },
+      "hints": [
+        "We are given that 96% of crossings take longer than $t$ minutes: $\\mathrm{P}(X > t) = 0.96$.",
+        "Because 96% is greater than 50%, $t$ must be below the mean $\\mu = 85$, so the standardized score $z$ is negative.",
+        "Use symmetry $\\Phi(-z) = 0.96$ to find the critical value $z = -1.751$ from standard normal tables.",
+        "Set $\\frac{t - 85}{6.8} = -1.751$ and solve for $t$."
+      ],
+      "walkthrough": [
+        "Set up the tail probability condition:\n$$\\mathrm{P}(X > t) = 0.96$$\nBecause $0.96 > 0.5$, $t$ lies in the lower tail below the mean $\\mu = 85$.",
+        "Find the corresponding critical $z$-value using symmetry:\n$$\\Phi(-z) = 0.9600 \\implies -z = 1.751 \\implies z = -1.751$$",
+        "Set up the standardisation equation:\n$$\\frac{t - 85}{6.8} = -1.751$$",
+        "Solve for $t$:\n$$t - 85 = -1.751 \\times 6.8 = -11.9068$$\n$$t = 85 - 11.9068 = 73.0932 \\approx 73.1\\text{ minutes}$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      },
+      "teacher_walkthrough": [
+        "We are given that 96% of ferry crossing times are greater than $t$ minutes, so $\\mathrm{P}(X > t) = 0.96$.",
+        "Step 1: Determine the location and sign of the standardised value.\nSince $96\\%$ of the distribution is greater than $t$, only $4\\%$ lies below $t$:\n$$\\mathrm{P}(X < t) = 1 - 0.96 = 0.04$$\nBecause this lower-tail area is less than $0.5$, $t$ is well below the mean $\\mu = 85$, and the standardised score $z$ must be negative.",
+        "Step 2: Look up the critical value from the normal distribution table:\nUsing symmetry, an upper tail of $0.96$ corresponds to a cumulative probability of $0.96$ on the positive side:\n$$\\Phi(1.751) = 0.9600$$\nTherefore, the required $z$-value is:\n$$z = -1.751$$",
+        "Step 3: Substitute $z = -1.751$ into the standardisation formula:\n$$Z = \\frac{t - \\mu}{\\sigma} \\implies \\frac{t - 85}{6.8} = -1.751$$",
+        "Step 4: Solve for $t$:\nMultiply both sides by $6.8$:\n$$t - 85 = -1.751 \\times 6.8 = -11.9068$$\nAdd $85$ to both sides:\n$$t = 85 - 11.9068 = 73.0932$$\nRounding to 3 significant figures gives $t = 73.1\\text{ minutes}$."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,66 @@
+{
+  "schema_version": "9709_math_enrichment_v7",
+  "question_id": "9709_s16_33_q4",
+  "difficulty": 5,
+  "parts": [
+    {
+      "part_id": "9709_s16_33_q4_i",
+      "difficulty": 5,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_p3_t_differentiation",
+        "lesson_id": "9709_p3_t_differentiation_m02_l01"
+      },
+      "skills": {
+        "primary_skill_id": "9709_p3_skill_implicit_differentiation"
+      },
+      "hints": [
+        "For a parametric curve, use $dy/dx=(dy/dt)/(dx/dt)$.",
+        "Differentiate $x=t+\\cos t$ and $y=\\ln(1+\\sin t)$ separately.",
+        "Divide the derivatives and simplify using $\\cos^2t=(1-\\sin t)(1+\\sin t)$.",
+        "Use the given interval to identify the resulting reciprocal cosine as $\\sec t$."
+      ],
+      "walkthrough": [
+        "Differentiate $x = t + \\cos t$ with respect to $t$:\n$$\\dfrac{\\mathrm{d}x}{\\mathrm{d}t} = 1 - \\sin t$$",
+        "Differentiate $y = \\ln(1 + \\sin t)$ with respect to $t$ using the chain rule:\n$$\\dfrac{\\mathrm{d}y}{\\mathrm{d}t} = \\dfrac{1}{1 + \\sin t} \\cdot \\dfrac{\\mathrm{d}}{\\mathrm{d}t}(1 + \\sin t) = \\dfrac{\\cos t}{1 + \\sin t}$$",
+        "Use the parametric derivative rule $\\dfrac{\\mathrm{d}y}{\\mathrm{d}x} = \\dfrac{\\mathrm{d}y/\\mathrm{d}t}{\\mathrm{d}x/\\mathrm{d}t}$:\n$$\\dfrac{\\mathrm{d}y}{\\mathrm{d}x} = \\dfrac{\\dfrac{\\cos t}{1 + \\sin t}}{1 - \\sin t} = \\dfrac{\\cos t}{(1 + \\sin t)(1 - \\sin t)}$$",
+        "Expand the denominator and apply the Pythagorean identity $1 - \\sin^2 t = \\cos^2 t$:\n$$\\dfrac{\\mathrm{d}y}{\\mathrm{d}x} = \\dfrac{\\cos t}{1 - \\sin^2 t} = \\dfrac{\\cos t}{\\cos^2 t} = \\dfrac{1}{\\cos t}$$",
+        "Conclude with the required trigonometric form:\n$$\\dfrac{\\mathrm{d}y}{\\mathrm{d}x} = \\sec t$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      }
+    },
+    {
+      "part_id": "9709_s16_33_q4_ii",
+      "difficulty": 3,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_p3_t_trigonometry",
+        "lesson_id": "9709_p3_t_trigonometry_m04_l01"
+      },
+      "skills": {
+        "primary_skill_id": "9709_p3_skill_solving_trigonometric_equations"
+      },
+      "hints": [
+        "Set the gradient from part (i), $\\sec t$, equal to 3.",
+        "Solve $\\cos t=1/3$ for both values of $t$ in $-\\pi/2<t<\\pi/2$.",
+        "For each parameter value, calculate $x=t+\\cos t$.",
+        "Round the two $x$-coordinates to 3 significant figures."
+      ],
+      "walkthrough": [
+        "Set the derivative $\\dfrac{\\mathrm{d}y}{\\mathrm{d}x}$ equal to $3$:\n$$\\sec t = 3 \\implies \\cos t = \\dfrac{1}{3}$$",
+        "Solve for $t$ in the interval $-\\dfrac{1}{2}\\pi < t < \\dfrac{1}{2}\\pi$:\n$$t = \\pm\\arccos\\left(\\dfrac{1}{3}\\right)$$\nEvaluate in radians: $\\arccos\\left(\\dfrac{1}{3}\\right) \\approx 1.230959$, so $t_1 = 1.230959$ and $t_2 = -1.230959$.",
+        "Calculate the $x$-coordinate using $x = t + \\cos t$ with $\\cos t = \\dfrac{1}{3}$:",
+        "For $t_1 = 1.230959$:\n$$x_1 = 1.230959 + \\dfrac{1}{3} = 1.230959 + 0.333333 = 1.564292 \\approx 1.56$$",
+        "For $t_2 = -1.230959$:\n$$x_2 = -1.230959 + \\dfrac{1}{3} = -1.230959 + 0.333333 = -0.897626 \\approx -0.898$$",
+        "State the two $x$-coordinates correct to 3 significant figures:\n$$x = 1.56 \\quad \\text{and} \\quad x = -0.898$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      }
+    }
+  ]
+}

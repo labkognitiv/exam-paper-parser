@@ -1,0 +1,64 @@
+{
+  "schema_version": "9709_math_enrichment_v7",
+  "question_id": "9709_w23_31_q9",
+  "difficulty": 5,
+  "parts": [
+    {
+      "part_id": "9709_w23_31_q9_a",
+      "difficulty": 3,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_p3_t_differentiation",
+        "lesson_id": "9709_p3_t_differentiation_m01_l01"
+      },
+      "skills": {
+        "primary_skill_id": "9709_p3_skill_finding_stationary_points"
+      },
+      "hints": [
+        "Differentiate $y=xe^{-x^2/4}$ using the product rule and the chain rule.",
+        "Factor the derivative as $e^{-x^2/4}\\left(1-\\frac{x^2}{2}\\right)$ and set it equal to zero.",
+        "Use $x\\geq0$ to select the stationary $x$-value, then substitute it into the original curve to find the exact ordinate."
+      ],
+      "walkthrough": [
+        "Differentiate $y = x\\mathrm{e}^{-x^2/4}$ with respect to $x$ using the product rule and chain rule:\n$$\\dfrac{\\mathrm{d}y}{\\mathrm{d}x} = (1)\\mathrm{e}^{-x^2/4} + x\\left(\\mathrm{e}^{-x^2/4} \\cdot \\left(-\\dfrac{2x}{4}\\right)\\right)$$\n$$= \\mathrm{e}^{-x^2/4} - \\dfrac{x^2}{2}\\mathrm{e}^{-x^2/4}$$",
+        "Factorise the derivative:\n$$\\dfrac{\\mathrm{d}y}{\\mathrm{d}x} = \\mathrm{e}^{-x^2/4}\\left(1 - \\dfrac{x^2}{2}\\right)$$",
+        "Set $\\dfrac{\\mathrm{d}y}{\\mathrm{d}x} = 0$ for stationary points:\nSince $\\mathrm{e}^{-x^2/4} > 0$ for all $x$, we require:\n$$1 - \\dfrac{x^2}{2} = 0 \\implies x^2 = 2$$",
+        "Select the positive root since $x \\geqslant 0$:\n$$x = \\sqrt{2}$$",
+        "Calculate the exact $y$-coordinate at $x = \\sqrt{2}$:\n$$y = \\sqrt{2}\\,\\mathrm{e}^{-(\\sqrt{2})^2/4} = \\sqrt{2}\\,\\mathrm{e}^{-2/4} = \\sqrt{2}\\,\\mathrm{e}^{-1/2}$$",
+        "State the exact coordinates of $M$:\n$$M = (\\sqrt{2}, \\sqrt{2}\\,\\mathrm{e}^{-1/2}) \\quad \\left(\\text{or } (\\sqrt{2}, \\sqrt{2/\\mathrm{e}})\\right)$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      }
+    },
+    {
+      "part_id": "9709_w23_31_q9_b",
+      "difficulty": 5,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_p3_t_integration",
+        "lesson_id": "9709_p3_t_integration_m04_l02"
+      },
+      "skills": {
+        "primary_skill_id": "9709_p3_skill_finding_an_area_under_a_curve"
+      },
+      "hints": [
+        "The shaded area is $\\int_0^3 xe^{-x^2/4}\\,dx$ because the curve is above the $x$-axis on this interval.",
+        "Use $u=x^2$, so $du=2x\\,dx$, and change the limits from $x=0,3$ to $u=0,9$.",
+        "Evaluate $\\frac12\\int_0^9 e^{-u/4}\\,du$ and keep the exponential term exact."
+      ],
+      "walkthrough": [
+        "Set up the definite integral for the area bounded by the curve, the $x$-axis, and $x = 3$:\n$$\\text{Area} = \\int_0^3 x\\mathrm{e}^{-x^2/4}\\,\\mathrm{d}x$$",
+        "Apply the substitution $u = -\\dfrac{x^2}{4}$:\n$$\\mathrm{d}u = -\\dfrac{2x}{4}\\,\\mathrm{d}x = -\\dfrac{x}{2}\\,\\mathrm{d}x \\implies x\\,\\mathrm{d}x = -2\\,\\mathrm{d}u$$",
+        "Transform the limits of integration:\n$$\\text{At } x = 0: \\quad u = -\\dfrac{0^2}{4} = 0$$\n$$\\text{At } x = 3: \\quad u = -\\dfrac{3^2}{4} = -\\dfrac{9}{4}$$",
+        "Substitute into the integral and invert the limits to eliminate the minus sign:\n$$\\text{Area} = \\int_0^{-9/4} \\mathrm{e}^u(-2\\,\\mathrm{d}u) = 2\\int_{-9/4}^0 \\mathrm{e}^u\\,\\mathrm{d}u$$",
+        "Evaluate the definite integral:\n$$\\text{Area} = 2\\left[\\mathrm{e}^u\\right]_{-9/4}^0 = 2\\left(\\mathrm{e}^0 - \\mathrm{e}^{-9/4}\\right) = 2(1 - \\mathrm{e}^{-9/4}) = 2 - 2\\mathrm{e}^{-9/4}$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      }
+    }
+  ]
+}

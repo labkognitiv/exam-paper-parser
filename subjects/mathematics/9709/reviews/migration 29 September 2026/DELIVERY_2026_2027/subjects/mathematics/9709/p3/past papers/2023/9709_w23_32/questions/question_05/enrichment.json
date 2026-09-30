@@ -1,0 +1,37 @@
+{
+  "schema_version": "9709_math_enrichment_v7",
+  "question_id": "9709_w23_32_q5",
+  "difficulty": 5,
+  "parts": [
+    {
+      "part_id": "9709_w23_32_q5",
+      "difficulty": 5,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_p3_t_integration",
+        "lesson_id": "9709_p3_t_integration_m03_l02"
+      },
+      "skills": {
+        "primary_skill_id": "9709_p3_skill_integrating_rational_functions"
+      },
+      "hints": [
+        "First rewrite the rational integrand so that each term has a standard antiderivative.",
+        "Use $x(x+1)=x^2+x=(x^2+4)+(x-4)$, then separate $\\dfrac{x-4}{x^2+4}$ into its $x$ and constant numerator parts.",
+        "Integrate the $x/(x^2+4)$ term logarithmically and the $1/(x^2+4)$ term using an inverse tangent.",
+        "Evaluate at $6$ and $0$, combining the logarithms while keeping the inverse tangent exact."
+      ],
+      "walkthrough": [
+        "Decompose the rational function using algebraic division:\n$$\\dfrac{x(x + 1)}{x^2 + 4} = \\dfrac{x^2 + x}{x^2 + 4} = \\dfrac{(x^2 + 4) + (x - 4)}{x^2 + 4} = 1 + \\dfrac{x - 4}{x^2 + 4} = 1 + \\dfrac{x}{x^2 + 4} - \\dfrac{4}{x^2 + 4}$$",
+        "Integrate each term individually:\n$$\\int 1\\,\\mathrm{d}x = x$$\n$$\\int \\dfrac{x}{x^2 + 4}\\,\\mathrm{d}x = \\dfrac{1}{2}\\ln(x^2 + 4)$$\n$$\\int \\dfrac{4}{x^2 + 2^2}\\,\\mathrm{d}x = 4\\left(\\dfrac{1}{2}\\tan^{-1}\\left(\\dfrac{x}{2}\\right)\\right) = 2\\tan^{-1}\\left(\\dfrac{x}{2}\\right)$$",
+        "Assemble the antiderivative $F(x)$:\n$$F(x) = x + \\dfrac{1}{2}\\ln(x^2 + 4) - 2\\tan^{-1}\\left(\\dfrac{x}{2}\\right)$$",
+        "Evaluate $F(x)$ at the upper limit $x = 6$:\n$$F(6) = 6 + \\dfrac{1}{2}\\ln(6^2 + 4) - 2\\tan^{-1}\\left(\\dfrac{6}{2}\\right) = 6 + \\dfrac{1}{2}\\ln(40) - 2\\tan^{-1}(3)$$",
+        "Evaluate $F(x)$ at the lower limit $x = 0$:\n$$F(0) = 0 + \\dfrac{1}{2}\\ln(4) - 2\\tan^{-1}(0) = \\dfrac{1}{2}\\ln 4 = \\ln 2$$",
+        "Subtract $F(6) - F(0)$ and simplify the logarithms:\n$$\\int_0^6 \\dfrac{x(x + 1)}{x^2 + 4}\\,\\mathrm{d}x = 6 + \\dfrac{1}{2}\\ln 40 - 2\\tan^{-1}3 - \\dfrac{1}{2}\\ln 4$$\n$$= 6 + \\dfrac{1}{2}(\\ln 40 - \\ln 4) - 2\\tan^{-1}3 = 6 + \\dfrac{1}{2}\\ln 10 - 2\\tan^{-1}3$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      }
+    }
+  ]
+}

@@ -1,0 +1,71 @@
+{
+  "schema_version": "9709_math_enrichment_v7",
+  "question_id": "9709_w24_51_q1",
+  "difficulty": 2,
+  "parts": [
+    {
+      "part_id": "9709_w24_51_q1_a",
+      "difficulty": 2,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_s1_t_discrete_random_variables",
+        "lesson_id": "9709_s1_t_discrete_random_variables_m04_l01"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_calculating_geometric_distribution_probabilities"
+      },
+      "hints": [
+        "Nicola throws a fair six-sided die until she gets a 6: X ~ Geo(1/6).",
+        "P(X < 8) means the first 6 occurs on throw 1, 2, 3, 4, 5, 6, or 7: P(X <= 7).",
+        "Use the cumulative formula P(X <= k) = 1 - (1 - p)^k = 1 - (5/6)^7.",
+        "Calculate 1 - (5/6)^7 = 1 - 0.27908 = 0.721."
+      ],
+      "walkthrough": [
+        "Model the number of throws $X$ until the first $6$ as a Geometric distribution with $p = \\frac{1}{6}$ and $q = \\frac{5}{6}$:\n$$X \\sim \\operatorname{Geo}\\left(\\frac{1}{6}\\right)$$\n$$P(X < 8) = P(X \\le 7)$$",
+        "Apply the cumulative distribution formula $P(X \\le k) = 1 - (1 - p)^k$ with $k = 7$:\n$$P(X \\le 7) = 1 - \\left(\\frac{5}{6}\\right)^7 = 1 - \\frac{78125}{279936} = 1 - 0.2790817 \\approx 0.721$$\n$$(0.7209 \\le p \\le 0.721)$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      },
+      "teacher_walkthrough": [
+        "Step 1: Identify the model and parameters:\nEach throw of a fair six-sided die is an independent trial with success probability $p = P(6) = \\frac{1}{6}$ and failure probability $q = 1 - \\frac{1}{6} = \\frac{5}{6}$.\nLet $X$ be the number of throws until Nicola rolls her first $6$:\n$$X \\sim \\operatorname{Geo}\\left(\\frac{1}{6}\\right)$$",
+        "Step 2: Express the strict inequality in terms of cumulative trials:\n$$P(X < 8) = P(X \\le 7)$$",
+        "Step 3: Use the complement of failing the first 7 throws:\nThe first success occurs on or before throw $7$ unless she rolls a non-6 on all first $7$ throws:\n$$P(X \\le 7) = 1 - P(\\text{no } 6 \\text{ in } 7 \\text{ throws}) = 1 - q^7 = 1 - \\left(\\frac{5}{6}\\right)^7$$",
+        "Step 4: Evaluate numerically:\n$$\\left(\\frac{5}{6}\\right)^7 = \\frac{78125}{279936} \\approx 0.2790817$$\n$$P = 1 - 0.2790817 = 0.720918... \\approx 0.721$$\n(To 3 significant figures)."
+      ]
+    },
+    {
+      "part_id": "9709_w24_51_q1_b",
+      "difficulty": 2,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_s1_t_discrete_random_variables",
+        "lesson_id": "9709_s1_t_discrete_random_variables_m05_l01"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_calculating_geometric_distribution_probabilities"
+      },
+      "hints": [
+        "For the second 6 to occur on the 8th throw, Nicola must obtain exactly one 6 in her first 7 throws, followed by a 6 on the 8th throw.",
+        "Calculate the probability of one 6 in 7 throws: 7C1 * (1/6)^1 * (5/6)^6.",
+        "Multiply by the probability of a 6 on the 8th throw: 7 * (1/6) * (5/6)^6 * (1/6) = 7 * (1/6)^2 * (5/6)^6.",
+        "Evaluate 7 * (1/36) * (15625/46656) = 0.0651."
+      ],
+      "walkthrough": [
+        "Decompose the event of second success on the 8th throw into two independent components:\n1. Exactly $1$ six in the first $7$ throws: $\\binom{7}{1} \\left(\\frac{1}{6}\\right)^1 \\left(\\frac{5}{6}\\right)^6$\n2. A six on the $8$th throw: $\\frac{1}{6}$",
+        "Multiply the two probabilities:\n$$P = \\binom{7}{1} \\left(\\frac{1}{6}\\right)^1 \\left(\\frac{5}{6}\\right)^6 \\times \\frac{1}{6} = 7 \\times \\left(\\frac{1}{6}\\right)^2 \\times \\left(\\frac{5}{6}\\right)^6$$\n$$P = 7 \\times \\frac{1}{36} \\times \\frac{15625}{46656} = \\frac{109375}{1679616} \\approx 0.065119 \\approx 0.0651$$\n$$(0.0651 \\le p \\le 0.06512)$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      },
+      "teacher_walkthrough": [
+        "Step 1: Understand the structure of the kth success on the rth trial:\nNicola obtains her second $6$ on her 8th throw if and only if:\n1. In the first $7$ throws, she rolls exactly one $6$ and six non-6s.\n2. On the 8th throw, she rolls a $6$.",
+        "Step 2: Calculate the probability of exactly one 6 in the first 7 throws:\nUsing the Binomial probability formula with $n = 7, r = 1, p = \\frac{1}{6}, q = \\frac{5}{6}$:\n$$P(1 \\text{ success in } 7) = \\binom{7}{1} \\left(\\frac{1}{6}\\right)^1 \\left(\\frac{5}{6}\\right)^6 = 7 \\times \\frac{1}{6} \\times \\left(\\frac{5}{6}\\right)^6$$",
+        "Step 3: Multiply by the probability of a 6 on the 8th throw:\n$$P = P(1 \\text{ success in } 7) \\times P(\\text{success on 8th})$$\n$$P = 7 \\times \\left(\\frac{1}{6}\\right)^2 \\times \\left(\\frac{5}{6}\\right)^6$$",
+        "Step 4: Compute the numerical value:\n$$\\left(\\frac{1}{6}\\right)^2 = \\frac{1}{36}$$\n$$\\left(\\frac{5}{6}\\right)^6 = \\frac{15625}{46656}$$\n$$P = 7 \\times \\frac{15625}{1679616} = \\frac{109375}{1679616} \\approx 0.065119... \\approx 0.0651$$\n(To 3 significant figures)."
+      ]
+    }
+  ]
+}

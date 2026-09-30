@@ -1,0 +1,40 @@
+{
+  "schema_version": "9709_math_enrichment_v7",
+  "question_id": "9709_s21_51_q1",
+  "difficulty": 2,
+  "parts": [
+    {
+      "part_id": "9709_s21_51_q1",
+      "difficulty": 2,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_s1_t_permutations_and_combinations",
+        "lesson_id": "9709_s1_t_permutations_and_combinations_m04_l03"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_handling_selection_restrictions"
+      },
+      "hints": [
+        "Identify the composition of the bag: 8 red marbles and 4 blue marbles, for a total of 12 marbles. A selection of 5 marbles is an unordered combination.",
+        "The condition 'at least 4 marbles of the same colour' means the selection must contain either at least 4 red marbles or at least 4 blue marbles.",
+        "List all mutually exclusive cases: Case 1 is 4 red and 1 blue; Case 2 is 5 red and 0 blue; Case 3 is 4 blue and 1 red (note that 5 blue is impossible since there are only 4 blue marbles).",
+        "Calculate the combinations for each case using $\\binom{n}{r}$ and sum the results using the addition principle."
+      ],
+      "walkthrough": [
+        "Identify the pool of marbles: 8 red marbles and 4 blue marbles. We need to select 5 marbles with at least 4 of the same colour.",
+        "Partition into three mutually exclusive valid scenarios:\n- Scenario 1 (4 Red, 1 Blue):\n$$\\binom{8}{4} \\times \\binom{4}{1} = 70 \\times 4 = 280$$\n- Scenario 2 (5 Red, 0 Blue):\n$$\\binom{8}{5} = \\frac{8 \\times 7 \\times 6}{3 \\times 2 \\times 1} = 56$$\n- Scenario 3 (4 Blue, 1 Red):\n$$\\binom{4}{4} \\times \\binom{8}{1} = 1 \\times 8 = 8$$\nNote that 5 Blue is impossible because there are only 4 blue marbles in the bag.",
+        "Apply the addition principle of counting by summing the number of selections from each scenario:\n$$\\text{Total selections} = 280 + 56 + 8 = 344$$"
+      ],
+      "teacher_walkthrough": [
+        "Step 1: Understand the setup and the restriction.\nThere are 12 marbles in the bag: 8 red and 4 blue. Each marble has a different size, so each marble is distinct. We are selecting a group of 5 marbles without regard to order, which means we use combinations $\\binom{n}{r}$.",
+        "Step 2: Interpret 'at least 4 marbles of the same colour'.\nThis requirement can be satisfied in two ways: either the selection has at least 4 red marbles, or it has at least 4 blue marbles. Let us examine each possibility:\n- Red colour: Can we have 4 red marbles? Yes, with 1 blue marble ($4 + 1 = 5$). Can we have 5 red marbles? Yes, with 0 blue marbles ($5 + 0 = 5$).\n- Blue colour: Can we have 4 blue marbles? Yes, with 1 red marble ($4 + 1 = 5$). Can we have 5 blue marbles? No, because there are only 4 blue marbles available in the bag.",
+        "Step 3: Calculate the number of selections for each mutually exclusive case:\n- Case 1: Choose 4 red from 8 and 1 blue from 4:\n$$\\binom{8}{4} \\times \\binom{4}{1} = \\frac{8 \\times 7 \\times 6 \\times 5}{4 \\times 3 \\times 2 \\times 1} \\times 4 = 70 \\times 4 = 280$$\n- Case 2: Choose 5 red from 8 and 0 blue from 4:\n$$\\binom{8}{5} \\times \\binom{4}{0} = \\binom{8}{3} \\times 1 = \\frac{8 \\times 7 \\times 6}{3 \\times 2 \\times 1} = 56$$\n- Case 3: Choose 1 red from 8 and 4 blue from 4:\n$$\\binom{8}{1} \\times \\binom{4}{4} = 8 \\times 1 = 8$$",
+        "Step 4: Sum the three cases:\nBecause these three scenarios are completely mutually exclusive and cover every valid combination:\n$$\\text{Total} = 280 + 56 + 8 = 344$$\nThere are 344 different selections."
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      }
+    }
+  ]
+}

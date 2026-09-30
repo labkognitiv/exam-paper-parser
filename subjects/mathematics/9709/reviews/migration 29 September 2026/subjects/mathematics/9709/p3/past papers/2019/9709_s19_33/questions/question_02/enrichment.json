@@ -1,0 +1,38 @@
+{
+  "schema_version": "9709_math_enrichment_v7",
+  "question_id": "9709_s19_33_q2",
+  "difficulty": 3,
+  "parts": [
+    {
+      "part_id": "9709_s19_33_q2",
+      "difficulty": 3,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_p3_t_trigonometry",
+        "lesson_id": "9709_p3_t_trigonometry_m01_l03"
+      },
+      "skills": {
+        "primary_skill_id": "9709_p3_skill_integration_by_parts"
+      },
+      "hints": [
+        "Apply integration by parts twice, first choosing $u=x^2$ and $dv=\\cos2x\\,dx$.",
+        "This gives a boundary term involving $x^2\\sin2x$ and a remaining integral $\\int x\\sin2x\\,dx$.",
+        "Integrate the remaining product by parts to obtain an antiderivative containing $x^2\\sin2x$, $x\\cos2x$, and $\\sin2x$.",
+        "Evaluate at $x=\\pi/4$ and $x=0$ using exact trigonometric values, then simplify to the stated form."
+      ],
+      "walkthrough": [
+        "Use integration by parts $\\int u v' = uv - \\int u' v$ on $\\int x^2\\cos 2x\\,\\mathrm{d}x$:\nLet $u = x^2 \\implies u' = 2x$, and $v' = \\cos 2x \\implies v = \\dfrac{1}{2}\\sin 2x$:\n$$\\int x^2\\cos 2x\\,\\mathrm{d}x = x^2\\left(\\dfrac{1}{2}\\sin 2x\\right) - \\int (2x)\\left(\\dfrac{1}{2}\\sin 2x\\right)\\mathrm{d}x = \\dfrac{1}{2}x^2\\sin 2x - \\int x\\sin 2x\\,\\mathrm{d}x$$",
+        "Apply integration by parts to the remaining integral $\\int x\\sin 2x\\,\\mathrm{d}x$:\nLet $u = x \\implies u' = 1$, and $v' = \\sin 2x \\implies v = -\\dfrac{1}{2}\\cos 2x$:\n$$\\int x\\sin 2x\\,\\mathrm{d}x = x\\left(-\\dfrac{1}{2}\\cos 2x\\right) - \\int 1 \\cdot \\left(-\\dfrac{1}{2}\\cos 2x\\right)\\mathrm{d}x$$\n$$= -\\dfrac{1}{2}x\\cos 2x + \\dfrac{1}{2}\\int \\cos 2x\\,\\mathrm{d}x$$\n$$= -\\dfrac{1}{2}x\\cos 2x + \\dfrac{1}{4}\\sin 2x$$",
+        "Combine the two integration steps to write the complete antiderivative:\n$$\\int x^2\\cos 2x\\,\\mathrm{d}x = \\dfrac{1}{2}x^2\\sin 2x - \\left(-\\dfrac{1}{2}x\\cos 2x + \\dfrac{1}{4}\\sin 2x\\right)$$\n$$= \\dfrac{1}{2}x^2\\sin 2x + \\dfrac{1}{2}x\\cos 2x - \\dfrac{1}{4}\\sin 2x$$",
+        "Set up the limits of integration from $0$ to $\\dfrac{1}{4}\\pi$:\n$$\\left[\\dfrac{1}{2}x^2\\sin 2x + \\dfrac{1}{2}x\\cos 2x - \\dfrac{1}{4}\\sin 2x\\right]_0^{\\frac{1}{4}\\pi}$$",
+        "Evaluate at the upper limit $x = \\dfrac{1}{4}\\pi$:\n$$2x = 2\\left(\\dfrac{1}{4}\\pi\\right) = \\dfrac{1}{2}\\pi \\implies \\sin 2x = \\sin\\left(\\dfrac{1}{2}\\pi\\right) = 1, \\quad \\cos 2x = \\cos\\left(\\dfrac{1}{2}\\pi\\right) = 0$$\n$$x^2 = \\left(\\dfrac{1}{4}\\pi\\right)^2 = \\dfrac{\\pi^2}{16}$$\n$$\\text{At } x = \\dfrac{1}{4}\\pi: \\quad \\dfrac{1}{2}\\left(\\dfrac{\\pi^2}{16}\\right)(1) + \\dfrac{1}{2}\\left(\\dfrac{1}{4}\\pi\\right)(0) - \\dfrac{1}{4}(1) = \\dfrac{\\pi^2}{32} - \\dfrac{1}{4} = \\dfrac{\\pi^2 - 8}{32}$$",
+        "Evaluate at the lower limit $x = 0$:\n$$\\text{At } x = 0: \\quad \\dfrac{1}{2}(0)^2(0) + \\dfrac{1}{2}(0)(1) - \\dfrac{1}{4}(0) = 0$$",
+        "Subtract the lower limit value from the upper limit value:\n$$\\text{Integral} = \\dfrac{\\pi^2 - 8}{32} - 0 = \\dfrac{1}{32}(\\pi^2 - 8)$$\nThis proves the required result."
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      }
+    }
+  ]
+}

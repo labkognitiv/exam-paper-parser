@@ -1,0 +1,101 @@
+{
+  "schema_version": "9709_math_enrichment_v7",
+  "question_id": "9709_s25_53_q3",
+  "difficulty": 3,
+  "parts": [
+    {
+      "part_id": "9709_s25_53_q3_a",
+      "difficulty": 1,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_s1_t_discrete_random_variables",
+        "lesson_id": "9709_s1_t_discrete_random_variables_m04_l01"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_calculating_geometric_distribution_probabilities"
+      },
+      "hints": [
+        "The random variable X follows a geometric distribution with success probability p = 1/6 and failure probability q = 5/6.",
+        "Use the formula P(X = r) = q^(r - 1) * p for r = 8.",
+        "Calculate (5/6)^7 * (1/6) = (78125 / 279936) * (1/6) = 78125 / 1679616 = 0.0465 (3 s.f.)."
+      ],
+      "walkthrough": [
+        "State the distribution of $X$:\n$$X \\sim \\operatorname{Geo}\\left(\\frac{1}{6}\\right), \\quad p = \\frac{1}{6}, \\quad q = \\frac{5}{6}$$",
+        "Apply the geometric probability formula for $X = 8$:\n$$\\mathrm{P}(X = 8) = q^7 p = \\left(\\frac{5}{6}\\right)^7 \\left(\\frac{1}{6}\\right)$$\n$$\\mathrm{P}(X = 8) = \\frac{78125}{279936} \\times \\frac{1}{6} = \\frac{78125}{1679616} \\approx 0.0465\\text{ (3 s.f.)}$$"
+      ],
+      "teacher_walkthrough": [
+        "Step 1: Identify the distribution:\nThe dice is rolled repeatedly until a 3 is obtained.\nSuccess = obtaining a 3, with probability $p = \\frac{1}{6}$.\nFailure = obtaining any other number, with probability $q = 1 - \\frac{1}{6} = \\frac{5}{6}$.\n$X$ is the number of throws required to obtain the first 3:\n$$X \\sim \\operatorname{Geo}\\left(\\frac{1}{6}\\right)$$",
+        "Step 2: Apply the geometric probability mass function:\n$$\\mathrm{P}(X = r) = q^{r-1} p$$\nFor $r = 8$:\n$$\\mathrm{P}(X = 8) = \\left(\\frac{5}{6}\\right)^7 \\left(\\frac{1}{6}\\right)$$",
+        "Step 3: Evaluate numerically:\n$$5^7 = 78125$$\n$$6^7 = 279936$$\n$$6^8 = 1679616$$\n$$\\mathrm{P}(X = 8) = \\frac{78125}{1679616} \\approx 0.0465139\\dots$$\nRounding to 3 significant figures gives $0.0465$."
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      }
+    },
+    {
+      "part_id": "9709_s25_53_q3_b",
+      "difficulty": 2,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_s1_t_discrete_random_variables",
+        "lesson_id": "9709_s1_t_discrete_random_variables_m04_l01"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_calculating_geometric_distribution_probabilities"
+      },
+      "hints": [
+        "The strict inequality P(X < 9) means P(X <= 8).",
+        "Use the cumulative geometric formula: P(X <= r) = 1 - q^r, where q = 5/6 and r = 8.",
+        "Calculate 1 - (5/6)^8 = 1 - (390625 / 1679616) = 1288991 / 1679616 = 0.767 (3 s.f.)."
+      ],
+      "walkthrough": [
+        "Rewrite the inequality for integer $X$:\n$$\\mathrm{P}(X < 9) = \\mathrm{P}(X \\le 8)$$",
+        "Use the cumulative probability formula $1 - q^8$ for $q = \\frac{5}{6}$:\n$$\\mathrm{P}(X \\le 8) = 1 - \\left(\\frac{5}{6}\\right)^8 = 1 - \\frac{390625}{1679616} = \\frac{1288991}{1679616} \\approx 0.767\\text{ (3 s.f.)}$$"
+      ],
+      "teacher_walkthrough": [
+        "Step 1: Translate the inequality:\nSince $X$ is a discrete random variable taking integer values $1, 2, 3, \\dots$,\n$$\\mathrm{P}(X < 9) = \\mathrm{P}(X \\le 8)$$",
+        "Step 2: Use the complementary event:\nThe event $X \\le 8$ means that at least one 3 is rolled within the first 8 throws.\nThe complement of this event is that NO 3 is rolled in the first 8 throws:\n$$\\mathrm{P}(X \\le 8) = 1 - \\mathrm{P}(X > 8) = 1 - q^8$$",
+        "Step 3: Evaluate with $q = \\frac{5}{6}$:\n$$\\left(\\frac{5}{6}\\right)^8 = \\frac{390625}{1679616} \\approx 0.232568$$\n$$\\mathrm{P}(X < 9) = 1 - 0.232568 = 0.767432\\dots$$\nRounding to 3 significant figures gives $0.767$."
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      }
+    },
+    {
+      "part_id": "9709_s25_53_q3_c",
+      "difficulty": 3,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_s1_t_discrete_random_variables",
+        "lesson_id": "9709_s1_t_discrete_random_variables_m03_l03"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_calculating_binomial_tail_probabilities"
+      },
+      "hints": [
+        "A 3 is obtained for the second time before the 6th throw if and only if at least two 3s occur in the first 5 throws.",
+        "Model the number of 3s in the first 5 throws as a binomial variable: Y ~ B(5, 1/6).",
+        "Find P(Y >= 2) using the complement: 1 - [P(Y = 0) + P(Y = 1)].",
+        "Calculate P(Y = 0) = (5/6)^5 = 3125/7776, and P(Y = 1) = 5 * (1/6) * (5/6)^4 = 3125/7776. Subtract from 1: 1 - (6250/7776) = 1526/7776 = 763/3888 = 0.196 (3 s.f.)."
+      ],
+      "walkthrough": [
+        "Reframe the condition: obtaining a second 3 before the 6th throw means getting at least two 3s in the first 5 throws ($Y \\ge 2$ where $Y \\sim B(5, 1/6)$):\n$$\\mathrm{P}(\\text{2nd three before 6th throw}) = 1 - [\\mathrm{P}(Y = 0) + \\mathrm{P}(Y = 1)]$$",
+        "Compute the binomial probabilities for 0 and 1 success:\n$$\\mathrm{P}(Y = 0) = \\left(\\frac{5}{6}\\right)^5 = \\frac{3125}{7776}$$\n$$\\mathrm{P}(Y = 1) = \\binom{5}{1} \\left(\\frac{1}{6}\\right)^1 \\left(\\frac{5}{6}\\right)^4 = 5 \\times \\frac{625}{7776} = \\frac{3125}{7776}$$",
+        "Evaluate the complement:\n$$\\mathrm{P}(Y \\ge 2) = 1 - \\frac{6250}{7776} = \\frac{1526}{7776} = \\frac{763}{3888} \\approx 0.196\\text{ (3 s.f.)}$$"
+      ],
+      "teacher_walkthrough": [
+        "Step 1: Understand the equivalence:\nA 3 is obtained for the second time before the 6th throw if the second 3 occurs on throw 2, 3, 4, or 5.\nThis is mathematically equivalent to having at least two 3s in the first 5 throws.",
+        "Step 2: Define a binomial model for the first 5 throws:\nLet $Y$ be the number of 3s obtained in $n = 5$ throws, where each throw yields a 3 with probability $p = \\frac{1}{6}$ and failure $q = \\frac{5}{6}$:\n$$Y \\sim B\\left(5, \\frac{1}{6}\\right)$$\nWe require $\\mathrm{P}(Y \\ge 2)$.",
+        "Step 3: Use the complement rule:\n$$\\mathrm{P}(Y \\ge 2) = 1 - [\\mathrm{P}(Y = 0) + \\mathrm{P}(Y = 1)]$$",
+        "Step 4: Compute the terms:\n- Zero 3s in 5 throws:\n$$\\mathrm{P}(Y = 0) = \\binom{5}{0} \\left(\\frac{1}{6}\\right)^0 \\left(\\frac{5}{6}\\right)^5 = \\frac{3125}{7776} \\approx 0.401878$$\n- Exactly one 3 in 5 throws:\n$$\\mathrm{P}(Y = 1) = \\binom{5}{1} \\left(\\frac{1}{6}\\right)^1 \\left(\\frac{5}{6}\\right)^4 = 5 \\times \\frac{1}{6} \\times \\frac{625}{1296} = \\frac{3125}{7776} \\approx 0.401878$$\n- Sum of complement:\n$$\\mathrm{P}(Y = 0) + \\mathrm{P}(Y = 1) = \\frac{3125 + 3125}{7776} = \\frac{6250}{7776} = \\frac{3125}{3888} \\approx 0.803755$$",
+        "Step 5: Subtract from 1:\n$$\\mathrm{P}(Y \\ge 2) = 1 - \\frac{3125}{3888} = \\frac{763}{3888} \\approx 0.196245\\dots$$\nRounding to 3 significant figures gives $0.196$."
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      }
+    }
+  ]
+}

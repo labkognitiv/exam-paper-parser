@@ -1,0 +1,70 @@
+{
+  "schema_version": "9709_math_enrichment_v7",
+  "question_id": "9709_s22_33_q4",
+  "difficulty": 3,
+  "parts": [
+    {
+      "part_id": "9709_s22_33_q4_a",
+      "difficulty": 3,
+      "practice_tier": "revision",
+      "mapping": {
+        "topic_id": "9709_p3_t_differential_equations",
+        "lesson_id": "9709_p3_t_differential_equations_m01_l02"
+      },
+      "skills": {
+        "primary_skill_id": "9709_p3_skill_differentiation"
+      },
+      "hints": [
+        "Differentiate $e^{-4x}\\tan x$ using the product rule and the chain rule on $e^{-4x}$.",
+        "Factor $e^{-4x}$ from the derivative, leaving a combination of $\\sec^2x$ and $\\tan x$.",
+        "Rewrite $\\tan x$ as $\\sin x\\cos x\\,\\sec^2x$ so that $\\sec^2x$ is a common factor.",
+        "Use $2\\sin x\\cos x=\\sin2x$ and compare coefficients with $\\sec^2x(a+b\\sin2x)e^{-4x}$."
+      ],
+      "walkthrough": [
+        "Apply the product rule $\\dfrac{\\mathrm{d}}{\\mathrm{d}x}(uv) = u'v + uv'$ to $y = \\mathrm{e}^{-4x}\\tan x$:\n$$\\dfrac{\\mathrm{d}y}{\\mathrm{d}x} = \\dfrac{\\mathrm{d}}{\\mathrm{d}x}\\!\\left(\\mathrm{e}^{-4x}\\right)\\tan x + \\mathrm{e}^{-4x}\\dfrac{\\mathrm{d}}{\\mathrm{d}x}(\\tan x)$$",
+        "Compute the derivatives of each factor using the chain rule for the exponential term:\n$$\\dfrac{\\mathrm{d}}{\\mathrm{d}x}\\!\\left(\\mathrm{e}^{-4x}\\right) = -4\\mathrm{e}^{-4x}, \\quad \\dfrac{\\mathrm{d}}{\\mathrm{d}x}(\\tan x) = \\sec^2 x$$",
+        "Substitute these derivatives into the product rule expression:\n$$\\dfrac{\\mathrm{d}y}{\\mathrm{d}x} = -4\\mathrm{e}^{-4x}\\tan x + \\mathrm{e}^{-4x}\\sec^2 x = \\mathrm{e}^{-4x}(\\sec^2 x - 4\\tan x)$$",
+        "Factor out $\\sec^2 x$ from inside the parentheses:\n$$\\dfrac{\\mathrm{d}y}{\\mathrm{d}x} = \\sec^2 x\\left(1 - \\dfrac{4\\tan x}{\\sec^2 x}\\right)\\mathrm{e}^{-4x}$$",
+        "Convert $\\dfrac{\\tan x}{\\sec^2 x}$ into sine and cosine:\n$$\\dfrac{\\tan x}{\\sec^2 x} = \\dfrac{\\sin x / \\cos x}{1 / \\cos^2 x} = \\dfrac{\\sin x}{\\cos x} \\cdot \\cos^2 x = \\sin x \\cos x$$",
+        "Use the double angle identity $2\\sin x \\cos x = \\sin 2x$:\n$$4\\left(\\dfrac{\\tan x}{\\sec^2 x}\\right) = 4\\sin x \\cos x = 2(2\\sin x \\cos x) = 2\\sin 2x$$",
+        "Substitute back to obtain the required form:\n$$\\dfrac{\\mathrm{d}y}{\\mathrm{d}x} = \\sec^2 x(1 - 2\\sin 2x)\\mathrm{e}^{-4x}$$",
+        "Identify the constants by matching with $\\sec^2 x(a + b\\sin 2x)\\mathrm{e}^{-4x}$:\n$$a = 1, \\quad b = -2$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      }
+    },
+    {
+      "part_id": "9709_s22_33_q4_b",
+      "difficulty": 3,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_p3_t_differentiation",
+        "lesson_id": "9709_p3_t_differentiation_m01_l02"
+      },
+      "skills": {
+        "primary_skill_id": "9709_p3_skill_finding_stationary_points"
+      },
+      "hints": [
+        "At a stationary point, set the derivative from part (a) equal to zero.",
+        "On $0\\leq x<\\frac\\pi2$, the factors $e^{-4x}$ and $\\sec^2x$ are non-zero, so solve $1-2\\sin2x=0$.",
+        "Since $0\\leq2x<\\pi$, find both exact angles for $2x$ whose sine is $\\frac12$.",
+        "Divide both angles by $2$ and retain the exact radian values in the stated interval."
+      ],
+      "walkthrough": [
+        "Set the derivative from part (a) equal to zero to locate the stationary points:\n$$\\sec^2 x(1 - 2\\sin 2x)\\mathrm{e}^{-4x} = 0$$",
+        "Analyze the non-zero factors for $x$ in the interval $0 \\leq x < \\dfrac{1}{2}\\pi$:\nSince $\\mathrm{e}^{-4x} > 0$ for all real $x$, and $\\sec^2 x = 1 + \\tan^2 x \\geq 1 > 0$ for all $x \\in [0, \\dfrac{1}{2}\\pi)$, neither can equal zero.",
+        "Set the remaining bracketed term to zero:\n$$1 - 2\\sin 2x = 0 \\implies 2\\sin 2x = 1 \\implies \\sin 2x = \\dfrac{1}{2}$$",
+        "Determine the interval for the angle $2x$:\nGiven $0 \\leq x < \\dfrac{1}{2}\\pi$, multiply by $2$ to obtain:\n$$0 \\leq 2x < \\pi$$",
+        "Find the two solutions for $2x$ in $[0, \\pi]$ where $\\sin 2x = \\dfrac{1}{2}$:\n$$2x = \\dfrac{\\pi}{6} \\quad \\text{or} \\quad 2x = \\pi - \\dfrac{\\pi}{6} = \\dfrac{5\\pi}{6}$$",
+        "Divide each angle by $2$ to find the exact $x$-coordinates:\n$$x_1 = \\dfrac{\\pi / 6}{2} = \\dfrac{\\pi}{12}$$\n$$x_2 = \\dfrac{5\\pi / 6}{2} = \\dfrac{5\\pi}{12}$$",
+        "State the exact $x$-coordinates of the two stationary points:\n$$x = \\dfrac{\\pi}{12} \\quad \\text{and} \\quad x = \\dfrac{5\\pi}{12}$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      }
+    }
+  ]
+}

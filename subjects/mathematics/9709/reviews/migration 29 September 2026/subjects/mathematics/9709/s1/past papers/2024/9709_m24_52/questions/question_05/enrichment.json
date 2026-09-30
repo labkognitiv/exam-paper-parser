@@ -1,0 +1,107 @@
+{
+  "schema_version": "9709_math_enrichment_v7",
+  "question_id": "9709_m24_52_q5",
+  "difficulty": 4,
+  "parts": [
+    {
+      "part_id": "9709_m24_52_q5_a",
+      "difficulty": 3,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_s1_t_discrete_random_variables",
+        "lesson_id": "9709_s1_t_discrete_random_variables_m01_l01"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_constructing_discrete_probability_distributions"
+      },
+      "hints": [
+        "Anil scores points per game: Win = 2, Draw = 1, Loss = 0, with probabilities 0.5, 0.3, and 0.2 respectively.",
+        "Identify all combinations of 3 game outcomes that yield a total score of X = 2: (1 win and 2 losses) or (2 draws and 1 loss).",
+        "Count the number of permutations for each combination: 3! / (1! * 2!) = 3 ways for WLL, and 3! / (2! * 1!) = 3 ways for DDL.",
+        "Calculate the probabilities: 3 * (0.5) * (0.2)^2 + 3 * (0.3)^2 * (0.2) = 0.060 + 0.054 = 0.114."
+      ],
+      "walkthrough": [
+        "Identify the mutually exclusive outcome combinations that give a total score of $X = 2$ in $3$ games:\n- One Win and two Losses ($\\mathrm{WLL}$ in any order): points $2 + 0 + 0 = 2$\n- Two Draws and one Loss ($\\mathrm{DDL}$ in any order): points $1 + 1 + 0 = 2$",
+        "Calculate the probability for each scenario taking into account the number of arrangements:\n$$P(\\mathrm{WLL}) = \\binom{3}{1} P(\\mathrm{W}) [P(\\mathrm{L})]^2 = 3 \\times 0.5 \\times (0.2)^2 = 3 \\times 0.5 \\times 0.04 = 0.06$$\n$$P(\\mathrm{DDL}) = \\binom{3}{2} [P(\\mathrm{D})]^2 P(\\mathrm{L}) = 3 \\times (0.3)^2 \\times 0.2 = 3 \\times 0.09 \\times 0.2 = 0.054$$",
+        "Sum the mutually exclusive probabilities to verify the given result:\n$$P(X = 2) = 0.06 + 0.054 = 0.114$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      },
+      "teacher_walkthrough": [
+        "Step 1: Understand the scoring rules and individual game probabilities:\n- Win ($\\mathrm{W}$): $2$ points, $P(\\mathrm{W}) = 0.5$\n- Draw ($\\mathrm{D}$): $1$ point, $P(\\mathrm{D}) = 0.3$\n- Loss ($\\mathrm{L}$): $0$ points, $P(\\mathrm{L}) = 0.2$\nThe tournament consists of $3$ independent games.",
+        "Step 2: Determine which combinations of results give a total score of X = 2:\nLet the points from the three games be $s_1, s_2, s_3$ such that $s_1 + s_2 + s_3 = 2$ where each $s_i \\in \\{0, 1, 2\\}$:\n1. Points $(2, 0, 0)$: one Win and two Losses ($\\mathrm{W, L, L}$).\n2. Points $(1, 1, 0)$: two Draws and one Loss ($\\mathrm{D, D, L}$).\n(Note: three games cannot include any other combination summing to $2$, because $(2, 1, \\text{anything}) \\ge 3$).",
+        "Step 3: Calculate the probability of scenario 1 (one Win and two Losses):\nThe outcomes can appear in $\\frac{3!}{1! 2!} = 3$ orders ($\\mathrm{WLL, LWL, LLW}$):\n$$P(\\text{1 W, 2 L}) = 3 \\times P(\\mathrm{W}) \\times P(\\mathrm{L}) \\times P(\\mathrm{L})$$\n$$P(\\text{1 W, 2 L}) = 3 \\times 0.5 \\times (0.2)^2 = 3 \\times 0.5 \\times 0.04 = 0.060$$",
+        "Step 4: Calculate the probability of scenario 2 (two Draws and one Loss):\nThe outcomes can appear in $\\frac{3!}{2! 1!} = 3$ orders ($\\mathrm{DDL, DLD, LDD}$):\n$$P(\\text{2 D, 1 L}) = 3 \\times [P(\\mathrm{D})]^2 \\times P(\\mathrm{L})$$\n$$P(\\text{2 D, 1 L}) = 3 \\times (0.3)^2 \\times 0.2 = 3 \\times 0.09 \\times 0.2 = 0.054$$",
+        "Step 5: Sum the probabilities of these mutually exclusive events:\n$$P(X = 2) = P(\\text{1 W, 2 L}) + P(\\text{2 D, 1 L}) = 0.060 + 0.054 = 0.114$$"
+      ]
+    },
+    {
+      "part_id": "9709_m24_52_q5_b",
+      "difficulty": 4,
+      "practice_tier": "revision",
+      "mapping": {
+        "topic_id": "9709_s1_t_discrete_random_variables",
+        "lesson_id": "9709_s1_t_discrete_random_variables_m01_l01"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_constructing_discrete_probability_distributions"
+      },
+      "hints": [
+        "The possible total points X that Anil can score in 3 games range from 0 (all losses) to 6 (all wins).",
+        "Find P(X = 0): 3 losses, so (0.2)^3 = 0.008.",
+        "Find P(X = 1): 1 draw and 2 losses, so 3 * (0.3) * (0.2)^2 = 0.036.",
+        "Complete each remaining probability for X = 3, 4, 5, 6, verifying that all probabilities sum to 1."
+      ],
+      "walkthrough": [
+        "Calculate the probabilities for each possible value of $X \\in \\{0, 1, 2, 3, 4, 5, 6\\}$:\n- $P(X = 0) = P(\\mathrm{LLL}) = (0.2)^3 = 0.008$\n- $P(X = 1) = P(\\mathrm{DLL}) = 3 \\times 0.3 \\times (0.2)^2 = 0.036$\n- $P(X = 2) = 0.114$ (from part a)\n- $P(X = 3) = P(\\mathrm{WDL}) + P(\\mathrm{DDD}) = 6(0.5)(0.3)(0.2) + (0.3)^3 = 0.180 + 0.027 = 0.207$\n- $P(X = 4) = P(\\mathrm{WWL}) + P(\\mathrm{WDD}) = 3(0.5)^2(0.2) + 3(0.5)(0.3)^2 = 0.150 + 0.135 = 0.285$\n- $P(X = 5) = P(\\mathrm{WWD}) = 3(0.5)^2(0.3) = 0.225$\n- $P(X = 6) = P(\\mathrm{WWW}) = (0.5)^3 = 0.125$",
+        "State the completed probability distribution table:\n$$\\begin{array}{|c|c|c|c|c|c|c|c|}\n\\hline\nx & 0 & 1 & 2 & 3 & 4 & 5 & 6 \\\\\n\\hline\nP(X = x) & 0.008 & 0.036 & 0.114 & 0.207 & 0.285 & 0.225 & 0.125 \\\\\n\\hline\n\\end{array}$$",
+        "Verify the sum of probabilities:\n$$0.008 + 0.036 + 0.114 + 0.207 + 0.285 + 0.225 + 0.125 = 1.000$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      },
+      "teacher_walkthrough": [
+        "Step 1: Identify all possible values of the random variable X:\nSince each game awards $0, 1,$ or $2$ points, over $3$ games the minimum possible score is $0 \\times 3 = 0$ and the maximum possible score is $2 \\times 3 = 6$.\nThus, $X \\in \\{0, 1, 2, 3, 4, 5, 6\\}$.",
+        "Step 2: Systematically evaluate the probability of each score:\n1. $X = 0$: $3$ losses ($\\mathrm{LLL}$)\n$$P(X = 0) = (0.2)^3 = 0.008$$\n2. $X = 1$: $1$ draw and $2$ losses ($\\mathrm{DLL}$ in $\\frac{3!}{2!} = 3$ orders)\n$$P(X = 1) = 3 \\times 0.3 \\times (0.2)^2 = 3 \\times 0.3 \\times 0.04 = 0.036$$\n3. $X = 2$: from part (a), $P(X = 2) = 0.114$.\n4. $X = 3$: two cases:\n   - $1$ win, $1$ draw, $1$ loss ($\\mathrm{WDL}$ in $3! = 6$ orders): $6 \\times 0.5 \\times 0.3 \\times 0.2 = 0.180$\n   - $3$ draws ($\\mathrm{DDD}$ in $1$ order): $(0.3)^3 = 0.027$\n   $$P(X = 3) = 0.180 + 0.027 = 0.207$$\n5. $X = 4$: two cases:\n   - $2$ wins, $1$ loss ($\\mathrm{WWL}$ in $3$ orders): $3 \\times (0.5)^2 \\times 0.2 = 3 \\times 0.25 \\times 0.2 = 0.150$\n   - $1$ win, $2$ draws ($\\mathrm{WDD}$ in $3$ orders): $3 \\times 0.5 \\times (0.3)^2 = 3 \\times 0.5 \\times 0.09 = 0.135$\n   $$P(X = 4) = 0.150 + 0.135 = 0.285$$\n6. $X = 5$: $2$ wins and $1$ draw ($\\mathrm{WWD}$ in $3$ orders)\n$$P(X = 5) = 3 \\times (0.5)^2 \\times 0.3 = 3 \\times 0.25 \\times 0.3 = 0.225$$\n7. $X = 6$: $3$ wins ($\\mathrm{WWW}$ in $1$ order)\n$$P(X = 6) = (0.5)^3 = 0.125$$",
+        "Step 3: Tabulate the full probability distribution:\n$$\\begin{array}{|c|c|c|c|c|c|c|c|}\n\\hline\nx & 0 & 1 & 2 & 3 & 4 & 5 & 6 \\\\\n\\hline\nP(X = x) & 0.008 & 0.036 & 0.114 & 0.207 & 0.285 & 0.225 & 0.125 \\\\\n\\hline\n\\end{array}$$",
+        "Step 4: Check total probability axiom:\n$$\\sum_{x=0}^6 P(X=x) = 0.008 + 0.036 + 0.114 + 0.207 + 0.285 + 0.225 + 0.125 = 1.000$$"
+      ]
+    },
+    {
+      "part_id": "9709_m24_52_q5_c",
+      "difficulty": 2,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_s1_t_discrete_random_variables",
+        "lesson_id": "9709_s1_t_discrete_random_variables_m02_l02"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_calculating_variance_of_a_random_variable"
+      },
+      "hints": [
+        "Use the variance formula: Var(X) = E(X^2) - [E(X)]^2.",
+        "Calculate E(X) = sum(x * P(X = x)). Alternatively, for 3 identical games, E(X) = 3 * [2*(0.5) + 1*(0.3) + 0*(0.2)] = 3.9.",
+        "Calculate E(X^2) = sum(x^2 * P(X = x)).",
+        "Substitute E(X^2) and E(X) into the variance formula: Var(X) = 17.04 - (3.9)^2."
+      ],
+      "walkthrough": [
+        "Calculate the expectation $E(X)$ using $E(X) = \\sum x P(X = x)$:\n$$E(X) = 0(0.008) + 1(0.036) + 2(0.114) + 3(0.207) + 4(0.285) + 5(0.225) + 6(0.125)$$\n$$E(X) = 0 + 0.036 + 0.228 + 0.621 + 1.140 + 1.125 + 0.750 = 3.9$$",
+        "Calculate $E(X^2)$ using $E(X^2) = \\sum x^2 P(X = x)$:\n$$E(X^2) = 0^2(0.008) + 1^2(0.036) + 2^2(0.114) + 3^2(0.207) + 4^2(0.285) + 5^2(0.225) + 6^2(0.125)$$\n$$E(X^2) = 0 + 0.036 + 0.456 + 1.863 + 4.560 + 5.625 + 4.500 = 17.04$$",
+        "Compute the variance $\\operatorname{Var}(X) = E(X^2) - [E(X)]^2$:\n$$\\operatorname{Var}(X) = 17.04 - (3.9)^2 = 17.04 - 15.21 = 1.83$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      },
+      "teacher_walkthrough": [
+        "Step 1: State the formula for the variance of a discrete random variable:\n$$\\operatorname{Var}(X) = E(X^2) - [E(X)]^2$$",
+        "Step 2: Calculate the expected value E(X):\n$$E(X) = \\sum x \\, P(X = x)$$\nUsing the probability distribution from part (b):\n$$E(X) = 0(0.008) + 1(0.036) + 2(0.114) + 3(0.207) + 4(0.285) + 5(0.225) + 6(0.125)$$\n$$E(X) = 0 + 0.036 + 0.228 + 0.621 + 1.140 + 1.125 + 0.750 = 3.9$$\n(Alternatively, for a single game $Y$, $E(Y) = 2(0.5) + 1(0.3) + 0(0.2) = 1.3$. Over 3 games, $E(X) = 3 \\times 1.3 = 3.9$).",
+        "Step 3: Calculate the expected value of X squared E(X^2):\n$$E(X^2) = \\sum x^2 \\, P(X = x)$$\n$$E(X^2) = 0^2(0.008) + 1^2(0.036) + 2^2(0.114) + 3^2(0.207) + 4^2(0.285) + 5^2(0.225) + 6^2(0.125)$$\nEvaluate each term:\n- $0 \\times 0.008 = 0$\n- $1 \\times 0.036 = 0.036$\n- $4 \\times 0.114 = 0.456$\n- $9 \\times 0.207 = 1.863$\n- $16 \\times 0.285 = 4.560$\n- $25 \\times 0.225 = 5.625$\n- $36 \\times 0.125 = 4.500$\nSum these terms:\n$$E(X^2) = 0 + 0.036 + 0.456 + 1.863 + 4.560 + 5.625 + 4.500 = 17.04$$",
+        "Step 4: Subtract the square of the mean from E(X^2):\n$$[E(X)]^2 = (3.9)^2 = 15.21$$\n$$\\operatorname{Var}(X) = 17.04 - 15.21 = 1.83$$"
+      ]
+    }
+  ]
+}

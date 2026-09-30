@@ -1,0 +1,101 @@
+{
+  "schema_version": "9709_math_enrichment_v7",
+  "question_id": "9709_s24_52_q1",
+  "difficulty": 3,
+  "parts": [
+    {
+      "part_id": "9709_s24_52_q1_a",
+      "difficulty": 1,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_s1_t_discrete_random_variables",
+        "lesson_id": "9709_s1_t_discrete_random_variables_m04_l01"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_calculating_geometric_distribution_probabilities"
+      },
+      "hints": [
+        "Let X be the number of attempts up to and including Rajesh's first success: X ~ Geo(0.3).",
+        "Success for the first time on the 7th attempt requires 6 consecutive failures followed by 1 success.",
+        "Compute (1 - 0.3)^6 * 0.3 = (0.7)^6 * 0.3 to obtain 0.0353."
+      ],
+      "walkthrough": [
+        "Model the number of attempts until the first success as a Geometric distribution with $p = 0.3$ and $q = 0.7$:\n$$X \\sim \\operatorname{Geo}(0.3)$$\n$$P(X = 7) = (1 - p)^6 p = (0.7)^6 (0.3)$$",
+        "Evaluate the power and find the probability:\n$$P(X = 7) = 0.117649 \\times 0.3 = 0.0352947 \\approx 0.0353$$\n$$(0.0352 \\le p \\le 0.0353)$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      },
+      "teacher_walkthrough": [
+        "Step 1: Identify the probability model and its parameter:\nRajesh applies each year independently with constant success probability $p = 0.3$.\nThe number of attempts $X$ until his first success follows a Geometric distribution:\n$$X \\sim \\operatorname{Geo}(p) = \\operatorname{Geo}(0.3)$$\nwhere failure probability on any attempt is $q = 1 - p = 1 - 0.3 = 0.7$.",
+        "Step 2: State the geometric probability mass function:\n$$P(X = r) = q^{r-1} p = (1 - p)^{r-1} p$$",
+        "Step 3: Substitute r = 7:\n$$P(X = 7) = (0.7)^{7-1} \\times 0.3 = (0.7)^6 \\times 0.3$$",
+        "Step 4: Compute the numerical value:\n$$(0.7)^6 = 0.117649$$\n$$P(X = 7) = 0.117649 \\times 0.3 = 0.0352947 \\approx 0.0353$$\n(To 3 significant figures)."
+      ]
+    },
+    {
+      "part_id": "9709_s24_52_q1_b",
+      "difficulty": 2,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_s1_t_discrete_random_variables",
+        "lesson_id": "9709_s1_t_discrete_random_variables_m04_l01"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_calculating_geometric_distribution_probabilities"
+      },
+      "hints": [
+        "Being successful for the first time before the 6th attempt means the first success occurs on attempts 1, 2, 3, 4, or 5: P(X <= 5).",
+        "Use the cumulative geometric formula: P(X <= k) = 1 - (1 - p)^k.",
+        "Calculate 1 - (0.7)^5 to obtain 0.832."
+      ],
+      "walkthrough": [
+        "Translate 'before his 6th attempt' for $X \\sim \\operatorname{Geo}(0.3)$:\n$$P(X < 6) = P(X \\le 5)$$",
+        "Apply the cumulative distribution formula $P(X \\le k) = 1 - (1 - p)^k$ with $k = 5$ and $1 - p = 0.7$:\n$$P(X \\le 5) = 1 - (0.7)^5 = 1 - 0.16807 = 0.83193 \\approx 0.832$$\n$$(0.8319 \\le p \\le 0.832)$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      },
+      "teacher_walkthrough": [
+        "Step 1: Understand the required event:\nFor $X \\sim \\operatorname{Geo}(0.3)$, success before the 6th attempt means that the first success occurs on attempt $1, 2, 3, 4,$ or $5$:\n$$P(X < 6) = P(X \\le 5)$$",
+        "Step 2: Apply the complement of failing the first 5 attempts:\nThe only way the first success does NOT occur on or before attempt $5$ is if Rajesh fails all $5$ of his first $5$ attempts:\n$$P(X \\le 5) = 1 - P(\\text{fails first } 5 \\text{ attempts}) = 1 - q^5$$",
+        "Step 3: Substitute the failure probability q = 0.7:\n$$P(X \\le 5) = 1 - (0.7)^5$$",
+        "Step 4: Evaluate the power and subtract:\n$$(0.7)^5 = 0.16807$$\n$$P(X \\le 5) = 1 - 0.16807 = 0.83193 \\approx 0.832$$\n(To 3 significant figures)."
+      ]
+    },
+    {
+      "part_id": "9709_s24_52_q1_c",
+      "difficulty": 2,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_s1_t_discrete_random_variables",
+        "lesson_id": "9709_s1_t_discrete_random_variables_m05_l01"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_calculating_geometric_distribution_probabilities"
+      },
+      "hints": [
+        "For the second success to happen on the 10th attempt, two conditions must occur.",
+        "First, Rajesh must have exactly 1 success in his first 9 attempts: 9C1 * (0.3)^1 * (0.7)^8.",
+        "Second, Rajesh must be successful on his 10th attempt with probability 0.3.",
+        "Multiply the two results: 9 * 0.3 * (0.7)^8 * 0.3 = 9 * (0.3)^2 * (0.7)^8 = 0.0467."
+      ],
+      "walkthrough": [
+        "Decompose the event of second success on the 10th attempt into two independent events:\n1. Exactly $1$ success in the first $9$ attempts: $\\binom{9}{1} (0.3)^1 (0.7)^8$\n2. Success on the $10$th attempt: $0.3$",
+        "Multiply the two components:\n$$P = \\binom{9}{1} (0.3)^1 (0.7)^8 \\times 0.3 = 9 \\times (0.3)^2 \\times (0.7)^8$$\n$$P = 9 \\times 0.09 \\times 0.05764801 = 0.81 \\times 0.05764801 = 0.0466949 \\approx 0.0467$$\n$$(0.0466 \\le p \\le 0.0467)$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      },
+      "teacher_walkthrough": [
+        "Step 1: Understand the structure of the kth success on the rth trial:\nFor Rajesh to achieve his second success on his 10th attempt, the following two conditions must both be satisfied:\n1. In his first $9$ attempts, he must succeed exactly once (and fail $8$ times).\n2. On his 10th attempt, he must succeed.",
+        "Step 2: Calculate the probability of exactly 1 success in the first 9 attempts:\nUsing the Binomial probability formula for $n = 9, r = 1, p = 0.3, q = 0.7$:\n$$P(1 \\text{ success in } 9) = \\binom{9}{1} (0.3)^1 (0.7)^8 = 9 \\times 0.3 \\times (0.7)^8$$",
+        "Step 3: Multiply by the probability of success on the 10th attempt:\n$$P = P(1 \\text{ success in } 9) \\times P(\\text{success on 10th})$$\n$$P = 9 \\times 0.3 \\times (0.7)^8 \\times 0.3 = 9 \\times (0.3)^2 \\times (0.7)^8$$",
+        "Step 4: Compute the numerical value:\n$$(0.3)^2 = 0.09$$\n$$(0.7)^8 = 0.05764801$$\n$$P = 9 \\times 0.09 \\times 0.05764801 = 0.81 \\times 0.05764801 = 0.046694888... \\approx 0.0467$$\n(To 3 significant figures)."
+      ]
+    }
+  ]
+}

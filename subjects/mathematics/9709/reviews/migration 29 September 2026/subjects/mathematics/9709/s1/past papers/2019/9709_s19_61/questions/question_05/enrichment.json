@@ -1,0 +1,78 @@
+{
+  "schema_version": "9709_math_enrichment_v7",
+  "question_id": "9709_s19_61_q5",
+  "difficulty": 3,
+  "parts": [
+    {
+      "part_id": "9709_s19_61_q5_i",
+      "difficulty": 3,
+      "practice_tier": "revision",
+      "mapping": {
+        "topic_id": "9709_s1_t_discrete_random_variables",
+        "lesson_id": "9709_s1_t_discrete_random_variables_m03_l03"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_calculating_binomial_tail_probabilities"
+      },
+      "hints": [
+        "Model the number of bicycle owners as a binomial distribution: $X \\sim \\mathrm{B}(15, 0.65)$.",
+        "Identify that 'more than 12' corresponds to $X = 13, 14, 15$.",
+        "Apply the binomial probability formula $\\mathrm{P}(X = r) = \\binom{n}{r} p^r (1 - p)^{n - r}$ for $r = 13, 14, 15$.",
+        "Calculate each term and add them together, rounding to 3 significant figures."
+      ],
+      "walkthrough": [
+        "Model the number of bicycle owners using a binomial distribution:\n$$X \\sim \\mathrm{B}(15, 0.65)$$\nwhere $n = 15$, $p = 0.65$, and $1 - p = 0.35$.",
+        "State the tail probability expression for more than 12 children:\n$$\\mathrm{P}(X > 12) = \\mathrm{P}(X = 13) + \\mathrm{P}(X = 14) + \\mathrm{P}(X = 15)$$",
+        "Evaluate each binomial term:\n$$\\mathrm{P}(X = 13) = \\binom{15}{13} (0.65)^{13} (0.35)^2 = 105 \\times 0.00369888 \\times 0.1225 \\approx 0.047576$$\n$$\\mathrm{P}(X = 14) = \\binom{15}{14} (0.65)^{14} (0.35)^1 = 15 \\times 0.00240427 \\times 0.35 \\approx 0.012622$$\n$$\\mathrm{P}(X = 15) = \\binom{15}{15} (0.65)^{15} (0.35)^0 = 1 \\times 0.00156278 \\times 1 \\approx 0.001563$$",
+        "Sum the probabilities:\n$$\\mathrm{P}(X > 12) = 0.047576 + 0.012622 + 0.001563 = 0.061761 \\approx 0.0618 \\text{ (or } 0.0617\\text{)}$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      },
+      "teacher_walkthrough": [
+        "Let $X$ be the number of children in a sample of 15 who own a bicycle. Each child owns a bicycle with probability $p = 0.65$ independently, so $X \\sim \\mathrm{B}(15, 0.65)$.",
+        "Step 1: Write down the binomial probability formula:\n$$\\mathrm{P}(X = r) = \\binom{n}{r} p^r (1 - p)^{n - r}$$\nwith $n = 15$, $p = 0.65$, and $1 - p = 0.35$.",
+        "Step 2: 'More than 12' means $X \\in \\{13, 14, 15\\}$:\n$$\\mathrm{P}(X > 12) = \\mathrm{P}(X = 13) + \\mathrm{P}(X = 14) + \\mathrm{P}(X = 15)$$",
+        "Step 3: Compute each binomial term:\n- For $r = 13$:\n$$\\binom{15}{13} = \\frac{15 \\times 14}{2 \\times 1} = 105$$\n$$(0.65)^{13} \\approx 0.00369888, \\quad (0.35)^2 = 0.1225$$\n$$\\mathrm{P}(X = 13) = 105 \\times 0.00369888 \\times 0.1225 \\approx 0.047576$$\n- For $r = 14$:\n$$\\binom{15}{14} = 15$$\n$$(0.65)^{14} \\approx 0.00240427, \\quad (0.35)^1 = 0.35$$\n$$\\mathrm{P}(X = 14) = 15 \\times 0.00240427 \\times 0.35 \\approx 0.012622$$\n- For $r = 15$:\n$$\\binom{15}{15} = 1$$\n$$(0.65)^{15} \\approx 0.00156278, \\quad (0.35)^0 = 1$$\n$$\\mathrm{P}(X = 15) = 1 \\times 0.00156278 \\times 1 \\approx 0.001563$$",
+        "Step 4: Sum the three values:\n$$\\mathrm{P}(X > 12) = 0.047576 + 0.012622 + 0.001563 = 0.061761$$\nRounding to 3 significant figures gives $0.0618$ (or $0.0617$)."
+      ]
+    },
+    {
+      "part_id": "9709_s19_61_q5_ii",
+      "difficulty": 3,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_s1_t_the_normal_distribution",
+        "lesson_id": "9709_s1_t_the_normal_distribution_m03_l02"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_applying_a_normal_approximation"
+      },
+      "hints": [
+        "Identify the sample size $n = 250$ and success probability $p = 0.65$. Since $np = 162.5 > 5$ and $n(1-p) = 87.5 > 5$, a normal approximation is appropriate.",
+        "Calculate the mean $\\mu = np$ and variance $\\sigma^2 = np(1 - p)$.",
+        "Apply the continuity correction to the strict inequality: $\\mathrm{P}(X < 179) = \\mathrm{P}(X \\le 178) \\approx \\mathrm{P}(Y < 178.5)$.",
+        "Standardize $Y = 178.5$ using $Z = \\frac{178.5 - \\mu}{\\sigma}$ and evaluate $\\Phi(z)$ from the standard normal tables."
+      ],
+      "walkthrough": [
+        "State the approximating normal parameters and confirm validity:\n$$X \\sim \\mathrm{B}(250, 0.65)$$\n$$\\mu = np = 250 \\times 0.65 = 162.5$$\n$$\\sigma^2 = np(1 - p) = 250 \\times 0.65 \\times 0.35 = 56.875 \\implies \\sigma = \\sqrt{56.875} \\approx 7.5416$$\nSince $np = 162.5 > 5$ and $n(1 - p) = 87.5 > 5$, the normal approximation $Y \\sim \\mathrm{N}(162.5, 56.875)$ is valid.",
+        "Apply the continuity correction to the discrete condition 'fewer than 179':\n$$\\mathrm{P}(X < 179) = \\mathrm{P}(X \\le 178) \\approx \\mathrm{P}(Y < 178.5)$$",
+        "Standardise $Y = 178.5$:\n$$Z = \\frac{178.5 - 162.5}{\\sqrt{56.875}} = \\frac{16}{7.5416} \\approx 2.122$$",
+        "Find the cumulative probability from the standard normal table:\n$$\\mathrm{P}(Z < 2.122) = \\Phi(2.122) \\approx 0.9831 \\approx 0.983$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      },
+      "teacher_walkthrough": [
+        "We have a large sample of $n = 250$ children with bicycle ownership probability $p = 0.65$. We approximate the binomial distribution $X \\sim \\mathrm{B}(250, 0.65)$ with a continuous normal distribution.",
+        "Step 1: Calculate the mean $\\mu$ and variance $\\sigma^2$:\n$$\\mu = np = 250 \\times 0.65 = 162.5$$\n$$\\sigma^2 = np(1 - p) = 250 \\times 0.65 \\times 0.35 = 56.875$$\n$$\\sigma = \\sqrt{56.875} \\approx 7.5416$$\nCheck validity: $np = 162.5 > 5$ and $n(1 - p) = 87.5 > 5$, confirming the normal approximation $Y \\sim \\mathrm{N}(162.5, 56.875)$ is justified.",
+        "Step 2: Apply the continuity correction.\nWe want 'fewer than 179 children', which means $X \\le 178$.\nThe discrete bar for 178 ends at the continuous boundary $178.5$, so:\n$$\\mathrm{P}(X < 179) = \\mathrm{P}(X \\le 178) \\approx \\mathrm{P}(Y < 178.5)$$",
+        "Step 3: Standardise using $Z = \\frac{Y - \\mu}{\\sigma}$:\n$$Z = \\frac{178.5 - 162.5}{\\sqrt{56.875}} = \\frac{16}{7.5416} \\approx 2.1216$$",
+        "Step 4: Look up $\\Phi(2.122)$ in the standard normal distribution table:\n$$\\Phi(2.12) = 0.9830$$\n$$\\text{Add for 2 in differences column} = 0.0001$$\n$$\\Phi(2.122) = 0.9830 + 0.0001 = 0.9831$$",
+        "Step 5: Conclude the final probability:\nRounding to 3 significant figures gives $0.983$."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "schema_version": "9709_math_enrichment_v7",
+  "question_id": "9709_w22_31_q10",
+  "difficulty": 3,
+  "parts": [
+    {
+      "part_id": "9709_w22_31_q10_a",
+      "difficulty": 3,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_p3_t_logarithmic_and_exponential_functions",
+        "lesson_id": "9709_p3_t_logarithmic_and_exponential_functions_m02_l03"
+      },
+      "skills": {
+        "primary_skill_id": "9709_p3_skill_partial_fractions"
+      },
+      "hints": [
+        "Because the denominator has one linear factor and one repeated linear factor, use $\\dfrac{A}{1+x}+\\dfrac{B}{2+x}+\\dfrac{C}{(2+x)^2}$.",
+        "Multiply throughout by $(1+x)(2+x)^2$ to obtain a polynomial identity.",
+        "Substitute $x=-1$ and $x=-2$ to determine two constants efficiently, then use another convenient value of $x$ or compare coefficients to find the third."
+      ],
+      "walkthrough": [
+        "State the form of partial fractions for a linear factor and a repeated linear factor:\n$$\\dfrac{2x^2 + 7x + 8}{(1 + x)(2 + x)^2} = \\dfrac{A}{1 + x} + \\dfrac{B}{2 + x} + \\dfrac{C}{(2 + x)^2}$$",
+        "Multiply through by $(1 + x)(2 + x)^2$ to form the polynomial identity:\n$$2x^2 + 7x + 8 = A(2 + x)^2 + B(1 + x)(2 + x) + C(1 + x)$$",
+        "Substitute $x = -1$ to eliminate terms in $B$ and $C$:\n$$2(-1)^2 + 7(-1) + 8 = A(2 - 1)^2 + 0 + 0$$\n$$2 - 7 + 8 = A(1)^2 \\implies 3 = A \\implies A = 3$$",
+        "Substitute $x = -2$ to eliminate terms in $A$ and $B$:\n$$2(-2)^2 + 7(-2) + 8 = 0 + 0 + C(1 - 2)$$\n$$2(4) - 14 + 8 = C(-1) \\implies 8 - 14 + 8 = -C \\implies 2 = -C \\implies C = -2$$",
+        "Equate the coefficients of $x^2$ on both sides to find $B$:\n$$2 = A + B$$\n$$2 = 3 + B \\implies B = 2 - 3 = -1$$",
+        "State the final partial fraction expansion:\n$$f(x) = \\dfrac{3}{1 + x} - \\dfrac{1}{2 + x} - \\dfrac{2}{(2 + x)^2}$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      }
+    },
+    {
+      "part_id": "9709_w22_31_q10_b",
+      "difficulty": 3,
+      "practice_tier": "revision",
+      "mapping": {
+        "topic_id": "9709_p3_t_logarithmic_and_exponential_functions",
+        "lesson_id": "9709_p3_t_logarithmic_and_exponential_functions_m02_l03"
+      },
+      "skills": {
+        "primary_skill_id": "9709_p3_skill_binomial_expansion"
+      },
+      "hints": [
+        "Expand each partial fraction from part (a) with the binomial series, retaining terms only through $x^2$.",
+        "Use $(1+x)^{-1}=1-x+x^2+\\cdots$, and first factor constants so that $2+x=2(1+x/2)$ and $(2+x)^2=4(1+x/2)^2$.",
+        "Apply the expansions of $(1+x/2)^{-1}$ and $(1+x/2)^{-2}$ to the corresponding terms, then collect the constant, $x$, and $x^2$ coefficients."
+      ],
+      "walkthrough": [
+        "Expand the first partial fraction $\\dfrac{3}{1 + x} = 3(1 + x)^{-1}$ up to $x^2$:\n$$3(1 + x)^{-1} = 3(1 - x + x^2) = 3 - 3x + 3x^2$$",
+        "Expand the second partial fraction $-\\dfrac{1}{2 + x} = -\\dfrac{1}{2}\\left(1 + \\dfrac{x}{2}\\right)^{-1}$ up to $x^2$ using $(1 + u)^{-1} = 1 - u + u^2$ with $u = \\dfrac{x}{2}$:\n$$-\\dfrac{1}{2}\\left(1 + \\dfrac{x}{2}\\right)^{-1} = -\\dfrac{1}{2}\\left(1 - \\dfrac{x}{2} + \\dfrac{x^2}{4}\\right) = -\\dfrac{1}{2} + \\dfrac{1}{4}x - \\dfrac{1}{8}x^2$$",
+        "Expand the third partial fraction $-\\dfrac{2}{(2 + x)^2} = -\\dfrac{2}{4}\\left(1 + \\dfrac{x}{2}\\right)^{-2} = -\\dfrac{1}{2}\\left(1 + \\dfrac{x}{2}\\right)^{-2}$ up to $x^2$ using $(1 + u)^{-2} = 1 - 2u + 3u^2$ with $u = \\dfrac{x}{2}$:\n$$-\\dfrac{1}{2}\\left(1 + \\dfrac{x}{2}\\right)^{-2} = -\\dfrac{1}{2}\\left(1 - 2\\left(\\dfrac{x}{2}\\right) + 3\\left(\\dfrac{x}{2}\\right)^2\\right) = -\\dfrac{1}{2}\\left(1 - x + \\dfrac{3}{4}x^2\\right) = -\\dfrac{1}{2} + \\dfrac{1}{2}x - \\dfrac{3}{8}x^2$$",
+        "Sum the three series expansions:\n$$f(x) = (3 - 3x + 3x^2) + \\left(-\\dfrac{1}{2} + \\dfrac{1}{4}x - \\dfrac{1}{8}x^2\\right) + \\left(-\\dfrac{1}{2} + \\dfrac{1}{2}x - \\dfrac{3}{8}x^2\\right)$$",
+        "Collect corresponding powers of $x$:\nConstant term: $3 - \\dfrac{1}{2} - \\dfrac{1}{2} = 3 - 1 = 2$\nCoefficient of $x$: $-3 + \\dfrac{1}{4} + \\dfrac{1}{2} = -3 + \\dfrac{3}{4} = -\\dfrac{9}{4}$\nCoefficient of $x^2$: $3 - \\dfrac{1}{8} - \\dfrac{3}{8} = 3 - \\dfrac{4}{8} = 3 - \\dfrac{1}{2} = \\dfrac{5}{2}$",
+        "State the final series expansion in ascending powers of $x$ up to $x^2$:\n$$2 - \\dfrac{9}{4}x + \\dfrac{5}{2}x^2$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      }
+    }
+  ]
+}

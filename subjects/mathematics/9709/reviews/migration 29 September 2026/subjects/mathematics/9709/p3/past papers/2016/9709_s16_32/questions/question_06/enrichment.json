@@ -1,0 +1,66 @@
+{
+  "schema_version": "9709_math_enrichment_v7",
+  "question_id": "9709_s16_32_q6",
+  "difficulty": 5,
+  "parts": [
+    {
+      "part_id": "9709_s16_32_q6_i",
+      "difficulty": 5,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_p3_t_differential_equations",
+        "lesson_id": "9709_p3_t_differential_equations_m02_l02"
+      },
+      "skills": {
+        "primary_skill_id": "9709_p3_skill_solving_separable_differential_equations"
+      },
+      "hints": [
+        "Separate variables as $dx/x=\\sin2\\theta/(3+\\cos2\\theta)\\,d\\theta$.",
+        "Use the substitution $u=3+\\cos2\\theta$, noting that $du=-2\\sin2\\theta\\,d\\theta$.",
+        "Integrate to relate $\\ln x$ to $-\\tfrac12\\ln(3+\\cos2\\theta)$.",
+        "Apply $x=3$ at $\\theta=\\pi/4$, then exponentiate and simplify to express $x$ explicitly."
+      ],
+      "walkthrough": [
+        "Separate the variables in $(3 + \\cos 2\\theta)\\dfrac{\\mathrm{d}x}{\\mathrm{d}\\theta} = x\\sin 2\\theta$ by dividing by $x(3 + \\cos 2\\theta)$ and multiplying by $\\mathrm{d}\\theta$:\n$$\\dfrac{1}{x}\\,\\mathrm{d}x = \\dfrac{\\sin 2\\theta}{3 + \\cos 2\\theta}\\,\\mathrm{d}\\theta$$",
+        "Integrate both sides:\n$$\\int \\dfrac{1}{x}\\,\\mathrm{d}x = \\int \\dfrac{\\sin 2\\theta}{3 + \\cos 2\\theta}\\,\\mathrm{d}\\theta$$",
+        "Observe that $\\dfrac{\\mathrm{d}}{\\mathrm{d}\\theta}(3 + \\cos 2\\theta) = -2\\sin 2\\theta$. Multiply and divide the right-hand integral by $-2$:\n$$\\int \\dfrac{\\sin 2\\theta}{3 + \\cos 2\\theta}\\,\\mathrm{d}\\theta = -\\dfrac{1}{2}\\int \\dfrac{-2\\sin 2\\theta}{3 + \\cos 2\\theta}\\,\\mathrm{d}\\theta = -\\dfrac{1}{2}\\ln(3 + \\cos 2\\theta)$$",
+        "Combine into the integrated equation with constant of integration $c$:\n$$\\ln x = -\\dfrac{1}{2}\\ln(3 + \\cos 2\\theta) + c$$",
+        "Substitute the initial condition $\\theta = \\dfrac{1}{4}\\pi$ and $x = 3$ to find $c$:\n$$\\ln 3 = -\\dfrac{1}{2}\\ln\\left(3 + \\cos\\left(2 \\cdot \\dfrac{\\pi}{4}\\right)\\right) + c = -\\dfrac{1}{2}\\ln\\left(3 + \\cos\\left(\\dfrac{\\pi}{2}\\right)\\right) + c$$",
+        "Since $\\cos\\left(\\dfrac{\\pi}{2}\\right) = 0$:\n$$\\ln 3 = -\\dfrac{1}{2}\\ln 3 + c \\implies c = \\ln 3 + \\dfrac{1}{2}\\ln 3 = \\dfrac{3}{2}\\ln 3$$",
+        "Substitute $c = \\dfrac{3}{2}\\ln 3$ back into the solution:\n$$\\ln x = -\\dfrac{1}{2}\\ln(3 + \\cos 2\\theta) + \\dfrac{3}{2}\\ln 3 = \\ln\\left((3 + \\cos 2\\theta)^{-1/2}\\right) + \\ln\\left(3^{3/2}\\right) = \\ln\\left(\\dfrac{3^{3/2}}{\\sqrt{3 + \\cos 2\\theta}}\\right)$$",
+        "Simplify $3^{3/2} = \\sqrt{3^3} = \\sqrt{27}$ and exponentiate both sides to express $x$ explicitly in terms of $\\theta$:\n$$x = \\sqrt{\\dfrac{27}{3 + \\cos 2\\theta}} \\quad \\left(\\text{or } x = \\dfrac{3\\sqrt{3}}{\\sqrt{3 + \\cos 2\\theta}}\\right)$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      }
+    },
+    {
+      "part_id": "9709_s16_32_q6_ii",
+      "difficulty": 2,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_p3_t_logarithmic_and_exponential_functions",
+        "lesson_id": "9709_p3_t_logarithmic_and_exponential_functions_m03_l01"
+      },
+      "skills": {
+        "primary_skill_id": "9709_p3_skill_finding_ranges_of_functions"
+      },
+      "hints": [
+        "Use $x=\\sqrt{27/(3+\\cos2\\theta)}$ from part (i).",
+        "To minimise this positive expression, maximise the denominator $3+\\cos2\\theta$.",
+        "Use the greatest possible value of $\\cos2\\theta$ and simplify the resulting exact square root."
+      ],
+      "walkthrough": [
+        "Consider the expression for $x$ obtained in part (i):\n$$x = \\dfrac{3\\sqrt{3}}{\\sqrt{3 + \\cos 2\\theta}}$$",
+        "Since the numerator $3\\sqrt{3}$ is a positive constant, $x$ takes its minimum value when the denominator $\\sqrt{3 + \\cos 2\\theta}$ takes its maximum value.",
+        "The maximum value of the cosine function is $\\cos 2\\theta = 1$.",
+        "Substitute $\\cos 2\\theta = 1$ into the expression for $x$:\n$$x_{\\text{least}} = \\dfrac{3\\sqrt{3}}{\\sqrt{3 + 1}} = \\dfrac{3\\sqrt{3}}{\\sqrt{4}} = \\dfrac{3\\sqrt{3}}{2} \\approx 2.60$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      }
+    }
+  ]
+}

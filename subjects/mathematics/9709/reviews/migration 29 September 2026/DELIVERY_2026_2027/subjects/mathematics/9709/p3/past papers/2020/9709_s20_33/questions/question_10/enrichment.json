@@ -1,0 +1,71 @@
+{
+  "schema_version": "9709_math_enrichment_v7",
+  "question_id": "9709_s20_33_q10",
+  "difficulty": 5,
+  "parts": [
+    {
+      "part_id": "9709_s20_33_q10_a",
+      "difficulty": 2,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_p3_t_logarithmic_and_exponential_functions",
+        "lesson_id": "9709_p3_t_logarithmic_and_exponential_functions_m03_l02"
+      },
+      "skills": {
+        "primary_skill_id": "9709_p3_skill_differential_equation_modelling"
+      },
+      "hints": [
+        "Model the outflow and connect the two rates with the chain rule: \\(dV/dt=(dV/dh)(dh/dt)\\).",
+        "Since water leaves at a rate proportional to \\(\\sqrt h\\), write \\(dV/dt=-k\\sqrt h\\) for \\(k>0\\).",
+        "Differentiate \\(V=\\tfrac13\\pi(3rh^2-h^3)\\) with respect to \\(h\\).",
+        "Substitute both derivatives into the chain-rule equation, solve for \\(dh/dt\\), and absorb the constant factor involving \\(k\\) and \\(\\pi\\) into a positive constant \\(B\\)."
+      ],
+      "walkthrough": [
+        "State the given relationship for the rate of outflow of water:\nWater flows out at a rate proportional to $\\sqrt{h}$, meaning the rate of change of volume with respect to time is:\n$$\\dfrac{dV}{dt} = -k\\sqrt{h} = -kh^{1/2}$$ \nwhere $k > 0$ is a constant of proportionality.",
+        "State the given formula for the volume of water $V$ in the hemispherical tank:\n$$V = \\dfrac{1}{3}\\pi(3rh^2 - h^3) = \\pi rh^2 - \\dfrac{1}{3}\\pi h^3$$",
+        "Differentiate $V$ with respect to the depth $h$:\n$$\\dfrac{dV}{dh} = \\dfrac{d}{dh}\\left(\\pi rh^2 - \\dfrac{1}{3}\\pi h^3\\right) = 2\\pi rh - \\pi h^2 = \\pi h(2r - h)$$",
+        "Apply the chain rule connecting $\\dfrac{dV}{dt}, \\dfrac{dV}{dh},$ and $\\dfrac{dh}{dt}$:\n$$\\dfrac{dV}{dt} = \\dfrac{dV}{dh} \\cdot \\dfrac{dh}{dt}$$",
+        "Substitute the expressions for $\\dfrac{dV}{dt}$ and $\\dfrac{dV}{dh}$:\n$$-kh^{1/2} = (2\\pi rh - \\pi h^2)\\dfrac{dh}{dt}$$",
+        "Isolate $\\dfrac{dh}{dt}$ by dividing both sides by $(2\\pi rh - \\pi h^2)$:\n$$\\dfrac{dh}{dt} = -\\dfrac{kh^{1/2}}{2\\pi rh - \\pi h^2} = -\\dfrac{k}{\\pi}\\left(\\dfrac{h^{1/2}}{2rh - h^2}\\right)$$",
+        "Divide the numerator and denominator by $h^{1/2}$:\n$$\\dfrac{h^{1/2} / h^{1/2}}{(2rh - h^2) / h^{1/2}} = \\dfrac{1}{2rh^{1 - 1/2} - h^{2 - 1/2}} = \\dfrac{1}{2rh^{1/2} - h^{3/2}}$$",
+        "Define the positive constant $B = \\dfrac{k}{\\pi}$ to obtain the required differential equation:\n$$\\dfrac{dh}{dt} = -\\dfrac{B}{2rh^{1/2} - h^{3/2}}, \\quad \\text{as required.}$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      }
+    },
+    {
+      "part_id": "9709_s20_33_q10_b",
+      "difficulty": 5,
+      "practice_tier": "revision",
+      "mapping": {
+        "topic_id": "9709_p3_t_differential_equations",
+        "lesson_id": "9709_p3_t_differential_equations_m03_l01"
+      },
+      "skills": {
+        "primary_skill_id": "9709_p3_skill_solving_separable_differential_equations"
+      },
+      "hints": [
+        "Separate the differential equation from part (a) so that \\((2rh^{1/2}-h^{3/2})\\,dh=-B\\,dt\\).",
+        "Integrate both sides, keeping the powers of \\(h\\) exact and including a constant of integration.",
+        "Apply the initial condition \\(t=0,h=r\\), then the empty-tank condition \\(t=14,h=0\\), to determine the integration constant and \\(B\\).",
+        "Substitute these constants back, isolate \\(t\\), and express the powers of \\(h\\) using the dimensionless ratio \\(h/r\\)."
+      ],
+      "walkthrough": [
+        "Separate the variables in the differential equation $\\dfrac{dh}{dt} = -\\dfrac{B}{2rh^{1/2} - h^{3/2}}$:\n$$(2rh^{1/2} - h^{3/2})\\,dh = -B\\,dt$$",
+        "Integrate both sides with respect to their corresponding variables:\n$$\\int (2rh^{1/2} - h^{3/2})\\,dh = \\int -B\\,dt$$\n$$2r\\left(\\dfrac{h^{3/2}}{3/2}\\right) - \\dfrac{h^{5/2}}{5/2} = -Bt + c$$\n$$\\dfrac{4}{3}rh^{3/2} - \\dfrac{2}{5}h^{5/2} = -Bt + c$$",
+        "Determine the constant of integration $c$ using the initial condition $t = 0, h = r$:\n$$\\dfrac{4}{3}r(r^{3/2}) - \\dfrac{2}{5}r^{5/2} = -B(0) + c$$\n$$\\dfrac{4}{3}r^{5/2} - \\dfrac{2}{5}r^{5/2} = c$$\n$$c = \\left(\\dfrac{20}{15} - \\dfrac{6}{15}\\right)r^{5/2} = \\dfrac{14}{15}r^{5/2}$$",
+        "Determine the constant $B$ using the condition that the tank becomes empty at $t = 14$ ($h = 0$ when $t = 14$):\n$$\\dfrac{4}{3}r(0)^{3/2} - \\dfrac{2}{5}(0)^{5/2} = -B(14) + \\dfrac{14}{15}r^{5/2}$$\n$$0 = -14B + \\dfrac{14}{15}r^{5/2}$$\n$$14B = \\dfrac{14}{15}r^{5/2} \\implies B = \\dfrac{1}{15}r^{5/2}$$",
+        "Substitute $B = \\dfrac{1}{15}r^{5/2}$ and $c = \\dfrac{14}{15}r^{5/2}$ back into the integrated equation:\n$$\\dfrac{4}{3}rh^{3/2} - \\dfrac{2}{5}h^{5/2} = -\\left(\\dfrac{1}{15}r^{5/2}\\right)t + \\dfrac{14}{15}r^{5/2}$$",
+        "Rearrange to make the term with $t$ the subject:\n$$\\left(\\dfrac{1}{15}r^{5/2}\\right)t = \\dfrac{14}{15}r^{5/2} - \\dfrac{4}{3}rh^{3/2} + \\dfrac{2}{5}h^{5/2}$$",
+        "Multiply the entire equation by $\\dfrac{15}{r^{5/2}}$:\n$$t = 14 - 15\\left(\\dfrac{4}{3}\\right)\\dfrac{rh^{3/2}}{r^{5/2}} + 15\\left(\\dfrac{2}{5}\\right)\\dfrac{h^{5/2}}{r^{5/2}}$$\n$$t = 14 - 20\\left(\\dfrac{h^{3/2}}{r^{3/2}}\\right) + 6\\left(\\dfrac{h^{5/2}}{r^{5/2}}\\right)$$",
+        "Express the powers in terms of the ratio $\\dfrac{h}{r}$:\n$$t = 14 - 20\\left(\\dfrac{h}{r}\\right)^{3/2} + 6\\left(\\dfrac{h}{r}\\right)^{5/2}$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      }
+    }
+  ]
+}

@@ -1,0 +1,125 @@
+{
+  "schema_version": "9709_math_enrichment_v7",
+  "question_id": "9709_s22_51_q4",
+  "difficulty": 4,
+  "parts": [
+    {
+      "part_id": "9709_s22_51_q4_a",
+      "difficulty": 3,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_s1_t_discrete_random_variables",
+        "lesson_id": "9709_s1_t_discrete_random_variables_m01_l01"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_constructing_discrete_probability_distributions"
+      },
+      "hints": [
+        "Let the biased coin have $\\mathrm{P}(H) = 7/10$ and $\\mathrm{P}(T) = 3/10$, and the 3 fair coins have $\\mathrm{P}(H) = 1/2$ and $\\mathrm{P}(T) = 1/2$.",
+        "For $X = 1$ head: either the biased coin is H and the 3 fair coins are all T, or the biased coin is T and exactly one fair coin is H.",
+        "Use the same combination of fair coin binomial probabilities and biased coin outcomes to find $b = \\mathrm{P}(X=2)$ and $c = \\mathrm{P}(X=3)$."
+      ],
+      "walkthrough": [
+        "Separate the throw into the biased coin $B$ with $\\mathrm{P}(H) = \\frac{7}{10}, \\mathrm{P}(T) = \\frac{3}{10}$ and the $3$ fair coins where number of heads $Y \\sim \\mathrm{B}(3, 0.5)$:",
+        "Calculate $a = \\mathrm{P}(X = 1)$ by considering two mutually exclusive routes:\n- Biased H and fair 0 heads: $\\frac{7}{10} \\times \\left(\\frac{1}{2}\\right)^3 = \\frac{7}{10} \\times \\frac{1}{8} = \\frac{7}{80}$\n- Biased T and fair 1 head: $\\frac{3}{10} \\times \\binom{3}{1}\\left(\\frac{1}{2}\\right)^3 = \\frac{3}{10} \\times \\frac{3}{8} = \\frac{9}{80}$\n$$a = \\frac{7}{80} + \\frac{9}{80} = \\frac{16}{80} = \\frac{1}{5}$$",
+        "Calculate $b = \\mathrm{P}(X = 2)$:\n- Biased H and fair 1 head: $\\frac{7}{10} \\times \\binom{3}{1}\\left(\\frac{1}{2}\\right)^3 = \\frac{7}{10} \\times \\frac{3}{8} = \\frac{21}{80}$\n- Biased T and fair 2 heads: $\\frac{3}{10} \\times \\binom{3}{2}\\left(\\frac{1}{2}\\right)^3 = \\frac{3}{10} \\times \\frac{3}{8} = \\frac{9}{80}$\n$$b = \\frac{21}{80} + \\frac{9}{80} = \\frac{30}{80} = \\frac{3}{8}$$",
+        "Calculate $c = \\mathrm{P}(X = 3)$:\n- Biased H and fair 2 heads: $\\frac{7}{10} \\times \\binom{3}{2}\\left(\\frac{1}{2}\\right)^3 = \\frac{7}{10} \\times \\frac{3}{8} = \\frac{21}{80}$\n- Biased T and fair 3 heads: $\\frac{3}{10} \\times \\left(\\frac{1}{2}\\right)^3 = \\frac{3}{10} \\times \\frac{1}{8} = \\frac{3}{80}$\n$$c = \\frac{21}{80} + \\frac{3}{80} = \\frac{24}{80} = \\frac{3}{10}$$"
+      ],
+      "teacher_walkthrough": [
+        "Step 1: Model the two independent components.\nJacob throws $4$ coins simultaneously:\n- Coin 1 (biased): $\\mathrm{P}(H) = \\frac{7}{10}$, $\\mathrm{P}(T) = \\frac{3}{10}$.\n- Coins 2, 3, 4 (three fair coins): each has $\\mathrm{P}(H) = \\frac{1}{2}$, $\\mathrm{P}(T) = \\frac{1}{2}$.\nLet $Y$ be the number of heads from the $3$ fair coins: $Y \\sim \\mathrm{B}(3, 0.5)$.\nThe probabilities for $Y$ are:\n$$\\mathrm{P}(Y = 0) = \\binom{3}{0}\\left(\\frac{1}{2}\\right)^3 = \\frac{1}{8}$$\n$$\\mathrm{P}(Y = 1) = \\binom{3}{1}\\left(\\frac{1}{2}\\right)^3 = \\frac{3}{8}$$\n$$\\mathrm{P}(Y = 2) = \\binom{3}{2}\\left(\\frac{1}{2}\\right)^3 = \\frac{3}{8}$$\n$$\\mathrm{P}(Y = 3) = \\binom{3}{3}\\left(\\frac{1}{2}\\right)^3 = \\frac{1}{8}$$\n\nStep 2: Show that $a = \\mathrm{P}(X = 1) = \\frac{1}{5}$.\nA total of $1$ head occurs in two mutually exclusive ways:\n1. Biased is H, fair coins have $0$ heads:\n   $$\\mathrm{P}(H \\cap (Y=0)) = \\frac{7}{10} \\times \\frac{1}{8} = \\frac{7}{80}$$\n2. Biased is T, fair coins have $1$ head:\n   $$\\mathrm{P}(T \\cap (Y=1)) = \\frac{3}{10} \\times \\frac{3}{8} = \\frac{9}{80}$$\nSumming these probabilities:\n$$a = \\frac{7}{80} + \\frac{9}{80} = \\frac{16}{80} = \\frac{1}{5}$$\n\nStep 3: Calculate $b = \\mathrm{P}(X = 2)$.\nA total of $2$ heads occurs when:\n1. Biased is H, fair coins have $1$ head:\n   $$\\frac{7}{10} \\times \\frac{3}{8} = \\frac{21}{80}$$\n2. Biased is T, fair coins have $2$ heads:\n   $$\\frac{3}{10} \\times \\frac{3}{8} = \\frac{9}{80}$$\n$$b = \\frac{21}{80} + \\frac{9}{80} = \\frac{30}{80} = \\frac{3}{8} = 0.375$$\n\nStep 4: Calculate $c = \\mathrm{P}(X = 3)$.\nA total of $3$ heads occurs when:\n1. Biased is H, fair coins have $2$ heads:\n   $$\\frac{7}{10} \\times \\frac{3}{8} = \\frac{21}{80}$$\n2. Biased is T, fair coins have $3$ heads:\n   $$\\frac{3}{10} \\times \\frac{1}{8} = \\frac{3}{80}$$\n$$c = \\frac{21}{80} + \\frac{3}{80} = \\frac{24}{80} = \\frac{3}{10} = 0.3$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      }
+    },
+    {
+      "part_id": "9709_s22_51_q4_b",
+      "difficulty": 2,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_s1_t_discrete_random_variables",
+        "lesson_id": "9709_s1_t_discrete_random_variables_m02_l01"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_calculating_expectation_of_a_random_variable"
+      },
+      "hints": [
+        "Recall the formula for expectation: $\\mathrm{E}(X) = \\sum x \\,\\mathrm{P}(X = x)$.",
+        "Substitute the values $x = 0, 1, 2, 3, 4$ and their corresponding probabilities from the table and part (a).",
+        "Sum the products to find $\\mathrm{E}(X)$."
+      ],
+      "walkthrough": [
+        "Apply the formula for expected value $\\mathrm{E}(X) = \\sum x \\mathrm{P}(X = x)$ using common denominator $80$:\n$$\\mathrm{E}(X) = 0\\left(\\frac{3}{80}\\right) + 1\\left(\\frac{16}{80}\\right) + 2\\left(\\frac{30}{80}\\right) + 3\\left(\\frac{24}{80}\\right) + 4\\left(\\frac{7}{80}\\right)$$",
+        "Sum the numerators:\n$$\\mathrm{E}(X) = \\frac{0 + 16 + 60 + 72 + 28}{80} = \\frac{176}{80} = 2.2$$"
+      ],
+      "teacher_walkthrough": [
+        "Step 1: State the expectation formula.\nFor a discrete random variable $X$:\n$$\\mathrm{E}(X) = \\sum x \\,\\mathrm{P}(X = x)$$\n\nStep 2: Express all probabilities with common denominator 80.\nFrom the given table and part (a):\n- $\\mathrm{P}(X = 0) = \\frac{3}{80}$\n- $\\mathrm{P}(X = 1) = a = \\frac{16}{80}$\n- $\\mathrm{P}(X = 2) = b = \\frac{30}{80}$\n- $\\mathrm{P}(X = 3) = c = \\frac{24}{80}$\n- $\\mathrm{P}(X = 4) = \\frac{7}{80}$\n\nStep 3: Multiply each value by its probability and sum.\n$$\\mathrm{E}(X) = 0\\left(\\frac{3}{80}\\right) + 1\\left(\\frac{16}{80}\\right) + 2\\left(\\frac{30}{80}\\right) + 3\\left(\\frac{24}{80}\\right) + 4\\left(\\frac{7}{80}\\right)$$\n$$\\mathrm{E}(X) = \\frac{0 + 16 + 60 + 72 + 28}{80} = \\frac{176}{80}$$\nDivide by $16$:\n$$\\frac{176 \\div 16}{80 \\div 16} = \\frac{11}{5} = 2.2$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      }
+    },
+    {
+      "part_id": "9709_s22_51_q4_c",
+      "difficulty": 3,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_s1_t_discrete_random_variables",
+        "lesson_id": "9709_s1_t_discrete_random_variables_m03_l02"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_calculating_binomial_tail_probabilities"
+      },
+      "hints": [
+        "Identify the binomial model: Jacob throws the 4 coins 10 times, so $n = 10$.",
+        "The probability of obtaining exactly one head on any single throw is $p = a = 1/5 = 0.2$, so $q = 0.8$.",
+        "'Fewer than 3 occasions' means obtaining exactly one head on 0, 1, or 2 occasions.",
+        "Use the binomial formula $\\binom{10}{w}(0.2)^w(0.8)^{10-w}$ for $w = 0, 1, 2$ and sum the results."
+      ],
+      "walkthrough": [
+        "Model the number of occasions $W$ with exactly one head out of $n = 10$ independent throws as a binomial distribution:\n$$W \\sim \\mathrm{B}(10, 0.2)$$\nwhere success probability is $p = a = 0.2$ and failure probability is $q = 0.8$.",
+        "Express the probability of fewer than $3$ occasions as the sum of $W = 0, 1, 2$:\n$$\\mathrm{P}(W < 3) = \\sum_{w=0}^{2} \\binom{10}{w} (0.2)^w (0.8)^{10-w}$$",
+        "Evaluate the three binomial terms:\n$$\\mathrm{P}(W = 0) = \\binom{10}{0}(0.2)^0(0.8)^{10} = (0.8)^{10} \\approx 0.107374$$\n$$\\mathrm{P}(W = 1) = \\binom{10}{1}(0.2)^1(0.8)^9 = 10(0.2)(0.134218) \\approx 0.268435$$\n$$\\mathrm{P}(W = 2) = \\binom{10}{2}(0.2)^2(0.8)^8 = 45(0.04)(0.167772) \\approx 0.301989$$",
+        "Sum the probabilities:\n$$\\mathrm{P}(W < 3) = 0.107374 + 0.268435 + 0.301989 = 0.677798 \\approx 0.678$$"
+      ],
+      "teacher_walkthrough": [
+        "Step 1: Set up the binomial distribution.\nJacob throws the $4$ coins $n = 10$ times.\nIn each throw, the event of obtaining exactly $1$ head has probability $p = a = 0.2$.\nThe failure probability is $q = 1 - 0.2 = 0.8$.\nLet $W$ be the number of occasions on which exactly $1$ head is obtained:\n$$W \\sim \\mathrm{B}(10, 0.2)$$\n\nStep 2: Interpret 'fewer than 3 occasions'.\n'Fewer than 3' means $W < 3$, which includes $W = 0, 1, 2$:\n$$\\mathrm{P}(W < 3) = \\mathrm{P}(W = 0) + \\mathrm{P}(W = 1) + \\mathrm{P}(W = 2)$$\n\nStep 3: Calculate each term using $\\mathrm{P}(W = w) = \\binom{10}{w} (0.2)^w (0.8)^{10-w}$.\n- For $w = 0$:\n  $$\\mathrm{P}(W = 0) = \\binom{10}{0} (0.2)^0 (0.8)^{10} = 1 \\times 1 \\times 0.107374 = 0.107374$$\n- For $w = 1$:\n  $$\\mathrm{P}(W = 1) = \\binom{10}{1} (0.2)^1 (0.8)^9 = 10 \\times 0.2 \\times 0.134218 = 0.268435$$\n- For $w = 2$:\n  $$\\binom{10}{2} = \\frac{10 \\times 9}{2 \\times 1} = 45$$\n  $$\\mathrm{P}(W = 2) = 45 \\times (0.2)^2 \\times (0.8)^8 = 45 \\times 0.04 \\times 0.167772 = 0.301989$$\n\nStep 4: Add the probabilities.\n$$\\mathrm{P}(W < 3) = 0.107374 + 0.268435 + 0.301989 = 0.677798$$\nRounding to 3 significant figures gives $0.678$."
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      }
+    },
+    {
+      "part_id": "9709_s22_51_q4_d",
+      "difficulty": 2,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_s1_t_discrete_random_variables",
+        "lesson_id": "9709_s1_t_discrete_random_variables_m04_l01"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_calculating_geometric_distribution_probabilities"
+      },
+      "hints": [
+        "Let $T$ be the number of throws until the first throw with exactly one head, so $T \\sim \\mathrm{Geo}(0.2)$.",
+        "The required event is that the first success occurs on the 7th throw ($T = 7$) or on the 8th throw ($T = 8$).",
+        "Calculate $(0.8)^6(0.2) + (0.8)^7(0.2)$ and sum the two probabilities."
+      ],
+      "walkthrough": [
+        "Model the number of throws until the first occasion with exactly one head as a geometric distribution with $p = 0.2$ and $q = 0.8$:\n$$T \\sim \\mathrm{Geo}(0.2)$$",
+        "Express the probability that the first success occurs on the $7$th or $8$th throw as:\n$$\\mathrm{P}(T = 7 \\text{ or } T = 8) = \\mathrm{P}(T = 7) + \\mathrm{P}(T = 8) = (0.8)^6 (0.2) + (0.8)^7 (0.2)$$",
+        "Evaluate the terms:\n$$(0.8)^6 (0.2) = 0.262144 \\times 0.2 = 0.0524288$$\n$$(0.8)^7 (0.2) = 0.2097152 \\times 0.2 = 0.0419430$$\n$$\\text{Total} = 0.0524288 + 0.0419430 = 0.0943718 \\approx 0.0944$$"
+      ],
+      "teacher_walkthrough": [
+        "Step 1: Identify the geometric distribution.\nLet $T$ denote the throw number on which exactly $1$ head is obtained for the first time.\nSince each throw is independent with probability of success $p = 0.2$ and failure $q = 1 - 0.2 = 0.8$:\n$$T \\sim \\mathrm{Geo}(0.2)$$\n\nStep 2: Formulate the probability for $T = 7$ or $T = 8$.\nUsing the geometric probability mass function $\\mathrm{P}(T = r) = q^{r-1} p$:\n- First success on the 7th throw ($6$ failures followed by a success):\n  $$\\mathrm{P}(T = 7) = (0.8)^{7 - 1} (0.2) = (0.8)^6 (0.2)$$\n- First success on the 8th throw ($7$ failures followed by a success):\n  $$\\mathrm{P}(T = 8) = (0.8)^{8 - 1} (0.2) = (0.8)^7 (0.2)$$\n\nStep 3: Factor and compute arithmetic.\n$$\\mathrm{P}(T = 7 \\text{ or } 8) = (0.8)^6 (0.2) + (0.8)^7 (0.2) = (0.8)^6 (0.2) [1 + 0.8]$$\n$$\\mathrm{P}(T = 7 \\text{ or } 8) = (0.8)^6 (0.2) \\times 1.8 = (0.8)^6 \\times 0.36$$\nCompute $(0.8)^6$:\n$$(0.8)^6 = 0.262144$$\nMultiply by $0.36$:\n$$0.262144 \\times 0.36 = 0.09437184$$\nRounding to 3 significant figures gives $0.0944$."
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      }
+    }
+  ]
+}

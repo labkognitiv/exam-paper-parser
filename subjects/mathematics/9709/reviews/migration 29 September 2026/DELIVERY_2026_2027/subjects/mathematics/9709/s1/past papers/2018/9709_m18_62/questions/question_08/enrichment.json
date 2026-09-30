@@ -1,0 +1,114 @@
+{
+  "schema_version": "9709_math_enrichment_v7",
+  "question_id": "9709_m18_62_q8",
+  "difficulty": 3,
+  "parts": [
+    {
+      "part_id": "9709_m18_62_q8_i",
+      "difficulty": 2,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_s1_t_discrete_random_variables",
+        "lesson_id": "9709_s1_t_discrete_random_variables_m03_l02"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_modelling_with_a_binomial_distribution"
+      },
+      "hints": [
+        "Define $X$ as the number of students who own a car out of 5: $X \\sim \\mathrm{B}\\left(5, \\frac{1}{4}\\right)$.",
+        "The event 'at least four' means $X = 4$ or $X = 5$.",
+        "Apply the binomial formula $\\mathrm{P}(X = r) = \\binom{5}{r} \\left(\\frac{1}{4}\\right)^r \\left(\\frac{3}{4}\\right)^{5-r}$ for $r = 4$ and $r = 5$, and add the probabilities."
+      ],
+      "walkthrough": [
+        "Model the number of car owners $X$ among 5 students as a binomial distribution:\n$$X \\sim \\mathrm{B}\\left(5, \\dfrac{1}{4}\\right)$$",
+        "Express 'at least four' as the sum of two mutually exclusive binomial terms:\n$$\\mathrm{P}(X \\ge 4) = \\mathrm{P}(X = 4) + \\mathrm{P}(X = 5)$$",
+        "Evaluate each term using the binomial probability formula:\n$$\\begin{aligned} \\mathrm{P}(X = 4) &= \\binom{5}{4} \\left(\\dfrac{1}{4}\\right)^4 \\left(\\dfrac{3}{4}\\right)^1 = 5 \\times \\dfrac{1}{256} \\times \\dfrac{3}{4} = \\dfrac{15}{1024} \\approx 0.014648 \\\\ \\mathrm{P}(X = 5) &= \\binom{5}{5} \\left(\\dfrac{1}{4}\\right)^5 \\left(\\dfrac{3}{4}\\right)^0 = 1 \\times \\dfrac{1}{1024} \\times 1 = \\dfrac{1}{1024} \\approx 0.000977 \\end{aligned}$$",
+        "Sum the two probabilities:\n$$\\mathrm{P}(X \\ge 4) = \\dfrac{15}{1024} + \\dfrac{1}{1024} = \\dfrac{16}{1024} = \\dfrac{1}{64} = 0.015625 \\approx 0.0156$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      },
+      "teacher_walkthrough": [
+        "Let $X$ be the number of students who own a car in a sample of $n = 5$ students. Since students are sampled independently from a large college with constant probability $p = \\frac{1}{4}$, $X$ follows a binomial distribution:\n$$X \\sim \\mathrm{B}\\left(5, \\frac{1}{4}\\right)$$",
+        "The general binomial probability formula is:\n$$\\mathrm{P}(X = r) = \\binom{n}{r} p^r (1 - p)^{n - r}$$\nwhere $n = 5$, $p = \\frac{1}{4}$, and $1 - p = \\frac{3}{4}$.",
+        "'At least four' means $X \\ge 4$, which consists of two disjoint cases: $X = 4$ and $X = 5$:\n$$\\mathrm{P}(X \\ge 4) = \\mathrm{P}(X = 4) + \\mathrm{P}(X = 5)$$",
+        "Step 1: Compute $\\mathrm{P}(X = 4)$:\n$$\\mathrm{P}(X = 4) = \\binom{5}{4} \\left(\\frac{1}{4}\\right)^4 \\left(\\frac{3}{4}\\right)^1 = 5 \\times \\frac{1}{256} \\times \\frac{3}{4} = \\frac{15}{1024}$$",
+        "Step 2: Compute $\\mathrm{P}(X = 5)$:\n$$\\mathrm{P}(X = 5) = \\binom{5}{5} \\left(\\frac{1}{4}\\right)^5 \\left(\\frac{3}{4}\\right)^0 = 1 \\times \\frac{1}{1024} \\times 1 = \\frac{1}{1024}$$",
+        "Step 3: Add the two terms:\n$$\\mathrm{P}(X \\ge 4) = \\frac{15}{1024} + \\frac{1}{1024} = \\frac{16}{1024} = \\frac{1}{64}$$\nAs a decimal:\n$$\\frac{1}{64} = 0.015625 \\approx 0.0156\\text{ (3 s.f.)}$$"
+      ]
+    },
+    {
+      "part_id": "9709_m18_62_q8_ii",
+      "difficulty": 3,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_s1_t_discrete_random_variables",
+        "lesson_id": "9709_s1_t_discrete_random_variables_m04_l02"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_using_complementary_events"
+      },
+      "hints": [
+        "Use the complement rule: the probability that at least one student owns a car is $1 - \\mathrm{P}(\\text{none own a car}) = 1 - (0.75)^n$.",
+        "Set up the inequality $1 - (0.75)^n > 0.995$ and rearrange it to isolate $(0.75)^n < 0.005$.",
+        "Take logarithms of both sides: $n \\ln(0.75) < \\ln(0.005)$. Remember that $\\ln(0.75)$ is negative, so dividing by it reverses the inequality sign.",
+        "Find the smallest integer $n$ that satisfies $n > 18.42$."
+      ],
+      "walkthrough": [
+        "Express the probability that at least one student owns a car using the complement:\n$$\\mathrm{P}(Y \\ge 1) = 1 - \\mathrm{P}(Y = 0) = 1 - \\left(\\dfrac{3}{4}\\right)^n = 1 - (0.75)^n$$",
+        "Set up and rearrange the inequality:\n$$\\begin{aligned} 1 - (0.75)^n &> 0.995 \\\\ -(0.75)^n &> -0.005 \\\\ (0.75)^n &< 0.005 \\end{aligned}$$",
+        "Take natural logarithms of both sides and solve for $n$:\n$$\\begin{aligned} \\ln\\left((0.75)^n\\right) &< \\ln(0.005) \\\\ n \\ln(0.75) &< \\ln(0.005) \\end{aligned}$$\nBecause $\\ln(0.75) \\approx -0.28768$ is negative, dividing by $\\ln(0.75)$ reverses the inequality sign:\n$$n > \\dfrac{\\ln(0.005)}{\\ln(0.75)} = \\dfrac{-5.29832}{-0.28768} \\approx 18.42$$",
+        "Since $n$ must be an integer, the least possible value is:\n$$n = 19$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      },
+      "teacher_walkthrough": [
+        "Let $Y \\sim \\mathrm{B}\\left(n, \\frac{1}{4}\\right)$ be the number of car owners in a random sample of $n$ students.",
+        "The event 'at least one student owns a car' is $Y \\ge 1$. Using the complement rule:\n$$\\mathrm{P}(Y \\ge 1) = 1 - \\mathrm{P}(Y = 0)$$\nThe probability that none of the $n$ students owns a car is:\n$$\\mathrm{P}(Y = 0) = \\binom{n}{0} \\left(\\frac{1}{4}\\right)^0 \\left(\\frac{3}{4}\\right)^n = (0.75)^n$$\nSo:\n$$\\mathrm{P}(Y \\ge 1) = 1 - (0.75)^n$$",
+        "Step 1: Set up the given inequality:\n$$1 - (0.75)^n > 0.995$$",
+        "Step 2: Rearrange to isolate the exponential power:\nSubtract 1 from both sides:\n$$-(0.75)^n > 0.995 - 1$$\n$$-(0.75)^n > -0.005$$\nMultiply both sides by $-1$ and reverse the inequality sign:\n$$(0.75)^n < 0.005$$",
+        "Step 3: Take natural logarithms of both sides:\n$$\\ln((0.75)^n) < \\ln(0.005)$$\nApply the logarithm power law $\\ln(a^b) = b \\ln(a)$:\n$$n \\ln(0.75) < \\ln(0.005)$$",
+        "Step 4: Divide by $\\ln(0.75)$:\n$$\\ln(0.75) \\approx -0.287682, \\quad \\ln(0.005) \\approx -5.298317$$\nBecause $\\ln(0.75) < 0$, dividing reverses the inequality sign:\n$$n > \\frac{-5.298317}{-0.287682} \\approx 18.417$$",
+        "Step 5: Determine the least integer:\nSince $n$ must be an integer and $n > 18.417$, the smallest valid integer is $n = 19$."
+      ]
+    },
+    {
+      "part_id": "9709_m18_62_q8_iii",
+      "difficulty": 3,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_s1_t_the_normal_distribution",
+        "lesson_id": "9709_s1_t_the_normal_distribution_m03_l02"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_applying_a_normal_approximation"
+      },
+      "hints": [
+        "Identify the distribution: $X \\sim \\mathrm{B}(160, 0.25)$. Check that $np = 40 > 5$ and $n(1-p) = 120 > 5$ to justify a normal approximation.",
+        "Calculate the mean $\\mu = np = 40$ and variance $\\sigma^2 = np(1-p) = 30$.",
+        "Apply a continuity correction: 'fewer than 50' means $X \\le 49$, which corresponds to continuous region $Y < 49.5$.",
+        "Standardise $Z = \\frac{49.5 - 40}{\\sqrt{30}}$ and find the cumulative normal probability $\\Phi(z)$."
+      ],
+      "walkthrough": [
+        "Identify parameters of the binomial distribution and check the normal approximation conditions:\n$$n = 160, \\quad p = 0.25, \\quad 1 - p = 0.75$$\n$$\\mu = np = 160 \\times 0.25 = 40$$\n$$\\sigma^2 = np(1 - p) = 160 \\times 0.25 \\times 0.75 = 30 \\implies \\sigma = \\sqrt{30} \\approx 5.4772$$\nSince $np = 40 > 5$ and $n(1 - p) = 120 > 5$, $X \\approx Y \\sim \\mathrm{N}(40, 30)$.",
+        "Apply the continuity correction for 'fewer than 50' ($X < 50 \\iff X \\le 49$):\n$$\\mathrm{P}(X < 50) = \\mathrm{P}(X \\le 49) \\approx \\mathrm{P}(Y < 49.5)$$",
+        "Standardise the continuous boundary $49.5$:\n$$Z = \\dfrac{49.5 - 40}{\\sqrt{30}} = \\dfrac{9.5}{\\sqrt{30}} = \\dfrac{9.5}{5.4772} \\approx 1.734$$",
+        "Find the cumulative probability from the standard normal table:\n$$\\Phi(1.734) = \\Phi(1.73) + \\text{diff}(4) = 0.9582 + 0.0004 = 0.9586 \\approx 0.959$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      },
+      "teacher_walkthrough": [
+        "The exact distribution of $X$, the number of students owning a car in a sample of $160$, is binomial:\n$$X \\sim \\mathrm{B}(160, 0.25)$$\nSince $n$ is large and $p$ is not near 0 or 1, we approximate $X$ using a continuous normal distribution.",
+        "Step 1: Calculate the mean and variance for the normal model:\n$$\\mu = np = 160 \\times 0.25 = 40$$\n$$\\sigma^2 = np(1 - p) = 160 \\times 0.25 \\times 0.75 = 30$$\n$$\\sigma = \\sqrt{30} \\approx 5.477226$$\nBoth $np = 40 > 5$ and $nq = 120 > 5$, confirming that the normal approximation $Y \\sim \\mathrm{N}(40, 30)$ is appropriate.",
+        "Step 2: Apply the continuity correction.\nWe require the probability that 'fewer than 50' students own a car: $X < 50$.\nSince $X$ only takes integer values, $X < 50$ is equivalent to $X \\le 49$.\nIn the continuous approximation, the integer bar for 49 covers $[48.5, 49.5]$.\nTo include 49 while strictly excluding 50, the continuous boundary is $49.5$:\n$$\\mathrm{P}(X < 50) = \\mathrm{P}(X \\le 49) \\approx \\mathrm{P}(Y < 49.5)$$",
+        "Step 3: Standardise $Y = 49.5$ using $Z = \\frac{Y - \\mu}{\\sigma}$:\n$$Z = \\frac{49.5 - 40}{\\sqrt{30}} = \\frac{9.5}{\\sqrt{30}} = \\frac{9.5}{5.477226} \\approx 1.7344$$",
+        "Step 4: Look up the probability in the standard normal table:\n- For $z = 1.73$, $\\Phi(1.73) = 0.9582$.\n- The addition for the 4th decimal digit (4 in the third decimal place) is 4 ($0.0004$):\n$$\\Phi(1.734) = 0.9582 + 0.0004 = 0.9586$$\nRounding to 3 significant figures gives:\n$$\\mathrm{P}(X < 50) \\approx 0.959$$"
+      ]
+    }
+  ]
+}

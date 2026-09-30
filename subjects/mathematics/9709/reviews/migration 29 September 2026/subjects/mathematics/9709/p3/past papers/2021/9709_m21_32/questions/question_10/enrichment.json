@@ -1,0 +1,71 @@
+{
+  "schema_version": "9709_math_enrichment_v7",
+  "question_id": "9709_m21_32_q10",
+  "difficulty": 4,
+  "parts": [
+    {
+      "part_id": "9709_m21_32_q10_a",
+      "difficulty": 2,
+      "practice_tier": "revision",
+      "mapping": {
+        "topic_id": "9709_p3_t_integration",
+        "lesson_id": "9709_p3_t_integration_m04_l01"
+      },
+      "skills": {
+        "primary_skill_id": "9709_p3_skill_integration"
+      },
+      "hints": [
+        "Use the given substitution to convert the area integral completely from $x$ to $u=\\sin x$.",
+        "Rewrite $\\sin2x=2\\sin x\\cos x$, so the integrand becomes $2\\sin x\\cos^3x\\,dx$ and one factor $\\cos x\\,dx$ is $du$.",
+        "Replace the remaining $\\cos^2x$ by $1-u^2$ and change the limits from $x=0,\\pi/2$ to $u=0,1$.",
+        "Integrate the resulting polynomial $2(u-u^3)$ over these limits."
+      ],
+      "walkthrough": [
+        "Write the integral for the area under the curve between $x = 0$ and $x = \\dfrac{1}{2}\\pi$:\n$$A = \\int_0^{\\frac{\\pi}{2}} \\sin 2x\\cos^2 x\\,\\mathrm{d}x$$",
+        "Use the double-angle formula $\\sin 2x = 2\\sin x\\cos x$ to express the integrand in terms of $\\sin x$ and $\\cos x$:\n$$\\sin 2x\\cos^2 x = (2\\sin x\\cos x)\\cos^2 x = 2\\sin x\\cos^3 x$$",
+        "Apply the substitution $u = \\sin x$:\n$$\\dfrac{\\mathrm{d}u}{\\mathrm{d}x} = \\cos x \\implies \\mathrm{d}u = \\cos x\\,\\mathrm{d}x$$",
+        "Rewrite $\\cos^3 x\\,\\mathrm{d}x$ using $\\cos^2 x = 1 - \\sin^2 x = 1 - u^2$:\n$$\\cos^3 x\\,\\mathrm{d}x = \\cos^2 x(\\cos x\\,\\mathrm{d}x) = (1 - u^2)\\,\\mathrm{d}u$$\nSo the integrand becomes:\n$$2\\sin x\\cos^3 x\\,\\mathrm{d}x = 2u(1 - u^2)\\,\\mathrm{d}u = 2(u - u^3)\\,\\mathrm{d}u$$",
+        "Transform the integration limits:\n- When $x = 0$: $u = \\sin 0 = 0$.\n- When $x = \\dfrac{\\pi}{2}$: $u = \\sin\\left(\\dfrac{\\pi}{2}\\right) = 1$.",
+        "Evaluate the definite integral with respect to $u$:\n$$A = \\int_0^1 2(u - u^3)\\,\\mathrm{d}u = 2\\left[\\dfrac{u^2}{2} - \\dfrac{u^4}{4}\\right]_0^1 = \\left[u^2 - \\dfrac{u^4}{2}\\right]_0^1$$",
+        "Substitute the limits $1$ and $0$:\n$$A = \\left(1^2 - \\dfrac{1^4}{2}\\right) - \\left(0^2 - \\dfrac{0^4}{2}\\right) = 1 - \\dfrac{1}{2} = \\dfrac{1}{2}$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      }
+    },
+    {
+      "part_id": "9709_m21_32_q10_b",
+      "difficulty": 4,
+      "practice_tier": "revision",
+      "mapping": {
+        "topic_id": "9709_p3_t_integration",
+        "lesson_id": "9709_p3_t_integration_m04_l02"
+      },
+      "skills": {
+        "primary_skill_id": "9709_p3_skill_finding_stationary_points"
+      },
+      "hints": [
+        "At the interior maximum, differentiate $y=\\sin2x\\cos^2x$ and set the derivative equal to zero.",
+        "Use the product rule, with $d(\\sin2x)/dx=2\\cos2x$ and $d(\\cos^2x)/dx=-2\\sin x\\cos x$.",
+        "Simplify the stationary-point equation to one trigonometric variable, for example $4\\sin^2x=1$.",
+        "Select the solution in $0<x<\\pi/2$ and check that it corresponds to the displayed maximum rather than an endpoint."
+      ],
+      "walkthrough": [
+        "Differentiate $y = \\sin 2x\\cos^2 x$ with respect to $x$ using the product rule $(uv)' = u'v + uv'$:\nLet $u = \\sin 2x \\implies u' = 2\\cos 2x$\nLet $v = \\cos^2 x \\implies v' = 2\\cos x(-\\sin x) = -2\\sin x\\cos x = -\\sin 2x$",
+        "Apply the product rule:\n$$\\dfrac{\\mathrm{d}y}{\\mathrm{d}x} = (2\\cos 2x)(\\cos^2 x) + (\\sin 2x)(-\\sin 2x) = 2\\cos 2x\\cos^2 x - \\sin^2 2x$$",
+        "At the stationary maximum point $M$, set $\\dfrac{\\mathrm{d}y}{\\mathrm{d}x} = 0$:\n$$2\\cos 2x\\cos^2 x - \\sin^2 2x = 0$$",
+        "Rewrite $\\sin^2 2x$ in terms of $\\sin x$ and $\\cos x$ using $\\sin 2x = 2\\sin x\\cos x$:\n$$\\sin^2 2x = (2\\sin x\\cos x)^2 = 4\\sin^2 x\\cos^2 x$$\nSubstitute this into the derivative equation:\n$$2\\cos 2x\\cos^2 x - 4\\sin^2 x\\cos^2 x = 0$$",
+        "Factor out $2\\cos^2 x$:\n$$2\\cos^2 x(\\cos 2x - 2\\sin^2 x) = 0$$",
+        "For the point $M$ in the open interval $0 < x < \\dfrac{\\pi}{2}$, $\\cos x \\ne 0$, so divide by $2\\cos^2 x$:\n$$\\cos 2x - 2\\sin^2 x = 0$$",
+        "Use the double-angle formula $\\cos 2x = 1 - 2\\sin^2 x$:\n$$(1 - 2\\sin^2 x) - 2\\sin^2 x = 0$$\n$$1 - 4\\sin^2 x = 0$$\n$$4\\sin^2 x = 1 \\implies \\sin^2 x = \\dfrac{1}{4}$$",
+        "Take the positive square root since $\\sin x > 0$ for $0 < x < \\dfrac{\\pi}{2}$:\n$$\\sin x = \\dfrac{1}{2}$$",
+        "Solve for the exact value of $x$:\n$$x = \\sin^{-1}\\left(\\dfrac{1}{2}\\right) = \\dfrac{\\pi}{6}$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      }
+    }
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "schema_version": "9709_math_enrichment_v7",
+  "question_id": "9709_m23_32_q5",
+  "difficulty": 2,
+  "parts": [
+    {
+      "part_id": "9709_m23_32_q5_a",
+      "difficulty": 1,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_p3_t_differential_equations",
+        "lesson_id": "9709_p3_t_differential_equations_m01_l01"
+      },
+      "skills": {
+        "primary_skill_id": "9709_p3_skill_differentiating_parametric_curves"
+      },
+      "hints": [
+        "For a parametric curve, use $\\dfrac{dy}{dx}=\\dfrac{dy/dt}{dx/dt}$.",
+        "Differentiate $x=te^{2t}$ with the product rule and differentiate $y=t^2+t+3$ directly.",
+        "Factor $dx/dt$ as $e^{2t}(1+2t)$ before cancelling the common factor with $dy/dt$."
+      ],
+      "walkthrough": [
+        "Differentiate $x = t\\mathrm{e}^{2t}$ with respect to $t$ using the product rule, $\\dfrac{\\mathrm{d}}{\\mathrm{d}t}(uv) = u'v + uv'$:\n$$\\dfrac{\\mathrm{d}x}{\\mathrm{d}t} = (1)\\mathrm{e}^{2t} + t(2\\mathrm{e}^{2t}) = \\mathrm{e}^{2t}(1 + 2t)$$",
+        "Differentiate $y = t^2 + t + 3$ with respect to $t$:\n$$\\dfrac{\\mathrm{d}y}{\\mathrm{d}t} = 2t + 1$$",
+        "Apply the chain rule for parametric differentiation:\n$$\\dfrac{\\mathrm{d}y}{\\mathrm{d}x} = \\dfrac{\\dfrac{\\mathrm{d}y}{\\mathrm{d}t}}{\\dfrac{\\mathrm{d}x}{\\mathrm{d}t}} = \\dfrac{2t + 1}{\\mathrm{e}^{2t}(1 + 2t)}$$",
+        "Cancel the common factor $(2t + 1) = (1 + 2t)$ from numerator and denominator:\n$$\\dfrac{\\mathrm{d}y}{\\mathrm{d}x} = \\dfrac{1}{\\mathrm{e}^{2t}} = \\mathrm{e}^{-2t}$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      }
+    },
+    {
+      "part_id": "9709_m23_32_q5_b",
+      "difficulty": 2,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_p3_t_differentiation",
+        "lesson_id": "9709_p3_t_differentiation_m02_l01"
+      },
+      "skills": {
+        "primary_skill_id": "9709_p3_skill_finding_equations_of_normals"
+      },
+      "hints": [
+        "At $t=-1$, first find the point on the curve and evaluate the tangent gradient $e^{-2t}$.",
+        "The normal gradient is the negative reciprocal of the tangent gradient.",
+        "Form the normal through the point found at $t=-1$, then set $x=0$ and simplify its $y$-coordinate exactly."
+      ],
+      "walkthrough": [
+        "Calculate the coordinates of the point on the curve at parameter $t = -1$:\n$$x = (-1)\\mathrm{e}^{2(-1)} = -\\mathrm{e}^{-2}$$\n$$y = (-1)^2 + (-1) + 3 = 1 - 1 + 3 = 3$$\nThe point of contact is $(-\\mathrm{e}^{-2}, 3)$.",
+        "Evaluate the gradient of the tangent at $t = -1$:\n$$m_{\\text{tangent}} = \\mathrm{e}^{-2(-1)} = \\mathrm{e}^2$$",
+        "Find the gradient of the normal to the curve, which is the negative reciprocal of the tangent gradient:\n$$m_{\\text{normal}} = -\\dfrac{1}{m_{\\text{tangent}}} = -\\dfrac{1}{\\mathrm{e}^2} = -\\mathrm{e}^{-2}$$",
+        "Write the equation of the normal line passing through $(-\\mathrm{e}^{-2}, 3)$ with gradient $-\\mathrm{e}^{-2}$:\n$$y - y_1 = m_{\\text{normal}}(x - x_1)$$\n$$y - 3 = -\\mathrm{e}^{-2}(x - (-\\mathrm{e}^{-2}))$$\n$$y - 3 = -\\mathrm{e}^{-2}(x + \\mathrm{e}^{-2})$$",
+        "Substitute $x = 0$ into the normal equation to find its $y$-intercept:\n$$y - 3 = -\\mathrm{e}^{-2}(0 + \\mathrm{e}^{-2})$$\n$$y - 3 = -\\mathrm{e}^{-2}\\cdot\\mathrm{e}^{-2} = -\\mathrm{e}^{-4}$$\n$$y = 3 - \\mathrm{e}^{-4}$$",
+        "Conclude that the normal line passes through the point $(0, 3 - \\mathrm{e}^{-4})$ as required."
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      }
+    }
+  ]
+}

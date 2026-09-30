@@ -1,0 +1,107 @@
+{
+  "schema_version": "9709_math_enrichment_v7",
+  "question_id": "9709_s23_53_q6",
+  "difficulty": 3,
+  "parts": [
+    {
+      "part_id": "9709_s23_53_q6_a",
+      "difficulty": 2,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_s1_t_the_normal_distribution",
+        "lesson_id": "9709_s1_t_the_normal_distribution_m02_l02"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_finding_normal_distribution_parameters"
+      },
+      "hints": [
+        "We are given mu = 28 and P(X < 16) = 0.10.",
+        "Since 0.10 < 0.5, the z-value is negative: Phi(-z) = 0.9000 gives z = -1.282.",
+        "Set up the standardisation equation: (16 - 28) / sigma = -1.282, and solve for sigma."
+      ],
+      "walkthrough": [
+        "State the normal model with mean $\\mu = 28$ and unknown standard deviation $\\sigma$:\n$$X \\sim \\mathrm{N}(28, \\sigma^2)$$\n$$\\mathrm{P}(X < 16) = 0.10$$",
+        "Find the $z$-value corresponding to a lower tail of $0.10$ from normal distribution tables:\n$$\\Phi(-z) = 1 - 0.10 = 0.9000 \\implies -z = 1.282 \\implies z = -1.282$$",
+        "Set up the standardisation formula and solve for $\\sigma$:\n$$\\frac{16 - 28}{\\sigma} = -1.282$$\n$$\\frac{-12}{\\sigma} = -1.282 \\implies \\sigma = \\frac{12}{1.282} \\approx 9.3604 \\approx 9.36\\text{ kg}$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      },
+      "teacher_walkthrough": [
+        "Step 1: Set up the distribution:\nDaily mass of grapes $X \\sim \\mathrm{N}(28, \\sigma^2)$ with known mean $\\mu = 28$ kg.\nWe are given:\n$$\\mathrm{P}(X < 16) = 0.10$$",
+        "Step 2: Find the $z$-score:\nBecause $0.10 < 0.5$, the value $16$ lies below the mean, so $z$ is negative.\n$$\\Phi(-z) = 1 - 0.10 = 0.9000$$\nFrom Cambridge MF19 tables, the critical value for $0.90$ is $1.282$.\nTherefore, $-z = 1.282 \\implies z = -1.282$.",
+        "Step 3: Substitute into the standardisation formula $Z = \\frac{X - \\mu}{\\sigma}$:\n$$-1.282 = \\frac{16 - 28}{\\sigma}$$\n$$-1.282 = \\frac{-12}{\\sigma}$$",
+        "Step 4: Solve for $\\sigma$:\n$$\\sigma = \\frac{-12}{-1.282} = \\frac{12}{1.282} \\approx 9.36037$$\nRounding to 3 significant figures gives $\\sigma = 9.36$ kg."
+      ]
+    },
+    {
+      "part_id": "9709_s23_53_q6_b",
+      "difficulty": 2,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_s1_t_discrete_random_variables",
+        "lesson_id": "9709_s1_t_discrete_random_variables_m03_l03"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_calculating_binomial_tail_probabilities"
+      },
+      "hints": [
+        "Let D be the number of days out of 12 on which < 16 kg is sold. Model D as B(12, 0.1).",
+        "Use the complement rule: P(D > 2) = 1 - [P(D = 0) + P(D = 1) + P(D = 2)].",
+        "Evaluate P(D = 0) = (0.9)^12, P(D = 1) = 12 * 0.1 * (0.9)^11, and P(D = 2) = 66 * (0.1)^2 * (0.9)^10, then subtract their sum from 1."
+      ],
+      "walkthrough": [
+        "Model the number of days $D$ out of $n = 12$ as a binomial distribution:\n$$D \\sim \\mathrm{B}(12, 0.1)$$",
+        "Express $\\mathrm{P}(D > 2)$ using the complement rule:\n$$\\mathrm{P}(D > 2) = 1 - [\\mathrm{P}(D = 0) + \\mathrm{P}(D = 1) + \\mathrm{P}(D = 2)]$$",
+        "Calculate each probability:\n$$\\begin{aligned} \\mathrm{P}(D = 0) &= \\binom{12}{0}(0.9)^{12} \\approx 0.282430 \\\\ \\mathrm{P}(D = 1) &= \\binom{12}{1}(0.1)^1(0.9)^{11} \\approx 0.376573 \\\\ \\mathrm{P}(D = 2) &= \\binom{12}{2}(0.1)^2(0.9)^{10} \\approx 0.230128 \\end{aligned}$$",
+        "Sum the lower-tail probabilities and subtract from 1:\n$$\\mathrm{P}(D \\le 2) = 0.282430 + 0.376573 + 0.230128 = 0.889131$$\n$$\\mathrm{P}(D > 2) = 1 - 0.889131 = 0.110869 \\approx 0.111$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      },
+      "teacher_walkthrough": [
+        "Step 1: Identify the binomial distribution parameters:\n- Number of trials $n = 12$\n- Probability of selling less than 16 kg on any day $p = 0.10$\n- Probability of selling at least 16 kg $q = 1 - 0.10 = 0.90$\n- Distribution: $D \\sim \\mathrm{B}(12, 0.10)$.",
+        "Step 2: Express the required event using the complement rule:\n$$\\mathrm{P}(D > 2) = 1 - \\mathrm{P}(D \\le 2) = 1 - [\\mathrm{P}(D = 0) + \\mathrm{P}(D = 1) + \\mathrm{P}(D = 2)]$$",
+        "Step 3: Evaluate each individual binomial term:\n- For $r = 0$:\n$$\\mathrm{P}(D = 0) = \\binom{12}{0}(0.1)^0(0.9)^{12} = (0.9)^{12} \\approx 0.282430$$\n- For $r = 1$:\n$$\\mathrm{P}(D = 1) = \\binom{12}{1}(0.1)^1(0.9)^{11} = 12 \\times 0.1 \\times (0.9)^{11} \\approx 0.376573$$\n- For $r = 2$:\n$$\\binom{12}{2} = \\frac{12 \\times 11}{2} = 66$$\n$$\\mathrm{P}(D = 2) = 66 \\times (0.1)^2 \\times (0.9)^{10} = 66 \\times 0.01 \\times (0.9)^{10} \\approx 0.230128$$",
+        "Step 4: Sum the probabilities for 0, 1, and 2 days:\n$$\\mathrm{P}(D \\le 2) = 0.282430 + 0.376573 + 0.230128 = 0.889131$$",
+        "Step 5: Subtract from 1:\n$$\\mathrm{P}(D > 2) = 1 - 0.889131 = 0.110869$$\nRounding to 3 significant figures gives $0.111$."
+      ]
+    },
+    {
+      "part_id": "9709_s23_53_q6_c",
+      "difficulty": 2,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_s1_t_the_normal_distribution",
+        "lesson_id": "9709_s1_t_the_normal_distribution_m01_l03"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_finding_expected_counts_from_a_normal_model"
+      },
+      "hints": [
+        "Being within 1.3 standard deviations of the mean corresponds to -1.3 < Z < 1.3.",
+        "Calculate P(-1.3 < Z < 1.3) = 2 * Phi(1.3) - 1.",
+        "Look up Phi(1.3) = 0.9032, giving probability 2(0.9032) - 1 = 0.8064.",
+        "Multiply 0.8064 by 365 to find the expected number of days."
+      ],
+      "walkthrough": [
+        "Express 'within 1.3 standard deviations of the mean' in terms of the standard normal variable $Z$:\n$$\\mathrm{P}(\\mu - 1.3\\sigma < X < \\mu + 1.3\\sigma) = \\mathrm{P}(-1.3 < Z < 1.3)$$",
+        "Use symmetry to evaluate the probability:\n$$\\mathrm{P}(-1.3 < Z < 1.3) = 2\\Phi(1.3) - 1 = 2(0.9032) - 1 = 1.8064 - 1 = 0.8064$$",
+        "Multiply by the number of days in the sample $n = 365$:\n$$\\text{Expected days} = 365 \\times 0.8064 = 294.336 \\implies 294 \\text{ or } 295 \\text{ days}$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      },
+      "teacher_walkthrough": [
+        "Step 1: Understand the definition of 'within 1.3 standard deviations of the mean':\nAn observation $X$ lies within $1.3$ standard deviations of the mean $\\mu$ if:\n$$\\mu - 1.3\\sigma < X < \\mu + 1.3\\sigma$$",
+        "Step 2: Standardise the interval:\nSubtracting $\\mu$ and dividing by $\\sigma$:\n$$-1.3 < \\frac{X - \\mu}{\\sigma} < 1.3 \\iff -1.3 < Z < 1.3$$",
+        "Step 3: Calculate the probability using symmetry of the standard normal curve:\n$$\\mathrm{P}(-1.3 < Z < 1.3) = \\Phi(1.3) - \\Phi(-1.3) = \\Phi(1.3) - [1 - \\Phi(1.3)] = 2\\Phi(1.3) - 1$$",
+        "Step 4: Look up $\\Phi(1.3)$ in the normal distribution tables:\n$$\\Phi(1.30) = 0.9032$$\n$$\\mathrm{P} = 2(0.9032) - 1 = 1.8064 - 1 = 0.8064$$",
+        "Step 5: Multiply by the sample size $n = 365$ to find the expected count:\n$$\\mathrm{E}(\\text{Days}) = 365 \\times 0.8064 = 294.336$$\nAccept $294$ or $295$ days."
+      ]
+    }
+  ]
+}

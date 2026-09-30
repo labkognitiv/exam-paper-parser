@@ -1,0 +1,104 @@
+{
+  "schema_version": "9709_math_enrichment_v7",
+  "question_id": "9709_w21_43_q5",
+  "difficulty": 3,
+  "parts": [
+    {
+      "part_id": "9709_w21_43_q5_a",
+      "difficulty": 3,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_m1_t_kinematics_of_motion_in_a_straight_line",
+        "lesson_id": "9709_m1_t_kinematics_of_motion_in_a_straight_line_m07_l01"
+      },
+      "skills": {
+        "primary_skill_id": "9709_m1_skill_integrating_motion_functions"
+      },
+      "hints": [
+        "Integrate acceleration $a(t) = k(16 - t^2)$ to find velocity: $v(t) = k\\left(16t - \\frac{1}{3}t^3\\right) + C$. Use $v(0) = 0$ to get $C = 0$.",
+        "Use $v(4) = 8$ to determine $k$: $8 = k\\left(64 - \\frac{64}{3}\\right) = k\\left(\\frac{128}{3}\\right) \\implies k = \\frac{3}{16}$.",
+        "Integrate $v(t) = 3t - \\frac{1}{16}t^3$ to find displacement $s(t)$, with $s(0) = 0$, and factor out $\\frac{1}{64}t^2$ to show $s = \\frac{1}{64}t^2(96 - t^2)$."
+      ],
+      "walkthrough": [
+        "Integrate acceleration to find velocity with initial condition $v(0) = 0$:\n$$v(t) = \\int k(16 - t^2)\\,dt = k\\left(16t - \\frac{1}{3}t^3\\right)$$",
+        "Use $v(4) = 8\\text{ m s}^{-1}$ to solve for constant $k$:\n$$8 = k\\left(16(4) - \\frac{1}{3}(4^3)\\right) = k\\left(64 - \\frac{64}{3}\\right) = k\\left(\\frac{128}{3}\\right)$$\n$$k = \\frac{24}{128} = \\frac{3}{16}$$",
+        "Substitute $k = \\frac{3}{16}$ into the velocity function:\n$$v(t) = \\frac{3}{16}\\left(16t - \\frac{1}{3}t^3\\right) = 3t - \\frac{1}{16}t^3$$",
+        "Integrate velocity to find displacement with initial condition $s(0) = 0$:\n$$s(t) = \\int \\left(3t - \\frac{1}{16}t^3\\right)\\,dt = \\frac{3}{2}t^2 - \\frac{1}{64}t^4$$\n$$s(t) = \\frac{1}{64}t^2(96 - t^2)$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      },
+      "teacher_walkthrough": [
+        "State the relationship between velocity and acceleration: velocity is the integral of acceleration with respect to time:\n$$v(t) = \\int a(t)\\,dt = \\int k(16 - t^2)\\,dt = k\\left(16t - \\frac{t^3}{3}\\right) + C_1$$",
+        "Apply the initial condition: particle $P$ starts from rest at $O$, so $v(0) = 0$ when $t = 0$:\n$$0 = k(0 - 0) + C_1 \\implies C_1 = 0$$\nThus:\n$$v(t) = k\\left(16t - \\frac{1}{3}t^3\\right)$$",
+        "Use the condition that $v = 8\\text{ m s}^{-1}$ when $t = 4\\text{ s}$:\n$$8 = k\\left(16(4) - \\frac{4^3}{3}\\right) = k\\left(64 - \\frac{64}{3}\\right)$$\n$$8 = k\\left(\\frac{192 - 64}{3}\\right) = k\\left(\\frac{128}{3}\\right)$$\nMultiply both sides by $3$ and divide by $128$:\n$$k = \\frac{24}{128} = \\frac{3}{16}$$",
+        "Write out the simplified velocity function:\n$$v(t) = \\frac{3}{16}\\left(16t - \\frac{1}{3}t^3\\right) = 3t - \\frac{1}{16}t^3$$",
+        "Integrate velocity with respect to $t$ to obtain displacement $s(t)$:\n$$s(t) = \\int v(t)\\,dt = \\int \\left(3t - \\frac{1}{16}t^3\\right)\\,dt = \\frac{3t^2}{2} - \\frac{t^4}{16 \\times 4} + C_2 = \\frac{3}{2}t^2 - \\frac{1}{64}t^4 + C_2$$",
+        "Apply the condition that $P$ starts at $O$, so $s(0) = 0$:\n$$0 = 0 - 0 + C_2 \\implies C_2 = 0$$\nFactor out $\\frac{1}{64}t^2$:\n$$s(t) = \\frac{1}{64}t^2\\left(\\frac{3 \\times 64}{2} - t^2\\right) = \\frac{1}{64}t^2(96 - t^2)$$\nThus $s = \\frac{1}{64}t^2(96 - t^2)$ as required."
+      ]
+    },
+    {
+      "part_id": "9709_w21_43_q5_b",
+      "difficulty": 2,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_m1_t_kinematics_of_motion_in_a_straight_line",
+        "lesson_id": "9709_m1_t_kinematics_of_motion_in_a_straight_line_m07_l01"
+      },
+      "skills": {
+        "primary_skill_id": "9709_m1_skill_differentiating_motion_functions"
+      },
+      "hints": [
+        "The particle returns to $O$ when displacement $s = 0$ for $t > 0$.",
+        "Set $\\frac{1}{64}t^2(96 - t^2) = 0$, giving $t^2 = 96 \\implies t = \\sqrt{96} = 4\\sqrt{6}$.",
+        "Substitute $t = \\sqrt{96}$ into the velocity function $v(t) = 3t - \\frac{1}{16}t^3$, and state the speed as a positive magnitude."
+      ],
+      "walkthrough": [
+        "Find the non-zero time when $P$ returns to $O$ ($s = 0$):\n$$\\frac{1}{64}t^2(96 - t^2) = 0 \\implies t^2 = 96 \\implies t = \\sqrt{96} = 4\\sqrt{6} \\approx 9.798\\text{ s}$$",
+        "Substitute $t = \\sqrt{96}$ into the velocity function $v(t) = 3t - \\frac{1}{16}t^3$:\n$$v = 3\\sqrt{96} - \\frac{1}{16}(\\sqrt{96})^3 = 3\\sqrt{96} - \\frac{96\\sqrt{96}}{16} = 3\\sqrt{96} - 6\\sqrt{96} = -3\\sqrt{96}$$",
+        "Evaluate the magnitude of the velocity to find speed:\n$$\\text{Speed} = |-3\\sqrt{96}| = 3\\sqrt{96} = 3(4\\sqrt{6}) = 12\\sqrt{6} \\approx 29.4\\text{ m s}^{-1}$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      },
+      "teacher_walkthrough": [
+        "Find the time when particle $P$ returns to the origin $O$ by setting displacement $s(t) = 0$:\n$$\\frac{1}{64}t^2(96 - t^2) = 0$$\nFor $t > 0$, divide by $\\frac{1}{64}t^2$:\n$$96 - t^2 = 0 \\implies t^2 = 96 \\implies t = \\sqrt{96} = 4\\sqrt{6} \\approx 9.79796\\text{ s}$$",
+        "Substitute $t = \\sqrt{96}$ into the velocity formula $v(t) = 3t - \\frac{1}{16}t^3$:\n$$v = 3\\sqrt{96} - \\frac{1}{16}(\\sqrt{96})^3$$\nNotice that $(\\sqrt{96})^3 = 96\\sqrt{96}$:\n$$v = 3\\sqrt{96} - \\frac{96}{16}\\sqrt{96} = 3\\sqrt{96} - 6\\sqrt{96} = -3\\sqrt{96}$$",
+        "Simplify the exact radical expression:\n$$-3\\sqrt{96} = -3\\sqrt{16 \\times 6} = -3(4\\sqrt{6}) = -12\\sqrt{6}\\text{ m s}^{-1}$$",
+        "State the speed as the absolute magnitude of velocity:\n$$\\text{Speed} = |v| = 12\\sqrt{6} \\approx 29.3939\\text{ m s}^{-1}$$\nRounding to three significant figures gives:\n$$\\text{Speed} = 29.4\\text{ m s}^{-1}$$\nThus the speed of $P$ at the instant that it returns to $O$ is $29.4\\text{ m s}^{-1}$."
+      ]
+    },
+    {
+      "part_id": "9709_w21_43_q5_c",
+      "difficulty": 2,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_m1_t_kinematics_of_motion_in_a_straight_line",
+        "lesson_id": "9709_m1_t_kinematics_of_motion_in_a_straight_line_m07_l01"
+      },
+      "skills": {
+        "primary_skill_id": "9709_m1_skill_differentiating_motion_functions"
+      },
+      "hints": [
+        "Displacement is at a stationary point (maximum) when velocity $v(t) = 0$.",
+        "Set $v(t) = 3t - \\frac{1}{16}t^3 = 0 \\implies t(3 - \\frac{1}{16}t^2) = 0$, giving $t^2 = 48$.",
+        "Substitute $t^2 = 48$ into $s = \\frac{1}{64}t^2(96 - t^2)$ to evaluate the maximum displacement."
+      ],
+      "walkthrough": [
+        "Find the time of maximum displacement by setting velocity $v(t) = 0$ for $t > 0$:\n$$3t - \\frac{1}{16}t^3 = 0$$\n$$t\\left(3 - \\frac{1}{16}t^2\\right) = 0 \\implies \\frac{1}{16}t^2 = 3 \\implies t^2 = 48$$",
+        "Substitute $t^2 = 48$ into the displacement equation:\n$$s_{\\text{max}} = \\frac{1}{64}(48)(96 - 48)$$\n$$s_{\\text{max}} = \\frac{1}{64}(48)(48) = \\frac{2304}{64} = 36\\text{ m}$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      },
+      "teacher_walkthrough": [
+        "State the condition for maximum displacement: maximum displacement occurs at an instantaneous turning point where velocity is zero ($v = 0$) and acceleration is negative ($\\frac{dv}{dt} < 0$).",
+        "Set $v(t) = 0$:\n$$3t - \\frac{1}{16}t^3 = 0$$\nFactor out $t$:\n$$t\\left(3 - \\frac{1}{16}t^2\\right) = 0$$\nFor $t > 0$:\n$$3 - \\frac{1}{16}t^2 = 0$$\n$$\\frac{1}{16}t^2 = 3$$\nMultiply by $16$:\n$$t^2 = 48 \\implies t = \\sqrt{48} = 4\\sqrt{3}\\text{ s}$$",
+        "Substitute $t^2 = 48$ into the displacement formula $s = \\frac{1}{64}t^2(96 - t^2)$:\n$$s_{\\text{max}} = \\frac{1}{64}(48)(96 - 48)$$\nCompute the terms:\n$$96 - 48 = 48$$\n$$s_{\\text{max}} = \\frac{1}{64}(48)(48) = \\frac{2304}{64} = 36\\text{ m}$$\nThus the maximum displacement of the particle from $O$ is $36\\text{ m}$."
+      ]
+    }
+  ]
+}

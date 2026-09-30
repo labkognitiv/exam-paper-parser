@@ -1,0 +1,113 @@
+{
+  "schema_version": "9709_math_enrichment_v7",
+  "question_id": "9709_s19_61_q7",
+  "difficulty": 2,
+  "parts": [
+    {
+      "part_id": "9709_s19_61_q7_i",
+      "difficulty": 2,
+      "practice_tier": "revision",
+      "mapping": {
+        "topic_id": "9709_s1_t_the_normal_distribution",
+        "lesson_id": "9709_s1_t_the_normal_distribution_m01_l03"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_finding_expected_counts_from_a_normal_model"
+      },
+      "hints": [
+        "First find the probability that a randomly chosen female giraffe weighs less than 700 kg, given $X \\sim \\mathrm{N}(830, 120^2)$.",
+        "Standardize 700 using $Z = \\frac{700 - 830}{120}$ to find the negative $z$-value.",
+        "Use symmetry $\\mathrm{P}(Z < -1.083) = 1 - \\Phi(1.083)$ to evaluate the probability from normal tables.",
+        "Multiply this probability by the total population of 430 giraffes to find the expected count."
+      ],
+      "walkthrough": [
+        "Define the distribution and standardise $X = 700$:\n$$X \\sim \\mathrm{N}(830, 120^2)$$\n$$Z = \\frac{700 - 830}{120} = \\frac{-130}{120} \\approx -1.083$$",
+        "Evaluate the lower-tail probability using symmetry:\n$$\\mathrm{P}(X < 700) = \\mathrm{P}(Z < -1.083) = 1 - \\Phi(1.083)$$\n$$\\Phi(1.083) = 0.8606$$\n$$\\mathrm{P}(X < 700) = 1 - 0.8606 = 0.1394$$",
+        "Multiply by the population size $N = 430$ to find the expected number:\n$$\\text{Expected number} = 430 \\times 0.1394 = 59.942 \\approx 59 \\text{ or } 60 \\text{ giraffes}$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      },
+      "teacher_walkthrough": [
+        "Let $X$ denote the weight of an adult female giraffe in kg, so $X \\sim \\mathrm{N}(830, 120^2)$ with $\\mu = 830$ and $\\sigma = 120$.",
+        "Step 1: Standardise the boundary value $X = 700$ using $Z = \\frac{X - \\mu}{\\sigma}$:\n$$Z = \\frac{700 - 830}{120} = \\frac{-130}{120} \\approx -1.0833$$",
+        "Step 2: Relate the negative $z$-value to standard normal cumulative table values using symmetry:\n$$\\mathrm{P}(Z < -1.083) = 1 - \\Phi(1.083)$$",
+        "Step 3: Look up $\\Phi(1.083)$ in the normal table:\n$$\\Phi(1.08) = 0.8599$$\n$$\\text{Add for 3} = 0.0007$$\n$$\\Phi(1.083) = 0.8599 + 0.0007 = 0.8606$$",
+        "Step 4: Compute the probability:\n$$\\mathrm{P}(X < 700) = 1 - 0.8606 = 0.1394$$",
+        "Step 5: Multiply by the total number of female giraffes ($N = 430$):\n$$\\text{Expected number} = 430 \\times 0.1394 = 59.942$$\nRounding to whole animals gives $59$ or $60$ giraffes."
+      ]
+    },
+    {
+      "part_id": "9709_s19_61_q7_ii",
+      "difficulty": 2,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_s1_t_the_normal_distribution",
+        "lesson_id": "9709_s1_t_the_normal_distribution_m02_l01"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_using_inverse_normal_values"
+      },
+      "hints": [
+        "A central 90% interval symmetric about the mean leaves 10% in total in the tails, which is 5% (0.05) in each tail.",
+        "Deduce that the upper boundary $830 + w$ satisfies $\\mathrm{P}(X < 830 + w) = 0.95$.",
+        "Look up the 95th percentile in the standard normal tables to find the critical value $z = 1.645$.",
+        "Set $\\frac{(830 + w) - 830}{120} = 1.645$ and solve for $w$."
+      ],
+      "walkthrough": [
+        "Use the symmetry of the central 90% interval:\n$$\\text{Tail probability on each side} = \\frac{1 - 0.90}{2} = 0.05$$\n$$\\mathrm{P}(X < 830 + w) = 0.90 + 0.05 = 0.95$$",
+        "Find the critical $z$-value from the standard normal distribution table:\n$$\\Phi(z) = 0.95 \\implies z = 1.645$$",
+        "Set up the standardisation equation for the upper cutoff:\n$$\\frac{(830 + w) - 830}{120} = 1.645$$\n$$\\frac{w}{120} = 1.645$$",
+        "Solve for $w$:\n$$w = 1.645 \\times 120 = 197.4 \\approx 197$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      },
+      "teacher_walkthrough": [
+        "We are given that 90% of adult female giraffes weigh between $(830 - w)$ kg and $(830 + w)$ kg. The interval is symmetric around the mean $\\mu = 830$.",
+        "Step 1: Determine the cumulative probability for the upper cutoff.\nSince the central area is $0.90$, the two symmetric tails hold $1 - 0.90 = 0.10$ in total.\nEach tail therefore contains:\n$$\\frac{0.10}{2} = 0.05$$\nThus, the cumulative probability up to $830 + w$ is:\n$$\\mathrm{P}(X < 830 + w) = 0.90 + 0.05 = 0.95$$",
+        "Step 2: Find the corresponding $z$-value from the normal table:\n$$\\Phi(1.645) = 0.9500 \\implies z = 1.645$$",
+        "Step 3: Write down the standardisation equation:\n$$Z = \\frac{X - \\mu}{\\sigma} = \\frac{(830 + w) - 830}{120} = \\frac{w}{120}$$",
+        "Step 4: Solve for $w$:\n$$\\frac{w}{120} = 1.645$$\nMultiply both sides by 120:\n$$w = 1.645 \\times 120 = 197.4$$\nRounding to 3 significant figures gives $w = 197$."
+      ]
+    },
+    {
+      "part_id": "9709_s19_61_q7_iii",
+      "difficulty": 2,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_s1_t_the_normal_distribution",
+        "lesson_id": "9709_s1_t_the_normal_distribution_m02_l02"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_finding_normal_distribution_parameters"
+      },
+      "hints": [
+        "For adult male giraffes, the mean weight is $\\mu = 1190\\text{ kg}$ and standard deviation is $\\sigma$.",
+        "We are given $\\mathrm{P}(X > 950) = 0.834$. Since $950 < 1190$, this cutoff lies below the mean, so its $z$-score is negative.",
+        "Use symmetry to convert the upper tail: $\\Phi(-z) = 0.834$. Look up $0.834$ in the normal tables to find $z = -0.97$.",
+        "Set $\\frac{950 - 1190}{\\sigma} = -0.97$ and solve for the positive standard deviation $\\sigma$."
+      ],
+      "walkthrough": [
+        "State the distribution for male giraffes with mean $\\mu = 1190$ and unknown standard deviation $\\sigma$:\n$$X \\sim \\mathrm{N}(1190, \\sigma^2)$$\n$$\\mathrm{P}(X > 950) = 0.834$$",
+        "Because more than 50% of the distribution exceeds 950, 950 is below the mean and its standardised score is negative. By symmetry:\n$$\\Phi\\left(-\\frac{950 - 1190}{\\sigma}\\right) = 0.834$$\n$$\\Phi\\left(\\frac{240}{\\sigma}\\right) = 0.834$$",
+        "Look up the probability 0.834 in the standard normal distribution table:\n$$\\Phi(0.97) = 0.8340 \\implies z = -0.97$$",
+        "Equate the standardisation expression to $-0.97$ and solve for $\\sigma$:\n$$\\frac{950 - 1190}{\\sigma} = -0.97$$\n$$\\frac{-240}{\\sigma} = -0.97$$\n$$\\sigma = \\frac{240}{0.97} \\approx 247.42 \\approx 247\\text{ kg}$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      },
+      "teacher_walkthrough": [
+        "Adult male giraffes have normally distributed weights with mean $\\mu = 1190\\text{ kg}$ and unknown standard deviation $\\sigma$.",
+        "Step 1: Set up the tail probability condition:\n$$\\mathrm{P}(X > 950) = 0.834$$\nBecause $83.4\\% > 50\\%$, the weight $950\\text{ kg}$ lies to the left of the mean $\\mu = 1190$. Thus, the standardised value $Z$ must be negative.",
+        "Step 2: Relate the tail probability to standard cumulative table values:\n$$\\mathrm{P}(Z > z) = 0.834 \\iff \\Phi(-z) = 0.834$$",
+        "Step 3: Look up $0.8340$ in the body of the normal table:\n$$\\Phi(0.97) = 0.8340$$\nThis gives:\n$$-z = 0.97 \\implies z = -0.97$$",
+        "Step 4: Set the standardised score equal to $-0.97$:\n$$\\frac{X - \\mu}{\\sigma} = -0.97$$\n$$\\frac{950 - 1190}{\\sigma} = -0.97$$\n$$\\frac{-240}{\\sigma} = -0.97$$",
+        "Step 5: Solve for $\\sigma$:\nMultiply both sides by $\\sigma$:\n$$-240 = -0.97\\sigma$$\nDivide both sides by $-0.97$:\n$$\\sigma = \\frac{-240}{-0.97} = \\frac{240}{0.97} \\approx 247.42$$\nRounding to 3 significant figures gives $\\sigma = 247\\text{ kg}$."
+      ]
+    }
+  ]
+}

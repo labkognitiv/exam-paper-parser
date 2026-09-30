@@ -1,0 +1,42 @@
+{
+  "schema_version": "9709_math_enrichment_v7",
+  "question_id": "9709_s23_31_q7",
+  "difficulty": 5,
+  "parts": [
+    {
+      "part_id": "9709_s23_31_q7",
+      "difficulty": 5,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_p3_t_differential_equations",
+        "lesson_id": "9709_p3_t_differential_equations_m02_l01"
+      },
+      "skills": {
+        "primary_skill_id": "9709_p3_skill_solving_separable_differential_equations"
+      },
+      "hints": [
+        "Separate the variables so that $\\sin^2(3y)$ is integrated with respect to $y$ and $4\\sec(2x)\\tan(2x)$ with respect to $x$.",
+        "Use $\\sin^2(3y)=\\frac12(1-\\cos6y)$, and account for the factor $2$ when integrating $\\sec(2x)\\tan(2x)$.",
+        "Apply $y=0$ when $x=\\frac\\pi6$ to determine the integration constant.",
+        "Substitute $y=\\frac\\pi6$ into the resulting relation and solve for the value of $x$ in $0\\leq x<\\frac\\pi4$, rounding to 3 decimal places."
+      ],
+      "walkthrough": [
+        "Rearrange the differential equation to prepare for separating variables:\n$$\\cos(2x)\\,\\dfrac{\\mathrm{d}y}{\\mathrm{d}x} = \\dfrac{4\\tan(2x)}{\\sin^2(3y)}$$\n$$\\dfrac{\\mathrm{d}y}{\\mathrm{d}x} = \\dfrac{4\\sec(2x)\\tan(2x)}{\\sin^2(3y)}$$",
+        "Separate variables:\n$$\\sin^2(3y)\\,\\mathrm{d}y = 4\\sec(2x)\\tan(2x)\\,\\mathrm{d}x$$",
+        "Integrate the left-hand side using the half-angle identity $\\sin^2(3y) = \\dfrac{1}{2}(1 - \\cos(6y))$:\n$$\\int \\sin^2(3y)\\,\\mathrm{d}y = \\dfrac{1}{2}\\int (1 - \\cos(6y))\\,\\mathrm{d}y = \\dfrac{1}{2}\\left(y - \\dfrac{1}{6}\\sin(6y)\\right) = \\dfrac{1}{2}y - \\dfrac{1}{12}\\sin(6y)$$",
+        "Integrate the right-hand side using $\\int \\sec(kx)\\tan(kx)\\,\\mathrm{d}x = \\dfrac{1}{k}\\sec(kx)$:\n$$\\int 4\\sec(2x)\\tan(2x)\\,\\mathrm{d}x = 4\\left(\\dfrac{1}{2}\\sec(2x)\\right) = 2\\sec(2x) + C$$",
+        "Equate the two sides to obtain the general solution:\n$$\\dfrac{1}{2}y - \\dfrac{1}{12}\\sin(6y) = 2\\sec(2x) + C$$",
+        "Apply the initial condition $y = 0$ when $x = \\dfrac{\\pi}{6}$ to find $C$:\n$$\\dfrac{1}{2}(0) - \\dfrac{1}{12}\\sin(0) = 2\\sec\\left(2\\cdot\\dfrac{\\pi}{6}\\right) + C$$\n$$0 = 2\\sec\\left(\\dfrac{\\pi}{3}\\right) + C$$\nSince $\\cos\\left(\\dfrac{\\pi}{3}\\right) = \\dfrac{1}{2} \\implies \\sec\\left(\\dfrac{\\pi}{3}\\right) = 2$:\n$$0 = 2(2) + C = 4 + C \\implies C = -4$$",
+        "Write the particular solution equation:\n$$\\dfrac{1}{2}y - \\dfrac{1}{12}\\sin(6y) = 2\\sec(2x) - 4$$",
+        "Substitute $y = \\dfrac{\\pi}{6}$ into the left-hand side:\n$$6y = 6\\left(\\dfrac{\\pi}{6}\\right) = \\pi \\implies \\sin(6y) = \\sin(\\pi) = 0$$\n$$\\dfrac{1}{2}y - \\dfrac{1}{12}\\sin(6y) = \\dfrac{1}{2}\\left(\\dfrac{\\pi}{6}\\right) - 0 = \\dfrac{\\pi}{12}$$",
+        "Solve for $\\sec(2x)$:\n$$\\dfrac{\\pi}{12} = 2\\sec(2x) - 4$$\n$$2\\sec(2x) = 4 + \\dfrac{\\pi}{12}$$\n$$\\sec(2x) = 2 + \\dfrac{\\pi}{24} \\approx 2 + 0.1308997 = 2.1308997$$",
+        "Solve for $x$ in radians:\n$$\\cos(2x) = \\dfrac{1}{2.1308997} \\approx 0.4692853$$\n$$2x = \\cos^{-1}(0.4692853) \\approx 1.0821035$$\n$$x = \\dfrac{1.0821035}{2} \\approx 0.5410518$$",
+        "Round the final answer correct to 3 decimal places:\n$$x = 0.541$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      }
+    }
+  ]
+}

@@ -1,0 +1,76 @@
+{
+  "schema_version": "9709_math_enrichment_v7",
+  "question_id": "9709_w25_51_q6",
+  "difficulty": 4,
+  "parts": [
+    {
+      "part_id": "9709_w25_51_q6_a",
+      "difficulty": 3,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_s1_t_the_normal_distribution",
+        "lesson_id": "9709_s1_t_the_normal_distribution_m01_l03"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_finding_expected_counts_from_a_normal_model"
+      },
+      "hints": [
+        "Chocolate bar weights: W ~ N(155, 6.5^2). Sample size N = 350.",
+        "Standardise both boundaries: z1 = (148 - 155) / 6.5 = -1.077, and z2 = (160 - 155) / 6.5 = 0.769.",
+        "Calculate the interval probability: Phi(0.769) - Phi(-1.077) = Phi(0.769) + Phi(1.077) - 1 = 0.7791 + 0.8593 - 1 = 0.6384.",
+        "Multiply by 350 bars: 350 * 0.6384 = 223.44, which gives 223 or 224 bars."
+      ],
+      "walkthrough": [
+        "Standardise the boundaries with $\\mu = 155$ and $\\sigma = 6.5$:\n$$z_1 = \\frac{148 - 155}{6.5} = -\\frac{7}{6.5} \\approx -1.077$$\n$$z_2 = \\frac{160 - 155}{6.5} = \\frac{5}{6.5} \\approx 0.769$$",
+        "Compute the interval probability using standard normal tables:\n$$\\begin{aligned} \\mathrm{P}(148 < W < 160) &= \\Phi(0.769) - \\Phi(-1.077) \\\\ &= \\Phi(0.769) + \\Phi(1.077) - 1 \\\\ &= 0.7791 + 0.8593 - 1 = 0.6384 \\end{aligned}$$",
+        "Multiply by $N = 350$ to obtain the expected count:\n$$\\text{Expected count} = 350 \\times 0.6384 = 223.44 \\implies 223\\text{ or }224\\text{ bars}$$"
+      ],
+      "teacher_walkthrough": [
+        "Step 1: Identify distribution parameters:\nLet $W$ be the weight of a chocolate bar in grams.\n$$W \\sim N(155, 6.5^2)$$\nMean $\\mu = 155$, standard deviation $\\sigma = 6.5$, sample size $N = 350$.",
+        "Step 2: Standardise the interval endpoints $(148, 160)$:\n$$z_1 = \\frac{148 - 155}{6.5} = -1.0769 \\approx -1.077$$\n$$z_2 = \\frac{160 - 155}{6.5} = 0.7692 \\approx 0.769$$",
+        "Step 3: Express in terms of standard normal cumulative distribution $\\Phi$:\n$$\\mathrm{P}(148 < W < 160) = \\Phi(0.769) - \\Phi(-1.077)$$\nBy symmetry, $\\Phi(-1.077) = 1 - \\Phi(1.077)$:\n$$\\Phi(0.769) - [1 - \\Phi(1.077)] = \\Phi(0.769) + \\Phi(1.077) - 1$$",
+        "Step 4: Table lookup:\n$$\\Phi(0.769) = 0.7791$$\n$$\\Phi(1.077) = 0.8593$$\n$$\\mathrm{P}(148 < W < 160) = 0.7791 + 0.8593 - 1 = 0.6384$$",
+        "Step 5: Compute expected count:\n$$\\text{Expected number} = 350 \\times 0.6384 = 223.44$$\nRounding gives $223$ or $224$ bars."
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      }
+    },
+    {
+      "part_id": "9709_w25_51_q6_b",
+      "difficulty": 4,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_s1_t_the_normal_distribution",
+        "lesson_id": "9709_s1_t_the_normal_distribution_m02_l02"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_finding_normal_distribution_parameters"
+      },
+      "hints": [
+        "Second factory: W ~ N(mu, sigma^2). Conditions: P(W > 114.0) = 0.08 and P(W < 99.5) = 0.20.",
+        "Find the critical z-scores: Phi(z1) = 0.92 gives z1 = 1.405; P(W < 99.5) = 0.20 gives z2 = -0.842 (from Phi(0.842) = 0.80).",
+        "Set up the simultaneous equations: 114.0 - mu = 1.405*sigma and 99.5 - mu = -0.842*sigma.",
+        "Subtract the second equation from the first: 14.5 = 2.247*sigma, so sigma = 6.45 g. Substitute back to find mu = 105 g."
+      ],
+      "walkthrough": [
+        "Translate the two probability conditions into standard normal equations:\n$$\\mathrm{P}(W > 114.0) = 0.08 \\implies \\Phi(1.405) = 0.92 \\implies \\frac{114.0 - \\mu}{\\sigma} = 1.405$$\n$$\\mathrm{P}(W < 99.5) = 0.20 \\implies \\Phi(0.8416) = 0.80 \\implies \\frac{99.5 - \\mu}{\\sigma} = -0.8416$$",
+        "Set up the system of equations:\n$$114.0 - \\mu = 1.405 \\sigma \\quad \\text{--- (1)}$$\n$$99.5 - \\mu = -0.8416 \\sigma \\quad \\text{--- (2)}$$",
+        "Subtract equation (2) from equation (1) to eliminate $\\mu$:\n$$114.0 - 99.5 = [1.405 - (-0.8416)] \\sigma$$\n$$14.5 = 2.2466 \\sigma \\implies \\sigma = \\frac{14.5}{2.2466} \\approx 6.454 \\approx 6.45\\text{ g}$$",
+        "Substitute $\\sigma$ back to solve for $\\mu$:\n$$\\mu = 114.0 - 1.405(6.454) = 114.0 - 9.068 = 104.932 \\approx 105\\text{ g (or }104.9\\text{ g)}$$"
+      ],
+      "teacher_walkthrough": [
+        "Step 1: Understand the given model and percentiles:\nLet $W$ be the weight in grams of chocolate bars from the second factory.\n$$W \\sim N(\\mu, \\sigma^2)$$\nGiven:\n1. $\\mathrm{P}(W > 114.0) = 0.08$\n2. $\\mathrm{P}(W < 99.5) = 0.20$",
+        "Step 2: Find critical z-values from normal tables:\n- Upper tail $0.08$:\n$$\\mathrm{P}(W < 114.0) = 1 - 0.08 = 0.92$$\nFrom tables, $\\Phi(1.405) = 0.9200 \\implies z_1 = 1.405$ (or $1.406$).\n- Lower tail $0.20$:\nSince $0.20 < 0.5$, $z_2$ is negative:\n$$\\Phi(-z_2) = 1 - 0.20 = 0.80 \\implies -z_2 = 0.8416 \\implies z_2 = -0.842$$",
+        "Step 3: Form the simultaneous standardisation equations:\n$$\\frac{114.0 - \\mu}{\\sigma} = 1.405 \\implies 114.0 - \\mu = 1.405 \\sigma$$\n$$\\frac{99.5 - \\mu}{\\sigma} = -0.8416 \\implies 99.5 - \\mu = -0.8416 \\sigma$$",
+        "Step 4: Solve for $\\sigma$ by elimination:\n$$(114.0 - \\mu) - (99.5 - \\mu) = 1.405 \\sigma - (-0.8416 \\sigma)$$\n$$14.5 = 2.2466 \\sigma$$\n$$\\sigma = \\frac{14.5}{2.2466} \\approx 6.4542\\text{ g}$$\nRounding to 3 significant figures: $\\sigma = 6.45$ g.",
+        "Step 5: Solve for $\\mu$:\n$$\\mu = 114.0 - 1.405(6.4542) = 114.0 - 9.0682 = 104.9318\\text{ g}$$\nRounding gives $\\mu = 105$ g (or $104.9$ g)."
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      }
+    }
+  ]
+}

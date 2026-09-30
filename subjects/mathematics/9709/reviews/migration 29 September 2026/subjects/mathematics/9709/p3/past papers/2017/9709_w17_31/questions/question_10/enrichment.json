@@ -1,0 +1,93 @@
+{
+  "schema_version": "9709_math_enrichment_v7",
+  "question_id": "9709_w17_31_q10",
+  "difficulty": 2,
+  "parts": [
+    {
+      "part_id": "9709_w17_31_q10_i",
+      "difficulty": 1,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_p3_t_vectors",
+        "lesson_id": "9709_p3_t_vectors_m03_l02"
+      },
+      "skills": {
+        "primary_skill_id": "9709_p3_skill_testing_vector_line_relationships"
+      },
+      "hints": [
+        "At an intersection the three component equations for the two line parameters must hold simultaneously.",
+        "Solve any two component equations for $\\lambda$ and $\\mu$, then substitute those same values into the third.",
+        "A contradiction in the remaining component proves the lines do not intersect."
+      ],
+      "walkthrough": [
+        "Write the position vectors of generic points on $l$ and $m$ in component form:\n$$\\mathbf{r}_l = \\begin{pmatrix} 3 - \\lambda \\\\ -1 + \\lambda \\\\ -2 + 4\\lambda \\end{pmatrix}, \\quad \\mathbf{r}_m = \\begin{pmatrix} 4 + 2\\mu \\\\ 4 + \\mu \\\\ -3 - 2\\mu \\end{pmatrix}$$",
+        "Equate corresponding components to form a system of three linear equations in $\\lambda$ and $\\mu$:\n$$3 - \\lambda = 4 + 2\\mu \\implies \\lambda + 2\\mu = -1 \\quad \\text{--- (1)}$$\n$$-1 + \\lambda = 4 + \\mu \\implies \\lambda - \\mu = 5 \\quad \\text{--- (2)}$$\n$$-2 + 4\\lambda = -3 - 2\\mu \\implies 4\\lambda + 2\\mu = -1 \\quad \\text{--- (3)}$$",
+        "Subtract equation (2) from equation (1) to eliminate $\\lambda$:\n$$(\\lambda + 2\\mu) - (\\lambda - \\mu) = -1 - 5 \\implies 3\\mu = -6 \\implies \\mu = -2$$",
+        "Substitute $\\mu = -2$ into equation (2) to find $\\lambda$:\n$$\\lambda - (-2) = 5 \\implies \\lambda + 2 = 5 \\implies \\lambda = 3$$",
+        "Substitute $\\lambda = 3$ and $\\mu = -2$ into the third equation (3) to test consistency:\n$$\\text{LHS} = -2 + 4(3) = -2 + 12 = 10$$\n$$\\text{RHS} = -3 - 2(-2) = -3 + 4 = 1$$\nSince $10 \\neq 1$, the third equation is not satisfied.",
+        "Conclude that because the system of equations is inconsistent, the lines do not intersect."
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      }
+    },
+    {
+      "part_id": "9709_w17_31_q10_ii",
+      "difficulty": 1,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_p3_t_vectors",
+        "lesson_id": "9709_p3_t_vectors_m02_l01"
+      },
+      "skills": {
+        "primary_skill_id": "9709_p3_skill_using_scalar_products"
+      },
+      "hints": [
+        "Use the direction vectors $(-1,1,4)$ and $(2,1,-2)$ in the scalar-product angle formula.",
+        "Divide the absolute scalar product by the product of their magnitudes so the inverse cosine returns the acute angle."
+      ],
+      "walkthrough": [
+        "Identify the direction vectors of lines $l$ and $m$:\n$$\\mathbf{d}_1 = \\begin{pmatrix} -1 \\\\ 1 \\\\ 4 \\end{pmatrix}, \\quad \\mathbf{d}_2 = \\begin{pmatrix} 2 \\\\ 1 \\\\ -2 \\end{pmatrix}$$",
+        "Calculate the scalar product $\\mathbf{d}_1 \\cdot \\mathbf{d}_2$:\n$$\\mathbf{d}_1 \\cdot \\mathbf{d}_2 = (-1)(2) + (1)(1) + (4)(-2) = -2 + 1 - 8 = -9$$",
+        "Calculate the magnitudes of each direction vector:\n$$|\\mathbf{d}_1| = \\sqrt{(-1)^2 + 1^2 + 4^2} = \\sqrt{1 + 1 + 16} = \\sqrt{18} = 3\\sqrt{2}$$\n$$|\\mathbf{d}_2| = \\sqrt{2^2 + 1^2 + (-2)^2} = \\sqrt{4 + 1 + 4} = \\sqrt{9} = 3$$",
+        "Compute the product of the moduli:\n$$|\\mathbf{d}_1| |\\mathbf{d}_2| = (3\\sqrt{2})(3) = 9\\sqrt{2}$$",
+        "Apply the angle formula $\\cos\\theta = \\dfrac{|\\mathbf{d}_1 \\cdot \\mathbf{d}_2|}{|\\mathbf{d}_1| |\\mathbf{d}_2|}$ for the acute angle $\\theta$:\n$$\\cos\\theta = \\dfrac{|-9|}{9\\sqrt{2}} = \\dfrac{9}{9\\sqrt{2}} = \\dfrac{1}{\\sqrt{2}}$$",
+        "Evaluate the inverse cosine:\n$$\\theta = \\cos^{-1}\\left(\\dfrac{1}{\\sqrt{2}}\\right) = 45^\\circ \\quad \\left(\\text{or } \\dfrac{1}{4}\\pi \\text{ radians}\\right)$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      }
+    },
+    {
+      "part_id": "9709_w17_31_q10_iii",
+      "difficulty": 2,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_p3_t_vectors",
+        "lesson_id": "9709_p3_t_vectors_m04_l01"
+      },
+      "skills": {
+        "primary_skill_id": "9709_p3_skill_vector_planes"
+      },
+      "hints": [
+        "A plane parallel to both lines has a normal perpendicular to both direction vectors.",
+        "Find this normal using $(-1,1,4)\\times(2,1,-2)$ or two scalar-product equations, and reduce its components to a simple ratio.",
+        "Substitute $(3,-2,-1)$ into $ax+by+cz=d$ to determine the plane constant."
+      ],
+      "walkthrough": [
+        "Let the normal vector to the plane be $\\mathbf{n} = \\begin{pmatrix} a \\\\ b \\\\ c \\end{pmatrix}$. Since the plane is parallel to both lines $l$ and $m$, $\\mathbf{n}$ is perpendicular to the direction vectors of both lines:\n$$\\mathbf{n} \\cdot \\mathbf{d}_1 = 0 \\implies -a + b + 4c = 0 \\quad \\text{--- (1)}$$\n$$\\mathbf{n} \\cdot \\mathbf{d}_2 = 0 \\implies 2a + b - 2c = 0 \\quad \\text{--- (2)}$$",
+        "Subtract equation (1) from equation (2) to eliminate $b$:\n$$(2a + b - 2c) - (-a + b + 4c) = 0 \\implies 3a - 6c = 0 \\implies a = 2c$$",
+        "Substitute $a = 2c$ into equation (1) to find $b$ in terms of $c$:\n$$-(2c) + b + 4c = 0 \\implies b + 2c = 0 \\implies b = -2c$$",
+        "Determine the ratio of coefficients:\n$$a : b : c = 2c : -2c : c = 2 : -2 : 1$$\nChoosing $c = 1$ gives normal vector $\\mathbf{n} = \\begin{pmatrix} 2 \\\\ -2 \\\\ 1 \\end{pmatrix}$, so the Cartesian equation is of the form $2x - 2y + z = d$.",
+        "Substitute the coordinates of the given point $(3, -2, -1)$ lying on the plane to find $d$:\n$$d = 2(3) - 2(-2) + 1(-1) = 6 + 4 - 1 = 9$$",
+        "State the final equation of the plane:\n$$2x - 2y + z = 9$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      }
+    }
+  ]
+}

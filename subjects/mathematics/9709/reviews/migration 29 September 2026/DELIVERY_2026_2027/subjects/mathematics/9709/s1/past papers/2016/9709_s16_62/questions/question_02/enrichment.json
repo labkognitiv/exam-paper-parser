@@ -1,0 +1,71 @@
+{
+  "schema_version": "9709_math_enrichment_v7",
+  "question_id": "9709_s16_62_q2",
+  "difficulty": 5,
+  "parts": [
+    {
+      "part_id": "9709_s16_62_q2_i",
+      "difficulty": 1,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_s1_t_probability",
+        "lesson_id": "9709_s1_t_probability_m01_l02"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_applying_the_addition_rule"
+      },
+      "hints": [
+        "Notice that waiting less than 10 minutes includes waiting less than 5 minutes as well as waiting between 5 and 10 minutes.",
+        "Subtract $\\mathrm{P}(T < 5) = 0.16$ from $\\mathrm{P}(T < 10) = 0.88$ to find the probability of the interval between 5 and 10 minutes."
+      ],
+      "walkthrough": [
+        "Express the probability of waiting between 5 and 10 minutes as the difference between the two cumulative probabilities:\n$$\\mathrm{P}(5 \\le T < 10) = \\mathrm{P}(T < 10) - \\mathrm{P}(T < 5)$$",
+        "Substitute the given numerical probabilities:\n$$\\mathrm{P}(5 \\le T < 10) = 0.88 - 0.16 = 0.72$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      },
+      "teacher_walkthrough": [
+        "Let $T$ represent the waiting time at the dentist in minutes. We are given two cumulative probabilities:\n$$\\mathrm{P}(T < 5) = 0.16 \\quad \\text{and} \\quad \\mathrm{P}(T < 10) = 0.88$$",
+        "The interval of waiting less than 10 minutes is composed of two mutually exclusive events:\n1. Waiting less than 5 minutes ($T < 5$)\n2. Waiting between 5 and 10 minutes ($5 \\le T < 10$)\nTherefore, by the addition rule for mutually exclusive events:\n$$\\mathrm{P}(T < 10) = \\mathrm{P}(T < 5) + \\mathrm{P}(5 \\le T < 10)$$",
+        "Rearrange to isolate $\\mathrm{P}(5 \\le T < 10)$ by subtracting $\\mathrm{P}(T < 5)$ from both sides:\n$$\\mathrm{P}(5 \\le T < 10) = \\mathrm{P}(T < 10) - \\mathrm{P}(T < 5)$$\nSubstitute the values:\n$$\\mathrm{P}(5 \\le T < 10) = 0.88 - 0.16 = 0.72$$"
+      ]
+    },
+    {
+      "part_id": "9709_s16_62_q2_ii",
+      "difficulty": 5,
+      "practice_tier": "revision",
+      "mapping": {
+        "topic_id": "9709_s1_t_the_normal_distribution",
+        "lesson_id": "9709_s1_t_the_normal_distribution_m03_l02"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_applying_a_normal_approximation"
+      },
+      "hints": [
+        "Model the number of people who wait between 5 and 10 minutes as a binomial distribution $X \\sim \\mathrm{B}(n, p)$ with $n = 180$ and $p = 0.72$ from part (i).",
+        "Calculate the parameters for the approximating normal distribution: mean $\\mu = np$ and variance $\\sigma^2 = np(1 - p)$.",
+        "Apply a continuity correction to the strict discrete inequality $X > 115$: in the continuous model, this corresponds to $\\mathrm{P}(Y > 115.5)$.",
+        "Standardise $115.5$ using $Z = \\dfrac{115.5 - \\mu}{\\sigma}$, and evaluate the normal tail probability using symmetry $\\mathrm{P}(Z > -z) = \\Phi(z)$."
+      ],
+      "walkthrough": [
+        "Define the binomial variable $X \\sim \\mathrm{B}(180, 0.72)$ and calculate the normal approximation parameters for $Y \\sim \\mathrm{N}(\\mu, \\sigma^2)$:\n$$\\mu = np = 180 \\times 0.72 = 129.6$$\n$$\\sigma^2 = np(1 - p) = 180 \\times 0.72 \\times 0.28 = 36.288$$\n$$\\sigma = \\sqrt{36.288} \\approx 6.02395$$",
+        "Apply the continuity correction to the inequality $X > 115$, which corresponds to $X \\ge 116$ in discrete integers:\n$$\\mathrm{P}(X > 115) \\approx \\mathrm{P}(Y > 115.5)$$",
+        "Standardise using $Z = \\dfrac{Y - \\mu}{\\sigma}$:\n$$Z = \\dfrac{115.5 - 129.6}{\\sqrt{36.288}} = \\dfrac{-14.1}{6.02395} \\approx -2.341$$",
+        "Evaluate the probability using standard normal distribution tables:\n$$\\mathrm{P}(Z > -2.341) = \\Phi(2.341) \\approx 0.9903 \\approx 0.990$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      },
+      "teacher_walkthrough": [
+        "Let $X$ denote the number of people out of the sample of 180 who wait between 5 and 10 minutes. Because trials are independent with constant probability $p = 0.72$, $X$ follows a binomial distribution:\n$$X \\sim \\mathrm{B}(180, 0.72)$$",
+        "Since $n = 180$ is large and both $np = 129.6 > 5$ and $n(1-p) = 50.4 > 5$, we can approximate $X$ using a normal distribution $Y \\sim \\mathrm{N}(\\mu, \\sigma^2)$. Calculate the mean:\n$$\\mu = n p = 180 \\times 0.72 = 129.6$$\nCalculate the variance:\n$$\\sigma^2 = n p (1 - p) = 180 \\times 0.72 \\times (1 - 0.72) = 180 \\times 0.72 \\times 0.28$$\nMultiply the terms:\n$$180 \\times 0.72 = 129.6$$\n$$129.6 \\times 0.28 = 36.288$$\nThe standard deviation is:\n$$\\sigma = \\sqrt{36.288} \\approx 6.02395$$",
+        "Next, apply the continuity correction. In a discrete distribution, 'more than 115' means $X \\in \\{116, 117, 118, \\dots\\}$. The discrete bar for 116 begins at $115.5$ on a continuous scale, so:\n$$\\mathrm{P}(X > 115) = \\mathrm{P}(X \\ge 116) \\approx \\mathrm{P}(Y > 115.5)$$",
+        "Now standardise $Y = 115.5$ using the standard normal score formula:\n$$Z = \\frac{Y - \\mu}{\\sigma}$$\nSubstitute $Y = 115.5$, $\\mu = 129.6$, and $\\sigma = \\sqrt{36.288}$:\n$$Z = \\frac{115.5 - 129.6}{\\sqrt{36.288}}$$\nSubtract in the numerator:\n$$115.5 - 129.6 = -14.1$$\nDivide by the standard deviation:\n$$Z = \\frac{-14.1}{6.02395} \\approx -2.34066 \\approx -2.341$$",
+        "We need to find $\\mathrm{P}(Z > -2.341)$. By the symmetry of the normal distribution, the area to the right of $-2.341$ equals the area to the left of $+2.341$:\n$$\\mathrm{P}(Z > -2.341) = \\mathrm{P}(Z < 2.341) = \\Phi(2.341)$$\nLook up $2.341$ in the standard normal tables:\n$$\\Phi(2.34) = 0.9904, \\quad \\text{difference for } 1 = -0.0001 \\implies \\Phi(2.341) = 0.9903$$\nRound to 3 significant figures:\n$$\\mathrm{P}(X > 115) \\approx 0.990$$"
+      ]
+    }
+  ]
+}

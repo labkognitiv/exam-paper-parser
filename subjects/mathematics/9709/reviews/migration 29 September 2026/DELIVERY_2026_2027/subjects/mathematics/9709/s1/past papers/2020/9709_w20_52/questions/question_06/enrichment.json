@@ -1,0 +1,139 @@
+{
+  "schema_version": "9709_math_enrichment_v7",
+  "question_id": "9709_w20_52_q6",
+  "difficulty": 4,
+  "parts": [
+    {
+      "part_id": "9709_w20_52_q6_a",
+      "difficulty": 2,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_s1_t_permutations_and_combinations",
+        "lesson_id": "9709_s1_t_permutations_and_combinations_m01_l02"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_calculating_combinations"
+      },
+      "hints": [
+        "There are 9 people in total to be divided into two groups of sizes 6 and 3.",
+        "Choosing the 6 people for the first group automatically leaves the remaining 3 people for the other group.",
+        "Calculate $\\binom{9}{6}$ (or $\\binom{9}{3}$)."
+      ],
+      "walkthrough": [
+        "Calculate the number of ways to choose 6 people from 9 (which automatically determines the group of 3):\n$$\\text{Number of ways} = \\binom{9}{6} = \\binom{9}{3} = \\dfrac{9 \\times 8 \\times 7}{3 \\times 2 \\times 1} = 84$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      },
+      "teacher_walkthrough": [
+        "There are 9 people in total (4 in the Ahmed family and 5 in the Baker family).",
+        "We want to find the number of ways to divide the 9 people into a group of 6 and a group of 3.",
+        "Step 1: Apply combinations.\nChoosing 6 people out of 9 leaves the remaining 3 people to form the second group:\n$$\\binom{9}{6} = \\frac{9!}{6! \\, 3!} = \\frac{9 \\times 8 \\times 7}{3 \\times 2 \\times 1} = 84$$",
+        "Equivalently, choosing 3 people out of 9 to form the smaller group leaves the remaining 6 people:\n$$\\binom{9}{3} = \\frac{9 \\times 8 \\times 7}{3 \\times 2 \\times 1} = 84$$\nThus, there are 84 ways."
+      ]
+    },
+    {
+      "part_id": "9709_w20_52_q6_b",
+      "difficulty": 3,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_s1_t_probability",
+        "lesson_id": "9709_s1_t_probability_m05_l01"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_finding_probability_by_counting"
+      },
+      "hints": [
+        "5 of the 9 people are selected at random. Calculate the total number of selections: $\\binom{9}{5} = 126$.",
+        "To include all 3 Baker children, those 3 children are fixed in the selection.",
+        "Choose the remaining $5 - 3 = 2$ people from the remaining $9 - 3 = 6$ people: $\\binom{6}{2} = 15$.",
+        "Divide favorable selections by total selections: $\\dfrac{15}{126} = \\dfrac{5}{42}$."
+      ],
+      "walkthrough": [
+        "Calculate the total number of ways to choose 5 people from 9:\n$$\\text{Total selections} = \\binom{9}{5} = \\dfrac{9 \\times 8 \\times 7 \\times 6}{4 \\times 3 \\times 2 \\times 1} = 126$$",
+        "Calculate the number of selections containing all 3 Baker children:\nAll 3 Baker children are included, leaving 2 people to be chosen from the other 6 people:\n$$\\text{Favorable selections} = \\binom{3}{3} \\times \\binom{6}{2} = 1 \\times 15 = 15$$",
+        "Calculate the probability:\n$$\\text{Probability} = \\dfrac{15}{126} = \\dfrac{5}{42} \\approx 0.119$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      },
+      "teacher_walkthrough": [
+        "5 people are selected at random from the 9 people. We want the probability that the group contains all 3 of the Baker children.",
+        "Step 1: Calculate the total number of possible groups of 5:\n$$\\binom{9}{5} = \\frac{9 \\times 8 \\times 7 \\times 6 \\times 5}{5 \\times 4 \\times 3 \\times 2 \\times 1} = 126$$",
+        "Step 2: Calculate the number of favorable groups.\nAll 3 Baker children must be in the group. This leaves:\n$$5 - 3 = 2 \\text{ spots to fill}$$\nThese 2 people must be chosen from the remaining $9 - 3 = 6$ people (Mr & Mrs Baker, Mr & Mrs Ahmed, and the 2 Ahmed children):\n$$\\binom{6}{2} = \\frac{6 \\times 5}{2 \\times 1} = 15$$",
+        "Step 3: Compute the probability:\n$$\\mathrm{P} = \\frac{15}{126}$$\nDivide numerator and denominator by 3:\n$$\\frac{15 \\div 3}{126 \\div 3} = \\frac{5}{42}$$\nIn decimal form:\n$$\\frac{5}{42} \\approx 0.119047... \\approx 0.119$$\nRounding to 3 significant figures gives $0.119$."
+      ]
+    },
+    {
+      "part_id": "9709_w20_52_q6_c",
+      "difficulty": 3,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_s1_t_permutations_and_combinations",
+        "lesson_id": "9709_s1_t_permutations_and_combinations_m03_l03"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_handling_arrangement_restrictions"
+      },
+      "hints": [
+        "Use the subtraction method: total arrangements of 9 people minus arrangements where Mr Ahmed and Mr Baker are standing next to each other.",
+        "Total unrestricted arrangements of 9 people in a line is $9! = 362\\,880$.",
+        "Treat Mr Ahmed and Mr Baker as a single block: $(AB)$, which can be ordered in $2!$ ways. The block plus the other 7 people gives 8 items, arranged in $8!$ ways: $8! \\times 2! = 80\\,640$.",
+        "Subtract: $362\\,880 - 80\\,640$."
+      ],
+      "walkthrough": [
+        "Calculate the total number of unrestricted arrangements of 9 people in a line:\n$$\\text{Total arrangements} = 9! = 362\\,880$$",
+        "Calculate the arrangements where Mr Ahmed and Mr Baker are together:\n$$\\text{Treat } (AB) \\text{ as 1 unit}: \\quad 8! \\times 2! = 40\\,320 \\times 2 = 80\\,640$$",
+        "Subtract to find the arrangements where they are not next to each other:\n$$\\text{Required arrangements} = 9! - (8! \\times 2!) = 362\\,880 - 80\\,640 = 282\\,240$$",
+        "Alternative Method (Gap insertion):\n$$\\text{Arrange the other 7 people} = 7! = 5040$$\n$$\\text{Place Mr Ahmed and Mr Baker into 2 of the 8 available spaces} = 8 \\times 7 = 56$$\n$$\\text{Total} = 5040 \\times 56 = 282\\,240$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      },
+      "teacher_walkthrough": [
+        "All 9 people stand in a line. We want to find the number of arrangements in which Mr Ahmed is not standing next to Mr Baker.",
+        "Method 1: Subtraction (complement) method.",
+        "Step 1: Total number of arrangements of 9 distinct people:\n$$\\text{Total} = 9! = 362\\,880$$",
+        "Step 2: Number of arrangements where Mr Ahmed and Mr Baker ARE together.\nTreat Mr Ahmed and Mr Baker as a single block: $(A, B)$.\nThere are 2 ways to order them within the block: $AB$ or $BA$.\nThe block together with the remaining 7 people gives 8 items to arrange:\n$$\\text{Together arrangements} = 8! \\times 2! = 40\\,320 \\times 2 = 80\\,640$$",
+        "Step 3: Subtract the forbidden arrangements:\n$$\\text{Valid arrangements} = 362\\,880 - 80\\,640 = 282\\,240$$",
+        "Method 2: Gap insertion method.\nFirst arrange the other 7 people in a line: $7! = 5040$ ways.\nThis line creates $7 + 1 = 8$ gaps (including the two ends).\nPlace Mr Ahmed in one gap (8 choices) and Mr Baker in a different gap (7 choices):\n$$\\text{Valid arrangements} = 7! \\times 8 \\times 7 = 5040 \\times 56 = 282\\,240$$"
+      ]
+    },
+    {
+      "part_id": "9709_w20_52_q6_d",
+      "difficulty": 4,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_s1_t_permutations_and_combinations",
+        "lesson_id": "9709_s1_t_permutations_and_combinations_m03_l01"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_handling_arrangement_restrictions"
+      },
+      "hints": [
+        "Exactly one person must stand between Mr Ahmed and Mr Baker, creating a 3-person block $[A, P, B]$ or $[B, P, A]$.",
+        "Choose which of the other 7 people stands between them: 7 choices.",
+        "Account for the two internal orders of Mr Ahmed and Mr Baker: 2 ways.",
+        "Treat the 3-person block as 1 item, which together with the remaining 6 people gives 7 items to arrange in $7!$ ways: $7 \\times 2 \\times 7!$."
+      ],
+      "walkthrough": [
+        "Form a 3-person unit consisting of Mr Ahmed, one intervening person, and Mr Baker:\n$$\\text{Choices for the intervening person from the other 7 people} = 7$$\n$$\\text{Internal arrangements of Mr Ahmed and Mr Baker} (A-P-B \\text{ or } B-P-A) = 2$$",
+        "Treat this triplet as 1 combined unit. Arrange this unit alongside the remaining 6 people ($1 + 6 = 7$ units in total):\n$$\\text{Arrangements of 7 units} = 7! = 5040$$",
+        "Calculate the total number of arrangements:\n$$\\text{Total} = 7 \\times 2 \\times 7! = 14 \\times 5040 = 70\\,560$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      },
+      "teacher_walkthrough": [
+        "All 9 people stand in a line. We want to find the number of arrangements in which there is exactly one person standing between Mr Ahmed and Mr Baker.",
+        "Step 1: Construct the sandwich unit.\nThe unit consists of Mr Ahmed ($A$), one chosen person ($P$), and Mr Baker ($B$):\n$$[A, P, B] \\quad \\text{or} \\quad [B, P, A]$$\n- Choice of person $P$:\nThere are 7 other people in the group, so there are $7$ options for $P$.\n- Order of $A$ and $B$:\n$A$ and $B$ can be placed on either side of $P$ in $2$ ways.",
+        "Step 2: Treat the sandwich $[A, P, B]$ as a single block.\nAfter selecting $P$, there are $9 - 3 = 6$ other people remaining.\nWe now arrange the block and the 6 other people:\n$$\\text{Number of units to arrange} = 1 + 6 = 7 \\text{ units}$$\nThese 7 units can be arranged in $7!$ ways:\n$$7! = 5040$$",
+        "Step 3: Multiply the choices at each stage:\n$$\\text{Total arrangements} = 7 \\times 2 \\times 7! = 14 \\times 5040 = 70\\,560$$\nThus, there are 70560 valid arrangements."
+      ]
+    }
+  ]
+}

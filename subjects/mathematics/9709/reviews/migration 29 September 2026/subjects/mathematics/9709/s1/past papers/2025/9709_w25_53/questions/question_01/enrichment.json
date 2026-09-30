@@ -1,0 +1,69 @@
+{
+  "schema_version": "9709_math_enrichment_v7",
+  "question_id": "9709_w25_53_q1",
+  "difficulty": 2,
+  "parts": [
+    {
+      "part_id": "9709_w25_53_q1_a",
+      "difficulty": 1,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_s1_t_probability",
+        "lesson_id": "9709_s1_t_probability_m02_l01"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_applying_the_multiplication_rule"
+      },
+      "hints": [
+        "Find the probability that a randomly chosen student does not travel by car: 1 - 0.45 = 0.55.",
+        "Since the college is large, student selections are independent.",
+        "Calculate (0.55)^3 = 0.166375, which rounds to 0.166 (3 s.f.)."
+      ],
+      "walkthrough": [
+        "Find the probability of a student not travelling by car:\n$$\\mathrm{P}(\\text{not car}) = 1 - 0.45 = 0.55$$\n$$\\text{(or } 0.35 + 0.20 = 0.55\\text{)}$$",
+        "Multiply the independent probabilities for all 3 selected students:\n$$\\mathrm{P}(\\text{none travel by car}) = (0.55)^3 = 0.166375 \\approx 0.166\\text{ (3 s.f.)}$$"
+      ],
+      "teacher_walkthrough": [
+        "Step 1: Calculate the probability of a single student not travelling by car:\nEach student travels by car ($0.45$), bus ($0.35$), or train ($0.20$).\n$$\\mathrm{P}(\\text{not car}) = 1 - 0.45 = 0.55$$",
+        "Step 2: Apply independence across the 3 randomly selected students:\nBecause the college has a large population, the selections are treated as independent events.\n$$\\mathrm{P}(\\text{none by car}) = (0.55)^3 = 0.166375$$\nRounding to 3 significant figures gives $0.166$."
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      }
+    },
+    {
+      "part_id": "9709_w25_53_q1_b",
+      "difficulty": 2,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_s1_t_discrete_random_variables",
+        "lesson_id": "9709_s1_t_discrete_random_variables_m03_l03"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_calculating_binomial_tail_probabilities"
+      },
+      "hints": [
+        "Let X be the number of students travelling by train out of 11: X ~ B(11, 0.20).",
+        "Fewer than 3 students means X = 0, 1, or 2.",
+        "Calculate P(X = 0) = (0.80)^11 = 0.0859; P(X = 1) = 11 * (0.20) * (0.80)^10 = 0.2362; P(X = 2) = 55 * (0.20)^2 * (0.80)^9 = 0.2953.",
+        "Sum the three probabilities: 0.0859 + 0.2362 + 0.2953 = 0.617 (3 s.f.)."
+      ],
+      "walkthrough": [
+        "Model the number of train travellers as $X \\sim B(11, 0.20)$, with $q = 0.80$:\n$$\\mathrm{P}(X < 3) = \\mathrm{P}(X = 0) + \\mathrm{P}(X = 1) + \\mathrm{P}(X = 2)$$",
+        "Evaluate each binomial term:\n$$\\mathrm{P}(X = 0) = (0.80)^{11} \\approx 0.085899$$\n$$\\mathrm{P}(X = 1) = \\binom{11}{1} (0.20)^1 (0.80)^{10} = 11 \\times 0.20 \\times 0.107374 \\approx 0.236223$$\n$$\\mathrm{P}(X = 2) = \\binom{11}{2} (0.20)^2 (0.80)^9 = 55 \\times 0.04 \\times 0.134218 \\approx 0.295279$$",
+        "Add the probabilities:\n$$\\mathrm{P}(X < 3) = 0.085899 + 0.236223 + 0.295279 = 0.617401 \\approx 0.617\\text{ (3 s.f.)}$$"
+      ],
+      "teacher_walkthrough": [
+        "Step 1: Define the binomial model:\nSuccess is a student travelling by train: $p = 0.20$.\nFailure: $q = 1 - 0.20 = 0.80$.\nSample size: $n = 11$.\n$$X \\sim B(11, 0.20)$$",
+        "Step 2: Identify the required sum:\nFewer than 3 students travelling by train means $X < 3$, so $X \\in \\{0, 1, 2\\}$:\n$$\\mathrm{P}(X < 3) = \\mathrm{P}(X = 0) + \\mathrm{P}(X = 1) + \\mathrm{P}(X = 2)$$",
+        "Step 3: Calculate each term:\n- $r = 0$:\n$$\\mathrm{P}(X = 0) = (0.80)^{11} = 0.0858993$$\n- $r = 1$:\n$$\\mathrm{P}(X = 1) = \\binom{11}{1} (0.20)^1 (0.80)^{10} = 11 \\times 0.20 \\times 0.1073742 = 0.2362232$$\n- $r = 2$:\n$$\\mathrm{P}(X = 2) = \\binom{11}{2} (0.20)^2 (0.80)^9 = 55 \\times 0.04 \\times 0.1342177 = 0.2952790$$",
+        "Step 4: Sum the probabilities:\n$$\\mathrm{P}(X < 3) = 0.0858993 + 0.2362232 + 0.2952790 = 0.6174015$$\nRounding to 3 significant figures gives $0.617$."
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      }
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "schema_version": "9709_math_enrichment_v7",
+  "question_id": "9709_w22_32_q8",
+  "difficulty": 4,
+  "parts": [
+    {
+      "part_id": "9709_w22_32_q8_a",
+      "difficulty": 3,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_p3_t_logarithmic_and_exponential_functions",
+        "lesson_id": "9709_p3_t_logarithmic_and_exponential_functions_m03_l03"
+      },
+      "skills": {
+        "primary_skill_id": "9709_p3_skill_solving_trigonometric_equations"
+      },
+      "hints": [
+        "An $x$-axis intersection satisfies $\\sin\\sqrt{x}=0$.",
+        "For the first positive intersection shown, set $\\sqrt a$ equal to the first positive zero of sine in radians, then square."
+      ],
+      "walkthrough": [
+        "Set $y = 0$ to find the point where the curve intersects the $x$-axis:\n$$\\sin\\sqrt{x} = 0$$",
+        "Determine the first positive root of the sine function:\n$$\\sqrt{a} = \\pi$$",
+        "Square both sides to find the exact value of $a$:\n$$a = \\pi^2$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      }
+    },
+    {
+      "part_id": "9709_w22_32_q8_b",
+      "difficulty": 4,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_p3_t_integration",
+        "lesson_id": "9709_p3_t_integration_m02_l02"
+      },
+      "skills": {
+        "primary_skill_id": "9709_p3_skill_integration"
+      },
+      "hints": [
+        "Express the shaded area as $\\int_0^{\\pi^2}\\sin\\sqrt{x}\\,dx$ and make the prescribed substitution $u=\\sqrt{x}$.",
+        "Since $x=u^2$, use $dx=2u\\,du$ and change the limits from $x=0,\\pi^2$ to $u=0,\\pi$.",
+        "Integrate $\\int_0^\\pi2u\\sin u\\,du$ by parts, choosing the algebraic factor $u$ to differentiate.",
+        "Evaluate the resulting exact antiderivative at both transformed limits and simplify without using decimals."
+      ],
+      "walkthrough": [
+        "Set up the definite integral for the shaded area between the origin and the intercept $x = a = \\pi^2$:\n$$\\text{Area} = \\int_0^{\\pi^2} \\sin\\sqrt{x}\\,\\mathrm{d}x$$",
+        "Apply the substitution $u = \\sqrt{x} \\implies x = u^2$:\n$$\\dfrac{\\mathrm{d}x}{\\mathrm{d}u} = 2u \\implies \\mathrm{d}x = 2u\\,\\mathrm{d}u$$",
+        "Transform the limits of integration:\nWhen $x = 0$, $u = \\sqrt{0} = 0$.\nWhen $x = \\pi^2$, $u = \\sqrt{\\pi^2} = \\pi$.",
+        "Rewrite the integral in terms of $u$:\n$$\\text{Area} = \\int_0^\\pi (\\sin u)(2u)\\,\\mathrm{d}u = \\int_0^\\pi 2u\\sin u\\,\\mathrm{d}u$$",
+        "Evaluate the indefinite integral $\\int 2u\\sin u\\,\\mathrm{d}u$ using integration by parts $\\int v\\,w'\\,\\mathrm{d}u = vw - \\int v'w\\,\\mathrm{d}u$:\nLet $v = 2u \\implies v' = 2$.\nLet $w' = \\sin u \\implies w = -\\cos u$.",
+        "Substitute into the integration by parts formula:\n$$\\int 2u\\sin u\\,\\mathrm{d}u = 2u(-\\cos u) - \\int 2(-\\cos u)\\,\\mathrm{d}u = -2u\\cos u + 2\\int \\cos u\\,\\mathrm{d}u$$\n$$= -2u\\cos u + 2\\sin u$$",
+        "Substitute the limits $u = 0$ and $u = \\pi$:\n$$\\left[ -2u\\cos u + 2\\sin u \\right]_0^\\pi = \\Big(-2(\\pi)\\cos(\\pi) + 2\\sin(\\pi)\\Big) - \\Big(-2(0)\\cos(0) + 2\\sin(0)\\Big)$$",
+        "Evaluate each trigonometric term using $\\cos\\pi = -1$, $\\sin\\pi = 0$, $\\cos 0 = 1$, and $\\sin 0 = 0$:\n$$= \\Big(-2\\pi(-1) + 2(0)\\Big) - (0 + 0) = 2\\pi$$",
+        "State the exact area:\n$$\\text{Area} = 2\\pi$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      }
+    }
+  ]
+}

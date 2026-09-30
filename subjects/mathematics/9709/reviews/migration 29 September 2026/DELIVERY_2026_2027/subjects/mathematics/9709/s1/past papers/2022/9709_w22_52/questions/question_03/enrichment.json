@@ -1,0 +1,67 @@
+{
+  "schema_version": "9709_math_enrichment_v7",
+  "question_id": "9709_w22_52_q3",
+  "difficulty": 3,
+  "parts": [
+    {
+      "part_id": "9709_w22_52_q3_a",
+      "difficulty": 3,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_s1_t_discrete_random_variables",
+        "lesson_id": "9709_s1_t_discrete_random_variables_m04_l01"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_calculating_geometric_distribution_probabilities"
+      },
+      "hints": [
+        "Find the probability of obtaining a total score of 17 or more when throwing three fair dice: total possible outcomes is $6^3 = 216$.",
+        "List outcomes with sum $\\ge 17$: sum 18 has $(6, 6, 6)$ ($1$ outcome); sum 17 has $(6, 6, 5), (6, 5, 6), (5, 6, 6)$ ($3$ outcomes). Total is $4/216 = 1/54$.",
+        "Model the throw of first success as $T \\sim \\mathrm{Geo}(1/54)$ and evaluate $(53/54)^5(1/54)$."
+      ],
+      "walkthrough": [
+        "Determine the single-throw probability of obtaining a sum of $17$ or more from three fair 6-sided dice ($6^3 = 216$ total outcomes):\n- Sum $= 18$: $(6, 6, 6) \\implies 1$ way\n- Sum $= 17$: $(6, 6, 5), (6, 5, 6), (5, 6, 6) \\implies 3$ ways\n$$p = \\frac{1 + 3}{216} = \\frac{4}{216} = \\frac{1}{54}, \\quad q = 1 - \\frac{1}{54} = \\frac{53}{54}$$",
+        "Model the number of throws until the first success as $T \\sim \\mathrm{Geo}\\left(\\frac{1}{54}\\right)$.",
+        "Calculate the probability that the first success occurs on the $6$th throw:\n$$\\mathrm{P}(T = 6) = q^5 p = \\left(\\frac{53}{54}\\right)^5 \\left(\\frac{1}{54}\\right)$$",
+        "Evaluate the arithmetic:\n$$\\left(\\frac{53}{54}\\right)^5 \\approx 0.910842$$\n$$\\mathrm{P}(T = 6) = 0.910842 \\times \\frac{1}{54} \\approx 0.016867 \\approx 0.0169$$"
+      ],
+      "teacher_walkthrough": [
+        "Step 1: Determine the single-trial success probability.\nThree fair 6-sided dice are rolled simultaneously. Total outcomes $= 6 \\times 6 \\times 6 = 216$.\nA score of 17 or more means the sum $S$ is either 17 or 18:\n- Score 18: $(6, 6, 6)$ ($1$ way)\n- Score 17: permutations of $(6, 6, 5) \\implies \\frac{3!}{2! \\, 1!} = 3$ ways\nTotal favorable outcomes $= 1 + 3 = 4$.\n$$p = \\frac{4}{216} = \\frac{1}{54}$$\n$$q = 1 - p = \\frac{53}{54}$$\n\nStep 2: Identify the distribution.\nLet $T$ denote the number of throws up to and including the first throw with a score $\\ge 17$:\n$$T \\sim \\mathrm{Geo}\\left(\\frac{1}{54}\\right)$$\n\nStep 3: Calculate $\\mathrm{P}(T = 6)$.\nUsing $\\mathrm{P}(T = r) = q^{r-1} p$ for $r = 6$:\n$$\\mathrm{P}(T = 6) = \\left(\\frac{53}{54}\\right)^5 \\left(\\frac{1}{54}\\right)$$\nEvaluate powers:\n$$53^5 = 418\\,195\\,493$$\n$$54^5 = 459\\,165\\,024$$\n$$\\left(\\frac{53}{54}\\right)^5 = \\frac{418\\,195\\,493}{459\\,165\\,024} \\approx 0.910842$$\nMultiply by $\\frac{1}{54}$:\n$$\\mathrm{P}(T = 6) = \\frac{418\\,195\\,493}{24\\,794\\,911\\,296} \\approx 0.016866...$$\nRounding to 3 significant figures gives $0.0169$."
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      }
+    },
+    {
+      "part_id": "9709_w22_52_q3_b",
+      "difficulty": 2,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_s1_t_discrete_random_variables",
+        "lesson_id": "9709_s1_t_discrete_random_variables_m04_l01"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_calculating_geometric_distribution_probabilities"
+      },
+      "hints": [
+        "'Fewer than 8 throws' means the first score $\\ge 17$ occurs on throw 1, 2, 3, 4, 5, 6, or 7 ($T \\le 7$).",
+        "Use the cumulative geometric probability formula $\\mathrm{P}(T \\le 7) = 1 - q^7$.",
+        "Evaluate $1 - (53/54)^7$."
+      ],
+      "walkthrough": [
+        "Translate 'in fewer than 8 throws' into the cumulative probability condition:\n$$T < 8 \\iff T \\le 7$$",
+        "Use the complement formula for the geometric distribution:\n$$\\mathrm{P}(T \\le 7) = 1 - \\mathrm{P}(T > 7) = 1 - q^7 = 1 - \\left(\\frac{53}{54}\\right)^7$$",
+        "Evaluate the power:\n$$\\left(\\frac{53}{54}\\right)^7 \\approx 0.876793$$",
+        "Subtract from $1$:\n$$\\mathrm{P}(T \\le 7) = 1 - 0.876793 = 0.123207 \\approx 0.123$$"
+      ],
+      "teacher_walkthrough": [
+        "Step 1: Interpret the inequality.\n'Fewer than 8 throws' means $T < 8$.\nSince the number of throws $T$ takes integer values, this is equivalent to $T \\le 7$.\n\nStep 2: State the geometric tail formula.\nThe probability of needing more than $7$ throws to obtain the first success is the probability that all first $7$ throws are failures:\n$$\\mathrm{P}(T > 7) = q^7 = \\left(\\frac{53}{54}\\right)^7$$\nTherefore:\n$$\\mathrm{P}(T \\le 7) = 1 - q^7 = 1 - \\left(\\frac{53}{54}\\right)^7$$\n\nStep 3: Evaluate numerically.\n$$\\left(\\frac{53}{54}\\right)^7 \\approx 0.876793$$\n$$1 - 0.876793 = 0.123207$$\nRounding to 3 significant figures gives $0.123$."
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      }
+    }
+  ]
+}

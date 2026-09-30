@@ -1,0 +1,65 @@
+{
+  "schema_version": "9709_math_enrichment_v7",
+  "question_id": "9709_w18_63_q4",
+  "difficulty": 2,
+  "parts": [
+    {
+      "part_id": "9709_w18_63_q4_i",
+      "difficulty": 2,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_s1_t_permutations_and_combinations",
+        "lesson_id": "9709_s1_t_permutations_and_combinations_m05_l01"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_calculating_combinations"
+      },
+      "hints": [
+        "Total ways to choose 7 people from 12 is $\\binom{12}{7}$.",
+        "To include one particular boy, place him in the group and choose the remaining 6 people from the remaining 11 people: $\\binom{11}{6}$.",
+        "Divide the favorable combinations by the total combinations."
+      ],
+      "walkthrough": [
+        "Calculate the total number of ways to choose a group of 7 people from 12 people (8 boys and 4 girls):\n$$\\text{Total outcomes} = \\binom{12}{7} = \\frac{12!}{7! \\, 5!} = 792$$",
+        "Calculate the number of selections that include the particular boy by choosing the remaining 6 members from the other 11 people:\n$$\\text{Favorable outcomes} = \\binom{11}{6} = \\frac{11!}{6! \\, 5!} = 462$$",
+        "Divide to find the probability:\n$$\\text{Probability} = \\frac{\\binom{11}{6}}{\\binom{12}{7}} = \\frac{462}{792} = \\frac{7}{12} \\approx 0.583$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      },
+      "teacher_walkthrough": [
+        "Method 1: Combination Counting\nStep 1: Total possible groups.\nThere are $8$ boys and $4$ girls, giving a total of $12$ students.\nA group of $7$ is chosen at random without restriction:\n$$\\binom{12}{7} = \\frac{12 \\times 11 \\times 10 \\times 9 \\times 8}{5 \\times 4 \\times 3 \\times 2 \\times 1} = 792$$\n\nStep 2: Groups containing the specific boy.\nFix the particular boy in the group. We must choose the remaining $7 - 1 = 6$ positions from the other $12 - 1 = 11$ students:\n$$\\binom{11}{6} = \\frac{11 \\times 10 \\times 9 \\times 8 \\times 7}{5 \\times 4 \\times 3 \\times 2 \\times 1} = 462$$\n\nStep 3: Compute the probability:\n$$\\mathrm{P}(\\text{boy included}) = \\frac{462}{792} = \\frac{7}{12} \\approx 0.5833 \\approx 0.583$$\n\nMethod 2: Direct symmetry argument\nEvery one of the $12$ students has an equal chance of being selected for one of the $7$ available slots.\nTherefore, the probability that any given student is selected is simply $\\frac{7}{12} \\approx 0.583$."
+      ]
+    },
+    {
+      "part_id": "9709_w18_63_q4_ii",
+      "difficulty": 2,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_s1_t_permutations_and_combinations",
+        "lesson_id": "9709_s1_t_permutations_and_combinations_m05_l01"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_handling_selection_restrictions"
+      },
+      "hints": [
+        "In a group of 7, at least 2 girls means choosing 2, 3, or 4 girls (since there are only 4 girls in total).",
+        "Method 1: Sum the counts for (2G, 5B), (3G, 4B), and (4G, 3B).",
+        "Method 2 (Complement): Subtract the counts for 0 girls and 1 girl from the total $\\binom{12}{7} = 792$, then divide by 792."
+      ],
+      "walkthrough": [
+        "List the mutually exclusive scenarios with at least 2 girls in the group of 7 chosen from 4 girls and 8 boys:\n- Scenario 1 ($2$ girls, $5$ boys): $\\binom{4}{2} \\binom{8}{5} = 6 \\times 56 = 336$\n- Scenario 2 ($3$ girls, $4$ boys): $\\binom{4}{3} \\binom{8}{4} = 4 \\times 70 = 280$\n- Scenario 3 ($4$ girls, $3$ boys): $\\binom{4}{4} \\binom{8}{3} = 1 \\times 56 = 56$",
+        "Sum the favorable selections:\n$$\\text{Total favorable selections} = 336 + 280 + 56 = 672$$",
+        "Divide by the total number of selections $\\binom{12}{7} = 792$:\n$$\\text{Probability} = \\frac{672}{792} = \\frac{28}{33} \\approx 0.848$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      },
+      "teacher_walkthrough": [
+        "Method 1: Direct counting by scenarios\nStep 1: Identify the possible compositions.\nThe group has $7$ members chosen from $4$ girls and $8$ boys.\nAt least 2 girls allows $2, 3,$ or $4$ girls:\n- Case 1: $2$ girls and $5$ boys:\n$$\\binom{4}{2} \\times \\binom{8}{5} = 6 \\times 56 = 336$$\n- Case 2: $3$ girls and $4$ boys:\n$$\\binom{4}{3} \\times \\binom{8}{4} = 4 \\times 70 = 280$$\n- Case 3: $4$ girls and $3$ boys:\n$$\\binom{4}{4} \\times \\binom{8}{3} = 1 \\times 56 = 56$$\n\nStep 2: Sum the cases:\n$$\\text{Favorable selections} = 336 + 280 + 56 = 672$$\n\nStep 3: Calculate the probability using total selections $\\binom{12}{7} = 792$:\n$$\\mathrm{P}(\\ge 2\\text{ girls}) = \\frac{672}{792} = \\frac{28}{33} \\approx 0.84848 \\approx 0.848$$\n\nMethod 2: Complementary counting\nUnwanted cases have fewer than $2$ girls (either $0$ girls or $1$ girl):\n- $0$ girls, $7$ boys: $\\binom{4}{0} \\times \\binom{8}{7} = 1 \\times 8 = 8$\n- $1$ girl, $6$ boys: $\\binom{4}{1} \\times \\binom{8}{6} = 4 \\times 28 = 112$\n$$\\text{Unwanted selections} = 8 + 112 = 120$$\n$$\\mathrm{P}(\\ge 2\\text{ girls}) = 1 - \\frac{120}{792} = 1 - \\frac{5}{33} = \\frac{28}{33} \\approx 0.848$$"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,92 @@
+{
+  "schema_version": "9709_math_enrichment_v7",
+  "question_id": "9709_s18_32_q6",
+  "difficulty": 5,
+  "parts": [
+    {
+      "part_id": "9709_s18_32_q6_i",
+      "difficulty": 2,
+      "practice_tier": "revision",
+      "mapping": {
+        "topic_id": "9709_p3_t_trigonometry",
+        "lesson_id": "9709_p3_t_trigonometry_m04_l03"
+      },
+      "skills": {
+        "primary_skill_id": "9709_p3_skill_forming_area_expressions"
+      },
+      "hints": [
+        "Express the shaded segment as the area of sector $ABC$ minus the area of triangle $ABC$.",
+        "The sector has radius $a$ and angle $\\theta$, while the triangle area can be written using $\\frac12a^2\\sin\\theta$.",
+        "Each external semicircle has radius $a/2$; add the areas of both semicircles.",
+        "Equate the segment area to this total and cancel the common factor involving $a^2$."
+      ],
+      "walkthrough": [
+        "Find the area of each semicircle:\nEach semicircle has diameter $a$, giving radius $r = \\dfrac{a}{2}$:\n$$\\text{Area of one semicircle} = \\dfrac{1}{2}\\pi r^2 = \\dfrac{1}{2}\\pi \\left(\\dfrac{a}{2}\\right)^2 = \\dfrac{1}{8}\\pi a^2$$\n$$\\text{Sum of two semicircles} = 2 \\times \\left(\\dfrac{1}{8}\\pi a^2\\right) = \\dfrac{1}{4}\\pi a^2$$",
+        "Find the area of the circular segment formed by chord $BC$:\n- Area of sector $ABC$ with radius $a$ and angle $\\theta$ is $\\dfrac{1}{2}a^2\\theta$.\n- Area of triangle $ABC$ with sides $a, a$ and included angle $\\theta$ is $\\dfrac{1}{2}a^2\\sin\\theta$.\n$$\\text{Area of segment} = \\dfrac{1}{2}a^2\\theta - \\dfrac{1}{2}a^2\\sin\\theta = \\dfrac{1}{2}a^2(\\theta - \\sin\\theta)$$",
+        "Equate the area of the segment to the sum of the semicircles:\n$$\\dfrac{1}{2}a^2(\\theta - \\sin\\theta) = \\dfrac{1}{4}\\pi a^2$$",
+        "Divide both sides by $\\dfrac{1}{2}a^2$:\n$$\\theta - \\sin\\theta = \\dfrac{1}{2}\\pi$$\n$$\\theta = \\dfrac{1}{2}\\pi + \\sin\\theta$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      }
+    },
+    {
+      "part_id": "9709_s18_32_q6_ii",
+      "difficulty": 1,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_p3_t_trigonometry",
+        "lesson_id": "9709_p3_t_trigonometry_m04_l03"
+      },
+      "skills": {
+        "primary_skill_id": "9709_p3_skill_numerical_root_bracketing"
+      },
+      "hints": [
+        "Rewrite the equation as a continuous root function, for example $f(\\theta)=\\theta-\\frac\\pi2-\\sin\\theta$.",
+        "Evaluate the same function at $\\theta=2.2$ and $\\theta=2.4$ in radian mode.",
+        "Record the signs of both calculated values.",
+        "Use the sign change and continuity to justify that a root lies between the two endpoints."
+      ],
+      "walkthrough": [
+        "Define the continuous function $f(\\theta) = \\theta - \\sin\\theta - \\dfrac{1}{2}\\pi$, where $\\dfrac{1}{2}\\pi \\approx 1.5707963$.",
+        "Evaluate $f(\\theta)$ at the lower bound $\\theta = 2.2$ radians:\n$$\\sin(2.2) \\approx 0.8084964$$\n$$f(2.2) = 2.2 - 0.8084964 - 1.5707963 = -0.1792927 < 0$$",
+        "Evaluate $f(\\theta)$ at the upper bound $\\theta = 2.4$ radians:\n$$\\sin(2.4) \\approx 0.6754632$$\n$$f(2.4) = 2.4 - 0.6754632 - 1.5707963 = +0.1537405 > 0$$",
+        "Conclude using the sign change:\nSince $f(\\theta)$ is continuous on $[2.2, 2.4]$ and changes sign ($f(2.2) < 0$ and $f(2.4) > 0$), by the Intermediate Value Theorem the root $\\theta$ lies between 2.2 and 2.4."
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      }
+    },
+    {
+      "part_id": "9709_s18_32_q6_iii",
+      "difficulty": 5,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_p3_t_numerical_solution_of_equations",
+        "lesson_id": "9709_p3_t_numerical_solution_of_equations_m03_l01"
+      },
+      "skills": {
+        "primary_skill_id": "9709_p3_skill_fixed_point_iteration"
+      },
+      "hints": [
+        "Use the displayed equation directly as the fixed-point rule for the next iterate.",
+        "Choose a starting value inside the bracket verified in part (ii), keeping the calculator in radian mode.",
+        "Apply the rule repeatedly and display each iterate to four decimal places.",
+        "Continue until the iterates consistently support one rounding to two decimal places."
+      ],
+      "walkthrough": [
+        "Use the iterative formula $\\theta_{n+1} = \\dfrac{1}{2}\\pi + \\sin\\theta_n$ with initial value $\\theta_1 = 2.3$.",
+        "Calculate the second iterate $\\theta_2$:\n$$\\theta_2 = \\dfrac{\\pi}{2} + \\sin(2.3) \\approx 1.570796 + 0.745705 = 2.3165$$",
+        "Compute successive iterations, recording each to 4 decimal places:\n$$\\theta_3 = \\dfrac{\\pi}{2} + \\sin(2.3165) \\approx 1.570796 + 0.734562 = 2.3054$$\n$$\\theta_4 = \\dfrac{\\pi}{2} + \\sin(2.3054) \\approx 1.570796 + 0.742129 = 2.3129$$\n$$\\theta_5 = \\dfrac{\\pi}{2} + \\sin(2.3129) \\approx 1.570796 + 0.737036 = 2.3078$$\n$$\\theta_6 = \\dfrac{\\pi}{2} + \\sin(2.3078) \\approx 1.570796 + 0.740509 = 2.3113$$\n$$\\theta_7 = \\dfrac{\\pi}{2} + \\sin(2.3113) \\approx 1.570796 + 0.738127 = 2.3089$$\n$$\\theta_8 = \\dfrac{\\pi}{2} + \\sin(2.3089) \\approx 1.570796 + 0.739759 = 2.3106$$\n$$\\theta_9 = \\dfrac{\\pi}{2} + \\sin(2.3106) \\approx 1.570796 + 0.738600 = 2.3094$$\n$$\\theta_{10} = \\dfrac{\\pi}{2} + \\sin(2.3094) \\approx 1.570796 + 0.739418 = 2.3102$$",
+        "Justify the rounding to 2 decimal places by checking the sign change of $f(\\theta) = \\theta - \\sin\\theta - \\dfrac{\\pi}{2}$ on the interval $[2.305, 2.315]$:\n$$f(2.305) = 2.305 - \\sin(2.305) - \\dfrac{\\pi}{2} \\approx 2.305 - 0.74240 - 1.57080 = -0.00820 < 0$$\n$$f(2.315) = 2.315 - \\sin(2.315) - \\dfrac{\\pi}{2} \\approx 2.315 - 0.73559 - 1.57080 = +0.00861 > 0$$",
+        "Conclude that $\\theta = 2.31$ correct to 2 decimal places."
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      }
+    }
+  ]
+}

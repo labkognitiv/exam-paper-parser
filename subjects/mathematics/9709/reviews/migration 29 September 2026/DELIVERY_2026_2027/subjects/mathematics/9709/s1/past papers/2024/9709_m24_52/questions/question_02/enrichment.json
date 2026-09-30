@@ -1,0 +1,107 @@
+{
+  "schema_version": "9709_math_enrichment_v7",
+  "question_id": "9709_m24_52_q2",
+  "difficulty": 3,
+  "parts": [
+    {
+      "part_id": "9709_m24_52_q2_a",
+      "difficulty": 3,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_s1_t_discrete_random_variables",
+        "lesson_id": "9709_s1_t_discrete_random_variables_m03_l03"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_calculating_binomial_tail_probabilities"
+      },
+      "hints": [
+        "Define the random variable X as the number of goals scored out of 10 attempts: X ~ B(10, 0.7).",
+        "Interpret 'fewer than 8' as P(X < 8) = P(X <= 7), and use the complement rule: 1 - [P(X=8) + P(X=9) + P(X=10)].",
+        "Calculate each individual binomial probability using P(X = r) = nCr * p^r * (1-p)^(n-r), sum them, and subtract from 1 to obtain 0.617."
+      ],
+      "walkthrough": [
+        "Define the binomial model for the number of successful attempts $X$:\n$$X \\sim \\operatorname{B}(10, 0.7)$$",
+        "Express the condition 'fewer than 8' using the complement of the upper tail:\n$$P(X < 8) = 1 - [P(X = 8) + P(X = 9) + P(X = 10)]$$",
+        "Calculate the upper tail probabilities using the binomial formula $P(X = r) = \\binom{n}{r} p^r (1-p)^{n-r}$:\n$$P(X = 8) = \\binom{10}{8} (0.7)^8 (0.3)^2 = 45 \\times 0.05764801 \\times 0.09 = 0.233474$$\n$$P(X = 9) = \\binom{10}{9} (0.7)^9 (0.3)^1 = 10 \\times 0.040353607 \\times 0.3 = 0.121061$$\n$$P(X = 10) = \\binom{10}{10} (0.7)^{10} (0.3)^0 = 1 \\times 0.028247525 \\times 1 = 0.028248$$",
+        "Sum the upper tail probabilities and subtract from 1:\n$$P(X \\ge 8) = 0.233474 + 0.121061 + 0.028248 = 0.382783$$\n$$P(X < 8) = 1 - 0.382783 = 0.617217 \\approx 0.617$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      },
+      "teacher_walkthrough": [
+        "Step 1: Identify the probability distribution and its parameters:\nEach attempt is independent with a constant success probability $p = 0.7$ across $n = 10$ trials.\nTherefore, the number of goals scored $X$ follows a Binomial distribution:\n$$X \\sim \\operatorname{B}(n, p) = \\operatorname{B}(10, 0.7)$$",
+        "Step 2: Express the required event mathematically:\nWe are asked for the probability of scoring on fewer than $8$ attempts, which is $P(X < 8) = P(X \\le 7)$.\nCalculating $8$ terms from $r = 0$ to $r = 7$ is tedious, so we apply the complement rule:\n$$P(X < 8) = 1 - P(X \\ge 8) = 1 - [P(X = 8) + P(X = 9) + P(X = 10)]$$",
+        "Step 3: State the binomial probability mass function:\n$$P(X = r) = \\binom{n}{r} p^r (1 - p)^{n - r}$$",
+        "Step 4: Compute each upper tail probability explicitly:\n- For $r = 8$:\n$$\\binom{10}{8} = \\frac{10 \\times 9}{2 \\times 1} = 45$$\n$$P(X = 8) = 45 \\times (0.7)^8 \\times (0.3)^2 = 45 \\times 0.05764801 \\times 0.09 = 0.233474$$\n- For $r = 9$:\n$$\\binom{10}{9} = 10$$\n$$P(X = 9) = 10 \\times (0.7)^9 \\times (0.3)^1 = 10 \\times 0.040353607 \\times 0.3 = 0.121061$$\n- For $r = 10$:\n$$\\binom{10}{10} = 1$$\n$$P(X = 10) = 1 \\times (0.7)^{10} \\times (0.3)^0 = 1 \\times 0.028247525 \\times 1 = 0.028248$$",
+        "Step 5: Combine the values and evaluate the final result:\n$$P(X \\ge 8) = 0.233474 + 0.121061 + 0.028248 = 0.382783$$\n$$P(X < 8) = 1 - 0.382783 = 0.617217 \\approx 0.617$$"
+      ]
+    },
+    {
+      "part_id": "9709_m24_52_q2_b",
+      "difficulty": 1,
+      "practice_tier": "revision",
+      "mapping": {
+        "topic_id": "9709_s1_t_discrete_random_variables",
+        "lesson_id": "9709_s1_t_discrete_random_variables_m04_l01"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_calculating_geometric_distribution_probabilities"
+      },
+      "hints": [
+        "Let T be the number of attempts until Sam's first goal: T ~ Geo(0.7).",
+        "Having the first success before the 5th attempt means T <= 4, which is equivalent to not failing all first 4 attempts.",
+        "Calculate P(T <= 4) = 1 - (1 - p)^4 = 1 - (0.3)^4 and simplify."
+      ],
+      "walkthrough": [
+        "Let $T$ be the number of attempts up to and including the first successful goal, so $T \\sim \\operatorname{Geo}(0.7)$:\n$$P(T < 5) = P(T \\le 4)$$",
+        "Apply the cumulative geometric distribution formula $P(T \\le k) = 1 - (1-p)^k$:\n$$P(T \\le 4) = 1 - (0.3)^4$$",
+        "Evaluate the powers and obtain the final probability:\n$$P(T \\le 4) = 1 - 0.0081 = 0.9919 = \\frac{9919}{10000}$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      },
+      "teacher_walkthrough": [
+        "Step 1: Identify the distribution:\nWe are tracking the number of independent trials $T$ until the first success occurs, where the success probability on each trial is $p = 0.7$ and failure probability is $q = 1 - 0.7 = 0.3$.\nThis follows a Geometric distribution:\n$$T \\sim \\operatorname{Geo}(p) = \\operatorname{Geo}(0.7)$$",
+        "Step 2: Translate the condition 'before her 5th attempt':\n'Before the 5th attempt' means the first successful goal occurs on attempt $1, 2, 3,$ or $4$:\n$$P(T < 5) = P(T \\le 4)$$",
+        "Step 3: State the cumulative geometric formula:\nThe probability that the first success occurs on or before trial $k$ is the complement of failing $k$ consecutive times:\n$$P(T \\le k) = 1 - q^k = 1 - (1 - p)^k$$",
+        "Step 4: Substitute the parameters and calculate:\nHere $k = 4$ and $q = 0.3$:\n$$P(T \\le 4) = 1 - (0.3)^4$$\nCalculate the power of the failure probability:\n$$(0.3)^4 = 0.3 \\times 0.3 \\times 0.3 \\times 0.3 = 0.0081$$\nSubtract from 1:\n$$P(T \\le 4) = 1 - 0.0081 = 0.9919 = \\frac{9919}{10000}$$"
+      ]
+    },
+    {
+      "part_id": "9709_m24_52_q2_c",
+      "difficulty": 3,
+      "practice_tier": "revision",
+      "mapping": {
+        "topic_id": "9709_s1_t_discrete_random_variables",
+        "lesson_id": "9709_s1_t_discrete_random_variables_m05_l01"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_calculating_geometric_distribution_probabilities"
+      },
+      "hints": [
+        "For Wei to score his 3rd goal on his 7th attempt, two distinct conditions must hold simultaneously.",
+        "First, Wei must score exactly 2 goals in his first 6 attempts: use the binomial probability formula nCr * p^r * (1-p)^(n-r) with n = 6, r = 2, and p = 0.6.",
+        "Second, Wei must score a goal on the 7th attempt with probability p = 0.6.",
+        "Multiply these two probabilities together: 6C2 * (0.6)^2 * (0.4)^4 * 0.6."
+      ],
+      "walkthrough": [
+        "Break the event into two independent components: scoring exactly $2$ goals in the first $6$ attempts, and scoring a goal on the $7$th attempt:\n$$P(\\text{3rd goal on 7th attempt}) = P(2\\text{ goals in first }6\\text{ attempts}) \\times P(\\text{goal on 7th})$$",
+        "Calculate the binomial probability for $2$ goals in the first $6$ attempts with $p = 0.6$ and $q = 0.4$:\n$$P(2\\text{ goals in }6) = \\binom{6}{2} (0.6)^2 (0.4)^4 = 15 \\times 0.36 \\times 0.0256 = 0.13824$$",
+        "Multiply by the probability of scoring on the $7$th attempt:\n$$P = 0.13824 \\times 0.6 = \\binom{6}{2} (0.4)^4 (0.6)^3 = 0.082944 = \\frac{1296}{15625} \\approx 0.0829$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      },
+      "teacher_walkthrough": [
+        "Step 1: Understand the event decomposition for the kth success on the rth trial:\nFor Wei to score his $3$rd goal on exactly the $7$th attempt, two conditions must both happen:\n1. Wei scores exactly $2$ goals in the first $6$ attempts.\n2. Wei scores a goal on his $7$th attempt.\n(Notice that if he scored $3$ goals earlier, the trial sequence would have terminated earlier).",
+        "Step 2: Identify the parameters for each attempt:\n- Success probability (scoring a goal): $p = 0.6$\n- Failure probability (missing): $q = 1 - 0.6 = 0.4$",
+        "Step 3: Calculate the probability of exactly 2 goals in the first 6 attempts:\nUsing the binomial formula with $n = 6$ and $r = 2$:\n$$P(2\\text{ goals in }6) = \\binom{6}{2} p^2 q^{6 - 2} = \\binom{6}{2} (0.6)^2 (0.4)^4$$\nCalculate each factor:\n$$\\binom{6}{2} = \\frac{6 \\times 5}{2 \\times 1} = 15$$\n$$(0.6)^2 = 0.36$$\n$$(0.4)^4 = 0.0256$$\n$$P(2\\text{ goals in }6) = 15 \\times 0.36 \\times 0.0256 = 0.13824$$",
+        "Step 4: Multiply by the probability of scoring on the 7th attempt:\n$$P = P(2\\text{ goals in }6) \\times P(\\text{goal on 7th}) = 0.13824 \\times 0.6$$\n$$P = 0.082944$$",
+        "Step 5: Express in exact fractional form and rounded value:\n$$0.082944 = \\frac{82944}{1000000} = \\frac{1296}{15625} \\approx 0.0829$$"
+      ]
+    }
+  ]
+}

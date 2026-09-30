@@ -1,0 +1,115 @@
+{
+  "schema_version": "9709_math_enrichment_v7",
+  "question_id": "9709_s20_52_q6",
+  "difficulty": 4,
+  "parts": [
+    {
+      "part_id": "9709_s20_52_q6_a",
+      "difficulty": 2,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_s1_t_permutations_and_combinations",
+        "lesson_id": "9709_s1_t_permutations_and_combinations_m03_l04"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_arranging_repeated_objects"
+      },
+      "hints": [
+        "Count the letter frequencies of the 10-letter word SUMMERTIME: 1 S, 1 U, 3 M, 2 E, 1 R, 1 T, 1 I.",
+        "Fix the two identical Es at the first and last positions: $E \\; \\_ \\_ \\_ \\_ \\_ \\_ \\_ \\_ \\; E$.",
+        "Arrange the remaining 8 letters (S, U, M, M, M, R, T, I) in the 8 middle positions.",
+        "Use the repeated letters formula $\\dfrac{8!}{3!}$ to account for the 3 identical Ms."
+      ],
+      "walkthrough": [
+        "Fix an E at the beginning and an E at the end of the 10-letter arrangement:\n$$E \\; \\underbrace{\\_ \\; \\_ \\; \\_ \\; \\_ \\; \\_ \\; \\_ \\; \\_ \\; \\_}_{8 \\text{ positions}} \\; E$$",
+        "Identify the 8 remaining letters to arrange in the middle positions:\n$$\\text{Letters}: \\quad \\text{S: 1}, \\; \\text{U: 1}, \\; \\text{M: 3}, \\; \\text{R: 1}, \\; \\text{T: 1}, \\; \\text{I: 1}$$",
+        "Calculate the number of permutations with 3 identical Ms:\n$$\\text{Number of arrangements} = \\dfrac{8!}{3!} = \\dfrac{40\\,320}{6} = 6720$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      },
+      "teacher_walkthrough": [
+        "We are arranging the 10 letters of the word SUMMERTIME so that an E is at the beginning and an E is at the end.",
+        "Step 1: Count letter multiplicities in SUMMERTIME:\nS: 1, U: 1, M: 3, E: 2, R: 1, T: 1, I: 1 (Total $= 10$ letters).",
+        "Step 2: Place the two Es at the endpoints.\nThere are two E letters and two end positions (1st and 10th positions). Since the two Es are identical, there is only 1 way to place them:\n$$E \\; \\_ \\; \\_ \\; \\_ \\; \\_ \\; \\_ \\; \\_ \\; \\_ \\; \\_ \\; E$$",
+        "Step 3: Count and identify the remaining letters.\nHaving placed both Es, we must arrange the remaining $10 - 2 = 8$ letters:\nS (1), U (1), M (3), R (1), T (1), I (1).",
+        "Step 4: Apply the formula for permutations with repetitions:\n$$\\text{Arrangements} = \\frac{n!}{p!} = \\frac{8!}{3!}$$\nCalculate factorials:\n$$8! = 40\\,320$$\n$$3! = 6$$\n$$\\text{Arrangements} = \\frac{40\\,320}{6} = 6720$$\nTherefore, there are 6720 valid arrangements."
+      ]
+    },
+    {
+      "part_id": "9709_s20_52_q6_b",
+      "difficulty": 4,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_s1_t_permutations_and_combinations",
+        "lesson_id": "9709_s1_t_permutations_and_combinations_m03_l04"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_arranging_repeated_objects"
+      },
+      "hints": [
+        "Use the subtraction method: total arrangements minus arrangements where the two Es are together.",
+        "Calculate total arrangements of the 10 letters with 3 Ms and 2 Es using $\\dfrac{10!}{3! \\, 2!}$.",
+        "Calculate arrangements where the two Es are together by bundling them into a block $(EE)$ among 9 items with 3 Ms using $\\dfrac{9!}{3!}$.",
+        "Subtract the together count from the total: $302\\,400 - 60\\,480$."
+      ],
+      "walkthrough": [
+        "Calculate the total number of unrestricted arrangements of SUMMERTIME (10 letters with 3 Ms and 2 Es):\n$$\\text{Total arrangements} = \\dfrac{10!}{3! \\, 2!} = \\dfrac{3\\,628\\,800}{6 \\times 2} = 302\\,400$$",
+        "Calculate the number of arrangements where the two Es are together by treating $(EE)$ as 1 item (9 items with 3 Ms):\n$$\\text{Arrangements with Es together} = \\dfrac{9!}{3!} = \\dfrac{362\\,880}{6} = 60\\,480$$",
+        "Subtract the forbidden count from the total count:\n$$\\text{Arrangements with Es not together} = 302\\,400 - 60\\,480 = 241\\,920$$",
+        "Alternative Method (Gap insertion):\n$$\\text{Base arrangements without Es} = \\dfrac{8!}{3!} = 6720$$\n$$\\text{Ways to place 2 identical Es in 9 gaps} = \\binom{9}{2} = 36$$\n$$\\text{Total} = 6720 \\times 36 = 241\\,920$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      },
+      "teacher_walkthrough": [
+        "We want to find the number of different arrangements of the 10 letters of SUMMERTIME in which the two Es are not next to each other.",
+        "Method 1: Subtraction (complement) method.",
+        "Step 1: Calculate total unrestricted arrangements.\nSUMMERTIME has 10 letters: S (1), U (1), M (3), E (2), R (1), T (1), I (1).\nUsing the permutations formula with repeated objects:\n$$\\text{Total} = \\frac{10!}{3! \\, 2!} = \\frac{3\\,628\\,800}{6 \\times 2} = \\frac{3\\,628\\,800}{12} = 302\\,400$$",
+        "Step 2: Calculate arrangements where the two Es ARE together.\nTreat the two identical Es as a single block: $(EE)$.\nWe now arrange 9 items: $(EE)$, S, U, M, M, M, R, T, I, which contains 3 identical Ms:\n$$\\text{Es together} = \\frac{9!}{3!} = \\frac{362\\,880}{6} = 60\\,480$$",
+        "Step 3: Subtract the forbidden arrangements:\n$$\\text{Valid arrangements} = 302\\,400 - 60\\,480 = 241\\,920$$",
+        "Method 2: Gap insertion method.",
+        "Step 1: Arrange the 8 letters other than E (S, U, M, M, M, R, T, I):\n$$\\frac{8!}{3!} = \\frac{40\\,320}{6} = 6720$$",
+        "Step 2: A row of 8 letters creates $8 + 1 = 9$ available spaces (including the two ends):\n$$\\_ \\; L_1 \\; \\_ \\; L_2 \\; \\_ \\; L_3 \\; \\_ \\; L_4 \\; \\_ \\; L_5 \\; \\_ \\; L_6 \\; \\_ \\; L_7 \\; \\_ \\; L_8 \\; \\_$$",
+        "Step 3: Choose 2 of these 9 spaces to place the two identical Es:\n$$\\binom{9}{2} = \\frac{9 \\times 8}{2 \\times 1} = 36$$",
+        "Step 4: Multiply the stages:\n$$\\text{Total} = 6720 \\times 36 = 241\\,920$$\nBoth methods confirm 241920."
+      ]
+    },
+    {
+      "part_id": "9709_s20_52_q6_c",
+      "difficulty": 3,
+      "practice_tier": "revision",
+      "mapping": {
+        "topic_id": "9709_s1_t_permutations_and_combinations",
+        "lesson_id": "9709_s1_t_permutations_and_combinations_m04_l02"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_handling_selection_restrictions"
+      },
+      "hints": [
+        "We are choosing an unordered selection of 4 letters from the 10 letters of SUMMERTIME: {S, U, M, M, M, E, E, R, T, I}.",
+        "The condition requires exactly one E and at least one M. The remaining letters must be chosen from the 5 distinct other letters {S, U, R, T, I}.",
+        "Break down the selection into cases based on the number of Ms: 3 Ms, 2 Ms, or 1 M.",
+        "Calculate the number of ways to choose the remaining letters from {S, U, R, T, I} for each case and sum them."
+      ],
+      "walkthrough": [
+        "Identify the pool of available letters:\n$$\\text{Pool}: \\quad \\text{3 Ms}, \\; \\text{2 Es}, \\; \\text{5 single letters } \\{S, U, R, T, I\\}$$",
+        "Set up the three mutually exclusive scenarios for selecting 4 letters containing exactly 1 E and at least 1 M:\n$$\\text{Scenario 1 (1 E, 3 Ms, 0 others)}: \\; \\binom{5}{0} = 1$$\n$$\\text{Scenario 2 (1 E, 2 Ms, 1 other)}: \\; \\binom{5}{1} = 5$$\n$$\\text{Scenario 3 (1 E, 1 M, 2 others)}: \\; \\binom{5}{2} = \\dfrac{5 \\times 4}{2} = 10$$",
+        "Sum the selections from all three scenarios:\n$$\\text{Total selections} = 1 + 5 + 10 = 16$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      },
+      "teacher_walkthrough": [
+        "We are selecting a group of 4 letters (order does not matter) from the 10 letters of the word SUMMERTIME.",
+        "Step 1: Categorize the available letters:\n- E letters: 2 available (we must choose exactly 1 E).\n- M letters: 3 available (we must choose at least 1 M).\n- Other letters: 5 distinct single letters {S, U, R, T, I}.",
+        "Step 2: Fix 1 E in the 4-letter selection.\nSince exactly 1 E is chosen, we must choose 3 more letters from the remaining pool (the 3 Ms and the 5 other letters {S, U, R, T, I}) such that at least one M is included.",
+        "Step 3: Systematically list cases by the number of Ms selected:\n\nCase 1: 3 Ms selected (Selection: E, M, M, M)\nAll 3 remaining spots are filled by the 3 identical Ms. There are 0 other letters needed:\n$$\\binom{5}{0} = 1 \\text{ selection}$$\n\nCase 2: 2 Ms selected (Selection: E, M, M, _)\nTwo spots are filled by Ms, leaving 1 spot to be chosen from the 5 other distinct letters {S, U, R, T, I}:\n$$\\binom{5}{1} = 5 \\text{ selections}$$\n\nCase 3: 1 M selected (Selection: E, M, _, _)\nOne spot is filled by an M, leaving 2 spots to be chosen from the 5 other distinct letters {S, U, R, T, I}:\n$$\\binom{5}{2} = \\frac{5 \\times 4}{2 \\times 1} = 10 \\text{ selections}$$",
+        "Step 4: Sum the selections across all three cases:\n$$\\text{Total selections} = 1 + 5 + 10 = 16$$"
+      ]
+    }
+  ]
+}

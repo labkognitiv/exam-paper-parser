@@ -1,0 +1,62 @@
+{
+  "schema_version": "9709_math_enrichment_v7",
+  "question_id": "9709_m18_32_q3",
+  "difficulty": 2,
+  "parts": [
+    {
+      "part_id": "9709_m18_32_q3_i",
+      "difficulty": 2,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_p3_t_trigonometry",
+        "lesson_id": "9709_p3_t_trigonometry_m01_l02"
+      },
+      "skills": {
+        "primary_skill_id": "9709_p3_skill_trigonometric_identities"
+      },
+      "hints": [
+        "Use the cosine addition and subtraction formulae on $\\cos(3x+x)$ and $\\cos(3x-x)$.",
+        "Expand both expressions: the $\\sin3x\\sin x$ terms have opposite signs.",
+        "Add the two expansions, identify the left side as $\\cos4x+\\cos2x$, and divide by $2$."
+      ],
+      "walkthrough": [
+        "State the compound angle addition and subtraction formulas for cosine:\n$$\\cos(A + B) = \\cos A \\cos B - \\sin A \\sin B$$\n$$\\cos(A - B) = \\cos A \\cos B + \\sin A \\sin B$$",
+        "Substitute $A = 3x$ and $B = x$ into both expansion formulas:\n$$\\cos(3x + x) = \\cos 3x \\cos x - \\sin 3x \\sin x$$\n$$\\cos 4x = \\cos 3x \\cos x - \\sin 3x \\sin x \\quad (\\text{Equation 1})$$\n$$\\cos(3x - x) = \\cos 3x \\cos x + \\sin 3x \\sin x$$\n$$\\cos 2x = \\cos 3x \\cos x + \\sin 3x \\sin x \\quad (\\text{Equation 2})$$",
+        "Add Equation 1 and Equation 2:\n$$\\cos 4x + \\cos 2x = (\\cos 3x \\cos x - \\sin 3x \\sin x) + (\\cos 3x \\cos x + \\sin 3x \\sin x)$$\n$$\\cos 4x + \\cos 2x = 2\\cos 3x \\cos x$$",
+        "Multiply both sides by $\\dfrac{1}{2}$ to obtain the required identity:\n$$\\dfrac{1}{2}(\\cos 4x + \\cos 2x) \\equiv \\cos 3x \\cos x$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      }
+    },
+    {
+      "part_id": "9709_m18_32_q3_ii",
+      "difficulty": 1,
+      "practice_tier": "revision",
+      "mapping": {
+        "topic_id": "9709_p3_t_integration",
+        "lesson_id": "9709_p3_t_integration_m01_l02"
+      },
+      "skills": {
+        "primary_skill_id": "9709_p3_skill_trigonometric_integration"
+      },
+      "hints": [
+        "Use the product-to-sum identity proved in part (i) to replace $\\cos3x\\cos x$ by $\\frac12(\\cos4x+\\cos2x)$.",
+        "Integrate term by term to obtain an exact sine expression before using the limits $-\\pi/6$ and $\\pi/6$.",
+        "Use $\\sin(-\\theta)=-\\sin\\theta$ when subtracting the lower-limit value, and simplify exact special-angle values."
+      ],
+      "walkthrough": [
+        "Use the identity established in part (i) to replace the integrand:\n$$\\int_{-\\frac{1}{6}\\pi}^{\\frac{1}{6}\\pi} \\cos 3x \\cos x\\,\\mathrm{d}x = \\int_{-\\frac{1}{6}\\pi}^{\\frac{1}{6}\\pi} \\dfrac{1}{2}(\\cos 4x + \\cos 2x)\\,\\mathrm{d}x = \\dfrac{1}{2} \\int_{-\\frac{1}{6}\\pi}^{\\frac{1}{6}\\pi} (\\cos 4x + \\cos 2x)\\,\\mathrm{d}x$$",
+        "Integrate each cosine term with respect to $x$:\n$$\\int \\cos 4x\\,\\mathrm{d}x = \\dfrac{1}{4}\\sin 4x$$\n$$\\int \\cos 2x\\,\\mathrm{d}x = \\dfrac{1}{2}\\sin 2x$$\n$$\\dfrac{1}{2} \\left[ \\dfrac{1}{4}\\sin 4x + \\dfrac{1}{2}\\sin 2x \\right]_{-\\frac{1}{6}\\pi}^{\\frac{1}{6}\\pi} = \\left[ \\dfrac{1}{8}\\sin 4x + \\dfrac{1}{4}\\sin 2x \\right]_{-\\frac{1}{6}\\pi}^{\\frac{1}{6}\\pi}$$",
+        "Evaluate at the upper limit $x = \\dfrac{\\pi}{6}$:\n$$4\\left(\\dfrac{\\pi}{6}\\right) = \\dfrac{2\\pi}{3} \\implies \\sin\\left(\\dfrac{2\\pi}{3}\\right) = \\dfrac{\\sqrt{3}}{2}$$\n$$2\\left(\\dfrac{\\pi}{6}\\right) = \\dfrac{\\pi}{3} \\implies \\sin\\left(\\dfrac{\\pi}{3}\\right) = \\dfrac{\\sqrt{3}}{2}$$\n$$\\text{Upper limit value} = \\dfrac{1}{8}\\left(\\dfrac{\\sqrt{3}}{2}\\right) + \\dfrac{1}{4}\\left(\\dfrac{\\sqrt{3}}{2}\\right) = \\dfrac{\\sqrt{3}}{16} + \\dfrac{2\\sqrt{3}}{16} = \\dfrac{3\\sqrt{3}}{16}$$",
+        "Evaluate at the lower limit $x = -\\dfrac{\\pi}{6}$ using the odd symmetry of the sine function $\\sin(-\\theta) = -\\sin\\theta$:\n$$4\\left(-\\dfrac{\\pi}{6}\\right) = -\\dfrac{2\\pi}{3} \\implies \\sin\\left(-\\dfrac{2\\pi}{3}\\right) = -\\dfrac{\\sqrt{3}}{2}$$\n$$2\\left(-\\dfrac{\\pi}{6}\\right) = -\\dfrac{\\pi}{3} \\implies \\sin\\left(-\\dfrac{\\pi}{3}\\right) = -\\dfrac{\\sqrt{3}}{2}$$\n$$\\text{Lower limit value} = \\dfrac{1}{8}\\left(-\\dfrac{\\sqrt{3}}{2}\\right) + \\dfrac{1}{4}\\left(-\\dfrac{\\sqrt{3}}{2}\\right) = -\\dfrac{\\sqrt{3}}{16} - \\dfrac{2\\sqrt{3}}{16} = -\\dfrac{3\\sqrt{3}}{16}$$",
+        "Subtract the lower limit evaluation from the upper limit evaluation:\n$$\\int_{-\\frac{1}{6}\\pi}^{\\frac{1}{6}\\pi} \\cos 3x \\cos x\\,\\mathrm{d}x = \\dfrac{3\\sqrt{3}}{16} - \\left(-\\dfrac{3\\sqrt{3}}{16}\\right) = \\dfrac{3\\sqrt{3}}{16} + \\dfrac{3\\sqrt{3}}{16} = \\dfrac{6\\sqrt{3}}{16} = \\dfrac{3\\sqrt{3}}{8}$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      }
+    }
+  ]
+}

@@ -1,0 +1,126 @@
+{
+  "schema_version": "9709_math_enrichment_v7",
+  "question_id": "9709_w22_53_q4",
+  "difficulty": 3,
+  "parts": [
+    {
+      "part_id": "9709_w22_53_q4_a",
+      "difficulty": 3,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_s1_t_discrete_random_variables",
+        "lesson_id": "9709_s1_t_discrete_random_variables_m01_l01"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_constructing_discrete_probability_distributions"
+      },
+      "hints": [
+        "The total number of equally likely outcomes for three 4-sided spinners is $4^3 = 64$.",
+        "The maximum number is at most 2 if every spinner shows 1 or 2 ($2^3 = 8$ outcomes).",
+        "Subtract the outcomes where the maximum is at most 1 ($1^3 = 1$ outcome) to get $\\mathrm{P}(X=2) = \\frac{8 - 1}{64} = \\frac{7}{64}$."
+      ],
+      "walkthrough": [
+        "Determine the total number of outcomes when spinning three independent fair 4-sided spinners:\n$$\\text{Total outcomes} = 4 \\times 4 \\times 4 = 64$$",
+        "Express $X = 2$ as the condition where the maximum score is at most $2$, excluding when the maximum score is $1$:\n$$\\mathrm{P}(X = 2) = \\mathrm{P}(X \\le 2) - \\mathrm{P}(X \\le 1)$$",
+        "Calculate the number of outcomes for each condition:\n- Each spinner lands on $\\{1, 2\\} \\implies 2^3 = 8$ outcomes\n- Each spinner lands on $\\{1\\} \\implies 1^3 = 1$ outcome",
+        "Subtract and divide by the total number of outcomes:\n$$\\mathrm{P}(X = 2) = \\frac{8 - 1}{64} = \\frac{7}{64}$$"
+      ],
+      "teacher_walkthrough": [
+        "Step 1: Understand the sample space.\nThree fair spinners are spun, each showing $1, 2, 3, 4$.\nTotal equally likely outcomes in the sample space:\n$$4 \\times 4 \\times 4 = 64$$\n\nStep 2: Define the event $X = 2$.\n$X$ is the highest number recorded.\nFor $X = 2$, at least one spinner must show $2$, and no spinner may show $3$ or $4$.\nEquivalently, all three spinners show either $1$ or $2$, but NOT all three show $1$.\n\nStep 3: Count outcomes.\n- Number of outcomes where all spinners show $\\le 2$ (numbers from $\\{1, 2\\}$):\n  $$2 \\times 2 \\times 2 = 8$$\n- Number of outcomes where all spinners show $\\le 1$ (only number $1$):\n  $$1 \\times 1 \\times 1 = 1$$\n- Favorable outcomes with maximum exactly equal to $2$:\n  $$8 - 1 = 7$$\n\nStep 4: Conclude.\n$$\\mathrm{P}(X = 2) = \\frac{7}{64}$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      }
+    },
+    {
+      "part_id": "9709_w22_53_q4_b",
+      "difficulty": 2,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_s1_t_discrete_random_variables",
+        "lesson_id": "9709_s1_t_discrete_random_variables_m01_l01"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_constructing_discrete_probability_distributions"
+      },
+      "hints": [
+        "Use the cumulative difference formula: $\\mathrm{P}(X = x) = \\frac{x^3 - (x-1)^3}{64}$.",
+        "Calculate $\\mathrm{P}(X = 1) = \\frac{1^3 - 0}{64} = \\frac{1}{64}$.",
+        "Calculate $\\mathrm{P}(X = 3) = \\frac{3^3 - 2^3}{64} = \\frac{19}{64}$ and $\\mathrm{P}(X = 4) = \\frac{4^3 - 3^3}{64} = \\frac{37}{64}$.",
+        "Write out the complete distribution table and verify that probabilities sum to 1."
+      ],
+      "walkthrough": [
+        "Use the general formula for the maximum of 3 spinners: $\\mathrm{P}(X = x) = \\frac{x^3 - (x-1)^3}{64}$.",
+        "Compute probabilities for each possible value of $x \\in \\{1, 2, 3, 4\\}$:\n$$\\mathrm{P}(X = 1) = \\frac{1^3 - 0^3}{64} = \\frac{1}{64}$$\n$$\\mathrm{P}(X = 2) = \\frac{2^3 - 1^3}{64} = \\frac{7}{64}$$\n$$\\mathrm{P}(X = 3) = \\frac{3^3 - 2^3}{64} = \\frac{27 - 8}{64} = \\frac{19}{64}$$\n$$\\mathrm{P}(X = 4) = \\frac{4^3 - 3^3}{64} = \\frac{64 - 27}{64} = \\frac{37}{64}$$",
+        "Verify that the sum of probabilities equals $1$:\n$$\\frac{1 + 7 + 19 + 37}{64} = \\frac{64}{64} = 1$$",
+        "Present the probability distribution table:\n$$\\begin{array}{|c|c|c|c|c|}\\hline x & 1 & 2 & 3 & 4 \\\\\\hline \\mathrm{P}(X=x) & \\frac{1}{64} & \\frac{7}{64} & \\frac{19}{64} & \\frac{37}{64} \\\\\\hline\\end{array}$$"
+      ],
+      "teacher_walkthrough": [
+        "Step 1: Identify the method.\nFor independent discrete uniform variables on $\\{1, \\dots, k\\}$, the maximum $X$ satisfies:\n$$\\mathrm{P}(X \\le x) = \\left(\\frac{x}{4}\\right)^3 = \\frac{x^3}{64}$$\nHence:\n$$\\mathrm{P}(X = x) = \\mathrm{P}(X \\le x) - \\mathrm{P}(X \\le x-1) = \\frac{x^3 - (x-1)^3}{64}$$\n\nStep 2: Calculate each probability.\n- $x = 1$: $\\frac{1^3 - 0^3}{64} = \\frac{1}{64}$\n- $x = 2$: $\\frac{2^3 - 1^3}{64} = \\frac{7}{64}$ (from part a)\n- $x = 3$: $\\frac{3^3 - 2^3}{64} = \\frac{27 - 8}{64} = \\frac{19}{64}$\n- $x = 4$: $\\frac{4^3 - 3^3}{64} = \\frac{64 - 27}{64} = \\frac{37}{64}$\n\nStep 3: Fill in the probability distribution table.\n$$\\begin{array}{|c|c|c|c|c|}\\hline x & 1 & 2 & 3 & 4 \\\\\\hline \\mathrm{P}(X=x) & \\frac{1}{64} & \\frac{7}{64} & \\frac{19}{64} & \\frac{37}{64} \\\\\\hline\\end{array}$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      }
+    },
+    {
+      "part_id": "9709_w22_53_q4_c",
+      "difficulty": 1,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_s1_t_discrete_random_variables",
+        "lesson_id": "9709_s1_t_discrete_random_variables_m04_l01"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_calculating_geometric_distribution_probabilities"
+      },
+      "hints": [
+        "Each spin of a fair 4-sided spinner yields a 3 with probability $p = 1/4$.",
+        "The number of spins until obtaining a 3 follows a geometric distribution $Y \\sim \\mathrm{Geo}(1/4)$.",
+        "Use the formula $\\mathrm{P}(Y = 6) = (1-p)^5 p = (3/4)^5 (1/4)$."
+      ],
+      "walkthrough": [
+        "Model the number of spins until obtaining a $3$ as $Y \\sim \\mathrm{Geo}\\left(\\frac{1}{4}\\right)$ with failure probability $q = 1 - \\frac{1}{4} = \\frac{3}{4}$.",
+        "Apply the geometric probability mass function for the $6$th trial:\n$$\\mathrm{P}(Y = 6) = q^5 p = \\left(\\frac{3}{4}\\right)^5 \\left(\\frac{1}{4}\\right)$$",
+        "Evaluate the arithmetic:\n$$\\left(\\frac{3}{4}\\right)^5 = \\frac{243}{1024}$$\n$$\\mathrm{P}(Y = 6) = \\frac{243}{1024} \\times \\frac{1}{4} = \\frac{243}{4096} \\approx 0.0593$$"
+      ],
+      "teacher_walkthrough": [
+        "Step 1: Identify the random variable.\nA single fair 4-sided spinner has sides labelled $1, 2, 3, 4$.\nThe probability of rolling a $3$ on any spin is:\n$$p = \\frac{1}{4}, \\quad q = 1 - p = \\frac{3}{4}$$\n$Y$ is the number of spins required to obtain the first $3$, so $Y \\sim \\mathrm{Geo}\\left(\\frac{1}{4}\\right)$.\n\nStep 2: Calculate $\\mathrm{P}(Y = 6)$.\nThe first 5 spins must not be $3$, and the 6th spin must be $3$:\n$$\\mathrm{P}(Y = 6) = q^5 p = \\left(\\frac{3}{4}\\right)^5 \\left(\\frac{1}{4}\\right)$$\nEvaluate:\n$$3^5 = 243, \\quad 4^5 = 1024$$\n$$\\mathrm{P}(Y = 6) = \\frac{243}{1024} \\times \\frac{1}{4} = \\frac{243}{4096} \\approx 0.059326...$$\nRounding to 3 significant figures gives $0.0593$ (or $\\frac{243}{4096}$)."
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      }
+    },
+    {
+      "part_id": "9709_w22_53_q4_d",
+      "difficulty": 2,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_s1_t_discrete_random_variables",
+        "lesson_id": "9709_s1_t_discrete_random_variables_m04_l01"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_calculating_geometric_distribution_probabilities"
+      },
+      "hints": [
+        "The event $Y > 4$ means that the first 4 spins all fail to show a 3.",
+        "Use the geometric tail formula $\\mathrm{P}(Y > k) = q^k$ with $k = 4$ and $q = 3/4$.",
+        "Evaluate $(3/4)^4$."
+      ],
+      "walkthrough": [
+        "Use the geometric tail probability property: needing more than $4$ spins is equivalent to obtaining failures on all of the first $4$ spins:\n$$\\mathrm{P}(Y > 4) = q^4$$",
+        "Substitute the failure probability $q = \\frac{3}{4}$:\n$$\\mathrm{P}(Y > 4) = \\left(\\frac{3}{4}\\right)^4$$",
+        "Evaluate the power:\n$$\\left(\\frac{3}{4}\\right)^4 = \\frac{81}{256} \\approx 0.3164 \\approx 0.316$$"
+      ],
+      "teacher_walkthrough": [
+        "Step 1: Understand the condition $Y > 4$.\n$Y > 4$ means the first success occurs on spin 5 or later.\nThis happens if and only if all of the first 4 spins do not result in a 3.\n\nStep 2: Apply the geometric tail formula.\nFor $Y \\sim \\mathrm{Geo}(p)$:\n$$\\mathrm{P}(Y > k) = q^k$$\nHere $k = 4$ and $q = 1 - \\frac{1}{4} = \\frac{3}{4}$:\n$$\\mathrm{P}(Y > 4) = \\left(\\frac{3}{4}\\right)^4$$\n\nStep 3: Calculate.\n$$3^4 = 81, \\quad 4^4 = 256$$\n$$\\mathrm{P}(Y > 4) = \\frac{81}{256} \\approx 0.3164...$$\nRounding to 3 significant figures gives $0.316$ (or $\\frac{81}{256}$)."
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      }
+    }
+  ]
+}

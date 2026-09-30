@@ -1,0 +1,100 @@
+{
+  "schema_version": "9709_math_enrichment_v7",
+  "question_id": "9709_w17_61_q5",
+  "difficulty": 3,
+  "parts": [
+    {
+      "part_id": "9709_w17_61_q5_i",
+      "difficulty": 1,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_s1_t_probability",
+        "lesson_id": "9709_s1_t_probability_m02_l01"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_constructing_tree_diagrams"
+      },
+      "hints": [
+        "Start with two branches for the flight class: Economy with probability 0.82 and First Class with probability $1 - 0.82 = 0.18$.",
+        "From Economy, draw two branches: Good sleep with probability $x$ and Not good sleep with probability $1 - x$.",
+        "From First Class, draw two branches: Good sleep with probability 0.9 and Not good sleep with probability $1 - 0.9 = 0.1$."
+      ],
+      "walkthrough": [
+        "Construct the tree diagram with two sequential stages:\n1. First stage (Flight class):\n- Economy ($E$): probability $0.82$\n- First class ($F$): probability $1 - 0.82 = 0.18$",
+        "2. Second stage (Quality of sleep):\n- From Economy ($E$):\n  * Good night's sleep ($G$): probability $x$\n  * Not good night's sleep ($G'$): probability $1 - x$\n- From First class ($F$):\n  * Good night's sleep ($G$): probability $0.9$\n  * Not good night's sleep ($G'$): probability $1 - 0.9 = 0.1$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      },
+      "teacher_walkthrough": [
+        "A tree diagram represents conditional probability experiments with successive stages:\n\nStage 1: Class of flight\n- Branch 1: Economy ($E$) with $\\mathrm{P}(E) = 0.82$\n- Branch 2: First Class ($F$) with $\\mathrm{P}(F) = 1 - 0.82 = 0.18$\n\nStage 2: Good night's sleep conditionally branching from each class\n- From Economy branch:\n  * Good night's sleep ($G$): $\\mathrm{P}(G \\mid E) = x$\n  * Not a good night's sleep ($G'$): $\\mathrm{P}(G' \\mid E) = 1 - x$\n- From First Class branch:\n  * Good night's sleep ($G$): $\\mathrm{P}(G \\mid F) = 0.9$\n  * Not a good night's sleep ($G'$): $\\mathrm{P}(G' \\mid F) = 1 - 0.9 = 0.1$\n\nEnsure all four terminal branches are clearly labelled with their events and probabilities."
+      ]
+    },
+    {
+      "part_id": "9709_w17_61_q5_ii",
+      "difficulty": 2,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_s1_t_probability",
+        "lesson_id": "9709_s1_t_probability_m03_l04"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_solving_unknown_probabilities"
+      },
+      "hints": [
+        "Use the total probability of getting a good night's sleep: $\\mathrm{P}(G) = 0.285$.",
+        "Express $\\mathrm{P}(G)$ as the sum of the two good-sleep branches: $(0.82 \\times x) + (0.18 \\times 0.9)$.",
+        "Set up the linear equation $0.82x + 0.162 = 0.285$ and solve for $x$."
+      ],
+      "walkthrough": [
+        "Apply the law of total probability for getting a good night's sleep:\n$$\\mathrm{P}(G) = \\mathrm{P}(E \\cap G) + \\mathrm{P}(F \\cap G) = 0.285$$",
+        "Substitute the branch probabilities from the tree diagram:\n$$0.82x + 0.18(0.9) = 0.285$$\n$$0.82x + 0.162 = 0.285$$",
+        "Solve the linear equation for $x$:\n$$0.82x = 0.285 - 0.162 = 0.123$$\n$$x = \\frac{0.123}{0.82} = 0.15$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      },
+      "teacher_walkthrough": [
+        "Step 1: Recall the law of total probability.\nThe overall event $G$ (getting a good night's sleep) can happen through two mutually exclusive routes:\n1. Flying economy and getting a good night's sleep ($E \\cap G$)\n2. Flying first class and getting a good night's sleep ($F \\cap G$)\n$$\\mathrm{P}(G) = \\mathrm{P}(E)\\mathrm{P}(G \\mid E) + \\mathrm{P}(F)\\mathrm{P}(G \\mid F)$$",
+        "Step 2: Substitute the known values:\nWe are given the total probability $\\mathrm{P}(G) = 0.285$:\n$$0.82(x) + 0.18(0.9) = 0.285$$\n$$0.82x + 0.162 = 0.285$$",
+        "Step 3: Subtract $0.162$ from both sides:\n$$0.82x = 0.285 - 0.162 = 0.123$$",
+        "Step 4: Divide by $0.82$:\n$$x = \\frac{0.123}{0.82} = \\frac{123}{820} = 0.15$$"
+      ]
+    },
+    {
+      "part_id": "9709_w17_61_q5_iii",
+      "difficulty": 2,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_s1_t_probability",
+        "lesson_id": "9709_s1_t_probability_m03_l01"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_calculating_conditional_probability"
+      },
+      "hints": [
+        "Write down the conditional probability formula: $\\mathrm{P}(E \\mid G') = \\dfrac{\\mathrm{P}(E \\cap G')}{\\mathrm{P}(G')}$.",
+        "Find the denominator: $\\mathrm{P}(G') = 1 - \\mathrm{P}(G) = 1 - 0.285 = 0.715$.",
+        "Calculate the numerator: $\\mathrm{P}(E \\cap G') = 0.82(1 - 0.15) = 0.82 \\times 0.85$, and divide."
+      ],
+      "walkthrough": [
+        "State the conditional probability formula:\n$$\\mathrm{P}(E \\mid G') = \\frac{\\mathrm{P}(E \\cap G')}{\\mathrm{P}(G')}$$",
+        "Calculate the probability of not getting a good night's sleep using the complement:\n$$\\mathrm{P}(G') = 1 - \\mathrm{P}(G) = 1 - 0.285 = 0.715$$",
+        "Calculate the numerator using $x = 0.15$:\n$$\\mathrm{P}(E \\cap G') = 0.82(1 - 0.15) = 0.82 \\times 0.85 = 0.697$$",
+        "Divide to obtain the conditional probability:\n$$\\mathrm{P}(E \\mid G') = \\frac{0.697}{0.715} = \\frac{697}{715} = \\frac{41}{42} \\approx 0.975$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      },
+      "teacher_walkthrough": [
+        "Step 1: Define the required conditional probability.\nWe want the probability that Julian was flying economy class, given that he did not get a good night's sleep ($G'$):\n$$\\mathrm{P}(E \\mid G') = \\frac{\\mathrm{P}(E \\cap G')}{\\mathrm{P}(G')}$$",
+        "Step 2: Find the denominator $\\mathrm{P}(G')$.\nSince $\\mathrm{P}(G) = 0.285$:\n$$\\mathrm{P}(G') = 1 - \\mathrm{P}(G) = 1 - 0.285 = 0.715$$\n(Alternatively: $\\mathrm{P}(G') = 0.82(1 - 0.15) + 0.18(1 - 0.9) = 0.82(0.85) + 0.18(0.1) = 0.697 + 0.018 = 0.715$).",
+        "Step 3: Find the numerator $\\mathrm{P}(E \\cap G')$:\n$$\\mathrm{P}(E \\cap G') = \\mathrm{P}(E) \\times \\mathrm{P}(G' \\mid E) = 0.82 \\times (1 - 0.15) = 0.82 \\times 0.85 = 0.697$$",
+        "Step 4: Compute the fraction:\n$$\\mathrm{P}(E \\mid G') = \\frac{0.697}{0.715} = \\frac{697}{715} \\approx 0.974825 \\approx 0.975$$"
+      ]
+    }
+  ]
+}

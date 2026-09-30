@@ -1,0 +1,63 @@
+{
+  "schema_version": "9709_math_enrichment_v7",
+  "question_id": "9709_w25_32_q9",
+  "difficulty": 4,
+  "parts": [
+    {
+      "part_id": "9709_w25_32_q9_a",
+      "difficulty": 4,
+      "practice_tier": "revision",
+      "mapping": {
+        "topic_id": "9709_p3_t_logarithmic_and_exponential_functions",
+        "lesson_id": "9709_p3_t_logarithmic_and_exponential_functions_m02_l02"
+      },
+      "skills": {
+        "primary_skill_id": "9709_p3_skill_partial_fractions"
+      },
+      "hints": [
+        "Include a constant term before the two linear fractions: A+B/(x+2a)+C/(x+3a).",
+        "Clear denominators, find all constants, and recombine to check the original numerator."
+      ],
+      "walkthrough": [
+        "Expand the denominator of $f(x)$:\n$$(x + 2a)(x + 3a) = x^2 + 3ax + 2ax + 6a^2 = x^2 + 5ax + 6a^2$$\n$$\\text{Since numerator and denominator both have degree 2, divide numerator by denominator:}$$",
+        "Perform polynomial division:\n$$\\dfrac{x^2 + 4ax + 6a^2}{x^2 + 5ax + 6a^2} = 1 + \\dfrac{(x^2 + 4ax + 6a^2) - (x^2 + 5ax + 6a^2)}{x^2 + 5ax + 6a^2} = 1 + \\dfrac{-ax}{(x + 2a)(x + 3a)}$$",
+        "Set up the partial fractions for the remainder term:\n$$\\dfrac{-ax}{(x + 2a)(x + 3a)} = \\dfrac{B}{x + 2a} + \\dfrac{C}{x + 3a}$$\n$$-ax = B(x + 3a) + C(x + 2a)$$",
+        "Substitute $x = -2a$ to determine $B$:\n$$-a(-2a) = B(-2a + 3a) + C(0) \\implies 2a^2 = B(a) \\implies B = 2a$$",
+        "Substitute $x = -3a$ to determine $C$:\n$$-a(-3a) = B(0) + C(-3a + 2a) \\implies 3a^2 = C(-a) \\implies C = -3a$$",
+        "State the full partial fraction decomposition:\n$$f(x) = 1 + \\dfrac{2a}{x + 2a} - \\dfrac{3a}{x + 3a}$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      }
+    },
+    {
+      "part_id": "9709_w25_32_q9_b",
+      "difficulty": 2,
+      "practice_tier": "revision",
+      "mapping": {
+        "topic_id": "9709_p3_t_integration",
+        "lesson_id": "9709_p3_t_integration_m03_l01"
+      },
+      "skills": {
+        "primary_skill_id": "9709_p3_skill_integration"
+      },
+      "hints": [
+        "Integrate the constant and logarithmic terms from part (a) separately.",
+        "Apply −a and a, combine logarithm differences into one logarithm, and factor out a in the required form."
+      ],
+      "walkthrough": [
+        "Integrate each partial fraction from part (a):\n$$\\int f(x)\\,\\mathrm{d}x = \\int \\left(1 + \\dfrac{2a}{x + 2a} - \\dfrac{3a}{x + 3a}\\right)\\,\\mathrm{d}x = x + 2a\\ln(x + 2a) - 3a\\ln(x + 3a)$$",
+        "Evaluate at the upper limit $x = a$:\n$$a + 2a\\ln(a + 2a) - 3a\\ln(a + 3a) = a + 2a\\ln(3a) - 3a\\ln(4a)$$",
+        "Evaluate at the lower limit $x = -a$:\n$$-a + 2a\\ln(-a + 2a) - 3a\\ln(-a + 3a) = -a + 2a\\ln(a) - 3a\\ln(2a)$$",
+        "Subtract the lower limit value from the upper limit value:\n$$[a - (-a)] + 2a[\\ln(3a) - \\ln(a)] - 3a[\\ln(4a) - \\ln(2a)]$$\n$$= 2a + 2a\\ln\\left(\\dfrac{3a}{a}\\right) - 3a\\ln\\left(\\dfrac{4a}{2a}\\right)$$\n$$= 2a + 2a\\ln(3) - 3a\\ln(2)$$",
+        "Combine the logarithmic terms using laws of logarithms:\n$$2a\\ln(3) - 3a\\ln(2) = a\\ln\\left(3^2\\right) - a\\ln\\left(2^3\\right) = a\\ln(9) - a\\ln(8) = a\\ln\\left(\\dfrac{9}{8}\\right)$$",
+        "Factor out $a$ to express in the required form $a(p + \\ln q)$:\n$$a\\left(2 + \\ln\\left(\\dfrac{9}{8}\\right)\\right)$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      }
+    }
+  ]
+}

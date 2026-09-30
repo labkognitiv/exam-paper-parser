@@ -1,0 +1,76 @@
+{
+  "schema_version": "9709_math_enrichment_v7",
+  "question_id": "9709_s25_51_q5",
+  "difficulty": 3,
+  "parts": [
+    {
+      "part_id": "9709_s25_51_q5_a",
+      "difficulty": 3,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_s1_t_permutations_and_combinations",
+        "lesson_id": "9709_s1_t_permutations_and_combinations_m04_l03"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_handling_selection_restrictions"
+      },
+      "hints": [
+        "Identify the pool of musicians: 9 Guitarists (G), 6 Pianists (P), 5 Drummers (D). 6 musicians are selected.",
+        "Translate the constraints: exactly 1 Drummer (D = 1), at least 3 Guitarists (G >= 3), at most 2 Pianists (P <= 2).",
+        "Since D = 1 is fixed, G + P must equal 5. List the 3 possible cases for (G, P, D): (3, 2, 1), (4, 1, 1), and (5, 0, 1).",
+        "Compute combinations for each case: 9C3 * 6C2 * 5C1 = 6300, 9C4 * 6C1 * 5C1 = 3780, and 9C5 * 6C0 * 5C1 = 630. Sum them: 6300 + 3780 + 630 = 10710."
+      ],
+      "walkthrough": [
+        "State the group sizes and the fixed condition of exactly 1 drummer:\n$$G = 9, \\quad P = 6, \\quad D = 5; \\quad \\text{Total selected } = 6, \\quad \\text{Drummers } D = 1$$",
+        "Because $D = 1$, the remaining 5 musicians must be chosen from Guitarists and Pianists ($G + P = 5$) with $G \\ge 3$ and $P \\le 2$:\n$$\\begin{aligned} &\\text{Case 1 } (3G, 2P, 1D): \\binom{9}{3} \\times \\binom{6}{2} \\times \\binom{5}{1} = 84 \\times 15 \\times 5 = 6300 \\\\ &\\text{Case 2 } (4G, 1P, 1D): \\binom{9}{4} \\times \\binom{6}{1} \\times \\binom{5}{1} = 126 \\times 6 \\times 5 = 3780 \\\\ &\\text{Case 3 } (5G, 0P, 1D): \\binom{9}{5} \\times \\binom{6}{0} \\times \\binom{5}{1} = 126 \\times 1 \\times 5 = 630 \\end{aligned}$$",
+        "Add the counts from all three mutually exclusive cases:\n$$\\text{Total ways} = 6300 + 3780 + 630 = 10710$$"
+      ],
+      "teacher_walkthrough": [
+        "Step 1: Understand the group composition and selection restrictions:\nFrom a group of 20 musicians (9 guitarists, 6 pianists, 5 drummers), 6 musicians are selected.\nRestrictions:\n- Exactly 1 drummer ($D = 1$)\n- At least 3 guitarists ($G \\ge 3$)\n- At most 2 pianists ($P \\le 2$)",
+        "Step 2: Determine all valid distributions $(G, P, D)$:\nSince $D = 1$ is fixed, we need $G + P = 6 - 1 = 5$.\nWith $G \\ge 3$ and $P \\le 2$, the only valid integer pairs for $(G, P)$ are:\n- Case 1: $G = 3, P = 2$\n- Case 2: $G = 4, P = 1$\n- Case 3: $G = 5, P = 0$\n(Note: $G = 6$ is impossible because $G + P = 5$).",
+        "Step 3: Calculate the number of selections for each case:\n- Case 1 ($3$ Guitarists, $2$ Pianists, $1$ Drummer):\n$$\\binom{9}{3} \\times \\binom{6}{2} \\times \\binom{5}{1} = \\frac{9 \\times 8 \\times 7}{3 \\times 2 \\times 1} \\times \\frac{6 \\times 5}{2 \\times 1} \\times 5 = 84 \\times 15 \\times 5 = 6300$$\n- Case 2 ($4$ Guitarists, $1$ Pianist, $1$ Drummer):\n$$\\binom{9}{4} \\times \\binom{6}{1} \\times \\binom{5}{1} = \\frac{9 \\times 8 \\times 7 \\times 6}{4 \\times 3 \\times 2 \\times 1} \\times 6 \\times 5 = 126 \\times 6 \\times 5 = 3780$$\n- Case 3 ($5$ Guitarists, $0$ Pianists, $1$ Drummer):\n$$\\binom{9}{5} \\times \\binom{6}{0} \\times \\binom{5}{1} = 126 \\times 1 \\times 5 = 630$$",
+        "Step 4: Sum the outcomes of the three cases:\n$$\\text{Total selections} = 6300 + 3780 + 630 = 10710$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      }
+    },
+    {
+      "part_id": "9709_s25_51_q5_b",
+      "difficulty": 3,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_s1_t_permutations_and_combinations",
+        "lesson_id": "9709_s1_t_permutations_and_combinations_m04_l02"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_calculating_combinations"
+      },
+      "hints": [
+        "Each of the three bands requires 3 guitarists, 1 pianist, and 1 drummer, chosen sequentially from the original pool of 9 guitarists, 6 pianists, and 5 drummers.",
+        "Calculate the selections for Band 1: 9C3 * 6C1 * 5C1 = 84 * 6 * 5 = 2520.",
+        "Calculate the selections for Band 2 from the remaining musicians (6 guitarists, 5 pianists, 4 drummers): 6C3 * 5C1 * 4C1 = 20 * 5 * 4 = 400.",
+        "Calculate the selections for Band 3 from the remaining musicians (3 guitarists, 4 pianists, 3 drummers): 3C3 * 4C1 * 3C1 = 1 * 4 * 3 = 12.",
+        "Multiply the three stage counts: 2520 * 400 * 12 = 12096000."
+      ],
+      "walkthrough": [
+        "Select the musicians for Band 1 from the full pool (9 guitarists, 6 pianists, 5 drummers):\n$$\\text{Ways for Band 1} = \\binom{9}{3} \\times \\binom{6}{1} \\times \\binom{5}{1} = 84 \\times 6 \\times 5 = 2520$$",
+        "Select the musicians for Band 2 from the remaining musicians (6 guitarists, 5 pianists, 4 drummers):\n$$\\text{Ways for Band 2} = \\binom{6}{3} \\times \\binom{5}{1} \\times \\binom{4}{1} = 20 \\times 5 \\times 4 = 400$$",
+        "Select the musicians for Band 3 from the remaining musicians (3 guitarists, 4 pianists, 3 drummers):\n$$\\text{Ways for Band 3} = \\binom{3}{3} \\times \\binom{4}{1} \\times \\binom{3}{1} = 1 \\times 4 \\times 3 = 12$$",
+        "Multiply the three stage counts to find the total number of ways:\n$$\\text{Total ways} = 2520 \\times 400 \\times 12 = 12096000$$"
+      ],
+      "teacher_walkthrough": [
+        "Step 1: Understand the sequential selection process:\nWe are selecting three bands from the original group of 20 musicians (9 guitarists, 6 pianists, 5 drummers).\nEach band consists of:\n- 3 guitarists\n- 1 pianist\n- 1 drummer\nAs specified by the Cambridge examination rubric, selecting the three bands sequentially corresponds to choosing Band 1, Band 2, and Band 3 in order.",
+        "Step 2: Calculate choices for Band 1:\nFrom 9 guitarists, choose 3; from 6 pianists, choose 1; from 5 drummers, choose 1:\n$$\\text{Band 1} = \\binom{9}{3} \\times \\binom{6}{1} \\times \\binom{5}{1}$$\n$$\\binom{9}{3} = \\frac{9 \\times 8 \\times 7}{3 \\times 2 \\times 1} = 84$$\n$$\\binom{6}{1} = 6, \\quad \\binom{5}{1} = 5$$\n$$\\text{Band 1} = 84 \\times 6 \\times 5 = 2520$$",
+        "Step 3: Calculate choices for Band 2:\nRemaining: $9 - 3 = 6$ guitarists, $6 - 1 = 5$ pianists, $5 - 1 = 4$ drummers.\n$$\\text{Band 2} = \\binom{6}{3} \\times \\binom{5}{1} \\times \\binom{4}{1}$$\n$$\\binom{6}{3} = \\frac{6 \\times 5 \\times 4}{3 \\times 2 \\times 1} = 20$$\n$$\\binom{5}{1} = 5, \\quad \\binom{4}{1} = 4$$\n$$\\text{Band 2} = 20 \\times 5 \\times 4 = 400$$",
+        "Step 4: Calculate choices for Band 3:\nRemaining: $6 - 3 = 3$ guitarists, $5 - 1 = 4$ pianists, $4 - 1 = 3$ drummers.\n$$\\text{Band 3} = \\binom{3}{3} \\times \\binom{4}{1} \\times \\binom{3}{1} = 1 \\times 4 \\times 3 = 12$$",
+        "Step 5: Multiply the counts for all three bands:\n$$\\text{Total ways} = 2520 \\times 400 \\times 12$$\nCompute step-by-step:\n$$2520 \\times 400 = 1008000$$\n$$1008000 \\times 12 = 12096000$$\nThe number of different ways to select these three bands is $12096000$."
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      }
+    }
+  ]
+}

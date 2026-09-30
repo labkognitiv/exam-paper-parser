@@ -1,0 +1,93 @@
+{
+  "schema_version": "9709_math_enrichment_v7",
+  "question_id": "9709_s22_33_q10",
+  "difficulty": 4,
+  "parts": [
+    {
+      "part_id": "9709_s22_33_q10_a",
+      "difficulty": 4,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_p3_t_numerical_solution_of_equations",
+        "lesson_id": "9709_p3_t_numerical_solution_of_equations_m02_l02"
+      },
+      "skills": {
+        "primary_skill_id": "9709_p3_skill_integration_by_parts"
+      },
+      "hints": [
+        "Evaluate $\\int x^2\\ln x\\,dx$ by parts, choosing $u=\\ln x$ and $dv=x^2\\,dx$.",
+        "Use $du=dx/x$ and $v=x^3/3$ to complete the antiderivative before applying any limits.",
+        "Evaluate the antiderivative at $a$ and $1$, then set the result equal to $4$.",
+        "Multiply through to collect the terms containing $a^3$, isolate $a^3$, and finally take the real cube root to reach the required fixed-point form."
+      ],
+      "walkthrough": [
+        "Use integration by parts $\\int u\\,\\mathrm{d}v = uv - \\int v\\,\\mathrm{d}u$ to evaluate the integral $\\int_1^a x^2\\ln x\\,\\mathrm{d}x$:\nLet $u = \\ln x$ and $\\mathrm{d}v = x^2\\,\\mathrm{d}x$, which gives $\\mathrm{d}u = \\dfrac{1}{x}\\,\\mathrm{d}x$ and $v = \\dfrac{1}{3}x^3$.",
+        "Apply the integration by parts formula:\n$$\\int x^2\\ln x\\,\\mathrm{d}x = \\dfrac{1}{3}x^3\\ln x - \\int \\dfrac{1}{3}x^3\\left(\\dfrac{1}{x}\\right)\\,\\mathrm{d}x = \\dfrac{1}{3}x^3\\ln x - \\dfrac{1}{3}\\int x^2\\,\\mathrm{d}x$$",
+        "Complete the integration of the remaining term:\n$$\\int x^2\\ln x\\,\\mathrm{d}x = \\dfrac{1}{3}x^3\\ln x - \\dfrac{1}{3}\\left(\\dfrac{1}{3}x^3\\right) = \\dfrac{1}{3}x^3\\ln x - \\dfrac{1}{9}x^3$$",
+        "Substitute the integration limits from $1$ to $a$:\n$$\\left[ \\dfrac{1}{3}x^3\\ln x - \\dfrac{1}{9}x^3 \\right]_1^a = \\left( \\dfrac{1}{3}a^3\\ln a - \\dfrac{1}{9}a^3 \\right) - \\left( \\dfrac{1}{3}(1)^3\\ln(1) - \\dfrac{1}{9}(1)^3 \\right)$$",
+        "Evaluate at $x = 1$ using $\\ln 1 = 0$:\n$$\\left( \\dfrac{1}{3}a^3\\ln a - \\dfrac{1}{9}a^3 \\right) - \\left( 0 - \\dfrac{1}{9} \\right) = \\dfrac{1}{3}a^3\\ln a - \\dfrac{1}{9}a^3 + \\dfrac{1}{9}$$",
+        "Equate the value of the integral to $4$:\n$$\\dfrac{1}{3}a^3\\ln a - \\dfrac{1}{9}a^3 + \\dfrac{1}{9} = 4$$",
+        "Multiply through by $9$ to eliminate denominators:\n$$3a^3\\ln a - a^3 + 1 = 36$$\n$$3a^3\\ln a - a^3 = 35$$\n$$a^3(3\\ln a - 1) = 35$$",
+        "Isolate $a^3$ and take the cube root to obtain the required formula:\n$$a^3 = \\dfrac{35}{3\\ln a - 1}$$\n$$a = \\left( \\dfrac{35}{3\\ln a - 1} \\right)^{1/3}$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      }
+    },
+    {
+      "part_id": "9709_s22_33_q10_b",
+      "difficulty": 1,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_p3_t_logarithmic_and_exponential_functions",
+        "lesson_id": "9709_p3_t_logarithmic_and_exponential_functions_m03_l01"
+      },
+      "skills": {
+        "primary_skill_id": "9709_p3_skill_numerical_root_bracketing"
+      },
+      "hints": [
+        "Use the fixed-point equation from part (a) to define $g(x)=\\left(\\dfrac{35}{3\\ln x-1}\\right)^{1/3}$.",
+        "Calculate $g(2.4)$ and $g(2.8)$, keeping enough decimal places for a clear comparison.",
+        "Show that $g(2.4)$ lies above $2.4$ while $g(2.8)$ lies below $2.8$; equivalently, show that $g(x)-x$ changes sign across the interval."
+      ],
+      "walkthrough": [
+        "Define the fixed-point iteration function $g(x) = \\left( \\dfrac{35}{3\\ln x - 1} \\right)^{1/3}$ and the function $f(x) = g(x) - x$.",
+        "Evaluate $g(x)$ at the lower bound $x = 2.4$:\n$$\\ln(2.4) \\approx 0.87547$$\n$$3\\ln(2.4) - 1 \\approx 3(0.87547) - 1 = 1.62641$$\n$$g(2.4) = \\left(\\dfrac{35}{1.62641}\\right)^{1/3} \\approx (21.520)^{1/3} \\approx 2.7815$$\n$$f(2.4) = g(2.4) - 2.4 \\approx 2.7815 - 2.4 = +0.3815 > 0$$",
+        "Evaluate $g(x)$ at the upper bound $x = 2.8$:\n$$\\ln(2.8) \\approx 1.02962$$\n$$3\\ln(2.8) - 1 \\approx 3(1.02962) - 1 = 2.08886$$\n$$g(2.8) = \\left(\\dfrac{35}{2.08886}\\right)^{1/3} \\approx (16.755)^{1/3} \\approx 2.5589$$\n$$f(2.8) = g(2.8) - 2.8 \\approx 2.5589 - 2.8 = -0.2411 < 0$$",
+        "Conclude that because $f(x)$ is continuous on $[2.4, 2.8]$ and $f(2.4) > 0$ while $f(2.8) < 0$ (a change in sign), the root $a$ must lie between $2.4$ and $2.8$."
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      }
+    },
+    {
+      "part_id": "9709_s22_33_q10_c",
+      "difficulty": 2,
+      "practice_tier": "revision",
+      "mapping": {
+        "topic_id": "9709_p3_t_numerical_solution_of_equations",
+        "lesson_id": "9709_p3_t_numerical_solution_of_equations_m02_l02"
+      },
+      "skills": {
+        "primary_skill_id": "9709_p3_skill_fixed_point_iteration"
+      },
+      "hints": [
+        "Use the equation from part (a) as the iteration $a_{n+1}=\\left(\\dfrac{35}{3\\ln a_n-1}\\right)^{1/3}$.",
+        "Choose a starting value within the verified interval $2.4<a<2.8$ and evaluate the natural logarithm at each step.",
+        "Record every iterate to 4 decimal places, continuing until successive values stabilise sufficiently to justify the same value to 2 decimal places."
+      ],
+      "walkthrough": [
+        "Set up the iterative formula based on part (a):\n$$a_{n+1} = \\left( \\dfrac{35}{3\\ln a_n - 1} \\right)^{1/3}$$",
+        "Choose an initial approximation in the interval $[2.4, 2.8]$, such as $a_0 = 2.6$, and compute successive iterations to 4 decimal places:\n$$a_1 = \\left( \\dfrac{35}{3\\ln(2.6) - 1} \\right)^{1/3} \\approx 2.6567$$\n$$a_2 = \\left( \\dfrac{35}{3\\ln(2.6567) - 1} \\right)^{1/3} \\approx 2.6267$$\n$$a_3 = \\left( \\dfrac{35}{3\\ln(2.6267) - 1} \\right)^{1/3} \\approx 2.6423$$\n$$a_4 = \\left( \\dfrac{35}{3\\ln(2.6423) - 1} \\right)^{1/3} \\approx 2.6341$$\n$$a_5 = \\left( \\dfrac{35}{3\\ln(2.6341) - 1} \\right)^{1/3} \\approx 2.6384$$\n$$a_6 = \\left( \\dfrac{35}{3\\ln(2.6384) - 1} \\right)^{1/3} \\approx 2.6362$$\n$$a_7 = \\left( \\dfrac{35}{3\\ln(2.6362) - 1} \\right)^{1/3} \\approx 2.6373$$\n$$a_8 = \\left( \\dfrac{35}{3\\ln(2.6373) - 1} \\right)^{1/3} \\approx 2.6367$$",
+        "Verify the rounding to 2 decimal places by checking the sign of $f(x) = \\left( \\dfrac{35}{3\\ln x - 1} \\right)^{1/3} - x$ at the boundaries $2.635$ and $2.645$:\n$$f(2.635) \\approx 2.6379 - 2.635 = +0.0029 > 0$$\n$$f(2.645) \\approx 2.6327 - 2.645 = -0.0123 < 0$$",
+        "Since there is a sign change across the interval $(2.635, 2.645)$, conclude that $a$ rounds to:\n$$a = 2.64$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      }
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "schema_version": "9709_math_enrichment_v7",
+  "question_id": "9709_s18_32_q8",
+  "difficulty": 3,
+  "parts": [
+    {
+      "part_id": "9709_s18_32_q8_i",
+      "difficulty": 2,
+      "practice_tier": "revision",
+      "mapping": {
+        "topic_id": "9709_p3_t_differentiation",
+        "lesson_id": "9709_p3_t_differentiation_m01_l01"
+      },
+      "skills": {
+        "primary_skill_id": "9709_p3_skill_finding_stationary_points"
+      },
+      "hints": [
+        "At the maximum point, the derivative of $(x+1)e^{-x/3}$ is zero.",
+        "Differentiate using the product rule and include the chain-rule factor from the exponent.",
+        "Factor out the exponential term from the derivative.",
+        "Since the exponential factor is never zero, solve the remaining linear factor for the required coordinate."
+      ],
+      "walkthrough": [
+        "Differentiate $y = (x + 1)\\mathrm{e}^{-\\frac{1}{3}x}$ with respect to $x$ using the product rule:\n$$u = x + 1 \\implies u' = 1$$\n$$v = \\mathrm{e}^{-\\frac{1}{3}x} \\implies v' = -\\dfrac{1}{3}\\mathrm{e}^{-\\frac{1}{3}x}$$",
+        "Combine using $\\dfrac{\\mathrm{d}y}{\\mathrm{d}x} = u'v + uv'$:\n$$\\dfrac{\\mathrm{d}y}{\\mathrm{d}x} = (1)\\mathrm{e}^{-\\frac{1}{3}x} + (x + 1)\\left(-\\dfrac{1}{3}\\mathrm{e}^{-\\frac{1}{3}x}\\right) = \\mathrm{e}^{-\\frac{1}{3}x}\\left(1 - \\dfrac{1}{3}(x + 1)\\right) = \\mathrm{e}^{-\\frac{1}{3}x}\\left(\\dfrac{2}{3} - \\dfrac{1}{3}x\\right)$$",
+        "Set $\\dfrac{\\mathrm{d}y}{\\mathrm{d}x} = 0$ to find the stationary point $M$:\n$$\\mathrm{e}^{-\\frac{1}{3}x}\\left(\\dfrac{2}{3} - \\dfrac{1}{3}x\\right) = 0$$",
+        "Since $\\mathrm{e}^{-\\frac{1}{3}x} > 0$ for all real $x$, solve the linear factor:\n$$\\dfrac{2}{3} - \\dfrac{1}{3}x = 0 \\implies \\dfrac{1}{3}x = \\dfrac{2}{3} \\implies x = 2$$",
+        "State the $x$-coordinate of the maximum point $M$:\n$$x = 2$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      }
+    },
+    {
+      "part_id": "9709_s18_32_q8_ii",
+      "difficulty": 3,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_p3_t_differentiation",
+        "lesson_id": "9709_p3_t_differentiation_m04_l01"
+      },
+      "skills": {
+        "primary_skill_id": "9709_p3_skill_integration"
+      },
+      "hints": [
+        "Identify the intercepts with the axes to obtain the limits of the shaded region.",
+        "Integrate $(x+1)e^{-x/3}$ by parts, choosing the algebraic factor to differentiate.",
+        "Complete the remaining exponential integral and keep the antiderivative in factored exponential form.",
+        "Apply the limits in the correct order and simplify the exact exponential values without converting to decimals."
+      ],
+      "walkthrough": [
+        "Determine the limits of integration for the shaded region bounded by the curve and the axes:\n- The curve crosses the $x$-axis where $y = 0$:\n$$(x + 1)\\mathrm{e}^{-\\frac{1}{3}x} = 0 \\implies x + 1 = 0 \\implies x = -1$$\n- The region is bounded by the $y$-axis, so $x = 0$.\nHence, the integration limits are from $x = -1$ to $x = 0$.",
+        "Integrate $\\int_{-1}^0 (x + 1)\\mathrm{e}^{-\\frac{1}{3}x}\\,\\mathrm{d}x$ using integration by parts $\\int u\\,\\mathrm{d}v = uv - \\int v\\,\\mathrm{d}u$:\n$$u = x + 1 \\implies \\mathrm{d}u = \\mathrm{d}x$$\n$$\\mathrm{d}v = \\mathrm{e}^{-\\frac{1}{3}x}\\,\\mathrm{d}x \\implies v = -3\\mathrm{e}^{-\\frac{1}{3}x}$$",
+        "Apply integration by parts:\n$$\\int (x + 1)\\mathrm{e}^{-\\frac{1}{3}x}\\,\\mathrm{d}x = -3(x + 1)\\mathrm{e}^{-\\frac{1}{3}x} - \\int (-3\\mathrm{e}^{-\\frac{1}{3}x})\\,\\mathrm{d}x$$\n$$= -3(x + 1)\\mathrm{e}^{-\\frac{1}{3}x} + 3\\left(-3\\mathrm{e}^{-\\frac{1}{3}x}\\right) = -3(x + 1)\\mathrm{e}^{-\\frac{1}{3}x} - 9\\mathrm{e}^{-\\frac{1}{3}x} = -(3x + 12)\\mathrm{e}^{-\\frac{1}{3}x}$$",
+        "Evaluate at the upper limit $x = 0$:\n$$-(3(0) + 12)\\mathrm{e}^0 = -12(1) = -12$$",
+        "Evaluate at the lower limit $x = -1$:\n$$-(3(-1) + 12)\\mathrm{e}^{-\\frac{1}{3}(-1)} = -(-3 + 12)\\mathrm{e}^{\\frac{1}{3}} = -9\\mathrm{e}^{\\frac{1}{3}}$$",
+        "Subtract the lower limit evaluation from the upper limit evaluation:\n$$\\text{Area} = -12 - (-9\\mathrm{e}^{\\frac{1}{3}}) = 9\\mathrm{e}^{\\frac{1}{3}} - 12$$",
+        "State the exact area in terms of $\\mathrm{e}$:\n$$9\\mathrm{e}^{\\frac{1}{3}} - 12$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      }
+    }
+  ]
+}

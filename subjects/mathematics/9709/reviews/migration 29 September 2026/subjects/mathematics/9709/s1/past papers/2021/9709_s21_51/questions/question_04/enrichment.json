@@ -1,0 +1,102 @@
+{
+  "schema_version": "9709_math_enrichment_v7",
+  "question_id": "9709_s21_51_q4",
+  "difficulty": 3,
+  "parts": [
+    {
+      "part_id": "9709_s21_51_q4_a",
+      "difficulty": 2,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_s1_t_probability",
+        "lesson_id": "9709_s1_t_probability_m02_l01"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_constructing_tree_diagrams"
+      },
+      "hints": [
+        "Identify the sequential stages of the selection process: Written Test attempt 1, followed by either the Practical Test (if passed) or Written Test attempt 2 (if failed).",
+        "On attempt 1 of the written test, the branches are Pass ($0.8$) and Fail ($0.2$).",
+        "From the Pass branch of attempt 1, branch to Practical Test Pass ($0.3$) and Practical Test Fail ($0.7$).",
+        "From the Fail branch of attempt 1, branch to Written Test attempt 2: Pass ($0.6$) and Fail ($0.4$). From the Pass branch of attempt 2, branch to Practical Test Pass ($0.3$) and Practical Test Fail ($0.7$)."
+      ],
+      "walkthrough": [
+        "Construct the tree diagram with clearly labelled stages and branches:\n- First branch (Written Test Attempt 1):\n  - Pass ($W_1$): probability $0.8$\n  - Fail ($W_1'$): probability $0.2$\n- From $W_1$ (proceed to Practical Test):\n  - Pass practical ($P$): probability $0.3$\n  - Fail practical ($P'$): probability $0.7$\n- From $W_1'$ (proceed to Written Test Attempt 2):\n  - Pass ($W_2$): probability $0.6$\n  - Fail ($W_2'$): probability $0.4$\n- From $W_2$ (proceed to Practical Test):\n  - Pass practical ($P$): probability $0.3$\n  - Fail practical ($P'$): probability $0.7$\n- From $W_2'$: student cannot attempt practical test (process terminates).",
+        "Ensure all branches leaving each node have probabilities that sum to 1:\n$$0.8 + 0.2 = 1$$\n$$0.3 + 0.7 = 1$$\n$$0.6 + 0.4 = 1$$"
+      ],
+      "teacher_walkthrough": [
+        "Step 1: Understand the rules of the examination process.\n- First, a student takes the written test. Probability of passing on the first attempt is $0.8$, so probability of failing is $1 - 0.8 = 0.2$.\n- If the student passes the first attempt, they go straight to the practical test. Probability of passing practical is $0.3$, so failing practical is $1 - 0.3 = 0.7$.\n- If the student fails the first attempt, they are allowed a second attempt at the written test. Probability of passing the second attempt is $0.6$, so failing is $1 - 0.6 = 0.4$.\n- If they pass the second attempt, they proceed to the practical test (with pass probability $0.3$ and fail probability $0.7$).\n- If they fail both attempts, they cannot attempt the practical test.",
+        "Step 2: Draw the branch structure.\n- Root node splits into two branches:\n  - Top branch: 'Written 1 Pass' labelled with probability $0.8$.\n  - Bottom branch: 'Written 1 Fail' labelled with probability $0.2$.\n- From 'Written 1 Pass':\n  - Top sub-branch: 'Practical Pass' with probability $0.3$.\n  - Bottom sub-branch: 'Practical Fail' with probability $0.7$.\n- From 'Written 1 Fail':\n  - Top sub-branch: 'Written 2 Pass' with probability $0.6$.\n  - Bottom sub-branch: 'Written 2 Fail' with probability $0.4$.\n- From 'Written 2 Pass':\n  - Top sub-branch: 'Practical Pass' with probability $0.3$.\n  - Bottom sub-branch: 'Practical Fail' with probability $0.7$.\n- From 'Written 2 Fail': No further branches are needed as the student is eliminated.",
+        "Step 3: Verification of the tree diagram.\nEvery branch is clearly labelled with the event name and numerical probability, and probabilities at each fork sum to 1."
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      }
+    },
+    {
+      "part_id": "9709_s21_51_q4_b",
+      "difficulty": 2,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_s1_t_probability",
+        "lesson_id": "9709_s1_t_probability_m02_l02"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_applying_the_multiplication_rule"
+      },
+      "hints": [
+        "A student gains a place by passing the written test (either on attempt 1 or attempt 2) AND passing the practical test.",
+        "Identify the two successful paths through your tree diagram from part (a).",
+        "Path 1: Pass written 1 then pass practical: $0.8 \\times 0.3$.",
+        "Path 2: Fail written 1, pass written 2, then pass practical: $0.2 \\times 0.6 \\times 0.3$. Sum the two probabilities."
+      ],
+      "walkthrough": [
+        "Identify the two mutually exclusive paths on the tree diagram that lead to gaining a place at the college:\n- Path 1 (Pass written 1 and pass practical):\n$$\\mathrm{P}(\\text{Path 1}) = 0.8 \\times 0.3 = 0.24$$\n- Path 2 (Fail written 1, pass written 2, and pass practical):\n$$\\mathrm{P}(\\text{Path 2}) = 0.2 \\times 0.6 \\times 0.3 = 0.036$$",
+        "Apply the addition rule for mutually exclusive events:\n$$\\mathrm{P}(\\text{Place}) = 0.24 + 0.036 = 0.276 = \\frac{69}{250}$$"
+      ],
+      "teacher_walkthrough": [
+        "Step 1: Define what it means to gain a place.\nA student gains a place if and only if they pass both the written test and the practical test.\nLooking at our tree diagram, there are exactly two routes that end in 'Practical Pass':\n1. Route 1: Pass Written Test on Attempt 1, then Pass Practical Test.\n2. Route 2: Fail Written Test on Attempt 1, Pass Written Test on Attempt 2, then Pass Practical Test.",
+        "Step 2: Calculate the probability of each route using the multiplication rule:\n- For Route 1:\n$$\\mathrm{P}(W_1 \\cap P) = \\mathrm{P}(W_1) \\times \\mathrm{P}(P \\mid W_1) = 0.8 \\times 0.3 = 0.24$$\n- For Route 2:\n$$\\mathrm{P}(W_1' \\cap W_2 \\cap P) = \\mathrm{P}(W_1') \\times \\mathrm{P}(W_2 \\mid W_1') \\times \\mathrm{P}(P \\mid W_2) = 0.2 \\times 0.6 \\times 0.3$$\nMultiply step-by-step:\n$$0.2 \\times 0.6 = 0.12$$\n$$0.12 \\times 0.3 = 0.036$$",
+        "Step 3: Sum the route probabilities:\n$$\\mathrm{P}(\\text{Place}) = 0.24 + 0.036 = 0.276$$\nIn exact fractional form:\n$$0.276 = \\frac{276}{1000} = \\frac{69}{250}$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      }
+    },
+    {
+      "part_id": "9709_s21_51_q4_c",
+      "difficulty": 3,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_s1_t_probability",
+        "lesson_id": "9709_s1_t_probability_m03_l01"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_calculating_conditional_probability"
+      },
+      "hints": [
+        "This is a conditional probability: find $\\mathrm{P}(W_1 \\mid \\text{Place})$, the probability of passing written test 1 given the student gains a place.",
+        "State the conditional probability formula: $\\mathrm{P}(W_1 \\mid \\text{Place}) = \\dfrac{\\mathrm{P}(W_1 \\cap \\text{Place})}{\\mathrm{P}(\\text{Place})}$.",
+        "The numerator is Path 1 from part (b): $0.8 \\times 0.3 = 0.24$.",
+        "The denominator is the total probability of gaining a place from part (b): $0.276$. Divide numerator by denominator."
+      ],
+      "walkthrough": [
+        "State the conditional probability formula:\n$$\\mathrm{P}(W_1 \\mid \\text{Place}) = \\frac{\\mathrm{P}(W_1 \\cap \\text{Place})}{\\mathrm{P}(\\text{Place})}$$",
+        "Substitute the intersection probability from Path 1 of part (b) and the total probability of gaining a place:\n$$\\mathrm{P}(W_1 \\cap \\text{Place}) = 0.8 \\times 0.3 = 0.24$$\n$$\\mathrm{P}(\\text{Place}) = 0.276$$",
+        "Evaluate the quotient and simplify:\n$$\\mathrm{P}(W_1 \\mid \\text{Place}) = \\frac{0.24}{0.276} = \\frac{240}{276} = \\frac{20}{23} \\approx 0.870$$"
+      ],
+      "teacher_walkthrough": [
+        "Step 1: Identify the given condition and the target event.\nWe are asked to find the probability that a student passed the written test at the first attempt, GIVEN that the student succeeded in gaining a place at the college.\nLet $W_1$ be the event 'passes written test at first attempt', and let 'Place' be the event 'gains a place at the college'.",
+        "Step 2: Write down the definition of conditional probability:\n$$\\mathrm{P}(W_1 \\mid \\text{Place}) = \\frac{\\mathrm{P}(W_1 \\cap \\text{Place})}{\\mathrm{P}(\\text{Place})}$$",
+        "Step 3: Determine the numerator and denominator.\n- The denominator $\\mathrm{P}(\\text{Place})$ is our answer from part (b):\n$$\\mathrm{P}(\\text{Place}) = 0.276$$\n- The numerator $\\mathrm{P}(W_1 \\cap \\text{Place})$ is the probability of passing written test 1 AND gaining a place. Gaining a place via written test 1 means passing written test 1 and then passing the practical test:\n$$\\mathrm{P}(W_1 \\cap \\text{Place}) = 0.8 \\times 0.3 = 0.24$$",
+        "Step 4: Compute the conditional probability:\n$$\\mathrm{P}(W_1 \\mid \\text{Place}) = \\frac{0.24}{0.276}$$\nMultiply numerator and denominator by 1000 to work with whole numbers:\n$$\\frac{240}{276}$$\nDivide numerator and denominator by 12:\n$$240 \\div 12 = 20$$\n$$276 \\div 12 = 23$$\nSo the exact fraction is:\n$$\\frac{20}{23} \\approx 0.869565 \\dots \\approx 0.870$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      }
+    }
+  ]
+}

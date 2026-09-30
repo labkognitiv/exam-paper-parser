@@ -1,0 +1,65 @@
+{
+  "schema_version": "9709_math_enrichment_v7",
+  "question_id": "9709_m16_32_q6",
+  "difficulty": 3,
+  "parts": [
+    {
+      "part_id": "9709_m16_32_q6_i",
+      "difficulty": 3,
+      "practice_tier": "revision",
+      "mapping": {
+        "topic_id": "9709_p3_t_differential_equations",
+        "lesson_id": "9709_p3_t_differential_equations_m02_l02"
+      },
+      "skills": {
+        "primary_skill_id": "9709_p3_skill_implicit_differentiation"
+      },
+      "hints": [
+        "Differentiate $\\sin y\\ln x=x-2\\sin y$ implicitly, treating $y$ as a function of $x$.",
+        "Use the product rule on $\\sin y\\ln x$: its derivative contains both $\\cos y\\,dy/dx$ and $1/x$.",
+        "Collect every term containing $dy/dx$ on one side.",
+        "Factor out and isolate $dy/dx$ in terms of $x$ and $y$."
+      ],
+      "walkthrough": [
+        "Write the given curve equation:\n$$\\sin y\\ln x = x - 2\\sin y$$",
+        "Differentiate both sides with respect to $x$ using implicit differentiation and the product rule on the left-hand side:\n$$\\dfrac{\\mathrm{d}}{\\mathrm{d}x}(\\sin y\\ln x) = \\dfrac{\\mathrm{d}}{\\mathrm{d}x}(x - 2\\sin y)$$",
+        "Compute each derivative term, using the chain rule on $\\sin y$:\n$$\\left(\\cos y\\dfrac{\\mathrm{d}y}{\\mathrm{d}x}\\right)\\ln x + \\sin y\\left(\\dfrac{1}{x}\\right) = 1 - 2\\cos y\\dfrac{\\mathrm{d}y}{\\mathrm{d}x}$$",
+        "Collect all terms containing $\\dfrac{\\mathrm{d}y}{\\mathrm{d}x}$ on the left-hand side and remaining terms on the right-hand side:\n$$\\cos y\\ln x\\dfrac{\\mathrm{d}y}{\\mathrm{d}x} + 2\\cos y\\dfrac{\\mathrm{d}y}{\\mathrm{d}x} = 1 - \\dfrac{\\sin y}{x}$$",
+        "Factor out $\\cos y\\dfrac{\\mathrm{d}y}{\\mathrm{d}x}$ on the left-hand side:\n$$(\\ln x + 2)\\cos y\\dfrac{\\mathrm{d}y}{\\mathrm{d}x} = 1 - \\dfrac{\\sin y}{x}$$",
+        "Divide both sides by $(\\ln x + 2)\\cos y$ to isolate $\\dfrac{\\mathrm{d}y}{\\mathrm{d}x}$:\n$$\\dfrac{\\mathrm{d}y}{\\mathrm{d}x} = \\dfrac{1 - \\dfrac{\\sin y}{x}}{(\\ln x + 2)\\cos y} = \\dfrac{x - \\sin y}{x(\\ln x + 2)\\cos y}$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      }
+    },
+    {
+      "part_id": "9709_m16_32_q6_ii",
+      "difficulty": 2,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_p3_t_differentiation",
+        "lesson_id": "9709_p3_t_differentiation_m02_l02"
+      },
+      "skills": {
+        "primary_skill_id": "9709_p3_skill_finding_stationary_points"
+      },
+      "hints": [
+        "A tangent parallel to the $x$-axis has $dy/dx=0$, so set the numerator from part (i) equal to zero.",
+        "Use $1-\\sin y/x=0$ to express $\\sin y$ in terms of $x$.",
+        "Substitute this relation into $\\sin y(\\ln x+2)=x$ and solve the resulting equation in $\\ln x$."
+      ],
+      "walkthrough": [
+        "A tangent parallel to the $x$-axis has gradient $\\dfrac{\\mathrm{d}y}{\\mathrm{d}x} = 0$.",
+        "Set the numerator of $\\dfrac{\\mathrm{d}y}{\\mathrm{d}x}$ equal to zero:\n$$1 - \\dfrac{\\sin y}{x} = 0 \\implies \\dfrac{\\sin y}{x} = 1 \\implies \\sin y = x$$",
+        "Substitute $\\sin y = x$ into the original equation of the curve $\\sin y\\ln x = x - 2\\sin y$:\n$$x\\ln x = x - 2x$$\n$$x\\ln x = -x$$",
+        "Since $\\ln x$ requires $x > 0$, divide both sides by $x$:\n$$\\ln x = -1$$",
+        "Solve for $x$ by exponentiating both sides:\n$$x = \\mathrm{e}^{-1} = \\dfrac{1}{\\mathrm{e}}$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      }
+    }
+  ]
+}

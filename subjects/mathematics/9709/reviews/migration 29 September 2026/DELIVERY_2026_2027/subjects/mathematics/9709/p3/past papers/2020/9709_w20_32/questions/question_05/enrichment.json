@@ -1,0 +1,66 @@
+{
+  "schema_version": "9709_math_enrichment_v7",
+  "question_id": "9709_w20_32_q5",
+  "difficulty": 3,
+  "parts": [
+    {
+      "part_id": "9709_w20_32_q5_a",
+      "difficulty": 3,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_p3_t_differentiation",
+        "lesson_id": "9709_p3_t_differentiation_m02_l01"
+      },
+      "skills": {
+        "primary_skill_id": "9709_p3_skill_differentiation"
+      },
+      "hints": [
+        "For a parametric curve, use \\(\\frac{dy}{dx}=\\frac{dy/d\\theta}{dx/d\\theta}\\).",
+        "Differentiate \\(x=\\tan\\theta\\) and \\(y=\\cos^2\\theta\\) separately to get \\(dx/d\\theta=\\sec^2\\theta\\) and \\(dy/d\\theta=-2\\sin\\theta\\cos\\theta\\).",
+        "Divide the derivatives and replace \\(1/\\sec^2\\theta\\) by \\(\\cos^2\\theta\\) to obtain the required product."
+      ],
+      "walkthrough": [
+        "State the given parametric equations for $-\\dfrac{\\pi}{2} < \\theta < \\dfrac{\\pi}{2}$:\n$$x = \\tan\\theta, \\quad y = \\cos^2\\theta$$",
+        "Differentiate $x$ with respect to $\\theta$:\n$$\\dfrac{dx}{d\\theta} = \\sec^2\\theta = \\dfrac{1}{\\cos^2\\theta}$$",
+        "Differentiate $y$ with respect to $\\theta$ using the chain rule:\n$$\\dfrac{dy}{d\\theta} = 2\\cos\\theta(-\\sin\\theta) = -2\\sin\\theta\\cos\\theta$$",
+        "Apply the parametric chain rule $\\dfrac{dy}{dx} = \\dfrac{dy/d\\theta}{dx/d\\theta}$:\n$$\\dfrac{dy}{dx} = \\dfrac{-2\\sin\\theta\\cos\\theta}{\\sec^2\\theta}$$",
+        "Simplify the fraction using $\\dfrac{1}{\\sec^2\\theta} = \\cos^2\\theta$:\n$$\\dfrac{dy}{dx} = (-2\\sin\\theta\\cos\\theta)\\cos^2\\theta = -2\\sin\\theta\\cos^3\\theta, \\quad \\text{as required.}$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      }
+    },
+    {
+      "part_id": "9709_w20_32_q5_b",
+      "difficulty": 2,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_p3_t_differentiation",
+        "lesson_id": "9709_p3_t_differentiation_m02_l01"
+      },
+      "skills": {
+        "primary_skill_id": "9709_p3_skill_finding_stationary_points"
+      },
+      "hints": [
+        "To maximise the gradient, differentiate the expression \\(-2\\sin\\theta\\cos^3\\theta\\) from part (a) with respect to \\(\\theta\\) and set this derivative to zero.",
+        "Use the product rule and simplify the stationary condition to \\(3\\tan^2\\theta=1\\).",
+        "Because the maximum gradient is positive, choose the parameter in \\(-\\frac{\\pi}{2},0\\) rather than the corresponding positive parameter, then use \\(x=\\tan\\theta\\) and keep the value exact."
+      ],
+      "walkthrough": [
+        "Let the gradient function be $g(\\theta) = \\dfrac{dy}{dx} = -2\\sin\\theta\\cos^3\\theta$. To find where the gradient is stationary, differentiate $g(\\theta)$ with respect to $\\theta$:",
+        "Apply the product rule to $g(\\theta) = -2(\\sin\\theta)(\\cos^3\\theta)$:\n$$\\dfrac{dg}{d\\theta} = -2\\left[ \\cos\\theta \\cdot \\cos^3\\theta + \\sin\\theta \\cdot (3\\cos^2\\theta(-\\sin\\theta)) \\right]$$\n$$= -2\\left[ \\cos^4\\theta - 3\\sin^2\\theta\\cos^2\\theta \\right]$$\n$$= -2\\cos^2\\theta\\left( \\cos^2\\theta - 3\\sin^2\\theta \\right)$$",
+        "Set the derivative $\\dfrac{dg}{d\\theta} = 0$:\n$$-2\\cos^2\\theta(\\cos^2\\theta - 3\\sin^2\\theta) = 0$$",
+        "Since $-\\dfrac{\\pi}{2} < \\theta < \\dfrac{\\pi}{2}$, we have $\\cos\\theta > 0$. Divide by $-2\\cos^2\\theta \\ne 0$:\n$$\\cos^2\\theta - 3\\sin^2\\theta = 0 \\implies 3\\sin^2\\theta = \\cos^2\\theta$$",
+        "Divide by $\\cos^2\\theta$ to express in terms of $\\tan\\theta$:\n$$3\\tan^2\\theta = 1 \\implies \\tan^2\\theta = \\dfrac{1}{3}$$",
+        "Take square roots to find the two stationary points:\n$$\\tan\\theta = \\pm\\dfrac{1}{\\sqrt{3}}$$",
+        "Determine which value gives the maximum gradient:\nFor $\\theta \\in \\left(-\\dfrac{\\pi}{2}, 0\\right)$, $\\sin\\theta < 0$ and $\\cos\\theta > 0$, giving $g(\\theta) = -2(-)(+) > 0$ (positive, maximum gradient).\nFor $\\theta \\in \\left(0, \\dfrac{\\pi}{2}\\right)$, $\\sin\\theta > 0$ and $\\cos\\theta > 0$, giving $g(\\theta) < 0$ (negative, minimum gradient).\nTherefore, the maximum gradient at point $P$ occurs when $\\tan\\theta = -\\dfrac{1}{\\sqrt{3}}$.",
+        "Since $x = \\tan\\theta$, find the exact $x$-coordinate of $P$:\n$$x = -\\dfrac{1}{\\sqrt{3}} \\quad \\left(\\text{or } -\\dfrac{\\sqrt{3}}{3}\\right)$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      }
+    }
+  ]
+}

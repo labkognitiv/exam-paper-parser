@@ -1,0 +1,106 @@
+{
+  "schema_version": "9709_math_enrichment_v7",
+  "question_id": "9709_s23_52_q2",
+  "difficulty": 3,
+  "parts": [
+    {
+      "part_id": "9709_s23_52_q2_a",
+      "difficulty": 2,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_s1_t_probability",
+        "lesson_id": "9709_s1_t_probability_m01_l02"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_applying_the_multiplication_rule"
+      },
+      "hints": [
+        "Track the branch for no rain on each of the 4 consecutive days.",
+        "Sunday: P(no rain) = 1 - 0.4 = 0.6.",
+        "For Monday, Tuesday, Wednesday: since it did not rain the previous day, P(no rain) = 1 - 0.2 = 0.8 on each day.",
+        "Multiply the branch probabilities: 0.6 * 0.8 * 0.8 * 0.8."
+      ],
+      "walkthrough": [
+        "Find the probability of no rain on Sunday ($N_1$):\n$$\\mathrm{P}(N_1) = 1 - 0.4 = 0.6$$",
+        "On each subsequent day, if it did not rain the previous day, the probability of no rain is:\n$$\\mathrm{P}(N_{k} \\mid N_{k-1}) = 1 - 0.2 = 0.8 \\quad \\text{for } k = 2, 3, 4$$",
+        "Multiply along the path for all 4 dry days:\n$$\\mathrm{P}(\\text{no rain on any day}) = 0.6 \\times (0.8)^3 = 0.6 \\times 0.512 = 0.3072$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      },
+      "teacher_walkthrough": [
+        "Step 1: Identify the sequential states for the 4 days (Sunday, Monday, Tuesday, Wednesday):\nWe require no rain on every day ($N_1 N_2 N_3 N_4$).",
+        "Step 2: Determine the conditional probability for each day:\n- Day 1 (Sunday): $\\mathrm{P}(N_1) = 1 - 0.4 = 0.6$\n- Day 2 (Monday): Given no rain on Sunday, $\\mathrm{P}(N_2 \\mid N_1) = 1 - 0.2 = 0.8$\n- Day 3 (Tuesday): Given no rain on Monday, $\\mathrm{P}(N_3 \\mid N_2) = 1 - 0.2 = 0.8$\n- Day 4 (Wednesday): Given no rain on Tuesday, $\\mathrm{P}(N_4 \\mid N_3) = 1 - 0.2 = 0.8$",
+        "Step 3: Apply the multiplication rule for dependent events:\n$$\\mathrm{P}(N_1 N_2 N_3 N_4) = \\mathrm{P}(N_1) \\times \\mathrm{P}(N_2 \\mid N_1) \\times \\mathrm{P}(N_3 \\mid N_2) \\times \\mathrm{P}(N_4 \\mid N_3)$$",
+        "Step 4: Substitute the probabilities:\n$$\\mathrm{P} = 0.6 \\times 0.8 \\times 0.8 \\times 0.8 = 0.6 \\times 0.512 = 0.3072$$"
+      ]
+    },
+    {
+      "part_id": "9709_s23_52_q2_b",
+      "difficulty": 2,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_s1_t_probability",
+        "lesson_id": "9709_s1_t_probability_m05_l02"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_applying_the_multiplication_rule"
+      },
+      "hints": [
+        "The first day it rains is Tuesday, so Sunday must be dry, Monday must be dry, and Tuesday must have rain.",
+        "Wednesday can be either rainy or dry (the sum of both subsequent branches is 1).",
+        "Multiply the sequence of probabilities for Sunday no rain, Monday no rain, Tuesday rain: 0.6 * 0.8 * 0.2."
+      ],
+      "walkthrough": [
+        "Identify the conditions for the first rain to occur on Tuesday (Day 3):\n- Sunday (Day 1): No rain ($N_1$), with probability $0.6$\n- Monday (Day 2): No rain ($N_2$), with probability $0.8$\n- Tuesday (Day 3): Rain ($R_3$), with probability $0.2$\n- Wednesday (Day 4): Any weather (probabilities sum to 1)",
+        "Multiply the branch probabilities:\n$$\\mathrm{P}(\\text{first rain on Tuesday}) = \\mathrm{P}(N_1) \\times \\mathrm{P}(N_2 \\mid N_1) \\times \\mathrm{P}(R_3 \\mid N_2)$$\n$$\\mathrm{P} = 0.6 \\times 0.8 \\times 0.2 = 0.096$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      },
+      "teacher_walkthrough": [
+        "Step 1: Understand the sequence required for the first rain to happen on Tuesday:\n- Sunday must be dry: $N_1$\n- Monday must be dry: $N_2$\n- Tuesday must be wet: $R_3$",
+        "Step 2: State the probability of each stage in this sequence:\n- Sunday: $\\mathrm{P}(N_1) = 1 - 0.4 = 0.6$\n- Monday (given no rain Sunday): $\\mathrm{P}(N_2 \\mid N_1) = 1 - 0.2 = 0.8$\n- Tuesday (given no rain Monday): $\\mathrm{P}(R_3 \\mid N_2) = 0.2$",
+        "Step 3: Note that Wednesday does not affect whether Tuesday was the first rainy day, because:\n$$\\mathrm{P}(R_4 \\mid R_3) + \\mathrm{P}(N_4 \\mid R_3) = 0.7 + 0.3 = 1$$",
+        "Step 4: Multiply the probabilities:\n$$\\mathrm{P} = 0.6 \\times 0.8 \\times 0.2 = 0.096$$"
+      ]
+    },
+    {
+      "part_id": "9709_s23_52_q2_c",
+      "difficulty": 3,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_s1_t_probability",
+        "lesson_id": "9709_s1_t_probability_m05_l02"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_applying_the_multiplication_rule"
+      },
+      "hints": [
+        "It rains on exactly one day: list the 4 mutually exclusive sequences: RNNN, NRNN, NNRN, NNNR.",
+        "Calculate the probability for each path, paying close attention to which conditional transition probability applies at each day.",
+        "Path RNNN: 0.4 * 0.3 * 0.8 * 0.8 = 0.0768.",
+        "Path NRNN: 0.6 * 0.2 * 0.3 * 0.8 = 0.0288; NNRN: 0.6 * 0.8 * 0.2 * 0.3 = 0.0288; NNNR: 0.6 * 0.8 * 0.8 * 0.2 = 0.0768.",
+        "Add the 4 probabilities together to find the total."
+      ],
+      "walkthrough": [
+        "Identify the 4 mutually exclusive paths where rain occurs on exactly one day:\n$$\\begin{aligned} \\text{Rain Sunday only } (R_1 N_2 N_3 N_4) &: \\quad 0.4 \\times 0.3 \\times 0.8 \\times 0.8 = 0.0768 \\\\ \\text{Rain Monday only } (N_1 R_2 N_3 N_4) &: \\quad 0.6 \\times 0.2 \\times 0.3 \\times 0.8 = 0.0288 \\\\ \\text{Rain Tuesday only } (N_1 N_2 R_3 N_4) &: \\quad 0.6 \\times 0.8 \\times 0.2 \\times 0.3 = 0.0288 \\\\ \\text{Rain Wednesday only } (N_1 N_2 N_3 R_4) &: \\quad 0.6 \\times 0.8 \\times 0.8 \\times 0.2 = 0.0768 \\end{aligned}$$",
+        "Sum the probabilities of the 4 mutually exclusive paths:\n$$\\mathrm{P}(\\text{exactly one day of rain}) = 0.0768 + 0.0288 + 0.0288 + 0.0768 = 0.2112$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      },
+      "teacher_walkthrough": [
+        "Step 1: Identify all 4 mutually exclusive cases where it rains on exactly one of the 4 days:\n- Case 1: Rain on Sunday only ($R_1 N_2 N_3 N_4$)\n- Case 2: Rain on Monday only ($N_1 R_2 N_3 N_4$)\n- Case 3: Rain on Tuesday only ($N_1 N_2 R_3 N_4$)\n- Case 4: Rain on Wednesday only ($N_1 N_2 N_3 R_4$)",
+        "Step 2: Evaluate Case 1 ($R_1 N_2 N_3 N_4$):\n- Sunday rains: $\\mathrm{P}(R_1) = 0.4$\n- Monday no rain (given Sunday rain): $\\mathrm{P}(N_2 \\mid R_1) = 1 - 0.7 = 0.3$\n- Tuesday no rain (given Monday dry): $\\mathrm{P}(N_3 \\mid N_2) = 1 - 0.2 = 0.8$\n- Wednesday no rain (given Tuesday dry): $\\mathrm{P}(N_4 \\mid N_3) = 1 - 0.2 = 0.8$\n$$\\mathrm{P}(R_1 N_2 N_3 N_4) = 0.4 \\times 0.3 \\times 0.8 \\times 0.8 = 0.0768$$",
+        "Step 3: Evaluate Case 2 ($N_1 R_2 N_3 N_4$):\n- Sunday dry: $\\mathrm{P}(N_1) = 0.6$\n- Monday rains (given Sunday dry): $\\mathrm{P}(R_2 \\mid N_1) = 0.2$\n- Tuesday dry (given Monday rain): $\\mathrm{P}(N_3 \\mid R_2) = 1 - 0.7 = 0.3$\n- Wednesday dry (given Tuesday dry): $\\mathrm{P}(N_4 \\mid N_3) = 1 - 0.2 = 0.8$\n$$\\mathrm{P}(N_1 R_2 N_3 N_4) = 0.6 \\times 0.2 \\times 0.3 \\times 0.8 = 0.0288$$",
+        "Step 4: Evaluate Case 3 ($N_1 N_2 R_3 N_4$):\n- Sunday dry: $\\mathrm{P}(N_1) = 0.6$\n- Monday dry: $\\mathrm{P}(N_2 \\mid N_1) = 0.8$\n- Tuesday rains: $\\mathrm{P}(R_3 \\mid N_2) = 0.2$\n- Wednesday dry (given Tuesday rain): $\\mathrm{P}(N_4 \\mid R_3) = 0.3$\n$$\\mathrm{P}(N_1 N_2 R_3 N_4) = 0.6 \\times 0.8 \\times 0.2 \\times 0.3 = 0.0288$$",
+        "Step 5: Evaluate Case 4 ($N_1 N_2 N_3 R_4$):\n- Sunday dry: $\\mathrm{P}(N_1) = 0.6$\n- Monday dry: $\\mathrm{P}(N_2 \\mid N_1) = 0.8$\n- Tuesday dry: $\\mathrm{P}(N_3 \\mid N_2) = 0.8$\n- Wednesday rains (given Tuesday dry): $\\mathrm{P}(R_4 \\mid N_3) = 0.2$\n$$\\mathrm{P}(N_1 N_2 N_3 R_4) = 0.6 \\times 0.8 \\times 0.8 \\times 0.2 = 0.0768$$",
+        "Step 6: Add all 4 mutually exclusive probabilities:\n$$\\mathrm{P} = 0.0768 + 0.0288 + 0.0288 + 0.0768 = 0.2112$$"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,144 @@
+{
+  "schema_version": "9709_math_enrichment_v7",
+  "question_id": "9709_s19_62_q5",
+  "difficulty": 3,
+  "parts": [
+    {
+      "part_id": "9709_s19_62_q5_i",
+      "difficulty": 2,
+      "practice_tier": "revision",
+      "mapping": {
+        "topic_id": "9709_s1_t_probability",
+        "lesson_id": "9709_s1_t_probability_m02_l02"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_constructing_tree_diagrams"
+      },
+      "hints": [
+        "First draw: the tin has 7 sweets (6 toffees, 1 chocolate). Write the probabilities $\\frac{6}{7}$ and $\\frac{1}{7}$.",
+        "Track the sweet count after adding 3 chocolates: 1 sweet was removed and 3 chocolates are added, so there are now $7 - 1 + 3 = 9$ sweets in the tin.",
+        "If a toffee was taken first: 5 toffees and $1 + 3 = 4$ chocolates remain, giving probabilities $\\frac{5}{9}$ and $\\frac{4}{9}$.",
+        "If a chocolate was taken first: 6 toffees and $0 + 3 = 3$ chocolates remain, giving probabilities $\\frac{6}{9}$ and $\\frac{3}{9}$."
+      ],
+      "walkthrough": [
+        "Determine the first stage probabilities (from 6 toffees, 1 chocolate, total 7 sweets):\n$$\\mathrm{P}(T_1) = \\frac{6}{7}, \\quad \\mathrm{P}(C_1) = \\frac{1}{7}$$",
+        "Determine the second stage contents and probabilities after adding 3 chocolates (total $7 - 1 + 3 = 9$ sweets):\n$$\\text{If } T_1 \\text{ chosen: } 5 \\text{ toffees and } 4 \\text{ chocolates remain} \\implies \\mathrm{P}(T_2 \\mid T_1) = \\frac{5}{9}, \\; \\mathrm{P}(C_2 \\mid T_1) = \\frac{4}{9}$$\n$$\\text{If } C_1 \\text{ chosen: } 6 \\text{ toffees and } 3 \\text{ chocolates remain} \\implies \\mathrm{P}(T_2 \\mid C_1) = \\frac{6}{9}, \\; \\mathrm{P}(C_2 \\mid C_1) = \\frac{3}{9}$$",
+        "Summarise the four branch paths:\n$$\\begin{array}{lcl}\n\\text{Path } T_1 T_2: & \\frac{6}{7} \\times \\frac{5}{9} = \\frac{30}{63} \\\\\n\\text{Path } T_1 C_2: & \\frac{6}{7} \\times \\frac{4}{9} = \\frac{24}{63} \\\\\n\\text{Path } C_1 T_2: & \\frac{1}{7} \\times \\frac{6}{9} = \\frac{6}{63} \\\\\n\\text{Path } C_1 C_2: & \\frac{1}{7} \\times \\frac{3}{9} = \\frac{3}{63}\n\\end{array}$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      },
+      "teacher_walkthrough": [
+        "Maryam starts with 7 sweets: 6 toffees (T) and 1 chocolate (C). After she takes one sweet, her friend adds 3 chocolates, making the new total $7 - 1 + 3 = 9$ sweets.",
+        "Step 1: First branch (first sweet chosen):\n- Probability of choosing Toffee: $\\mathrm{P}(T_1) = \\frac{6}{7}$\n- Probability of choosing Chocolate: $\\mathrm{P}(C_1) = \\frac{1}{7}$",
+        "Step 2: Second branch following Toffee ($T_1$):\nOne toffee was removed, leaving 5 toffees and 1 chocolate. Then 3 chocolates are added, resulting in 5 toffees and $1 + 3 = 4$ chocolates (total 9 sweets):\n- $\\mathrm{P}(T_2 \\mid T_1) = \\frac{5}{9}$\n- $\\mathrm{P}(C_2 \\mid T_1) = \\frac{4}{9}$",
+        "Step 3: Second branch following Chocolate ($C_1$):\nThe only chocolate was removed, leaving 6 toffees and 0 chocolates. Then 3 chocolates are added, resulting in 6 toffees and 3 chocolates (total 9 sweets):\n- $\\mathrm{P}(T_2 \\mid C_1) = \\frac{6}{9} = \\frac{2}{3}$\n- $\\mathrm{P}(C_2 \\mid C_1) = \\frac{3}{9} = \\frac{1}{3}$",
+        "Step 4: Verify that each pair of branches sums to 1:\n$$\\frac{6}{7} + \\frac{1}{7} = 1, \\quad \\frac{5}{9} + \\frac{4}{9} = 1, \\quad \\frac{6}{9} + \\frac{3}{9} = 1$$"
+      ]
+    },
+    {
+      "part_id": "9709_s19_62_q5_ii",
+      "difficulty": 2,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_s1_t_discrete_random_variables",
+        "lesson_id": "9709_s1_t_discrete_random_variables_m01_l01"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_constructing_discrete_probability_distributions"
+      },
+      "hints": [
+        "Identify the possible values for the number of toffees taken: $X = 0, 1, 2$.",
+        "Find $\\mathrm{P}(X = 0)$: both sweets taken are chocolates ($C_1 \\cap C_2$).",
+        "Find $\\mathrm{P}(X = 1)$: exactly one toffee is taken ($T_1 \\cap C_2$ or $C_1 \\cap T_2$).",
+        "Find $\\mathrm{P}(X = 2)$: both sweets taken are toffees ($T_1 \\cap T_2$), and construct the table."
+      ],
+      "walkthrough": [
+        "List the possible values of $X$ (the number of toffees taken): $X \\in \\{0, 1, 2\\}$.",
+        "Calculate the probability for each value of $X$ from the tree diagram branches:\n$$\\mathrm{P}(X = 0) = \\mathrm{P}(C_1 \\cap C_2) = \\frac{1}{7} \\times \\frac{3}{9} = \\frac{3}{63} = \\frac{1}{21}$$\n$$\\mathrm{P}(X = 1) = \\mathrm{P}(T_1 \\cap C_2) + \\mathrm{P}(C_1 \\cap T_2) = \\left(\\frac{6}{7} \\times \\frac{4}{9}\\right) + \\left(\\frac{1}{7} \\times \\frac{6}{9}\\right) = \\frac{24}{63} + \\frac{6}{63} = \\frac{30}{63} = \\frac{10}{21}$$\n$$\\mathrm{P}(X = 2) = \\mathrm{P}(T_1 \\cap T_2) = \\frac{6}{7} \\times \\frac{5}{9} = \\frac{30}{63} = \\frac{10}{21}$$",
+        "Check the sum of probabilities:\n$$\\frac{3}{63} + \\frac{30}{63} + \\frac{30}{63} = \\frac{63}{63} = 1$$",
+        "Present the probability distribution table:\n$$\\begin{array}{|c|c|c|c|} \\hline x & 0 & 1 & 2 \\\\ \\hline \\mathrm{P}(X = x) & \\frac{3}{63} & \\frac{30}{63} & \\frac{30}{63} \\\\ \\hline \\end{array}$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      },
+      "teacher_walkthrough": [
+        "Let $X$ denote the number of toffees taken in the two selections. Since Maryam takes two sweets, $X$ can be $0, 1,$ or $2$.",
+        "Step 1: Compute $\\mathrm{P}(X = 0)$ (no toffees, meaning both are chocolates):\n$$\\mathrm{P}(X = 0) = \\mathrm{P}(C_1 \\cap C_2) = \\frac{1}{7} \\times \\frac{3}{9} = \\frac{3}{63}$$",
+        "Step 2: Compute $\\mathrm{P}(X = 1)$ (exactly one toffee):\nThis can happen in two mutually exclusive ways: Toffee first then Chocolate, or Chocolate first then Toffee:\n$$\\mathrm{P}(T_1 \\cap C_2) = \\frac{6}{7} \\times \\frac{4}{9} = \\frac{24}{63}$$\n$$\\mathrm{P}(C_1 \\cap T_2) = \\frac{1}{7} \\times \\frac{6}{9} = \\frac{6}{63}$$\nSumming these probabilities:\n$$\\mathrm{P}(X = 1) = \\frac{24}{63} + \\frac{6}{63} = \\frac{30}{63}$$",
+        "Step 3: Compute $\\mathrm{P}(X = 2)$ (both sweets are toffees):\n$$\\mathrm{P}(X = 2) = \\mathrm{P}(T_1 \\cap T_2) = \\frac{6}{7} \\times \\frac{5}{9} = \\frac{30}{63}$$",
+        "Step 4: Verify the total probability:\n$$\\sum \\mathrm{P}(X = x) = \\frac{3}{63} + \\frac{30}{63} + \\frac{30}{63} = \\frac{63}{63} = 1$$",
+        "Step 5: Present the distribution table:\n$$\\begin{array}{|c|c|c|c|} \\hline x & 0 & 1 & 2 \\\\ \\hline \\mathrm{P}(X = x) & \\frac{3}{63} & \\frac{30}{63} & \\frac{30}{63} \\\\ \\hline \\end{array}$$"
+      ]
+    },
+    {
+      "part_id": "9709_s19_62_q5_iii",
+      "difficulty": 1,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_s1_t_discrete_random_variables",
+        "lesson_id": "9709_s1_t_discrete_random_variables_m02_l01"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_calculating_expected_value"
+      },
+      "hints": [
+        "State the expected value formula: $\\mathrm{E}(X) = \\sum x \\,\\mathrm{P}(X = x)$.",
+        "Multiply each value of $x$ by its corresponding probability from the table in part (ii) and add them together."
+      ],
+      "walkthrough": [
+        "State the formula for the mean of a discrete random variable:\n$$\\mathrm{E}(X) = \\sum x \\,\\mathrm{P}(X = x)$$",
+        "Substitute the values from the probability distribution table:\n$$\\mathrm{E}(X) = 0\\left(\\frac{3}{63}\\right) + 1\\left(\\frac{30}{63}\\right) + 2\\left(\\frac{30}{63}\\right)$$\n$$\\mathrm{E}(X) = 0 + \\frac{30}{63} + \\frac{60}{63} = \\frac{90}{63}$$",
+        "Simplify the fraction:\n$$\\mathrm{E}(X) = \\frac{10}{7} \\approx 1.43$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      },
+      "teacher_walkthrough": [
+        "We need to find the expected number of toffees taken, which is the mean $\\mathrm{E}(X)$ of the distribution found in part (ii).",
+        "Step 1: State the formula for expected value:\n$$\\mathrm{E}(X) = \\sum x \\,\\mathrm{P}(X = x)$$",
+        "Step 2: Multiply each value of $x$ by its probability:\n- For $x = 0$: $0 \\times \\frac{3}{63} = 0$\n- For $x = 1$: $1 \\times \\frac{30}{63} = \\frac{30}{63}$\n- For $x = 2$: $2 \\times \\frac{30}{63} = \\frac{60}{63}$",
+        "Step 3: Sum the products:\n$$\\mathrm{E}(X) = 0 + \\frac{30}{63} + \\frac{60}{63} = \\frac{90}{63}$$",
+        "Step 4: Reduce to lowest terms:\nDivide numerator and denominator by 9:\n$$\\mathrm{E}(X) = \\frac{10}{7} \\approx 1.43$$"
+      ]
+    },
+    {
+      "part_id": "9709_s19_62_q5_iv",
+      "difficulty": 2,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_s1_t_probability",
+        "lesson_id": "9709_s1_t_probability_m03_l03"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_calculating_conditional_probability"
+      },
+      "hints": [
+        "Write down the conditional probability formula: $\\mathrm{P}(C_1 \\mid T_2) = \\frac{\\mathrm{P}(C_1 \\cap T_2)}{\\mathrm{P}(T_2)}$.",
+        "Find the numerator: $\\mathrm{P}(C_1 \\cap T_2) = \\frac{1}{7} \\times \\frac{6}{9}$.",
+        "Find the denominator $\\mathrm{P}(T_2)$ by summing all paths where the second sweet is a toffee: $\\mathrm{P}(T_1 \\cap T_2) + \\mathrm{P}(C_1 \\cap T_2)$.",
+        "Divide the numerator by the denominator and simplify the resulting fraction."
+      ],
+      "walkthrough": [
+        "State the definition of conditional probability:\n$$\\mathrm{P}(C_1 \\mid T_2) = \\frac{\\mathrm{P}(C_1 \\cap T_2)}{\\mathrm{P}(T_2)}$$",
+        "Calculate the joint probability in the numerator:\n$$\\mathrm{P}(C_1 \\cap T_2) = \\frac{1}{7} \\times \\frac{6}{9} = \\frac{6}{63}$$",
+        "Calculate the total probability of the conditioning event in the denominator:\n$$\\mathrm{P}(T_2) = \\mathrm{P}(T_1 \\cap T_2) + \\mathrm{P}(C_1 \\cap T_2)$$\n$$\\mathrm{P}(T_2) = \\left(\\frac{6}{7} \\times \\frac{5}{9}\\right) + \\left(\\frac{1}{7} \\times \\frac{6}{9}\\right) = \\frac{30}{63} + \\frac{6}{63} = \\frac{36}{63}$$",
+        "Evaluate the conditional probability:\n$$\\mathrm{P}(C_1 \\mid T_2) = \\frac{\\frac{6}{63}}{\\frac{36}{63}} = \\frac{6}{36} = \\frac{1}{6}$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      },
+      "teacher_walkthrough": [
+        "We need to find the probability that the first sweet chosen was a chocolate ($C_1$), given that the second sweet chosen is a toffee ($T_2$).",
+        "Step 1: State the conditional probability formula:\n$$\\mathrm{P}(C_1 \\mid T_2) = \\frac{\\mathrm{P}(C_1 \\cap T_2)}{\\mathrm{P}(T_2)}$$",
+        "Step 2: Find the probability of the intersection $\\mathrm{P}(C_1 \\cap T_2)$:\nFollowing the branch $C_1$ then $T_2$ on the tree diagram:\n$$\\mathrm{P}(C_1 \\cap T_2) = \\frac{1}{7} \\times \\frac{6}{9} = \\frac{6}{63}$$",
+        "Step 3: Find the total probability that the second sweet is a toffee, $\\mathrm{P}(T_2)$:\nThe second sweet can be a toffee via two mutually exclusive paths:\n- Path 1 ($T_1 \\cap T_2$): $\\frac{6}{7} \\times \\frac{5}{9} = \\frac{30}{63}$\n- Path 2 ($C_1 \\cap T_2$): $\\frac{1}{7} \\times \\frac{6}{9} = \\frac{6}{63}$\nSumming the two paths:\n$$\\mathrm{P}(T_2) = \\frac{30}{63} + \\frac{6}{63} = \\frac{36}{63}$$",
+        "Step 4: Divide numerator by denominator:\n$$\\mathrm{P}(C_1 \\mid T_2) = \\frac{\\frac{6}{63}}{\\frac{36}{63}} = \\frac{6}{36} = \\frac{1}{6} \\approx 0.167$$"
+      ]
+    }
+  ]
+}

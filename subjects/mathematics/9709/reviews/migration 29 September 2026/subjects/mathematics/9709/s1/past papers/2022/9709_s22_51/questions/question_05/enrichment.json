@@ -1,0 +1,96 @@
+{
+  "schema_version": "9709_math_enrichment_v7",
+  "question_id": "9709_s22_51_q5",
+  "difficulty": 4,
+  "parts": [
+    {
+      "part_id": "9709_s22_51_q5_a",
+      "difficulty": 2,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_s1_t_the_normal_distribution",
+        "lesson_id": "9709_s1_t_the_normal_distribution_m01_l02"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_calculating_normal_probabilities"
+      },
+      "hints": [
+        "Define the normal random variable: $L_1 \\sim \\mathrm{N}(5.2, 1.5^2)$ with $\\mu = 5.2$ and $\\sigma = 1.5$.",
+        "Standardize the value 6 using $z = \\frac{6 - \\mu}{\\sigma}$.",
+        "Look up the standard normal cumulative probability $\\Phi(z)$."
+      ],
+      "walkthrough": [
+        "Standardize the value $6$ using mean $\\mu = 5.2$ and standard deviation $\\sigma = 1.5$:\n$$z = \\frac{6 - 5.2}{1.5} = \\frac{0.8}{1.5} = \\frac{8}{15} \\approx 0.533$$",
+        "Express the probability in terms of the standard normal distribution function $\\Phi$:\n$$\\mathrm{P}(L_1 < 6) = \\Phi(0.533)$$",
+        "Look up $\\Phi(0.533)$ from the normal tables:\n$$\\Phi(0.533) \\approx 0.703$$"
+      ],
+      "teacher_walkthrough": [
+        "Step 1: State the model and parameters.\nLet $L_1$ denote the length, in cm, of a leaf of the first type.\nWe are given:\n$$L_1 \\sim \\mathrm{N}(5.2, 1.5^2)$$\nwith mean $\\mu = 5.2$ and standard deviation $\\sigma = 1.5$.\n\nStep 2: Standardize the threshold value $6$.\nThe transformation to the standard normal random variable $Z \\sim \\mathrm{N}(0, 1)$ is:\n$$Z = \\frac{L_1 - \\mu}{\\sigma}$$\nSubstitute $L_1 = 6$:\n$$z = \\frac{6 - 5.2}{1.5} = \\frac{0.8}{1.5} = \\frac{8}{15} \\approx 0.5333$$\n\nStep 3: Evaluate the cumulative probability.\n$$\\mathrm{P}(L_1 < 6) = \\mathrm{P}(Z < 0.533) = \\Phi(0.533)$$\nFrom the standard normal table:\n$$\\Phi(0.53) = 0.7019$$\nAdding the table add-difference for $3$ ($0.0010$):\n$$\\Phi(0.533) = 0.7019 + 0.0010 = 0.7029$$\nRounding to 3 significant figures gives $0.703$."
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      }
+    },
+    {
+      "part_id": "9709_s22_51_q5_b",
+      "difficulty": 4,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_s1_t_the_normal_distribution",
+        "lesson_id": "9709_s1_t_the_normal_distribution_m02_l03"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_finding_normal_distribution_parameters"
+      },
+      "hints": [
+        "Convert the sample counts into sample proportions: $46/500 = 0.092$ and $95/500 = 0.190$.",
+        "Find the corresponding critical z-values: $\\Phi(z_1) = 0.092 \\implies z_1 = -1.328$, and $\\mathrm{P}(Z > z_2) = 0.190 \\implies \\Phi(z_2) = 0.810 \\implies z_2 = 0.878$.",
+        "Set up two simultaneous equations $\\frac{3 - \\mu}{\\sigma} = -1.328$ and $\\frac{8 - \\mu}{\\sigma} = 0.878$, and solve for $\\mu$ and $\\sigma$."
+      ],
+      "walkthrough": [
+        "Determine the tail proportions in the sample of $500$:\n$$\\mathrm{P}(L_2 < 3) = \\frac{46}{500} = 0.092$$\n$$\\mathrm{P}(L_2 > 8) = \\frac{95}{500} = 0.190 \\implies \\mathrm{P}(L_2 < 8) = 1 - 0.190 = 0.810$$",
+        "Find the standard normal $z$-values:\n$$\\Phi(z_1) = 0.092 \\implies z_1 = -1.328$$\n$$\\Phi(z_2) = 0.810 \\implies z_2 = 0.878$$",
+        "Form simultaneous equations by standardizing:\n$$\\frac{3 - \\mu}{\\sigma} = -1.328 \\implies 3 - \\mu = -1.328\\sigma \\implies \\mu - 1.328\\sigma = 3$$\n$$\\frac{8 - \\mu}{\\sigma} = 0.878 \\implies 8 - \\mu = 0.878\\sigma \\implies \\mu + 0.878\\sigma = 8$$",
+        "Subtract the first equation from the second to find $\\sigma$:\n$$(0.878 - (-1.328))\\sigma = 8 - 3 \\implies 2.206\\sigma = 5 \\implies \\sigma = \\frac{5}{2.206} \\approx 2.2665 \\approx 2.27\\text{ cm}$$",
+        "Substitute $\\sigma$ back into either equation to find $\\mu$:\n$$\\mu = 8 - 0.878(2.2665) \\approx 8 - 1.990 = 6.01\\text{ cm}$$"
+      ],
+      "teacher_walkthrough": [
+        "Step 1: Convert given sample frequencies to probabilities.\nTotal sample size $n = 500$.\n- Leaves less than $3$ cm: $46$\n  $$\\mathrm{P}(L_2 < 3) = \\frac{46}{500} = 0.092$$\n- Leaves more than $8$ cm: $95$\n  $$\\mathrm{P}(L_2 > 8) = \\frac{95}{500} = 0.190$$\n  $$\\mathrm{P}(L_2 < 8) = 1 - 0.190 = 0.810$$\n\nStep 2: Find the standard normal critical values.\n- For lower tail probability $0.092 < 0.5$, $z_1$ is negative:\n  $$\\Phi(-z_1) = 1 - 0.092 = 0.908$$\n  From the standard normal table, $\\Phi(1.328) = 0.908$, so:\n  $$z_1 = -1.328$$\n- For upper tail probability $0.190$, cumulative probability is $0.810$:\n  From the table, $\\Phi(0.878) = 0.810$, so:\n  $$z_2 = 0.878$$\n\nStep 3: Set up linear equations in $\\mu$ and $\\sigma$.\nUsing $z = \\frac{x - \\mu}{\\sigma}$:\n$$3 - \\mu = -1.328 \\sigma \\quad \\implies \\quad \\mu = 3 + 1.328 \\sigma \\quad \\text{--- (Equation 1)}$$\n$$8 - \\mu = 0.878 \\sigma \\quad \\implies \\quad \\mu = 8 - 0.878 \\sigma \\quad \\text{--- (Equation 2)}$$\n\nStep 4: Solve simultaneously for $\\sigma$.\nEquate the two expressions for $\\mu$:\n$$3 + 1.328 \\sigma = 8 - 0.878 \\sigma$$\nCollect like terms:\n$$1.328 \\sigma + 0.878 \\sigma = 8 - 3$$\n$$2.206 \\sigma = 5$$\nDivide by $2.206$:\n$$\\sigma = \\frac{5}{2.206} \\approx 2.266545...$$\nRounding to 3 significant figures gives $\\sigma = 2.27$ cm.\n\nStep 5: Solve for $\\mu$.\nSubstitute $\\sigma = 2.266545$ into Equation 2:\n$$\\mu = 8 - 0.878(2.266545) = 8 - 1.990026 = 6.00997...$$\nRounding to 3 significant figures gives $\\mu = 6.01$ cm."
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      }
+    },
+    {
+      "part_id": "9709_s22_51_q5_c",
+      "difficulty": 3,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_s1_t_the_normal_distribution",
+        "lesson_id": "9709_s1_t_the_normal_distribution_m01_l03"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_calculating_normal_probabilities"
+      },
+      "hints": [
+        "More than 1 standard deviation from the mean translates directly into standard normal terms as $|Z| > 1$ (i.e. $Z < -1$ or $Z > 1$).",
+        "Find $\\mathrm{P}(|Z| > 1) = 2[1 - \\Phi(1)]$.",
+        "Multiply this two-tailed probability by the sample size of 2000 to find the expected number of leaves."
+      ],
+      "walkthrough": [
+        "Translate the condition 'more than 1 standard deviation from the mean' into standard normal scores:\n$$\\mathrm{P}(|L_2 - \\mu| > \\sigma) = \\mathrm{P}(|Z| > 1) = \\mathrm{P}(Z < -1) + \\mathrm{P}(Z > 1)$$",
+        "Evaluate the two-tailed probability using symmetry:\n$$\\mathrm{P}(|Z| > 1) = 2[1 - \\Phi(1)] = 2[1 - 0.8413] = 2(0.1587) = 0.3174$$",
+        "Multiply by the sample size $N = 2000$ to find the expected number of leaves:\n$$\\text{Expected number} = 2000 \\times 0.3174 = 634.8$$\nState the final integer count as $634$ or $635$ leaves."
+      ],
+      "teacher_walkthrough": [
+        "Step 1: Understand the condition in terms of standardized distance.\nA value $x$ is more than $1$ standard deviation from the mean if:\n$$|x - \\mu| > 1\\sigma$$\nDividing both sides by $\\sigma$ gives:\n$$\\left|\\frac{x - \\mu}{\\sigma}\\right| > 1 \\iff |Z| > 1$$\nThis represents the combined area of both tails beyond $z = -1$ and $z = 1$.\n\nStep 2: Calculate the probability $\\mathrm{P}(|Z| > 1)$.\nBy symmetry of the standard normal curve:\n$$\\mathrm{P}(|Z| > 1) = \\mathrm{P}(Z < -1) + \\mathrm{P}(Z > 1) = 2 \\times \\mathrm{P}(Z > 1) = 2 [1 - \\Phi(1)]$$\nFrom the standard normal table, $\\Phi(1.0) = 0.8413$:\n$$1 - \\Phi(1) = 1 - 0.8413 = 0.1587$$\n$$\\mathrm{P}(|Z| > 1) = 2 \\times 0.1587 = 0.3174$$\n\nStep 3: Compute the expected frequency.\nIn a random sample of $n = 2000$ leaves, the expected number of leaves satisfying the condition is:\n$$\\text{Expected count} = n \\times p = 2000 \\times 0.3174$$\n$$2000 \\times 0.3174 = 634.8$$\nAcceptable answers are $634$ or $635$ leaves."
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      }
+    }
+  ]
+}

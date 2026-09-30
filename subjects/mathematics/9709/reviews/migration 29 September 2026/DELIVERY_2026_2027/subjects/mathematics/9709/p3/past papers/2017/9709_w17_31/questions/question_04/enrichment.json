@@ -1,0 +1,64 @@
+{
+  "schema_version": "9709_math_enrichment_v7",
+  "question_id": "9709_w17_31_q4",
+  "difficulty": 2,
+  "parts": [
+    {
+      "part_id": "9709_w17_31_q4_i",
+      "difficulty": 2,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_p3_t_trigonometry",
+        "lesson_id": "9709_p3_t_trigonometry_m04_l04"
+      },
+      "skills": {
+        "primary_skill_id": "9709_p3_skill_trigonometric_identities"
+      },
+      "hints": [
+        "Apply $\\tan(A\\pm B)$ to each tangent, using $\\tan45^\\circ=1$.",
+        "Combine the two rational expressions into one fraction in $\\tan x$.",
+        "Use $\\cos2x=(1-\\tan^2x)/(1+\\tan^2x)$ and take its reciprocal to obtain the required form."
+      ],
+      "walkthrough": [
+        "Apply the compound angle formulas for tangent:\n$$\\tan(45^\\circ + x) = \\dfrac{\\tan 45^\\circ + \\tan x}{1 - \\tan 45^\\circ\\tan x} = \\dfrac{1 + \\tan x}{1 - \\tan x}$$\n$$\\tan(45^\\circ - x) = \\dfrac{\\tan 45^\\circ - \\tan x}{1 + \\tan 45^\\circ\\tan x} = \\dfrac{1 - \\tan x}{1 + \\tan x}$$",
+        "Add the two terms over a common denominator $(1 - \\tan x)(1 + \\tan x) = 1 - \\tan^2 x$:\n$$\\text{LHS} = \\dfrac{(1 + \\tan x)^2 + (1 - \\tan x)^2}{(1 - \\tan x)(1 + \\tan x)}$$",
+        "Expand the binomial squares in the numerator:\n$$(1 + \\tan x)^2 = 1 + 2\\tan x + \\tan^2 x$$\n$$(1 - \\tan x)^2 = 1 - 2\\tan x + \\tan^2 x$$\n$$\\text{Numerator} = (1 + 2\\tan x + \\tan^2 x) + (1 - 2\\tan x + \\tan^2 x) = 2 + 2\\tan^2 x = 2(1 + \\tan^2 x)$$",
+        "Form the single fraction:\n$$\\text{LHS} = \\dfrac{2(1 + \\tan^2 x)}{1 - \\tan^2 x}$$",
+        "Recall the double-angle formula for cosine in terms of tangent: $\\cos 2x = \\dfrac{1 - \\tan^2 x}{1 + \\tan^2 x}$. Taking its reciprocal gives:\n$$\\sec 2x = \\dfrac{1}{\\cos 2x} = \\dfrac{1 + \\tan^2 x}{1 - \\tan^2 x}$$",
+        "Substitute $\\sec 2x$ into the expression to complete the proof:\n$$\\text{LHS} = 2\\left(\\dfrac{1 + \\tan^2 x}{1 - \\tan^2 x}\\right) = 2\\sec 2x = \\text{RHS}$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      }
+    },
+    {
+      "part_id": "9709_w17_31_q4_ii",
+      "difficulty": 2,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_p3_t_trigonometry",
+        "lesson_id": "9709_p3_t_trigonometry_m04_l04"
+      },
+      "skills": {
+        "primary_skill_id": "9709_p3_skill_sketching_trigonometric_graphs"
+      },
+      "hints": [
+        "Use part (i) to sketch $y=2\\sec2x$ on $0^\\circ\\le x\\le90^\\circ$.",
+        "Mark the vertical asymptote where $\\cos2x=0$, and plot the endpoint values at $x=0^\\circ$ and $90^\\circ$.",
+        "Draw the two secant branches with the correct signs and divergence on either side of the asymptote."
+      ],
+      "walkthrough": [
+        "Use the proven identity to write the function as $y = 2\\sec 2x = \\dfrac{2}{\\cos 2x}$ on the interval $0^\\circ \\le x \\le 90^\\circ$.",
+        "Determine the vertical asymptote: the denominator $\\cos 2x = 0$ when $2x = 90^\\circ \\implies x = 45^\\circ$.",
+        "Analyze the first branch for $0^\\circ \\le x < 45^\\circ$:\n- At $x = 0^\\circ$, $y = \\dfrac{2}{\\cos 0^\\circ} = \\dfrac{2}{1} = 2$.\n- As $x \\to 45^{\\circ-}$, $2x \\to 90^{\\circ-}$, so $\\cos 2x \\to 0^+$ and $y \\to +\\infty$.\n- Sketch a smooth curve starting from the local minimum at $(0^\\circ, 2)$ and approaching the vertical asymptote $x = 45^\\circ$ upwards.",
+        "Analyze the second branch for $45^\\circ < x \\le 90^\\circ$:\n- As $x \\to 45^{\\circ+}$, $2x \\to 90^{\\circ+}$, so $\\cos 2x \\to 0^-$ and $y \\to -\\infty$.\n- At $x = 90^\\circ$, $y = \\dfrac{2}{\\cos 180^\\circ} = \\dfrac{2}{-1} = -2$.\n- Sketch a smooth curve rising from $-\\infty$ next to the vertical asymptote $x = 45^\\circ$ to reach the local maximum at $(90^\\circ, -2)$.",
+        "Ensure both branches are clearly drawn within the specified domain $0^\\circ \\le x \\le 90^\\circ$ with the asymptote at $x = 45^\\circ$ clearly indicated."
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      }
+    }
+  ]
+}

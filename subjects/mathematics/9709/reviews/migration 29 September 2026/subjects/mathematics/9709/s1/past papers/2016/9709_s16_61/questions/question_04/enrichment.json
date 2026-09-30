@@ -1,0 +1,43 @@
+{
+  "schema_version": "9709_math_enrichment_v7",
+  "question_id": "9709_s16_61_q4",
+  "difficulty": 3,
+  "parts": [
+    {
+      "part_id": "9709_s16_61_q4",
+      "difficulty": 3,
+      "practice_tier": "revision",
+      "mapping": {
+        "topic_id": "9709_s1_t_discrete_random_variables",
+        "lesson_id": "9709_s1_t_discrete_random_variables_m02_l02"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_calculating_variance_of_a_random_variable"
+      },
+      "hints": [
+        "Determine the sample space for $X$, the number of green sweets drawn in 2 draws without replacement from 2 green and 5 blue sweets: $X \\in \\{0, 1, 2\\}$.",
+        "Calculate the probabilities for each outcome: $\\mathrm{P}(X = 0) = \\mathrm{P}(BB)$, $\\mathrm{P}(X = 1) = \\mathrm{P}(GB) + \\mathrm{P}(BG)$, and $\\mathrm{P}(X = 2) = \\mathrm{P}(GG)$. Remember the total sweets decrease from 7 to 6 on the second draw.",
+        "Find the expectation using $\\mathrm{E}(X) = \\sum x \\,\\mathrm{P}(X = x)$.",
+        "Find $\\mathrm{E}(X^2) = \\sum x^2 \\,\\mathrm{P}(X = x)$ and then calculate $\\operatorname{Var}(X) = \\mathrm{E}(X^2) - [\\mathrm{E}(X)]^2$."
+      ],
+      "walkthrough": [
+        "Construct the probability distribution for $X \\in \\{0, 1, 2\\}$, drawing $2$ sweets without replacement from $2$ green and $5$ blue sweets (total $7$ sweets):\n$$\\mathrm{P}(X = 0) = \\mathrm{P}(BB) = \\dfrac{5}{7} \\times \\dfrac{4}{6} = \\dfrac{20}{42} = \\dfrac{10}{21}$$\n$$\\mathrm{P}(X = 1) = \\mathrm{P}(GB) + \\mathrm{P}(BG) = \\left(\\dfrac{2}{7} \\times \\dfrac{5}{6}\\right) + \\left(\\dfrac{5}{7} \\times \\dfrac{2}{6}\\right) = \\dfrac{10}{42} + \\dfrac{10}{42} = \\dfrac{20}{42} = \\dfrac{10}{21}$$\n$$\\mathrm{P}(X = 2) = \\mathrm{P}(GG) = \\dfrac{2}{7} \\times \\dfrac{1}{6} = \\dfrac{2}{42} = \\dfrac{1}{21}$$",
+        "Verify that the probabilities sum to $1$:\n$$\\sum \\mathrm{P}(X = x) = \\dfrac{10}{21} + \\dfrac{10}{21} + \\dfrac{1}{21} = \\dfrac{21}{21} = 1$$",
+        "Calculate the expected value $\\mathrm{E}(X)$:\n$$\\mathrm{E}(X) = \\sum x \\,\\mathrm{P}(X = x) = 0\\left(\\dfrac{10}{21}\\right) + 1\\left(\\dfrac{10}{21}\\right) + 2\\left(\\dfrac{1}{21}\\right) = \\dfrac{12}{21} = \\dfrac{4}{7} \\approx 0.571$$",
+        "Calculate $\\mathrm{E}(X^2)$:\n$$\\mathrm{E}(X^2) = \\sum x^2 \\,\\mathrm{P}(X = x) = 0^2\\left(\\dfrac{10}{21}\\right) + 1^2\\left(\\dfrac{10}{21}\\right) + 2^2\\left(\\dfrac{1}{21}\\right) = \\dfrac{10 + 4}{21} = \\dfrac{14}{21} = \\dfrac{2}{3}$$",
+        "Calculate the variance using $\\operatorname{Var}(X) = \\mathrm{E}(X^2) - [\\mathrm{E}(X)]^2$:\n$$\\operatorname{Var}(X) = \\dfrac{2}{3} - \\left(\\dfrac{4}{7}\\right)^2 = \\dfrac{2}{3} - \\dfrac{16}{49} = \\dfrac{98 - 48}{147} = \\dfrac{50}{147} \\approx 0.340$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      },
+      "teacher_walkthrough": [
+        "There are 7 sweets in total (2 green and 5 blue). Two sweets are chosen without replacement. Let $X$ be the number of green sweets chosen, which can be 0, 1, or 2.",
+        "Calculate the probability for each possible value of $X$:\n$$\\mathrm{P}(X = 0) = \\frac{5}{7} \\times \\frac{4}{6} = \\frac{20}{42} = \\frac{10}{21}$$\n$$\\mathrm{P}(X = 1) = \\left(\\frac{2}{7} \\times \\frac{5}{6}\\right) + \\left(\\frac{5}{7} \\times \\frac{2}{6}\\right) = \\frac{20}{42} = \\frac{10}{21}$$\n$$\\mathrm{P}(X = 2) = \\frac{2}{7} \\times \\frac{1}{6} = \\frac{2}{42} = \\frac{1}{21}$$",
+        "Multiply each outcome by its probability and sum them to find the expected value $\\mathrm{E}(X)$:\n$$\\mathrm{E}(X) = \\left(0 \\times \\frac{10}{21}\\right) + \\left(1 \\times \\frac{10}{21}\\right) + \\left(2 \\times \\frac{1}{21}\\right) = \\frac{12}{21} = \\frac{4}{7}$$",
+        "To find the variance, first calculate $\\mathrm{E}(X^2)$:\n$$\\mathrm{E}(X^2) = \\left(0^2 \\times \\frac{10}{21}\\right) + \\left(1^2 \\times \\frac{10}{21}\\right) + \\left(2^2 \\times \\frac{1}{21}\\right) = \\frac{10 + 4}{21} = \\frac{14}{21} = \\frac{2}{3}$$",
+        "Subtract the square of the mean from $\\mathrm{E}(X^2)$ to find the variance:\n$$\\operatorname{Var}(X) = \\mathrm{E}(X^2) - [\\mathrm{E}(X)]^2 = \\frac{2}{3} - \\left(\\frac{4}{7}\\right)^2 = \\frac{2}{3} - \\frac{16}{49} = \\frac{98 - 48}{147} = \\frac{50}{147} \\approx 0.340$$"
+      ]
+    }
+  ]
+}

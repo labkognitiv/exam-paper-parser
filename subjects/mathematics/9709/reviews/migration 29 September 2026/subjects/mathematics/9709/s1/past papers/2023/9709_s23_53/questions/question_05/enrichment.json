@@ -1,0 +1,76 @@
+{
+  "schema_version": "9709_math_enrichment_v7",
+  "question_id": "9709_s23_53_q5",
+  "difficulty": 3,
+  "parts": [
+    {
+      "part_id": "9709_s23_53_q5_a",
+      "difficulty": 2,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_s1_t_probability",
+        "lesson_id": "9709_s1_t_probability_m04_l01"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_testing_or_using_independence"
+      },
+      "hints": [
+        "Find P(A): sum < 6 occurs for 10 outcomes out of 36, so P(A) = 10/36 = 5/18.",
+        "Find P(B): difference <= 2 occurs for 24 outcomes out of 36, so P(B) = 24/36 = 2/3.",
+        "Find P(A and B): both conditions are satisfied for 8 outcomes out of 36, so P(A and B) = 8/36 = 2/9.",
+        "Compare P(A) * P(B) = (5/18) * (2/3) = 5/27 with P(A and B) = 8/36 = 6/27, and conclude."
+      ],
+      "walkthrough": [
+        "Determine the probabilities $\\mathrm{P}(A)$, $\\mathrm{P}(B)$, and $\\mathrm{P}(A \\cap B)$ from the 36 equally likely outcomes of two dice:\n$$\\begin{aligned} \\text{Sum } < 6 \\implies A &= \\{(1,1),(1,2),(2,1),(1,3),(2,2),(3,1),(1,4),(2,3),(3,2),(4,1)\\} \\implies n(A) = 10 \\\\ \\mathrm{P}(A) &= \\frac{10}{36} = \\frac{5}{18} \\approx 0.278 \\\\ \\text{Difference } \\le 2 \\implies n(B) &= 6 + 10 + 8 = 24 \\implies \\mathrm{P}(B) = \\frac{24}{36} = \\frac{2}{3} \\approx 0.667 \\\\ A \\cap B &= \\{(1,1),(1,2),(2,1),(1,3),(2,2),(3,1),(2,3),(3,2)\\} \\implies n(A \\cap B) = 8 \\\\ \\mathrm{P}(A \\cap B) &= \\frac{8}{36} = \\frac{2}{9} \\approx 0.222 \\end{aligned}$$",
+        "Test the independence condition $\\mathrm{P}(A \\cap B) = \\mathrm{P}(A) \\times \\mathrm{P}(B)$:\n$$\\mathrm{P}(A) \\times \\mathrm{P}(B) = \\frac{10}{36} \\times \\frac{24}{36} = \\frac{5}{18} \\times \\frac{2}{3} = \\frac{5}{27} \\approx 0.185$$",
+        "Compare the product with the intersection probability:\n$$\\frac{5}{27} \\ne \\frac{6}{27} \\implies \\mathrm{P}(A) \\times \\mathrm{P}(B) \\ne \\mathrm{P}(A \\cap B)$$\n$$\\text{Therefore, events } A \\text{ and } B \\text{ are not independent.}$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      },
+      "teacher_walkthrough": [
+        "Step 1: State the formal test for independence:\nTwo events $A$ and $B$ are independent if and only if:\n$$\\mathrm{P}(A \\cap B) = \\mathrm{P}(A) \\times \\mathrm{P}(B)$$",
+        "Step 2: Find $\\mathrm{P}(A)$:\nEvent $A$ is 'the sum is less than 6' ($S \\in \\{2, 3, 4, 5\\}$):\n- Sum 2: $(1,1)$ (1 outcome)\n- Sum 3: $(1,2), (2,1)$ (2 outcomes)\n- Sum 4: $(1,3), (2,2), (3,1)$ (3 outcomes)\n- Sum 5: $(1,4), (2,3), (3,2), (4,1)$ (4 outcomes)\nTotal outcomes in $A = 1 + 2 + 3 + 4 = 10$.\n$$\\mathrm{P}(A) = \\frac{10}{36} = \\frac{5}{18}$$",
+        "Step 3: Find $\\mathrm{P}(B)$:\nEvent $B$ is 'the difference is at most 2' ($|x - y| \\le 2$):\n- Difference 0: 6 pairs on the main diagonal\n- Difference 1: 10 pairs\n- Difference 2: 8 pairs\nTotal outcomes in $B = 6 + 10 + 8 = 24$.\n$$\\mathrm{P}(B) = \\frac{24}{36} = \\frac{2}{3}$$",
+        "Step 4: Find $\\mathrm{P}(A \\cap B)$:\nOutcomes in $A$ that also have difference $\\le 2$:\nAll pairs in $A$ except $(1,4)$ and $(4,1)$ (which have difference 3).\nThus, $n(A \\cap B) = 10 - 2 = 8$.\n$$\\mathrm{P}(A \\cap B) = \\frac{8}{36} = \\frac{2}{9}$$",
+        "Step 5: Compare $\\mathrm{P}(A) \\times \\mathrm{P}(B)$ with $\\mathrm{P}(A \\cap B)$:\n$$\\mathrm{P}(A) \\times \\mathrm{P}(B) = \\frac{5}{18} \\times \\frac{2}{3} = \\frac{10}{54} = \\frac{5}{27} \\approx 0.1852$$\n$$\\mathrm{P}(A \\cap B) = \\frac{2}{9} = \\frac{6}{27} \\approx 0.2222$$\nSince $\\frac{5}{27} \\ne \\frac{6}{27}$, events $A$ and $B$ are not independent."
+      ]
+    },
+    {
+      "part_id": "9709_s23_53_q5_b",
+      "difficulty": 2,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_s1_t_probability",
+        "lesson_id": "9709_s1_t_probability_m03_l01"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_calculating_conditional_probability"
+      },
+      "hints": [
+        "Use the conditional probability formula: P(B | A') = P(B and A') / P(A').",
+        "P(A') = 1 - P(A) = 1 - 10/36 = 26/36.",
+        "P(B and A') = P(B) - P(B and A) = 24/36 - 8/36 = 16/36.",
+        "Divide: (16/36) / (26/36) = 16/26 = 8/13."
+      ],
+      "walkthrough": [
+        "Write down the conditional probability formula:\n$$\\mathrm{P}(B \\mid A') = \\frac{\\mathrm{P}(B \\cap A')}{\\mathrm{P}(A')}$$",
+        "Calculate the probability of the conditioning event $A'$:\n$$\\mathrm{P}(A') = 1 - \\mathrm{P}(A) = 1 - \\frac{10}{36} = \\frac{26}{36}$$",
+        "Calculate the probability of $B \\cap A'$:\n$$\\mathrm{P}(B \\cap A') = \\mathrm{P}(B) - \\mathrm{P}(A \\cap B) = \\frac{24}{36} - \\frac{8}{36} = \\frac{16}{36}$$",
+        "Evaluate the conditional probability:\n$$\\mathrm{P}(B \\mid A') = \\frac{16/36}{26/36} = \\frac{16}{26} = \\frac{8}{13} \\approx 0.615$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      },
+      "teacher_walkthrough": [
+        "Step 1: Write down the definition of conditional probability:\n$$\\mathrm{P}(B \\mid A') = \\frac{\\mathrm{P}(B \\cap A')}{\\mathrm{P}(A')}$$",
+        "Step 2: Find the denominator $\\mathrm{P}(A')$:\nEvent $A'$ is the complement of $A$ (the sum is greater than or equal to 6):\n$$\\mathrm{P}(A') = 1 - \\mathrm{P}(A) = 1 - \\frac{10}{36} = \\frac{26}{36}$$",
+        "Step 3: Find the numerator $\\mathrm{P}(B \\cap A')$:\n$B \\cap A'$ represents all outcomes that belong to $B$ but not to $A$:\n$$\\mathrm{P}(B \\cap A') = \\mathrm{P}(B) - \\mathrm{P}(B \\cap A) = \\frac{24}{36} - \\frac{8}{36} = \\frac{16}{36}$$",
+        "Step 4: Divide the numerator by the denominator:\n$$\\mathrm{P}(B \\mid A') = \\frac{16/36}{26/36} = \\frac{16}{26}$$",
+        "Step 5: Simplify the fraction:\n$$\\frac{16 \\div 2}{26 \\div 2} = \\frac{8}{13} \\approx 0.615385$$\nRounding to 3 significant figures gives $0.615$."
+      ]
+    }
+  ]
+}

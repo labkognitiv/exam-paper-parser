@@ -1,0 +1,92 @@
+{
+  "schema_version": "9709_math_enrichment_v7",
+  "question_id": "9709_w23_31_q10",
+  "difficulty": 2,
+  "parts": [
+    {
+      "part_id": "9709_w23_31_q10_a",
+      "difficulty": 2,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_p3_t_logarithmic_and_exponential_functions",
+        "lesson_id": "9709_p3_t_logarithmic_and_exponential_functions_m02_l03"
+      },
+      "skills": {
+        "primary_skill_id": "9709_p3_skill_partial_fractions"
+      },
+      "hints": [
+        "Because $(2+x)^2$ is repeated, write $f(x)=\\dfrac{A}{1-2x}+\\dfrac{B}{2+x}+\\dfrac{C}{(2+x)^2}$.",
+        "Clear denominators to get $24x+13=A(2+x)^2+B(1-2x)(2+x)+C(1-2x)$.",
+        "Use convenient values such as $x=\\frac12$ and $x=-2$, then compare a coefficient or substitute another value to find the remaining constant."
+      ],
+      "walkthrough": [
+        "State the partial fractions decomposition for $f(x) = \\dfrac{24x + 13}{(1 - 2x)(2 + x)^2}$:\n$$\\dfrac{24x + 13}{(1 - 2x)(2 + x)^2} = \\dfrac{A}{1 - 2x} + \\dfrac{B}{2 + x} + \\dfrac{C}{(2 + x)^2}$$",
+        "Multiply through by the common denominator $(1 - 2x)(2 + x)^2$:\n$$24x + 13 = A(2 + x)^2 + B(1 - 2x)(2 + x) + C(1 - 2x)$$",
+        "Substitute $x = \\dfrac{1}{2}$ to isolate $A$:\n$$24\\left(\\dfrac{1}{2}\\right) + 13 = A\\left(2 + \\dfrac{1}{2}\\right)^2$$\n$$12 + 13 = A\\left(\\dfrac{5}{2}\\right)^2$$\n$$25 = \\dfrac{25}{4}A \\implies A = 4$$",
+        "Substitute $x = -2$ to isolate $C$:\n$$24(-2) + 13 = C(1 - 2(-2))$$\n$$-48 + 13 = 5C$$\n$$-35 = 5C \\implies C = -7$$",
+        "Equate the coefficients of $x^2$ to find $B$:\n$$0 = A - 2B$$\n$$0 = 4 - 2B \\implies 2B = 4 \\implies B = 2$$",
+        "State the complete partial fractions expansion:\n$$f(x) = \\dfrac{4}{1 - 2x} + \\dfrac{2}{2 + x} - \\dfrac{7}{(2 + x)^2}$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      }
+    },
+    {
+      "part_id": "9709_w23_31_q10_b",
+      "difficulty": 2,
+      "practice_tier": "revision",
+      "mapping": {
+        "topic_id": "9709_p3_t_logarithmic_and_exponential_functions",
+        "lesson_id": "9709_p3_t_logarithmic_and_exponential_functions_m02_l03"
+      },
+      "skills": {
+        "primary_skill_id": "9709_p3_skill_binomial_expansion"
+      },
+      "hints": [
+        "Start from part (a): $f(x)=\\dfrac4{1-2x}+\\dfrac2{2+x}-\\dfrac7{(2+x)^2}$.",
+        "Use $(1-u)^{-1}=1+u+u^2+\\cdots$ for the first term with $u=2x$.",
+        "Rewrite the other denominators using $2+x=2(1+x/2)$, then expand $(1+x/2)^{-1}$ and $(1+x/2)^{-2}$ through $x^2$.",
+        "Multiply by the partial-fraction coefficients and collect the constant, $x$, and $x^2$ terms."
+      ],
+      "walkthrough": [
+        "Expand the first partial fraction $4(1 - 2x)^{-1}$ up to $x^2$ using $(1 - u)^{-1} = 1 + u + u^2 + \\dots$:\n$$4(1 - 2x)^{-1} = 4(1 + 2x + (2x)^2) = 4(1 + 2x + 4x^2) = 4 + 8x + 16x^2$$",
+        "Expand the second partial fraction $\\dfrac{2}{2 + x} = \\dfrac{2}{2}\\left(1 + \\dfrac{x}{2}\\right)^{-1} = \\left(1 + \\dfrac{x}{2}\\right)^{-1}$ up to $x^2$:\n$$\\left(1 + \\dfrac{x}{2}\\right)^{-1} = 1 - \\dfrac{x}{2} + \\left(\\dfrac{x}{2}\\right)^2 = 1 - \\dfrac{1}{2}x + \\dfrac{1}{4}x^2$$",
+        "Expand the third partial fraction $-\\dfrac{7}{(2 + x)^2} = -\\dfrac{7}{4}\\left(1 + \\dfrac{x}{2}\\right)^{-2}$ up to $x^2$:\n$$\\left(1 + \\dfrac{x}{2}\\right)^{-2} = 1 + (-2)\\left(\\dfrac{x}{2}\\right) + \\dfrac{(-2)(-3)}{2}\\left(\\dfrac{x}{2}\\right)^2 = 1 - x + \\dfrac{3}{4}x^2$$\n$$-\\dfrac{7}{4}\\left(1 - x + \\dfrac{3}{4}x^2\\right) = -\\dfrac{7}{4} + \\dfrac{7}{4}x - \\dfrac{21}{16}x^2$$",
+        "Sum the corresponding terms:\n$$\\text{Constant term: } 4 + 1 - \\dfrac{7}{4} = 5 - \\dfrac{7}{4} = \\dfrac{13}{4}$$\n$$\\text{Term in } x: 8 - \\dfrac{1}{2} + \\dfrac{7}{4} = \\dfrac{32 - 2 + 7}{4} = \\dfrac{37}{4}$$\n$$\\text{Term in } x^2: 16 + \\dfrac{1}{4} - \\dfrac{21}{16} = \\dfrac{256 + 4 - 21}{16} = \\dfrac{239}{16}$$",
+        "State the final series expansion:\n$$f(x) = \\dfrac{13}{4} + \\dfrac{37}{4}x + \\dfrac{239}{16}x^2$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      }
+    },
+    {
+      "part_id": "9709_w23_31_q10_c",
+      "difficulty": 1,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_p3_t_logarithmic_and_exponential_functions",
+        "lesson_id": "9709_p3_t_logarithmic_and_exponential_functions_m02_l03"
+      },
+      "skills": {
+        "primary_skill_id": "9709_p3_skill_finding_validity_ranges_of_series_expansions"
+      },
+      "hints": [
+        "Find the convergence restriction for each binomial series used in part (b) by requiring its inner variable to have modulus less than $1$.",
+        "For $(1-2x)^{-1}$ require $|2x|<1$; for the two $(1+x/2)$ expansions require $|x/2|<1$.",
+        "Intersect these restrictions and state the resulting set of $x$-values."
+      ],
+      "walkthrough": [
+        "Determine the range of validity for each binomial expansion used:",
+        "For $(1 - 2x)^{-1}$, validity requires $|2x| < 1$, which gives $|x| < \\dfrac{1}{2}$.",
+        "For $\\left(1 + \\dfrac{x}{2}\\right)^{-1}$ and $\\left(1 + \\dfrac{x}{2}\\right)^{-2}$, validity requires $\\left|\\dfrac{x}{2}\\right| < 1$, which gives $|x| < 2$.",
+        "Find the intersection of these conditions:\n$$|x| < \\dfrac{1}{2} \\quad \\left(\\text{or } -\\dfrac{1}{2} < x < \\dfrac{1}{2}\\right)$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      }
+    }
+  ]
+}

@@ -1,0 +1,137 @@
+{
+  "schema_version": "9709_math_enrichment_v7",
+  "question_id": "9709_s21_53_q6",
+  "difficulty": 4,
+  "parts": [
+    {
+      "part_id": "9709_s21_53_q6_a",
+      "difficulty": 2,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_s1_t_permutations_and_combinations",
+        "lesson_id": "9709_s1_t_permutations_and_combinations_m01_l01"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_arranging_repeated_objects"
+      },
+      "hints": [
+        "Count the total number of letters in the word REQUIREMENT: there are 11 letters.",
+        "Count the frequency of each repeated letter: E appears 3 times, R appears 2 times, and Q, U, I, M, N, T each appear 1 time.",
+        "Apply the formula for permutations with repeated objects: $\\dfrac{n!}{p! q!}$, where $n = 11$, $p = 3$ (for Es), and $q = 2$ (for Rs).",
+        "Compute $\\dfrac{11!}{3! \\times 2!}$ to obtain the exact integer count."
+      ],
+      "walkthrough": [
+        "Identify the frequencies of all letters in the word REQUIREMENT:\n$$\\text{Total letters } n = 11$$\n$$\\text{Repeated letters: } \\text{E (3), R (2)}$$\n$$\\text{Single letters: } \\text{Q, U, I, M, N, T (each 1)}$$",
+        "Apply the formula for permutations with repeated items:\n$$\\text{Arrangements} = \\frac{11!}{3! \\times 2!}$$",
+        "Calculate the factorials and the final value:\n$$11! = 39916800$$\n$$3! \\times 2! = 6 \\times 2 = 12$$\n$$\\frac{39916800}{12} = 3326400$$"
+      ],
+      "teacher_walkthrough": [
+        "Step 1: Count the total letters and note any repetitions.\nIn the 11-letter word REQUIREMENT:\n- E appears 3 times\n- R appears 2 times\n- Q, U, I, M, N, T each appear 1 time (6 distinct letters)\nTotal letters: $3 + 2 + 6 = 11$.",
+        "Step 2: Apply the permutations formula for repeated items.\nIf all 11 letters were distinct, there would be $11!$ arrangements. To account for the indistinguishable orderings of identical letters, we divide by $3!$ for the three Es and by $2!$ for the two Rs:\n$$\\text{Total arrangements} = \\frac{11!}{3! \\times 2!}$$",
+        "Step 3: Evaluate numerically:\n$$11! = 39916800$$\n$$3! \\times 2! = 6 \\times 2 = 12$$\n$$\\frac{39916800}{12} = 3326400$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      }
+    },
+    {
+      "part_id": "9709_s21_53_q6_b",
+      "difficulty": 2,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_s1_t_permutations_and_combinations",
+        "lesson_id": "9709_s1_t_permutations_and_combinations_m03_l04"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_handling_arrangement_restrictions"
+      },
+      "hints": [
+        "Treat the two Rs as a single block [RR] and the three Es as a single block [EEE].",
+        "Count the number of items to arrange: the block [RR], the block [EEE], and the 6 other letters (Q, U, I, M, N, T). This gives $1 + 1 + 6 = 8$ items.",
+        "Since the letters within [RR] are identical, there is only 1 internal arrangement. Similarly, within [EEE], there is only 1 internal arrangement.",
+        "Evaluate $8!$ to find the total number of arrangements."
+      ],
+      "walkthrough": [
+        "Group the two Rs together into a single unit $[\\text{RR}]$ and the three Es together into a single unit $[\\text{EEE}]$.",
+        "Count the total number of distinct units to arrange:\n$$\\{[\\text{RR}], \\; [\\text{EEE}], \\; \\text{Q}, \\; \\text{U}, \\; \\text{I}, \\; \\text{M}, \\; \\text{N}, \\; \\text{T}\\} \\implies 8\\text{ units}$$",
+        "Calculate the permutations of these 8 distinct units:\n$$\\text{Arrangements} = 8! = 40320$$"
+      ],
+      "teacher_walkthrough": [
+        "Step 1: Use the grouping (block) method.\nWe require both Rs to be together and all three Es to be together.\n- Group the two identical Rs into one block: $[\\text{RR}]$. Inside this block, since both letters are identical Rs, there is only $\\frac{2!}{2!} = 1$ way to order them.\n- Group the three identical Es into one block: $[\\text{EEE}]$. Inside this block, since all three letters are identical Es, there is only $\\frac{3!}{3!} = 1$ way to order them.",
+        "Step 2: Count the total number of items to arrange.\nWe now arrange:\n- 1 block $[\\text{RR}]$\n- 1 block $[\\text{EEE}]$\n- 6 distinct individual letters: Q, U, I, M, N, T\nTotal units = $1 + 1 + 6 = 8$ distinct items.",
+        "Step 3: Evaluate the arrangements:\n$$\\text{Total} = 8! = 8 \\times 7 \\times 6 \\times 5 \\times 4 \\times 3 \\times 2 \\times 1 = 40320$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      }
+    },
+    {
+      "part_id": "9709_s21_53_q6_c",
+      "difficulty": 3,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_s1_t_permutations_and_combinations",
+        "lesson_id": "9709_s1_t_permutations_and_combinations_m03_l04"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_handling_arrangement_restrictions"
+      },
+      "hints": [
+        "The condition requires exactly three letters between the two Rs, which means the Rs occupy positions $(i, i + 4)$.",
+        "Count the possible pairs of positions for the two Rs in an 11-letter word: $(1, 5), (2, 6), (3, 7), (4, 8), (5, 9), (6, 10), (7, 11)$. There are 7 possible positions.",
+        "Once the two Rs are placed, the remaining 9 positions must be filled by the remaining 9 letters: three Es and six distinct letters (Q, U, I, M, N, T).",
+        "Arrange the 9 letters in $\\dfrac{9!}{3!}$ ways, then multiply by the 7 position choices."
+      ],
+      "walkthrough": [
+        "Determine the number of valid position pairs for the two Rs with exactly 3 letters between them:\n$$\\text{Position pairs: } (1, 5), \\; (2, 6), \\; (3, 7), \\; (4, 8), \\; (5, 9), \\; (6, 10), \\; (7, 11) \\implies 7\\text{ choices}$$",
+        "Since the two Rs are identical, placing them into any chosen pair of positions can be done in 1 way.",
+        "Arrange the remaining 9 letters (three Es and six distinct letters Q, U, I, M, N, T) into the remaining 9 positions:\n$$\\text{Ways to arrange remaining letters} = \\frac{9!}{3!} = \\frac{362880}{6} = 60480$$",
+        "Multiply the number of position choices by the arrangements of the remaining letters:\n$$\\text{Total arrangements} = 7 \\times 60480 = 423360$$"
+      ],
+      "teacher_walkthrough": [
+        "Step 1: Understand the placement restriction on the two Rs.\nThe two Rs must have exactly 3 letters between them:\n$$\\text{R } \\_ \\; \\_ \\; \\_ \\text{ R}$$\nThis structure spans $1 + 3 + 1 = 5$ positions in the 11-letter word.\nLet the first R be at position $i$. Then the second R must be at position $i + 4$.\nSince the word has 11 positions, $i + 4 \\le 11 \\implies i \\le 7$.\nThe possible position pairs for the two Rs are:\n$$(1, 5), \\; (2, 6), \\; (3, 7), \\; (4, 8), \\; (5, 9), \\; (6, 10), \\; (7, 11)$$\nThus, there are exactly 7 possible pairs of positions for the Rs.",
+        "Step 2: Arrange the two Rs.\nBecause both Rs are identical letters, there is only 1 way to place the Rs into any of the 7 position pairs.",
+        "Step 3: Arrange the remaining letters.\nOnce the two Rs are positioned, there are $11 - 2 = 9$ positions remaining to be filled by the remaining 9 letters:\n$$\\{\\text{E, E, E, Q, U, I, M, N, T}\\}$$\nThis set contains 3 identical Es and 6 distinct letters.\nThe number of ways to arrange these 9 letters into the 9 open positions is:\n$$\\frac{9!}{3!} = \\frac{362880}{6} = 60480$$",
+        "Step 4: Multiply by the number of position choices:\n$$\\text{Total arrangements} = 7 \\times \\frac{9!}{3!} = 7 \\times 60480 = 423360$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      }
+    },
+    {
+      "part_id": "9709_s21_53_q6_d",
+      "difficulty": 4,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_s1_t_permutations_and_combinations",
+        "lesson_id": "9709_s1_t_permutations_and_combinations_m04_l02"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_handling_selection_restrictions"
+      },
+      "hints": [
+        "We are selecting an unordered set of 5 letters from REQUIREMENT, which has 3 Es, 2 Rs, and 6 other distinct letters {Q, U, I, M, N, T}.",
+        "The selection must contain at least two Es ($E \\ge 2$) and at least one R ($R \\ge 1$).",
+        "List all disjoint cases based on the number of Es and Rs selected: (2 Es, 1 R), (2 Es, 2 Rs), (3 Es, 1 R), and (3 Es, 2 Rs).",
+        "For each case, calculate the number of ways to select the remaining letters from the 6 other distinct letters: $\\binom{6}{2} = 15$, $\\binom{6}{1} = 6$, $\\binom{6}{1} = 6$, and $\\binom{6}{0} = 1$, then sum them to get 28."
+      ],
+      "walkthrough": [
+        "Identify the pool of letters in REQUIREMENT:\n- Es: 3 available\n- Rs: 2 available\n- Others $\\{\\text{Q, U, I, M, N, T}\\}$: 6 available",
+        "List all mutually exclusive cases for a selection of 5 letters containing at least 2 Es and at least 1 R:\n- Case 1 ($2\\text{ Es, } 1\\text{ R, } 2\\text{ others}$):\n$$\\binom{6}{2} = \\frac{6 \\times 5}{2} = 15$$\n- Case 2 ($2\\text{ Es, } 2\\text{ Rs, } 1\\text{ other}$):\n$$\\binom{6}{1} = 6$$\n- Case 3 ($3\\text{ Es, } 1\\text{ R, } 1\\text{ other}$):\n$$\\binom{6}{1} = 6$$\n- Case 4 ($3\\text{ Es, } 2\\text{ Rs, } 0\\text{ others}$):\n$$\\binom{6}{0} = 1$$",
+        "Sum the counts across all four cases:\n$$\\text{Total selections} = 15 + 6 + 6 + 1 = 28$$"
+      ],
+      "teacher_walkthrough": [
+        "Step 1: Understand what a selection means.\nA selection is an unordered collection of letters. Because the identical letters E and R cannot be distinguished from other copies of themselves, choosing 2 Es means we simply include $\\{\\text{E, E}\\}$ in our selection.\nThe letters available are:\n- E: 3 available\n- R: 2 available\n- Others: 6 distinct letters $\\{\\text{Q, U, I, M, N, T}\\}$",
+        "Step 2: Identify valid combinations of Es and Rs for a total of 5 letters.\nWe require at least two Es ($e \\ge 2$) and at least one R ($r \\ge 1$):\n1. $e = 2, r = 1$: leaves $5 - (2 + 1) = 2$ other letters to be chosen from $\\{\\text{Q, U, I, M, N, T}\\}$.\n$$\\binom{6}{2} = \\frac{6 \\times 5}{2 \\times 1} = 15\\text{ ways}$$\n2. $e = 2, r = 2$: leaves $5 - (2 + 2) = 1$ other letter to be chosen from $\\{\\text{Q, U, I, M, N, T}\\}$.\n$$\\binom{6}{1} = 6\\text{ ways}$$\n3. $e = 3, r = 1$: leaves $5 - (3 + 1) = 1$ other letter to be chosen from $\\{\\text{Q, U, I, M, N, T}\\}$.\n$$\\binom{6}{1} = 6\\text{ ways}$$\n4. $e = 3, r = 2$: leaves $5 - (3 + 2) = 0$ other letters.\n$$\\binom{6}{0} = 1\\text{ way}$$",
+        "Step 3: Sum the ways from each mutually exclusive case:\n$$\\text{Total possible selections} = 15 + 6 + 6 + 1 = 28$$\n(Alternatively, fixing EER first leaves 2 letters to be chosen from the remaining 8 letters $\\{\\text{E, R, Q, U, I, M, N, T}\\}$, which gives $\\binom{8}{2} = 28$)."
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      }
+    }
+  ]
+}

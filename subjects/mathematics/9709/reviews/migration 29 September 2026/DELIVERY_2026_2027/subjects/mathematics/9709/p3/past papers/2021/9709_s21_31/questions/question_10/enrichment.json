@@ -1,0 +1,41 @@
+{
+  "schema_version": "9709_math_enrichment_v7",
+  "question_id": "9709_s21_31_q10",
+  "difficulty": 5,
+  "parts": [
+    {
+      "part_id": "9709_s21_31_q10",
+      "difficulty": 5,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_p3_t_differential_equations",
+        "lesson_id": "9709_p3_t_differential_equations_m02_l02"
+      },
+      "skills": {
+        "primary_skill_id": "9709_p3_skill_solving_separable_differential_equations"
+      },
+      "hints": [
+        "Separate the differential equation and decompose the rational function before integrating.",
+        "Write $dt=dx/[x^2(1+2x)]$ and use $A/x+B/x^2+C/(1+2x)$ for the partial fractions.",
+        "Clear denominators to find the three constants, then integrate each term, retaining the logarithms and $-1/x$ term.",
+        "Apply $t=0$ when $x=1$, and combine the logarithms into the requested expression in $x$."
+      ],
+      "walkthrough": [
+        "Separate variables in the differential equation $\\dfrac{\\mathrm{d}x}{\\mathrm{d}t} = x^2(1 + 2x)$:\n$$\\dfrac{1}{x^2(1 + 2x)}\\,\\mathrm{d}x = \\mathrm{d}t$$",
+        "Set up the partial fraction decomposition for repeated linear factor $x^2$ and linear factor $(1 + 2x)$:\n$$\\dfrac{1}{x^2(1 + 2x)} = \\dfrac{A}{x} + \\dfrac{B}{x^2} + \\dfrac{C}{1 + 2x}$$",
+        "Multiply both sides by $x^2(1 + 2x)$ to form the identity:\n$$1 = Ax(1 + 2x) + B(1 + 2x) + Cx^2$$",
+        "Determine $B$ by substituting $x = 0$:\n$$1 = A(0) + B(1 + 0) + C(0) \\implies B = 1$$",
+        "Determine $C$ by substituting $x = -\\dfrac{1}{2}$:\n$$1 = A(0) + B(0) + C\\left(-\\dfrac{1}{2}\\right)^2 = \\dfrac{1}{4}C \\implies C = 4$$",
+        "Determine $A$ by comparing coefficients of $x^2$:\n$$0 = 2A + C \\implies 2A + 4 = 0 \\implies 2A = -4 \\implies A = -2$$\nSo the partial fractions are:\n$$\\dfrac{1}{x^2(1 + 2x)} = -\\dfrac{2}{x} + \\dfrac{1}{x^2} + \\dfrac{4}{1 + 2x}$$",
+        "Integrate both sides:\n$$\\int \\left(-\\dfrac{2}{x} + x^{-2} + \\dfrac{4}{1 + 2x}\\right)\\,\\mathrm{d}x = \\int 1\\,\\mathrm{d}t$$\n$$-2\\ln x - \\dfrac{1}{x} + 2\\ln(1 + 2x) = t + c$$",
+        "Use the initial condition $x = 1$ when $t = 0$ to find the constant of integration $c$:\n$$-2\\ln(1) - \\dfrac{1}{1} + 2\\ln(1 + 2(1)) = 0 + c$$\n$$0 - 1 + 2\\ln 3 = c \\implies c = 2\\ln 3 - 1$$",
+        "Substitute $c = 2\\ln 3 - 1$ back into the integrated equation:\n$$-2\\ln x - \\dfrac{1}{x} + 2\\ln(1 + 2x) = t + 2\\ln 3 - 1$$",
+        "Isolate $t$ and combine the logarithmic terms:\n$$t = -\\dfrac{1}{x} + 1 + 2\\ln(1 + 2x) - 2\\ln x - 2\\ln 3$$\n$$t = -\\dfrac{1}{x} + 1 + 2[\\ln(1 + 2x) - \\ln(3x)]$$\n$$t = -\\dfrac{1}{x} + 2\\ln\\left(\\dfrac{1 + 2x}{3x}\\right) + 1$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      }
+    }
+  ]
+}

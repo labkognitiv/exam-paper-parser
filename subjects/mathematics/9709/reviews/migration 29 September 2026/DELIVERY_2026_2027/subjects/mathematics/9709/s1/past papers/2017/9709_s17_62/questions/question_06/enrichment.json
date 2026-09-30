@@ -1,0 +1,71 @@
+{
+  "schema_version": "9709_math_enrichment_v7",
+  "question_id": "9709_s17_62_q6",
+  "difficulty": 3,
+  "parts": [
+    {
+      "part_id": "9709_s17_62_q6_i",
+      "difficulty": 2,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_s1_t_permutations_and_combinations",
+        "lesson_id": "9709_s1_t_permutations_and_combinations_m02_l02"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_arranging_repeated_objects"
+      },
+      "hints": [
+        "Split the problem into two mutually exclusive cases: both end books are A, or both end books are B.",
+        "For each case, fix the two end books and arrange the remaining 9 books using the formula for permutations of repeated objects: $\\dfrac{9!}{n_A! n_B! n_C!}$.",
+        "Add the number of arrangements from both disjoint cases."
+      ],
+      "walkthrough": [
+        "Case 1: Both end books are book A (A _ _ _ _ _ _ _ _ _ A):\n- Remaining 9 books: $2$ of book A, $2$ of book B, $5$ of book C.\n$$\\text{Arrangements} = \\frac{9!}{2! \\times 2! \\times 5!} = \\frac{362880}{2 \\times 2 \\times 120} = \\frac{362880}{480} = 756$$",
+        "Case 2: Both end books are book B (B _ _ _ _ _ _ _ _ _ B):\n- Remaining 9 books: $4$ of book A, $0$ of book B, $5$ of book C.\n$$\\text{Arrangements} = \\frac{9!}{4! \\times 0! \\times 5!} = \\frac{362880}{24 \\times 1 \\times 120} = \\frac{362880}{2880} = 126$$",
+        "Sum the disjoint cases:\n$$\\text{Total arrangements} = 756 + 126 = 882$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      },
+      "teacher_walkthrough": [
+        "The collection consists of $11$ books:\n- $4$ identical copies of book A\n- $2$ identical copies of book B\n- $5$ identical copies of book C\nThe condition is that the end books are either both book A or both book B. Because a shelf cannot simultaneously start and end with A and with B, these two cases are mutually exclusive.",
+        "Case 1: Both end books are book A\nPlace one A at the left end and one A at the right end:\n$$\\text{A } \\underbrace{\\_ \\; \\_ \\; \\_ \\; \\_ \\; \\_ \\; \\_ \\; \\_ \\; \\_ \\; \\_}_{9 \\text{ middle positions}} \\text{ A}$$\nThis leaves $11 - 2 = 9$ books to arrange in the middle:\n- $4 - 2 = 2$ of book A\n- $2$ of book B\n- $5$ of book C\nApply the formula for permutations with repeated items:\n$$\\frac{9!}{2! \\, 2! \\, 5!} = \\frac{9 \\times 8 \\times 7 \\times 6 \\times 5!}{2 \\times 2 \\times 5!} = \\frac{3024}{4} = 756$$",
+        "Case 2: Both end books are book B\nPlace one B at each end:\n$$\\text{B } \\underbrace{\\_ \\; \\_ \\; \\_ \\; \\_ \\; \\_ \\; \\_ \\; \\_ \\; \\_ \\; \\_}_{9 \\text{ middle positions}} \\text{ B}$$\nThis leaves $9$ books in the middle:\n- $4$ of book A\n- $2 - 2 = 0$ of book B\n- $5$ of book C\n$$\\frac{9!}{4! \\, 5!} = \\frac{9 \\times 8 \\times 7 \\times 6 \\times 5!}{24 \\times 5!} = \\frac{3024}{24} = 126$$",
+        "Combine the two disjoint cases using the addition principle:\n$$\\text{Total arrangements} = 756 + 126 = 882$$"
+      ]
+    },
+    {
+      "part_id": "9709_s17_62_q6_ii",
+      "difficulty": 3,
+      "practice_tier": "revision",
+      "mapping": {
+        "topic_id": "9709_s1_t_permutations_and_combinations",
+        "lesson_id": "9709_s1_t_permutations_and_combinations_m03_l04"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_handling_arrangement_restrictions"
+      },
+      "hints": [
+        "Treat all 4 books A as a single block $[AAAA]$, giving 1 block of A, 2 books B, and 5 books C.",
+        "Calculate the total arrangements with $[AAAA]$ together: $\\dfrac{8!}{2! 5!}$.",
+        "Calculate the unwanted arrangements where $[AAAA]$ is together AND the two B's are together as $[BB]$: $\\dfrac{7!}{5!}$, and subtract."
+      ],
+      "walkthrough": [
+        "Treat the $4$ identical copies of book A as a single block $[AAAA]$:\n- Items to arrange: $1$ block $[AAAA]$, $2$ identical books B, $5$ identical books C (total $8$ items).\n$$\\text{Total arrangements with A's together} = \\frac{8!}{2! \\times 5!} = \\frac{40320}{2 \\times 120} = 168$$",
+        "Count the unwanted arrangements where the $2$ books B are also adjacent by treating them as a block $[BB]$:\n- Items to arrange: $1$ block $[AAAA]$, $1$ block $[BB]$, $5$ identical books C (total $7$ items).\n$$\\text{Arrangements with both A's and B's together} = \\frac{7!}{1! \\times 1! \\times 5!} = \\frac{5040}{120} = 42$$",
+        "Subtract the unwanted arrangements to ensure the B's are separated:\n$$\\text{Total valid arrangements} = 168 - 42 = 126$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      },
+      "teacher_walkthrough": [
+        "We have two conditions:\n1. All $4$ books A must be next to each other.\n2. None of the $2$ books B may be next to each other.\n\nWe use the subtraction method:\n$$\\text{Valid} = (\\text{A's together}) - (\\text{A's together AND B's together})$$",
+        "Step 1: Treat the $4$ identical A books as a single unit $[AAAA]$.\nThe units to arrange are:\n- $1$ unit $[AAAA]$\n- $2$ identical B books\n- $5$ identical C books\nTotal units $= 1 + 2 + 5 = 8$.\nNumber of arrangements:\n$$\\frac{8!}{2! \\, 5!} = \\frac{8 \\times 7 \\times 6 \\times 5!}{2 \\times 5!} = \\frac{336}{2} = 168$$",
+        "Step 2: Find how many of these arrangements have the two B's adjacent.\nTreat the $2$ identical B books as a single unit $[BB]$.\nThe units to arrange are:\n- $1$ unit $[AAAA]$\n- $1$ unit $[BB]$\n- $5$ identical C books\nTotal units $= 1 + 1 + 5 = 7$.\nNumber of arrangements:\n$$\\frac{7!}{5!} = \\frac{7 \\times 6 \\times 5!}{5!} = 42$$",
+        "Step 3: Subtract the unwanted adjacent B arrangements:\n$$\\text{Valid arrangements} = 168 - 42 = 126$$\n\nAlternative check using the gap method:\nArrange $[AAAA]$ and the $5$ C's: $\\frac{6!}{5!} = 6$ ways. This creates $7$ gaps. Choose $2$ gaps for the identical B's: $\\binom{7}{2} = 21$. Total $= 6 \\times 21 = 126$."
+      ]
+    }
+  ]
+}

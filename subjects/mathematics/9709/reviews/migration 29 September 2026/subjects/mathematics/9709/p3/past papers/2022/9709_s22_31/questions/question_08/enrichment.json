@@ -1,0 +1,65 @@
+{
+  "schema_version": "9709_math_enrichment_v7",
+  "question_id": "9709_s22_31_q8",
+  "difficulty": 3,
+  "parts": [
+    {
+      "part_id": "9709_s22_31_q8_a",
+      "difficulty": 2,
+      "practice_tier": "revision",
+      "mapping": {
+        "topic_id": "9709_p3_t_differential_equations",
+        "lesson_id": "9709_p3_t_differential_equations_m02_l02"
+      },
+      "skills": {
+        "primary_skill_id": "9709_p3_skill_implicit_differentiation"
+      },
+      "hints": [
+        "Differentiate the curve equation implicitly with respect to $x$, treating $y$ as a function of $x$.",
+        "Use the chain rule on $y^3$ and the product rule on $2xy$: their derivatives are $3y^2\\dfrac{dy}{dx}$ and $2y+2x\\dfrac{dy}{dx}$.",
+        "Set the derivative of the left side equal to zero, gather all terms containing $\\dfrac{dy}{dx}$, and divide to isolate it."
+      ],
+      "walkthrough": [
+        "Differentiate each term of the implicit equation $x^3 + y^3 + 2xy + 8 = 0$ with respect to $x$:\n$$\\dfrac{\\mathrm{d}}{\\mathrm{d}x}(x^3) + \\dfrac{\\mathrm{d}}{\\mathrm{d}x}(y^3) + \\dfrac{\\mathrm{d}}{\\mathrm{d}x}(2xy) + \\dfrac{\\mathrm{d}}{\\mathrm{d}x}(8) = 0$$",
+        "Compute the derivatives of each term:\n$$\\dfrac{\\mathrm{d}}{\\mathrm{d}x}(x^3) = 3x^2$$\nUsing the chain rule, $\\dfrac{\\mathrm{d}}{\\mathrm{d}x}(y^3) = 3y^2\\dfrac{\\mathrm{d}y}{\\mathrm{d}x}$\nUsing the product rule, $\\dfrac{\\mathrm{d}}{\\mathrm{d}x}(2xy) = 2y + 2x\\dfrac{\\mathrm{d}y}{\\mathrm{d}x}$\n$$\\dfrac{\\mathrm{d}}{\\mathrm{d}x}(8) = 0$$",
+        "Combine all differentiated terms into one equation:\n$$3x^2 + 3y^2\\dfrac{\\mathrm{d}y}{\\mathrm{d}x} + 2y + 2x\\dfrac{\\mathrm{d}y}{\\mathrm{d}x} = 0$$",
+        "Group the terms containing $\\dfrac{\\mathrm{d}y}{\\mathrm{d}x}$ on the left-hand side and move other terms to the right-hand side:\n$$(3y^2 + 2x)\\dfrac{\\mathrm{d}y}{\\mathrm{d}x} = -(3x^2 + 2y)$$",
+        "Divide by $(3y^2 + 2x)$ to solve for $\\dfrac{\\mathrm{d}y}{\\mathrm{d}x}$:\n$$\\dfrac{\\mathrm{d}y}{\\mathrm{d}x} = -\\dfrac{3x^2 + 2y}{3y^2 + 2x}$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      }
+    },
+    {
+      "part_id": "9709_s22_31_q8_b",
+      "difficulty": 3,
+      "practice_tier": "revision",
+      "mapping": {
+        "topic_id": "9709_p3_t_differentiation",
+        "lesson_id": "9709_p3_t_differentiation_m02_l03"
+      },
+      "skills": {
+        "primary_skill_id": "9709_p3_skill_finding_gradients"
+      },
+      "hints": [
+        "Find the two points first: setting $x=0$ or $y=0$ in the curve gives $(0,-2)$ and $(-2,0)$.",
+        "Substitute each point into the derivative from part (a) to obtain the two tangent gradients.",
+        "If the tangent angles are $A$ and $B$, use $\\tan(A-B)=\\dfrac{m_1-m_2}{1+m_1m_2}$.",
+        "Choose the positive value corresponding to the acute angle $\\alpha$ and simplify it exactly."
+      ],
+      "walkthrough": [
+        "Find the coordinates of the points where the curve crosses the coordinate axes:\nWhen $x = 0$:\n$$0^3 + y^3 + 2(0)y + 8 = 0 \\implies y^3 + 8 = 0 \\implies y^3 = -8 \\implies y = -2$$\nSo the curve crosses the $y$-axis at $(0, -2)$.\nWhen $y = 0$:\n$$x^3 + 0^3 + 2x(0) + 8 = 0 \\implies x^3 + 8 = 0 \\implies x^3 = -8 \\implies x = -2$$\nSo the curve crosses the $x$-axis at $(-2, 0)$.",
+        "Evaluate the gradient of the tangent at $(0, -2)$ using the formula from part (a):\n$$m_1 = \\left. \\dfrac{\\mathrm{d}y}{\\mathrm{d}x} \\right|_{(0, -2)} = -\\dfrac{3(0)^2 + 2(-2)}{3(-2)^2 + 2(0)} = -\\dfrac{-4}{3(4)} = -\\dfrac{-4}{12} = \\dfrac{4}{12} = \\dfrac{1}{3}$$",
+        "Evaluate the gradient of the tangent at $(-2, 0)$:\n$$m_2 = \\left. \\dfrac{\\mathrm{d}y}{\\mathrm{d}x} \\right|_{(-2, 0)} = -\\dfrac{3(-2)^2 + 2(0)}{3(0)^2 + 2(-2)} = -\\dfrac{3(4)}{-4} = -\\dfrac{12}{-4} = 3$$",
+        "Use the compound angle formula for the tangent of the angle between two straight lines with gradients $m_1$ and $m_2$:\n$$\\tan\\alpha = \\left| \\dfrac{m_2 - m_1}{1 + m_1 m_2} \\right|$$",
+        "Substitute $m_1 = \\dfrac{1}{3}$ and $m_2 = 3$ into the formula:\n$$m_2 - m_1 = 3 - \\dfrac{1}{3} = \\dfrac{9}{3} - \\dfrac{1}{3} = \\dfrac{8}{3}$$\n$$1 + m_1 m_2 = 1 + \\left(\\dfrac{1}{3}\\right)(3) = 1 + 1 = 2$$\n$$\\tan\\alpha = \\dfrac{8/3}{2} = \\dfrac{8}{3 \\times 2} = \\dfrac{8}{6} = \\dfrac{4}{3}$$",
+        "State the exact value:\n$$\\tan\\alpha = \\dfrac{4}{3}$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      }
+    }
+  ]
+}

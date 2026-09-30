@@ -1,0 +1,110 @@
+{
+  "schema_version": "9709_math_enrichment_v7",
+  "question_id": "9709_m21_52_q6",
+  "difficulty": 4,
+  "parts": [
+    {
+      "part_id": "9709_m21_52_q6_a",
+      "difficulty": 2,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_s1_t_permutations_and_combinations",
+        "lesson_id": "9709_s1_t_permutations_and_combinations_m01_l01"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_arranging_repeated_objects"
+      },
+      "hints": [
+        "Count the total number of letters in CATERPILLAR and list the frequencies of repeated letters.",
+        "Total letters: 11. Repeated letters: A appears 2 times, R appears 2 times, L appears 2 times.",
+        "Use the formula for permutations of $n$ items with repetitions: $\\dfrac{n!}{p! q! r!}$.",
+        "Compute $\\dfrac{11!}{2! \\times 2! \\times 2!}$ to get the exact integer answer."
+      ],
+      "walkthrough": [
+        "Count the total letters and the repeated letters in the word CATERPILLAR:\n$$\\text{Total letters } n = 11$$\n$$\\text{Repeats: } 2\\text{ As}, \\quad 2\\text{ Rs}, \\quad 2\\text{ Ls}$$",
+        "Apply the formula for permutations of items with repetitions:\n$$\\text{Total arrangements} = \\frac{n!}{n_1! n_2! n_3!} = \\frac{11!}{2! \\times 2! \\times 2!}$$",
+        "Evaluate the factorials:\n$$11! = 39916800$$\n$$2! \\times 2! \\times 2! = 2 \\times 2 \\times 2 = 8$$\n$$\\frac{39916800}{8} = 4989600$$"
+      ],
+      "teacher_walkthrough": [
+        "Let us examine the letters in the word CATERPILLAR:\nLetters: C, A, T, E, R, P, I, L, L, A, R\nCount the frequency of each letter:\n- C: 1\n- A: 2\n- T: 1\n- E: 1\n- R: 2\n- P: 1\n- I: 1\n- L: 2\nTotal number of letters is $n = 11$.",
+        "When arranging $n$ items where certain items are identical, we start with $n!$ arrangements and divide by the factorial of the frequency of each identical set to prevent overcounting:\n$$\\text{Arrangements} = \\frac{n!}{p! \\times q! \\times r!}$$",
+        "Substitute $n = 11$, with $p = 2$ for the As, $q = 2$ for the Rs, and $r = 2$ for the Ls:\n$$\\text{Arrangements} = \\frac{11!}{2! \\times 2! \\times 2!}$$",
+        "Evaluate the numerator and denominator:\n$$11! = 11 \\times 10 \\times 9 \\times 8 \\times 7 \\times 6 \\times 5 \\times 4 \\times 3 \\times 2 \\times 1 = 39916800$$\n$$2! \\times 2! \\times 2! = 2 \\times 2 \\times 2 = 8$$",
+        "Divide the numerator by the denominator:\n$$\\frac{39916800}{8} = 4989600$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      }
+    },
+    {
+      "part_id": "9709_m21_52_q6_b",
+      "difficulty": 3,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_s1_t_permutations_and_combinations",
+        "lesson_id": "9709_s1_t_permutations_and_combinations_m03_l04"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_handling_arrangement_restrictions"
+      },
+      "hints": [
+        "Placing an R at the beginning and an R at the end fixes the positions of both Rs, leaving 9 letters to arrange in between: C, T, E, P, I, L, L, and two As.",
+        "Use either the gap method or the subtraction (complement) method to keep the two As apart.",
+        "For the gap method, first arrange the 7 non-A letters (C, T, E, P, I, L, L) in $\\dfrac{7!}{2!}$ ways.",
+        "These 7 letters create 8 spaces (including the ends between the fixed Rs). Choose 2 of these 8 spaces to place the two identical As in $\\binom{8}{2}$ ways, then multiply."
+      ],
+      "walkthrough": [
+        "Fix an R at the beginning and an R at the end, leaving 9 internal positions:\n$$\\text{R } \\underbrace{\\_ \\_ \\_ \\_ \\_ \\_ \\_ \\_ \\_}_{9\\text{ letters}} \\text{ R}$$\nThe 9 letters to arrange between the two Rs are C, T, E, P, I, L, L, A, A.",
+        "Method 1 (gap method): First arrange the 7 letters that are not A (C, T, E, P, I, L, L, which includes 2 identical Ls):\n$$\\text{Ways to arrange non-A letters} = \\frac{7!}{2!} = \\frac{5040}{2} = 2520$$",
+        "These 7 arranged letters create 8 available gaps in which the two As can be placed so they are never together:\n$$\\_ \\text{ L}_1 \\_ \\text{ C } \\_ \\text{ T } \\_ \\text{ E } \\_ \\text{ P } \\_ \\text{ I } \\_ \\text{ L}_2 \\_$$",
+        "Choose 2 of the 8 gaps for the two identical As:\n$$\\binom{8}{2} = \\frac{8 \\times 7}{2} = 28$$",
+        "Multiply the two results to find the total arrangements:\n$$2520 \\times 28 = 70560$$"
+      ],
+      "teacher_walkthrough": [
+        "Step 1: Understand the fixed constraints.\nWe have 11 letters in total, with an R placed at position 1 and an R placed at position 11:\n$$\\text{Position: } \\quad 1 \\quad 2 \\quad 3 \\quad 4 \\quad 5 \\quad 6 \\quad 7 \\quad 8 \\quad 9 \\quad 10 \\quad 11$$\n$$\\text{Letters: } \\quad \\text{R} \\quad - \\quad - \\quad - \\quad - \\quad - \\quad - \\quad - \\quad - \\quad - \\quad \\text{R}$$\nBoth Rs are fixed in place, so there is only $1$ way to place them. This leaves positions 2 through 10 (9 positions) for the remaining 9 letters:\n$$\\{\\text{C, T, E, P, I, L, L, A, A}\\}$$",
+        "Step 2: Apply the gap method to keep the two As separated.\nFirst, arrange the 7 letters that are NOT As: $\\{\\text{C, T, E, P, I, L, L}\\}$.\nAmong these 7 letters, there are 2 identical Ls. Write the permutation formula:\n$$\\text{Ways to arrange non-A letters} = \\frac{7!}{2!}$$\nCalculate the factorial values:\n$$7! = 5040$$\n$$\\frac{7!}{2!} = \\frac{5040}{2} = 2520$$",
+        "Step 3: Count the gaps available for the two As.\nPlacing 7 letters in a row creates 8 possible slots (one before the first letter, six between consecutive letters, and one after the last letter):\n$$\\_ X_1 \\_ X_2 \\_ X_3 \\_ X_4 \\_ X_5 \\_ X_6 \\_ X_7 \\_$$\nPlacing at most one A in any slot guarantees that the two As can never be adjacent.",
+        "Step 4: Choose 2 slots out of 8 for the two identical As.\nBecause the two As are indistinguishable, order does not matter:\n$$\\binom{8}{2} = \\frac{8 \\times 7}{2 \\times 1} = \\frac{56}{2} = 28$$",
+        "Step 5: Multiply the independent choices:\n$$\\text{Total arrangements} = 2520 \\times 28 = 70560$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      }
+    },
+    {
+      "part_id": "9709_m21_52_q6_c",
+      "difficulty": 4,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_s1_t_permutations_and_combinations",
+        "lesson_id": "9709_s1_t_permutations_and_combinations_m04_l02"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_handling_selection_restrictions"
+      },
+      "hints": [
+        "A selection of 6 letters is unordered (combinations). Both Rs are already included, so 4 more letters must be selected.",
+        "The remaining letters available are: up to 2 As, up to 2 Ls, and 5 single letters: C, T, E, P, I.",
+        "The selection must contain at least one A and at least one L. Break this into mutually exclusive cases based on how many As and Ls are chosen.",
+        "Case 1: 1 A, 1 L and 2 others. Case 2: 2 As, 1 L and 1 other. Case 3: 1 A, 2 Ls and 1 other. Case 4: 2 As, 2 Ls and 0 others. Evaluate and sum."
+      ],
+      "walkthrough": [
+        "Identify the fixed requirements and available pool:\n- Total selection size is 6 letters.\n- Both Rs are required, so 2 spots are filled by RR, leaving 4 letters to choose.\n- The available remaining letters are $\\{\\text{A, A, L, L, C, T, E, P, I}\\}$ (2 As, 2 Ls, and 5 distinct single letters).",
+        "The selection must contain at least one A and at least one L. Partition the remaining 4 chosen letters into mutually exclusive cases based on the counts of A and L:\n- Case 1: $1\\text{ A}, 1\\text{ L}$ and 2 letters from $\\{\\text{C, T, E, P, I}\\}$:\n$$\\binom{5}{2} = \\frac{5 \\times 4}{2} = 10$$\n- Case 2: $2\\text{ As}, 1\\text{ L}$ and 1 letter from $\\{\\text{C, T, E, P, I}\\}$:\n$$\\binom{5}{1} = 5$$\n- Case 3: $1\\text{ A}, 2\\text{ Ls}$ and 1 letter from $\\{\\text{C, T, E, P, I}\\}$:\n$$\\binom{5}{1} = 5$$\n- Case 4: $2\\text{ As}, 2\\text{ Ls}$ and 0 letters from $\\{\\text{C, T, E, P, I}\\}$:\n$$\\binom{5}{0} = 1$$",
+        "Sum the selections from all four mutually exclusive cases:\n$$\\text{Total selections} = 10 + 5 + 5 + 1 = 21$$"
+      ],
+      "teacher_walkthrough": [
+        "Step 1: Understand what is already chosen and what remains to be chosen.\nWe must select 6 letters in total from CATERPILLAR.\nThe problem requires both Rs to be included, so 2 of the 6 slots are already fixed:\n$$\\text{Already chosen: } \\{\\text{R, R}\\}$$\nWe need to choose $6 - 2 = 4$ more letters.",
+        "Step 2: Inspect the remaining available pool of letters.\nThe letters remaining after taking out 2 Rs are:\n- A (2 available)\n- L (2 available)\n- Single letters: C, T, E, P, I (5 distinct letters available)",
+        "Step 3: Account for the condition 'at least one A and at least one L'.\nSince we must choose 4 letters containing at least 1 A and at least 1 L, let us list all possible combinations of (number of As, number of Ls):\n- Case 1: Exactly 1 A and 1 L.\nThis uses $1 + 1 = 2$ letters, leaving $4 - 2 = 2$ letters to be chosen from the 5 single letters $\\{\\text{C, T, E, P, I}\\}$:\n$$\\binom{5}{2} = \\frac{5 \\times 4}{2 \\times 1} = 10$$\n- Case 2: Exactly 2 As and 1 L.\nThis uses $2 + 1 = 3$ letters, leaving $4 - 3 = 1$ letter to be chosen from the 5 single letters:\n$$\\binom{5}{1} = 5$$\n- Case 3: Exactly 1 A and 2 Ls.\nThis uses $1 + 2 = 3$ letters, leaving $4 - 3 = 1$ letter to be chosen from the 5 single letters:\n$$\\binom{5}{1} = 5$$\n- Case 4: Exactly 2 As and 2 Ls.\nThis uses $2 + 2 = 4$ letters, leaving 0 letters to be chosen from the 5 single letters:\n$$\\binom{5}{0} = 1$$",
+        "Step 4: Sum the mutually exclusive cases:\n$$\\text{Total selections} = 10 + 5 + 5 + 1 = 21$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      }
+    }
+  ]
+}

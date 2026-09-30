@@ -1,0 +1,77 @@
+{
+  "schema_version": "9709_math_enrichment_v7",
+  "question_id": "9709_s18_63_q5",
+  "difficulty": 3,
+  "parts": [
+    {
+      "part_id": "9709_s18_63_q5_i",
+      "difficulty": 3,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_s1_t_discrete_random_variables",
+        "lesson_id": "9709_s1_t_discrete_random_variables_m01_l01"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_constructing_discrete_probability_distributions"
+      },
+      "hints": [
+        "List the head/tail probabilities for each coin: A has $(0.4, 0.6)$, B has $(0.75, 0.25)$, C has $(0.5, 0.5)$.",
+        "The random variable $X$ is the total number of heads obtained: $X \\in \\{0, 1, 2, 3\\}$.",
+        "Compute $\\mathrm{P}(X = 0)$ from $TTT$, and $\\mathrm{P}(X = 3)$ from $HHH$.",
+        "For $X = 1$, sum the 3 cases $HTT, THT, TTH$. For $X = 2$, sum $HHT, HTH, THH$. Check the sum equals 1."
+      ],
+      "walkthrough": [
+        "Identify the individual probabilities for obtaining a Head ($H$) and Tail ($T$):\n- Coin A: $\\mathrm{P}(H_A) = 0.4, \\quad \\mathrm{P}(T_A) = 0.6$\n- Coin B: $\\mathrm{P}(H_B) = 0.75, \\quad \\mathrm{P}(T_B) = 0.25$\n- Coin C: $\\mathrm{P}(H_C) = 0.5, \\quad \\mathrm{P}(T_C) = 0.5$",
+        "Calculate the probability for each value of $X \\in \\{0, 1, 2, 3\\}$:\n$$\\begin{aligned} \\mathrm{P}(X = 0) &= \\mathrm{P}(TTT) = 0.6 \\times 0.25 \\times 0.5 = 0.075 = \\dfrac{3}{40} \\\\ \\mathrm{P}(X = 1) &= \\mathrm{P}(HTT) + \\mathrm{P}(THT) + \\mathrm{P}(TTH) \\\\ &= (0.4 \\times 0.25 \\times 0.5) + (0.6 \\times 0.75 \\times 0.5) + (0.6 \\times 0.25 \\times 0.5) \\\\ &= 0.05 + 0.225 + 0.075 = 0.35 = \\dfrac{7}{20} \\\\ \\mathrm{P}(X = 2) &= \\mathrm{P}(HHT) + \\mathrm{P}(HTH) + \\mathrm{P}(THH) \\\\ &= (0.4 \\times 0.75 \\times 0.5) + (0.4 \\times 0.25 \\times 0.5) + (0.6 \\times 0.75 \\times 0.5) \\\\ &= 0.15 + 0.05 + 0.225 = 0.425 = \\dfrac{17}{40} \\\\ \\mathrm{P}(X = 3) &= \\mathrm{P}(HHH) = 0.4 \\times 0.75 \\times 0.5 = 0.15 = \\dfrac{3}{20} \\end{aligned}$$",
+        "Verify the probabilities sum to 1:\n$$0.075 + 0.35 + 0.425 + 0.15 = 1.000$$",
+        "Present the probability distribution table:\n$$\\begin{array}{|c|c|c|c|c|} \\hline x & 0 & 1 & 2 & 3 \\\\ \\hline \\mathrm{P}(X=x) & 0.075 & 0.35 & 0.425 & 0.15 \\\\ \\hline \\end{array}$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      },
+      "teacher_walkthrough": [
+        "Three coins A, B, and C are tossed independently. The probabilities of obtaining a Head ($H$) and a Tail ($T$) for each coin are:\n- Coin A: $\\mathrm{P}(H_A) = 0.4$, $\\mathrm{P}(T_A) = 0.6$\n- Coin B: $\\mathrm{P}(H_B) = 0.75$, $\\mathrm{P}(T_B) = 0.25$\n- Coin C: $\\mathrm{P}(H_C) = 0.5$, $\\mathrm{P}(T_C) = 0.5$",
+        "Let $X$ denote the total number of heads obtained across the three coins. $X$ can take any integer value in $\\{0, 1, 2, 3\\}$.",
+        "Step 1: Compute $\\mathrm{P}(X = 0)$ (all three coins show Tails):\n$$\\mathrm{P}(X = 0) = 0.6 \\times 0.25 \\times 0.5 = 0.075 = \\frac{3}{40}$$",
+        "Step 2: Compute $\\mathrm{P}(X = 1)$ (exactly one Head):\nThere are three disjoint sequences:\n- $HTT$: $0.4 \\times 0.25 \\times 0.5 = 0.05$\n- $THT$: $0.6 \\times 0.75 \\times 0.5 = 0.225$\n- $TTH$: $0.6 \\times 0.25 \\times 0.5 = 0.075$\nSum: $0.05 + 0.225 + 0.075 = 0.35 = \\frac{7}{20}$",
+        "Step 3: Compute $\\mathrm{P}(X = 2)$ (exactly two Heads):\nThere are three disjoint sequences:\n- $HHT$: $0.4 \\times 0.75 \\times 0.5 = 0.15$\n- $HTH$: $0.4 \\times 0.25 \\times 0.5 = 0.05$\n- $THH$: $0.6 \\times 0.75 \\times 0.5 = 0.225$\nSum: $0.15 + 0.05 + 0.225 = 0.425 = \\frac{17}{40}$",
+        "Step 4: Compute $\\mathrm{P}(X = 3)$ (all three coins show Heads):\n$$\\mathrm{P}(X = 3) = 0.4 \\times 0.75 \\times 0.5 = 0.15 = \\frac{3}{20}$$",
+        "Step 5: Check total probability:\n$$0.075 + 0.35 + 0.425 + 0.15 = 1.000$$",
+        "Step 6: Present the completed table:\n$$\\begin{array}{|c|c|c|c|c|} \\hline x & 0 & 1 & 2 & 3 \\\\ \\hline \\mathrm{P}(X=x) & 0.075 & 0.35 & 0.425 & 0.15 \\\\ \\hline \\end{array}$$"
+      ]
+    },
+    {
+      "part_id": "9709_s18_63_q5_ii",
+      "difficulty": 2,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_s1_t_discrete_random_variables",
+        "lesson_id": "9709_s1_t_discrete_random_variables_m02_l02"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_calculating_expected_value"
+      },
+      "hints": [
+        "Calculate the mean using $\\mathrm{E}(X) = \\sum x \\mathrm{P}(X = x) = 0(0.075) + 1(0.35) + 2(0.425) + 3(0.15)$.",
+        "Calculate the second moment $\\mathrm{E}(X^2) = \\sum x^2 \\mathrm{P}(X = x) = 0^2(0.075) + 1^2(0.35) + 2^2(0.425) + 3^2(0.15)$.",
+        "Calculate the variance using $\\operatorname{Var}(X) = \\mathrm{E}(X^2) - [\\mathrm{E}(X)]^2$."
+      ],
+      "walkthrough": [
+        "Compute the mean $\\mathrm{E}(X) = \\sum x \\mathrm{P}(X = x)$:\n$$\\begin{aligned} \\mathrm{E}(X) &= 0(0.075) + 1(0.35) + 2(0.425) + 3(0.15) \\\\ &= 0 + 0.35 + 0.85 + 0.45 = 1.65 = \\dfrac{33}{20} \\end{aligned}$$",
+        "Compute the second moment $\\mathrm{E}(X^2) = \\sum x^2 \\mathrm{P}(X = x)$:\n$$\\begin{aligned} \\mathrm{E}(X^2) &= 0^2(0.075) + 1^2(0.35) + 2^2(0.425) + 3^2(0.15) \\\\ &= 0 + 0.35 + 4(0.425) + 9(0.15) \\\\ &= 0.35 + 1.70 + 1.35 = 3.40 \\end{aligned}$$",
+        "Calculate the variance $\\operatorname{Var}(X) = \\mathrm{E}(X^2) - [\\mathrm{E}(X)]^2$:\n$$\\begin{aligned} \\operatorname{Var}(X) &= 3.40 - (1.65)^2 \\\\ &= 3.40 - 2.7225 = 0.6775 = \\dfrac{271}{400} \\approx 0.678 \\end{aligned}$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      },
+      "teacher_walkthrough": [
+        "Using the probability distribution table for $X$ from part (i), we find the expected value and variance.",
+        "Step 1: Calculate the mean $\\mathrm{E}(X)$:\n$$\\mathrm{E}(X) = \\sum x \\mathrm{P}(X = x)$$\n$$\\mathrm{E}(X) = 0(0.075) + 1(0.35) + 2(0.425) + 3(0.15)$$\nMultiply each pair:\n- $0 \\times 0.075 = 0$\n- $1 \\times 0.35 = 0.35$\n- $2 \\times 0.425 = 0.85$\n- $3 \\times 0.15 = 0.45$\nSum: $\\mathrm{E}(X) = 0 + 0.35 + 0.85 + 0.45 = 1.65$ (or $\\frac{33}{20}$).",
+        "Step 2: Calculate $\\mathrm{E}(X^2)$:\n$$\\mathrm{E}(X^2) = \\sum x^2 \\mathrm{P}(X = x)$$\n$$\\mathrm{E}(X^2) = 0^2(0.075) + 1^2(0.35) + 2^2(0.425) + 3^2(0.15)$$\n- $0 \\times 0.075 = 0$\n- $1 \\times 0.35 = 0.35$\n- $4 \\times 0.425 = 1.70$\n- $9 \\times 0.15 = 1.35$\nSum: $\\mathrm{E}(X^2) = 0 + 0.35 + 1.70 + 1.35 = 3.40$.",
+        "Step 3: Calculate the variance:\n$$\\operatorname{Var}(X) = \\mathrm{E}(X^2) - [\\mathrm{E}(X)]^2$$\n$$\\operatorname{Var}(X) = 3.40 - (1.65)^2 = 3.40 - 2.7225 = 0.6775$$\nAs a simplified fraction, $0.6775 = \\frac{271}{400}$, and to 3 significant figures it is $0.678$."
+      ]
+    }
+  ]
+}

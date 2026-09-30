@@ -1,0 +1,42 @@
+{
+  "schema_version": "9709_math_enrichment_v7",
+  "question_id": "9709_w16_61_q2",
+  "difficulty": 3,
+  "parts": [
+    {
+      "part_id": "9709_w16_61_q2",
+      "difficulty": 3,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_s1_t_discrete_random_variables",
+        "lesson_id": "9709_s1_t_discrete_random_variables_m02_l01"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_calculating_expected_value"
+      },
+      "hints": [
+        "Identify the sample space of throwing two fair dice, which contains $6 \\times 6 = 36$ equally likely outcomes.",
+        "List all possible values for the non-negative difference $D$: $0, 1, 2, 3, 4, 5$.",
+        "Count the number of pairs yielding each difference and find the corresponding probabilities.",
+        "Apply the formula $\\mathrm{E}(D) = \\sum d \\,\\mathrm{P}(D = d)$ to compute the expectation."
+      ],
+      "walkthrough": [
+        "Determine the total number of equally likely outcomes when two fair dice are thrown:\n$$\\text{Total outcomes} = 6 \\times 6 = 36$$",
+        "Find the probabilities for each possible difference $D \\in \\{0, 1, 2, 3, 4, 5\\}$:\n- $D = 0$ (equal scores): $(1,1), (2,2), (3,3), (4,4), (5,5), (6,6) \\implies \\mathrm{P}(D = 0) = \\frac{6}{36}$\n- $D = 1$: 5 pairs and reverses $\\implies \\mathrm{P}(D = 1) = \\frac{10}{36}$\n- $D = 2$: 4 pairs and reverses $\\implies \\mathrm{P}(D = 2) = \\frac{8}{36}$\n- $D = 3$: 3 pairs and reverses $\\implies \\mathrm{P}(D = 3) = \\frac{6}{36}$\n- $D = 4$: 2 pairs and reverses $\\implies \\mathrm{P}(D = 4) = \\frac{4}{36}$\n- $D = 5$: 1 pair and reverse $\\implies \\mathrm{P}(D = 5) = \\frac{2}{36}$",
+        "Form the probability distribution table:\n$$\\begin{array}{|c|c|c|c|c|c|c|}\n\\hline\nd & 0 & 1 & 2 & 3 & 4 & 5 \\\\\n\\hline\n\\mathrm{P}(D = d) & \\frac{6}{36} & \\frac{10}{36} & \\frac{8}{36} & \\frac{6}{36} & \\frac{4}{36} & \\frac{2}{36} \\\\\n\\hline\n\\end{array}$$",
+        "Calculate the expected value $\\mathrm{E}(D) = \\sum d \\,\\mathrm{P}(D = d)$:\n$$\\mathrm{E}(D) = 0\\left(\\dfrac{6}{36}\\right) + 1\\left(\\dfrac{10}{36}\\right) + 2\\left(\\dfrac{8}{36}\\right) + 3\\left(\\dfrac{6}{36}\\right) + 4\\left(\\dfrac{4}{36}\\right) + 5\\left(\\dfrac{2}{36}\\right)$$\n$$\\mathrm{E}(D) = \\dfrac{0 + 10 + 16 + 18 + 16 + 10}{36} = \\dfrac{70}{36} = \\dfrac{35}{18} \\approx 1.94$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      },
+      "teacher_walkthrough": [
+        "When two fair dice are thrown, each outcome is a pair $(d_1, d_2)$ where each die can show numbers from 1 to 6. The total number of equally likely outcomes is:\n$$\\text{Total outcomes} = 6 \\times 6 = 36$$",
+        "Let $D = |d_1 - d_2|$ be the difference between the two scores. Determine all possible values of $D$ and their frequencies:\n- Difference 0: Both dice show the same number:\n  $$(1,1), (2,2), (3,3), (4,4), (5,5), (6,6)$$\n  There are 6 pairs, so $\\mathrm{P}(D = 0) = \\frac{6}{36}$.\n- Difference 1: Pairs with difference 1 are $(1,2), (2,3), (3,4), (4,5), (5,6)$ and their reverses:\n  $$5 \\times 2 = 10 \\text{ pairs} \\implies \\mathrm{P}(D = 1) = \\frac{10}{36}$$\n- Difference 2: Pairs are $(1,3), (2,4), (3,5), (4,6)$ and reverses:\n  $$4 \\times 2 = 8 \\text{ pairs} \\implies \\mathrm{P}(D = 2) = \\frac{8}{36}$$\n- Difference 3: Pairs are $(1,4), (2,5), (3,6)$ and reverses:\n  $$3 \\times 2 = 6 \\text{ pairs} \\implies \\mathrm{P}(D = 3) = \\frac{6}{36}$$\n- Difference 4: Pairs are $(1,5), (2,6)$ and reverses:\n  $$2 \\times 2 = 4 \\text{ pairs} \\implies \\mathrm{P}(D = 4) = \\frac{4}{36}$$\n- Difference 5: Pair is $(1,6)$ and reverse $(6,1)$:\n  $$1 \\times 2 = 2 \\text{ pairs} \\implies \\mathrm{P}(D = 5) = \\frac{2}{36}$$",
+        "Verify that the sum of the probabilities is 1:\n$$\\frac{6 + 10 + 8 + 6 + 4 + 2}{36} = \\frac{36}{36} = 1$$",
+        "Now apply the formula for the expectation of a discrete random variable:\n$$\\mathrm{E}(D) = \\sum d \\,\\mathrm{P}(D = d)$$\nSubstitute the values from our distribution:\n$$\\mathrm{E}(D) = \\left(0 \\times \\frac{6}{36}\\right) + \\left(1 \\times \\frac{10}{36}\\right) + \\left(2 \\times \\frac{8}{36}\\right) + \\left(3 \\times \\frac{6}{36}\\right) + \\left(4 \\times \\frac{4}{36}\\right) + \\left(5 \\times \\frac{2}{36}\\right)$$",
+        "Multiply out each term:\n$$\\mathrm{E}(D) = \\frac{0 + 10 + 16 + 18 + 16 + 10}{36} = \\frac{70}{36}$$\nSimplify by dividing the numerator and denominator by 2:\n$$\\mathrm{E}(D) = \\frac{35}{18} \\approx 1.944\\dots$$\nRounded to 3 significant figures, the expected difference is $1.94$."
+      ]
+    }
+  ]
+}

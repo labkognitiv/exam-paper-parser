@@ -1,0 +1,70 @@
+{
+  "schema_version": "9709_math_enrichment_v7",
+  "question_id": "9709_w22_51_q2",
+  "difficulty": 3,
+  "parts": [
+    {
+      "part_id": "9709_w22_51_q2_a",
+      "difficulty": 3,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_s1_t_discrete_random_variables",
+        "lesson_id": "9709_s1_t_discrete_random_variables_m03_l02"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_calculating_binomial_probabilities"
+      },
+      "hints": [
+        "Find the combined probability of rating poor or satisfactory: $p = 0.12 + 0.36 = 0.48$.",
+        "Let $X \\sim \\mathrm{B}(8, 0.48)$. 'More than 2 and fewer than 8' means $3 \\le X \\le 7$.",
+        "Evaluate using the complement: $1 - [\\mathrm{P}(X=0) + \\mathrm{P}(X=1) + \\mathrm{P}(X=2) + \\mathrm{P}(X=8)]$."
+      ],
+      "walkthrough": [
+        "Determine the single-resident success probability for rating poor or satisfactory:\n$$p = 0.12 + 0.36 = 0.48, \\quad q = 1 - 0.48 = 0.52$$",
+        "Define the binomial model for $n = 8$ randomly selected residents:\n$$X \\sim \\mathrm{B}(8, 0.48)$$",
+        "Express 'more than 2 and fewer than 8' ($3 \\le X \\le 7$) via the complement rule:\n$$\\mathrm{P}(3 \\le X \\le 7) = 1 - [\\mathrm{P}(X = 0) + \\mathrm{P}(X = 1) + \\mathrm{P}(X = 2) + \\mathrm{P}(X = 8)]$$",
+        "Compute each excluded binomial probability:\n$$\\mathrm{P}(X = 0) = (0.52)^8 \\approx 0.005346$$\n$$\\mathrm{P}(X = 1) = \\binom{8}{1}(0.48)^1(0.52)^7 = 8(0.48)(0.010281) \\approx 0.039478$$\n$$\\mathrm{P}(X = 2) = \\binom{8}{2}(0.48)^2(0.52)^6 = 28(0.2304)(0.019771) \\approx 0.127546$$\n$$\\mathrm{P}(X = 8) = (0.48)^8 \\approx 0.002818$$",
+        "Sum the excluded probabilities and subtract from $1$:\n$$\\text{Sum} = 0.005346 + 0.039478 + 0.127546 + 0.002818 = 0.175188$$\n$$\\mathrm{P}(3 \\le X \\le 7) = 1 - 0.175188 = 0.824812 \\approx 0.825$$"
+      ],
+      "teacher_walkthrough": [
+        "Step 1: Combine the categories.\nThe survey gives:\n- Poor: $12\\%$\n- Satisfactory: $36\\%$\n- Good: $52\\%$\nThe event of interest is rating the service as 'poor or satisfactory':\n$$p = 0.12 + 0.36 = 0.48$$\n$$q = 1 - 0.48 = 0.52$$\n\nStep 2: Define the distribution.\nFor a random sample of $n = 8$ residents, let $X$ be the number rating poor or satisfactory:\n$$X \\sim \\mathrm{B}(8, 0.48)$$\n\nStep 3: Identify the required interval.\n'More than 2 and fewer than 8' means:\n$$2 < X < 8 \\iff 3 \\le X \\le 7$$\n\nStep 4: Use the complement rule.\nThe possible values of $X$ are $0, 1, 2, \\dots, 8$.\nThe values NOT in the interval are $0, 1, 2$, and $8$:\n$$\\mathrm{P}(3 \\le X \\le 7) = 1 - [\\mathrm{P}(X = 0) + \\mathrm{P}(X = 1) + \\mathrm{P}(X = 2) + \\mathrm{P}(X = 8)]$$\n\nStep 5: Calculate individual probabilities.\n- $\\mathrm{P}(X = 0) = \\binom{8}{0}(0.48)^0(0.52)^8 = 0.52^8 \\approx 0.005346$\n- $\\mathrm{P}(X = 1) = \\binom{8}{1}(0.48)^1(0.52)^7 = 8 \\times 0.48 \\times 0.010281 \\approx 0.039478$\n- $\\mathrm{P}(X = 2) = \\binom{8}{2}(0.48)^2(0.52)^6 = 28 \\times 0.2304 \\times 0.019771 \\approx 0.127546$\n- $\\mathrm{P}(X = 8) = \\binom{8}{8}(0.48)^8(0.52)^0 = 0.48^8 \\approx 0.002818$\n\nStep 6: Combine and conclude.\n$$\\text{Excluded sum} = 0.005346 + 0.039478 + 0.127546 + 0.002818 = 0.175188$$\n$$\\mathrm{P}(3 \\le X \\le 7) = 1 - 0.175188 = 0.824812$$\nRounding to 3 significant figures gives $0.825$."
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      }
+    },
+    {
+      "part_id": "9709_w22_51_q2_b",
+      "difficulty": 4,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_s1_t_the_normal_distribution",
+        "lesson_id": "9709_s1_t_the_normal_distribution_m03_l01"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_applying_a_normal_approximation"
+      },
+      "hints": [
+        "State the parameters of the binomial distribution: $n = 125$, $p = 0.52$.",
+        "Calculate the mean $\\mu = np = 65$ and variance $\\sigma^2 = np(1-p) = 31.2$.",
+        "Apply continuity correction to the strict inequality $X > 72$: on the continuous scale this becomes $Y > 72.5$.",
+        "Standardize $z = \\frac{72.5 - 65}{\\sqrt{31.2}}$ and find the upper tail probability $1 - \\Phi(z)$."
+      ],
+      "walkthrough": [
+        "Model the count of residents rating the service as good as $X \\sim \\mathrm{B}(125, 0.52)$.",
+        "Calculate the parameters for the approximating normal distribution $Y \\sim \\mathrm{N}(\\mu, \\sigma^2)$:\n$$\\mu = np = 125 \\times 0.52 = 65$$\n$$\\sigma^2 = np(1 - p) = 125 \\times 0.52 \\times 0.48 = 31.2$$\n$$\\sigma = \\sqrt{31.2} \\approx 5.5857$$",
+        "Apply continuity correction to $X > 72$ ($X \\ge 73$):\n$$\\mathrm{P}(X > 72) \\approx \\mathrm{P}(Y > 72.5)$$",
+        "Standardize the continuous boundary $72.5$:\n$$z = \\frac{72.5 - 65}{\\sqrt{31.2}} = \\frac{7.5}{5.5857} \\approx 1.343$$",
+        "Evaluate the upper tail area using standard normal tables:\n$$\\mathrm{P}(Y > 72.5) = 1 - \\Phi(1.343) = 1 - 0.9104 = 0.0896$$"
+      ],
+      "teacher_walkthrough": [
+        "Step 1: Formulate the binomial distribution.\nLet $X$ denote the number of residents in a sample of $125$ who rate the service as 'good':\n$$X \\sim \\mathrm{B}(125, 0.52)$$\n\nStep 2: Check conditions for a normal approximation.\n- $np = 125 \\times 0.52 = 65 > 5$\n- $nq = 125 \\times 0.48 = 60 > 5$\nBoth conditions are satisfied, so a normal approximation is appropriate.\n\nStep 3: Calculate mean and variance.\n$$\\mu = np = 65$$\n$$\\sigma^2 = np(1 - p) = 65 \\times 0.48 = 31.2$$\n$$\\sigma = \\sqrt{31.2} \\approx 5.585696$$\n\nStep 4: Apply continuity correction.\nWe require the probability that more than 72 residents rate the service as good:\n$$\\mathrm{P}(X > 72) = \\mathrm{P}(X \\ge 73)$$\nWhen converting the integer threshold $73$ to a continuous normal variable $Y$, the interval $[73, \\infty)$ begins at $72.5$:\n$$\\mathrm{P}(X > 72) \\approx \\mathrm{P}(Y > 72.5)$$\n\nStep 5: Standardize.\n$$z = \\frac{72.5 - 65}{\\sqrt{31.2}} = \\frac{7.5}{5.585696} \\approx 1.3427$$\nRounding to 3 decimal places gives $z = 1.343$.\n\nStep 6: Compute the probability.\n$$\\mathrm{P}(Y > 72.5) = 1 - \\Phi(1.343)$$\nFrom normal distribution tables:\n$$\\Phi(1.34) = 0.9099$$\nWith add-difference of $3$ ($5$), $\\Phi(1.343) = 0.9104$.\n$$1 - 0.9104 = 0.0896$$\nRounding to 3 significant figures gives $0.0896$."
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      }
+    }
+  ]
+}

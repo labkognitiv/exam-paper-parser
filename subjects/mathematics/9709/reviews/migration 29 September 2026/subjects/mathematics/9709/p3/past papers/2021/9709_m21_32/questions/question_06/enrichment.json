@@ -1,0 +1,65 @@
+{
+  "schema_version": "9709_math_enrichment_v7",
+  "question_id": "9709_m21_32_q6",
+  "difficulty": 3,
+  "parts": [
+    {
+      "part_id": "9709_m21_32_q6_a",
+      "difficulty": 2,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_p3_t_logarithmic_and_exponential_functions",
+        "lesson_id": "9709_p3_t_logarithmic_and_exponential_functions_m02_l02"
+      },
+      "skills": {
+        "primary_skill_id": "9709_p3_skill_partial_fractions"
+      },
+      "hints": [
+        "Decompose the rational function using one constant numerator over each distinct linear factor.",
+        "Write $\\dfrac{5a}{(2x-a)(3a-x)}=\\dfrac{A}{2x-a}+\\dfrac{B}{3a-x}$ and clear the denominator.",
+        "Choose convenient values such as $x=a/2$ and $x=3a$ to determine $A$ and $B$, then verify the reconstructed numerator."
+      ],
+      "walkthrough": [
+        "Set up the partial fraction decomposition for two distinct linear factors:\n$$\\dfrac{5a}{(2x - a)(3a - x)} = \\dfrac{A}{2x - a} + \\dfrac{B}{3a - x}$$",
+        "Multiply both sides by $(2x - a)(3a - x)$ to form the polynomial identity:\n$$5a = A(3a - x) + B(2x - a)$$",
+        "Determine $A$ by substituting $x = \\dfrac{a}{2}$ (the value that makes $2x - a = 0$):\n$$5a = A\\left(3a - \\dfrac{a}{2}\\right) + B(0)$$\n$$5a = A\\left(\\dfrac{5a}{2}\\right)$$\nDivide both sides by $a$ ($a > 0$):\n$$5 = \\dfrac{5}{2}A \\implies A = 5 \\times \\dfrac{2}{5} = 2$$",
+        "Determine $B$ by substituting $x = 3a$ (the value that makes $3a - x = 0$):\n$$5a = A(0) + B(2(3a) - a)$$\n$$5a = B(6a - a)$$\n$$5a = 5aB \\implies B = \\dfrac{5a}{5a} = 1$$",
+        "Write the final partial fraction expression:\n$$f(x) = \\dfrac{2}{2x - a} + \\dfrac{1}{3a - x}$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      }
+    },
+    {
+      "part_id": "9709_m21_32_q6_b",
+      "difficulty": 3,
+      "practice_tier": "revision",
+      "mapping": {
+        "topic_id": "9709_p3_t_logarithmic_and_exponential_functions",
+        "lesson_id": "9709_p3_t_logarithmic_and_exponential_functions_m02_l02"
+      },
+      "skills": {
+        "primary_skill_id": "9709_p3_skill_integration"
+      },
+      "hints": [
+        "Integrate the partial fractions from part (a), accounting for the derivatives of both linear denominators.",
+        "An antiderivative is $\\ln(2x-a)-\\ln(3a-x)$; keep the minus sign caused by differentiating $3a-x$.",
+        "Evaluate this expression at $x=2a$ and $x=a$, then combine the logarithms as a single logarithm.",
+        "Use $a>0$ to simplify the logarithmic ratios and show that all factors of $a$ cancel."
+      ],
+      "walkthrough": [
+        "Substitute the partial fractions from part (a) into the definite integral:\n$$\\int_a^{2a} f(x)\\,\\mathrm{d}x = \\int_a^{2a} \\left(\\dfrac{2}{2x - a} + \\dfrac{1}{3a - x}\\right)\\,\\mathrm{d}x$$",
+        "Integrate each partial fraction with respect to $x$:\n- For $\\int \\dfrac{2}{2x - a}\\,\\mathrm{d}x$: the numerator $2$ is the derivative of the denominator $(2x - a)$, giving $\\ln|2x - a|$.\n- For $\\int \\dfrac{1}{3a - x}\\,\\mathrm{d}x$: the derivative of $(3a - x)$ is $-1$, giving $-\\ln|3a - x|$.\nThus the antiderivative is:\n$$\\left[\\ln|2x - a| - \\ln|3a - x|\\right]_a^{2a} = \\left[\\ln\\left|\\dfrac{2x - a}{3a - x}\\right|\\right]_a^{2a}$$",
+        "Evaluate at the upper limit $x = 2a$:\n$$\\ln|2(2a) - a| - \\ln|3a - 2a| = \\ln(3a) - \\ln(a) = \\ln\\left(\\dfrac{3a}{a}\\right) = \\ln 3$$",
+        "Evaluate at the lower limit $x = a$:\n$$\\ln|2(a) - a| - \\ln|3a - a| = \\ln(a) - \\ln(2a) = \\ln\\left(\\dfrac{a}{2a}\\right) = \\ln\\left(\\dfrac{1}{2}\\right) = -\\ln 2$$",
+        "Subtract the lower limit value from the upper limit value:\n$$\\int_a^{2a} f(x)\\,\\mathrm{d}x = [\\ln 3] - [-\\ln 2] = \\ln 3 + \\ln 2$$",
+        "Apply the logarithm product law $\\ln A + \\ln B = \\ln(AB)$:\n$$\\ln 3 + \\ln 2 = \\ln(3 \\times 2) = \\ln 6$$\nThis completes the proof."
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      }
+    }
+  ]
+}

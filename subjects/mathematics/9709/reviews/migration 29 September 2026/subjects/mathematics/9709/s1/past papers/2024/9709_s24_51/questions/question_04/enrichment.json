@@ -1,0 +1,106 @@
+{
+  "schema_version": "9709_math_enrichment_v7",
+  "question_id": "9709_s24_51_q4",
+  "difficulty": 3,
+  "parts": [
+    {
+      "part_id": "9709_s24_51_q4_a",
+      "difficulty": 2,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_s1_t_probability",
+        "lesson_id": "9709_s1_t_probability_m01_l01"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_using_complementary_events"
+      },
+      "hints": [
+        "A player obtains a 4 if they roll a 4 on throw 1, 2, or 3.",
+        "Use the complement rule: the complement of obtaining at least one 4 in up to 3 throws is rolling a non-4 on all three throws.",
+        "On each throw of a fair 4-sided die, P(not 4) = 3/4.",
+        "Compute 1 - (3/4)^3 = 1 - 27/64 = 37/64."
+      ],
+      "walkthrough": [
+        "Use the complement rule: a player scores if they do not fail to roll a $4$ on all $3$ throws:\n$$P(\\text{no } 4 \\text{ on one throw}) = 1 - \\frac{1}{4} = \\frac{3}{4}$$",
+        "Calculate the probability of obtaining no $4$ on three successive throws and subtract from $1$:\n$$P(\\text{obtains a } 4) = 1 - \\left(\\frac{3}{4}\\right)^3 = 1 - \\frac{27}{64} = \\frac{37}{64}$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      },
+      "teacher_walkthrough": [
+        "Step 1: Understand the structure of one turn:\nA turn consists of repeatedly throwing a fair 4-sided die until a $4$ is obtained, up to a maximum of $3$ throws.\nA player obtains a $4$ if they roll a $4$ on the 1st throw, or 2nd throw, or 3rd throw.",
+        "Step 2: Apply the complement strategy:\nThe complement event is rolling no $4$ on all $3$ throws:\n$$P(\\text{obtains a } 4) = 1 - P(\\text{no } 4 \\text{ in } 3 \\text{ throws})$$",
+        "Step 3: Calculate the probability of no 4 on any single throw:\nSince the die has faces $1,2,3,4$:\n$$P(\\text{not } 4) = \\frac{3}{4}$$",
+        "Step 4: Evaluate the probability of three consecutive non-4s:\nBecause throws are independent:\n$$P(\\text{no } 4 \\text{ in } 3 \\text{ throws}) = \\left(\\frac{3}{4}\\right)^3 = \\frac{27}{64}$$",
+        "Step 5: Subtract from 1 to complete the proof:\n$$P(\\text{obtains a } 4) = 1 - \\frac{27}{64} = \\frac{64 - 27}{64} = \\frac{37}{64}$$\n(This shows the required value exactly)."
+      ]
+    },
+    {
+      "part_id": "9709_s24_51_q4_b",
+      "difficulty": 1,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_s1_t_probability",
+        "lesson_id": "9709_s1_t_probability_m02_l02"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_applying_the_multiplication_rule"
+      },
+      "hints": [
+        "Find the probability that a player scores 0 points in one turn: 1 - 37/64 = 27/64.",
+        "Neither player scoring in their first two turns means 4 independent turns with zero points.",
+        "Multiply the failure probabilities: (27/64)^4 = 0.0317."
+      ],
+      "walkthrough": [
+        "Find the probability that a player scores no points in a single turn:\n$$P(\\text{no points in one turn}) = 1 - \\frac{37}{64} = \\frac{27}{64}$$",
+        "Compute the probability that neither player scores across four total independent turns (two for Xeno and two for Yao):\n$$P = \\left(\\frac{27}{64}\\right)^4 = \\frac{531441}{16777216} \\approx 0.031676 \\approx 0.0317$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      },
+      "teacher_walkthrough": [
+        "Step 1: Determine the probability of scoring 0 points in a single turn:\nFrom part (a), the probability of scoring 1 point in one turn is $p = \\frac{37}{64}$.\nTherefore, the probability of scoring 0 points in one turn is the complement:\n$$q = 1 - p = 1 - \\frac{37}{64} = \\frac{27}{64}$$",
+        "Step 2: Identify the total number of turns:\nXeno has $2$ turns and Yao has $2$ turns, giving a total of $2+2=4$ turns.",
+        "Step 3: Apply the multiplication rule for independent events:\nSince all turns are independent, the probability that no player scores in any of these $4$ turns is:\n$$P = q^4 = \\left(\\frac{27}{64}\\right)^4$$",
+        "Step 4: Evaluate the numerical power:\n$$\\left(\\frac{27}{64}\\right)^4 = \\frac{27^4}{64^4} = \\frac{531441}{16777216} \\approx 0.031676... \\approx 0.0317$$\n(To 3 significant figures)."
+      ]
+    },
+    {
+      "part_id": "9709_s24_51_q4_c",
+      "difficulty": 3,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_s1_t_discrete_random_variables",
+        "lesson_id": "9709_s1_t_discrete_random_variables_m03_l01"
+      },
+      "skills": {
+        "primary_skill_id": "9709_s1_skill_calculating_exact_binomial_probabilities"
+      },
+      "hints": [
+        "Each player has 3 turns, so their total score follows B(3, 37/64).",
+        "For Xeno to score 2 more points than Yao, list all possible score pairs (Xeno, Yao): (3, 1) and (2, 0).",
+        "Calculate P(Xeno = 3 and Yao = 1) = [p^3] * [3 * p * q^2].",
+        "Calculate P(Xeno = 2 and Yao = 0) = [3 * p^2 * q] * [q^3].",
+        "Add the two mutually exclusive probabilities to find the total: 0.059645 + 0.031760 = 0.0914."
+      ],
+      "walkthrough": [
+        "Let $X$ and $Y$ be the scores of Xeno and Yao, where $X,Y \\sim \\operatorname{B}(3, p)$ independently with $p = \\frac{37}{64}$ and $q = \\frac{27}{64}$:\n$$\\text{Condition: } X - Y = 2 \\implies (X = 3, Y = 1) \\quad \\text{or} \\quad (X = 2, Y = 0)$$",
+        "Calculate the probability for each mutually exclusive case:\n- Case 1: $X = 3, Y = 1$:\n$$P(X = 3) = p^3 = \\left(\\frac{37}{64}\\right)^3$$\n$$P(Y = 1) = \\binom{3}{1} p^1 q^2 = 3 \\left(\\frac{37}{64}\\right) \\left(\\frac{27}{64}\\right)^2$$\n$$P(\\text{Case 1}) = \\left(\\frac{37}{64}\\right)^3 \\times 3 \\left(\\frac{37}{64}\\right) \\left(\\frac{27}{64}\\right)^2 = 3 \\times \\left(\\frac{37}{64}\\right)^4 \\left(\\frac{27}{64}\\right)^2 \\approx 0.059645$$\n- Case 2: $X = 2, Y = 0$:\n$$P(X = 2) = \\binom{3}{2} p^2 q = 3 \\left(\\frac{37}{64}\\right)^2 \\left(\\frac{27}{64}\\right)$$\n$$P(Y = 0) = q^3 = \\left(\\frac{27}{64}\\right)^3$$\n$$P(\\text{Case 2}) = 3 \\left(\\frac{37}{64}\\right)^2 \\left(\\frac{27}{64}\\right) \\times \\left(\\frac{27}{64}\\right)^3 = 3 \\times \\left(\\frac{37}{64}\\right)^2 \\left(\\frac{27}{64}\\right)^4 \\approx 0.031760$$",
+        "Sum the two probabilities:\n$$P(X - Y = 2) = 0.059645 + 0.031760 = 0.091405 \\approx 0.0914$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      },
+      "teacher_walkthrough": [
+        "Step 1: Model the scores as Binomial random variables:\nIn $n = 3$ independent turns, each turn yields 1 point with probability $p = \\frac{37}{64}$ and 0 points with probability $q = 1 - p = \\frac{27}{64}$.\nLet $X$ be Xeno score and $Y$ be Yao score:\n$$X \\sim \\operatorname{B}\\left(3, \\frac{37}{64}\\right), \\quad Y \\sim \\operatorname{B}\\left(3, \\frac{37}{64}\\right)$$",
+        "Step 2: Identify all possible score pairs where Xeno scores 2 more than Yao:\nWe require $X - Y = 2$ where $X,Y \\in \\{0, 1, 2, 3\\}$:\n1. $X=3$ and $Y=1$\n2. $X=2$ and $Y=0$\n(No other pairs are possible since the maximum score is $3$).",
+        "Step 3: Evaluate Case 1 (X = 3, Y = 1):\n$$P(X = 3) = \\binom{3}{3} p^3 q^0 = p^3 = \\left(\\frac{37}{64}\\right)^3$$\n$$P(Y = 1) = \\binom{3}{1} p^1 q^2 = 3 p q^2 = 3 \\left(\\frac{37}{64}\\right) \\left(\\frac{27}{64}\\right)^2$$\nSince $X$ and $Y$ are independent:\n$$P(X = 3 \\cap Y = 1) = \\left(\\frac{37}{64}\\right)^3 \\times 3 \\left(\\frac{37}{64}\\right) \\left(\\frac{27}{64}\\right)^2 = 3 \\left(\\frac{37}{64}\\right)^4 \\left(\\frac{27}{64}\\right)^2$$\n$$P(X = 3 \\cap Y = 1) \\approx 0.059645$$",
+        "Step 4: Evaluate Case 2 (X = 2, Y = 0):\n$$P(X = 2) = \\binom{3}{2} p^2 q^1 = 3 p^2 q = 3 \\left(\\frac{37}{64}\\right)^2 \\left(\\frac{27}{64}\\right)$$\n$$P(Y = 0) = \\binom{3}{0} p^0 q^3 = q^3 = \\left(\\frac{27}{64}\\right)^3$$\n$$P(X = 2 \\cap Y = 0) = 3 \\left(\\frac{37}{64}\\right)^2 \\left(\\frac{27}{64}\\right) \\times \\left(\\frac{27}{64}\\right)^3 = 3 \\left(\\frac{37}{64}\\right)^2 \\left(\\frac{27}{64}\\right)^4$$\n$$P(X = 2 \\cap Y = 0) \\approx 0.031760$$",
+        "Step 5: Add the two mutually exclusive probabilities:\n$$P(X - Y = 2) = 0.059645 + 0.031760 = 0.091405 \\approx 0.0914$$"
+      ]
+    }
+  ]
+}

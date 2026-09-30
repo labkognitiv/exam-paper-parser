@@ -1,0 +1,61 @@
+{
+  "schema_version": "9709_math_enrichment_v7",
+  "question_id": "9709_w17_32_q1",
+  "difficulty": 1,
+  "parts": [
+    {
+      "part_id": "9709_w17_32_q1_i",
+      "difficulty": 1,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_p3_t_integration",
+        "lesson_id": "9709_p3_t_integration_m05_l02"
+      },
+      "skills": {
+        "primary_skill_id": "9709_p3_skill_numerical_integration"
+      },
+      "hints": [
+        "Two equal intervals across $[-1.2,1.2]$ have width $h=1.2$ and ordinates at $x=-1.2,0,1.2$.",
+        "Evaluate $3/\\sqrt{9-x^3}$ at those three points and apply $\\frac h2(y_0+2y_1+y_2)$.",
+        "Keep full calculator values until rounding the estimate to 2 decimal places."
+      ],
+      "walkthrough": [
+        "Calculate the interval width $h$ for 2 intervals on $[-1.2, 1.2]$:\n$$h = \\dfrac{1.2 - (-1.2)}{2} = \\dfrac{2.4}{2} = 1.2$$",
+        "Determine the three $x$-coordinates for the ordinates:\n$$x_0 = -1.2, \\quad x_1 = 0, \\quad x_2 = 1.2$$",
+        "Evaluate the function $y = \\dfrac{3}{\\sqrt{9 - x^3}}$ at each ordinate:\n- At $x_0 = -1.2$:\n$$y_0 = \\dfrac{3}{\\sqrt{9 - (-1.2)^3}} = \\dfrac{3}{\\sqrt{9 - (-1.728)}} = \\dfrac{3}{\\sqrt{10.728}} \\approx 0.915929$$\n- At $x_1 = 0$:\n$$y_1 = \\dfrac{3}{\\sqrt{9 - 0^3}} = \\dfrac{3}{\\sqrt{9}} = \\dfrac{3}{3} = 1$$\n- At $x_2 = 1.2$:\n$$y_2 = \\dfrac{3}{\\sqrt{9 - (1.2)^3}} = \\dfrac{3}{\\sqrt{9 - 1.728}} = \\dfrac{3}{\\sqrt{7.272}} \\approx 1.112485$$",
+        "Apply the trapezium rule formula $T = \\dfrac{h}{2}\\left[y_0 + 2y_1 + y_2\\right]$:\n$$T = \\dfrac{1.2}{2} \\left[0.915929 + 2(1) + 1.112485\\right]$$\n$$T = 0.6 \\left[0.915929 + 2 + 1.112485\\right] = 0.6 \\times 4.028414 = 2.417048$$",
+        "Round the estimate to 2 decimal places:\n$$T \\approx 2.42$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      }
+    },
+    {
+      "part_id": "9709_w17_32_q1_ii",
+      "difficulty": 1,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_p3_t_integration",
+        "lesson_id": "9709_p3_t_integration_m05_l02"
+      },
+      "skills": {
+        "primary_skill_id": "9709_p3_skill_numerical_integration"
+      },
+      "hints": [
+        "Compare each straight trapezium edge with the curve shown on the two subintervals.",
+        "On one side the chord lies mainly above the curve and on the other it lies mainly below, so explain why the two errors approximately offset."
+      ],
+      "walkthrough": [
+        "Examine the shape of the curve across the two intervals $[-1.2, 0]$ and $[0, 1.2]$ relative to the chords of the trapezia:",
+        "On the first interval $[-1.2, 0]$, the curve is concave downwards, so the chord lies below the curve, resulting in an underestimate of the area.",
+        "On the second interval $[0, 1.2]$, the curve is concave upwards, so the chord lies above the curve, resulting in an overestimate of the area.",
+        "Because the underestimate on one interval and the overestimate on the other interval have opposite signs, the two errors approximately cancel each other out, making the overall trapezium rule estimate particularly accurate."
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      }
+    }
+  ]
+}

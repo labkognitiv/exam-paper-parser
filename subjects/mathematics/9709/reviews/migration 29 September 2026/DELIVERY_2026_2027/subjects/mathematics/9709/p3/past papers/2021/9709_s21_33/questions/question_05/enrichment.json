@@ -1,0 +1,66 @@
+{
+  "schema_version": "9709_math_enrichment_v7",
+  "question_id": "9709_s21_33_q5",
+  "difficulty": 3,
+  "parts": [
+    {
+      "part_id": "9709_s21_33_q5_a",
+      "difficulty": 2,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_p3_t_trigonometry",
+        "lesson_id": "9709_p3_t_trigonometry_m01_l02"
+      },
+      "skills": {
+        "primary_skill_id": "9709_p3_skill_trigonometric_identities"
+      },
+      "hints": [
+        "Apply the tangent double-angle formula twice, first to $4\\theta=2(2\\theta)$.",
+        "Write $\\tan4\\theta=2\\tan2\\theta/(1-\\tan^22\\theta)$ and then replace $\\tan2\\theta$ by $2t/(1-t^2)$ where $t=\\tan\\theta$.",
+        "Set the result equal to $t/2$, clear denominators carefully, and collect powers of $t$ to reach the stated quartic."
+      ],
+      "walkthrough": [
+        "Let $t = \\tan\\theta$. Use the double-angle formula for tangent:\n$$\\tan 2\\theta = \\dfrac{2\\tan\\theta}{1 - \\tan^2\\theta} = \\dfrac{2t}{1 - t^2}$$",
+        "Expand $\\tan 4\\theta = \\tan(2\\theta + 2\\theta)$ using the tangent addition formula:\n$$\\tan 4\\theta = \\dfrac{2\\tan 2\\theta}{1 - \\tan^2 2\\theta}$$",
+        "Substitute $\\tan 2\\theta = \\dfrac{2t}{1 - t^2}$ into the expression:\n$$\\tan 4\\theta = \\dfrac{2\\left(\\dfrac{2t}{1 - t^2}\\right)}{1 - \\left(\\dfrac{2t}{1 - t^2}\\right)^2} = \\dfrac{\\dfrac{4t}{1 - t^2}}{\\dfrac{(1 - t^2)^2 - 4t^2}{(1 - t^2)^2}} = \\dfrac{4t(1 - t^2)}{(1 - 2t^2 + t^4) - 4t^2} = \\dfrac{4t(1 - t^2)}{t^4 - 6t^2 + 1}$$",
+        "Equate $\\tan 4\\theta$ to $\\dfrac{1}{2}\\tan\\theta = \\dfrac{1}{2}t$:\n$$\\dfrac{4t(1 - t^2)}{t^4 - 6t^2 + 1} = \\dfrac{1}{2}t$$",
+        "Divide both sides by $t$ (for $t \\ne 0$):\n$$\\dfrac{4(1 - t^2)}{t^4 - 6t^2 + 1} = \\dfrac{1}{2}$$",
+        "Cross-multiply to remove fractions:\n$$8(1 - t^2) = t^4 - 6t^2 + 1$$\n$$8 - 8t^2 = t^4 - 6t^2 + 1$$",
+        "Rearrange into ascending powers of $t = \\tan\\theta$:\n$$t^4 - 6t^2 + 8t^2 + 1 - 8 = 0$$\n$$\\tan^4\\theta + 2\\tan^2\\theta - 7 = 0$$\nThis completes the proof."
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      }
+    },
+    {
+      "part_id": "9709_s21_33_q5_b",
+      "difficulty": 3,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_p3_t_trigonometry",
+        "lesson_id": "9709_p3_t_trigonometry_m03_l03"
+      },
+      "skills": {
+        "primary_skill_id": "9709_p3_skill_solving_trigonometric_equations"
+      },
+      "hints": [
+        "Treat the quartic from part (a) as a quadratic in $u=\\tan^2\\theta$.",
+        "Solve $u^2+2u-7=0$ and retain only the non-negative value because $u$ is a square.",
+        "Take both signs of $\\tan\\theta$ and find every angle in $0^\\circ<\\theta<180^\\circ$."
+      ],
+      "walkthrough": [
+        "From $\\tan 4\\theta = \\dfrac{1}{2}\\tan\\theta$, note that $\\tan\\theta = 0$ gives $\\theta = 0^\\circ$ or $\\theta = 180^\\circ$, neither of which lies in the strict open interval $0^\\circ < \\theta < 180^\\circ$.",
+        "Solve the quadratic in $u = \\tan^2\\theta$:\n$$u^2 + 2u - 7 = 0$$\nApply the quadratic formula with $a = 1, b = 2, c = -7$:\n$$u = \\dfrac{-2 \\pm \\sqrt{2^2 - 4(1)(-7)}}{2(1)} = \\dfrac{-2 \\pm \\sqrt{4 + 28}}{2} = \\dfrac{-2 \\pm \\sqrt{32}}{2} = \\dfrac{-2 \\pm 4\\sqrt{2}}{2} = -1 \\pm 2\\sqrt{2}$$",
+        "Since $u = \\tan^2\\theta \\ge 0$, reject the negative root $-1 - 2\\sqrt{2} < 0$. The unique valid root is:\n$$\\tan^2\\theta = 2\\sqrt{2} - 1 \\approx 2(1.414214) - 1 \\approx 1.828427$$",
+        "Take square roots to find $\\tan\\theta$:\n$$\\tan\\theta = \\pm\\sqrt{1.828427} \\approx \\pm 1.352193$$",
+        "Find all solutions for $\\theta$ in the interval $0^\\circ < \\theta < 180^\\circ$:\n- For $\\tan\\theta = +1.352193$ (first quadrant):\n$$\\theta = \\tan^{-1}(1.352193) \\approx 53.515^\\circ \\approx 53.5^\\circ$$\n- For $\\tan\\theta = -1.352193$ (second quadrant):\n$$\\theta = 180^\\circ - 53.515^\\circ = 126.485^\\circ \\approx 126.5^\\circ$$",
+        "State the final solutions correct to 1 decimal place:\n$$\\theta = 53.5^\\circ, \\quad 126.5^\\circ$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      }
+    }
+  ]
+}

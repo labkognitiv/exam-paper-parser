@@ -1,0 +1,65 @@
+{
+  "schema_version": "9709_math_enrichment_v7",
+  "question_id": "9709_s19_33_q3",
+  "difficulty": 3,
+  "parts": [
+    {
+      "part_id": "9709_s19_33_q3_i",
+      "difficulty": 2,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_p3_t_trigonometry",
+        "lesson_id": "9709_p3_t_trigonometry_m01_l03"
+      },
+      "skills": {
+        "primary_skill_id": "9709_p3_skill_trigonometric_identities"
+      },
+      "hints": [
+        "Rewrite every double-angle term using $\\sin\\theta$ and $\\cos\\theta$.",
+        "Use $1-\\cos2\\theta=2\\sin^2\\theta$, $1+\\cos2\\theta=2\\cos^2\\theta$, and $\\sin2\\theta=2\\sin\\theta\\cos\\theta$.",
+        "Factor the numerator and denominator, cancel their common factor where defined, and simplify the remaining ratio."
+      ],
+      "walkthrough": [
+        "Recall the double angle trigonometric identities:\n$$\\cos 2\\theta = 1 - 2\\sin^2\\theta \\implies 1 - \\cos 2\\theta = 2\\sin^2\\theta$$\n$$\\cos 2\\theta = 2\\cos^2\\theta - 1 \\implies 1 + \\cos 2\\theta = 2\\cos^2\\theta$$\n$$\\sin 2\\theta = 2\\sin\\theta\\cos\\theta$$",
+        "Substitute these identities into the numerator of $\\mathrm{f}(\\theta)$:\n$$\\text{Numerator} = (1 - \\cos 2\\theta) + \\sin 2\\theta = 2\\sin^2\\theta + 2\\sin\\theta\\cos\\theta = 2\\sin\\theta(\\sin\\theta + \\cos\\theta)$$",
+        "Substitute these identities into the denominator of $\\mathrm{f}(\\theta)$:\n$$\\text{Denominator} = (1 + \\cos 2\\theta) + \\sin 2\\theta = 2\\cos^2\\theta + 2\\sin\\theta\\cos\\theta = 2\\cos\\theta(\\cos\\theta + \\sin\\theta)$$",
+        "Form the quotient and simplify:\n$$\\mathrm{f}(\\theta) = \\dfrac{2\\sin\\theta(\\sin\\theta + \\cos\\theta)}{2\\cos\\theta(\\cos\\theta + \\sin\\theta)}$$",
+        "Cancel the common non-zero factor $2(\\sin\\theta + \\cos\\theta)$:\n$$\\mathrm{f}(\\theta) = \\dfrac{\\sin\\theta}{\\cos\\theta} = \\tan\\theta$$\nThis establishes the identity $\\mathrm{f}(\\theta) = \\tan\\theta$."
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      }
+    },
+    {
+      "part_id": "9709_s19_33_q3_ii",
+      "difficulty": 3,
+      "practice_tier": "revision",
+      "mapping": {
+        "topic_id": "9709_p3_t_logarithmic_and_exponential_functions",
+        "lesson_id": "9709_p3_t_logarithmic_and_exponential_functions_m03_l01"
+      },
+      "skills": {
+        "primary_skill_id": "9709_p3_skill_integration"
+      },
+      "hints": [
+        "Replace $f(\\theta)$ by $\\tan\\theta$ using part (i).",
+        "Use $\\int\\tan\\theta\\,d\\theta=-\\ln|\\cos\\theta|$.",
+        "Substitute $\\theta=\\pi/4$ and $\\theta=\\pi/6$ with exact cosine values, then combine the logarithms into the required single logarithm."
+      ],
+      "walkthrough": [
+        "Replace $\\mathrm{f}(\\theta)$ with $\\tan\\theta$ in the definite integral:\n$$\\int_{\\frac{1}{6}\\pi}^{\\frac{1}{4}\\pi} \\mathrm{f}(\\theta)\\,\\mathrm{d}\\theta = \\int_{\\frac{1}{6}\\pi}^{\\frac{1}{4}\\pi} \\tan\\theta\\,\\mathrm{d}\\theta$$",
+        "Use the standard integral $\\int \\tan\\theta\\,\\mathrm{d}\\theta = -\\ln(\\cos\\theta)$:\n$$\\left[-\\ln(\\cos\\theta)\\right]_{\\frac{1}{6}\\pi}^{\\frac{1}{4}\\pi}$$",
+        "Evaluate at the upper limit $\\theta = \\dfrac{1}{4}\\pi$:\n$$\\cos\\left(\\dfrac{1}{4}\\pi\\right) = \\dfrac{1}{\\sqrt{2}}$$\n$$-\\ln\\left(\\dfrac{1}{\\sqrt{2}}\\right) = \\ln(\\sqrt{2})$$",
+        "Evaluate at the lower limit $\\theta = \\dfrac{1}{6}\\pi$:\n$$\\cos\\left(\\dfrac{1}{6}\\pi\\right) = \\dfrac{\\sqrt{3}}{2}$$\n$$-\\ln\\left(\\dfrac{\\sqrt{3}}{2}\\right) = \\ln\\left(\\dfrac{2}{\\sqrt{3}}\\right)$$",
+        "Subtract the lower limit value from the upper limit value:\n$$\\text{Integral} = \\left(-\\ln\\left(\\dfrac{1}{\\sqrt{2}}\\right)\\right) - \\left(-\\ln\\left(\\dfrac{\\sqrt{3}}{2}\\right)\\right) = \\ln(\\sqrt{2}) - \\ln\\left(\\dfrac{2}{\\sqrt{3}}\\right)$$",
+        "Combine using the logarithm quotient rule $\\ln A - \\ln B = \\ln(A/B)$:\n$$\\ln\\left(\\dfrac{\\sqrt{2}}{2/\\sqrt{3}}\\right) = \\ln\\left(\\dfrac{\\sqrt{2} \\times \\sqrt{3}}{2}\\right) = \\ln\\left(\\dfrac{\\sqrt{6}}{2}\\right) = \\ln\\left(\\sqrt{\\dfrac{6}{4}}\\right) = \\ln\\left(\\sqrt{\\dfrac{3}{2}}\\right)$$",
+        "Rewrite the square root as a fractional power and bring the exponent out front:\n$$\\ln\\left(\\left(\\dfrac{3}{2}\\right)^{1/2}\\right) = \\dfrac{1}{2}\\ln\\dfrac{3}{2}$$\nThis confirms the exact result."
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      }
+    }
+  ]
+}

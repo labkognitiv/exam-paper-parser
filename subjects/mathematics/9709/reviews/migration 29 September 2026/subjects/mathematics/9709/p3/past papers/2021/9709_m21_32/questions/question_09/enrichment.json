@@ -1,0 +1,93 @@
+{
+  "schema_version": "9709_math_enrichment_v7",
+  "question_id": "9709_m21_32_q9",
+  "difficulty": 4,
+  "parts": [
+    {
+      "part_id": "9709_m21_32_q9_a",
+      "difficulty": 1,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_p3_t_numerical_solution_of_equations",
+        "lesson_id": "9709_p3_t_numerical_solution_of_equations_m01_l02"
+      },
+      "skills": {
+        "primary_skill_id": "9709_p3_skill_numerical_root_bracketing"
+      },
+      "hints": [
+        "Define a continuous root function, for example $g(x)=f(x)-x$, and look for a change of sign across the proposed interval.",
+        "Evaluate $g(1)$ and $g(1.5)$ using $f(x)=\\dfrac{e^{2x}+1}{e^{2x}-1}$.",
+        "State the opposite signs and invoke continuity to conclude that the root lies between $1$ and $1.5$."
+      ],
+      "walkthrough": [
+        "Define the continuous function $g(x) = f(x) - x = \\dfrac{\\mathrm{e}^{2x} + 1}{\\mathrm{e}^{2x} - 1} - x$ for $x > 0$.",
+        "Evaluate $f(1)$ and $g(1)$ at the lower endpoint $x = 1$:\n$$f(1) = \\dfrac{\\mathrm{e}^{2(1)} + 1}{\\mathrm{e}^{2(1)} - 1} = \\dfrac{\\mathrm{e}^2 + 1}{\\mathrm{e}^2 - 1} \\approx \\dfrac{7.389056 + 1}{7.389056 - 1} = \\dfrac{8.389056}{6.389056} \\approx 1.3130$$\n$$g(1) = 1.3130 - 1 = +0.3130 > 0 \\quad (\\text{so } f(1) > 1)$$",
+        "Evaluate $f(1.5)$ and $g(1.5)$ at the upper endpoint $x = 1.5$:\n$$f(1.5) = \\dfrac{\\mathrm{e}^{2(1.5)} + 1}{\\mathrm{e}^{2(1.5)} - 1} = \\dfrac{\\mathrm{e}^3 + 1}{\\mathrm{e}^3 - 1} \\approx \\dfrac{20.085537 + 1}{20.085537 - 1} = \\dfrac{21.085537}{19.085537} \\approx 1.1048$$\n$$g(1.5) = 1.1048 - 1.5 = -0.3952 < 0 \\quad (\\text{so } f(1.5) < 1.5)$$",
+        "Conclude using the sign change of the continuous function $g(x)$:\nSince $g(1) > 0$ and $g(1.5) < 0$, by the intermediate value theorem there is a sign change on the interval $(1, 1.5)$, verifying that the root $a$ lies strictly between $1$ and $1.5$."
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      }
+    },
+    {
+      "part_id": "9709_m21_32_q9_b",
+      "difficulty": 2,
+      "practice_tier": "mandatory",
+      "mapping": {
+        "topic_id": "9709_p3_t_numerical_solution_of_equations",
+        "lesson_id": "9709_p3_t_numerical_solution_of_equations_m02_l02"
+      },
+      "skills": {
+        "primary_skill_id": "9709_p3_skill_fixed_point_iteration"
+      },
+      "hints": [
+        "Use the equation $x=f(x)$ as a fixed-point iteration and start from a value in the bracket found in part (a).",
+        "Apply $x_{n+1}=\\dfrac{e^{2x_n}+1}{e^{2x_n}-1}$ repeatedly, giving every iterate to 4 decimal places.",
+        "Continue until successive displayed values are stable enough to justify the root to 2 decimal places."
+      ],
+      "walkthrough": [
+        "Set up the fixed-point iteration formula based on $x = f(x)$:\n$$x_{n+1} = \\dfrac{\\mathrm{e}^{2x_n} + 1}{\\mathrm{e}^{2x_n} - 1}$$",
+        "Choose a starting value within the interval $(1, 1.5)$, for example $x_1 = 1.2$ or $x_1 = 1.25$:\nStarting with $x_1 = 1.2$:\n$$x_2 = \\dfrac{\\mathrm{e}^{2(1.2)} + 1}{\\mathrm{e}^{2(1.2)} - 1} \\approx 1.1995$$\n$$x_3 = \\dfrac{\\mathrm{e}^{2(1.1995)} + 1}{\\mathrm{e}^{2(1.1995)} - 1} \\approx 1.1997$$\n$$x_4 = \\dfrac{\\mathrm{e}^{2(1.1997)} + 1}{\\mathrm{e}^{2(1.1997)} - 1} \\approx 1.1997$$",
+        "Alternatively, starting with $x_1 = 1.25$:\n$$x_2 = 1.1789$$\n$$x_3 = 1.2091$$\n$$x_4 = 1.1956$$\n$$x_5 = 1.2015$$\n$$x_6 = 1.1989$$\n$$x_7 = 1.2000$$",
+        "Confirm that the iterates converge to $1.1997$, which rounds to $1.20$ to 2 decimal places.\n(Checking the interval $(1.195, 1.205)$: $g(1.195) > 0$ and $g(1.205) < 0$, verifying that $a = 1.20$ to 2 decimal places.)"
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      }
+    },
+    {
+      "part_id": "9709_m21_32_q9_c",
+      "difficulty": 4,
+      "practice_tier": "revision",
+      "mapping": {
+        "topic_id": "9709_p3_t_logarithmic_and_exponential_functions",
+        "lesson_id": "9709_p3_t_logarithmic_and_exponential_functions_m04_l01"
+      },
+      "skills": {
+        "primary_skill_id": "9709_p3_skill_differentiation"
+      },
+      "hints": [
+        "Differentiate the quotient first, then solve the gradient condition using an exponential substitution.",
+        "Apply the quotient rule to $f(x)=\\dfrac{e^{2x}+1}{e^{2x}-1}$ and simplify the numerator before setting $f'(x)=-8$.",
+        "Let $z=e^{2x}>0$ to obtain a quadratic equation in $z$.",
+        "Solve the quadratic, reject any value incompatible with $x>0$, and then take logarithms to obtain the exact $x$."
+      ],
+      "walkthrough": [
+        "Differentiate $f(x) = \\dfrac{\\mathrm{e}^{2x} + 1}{\\mathrm{e}^{2x} - 1}$ with respect to $x$ using the quotient rule $\\left(\\dfrac{u}{v}\\right)' = \\dfrac{u'v - uv'}{v^2}$:\nLet $u = \\mathrm{e}^{2x} + 1 \\implies u' = 2\\mathrm{e}^{2x}$\nLet $v = \\mathrm{e}^{2x} - 1 \\implies v' = 2\\mathrm{e}^{2x}$",
+        "Calculate $f'(x)$:\n$$f'(x) = \\dfrac{2\\mathrm{e}^{2x}(\\mathrm{e}^{2x} - 1) - (\\mathrm{e}^{2x} + 1)(2\\mathrm{e}^{2x})}{(\\mathrm{e}^{2x} - 1)^2}$$\n$$= \\dfrac{2\\mathrm{e}^{4x} - 2\\mathrm{e}^{2x} - 2\\mathrm{e}^{4x} - 2\\mathrm{e}^{2x}}{(\\mathrm{e}^{2x} - 1)^2} = -\\dfrac{4\\mathrm{e}^{2x}}{(\\mathrm{e}^{2x} - 1)^2}$$",
+        "Set $f'(x) = -8$:\n$$-\\dfrac{4\\mathrm{e}^{2x}}{(\\mathrm{e}^{2x} - 1)^2} = -8$$",
+        "Divide both sides by $-4$:\n$$\\dfrac{\\mathrm{e}^{2x}}{(\\mathrm{e}^{2x} - 1)^2} = 2$$",
+        "Multiply by $(\\mathrm{e}^{2x} - 1)^2$ and expand:\n$$\\mathrm{e}^{2x} = 2((\\mathrm{e}^{2x})^2 - 2\\mathrm{e}^{2x} + 1)$$\n$$\\mathrm{e}^{2x} = 2(\\mathrm{e}^{2x})^2 - 4\\mathrm{e}^{2x} + 2$$",
+        "Rearrange into a quadratic equation in $\\mathrm{e}^{2x}$:\n$$2(\\mathrm{e}^{2x})^2 - 5\\mathrm{e}^{2x} + 2 = 0$$",
+        "Factorise the quadratic:\n$$(2\\mathrm{e}^{2x} - 1)(\\mathrm{e}^{2x} - 2) = 0$$\nThis gives two possible values for $\\mathrm{e}^{2x}$:\n$$\\mathrm{e}^{2x} = \\dfrac{1}{2} \\quad \\text{or} \\quad \\mathrm{e}^{2x} = 2$$",
+        "Solve each case for $x$:\n- If $\\mathrm{e}^{2x} = \\dfrac{1}{2}$, then $2x = \\ln\\left(\\dfrac{1}{2}\\right) = -\\ln 2 \\implies x = -\\dfrac{1}{2}\\ln 2$.\nSince the problem specifies $x > 0$, this negative value is rejected.\n- If $\\mathrm{e}^{2x} = 2$, then $2x = \\ln 2 \\implies x = \\dfrac{1}{2}\\ln 2$.\nSince $\\dfrac{1}{2}\\ln 2 > 0$, this is the unique valid exact solution:\n$$x = \\dfrac{1}{2}\\ln 2$$"
+      ],
+      "checking": {
+        "mode": "ai",
+        "criteria_source": "mark_scheme_structured"
+      }
+    }
+  ]
+}
