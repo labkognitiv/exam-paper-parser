@@ -1,0 +1,40 @@
+{
+  "schema_version": "9709_math_enrichment_v8",
+  "question_id": "9709_s22_52_q5",
+  "difficulty": 4,
+  "parts": [
+    {
+      "part_id": "9709_s22_52_q5_a",
+      "difficulty": 3,
+      "mapping": {
+        "topic_id": "9709_s1_t_discrete_random_variables",
+        "lesson_id": "9709_s1_t_discrete_random_variables_m03_l02"
+      },
+      "hints": [
+        "Find the probability that a student plays at least one instrument: $1 - 0.28 = 0.72$.",
+        "Model the number of students who play at least one instrument out of 12 as $Y \\sim \\mathrm{B}(12, 0.72)$.",
+        "'More than 9' means $Y \\ge 10$, which includes $Y = 10, 11, 12$. Calculate each binomial probability and sum them."
+      ],
+      "walkthrough": [
+        "Step 1: Determine the binomial parameters.\nA student plays at least one musical instrument if they do not belong to the $28\\%$ who play none:\n$$p = 1 - 0.28 = 0.72$$\n$$q = 1 - p = 0.28$$\nSample size is $n = 12$.\nLet $Y$ count the number of students in the sample who play at least one instrument:\n$$Y \\sim \\mathrm{B}(12, 0.72)$$\n\nStep 2: Identify the required events.\n'More than 9' means $Y \\in \\{10, 11, 12\\}$:\n$$\\mathrm{P}(Y > 9) = \\mathrm{P}(Y = 10) + \\mathrm{P}(Y = 11) + \\mathrm{P}(Y = 12)$$\n\nStep 3: Calculate each term using $\\mathrm{P}(Y = y) = \\binom{n}{y} p^y q^{n-y}$.\n- For $y = 10$:\n  $$\\binom{12}{10} = \\frac{12 \\times 11}{2 \\times 1} = 66$$\n  $$\\mathrm{P}(Y = 10) = 66 \\times (0.72)^{10} \\times (0.28)^2 = 66 \\times 0.0374390 \\times 0.0784 = 0.193725$$\n- For $y = 11$:\n  $$\\binom{12}{11} = 12$$\n  $$\\mathrm{P}(Y = 11) = 12 \\times (0.72)^{11} \\times (0.28)^1 = 12 \\times 0.0269561 \\times 0.28 = 0.090573$$\n- For $y = 12$:\n  $$\\binom{12}{12} = 1$$\n  $$\\mathrm{P}(Y = 12) = 1 \\times (0.72)^{12} \\times (0.28)^0 = 0.019408$$\n\nStep 4: Sum the probabilities.\n$$\\mathrm{P}(Y > 9) = 0.193725 + 0.090573 + 0.019408 = 0.303706$$\nRounding to 3 significant figures gives $0.304$."
+      ]
+    },
+    {
+      "part_id": "9709_s22_52_q5_b",
+      "difficulty": 4,
+      "mapping": {
+        "topic_id": "9709_s1_t_the_normal_distribution",
+        "lesson_id": "9709_s1_t_the_normal_distribution_m03_l01"
+      },
+      "hints": [
+        "Define the binomial parameters: sample size $n = 90$ and success probability $p = 0.52$.",
+        "Calculate the approximating normal parameters: $\\mu = np = 90 \\times 0.52 = 46.8$ and $\\sigma^2 = np(1-p) = 46.8 \\times 0.48 = 22.464$.",
+        "Apply the continuity correction: 'fewer than 40' means $X \\le 39$, which continuous correction maps to $W < 39.5$.",
+        "Standardize $\\frac{39.5 - 46.8}{\\sqrt{22.464}}$ and evaluate the normal cumulative probability."
+      ],
+      "walkthrough": [
+        "Step 1: Set up the binomial distribution.\nIn a sample of $n = 90$ students, the probability that a student plays exactly one instrument is $p = 0.52$.\nLet $X$ count the students playing exactly one instrument:\n$$X \\sim \\mathrm{B}(90, 0.52)$$\n\nStep 2: Check conditions for a normal approximation.\n$$n p = 90 \\times 0.52 = 46.8 > 5$$\n$$n q = 90 \\times (1 - 0.52) = 90 \\times 0.48 = 43.2 > 5$$\nSince both $n p > 5$ and $n q > 5$, approximating by a normal distribution $W \\sim \\mathrm{N}(\\mu, \\sigma^2)$ is appropriate.\n\nStep 3: Calculate mean and variance.\n$$\\mu = n p = 46.8$$\n$$\\sigma^2 = n p q = 46.8 \\times 0.48 = 22.464$$\n$$\\sigma = \\sqrt{22.464} \\approx 4.73962$$\n\nStep 4: Apply the continuity correction.\nWe want the probability of 'fewer than 40' students:\n$$X < 40 \\iff X \\le 39$$\nBecause $X$ takes discrete integer values, the block representing $39$ extends up to $39.5$ on the continuous scale:\n$$\\mathrm{P}(X < 40) \\approx \\mathrm{P}(W < 39.5)$$\n\nStep 5: Standardize and calculate the probability.\n$$z = \\frac{39.5 - 46.8}{\\sqrt{22.464}} = \\frac{-7.3}{4.73962} \\approx -1.540$$\nEvaluate the standard normal lower tail:\n$$\\mathrm{P}(Z < -1.540) = 1 - \\Phi(1.540)$$\nFrom the standard normal table, $\\Phi(1.540) = 0.9382$:\n$$1 - 0.9382 = 0.0618$$\nRounding to 3 significant figures gives $0.0618$."
+      ]
+    }
+  ]
+}

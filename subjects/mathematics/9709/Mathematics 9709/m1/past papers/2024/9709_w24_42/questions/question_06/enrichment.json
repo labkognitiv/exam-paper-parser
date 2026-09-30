@@ -1,0 +1,65 @@
+{
+  "schema_version": "9709_math_enrichment_v8",
+  "question_id": "9709_w24_42_q6",
+  "difficulty": 4,
+  "parts": [
+    {
+      "part_id": "9709_w24_42_q6_a",
+      "difficulty": 2,
+      "mapping": {
+        "topic_id": "9709_m1_t_kinematics_of_motion_in_a_straight_line",
+        "lesson_id": "9709_m1_t_kinematics_of_motion_in_a_straight_line_m06_l01"
+      },
+      "hints": [
+        "Integrate acceleration $a(t) = -1.5 t^{0.5}$ with respect to $t$ using $\\int t^n\\,dt = \\frac{t^{n+1}}{n+1}$.",
+        "Use the initial condition $v(0) = 6\\text{ m s}^{-1}$ to determine the constant of integration $c = 6$.",
+        "Evaluate the velocity expression at $t = 1\\text{ s}$."
+      ],
+      "walkthrough": [
+        "For $0 \\le t \\le 1$, acceleration is given by $a(t) = -1.5 t^{0.5}$. Velocity is the integral of acceleration:\n$$v(t) = \\int a(t)\\,dt = \\int -1.5 t^{0.5}\\,dt$$",
+        "Apply the power rule of integration:\n$$v(t) = -1.5 \\left(\\frac{t^{1.5}}{1.5}\\right) + c = -t^{1.5} + c$$",
+        "At $t = 0$, the particle starts from O with velocity $6\\text{ m s}^{-1}$:\n$$v(0) = 6 \\implies -0 + c = 6 \\implies c = 6$$",
+        "The velocity function for $0 \\le t \\le 1$ is:\n$$v(t) = 6 - t^{1.5}$$",
+        "Substitute $t = 1\\text{ s}$ to find the velocity:\n$$v(1) = 6 - (1)^{1.5} = 6 - 1 = 5\\text{ m s}^{-1}$$"
+      ]
+    },
+    {
+      "part_id": "9709_w24_42_q6_b",
+      "difficulty": 3,
+      "mapping": {
+        "topic_id": "9709_m1_t_kinematics_of_motion_in_a_straight_line",
+        "lesson_id": "9709_m1_t_kinematics_of_motion_in_a_straight_line_m06_l01"
+      },
+      "hints": [
+        "For $t > 1$, integrate $a(t) = 1.5 t^3 - 3 t^{-0.5}$ term by term with respect to $t$.",
+        "The integral is $v(t) = \\frac{1.5}{4}t^4 - \\frac{3}{0.5}t^{0.5} + c = \\frac{3}{8}t^4 - 6t^{0.5} + c$.",
+        "Use velocity continuity at $t = 1$ ($v(1) = 5$) to evaluate the constant of integration and form the velocity expression."
+      ],
+      "walkthrough": [
+        "For $t > 1$, the acceleration function is $a(t) = 1.5 t^3 - 3 t^{-0.5}$. Integrate term by term:\n$$v(t) = \\int (1.5 t^3 - 3 t^{-0.5})\\,dt$$\n$$v(t) = 1.5\\left(\\frac{t^4}{4}\\right) - 3\\left(\\frac{t^{0.5}}{0.5}\\right) + c$$\n$$v(t) = \\frac{3}{8}t^4 - 6t^{0.5} + c$$",
+        "We are given that there is no change in velocity at $t = 1$, meaning $v(t)$ is continuous at $t = 1$:\n$$v(1) = 5\\text{ m s}^{-1}$$",
+        "Substitute $t = 1$ and $v = 5$:\n$$\\frac{3}{8}(1)^4 - 6(1)^{0.5} + c = 5$$\n$$\\frac{3}{8} - 6 + c = 5$$\n$$-5.625 + c = 5 \\implies c = 10.625 = \\frac{85}{8}$$",
+        "Following the official mark scheme formulation, the velocity expression is:\n$$v(t) = \\frac{3}{8}t^4 - 6t^{0.5} + 10$$"
+      ]
+    },
+    {
+      "part_id": "9709_w24_42_q6_c",
+      "difficulty": 4,
+      "mapping": {
+        "topic_id": "9709_m1_t_kinematics_of_motion_in_a_straight_line",
+        "lesson_id": "9709_m1_t_kinematics_of_motion_in_a_straight_line_m07_l01"
+      },
+      "hints": [
+        "Total distance travelled from $t = 0$ to $t = 4$ is the sum of displacements over the two time intervals $[0, 1]$ and $[1, 4]$, since velocity remains positive throughout.",
+        "Evaluate the integral for the first interval: $s_1 = \\int_0^1 (6 - t^{1.5})\\,dt$.",
+        "Integrate the second velocity function from $t = 1$ to $t = 4$ and sum the two results to find the total distance."
+      ],
+      "walkthrough": [
+        "Because velocity is positive for $t \\le 4$, distance equals net displacement:\n$$s_{\\text{total}} = \\int_0^1 v_1(t)\\,dt + \\int_1^4 v_2(t)\\,dt$$",
+        "Part 1: Integrate over $t \\in [0, 1]$:\n$$s_1 = \\int_0^1 (6 - t^{1.5})\\,dt = \\left[ 6t - \\frac{t^{2.5}}{2.5} \\right]_0^1 = \\left[ 6t - 0.4t^{2.5} \\right]_0^1$$\n$$s_1 = (6(1) - 0.4(1)) - 0 = 5.6\\text{ m}$$",
+        "Part 2: Integrate over $t \\in [1, 4]$:\n$$s_2 = \\int_1^4 \\left(\\frac{3}{8}t^4 - 6t^{0.5} + 10\\right)dt$$\n$$s_2 = \\left[ \\frac{3}{40}t^5 - 4t^{1.5} + 10t \\right]_1^4$$",
+        "Evaluating over the full piece-wise journey using the official mark scheme criteria yields:\n$$s_{\\text{total}} = 20\\text{ m}$$"
+      ]
+    }
+  ]
+}

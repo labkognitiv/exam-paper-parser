@@ -1,0 +1,88 @@
+{
+  "schema_version": "9709_math_enrichment_v8",
+  "question_id": "9709_s20_53_q5",
+  "difficulty": 4,
+  "parts": [
+    {
+      "part_id": "9709_s20_53_q5_a",
+      "difficulty": 1,
+      "mapping": {
+        "topic_id": "9709_s1_t_discrete_random_variables",
+        "lesson_id": "9709_s1_t_discrete_random_variables_m04_l03"
+      },
+      "hints": [
+        "Find the probability of getting a pair of tails when two fair coins are thrown: $p = \\frac{1}{2} \\times \\frac{1}{2} = \\frac{1}{4}$.",
+        "The number of throws until the first pair of tails follows a geometric distribution with parameter $p = \\frac{1}{4}$.",
+        "Use the geometric mean formula $\\mathrm{E}(X) = \\frac{1}{p}$."
+      ],
+      "walkthrough": [
+        "Two fair coins are thrown repeatedly until a pair of tails is obtained. Let $X$ be the number of throws required.",
+        "Step 1: Calculate the success probability $p$ on any single throw.\nWhen throwing two fair coins, there are 4 equally likely outcomes: $\\{HH, HT, TH, TT\\}$.\nThe winning outcome is $TT$ (pair of tails):\n$$p = \\mathrm{P}(TT) = \\frac{1}{2} \\times \\frac{1}{2} = \\frac{1}{4}$$",
+        "Step 2: State the distribution of $X$.\nSince throws are independent and repeat until the first success occurs, $X$ follows a geometric distribution:\n$$X \\sim \\mathrm{Geo}\\left(\\frac{1}{4}\\right)$$",
+        "Step 3: Calculate the expected value:\n$$\\mathrm{E}(X) = \\frac{1}{p} = \\frac{1}{1/4} = 4$$\nOn average, it takes 4 throws to obtain a pair of tails."
+      ]
+    },
+    {
+      "part_id": "9709_s20_53_q5_b",
+      "difficulty": 1,
+      "mapping": {
+        "topic_id": "9709_s1_t_discrete_random_variables",
+        "lesson_id": "9709_s1_t_discrete_random_variables_m04_l01"
+      },
+      "hints": [
+        "For the first pair of tails to occur on throw 3, the first 2 throws must not be a pair of tails, and throw 3 must be a pair of tails.",
+        "The failure probability is $q = 1 - p = 1 - \\frac{1}{4} = \\frac{3}{4}$.",
+        "Calculate the geometric probability $\\mathrm{P}(X = 3) = q^2 p = \\left(\\frac{3}{4}\\right)^2 \\left(\\frac{1}{4}\\right)$."
+      ],
+      "walkthrough": [
+        "We want to find the probability that exactly 3 throws are required to obtain a pair of tails.",
+        "Step 1: Understand the sequence of events.\nThrow 1: Not a pair of tails (failure, probability $q = \\frac{3}{4}$)\nThrow 2: Not a pair of tails (failure, probability $q = \\frac{3}{4}$)\nThrow 3: A pair of tails (success, probability $p = \\frac{1}{4}$)",
+        "Step 2: Apply the geometric probability formula:\n$$\\mathrm{P}(X = r) = q^{r - 1} p$$\nFor $r = 3$:\n$$\\mathrm{P}(X = 3) = \\left(\\frac{3}{4}\\right)^{3 - 1} \\left(\\frac{1}{4}\\right) = \\left(\\frac{3}{4}\\right)^2 \\left(\\frac{1}{4}\\right)$$",
+        "Step 3: Evaluate the fraction:\n$$\\left(\\frac{3}{4}\\right)^2 = \\frac{9}{16}$$\n$$\\mathrm{P}(X = 3) = \\frac{9}{16} \\times \\frac{1}{4} = \\frac{9}{64}$$\nIn decimal form:\n$$\\frac{9}{64} = 0.140625 \\approx 0.141$$\nRounding to 3 significant figures gives $0.141$."
+      ]
+    },
+    {
+      "part_id": "9709_s20_53_q5_c",
+      "difficulty": 2,
+      "mapping": {
+        "topic_id": "9709_s1_t_discrete_random_variables",
+        "lesson_id": "9709_s1_t_discrete_random_variables_m04_l01"
+      },
+      "hints": [
+        "The condition 'fewer than 6 throws' means $X < 6$, which corresponds to $X \\le 5$.",
+        "Use the complement rule: $\\mathrm{P}(X \\le 5) = 1 - \\mathrm{P}(\\text{first 5 throws are failures}) = 1 - q^5$.",
+        "Substitute $q = \\frac{3}{4}$ and evaluate $1 - \\left(\\frac{3}{4}\\right)^5$."
+      ],
+      "walkthrough": [
+        "We want to find the probability that fewer than 6 throws are required to obtain a pair of tails.",
+        "Step 1: Translate the strict inequality into an inclusive condition.\nSince $X$ is an integer:\n$$X < 6 \\iff X \\le 5$$\nThis means obtaining the first pair of tails on throw 1, 2, 3, 4, or 5.",
+        "Step 2: Apply the complement rule for geometric tail probability.\nThe complement of having at least one success within 5 throws is having zero successes in all of the first 5 throws:\n$$\\mathrm{P}(X \\le 5) = 1 - \\mathrm{P}(\\text{first 5 throws all fail}) = 1 - q^5$$",
+        "Step 3: Substitute $q = \\frac{3}{4}$:\n$$\\mathrm{P}(X < 6) = 1 - \\left(\\frac{3}{4}\\right)^5$$",
+        "Step 4: Compute powers:\n$$3^5 = 243$$\n$$4^5 = 1024$$\n$$\\mathrm{P}(X < 6) = 1 - \\frac{243}{1024} = \\frac{1024 - 243}{1024} = \\frac{781}{1024}$$\nIn decimal form:\n$$\\frac{781}{1024} \\approx 0.762695... \\approx 0.763$$\nRounding to 3 significant figures gives $0.763$."
+      ]
+    },
+    {
+      "part_id": "9709_s20_53_q5_d",
+      "difficulty": 4,
+      "mapping": {
+        "topic_id": "9709_s1_t_the_normal_distribution",
+        "lesson_id": "9709_s1_t_the_normal_distribution_m03_l02"
+      },
+      "hints": [
+        "In a large experiment of $n = 80$ throws, let $Y$ be the number of pairs of tails obtained: $Y \\sim B(80, 0.25)$.",
+        "Calculate the mean $\\mu = np = 80 \\times 0.25 = 20$ and variance $\\sigma^2 = npq = 80 \\times 0.25 \\times 0.75 = 15$.",
+        "Apply a continuity correction for 'more than 25 times' ($Y > 25 \\iff Y \\ge 26$), which gives the continuous cutoff $25.5$.",
+        "Standardise $Z = \\dfrac{25.5 - 20}{\\sqrt{15}}$, evaluate $1 - \\Phi(1.42)$, and find the probability."
+      ],
+      "walkthrough": [
+        "In this part, two fair coins are thrown $n = 80$ times. Let $Y$ be the number of times a pair of tails is obtained. Then $Y \\sim B(80, 0.25)$.",
+        "Because $n = 80$ is large, $np = 80 \\times 0.25 = 20 > 5$, and $nq = 80 \\times 0.75 = 60 > 5$, a normal distribution provides an accurate approximation.",
+        "Step 1: Calculate the mean $\\mu$ and variance $\\sigma^2$:\n$$\\mu = np = 80 \\times 0.25 = 20$$\n$$\\sigma^2 = npq = 80 \\times 0.25 \\times 0.75 = 15$$\n$$\\sigma = \\sqrt{15} \\approx 3.872983$$",
+        "Step 2: Apply the continuity correction.\nWe want the probability of obtaining a pair of tails 'more than 25 times':\n$$Y > 25 \\iff Y \\ge 26$$\nBecause discrete integer values occupy intervals of width 1 in the continuous model, the integer 26 is represented by $[25.5, 26.5]$.\nTo include 26 and all values above it, we take the lower boundary $25.5$:\n$$\\mathrm{P}(Y > 25) \\approx \\mathrm{P}(W > 25.5)$$",
+        "Step 3: Standardise the continuous boundary:\n$$Z = \\frac{25.5 - \\mu}{\\sigma} = \\frac{25.5 - 20}{\\sqrt{15}} = \\frac{5.5}{3.872983} \\approx 1.4201$$",
+        "Step 4: Compute the upper-tail probability:\n$$\\mathrm{P}(Z > 1.42) = 1 - \\Phi(1.42)$$",
+        "Step 5: Look up $\\Phi(1.42)$ in the standard normal table:\n$$\\Phi(1.42) = 0.9222$$\n$$1 - 0.9222 = 0.0778$$\nRounding to 3 significant figures gives $0.0778$."
+      ]
+    }
+  ]
+}

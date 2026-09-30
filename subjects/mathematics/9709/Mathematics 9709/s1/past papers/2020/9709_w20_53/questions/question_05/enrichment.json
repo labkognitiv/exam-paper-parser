@@ -1,0 +1,49 @@
+{
+  "schema_version": "9709_math_enrichment_v8",
+  "question_id": "9709_w20_53_q5",
+  "difficulty": 4,
+  "parts": [
+    {
+      "part_id": "9709_w20_53_q5_a",
+      "difficulty": 3,
+      "mapping": {
+        "topic_id": "9709_s1_t_probability",
+        "lesson_id": "9709_s1_t_probability_m05_l01"
+      },
+      "hints": [
+        "The word RESERVED has 8 letters with repetitions: R: 2, E: 3, S: 1, V: 1, D: 1.",
+        "Calculate the total number of permutations of all 8 letters: $\\dfrac{8!}{3! \\, 2!} = 3360$.",
+        "Fix V in the first position and E in the last position: the remaining 6 letters inside are R: 2, E: 2, S: 1, D: 1. Calculate their arrangements: $\\dfrac{6!}{2! \\, 2!} = 180$.",
+        "Divide favorable arrangements by total arrangements: $\\dfrac{180}{3360} = \\dfrac{3}{56}$."
+      ],
+      "walkthrough": [
+        "The word is RESERVED, which consists of 8 letters.",
+        "Step 1: Count the frequency of each letter:\n- R appears 2 times\n- E appears 3 times\n- S appears 1 time\n- V appears 1 time\n- D appears 1 time\nTotal number of letters: $2 + 3 + 1 + 1 + 1 = 8$.",
+        "Step 2: Total number of permutations of the 8 letters.\nUsing the formula for permutations with repeated items:\n$$\\text{Total} = \\frac{8!}{3! \\, 2!} = \\frac{40320}{6 \\times 2} = \\frac{40320}{12} = 3360$$",
+        "Step 3: Number of favorable permutations.\nThe arrangement must start with V and end with E:\n$$V \\; [\\dots 6 \\text{ letters} \\dots] \\; E$$\nOne V and one E are placed in fixed positions.\nThe remaining 6 letters to arrange in the middle are:\n- 2 Rs\n- 2 Es (since one E is fixed at the end)\n- 1 S\n- 1 D\nThe number of ways to arrange these 6 letters is:\n$$\\text{Favorable} = \\frac{6!}{2! \\, 2!} = \\frac{720}{2 \\times 2} = \\frac{720}{4} = 180$$",
+        "Step 4: Compute the probability:\n$$\\mathrm{P} = \\frac{180}{3360} = \\frac{18}{336} = \\frac{3}{56}$$\nIn decimal form:\n$$\\frac{3}{56} \\approx 0.05357... \\approx 0.0536$$\nRounding to 3 significant figures gives $0.0536$."
+      ]
+    },
+    {
+      "part_id": "9709_w20_53_q5_b",
+      "difficulty": 4,
+      "mapping": {
+        "topic_id": "9709_s1_t_probability",
+        "lesson_id": "9709_s1_t_probability_m05_l01"
+      },
+      "hints": [
+        "We need the conditional probability: $\\mathrm{P}(\\text{Rs together} \\mid \\text{Es together}) = \\dfrac{\\text{Number with Rs together AND Es together}}{\\text{Number with Es together}}$.",
+        "To find the denominator (all 3 Es together): group $(EEE)$ as 1 block. The items are $(EEE)$, R, R, S, V, D (6 items with 2 repeated Rs). Calculate $\\dfrac{6!}{2!} = 360$.",
+        "To find the numerator (both Rs together AND all 3 Es together): group $(RR)$ as 1 block and $(EEE)$ as 1 block. The items are $(EEE)$, $(RR)$, S, V, D (5 distinct items). Calculate $5! = 120$.",
+        "Divide the counts: $\\dfrac{120}{360} = \\dfrac{1}{3}$."
+      ],
+      "walkthrough": [
+        "We want to find the conditional probability that both Rs are together given that all three Es are together.",
+        "Recall the conditional probability formula:\n$$\\mathrm{P}(A \\mid B) = \\frac{\\mathrm{P}(A \\cap B)}{\\mathrm{P}(B)} = \\frac{n(A \\cap B)}{n(B)}$$\nwhere event $A$ is 'both Rs together' and event $B$ is 'all 3 Es together'.",
+        "Step 1: Calculate the denominator $n(B)$ (number of arrangements where all 3 Es are together).\nTreat the three identical Es as a single block: $(EEE)$.\nAlong with $(EEE)$, we have the remaining letters: R, R, S, V, D.\nThis gives a total of 6 items to arrange, where the letter R is repeated twice:\n$$n(B) = \\frac{6!}{2!} = \\frac{720}{2} = 360$$",
+        "Step 2: Calculate the numerator $n(A \\cap B)$ (both Rs together AND all 3 Es together).\nTreat $(EEE)$ as one block and $(RR)$ as another block.\nAlong with these two blocks, the remaining letters are S, V, D.\nThis gives 5 items to arrange:\n$$(EEE), \\; (RR), \\; S, \\; V, \\; D$$\nAll 5 items are distinct (and within each block, the letters are identical so there is only 1 internal order).\nTherefore:\n$$n(A \\cap B) = 5! = 120$$",
+        "Step 3: Compute the conditional probability:\n$$\\mathrm{P}(A \\mid B) = \\frac{120}{360} = \\frac{1}{3}$$\nThe probability is exactly $\\frac{1}{3}$."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "schema_version": "9709_math_enrichment_v8",
+  "question_id": "9709_s23_32_q10",
+  "difficulty": 5,
+  "parts": [
+    {
+      "part_id": "9709_s23_32_q10_a",
+      "difficulty": 2,
+      "mapping": {
+        "topic_id": "9709_p3_t_logarithmic_and_exponential_functions",
+        "lesson_id": "9709_p3_t_logarithmic_and_exponential_functions_m03_l03"
+      },
+      "hints": [
+        "At the maximum point, differentiate $y=(x+5)(3-2x)^{1/2}$ and set $dy/dx=0$.",
+        "Use both the product rule and chain rule; factor $(3-2x)^{-1/2}$ from the derivative.",
+        "Since the factor is non-zero at the interior maximum, set the remaining linear expression equal to zero to find the exact $x$-coordinate.",
+        "Substitute that value into the original curve and simplify the square root to obtain the exact $y$-coordinate."
+      ],
+      "walkthrough": [
+        "Differentiate $y = (x + 5)\\sqrt{3 - 2x} = (x + 5)(3 - 2x)^{1/2}$ using the product rule and chain rule:\n$$\\dfrac{\\mathrm{d}y}{\\mathrm{d}x} = (1)(3 - 2x)^{1/2} + (x + 5)\\left(\\dfrac{1}{2}(3 - 2x)^{-1/2}(-2)\\right)$$\n$$= (3 - 2x)^{1/2} - (x + 5)(3 - 2x)^{-1/2}$$",
+        "Factor out $(3 - 2x)^{-1/2}$ to simplify the derivative:\n$$\\dfrac{\\mathrm{d}y}{\\mathrm{d}x} = (3 - 2x)^{-1/2}\\left[(3 - 2x) - (x + 5)\\right] = (3 - 2x)^{-1/2}(3 - 2x - x - 5) = (3 - 2x)^{-1/2}(-3x - 2)$$",
+        "Set the derivative equal to zero to find the stationary point $M$:\n$$-3x - 2 = 0 \\implies 3x = -2 \\implies x = -\\dfrac{2}{3}$$",
+        "Calculate the exact $y$-coordinate by substituting $x = -\\dfrac{2}{3}$ into the curve equation:\n$$x + 5 = -\\dfrac{2}{3} + 5 = \\dfrac{13}{3}$$\n$$3 - 2x = 3 - 2\\left(-\\dfrac{2}{3}\\right) = 3 + \\dfrac{4}{3} = \\dfrac{13}{3}$$\n$$y = \\left(\\dfrac{13}{3}\\right)\\sqrt{\\dfrac{13}{3}} = \\dfrac{13\\sqrt{13}}{3\\sqrt{3}} = \\dfrac{13\\sqrt{39}}{9}$$",
+        "State the exact coordinates of $M$:\n$$M = \\left(-\\dfrac{2}{3}, \\dfrac{13\\sqrt{39}}{9}\\right)$$"
+      ]
+    },
+    {
+      "part_id": "9709_s23_32_q10_b",
+      "difficulty": 5,
+      "mapping": {
+        "topic_id": "9709_p3_t_integration",
+        "lesson_id": "9709_p3_t_integration_m04_l02"
+      },
+      "hints": [
+        "The curve meets the $x$-axis when $x+5=0$ and when $3-2x=0$; use these as the area limits.",
+        "With $u=3-2x$, write $x=(3-u)/2$, $x+5=(13-u)/2$, and $dx=-\\tfrac12du$.",
+        "Transform both limits: as $x$ runs from $-5$ to $3/2$, $u$ runs from $13$ to $0$.",
+        "Integrate the resulting combination of $u^{1/2}$ and $u^{3/2}$, then evaluate exactly and factor out $\\sqrt{13}$."
+      ],
+      "walkthrough": [
+        "Determine the limits of integration from the $x$-intercepts of $y = (x + 5)\\sqrt{3 - 2x}$ where $y = 0$:\n$$(x + 5)\\sqrt{3 - 2x} = 0 \\implies x = -5 \\quad \\text{and} \\quad x = \\dfrac{3}{2}$$",
+        "Apply the substitution $u = 3 - 2x$:\n$$\\mathrm{d}u = -2\\,\\mathrm{d}x \\implies \\mathrm{d}x = -\\dfrac{1}{2}\\,\\mathrm{d}u$$\n$$2x = 3 - u \\implies x = \\dfrac{3 - u}{2}$$\n$$x + 5 = \\dfrac{3 - u}{2} + 5 = \\dfrac{13 - u}{2}$$",
+        "Convert the limits of integration:\n$$\\text{At } x = -5: \\quad u = 3 - 2(-5) = 3 + 10 = 13$$\n$$\\text{At } x = \\dfrac{3}{2}: \\quad u = 3 - 2\\left(\\dfrac{3}{2}\\right) = 3 - 3 = 0$$",
+        "Substitute into the area integral and invert limits to absorb the negative sign:\n$$\\text{Area} = \\int_{13}^0 \\left(\\dfrac{13 - u}{2}\\right) u^{1/2} \\left(-\\dfrac{1}{2}\\,\\mathrm{d}u\\right) = \\dfrac{1}{4}\\int_0^{13} (13u^{1/2} - u^{3/2})\\,\\mathrm{d}u$$",
+        "Integrate term by term:\n$$\\int_0^{13} 13u^{1/2}\\,\\mathrm{d}u = \\left[13 \\cdot \\dfrac{2}{3}u^{3/2}\\right]_0^{13} = \\dfrac{26}{3}(13)^{3/2} = \\dfrac{26}{3}(13\\sqrt{13}) = \\dfrac{338}{3}\\sqrt{13}$$\n$$\\int_0^{13} u^{3/2}\\,\\mathrm{d}u = \\left[\\dfrac{2}{5}u^{5/2}\\right]_0^{13} = \\dfrac{2}{5}(13)^{5/2} = \\dfrac{2}{5}(169\\sqrt{13}) = \\dfrac{338}{5}\\sqrt{13}$$",
+        "Subtract and multiply by the factor $\\dfrac{1}{4}$:\n$$\\text{Area} = \\dfrac{1}{4}\\left(\\dfrac{338}{3}\\sqrt{13} - \\dfrac{338}{5}\\sqrt{13}\\right) = \\dfrac{338\\sqrt{13}}{4}\\left(\\dfrac{1}{3} - \\dfrac{1}{5}\\right) = \\dfrac{169\\sqrt{13}}{2}\\left(\\dfrac{2}{15}\\right) = \\dfrac{169}{15}\\sqrt{13}$$",
+        "State the exact area in the form $a\\sqrt{13}$:\n$$\\text{Area} = \\dfrac{169}{15}\\sqrt{13}$$"
+      ]
+    }
+  ]
+}

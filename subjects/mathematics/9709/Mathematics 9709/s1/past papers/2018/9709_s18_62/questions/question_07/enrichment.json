@@ -1,0 +1,78 @@
+{
+  "schema_version": "9709_math_enrichment_v8",
+  "question_id": "9709_s18_62_q7",
+  "difficulty": 4,
+  "parts": [
+    {
+      "part_id": "9709_s18_62_q7_i",
+      "difficulty": 2,
+      "mapping": {
+        "topic_id": "9709_s1_t_discrete_random_variables",
+        "lesson_id": "9709_s1_t_discrete_random_variables_m03_l02"
+      },
+      "hints": [
+        "Let $X \\sim \\mathrm{B}(13, 0.60)$ be the number of people choosing Company A out of 13.",
+        "The condition 'fewer than 11' means $X < 11$, which is equivalent to $X \\le 10$.",
+        "Use the complement rule: $\\mathrm{P}(X < 11) = 1 - [\\mathrm{P}(X = 11) + \\mathrm{P}(X = 12) + \\mathrm{P}(X = 13)]$.",
+        "Evaluate each term using $\\binom{13}{r}(0.60)^r(0.40)^{13-r}$ for $r = 11, 12, 13$ and subtract from 1."
+      ],
+      "walkthrough": [
+        "Let $X$ denote the number of people who buy a mobile phone made by Company A out of a random sample of $13$ buyers.",
+        "Since each buyer chooses Company A independently with probability $p = 0.60$, $X$ follows a binomial distribution:\n$$X \\sim \\mathrm{B}(13, 0.60)$$",
+        "We want the probability of 'fewer than 11' buyers choosing Company A: $\\mathrm{P}(X < 11)$, which means $X \\in \\{0, 1, 2, \\dots, 10\\}$.",
+        "Evaluating 11 separate terms directly would be time-consuming, so we use the complement rule:\n$$\\mathrm{P}(X < 11) = 1 - \\mathrm{P}(X \\ge 11) = 1 - [\\mathrm{P}(X = 11) + \\mathrm{P}(X = 12) + \\mathrm{P}(X = 13)]$$",
+        "Step 1: Compute $\\mathrm{P}(X = 11)$:\n$$\\mathrm{P}(X = 11) = \\binom{13}{11}(0.60)^{11}(0.40)^2 = 78 \\times (0.00362797) \\times (0.16) \\approx 0.045277$$",
+        "Step 2: Compute $\\mathrm{P}(X = 12)$:\n$$\\mathrm{P}(X = 12) = \\binom{13}{12}(0.60)^{12}(0.40)^1 = 13 \\times (0.00217678) \\times (0.40) \\approx 0.011319$$",
+        "Step 3: Compute $\\mathrm{P}(X = 13)$:\n$$\\mathrm{P}(X = 13) = \\binom{13}{13}(0.60)^{13}(0.40)^0 = 1 \\times (0.00130607) \\times 1 \\approx 0.001306$$",
+        "Step 4: Sum the upper tail probabilities:\n$$\\mathrm{P}(X \\ge 11) = 0.045277 + 0.011319 + 0.001306 = 0.057902$$",
+        "Step 5: Subtract from 1:\n$$\\mathrm{P}(X < 11) = 1 - 0.057902 = 0.942098$$",
+        "Rounding to 3 significant figures gives $0.942$."
+      ]
+    },
+    {
+      "part_id": "9709_s18_62_q7_ii",
+      "difficulty": 3,
+      "mapping": {
+        "topic_id": "9709_s1_t_the_normal_distribution",
+        "lesson_id": "9709_s1_t_the_normal_distribution_m03_l02"
+      },
+      "hints": [
+        "For $n = 130$ and Company B probability $p = 0.35$, calculate $\\mu = np$ and $\\sigma^2 = np(1 - p)$.",
+        "Verify the normal approximation: $np = 45.5 > 5$ and $n(1 - p) = 84.5 > 5$.",
+        "Apply the continuity correction: 'at least 50' means $X \\ge 50$, which corresponds to the continuous region $Y > 49.5$.",
+        "Standardise $Z = \\frac{49.5 - 45.5}{\\sqrt{29.575}}$ and calculate the upper tail probability $1 - \\Phi(z)$."
+      ],
+      "walkthrough": [
+        "Let $X$ be the number of people choosing a Company B phone in a sample of $n = 130$. Since $p = 0.35$, $X \\sim \\mathrm{B}(130, 0.35)$.",
+        "Because $n$ is large, we approximate $X$ by a normal distribution.",
+        "Step 1: Calculate the mean and variance:\n$$\\mu = np = 130 \\times 0.35 = 45.5$$\n$$\\sigma^2 = np(1 - p) = 130 \\times 0.35 \\times 0.65 = 29.575$$\n$$\\sigma = \\sqrt{29.575} \\approx 5.43829$$\nCheck validity: $np = 45.5 > 5$ and $n(1 - p) = 84.5 > 5$, so the approximation $Y \\sim \\mathrm{N}(45.5, 29.575)$ is appropriate.",
+        "Step 2: Apply the continuity correction.\nWe want $\\mathrm{P}(X \\ge 50)$.\nIn a discrete distribution, the value $50$ is represented by the interval $[49.5, 50.5]$.\nTo include $50$ and all values above it, we take the continuous area to the right of $49.5$:\n$$\\mathrm{P}(X \\ge 50) \\approx \\mathrm{P}(Y > 49.5)$$",
+        "Step 3: Standardise $Y = 49.5$:\n$$Z = \\frac{49.5 - 45.5}{\\sqrt{29.575}} = \\frac{4}{5.43829} \\approx 0.7355$$",
+        "Step 4: Find the upper tail probability $1 - \\Phi(0.7355)$:\nFrom the normal distribution table:\n- $\\Phi(0.73) = 0.7673$\n- Difference for $5$ is $16$ ($0.0016$), so $\\Phi(0.735) = 0.7689$\n- Interpolating for $0.7355$ gives $\\Phi(0.7355) \\approx 0.7691$\nTherefore:\n$$\\mathrm{P}(Z > 0.7355) = 1 - 0.7691 = 0.2309$$",
+        "Rounding to 3 significant figures gives $0.231$."
+      ]
+    },
+    {
+      "part_id": "9709_s18_62_q7_iii",
+      "difficulty": 3,
+      "mapping": {
+        "topic_id": "9709_s1_t_discrete_random_variables",
+        "lesson_id": "9709_s1_t_discrete_random_variables_m03_l03"
+      },
+      "hints": [
+        "The probability of a phone NOT being made by Company B is $1 - 0.35 = 0.65$.",
+        "For a sample of size $n$, the probability that at least one phone is made by Company B is $1 - (0.65)^n$.",
+        "Set up the inequality $1 - (0.65)^n > 0.98 \\implies (0.65)^n < 0.02$.",
+        "Take logarithms on both sides, remembering that dividing by $\\ln(0.65) < 0$ reverses the inequality, and find the least integer $n$."
+      ],
+      "walkthrough": [
+        "We want to find the minimum number of mobile phones $n$ that must be sampled so that the probability of getting at least one Company B phone exceeds $0.98$.",
+        "Step 1: Express the probability in terms of $n$.\nThe probability that a single randomly selected phone is made by Company B is $p = 0.35$.\nThe probability that a phone is NOT made by Company B is:\n$$q = 1 - 0.35 = 0.65$$\nFor $n$ independent selections, the probability that NONE of the phones are made by Company B is $(0.65)^n$.",
+        "Using the complement rule, the probability that at least one phone is made by Company B is:\n$$\\mathrm{P}(\\text{at least one}) = 1 - (0.65)^n$$",
+        "Step 2: Formulate the inequality:\n$$1 - (0.65)^n > 0.98$$\nSubtract 1 from both sides:\n$$-(0.65)^n > -0.02$$\nMultiply both sides by $-1$ and reverse the inequality sign:\n$$(0.65)^n < 0.02$$",
+        "Step 3: Solve for $n$ using logarithms:\nTake the natural logarithm ($\\ln$) of both sides:\n$$\\ln\\left((0.65)^n\\right) < \\ln(0.02)$$\n$$n \\ln(0.65) < \\ln(0.02)$$\nCalculate the values:\n- $\\ln(0.65) \\approx -0.43078$\n- $\\ln(0.02) \\approx -3.91202$\nBecause $\\ln(0.65)$ is negative, dividing by it reverses the inequality:\n$$n > \\frac{\\ln(0.02)}{\\ln(0.65)} = \\frac{-3.91202}{-0.43078} \\approx 9.081$$",
+        "Step 4: Determine the least integer $n$:\nBecause $n$ must be a whole number of phones and $n > 9.081$, the smallest possible integer is $n = 10$."
+      ]
+    }
+  ]
+}

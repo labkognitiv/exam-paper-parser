@@ -1,0 +1,82 @@
+{
+  "schema_version": "9709_math_enrichment_v8",
+  "question_id": "9709_s25_33_q11",
+  "difficulty": 3,
+  "parts": [
+    {
+      "part_id": "9709_s25_33_q11_a",
+      "difficulty": 2,
+      "mapping": {
+        "topic_id": "9709_p3_t_differentiation",
+        "lesson_id": "9709_p3_t_differentiation_m03_l01"
+      },
+      "hints": [
+        "At the maximum x=a, differentiate y=√x sin2x with the product and chain rules and set the derivative to zero.",
+        "Multiply the stationary equation by 2√a to remove the denominator.",
+        "Rearrange sin2a+4a cos2a=0 and divide by cos2a to obtain the required tangent relation."
+      ],
+      "walkthrough": [
+        "Differentiate $y = x^{1/2}\\sin(2x)$ using the product rule $\\dfrac{\\mathrm{d}}{\\mathrm{d}x}(uv) = u'v + uv'$:\n$$\\dfrac{\\mathrm{d}}{\\mathrm{d}x}(x^{1/2}) = \\dfrac{1}{2}x^{-1/2} = \\dfrac{1}{2\\sqrt{x}}$$\n$$\\dfrac{\\mathrm{d}}{\\mathrm{d}x}(\\sin(2x)) = 2\\cos(2x)$$\n$$\\dfrac{\\mathrm{d}y}{\\mathrm{d}x} = \\dfrac{1}{2\\sqrt{x}}\\sin(2x) + 2\\sqrt{x}\\cos(2x)$$",
+        "Set the derivative equal to zero at the stationary point $M$ where $x = a$:\n$$\\dfrac{1}{2\\sqrt{a}}\\sin(2a) + 2\\sqrt{a}\\cos(2a) = 0$$",
+        "Multiply throughout by $2\\sqrt{a}$ (since $a > 0$):\n$$\\sin(2a) + 4a\\cos(2a) = 0$$",
+        "Divide by $\\cos(2a)$ (since $\\cos(2a) \\neq 0$):\n$$\\dfrac{\\sin(2a)}{\\cos(2a)} + 4a = 0 \\implies \\tan(2a) = -4a$$"
+      ]
+    },
+    {
+      "part_id": "9709_s25_33_q11_b",
+      "difficulty": 1,
+      "mapping": {
+        "topic_id": "9709_p3_t_numerical_solution_of_equations",
+        "lesson_id": "9709_p3_t_numerical_solution_of_equations_m01_l02"
+      },
+      "hints": [
+        "Define the radian-mode root function f(x)=tan2x+4x from part (a).",
+        "Evaluate f(0.9) and f(0.95) with enough digits to show their opposite signs.",
+        "Use continuity on this interval to conclude that the root a lies strictly between the endpoints."
+      ],
+      "walkthrough": [
+        "Define the continuous function $g(x) = \\tan(2x) + 4x$ based on the equation from part (a):\n$$g(x) = \\tan(2x) + 4x$$",
+        "Evaluate $g(x)$ at $x = 0.9$ in radian mode:\n$$2(0.9) = 1.8 \\text{ rad}$$\n$$g(0.9) = \\tan(1.8) + 4(0.9) = -4.286262 + 3.6 = -0.686262 < 0$$",
+        "Evaluate $g(x)$ at $x = 0.95$ in radian mode:\n$$2(0.95) = 1.9 \\text{ rad}$$\n$$g(0.95) = \\tan(1.9) + 4(0.95) = -2.927100 + 3.8 = +0.872900 > 0$$",
+        "State the conclusion from the change of sign:\n$$\\text{Since } g(0.9) < 0 \\text{ and } g(0.95) > 0, \\text{ and } g(x) \\text{ is continuous on } [0.9, 0.95],$$\n$$\\text{there is a root } a \\text{ such that } 0.9 < a < 0.95.$$"
+      ]
+    },
+    {
+      "part_id": "9709_s25_33_q11_c",
+      "difficulty": 2,
+      "mapping": {
+        "topic_id": "9709_p3_t_numerical_solution_of_equations",
+        "lesson_id": "9709_p3_t_numerical_solution_of_equations_m02_l02"
+      },
+      "hints": [
+        "If the sequence converges to a, replace both xₙ and xₙ₊₁ by a in the iterative formula.",
+        "Rearrange the fixed-point equation to π−2a=tan⁻¹(4a).",
+        "Take tangent in radians and use tan(π−2a)=−tan2a to recover tan2a=−4a, identifying the limit with the root from part (a)."
+      ],
+      "walkthrough": [
+        "Assume the sequence converges to a limit $\\alpha$. Then $\\alpha$ must satisfy the fixed-point equation:\n$$\\alpha = \\dfrac{1}{2}\\left(\\pi - \\tan^{-1}(4\\alpha)\\right)$$",
+        "Multiply both sides by 2 and isolate $\\tan^{-1}(4\\alpha)$:\n$$2\\alpha = \\pi - \\tan^{-1}(4\\alpha)$$\n$$\\tan^{-1}(4\\alpha) = \\pi - 2\\alpha$$",
+        "Take the tangent of both sides, using $\\tan(\\pi - \\theta) = -\\tan\\theta$:\n$$4\\alpha = \\tan(\\pi - 2\\alpha) = -\\tan(2\\alpha)$$\n$$\\tan(2\\alpha) = -4\\alpha$$",
+        "Since $a$ is the unique root of $\\tan(2x) = -4x$ in $(0.9, 0.95)$, the limit $\\alpha$ equals $a$:\n$$\\text{Hence, if the sequence converges, it converges to } a.$$"
+      ]
+    },
+    {
+      "part_id": "9709_s25_33_q11_d",
+      "difficulty": 3,
+      "mapping": {
+        "topic_id": "9709_p3_t_numerical_solution_of_equations",
+        "lesson_id": "9709_p3_t_numerical_solution_of_equations_m02_l02"
+      },
+      "hints": [
+        "Use xₙ₊₁=½(π−tan⁻¹(4xₙ)) in radians.",
+        "Start with x₀=0.900000 and feed each output back into the formula, recording every iterate to 6 decimal places.",
+        "Continue until the iterates justify rounding the limit to 4 decimal places."
+      ],
+      "walkthrough": [
+        "Substitute the starting value $x_1 = 0.9$ into $x_{n+1} = \\dfrac{1}{2}\\left(\\pi - \\tan^{-1}(4x_n)\\right)$ using radian mode:\n$$x_2 = \\dfrac{1}{2}\\left(\\pi - \\tan^{-1}(4 \\times 0.9)\\right) = \\dfrac{1}{2}(\\pi - \\tan^{-1}(3.6)) = \\dfrac{1}{2}(3.141593 - 1.299847) \\approx 0.920872$$",
+        "Compute successive iterates to 6 decimal places:\n$$x_3 = \\dfrac{1}{2}\\left(\\pi - \\tan^{-1}(4 \\times 0.920872)\\right) = \\dfrac{1}{2}(\\pi - \\tan^{-1}(3.683488)) \\approx 0.917944$$\n$$x_4 = \\dfrac{1}{2}\\left(\\pi - \\tan^{-1}(4 \\times 0.917944)\\right) = \\dfrac{1}{2}(\\pi - \\tan^{-1}(3.671776)) \\approx 0.918347$$\n$$x_5 = \\dfrac{1}{2}\\left(\\pi - \\tan^{-1}(4 \\times 0.918347)\\right) = \\dfrac{1}{2}(\\pi - \\tan^{-1}(3.673388)) \\approx 0.918292$$\n$$x_6 = \\dfrac{1}{2}\\left(\\pi - \\tan^{-1}(4 \\times 0.918292)\\right) = \\dfrac{1}{2}(\\pi - \\tan^{-1}(3.673168)) \\approx 0.918299$$",
+        "Conclude with the value of $a$ rounded to 4 decimal places:\n$$\\text{Both } 0.918292 \\text{ and } 0.918299 \\text{ round to } 0.9183:$$\n$$a = 0.9183$$"
+      ]
+    }
+  ]
+}

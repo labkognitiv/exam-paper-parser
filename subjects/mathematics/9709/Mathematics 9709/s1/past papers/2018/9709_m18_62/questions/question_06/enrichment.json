@@ -1,0 +1,51 @@
+{
+  "schema_version": "9709_math_enrichment_v8",
+  "question_id": "9709_m18_62_q6",
+  "difficulty": 3,
+  "parts": [
+    {
+      "part_id": "9709_m18_62_q6_i",
+      "difficulty": 3,
+      "mapping": {
+        "topic_id": "9709_s1_t_permutations_and_combinations",
+        "lesson_id": "9709_s1_t_permutations_and_combinations_m02_l01"
+      },
+      "hints": [
+        "The digits are 1, 3, 5 (3 odd digits) and 6, 6, 6, 8 (4 even digits, with three identical 6s).",
+        "Group the 3 odd digits into one block and the 4 even digits into a second block.",
+        "Find the number of internal arrangements for each block: $3!$ for the odds, and $\\frac{4!}{3!}$ for the evens.",
+        "Multiply by $2!$ for the order of the two blocks relative to each other."
+      ],
+      "walkthrough": [
+        "We need to form 7-digit numbers from the digits 1, 3, 5, 6, 6, 6, 8 such that all even digits stay together and all odd digits stay together. We use the block (grouping) method.",
+        "Step 1: Form the two distinct blocks:\n- Block 1 (Odd digits): contains $\\{1, 3, 5\\}$ (3 distinct digits).\n- Block 2 (Even digits): contains $\\{6, 6, 6, 8\\}$ (4 digits, with three identical 6s).",
+        "Step 2: Arrange the digits inside Block 1.\nBecause all 3 odd digits are distinct, the number of internal arrangements is:\n$$3! = 3 \\times 2 \\times 1 = 6$$",
+        "Step 3: Arrange the digits inside Block 2.\nThere are 4 digits, but the digit 6 appears 3 times. Using the formula for arrangements with repeated items $\\frac{n!}{p!}$:\n$$\\frac{4!}{3!} = \\frac{4 \\times 3 \\times 2 \\times 1}{3 \\times 2 \\times 1} = 4$$",
+        "Step 4: Arrange the two blocks.\nThe two blocks can be placed in 2 different orders:\n- [Odd block] then [Even block]\n- [Even block] then [Odd block]\nThis gives $2! = 2$ ways.",
+        "Step 5: Multiply all stages together using the fundamental principle of counting:\n$$\\text{Total} = 3! \\times \\frac{4!}{3!} \\times 2 = 6 \\times 4 \\times 2 = 48$$"
+      ]
+    },
+    {
+      "part_id": "9709_m18_62_q6_ii",
+      "difficulty": 3,
+      "mapping": {
+        "topic_id": "9709_s1_t_permutations_and_combinations",
+        "lesson_id": "9709_s1_t_permutations_and_combinations_m05_l01"
+      },
+      "hints": [
+        "A 7-digit number is even if and only if its last digit is even (either 8 or 6).",
+        "Because the digit 6 is repeated, ending in 8 leaves three 6s, while ending in 6 leaves two 6s. Split into two mutually exclusive cases.",
+        "For numbers ending in 8, arrange the remaining 6 digits $\\{1, 3, 5, 6, 6, 6\\}$ using $\\frac{6!}{3!}$.",
+        "For numbers ending in 6, arrange the remaining 6 digits $\\{1, 3, 5, 6, 6, 8\\}$ using $\\frac{6!}{2!}$, and sum the two results."
+      ],
+      "walkthrough": [
+        "To form an even number, the last digit must be an even digit from our set $\\{1, 3, 5, 6, 6, 6, 8\\}$. The possible even ending digits are 8 and 6.",
+        "Because the digit 6 appears three times, fixing 8 at the end leaves three 6s in the remaining positions, whereas fixing 6 leaves only two 6s. We must evaluate each case separately.",
+        "Case 1: The last digit is 8.\n- Last position: 1 choice (the digit 8).\n- The first 6 positions must be filled by the remaining 6 digits $\\{1, 3, 5, 6, 6, 6\\}$.\n- This set has 6 digits with three identical 6s.\n- Number of arrangements:\n$$\\frac{6!}{3!} = \\frac{720}{6} = 120$$",
+        "Case 2: The last digit is 6.\n- Last position: 1 choice (one of the 6s).\n- The first 6 positions must be filled by the remaining 6 digits $\\{1, 3, 5, 6, 6, 8\\}$.\n- This set has 6 digits with two identical 6s.\n- Number of arrangements:\n$$\\frac{6!}{2!} = \\frac{720}{2} = 360$$",
+        "Step 3: By the addition principle, add the numbers of arrangements from the two disjoint cases:\n$$\\text{Total even numbers} = 120 + 360 = 480$$",
+        "(Alternative subtraction check: Total arrangements of all 7 digits is $\\frac{7!}{3!} = \\frac{5040}{6} = 840$. Odd numbers must end in 1, 3, or 5; for each, the remaining 6 digits have three 6s: $3 \\times \\frac{6!}{3!} = 3 \\times 120 = 360$. Then $840 - 360 = 480$.)"
+      ]
+    }
+  ]
+}

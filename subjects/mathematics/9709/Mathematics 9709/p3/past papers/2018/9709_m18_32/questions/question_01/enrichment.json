@@ -1,0 +1,29 @@
+{
+  "schema_version": "9709_math_enrichment_v8",
+  "question_id": "9709_m18_32_q1",
+  "difficulty": 2,
+  "parts": [
+    {
+      "part_id": "9709_m18_32_q1",
+      "difficulty": 2,
+      "mapping": {
+        "topic_id": "9709_p3_t_trigonometry",
+        "lesson_id": "9709_p3_t_trigonometry_m01_l03"
+      },
+      "hints": [
+        "Use the trapezium rule on three equal strips of the interval $0\\le x\\le \\pi/4$.",
+        "The strip width is $h=(\\pi/4)/3=\\pi/12$, so evaluate $\\sqrt{1-\\tan x}$ at $x=0,\\pi/12,\\pi/6,\\pi/4$.",
+        "Apply $\\frac h2[y_0+2(y_1+y_2)+y_3]$ and round only the final estimate to 3 decimal places."
+      ],
+      "walkthrough": [
+        "Identify the integration limits $a = 0$ and $b = \\dfrac{\\pi}{4}$, with $n = 3$ intervals.",
+        "Calculate the interval width $h$:\n$$h = \\dfrac{b - a}{n} = \\dfrac{\\frac{\\pi}{4} - 0}{3} = \\dfrac{\\pi}{12}$$",
+        "Determine the $x$-coordinates of the four ordinates:\n$$x_0 = 0$$\n$$x_1 = 0 + \\dfrac{\\pi}{12} = \\dfrac{\\pi}{12}$$\n$$x_2 = \\dfrac{\\pi}{12} + \\dfrac{\\pi}{12} = \\dfrac{\\pi}{6}$$\n$$x_3 = \\dfrac{\\pi}{6} + \\dfrac{\\pi}{12} = \\dfrac{\\pi}{4}$$",
+        "Evaluate the integrand $f(x) = \\sqrt{1 - \\tan x}$ at each ordinate:\n$$y_0 = f(0) = \\sqrt{1 - \\tan 0} = \\sqrt{1 - 0} = 1$$\n$$y_1 = f\\left(\\dfrac{\\pi}{12}\\right) = \\sqrt{1 - \\tan\\left(\\dfrac{\\pi}{12}\\right)} = \\sqrt{1 - (2 - \\sqrt{3})} = \\sqrt{\\sqrt{3} - 1} \\approx \\sqrt{0.7320508} \\approx 0.8555997$$\n$$y_2 = f\\left(\\dfrac{\\pi}{6}\\right) = \\sqrt{1 - \\tan\\left(\\dfrac{\\pi}{6}\\right)} = \\sqrt{1 - \\dfrac{1}{\\sqrt{3}}} \\approx \\sqrt{1 - 0.5773503} = \\sqrt{0.4226497} \\approx 0.6501151$$\n$$y_3 = f\\left(\\dfrac{\\pi}{4}\\right) = \\sqrt{1 - \\tan\\left(\\dfrac{\\pi}{4}\\right)} = \\sqrt{1 - 1} = 0$$",
+        "State the trapezium rule formula for 3 intervals:\n$$T = \\dfrac{h}{2} \\left[ y_0 + y_3 + 2(y_1 + y_2) \\right]$$\n$$T = \\dfrac{\\frac{\\pi}{12}}{2} \\left[ 1 + 0 + 2(0.8555997 + 0.6501151) \\right]$$",
+        "Evaluate the bracketed sum:\n$$y_1 + y_2 = 0.8555997 + 0.6501151 = 1.5057148$$\n$$2(y_1 + y_2) = 2 \\times 1.5057148 = 3.0114296$$\n$$y_0 + y_3 + 2(y_1 + y_2) = 1 + 0 + 3.0114296 = 4.0114296$$",
+        "Multiply by $\\dfrac{h}{2} = \\dfrac{\\pi}{24}$:\n$$T = \\dfrac{\\pi}{24} \\times 4.0114296 \\approx 0.1308997 \\times 4.0114296 \\approx 0.525095$$\nRounding to 3 decimal places gives $0.525$."
+      ]
+    }
+  ]
+}

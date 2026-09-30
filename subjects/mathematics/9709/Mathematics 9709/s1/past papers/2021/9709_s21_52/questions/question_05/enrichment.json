@@ -1,0 +1,65 @@
+{
+  "schema_version": "9709_math_enrichment_v8",
+  "question_id": "9709_s21_52_q5",
+  "difficulty": 3,
+  "parts": [
+    {
+      "part_id": "9709_s21_52_q5_a",
+      "difficulty": 1,
+      "mapping": {
+        "topic_id": "9709_s1_t_discrete_random_variables",
+        "lesson_id": "9709_s1_t_discrete_random_variables_m03_l01"
+      },
+      "hints": [
+        "The flight arrival outcomes on any day are early ($0.15$), on time ($0.55$), and late ($0.3$).",
+        "Find the probability that the flight does not arrive late on a single day: $1 - 0.3 = 0.7$ (or $0.15 + 0.55 = 0.7$).",
+        "Because the arrival status on different days is independent, multiply the single-day probability across 3 days: $(0.7)^3$."
+      ],
+      "walkthrough": [
+        "Step 1: Determine the single-day probability of not arriving late.\nOn any given day, the flight can arrive early (probability $0.15$), on time (probability $0.55$), or late (probability $0.30$).\nThe event 'does not arrive late' means arriving early or on time:\n$$\\mathrm{P}(\\text{not late}) = 1 - \\mathrm{P}(\\text{late}) = 1 - 0.3 = 0.7$$\n(Equivalently, $0.15 + 0.55 = 0.7$).",
+        "Step 2: Apply independence across 3 days.\nAssuming the flight arrivals on 3 randomly chosen days are mutually independent events:\n$$\\mathrm{P}(\\text{not late on Day 1 and Day 2 and Day 3}) = \\mathrm{P}(\\text{not late})^3 = (0.7)^3$$\nCalculate the power:\n$$(0.7)^3 = 0.7 \\times 0.7 \\times 0.7 = 0.49 \\times 0.7 = 0.343$$"
+      ]
+    },
+    {
+      "part_id": "9709_s21_52_q5_b",
+      "difficulty": 2,
+      "mapping": {
+        "topic_id": "9709_s1_t_discrete_random_variables",
+        "lesson_id": "9709_s1_t_discrete_random_variables_m03_l01"
+      },
+      "hints": [
+        "Define the random variable $Y$ as the number of days the flight arrives early out of $n = 9$ days. Since the probability of arriving early is $p = 0.15$, $Y \\sim B(9, 0.15)$.",
+        "We want the probability of arriving early at least 3 times: $\\mathrm{P}(Y \\ge 3)$.",
+        "Use the complement rule: $\\mathrm{P}(Y \\ge 3) = 1 - [\\mathrm{P}(Y = 0) + \\mathrm{P}(Y = 1) + \\mathrm{P}(Y = 2)]$.",
+        "Evaluate each binomial probability using $\\binom{9}{y} (0.15)^y (0.85)^{9-y}$, sum them, subtract from 1, and round to 3 significant figures."
+      ],
+      "walkthrough": [
+        "Step 1: Set up the binomial distribution.\nLet $Y$ be the number of days the flight arrives early out of $n = 9$ independent days. The probability of arriving early on any single day is $p = 0.15$, so the probability of not arriving early is $q = 1 - p = 0.85$:\n$$Y \\sim B(n, p) = B(9, 0.15)$$",
+        "Step 2: Express the required event using the complement.\nWe need the probability that the flight arrives early at least 3 times, which is $Y \\ge 3$:\n$$\\mathrm{P}(Y \\ge 3) = 1 - \\mathrm{P}(Y < 3) = 1 - [\\mathrm{P}(Y = 0) + \\mathrm{P}(Y = 1) + \\mathrm{P}(Y = 2)]$$",
+        "Step 3: Evaluate each individual binomial probability using $\\mathrm{P}(Y = y) = \\binom{n}{y} p^y q^{n-y}$:\n- For $y = 0$:\n$$\\mathrm{P}(Y = 0) = \\binom{9}{0} (0.15)^0 (0.85)^9 = 1 \\times 1 \\times (0.85)^9 = 0.23161687$$\n- For $y = 1$:\n$$\\mathrm{P}(Y = 1) = \\binom{9}{1} (0.15)^1 (0.85)^8 = 9 \\times 0.15 \\times (0.85)^8 = 1.35 \\times 0.27249053 = 0.36786221$$\n- For $y = 2$:\n$$\\binom{9}{2} = \\frac{9 \\times 8}{2 \\times 1} = 36$$\n$$\\mathrm{P}(Y = 2) = 36 \\times (0.15)^2 \\times (0.85)^7 = 36 \\times 0.0225 \\times 0.32057709 = 0.81 \\times 0.32057709 = 0.25966744$$",
+        "Step 4: Sum the lower tail probabilities:\n$$\\mathrm{P}(Y \\le 2) = 0.23161687 + 0.36786221 + 0.25966744 = 0.85914652$$",
+        "Step 5: Subtract from 1:\n$$\\mathrm{P}(Y \\ge 3) = 1 - 0.85914652 = 0.14085348$$\nRounding to 3 significant figures gives $0.141$."
+      ]
+    },
+    {
+      "part_id": "9709_s21_52_q5_c",
+      "difficulty": 3,
+      "mapping": {
+        "topic_id": "9709_s1_t_the_normal_distribution",
+        "lesson_id": "9709_s1_t_the_normal_distribution_m03_l02"
+      },
+      "hints": [
+        "For $n = 60$ and $p = 0.15$, verify that a normal approximation is appropriate: $np = 9 > 5$ and $n(1 - p) = 51 > 5$.",
+        "Calculate the mean and variance: $\\mu = np = 60 \\times 0.15 = 9$ and $\\sigma^2 = np(1 - p) = 60 \\times 0.15 \\times 0.85 = 7.65$.",
+        "Apply the continuity correction to the inequality $Y \\ge 12$: on the continuous scale, this becomes $W > 11.5$.",
+        "Standardise $z = \\dfrac{11.5 - 9}{\\sqrt{7.65}}$, evaluate $1 - \\Phi(z)$, and give your answer to 3 significant figures."
+      ],
+      "walkthrough": [
+        "Step 1: Check conditions and compute approximating normal parameters.\nWith $n = 60$ days and early arrival probability $p = 0.15$:\n$$np = 60 \\times 0.15 = 9 > 5$$\n$$n(1 - p) = 60 \\times 0.85 = 51 > 5$$\nBoth conditions are satisfied, so we approximate the discrete variable $Y \\sim B(60, 0.15)$ with a continuous normal variable $W \\sim N(\\mu, \\sigma^2)$:\n$$\\mu = np = 9$$\n$$\\sigma^2 = np(1 - p) = 60 \\times 0.15 \\times 0.85 = 7.65$$\n$$\\sigma = \\sqrt{7.65} \\approx 2.765863$$",
+        "Step 2: Apply the continuity correction.\nWe require the probability that the flight arrives early at least 12 times:\n$$\\mathrm{P}(Y \\ge 12)$$\nSince $Y$ takes integer values, the discrete integer 12 occupies the continuous interval $[11.5, 12.5]$. To include 12 and all values greater than 12, the continuous boundary starts at $11.5$:\n$$\\mathrm{P}(Y \\ge 12) \\approx \\mathrm{P}(W > 11.5)$$",
+        "Step 3: Standardise to calculate the $Z$-score:\n$$Z = \\frac{11.5 - \\mu}{\\sigma} = \\frac{11.5 - 9}{\\sqrt{7.65}} = \\frac{2.5}{2.765863} \\approx 0.903877 \\dots \\approx 0.904$$",
+        "Step 4: Look up the probability in the standard normal table:\n$$\\mathrm{P}(Z > 0.904) = 1 - \\Phi(0.904)$$\nFrom the Cambridge normal distribution tables:\n$$\\Phi(0.90) = 0.8159$$\nThe difference for the next digit $4$ is $+11$ (or $0.0011$):\n$$\\Phi(0.904) = 0.8159 + 0.0011 = 0.8170$$\nSubtract from 1:\n$$1 - 0.8170 = 0.1830$$\nRounding to 3 significant figures gives $0.183$."
+      ]
+    }
+  ]
+}

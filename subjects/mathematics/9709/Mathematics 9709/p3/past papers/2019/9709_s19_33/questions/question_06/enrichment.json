@@ -1,0 +1,63 @@
+{
+  "schema_version": "9709_math_enrichment_v8",
+  "question_id": "9709_s19_33_q6",
+  "difficulty": 4,
+  "parts": [
+    {
+      "part_id": "9709_s19_33_q6_i",
+      "difficulty": 4,
+      "mapping": {
+        "topic_id": "9709_p3_t_numerical_solution_of_equations",
+        "lesson_id": "9709_p3_t_numerical_solution_of_equations_m03_l01"
+      },
+      "hints": [
+        "Use the fact that the larger intercept $b$ is an integer root of the polynomial.",
+        "Test plausible integer factors of the constant term $-6$ in $x^4-2x^3-7x-6$ and identify the positive root shown on the right of the diagram."
+      ],
+      "walkthrough": [
+        "The $x$-intercept $b$ is a positive integer root of the equation $y = 0$:\n$$x^4 - 2x^3 - 7x - 6 = 0$$",
+        "Test integer factors of the constant term $-6$ ($x = 1, 2, 3, 6$):\n- For $x = 1$:\n$$1^4 - 2(1)^3 - 7(1) - 6 = 1 - 2 - 7 - 6 = -14 \\neq 0$$\n- For $x = 2$:\n$$2^4 - 2(2)^3 - 7(2) - 6 = 16 - 16 - 14 - 6 = -20 \\neq 0$$\n- For $x = 3$:\n$$3^4 - 2(3)^3 - 7(3) - 6 = 81 - 2(27) - 21 - 6 = 81 - 54 - 21 - 6 = 81 - 81 = 0$$",
+        "Conclude that $b = 3$."
+      ]
+    },
+    {
+      "part_id": "9709_s19_33_q6_ii",
+      "difficulty": 4,
+      "mapping": {
+        "topic_id": "9709_p3_t_numerical_solution_of_equations",
+        "lesson_id": "9709_p3_t_numerical_solution_of_equations_m03_l01"
+      },
+      "hints": [
+        "Use the factor theorem with the integer root $b$ from part (i).",
+        "Divide $x^4-2x^3-7x-6$ by $x-b$ to obtain the cubic factor whose other real root is $a$.",
+        "Set the cubic factor equal to zero at $x=a$, then isolate the linear $3a$ term to make $a$ the subject."
+      ],
+      "walkthrough": [
+        "Since $b = 3$ is a root, $(x - 3)$ is a linear factor of $x^4 - 2x^3 - 7x - 6$.",
+        "Perform polynomial division of $(x^4 - 2x^3 - 7x - 6)$ by $(x - 3)$:\n- Divide $x^4$ by $x$: quotient term $x^3$.\n  Multiply: $x^3(x - 3) = x^4 - 3x^3$.\n  Subtract: $(-2x^3) - (-3x^3) = x^3$.\n- Divide $x^3$ by $x$: quotient term $x^2$.\n  Multiply: $x^2(x - 3) = x^3 - 3x^2$.\n  Subtract: $(0x^2) - (-3x^2) = 3x^2$.\n- Divide $3x^2$ by $x$: quotient term $3x$.\n  Multiply: $3x(x - 3) = 3x^2 - 9x$.\n  Subtract: $(-7x) - (-9x) = 2x$.\n- Divide $2x$ by $x$: quotient term $2$.\n  Multiply: $2(x - 3) = 2x - 6$.\n  Subtract: $(-6) - (-6) = 0$.",
+        "State the factorization:\n$$x^4 - 2x^3 - 7x - 6 = (x - 3)(x^3 + x^2 + 3x + 2)$$",
+        "Since $a$ is the other real $x$-intercept ($a < 3$), $a$ must be a root of the cubic quotient:\n$$a^3 + a^2 + 3a + 2 = 0$$",
+        "Rearrange to make $a$ the subject:\n$$3a = -(2 + a^2 + a^3)$$\n$$a = -\\dfrac{1}{3}(2 + a^2 + a^3)$$\nThis completes the proof."
+      ]
+    },
+    {
+      "part_id": "9709_s19_33_q6_iii",
+      "difficulty": 4,
+      "mapping": {
+        "topic_id": "9709_p3_t_numerical_solution_of_equations",
+        "lesson_id": "9709_p3_t_numerical_solution_of_equations_m03_l01"
+      },
+      "hints": [
+        "Use the fixed-point rearrangement from part (ii) as $a_{n+1}=-\\tfrac13(2+a_n^2+a_n^3)$.",
+        "Start with a reasonable negative value near the left intercept and report each iterate to 5 decimal places.",
+        "Continue until the iterates agree sufficiently to justify a stable value to 3 decimal places."
+      ],
+      "walkthrough": [
+        "Write the iterative formula based on part (ii):\n$$a_{n+1} = -\\dfrac{1}{3}\\bigl(2 + a_n^2 + a_n^3\\bigr)$$",
+        "Choose an initial approximation $a_1 = -0.70000$:\n$$a_1 = -0.70000$$",
+        "Calculate successive iterations to 5 decimal places:\n- $a_2 = -\\dfrac{1}{3}\\bigl(2 + (-0.7)^2 + (-0.7)^3\\bigr) = -\\dfrac{1}{3}(2 + 0.49 - 0.343) = -\\dfrac{1}{3}(2.147) \\approx -0.71567$\n- $a_3 = -\\dfrac{1}{3}\\bigl(2 + (-0.71567)^2 + (-0.71567)^3\\bigr) \\approx -0.71521$\n- $a_4 = -\\dfrac{1}{3}\\bigl(2 + (-0.71521)^2 + (-0.71521)^3\\bigr) \\approx -0.71523$\n- $a_5 = -\\dfrac{1}{3}\\bigl(2 + (-0.71523)^2 + (-0.71523)^3\\bigr) \\approx -0.71523$",
+        "Observe that the sequence has converged to 5 decimal places at $-0.71523$.\nRound to 3 decimal places:\n$$a \\approx -0.715$$"
+      ]
+    }
+  ]
+}

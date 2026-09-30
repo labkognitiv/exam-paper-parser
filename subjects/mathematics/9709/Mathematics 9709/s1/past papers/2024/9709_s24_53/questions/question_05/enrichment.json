@@ -1,0 +1,90 @@
+{
+  "schema_version": "9709_math_enrichment_v8",
+  "question_id": "9709_s24_53_q5",
+  "difficulty": 5,
+  "parts": [
+    {
+      "part_id": "9709_s24_53_q5_a",
+      "difficulty": 1,
+      "mapping": {
+        "topic_id": "9709_s1_t_discrete_random_variables",
+        "lesson_id": "9709_s1_t_discrete_random_variables_m04_l01"
+      },
+      "hints": [
+        "Let X be the number of days until Salah completes the puzzle for the first time: X ~ Geo(0.65).",
+        "Completing for the first time on the 5th day means 4 consecutive failures followed by 1 success.",
+        "Calculate (1 - 0.65)^4 * 0.65 = (0.35)^4 * 0.65 = 0.00975."
+      ],
+      "walkthrough": [
+        "Step 1: Identify the probability model and its parameters:\nSalah attempts the puzzle each day independently with constant success probability $p = 0.65$.\nThe probability of failure on any given day is $q = 1 - 0.65 = 0.35$.\nLet $X$ be the number of days until the first success:\n$$X \\sim \\operatorname{Geo}(p) = \\operatorname{Geo}(0.65)$$",
+        "Step 2: State the probability formula for the rth trial:\n$$P(X = r) = (1 - p)^{r-1} p$$",
+        "Step 3: Substitute r = 5:\n$$P(X = 5) = (0.35)^4 \\times 0.65$$",
+        "Step 4: Compute the numerical value:\n$$(0.35)^4 = 0.01500625$$\n$$P(X = 5) = 0.01500625 \\times 0.65 = 0.00975406... \\approx 0.00975$$\n(To 3 significant figures)."
+      ]
+    },
+    {
+      "part_id": "9709_s24_53_q5_b",
+      "difficulty": 2,
+      "mapping": {
+        "topic_id": "9709_s1_t_discrete_random_variables",
+        "lesson_id": "9709_s1_t_discrete_random_variables_m05_l01"
+      },
+      "hints": [
+        "Second completion on the 5th day requires exactly 1 completion in the first 4 days, followed by completion on the 5th day.",
+        "Calculate the probability of 1 completion in 4 days: 4C1 * (0.65)^1 * (0.35)^3.",
+        "Multiply by the probability of completion on the 5th day: 4 * 0.65 * (0.35)^3 * 0.65 = 4 * (0.65)^2 * (0.35)^3.",
+        "Evaluate 4 * 0.4225 * 0.042875 = 0.0725."
+      ],
+      "walkthrough": [
+        "Step 1: Understand the structure of the kth success on the rth trial:\nFor Salah to complete the puzzle for the second time on the 5th day, two conditions must occur:\n1. He must complete exactly $1$ puzzle during the first $4$ days (and fail $3$ times).\n2. He must complete the puzzle on the 5th day.",
+        "Step 2: Calculate the probability of exactly 1 success in 4 days:\nUsing the Binomial probability formula for $n = 4, r = 1, p = 0.65, q = 0.35$:\n$$P(1 \\text{ success in } 4) = \\binom{4}{1} (0.65)^1 (0.35)^3 = 4 \\times 0.65 \\times (0.35)^3$$",
+        "Step 3: Multiply by the probability of success on day 5:\n$$P = P(1 \\text{ success in } 4) \\times P(\\text{success on day } 5)$$\n$$P = 4 \\times 0.65 \\times (0.35)^3 \\times 0.65 = 4 \\times (0.65)^2 \\times (0.35)^3$$",
+        "Step 4: Compute the numerical value:\n$$(0.65)^2 = 0.4225$$\n$$(0.35)^3 = 0.042875$$\n$$P = 4 \\times 0.4225 \\times 0.042875 = 0.07245875 \\approx 0.0725$$\n(To 3 significant figures)."
+      ]
+    },
+    {
+      "part_id": "9709_s24_53_q5_c",
+      "difficulty": 3,
+      "mapping": {
+        "topic_id": "9709_s1_t_discrete_random_variables",
+        "lesson_id": "9709_s1_t_discrete_random_variables_m03_l03"
+      },
+      "hints": [
+        "In a week of 7 days, let Y be the number of completed puzzles: Y ~ B(7, 0.65).",
+        "Fewer than 5 times means Y <= 4.",
+        "Use the complement: 1 - [P(Y = 5) + P(Y = 6) + P(Y = 7)].",
+        "Calculate the upper tail terms: 7C5*(0.65)^5*(0.35)^2 + 7C6*(0.65)^6*(0.35)^1 + (0.65)^7.",
+        "Sum the terms to get 0.29848 + 0.18477 + 0.04902 = 0.5323, then subtract from 1 to get 0.468."
+      ],
+      "walkthrough": [
+        "Step 1: Define the Binomial model:\nIn a week of $n = 7$ days, each day represents an independent trial with success probability $p = 0.65$ and failure probability $q = 0.35$.\nLet $Y$ be the number of days Salah completes the crossword puzzle:\n$$Y \\sim \\operatorname{B}(n, p) = \\operatorname{B}(7, 0.65)$$",
+        "Step 2: Express fewer than 5 completions:\n$$P(Y < 5) = P(Y \\le 4)$$",
+        "Step 3: Use the complement rule:\nRather than evaluating $5$ terms ($Y = 0, 1, 2, 3, 4$), calculate the $3$ upper-tail terms ($Y = 5, 6, 7$) and subtract from $1$:\n$$P(Y < 5) = 1 - [P(Y = 5) + P(Y = 6) + P(Y = 7)]$$",
+        "Step 4: Compute the terms:\n- For $r = 5$:\n$$P(Y = 5) = \\binom{7}{5} (0.65)^5 (0.35)^2 = 21 \\times 0.116029... \\times 0.1225 = 0.2984838$$\n- For $r = 6$:\n$$P(Y = 6) = \\binom{7}{6} (0.65)^6 (0.35)^1 = 7 \\times 0.0754188... \\times 0.35 = 0.1847762$$\n- For $r = 7$:\n$$P(Y = 7) = \\binom{7}{7} (0.65)^7 (0.35)^0 = 0.0490223$$\nSum of upper tail:\n$$P(Y \\ge 5) = 0.2984838 + 0.1847762 + 0.0490223 = 0.5322823$$",
+        "Step 5: Subtract from 1:\n$$P(Y < 5) = 1 - 0.5322823 = 0.4677177... \\approx 0.468$$\n(To 3 significant figures)."
+      ]
+    },
+    {
+      "part_id": "9709_s24_53_q5_d",
+      "difficulty": 5,
+      "mapping": {
+        "topic_id": "9709_s1_t_the_normal_distribution",
+        "lesson_id": "9709_s1_t_the_normal_distribution_m03_l02"
+      },
+      "hints": [
+        "For 84 days, let W be the number of completed puzzles: W ~ B(84, 0.65).",
+        "Calculate mean mu = 84 * 0.65 = 54.6 and variance sigma^2 = 84 * 0.65 * 0.35 = 19.11.",
+        "Apply continuity correction to 'more than 50': P(W > 50) = P(W >= 51) becomes P(V > 50.5) on the continuous scale.",
+        "Standardise z = (50.5 - 54.6) / sqrt(19.11) = -4.1 / 4.3715 = -0.938.",
+        "Evaluate Phi(0.938) = 0.826."
+      ],
+      "walkthrough": [
+        "Step 1: Set up the discrete Binomial distribution:\nLet $W$ be the number of days Salah completes the puzzle out of $n = 84$ days:\n$$W \\sim \\operatorname{B}(n, p) = \\operatorname{B}(84, 0.65)$$",
+        "Step 2: Check conditions and compute the approximation parameters:\n- $np = 84 \\times 0.65 = 54.6 > 5$\n- $n(1 - p) = 84 \\times 0.35 = 29.4 > 5$\nSince both $np > 5$ and $nq > 5$, a Normal approximation is appropriate:\n- Mean: $\\mu = np = 54.6$\n- Variance: $\\sigma^2 = np(1 - p) = 19.11$\n- Standard deviation: $\\sigma = \\sqrt{19.11} \\approx 4.371499$\n$$W \\approx V \\sim \\operatorname{N}(54.6, 19.11)$$",
+        "Step 3: Apply the continuity correction:\nWe require the probability of completing strictly more than $50$ puzzles:\n$$P(W > 50) = P(W \\ge 51)$$\nOn the continuous scale, the integer $51$ begins at $50.5$:\n$$P(V > 50.5)$$",
+        "Step 4: Standardise the continuity-corrected boundary:\n$$Z = \\frac{50.5 - \\mu}{\\sigma} = \\frac{50.5 - 54.6}{\\sqrt{19.11}} = \\frac{-4.1}{4.371499...} \\approx -0.9379$$",
+        "Step 5: Evaluate the probability using standard normal tables:\nBy symmetry of the normal distribution:\n$$P(Z > -0.9379) = P(Z < 0.9379) = \\Phi(0.9379)$$\nFrom the table:\n$$\\Phi(0.93) = 0.8238, \\quad \\text{difference for } 8 = 21 \\implies \\Phi(0.938) = 0.8238 + 0.0021 = 0.8259$$\n$$P \\approx 0.826$$\n(To 3 significant figures)."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "schema_version": "9709_math_enrichment_v8",
+  "question_id": "9709_w24_32_q11",
+  "difficulty": 4,
+  "parts": [
+    {
+      "part_id": "9709_w24_32_q11_a",
+      "difficulty": 2,
+      "mapping": {
+        "topic_id": "9709_p3_t_differentiation",
+        "lesson_id": "9709_p3_t_differentiation_m03_l01"
+      },
+      "hints": [
+        "Apply the quotient rule to differentiate $f(x) = \\dfrac{2\\mathrm{e}^{2x}}{\\mathrm{e}^{2x} - 3\\mathrm{e}^x + 2}$.",
+        "Equate $f'(x) = 0$ to solve for $x = \\ln\\left(\\dfrac{4}{3}\\right)$, then evaluate the exact $y$-coordinate."
+      ],
+      "walkthrough": [
+        "Differentiate $f(x) = \\dfrac{2\\mathrm{e}^{2x}}{\\mathrm{e}^{2x} - 3\\mathrm{e}^x + 2}$ using the quotient rule:\n$$u = 2\\mathrm{e}^{2x} \\implies u' = 4\\mathrm{e}^{2x}$$\n$$v = \\mathrm{e}^{2x} - 3\\mathrm{e}^x + 2 \\implies v' = 2\\mathrm{e}^{2x} - 3\\mathrm{e}^x$$\n$$f'(x) = \\dfrac{u'v - uv'}{v^2}$$",
+        "Expand and simplify the numerator:\n$$\\text{Numerator} = 4\\mathrm{e}^{2x}(\\mathrm{e}^{2x} - 3\\mathrm{e}^x + 2) - 2\\mathrm{e}^{2x}(2\\mathrm{e}^{2x} - 3\\mathrm{e}^x)$$\n$$= 4\\mathrm{e}^{4x} - 12\\mathrm{e}^{3x} + 8\\mathrm{e}^{2x} - 4\\mathrm{e}^{4x} + 6\\mathrm{e}^{3x}$$\n$$= 8\\mathrm{e}^{2x} - 6\\mathrm{e}^{3x} = 2\\mathrm{e}^{2x}(4 - 3\\mathrm{e}^x)$$",
+        "State the derivative:\n$$f'(x) = \\dfrac{8\\mathrm{e}^{2x} - 6\\mathrm{e}^{3x}}{(\\mathrm{e}^{2x} - 3\\mathrm{e}^x + 2)^2}$$",
+        "Set $f'(x) = 0$ to find the stationary point:\n$$2\\mathrm{e}^{2x}(4 - 3\\mathrm{e}^x) = 0$$\nSince $\\mathrm{e}^{2x} > 0$ for all real $x$:\n$$4 - 3\\mathrm{e}^x = 0 \\implies \\mathrm{e}^x = \\dfrac{4}{3} \\implies x = \\ln\\left(\\dfrac{4}{3}\\right)$$",
+        "Calculate the exact $y$-coordinate by substituting $\\mathrm{e}^x = \\dfrac{4}{3}$ and $\\mathrm{e}^{2x} = \\dfrac{16}{9}$ into $f(x)$:\n$$\\text{Numerator} = 2\\left(\\dfrac{16}{9}\\right) = \\dfrac{32}{9}$$\n$$\\text{Denominator} = \\dfrac{16}{9} - 3\\left(\\dfrac{4}{3}\\right) + 2 = \\dfrac{16}{9} - 4 + 2 = \\dfrac{16}{9} - 2 = -\\dfrac{2}{9}$$\n$$y = \\dfrac{32/9}{-2/9} = -\\dfrac{32}{2} = -16$$",
+        "State the exact coordinates of the stationary point:\n$$\\left( \\ln\\left(\\dfrac{4}{3}\\right), -16 \\right)$$"
+      ]
+    },
+    {
+      "part_id": "9709_w24_32_q11_b",
+      "difficulty": 4,
+      "mapping": {
+        "topic_id": "9709_p3_t_integration",
+        "lesson_id": "9709_p3_t_integration_m03_l01"
+      },
+      "hints": [
+        "Use the substitution $u = \\mathrm{e}^x$ with $\\mathrm{d}u = \\mathrm{e}^x\\,\\mathrm{d}x$ to convert the integral to $\\int_3^5 \\dfrac{2u}{(u - 1)(u - 2)}\\,\\mathrm{d}u$.",
+        "Decompose into partial fractions $-\\dfrac{2}{u - 1} + \\dfrac{4}{u - 2}$, integrate, apply the transformed limits, and combine using logarithm laws to get $\\ln\\left(\\dfrac{81}{4}\\right)$."
+      ],
+      "walkthrough": [
+        "Apply substitution $u = \\mathrm{e}^x$:\n$$\\dfrac{\\mathrm{d}u}{\\mathrm{d}x} = \\mathrm{e}^x = u \\implies \\mathrm{d}x = \\dfrac{\\mathrm{d}u}{u}$$",
+        "Transform the integration limits:\n- Lower limit: when $x = \\ln 3$, $u = \\mathrm{e}^{\\ln 3} = 3$\n- Upper limit: when $x = \\ln 5$, $u = \\mathrm{e}^{\\ln 5} = 5$",
+        "Transform the integrand:\n$$f(x)\\,\\mathrm{d}x = \\dfrac{2u^2}{u^2 - 3u + 2}\\left(\\dfrac{\\mathrm{d}u}{u}\\right) = \\dfrac{2u}{u^2 - 3u + 2}\\,\\mathrm{d}u = \\dfrac{2u}{(u - 1)(u - 2)}\\,\\mathrm{d}u$$",
+        "Decompose $\\dfrac{2u}{(u - 1)(u - 2)}$ into partial fractions:\n$$\\dfrac{2u}{(u - 1)(u - 2)} = \\dfrac{A}{u - 1} + \\dfrac{B}{u - 2}$$\n$$2u = A(u - 2) + B(u - 1)$$\n- For $u = 1$: $2(1) = A(1 - 2) \\implies A = -2$\n- For $u = 2$: $2(2) = B(2 - 1) \\implies B = 4$\n$$\\dfrac{2u}{(u - 1)(u - 2)} = -\\dfrac{2}{u - 1} + \\dfrac{4}{u - 2}$$",
+        "Integrate with respect to $u$:\n$$\\int_3^5 \\left(-\\dfrac{2}{u - 1} + \\dfrac{4}{u - 2}\\right)\\,\\mathrm{d}u = \\left[ -2\\ln(u - 1) + 4\\ln(u - 2) \\right]_3^5$$",
+        "Evaluate at the upper limit $u = 5$:\n$$-2\\ln(4) + 4\\ln(3) = \\ln(3^4) - \\ln(4^2) = \\ln 81 - \\ln 16 = \\ln\\left(\\dfrac{81}{16}\\right)$$",
+        "Evaluate at the lower limit $u = 3$:\n$$-2\\ln(2) + 4\\ln(1) = -2\\ln 2 + 0 = -\\ln(2^2) = -\\ln 4 = \\ln\\left(\\dfrac{1}{4}\\right)$$",
+        "Subtract lower limit from upper limit and combine using logarithm laws:\n$$\\text{Integral} = \\ln\\left(\\dfrac{81}{16}\\right) - \\ln\\left(\\dfrac{1}{4}\\right) = \\ln\\left(\\dfrac{81/16}{1/4}\\right) = \\ln\\left(\\dfrac{81}{16} \\times 4\\right) = \\ln\\left(\\dfrac{81}{4}\\right)$$",
+        "State the exact answer in the required form $\\ln a$:\n$$\\ln\\left(\\dfrac{81}{4}\\right)$$\nwith rational $a = \\dfrac{81}{4}$."
+      ]
+    }
+  ]
+}

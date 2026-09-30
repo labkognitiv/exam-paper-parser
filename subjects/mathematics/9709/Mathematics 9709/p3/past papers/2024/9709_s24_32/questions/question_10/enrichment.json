@@ -1,0 +1,52 @@
+{
+  "schema_version": "9709_math_enrichment_v8",
+  "question_id": "9709_s24_32_q10",
+  "difficulty": 5,
+  "parts": [
+    {
+      "part_id": "9709_s24_32_q10_a",
+      "difficulty": 1,
+      "mapping": {
+        "topic_id": "9709_p3_t_differentiation",
+        "lesson_id": "9709_p3_t_differentiation_m01_l02"
+      },
+      "hints": [
+        "Rewrite $y = \\dfrac{1}{\\cos^3\\theta} = (\\cos\\theta)^{-3}$.",
+        "Differentiate with respect to $\\theta$ using the chain rule, multiplying by $\\dfrac{\\mathrm{d}}{\\mathrm{d}\\theta}[\\cos\\theta] = -\\sin\\theta$."
+      ],
+      "walkthrough": [
+        "Express $y = \\dfrac{1}{\\cos^3\\theta}$ in power form:\n$$y = (\\cos\\theta)^{-3}$$",
+        "Apply the chain rule $\\dfrac{\\mathrm{d}}{\\mathrm{d}\\theta}[u^n] = n u^{n-1} \\dfrac{\\mathrm{d}u}{\\mathrm{d}\\theta}$ with $u = \\cos\\theta$ and $n = -3$:\n$$\\dfrac{\\mathrm{d}y}{\\mathrm{d}\\theta} = -3(\\cos\\theta)^{-4} \\cdot \\dfrac{\\mathrm{d}}{\\mathrm{d}\\theta}[\\cos\\theta]$$",
+        "Substitute $\\dfrac{\\mathrm{d}}{\\mathrm{d}\\theta}[\\cos\\theta] = -\\sin\\theta$:\n$$\\dfrac{\\mathrm{d}y}{\\mathrm{d}\\theta} = -3(\\cos\\theta)^{-4}(-\\sin\\theta) = \\dfrac{3\\sin\\theta}{\\cos^4\\theta}$$",
+        "Express $\\dfrac{1}{\\cos^4\\theta}$ as $\\sec^4\\theta$ to reach the required identity:\n$$\\dfrac{\\mathrm{d}y}{\\mathrm{d}\\theta} = 3\\sin\\theta\\sec^4\\theta$$"
+      ]
+    },
+    {
+      "part_id": "9709_s24_32_q10_b",
+      "difficulty": 5,
+      "mapping": {
+        "topic_id": "9709_p3_t_differential_equations",
+        "lesson_id": "9709_p3_t_differential_equations_m02_l01"
+      },
+      "hints": [
+        "Separate variables in the differential equation to obtain $\\int \\dfrac{\\sin\\theta}{\\cos^4\\theta}\\,\\mathrm{d}\\theta = \\int \\dfrac{x + 3}{x^2 + 9}\\,\\mathrm{d}x$.",
+        "Use part (a) to integrate the $\\theta$-term, and split the $x$-integral into $\\dfrac{x}{x^2 + 9} + \\dfrac{3}{x^2 + 9}$ to obtain $\\ln$ and $\\arctan$ terms.",
+        "Substitute initial conditions $x = 3, \\theta = \\dfrac{\\pi}{3}$ to evaluate constant $C$.",
+        "Set $x = 0$, evaluate $\\sec^3\\theta$, and deduce $\\cos\\theta$ correct to 3 significant figures."
+      ],
+      "walkthrough": [
+        "Separate variables in $(x^2 + 9)\\dfrac{\\mathrm{d}\\theta}{\\mathrm{d}x} = (x + 3)\\cos^4\\theta\\operatorname{cosec}\\theta$:\n$$\\dfrac{1}{\\cos^4\\theta\\operatorname{cosec}\\theta}\\,\\mathrm{d}\\theta = \\dfrac{x + 3}{x^2 + 9}\\,\\mathrm{d}x$$\nSince $\\dfrac{1}{\\operatorname{cosec}\\theta} = \\sin\\theta$:\n$$\\dfrac{\\sin\\theta}{\\cos^4\\theta}\\,\\mathrm{d}\\theta = \\dfrac{x + 3}{x^2 + 9}\\,\\mathrm{d}x$$",
+        "Multiply both sides by $3$ to use the result of part (a):\n$$\\int \\dfrac{3\\sin\\theta}{\\cos^4\\theta}\\,\\mathrm{d}\\theta = \\int \\dfrac{3(x + 3)}{x^2 + 9}\\,\\mathrm{d}x$$",
+        "Integrate the left-hand side using part (a):\n$$\\int 3\\sin\\theta\\sec^4\\theta\\,\\mathrm{d}\\theta = \\sec^3\\theta$$",
+        "Split the right-hand side integral into two standard forms:\n$$\\int \\dfrac{3x + 9}{x^2 + 9}\\,\\mathrm{d}x = \\int \\dfrac{3x}{x^2 + 9}\\,\\mathrm{d}x + \\int \\dfrac{9}{x^2 + 9}\\,\\mathrm{d}x$$\n- Logarithmic term:\n  $$\\int \\dfrac{3x}{x^2 + 9}\\,\\mathrm{d}x = \\dfrac{3}{2}\\int \\dfrac{2x}{x^2 + 9}\\,\\mathrm{d}x = \\dfrac{3}{2}\\ln(x^2 + 9)$$\n- Inverse tangent term:\n  $$\\int \\dfrac{9}{x^2 + 3^2}\\,\\mathrm{d}x = 9\\left(\\dfrac{1}{3}\\arctan\\left(\\dfrac{x}{3}\\right)\\right) = 3\\arctan\\left(\\dfrac{x}{3}\\right)$$",
+        "Assemble the general solution with integration constant $C$:\n$$\\sec^3\\theta = \\dfrac{3}{2}\\ln(x^2 + 9) + 3\\arctan\\left(\\dfrac{x}{3}\\right) + C$$",
+        "Determine constant $C$ using the initial condition $\\theta = \\dfrac{\\pi}{3}$ when $x = 3$:\n$$\\cos\\left(\\dfrac{\\pi}{3}\\right) = \\dfrac{1}{2} \\implies \\sec\\left(\\dfrac{\\pi}{3}\\right) = 2 \\implies \\sec^3\\left(\\dfrac{\\pi}{3}\\right) = 2^3 = 8$$\n$$\\dfrac{3}{2}\\ln(3^2 + 9) = \\dfrac{3}{2}\\ln(18)$$\n$$3\\arctan\\left(\\dfrac{3}{3}\\right) = 3\\arctan(1) = 3\\left(\\dfrac{\\pi}{4}\\right) = \\dfrac{3\\pi}{4}$$\n$$8 = \\dfrac{3}{2}\\ln(18) + \\dfrac{3\\pi}{4} + C \\implies C = 8 - \\dfrac{3\\pi}{4} - \\dfrac{3}{2}\\ln(18)$$",
+        "Write the particular solution for $\\sec^3\\theta$:\n$$\\sec^3\\theta = \\dfrac{3}{2}\\ln(x^2 + 9) + 3\\arctan\\left(\\dfrac{x}{3}\\right) + 8 - \\dfrac{3\\pi}{4} - \\dfrac{3}{2}\\ln(18)$$",
+        "Evaluate $\\sec^3\\theta$ when $x = 0$:\n$$\\sec^3\\theta = \\dfrac{3}{2}\\ln(9) + 3\\arctan(0) + 8 - \\dfrac{3\\pi}{4} - \\dfrac{3}{2}\\ln(18)$$\n$$= 8 - \\dfrac{3\\pi}{4} + \\dfrac{3}{2}[\\ln(9) - \\ln(18)]$$\n$$= 8 - \\dfrac{3\\pi}{4} + \\dfrac{3}{2}\\ln\\left(\\dfrac{1}{2}\\right) = 8 - \\dfrac{3\\pi}{4} - \\dfrac{3}{2}\\ln(2)$$",
+        "Calculate the arithmetic value of $\\sec^3\\theta$:\n$$\\dfrac{3\\pi}{4} \\approx 2.35619449$$\n$$\\dfrac{3}{2}\\ln(2) \\approx 1.5 \\times 0.69314718 = 1.03972077$$\n$$\\sec^3\\theta \\approx 8 - 2.35619449 - 1.03972077 = 4.60408474$$",
+        "Calculate $\\cos\\theta$:\n$$\\cos^3\\theta = \\dfrac{1}{\\sec^3\\theta} \\approx \\dfrac{1}{4.60408474} \\approx 0.21719843$$\n$$\\cos\\theta = (0.21719843)^{1/3} \\approx 0.601119 \\dots$$",
+        "Round to 3 significant figures:\n$$\\cos\\theta = 0.601$$"
+      ]
+    }
+  ]
+}

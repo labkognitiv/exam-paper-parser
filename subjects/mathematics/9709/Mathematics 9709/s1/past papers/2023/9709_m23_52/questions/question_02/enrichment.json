@@ -1,0 +1,67 @@
+{
+  "schema_version": "9709_math_enrichment_v8",
+  "question_id": "9709_m23_52_q2",
+  "difficulty": 3,
+  "parts": [
+    {
+      "part_id": "9709_m23_52_q2_a",
+      "difficulty": 3,
+      "mapping": {
+        "topic_id": "9709_s1_t_discrete_random_variables",
+        "lesson_id": "9709_s1_t_discrete_random_variables_m01_l03"
+      },
+      "hints": [
+        "Identify the two mutually exclusive scenarios for obtaining exactly one head: biased coin shows head with 3 fair tails, or biased coin shows tail with exactly 1 fair head and 2 fair tails.",
+        "For the biased coin, P(H) = 0.6 and P(T) = 0.4. For each fair coin, P(H) = 0.5 and P(T) = 0.5.",
+        "Calculate the probability of each scenario: 0.6 * (0.5)^3 and 0.4 * 3 * (0.5)^3, then add them together to obtain 0.225."
+      ],
+      "walkthrough": [
+        "Let us determine the probability of obtaining exactly one head when tossing four coins simultaneously.",
+        "Step 1: Note the properties of the four coins:\n- Biased coin: $\\mathrm{P}(H) = 0.6$, so $\\mathrm{P}(T) = 1 - 0.6 = 0.4$.\n- Fair coins (three coins): for each fair coin, $\\mathrm{P}(H) = 0.5$ and $\\mathrm{P}(T) = 0.5$.",
+        "Step 2: State the addition rule for mutually exclusive cases:\n$$\\mathrm{P}(X = 1) = \\mathrm{P}(\\text{Biased } H \\text{ and } 0\\text{ Fair } H) + \\mathrm{P}(\\text{Biased } T \\text{ and } 1\\text{ Fair } H)$$",
+        "Step 3: Calculate the probability for Case 1 (the single head comes from the biased coin):\n$$\\mathrm{P}(\\text{Biased } H \\text{ and } 3\\text{ Fair } T) = 0.6 \\times (0.5)^3$$\n$$(0.5)^3 = 0.125$$\n$$0.6 \\times 0.125 = 0.075$$",
+        "Step 4: Calculate the probability for Case 2 (the single head comes from one of the three fair coins):\n$$\\mathrm{P}(\\text{Biased } T \\text{ and } 1\\text{ Fair } H, 2\\text{ Fair } T) = 0.4 \\times \\left[\\binom{3}{1}(0.5)^1 (0.5)^2\\right]$$\n$$\\binom{3}{1} = 3, \\quad (0.5)^3 = 0.125$$\n$$0.4 \\times 3 \\times 0.125 = 0.150$$",
+        "Step 5: Add the two probabilities:\n$$\\mathrm{P}(X = 1) = 0.075 + 0.150 = 0.225$$\nThis completes the proof."
+      ]
+    },
+    {
+      "part_id": "9709_m23_52_q2_b",
+      "difficulty": 2,
+      "mapping": {
+        "topic_id": "9709_s1_t_discrete_random_variables",
+        "lesson_id": "9709_s1_t_discrete_random_variables_m01_l01"
+      },
+      "hints": [
+        "Find the two missing entries in the table: P(X = 2) and P(X = 3).",
+        "For X = 2, either the biased coin is head with 1 fair head, or the biased coin is tail with 2 fair heads.",
+        "Calculate P(X=2) = 0.6 * 3 * (0.5)^3 + 0.4 * 3 * (0.5)^3 = 0.375 and P(X=3) = 0.6 * 3 * (0.5)^3 + 0.4 * 1 * (0.5)^3 = 0.275, and check that the probabilities sum to 1."
+      ],
+      "walkthrough": [
+        "The table already gives $\\mathrm{P}(X = 0) = 0.05$, $\\mathrm{P}(X = 1) = 0.225$, and $\\mathrm{P}(X = 4) = 0.075$. We must calculate $\\mathrm{P}(X = 2)$ and $\\mathrm{P}(X = 3)$.",
+        "Step 1: Calculate $\\mathrm{P}(X = 2)$:\n- Case A: Biased coin is Head ($0.6$), so exactly 1 of the 3 fair coins is Head:\n$$0.6 \\times \\binom{3}{1}(0.5)^1 (0.5)^2 = 0.6 \\times 3 \\times 0.125 = 0.225$$\n- Case B: Biased coin is Tail ($0.4$), so exactly 2 of the 3 fair coins are Heads:\n$$0.4 \\times \\binom{3}{2}(0.5)^2 (0.5)^1 = 0.4 \\times 3 \\times 0.125 = 0.150$$\n- Sum both cases:\n$$\\mathrm{P}(X = 2) = 0.225 + 0.150 = 0.375$$",
+        "Step 2: Calculate $\\mathrm{P}(X = 3)$:\n- Case A: Biased coin is Head ($0.6$), so exactly 2 of the 3 fair coins are Heads:\n$$0.6 \\times \\binom{3}{2}(0.5)^2 (0.5)^1 = 0.6 \\times 3 \\times 0.125 = 0.225$$\n- Case B: Biased coin is Tail ($0.4$), so all 3 fair coins are Heads:\n$$0.4 \\times \\binom{3}{3}(0.5)^3 (0.5)^0 = 0.4 \\times 1 \\times 0.125 = 0.050$$\n- Sum both cases:\n$$\\mathrm{P}(X = 3) = 0.225 + 0.050 = 0.275$$",
+        "Step 3: Verify the total probability condition:\n$$0.05 + 0.225 + 0.375 + 0.275 + 0.075 = 1.000$$\nThe sum is exactly 1, confirming the values are correct."
+      ]
+    },
+    {
+      "part_id": "9709_m23_52_q2_c",
+      "difficulty": 2,
+      "mapping": {
+        "topic_id": "9709_s1_t_discrete_random_variables",
+        "lesson_id": "9709_s1_t_discrete_random_variables_m02_l02"
+      },
+      "hints": [
+        "Use the formula for the variance of a discrete random variable: Var(X) = E(X^2) - [E(X)]^2.",
+        "Calculate E(X^2) = sum of x^2 * P(X=x) using the values from your probability distribution table.",
+        "Evaluate E(X^2) = 0 + 0.225 + 1.5 + 2.475 + 1.2 = 5.4, and subtract (2.1)^2 = 4.41 to find Var(X)."
+      ],
+      "walkthrough": [
+        "Step 1: Name and write the foundational formula for the variance of a discrete random variable:\n$$\\operatorname{Var}(X) = \\mathrm{E}(X^2) - [\\mathrm{E}(X)]^2$$",
+        "Step 2: Calculate $\\mathrm{E}(X^2)$ by multiplying the square of each possible value $x$ by its corresponding probability:\n$$\\mathrm{E}(X^2) = 0^2(0.05) + 1^2(0.225) + 2^2(0.375) + 3^2(0.275) + 4^2(0.075)$$",
+        "Step 3: Calculate each product step-by-step:\n$$0^2 \\times 0.05 = 0$$\n$$1^2 \\times 0.225 = 0.225$$\n$$2^2 \\times 0.375 = 4 \\times 0.375 = 1.500$$\n$$3^2 \\times 0.275 = 9 \\times 0.275 = 2.475$$\n$$4^2 \\times 0.075 = 16 \\times 0.075 = 1.200$$",
+        "Step 4: Sum all products:\n$$\\mathrm{E}(X^2) = 0 + 0.225 + 1.500 + 2.475 + 1.200 = 5.4$$",
+        "Step 5: Substitute $\\mathrm{E}(X^2) = 5.4$ and the given mean $\\mathrm{E}(X) = 2.1$ into the variance formula:\n$$\\operatorname{Var}(X) = 5.4 - (2.1)^2$$\n$$(2.1)^2 = 4.41$$\n$$\\operatorname{Var}(X) = 5.4 - 4.41 = 0.99$$"
+      ]
+    }
+  ]
+}

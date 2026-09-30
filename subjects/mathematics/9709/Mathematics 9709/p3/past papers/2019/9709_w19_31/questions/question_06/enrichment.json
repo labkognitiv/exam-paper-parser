@@ -1,0 +1,47 @@
+{
+  "schema_version": "9709_math_enrichment_v8",
+  "question_id": "9709_w19_31_q6",
+  "difficulty": 5,
+  "parts": [
+    {
+      "part_id": "9709_w19_31_q6_i",
+      "difficulty": 1,
+      "mapping": {
+        "topic_id": "9709_p3_t_differential_equations",
+        "lesson_id": "9709_p3_t_differential_equations_m02_l02"
+      },
+      "hints": [
+        "Write $\\cot x=\\cos x/\\sin x$ and apply the quotient rule.",
+        "The numerator becomes $-\\sin^2x-\\cos^2x$; use the Pythagorean identity and divide by $\\sin^2x$."
+      ],
+      "walkthrough": [
+        "Apply the quotient rule $\\dfrac{\\mathrm{d}}{\\mathrm{d}x}\\left(\\dfrac{u}{v}\\right) = \\dfrac{u'v - uv'}{v^2}$ to $y = \\dfrac{\\cos x}{\\sin x}$ with $u = \\cos x$ and $v = \\sin x$:\n$$u' = -\\sin x, \\quad v' = \\cos x$$",
+        "Form the derivative expression:\n$$\\dfrac{\\mathrm{d}y}{\\mathrm{d}x} = \\dfrac{(-\\sin x)(\\sin x) - (\\cos x)(\\cos x)}{\\sin^2 x} = \\dfrac{-\\sin^2 x - \\cos^2 x}{\\sin^2 x}$$",
+        "Factor $-1$ in the numerator and apply the identity $\\sin^2 x + \\cos^2 x = 1$:\n$$\\dfrac{\\mathrm{d}y}{\\mathrm{d}x} = \\dfrac{-(\\sin^2 x + \\cos^2 x)}{\\sin^2 x} = \\dfrac{-1}{\\sin^2 x} = -\\operatorname{cosec}^2 x$$\nThis completes the proof."
+      ]
+    },
+    {
+      "part_id": "9709_w19_31_q6_ii",
+      "difficulty": 5,
+      "mapping": {
+        "topic_id": "9709_p3_t_trigonometry",
+        "lesson_id": "9709_p3_t_trigonometry_m01_l03"
+      },
+      "hints": [
+        "Use integration by parts with $u=x$ and integrate $\\cosec^2x$ using part (i).",
+        "This gives $-x\\cot x+\\int\\cot x\\,dx$.",
+        "Use $\\int\\cot x\\,dx=\\ln|\\sin x|$ and evaluate at $x=\\pi/2$ and $x=\\pi/4$.",
+        "Keep the trigonometric values exact and convert the logarithmic term to the required form."
+      ],
+      "walkthrough": [
+        "Apply integration by parts $\\int u v' = uv - \\int u' v$ to $\\int x\\operatorname{cosec}^2 x\\,\\mathrm{d}x$:\nLet $u = x \\implies u' = 1$, and $v' = \\operatorname{cosec}^2 x \\implies v = -\\cot x$ (from part (i)):\n$$\\int x\\operatorname{cosec}^2 x\\,\\mathrm{d}x = x(-\\cot x) - \\int 1 \\cdot (-\\cot x)\\,\\mathrm{d}x = -x\\cot x + \\int \\cot x\\,\\mathrm{d}x$$",
+        "Integrate $\\cot x = \\dfrac{\\cos x}{\\sin x}$ using $\\int \\dfrac{f'(x)}{f(x)}\\,\\mathrm{d}x = \\ln|f(x)|$:\n$$\\int \\cot x\\,\\mathrm{d}x = \\ln(\\sin x)$$",
+        "Write out the full definite integral expression:\n$$\\left[-x\\cot x + \\ln(\\sin x)\\right]_{\\frac{1}{4}\\pi}^{\\frac{1}{2}\\pi}$$",
+        "Evaluate at the upper limit $x = \\dfrac{1}{2}\\pi$:\n$$\\cot\\left(\\dfrac{1}{2}\\pi\\right) = 0, \\quad \\sin\\left(\\dfrac{1}{2}\\pi\\right) = 1$$\n$$\\text{At } x = \\dfrac{1}{2}\\pi: \\quad -\\left(\\dfrac{1}{2}\\pi\\right)(0) + \\ln(1) = 0 + 0 = 0$$",
+        "Evaluate at the lower limit $x = \\dfrac{1}{4}\\pi$:\n$$\\cot\\left(\\dfrac{1}{4}\\pi\\right) = 1, \\quad \\sin\\left(\\dfrac{1}{4}\\pi\\right) = \\dfrac{1}{\\sqrt{2}}$$\n$$\\text{At } x = \\dfrac{1}{4}\\pi: \\quad -\\left(\\dfrac{1}{4}\\pi\\right)(1) + \\ln\\left(\\dfrac{1}{\\sqrt{2}}\\right) = -\\dfrac{1}{4}\\pi - \\ln(\\sqrt{2}) = -\\dfrac{1}{4}\\pi - \\dfrac{1}{2}\\ln 2$$",
+        "Subtract the lower limit value from the upper limit value:\n$$\\text{Integral} = 0 - \\left(-\\dfrac{1}{4}\\pi - \\dfrac{1}{2}\\ln 2\\right) = \\dfrac{1}{4}\\pi + \\dfrac{1}{2}\\ln 2$$",
+        "Rewrite $\\dfrac{1}{2}\\ln 2$ in terms of $\\ln 4$ using $\\ln 4 = \\ln(2^2) = 2\\ln 2 \\implies \\dfrac{1}{2}\\ln 2 = \\dfrac{1}{4}\\ln 4$:\n$$\\text{Integral} = \\dfrac{1}{4}\\pi + \\dfrac{1}{4}\\ln 4 = \\dfrac{1}{4}(\\pi + \\ln 4)$$\nThis completes the proof."
+      ]
+    }
+  ]
+}

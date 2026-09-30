@@ -1,0 +1,66 @@
+{
+  "schema_version": "9709_math_enrichment_v8",
+  "question_id": "9709_s17_61_q5",
+  "difficulty": 3,
+  "parts": [
+    {
+      "part_id": "9709_s17_61_q5_i",
+      "difficulty": 2,
+      "mapping": {
+        "topic_id": "9709_s1_t_discrete_random_variables",
+        "lesson_id": "9709_s1_t_discrete_random_variables_m03_l04"
+      },
+      "hints": [
+        "Find the probability of an egg being cracked: use the mean formula $\\mu = np$ with $n = 20$ and $\\mu = 1.4$ to solve for $p$.",
+        "State the binomial distribution $X \\sim \\mathrm{B}(20, p)$ for the number of cracked eggs in a box.",
+        "Use the binomial probability formula $\\mathrm{P}(X = 2) = \\binom{20}{2} p^2 (1 - p)^{18}$ to evaluate the probability."
+      ],
+      "walkthrough": [
+        "Start by determining the probability $p$ that an egg is cracked.\nThe number of cracked eggs in a box of $n = 20$ eggs follows a binomial distribution $X \\sim \\mathrm{B}(n, p)$.\nWe are given the mean $\\mathrm{E}(X) = 1.4$. Write the binomial mean formula:\n$$\\mathrm{E}(X) = np$$",
+        "Substitute $n = 20$ and $\\mathrm{E}(X) = 1.4$ to solve for $p$:\n$$20p = 1.4 \\implies p = \\frac{1.4}{20} = 0.07$$\nThe failure probability (egg not cracked) is:\n$$q = 1 - p = 1 - 0.07 = 0.93$$",
+        "Write the binomial probability formula for $r$ successes in $n$ trials:\n$$\\mathrm{P}(X = r) = \\binom{n}{r} p^r (1 - p)^{n - r}$$",
+        "Substitute $n = 20$, $r = 2$, $p = 0.07$, and $1 - p = 0.93$:\n$$\\mathrm{P}(X = 2) = \\binom{20}{2} (0.07)^2 (0.93)^{20 - 2} = \\binom{20}{2} (0.07)^2 (0.93)^{18}$$",
+        "Evaluate each factor:\n$$\\binom{20}{2} = \\frac{20 \\times 19}{2 \\times 1} = 190$$\n$$(0.07)^2 = 0.0049$$\n$$(0.93)^{18} \\approx 0.270845$$\nMultiply all factors together:\n$$\\mathrm{P}(X = 2) = 190 \\times 0.0049 \\times 0.270845 \\approx 0.25216 \\approx 0.252$$"
+      ]
+    },
+    {
+      "part_id": "9709_s17_61_q5_ii",
+      "difficulty": 2,
+      "mapping": {
+        "topic_id": "9709_s1_t_discrete_random_variables",
+        "lesson_id": "9709_s1_t_discrete_random_variables_m03_l04"
+      },
+      "hints": [
+        "Use the complement rule: the event of having at least 1 cracked egg is the complement of having 0 cracked eggs.",
+        "Write $\\mathrm{P}(X \\ge 1) = 1 - \\mathrm{P}(X = 0)$.",
+        "Calculate $\\mathrm{P}(X = 0) = (0.93)^{20}$ and subtract the result from 1."
+      ],
+      "walkthrough": [
+        "State the complementary probability principle:\n$$\\mathrm{P}(X \\ge 1) = 1 - \\mathrm{P}(X = 0)$$\nCalculating the complement is much more efficient than adding the separate probabilities for $1, 2, \\dots, 20$ cracked eggs.",
+        "Calculate $\\mathrm{P}(X = 0)$, the probability that none of the $20$ eggs in the box are cracked:\n$$\\mathrm{P}(X = 0) = \\binom{20}{0} (0.07)^0 (0.93)^{20} = 1 \\times 1 \\times (0.93)^{20}$$",
+        "Evaluate $(0.93)^{20}$:\n$$(0.93)^{20} \\approx 0.234239$$",
+        "Subtract from $1$ to find $\\mathrm{P}(X \\ge 1)$:\n$$\\mathrm{P}(X \\ge 1) = 1 - 0.234239 = 0.765761 \\approx 0.766$$"
+      ]
+    },
+    {
+      "part_id": "9709_s17_61_q5_iii",
+      "difficulty": 3,
+      "mapping": {
+        "topic_id": "9709_s1_t_discrete_random_variables",
+        "lesson_id": "9709_s1_t_discrete_random_variables_m03_l04"
+      },
+      "hints": [
+        "Let $p_b = 0.7658$ be the probability that a single box contains at least 1 cracked egg.",
+        "Since the boxes are independent, the probability that all $n$ boxes contain at least 1 cracked egg is $(p_b)^n$.",
+        "Set up the inequality $(0.7658)^n < 0.01$, take logarithms of both sides, and solve for the integer $n$ remembering to reverse the inequality when dividing by a negative number."
+      ],
+      "walkthrough": [
+        "Each box is sold independently. From part (ii), the probability that a randomly chosen box contains at least $1$ cracked egg is $p_b = 0.76576$.\nFor all $n$ boxes to each contain at least $1$ cracked egg, we multiply this probability $n$ times:\n$$\\mathrm{P}(\\text{at least 1 cracked egg in each of the } n \\text{ boxes}) = (p_b)^n = (0.76576)^n$$",
+        "We require this probability to be strictly less than $0.01$:\n$$(0.76576)^n < 0.01$$",
+        "Apply logarithms to both sides to solve for the exponent $n$:\n$$\\ln(0.76576^n) < \\ln(0.01)$$\nUse the power rule of logarithms $\\ln(a^b) = b \\ln(a)$:\n$$n \\ln(0.76576) < \\ln(0.01)$$",
+        "Calculate the numerical values of both logarithms:\n$$\\ln(0.76576) \\approx -0.266885$$\n$$\\ln(0.01) \\approx -4.605170$$\nBecause $-0.266885$ is negative, dividing both sides by this quantity reverses the direction of the inequality:\n$$n > \\frac{-4.605170}{-0.266885} \\approx 17.255$$",
+        "Since $n$ represents a discrete count of boxes, we round up to the next whole number:\n$$n = 18$$"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "schema_version": "9709_math_enrichment_v8",
+  "question_id": "9709_w24_51_q6",
+  "difficulty": 5,
+  "parts": [
+    {
+      "part_id": "9709_w24_51_q6_a",
+      "difficulty": 4,
+      "mapping": {
+        "topic_id": "9709_s1_t_the_normal_distribution",
+        "lesson_id": "9709_s1_t_the_normal_distribution_m02_l02"
+      },
+      "hints": [
+        "Let H be female student height: H ~ N(mu, sigma^2).",
+        "Two percentiles are given: P(H < 182.7) = 0.90 and P(H < 162.5) = 0.40.",
+        "Find the critical values: For 0.90, z1 = 1.282. For 0.40, lower tail gives Phi(-z) = 0.40 => Phi(z) = 0.60, so z2 = -0.253.",
+        "Set up two equations: (182.7 - mu) / sigma = 1.282 and (162.5 - mu) / sigma = -0.253.",
+        "Subtract equations: 182.7 - 162.5 = [1.282 - (-0.253)] * sigma => 20.2 = 1.535 * sigma, so sigma = 13.2.",
+        "Substitute sigma back: mu = 162.5 - (-0.253 * 13.16) = 165.8."
+      ],
+      "walkthrough": [
+        "Step 1: Set up the model and percentile conditions:\nLet $H$ be the height of a female student at Breven college:\n$$H \\sim \\operatorname{N}(\\mu, \\sigma^2)$$\nWe are given:\n1. $P(H < 182.7) = 0.90$\n2. $P(H < 162.5) = 0.40$",
+        "Step 2: Obtain the corresponding z-values:\n- From the percentage points table, for upper probability $0.90$:\n$$z_1 = 1.282$$\n- For lower probability $0.40$ (which is less than $0.5$, so $z$ is negative):\n$$\\Phi(-z_2) = 0.40 \\implies \\Phi(z_2) = 0.60$$\nFrom the normal distribution table, $\\Phi(0.25) = 0.5987, \\text{ diff for } 3 = 11 \\implies \\Phi(0.253) = 0.5998 \\approx 0.60$:\n$$z_2 = -0.253$$",
+        "Step 3: Write down the two linear equations:\n$$\\frac{182.7 - \\mu}{\\sigma} = 1.282 \\implies 182.7 = \\mu + 1.282\\sigma \\quad \\text{--- (Equation 1)}$$\n$$\\frac{162.5 - \\mu}{\\sigma} = -0.253 \\implies 162.5 = \\mu - 0.253\\sigma \\quad \\text{--- (Equation 2)}$$",
+        "Step 4: Subtract Equation 2 from Equation 1 to find sigma:\n$$182.7 - 162.5 = (\\mu + 1.282\\sigma) - (\\mu - 0.253\\sigma)$$\n$$20.2 = 1.535\\sigma$$\n$$\\sigma = \\frac{20.2}{1.535} = 13.1596... \\approx 13.2\\text{ cm}$$",
+        "Step 5: Solve for mu:\n$$\\mu = 182.7 - 1.282(13.1596) = 182.7 - 16.8706 = 165.829... \\approx 165.8\\text{ cm} \\text{ (or } 166\\text{ cm)}$$\nThus, $\\mu = 166\\text{ cm}$ (or $165.8\\text{ cm}$) and $\\sigma = 13.2\\text{ cm}$."
+      ]
+    },
+    {
+      "part_id": "9709_w24_51_q6_b",
+      "difficulty": 3,
+      "mapping": {
+        "topic_id": "9709_s1_t_discrete_random_variables",
+        "lesson_id": "9709_s1_t_discrete_random_variables_m03_l03"
+      },
+      "hints": [
+        "From the stem, P(height < 162.5) = 0.40, so P(height > 162.5) = 1 - 0.40 = 0.60.",
+        "In a sample of 10 students, let X be the number with height > 162.5 cm: X ~ B(10, 0.6).",
+        "Fewer than 8 means X <= 7, which is easiest via complement: 1 - [P(X = 8) + P(X = 9) + P(X = 10)].",
+        "Calculate upper tail terms: 10C8*(0.6)^8*(0.4)^2 + 10C9*(0.6)^9*(0.4)^1 + (0.6)^10 = 0.12093 + 0.04031 + 0.00605 = 0.1673.",
+        "Subtract from 1: 1 - 0.1673 = 0.833."
+      ],
+      "walkthrough": [
+        "Step 1: Determine the single-trial probability:\nFrom the problem stem, the probability that a female student has a height less than $162.5\\text{ cm}$ is $0.40$.\nTherefore, the probability that a student has a height greater than $162.5\\text{ cm}$ is the complement:\n$$p = 1 - 0.40 = 0.60$$\nand $q = 1 - p = 0.40$.",
+        "Step 2: Model the sample as a Binomial random variable:\nFor $n = 10$ randomly chosen students, let $X$ be the number with height $> 162.5\\text{ cm}$:\n$$X \\sim \\operatorname{B}(n, p) = \\operatorname{B}(10, 0.6)$$",
+        "Step 3: Express fewer than 8 using the complement rule:\n$$P(X < 8) = P(X \\le 7) = 1 - P(X \\ge 8) = 1 - [P(X = 8) + P(X = 9) + P(X = 10)]$$",
+        "Step 4: Compute the upper tail probabilities:\n- For $r = 8$:\n$$P(X = 8) = \\binom{10}{8} (0.6)^8 (0.4)^2 = 45 \\times 0.01679616 \\times 0.16 = 0.12093235$$\n- For $r = 9$:\n$$P(X = 9) = \\binom{10}{9} (0.6)^9 (0.4)^1 = 10 \\times 0.0100777 \\times 0.4 = 0.04031078$$\n- For $r = 10$:\n$$P(X = 10) = \\binom{10}{10} (0.6)^{10} (0.4)^0 = 0.00604662$$\nSum of upper tail:\n$$P(X \\ge 8) = 0.12093235 + 0.04031078 + 0.00604662 = 0.16728975$$",
+        "Step 5: Subtract from 1:\n$$P(X < 8) = 1 - 0.16728975 = 0.832710... \\approx 0.833$$\n(To 3 significant figures)."
+      ]
+    }
+  ]
+}

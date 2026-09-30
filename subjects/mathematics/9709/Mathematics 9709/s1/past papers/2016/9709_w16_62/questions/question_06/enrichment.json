@@ -1,0 +1,70 @@
+{
+  "schema_version": "9709_math_enrichment_v8",
+  "question_id": "9709_w16_62_q6",
+  "difficulty": 4,
+  "parts": [
+    {
+      "part_id": "9709_w16_62_q6_i",
+      "difficulty": 3,
+      "mapping": {
+        "topic_id": "9709_s1_t_permutations_and_combinations",
+        "lesson_id": "9709_s1_t_permutations_and_combinations_m03_l04"
+      },
+      "hints": [
+        "Count the letters of COPENHAGEN: 4 vowels (O, A, E, E) and 6 consonants (C, P, N, H, G, N).",
+        "Group vowels into a block $[V]$ and consonants into a block $[C]$. There are $2! = 2$ ways to order the two blocks ($VC$ or $CV$).",
+        "Arrange the 4 vowels inside $[V]$, dividing by $2!$ for the 2 repeated Es: $\\dfrac{4!}{2!}$.",
+        "Arrange the 6 consonants inside $[C]$, dividing by $2!$ for the 2 repeated Ns: $\\dfrac{6!}{2!}$, and multiply all parts together."
+      ],
+      "walkthrough": [
+        "The word COPENHAGEN has 10 letters. Separate them into vowels and consonants:\n- Vowels: O, E, A, E (4 vowels, with 2 E's)\n- Consonants: C, P, N, H, G, N (6 consonants, with 2 N's)",
+        "The problem specifies that all vowels must be together and all consonants must be together. Treat all vowels as one single block $[V]$ and all consonants as one single block $[C]$.",
+        "Step 1: Arrange the 2 blocks. There are two possible orders: $[V][C]$ or $[C][V]$:\n$$\\text{Ways to arrange blocks} = 2! = 2$$",
+        "Step 2: Find the internal arrangements within the vowel block $[V]$. Among the 4 vowels, the letter E is repeated twice:\n$$\\text{Ways inside } [V] = \\frac{4!}{2!} = \\frac{24}{2} = 12$$",
+        "Step 3: Find the internal arrangements within the consonant block $[C]$. Among the 6 consonants, the letter N is repeated twice:\n$$\\text{Ways inside } [C] = \\frac{6!}{2!} = \\frac{720}{2} = 360$$",
+        "Step 4: Multiply all components together by the multiplication principle:\n$$\\text{Total arrangements} = 2 \\times 12 \\times 360 = 8640$$"
+      ]
+    },
+    {
+      "part_id": "9709_w16_62_q6_ii",
+      "difficulty": 3,
+      "mapping": {
+        "topic_id": "9709_s1_t_permutations_and_combinations",
+        "lesson_id": "9709_s1_t_permutations_and_combinations_m03_l04"
+      },
+      "hints": [
+        "Use the complement method: Total unrestricted arrangements minus arrangements where the Es are together.",
+        "Calculate total unrestricted arrangements of 10 letters with 2 Es and 2 Ns: $\\dfrac{10!}{2! \\times 2!}$.",
+        "Treat the two Es as a single block $[\\text{EE}]$ to arrange 9 units with 2 Ns: $\\dfrac{9!}{2!}$.",
+        "Subtract the 'Es together' count from the total count."
+      ],
+      "walkthrough": [
+        "We need to find the number of arrangements of the 10 letters of COPENHAGEN where the two E's are not adjacent. The cleanest approach is the subtraction method:\n$$\\text{Ways with E's not together} = \\text{Total unrestricted arrangements} - \\text{Ways with E's together}$$",
+        "Step 1: Total unrestricted arrangements.\nThe 10 letters contain 2 E's and 2 N's (and 6 other single letters):\n$$\\text{Total arrangements} = \\frac{10!}{2! \\times 2!} = \\frac{3628800}{4} = 907200$$",
+        "Step 2: Arrangements where the two E's are together.\nTie the two E's into a single block $[\\mathrm{EE}]$. Now we arrange 9 units: $[\\mathrm{EE}]$ and the 8 other letters (C, O, P, N, H, A, G, N). Since N is repeated twice:\n$$\\text{Ways with E's together} = \\frac{9!}{2!} = \\frac{362880}{2} = 181440$$",
+        "Step 3: Subtract:\n$$\\text{E's not together} = 907200 - 181440 = 725760$$"
+      ]
+    },
+    {
+      "part_id": "9709_w16_62_q6_iii",
+      "difficulty": 4,
+      "mapping": {
+        "topic_id": "9709_s1_t_permutations_and_combinations",
+        "lesson_id": "9709_s1_t_permutations_and_combinations_m04_l02"
+      },
+      "hints": [
+        "A selection of 4 letters must contain equal numbers of Es and Ns with at least one of each: this means either (1 E, 1 N) or (2 Es, 2 Ns).",
+        "For Case 1 (1 E, 1 N): The remaining 2 letters must be chosen from the 6 distinct other letters {C, O, P, H, A, G}. Evaluate $\\binom{6}{2}$.",
+        "For Case 2 (2 Es, 2 Ns): All 4 letters are fixed as {E, E, N, N}, which gives 1 way.",
+        "Add the number of selections from both cases."
+      ],
+      "walkthrough": [
+        "We are choosing an unordered selection of 4 letters from the 10 letters of COPENHAGEN:\n$$\\text{Letters: } \\mathrm{E: 2, \\quad N: 2, \\quad C: 1, \\quad O: 1, \\quad P: 1, \\quad H: 1, \\quad A: 1, \\quad G: 1}$$",
+        "The condition requires that the 4 chosen letters contain the same number of E's and N's, with at least one of each. Since we are selecting 4 letters total, there are only two valid scenarios:\n- Scenario 1: Exactly 1 E and 1 N\n- Scenario 2: Exactly 2 E's and 2 N's",
+        "Evaluate Scenario 1 (1 E, 1 N, and 2 other letters):\n- We choose 1 E (1 way) and 1 N (1 way).\n- The remaining $4 - 2 = 2$ letters must be chosen from the 6 other distinct letters $\\{\\mathrm{C, O, P, H, A, G}\\}$:\n  $$\\binom{6}{2} = \\frac{6 \\times 5}{2 \\times 1} = 15\\text{ ways}$$",
+        "Evaluate Scenario 2 (2 E's, 2 N's, and 0 other letters):\n- Both E's are chosen, and both N's are chosen:\n  $$\\text{Selection is } \\{\\mathrm{E, E, N, N}\\} \\implies 1\\text{ way}$$",
+        "Add the selections from both scenarios:\n$$\\text{Total selections} = 15 + 1 = 16$$"
+      ]
+    }
+  ]
+}

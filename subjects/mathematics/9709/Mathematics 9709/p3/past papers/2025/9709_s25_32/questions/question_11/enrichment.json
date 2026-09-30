@@ -1,0 +1,49 @@
+{
+  "schema_version": "9709_math_enrichment_v8",
+  "question_id": "9709_s25_32_q11",
+  "difficulty": 3,
+  "parts": [
+    {
+      "part_id": "9709_s25_32_q11_a",
+      "difficulty": 3,
+      "mapping": {
+        "topic_id": "9709_p3_t_differentiation",
+        "lesson_id": "9709_p3_t_differentiation_m03_l01"
+      },
+      "hints": [
+        "At the interior maximum, differentiate $5\\sin2x\\cos^2x$ with the product and chain rules and set the derivative to zero.",
+        "After factoring common trigonometric terms, use double-angle identities to reduce the condition to one function, such as an equation in $\\tan^2x$.",
+        "Solve on $0\\le x\\le\\pi/2$ and compare with the zero-valued endpoints to select the exact maximum coordinate."
+      ],
+      "walkthrough": [
+        "Rewrite $y = 5\\sin(2x)\\cos^2 x$ in terms of single-angle functions using $\\sin(2x) = 2\\sin x\\cos x$:\n$$y = 5(2\\sin x\\cos x)\\cos^2 x = 10\\sin x\\cos^3 x$$",
+        "Differentiate with respect to $x$ using the product rule:\n$$\\dfrac{\\mathrm{d}y}{\\mathrm{d}x} = 10\\left[ \\dfrac{\\mathrm{d}}{\\mathrm{d}x}(\\sin x) \\cdot \\cos^3 x + \\sin x \\cdot \\dfrac{\\mathrm{d}}{\\mathrm{d}x}(\\cos^3 x) \\right]$$\n$$\\dfrac{\\mathrm{d}}{\\mathrm{d}x}(\\sin x) = \\cos x$$\n$$\\dfrac{\\mathrm{d}}{\\mathrm{d}x}(\\cos^3 x) = 3\\cos^2 x(-\\sin x) = -3\\sin x\\cos^2 x$$\n$$\\dfrac{\\mathrm{d}y}{\\mathrm{d}x} = 10[\\cos^4 x - 3\\sin^2 x\\cos^2 x] = 10\\cos^2 x(\\cos^2 x - 3\\sin^2 x)$$",
+        "Set $\\dfrac{\\mathrm{d}y}{\\mathrm{d}x} = 0$ to find the stationary points:\n$$10\\cos^2 x(\\cos^2 x - 3\\sin^2 x) = 0$$",
+        "Solve in the interval $0 < x < \\dfrac{\\pi}{2}$, where $\\cos x \\neq 0$:\n$$\\cos^2 x - 3\\sin^2 x = 0$$\n$$3\\sin^2 x = \\cos^2 x$$\n$$\\dfrac{\\sin^2 x}{\\cos^2 x} = \\dfrac{1}{3} \\implies \\tan^2 x = \\dfrac{1}{3}$$",
+        "Take the square root, noting $\\tan x > 0$ for $x \\in \\left(0, \\dfrac{\\pi}{2}\\right)$:\n$$\\tan x = \\dfrac{1}{\\sqrt{3}}$$\n$$x = \\tan^{-1}\\left(\\dfrac{1}{\\sqrt{3}}\\right) = \\dfrac{\\pi}{6}$$",
+        "State the exact $x$-coordinate of $M$:\n$$x = \\dfrac{\\pi}{6}$$"
+      ]
+    },
+    {
+      "part_id": "9709_s25_32_q11_b",
+      "difficulty": 2,
+      "mapping": {
+        "topic_id": "9709_p3_t_integration",
+        "lesson_id": "9709_p3_t_integration_m01_l01"
+      },
+      "hints": [
+        "First rewrite $5\\sin2x\\cos^2x$ as $10\\sin x\\cos^3x$.",
+        "With $u=\\cos x$, use $du=-\\sin x\\,dx$ and change the limits: $x=0$ gives $u=1$, while $x=\\pi/4$ gives $u=1/\\sqrt2$.",
+        "Account for the reversed limits or the minus sign, integrate the resulting cubic in $u$, and simplify the exact area."
+      ],
+      "walkthrough": [
+        "Set up the definite integral for the area under $y = 5\\sin(2x)\\cos^2 x$ from $x = 0$ to $x = \\dfrac{\\pi}{4}$:\n$$\\text{Area} = \\int_0^{\\pi/4} 5\\sin(2x)\\cos^2 x\\,\\mathrm{d}x = \\int_0^{\\pi/4} 10\\sin x\\cos^3 x\\,\\mathrm{d}x$$",
+        "Apply the substitution $u = \\cos x$:\n$$\\dfrac{\\mathrm{d}u}{\\mathrm{d}x} = -\\sin x \\implies \\sin x\\,\\mathrm{d}x = -\\mathrm{d}u$$",
+        "Change the limits of integration:\n$$\\text{When } x = 0: \\quad u = \\cos(0) = 1$$\n$$\\text{When } x = \\dfrac{\\pi}{4}: \\quad u = \\cos\\left(\\dfrac{\\pi}{4}\\right) = \\dfrac{1}{\\sqrt{2}}$$",
+        "Substitute into the integral and use the negative sign to invert limits:\n$$\\text{Area} = \\int_1^{1/\\sqrt{2}} 10u^3(-\\mathrm{d}u) = \\int_{1/\\sqrt{2}}^1 10u^3\\,\\mathrm{d}u$$",
+        "Integrate $10u^3$ with respect to $u$:\n$$\\int_{1/\\sqrt{2}}^1 10u^3\\,\\mathrm{d}u = \\left[ \\dfrac{10u^4}{4} \\right]_{1/\\sqrt{2}}^1 = \\left[ \\dfrac{5}{2}u^4 \\right]_{1/\\sqrt{2}}^1$$",
+        "Evaluate at the limits:\n$$\\text{At } u = 1: \\quad \\dfrac{5}{2}(1)^4 = \\dfrac{5}{2}$$\n$$\\text{At } u = \\dfrac{1}{\\sqrt{2}}: \\quad \\left(\\dfrac{1}{\\sqrt{2}}\\right)^4 = \\left(\\dfrac{1}{2}\\right)^2 = \\dfrac{1}{4} \\implies \\dfrac{5}{2}\\left(\\dfrac{1}{4}\\right) = \\dfrac{5}{8}$$\n$$\\text{Area} = \\dfrac{5}{2} - \\dfrac{5}{8} = \\dfrac{20}{8} - \\dfrac{5}{8} = \\dfrac{15}{8}$$"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "schema_version": "9709_math_enrichment_v8",
+  "question_id": "9709_m19_32_q2",
+  "difficulty": 3,
+  "parts": [
+    {
+      "part_id": "9709_m19_32_q2_i",
+      "difficulty": 3,
+      "mapping": {
+        "topic_id": "9709_p3_t_numerical_solution_of_equations",
+        "lesson_id": "9709_p3_t_numerical_solution_of_equations_m02_l02"
+      },
+      "hints": [
+        "Apply the given fixed-point formula repeatedly, carrying each displayed iterate to 6 decimal places.",
+        "Start with $x_1=2$ and substitute each result back as the next input.",
+        "Continue until successive 6-decimal iterates agree sufficiently to determine the same value to 4 decimal places."
+      ],
+      "walkthrough": [
+        "Start with the initial approximation:\n$$x_1 = 2$$",
+        "Calculate $x_2$ by substituting $x_1 = 2$ into the iterative formula $x_{n+1} = \\dfrac{2x_n^6 + 12x_n}{3x_n^5 + 8}$:\n$$x_2 = \\dfrac{2(2)^6 + 12(2)}{3(2)^5 + 8} = \\dfrac{2(64) + 24}{3(32) + 8} = \\dfrac{128 + 24}{96 + 8} = \\dfrac{152}{104} = \\dfrac{19}{13}$$\n$$x_2 \\approx 1.46153846 \\implies x_2 = 1.461538$$",
+        "Calculate $x_3$ using $x_2 \\approx 1.46153846$:\n$$x_3 = \\dfrac{2(1.461538)^6 + 12(1.461538)}{3(1.461538)^5 + 8} = \\dfrac{2(9.832204) + 17.538462}{3(6.727318) + 8} = \\dfrac{19.664408 + 17.538462}{20.181953 + 8} = \\dfrac{37.202870}{28.181953}$$\n$$x_3 \\approx 1.32226277 \\implies x_3 = 1.322263$$",
+        "Calculate $x_4$ using $x_3 \\approx 1.32226277$:\n$$x_4 = \\dfrac{2(1.322263)^6 + 12(1.322263)}{3(1.322263)^5 + 8} = \\dfrac{2(5.378942) + 15.867153}{3(4.068007) + 8} = \\dfrac{10.757885 + 15.867153}{12.204021 + 8} = \\dfrac{26.625037}{20.204021}$$\n$$x_4 \\approx 1.31950793 \\implies x_4 = 1.319508$$",
+        "Calculate $x_5$ using $x_4 \\approx 1.31950793$:\n$$x_5 = \\dfrac{2(1.319508)^6 + 12(1.319508)}{3(1.319508)^5 + 8} \\approx 1.319508$$",
+        "Notice that $x_4$ and $x_5$ both round to $1.319508$ to 6 decimal places.\nRound the converged value to 4 decimal places:\n$$\\alpha \\approx 1.3195$$"
+      ]
+    },
+    {
+      "part_id": "9709_m19_32_q2_ii",
+      "difficulty": 2,
+      "mapping": {
+        "topic_id": "9709_p3_t_logarithmic_and_exponential_functions",
+        "lesson_id": "9709_p3_t_logarithmic_and_exponential_functions_m04_l01"
+      },
+      "hints": [
+        "At the limit of a convergent iteration, consecutive terms have the same value $\\alpha$.",
+        "Set $\\alpha=\\dfrac{2\\alpha^6+12\\alpha}{3\\alpha^5+8}$ and clear the denominator.",
+        "Use $\\alpha>0$ from the iteration to simplify the resulting polynomial condition and express the root exactly."
+      ],
+      "walkthrough": [
+        "Since the sequence converges to $\\alpha$, the limit satisfies $x_{n+1} = x_n = \\alpha$:\n$$\\alpha = \\dfrac{2\\alpha^6 + 12\\alpha}{3\\alpha^5 + 8}$$",
+        "Multiply both sides by the denominator $(3\\alpha^5 + 8)$:\n$$\\alpha(3\\alpha^5 + 8) = 2\\alpha^6 + 12\\alpha$$\n$$3\\alpha^6 + 8\\alpha = 2\\alpha^6 + 12\\alpha$$",
+        "Collect all terms on the left-hand side:\n$$3\\alpha^6 - 2\\alpha^6 + 8\\alpha - 12\\alpha = 0$$\n$$\\alpha^6 - 4\\alpha = 0$$",
+        "Factor out $\\alpha$:\n$$\\alpha(\\alpha^5 - 4) = 0$$",
+        "Since $\\alpha \\approx 1.3195 \\neq 0$, divide both sides by $\\alpha$:\n$$\\alpha^5 - 4 = 0$$\n$$\\alpha^5 = 4$$",
+        "Take the fifth root of both sides to obtain the exact value of $\\alpha$:\n$$\\alpha = \\sqrt[5]{4} \\quad \\left(\\text{or } 4^{\\frac{1}{5}} = 2^{\\frac{2}{5}}\\right)$$"
+      ]
+    }
+  ]
+}

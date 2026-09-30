@@ -1,0 +1,47 @@
+{
+  "schema_version": "9709_math_enrichment_v8",
+  "question_id": "9709_s19_31_q6",
+  "difficulty": 5,
+  "parts": [
+    {
+      "part_id": "9709_s19_31_q6_i",
+      "difficulty": 3,
+      "mapping": {
+        "topic_id": "9709_p3_t_trigonometry",
+        "lesson_id": "9709_p3_t_trigonometry_m01_l03"
+      },
+      "hints": [
+        "Begin with the angle-addition identity for $\\sin(2x+x)$.",
+        "Replace $\\sin2x$ by $2\\sin x\\cos x$ and $\\cos2x$ by $1-2\\sin^2x$.",
+        "Use $\\cos^2x=1-\\sin^2x$ in the remaining product and collect powers of $\\sin x$ to reach the identity."
+      ],
+      "walkthrough": [
+        "Apply the addition formula $\\sin(A + B) = \\sin A\\cos B + \\cos A\\sin B$ with $A = 2x$ and $B = x$:\n$$\\sin 3x = \\sin(2x + x) = \\sin 2x\\cos x + \\cos 2x\\sin x$$",
+        "Substitute the double angle formulas $\\sin 2x = 2\\sin x\\cos x$ and $\\cos 2x = 1 - 2\\sin^2 x$:\n$$\\sin 3x = (2\\sin x\\cos x)\\cos x + (1 - 2\\sin^2 x)\\sin x$$\n$$= 2\\sin x\\cos^2 x + \\sin x - 2\\sin^3 x$$",
+        "Substitute the Pythagorean identity $\\cos^2 x = 1 - \\sin^2 x$:\n$$\\sin 3x = 2\\sin x(1 - \\sin^2 x) + \\sin x - 2\\sin^3 x$$",
+        "Expand and collect like powers of $\\sin x$:\n$$\\sin 3x = 2\\sin x - 2\\sin^3 x + \\sin x - 2\\sin^3 x$$\n$$= (2\\sin x + \\sin x) - (2\\sin^3 x + 2\\sin^3 x)$$\n$$= 3\\sin x - 4\\sin^3 x$$\nThis establishes the identity $\\sin 3x \\equiv 3\\sin x - 4\\sin^3 x$ as required."
+      ]
+    },
+    {
+      "part_id": "9709_s19_31_q6_ii",
+      "difficulty": 5,
+      "mapping": {
+        "topic_id": "9709_p3_t_trigonometry",
+        "lesson_id": "9709_p3_t_trigonometry_m01_l03"
+      },
+      "hints": [
+        "Rearrange the identity from part (i) to express $\\sin^3x$ as a linear combination of $\\sin x$ and $\\sin3x$.",
+        "Integrate both sine terms, remembering the factor $1/3$ when integrating $\\sin3x$.",
+        "Evaluate the resulting cosine expression at $x=\\pi/3$ and $x=0$, keeping all values exact."
+      ],
+      "walkthrough": [
+        "Rearrange the identity from part (i) to express $\\sin^3 x$ in terms of single-power trigonometric functions:\n$$\\sin 3x = 3\\sin x - 4\\sin^3 x$$\n$$4\\sin^3 x = 3\\sin x - \\sin 3x$$\n$$\\sin^3 x = \\dfrac{3}{4}\\sin x - \\dfrac{1}{4}\\sin 3x$$",
+        "Substitute this expression into the definite integral:\n$$\\int_0^{\\frac{1}{3}\\pi} \\sin^3 x\\,\\mathrm{d}x = \\int_0^{\\frac{1}{3}\\pi} \\left(\\dfrac{3}{4}\\sin x - \\dfrac{1}{4}\\sin 3x\\right)\\mathrm{d}x$$",
+        "Integrate each term with respect to $x$:\n$$\\int \\sin x\\,\\mathrm{d}x = -\\cos x$$\n$$\\int \\sin 3x\\,\\mathrm{d}x = -\\dfrac{1}{3}\\cos 3x$$\nTherefore:\n$$\\left[-\\dfrac{3}{4}\\cos x + \\dfrac{1}{12}\\cos 3x\\right]_0^{\\frac{1}{3}\\pi}$$",
+        "Evaluate at the upper limit $x = \\dfrac{1}{3}\\pi$:\n$$\\cos\\left(\\dfrac{1}{3}\\pi\\right) = \\dfrac{1}{2}, \\quad \\cos\\left(3 \\times \\dfrac{1}{3}\\pi\\right) = \\cos\\pi = -1$$\n$$\\text{At } x = \\dfrac{1}{3}\\pi: \\quad -\\dfrac{3}{4}\\left(\\dfrac{1}{2}\\right) + \\dfrac{1}{12}(-1) = -\\dfrac{3}{8} - \\dfrac{1}{12} = -\\dfrac{9}{24} - \\dfrac{2}{24} = -\\dfrac{11}{24}$$",
+        "Evaluate at the lower limit $x = 0$:\n$$\\cos 0 = 1, \\quad \\cos(3 \\times 0) = \\cos 0 = 1$$\n$$\\text{At } x = 0: \\quad -\\dfrac{3}{4}(1) + \\dfrac{1}{12}(1) = -\\dfrac{3}{4} + \\dfrac{1}{12} = -\\dfrac{18}{24} + \\dfrac{2}{24} = -\\dfrac{16}{24}$$",
+        "Subtract the lower limit value from the upper limit value:\n$$\\text{Integral} = \\left(-\\dfrac{11}{24}\\right) - \\left(-\\dfrac{16}{24}\\right) = -\\dfrac{11}{24} + \\dfrac{16}{24} = \\dfrac{5}{24}$$\nThe exact value is $\\dfrac{5}{24}$."
+      ]
+    }
+  ]
+}

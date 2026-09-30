@@ -1,0 +1,47 @@
+{
+  "schema_version": "9709_math_enrichment_v8",
+  "question_id": "9709_w19_63_q3",
+  "difficulty": 2,
+  "parts": [
+    {
+      "part_id": "9709_w19_63_q3_i",
+      "difficulty": 2,
+      "mapping": {
+        "topic_id": "9709_s1_t_permutations_and_combinations",
+        "lesson_id": "9709_s1_t_permutations_and_combinations_m05_l01"
+      },
+      "hints": [
+        "A team of 7 people is chosen from 6 attackers ($A$), 5 defenders ($D$), and 4 midfielders ($M$).",
+        "The quotas are $A \\ge 3$, $D \\ge 2$, $M \\ge 1$, and $A + D + M = 7$.",
+        "List all valid triples $(A, D, M)$: $(3, 2, 2)$, $(4, 2, 1)$, and $(3, 3, 1)$.",
+        "Calculate the combinations $\\binom{6}{A} \\binom{5}{D} \\binom{4}{M}$ for each case and sum them."
+      ],
+      "walkthrough": [
+        "We need to select a team of 7 people from 6 attackers ($A$), 5 defenders ($D$), and 4 midfielders ($M$) subject to $A \\ge 3$, $D \\ge 2$, and $M \\ge 1$.",
+        "Step 1: Identify all possible integer combinations of $(A, D, M)$ summing to 7:\n- Minimum possible is $3 + 2 + 1 = 6$ people, leaving $1$ extra person to allocate.\n- Extra person is an attacker: $(4, 2, 1)$\n- Extra person is a defender: $(3, 3, 1)$\n- Extra person is a midfielder: $(3, 2, 2)$",
+        "Step 2: Calculate combinations for each scenario:\n- Scenario 1 ($3A, 2D, 2M$):\n  $$\\binom{6}{3} \\times \\binom{5}{2} \\times \\binom{4}{2} = 20 \\times 10 \\times 6 = 1200$$\n- Scenario 2 ($4A, 2D, 1M$):\n  $$\\binom{6}{4} \\times \\binom{5}{2} \\times \\binom{4}{1} = 15 \\times 10 \\times 4 = 600$$\n- Scenario 3 ($3A, 3D, 1M$):\n  $$\\binom{6}{3} \\times \\binom{5}{3} \\times \\binom{4}{1} = 20 \\times 10 \\times 4 = 800$$",
+        "Step 3: Sum the results of all three scenarios:\n$$\\text{Total ways} = 1200 + 600 + 800 = 2600$$"
+      ]
+    },
+    {
+      "part_id": "9709_w19_63_q3_ii",
+      "difficulty": 1,
+      "mapping": {
+        "topic_id": "9709_s1_t_permutations_and_combinations",
+        "lesson_id": "9709_s1_t_permutations_and_combinations_m04_l03"
+      },
+      "hints": [
+        "The team consists of 7 people.",
+        "To divide 7 people into a group of 4 and a group of 3, choose which 4 people go into the group of 4.",
+        "Once the 4 people are chosen, the remaining 3 people automatically form the second group.",
+        "Calculate $\\binom{7}{4}$."
+      ],
+      "walkthrough": [
+        "We need to divide a chosen team of 7 people into two groups: one group of 4 and one group of 3.",
+        "Step 1: Choose 4 people out of the 7 to form the first group:\n$$\\binom{7}{4} = \\frac{7 \\times 6 \\times 5}{3 \\times 2 \\times 1} = 35$$",
+        "Step 2: The remaining 3 people are fixed into the group of 3:\n$$\\binom{3}{3} = 1$$\nBecause the group sizes are unequal (4 and 3), there is no symmetry or duplication between the two groups.",
+        "Step 3: State the final answer:\n$$\\text{Total ways} = 35$$"
+      ]
+    }
+  ]
+}

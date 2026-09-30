@@ -1,0 +1,72 @@
+{
+  "schema_version": "9709_math_enrichment_v8",
+  "question_id": "9709_m19_62_q6",
+  "difficulty": 3,
+  "parts": [
+    {
+      "part_id": "9709_m19_62_q6_i",
+      "difficulty": 3,
+      "mapping": {
+        "topic_id": "9709_s1_t_discrete_random_variables",
+        "lesson_id": "9709_s1_t_discrete_random_variables_m03_l02"
+      },
+      "hints": [
+        "Identify the binomial parameters: sample size $n = 6$, probability of shopping online $p = 0.35$, so $X \\sim \\mathrm{B}(6, 0.35)$.",
+        "Express 'more than three' as the sum of probabilities: $\\mathrm{P}(X > 3) = \\mathrm{P}(X = 4) + \\mathrm{P}(X = 5) + \\mathrm{P}(X = 6)$.",
+        "Apply the binomial probability formula $\\mathrm{P}(X = r) = \\binom{n}{r} p^r (1 - p)^{n - r}$ for $r = 4, 5, 6$.",
+        "Calculate each term and sum them, rounding the final answer to 3 significant figures."
+      ],
+      "walkthrough": [
+        "Let $X$ represent the number of customers in the sample who shop online. Each of the 6 customers independently shops online with probability $p = 0.35$, so $X \\sim \\mathrm{B}(6, 0.35)$.",
+        "Step 1: Write down the binomial probability formula:\n$$\\mathrm{P}(X = r) = \\binom{n}{r} p^r (1 - p)^{n - r}$$\nwith $n = 6$, $p = 0.35$, and $1 - p = 0.65$.",
+        "Step 2: 'More than three' means $X$ is strictly greater than 3, so $r$ can be 4, 5, or 6:\n$$\\mathrm{P}(X > 3) = \\mathrm{P}(X = 4) + \\mathrm{P}(X = 5) + \\mathrm{P}(X = 6)$$",
+        "Step 3: Calculate each term step by step:\n- For $r = 4$:\n$$\\binom{6}{4} = \\frac{6 \\times 5}{2 \\times 1} = 15$$\n$$(0.35)^4 = 0.01500625, \\quad (0.65)^2 = 0.4225$$\n$$\\mathrm{P}(X = 4) = 15 \\times 0.01500625 \\times 0.4225 = 0.095107$$\n- For $r = 5$:\n$$\\binom{6}{5} = 6$$\n$$(0.35)^5 = 0.0052521875, \\quad (0.65)^1 = 0.65$$\n$$\\mathrm{P}(X = 5) = 6 \\times 0.0052521875 \\times 0.65 = 0.020484$$\n- For $r = 6$:\n$$\\binom{6}{6} = 1$$\n$$(0.35)^6 = 0.001838265625, \\quad (0.65)^0 = 1$$\n$$\\mathrm{P}(X = 6) = 1 \\times 0.001838265625 = 0.001838$$",
+        "Step 4: Add the three values:\n$$\\mathrm{P}(X > 3) = 0.095107 + 0.020484 + 0.001838 = 0.117429$$\nRounding to 3 significant figures gives $0.117$."
+      ]
+    },
+    {
+      "part_id": "9709_m19_62_q6_ii",
+      "difficulty": 3,
+      "mapping": {
+        "topic_id": "9709_s1_t_discrete_random_variables",
+        "lesson_id": "9709_s1_t_discrete_random_variables_m03_l03"
+      },
+      "hints": [
+        "Express 'at least one customer shops online' using the complement rule: $\\mathrm{P}(X \\ge 1) = 1 - \\mathrm{P}(X = 0)$.",
+        "For a sample of $n$, the probability that none shop online is $(1 - 0.35)^n = (0.65)^n$.",
+        "Set up the inequality $1 - (0.65)^n > 0.95$ and rearrange to $(0.65)^n < 0.05$.",
+        "Take logarithms of both sides, reversing the inequality sign when dividing by $\\ln(0.65) < 0$, then find the smallest integer $n$."
+      ],
+      "walkthrough": [
+        "We need to find the smallest sample size $n$ such that the probability of at least one customer shopping online is strictly greater than 0.95.",
+        "Step 1: Use the complement rule. The event 'at least one customer shops online' is the complement of 'zero customers shop online':\n$$\\mathrm{P}(\\text{at least 1}) = 1 - \\mathrm{P}(X = 0)$$\nwhere $\\mathrm{P}(X = 0) = (1 - 0.35)^n = (0.65)^n$.",
+        "Step 2: Set up the given inequality:\n$$1 - (0.65)^n > 0.95$$",
+        "Step 3: Rearrange to isolate the exponential power:\nSubtract 1 from both sides:\n$$-(0.65)^n > -0.05$$\nMultiply both sides by $-1$, which reverses the inequality sign:\n$$(0.65)^n < 0.05$$",
+        "Step 4: Solve for $n$ by taking natural logarithms:\n$$\\ln((0.65)^n) < \\ln(0.05)$$\n$$n \\ln(0.65) < \\ln(0.05)$$\nBecause $0.65 < 1$, its logarithm is negative: $\\ln(0.65) \\approx -0.43078$. Dividing by a negative quantity flips the inequality sign:\n$$n > \\frac{\\ln(0.05)}{\\ln(0.65)}$$\n$$n > \\frac{-2.99573}{-0.43078} \\approx 6.954$$",
+        "Step 5: Determine the least integer value:\nSince $n$ must be an integer number of customers and $n > 6.954$, the least possible value is $n = 7$."
+      ]
+    },
+    {
+      "part_id": "9709_m19_62_q6_iii",
+      "difficulty": 4,
+      "mapping": {
+        "topic_id": "9709_s1_t_the_normal_distribution",
+        "lesson_id": "9709_s1_t_the_normal_distribution_m03_l01"
+      },
+      "hints": [
+        "Identify the distribution: $X \\sim \\mathrm{B}(100, 0.35)$. Check validity for a normal approximation: $np = 35 > 5$ and $n(1-p) = 65 > 5$.",
+        "Compute the parameters of the approximating normal distribution: $\\mu = np$ and $\\sigma^2 = np(1 - p)$.",
+        "Apply the continuity correction to the strict inequality: $\\mathrm{P}(X > 39) = \\mathrm{P}(X \\ge 40) \\approx \\mathrm{P}(Y > 39.5)$.",
+        "Standardize $Y = 39.5$ using $Z = \\frac{39.5 - \\mu}{\\sigma}$ and find $1 - \\Phi(z)$."
+      ],
+      "walkthrough": [
+        "We have a sample of $n = 100$ customers with $p = 0.35$, so $X \\sim \\mathrm{B}(100, 0.35)$. Because $n$ is large, we approximate this binomial distribution with a normal distribution.",
+        "Step 1: Calculate the mean $\\mu$ and variance $\\sigma^2$:\n$$\\mu = np = 100 \\times 0.35 = 35$$\n$$\\sigma^2 = np(1 - p) = 100 \\times 0.35 \\times 0.65 = 22.75$$\n$$\\sigma = \\sqrt{22.75} \\approx 4.7697$$\nCheck validity: $np = 35 > 5$ and $n(1 - p) = 65 > 5$, confirming the normal approximation $Y \\sim \\mathrm{N}(35, 22.75)$ is appropriate.",
+        "Step 2: Apply the continuity correction.\nWe want $\\mathrm{P}(X > 39)$. Because $X$ takes integer values, $X > 39$ corresponds to $X \\in \\{40, 41, 42, \\dots\\}$.\nThe continuous bar for 40 starts at $39.5$, so:\n$$\\mathrm{P}(X > 39) = \\mathrm{P}(X \\ge 40) \\approx \\mathrm{P}(Y > 39.5)$$",
+        "Step 3: Standardise $Y = 39.5$ using $Z = \\frac{Y - \\mu}{\\sigma}$:\n$$Z = \\frac{39.5 - 35}{\\sqrt{22.75}} = \\frac{4.5}{4.7697} \\approx 0.9434$$",
+        "Step 4: Look up $\\Phi(0.943)$ in the normal tables:\n$$\\Phi(0.94) = 0.8264$$\n$$\\text{Add for 3} = 0.0008$$\n$$\\Phi(0.943) = 0.8264 + 0.0008 = 0.8272$$",
+        "Step 5: Compute the upper-tail probability:\n$$\\mathrm{P}(Y > 39.5) = 1 - \\Phi(0.943) = 1 - 0.8272 = 0.1728 \\approx 0.173$$"
+      ]
+    }
+  ]
+}

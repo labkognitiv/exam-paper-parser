@@ -1,0 +1,52 @@
+{
+  "schema_version": "9709_math_enrichment_v8",
+  "question_id": "9709_w16_32_q10",
+  "difficulty": 4,
+  "parts": [
+    {
+      "part_id": "9709_w16_32_q10_i",
+      "difficulty": 4,
+      "mapping": {
+        "topic_id": "9709_p3_t_differential_equations",
+        "lesson_id": "9709_p3_t_differential_equations_m03_l01"
+      },
+      "hints": [
+        "Separate $dx/dt=kx(4-x)$ to place $x(4-x)$ beneath $dx$.",
+        "Find constants in $1/[x(4-x)]=A/x+B/(4-x)$ and integrate both sides.",
+        "Insert the initial data $t=0,x=0.4$ to fix the arbitrary constant.",
+        "Then insert $t=2,x=2$ to solve for the positive constant $k$ in exact logarithmic form.",
+        "Replace $k$ in the integrated equation and consolidate the two $x$ logarithms."
+      ],
+      "walkthrough": [
+        "Separate the variables in $\\dfrac{\\mathrm{d}x}{\\mathrm{d}t} = kx(4 - x)$:\n$$\\dfrac{1}{x(4 - x)}\\,\\mathrm{d}x = k\\,\\mathrm{d}t$$",
+        "Decompose the fraction into partial fractions $\\dfrac{1}{x(4 - x)} = \\dfrac{A}{x} + \\dfrac{B}{4 - x}$:\n$$1 = A(4 - x) + Bx$$\nSetting $x = 0$ gives $4A = 1 \\implies A = \\dfrac{1}{4}$.\nSetting $x = 4$ gives $4B = 1 \\implies B = \\dfrac{1}{4}$.\n$$\\dfrac{1}{4}\\left(\\dfrac{1}{x} + \\dfrac{1}{4 - x}\\right)\\mathrm{d}x = k\\,\\mathrm{d}t \\implies \\left(\\dfrac{1}{x} + \\dfrac{1}{4 - x}\\right)\\mathrm{d}x = 4k\\,\\mathrm{d}t$$",
+        "Integrate both sides:\n$$\\ln x - \\ln(4 - x) = 4kt + c \\implies \\ln\\left(\\dfrac{x}{4 - x}\\right) = 4kt + c$$",
+        "Substitute the initial condition $t = 0$ and $x = 0.4$ to find $c$:\n$$\\ln\\left(\\dfrac{0.4}{4 - 0.4}\\right) = 4k(0) + c \\implies c = \\ln\\left(\\dfrac{0.4}{3.6}\\right) = \\ln\\left(\\dfrac{1}{9}\\right) = -\\ln 9$$",
+        "Substitute the second condition $t = 2$ and $x = 2$ to find $k$:\n$$\\ln\\left(\\dfrac{2}{4 - 2}\\right) = 4k(2) - \\ln 9$$\n$$\\ln 1 = 8k - \\ln 9 \\implies 0 = 8k - \\ln 9 \\implies 8k = \\ln 9$$",
+        "Rewrite $\\ln 9 = \\ln(3^2) = 2\\ln 3$:\n$$8k = 2\\ln 3 \\implies k = \\dfrac{2\\ln 3}{8} = \\dfrac{1}{4}\\ln 3$$"
+      ]
+    },
+    {
+      "part_id": "9709_w16_32_q10_ii",
+      "difficulty": 1,
+      "mapping": {
+        "topic_id": "9709_p3_t_differential_equations",
+        "lesson_id": "9709_p3_t_differential_equations_m03_l01"
+      },
+      "hints": [
+        "When 90% of a $4\\text{ km}^2$ field is infected, first calculate the corresponding $x$ value.",
+        "Put this value into the part (i) relation $\\ln(x/(4-x))=t\\ln3-\\ln9$.",
+        "Simplify the logarithms, solve for $t$, and attach the unit years."
+      ],
+      "walkthrough": [
+        "When $90\\%$ of the field of area $4\\,\\mathrm{km}^2$ is infected, the infected area is:\n$$x = 0.90 \\times 4 = 3.6\\,\\mathrm{km}^2$$",
+        "Substitute $x = 3.6$ into the integrated relation $\\ln\\left(\\dfrac{x}{4 - x}\\right) = 4kt - \\ln 9$ with $4k = \\ln 3$:\n$$\\ln\\left(\\dfrac{3.6}{4 - 3.6}\\right) = t\\ln 3 - \\ln 9$$",
+        "Simplify the argument of the logarithm:\n$$\\dfrac{3.6}{0.4} = 9$$",
+        "The equation becomes:\n$$\\ln 9 = t\\ln 3 - \\ln 9$$",
+        "Add $\\ln 9$ to both sides:\n$$t\\ln 3 = 2\\ln 9$$",
+        "Express $\\ln 9$ in terms of $\\ln 3$ using $\\ln 9 = 2\\ln 3$:\n$$t\\ln 3 = 2(2\\ln 3) = 4\\ln 3$$",
+        "Divide both sides by $\\ln 3$:\n$$t = 4\\,\\text{years}$$"
+      ]
+    }
+  ]
+}

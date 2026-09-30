@@ -1,0 +1,47 @@
+{
+  "schema_version": "9709_math_enrichment_v8",
+  "question_id": "9709_w19_62_q4",
+  "difficulty": 2,
+  "parts": [
+    {
+      "part_id": "9709_w19_62_q4_i",
+      "difficulty": 2,
+      "mapping": {
+        "topic_id": "9709_s1_t_discrete_random_variables",
+        "lesson_id": "9709_s1_t_discrete_random_variables_m03_l01"
+      },
+      "hints": [
+        "Model the number of satisfied households in a sample of 10 as $X \\sim \\mathrm{B}(10, 0.66)$.",
+        "The condition 'at least 8' corresponds to $\\mathrm{P}(X \\ge 8) = \\mathrm{P}(X = 8) + \\mathrm{P}(X = 9) + \\mathrm{P}(X = 10)$.",
+        "Calculate each binomial probability $\\binom{10}{r} (0.66)^r (0.34)^{10 - r}$ for $r = 8, 9, 10$ and sum them."
+      ],
+      "walkthrough": [
+        "Let $X$ be the number of households in the sample of 10 satisfied with their wifi connection. Since $66\\%$ of households are satisfied independently, $X \\sim \\mathrm{B}(10, 0.66)$.",
+        "Step 1: Express the required event:\n'At least 8' means $X \\ge 8$:\n$$\\mathrm{P}(X \\ge 8) = \\mathrm{P}(X = 8) + \\mathrm{P}(X = 9) + \\mathrm{P}(X = 10)$$",
+        "Step 2: Calculate each binomial probability:\n- For $X = 8$:\n$$\\binom{10}{8} = 45$$\n$$\\mathrm{P}(X = 8) = 45 \\times (0.66)^8 \\times (0.34)^2 = 45 \\times 0.0360041 \\times 0.1156 \\approx 0.187291$$\n- For $X = 9$:\n$$\\binom{10}{9} = 10$$\n$$\\mathrm{P}(X = 9) = 10 \\times (0.66)^9 \\times (0.34)^1 = 10 \\times 0.0237627 \\times 0.34 \\approx 0.080793$$\n- For $X = 10$:\n$$\\binom{10}{10} = 1$$\n$$\\mathrm{P}(X = 10) = 1 \\times (0.66)^{10} \\times (0.34)^0 = 1 \\times 0.0156834 \\times 1 \\approx 0.015683$$",
+        "Step 3: Sum the probabilities:\n$$\\mathrm{P}(X \\ge 8) = 0.187291 + 0.080793 + 0.015683 = 0.283767$$\nRounding to 3 significant figures gives $0.284$."
+      ]
+    },
+    {
+      "part_id": "9709_w19_62_q4_ii",
+      "difficulty": 3,
+      "mapping": {
+        "topic_id": "9709_s1_t_the_normal_distribution",
+        "lesson_id": "9709_s1_t_the_normal_distribution_m03_l02"
+      },
+      "hints": [
+        "Calculate the mean $\\mu = np = 150 \\times 0.66$ and variance $\\sigma^2 = np(1 - p) = 150 \\times 0.66 \\times 0.34$.",
+        "Check that $np > 5$ and $n(1 - p) > 5$ to confirm that the normal approximation $Y \\sim \\mathrm{N}(\\mu, \\sigma^2)$ is appropriate.",
+        "Apply the continuity correction to 'more than 84': $\\mathrm{P}(X > 84) = \\mathrm{P}(X \\ge 85) \\approx \\mathrm{P}(Y > 84.5)$.",
+        "Standardize $Y = 84.5$ using $Z = \\frac{84.5 - \\mu}{\\sigma}$ and find the upper-tail probability."
+      ],
+      "walkthrough": [
+        "For a large sample size of $n = 150$ with $p = 0.66$, we approximate the binomial distribution $X \\sim \\mathrm{B}(150, 0.66)$ by a normal distribution.",
+        "Step 1: Compute parameters $\\mu$ and $\\sigma^2$:\n$$\\mu = np = 150 \\times 0.66 = 99$$\n$$\\sigma^2 = np(1 - p) = 150 \\times 0.66 \\times 0.34 = 33.66$$\n$$\\sigma = \\sqrt{33.66} \\approx 5.8017$$\nValidity check: Both $np = 99 > 5$ and $n(1 - p) = 51 > 5$ are well satisfied.",
+        "Step 2: Apply the continuity correction.\n'More than 84' satisfied households means $X \\ge 85$.\nThe discrete block for 85 begins at the continuous lower boundary $84.5$, so:\n$$\\mathrm{P}(X > 84) = \\mathrm{P}(X \\ge 85) \\approx \\mathrm{P}(Y > 84.5)$$",
+        "Step 3: Standardise using $Z = \\frac{Y - \\mu}{\\sigma}$:\n$$Z = \\frac{84.5 - 99}{\\sqrt{33.66}} = \\frac{-14.5}{5.8017} \\approx -2.499$$",
+        "Step 4: Use symmetry to find the upper-tail probability:\n$$\\mathrm{P}(Z > -2.499) = \\Phi(2.499)$$\nFrom the standard normal distribution table:\n$$\\Phi(2.49) = 0.9936$$\n$$\\text{Difference for 9} = 0.0002$$\n$$\\Phi(2.499) = 0.9936 + 0.0002 = 0.9938$$\nRounding to 3 significant figures gives $0.994$."
+      ]
+    }
+  ]
+}

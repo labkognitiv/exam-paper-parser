@@ -1,0 +1,53 @@
+{
+  "schema_version": "9709_math_enrichment_v8",
+  "question_id": "9709_s20_51_q6",
+  "difficulty": 5,
+  "parts": [
+    {
+      "part_id": "9709_s20_51_q6_a",
+      "difficulty": 4,
+      "mapping": {
+        "topic_id": "9709_s1_t_the_normal_distribution",
+        "lesson_id": "9709_s1_t_the_normal_distribution_m01_l02"
+      },
+      "hints": [
+        "State the distribution for female snakes: $X \\sim \\mathrm{N}(54, 6.1^2)$.",
+        "Standardise both boundary values 50 and 60 using $Z = \\dfrac{X - \\mu}{\\sigma}$.",
+        "Express the interval probability as $\\Phi(z_2) - \\Phi(z_1)$, where $\\Phi(-z) = 1 - \\Phi(z)$.",
+        "Look up both values in the normal distribution tables and evaluate the final probability to 3 significant figures."
+      ],
+      "walkthrough": [
+        "The lengths of female snakes of this species are normally distributed with mean $\\mu = 54$ cm and standard deviation $\\sigma = 6.1$ cm:\n$$X \\sim \\mathrm{N}(54, 6.1^2)$$",
+        "We want to find the probability that a randomly chosen female snake has length between 50 cm and 60 cm:\n$$\\mathrm{P}(50 < X < 60)$$",
+        "Step 1: Standardise both boundaries using $Z = \\frac{X - \\mu}{\\sigma}$:\nFor $X_1 = 50$:\n$$z_1 = \\frac{50 - 54}{6.1} = \\frac{-4}{6.1} \\approx -0.65574$$\nFor $X_2 = 60$:\n$$z_2 = \\frac{60 - 54}{6.1} = \\frac{6}{6.1} \\approx 0.98361$$",
+        "Step 2: Express the required area in terms of $\\Phi(z)$:\n$$\\mathrm{P}(-0.6557 < Z < 0.9836) = \\Phi(0.9836) - \\Phi(-0.6557)$$",
+        "Step 3: Use the symmetry property $\\Phi(-z) = 1 - \\Phi(z)$:\n$$\\Phi(-0.6557) = 1 - \\Phi(0.6557)$$\nSubstituting this back gives:\n$$\\mathrm{P}(50 < X < 60) = \\Phi(0.9836) - (1 - \\Phi(0.6557)) = \\Phi(0.9836) + \\Phi(0.6557) - 1$$",
+        "Step 4: Look up values from the standard normal cumulative table:\nFor $z = 0.9836$:\n$$\\Phi(0.98) = 0.8365$$\nDifference for $3$ is $8 \\implies \\Phi(0.983) = 0.8373$\nDifference for $6$ is $15 \\implies \\Phi(0.9836) \\approx 0.8375$\n\nFor $z = 0.6557$:\n$$\\Phi(0.65) = 0.7422$$\nDifference for $5$ is $16 \\implies \\Phi(0.655) = 0.7438$\nDifference for $7$ is $23 \\implies \\Phi(0.6557) \\approx 0.7441$",
+        "Step 5: Perform the arithmetic:\n$$\\mathrm{P}(50 < X < 60) = 0.8375 + 0.7441 - 1 = 1.5816 - 1 = 0.5816 \\approx 0.582$$\nRounding to 3 significant figures gives $0.582$."
+      ]
+    },
+    {
+      "part_id": "9709_s20_51_q6_b",
+      "difficulty": 5,
+      "mapping": {
+        "topic_id": "9709_s1_t_the_normal_distribution",
+        "lesson_id": "9709_s1_t_the_normal_distribution_m02_l03"
+      },
+      "hints": [
+        "Let the male snake lengths be $Y \\sim \\mathrm{N}(\\mu, \\sigma^2)$ with unknown mean $\\mu$ and standard deviation $\\sigma$.",
+        "From the given percentages, determine the two $z$-values from normal tables: $z_1 = -0.994$ for the lower tail at 45 cm, and $z_2 = 1.372$ for the upper tail at 56 cm.",
+        "Set up two simultaneous linear equations: $\\dfrac{45 - \\mu}{\\sigma} = -0.994$ and $\\dfrac{56 - \\mu}{\\sigma} = 1.372$.",
+        "Subtract the two equations to eliminate $\\mu$, solve for $\\sigma$, and substitute back to find $\\mu$."
+      ],
+      "walkthrough": [
+        "For male snakes of this species, both the mean $\\mu$ and the standard deviation $\\sigma$ are unknown. Let $Y \\sim \\mathrm{N}(\\mu, \\sigma^2)$ represent male snake length.",
+        "We are given two percentage thresholds:\n16% of male snakes have length less than 45 cm: $\\mathrm{P}(Y < 45) = 0.16$.\n8.5% of male snakes have length greater than 56 cm: $\\mathrm{P}(Y > 56) = 0.085$.",
+        "Step 1: Find the corresponding standard normal $z$-values.\nFor the lower threshold $Y = 45$:\n$$\\mathrm{P}\\left(Z < \\frac{45 - \\mu}{\\sigma}\\right) = 0.16$$\nSince this area is in the lower tail (< 0.5), $z_1$ is negative.\nBy symmetry, $\\Phi(-z_1) = 1 - 0.16 = 0.84$.\nLooking up $0.84$ in the normal distribution tables gives:\n$$\\Phi(0.994) \\approx 0.8400 \\implies z_1 = -0.994$$\n\nFor the upper threshold $Y = 56$:\n$$\\mathrm{P}\\left(Z > \\frac{56 - \\mu}{\\sigma}\\right) = 0.085$$\n$$\\Phi(z_2) = 1 - 0.085 = 0.915$$\nLooking up $0.915$ in the normal distribution tables gives:\n$$\\Phi(1.372) \\approx 0.9150 \\implies z_2 = 1.372$$",
+        "Step 2: Form two simultaneous equations:\nEquation 1: $\\dfrac{45 - \\mu}{\\sigma} = -0.994 \\implies 45 - \\mu = -0.994\\sigma$\nEquation 2: $\\dfrac{56 - \\mu}{\\sigma} = 1.372 \\implies 56 - \\mu = 1.372\\sigma$",
+        "Step 3: Eliminate $\\mu$ by subtracting Equation 1 from Equation 2:\n$$(56 - \\mu) - (45 - \\mu) = 1.372\\sigma - (-0.994\\sigma)$$\n$$56 - 45 = (1.372 + 0.994)\\sigma$$\n$$11 = 2.366\\sigma$$",
+        "Step 4: Solve for $\\sigma$:\n$$\\sigma = \\frac{11}{2.366} \\approx 4.6492...$$\nRounding to 3 significant figures gives $\\sigma = 4.65$ cm.",
+        "Step 5: Substitute $\\sigma \\approx 4.6492$ into Equation 1 to find $\\mu$:\n$$45 - \\mu = -0.994(4.6492)$$\n$$45 - \\mu = -4.6213$$\n$$\\mu = 45 + 4.6213 = 49.6213...$$\nRounding to 3 significant figures gives $\\mu = 49.6$ cm."
+      ]
+    }
+  ]
+}

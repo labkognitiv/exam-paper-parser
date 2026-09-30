@@ -1,0 +1,65 @@
+{
+  "schema_version": "9709_math_enrichment_v8",
+  "question_id": "9709_s16_33_q6",
+  "difficulty": 4,
+  "parts": [
+    {
+      "part_id": "9709_s16_33_q6_i",
+      "difficulty": 2,
+      "mapping": {
+        "topic_id": "9709_p3_t_differentiation",
+        "lesson_id": "9709_p3_t_differentiation_m01_l02"
+      },
+      "hints": [
+        "Differentiate $y=x^2\\cos(x/2)$ using product and chain rules.",
+        "Set the derivative equal to zero at $x=p$.",
+        "Divide by the non-zero factors valid for $0<p<\\pi$ and rearrange the sine-cosine ratio to obtain the stated tangent equation."
+      ],
+      "walkthrough": [
+        "Differentiate $y = x^2\\cos\\left(\\dfrac{1}{2}x\\right)$ with respect to $x$ using the product rule:\n$$\\dfrac{\\mathrm{d}y}{\\mathrm{d}x} = \\dfrac{\\mathrm{d}}{\\mathrm{d}x}(x^2)\\cos\\left(\\dfrac{1}{2}x\\right) + x^2\\dfrac{\\mathrm{d}}{\\mathrm{d}x}\\left(\\cos\\left(\\dfrac{1}{2}x\\right)\\right)$$",
+        "Compute each derivative term, using the chain rule on the cosine factor:\n$$\\dfrac{\\mathrm{d}y}{\\mathrm{d}x} = 2x\\cos\\left(\\dfrac{1}{2}x\\right) + x^2\\left(-\\dfrac{1}{2}\\sin\\left(\\dfrac{1}{2}x\\right)\\right) = 2x\\cos\\left(\\dfrac{1}{2}x\\right) - \\dfrac{1}{2}x^2\\sin\\left(\\dfrac{1}{2}x\\right)$$",
+        "At the stationary point $x = p$, set $\\dfrac{\\mathrm{d}y}{\\mathrm{d}x} = 0$:\n$$2p\\cos\\left(\\dfrac{1}{2}p\\right) - \\dfrac{1}{2}p^2\\sin\\left(\\dfrac{1}{2}p\\right) = 0$$",
+        "In the interval $0 < p < \\pi$, $p \\neq 0$ and $\\cos\\left(\\dfrac{1}{2}p\\right) \\neq 0$. Divide the equation by $p\\cos\\left(\\dfrac{1}{2}p\\right)$:\n$$2 - \\dfrac{1}{2}p\\tan\\left(\\dfrac{1}{2}p\\right) = 0$$",
+        "Rearrange to solve for $\\tan\\left(\\dfrac{1}{2}p\\right)$:\n$$\\dfrac{1}{2}p\\tan\\left(\\dfrac{1}{2}p\\right) = 2 \\implies \\tan\\left(\\dfrac{1}{2}p\\right) = \\dfrac{4}{p}$$"
+      ]
+    },
+    {
+      "part_id": "9709_s16_33_q6_ii",
+      "difficulty": 3,
+      "mapping": {
+        "topic_id": "9709_p3_t_logarithmic_and_exponential_functions",
+        "lesson_id": "9709_p3_t_logarithmic_and_exponential_functions_m03_l01"
+      },
+      "hints": [
+        "Define $f(p)=\\tan(p/2)-4/p$ from part (i).",
+        "Evaluate $f(2)$ and $f(2.5)$ in radians.",
+        "Use their opposite signs and continuity on this interval to justify the bracket."
+      ],
+      "walkthrough": [
+        "Define $F(p) = \\tan\\left(\\dfrac{1}{2}p\\right) - \\dfrac{4}{p}$, which is continuous for $p \\in [2, 2.5]$.",
+        "Evaluate $F(p)$ at the lower bound $p = 2$ in radian mode:\n$$\\tan\\left(\\dfrac{2}{2}\\right) = \\tan 1 \\approx 1.557408$$\n$$\\dfrac{4}{2} = 2$$\n$$F(2) = 1.557408 - 2 = -0.442592 < 0$$",
+        "Evaluate $F(p)$ at the upper bound $p = 2.5$ in radian mode:\n$$\\tan\\left(\\dfrac{2.5}{2}\\right) = \\tan 1.25 \\approx 3.009570$$\n$$\\dfrac{4}{2.5} = 1.6$$\n$$F(2.5) = 3.009570 - 1.6 = +1.409570 > 0$$",
+        "Since $F(2) < 0$ and $F(2.5) > 0$, there is a change of sign. By the intermediate value theorem, the root $p$ lies strictly between $2$ and $2.5$."
+      ]
+    },
+    {
+      "part_id": "9709_s16_33_q6_iii",
+      "difficulty": 4,
+      "mapping": {
+        "topic_id": "9709_p3_t_numerical_solution_of_equations",
+        "lesson_id": "9709_p3_t_numerical_solution_of_equations_m03_l01"
+      },
+      "hints": [
+        "Choose a starting value in $(2,2.5)$ and use $p_{n+1}=2\\tan^{-1}(4/p_n)$ in radian mode.",
+        "Keep full calculator precision for the next term while displaying each iterate to 4 decimal places.",
+        "Continue until successive values justify a stable result to 2 decimal places."
+      ],
+      "walkthrough": [
+        "Use the iterative formula $p_{n+1} = 2\\tan^{-1}\\!\\left(\\dfrac{4}{p_n}\\right)$ with an initial estimate, such as $p_1 = 2$ or $p_1 = 2.25$.",
+        "Compute each iteration in radian mode, recording values to 4 decimal places:\nWith $p_1 = 2.25$:\n$$p_2 = 2\\tan^{-1}\\!\\left(\\dfrac{4}{2.25}\\right) = 2\\tan^{-1}(1.777778) \\approx 2.1168$$\n$$p_3 = 2\\tan^{-1}\\!\\left(\\dfrac{4}{2.116814}\\right) = 2\\tan^{-1}(1.889632) \\approx 2.1681$$\n$$p_4 = 2\\tan^{-1}\\!\\left(\\dfrac{4}{2.168120}\\right) = 2\\tan^{-1}(1.844916) \\approx 2.1482$$\n$$p_5 = 2\\tan^{-1}\\!\\left(\\dfrac{4}{2.148186}\\right) = 2\\tan^{-1}(1.862036) \\approx 2.1559$$\n$$p_6 = 2\\tan^{-1}\\!\\left(\\dfrac{4}{2.155905}\\right) = 2\\tan^{-1}(1.855369) \\approx 2.1529$$\n$$p_7 = 2\\tan^{-1}\\!\\left(\\dfrac{4}{2.152912}\\right) = 2\\tan^{-1}(1.857949) \\approx 2.1541$$\n$$p_8 = 2\\tan^{-1}\\!\\left(\\dfrac{4}{2.154072}\\right) = 2\\tan^{-1}(1.856948) \\approx 2.1536$$",
+        "Successive iterations round consistently to $2.15$ to 2 decimal places.",
+        "State the value of $p$ correct to 2 decimal places:\n$$p = 2.15$$"
+      ]
+    }
+  ]
+}

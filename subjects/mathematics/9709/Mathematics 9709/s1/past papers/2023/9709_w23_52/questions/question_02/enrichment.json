@@ -1,0 +1,47 @@
+{
+  "schema_version": "9709_math_enrichment_v8",
+  "question_id": "9709_w23_52_q2",
+  "difficulty": 2,
+  "parts": [
+    {
+      "part_id": "9709_w23_52_q2_a",
+      "difficulty": 2,
+      "mapping": {
+        "topic_id": "9709_s1_t_discrete_random_variables",
+        "lesson_id": "9709_s1_t_discrete_random_variables_m04_l01"
+      },
+      "hints": [
+        "The probability of obtaining a 5 on any single spin of the fair 5-sided spinner is p = 1/5 = 0.2.",
+        "The failure probability is q = 1 - 0.2 = 0.8.",
+        "Fewer than 7 spins means S < 7, which is equivalent to S <= 6.",
+        "Use the cumulative geometric formula: P(S <= 6) = 1 - (0.8)^6 = 1 - 0.262144 = 0.738."
+      ],
+      "walkthrough": [
+        "Step 1: Identify the probability of success on a single trial:\nA fair 5-sided spinner has outcomes $\\{1, 2, 3, 4, 5\\}$, each with probability $\\frac{1}{5}$.\n$$p = \\mathrm{P}(5) = 0.2$$\n$$q = 1 - p = 0.8$$",
+        "Step 2: Model the number of spins $S$:\n$S$ denotes the number of independent spins until the first 5 appears:\n$$S \\sim \\mathrm{Geo}(0.2)$$",
+        "Step 3: Translate 'fewer than 7 spins':\nThis requires success to occur on spin 1, 2, 3, 4, 5, or 6 ($S \\le 6$).\nUsing the complement rule, the only outcome where this fails is when the first 6 spins all fail to show a 5:\n$$\\mathrm{P}(S > 6) = q^6 = (0.8)^6$$",
+        "Step 4: Compute the numerical value:\n$$(0.8)^6 = 0.262144$$\n$$\\mathrm{P}(S \\le 6) = 1 - 0.262144 = 0.737856$$\nRounding to 3 significant figures gives $0.738$."
+      ]
+    },
+    {
+      "part_id": "9709_w23_52_q2_b",
+      "difficulty": 2,
+      "mapping": {
+        "topic_id": "9709_s1_t_discrete_random_variables",
+        "lesson_id": "9709_s1_t_discrete_random_variables_m03_l03"
+      },
+      "hints": [
+        "Let Y be the number of 5s obtained in 10 spins: Y follows B(10, 0.2).",
+        "More than 4 times but fewer than 8 times means 4 < Y < 8, which corresponds to Y = 5, 6, 7.",
+        "Calculate P(Y = 5) = 10C5 * (0.2)^5 * (0.8)^5, P(Y = 6) = 10C6 * (0.2)^6 * (0.8)^4, and P(Y = 7) = 10C7 * (0.2)^7 * (0.8)^3.",
+        "Sum these three values: 0.026424 + 0.005505 + 0.000786 = 0.0327."
+      ],
+      "walkthrough": [
+        "Step 1: Set up the binomial model:\n- Number of trials $n = 10$\n- Success probability $p = 0.2$\n- Failure probability $q = 0.8$\n- Distribution: $Y \\sim \\mathrm{B}(10, 0.2)$.",
+        "Step 2: Identify the required integer values of $Y$:\n'More than 4 but fewer than 8' means $4 < Y < 8$.\nSince $Y$ can only take integer values, the allowed values are $Y = 5, 6, 7$:\n$$\\mathrm{P}(4 < Y < 8) = \\mathrm{P}(Y = 5) + \\mathrm{P}(Y = 6) + \\mathrm{P}(Y = 7)$$",
+        "Step 3: Calculate each term using the formula $\\mathrm{P}(Y = r) = \\binom{n}{r} p^r q^{n-r}$:\n- For $r = 5$:\n$$\\binom{10}{5} = 252$$\n$$\\mathrm{P}(Y = 5) = 252 \\times (0.2)^5 \\times (0.8)^5 = 252 \\times 0.00032 \\times 0.32768 \\approx 0.026424$$\n- For $r = 6$:\n$$\\binom{10}{6} = 210$$\n$$\\mathrm{P}(Y = 6) = 210 \\times (0.2)^6 \\times (0.8)^4 = 210 \\times 0.000064 \\times 0.4096 \\approx 0.005505$$\n- For $r = 7$:\n$$\\binom{10}{7} = 120$$\n$$\\mathrm{P}(Y = 7) = 120 \\times (0.2)^7 \\times (0.8)^3 = 120 \\times 0.0000128 \\times 0.512 \\approx 0.000786$$",
+        "Step 4: Sum the three probabilities:\n$$\\mathrm{P}(4 < Y < 8) = 0.026424 + 0.005505 + 0.000786 = 0.032715$$\nRounding to 3 significant figures gives $0.0327$."
+      ]
+    }
+  ]
+}

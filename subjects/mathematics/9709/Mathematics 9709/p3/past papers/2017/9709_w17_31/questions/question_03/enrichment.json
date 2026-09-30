@@ -1,0 +1,43 @@
+{
+  "schema_version": "9709_math_enrichment_v8",
+  "question_id": "9709_w17_31_q3",
+  "difficulty": 4,
+  "parts": [
+    {
+      "part_id": "9709_w17_31_q3_i",
+      "difficulty": 1,
+      "mapping": {
+        "topic_id": "9709_p3_t_numerical_solution_of_equations",
+        "lesson_id": "9709_p3_t_numerical_solution_of_equations_m01_l02"
+      },
+      "hints": [
+        "Write the equation as the continuous function $f(x)=x^3-3x-7$.",
+        "Evaluate $f(2)$ and $f(3)$ and use their opposite signs to bracket the stated unique real root."
+      ],
+      "walkthrough": [
+        "Define the polynomial function $f(x) = x^3 - 3x - 7$, which is continuous on $\\mathbb{R}$.",
+        "Evaluate $f(x)$ at the lower bound $x = 2$:\n$$f(2) = 2^3 - 3(2) - 7 = 8 - 6 - 7 = -5 < 0$$",
+        "Evaluate $f(x)$ at the upper bound $x = 3$:\n$$f(3) = 3^3 - 3(3) - 7 = 27 - 9 - 7 = 11 > 0$$",
+        "Since $f(x)$ is continuous on $[2, 3]$ and changes sign from negative at $x = 2$ to positive at $x = 3$, by the Intermediate Value Theorem there is at least one real root $\\alpha$ in the interval $(2, 3)$. Since the equation has only one real root, $\\alpha$ lies between 2 and 3."
+      ]
+    },
+    {
+      "part_id": "9709_w17_31_q3_ii",
+      "difficulty": 4,
+      "mapping": {
+        "topic_id": "9709_p3_t_numerical_solution_of_equations",
+        "lesson_id": "9709_p3_t_numerical_solution_of_equations_m02_l01"
+      },
+      "hints": [
+        "Starting from $x_1=2.5$, calculate several terms from both formula A and formula B to compare their behaviour.",
+        "Identify failure to converge from terms that move away or oscillate with increasing size; use only the stable formula for the root.",
+        "List stable iterates to 4 decimal places, retaining full precision between steps, until they justify the same value to 2 decimal places."
+      ],
+      "walkthrough": [
+        "Test Formula $B$: $x_{n+1} = \\dfrac{x_n^3 - 7}{3}$ starting with $x_1 = 2.5$:\n$$x_2 = \\dfrac{2.5^3 - 7}{3} = \\dfrac{15.625 - 7}{3} = 2.8750$$\n$$x_3 = \\dfrac{2.8750^3 - 7}{3} \\approx \\dfrac{23.7637 - 7}{3} \\approx 5.5879$$\n$$x_4 = \\dfrac{5.5879^3 - 7}{3} \\approx \\dfrac{174.479 - 7}{3} \\approx 55.8264$$\nThe iterates grow rapidly without bound, showing that Formula $B$ fails to converge.",
+        "Test Formula $A$: $x_{n+1} = (3x_n + 7)^{\\frac{1}{3}}$ starting with $x_1 = 2.5$:\n$$x_2 = (3(2.5) + 7)^{\\frac{1}{3}} = (14.5)^{\\frac{1}{3}} \\approx 2.4385$$\n$$x_3 = (3(2.4385) + 7)^{\\frac{1}{3}} \\approx (14.3155)^{\\frac{1}{3}} \\approx 2.4281$$\n$$x_4 = (3(2.4281) + 7)^{\\frac{1}{3}} \\approx (14.2843)^{\\frac{1}{3}} \\approx 2.4263$$\n$$x_5 = (3(2.4263) + 7)^{\\frac{1}{3}} \\approx (14.2789)^{\\frac{1}{3}} \\approx 2.4261$$\n$$x_6 = (3(2.4261) + 7)^{\\frac{1}{3}} \\approx (14.2783)^{\\frac{1}{3}} \\approx 2.4260$$",
+        "Verify that the root rounds to $2.43$ using the sign-change test on $f(x) = x^3 - 3x - 7$ across $[2.425, 2.435]$:\n$$f(2.425) = (2.425)^3 - 3(2.425) - 7 \\approx 14.2564 - 7.275 - 7 = -0.0186 < 0$$\n$$f(2.435) = (2.435)^3 - 3(2.435) - 7 \\approx 14.4329 - 7.305 - 7 = +0.1279 > 0$$\nThe sign change confirms that $\\alpha = 2.43$ correct to 2 decimal places."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "schema_version": "9709_math_enrichment_v8",
+  "question_id": "9709_w17_63_q1",
+  "difficulty": 2,
+  "parts": [
+    {
+      "part_id": "9709_w17_63_q1",
+      "difficulty": 2,
+      "mapping": {
+        "topic_id": "9709_s1_t_discrete_random_variables",
+        "lesson_id": "9709_s1_t_discrete_random_variables_m01_l03"
+      },
+      "hints": [
+        "Let $X$ be the number of people who agree to complete the survey out of 3. Model $X$ as $X \\sim \\mathrm{B}(3, 0.2)$.",
+        "The event at least one completes is the complement of no one completes: $\\mathrm{P}(X \\ge 1) = 1 - \\mathrm{P}(X = 0)$.",
+        "Calculate $\\mathrm{P}(X = 0) = (1 - 0.2)^3 = (0.8)^3$ and subtract the result from 1."
+      ],
+      "walkthrough": [
+        "Method 1: Using complementary probability\nStep 1: Define the random variable.\nLet $X$ represent the number of people who agree to complete the survey out of the first $3$ people asked.\nSince people are chosen randomly and independently with constant probability $p = 0.2$, $X \\sim \\mathrm{B}(3, 0.2)$ with failure probability $q = 1 - 0.2 = 0.8$.\n\nStep 2: Formulate the complement event.\nThe phrase at least one means $X \\ge 1$, which includes $X = 1, 2, 3$.\nThe only outcome not included is $X = 0$ (all three decline):\n$$\\mathrm{P}(X \\ge 1) = 1 - \\mathrm{P}(X = 0)$$\n\nStep 3: Evaluate $\\mathrm{P}(X = 0)$:\n$$\\mathrm{P}(X = 0) = (0.8)^3 = 0.512$$\n\nStep 4: Subtract from $1$:\n$$\\mathrm{P}(X \\ge 1) = 1 - 0.512 = 0.488 = \\frac{61}{125}$$\n\nMethod 2: Direct sum of binomial probabilities\nSum the mutually exclusive probabilities for $1, 2,$ and $3$ people agreeing:\n$$\\mathrm{P}(X = 1) = \\binom{3}{1} (0.2)^1 (0.8)^2 = 3 \\times 0.2 \\times 0.64 = 0.384$$\n$$\\mathrm{P}(X = 2) = \\binom{3}{2} (0.2)^2 (0.8)^1 = 3 \\times 0.04 \\times 0.8 = 0.096$$\n$$\\mathrm{P}(X = 3) = \\binom{3}{3} (0.2)^3 (0.8)^0 = 1 \\times 0.008 \\times 1 = 0.008$$\n$$\\text{Total} = 0.384 + 0.096 + 0.008 = 0.488 = \\frac{61}{125}$$"
+      ]
+    }
+  ]
+}

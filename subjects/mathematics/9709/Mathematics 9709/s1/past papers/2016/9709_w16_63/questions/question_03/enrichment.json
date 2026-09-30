@@ -1,0 +1,51 @@
+{
+  "schema_version": "9709_math_enrichment_v8",
+  "question_id": "9709_w16_63_q3",
+  "difficulty": 3,
+  "parts": [
+    {
+      "part_id": "9709_w16_63_q3_i",
+      "difficulty": 3,
+      "mapping": {
+        "topic_id": "9709_s1_t_permutations_and_combinations",
+        "lesson_id": "9709_s1_t_permutations_and_combinations_m03_l03"
+      },
+      "hints": [
+        "Available digits are {4, 5, 6, 7}. For a 3-digit number to be odd, its last digit must be odd (either 5 or 7).",
+        "Case 1 (ends in 5): Choose and arrange 2 digits from the remaining 3 digits {4, 6, 7}: ${}^3P_2$.",
+        "Case 2 (ends in 7): Choose and arrange 2 digits from the remaining 3 digits {4, 5, 6}: ${}^3P_2$.",
+        "Add the counts for both cases to show that the total is 12."
+      ],
+      "walkthrough": [
+        "We want to form 3-digit numbers using the digits $\\{4, 5, 6, 7\\}$ without repetition. For a number to be odd, its last digit must be an odd number. In this set, the odd digits are 5 and 7.",
+        "Split the counting into two mutually exclusive cases based on the last digit:",
+        "Case 1: The number ends in 5 ($**5$).\nWith 5 in the units position, there are 3 remaining digits available: $\\{4, 6, 7\\}$. We need to fill the hundreds and tens positions:\n$$\\text{Choices for hundreds: } 3, \\quad \\text{Choices for tens: } 2$$\n$$\\text{Ways} = 3 \\times 2 = 6$$",
+        "Case 2: The number ends in 7 ($**7$).\nWith 7 in the units position, there are 3 remaining digits available: $\\{4, 5, 6\\}$. Filling hundreds and tens:\n$$\\text{Choices for hundreds: } 3, \\quad \\text{Choices for tens: } 2$$\n$$\\text{Ways} = 3 \\times 2 = 6$$",
+        "Add the totals from both cases:\n$$\\text{Total 3-digit odd numbers} = 6 + 6 = 12$$"
+      ]
+    },
+    {
+      "part_id": "9709_w16_63_q3_ii",
+      "difficulty": 3,
+      "mapping": {
+        "topic_id": "9709_s1_t_permutations_and_combinations",
+        "lesson_id": "9709_s1_t_permutations_and_combinations_m03_l03"
+      },
+      "hints": [
+        "Numbers can be formed using some or all digits without repetition, meaning odd numbers can have 1, 2, 3, or 4 digits.",
+        "Count 1-digit odd numbers (2) and 2-digit odd numbers: ending in 5 or 7 with first digit from remaining 3 ($3 \\times 2 = 6$).",
+        "Recall 3-digit odd numbers from part (i) (12) and count 4-digit odd numbers: ending in 5 or 7 with remaining 3 digits permuted in ^3P_3$ ways ( \times 2 = 12$).",
+        "Sum the counts across all four cases: $2 + 6 + 12 + 12 = 32$."
+      ],
+      "walkthrough": [
+        "An odd number can be formed using 1, 2, 3, or 4 digits from the set $\\{4, 5, 6, 7\\}$ without repeating any digit. In every case, the last digit must be 5 or 7 (2 choices).",
+        "Evaluate each possible length:",
+        "1-digit odd numbers:\nThe only single-digit odd numbers available are 5 and 7:\n$$\\text{Count} = 2$$",
+        "2-digit odd numbers:\nThe units digit has 2 choices (5 or 7). The tens digit can be any of the 3 remaining digits:\n$$\\text{Count} = 3 \\times 2 = 6$$",
+        "3-digit odd numbers:\nFrom part (i), there are:\n$$\\text{Count} = 12$$",
+        "4-digit odd numbers:\nThe units digit has 2 choices (5 or 7). The other 3 digits must be arranged in the first three positions in $3! = 6$ ways:\n$$\\text{Count} = 6 \\times 2 = 12$$",
+        "Add all the cases together:\n$$\\text{Total odd numbers} = 2 + 6 + 12 + 12 = 32$$"
+      ]
+    }
+  ]
+}

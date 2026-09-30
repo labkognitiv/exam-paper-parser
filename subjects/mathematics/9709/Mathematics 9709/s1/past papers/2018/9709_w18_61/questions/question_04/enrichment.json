@@ -1,0 +1,52 @@
+{
+  "schema_version": "9709_math_enrichment_v8",
+  "question_id": "9709_w18_61_q4",
+  "difficulty": 3,
+  "parts": [
+    {
+      "part_id": "9709_w18_61_q4_a",
+      "difficulty": 2,
+      "mapping": {
+        "topic_id": "9709_s1_t_the_normal_distribution",
+        "lesson_id": "9709_s1_t_the_normal_distribution_m02_l01"
+      },
+      "hints": [
+        "For $X \\sim \\mathrm{N}(31.4, 3.6)$, the mean is $\\mu = 31.4$ and the variance is $\\sigma^2 = 3.6$, so $\\sigma = \\sqrt{3.6}$.",
+        "Standardise $X = 29.4$ using $Z = \\frac{29.4 - 31.4}{\\sqrt{3.6}}$.",
+        "Use the symmetry relation $\\mathrm{P}(Z < -z) = 1 - \\Phi(z)$ to find the lower tail probability."
+      ],
+      "walkthrough": [
+        "We are given a normal random variable $X \\sim \\mathrm{N}(31.4, 3.6)$.",
+        "Be careful: in standard notation $\\mathrm{N}(\\mu, \\sigma^2)$, the second parameter is the variance $\\sigma^2 = 3.6$. Therefore, the standard deviation is:\n$$\\sigma = \\sqrt{3.6} \\approx 1.897367$$",
+        "Step 1: Standardise $X = 29.4$ using $z = \\frac{x - \\mu}{\\sigma}$:\n$$z = \\frac{29.4 - 31.4}{\\sqrt{3.6}} = \\frac{-2.0}{1.897367} \\approx -1.05409$$",
+        "Step 2: Rewrite the lower tail probability using symmetry:\n$$\\mathrm{P}(X < 29.4) = \\mathrm{P}(Z < -1.054) = 1 - \\Phi(1.054)$$",
+        "Step 3: Read $\\Phi(1.054)$ from the standard normal distribution table:\n- Base value for $z = 1.05$: $\\Phi(1.05) = 0.8531$\n- Add the difference for $4$: $+0.0009$\n$$\\Phi(1.054) = 0.8531 + 0.0009 = 0.8540$$",
+        "Step 4: Subtract from 1:\n$$\\mathrm{P}(X < 29.4) = 1 - 0.8540 = 0.146$$"
+      ]
+    },
+    {
+      "part_id": "9709_w18_61_q4_b",
+      "difficulty": 3,
+      "mapping": {
+        "topic_id": "9709_s1_t_the_normal_distribution",
+        "lesson_id": "9709_s1_t_the_normal_distribution_m02_l02"
+      },
+      "hints": [
+        "Find tail probabilities: $\\mathrm{P}(X < 12) = \\frac{42}{400} = 0.105$ and $\\mathrm{P}(X > 19) = \\frac{58}{400} = 0.145$.",
+        "Find corresponding $z$-scores: $\\Phi(-z_1) = 0.105 \\implies z_1 = -1.253$, and $\\Phi(z_2) = 1 - 0.145 = 0.855 \\implies z_2 = 1.058$.",
+        "Set up two linear equations: $\\frac{12 - \\mu}{\\sigma} = -1.253$ and $\\frac{19 - \\mu}{\\sigma} = 1.058$.",
+        "Subtract the two equations to eliminate $\\mu$ and solve for $\\sigma$, then substitute back to find $\\mu$."
+      ],
+      "walkthrough": [
+        "Let $X$ denote the length of a fish, where $X \\sim \\mathrm{N}(\\mu, \\sigma^2)$ with both $\\mu$ and $\\sigma$ unknown.",
+        "We are given sample proportions from $400$ fish:\n- $42$ fish are less than $12$ cm long\n- $58$ fish are more than $19$ cm long",
+        "Step 1: Convert the frequencies into tail probabilities:\n$$\\mathrm{P}(X < 12) = \\frac{42}{400} = 0.105$$\n$$\\mathrm{P}(X > 19) = \\frac{58}{400} = 0.145$$",
+        "Step 2: Find the corresponding $z$-scores:\n- For $X = 12$ (lower tail with area $0.105$):\n  $$\\Phi(-z_1) = 0.105 \\iff \\Phi(1.253) \\approx 0.8950 \\implies z_1 = -1.253$$\n- For $X = 19$ (upper tail with area $0.145$):\n  $$\\Phi(z_2) = 1 - 0.145 = 0.8550 \\implies z_2 = 1.058$$",
+        "Step 3: Write standardisation equations using $z = \\frac{x - \\mu}{\\sigma}$:\n$$12 - \\mu = -1.253\\sigma \\quad \\text{(Equation 1)}$$\n$$19 - \\mu = 1.058\\sigma \\quad \\text{(Equation 2)}$$",
+        "Step 4: Solve the simultaneous equations:\nSubtract Equation 1 from Equation 2:\n$$(19 - \\mu) - (12 - \\mu) = 1.058\\sigma - (-1.253\\sigma)$$\n$$7 = 2.311\\sigma$$\n$$\\sigma = \\frac{7}{2.311} \\approx 3.029$$",
+        "Substitute $\\sigma = 3.029$ into Equation 2:\n$$\\mu = 19 - 1.058(3.029) = 19 - 3.2047 = 15.795$$",
+        "Rounding to 3 significant figures gives $\\mu = 15.8$ cm and $\\sigma = 3.03$ cm."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "schema_version": "9709_math_enrichment_v8",
+  "question_id": "9709_w22_53_q5",
+  "difficulty": 3,
+  "parts": [
+    {
+      "part_id": "9709_w22_53_q5_a",
+      "difficulty": 2,
+      "mapping": {
+        "topic_id": "9709_s1_t_discrete_random_variables",
+        "lesson_id": "9709_s1_t_discrete_random_variables_m03_l02"
+      },
+      "hints": [
+        "Model the number of underweight bags as $X \\sim \\mathrm{B}(10, 0.10)$.",
+        "'Fewer than 3' means $X = 0, 1, 2$.",
+        "Evaluate $\\mathrm{P}(X=0) + \\mathrm{P}(X=1) + \\mathrm{P}(X=2)$ using the binomial probability formula."
+      ],
+      "walkthrough": [
+        "Step 1: Identify the distribution.\nLet $X$ denote the number of underweight bags in the sample of $10$:\n$$X \\sim \\mathrm{B}(10, 0.10)$$\n\nStep 2: Set up the required probability.\n'Fewer than 3' means $X < 3$, which corresponds to $X \\in \\{0, 1, 2\\}$:\n$$\\mathrm{P}(X < 3) = \\mathrm{P}(X = 0) + \\mathrm{P}(X = 1) + \\mathrm{P}(X = 2)$$\n\nStep 3: Evaluate each term using $\\mathrm{P}(X = r) = \\binom{n}{r} p^r (1-p)^{n-r}$:\n- $r = 0$: $\\binom{10}{0} (0.10)^0 (0.90)^{10} = 1 \\times 1 \\times 0.348678 \\approx 0.348678$\n- $r = 1$: $\\binom{10}{1} (0.10)^1 (0.90)^9 = 10 \\times 0.10 \\times 0.387420 \\approx 0.387420$\n- $r = 2$: $\\binom{10}{2} (0.10)^2 (0.90)^8 = 45 \\times 0.01 \\times 0.430467 \\approx 0.193710$\n\nStep 4: Sum the probabilities.\n$$\\mathrm{P}(X < 3) = 0.348678 + 0.387420 + 0.193710 = 0.929808$$\nRounding to 3 significant figures gives $0.930$."
+      ]
+    },
+    {
+      "part_id": "9709_w22_53_q5_b",
+      "difficulty": 3,
+      "mapping": {
+        "topic_id": "9709_s1_t_the_normal_distribution",
+        "lesson_id": "9709_s1_t_the_normal_distribution_m01_l03"
+      },
+      "hints": [
+        "Bags produced by company B follow $W \\sim \\mathrm{N}(1.04, 0.06^2)$.",
+        "Standardize 1.11: $z = \\frac{1.11 - 1.04}{0.06} = \\frac{0.07}{0.06} = 1.167$.",
+        "Evaluate the upper tail probability $\\mathrm{P}(W > 1.11) = 1 - \\Phi(1.167)$."
+      ],
+      "walkthrough": [
+        "Step 1: Identify distribution parameters.\nLet $W$ be the weight of a bag from Company B:\n$$W \\sim \\mathrm{N}(1.04, 0.06^2)$$\nwhere mean $\\mu = 1.04$ kg and standard deviation $\\sigma = 0.06$ kg.\n\nStep 2: Standardize to find the $z$-score.\n$$z = \\frac{w - \\mu}{\\sigma} = \\frac{1.11 - 1.04}{0.06} = \\frac{0.07}{0.06} = 1.1666...$$\nRounding to 3 decimal places gives $z = 1.167$.\n\nStep 3: Calculate the upper tail probability.\n$$\\mathrm{P}(W > 1.11) = \\mathrm{P}(Z > 1.167) = 1 - \\Phi(1.167)$$\nFrom the standard normal table:\n$$\\Phi(1.16) = 0.8770$$\nAdd difference for $7$ ($14$ in last two places):\n$$\\Phi(1.167) = 0.8770 + 0.0014 = 0.8784$$\nSubtract from $1$:\n$$1 - 0.8784 = 0.1216$$\nRounding to 3 significant figures gives $0.122$."
+      ]
+    },
+    {
+      "part_id": "9709_w22_53_q5_c",
+      "difficulty": 3,
+      "mapping": {
+        "topic_id": "9709_s1_t_the_normal_distribution",
+        "lesson_id": "9709_s1_t_the_normal_distribution_m02_l01"
+      },
+      "hints": [
+        "We are given $\\mathrm{P}(W < w) = 0.81$, which corresponds to $\\Phi(z) = 0.81$.",
+        "Look up 0.81 in the body of the standard normal table to find $z = 0.878$.",
+        "Set $\\frac{w - 1.04}{0.06} = 0.878$ and solve for $w$."
+      ],
+      "walkthrough": [
+        "Step 1: Set up the inverse normal problem.\nWe are given that $81\\%$ of bags weigh less than $w$ kg:\n$$\\mathrm{P}(W < w) = 0.81$$\nIn terms of the standard normal variable $Z$:\n$$\\mathrm{P}\\left(Z < \\frac{w - 1.04}{0.06}\\right) = 0.81$$\n$$\\Phi(z) = 0.81$$\n\nStep 2: Find $z$ from normal tables.\nLooking for cumulative area $0.8100$:\n$$\\Phi(0.87) = 0.8078$$\nNeed $0.8100 - 0.8078 = 0.0022$ ($22$ in differences).\nThe column with difference $22$ is $8$.\nTherefore:\n$$z = 0.878$$\n\nStep 3: Unstandardize to find $w$.\n$$\\frac{w - 1.04}{0.06} = 0.878$$\n$$w - 1.04 = 0.06 \\times 0.878 = 0.05268$$\n$$w = 1.04 + 0.05268 = 1.09268$$\nRounding to 3 significant figures gives $w = 1.09$ kg."
+      ]
+    }
+  ]
+}

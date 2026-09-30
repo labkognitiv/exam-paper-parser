@@ -1,0 +1,50 @@
+{
+  "schema_version": "9709_math_enrichment_v8",
+  "question_id": "9709_s20_53_q2",
+  "difficulty": 3,
+  "parts": [
+    {
+      "part_id": "9709_s20_53_q2_a",
+      "difficulty": 1,
+      "mapping": {
+        "topic_id": "9709_s1_t_discrete_random_variables",
+        "lesson_id": "9709_s1_t_discrete_random_variables_m03_l01"
+      },
+      "hints": [
+        "The probability that a randomly chosen student owns a car is $p = 0.22$.",
+        "Since the college is large, the selections of 3 students are independent.",
+        "Multiply the probability of owning a car 3 times: $(0.22)^3$."
+      ],
+      "walkthrough": [
+        "In a large college, 22% of students own a car, so the probability that a single student chosen at random owns a car is $p = 0.22$.",
+        "Because the college is described as large, sampling without replacement is well modelled by independent trials.",
+        "Step 1: Apply the multiplication rule for independent events.\nThe event that all 3 randomly chosen students own a car is:\n$$\\mathrm{P}(C_1 \\cap C_2 \\cap C_3) = \\mathrm{P}(C_1) \\times \\mathrm{P}(C_2) \\times \\mathrm{P}(C_3) = p^3$$",
+        "Step 2: Substitute $p = 0.22$:\n$$\\mathrm{P}(\\text{all 3 own a car}) = (0.22)^3$$",
+        "Step 3: Carry out the arithmetic:\n$$0.22 \\times 0.22 = 0.0484$$\n$$0.0484 \\times 0.22 = 0.010648$$\nRounding to 3 significant figures gives $0.0106$."
+      ]
+    },
+    {
+      "part_id": "9709_s20_53_q2_b",
+      "difficulty": 3,
+      "mapping": {
+        "topic_id": "9709_s1_t_discrete_random_variables",
+        "lesson_id": "9709_s1_t_discrete_random_variables_m03_l02"
+      },
+      "hints": [
+        "Model the count of car owners $X$ in a sample of $n = 16$ students as $X \\sim B(16, 0.22)$.",
+        "The condition 'at least 2 and at most 4' means $2 \\le X \\le 4$, so evaluate $\\mathrm{P}(X = 2) + \\mathrm{P}(X = 3) + \\mathrm{P}(X = 4)$.",
+        "Use the binomial probability formula $\\binom{16}{x} (0.22)^x (0.78)^{16 - x}$ for $x = 2, 3, 4$.",
+        "Add the three probabilities to find the total to 3 significant figures."
+      ],
+      "walkthrough": [
+        "We have a random sample of $n = 16$ students from the college. Let $X$ be the number of students who own a car.",
+        "Since each student has probability $p = 0.22$ of owning a car and selections are independent, $X$ follows a binomial distribution:\n$$X \\sim B(n, p) = B(16, 0.22)$$\nwith failure probability $q = 1 - p = 1 - 0.22 = 0.78$.",
+        "Step 1: Identify the values of $X$ required.\nThe question specifies 'at least 2 and at most 4':\n$$2 \\le X \\le 4 \\iff X \\in \\{2, 3, 4\\}$$\nSince these outcomes are mutually exclusive:\n$$\\mathrm{P}(2 \\le X \\le 4) = \\mathrm{P}(X = 2) + \\mathrm{P}(X = 3) + \\mathrm{P}(X = 4)$$",
+        "Step 2: Compute $\\mathrm{P}(X = 2)$:\n$$\\mathrm{P}(X = 2) = \\binom{16}{2} (0.22)^2 (0.78)^{14}$$\n$$\\binom{16}{2} = \\frac{16 \\times 15}{2} = 120$$\n$$(0.22)^2 = 0.0484$$\n$$(0.78)^{14} \\approx 0.0308552$$\n$$\\mathrm{P}(X = 2) = 120 \\times 0.0484 \\times 0.0308552 \\approx 0.179207$$",
+        "Step 3: Compute $\\mathrm{P}(X = 3)$:\n$$\\mathrm{P}(X = 3) = \\binom{16}{3} (0.22)^3 (0.78)^{13}$$\n$$\\binom{16}{3} = \\frac{16 \\times 15 \\times 14}{6} = 560$$\n$$(0.22)^3 = 0.010648$$\n$$(0.78)^{13} \\approx 0.0395579$$\n$$\\mathrm{P}(X = 3) = 560 \\times 0.010648 \\times 0.0395579 \\approx 0.235878$$",
+        "Step 4: Compute $\\mathrm{P}(X = 4)$:\n$$\\mathrm{P}(X = 4) = \\binom{16}{4} (0.22)^4 (0.78)^{12}$$\n$$\\binom{16}{4} = \\frac{16 \\times 15 \\times 14 \\times 13}{24} = 1820$$\n$$(0.22)^4 = 0.00234256$$\n$$(0.78)^{12} \\approx 0.0507153$$\n$$\\mathrm{P}(X = 4) = 1820 \\times 0.00234256 \\times 0.0507153 \\approx 0.216223$$",
+        "Step 5: Add the three values:\n$$\\mathrm{P}(2 \\le X \\le 4) = 0.179207 + 0.235878 + 0.216223 = 0.631308 \\approx 0.631$$\nRounding to 3 significant figures gives $0.631$."
+      ]
+    }
+  ]
+}

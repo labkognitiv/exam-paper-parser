@@ -1,0 +1,51 @@
+{
+  "schema_version": "9709_math_enrichment_v8",
+  "question_id": "9709_s20_31_q7",
+  "difficulty": 2,
+  "parts": [
+    {
+      "part_id": "9709_s20_31_q7_a",
+      "difficulty": 2,
+      "mapping": {
+        "topic_id": "9709_p3_t_trigonometry",
+        "lesson_id": "9709_p3_t_trigonometry_m01_l03"
+      },
+      "hints": [
+        "Differentiate \\(f(x)=\\cos x/(1+\\sin x)\\) using the quotient rule.",
+        "Use \\(\\sin^2x+\\cos^2x=1\\) to simplify the numerator completely.",
+        "On \\(-\\tfrac\\pi2<x<\\tfrac{3\\pi}2\\), use \\(\\sin x>-1\\) to show \\(1+\\sin x>0\\), so the simplified derivative is negative throughout."
+      ],
+      "walkthrough": [
+        "State the given function:\n$$f(x) = \\dfrac{\\cos x}{1 + \\sin x}$$",
+        "Differentiate $f(x)$ using the quotient rule $\\dfrac{d}{dx}\\left(\\dfrac{u}{v}\\right) = \\dfrac{u'v - uv'}{v^2}$:\nLet $u = \\cos x \\implies u' = -\\sin x$.\nLet $v = 1 + \\sin x \\implies v' = \\cos x$.",
+        "Substitute these into the quotient rule formula:\n$$f'(x) = \\dfrac{(-\\sin x)(1 + \\sin x) - (\\cos x)(\\cos x)}{(1 + \\sin x)^2}$$",
+        "Expand the terms in the numerator:\n$$(-\\sin x)(1 + \\sin x) - \\cos^2 x = -\\sin x - \\sin^2 x - \\cos^2 x = -\\sin x - (\\sin^2 x + \\cos^2 x)$$",
+        "Apply the Pythagorean identity $\\sin^2 x + \\cos^2 x = 1$:\n$$- \\sin x - (\\sin^2 x + \\cos^2 x) = -\\sin x - 1 = -(1 + \\sin x)$$",
+        "Substitute the simplified numerator back into the derivative:\n$$f'(x) = \\dfrac{-(1 + \\sin x)}{(1 + \\sin x)^2}$$",
+        "Cancel the common factor $(1 + \\sin x)$ between numerator and denominator:\n$$f'(x) = -\\dfrac{1}{1 + \\sin x}$$",
+        "Analyze the sign of $f'(x)$ on the interval $-\\dfrac{1}{2}\\pi < x < \\dfrac{1}{2}\\pi$:\nFor all $x$ in $-\\dfrac{1}{2}\\pi < x < \\dfrac{1}{2}\\pi$, the sine function satisfies $-1 < \\sin x < 1$.\nTherefore, $1 + \\sin x > 1 + (-1) = 0$.\nSince the denominator $(1 + \\sin x)$ is strictly positive and the numerator is $-1$, the fraction is strictly negative:\n$$f'(x) = -\\dfrac{1}{1 + \\sin x} < 0 \\quad \\text{for all } x \\in \\left(-\\dfrac{1}{2}\\pi, \\dfrac{1}{2}\\pi\\right)$$"
+      ]
+    },
+    {
+      "part_id": "9709_s20_31_q7_b",
+      "difficulty": 2,
+      "mapping": {
+        "topic_id": "9709_p3_t_logarithmic_and_exponential_functions",
+        "lesson_id": "9709_p3_t_logarithmic_and_exponential_functions_m03_l01"
+      },
+      "hints": [
+        "Use the substitution pattern \\(u=1+\\sin x\\), since \\(du=\\cos x\\,dx\\).",
+        "The antiderivative is therefore logarithmic; evaluate it at \\(\\pi/2\\) and \\(\\pi/6\\).",
+        "Combine the difference of logarithms into one simplified exact logarithm."
+      ],
+      "walkthrough": [
+        "State the given definite integral:\n$$I = \\int_{\\pi/6}^{\\pi/2} \\dfrac{\\cos x}{1 + \\sin x}\\,dx$$",
+        "Recognise that the numerator is the exact derivative of the denominator: $\\dfrac{d}{dx}(1 + \\sin x) = \\cos x$.\nAlternatively, use the substitution $u = 1 + \\sin x \\implies du = \\cos x\\,dx$.",
+        "Transform the limits of integration:\nWhen $x = \\dfrac{\\pi}{6}$, $u = 1 + \\sin\\left(\\dfrac{\\pi}{6}\\right) = 1 + \\dfrac{1}{2} = \\dfrac{3}{2}$.\nWhen $x = \\dfrac{\\pi}{2}$, $u = 1 + \\sin\\left(\\dfrac{\\pi}{2}\\right) = 1 + 1 = 2$.",
+        "Rewrite the integral in terms of $u$:\n$$I = \\int_{3/2}^2 \\dfrac{1}{u}\\,du = \\left[ \\ln|u| \\right]_{3/2}^2$$",
+        "Evaluate at the limits:\n$$I = \\ln(2) - \\ln\\left(\\dfrac{3}{2}\\right)$$",
+        "Apply the quotient rule of logarithms $\\ln a - \\ln b = \\ln\\left(\\dfrac{a}{b}\\right)$:\n$$I = \\ln\\left( \\dfrac{2}{3/2} \\right) = \\ln\\left( 2 \\times \\dfrac{2}{3} \\right) = \\ln\\left(\\dfrac{4}{3}\\right)$$"
+      ]
+    }
+  ]
+}

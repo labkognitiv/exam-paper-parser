@@ -1,0 +1,69 @@
+{
+  "schema_version": "9709_math_enrichment_v8",
+  "question_id": "9709_s25_52_q7",
+  "difficulty": 4,
+  "parts": [
+    {
+      "part_id": "9709_s25_52_q7_a",
+      "difficulty": 3,
+      "mapping": {
+        "topic_id": "9709_s1_t_the_normal_distribution",
+        "lesson_id": "9709_s1_t_the_normal_distribution_m01_l03"
+      },
+      "hints": [
+        "Adult wingspans are normally distributed: W ~ N(74.8, 3.2^2).",
+        "Standardise both boundaries: z1 = (72.4 - 74.8) / 3.2 = -0.75, and z2 = (76.3 - 74.8) / 3.2 = 0.469.",
+        "Express the interval probability as Phi(0.469) - Phi(-0.75) = Phi(0.469) + Phi(0.75) - 1 = 0.6804 + 0.7734 - 1 = 0.4538.",
+        "Multiply by 120 kestrels to find the expected number: 120 * 0.4538 = 54.46, so 54 or 55 kestrels."
+      ],
+      "walkthrough": [
+        "Step 1: Identify the normal distribution and its parameters:\nLet $W$ be the wingspan of an adult kestrel in cm.\n$$W \\sim N(74.8, 3.2^2)$$\nMean $\\mu = 74.8$ cm, standard deviation $\\sigma = 3.2$ cm.\nSample size $N = 120$.",
+        "Step 2: Standardise the interval endpoints $(72.4, 76.3)$:\n$$z_1 = \\frac{72.4 - 74.8}{3.2} = \\frac{-2.4}{3.2} = -0.75$$\n$$z_2 = \\frac{76.3 - 74.8}{3.2} = \\frac{1.5}{3.2} = 0.46875 \\approx 0.469$$",
+        "Step 3: Express the probability in terms of the standard normal cumulative distribution $\\Phi$:\n$$\\mathrm{P}(72.4 < W < 76.3) = \\mathrm{P}(-0.75 < Z < 0.469) = \\Phi(0.469) - \\Phi(-0.75)$$\nUsing the symmetry relation $\\Phi(-0.75) = 1 - \\Phi(0.75)$:\n$$\\Phi(0.469) - [1 - \\Phi(0.75)] = \\Phi(0.469) + \\Phi(0.75) - 1$$",
+        "Step 4: Look up values in the standard normal tables:\n- For $z = 0.75$: $\\Phi(0.75) = 0.7734$\n- For $z = 0.469$: $\\Phi(0.46) = 0.6772$, difference $9 = 32 \\implies \\Phi(0.469) = 0.6804$\nSubstitute into the expression:\n$$0.6804 + 0.7734 - 1 = 1.4538 - 1 = 0.4538$$",
+        "Step 5: Compute the expected number of kestrels:\n$$\\text{Expected number} = 120 \\times 0.4538 = 54.456$$\nRounding gives $54$ or $55$ kestrels."
+      ]
+    },
+    {
+      "part_id": "9709_s25_52_q7_b",
+      "difficulty": 4,
+      "mapping": {
+        "topic_id": "9709_s1_t_the_normal_distribution",
+        "lesson_id": "9709_s1_t_the_normal_distribution_m02_l02"
+      },
+      "hints": [
+        "Set up standardisation equations for both percentiles: P(M > 0.202) = 0.20 and P(M < 0.185) = 0.28, where M ~ N(n, v^2).",
+        "Find the critical z-scores from normal tables: Phi(z1) = 0.80 gives z1 = 0.842; Phi(-z2) = 0.28 gives z2 = -0.583.",
+        "Write two linear equations: 0.202 - n = 0.842v and 0.185 - n = -0.583v.",
+        "Subtract the second equation from the first to eliminate n: 0.017 = 1.425v, so v = 0.0119 kg. Substitute back to find n = 0.192 kg."
+      ],
+      "walkthrough": [
+        "Step 1: Define the model and given conditions:\nLet $M$ be the mass of an adult kestrel in kg.\n$$M \\sim N(n, v^2)$$\nwhere mean is $n$ and standard deviation is $v$.\nWe are given:\n1. $\\mathrm{P}(M > 0.202) = 0.20$\n2. $\\mathrm{P}(M < 0.185) = 0.28$",
+        "Step 2: Find the two critical z-scores from normal tables:\n- For the first condition:\n$$\\mathrm{P}(M > 0.202) = 0.20 \\implies \\mathrm{P}(M < 0.202) = 0.80$$\nFrom the standard normal critical values table:\n$$\\Phi(0.8416) = 0.8000 \\implies z_1 = 0.842$$\n- For the second condition:\nSince the lower tail area is $0.28 < 0.5$, $z_2$ is negative:\n$$\\mathrm{P}(Z < z_2) = 0.28 \\implies \\Phi(-z_2) = 1 - 0.28 = 0.72$$\nFrom tables: $\\Phi(0.583) \\approx 0.7200 \\implies z_2 = -0.583$",
+        "Step 3: Form the simultaneous equations using standardisation $Z = \\frac{M - n}{v}$:\n$$\\frac{0.202 - n}{v} = 0.8416 \\implies 0.202 - n = 0.8416 v$$\n$$\\frac{0.185 - n}{v} = -0.5828 \\implies 0.185 - n = -0.5828 v$$",
+        "Step 4: Solve by elimination:\nSubtract the second equation from the first:\n$$(0.202 - n) - (0.185 - n) = 0.8416 v - (-0.5828 v)$$\n$$0.017 = 1.4244 v$$\n$$v = \\frac{0.017}{1.4244} \\approx 0.011935$$\nRounding to 3 significant figures: $v = 0.0119$ kg.",
+        "Step 5: Solve for $n$:\nSubstitute $v$ into the first equation:\n$$n = 0.202 - 0.8416(0.011935) = 0.202 - 0.010045 = 0.191955$$\nRounding to 3 significant figures: $n = 0.192$ kg."
+      ]
+    },
+    {
+      "part_id": "9709_s25_52_q7_c",
+      "difficulty": 3,
+      "mapping": {
+        "topic_id": "9709_s1_t_discrete_random_variables",
+        "lesson_id": "9709_s1_t_discrete_random_variables_m03_l03"
+      },
+      "hints": [
+        "From part (b), the probability that a single adult kestrel has mass greater than 0.202 kg is p = 0.20. With 10 kestrels chosen, X ~ B(10, 0.20).",
+        "Fewer than 3 kestrels means X < 3, which is X = 0, 1, or 2.",
+        "Calculate P(X = 0) = (0.8)^10 = 0.1074, P(X = 1) = 10 * 0.2 * (0.8)^9 = 0.2684, and P(X = 2) = 45 * (0.2)^2 * (0.8)^8 = 0.3020.",
+        "Sum the three terms: 0.1074 + 0.2684 + 0.3020 = 0.678 (3 s.f.)."
+      ],
+      "walkthrough": [
+        "Step 1: Identify the distribution and parameters:\nFrom part (b), the probability that a randomly chosen adult kestrel has mass greater than $0.202$ kg is exactly $0.20$:\n$$p = 0.20, \\quad q = 1 - p = 0.80$$\nFrom a sample of $n = 10$ independent kestrels, let $X$ be the number having mass greater than $0.202$ kg:\n$$X \\sim B(10, 0.20)$$",
+        "Step 2: Identify the required event:\nFewer than 3 kestrels means:\n$$\\mathrm{P}(X < 3) = \\mathrm{P}(X = 0) + \\mathrm{P}(X = 1) + \\mathrm{P}(X = 2)$$",
+        "Step 3: Evaluate each binomial term step-by-step:\n- For $r = 0$:\n$$\\mathrm{P}(X = 0) = \\binom{10}{0} (0.2)^0 (0.8)^{10} = 1 \\times 1 \\times 0.107374 = 0.107374$$\n- For $r = 1$:\n$$\\binom{10}{1} = 10$$\n$$\\mathrm{P}(X = 1) = 10 \\times (0.2)^1 \\times (0.8)^9 = 10 \\times 0.2 \\times 0.134218 = 0.268435$$\n- For $r = 2$:\n$$\\binom{10}{2} = \\frac{10 \\times 9}{2 \\times 1} = 45$$\n$$\\mathrm{P}(X = 2) = 45 \\times (0.2)^2 \\times (0.8)^8 = 45 \\times 0.04 \\times 0.167772 = 0.301990$$",
+        "Step 4: Sum the probabilities:\n$$\\mathrm{P}(X < 3) = 0.107374 + 0.268435 + 0.301990 = 0.677799$$\nRounding to 3 significant figures gives:\n$$\\mathrm{P}(X < 3) = 0.678$$\n(Values in the range $0.677 < p \\le 0.678$ are accepted)."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "schema_version": "9709_math_enrichment_v8",
+  "question_id": "9709_s18_61_q4",
+  "difficulty": 4,
+  "parts": [
+    {
+      "part_id": "9709_s18_61_q4_a",
+      "difficulty": 4,
+      "mapping": {
+        "topic_id": "9709_s1_t_the_normal_distribution",
+        "lesson_id": "9709_s1_t_the_normal_distribution_m02_l03"
+      },
+      "hints": [
+        "For $36800$, the upper tail probability is $0.0082$, so $\\Phi(z_1) = 1 - 0.0082 = 0.9918$. Find $z_1$ from the normal table.",
+        "For $31000$, the upper tail probability is $0.6915 > 0.5$, which means $31000$ lies below the mean with lower tail $1 - 0.6915 = 0.3085$. Find negative $z_2$.",
+        "Write the two standardisation equations: $\\frac{36800 - \\mu}{\\sigma} = z_1$ and $\\frac{31000 - \\mu}{\\sigma} = z_2$.",
+        "Subtract the two equations to eliminate $\\mu$, solve for $\\sigma$, and substitute back to find $\\mu$."
+      ],
+      "walkthrough": [
+        "Let $D$ denote the tyre travel distance in km, where $D \\sim \\mathrm{N}(\\mu, \\sigma^2)$. We are given two tail probabilities and must determine both unknown parameters $\\mu$ and $\\sigma$.",
+        "Step 1: Determine the first $z$-value from $\\mathrm{P}(D > 36800) = 0.0082$.\nBecause $0.0082 < 0.5$, $36800$ is in the upper tail above the mean $\\mu$ ($z_1 > 0$):\n$$\\Phi(z_1) = 1 - 0.0082 = 0.9918$$\nFrom the standard normal distribution table, $\\Phi(2.40) = 0.9918$, so $z_1 = 2.40$.",
+        "Step 2: Determine the second $z$-value from $\\mathrm{P}(D > 31000) = 0.6915$.\nBecause $0.6915 > 0.5$, $31000$ is below the mean $\\mu$ ($z_2 < 0$):\n$$\\mathrm{P}(D < 31000) = 1 - 0.6915 = 0.3085$$\nBy symmetry, $\\Phi(|z_2|) = 1 - 0.3085 = 0.6915$. Looking up $0.6915$ in the table gives $0.50$, so $z_2 = -0.50$.",
+        "Step 3: Write the standardisation equations using $z = \\frac{D - \\mu}{\\sigma}$:\n$$\\frac{36800 - \\mu}{\\sigma} = 2.4 \\implies 36800 - \\mu = 2.4\\sigma \\quad \\text{(Equation 1)}$$\n$$\\frac{31000 - \\mu}{\\sigma} = -0.5 \\implies 31000 - \\mu = -0.5\\sigma \\quad \\text{(Equation 2)}$$",
+        "Step 4: Solve the simultaneous equations:\nSubtract Equation 2 from Equation 1:\n$$(36800 - \\mu) - (31000 - \\mu) = 2.4\\sigma - (-0.5\\sigma)$$\n$$5800 = 2.9\\sigma$$\nDivide both sides by $2.9$:\n$$\\sigma = \\frac{5800}{2.9} = 2000\\text{ km}$$",
+        "Step 5: Substitute $\\sigma = 2000$ into Equation 1 to find $\\mu$:\n$$36800 - \\mu = 2.4(2000) = 4800$$\n$$\\mu = 36800 - 4800 = 32000\\text{ km}$$",
+        "Therefore, the mean is $32000$ km and the standard deviation is $2000$ km."
+      ]
+    },
+    {
+      "part_id": "9709_s18_61_q4_b",
+      "difficulty": 3,
+      "mapping": {
+        "topic_id": "9709_s1_t_the_normal_distribution",
+        "lesson_id": "9709_s1_t_the_normal_distribution_m02_l01"
+      },
+      "hints": [
+        "Standardise the expression $3\\mu$ using the standard normal formula: $Z = \\frac{3\\mu - \\mu}{\\sigma} = \\frac{2\\mu}{\\sigma}$.",
+        "Use the given proportionality condition $3\\sigma = 4\\mu$ to substitute $\\sigma = \\frac{4}{3}\\mu$ (or $\\frac{\\mu}{\\sigma} = \\frac{3}{4}$).",
+        "Notice that the unknown parameter cancels algebraically from the $z$-score.",
+        "Look up the resulting value $\\Phi(1.5)$ in the standard normal table."
+      ],
+      "walkthrough": [
+        "We are given a normal random variable $X \\sim \\mathrm{N}(\\mu, \\sigma^2)$ satisfying the algebraic relationship $3\\sigma = 4\\mu$. We are asked to find $\\mathrm{P}(X < 3\\mu)$.",
+        "Step 1: Write the general standardisation formula for a normal random variable:\n$$Z = \\frac{X - \\mu}{\\sigma}$$\nSubstitute the boundary value $X = 3\\mu$:\n$$z = \\frac{3\\mu - \\mu}{\\sigma} = \\frac{2\\mu}{\\sigma}$$",
+        "Step 2: Use the proportional relation $3\\sigma = 4\\mu$ to express $\\sigma$ in terms of $\\mu$:\nDivide both sides by 3:\n$$\\sigma = \\frac{4}{3}\\mu$$\nSubstitute this into the $z$-score expression:\n$$z = \\frac{2\\mu}{\\frac{4}{3}\\mu}$$",
+        "Step 3: Simplify the fraction. The variable $\\mu$ cancels out completely from numerator and denominator:\n$$z = \\frac{2}{\\frac{4}{3}} = 2 \\times \\frac{3}{4} = \\frac{6}{4} = 1.5$$",
+        "Step 4: Find the cumulative normal probability $\\mathrm{P}(Z < 1.5)$ using the standard normal table:\n$$\\Phi(1.50) = 0.9332$$",
+        "Rounding to 3 significant figures gives $\\mathrm{P}(X < 3\\mu) \\approx 0.933$."
+      ]
+    }
+  ]
+}

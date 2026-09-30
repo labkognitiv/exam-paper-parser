@@ -1,0 +1,67 @@
+{
+  "schema_version": "9709_math_enrichment_v8",
+  "question_id": "9709_s19_31_q7",
+  "difficulty": 4,
+  "parts": [
+    {
+      "part_id": "9709_s19_31_q7_i",
+      "difficulty": 2,
+      "mapping": {
+        "topic_id": "9709_p3_t_trigonometry",
+        "lesson_id": "9709_p3_t_trigonometry_m04_l04"
+      },
+      "hints": [
+        "Perpendicular tangents have gradients whose product is $-1$.",
+        "Differentiate $4\\cos(\\tfrac12x)$ and $(4-x)^{-1}$, then impose the perpendicular-gradient condition at $x=a$.",
+        "Rearrange to $(4-a)^2=2\\sin(\\tfrac12a)$.",
+        "Since $0\\le a<4$, take $4-a>0$ when square-rooting and isolate $a$ in the required form."
+      ],
+      "walkthrough": [
+        "Find the derivative of the first curve $y = 4\\cos\\left(\\frac{1}{2}x\\right)$:\n$$\\dfrac{\\mathrm{d}y}{\\mathrm{d}x} = 4\\left(-\\sin\\left(\\dfrac{1}{2}x\\right)\\right)\\left(\\dfrac{1}{2}\\right) = -2\\sin\\left(\\dfrac{1}{2}x\\right)$$\nAt $x = a$, the gradient is $m_1 = -2\\sin\\left(\\dfrac{1}{2}a\\right)$.",
+        "Find the derivative of the second curve $y = \\dfrac{1}{4 - x} = (4 - x)^{-1}$:\n$$\\dfrac{\\mathrm{d}y}{\\mathrm{d}x} = -1(4 - x)^{-2}(-1) = \\dfrac{1}{(4 - x)^2}$$\nAt $x = a$, the gradient is $m_2 = \\dfrac{1}{(4 - a)^2}$.",
+        "Since the tangents are perpendicular at $x = a$, the product of their gradients must equal $-1$:\n$$m_1 \\cdot m_2 = -1$$\n$$\\left(-2\\sin\\left(\\dfrac{1}{2}a\\right)\\right)\\left(\\dfrac{1}{(4 - a)^2}\\right) = -1$$",
+        "Simplify the equation:\n$$-\\dfrac{2\\sin\\left(\\frac{1}{2}a\\right)}{(4 - a)^2} = -1$$\n$$(4 - a)^2 = 2\\sin\\left(\\dfrac{1}{2}a\\right)$$",
+        "Take the positive square root, noting that $0 \\leq a < 4$ so $4 - a > 0$:\n$$4 - a = \\sqrt{2\\sin\\left(\\dfrac{1}{2}a\\right)}$$",
+        "Rearrange for $a$:\n$$a = 4 - \\sqrt{2\\sin\\left(\\dfrac{1}{2}a\\right)}$$\nThis proves the given result."
+      ]
+    },
+    {
+      "part_id": "9709_s19_31_q7_ii",
+      "difficulty": 1,
+      "mapping": {
+        "topic_id": "9709_p3_t_numerical_solution_of_equations",
+        "lesson_id": "9709_p3_t_numerical_solution_of_equations_m01_l02"
+      },
+      "hints": [
+        "Use the fixed-point equation from part (i) to compare each endpoint with its image.",
+        "Evaluate $g(a)=4-\\sqrt{2\\sin(a/2)}$ at $a=2$ and $a=3$.",
+        "Show that $g(2)>2$ while $g(3)<3$, equivalently that $g(a)-a$ changes sign, to justify a root between 2 and 3."
+      ],
+      "walkthrough": [
+        "Define the function $\\mathrm{f}(x) = x - 4 + \\sqrt{2\\sin\\left(\\frac{1}{2}x\\right)}$ (working in radians):",
+        "Evaluate $\\mathrm{f}(x)$ at $x = 2$:\n$$\\sin\\left(\\dfrac{1}{2}(2)\\right) = \\sin(1) \\approx 0.841471$$\n$$\\sqrt{2\\sin(1)} = \\sqrt{2(0.841471)} = \\sqrt{1.682942} \\approx 1.297283$$\n$$\\mathrm{f}(2) = 2 - 4 + 1.297283 = -2 + 1.297283 = -0.702717 < 0$$",
+        "Evaluate $\\mathrm{f}(x)$ at $x = 3$:\n$$\\sin\\left(\\dfrac{1}{2}(3)\\right) = \\sin(1.5) \\approx 0.997495$$\n$$\\sqrt{2\\sin(1.5)} = \\sqrt{2(0.997495)} = \\sqrt{1.994990} \\approx 1.412441$$\n$$\\mathrm{f}(3) = 3 - 4 + 1.412441 = -1 + 1.412441 = +0.412441 > 0$$",
+        "Conclude using the sign change:\nSince $\\mathrm{f}(x)$ is continuous on $[2, 3]$ and changes sign between $x = 2$ and $x = 3$ (from negative to positive), the equation has a root $a$ lying between $2$ and $3$."
+      ]
+    },
+    {
+      "part_id": "9709_s19_31_q7_iii",
+      "difficulty": 4,
+      "mapping": {
+        "topic_id": "9709_p3_t_numerical_solution_of_equations",
+        "lesson_id": "9709_p3_t_numerical_solution_of_equations_m03_l01"
+      },
+      "hints": [
+        "Turn the equation from part (i) directly into the iteration $a_{n+1}=4-\\sqrt{2\\sin(a_n/2)}$.",
+        "Choose a starting value in the verified interval $2<a<3$ and report every iterate to 5 decimal places.",
+        "Continue until successive values settle enough to determine the same value to 3 decimal places."
+      ],
+      "walkthrough": [
+        "Set up the iterative formula based on part (i):\n$$a_{n+1} = 4 - \\sqrt{2\\sin\\left(\\dfrac{1}{2}a_n\\right)}$$",
+        "Choose an initial approximation $a_1 = 2.5$ in the interval $[2, 3]$:\n$$a_1 = 2.50000$$",
+        "Compute successive iterations to 5 decimal places:\n- $a_2 = 4 - \\sqrt{2\\sin(0.5 \\times 2.5)} = 4 - \\sqrt{2\\sin(1.25)} = 4 - \\sqrt{2(0.948985)} = 4 - \\sqrt{1.897969} \\approx 2.62233$\n- $a_3 = 4 - \\sqrt{2\\sin(0.5 \\times 2.62233)} = 4 - \\sqrt{2\\sin(1.31117)} \\approx 4 - 1.39031 = 2.60969$\n- $a_4 = 4 - \\sqrt{2\\sin(0.5 \\times 2.60969)} = 4 - \\sqrt{2\\sin(1.30485)} \\approx 4 - 1.38913 = 2.61087$\n- $a_5 = 4 - \\sqrt{2\\sin(0.5 \\times 2.61087)} \\approx 2.61076$\n- $a_6 = 4 - \\sqrt{2\\sin(0.5 \\times 2.61076)} \\approx 2.61077$\n- $a_7 = 4 - \\sqrt{2\\sin(0.5 \\times 2.61077)} \\approx 2.61077$",
+        "Observe convergence to 5 decimal places at $2.61077$.\nRound to 3 decimal places:\n$$a \\approx 2.611$$"
+      ]
+    }
+  ]
+}

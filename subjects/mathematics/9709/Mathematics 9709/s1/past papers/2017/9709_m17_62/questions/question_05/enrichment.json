@@ -1,0 +1,64 @@
+{
+  "schema_version": "9709_math_enrichment_v8",
+  "question_id": "9709_m17_62_q5",
+  "difficulty": 3,
+  "parts": [
+    {
+      "part_id": "9709_m17_62_q5_i",
+      "difficulty": 2,
+      "mapping": {
+        "topic_id": "9709_s1_t_permutations_and_combinations",
+        "lesson_id": "9709_s1_t_permutations_and_combinations_m05_l01"
+      },
+      "hints": [
+        "Observe that if Alex receives an odd number of cakes $k$, then James receives $12 - k$, which is also odd because an even total minus an odd number is always odd.",
+        "List all possible odd values for $k$: $1, 3, 5, 7, 9, 11$.",
+        "Evaluate each combination $\\binom{12}{k}$ and sum them to obtain the total number of ways."
+      ],
+      "walkthrough": [
+        "Analyze the problem structure. Alex and James share $12$ distinct cakes. If Alex is given $k$ cakes, James receives the remaining $12 - k$ cakes.\nBecause $12$ is even, subtracting any odd number yields an odd number:\n$$\\text{even} - \\text{odd} = \\text{odd}$$\nHence, whenever Alex receives an odd number of cakes, James automatically receives an odd number too.",
+        "Alex can receive $1, 3, 5, 7, 9,$ or $11$ cakes. Write the sum of combinations:\n$$\\text{Total ways} = \\binom{12}{1} + \\binom{12}{3} + \\binom{12}{5} + \\binom{12}{7} + \\binom{12}{9} + \\binom{12}{11}$$",
+        "Calculate each combination term explicitly using $\\binom{n}{r} = \\frac{n!}{r!(n-r)!}$:\n$$\\binom{12}{1} = 12$$\n$$\\binom{12}{3} = \\frac{12 \\times 11 \\times 10}{3 \\times 2 \\times 1} = 220$$\n$$\\binom{12}{5} = \\frac{12 \\times 11 \\times 10 \\times 9 \\times 8}{5 \\times 4 \\times 3 \\times 2 \\times 1} = 792$$\nBy combination symmetry $\\binom{n}{r} = \\binom{n}{n-r}$:\n$$\\binom{12}{7} = \\binom{12}{5} = 792, \\quad \\binom{12}{9} = \\binom{12}{3} = 220, \\quad \\binom{12}{11} = \\binom{12}{1} = 12$$",
+        "Add all cases together:\n$$\\text{Total ways} = 12 + 220 + 792 + 792 + 220 + 12 = 2048$$"
+      ]
+    },
+    {
+      "part_id": "9709_m17_62_q5_ii",
+      "difficulty": 3,
+      "mapping": {
+        "topic_id": "9709_s1_t_permutations_and_combinations",
+        "lesson_id": "9709_s1_t_permutations_and_combinations_m03_l03"
+      },
+      "hints": [
+        "Apply the gap method: first arrange the 7 distinct cupcakes in a row with no restrictions.",
+        "Count the number of available gaps between and at the ends of the cupcakes to separate the brownies.",
+        "Select and arrange the 4 distinct brownies into 4 of these 8 gaps using permutations $\\phantom{}^8\\mathrm{P}_4$, then multiply by $7!$."
+      ],
+      "walkthrough": [
+        "To ensure that no two brownies are placed next to each other, use the gap method.\nBegin by arranging only the $7$ distinct cupcakes in a line:\n$$\\text{Arrangements of cupcakes} = 7! = 7 \\times 6 \\times 5 \\times 4 \\times 3 \\times 2 \\times 1 = 5040$$",
+        "Examine the available spaces around and between the cupcakes:\n$$\\_ \\; C_1 \\; \\_ \\; C_2 \\; \\_ \\; C_3 \\; \\_ \\; C_4 \\; \\_ \\; C_5 \\; \\_ \\; C_6 \\; \\_ \\; C_7 \\; \\_$$\nThere are $6$ interior spaces between adjacent cupcakes, plus $1$ space at each end, giving:\n$$\\text{Available gaps} = 7 + 1 = 8$$",
+        "The $4$ brownies are all of different sizes, so their internal order matters.\nSelect and arrange $4$ brownies into $4$ of the $8$ distinct gaps using permutations:\n$$\\phantom{}^{8}\\mathrm{P}_4 = \\frac{8!}{(8 - 4)!} = \\frac{8!}{4!} = 8 \\times 7 \\times 6 \\times 5 = 1680$$",
+        "Apply the multiplication principle to combine the arrangements:\n$$\\text{Total arrangements} = 5040 \\times 1680 = 8467200$$"
+      ]
+    },
+    {
+      "part_id": "9709_m17_62_q5_iii",
+      "difficulty": 3,
+      "mapping": {
+        "topic_id": "9709_s1_t_permutations_and_combinations",
+        "lesson_id": "9709_s1_t_permutations_and_combinations_m03_l04"
+      },
+      "hints": [
+        "Treat the 4 identical chocolate biscuits as a single grouped block or super-item.",
+        "Count the total number of items to arrange in a row: 1 chocolate block, 6 identical shortbread biscuits, and 2 identical gingerbread biscuits.",
+        "Apply the formula for permutations with repeated identical objects: $\\dfrac{n!}{n_1! n_2! \\dots}$."
+      ],
+      "walkthrough": [
+        "Use the block method. Because all $4$ chocolate biscuits must stay together, bundle them into a single unit:\n$$\\text{Chocolate block} = [\\text{C C C C}]$$\nSince all $4$ chocolate biscuits are identical, rearranging them inside the block produces no new arrangements:\n$$\\text{Internal arrangements} = \\frac{4!}{4!} = 1$$",
+        "Count the units to be arranged in a row:\n- $1$ chocolate block\n- $6$ identical shortbread biscuits\n- $2$ identical gingerbread biscuits\n$$\\text{Total items} = 1 + 6 + 2 = 9$$",
+        "Write the formula for permutations of $n$ objects with identical items:\n$$\\text{Arrangements} = \\frac{n!}{p! \\, q! \\, r!}$$\nSubstitute $n = 9$, $p = 1$ (the block), $q = 6$ (shortbread), and $r = 2$ (gingerbread):\n$$\\text{Arrangements} = \\frac{9!}{1! \\times 6! \\times 2!}$$",
+        "Simplify by canceling $6!$ from numerator and denominator:\n$$\\frac{9 \\times 8 \\times 7 \\times 6!}{6! \\times 2 \\times 1} = \\frac{9 \\times 8 \\times 7}{2} = \\frac{504}{2} = 252$$"
+      ]
+    }
+  ]
+}

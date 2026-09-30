@@ -1,0 +1,52 @@
+{
+  "schema_version": "9709_math_enrichment_v8",
+  "question_id": "9709_s19_62_q3",
+  "difficulty": 2,
+  "parts": [
+    {
+      "part_id": "9709_s19_62_q3_i",
+      "difficulty": 2,
+      "mapping": {
+        "topic_id": "9709_s1_t_discrete_random_variables",
+        "lesson_id": "9709_s1_t_discrete_random_variables_m03_l03"
+      },
+      "hints": [
+        "Model the number of items bought in 10 weeks as $X \\sim \\mathrm{B}(10, 0.35)$.",
+        "Notice that calculating $\\mathrm{P}(X \\le 7)$ directly requires 8 terms ($X = 0$ to $7$). It is much faster to use the complement: $1 - \\mathrm{P}(X \\ge 8) = 1 - [\\mathrm{P}(X = 8) + \\mathrm{P}(X = 9) + \\mathrm{P}(X = 10)]$.",
+        "Calculate each binomial probability $\\binom{10}{r} (0.35)^r (0.65)^{10 - r}$ for $r = 8, 9, 10$.",
+        "Sum these three probabilities and subtract from 1."
+      ],
+      "walkthrough": [
+        "Janice buys an item online in any week with probability $p = 0.35$. In a 10-week period, let $X$ be the number of items bought, so $X \\sim \\mathrm{B}(10, 0.35)$.",
+        "Step 1: Identify the required probability.\nWe want 'at most 7 items', which means $\\mathrm{P}(X \\le 7)$.",
+        "Step 2: Use the complement rule to save computation:\n$$\\mathrm{P}(X \\le 7) = 1 - \\mathrm{P}(X \\ge 8) = 1 - [\\mathrm{P}(X = 8) + \\mathrm{P}(X = 9) + \\mathrm{P}(X = 10)]$$",
+        "Step 3: Evaluate the binomial terms:\n- For $X = 8$:\n$$\\binom{10}{8} = 45$$\n$$\\mathrm{P}(X = 8) = 45 \\times (0.35)^8 \\times (0.65)^2 = 45 \\times 0.0002251875 \\times 0.4225 \\approx 0.0042815$$\n- For $X = 9$:\n$$\\binom{10}{9} = 10$$\n$$\\mathrm{P}(X = 9) = 10 \\times (0.35)^9 \\times (0.65)^1 = 10 \\times 0.0000788156 \\times 0.65 \\approx 0.0005123$$\n- For $X = 10$:\n$$\\binom{10}{10} = 1$$\n$$\\mathrm{P}(X = 10) = 1 \\times (0.35)^{10} \\times (0.65)^0 = 1 \\times 0.0000275855 \\times 1 \\approx 0.0000276$$",
+        "Step 4: Add the three tail terms:\n$$\\mathrm{P}(X \\ge 8) = 0.0042815 + 0.0005123 + 0.0000276 = 0.0048214$$",
+        "Step 5: Subtract from 1:\n$$\\mathrm{P}(X \\le 7) = 1 - 0.0048214 = 0.9951786$$\nRounding to 3 significant figures gives $0.995$."
+      ]
+    },
+    {
+      "part_id": "9709_s19_62_q3_ii",
+      "difficulty": 2,
+      "mapping": {
+        "topic_id": "9709_s1_t_discrete_random_variables",
+        "lesson_id": "9709_s1_t_discrete_random_variables_m03_l03"
+      },
+      "hints": [
+        "The probability of buying at least one item in $n$ weeks is $1 - \\mathrm{P}(\\text{no items bought in } n \\text{ weeks})$.",
+        "The probability of buying no items in $n$ weeks is $(0.65)^n$.",
+        "Set up the inequality $1 - (0.65)^n > 0.99$ and rearrange to $(0.65)^n < 0.01$.",
+        "Take logarithms on both sides, remembering to reverse the inequality sign when dividing by the negative quantity $\\ln(0.65)$."
+      ],
+      "walkthrough": [
+        "We want to find the minimum number of weeks $n$ such that the probability of Janice buying at least one item exceeds $0.99$.",
+        "Step 1: Write down the probability of the complement.\nThe complement of 'at least one purchase' is 'zero purchases in all $n$ weeks'.\nSince weeks are independent, the probability of buying nothing in $n$ weeks is:\n$$\\mathrm{P}(X = 0) = (1 - 0.35)^n = (0.65)^n$$",
+        "Step 2: Set up the inequality:\n$$\\mathrm{P}(X \\ge 1) = 1 - (0.65)^n > 0.99$$",
+        "Step 3: Rearrange to isolate the exponential term:\nSubtract 1 from both sides:\n$$-(0.65)^n > -0.01$$\nMultiply by $-1$ and reverse the inequality sign:\n$$(0.65)^n < 0.01$$",
+        "Step 4: Take natural logarithms on both sides:\n$$\\ln((0.65)^n) < \\ln(0.01)$$\n$$n \\ln(0.65) < \\ln(0.01)$$",
+        "Step 5: Solve for $n$:\nNote that $\\ln(0.65) \\approx -0.43078$. Because this is negative, dividing by $\\ln(0.65)$ reverses the inequality sign:\n$$n > \\frac{\\ln(0.01)}{\\ln(0.65)} = \\frac{-4.60517}{-0.43078} \\approx 10.69$$",
+        "Step 6: Determine the smallest integer $n$:\nSince $n$ must be an integer number of weeks, the smallest possible value is $n = 11$."
+      ]
+    }
+  ]
+}

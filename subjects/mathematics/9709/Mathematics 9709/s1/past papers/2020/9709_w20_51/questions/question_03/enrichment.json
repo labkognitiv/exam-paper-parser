@@ -1,0 +1,50 @@
+{
+  "schema_version": "9709_math_enrichment_v8",
+  "question_id": "9709_w20_51_q3",
+  "difficulty": 3,
+  "parts": [
+    {
+      "part_id": "9709_w20_51_q3_a",
+      "difficulty": 2,
+      "mapping": {
+        "topic_id": "9709_s1_t_discrete_random_variables",
+        "lesson_id": "9709_s1_t_discrete_random_variables_m04_l02"
+      },
+      "hints": [
+        "A throw is a success with probability $p = 0.25$, so the probability of failure on any throw is $q = 1 - 0.25 = 0.75$.",
+        "For Kayla to take more than 6 throws to achieve her first success, the first 6 throws must all be failures.",
+        "Calculate $q^6 = (0.75)^6$ and express as a fraction or decimal to 3 significant figures."
+      ],
+      "walkthrough": [
+        "Kayla throws until she achieves a success (distance $> 30$ m). Success probability on each throw is $p = 0.25$, so the failure probability is $q = 1 - 0.25 = 0.75$.",
+        "Let $X$ be the number of throws required to achieve the first success. Then $X \\sim \\mathrm{Geo}(0.25)$.",
+        "Step 1: Translate 'takes more than 6 throws'.\n$X > 6$ means the first success occurs on throw 7, 8, 9, ...\nThis happens if and only if all of the first 6 throws fail.",
+        "Step 2: Apply the geometric tail formula:\n$$\\mathrm{P}(X > n) = q^n$$\nFor $n = 6$:\n$$\\mathrm{P}(X > 6) = (0.75)^6 = \\left(\\frac{3}{4}\\right)^6$$",
+        "Step 3: Evaluate powers:\n$$3^6 = 729$$\n$$4^6 = 4096$$\n$$\\mathrm{P}(X > 6) = \\frac{729}{4096} = 0.177978...$$\nRounding to 3 significant figures gives $0.178$."
+      ]
+    },
+    {
+      "part_id": "9709_w20_51_q3_b",
+      "difficulty": 3,
+      "mapping": {
+        "topic_id": "9709_s1_t_discrete_random_variables",
+        "lesson_id": "9709_s1_t_discrete_random_variables_m03_l03"
+      },
+      "hints": [
+        "In a sample of $n = 10$ throws with success probability $p = 0.25$, let $Y$ be the number of successes: $Y \\sim B(10, 0.25)$.",
+        "The condition 'at least 3 successes' means $Y \\ge 3$.",
+        "Apply the complement rule: $\\mathrm{P}(Y \\ge 3) = 1 - [\\mathrm{P}(Y = 0) + \\mathrm{P}(Y = 1) + \\mathrm{P}(Y = 2)]$.",
+        "Calculate the three lower binomial terms using $\\binom{10}{y} (0.25)^y (0.75)^{10 - y}$, sum them, and subtract from 1."
+      ],
+      "walkthrough": [
+        "In a sample of $n = 10$ throws, let $Y$ be the number of successes. Since each throw has success probability $p = 0.25$ and throws are independent, $Y$ follows a binomial distribution:\n$$Y \\sim B(10, 0.25)$$\nwith failure probability $q = 1 - 0.25 = 0.75$.",
+        "Step 1: State the required probability and use the complement rule.\nWe want $\\mathrm{P}(Y \\ge 3)$:\n$$\\mathrm{P}(Y \\ge 3) = 1 - \\mathrm{P}(Y \\le 2) = 1 - [\\mathrm{P}(Y = 0) + \\mathrm{P}(Y = 1) + \\mathrm{P}(Y = 2)]$$",
+        "Step 2: Calculate $\\mathrm{P}(Y = 0)$:\n$$\\mathrm{P}(Y = 0) = \\binom{10}{0} (0.25)^0 (0.75)^{10} = (0.75)^{10} \\approx 0.0563135$$",
+        "Step 3: Calculate $\\mathrm{P}(Y = 1)$:\n$$\\mathrm{P}(Y = 1) = \\binom{10}{1} (0.25)^1 (0.75)^9 = 10 \\times 0.25 \\times (0.75)^9 \\approx 0.1877117$$",
+        "Step 4: Calculate $\\mathrm{P}(Y = 2)$:\n$$\\mathrm{P}(Y = 2) = \\binom{10}{2} (0.25)^2 (0.75)^8 = 45 \\times 0.0625 \\times (0.75)^8 \\approx 0.2815676$$",
+        "Step 5: Add the three values:\n$$\\mathrm{P}(Y \\le 2) = 0.0563135 + 0.1877117 + 0.2815676 = 0.5255928$$",
+        "Step 6: Subtract from 1:\n$$\\mathrm{P}(Y \\ge 3) = 1 - 0.5255928 = 0.4744072 \\approx 0.474$$\nRounding to 3 significant figures gives $0.474$."
+      ]
+    }
+  ]
+}

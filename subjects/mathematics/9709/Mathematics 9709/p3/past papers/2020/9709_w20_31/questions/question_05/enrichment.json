@@ -1,0 +1,49 @@
+{
+  "schema_version": "9709_math_enrichment_v8",
+  "question_id": "9709_w20_31_q5",
+  "difficulty": 3,
+  "parts": [
+    {
+      "part_id": "9709_w20_31_q5_a",
+      "difficulty": 3,
+      "mapping": {
+        "topic_id": "9709_p3_t_trigonometry",
+        "lesson_id": "9709_p3_t_trigonometry_m04_l04"
+      },
+      "hints": [
+        "Roots are intersections of \\(y=\\operatorname{cosec}x\\) and \\(y=1+e^{-x/2}\\) on \\(0<x<\\pi\\).",
+        "Sketch the cosecant branch with vertical growth near both endpoints and minimum \\(1\\) at \\(x=\\pi/2\\); sketch the exponential curve decreasing from \\(2\\) but remaining above \\(1\\).",
+        "Use their relative positions near \\(0\\), at \\(\\pi/2\\), and near \\(\\pi\\) to mark one crossing on each side and justify that there are no others."
+      ],
+      "walkthrough": [
+        "Express the equation $\\operatorname{cosec}x = 1 + \\mathrm{e}^{-x/2}$ as the intersection of two separate functions on the open interval $0 < x < \\pi$:\n$$y_1 = \\operatorname{cosec}x = \\dfrac{1}{\\sin x} \\quad \\text{and} \\quad y_2 = 1 + \\mathrm{e}^{-x/2}$$",
+        "Describe the behavior of $y_1 = \\operatorname{cosec}x$ on $(0, \\pi)$:\nSince $\\sin x > 0$ on $(0, \\pi)$, $y_1 \\ge 1$. As $x \\to 0^+$ and $x \\to \\pi^-$, $\\sin x \\to 0^+$ so $y_1 \\to \\infty$. It is a symmetric U-shaped curve with a unique local minimum at $x = \\dfrac{\\pi}{2}$, where $y_1\\left(\\dfrac{\\pi}{2}\\right) = \\dfrac{1}{\\sin(\\pi/2)} = 1$.",
+        "Describe the behavior of $y_2 = 1 + \\mathrm{e}^{-x/2}$ on $(0, \\pi)$:\nAs $x$ increases from $0$ to $\\pi$, $\\mathrm{e}^{-x/2}$ decreases strictly from $1$ to $\\mathrm{e}^{-\\pi/2} \\approx 0.2079$. Thus $y_2$ is a strictly decreasing curve, falling from $y_2(0) = 2$ to $y_2(\\pi) = 1 + \\mathrm{e}^{-\\pi/2} \\approx 1.208 > 1$.",
+        "Compare the two curves across the interval $(0, \\pi)$:\nAt $x \\to 0^+$: $y_1 \\to \\infty > 2 = y_2(0)$, so $y_1 > y_2$.\nAt $x = \\dfrac{\\pi}{2}$: $y_1\\left(\\dfrac{\\pi}{2}\\right) = 1$, whereas $y_2\\left(\\dfrac{\\pi}{2}\\right) = 1 + \\mathrm{e}^{-\\pi/4} \\approx 1 + 0.4559 = 1.4559 > 1$, so $y_1 < y_2$.\nAt $x \\to \\pi^-$: $y_1 \\to \\infty > 1.208 = y_2(\\pi)$, so $y_1 > y_2$.\nBy the Intermediate Value Theorem applied to the continuous difference $y_1 - y_2$:\nThere is at least one intersection in $\\left(0, \\dfrac{\\pi}{2}\\right)$ because $y_1 - y_2$ changes sign from positive to negative.\nThere is at least one intersection in $\\left(\\dfrac{\\pi}{2}, \\pi\\right)$ because $y_1 - y_2$ changes sign from negative to positive.\nSince $y_1$ is strictly decreasing then strictly increasing while $y_2$ is strictly decreasing, there are no further intersections.",
+        "Conclude that the equation has exactly two real roots in $0 < x < \\pi$."
+      ]
+    },
+    {
+      "part_id": "9709_w20_31_q5_b",
+      "difficulty": 2,
+      "mapping": {
+        "topic_id": "9709_p3_t_numerical_solution_of_equations",
+        "lesson_id": "9709_p3_t_numerical_solution_of_equations_m02_l02"
+      },
+      "hints": [
+        "Apply the supplied fixed-point formula repeatedly, using each output as the next input.",
+        "Begin with \\(x_1=2\\), display every iterate to 4 decimal places, and keep full calculator precision for subsequent calculations.",
+        "Continue until successive values secure the same rounding to 2 decimal places, then state that limiting root."
+      ],
+      "walkthrough": [
+        "State the given iterative formula in radians with initial value $x_1 = 2$:\n$$x_{n+1} = \\pi - \\sin^{-1}\\!\\left(\\dfrac{1}{\\mathrm{e}^{-x_n/2} + 1}\\right), \\quad x_1 = 2$$",
+        "Calculate $x_2$:\n$$\\mathrm{e}^{-2/2} = \\mathrm{e}^{-1} \\approx 0.367879$$\n$$\\dfrac{1}{\\mathrm{e}^{-1} + 1} = \\dfrac{1}{1.367879} \\approx 0.731059$$\n$$\\sin^{-1}(0.731059) \\approx 0.819875\\text{ rad}$$\n$$x_2 = \\pi - 0.819875 \\approx 2.3217$$",
+        "Calculate $x_3$:\n$$\\mathrm{e}^{-2.321715/2} = \\mathrm{e}^{-1.160858} \\approx 0.313217$$\n$$\\dfrac{1}{\\mathrm{e}^{-1.160858} + 1} = \\dfrac{1}{1.313217} \\approx 0.761489$$\n$$\\sin^{-1}(0.761489) \\approx 0.865611\\text{ rad}$$\n$$x_3 = \\pi - 0.865611 \\approx 2.2760$$",
+        "Calculate $x_4$:\n$$\\mathrm{e}^{-2.275982/2} = \\mathrm{e}^{-1.137991} \\approx 0.320462$$\n$$\\dfrac{1}{\\mathrm{e}^{-1.137991} + 1} = \\dfrac{1}{1.320462} \\approx 0.757311$$\n$$\\sin^{-1}(0.757311) \\approx 0.859210\\text{ rad}$$\n$$x_4 = \\pi - 0.859210 \\approx 2.2824$$",
+        "Calculate $x_5$:\n$$\\mathrm{e}^{-2.282383/2} = \\mathrm{e}^{-1.141192} \\approx 0.319438$$\n$$\\dfrac{1}{\\mathrm{e}^{-1.141192} + 1} = \\dfrac{1}{1.319438} \\approx 0.757898$$\n$$\\sin^{-1}(0.757898) \\approx 0.860098\\text{ rad}$$\n$$x_5 = \\pi - 0.860098 \\approx 2.2815$$",
+        "Confirm the root to $2$ decimal places by testing for a sign change in $f(x) = \\operatorname{cosec}x - 1 - \\mathrm{e}^{-x/2}$ on the interval $[2.275, 2.285]$:\n$$f(2.275) = \\dfrac{1}{\\sin(2.275)} - 1 - \\mathrm{e}^{-2.275/2} \\approx 1.3120 - 1 - 0.3205 = -0.0085 < 0$$\n$$f(2.285) = \\dfrac{1}{\\sin(2.285)} - 1 - \\mathrm{e}^{-2.285/2} \\approx 1.3233 - 1 - 0.3189 = +0.0044 > 0$$\nSince $f(x)$ is continuous on $[2.275, 2.285]$ and changes sign, the root lies in this interval.",
+        "Round the root to $2$ decimal places:\n$$x = 2.28$$"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "schema_version": "9709_math_enrichment_v8",
+  "question_id": "9709_m24_52_q1",
+  "difficulty": 2,
+  "parts": [
+    {
+      "part_id": "9709_m24_52_q1_a",
+      "difficulty": 1,
+      "mapping": {
+        "topic_id": "9709_s1_t_probability",
+        "lesson_id": "9709_s1_t_probability_m02_l02"
+      },
+      "hints": [
+        "Note the replacement condition: red marbles are not returned to the bag, making successive red draws dependent.",
+        "Calculate the probability of drawing red first from the 12 marbles, then the probability of drawing red second from the remaining 11 marbles.",
+        "Multiply the two probabilities: P(R1 and R2) = (3/12) * (2/11) and simplify."
+      ],
+      "walkthrough": [
+        "Step 1: Identify the event structure and initial bag contents:\nThe bag starts with $9$ blue marbles and $3$ red marbles, giving a total of:\n$$9 + 3 = 12\\text{ marbles}$$",
+        "Step 2: Understand the replacement rule:\nIf the first marble chosen is red, it is not returned to the bag. Therefore, the second draw is dependent on the first draw.",
+        "Step 3: State the multiplication law for dependent events:\n$$P(R_1 \\cap R_2) = P(R_1) \\times P(R_2 \\mid R_1)$$",
+        "Step 4: Substitute the probabilities for each draw:\n- On the first draw, there are $3$ red marbles out of $12$:\n$$P(R_1) = \\frac{3}{12}$$\n- On the second draw, after removing one red marble, there are $2$ red marbles left out of $11$ total marbles:\n$$P(R_2 \\mid R_1) = \\frac{2}{11}$$",
+        "Step 5: Multiply the two probabilities and simplify:\n$$P(R_1 \\cap R_2) = \\frac{3}{12} \\times \\frac{2}{11} = \\frac{6}{132} = \\frac{1}{22}$$\n(This is equivalent to $0.0455$ to 3 significant figures)."
+      ]
+    },
+    {
+      "part_id": "9709_m24_52_q1_b",
+      "difficulty": 2,
+      "mapping": {
+        "topic_id": "9709_s1_t_probability",
+        "lesson_id": "9709_s1_t_probability_m03_l01"
+      },
+      "hints": [
+        "Recall the conditional probability definition: P(B1 | R2) = P(B1 and R2) / P(R2).",
+        "Calculate the numerator: since a blue marble is replaced, P(B1 and R2) = (9/12) * (3/12).",
+        "For the denominator P(R2), add the two mutually exclusive paths ending in red: P(B1 and R2) + P(R1 and R2), using part (a).",
+        "Divide the numerator by the denominator to obtain the final fraction 33/41."
+      ],
+      "walkthrough": [
+        "Step 1: State the definition of conditional probability:\nWe need to find the probability that the first marble is blue given that the second marble is red:\n$$P(B_1 \\mid R_2) = \\frac{P(B_1 \\cap R_2)}{P(R_2)}$$",
+        "Step 2: Calculate the numerator P(B1 and R2):\nIf the first marble is blue, it is returned to the bag. Therefore, the bag still contains $12$ marbles ($9$ blue, $3$ red) for the second draw:\n$$P(B_1 \\cap R_2) = P(B_1) \\times P(R_2 \\mid B_1) = \\frac{9}{12} \\times \\frac{3}{12} = \\frac{27}{144} = \\frac{3}{16} = 0.1875$$",
+        "Step 3: Calculate the denominator P(R2) using the law of total probability:\nThe second marble can be red via two mutually exclusive branches:\n1. First marble is blue, second marble is red: $P(B_1 \\cap R_2) = \\frac{3}{16}$\n2. First marble is red, second marble is red: from part (a), $P(R_1 \\cap R_2) = \\frac{1}{22}$\nAdding these two path probabilities:\n$$P(R_2) = P(B_1 \\cap R_2) + P(R_1 \\cap R_2) = \\frac{3}{16} + \\frac{1}{22}$$",
+        "Step 4: Find a common denominator for the sum:\nThe least common multiple of $16$ and $22$ is $176$:\n$$\\frac{3}{16} = \\frac{33}{176}, \\quad \\frac{1}{22} = \\frac{8}{176}$$\n$$P(R_2) = \\frac{33 + 8}{176} = \\frac{41}{176}$$",
+        "Step 5: Compute the conditional probability:\n$$P(B_1 \\mid R_2) = \\frac{\\frac{33}{176}}{\\frac{41}{176}} = \\frac{33}{41} \\approx 0.805$$"
+      ]
+    }
+  ]
+}

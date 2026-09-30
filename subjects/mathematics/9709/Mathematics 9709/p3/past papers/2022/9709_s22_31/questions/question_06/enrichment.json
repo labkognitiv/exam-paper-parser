@@ -1,0 +1,49 @@
+{
+  "schema_version": "9709_math_enrichment_v8",
+  "question_id": "9709_s22_31_q6",
+  "difficulty": 5,
+  "parts": [
+    {
+      "part_id": "9709_s22_31_q6_a",
+      "difficulty": 2,
+      "mapping": {
+        "topic_id": "9709_p3_t_integration",
+        "lesson_id": "9709_p3_t_integration_m01_l01"
+      },
+      "hints": [
+        "Under $x=3\\tan\\theta$, transform both the differential and the denominator: $dx=3\\sec^2\\theta d\\theta$ and $9+x^2=9\\sec^2\\theta$.",
+        "Substitute these throughout $\\dfrac{27}{(9+x^2)^2}dx$ and cancel the numerical and secant factors.",
+        "Convert the endpoints separately: $x=0$ gives $\\theta=0$, while $x=3$ gives $\\tan\\theta=1$.",
+        "Use $1/\\sec^2\\theta=\\cos^2\\theta$ to reach the stated integral with its new limits."
+      ],
+      "walkthrough": [
+        "Differentiate the substitution $x = 3\\tan\\theta$ with respect to $\\theta$:\n$$\\dfrac{\\mathrm{d}x}{\\mathrm{d}\\theta} = 3\\sec^2\\theta \\implies \\mathrm{d}x = 3\\sec^2\\theta\\,\\mathrm{d}\\theta$$",
+        "Substitute $x = 3\\tan\\theta$ into the expression $9 + x^2$:\n$$9 + x^2 = 9 + (3\\tan\\theta)^2 = 9 + 9\\tan^2\\theta = 9(1 + \\tan^2\\theta)$$\nApply the trigonometric identity $1 + \\tan^2\\theta = \\sec^2\\theta$:\n$$9 + x^2 = 9\\sec^2\\theta$$\nSquare this result to obtain the denominator:\n$$(9 + x^2)^2 = (9\\sec^2\\theta)^2 = 81\\sec^4\\theta$$",
+        "Substitute the numerator $27$, the transformed denominator $81\\sec^4\\theta$, and $\\mathrm{d}x = 3\\sec^2\\theta\\,\\mathrm{d}\\theta$ into the integral:\n$$\\dfrac{27}{(9 + x^2)^2}\\,\\mathrm{d}x = \\dfrac{27}{81\\sec^4\\theta} \\cdot 3\\sec^2\\theta\\,\\mathrm{d}\\theta = \\dfrac{81\\sec^2\\theta}{81\\sec^4\\theta}\\,\\mathrm{d}\\theta = \\dfrac{1}{\\sec^2\\theta}\\,\\mathrm{d}\\theta = \\cos^2\\theta\\,\\mathrm{d}\\theta$$",
+        "Transform the limits of integration from $x$ to $\\theta$ using $\\tan\\theta = \\dfrac{x}{3}$:\nLower limit: when $x = 0$, $\\tan\\theta = \\dfrac{0}{3} = 0 \\implies \\theta = 0$\nUpper limit: when $x = 3$, $\\tan\\theta = \\dfrac{3}{3} = 1 \\implies \\theta = \\dfrac{\\pi}{4}$",
+        "Assemble the transformed definite integral with the new limits:\n$$I = \\int_0^{\\pi/4} \\cos^2\\theta\\,\\mathrm{d}\\theta$$"
+      ]
+    },
+    {
+      "part_id": "9709_s22_31_q6_b",
+      "difficulty": 5,
+      "mapping": {
+        "topic_id": "9709_p3_t_integration",
+        "lesson_id": "9709_p3_t_integration_m03_l02"
+      },
+      "hints": [
+        "Use the result of part (a) and the identity $\\cos^2\\theta=\\frac12(1+\\cos2\\theta)$.",
+        "Integrate to obtain an antiderivative containing both a $\\theta$ term and a $\\sin2\\theta$ term.",
+        "Evaluate this antiderivative exactly at $\\theta=\\pi/4$ and $\\theta=0$, keeping $\\pi$ symbolic."
+      ],
+      "walkthrough": [
+        "Use the cosine double-angle formula $\\cos 2\\theta = 2\\cos^2\\theta - 1$ to rewrite $\\cos^2\\theta$ in an integrable form:\n$$\\cos^2\\theta = \\dfrac{1 + \\cos 2\\theta}{2} = \\dfrac{1}{2} + \\dfrac{1}{2}\\cos 2\\theta$$",
+        "Substitute this identity into the integral $I$ from part (a):\n$$I = \\int_0^{\\pi/4} \\left( \\dfrac{1}{2} + \\dfrac{1}{2}\\cos 2\\theta \\right)\\,\\mathrm{d}\\theta$$",
+        "Integrate each term with respect to $\\theta$:\n$$\\int \\dfrac{1}{2}\\,\\mathrm{d}\\theta = \\dfrac{1}{2}\\theta$$\n$$\\int \\dfrac{1}{2}\\cos 2\\theta\\,\\mathrm{d}\\theta = \\dfrac{1}{2} \\cdot \\dfrac{1}{2}\\sin 2\\theta = \\dfrac{1}{4}\\sin 2\\theta$$\nThus the antiderivative is:\n$$\\left[ \\dfrac{1}{2}\\theta + \\dfrac{1}{4}\\sin 2\\theta \\right]_0^{\\pi/4}$$",
+        "Evaluate the antiderivative at the upper limit $\\theta = \\dfrac{\\pi}{4}$:\n$$\\dfrac{1}{2}\\left(\\dfrac{\\pi}{4}\\right) + \\dfrac{1}{4}\\sin\\!\\left(2 \\cdot \\dfrac{\\pi}{4}\\right) = \\dfrac{\\pi}{8} + \\dfrac{1}{4}\\sin\\!\\left(\\dfrac{\\pi}{2}\\right) = \\dfrac{\\pi}{8} + \\dfrac{1}{4}(1) = \\dfrac{\\pi}{8} + \\dfrac{1}{4}$$",
+        "Evaluate the antiderivative at the lower limit $\\theta = 0$:\n$$\\dfrac{1}{2}(0) + \\dfrac{1}{4}\\sin(0) = 0 + 0 = 0$$",
+        "Subtract the lower limit value from the upper limit value and write as a single factored expression:\n$$I = \\left(\\dfrac{\\pi}{8} + \\dfrac{1}{4}\\right) - 0 = \\dfrac{\\pi + 2}{8} = \\dfrac{1}{8}(\\pi + 2)$$"
+      ]
+    }
+  ]
+}

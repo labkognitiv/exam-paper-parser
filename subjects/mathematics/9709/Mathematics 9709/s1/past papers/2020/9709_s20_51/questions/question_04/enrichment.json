@@ -1,0 +1,29 @@
+{
+  "schema_version": "9709_math_enrichment_v8",
+  "question_id": "9709_s20_51_q4",
+  "difficulty": 4,
+  "parts": [
+    {
+      "part_id": "9709_s20_51_q4",
+      "difficulty": 4,
+      "mapping": {
+        "topic_id": "9709_s1_t_permutations_and_combinations",
+        "lesson_id": "9709_s1_t_permutations_and_combinations_m04_l03"
+      },
+      "hints": [
+        "Let $P$, $G$, $V$ be the numbers of pianists, guitarists, and violinists chosen, so $P + G + V = 7$.",
+        "Identify the three restrictions: $P \\ge 2$, $G \\ge 1$, and $V > G$.",
+        "Systematically list all possible combinations of $(P, G, V)$ that satisfy all constraints.",
+        "Calculate the combination product $\\binom{8}{P}\\binom{4}{G}\\binom{6}{V}$ for each valid case and add them together."
+      ],
+      "walkthrough": [
+        "In a music competition, 7 finalists are to be selected from 8 pianists, 4 guitarists, and 6 violinists.",
+        "Let $P$ be the number of pianists chosen (from 8).\nLet $G$ be the number of guitarists chosen (from 4).\nLet $V$ be the number of violinists chosen (from 6).\nThe total number of finalists is $P + G + V = 7$.",
+        "We are given three conditions:\n1. At least 2 pianists: $P \\ge 2$\n2. At least 1 guitarist: $G \\ge 1$\n3. More violinists than guitarists: $V > G$",
+        "Step 1: Systematically determine all possible triples $(P, G, V)$.\nSince $G \\ge 1$, we consider values of $G$:\n\nSubcase A: $G = 1$\nThen $V > 1$, so $V \\ge 2$. Since $P = 7 - 1 - V = 6 - V$ and $P \\ge 2$, we have $6 - V \\ge 2 \\implies V \\le 4$.\nThis gives three possibilities for $V$:\n- $V = 2 \\implies P = 4$: $(4 \\text{ pianists}, 1 \\text{ guitarist}, 2 \\text{ violinists})$\n- $V = 3 \\implies P = 3$: $(3 \\text{ pianists}, 1 \\text{ guitarist}, 3 \\text{ violinists})$\n- $V = 4 \\implies P = 2$: $(2 \\text{ pianists}, 1 \\text{ guitarist}, 4 \\text{ violinists})$\n\nSubcase B: $G = 2$\nThen $V > 2$, so $V \\ge 3$. Since $P = 7 - 2 - V = 5 - V$ and $P \\ge 2$, we have $5 - V \\ge 2 \\implies V \\le 3$.\nThis forces $V = 3$:\n- $V = 3 \\implies P = 2$: $(2 \\text{ pianists}, 2 \\text{ guitarists}, 3 \\text{ violinists})$\n\nSubcase C: $G \\ge 3$\nIf $G \\ge 3$, then $V > G \\implies V \\ge 4$. But then $G + V \\ge 3 + 4 = 7$, leaving $P = 0$, which violates $P \\ge 2$.\nTherefore, there are exactly 4 mutually exclusive valid cases.",
+        "Step 2: Calculate the number of selections for each case.\n\nCase 1 (4P, 1G, 2V):\n$$\\binom{8}{4} \\binom{4}{1} \\binom{6}{2} = \\frac{8 \\times 7 \\times 6 \\times 5}{24} \\times 4 \\times \\frac{6 \\times 5}{2} = 70 \\times 4 \\times 15 = 4200$$\n\nCase 2 (3P, 1G, 3V):\n$$\\binom{8}{3} \\binom{4}{1} \\binom{6}{3} = \\frac{8 \\times 7 \\times 6}{6} \\times 4 \\times \\frac{6 \\times 5 \\times 4}{6} = 56 \\times 4 \\times 20 = 4480$$\n\nCase 3 (2P, 1G, 4V):\n$$\\binom{8}{2} \\binom{4}{1} \\binom{6}{4} = \\frac{8 \\times 7}{2} \\times 4 \\times \\frac{6 \\times 5}{2} = 28 \\times 4 \\times 15 = 1680$$\n\nCase 4 (2P, 2G, 3V):\n$$\\binom{8}{2} \\binom{4}{2} \\binom{6}{3} = 28 \\times \\frac{4 \\times 3}{2} \\times 20 = 28 \\times 6 \\times 20 = 3360$$",
+        "Step 3: Sum the four cases:\n$$\\text{Total selections} = 4200 + 4480 + 1680 + 3360 = 13\\,720$$"
+      ]
+    }
+  ]
+}

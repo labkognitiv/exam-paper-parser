@@ -1,0 +1,62 @@
+{
+  "schema_version": "9709_math_enrichment_v8",
+  "question_id": "9709_s17_63_q5",
+  "difficulty": 3,
+  "parts": [
+    {
+      "part_id": "9709_s17_63_q5_i",
+      "difficulty": 1,
+      "mapping": {
+        "topic_id": "9709_s1_t_discrete_random_variables",
+        "lesson_id": "9709_s1_t_discrete_random_variables_m03_l01"
+      },
+      "hints": [
+        "Recall the standard assumptions required for any binomial distribution $\\mathrm{B}(n, p)$.",
+        "Consider whether the probability of completing a puzzle changes from day to day.",
+        "Consider whether completing a puzzle on one day affects the outcome on another day."
+      ],
+      "walkthrough": [
+        "A binomial model $X \\sim \\mathrm{B}(n, p)$ requires four fundamental conditions, commonly remembered by the acronym BINS:\n1. Binary outcomes: Each trial results in one of only two outcomes (completing the puzzle or not completing it).\n2. Independent trials: The outcome of attempting a puzzle on any one day does not influence whether she completes a puzzle on any other day.\n3. Number of trials is fixed: There is a predetermined number of trials ($n = 7$ days in a week).\n4. Success probability is constant: The probability of successfully completing a puzzle is identical on every day ($p$ is constant).",
+        "To earn the two marks, state any two of these conditions in context:\n- The probability of completing a puzzle is constant from day to day.\n- The attempts on different days are independent events."
+      ]
+    },
+    {
+      "part_id": "9709_s17_63_q5_ii",
+      "difficulty": 2,
+      "mapping": {
+        "topic_id": "9709_s1_t_discrete_random_variables",
+        "lesson_id": "9709_s1_t_discrete_random_variables_m03_l02"
+      },
+      "hints": [
+        "Use the binomial model $X \\sim \\mathrm{B}(7, 0.7)$ for the number of puzzles completed in a week.",
+        "Identify the values of $X$ corresponding to 'at least 5': $x = 5, 6, 7$.",
+        "Calculate the probability for each value using $\\binom{7}{x}(0.7)^x(0.3)^{7-x}$ and sum them."
+      ],
+      "walkthrough": [
+        "Step 1: Set up the binomial distribution.\nIn a week there are $n = 7$ days. With a success probability of $p = 0.7$ and failure probability of $q = 1 - 0.7 = 0.3$:\n$$X \\sim \\mathrm{B}(7, 0.7)$$",
+        "Step 2: Identify the required probability.\nWe want the probability that Hebe completes at least $5$ puzzles in a week:\n$$\\mathrm{P}(X \\ge 5) = \\mathrm{P}(X = 5) + \\mathrm{P}(X = 6) + \\mathrm{P}(X = 7)$$",
+        "Step 3: Evaluate each binomial probability individually:\n$$\\mathrm{P}(X = x) = \\binom{7}{x} (0.7)^x (0.3)^{7-x}$$\n- For $x = 5$:\n$$\\mathrm{P}(X = 5) = \\binom{7}{5} (0.7)^5 (0.3)^2 = 21 \\times 0.16807 \\times 0.09 = 0.3176523$$\n- For $x = 6$:\n$$\\mathrm{P}(X = 6) = \\binom{7}{6} (0.7)^6 (0.3)^1 = 7 \\times 0.117649 \\times 0.3 = 0.2470629$$\n- For $x = 7$:\n$$\\mathrm{P}(X = 7) = \\binom{7}{7} (0.7)^7 (0.3)^0 = 1 \\times 0.0823543 \\times 1 = 0.0823543$$",
+        "Step 4: Sum the terms to obtain the total probability:\n$$\\mathrm{P}(X \\ge 5) = 0.3176523 + 0.2470629 + 0.0823543 = 0.6470695 \\approx 0.647$$"
+      ]
+    },
+    {
+      "part_id": "9709_s17_63_q5_iii",
+      "difficulty": 3,
+      "mapping": {
+        "topic_id": "9709_s1_t_discrete_random_variables",
+        "lesson_id": "9709_s1_t_discrete_random_variables_m03_l03"
+      },
+      "hints": [
+        "Notice that 'completes 4 or fewer puzzles in a week' is the complement of completing at least 5 puzzles from part (ii).",
+        "Find the weekly probability $q = 1 - 0.64707 = 0.35293$.",
+        "Model the number of such weeks out of 10 as a new binomial distribution $W \\sim \\mathrm{B}(10, 0.35293)$ and find $\\mathrm{P}(W = 3)$."
+      ],
+      "walkthrough": [
+        "Step 1: Determine the probability of the target weekly event.\nThe event 'completing $4$ or fewer puzzles in a week' is the complement of 'completing at least $5$ puzzles in a week':\n$$\\mathrm{P}(X \\le 4) = 1 - \\mathrm{P}(X \\ge 5)$$\nUsing the unrounded probability from part (ii):\n$$\\mathrm{P}(X \\le 4) = 1 - 0.6470695 = 0.3529305$$",
+        "Step 2: Define a new binomial distribution for the $10$-week period.\nLet $W$ be the number of weeks in which Hebe completes $4$ or fewer puzzles.\nSince weeks are independent with constant probability $p_W = 0.3529305$:\n$$W \\sim \\mathrm{B}(10, 0.3529305)$$",
+        "Step 3: State the exact binomial formula for $W = 3$:\n$$\\mathrm{P}(W = 3) = \\binom{10}{3} (p_W)^3 (1 - p_W)^7$$\n$$\\binom{10}{3} = \\frac{10 \\times 9 \\times 8}{3 \\times 2 \\times 1} = 120$$",
+        "Step 4: Evaluate the powers and multiply:\n$$(0.3529305)^3 \\approx 0.0439614$$\n$$(0.6470695)^7 \\approx 0.0476484$$\n$$\\mathrm{P}(W = 3) = 120 \\times 0.0439614 \\times 0.0476484 = 0.25136 \\approx 0.251$$"
+      ]
+    }
+  ]
+}

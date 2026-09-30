@@ -1,0 +1,61 @@
+{
+  "schema_version": "9709_math_enrichment_v8",
+  "question_id": "9709_s24_32_q5",
+  "difficulty": 2,
+  "parts": [
+    {
+      "part_id": "9709_s24_32_q5_a",
+      "difficulty": 1,
+      "mapping": {
+        "topic_id": "9709_p3_t_numerical_solution_of_equations",
+        "lesson_id": "9709_p3_t_numerical_solution_of_equations_m01_l02"
+      },
+      "hints": [
+        "Define $f(x) = \\mathrm{e}^{2x} - 5 - \\cos(3x)$ and evaluate at $x = 0.7$ and $x = 0.8$ in radian mode.",
+        "Demonstrate a sign change between $f(0.7)$ and $f(0.8)$ to confirm the presence of the root."
+      ],
+      "walkthrough": [
+        "Define the continuous function $f(x) = \\mathrm{e}^{2x} - 5 - \\cos(3x)$ for $x \\in [0.7, 0.8]$ in radians.",
+        "Evaluate $f(x)$ at $x = 0.7$:\n$$2x = 1.4 \\implies \\mathrm{e}^{1.4} \\approx 4.05519997$$\n$$3x = 2.1 \\implies \\cos(2.1) \\approx -0.50484610$$\n$$f(0.7) = 4.05519997 - 5 - (-0.50484610) = 4.05519997 - 5 + 0.50484610 = -0.43995393 < 0$$",
+        "Evaluate $f(x)$ at $x = 0.8$:\n$$2x = 1.6 \\implies \\mathrm{e}^{1.6} \\approx 4.95303242$$\n$$3x = 2.4 \\implies \\cos(2.4) \\approx -0.73739372$$\n$$f(0.8) = 4.95303242 - 5 - (-0.73739372) = 4.95303242 - 5 + 0.73739372 = +0.69042614 > 0$$",
+        "Conclude by the intermediate value theorem:\nSince $f(x)$ is continuous on $[0.7, 0.8]$ and $f(0.7) < 0$ while $f(0.8) > 0$, there is a sign change. Therefore, the equation has a root in the interval $0.7 < x < 0.8$."
+      ]
+    },
+    {
+      "part_id": "9709_s24_32_q5_b",
+      "difficulty": 1,
+      "mapping": {
+        "topic_id": "9709_p3_t_numerical_solution_of_equations",
+        "lesson_id": "9709_p3_t_numerical_solution_of_equations_m02_l01"
+      },
+      "hints": [
+        "Assume the sequence converges to a limit $x$ as $n \\to \\infty$.",
+        "Substitute $x$ for $x_{n+1}$ and $x_n$ and rearrange to obtain the original equation $\\mathrm{e}^{2x} = 5 + \\cos(3x)$."
+      ],
+      "walkthrough": [
+        "Assume that the sequence converges to a limit $x$ in $0.7 < x < 0.8$:\n$$x = \\lim_{n \\to \\infty} x_{n+1} = \\lim_{n \\to \\infty} x_n$$",
+        "Substitute $x$ into the recurrence relation:\n$$x = \\dfrac{1}{2}\\ln(5 + \\cos(3x))$$",
+        "Multiply both sides by $2$:\n$$2x = \\ln(5 + \\cos(3x))$$",
+        "Exponentiate both sides with base $\\mathrm{e}$:\n$$\\mathrm{e}^{2x} = 5 + \\cos(3x)$$",
+        "Since this is identical to the equation in part (a), the sequence converges to the root of that equation."
+      ]
+    },
+    {
+      "part_id": "9709_s24_32_q5_c",
+      "difficulty": 2,
+      "mapping": {
+        "topic_id": "9709_p3_t_numerical_solution_of_equations",
+        "lesson_id": "9709_p3_t_numerical_solution_of_equations_m02_l02"
+      },
+      "hints": [
+        "Use the iterative formula $x_{n+1} = \\dfrac{1}{2}\\ln(5 + \\cos(3x_n))$ with a starting value in the interval, such as $x_0 = 0.75$.",
+        "Work strictly in radians, calculate each iteration to at least 5 decimal places, and round the final answer to 3 decimal places."
+      ],
+      "walkthrough": [
+        "Set up the iterative formula in radian mode starting with $x_0 = 0.75$:\n$$x_{n+1} = \\dfrac{1}{2}\\ln(5 + \\cos(3x_n))$$",
+        "Calculate the successive iterations to 5 decimal places:\n- $x_0 = 0.75000$\n- $x_1 = \\dfrac{1}{2}\\ln(5 + \\cos(2.25)) = \\dfrac{1}{2}\\ln(5 - 0.6281736) = \\dfrac{1}{2}\\ln(4.3718264) \\approx 0.73770$\n  (or using $x_0 = 0.70000$: $x_1 = 0.75150, x_2 = 0.73719$)\n- Following the iteration sequence with $x_1 = 0.73719$:\n  $x_2 = \\dfrac{1}{2}\\ln(5 + \\cos(3(0.73719))) = \\dfrac{1}{2}\\ln(5 + \\cos(2.21157)) \\approx 0.74105$\n  $x_3 = \\dfrac{1}{2}\\ln(5 + \\cos(3(0.74105))) = \\dfrac{1}{2}\\ln(5 + \\cos(2.22315)) \\approx 0.74000$\n  $x_4 = \\dfrac{1}{2}\\ln(5 + \\cos(3(0.74000))) = \\dfrac{1}{2}\\ln(5 + \\cos(2.22000)) \\approx 0.74028$\n  $x_5 = \\dfrac{1}{2}\\ln(5 + \\cos(3(0.74028))) = \\dfrac{1}{2}\\ln(5 + \\cos(2.22084)) \\approx 0.74020$",
+        "State the root correct to 3 decimal places:\n$$\\text{Root } x = 0.740$$"
+      ]
+    }
+  ]
+}

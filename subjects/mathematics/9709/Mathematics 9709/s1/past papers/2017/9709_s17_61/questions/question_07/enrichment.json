@@ -1,0 +1,64 @@
+{
+  "schema_version": "9709_math_enrichment_v8",
+  "question_id": "9709_s17_61_q7",
+  "difficulty": 4,
+  "parts": [
+    {
+      "part_id": "9709_s17_61_q7_a",
+      "difficulty": 3,
+      "mapping": {
+        "topic_id": "9709_s1_t_permutations_and_combinations",
+        "lesson_id": "9709_s1_t_permutations_and_combinations_m03_l03"
+      },
+      "hints": [
+        "Use the gap method: first arrange the 5 other children in a line without restrictions.",
+        "Count the number of available gaps between and at the ends of these 5 children to separate the 3 youngest children.",
+        "Select and arrange the 3 youngest children into 3 of these 6 gaps using permutations $\\phantom{}^6\\mathrm{P}_3$, then multiply by $5!$."
+      ],
+      "walkthrough": [
+        "Recognize the separation condition: none of the $3$ youngest children may stand next to each other. The standard technique for keeping items separated is the gap method.",
+        "Step 1: First arrange the remaining $8 - 3 = 5$ children in a line. Since they are all of different ages, they are distinct:\n$$\\text{Arrangements of older children} = 5! = 5 \\times 4 \\times 3 \\times 2 \\times 1 = 120$$",
+        "Step 2: Place markers representing the $5$ older children and identify the available slots for the youngest children:\n$$\\_ \\; C_1 \\; \\_ \\; C_2 \\; \\_ \\; C_3 \\; \\_ \\; C_4 \\; \\_ \\; C_5 \\; \\_$$\nThere are $4$ gaps between adjacent children, plus $1$ at each end, giving:\n$$\\text{Available gaps} = 5 + 1 = 6$$",
+        "Step 3: Place the $3$ youngest children into $3$ of these $6$ distinct gaps. Since each child is a distinct individual, order within the gaps matters:\n$$\\phantom{}^6\\mathrm{P}_3 = \\frac{6!}{(6 - 3)!} = \\frac{6!}{3!} = 6 \\times 5 \\times 4 = 120$$",
+        "Step 4: Combine the stages using the multiplication principle of counting:\n$$\\text{Total ways} = 120 \\times 120 = 14400$$"
+      ]
+    },
+    {
+      "part_id": "9709_s17_61_q7_b",
+      "difficulty": 3,
+      "mapping": {
+        "topic_id": "9709_s1_t_permutations_and_combinations",
+        "lesson_id": "9709_s1_t_permutations_and_combinations_m04_l03"
+      },
+      "hints": [
+        "Notice that there is only 1 milk chocolate available, so to have at least one milk chocolate, David must select it: $\\binom{1}{1} = 1$.",
+        "David must choose the remaining $5 - 1 = 4$ chocolates from the 6 dark and 4 white chocolates, with at least 1 of each type.",
+        "List all mutually exclusive splits for (Dark, White): $(3, 1)$, $(2, 2)$, and $(1, 3)$, compute the combinations for each, and sum them."
+      ],
+      "walkthrough": [
+        "Break down the selection pool: David must choose $5$ chocolates from:\n- $6$ different dark chocolates ($D$)\n- $4$ different white chocolates ($W$)\n- $1$ milk chocolate ($M$)",
+        "Analyze the constraint 'at least one of each type'. Because there is only $1$ milk chocolate available, David must choose that specific milk chocolate:\n$$\\text{Ways to choose milk chocolate} = \\binom{1}{1} = 1$$\nThis leaves $5 - 1 = 4$ chocolates to be selected from the dark and white chocolates, subject to choosing at least $1$ dark and at least $1$ white.",
+        "List all valid combinations of (Dark, White) summing to $4$:\n1. Split $(3D, 1W)$:\n$$\\binom{6}{3} \\times \\binom{4}{1} \\times 1 = \\frac{6 \\times 5 \\times 4}{3 \\times 2 \\times 1} \\times 4 \\times 1 = 20 \\times 4 = 80$$\n2. Split $(2D, 2W)$:\n$$\\binom{6}{2} \\times \\binom{4}{2} \\times 1 = \\frac{6 \\times 5}{2 \\times 1} \\times \\frac{4 \\times 3}{2 \\times 1} \\times 1 = 15 \\times 6 = 90$$\n3. Split $(1D, 3W)$:\n$$\\binom{6}{1} \\times \\binom{4}{3} \\times 1 = 6 \\times 4 \\times 1 = 24$$",
+        "Add the counts from all three mutually exclusive cases:\n$$\\text{Total selections} = 80 + 90 + 24 = 194$$"
+      ]
+    },
+    {
+      "part_id": "9709_s17_61_q7_c",
+      "difficulty": 4,
+      "mapping": {
+        "topic_id": "9709_s1_t_permutations_and_combinations",
+        "lesson_id": "9709_s1_t_permutations_and_combinations_m03_l01"
+      },
+      "hints": [
+        "Identify the pool of characters: 26 letters, 9 digits, and 5 symbols. A password consists of 4 distinct characters in a specific order.",
+        "Since the password requires at least one character from each of the 3 types, exactly one type will have 2 characters and the other two will have 1 each: $(2, 1, 1)$, $(1, 2, 1)$, or $(1, 1, 2)$.",
+        "For each case, choose the distinct characters using combinations, multiply by $4!$ to arrange them into 4 ordered password positions, and sum the results."
+      ],
+      "walkthrough": [
+        "Define the available character categories:\n- $26$ capital letters\n- $9$ digits\n- $5$ symbols\nThe password requires $4$ distinct characters in a specific order, with at least one letter, at least one digit, and at least one symbol.",
+        "Because $4 = 2 + 1 + 1$, exactly one category must contribute $2$ characters, while the remaining two categories contribute $1$ character each. We evaluate the three mutually exclusive cases:\n\nCase 1: $2$ Letters, $1$ Digit, $1$ Symbol\nChoose the items:\n$$\\binom{26}{2} \\times \\binom{9}{1} \\times \\binom{5}{1} = \\frac{26 \\times 25}{2} \\times 9 \\times 5 = 325 \\times 45 = 14625$$\nArrange the $4$ chosen distinct characters in the $4$ password slots:\n$$14625 \\times 4! = 14625 \\times 24 = 351000$$\n\nCase 2: $1$ Letter, $2$ Digits, $1$ Symbol\nChoose the items:\n$$\\binom{26}{1} \\times \\binom{9}{2} \\times \\binom{5}{1} = 26 \\times \\frac{9 \\times 8}{2} \\times 5 = 26 \\times 36 \\times 5 = 4680$$\nArrange in the $4$ slots:\n$$4680 \\times 4! = 4680 \\times 24 = 112320$$\n\nCase 3: $1$ Letter, $1$ Digit, $2$ Symbols\nChoose the items:\n$$\\binom{26}{1} \\times \\binom{9}{1} \\times \\binom{5}{2} = 26 \\times 9 \\times \\frac{5 \\times 4}{2} = 26 \\times 9 \\times 10 = 2340$$\nArrange in the $4$ slots:\n$$2340 \\times 4! = 2340 \\times 24 = 56160$$",
+        "Add the counts from all three cases together:\n$$\\text{Total passwords} = 351000 + 112320 + 56160 = 519480$$"
+      ]
+    }
+  ]
+}

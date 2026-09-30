@@ -1,0 +1,75 @@
+{
+  "schema_version": "9709_math_enrichment_v8",
+  "question_id": "9709_s22_53_q7",
+  "difficulty": 4,
+  "parts": [
+    {
+      "part_id": "9709_s22_53_q7_a",
+      "difficulty": 3,
+      "mapping": {
+        "topic_id": "9709_s1_t_permutations_and_combinations",
+        "lesson_id": "9709_s1_t_permutations_and_combinations_m04_l03"
+      },
+      "hints": [
+        "The three cars have capacities 6, 5, and 4. One specific driver is already in each car (Mr Lizo, Mrs Martin, Mr Nantes).",
+        "Find the number of available passenger spots in each car: $6 - 1 = 5$ in Car 1, $5 - 1 = 4$ in Car 2, and $4 - 1 = 3$ in Car 3.",
+        "Choose 5 of the 12 remaining people for Car 1, 4 of the remaining 7 for Car 2, and the remaining 3 for Car 3."
+      ],
+      "walkthrough": [
+        "Step 1: Account for the drivers.\nThere are 15 friends in total.\nThree named drivers are assigned to specific cars:\n- Car 1 (capacity 6) is driven by Mr Lizo ($1$ seat filled, $5$ passenger seats left).\n- Car 2 (capacity 5) is driven by Mrs Martin ($1$ seat filled, $4$ passenger seats left).\n- Car 3 (capacity 4) is driven by Mr Nantes ($1$ seat filled, $3$ passenger seats left).\nNumber of remaining passengers to allocate: $15 - 3 = 12$.\n\nStep 2: Allocate passengers to Car 1.\nFrom the 12 remaining people, choose 5 to ride in Car 1:\n$$\\binom{12}{5} = \\frac{12!}{5! \\, 7!} = 792$$\n\nStep 3: Allocate passengers to Car 2.\nFrom the remaining $12 - 5 = 7$ people, choose 4 to ride in Car 2:\n$$\\binom{7}{4} = \\frac{7!}{4! \\, 3!} = 35$$\n\nStep 4: Allocate passengers to Car 3.\nThe remaining $7 - 4 = 3$ people must go into Car 3:\n$$\\binom{3}{3} = 1$$\n\nStep 5: Apply the multiplication principle.\n$$\\text{Total ways} = 792 \\times 35 \\times 1 = 27\\,720$$"
+      ]
+    },
+    {
+      "part_id": "9709_s22_53_q7_b",
+      "difficulty": 3,
+      "mapping": {
+        "topic_id": "9709_s1_t_permutations_and_combinations",
+        "lesson_id": "9709_s1_t_permutations_and_combinations_m03_l01"
+      },
+      "hints": [
+        "Mr Lizo goes first and his family must stay together, so the Lizo family (5 people) must be the first family group.",
+        "Mr Lizo is fixed at the front of his family, leaving the other 4 Lizo family members to arrange in $4!$ ways.",
+        "The remaining 3 families (Kenny with 6, Martin with 2, Nantes with 2) can be arranged in $3!$ block orders.",
+        "Multiply by the internal permutations of each family: $6!$ for Kenny, $2!$ for Martin, and $2!$ for Nantes."
+      ],
+      "walkthrough": [
+        "Step 1: Analyze the family blocks and restrictions.\nThe 15 friends are divided into 4 families:\n- Lizo: 5 members (Mr Lizo, Mrs Lizo, 3 children)\n- Kenny: 6 members (Mr & Mrs Kenny, 4 children)\n- Martin: 2 members (Mrs Martin, 1 child)\n- Nantes: 2 members (Mr & Mrs Nantes)\n\nStep 2: Position the Lizo family.\nMr Lizo must go first through the gate, and each family must stay together.\nThis forces the Lizo family to be the first family block in the lineup.\n- Position 1 is fixed for Mr Lizo: $1$ way.\n- The remaining 4 members of the Lizo family follow immediately in positions 2 to 5: $4! = 24$ ways.\n\nStep 3: Arrange the remaining family blocks.\nThe other 3 families (Kenny, Martin, Nantes) act as 3 solid units:\n$$3! = 6\\text{ orders of family blocks}$$\n\nStep 4: Arrange members within the remaining families.\n- Kenny family: $6! = 720$ ways\n- Martin family: $2! = 2$ ways\n- Nantes family: $2! = 2$ ways\n\nStep 5: Multiply all independent arrangements.\n$$\\text{Total} = 4! \\times 3! \\times 6! \\times 2! \\times 2!$$\n$$\\text{Total} = 24 \\times 6 \\times 720 \\times 2 \\times 2 = 144 \\times 720 \\times 4 = 414\\,720$$"
+      ]
+    },
+    {
+      "part_id": "9709_s22_53_q7_c",
+      "difficulty": 3,
+      "mapping": {
+        "topic_id": "9709_s1_t_permutations_and_combinations",
+        "lesson_id": "9709_s1_t_permutations_and_combinations_m04_l03"
+      },
+      "hints": [
+        "The team requires 4 adults and 3 children.",
+        "Count the adults available: there are 7 adults in total across the 4 families.",
+        "Children belong to three families: Kenny (4 children), Lizo (3 children), Martin (1 child). Having 3 children from different families means picking exactly 1 child from each of these three families.",
+        "Multiply the ways to choose the adults by the ways to choose the children."
+      ],
+      "walkthrough": [
+        "Step 1: Understand team composition.\nA team requires $4$ adults and $3$ children ($7$ members in total).\n\nStep 2: Breakdown of adults and children in the group.\nAdults ($7$ total):\n- Mr & Mrs Kenny ($2$ adults)\n- Mr & Mrs Lizo ($2$ adults)\n- Mrs Martin ($1$ adult)\n- Mr & Mrs Nantes ($2$ adults)\nChildren ($8$ total across 3 families):\n- Kenny: $4$ children\n- Lizo: $3$ children\n- Martin: $1$ child\n- Nantes: $0$ children\n\nStep 3: Choose 4 adults.\nSince there are no family restrictions on the adults:\n$$\\binom{7}{4} = \\frac{7 \\times 6 \\times 5 \\times 4}{4 \\times 3 \\times 2 \\times 1} = 35$$\n\nStep 4: Choose 3 children from different families.\nSince only 3 families have children (Kenny, Lizo, Martin), we must choose exactly 1 child from each:\n- Choose 1 from Kenny's 4 children: $\\binom{4}{1} = 4$\n- Choose 1 from Lizo's 3 children: $\\binom{3}{1} = 3$\n- Choose 1 from Martin's 1 child: $\\binom{1}{1} = 1$\n$$\\text{Child combinations} = 4 \\times 3 \\times 1 = 12$$\n\nStep 5: Multiply adult and child selections.\n$$\\text{Total} = 35 \\times 12 = 420$$"
+      ]
+    },
+    {
+      "part_id": "9709_s22_53_q7_d",
+      "difficulty": 3,
+      "mapping": {
+        "topic_id": "9709_s1_t_permutations_and_combinations",
+        "lesson_id": "9709_s1_t_permutations_and_combinations_m04_l03"
+      },
+      "hints": [
+        "The team requires 4 adults and 3 children. There are no restrictions on the children, so choose 3 children from all 8 children.",
+        "For the adults, use the complement rule: total ways to choose 4 adults from 7 minus ways where NEITHER Mr Kenny nor Mr Lizo is chosen.",
+        "If neither Mr Kenny nor Mr Lizo is chosen, the 4 adults must be selected from the remaining 5 adults.",
+        "Multiply the number of valid adult selections by the number of child selections."
+      ],
+      "walkthrough": [
+        "Step 1: Understand the team requirements.\nThe team requires $4$ adults and $3$ children.\nRestriction applies only to adults: At least one of Mr Kenny or Mr Lizo must be on the team.\nThere is no restriction on which children are selected.\n\nStep 2: Choose the 3 children.\nThere are 8 children in total (4 Kenny + 3 Lizo + 1 Martin).\n$$\\binom{8}{3} = \\frac{8 \\times 7 \\times 6}{3 \\times 2 \\times 1} = 56\\text{ ways}$$\n\nStep 3: Choose 4 adults with restriction.\nTotal adults = $7$.\nTarget condition: At least one of {Mr Kenny, Mr Lizo} is selected.\nUsing the complement rule:\n$$\\text{Valid adults} = \\text{Total adult selections} - \\text{Adult selections excluding both}$$",
+        "Compute total adult selections:\n$$\\binom{7}{4} = 35$$\nCompute selections excluding both Mr Kenny and Mr Lizo (chosen from the remaining $7 - 2 = 5$ adults):\n$$\\binom{5}{4} = 5$$\nTherefore:\n$$\\text{Valid adult selections} = 35 - 5 = 30$$\n\nStep 4: Combine adult and child selections.\n$$\\text{Total ways} = 30 \\times 56 = 1680$$"
+      ]
+    }
+  ]
+}

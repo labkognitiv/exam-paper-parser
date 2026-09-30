@@ -1,0 +1,49 @@
+{
+  "schema_version": "9709_math_enrichment_v8",
+  "question_id": "9709_s16_62_q4",
+  "difficulty": 4,
+  "parts": [
+    {
+      "part_id": "9709_s16_62_q4_i",
+      "difficulty": 3,
+      "mapping": {
+        "topic_id": "9709_s1_t_discrete_random_variables",
+        "lesson_id": "9709_s1_t_discrete_random_variables_m03_l04"
+      },
+      "hints": [
+        "Find the probability that a randomly chosen visitor buys something: since 34% do not buy anything, $p = 1 - 0.34 = 0.66$.",
+        "Define $X$ as the number of people who buy something out of a sample of $n = 15$, giving $X \\sim \\mathrm{B}(15, 0.66)$. We need $\\mathrm{P}(X \\ge 14) = \\mathrm{P}(X = 14) + \\mathrm{P}(X = 15)$.",
+        "Use the binomial probability formula $\\mathrm{P}(X = r) = \\binom{n}{r} p^r (1 - p)^{n - r}$ for $r = 14$ and $r = 15$, add the two probabilities, and round to 3 significant figures."
+      ],
+      "walkthrough": [
+        "First, find the probability that an individual shopper buys something. We are told that $34\\%$ do not buy anything, so by the complement rule:\n$$p = 1 - 0.34 = 0.66$$",
+        "There are $n = 15$ independent visitors, each with the same probability $p = 0.66$ of buying something. Let $X$ represent the number of visitors who buy something:\n$$X \\sim \\mathrm{B}(15, 0.66)$$",
+        "The condition 'at least 14' means either 14 or 15 people buy something:\n$$\\mathrm{P}(X \\ge 14) = \\mathrm{P}(X = 14) + \\mathrm{P}(X = 15)$$",
+        "Recall the general formula for binomial probability:\n$$\\mathrm{P}(X = r) = \\binom{n}{r} p^r (1 - p)^{n - r}$$\nFor $r = 14$:\n$$\\mathrm{P}(X = 14) = \\binom{15}{14} (0.66)^{14} (1 - 0.66)^{15 - 14} = 15 \\times (0.66)^{14} \\times 0.34$$\nEvaluate the power and product:\n$$(0.66)^{14} \\approx 0.00289498$$\n$$15 \\times 0.00289498 \\times 0.34 \\approx 0.0147644$$",
+        "For $r = 15$:\n$$\\mathrm{P}(X = 15) = \\binom{15}{15} (0.66)^{15} (1 - 0.66)^{15 - 15} = 1 \\times (0.66)^{15} \\times (0.34)^0 = (0.66)^{15}$$\nEvaluate the power:\n$$(0.66)^{15} \\approx 0.0022938$$",
+        "Add both probabilities together:\n$$\\mathrm{P}(X \\ge 14) = 0.0147644 + 0.0022938 = 0.0170582$$\nRound to 3 significant figures:\n$$\\mathrm{P}(X \\ge 14) \\approx 0.0171$$"
+      ]
+    },
+    {
+      "part_id": "9709_s16_62_q4_ii",
+      "difficulty": 4,
+      "mapping": {
+        "topic_id": "9709_s1_t_discrete_random_variables",
+        "lesson_id": "9709_s1_t_discrete_random_variables_m04_l02"
+      },
+      "hints": [
+        "Find the probability that an individual does not spend at least 50 dollars: since 13% spend at least 50 dollars, this probability is $1 - 0.13 = 0.87$.",
+        "For $n$ independent visitors, the probability that none of them spends at least 50 dollars is $(0.87)^n$. Set up the inequality $(0.87)^n < 0.04$.",
+        "Take natural logarithms of both sides to solve for $n$. Note that $\\ln(0.87)$ is negative, so dividing by it reverses the inequality sign.",
+        "Determine the smallest integer $n$ that satisfies the inequality."
+      ],
+      "walkthrough": [
+        "We are given that 13% of people spend at least 50 dollars. The complementary event is that a person does not spend at least 50 dollars:\n$$\\mathrm{P}(\\text{does not spend at least } 50) = 1 - 0.13 = 0.87$$",
+        "For $n$ people chosen independently, the probability that none of them spends at least 50 dollars is the product of their individual probabilities:\n$$(0.87)^n$$\nWe are told this probability must be strictly less than $0.04$:\n$$(0.87)^n < 0.04$$",
+        "To solve for the exponent $n$, apply natural logarithms to both sides:\n$$\\ln\\left((0.87)^n\\right) < \\ln(0.04)$$\nUse the power rule of logarithms $\\ln(a^b) = b \\ln(a)$:\n$$n \\ln(0.87) < \\ln(0.04)$$",
+        "Evaluate the logarithms:\n$$\\ln(0.04) \\approx -3.218876$$\n$$\\ln(0.87) \\approx -0.139262$$\nBecause $\\ln(0.87)$ is negative, dividing both sides by $\\ln(0.87)$ reverses the inequality sign:\n$$n > \\frac{\\ln(0.04)}{\\ln(0.87)}$$\nSubstitute the numerical values:\n$$n > \\frac{-3.218876}{-0.139262} \\approx 23.114$$",
+        "Because $n$ represents a whole number of people, round up to the next integer:\n$$n = 24$$\nWe can confirm by checking powers:\n$$(0.87)^{23} \\approx 0.04065 > 0.04$$\n$$(0.87)^{24} \\approx 0.03537 < 0.04$$\nThus, the smallest possible value is $n = 24$."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,69 @@
+{
+  "schema_version": "9709_math_enrichment_v8",
+  "question_id": "9709_s18_31_q8",
+  "difficulty": 3,
+  "parts": [
+    {
+      "part_id": "9709_s18_31_q8_i",
+      "difficulty": 3,
+      "mapping": {
+        "topic_id": "9709_p3_t_logarithmic_and_exponential_functions",
+        "lesson_id": "9709_p3_t_logarithmic_and_exponential_functions_m03_l01"
+      },
+      "hints": [
+        "Evaluate the given definite integral by integration by parts.",
+        "Choose $u=x$ and integrate $e^{-x/2}$ carefully, retaining the factor introduced by the exponent.",
+        "Complete the remaining exponential integral, then substitute the limits $0$ and $a$.",
+        "Set the resulting expression equal to $2$, isolate the exponential term, and take logarithms to reach the required form."
+      ],
+      "walkthrough": [
+        "Evaluate $\\int_0^a x\\mathrm{e}^{-\\frac{x}{2}}\\,\\mathrm{d}x$ using integration by parts $\\int u\\,\\mathrm{d}v = uv - \\int v\\,\\mathrm{d}u$:\n$$u = x \\implies \\mathrm{d}u = \\mathrm{d}x$$\n$$\\mathrm{d}v = \\mathrm{e}^{-\\frac{x}{2}}\\,\\mathrm{d}x \\implies v = -2\\mathrm{e}^{-\\frac{x}{2}}$$",
+        "Apply the integration by parts formula:\n$$\\int x\\mathrm{e}^{-\\frac{x}{2}}\\,\\mathrm{d}x = -2x\\mathrm{e}^{-\\frac{x}{2}} - \\int (-2\\mathrm{e}^{-\\frac{x}{2}})\\,\\mathrm{d}x = -2x\\mathrm{e}^{-\\frac{x}{2}} - 4\\mathrm{e}^{-\\frac{x}{2}} = -2(x + 2)\\mathrm{e}^{-\\frac{x}{2}}$$",
+        "Substitute the limits from $0$ to $a$:\n$$\\left[ -2(x + 2)\\mathrm{e}^{-\\frac{x}{2}} \\right]_0^a = -2(a + 2)\\mathrm{e}^{-\\frac{a}{2}} - \\left(-2(0 + 2)\\mathrm{e}^0\\right) = 4 - 2(a + 2)\\mathrm{e}^{-\\frac{a}{2}}$$",
+        "Set the integral equal to 2:\n$$4 - 2(a + 2)\\mathrm{e}^{-\\frac{a}{2}} = 2$$\n$$2(a + 2)\\mathrm{e}^{-\\frac{a}{2}} = 2$$\n$$(a + 2)\\mathrm{e}^{-\\frac{a}{2}} = 1$$",
+        "Multiply both sides by $\\mathrm{e}^{\\frac{a}{2}}$ and take natural logarithms:\n$$\\mathrm{e}^{\\frac{a}{2}} = a + 2$$\n$$\\dfrac{a}{2} = \\ln(a + 2)$$\n$$a = 2\\ln(a + 2)$$"
+      ]
+    },
+    {
+      "part_id": "9709_s18_31_q8_ii",
+      "difficulty": 1,
+      "mapping": {
+        "topic_id": "9709_p3_t_logarithmic_and_exponential_functions",
+        "lesson_id": "9709_p3_t_logarithmic_and_exponential_functions_m03_l01"
+      },
+      "hints": [
+        "Turn the equation from part (i) into a root equation $f(a)=0$.",
+        "Use one consistent choice, such as $f(a)=a-2\\ln(a+2)$.",
+        "Calculate $f(3)$ and $f(3.5)$ to sufficient accuracy.",
+        "Compare their signs and use continuity to justify the stated bracket."
+      ],
+      "walkthrough": [
+        "Define the continuous function $f(a) = a - 2\\ln(a + 2)$.",
+        "Evaluate $f(a)$ at $a = 3$:\n$$f(3) = 3 - 2\\ln(3 + 2) = 3 - 2\\ln 5$$\n$$\\ln 5 \\approx 1.6094379$$\n$$f(3) \\approx 3 - 2(1.6094379) = 3 - 3.2188758 = -0.2188758 < 0$$",
+        "Evaluate $f(a)$ at $a = 3.5$:\n$$f(3.5) = 3.5 - 2\\ln(3.5 + 2) = 3.5 - 2\\ln(5.5)$$\n$$\\ln(5.5) \\approx 1.7047481$$\n$$f(3.5) \\approx 3.5 - 2(1.7047481) = 3.5 - 3.4094962 = +0.0905038 > 0$$",
+        "Conclude using the Intermediate Value Theorem:\nBecause $f(a)$ is continuous on the closed interval $[3, 3.5]$ and changes sign from negative to positive ($f(3) < 0$ and $f(3.5) > 0$), the root $a$ lies between 3 and 3.5."
+      ]
+    },
+    {
+      "part_id": "9709_s18_31_q8_iii",
+      "difficulty": 3,
+      "mapping": {
+        "topic_id": "9709_p3_t_numerical_solution_of_equations",
+        "lesson_id": "9709_p3_t_numerical_solution_of_equations_m02_l02"
+      },
+      "hints": [
+        "Read the equation from part (i) directly as a fixed-point iteration rule.",
+        "Choose a starting value inside the bracket established in part (ii).",
+        "Apply the rule repeatedly, recording every iterate to four decimal places.",
+        "Continue until successive iterates unambiguously round to the same value at two decimal places."
+      ],
+      "walkthrough": [
+        "Set up the iterative formula $a_{n+1} = 2\\ln(a_n + 2)$ using an initial value in $[3, 3.5]$, for instance $a_1 = 3.3$.",
+        "Compute the first iteration $a_2$:\n$$a_2 = 2\\ln(3.3 + 2) = 2\\ln(5.3) \\approx 2(1.667707) \\approx 3.3354$$",
+        "Compute subsequent iterations, recording each to 4 decimal places:\n$$a_3 = 2\\ln(3.3354 + 2) = 2\\ln(5.3354) \\approx 2(1.674374) \\approx 3.3487$$\n$$a_4 = 2\\ln(3.3487 + 2) = 2\\ln(5.3487) \\approx 2(1.676866) \\approx 3.3537$$\n$$a_5 = 2\\ln(3.3537 + 2) = 2\\ln(5.3537) \\approx 2(1.677801) \\approx 3.3556$$\n$$a_6 = 2\\ln(3.3556 + 2) = 2\\ln(5.3556) \\approx 2(1.678155) \\approx 3.3563$$\n$$a_7 = 2\\ln(3.3563 + 2) = 2\\ln(5.3563) \\approx 2(1.678286) \\approx 3.3566$$",
+        "Confirm the value to 2 decimal places using a sign change test of $f(a) = a - 2\\ln(a + 2)$ on $[3.355, 3.365]$:\n$$f(3.355) = 3.355 - 2\\ln(5.355) \\approx 3.355 - 2(1.678044) = -0.00109 < 0$$\n$$f(3.365) = 3.365 - 2\\ln(5.365) \\approx 3.365 - 2(1.679909) = +0.00518 > 0$$",
+        "Conclude that $a = 3.36$ correct to 2 decimal places."
+      ]
+    }
+  ]
+}

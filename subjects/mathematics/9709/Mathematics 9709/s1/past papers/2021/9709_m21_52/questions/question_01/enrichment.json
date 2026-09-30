@@ -1,0 +1,49 @@
+{
+  "schema_version": "9709_math_enrichment_v8",
+  "question_id": "9709_m21_52_q1",
+  "difficulty": 2,
+  "parts": [
+    {
+      "part_id": "9709_m21_52_q1_a",
+      "difficulty": 1,
+      "mapping": {
+        "topic_id": "9709_s1_t_discrete_random_variables",
+        "lesson_id": "9709_s1_t_discrete_random_variables_m04_l01"
+      },
+      "hints": [
+        "Identify the distribution for the number of spins until a 3 is obtained. Since trials are independent with constant success probability, this follows a geometric distribution.",
+        "The probability of scoring a 3 on any single spin is $p = \\dfrac{1}{5}$, and the probability of not scoring a 3 is $q = 1 - \\dfrac{1}{5} = \\dfrac{4}{5}$.",
+        "For the first 3 to appear on the 8th spin, the first 7 spins must result in non-3s followed by a 3 on the 8th spin: $\\mathrm{P}(X = 8) = q^7 p$.",
+        "Compute $\\left(\\dfrac{4}{5}\\right)^7 \\times \\dfrac{1}{5}$ and give your final answer as an exact fraction or to 3 significant figures."
+      ],
+      "walkthrough": [
+        "Let $X$ be the number of spins up to and including the first spin that lands on 3. Because the spins are independent and the probability of scoring a 3 is constant on every spin, $X$ follows a geometric distribution:\n$$X \\sim \\mathrm{Geo}(p) \\quad \\text{with} \\quad p = \\frac{1}{5}$$",
+        "The probability of not scoring a 3 on a single spin is:\n$$q = 1 - p = 1 - \\frac{1}{5} = \\frac{4}{5}$$",
+        "We need the score of 3 to appear for the very first time on the 8th spin. That means the first 7 spins are failures (not 3) and the 8th spin is a success (3). Write the geometric probability formula:\n$$\\mathrm{P}(X = r) = (1 - p)^{r-1} p$$",
+        "Substitute $r = 8$, $p = \\frac{1}{5}$, and $1 - p = \\frac{4}{5}$ into the formula:\n$$\\mathrm{P}(X = 8) = \\left(\\frac{4}{5}\\right)^{8-1} \\left(\\frac{1}{5}\\right) = \\left(\\frac{4}{5}\\right)^7 \\left(\\frac{1}{5}\\right)$$",
+        "Calculate the powers explicitly:\n$$4^7 = 16384$$\n$$5^7 = 78125$$\n$$\\left(\\frac{4}{5}\\right)^7 = \\frac{16384}{78125}$$\nNow multiply by $\\frac{1}{5}$:\n$$\\frac{16384}{78125} \\times \\frac{1}{5} = \\frac{16384}{390625} \\approx 0.041943 \\dots \\approx 0.0419$$"
+      ]
+    },
+    {
+      "part_id": "9709_m21_52_q1_b",
+      "difficulty": 2,
+      "mapping": {
+        "topic_id": "9709_s1_t_discrete_random_variables",
+        "lesson_id": "9709_s1_t_discrete_random_variables_m04_l01"
+      },
+      "hints": [
+        "The phrase 'fewer than 6 spins' corresponds to the event $X < 6$, which for discrete integer spins means $X \\le 5$.",
+        "Use the cumulative geometric probability formula $\\mathrm{P}(X \\le r) = 1 - q^r$, or subtract the probability of 5 consecutive failures from 1.",
+        "Substitute $r = 5$ and $q = \\dfrac{4}{5}$ into the formula: $\\mathrm{P}(X \\le 5) = 1 - \\left(\\dfrac{4}{5}\\right)^5$.",
+        "Evaluate the powers to find the exact fraction or decimal answer."
+      ],
+      "walkthrough": [
+        "The question asks for the probability that fewer than 6 spins are required to obtain a 3 for the first time. For a discrete count, 'fewer than 6' means at most 5:\n$$\\mathrm{P}(X < 6) = \\mathrm{P}(X \\le 5)$$",
+        "We can use the cumulative geometric formula $\\mathrm{P}(X \\le r) = 1 - (1 - p)^r$. The logic is that the only way we need more than 5 spins is if all of the first 5 spins fail to produce a 3:\n$$\\mathrm{P}(X > 5) = q^5 = \\left(\\frac{4}{5}\\right)^5$$",
+        "By the complement rule:\n$$\\mathrm{P}(X \\le 5) = 1 - \\mathrm{P}(X > 5) = 1 - \\left(\\frac{4}{5}\\right)^5$$",
+        "Calculate the fifth powers:\n$$4^5 = 1024$$\n$$5^5 = 3125$$\n$$\\left(\\frac{4}{5}\\right)^5 = \\frac{1024}{3125}$$",
+        "Subtract from 1:\n$$\\mathrm{P}(X \\le 5) = 1 - \\frac{1024}{3125} = \\frac{3125 - 1024}{3125} = \\frac{2101}{3125} = 0.67232$$"
+      ]
+    }
+  ]
+}

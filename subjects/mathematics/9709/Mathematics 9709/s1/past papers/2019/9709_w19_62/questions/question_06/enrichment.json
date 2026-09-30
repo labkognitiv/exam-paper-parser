@@ -1,0 +1,67 @@
+{
+  "schema_version": "9709_math_enrichment_v8",
+  "question_id": "9709_w19_62_q6",
+  "difficulty": 2,
+  "parts": [
+    {
+      "part_id": "9709_w19_62_q6_i",
+      "difficulty": 1,
+      "mapping": {
+        "topic_id": "9709_s1_t_the_normal_distribution",
+        "lesson_id": "9709_s1_t_the_normal_distribution_m01_l01"
+      },
+      "hints": [
+        "Fir tree heights follow $X \\sim \\mathrm{N}(40, 8^2)$.",
+        "Standardize $X = 45$ using $Z = \\frac{45 - 40}{8}$.",
+        "Look up $\\Phi(0.625)$ from standard normal tables."
+      ],
+      "walkthrough": [
+        "The heights of fir trees in metres follow a normal distribution $X \\sim \\mathrm{N}(40, 8^2)$. We need the probability that a tree is less than $45\\text{ m}$ tall.",
+        "Step 1: Standardise $X = 45$ using $Z = \\frac{X - \\mu}{\\sigma}$:\n$$Z = \\frac{45 - 40}{8} = \\frac{5}{8} = 0.625$$",
+        "Step 2: Read $\\Phi(0.625)$ from the standard normal table:\n- $\\Phi(0.62) = 0.7324$\n- Add the difference for $5$ in the third decimal place: $+0.0016$\n$$\\Phi(0.625) = 0.7324 + 0.0016 = 0.7340$$\nRounding to 3 significant figures gives $0.734$."
+      ]
+    },
+    {
+      "part_id": "9709_w19_62_q6_ii",
+      "difficulty": 1,
+      "mapping": {
+        "topic_id": "9709_s1_t_the_normal_distribution",
+        "lesson_id": "9709_s1_t_the_normal_distribution_m01_l02"
+      },
+      "hints": [
+        "'Within 5 metres of the mean' corresponds to the interval from $40 - 5 = 35$ to $40 + 5 = 45$ metres.",
+        "Notice that this interval is symmetric about the mean $\\mu = 40$, with boundaries $z = -0.625$ and $z = 0.625$.",
+        "Use the result of part (i): $\\mathrm{P}(35 < X < 45) = 2\\Phi(0.625) - 1$."
+      ],
+      "walkthrough": [
+        "We need the probability that a tree has a height within 5 metres of the mean $\\mu = 40\\text{ m}$.",
+        "Step 1: Write the range of heights:\n$$\\mu - 5 < X < \\mu + 5 \\implies 35 < X < 45$$",
+        "Step 2: Relate to the standardised values:\n$$Z_1 = \\frac{35 - 40}{8} = -0.625, \\quad Z_2 = \\frac{45 - 40}{8} = 0.625$$",
+        "Step 3: Use the symmetry property for an interval centred at the mean:\n$$\\mathrm{P}(-0.625 < Z < 0.625) = \\Phi(0.625) - \\Phi(-0.625) = 2\\Phi(0.625) - 1$$",
+        "Step 4: Substitute $\\Phi(0.625) = 0.7340$ from part (i):\n$$2 \\times 0.7340 - 1 = 1.4680 - 1 = 0.468$$"
+      ]
+    },
+    {
+      "part_id": "9709_w19_62_q6_iii",
+      "difficulty": 3,
+      "mapping": {
+        "topic_id": "9709_s1_t_the_normal_distribution",
+        "lesson_id": "9709_s1_t_the_normal_distribution_m02_l03"
+      },
+      "hints": [
+        "Calculate both tail proportions: $\\mathrm{P}(X < 10) = \\frac{48}{500} = 0.096$ and $\\mathrm{P}(X > 24) = \\frac{76}{500} = 0.152$.",
+        "Find the critical $z$-scores: for the lower tail $\\Phi(-z_1) = 1 - 0.096 = 0.9040 \\implies z_1 = -1.305$; for the upper tail $\\Phi(z_2) = 1 - 0.152 = 0.8480 \\implies z_2 = 1.028$.",
+        "Form two linear equations in $\\mu$ and $\\sigma$: $10 - \\mu = -1.305\\sigma$ and $24 - \\mu = 1.028\\sigma$.",
+        "Subtract the two equations to solve for $\\sigma$, then substitute back to find $\\mu$."
+      ],
+      "walkthrough": [
+        "For a new type of tree, we are given sample data from 500 trees: 48 are shorter than $10\\text{ m}$ and 76 are taller than $24\\text{ m}$. We determine the population mean $\\mu$ and standard deviation $\\sigma$.",
+        "Step 1: Calculate the two tail proportions:\n$$\\mathrm{P}(X < 10) = \\frac{48}{500} = 0.096$$\n$$\\mathrm{P}(X > 24) = \\frac{76}{500} = 0.152$$",
+        "Step 2: Look up the corresponding $z$-scores in the standard normal table:\n- For the lower tail $X < 10$:\n  The area to the left is $0.096 < 0.5$, so $z_1$ is negative.\n  By symmetry, look up $1 - 0.096 = 0.9040$:\n  $$\\Phi(1.305) = 0.9040 \\implies z_1 = -1.305$$\n- For the upper tail $X > 24$:\n  The area to the right is $0.152$, so the cumulative probability to the left is $1 - 0.152 = 0.8480$:\n  $$\\Phi(1.028) = 0.8480 \\implies z_2 = 1.028$$",
+        "Step 3: Set up the standardisation equations:\n$$\\frac{10 - \\mu}{\\sigma} = -1.305 \\implies 10 - \\mu = -1.305\\sigma \\implies \\mu - 1.305\\sigma = 10$$\n$$\\frac{24 - \\mu}{\\sigma} = 1.028 \\implies 24 - \\mu = 1.028\\sigma \\implies \\mu + 1.028\\sigma = 24$$",
+        "Step 4: Solve the simultaneous equations:\nSubtract the first equation from the second:\n$$(\\mu + 1.028\\sigma) - (\\mu - 1.305\\sigma) = 24 - 10$$\n$$(1.028 + 1.305)\\sigma = 14$$\n$$2.333\\sigma = 14$$\n$$\\sigma = \\frac{14}{2.333} \\approx 6.00086\\text{ m}$$",
+        "Step 5: Find $\\mu$:\n$$\\mu = 24 - 1.028(6.00086) = 24 - 6.16888 = 17.8311\\text{ m}$$\nRounding to 3 significant figures gives $\\mu = 17.8\\text{ m}$ and $\\sigma = 6.00\\text{ m}$."
+      ]
+    }
+  ]
+}

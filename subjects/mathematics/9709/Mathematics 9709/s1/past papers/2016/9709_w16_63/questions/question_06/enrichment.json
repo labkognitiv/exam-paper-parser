@@ -1,0 +1,90 @@
+{
+  "schema_version": "9709_math_enrichment_v8",
+  "question_id": "9709_w16_63_q6",
+  "difficulty": 4,
+  "parts": [
+    {
+      "part_id": "9709_w16_63_q6_i",
+      "difficulty": 3,
+      "mapping": {
+        "topic_id": "9709_s1_t_the_normal_distribution",
+        "lesson_id": "9709_s1_t_the_normal_distribution_m01_l01"
+      },
+      "hints": [
+        "State the distribution for banana weights: $X \\sim \\mathrm{N}(150, 50^2)$.",
+        "Small bananas weigh under 95 grams: find $\\mathrm{P}(X < 95)$.",
+        "Standardise $X = 95$ using $Z = \\dfrac{95 - 150}{50} = -1.1$, then evaluate $1 - \\Phi(1.1)$."
+      ],
+      "walkthrough": [
+        "Let $X$ denote the weight in grams of a banana: $X \\sim \\mathrm{N}(150, 50^2)$ with mean $\\mu = 150\\text{ g}$ and standard deviation $\\sigma = 50\\text{ g}$.",
+        "Small bananas are defined as weighing under $95\\text{ g}$: $\\mathrm{P}(X < 95)$.",
+        "Apply the standardisation formula $Z = \\frac{X - \\mu}{\\sigma}$:\n$$Z = \\frac{95 - 150}{50} = \\frac{-55}{50} = -1.1$$",
+        "By the symmetry of the normal distribution, the probability in the left tail at $Z = -1.1$ equals the complement of the cumulative probability at $+1.1$:\n$$\\mathrm{P}(Z < -1.1) = 1 - \\Phi(1.1)$$",
+        "From the standard normal table, $\\Phi(1.1) = 0.8643$. Subtract:\n$$\\mathrm{P}(X < 95) = 1 - 0.8643 = 0.1357$$\nRounding to 3 significant figures gives $0.136$."
+      ]
+    },
+    {
+      "part_id": "9709_w16_63_q6_ii",
+      "difficulty": 3,
+      "mapping": {
+        "topic_id": "9709_s1_t_the_normal_distribution",
+        "lesson_id": "9709_s1_t_the_normal_distribution_m02_l01"
+      },
+      "hints": [
+        "Let $w$ be the weight exceeded by 10% of bananas: $\\mathrm{P}(X > w) = 0.10$.",
+        "Find the cumulative probability: $\\mathrm{P}(X < w) = 1 - 0.10 = 0.90$.",
+        "Look up $\\Phi(z) = 0.90$ in the normal table to find $z = 1.282$.",
+        "Set up $\\dfrac{w - 150}{50} = 1.282$ and solve for $w$."
+      ],
+      "walkthrough": [
+        "We need to find the weight $w$ such that $10\\%$ of bananas weigh more than $w$:\n$$\\mathrm{P}(X > w) = 0.10$$",
+        "Convert this upper tail to a cumulative area:\n$$\\mathrm{P}(X < w) = 1 - 0.10 = 0.90$$",
+        "Look up the probability $0.90$ in the standard normal distribution table:\n$$\\Phi(1.28) = 0.8997, \\quad \\text{difference for } 2 \\text{ is } 3 \\implies \\Phi(1.282) = 0.9000$$\nSo the standard score is $z = 1.282$.",
+        "Substitute into the standardisation equation:\n$$Z = \\frac{w - \\mu}{\\sigma} \\implies 1.282 = \\frac{w - 150}{50}$$",
+        "Multiply both sides by $50$:\n$$w - 150 = 1.282 \\times 50 = 64.1$$",
+        "Add $150$:\n$$w = 150 + 64.1 = 214.1\\text{ g}$$\nRounding to 3 significant figures gives $214\\text{ g}$."
+      ]
+    },
+    {
+      "part_id": "9709_w16_63_q6_iii_a",
+      "difficulty": 2,
+      "mapping": {
+        "topic_id": "9709_s1_t_discrete_random_variables",
+        "lesson_id": "9709_s1_t_discrete_random_variables_m01_l01"
+      },
+      "hints": [
+        "Recall that a banana costs 20 cents if it is medium sized ($95 < X < 205$ grams).",
+        "Notice that 205 is symmetrically placed relative to the mean: $205 - 150 = 55 = 150 - 95$.",
+        "By symmetry, $\\mathrm{P}(\\text{large}) = \\mathrm{P}(X > 205) = \\mathrm{P}(X < 95) = 0.1357$.",
+        "Subtract both tail probabilities from 1: $1 - 2(0.1357) = 0.7286$."
+      ],
+      "walkthrough": [
+        "A banana costs 20 cents if it is classified as medium, meaning its weight is between $95\\text{ g}$ and $205\\text{ g}$.",
+        "From part (i), the probability of a small banana ($X < 95$) is:\n$$\\mathrm{P}(\\text{small}) = 0.1357$$",
+        "Now observe the distance from the mean $\\mu = 150$ to the large threshold $205\\text{ g}$:\n$$205 - 150 = 55\\text{ g}$$\nThis is identical to the distance from the mean to the small threshold ($150 - 95 = 55\\text{ g}$).",
+        "Because the normal distribution is perfectly symmetrical about its mean:\n$$\\mathrm{P}(\\text{large}) = \\mathrm{P}(X > 205) = \\mathrm{P}(X < 95) = 0.1357$$",
+        "The three size categories (small, medium, large) are mutually exclusive and exhaustive. Therefore:\n$$\\mathrm{P}(\\text{medium}) = 1 - (\\mathrm{P}(\\text{small}) + \\mathrm{P}(\\text{large}))$$\nSubstitute the probabilities:\n$$\\mathrm{P}(\\text{medium}) = 1 - (0.1357 + 0.1357) = 1 - 0.2714 = 0.7286$$"
+      ]
+    },
+    {
+      "part_id": "9709_w16_63_q6_iii_b",
+      "difficulty": 3,
+      "mapping": {
+        "topic_id": "9709_s1_t_discrete_random_variables",
+        "lesson_id": "9709_s1_t_discrete_random_variables_m02_l01"
+      },
+      "hints": [
+        "List each size category, its price, and its probability: Small (10 cents, prob 0.1357), Medium (20 cents, prob 0.7286), Large (25 cents, prob 0.1357).",
+        "Calculate the expected cost per banana: $\\mathrm{E}(C) = \\sum c \\,\\mathrm{P}(C = c)$.",
+        "Multiply the expected cost per banana by 100 to find the total expected cost."
+      ],
+      "walkthrough": [
+        "Let $C$ denote the cost in cents of a single banana. The three possible prices and their probabilities are:\n- Small banana: cost is $10$ cents with probability $0.1357$\n- Medium banana: cost is $20$ cents with probability $0.7286$\n- Large banana: cost is $25$ cents with probability $0.1357$",
+        "Step 1: Calculate the expected cost of a single banana using $\\mathrm{E}(C) = \\sum c \\,\\mathrm{P}(C = c)$:\n$$\\mathrm{E}(C) = (10 \\times 0.1357) + (20 \\times 0.7286) + (25 \\times 0.1357)$$",
+        "Evaluate each term:\n$$10 \\times 0.1357 = 1.357$$\n$$20 \\times 0.7286 = 14.572$$\n$$25 \\times 0.1357 = 3.3925$$",
+        "Sum the terms:\n$$\\mathrm{E}(C) = 1.357 + 14.572 + 3.3925 = 19.3215\\text{ cents}$$",
+        "Step 2: Find the expected total cost for 100 randomly chosen bananas by multiplying by 100:\n$$\\text{Total cost} = 100 \\times 19.3215 = 1932.15\\text{ cents}$$\nRounded to 3 significant figures, this is $1930\\text{ cents}$ (or $19.30\\text{ dollars}$)."
+      ]
+    }
+  ]
+}

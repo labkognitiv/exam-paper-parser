@@ -1,0 +1,68 @@
+{
+  "schema_version": "9709_math_enrichment_v8",
+  "question_id": "9709_s20_42_q6",
+  "difficulty": 4,
+  "parts": [
+    {
+      "part_id": "9709_s20_42_q6_a",
+      "difficulty": 2,
+      "mapping": {
+        "topic_id": "9709_m1_t_kinematics_of_motion_in_a_straight_line",
+        "lesson_id": "9709_m1_t_kinematics_of_motion_in_a_straight_line_m07_l02"
+      },
+      "hints": [
+        "Calculate key values of velocity at segment boundaries: at $t = 0, 5, 6, 7, 13.5$.",
+        "Note that $v = 2t + 1$ is a straight line from $(0, 1)$ to $(5, 11)$.",
+        "Note that $v = 36 - t^2$ is an inverted parabolic curve from $(5, 11)$, crossing the time axis at $(6, 0)$, to $(7, -13)$.",
+        "Note that $v = 2t - 27$ is a straight line from $(7, -13)$ returning to rest at $(13.5, 0)$."
+      ],
+      "walkthrough": [
+        "Analyze the three stages of the piecewise velocity function to identify coordinates and curve types:",
+        "Phase 1 ($0 \\le t \\le 5$): The function $v = 2t + 1$ is linear with gradient $2$ and vertical intercept $1$. It connects the point $(0, 1)$ to the point $(5, 11)$.",
+        "Phase 2 ($5 \\le t \\le 7$): The function $v = 36 - t^2$ is an inverted parabola with vertex on the vertical axis at $(0, 36)$. It starts at $(5, 11)$, crosses the horizontal time axis at $t = \\sqrt{36} = 6\\text{ s}$, and reaches $(7, -13)$ at $t = 7\\text{ s}$.",
+        "Phase 3 ($7 \\le t \\le 13.5$): The function $v = 2t - 27$ is linear with gradient $2$. It begins at $(7, -13)$ and rises steadily to meet the time axis at $t = \\frac{27}{2} = 13.5\\text{ s}$ where $v = 0$.",
+        "Draw the complete graph: ensure the parabolic section curves concave downwards between $t = 5$ and $t = 7$, and explicitly label the points $(0, 1)$, $(5, 11)$, $(6, 0)$, $(7, -13)$, and $(13.5, 0)$ on the axes."
+      ]
+    },
+    {
+      "part_id": "9709_s20_42_q6_b",
+      "difficulty": 1,
+      "mapping": {
+        "topic_id": "9709_m1_t_kinematics_of_motion_in_a_straight_line",
+        "lesson_id": "9709_m1_t_kinematics_of_motion_in_a_straight_line_m05_l01"
+      },
+      "hints": [
+        "For $t = 6$, use the velocity definition for the interval $5 \\le t \\le 7$: $v = 36 - t^2$.",
+        "Differentiate $v$ with respect to $t$ to find acceleration: $a = \\frac{dv}{dt}$.",
+        "Substitute $t = 6$ into the derivative."
+      ],
+      "walkthrough": [
+        "State the relationship between acceleration and velocity:\n$$a = \\frac{dv}{dt}$$",
+        "At $t = 6\\text{ s}$, the time belongs to the second domain $5 \\le t \\le 7$, where $v(t) = 36 - t^2$. Differentiate with respect to $t$ using the power rule:\n$$\\frac{d}{dt}(36) = 0, \\quad \\frac{d}{dt}(-t^2) = -2t$$\n$$a(t) = -2t$$",
+        "Substitute $t = 6$ into the acceleration expression:\n$$a(6) = -2 \\times 6 = -12\\text{ m s}^{-2}$$"
+      ]
+    },
+    {
+      "part_id": "9709_s20_42_q6_c",
+      "difficulty": 5,
+      "mapping": {
+        "topic_id": "9709_m1_t_kinematics_of_motion_in_a_straight_line",
+        "lesson_id": "9709_m1_t_kinematics_of_motion_in_a_straight_line_m06_l03"
+      },
+      "hints": [
+        "Total distance is the total area between the velocity curve and the time axis: integrate $|v(t)|$ over $[0, 13.5]$.",
+        "Split the integral at $t = 6$, where velocity changes sign from positive to negative, as well as at segment boundaries $t = 5$ and $t = 7$.",
+        "Calculate the four separate areas: $\\int_0^5 (2t+1)\\,dt$, $\\int_5^6 (36-t^2)\\,dt$, $\\left|\\int_6^7 (36-t^2)\\,dt\\right|$, and $\\left|\\int_7^{13.5} (2t-27)\\,dt\\right|$.",
+        "Sum the four positive areas to find the total distance."
+      ],
+      "walkthrough": [
+        "To find the total distance rather than displacement, we must integrate the speed $|v(t)|$. From part (a), the velocity is positive on $0 \\le t < 6$ and negative on $6 < t \\le 13.5$. We divide the motion into four monotonic intervals:",
+        "Interval 1 ($0 \\le t \\le 5$, $v \\ge 0$):\n$$d_1 = \\int_0^5 (2t + 1)\\,dt = \\left[t^2 + t\\right]_0^5 = (5^2 + 5) - 0 = 25 + 5 = 30\\text{ m}$$",
+        "Interval 2 ($5 \\le t \\le 6$, $v \\ge 0$):\n$$d_2 = \\int_5^6 (36 - t^2)\\,dt = \\left[36t - \\frac{t^3}{3}\\right]_5^6$$\nAt $t = 6$:\n$$36(6) - \\frac{6^3}{3} = 216 - 72 = 144$$\nAt $t = 5$:\n$$36(5) - \\frac{5^3}{3} = 180 - \\frac{125}{3} = \\frac{540 - 125}{3} = \\frac{415}{3}$$\nSubtract:\n$$d_2 = 144 - \\frac{415}{3} = \\frac{432 - 415}{3} = \\frac{17}{3}\\text{ m}$$",
+        "Interval 3 ($6 \\le t \\le 7$, $v \\le 0$):\nSince $v \\le 0$, the distance is the negative of the definite integral:\n$$d_3 = -\\int_6^7 (36 - t^2)\\,dt = \\int_6^7 (t^2 - 36)\\,dt = \\left[\\frac{t^3}{3} - 36t\\right]_6^7$$\nAt $t = 7$:\n$$\\frac{7^3}{3} - 36(7) = \\frac{343}{3} - 252 = \\frac{343 - 756}{3} = -\\frac{413}{3}$$\nAt $t = 6$:\n$$\\frac{6^3}{3} - 36(6) = 72 - 216 = -144 = -\\frac{432}{3}$$\nSubtract:\n$$d_3 = -\\frac{413}{3} - \\left(-\\frac{432}{3}\\right) = \\frac{19}{3}\\text{ m}$$",
+        "Interval 4 ($7 \\le t \\le 13.5$, $v \\le 0$):\nThis region is a right-angled triangle under the time axis with horizontal base $13.5 - 7 = 6.5\\text{ s}$ and vertical height $|-13| = 13\\text{ m s}^{-1}$:\n$$d_4 = \\frac{1}{2} \\times \\text{base} \\times \\text{height} = \\frac{1}{2} \\times 6.5 \\times 13 = \\frac{84.5}{2} = 42.25\\text{ m}$$",
+        "Sum the four distance components:\n$$d = d_1 + d_2 + d_3 + d_4 = 30 + \\frac{17}{3} + \\frac{19}{3} + 42.25$$\nNotice that $\\frac{17}{3} + \\frac{19}{3} = \\frac{36}{3} = 12\\text{ m}$:\n$$d = 30 + 12 + 42.25 = 84.25\\text{ m}$$"
+      ]
+    }
+  ]
+}

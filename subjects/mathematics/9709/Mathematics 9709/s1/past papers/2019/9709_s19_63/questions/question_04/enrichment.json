@@ -1,0 +1,49 @@
+{
+  "schema_version": "9709_math_enrichment_v8",
+  "question_id": "9709_s19_63_q4",
+  "difficulty": 2,
+  "parts": [
+    {
+      "part_id": "9709_s19_63_q4_i",
+      "difficulty": 2,
+      "mapping": {
+        "topic_id": "9709_s1_t_permutations_and_combinations",
+        "lesson_id": "9709_s1_t_permutations_and_combinations_m04_l03"
+      },
+      "hints": [
+        "A committee of 6 people is chosen from 8 men and 4 women.",
+        "The condition 'at least twice as many men as women' means $M \\ge 2W$, with $M + W = 6$.",
+        "List all possible valid pairs of $(M, W)$: $(6, 0)$, $(5, 1)$, and $(4, 2)$.",
+        "Calculate the combinations $\\binom{8}{M} \\binom{4}{W}$ for each case and sum them."
+      ],
+      "walkthrough": [
+        "A committee of 6 people is selected from 8 men and 4 women. There must be at least twice as many men as women on the committee: $M \\ge 2W$.",
+        "Step 1: List all possible values of women $W$ and check the condition:\n- If $W = 0$: $M = 6$. Check: $6 \\ge 2(0) = 0$ (Valid).\n- If $W = 1$: $M = 5$. Check: $5 \\ge 2(1) = 2$ (Valid).\n- If $W = 2$: $M = 4$. Check: $4 \\ge 2(2) = 4$ (Valid).\n- If $W = 3$: $M = 3$. Check: $3 \\ge 2(3) = 6$ (False, not valid).",
+        "Step 2: Calculate the combinations for each valid case:\n- Case 1 ($6$ men, $0$ women):\n  $$\\binom{8}{6} \\times \\binom{4}{0} = 28 \\times 1 = 28$$\n- Case 2 ($5$ men, $1$ woman):\n  $$\\binom{8}{5} \\times \\binom{4}{1} = 56 \\times 4 = 224$$\n- Case 3 ($4$ men, $2$ women):\n  $$\\binom{8}{4} \\times \\binom{4}{2} = 70 \\times 6 = 420$$",
+        "Step 3: Sum the results across all mutually exclusive cases:\n$$\\text{Total ways} = 28 + 224 + 420 = 672$$"
+      ]
+    },
+    {
+      "part_id": "9709_s19_63_q4_ii",
+      "difficulty": 2,
+      "mapping": {
+        "topic_id": "9709_s1_t_permutations_and_combinations",
+        "lesson_id": "9709_s1_t_permutations_and_combinations_m04_l04"
+      },
+      "hints": [
+        "It is simplest to use the complement method: Total unrestricted selections minus selections where both particular men are chosen together.",
+        "Calculate total ways to choose 6 people from the total 12 people: $\\binom{12}{6}$.",
+        "If both particular men are chosen, you need to choose $6 - 2 = 4$ more people from the remaining $12 - 2 = 10$ people: $\\binom{10}{4}$.",
+        "Subtract the forbidden selections from the total."
+      ],
+      "walkthrough": [
+        "Two particular men refuse to serve on the committee of 6 together. We select 6 people from 8 men and 4 women (total 12 people).",
+        "Step 1: Use the subtraction (complement) method:\n$$\\text{Valid selections} = \\text{Total selections} - \\text{Selections with both particular men}$$",
+        "Step 2: Calculate the total number of unrestricted committees of 6 chosen from 12:\n$$\\binom{12}{6} = \\frac{12 \\times 11 \\times 10 \\times 9 \\times 8 \\times 7}{720} = 924$$",
+        "Step 3: Calculate the number of committees where BOTH particular men are included:\nIf both men are chosen, 2 spots on the committee are filled. We must choose the remaining $6 - 2 = 4$ members from the other $12 - 2 = 10$ available people:\n$$\\binom{10}{4} = \\frac{10 \\times 9 \\times 8 \\times 7}{24} = 210$$",
+        "Step 4: Subtract to find the number of valid committees:\n$$924 - 210 = 714$$",
+        "Alternative Verification:\n- Neither particular man chosen: $\\binom{10}{6} = 210$\n- Exactly one particular man chosen: $\\binom{2}{1} \\times \\binom{10}{5} = 2 \\times 252 = 504$\n- Total $= 210 + 504 = 714$."
+      ]
+    }
+  ]
+}

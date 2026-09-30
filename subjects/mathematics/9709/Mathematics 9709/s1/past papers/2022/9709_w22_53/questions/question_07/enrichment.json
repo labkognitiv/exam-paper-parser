@@ -1,0 +1,56 @@
+{
+  "schema_version": "9709_math_enrichment_v8",
+  "question_id": "9709_w22_53_q7",
+  "difficulty": 4,
+  "parts": [
+    {
+      "part_id": "9709_w22_53_q7_a",
+      "difficulty": 2,
+      "mapping": {
+        "topic_id": "9709_s1_t_probability",
+        "lesson_id": "9709_s1_t_probability_m03_l01"
+      },
+      "hints": [
+        "The bag contains 5 white and 3 red discs (total 8). Sam draws first, Tom draws second.",
+        "Consider the two mutually exclusive outcomes on Sam's first turn: Sam draws White ($W_1$) or Sam draws Red ($R_1$).",
+        "Sum the probabilities of the two paths leading to Tom drawing Red: $\\mathrm{P}(W_1 R_2) + \\mathrm{P}(R_1 R_2)$."
+      ],
+      "walkthrough": [
+        "Step 1: Understand the game setup.\nThe bag starts with 5 White discs and 3 Red discs (total 8 discs).\nSam removes the 1st disc ($S_1$).\nTom removes the 2nd disc ($T_1$).\n\nStep 2: Tree diagram analysis for Tom's first turn.\nThere are two disjoint paths leading to Tom drawing Red on turn 2:\n- Path 1: Sam draws White (5/8 chance), leaving 4 White and 3 Red in the bag (7 discs). Then Tom draws Red (3/7 chance):\n  $$\\mathrm{P}(S_1 = W, T_1 = R) = \\frac{5}{8} \\times \\frac{3}{7} = \\frac{15}{56}$$\n- Path 2: Sam draws Red (3/8 chance), leaving 5 White and 2 Red in the bag (7 discs). Then Tom draws Red (2/7 chance):\n  $$\\mathrm{P}(S_1 = R, T_1 = R) = \\frac{3}{8} \\times \\frac{2}{7} = \\frac{6}{56}$$\n\nStep 3: Add the mutually exclusive probabilities.\n$$\\mathrm{P}(T_1 = R) = \\frac{15}{56} + \\frac{6}{56} = \\frac{21}{56}$$\nDivide by $7$:\n$$\\frac{21 \\div 7}{56 \\div 7} = \\frac{3}{8} = 0.375$$\n(Notice that without conditioning on Sam's result, any random draw from the bag has a 3/8 probability of being red.)"
+      ]
+    },
+    {
+      "part_id": "9709_w22_53_q7_b",
+      "difficulty": 4,
+      "mapping": {
+        "topic_id": "9709_s1_t_probability",
+        "lesson_id": "9709_s1_t_probability_m03_l01"
+      },
+      "hints": [
+        "The game ends when a player removes two red discs. Tom's second turn is the 4th disc removed overall ($S_1, T_1, S_2, T_2$).",
+        "For Tom to win on his second turn, Tom must remove red on turn 2 ($T_1$) and turn 4 ($T_2$), while Sam must not win earlier (Sam has at most 1 red disc).",
+        "Identify the three possible 4-disc sequences: WRWR, RRWR, and WRRR.",
+        "Calculate the probability of each sequence without replacement and sum them."
+      ],
+      "walkthrough": [
+        "Step 1: Understand the winning conditions.\nThe game is won as soon as a player collects two red discs.\nThe draws occur in alternating sequence:\n- Turn 1: Sam ($S_1$)\n- Turn 2: Tom ($T_1$)\n- Turn 3: Sam ($S_2$)\n- Turn 4: Tom ($T_2$)\nFor Tom to win on turn 4 ($T_2$):\n1. Tom must draw his second red on $T_2$, which means Tom must have drawn a red on $T_1$ as well: $T_1 = R$ and $T_2 = R$.\n2. Sam must NOT have won on turn 3, which means Sam cannot have drawn red on both $S_1$ and $S_2$.\n\nStep 2: List valid 4-draw sequences $(S_1, T_1, S_2, T_2)$.\nSince Tom's draws are fixed as $R$ and $R$, Sam's two draws $(S_1, S_2)$ can be:\n- Both White: $(W, W) \\implies$ Sequence is W R W R\n- First Red, second White: $(R, W) \\implies$ Sequence is R R W R\n- First White, second Red: $(W, R) \\implies$ Sequence is W R R R\n(Note: Sam cannot draw $(R, R)$ because Sam would have won on turn 3.)\n\nStep 3: Calculate the probability of each sequence.\n- W R W R: $\\frac{5}{8} \\times \\frac{3}{7} \\times \\frac{4}{6} \\times \\frac{2}{5} = \\frac{120}{1680}$\n- R R W R: $\\frac{3}{8} \\times \\frac{2}{7} \\times \\frac{5}{6} \\times \\frac{1}{5} = \\frac{30}{1680}$\n- W R R R: $\\frac{5}{8} \\times \\frac{3}{7} \\times \\frac{2}{6} \\times \\frac{1}{5} = \\frac{30}{1680}$\n\nStep 4: Sum the three cases.\n$$\\frac{120 + 30 + 30}{1680} = \\frac{180}{1680} = \\frac{18}{168} = \\frac{3}{28} \\approx 0.1071...$$\nRounding to 3 significant figures gives $0.107$ (or $\\frac{3}{28}$)."
+      ]
+    },
+    {
+      "part_id": "9709_w22_53_q7_c",
+      "difficulty": 3,
+      "mapping": {
+        "topic_id": "9709_s1_t_probability",
+        "lesson_id": "9709_s1_t_probability_m04_l01"
+      },
+      "hints": [
+        "Use the conditional probability formula $\\mathrm{P}(S_1 = R \\mid \\text{Tom wins on } T_2) = \\frac{\\mathrm{P}(S_1 = R \\cap \\text{Tom wins on } T_2)}{\\mathrm{P}(\\text{Tom wins on } T_2)}$.",
+        "From part (b), the total probability that Tom wins on his second turn is $\\frac{180}{1680} = \\frac{3}{28}$.",
+        "Identify which of the three sequences in part (b) has $S_1 = R$ (only the sequence RRWR), and divide its probability by $\\frac{3}{28}$."
+      ],
+      "walkthrough": [
+        "Step 1: Set up the conditional probability.\nLet $E$ be the event that Sam removes a red disc on his first turn ($S_1 = R$).\nLet $W_T$ be the event that Tom wins on his second turn.\n$$\\mathrm{P}(E \\mid W_T) = \\frac{\\mathrm{P}(E \\cap W_T)}{\\mathrm{P}(W_T)}$$\n\nStep 2: Recall the values from part (b).\nFrom part (b), the three mutually exclusive paths for $W_T$ had probabilities:\n- W R W R: $\\frac{120}{1680}$\n- R R W R: $\\frac{30}{1680}$\n- W R R R: $\\frac{30}{1680}$\nTotal $\\mathrm{P}(W_T) = \\frac{180}{1680} = \\frac{3}{28}$.\n\nStep 3: Identify the intersection $E \\cap W_T$.\nThe event $E$ requires $S_1 = R$.\nOf the three winning paths, only R R W R starts with $S_1 = R$.\nTherefore:\n$$\\mathrm{P}(E \\cap W_T) = \\frac{30}{1680}$$\n\nStep 4: Divide.\n$$\\mathrm{P}(E \\mid W_T) = \\frac{\\frac{30}{1680}}{\\frac{180}{1680}} = \\frac{30}{180} = \\frac{1}{6} \\approx 0.1666...$$\nRounding to 3 significant figures gives $0.167$ (or $\\frac{1}{6}$)."
+      ]
+    }
+  ]
+}

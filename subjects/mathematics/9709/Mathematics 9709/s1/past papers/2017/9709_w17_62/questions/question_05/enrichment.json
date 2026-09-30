@@ -1,0 +1,43 @@
+{
+  "schema_version": "9709_math_enrichment_v8",
+  "question_id": "9709_w17_62_q5",
+  "difficulty": 3,
+  "parts": [
+    {
+      "part_id": "9709_w17_62_q5_i",
+      "difficulty": 2,
+      "mapping": {
+        "topic_id": "9709_s1_t_discrete_random_variables",
+        "lesson_id": "9709_s1_t_discrete_random_variables_m03_l01"
+      },
+      "hints": [
+        "Model the number of faulty CDs in a box as $X \\sim \\mathrm{B}(30, 0.04)$.",
+        "The box is rejected if $X > 2$. Use the complement: $\\mathrm{P}(X > 2) = 1 - \\mathrm{P}(X \\le 2)$.",
+        "Calculate $\\mathrm{P}(X = 0)$, $\\mathrm{P}(X = 1)$, and $\\mathrm{P}(X = 2)$, sum them, and subtract from 1."
+      ],
+      "walkthrough": [
+        "Step 1: Set up the binomial model.\nLet $X$ be the number of faulty blank CDs in a box of $n = 30$ CDs.\nSince each CD has a constant probability $p = 0.04$ of being faulty and CD states are independent:\n$$X \\sim \\mathrm{B}(30, 0.04)$$\nwith failure probability $q = 1 - 0.04 = 0.96$.\n\nStep 2: Formulate the rejection condition.\nA box is rejected if it contains more than $2$ faulty CDs ($X > 2$):\n$$\\mathrm{P}(X > 2) = 1 - \\mathrm{P}(X \\le 2) = 1 - [\\mathrm{P}(X = 0) + \\mathrm{P}(X = 1) + \\mathrm{P}(X = 2)]$$\n\nStep 3: Calculate the individual probabilities:\n$$\\mathrm{P}(X = 0) = \\binom{30}{0} (0.04)^0 (0.96)^{30} = (0.96)^{30} \\approx 0.293856$$\n$$\\mathrm{P}(X = 1) = \\binom{30}{1} (0.04)^1 (0.96)^{29} = 30 \\times 0.04 \\times (0.96)^{29} \\approx 0.367320$$\n$$\\mathrm{P}(X = 2) = \\binom{30}{2} (0.04)^2 (0.96)^{28} = \\frac{30 \\times 29}{2} \\times 0.0016 \\times (0.96)^{28} \\approx 0.221927$$\n\nStep 4: Subtract from $1$:\n$$\\mathrm{P}(X \\le 2) = 0.293856 + 0.367320 + 0.221927 = 0.883103$$\n$$\\mathrm{P}(X > 2) = 1 - 0.883103 = 0.116897 \\approx 0.117$$"
+      ]
+    },
+    {
+      "part_id": "9709_w17_62_q5_ii",
+      "difficulty": 3,
+      "mapping": {
+        "topic_id": "9709_s1_t_the_normal_distribution",
+        "lesson_id": "9709_s1_t_the_normal_distribution_m03_l02"
+      },
+      "hints": [
+        "For a batch of 280 boxes with rejection probability $p = 0.1169$, define $Y \\sim \\mathrm{B}(280, 0.1169)$.",
+        "Find the normal approximation parameters: $\\mu = np = 32.73$ and $\\sigma^2 = np(1 - p) = 28.9$.",
+        "Apply continuity correction to $Y \\ge 30$: $Y_{\\text{cont}} \\ge 29.5$, standardize, and find the tail probability."
+      ],
+      "walkthrough": [
+        "Step 1: Check conditions and define the binomial distribution.\nLet $Y$ be the number of rejected boxes out of $n = 280$ checked boxes.\nEach box has probability $p = 0.116897$ of being rejected:\n$$Y \\sim \\mathrm{B}(280, 0.116897)$$\nCheck normal approximation validity:\n$$np = 280 \\times 0.116897 \\approx 32.73 > 5$$\n$$n(1 - p) = 280 \\times 0.883103 \\approx 247.27 > 5$$\nThus, the normal approximation $Y \\sim \\mathrm{N}(\\mu, \\sigma^2)$ is appropriate.",
+        "Step 2: Calculate the mean and variance:\n$$\\mu = np = 32.731$$\n$$\\sigma^2 = npq = 280 \\times 0.116897 \\times 0.883103 \\approx 28.905$$\n$$\\sigma = \\sqrt{28.905} \\approx 5.3763$$",
+        "Step 3: Apply the continuity correction.\nSince $Y$ takes integer values, the discrete event $Y \\ge 30$ includes the bar for $30$, which begins at the lower boundary $29.5$:\n$$\\mathrm{P}(Y \\ge 30) \\approx \\mathrm{P}(Y_{\\text{normal}} > 29.5)$$",
+        "Step 4: Standardize:\n$$Z = \\frac{29.5 - 32.731}{5.3763} = \\frac{-3.231}{5.3763} \\approx -0.6008$$",
+        "Step 5: Compute the probability using normal symmetry:\n$$\\mathrm{P}(Z > -0.601) = \\Phi(0.601)$$\nFrom the standard normal table:\n$$\\Phi(0.60) = 0.7257, \\quad \\text{difference for } 1 = 4 \\implies \\Phi(0.601) = 0.7261 \\approx 0.726$$"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,70 @@
+{
+  "schema_version": "9709_math_enrichment_v8",
+  "question_id": "9709_m16_62_q7",
+  "difficulty": 4,
+  "parts": [
+    {
+      "part_id": "9709_m16_62_q7_i",
+      "difficulty": 2,
+      "mapping": {
+        "topic_id": "9709_s1_t_the_normal_distribution",
+        "lesson_id": "9709_s1_t_the_normal_distribution_m02_l02"
+      },
+      "hints": [
+        "Express the given condition as a probability statement: $\\mathrm{P}(T > 0.9) = 0.95$, which means the lower tail is $\\mathrm{P}(T < 0.9) = 0.05$.",
+        "Use standard normal tables to find the critical $z$-value corresponding to a lower-tail area of $0.05$: $z = -1.645$.",
+        "Set up the standardisation equation $\\dfrac{0.9 - m}{0.35} = -1.645$ and solve for $m$."
+      ],
+      "walkthrough": [
+        "We are given that 95% of times exceed 0.9 hours. This means the probability of taking less than 0.9 hours is $1 - 0.95 = 0.05$:\n$$\\mathrm{P}(T < 0.9) = 0.05$$",
+        "Start with the standardization formula that turns any normal value $T$ into a standard Z-score:\n$$Z = \\frac{T - m}{\\sigma}$$",
+        "Look up the cumulative area of $0.05$ in the standard normal tables. Because $0.05$ is in the bottom tail below the average, the Z-score is negative:\n$$\\Phi(-z) = 0.05 \\implies z = -1.645$$",
+        "Substitute $Z = -1.645$, $T = 0.9$, and $\\sigma = 0.35$ into the standardization formula:\n$$-1.645 = \\frac{0.9 - m}{0.35}$$",
+        "Multiply both sides by the denominator $0.35$ to clear the fraction:\n$$-1.645 \\times 0.35 = 0.9 - m$$\n$$-0.57575 = 0.9 - m$$",
+        "Add $m$ to both sides and add $0.57575$ to both sides to solve for the mean $m$:\n$$m = 0.9 + 0.57575 = 1.47575 \\approx 1.48\\text{ hours}$$"
+      ]
+    },
+    {
+      "part_id": "9709_m16_62_q7_ii",
+      "difficulty": 4,
+      "mapping": {
+        "topic_id": "9709_s1_t_the_normal_distribution",
+        "lesson_id": "9709_s1_t_the_normal_distribution_m01_l04"
+      },
+      "hints": [
+        "Find the probability that a single car takes at most 2 hours: $\\mathrm{P}(T < 2)$.",
+        "Standardise $T = 2$ using your mean $m \\approx 1.476$ from part (i) and standard deviation $\\sigma = 0.35$: $z = \\dfrac{2 - 1.476}{0.35}$.",
+        "Look up $\\Phi(z)$ in the normal distribution table to evaluate $\\mathrm{P}(T < 2)$.",
+        "Because the 4 cars are fitted independently, raise the single-car probability to the 4th power: $[\\mathrm{P}(T < 2)]^4$."
+      ],
+      "walkthrough": [
+        "For a single car, calculate its standardized Z-score at $T = 2\\text{ hours}$ using the mean $m = 1.47575$ and standard deviation $\\sigma = 0.35$:\n$$Z = \\frac{T - m}{\\sigma} = \\frac{2 - 1.47575}{0.35}$$",
+        "Perform the subtraction in the numerator and then divide:\n$$Z = \\frac{0.52425}{0.35} = 1.49786 \\approx 1.50$$",
+        "Look up $Z = 1.50$ in the cumulative normal distribution table to find the probability that one car takes at most 2 hours:\n$$\\mathrm{P}(T < 2) = \\Phi(1.50) = 0.9332$$",
+        "Because the 4 cars are fitted independently, apply the multiplication rule. Multiply the probability 4 times (raise to the fourth power):\n$$\\text{Probability} = (0.9332)^4 = 0.9332 \\times 0.9332 \\times 0.9332 \\times 0.9332 \\approx 0.758$$"
+      ]
+    },
+    {
+      "part_id": "9709_m16_62_q7_iii",
+      "difficulty": 3,
+      "mapping": {
+        "topic_id": "9709_s1_t_the_normal_distribution",
+        "lesson_id": "9709_s1_t_the_normal_distribution_m01_l01"
+      },
+      "hints": [
+        "Express the standard deviation in terms of the mean using the given relation: $\\mu = 3\\sigma \\implies \\sigma = \\dfrac{\\mu}{3}$.",
+        "Set up the standardisation expression for $T > 0.6\\mu$: $z = \\dfrac{0.6\\mu - \\mu}{\\sigma}$.",
+        "Substitute $\\sigma = \\dfrac{\\mu}{3}$ and cancel $\\mu$ to find the numerical $z$-score.",
+        "Use normal symmetry: $\\mathrm{P}(Z > -1.2) = \\Phi(1.2)$, then look up $\\Phi(1.2)$ in the normal table."
+      ],
+      "walkthrough": [
+        "We are given that $\\mu = 3\\sigma$ and want to find $\\mathrm{P}(T < 0.6\\mu)$. Start by setting up the standardization equation:\n$$Z = \\frac{T - \\mu}{\\sigma} = \\frac{0.6\\mu - \\mu}{\\sigma}$$",
+        "Subtract the terms in the numerator ($0.6\\mu - 1.0\\mu = -0.4\\mu$):\n$$Z = \\frac{-0.4\\mu}{\\sigma}$$",
+        "Substitute the relationship $\\mu = 3\\sigma$ into the numerator:\n$$Z = \\frac{-0.4(3\\sigma)}{\\sigma} = \\frac{-1.2\\sigma}{\\sigma}$$",
+        "Cancel the common factor $\\sigma$ from both numerator and denominator:\n$$Z = -1.2$$",
+        "Because the Z-score is negative, use the symmetry property of the normal distribution curve $\\Phi(-z) = 1 - \\Phi(z)$:\n$$\\mathrm{P}(Z < -1.2) = 1 - \\Phi(1.2)$$",
+        "Look up $\\Phi(1.2)$ in the normal distribution table ($0.8849$) and subtract from 1:\n$$\\mathrm{P}(T < 0.6\\mu) = 1 - 0.8849 = 0.1151 \\approx 0.115$$"
+      ]
+    }
+  ]
+}

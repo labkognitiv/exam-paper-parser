@@ -1,0 +1,55 @@
+{
+  "schema_version": "9709_math_enrichment_v8",
+  "question_id": "9709_m23_32_q11",
+  "difficulty": 5,
+  "parts": [
+    {
+      "part_id": "9709_m23_32_q11_a",
+      "difficulty": 2,
+      "mapping": {
+        "topic_id": "9709_p3_t_logarithmic_and_exponential_functions",
+        "lesson_id": "9709_p3_t_logarithmic_and_exponential_functions_m02_l02"
+      },
+      "hints": [
+        "Because $x^2+4$ is irreducible and $x+1$ is linear, use $\\dfrac{Ax+B}{x^2+4}+\\dfrac{C}{x+1}$.",
+        "Multiply through by $(x^2+4)(x+1)$ to form a polynomial identity.",
+        "Expand and compare the coefficients of $x^2$, $x$, and the constant term to solve for $A$, $B$, and $C$."
+      ],
+      "walkthrough": [
+        "State the form of the partial fractions for $f(x) = \\dfrac{5x^2 + x + 11}{(4 + x^2)(1 + x)}$, noting the irreducible quadratic factor $(4 + x^2)$ and the linear factor $(1 + x)$:\n$$\\dfrac{5x^2 + x + 11}{(4 + x^2)(1 + x)} = \\dfrac{Ax + B}{4 + x^2} + \\dfrac{C}{1 + x}$$",
+        "Multiply both sides by the denominator $(4 + x^2)(1 + x)$ to clear fractions:\n$$5x^2 + x + 11 = (Ax + B)(1 + x) + C(4 + x^2)$$",
+        "Substitute $x = -1$ to isolate and solve for $C$:\n$$5(-1)^2 + (-1) + 11 = (A(-1) + B)(0) + C(4 + (-1)^2)$$\n$$5(1) - 1 + 11 = C(4 + 1)$$\n$$15 = 5C \\implies C = 3$$",
+        "Expand the right-hand side with $C = 3$:\n$$(Ax + B)(1 + x) + 3(4 + x^2) = Ax + Ax^2 + B + Bx + 12 + 3x^2 = (A + 3)x^2 + (A + B)x + (B + 12)$$",
+        "Equate the coefficients of $x^2$:\n$$A + 3 = 5 \\implies A = 2$$",
+        "Equate the constant terms:\n$$B + 12 = 11 \\implies B = -1$$",
+        "Verify with the coefficient of $x$:\n$$A + B = 2 + (-1) = 1 \\quad (\\text{matches the } x \\text{ coefficient of } 5x^2 + x + 11)$$",
+        "State the complete partial fractions expansion:\n$$f(x) = \\dfrac{2x - 1}{4 + x^2} + \\dfrac{3}{1 + x}$$"
+      ]
+    },
+    {
+      "part_id": "9709_m23_32_q11_b",
+      "difficulty": 5,
+      "mapping": {
+        "topic_id": "9709_p3_t_integration",
+        "lesson_id": "9709_p3_t_integration_m03_l02"
+      },
+      "hints": [
+        "Integrate the partial fractions from part (a) term by term, splitting $\\dfrac{2x-1}{x^2+4}$ into two pieces.",
+        "Use $\\int\\dfrac{2x}{x^2+4}\\,dx=\\ln(x^2+4)$ and $\\int\\dfrac{dx}{x^2+4}=\\tfrac12\\tan^{-1}(x/2)$.",
+        "Include the term $3\\ln(x+1)$, then evaluate the complete antiderivative at $2$ and $0$.",
+        "Keep the values exact, use $\\tan^{-1}(1)=\\pi/4$, and combine the logarithms into the stated form."
+      ],
+      "walkthrough": [
+        "Express the integral using the partial fractions from part (a):\n$$\\int_0^2 f(x)\\,\\mathrm{d}x = \\int_0^2 \\left(\\dfrac{2x - 1}{4 + x^2} + \\dfrac{3}{1 + x}\\right)\\,\\mathrm{d}x$$",
+        "Split the fraction $\\dfrac{2x - 1}{4 + x^2}$ into two standard integrable terms:\n$$\\dfrac{2x - 1}{4 + x^2} = \\dfrac{2x}{4 + x^2} - \\dfrac{1}{4 + x^2}$$",
+        "Integrate each of the three terms separately:\n1. $\\int \\dfrac{2x}{4 + x^2}\\,\\mathrm{d}x = \\ln(4 + x^2)$ (since the numerator is the derivative of the denominator)\n2. $\\int \\dfrac{1}{4 + x^2}\\,\\mathrm{d}x = \\int \\dfrac{1}{2^2 + x^2}\\,\\mathrm{d}x = \\dfrac{1}{2}\\tan^{-1}\\left(\\dfrac{x}{2}\\right)$\n3. $\\int \\dfrac{3}{1 + x}\\,\\mathrm{d}x = 3\\ln(1 + x)$",
+        "Combine the antiderivatives:\n$$F(x) = \\ln(4 + x^2) - \\dfrac{1}{2}\\tan^{-1}\\left(\\dfrac{x}{2}\\right) + 3\\ln(1 + x)$$",
+        "Evaluate $F(x)$ at the upper limit $x = 2$:\n$$F(2) = \\ln(4 + 2^2) - \\dfrac{1}{2}\\tan^{-1}\\left(\\dfrac{2}{2}\\right) + 3\\ln(1 + 2) = \\ln 8 - \\dfrac{1}{2}\\tan^{-1}(1) + 3\\ln 3$$\nSince $\\tan^{-1}(1) = \\dfrac{\\pi}{4}$ and $3\\ln 3 = \\ln(3^3) = \\ln 27$:\n$$F(2) = \\ln 8 - \\dfrac{1}{2}\\left(\\dfrac{\\pi}{4}\\right) + \\ln 27 = \\ln 8 + \\ln 27 - \\dfrac{1}{8}\\pi$$",
+        "Evaluate $F(x)$ at the lower limit $x = 0$:\n$$F(0) = \\ln(4 + 0) - \\dfrac{1}{2}\\tan^{-1}(0) + 3\\ln(1 + 0) = \\ln 4 - 0 + 0 = \\ln 4$$",
+        "Subtract $F(2) - F(0)$:\n$$\\int_0^2 f(x)\\,\\mathrm{d}x = \\left(\\ln 8 + \\ln 27 - \\dfrac{1}{8}\\pi\\right) - \\ln 4$$",
+        "Combine the logarithmic terms using standard logarithm laws $\\ln A - \\ln B = \\ln(A/B)$ and $\\ln P + \\ln Q = \\ln(PQ)$:\n$$\\ln 8 - \\ln 4 + \\ln 27 = \\ln\\left(\\dfrac{8}{4}\\right) + \\ln 27 = \\ln 2 + \\ln 27 = \\ln(2 \\times 27) = \\ln 54$$",
+        "Conclude the required exact result:\n$$\\int_0^2 f(x)\\,\\mathrm{d}x = \\ln 54 - \\dfrac{1}{8}\\pi$$"
+      ]
+    }
+  ]
+}

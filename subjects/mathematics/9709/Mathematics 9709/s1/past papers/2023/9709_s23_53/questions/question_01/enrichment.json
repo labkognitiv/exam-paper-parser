@@ -1,0 +1,64 @@
+{
+  "schema_version": "9709_math_enrichment_v8",
+  "question_id": "9709_s23_53_q1",
+  "difficulty": 2,
+  "parts": [
+    {
+      "part_id": "9709_s23_53_q1_a",
+      "difficulty": 1,
+      "mapping": {
+        "topic_id": "9709_s1_t_discrete_random_variables",
+        "lesson_id": "9709_s1_t_discrete_random_variables_m04_l03"
+      },
+      "hints": [
+        "Find the probability of obtaining a pair of heads when two fair coins are tossed: p = 1/2 * 1/2 = 1/4.",
+        "Since X is the number of throws until the first pair of heads, X follows a geometric distribution Geo(p).",
+        "Use the expectation formula for a geometric distribution: E(X) = 1 / p = 1 / (1/4) = 4."
+      ],
+      "walkthrough": [
+        "Step 1: Determine the single-trial success probability $p$:\nTwo fair coins are tossed. The possible outcomes are $\\{HH, HT, TH, TT\\}$, each with probability $\\frac{1}{4}$.\nSuccess is obtaining a pair of heads ($HH$):\n$$p = \\mathrm{P}(HH) = \\frac{1}{4}$$",
+        "Step 2: Identify the distribution of $X$:\n$X$ denotes the number of repeated independent throws until the first success occurs.\nTherefore, $X$ follows a geometric distribution:\n$$X \\sim \\mathrm{Geo}(p) = \\mathrm{Geo}\\left(\\frac{1}{4}\\right)$$",
+        "Step 3: State the expectation formula for a geometric distribution:\n$$\\mathrm{E}(X) = \\frac{1}{p}$$",
+        "Step 4: Substitute $p = \\frac{1}{4}$:\n$$\\mathrm{E}(X) = \\frac{1}{1/4} = 4$$"
+      ]
+    },
+    {
+      "part_id": "9709_s23_53_q1_b",
+      "difficulty": 2,
+      "mapping": {
+        "topic_id": "9709_s1_t_discrete_random_variables",
+        "lesson_id": "9709_s1_t_discrete_random_variables_m04_l01"
+      },
+      "hints": [
+        "The probability of failure on any throw is q = 1 - 1/4 = 3/4.",
+        "To require exactly 5 throws, the first 4 throws must be failures and the 5th throw must be a success.",
+        "Apply the formula P(X = 5) = (3/4)^4 * (1/4) = 81 / 1024."
+      ],
+      "walkthrough": [
+        "Step 1: Recall the geometric distribution model from part (a):\n$$X \\sim \\mathrm{Geo}(p) \\quad \\text{with } p = \\frac{1}{4} \\text{ and failure probability } q = 1 - \\frac{1}{4} = \\frac{3}{4}$$",
+        "Step 2: Write down the geometric probability mass function:\n$$\\mathrm{P}(X = r) = (1 - p)^{r - 1} p$$",
+        "Step 3: Substitute $r = 5$:\n$$\\mathrm{P}(X = 5) = \\left(\\frac{3}{4}\\right)^{5 - 1} \\left(\\frac{1}{4}\\right) = \\left(\\frac{3}{4}\\right)^4 \\left(\\frac{1}{4}\\right)$$",
+        "Step 4: Compute the powers of 3 and 4:\n$$3^4 = 81$$\n$$4^4 = 256$$\n$$4^5 = 1024$$\n$$\\mathrm{P}(X = 5) = \\frac{81}{1024} \\approx 0.0791016$$\nRounding to 3 significant figures gives $0.0791$ (or exactly $\\frac{81}{1024}$)."
+      ]
+    },
+    {
+      "part_id": "9709_s23_53_q1_c",
+      "difficulty": 2,
+      "mapping": {
+        "topic_id": "9709_s1_t_discrete_random_variables",
+        "lesson_id": "9709_s1_t_discrete_random_variables_m04_l01"
+      },
+      "hints": [
+        "The condition fewer than 7 throws means X < 7, which is equivalent to X <= 6.",
+        "Use the cumulative geometric formula: P(X <= 6) = 1 - (1 - p)^6.",
+        "Evaluate 1 - (3/4)^6 = 1 - 729 / 4096 = 3367 / 4096."
+      ],
+      "walkthrough": [
+        "Step 1: Translate the phrase 'fewer than 7 throws':\nSince $X$ is an integer number of throws, $X < 7$ means the success occurs on throw 1, 2, 3, 4, 5, or 6 ($X \\le 6$).",
+        "Step 2: Use the complement rule:\nThe only way to fail to get a pair of heads within 6 throws is if all 6 throws are failures:\n$$\\mathrm{P}(X > 6) = q^6 = \\left(\\frac{3}{4}\\right)^6$$",
+        "Step 3: Calculate $\\left(\\frac{3}{4}\\right)^6$:\n$$3^6 = 729$$\n$$4^6 = 4096$$\n$$\\left(\\frac{3}{4}\\right)^6 = \\frac{729}{4096} \\approx 0.177979$$",
+        "Step 4: Subtract from 1:\n$$\\mathrm{P}(X \\le 6) = 1 - \\frac{729}{4096} = \\frac{4096 - 729}{4096} = \\frac{3367}{4096} \\approx 0.822021$$\nRounding to 3 significant figures gives $0.822$ (or exactly $\\frac{3367}{4096}$)."
+      ]
+    }
+  ]
+}

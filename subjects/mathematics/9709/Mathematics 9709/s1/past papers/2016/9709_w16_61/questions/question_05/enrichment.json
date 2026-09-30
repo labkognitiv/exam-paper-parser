@@ -1,0 +1,70 @@
+{
+  "schema_version": "9709_math_enrichment_v8",
+  "question_id": "9709_w16_61_q5",
+  "difficulty": 4,
+  "parts": [
+    {
+      "part_id": "9709_w16_61_q5_a",
+      "difficulty": 4,
+      "mapping": {
+        "topic_id": "9709_s1_t_permutations_and_combinations",
+        "lesson_id": "9709_s1_t_permutations_and_combinations_m03_l04"
+      },
+      "hints": [
+        "Separate the 9 letters of PINEAPPLE into vowels and consonants: 4 vowels (A, E, E, I) and 5 consonants (P, P, P, N, L).",
+        "Arrange the 5 consonants first, accounting for the 3 repeated Ps: $\\dfrac{5!}{3!}$.",
+        "The 5 consonants create 6 available spaces (gaps). Choose 4 of these 6 gaps to place the vowels, and arrange the vowels accounting for the 2 repeated Es: $\\dfrac{{}^6P_4}{2!}$ (or $\\binom{6}{4} \\times \\dfrac{4!}{2!}$).",
+        "Multiply the number of consonant arrangements by the number of vowel arrangements."
+      ],
+      "walkthrough": [
+        "The word PINEAPPLE has 9 letters. Separate them into vowels and consonants:\n- Vowels: I, E, A, E $\\implies$ 4 vowels (1 A, 2 E's, 1 I)\n- Consonants: P, N, P, P, L $\\implies$ 5 consonants (3 P's, 1 N, 1 L)",
+        "The restriction requires that no two vowels are next to each other. Use the gap method: place the consonants first, and then place the vowels into the spaces between them.",
+        "Step 1: Arrange the 5 consonants. Since there are 3 identical P's, divide $5!$ by $3!$:\n$$\\text{Ways to arrange consonants} = \\frac{5!}{3!} = \\frac{120}{6} = 20$$",
+        "Step 2: When 5 consonants are arranged in a row, they create 6 possible slots where vowels can be placed (one before the first consonant, four between adjacent consonants, and one after the last consonant):\n$$\\_ \\text{C} \\_ \\text{C} \\_ \\text{C} \\_ \\text{C} \\_ \\text{C} \\_$$\nWe need to place the 4 vowels into 4 of these 6 available slots so that no slot contains more than one vowel.",
+        "Choose 4 slots out of 6 and arrange the 4 vowels (which include 2 identical E's):\n$$\\text{Ways to place vowels} = \\binom{6}{4} \\times \\frac{4!}{2!} = 15 \\times \\frac{24}{2} = 15 \\times 12 = 180$$\n(Alternatively, using permutations: $\\frac{{}^6P_4}{2!} = \\frac{6 \\times 5 \\times 4 \\times 3}{2} = \\frac{360}{2} = 180$).",
+        "Step 3: Multiply the independent choices together by the multiplication principle:\n$$\\text{Total arrangements} = 20 \\times 180 = 3600$$"
+      ]
+    },
+    {
+      "part_id": "9709_w16_61_q5_b_i",
+      "difficulty": 2,
+      "mapping": {
+        "topic_id": "9709_s1_t_permutations_and_combinations",
+        "lesson_id": "9709_s1_t_permutations_and_combinations_m01_l02"
+      },
+      "hints": [
+        "Identify the squad composition: 7 batsmen, 5 bowlers, 2 all-rounders, 2 wicketkeepers.",
+        "Identify the required team composition: 5 batsmen, 4 bowlers, 1 all-rounder, 1 wicketkeeper.",
+        "Calculate the combination for each category: $\\binom{7}{5}$, $\\binom{5}{4}$, $\\binom{2}{1}$, and $\\binom{2}{1}$, then multiply them together."
+      ],
+      "walkthrough": [
+        "A team of 11 players is chosen from four distinct categories of players in the squad:\n- Choose 5 batsmen from 7 available batsmen\n- Choose 4 bowlers from 5 available bowlers\n- Choose 1 all-rounder from 2 available all-rounders\n- Choose 1 wicketkeeper from 2 available wicketkeepers",
+        "Because the order in which players are chosen within each role does not matter, use combinations for each role:",
+        "Evaluate each combination term individually:\n$$\\binom{7}{5} = \\frac{7!}{5! \\, 2!} = \\frac{7 \\times 6}{2 \\times 1} = 21$$\n$$\\binom{5}{4} = \\frac{5!}{4! \\, 1!} = 5$$\n$$\\binom{2}{1} = 2$$\n$$\\binom{2}{1} = 2$$",
+        "Multiply these independent selections together using the multiplication rule:\n$$\\text{Total teams} = 21 \\times 5 \\times 2 \\times 2$$\nCalculate step by step:\n$$21 \\times 5 = 105$$\n$$105 \\times 2 = 210$$\n$$210 \\times 2 = 420\\text{ teams}$$"
+      ]
+    },
+    {
+      "part_id": "9709_w16_61_q5_b_ii",
+      "difficulty": 3,
+      "mapping": {
+        "topic_id": "9709_s1_t_permutations_and_combinations",
+        "lesson_id": "9709_s1_t_permutations_and_combinations_m04_l04"
+      },
+      "hints": [
+        "Use the complement approach: subtract the number of teams where BOTH the particular batsman and bowler are chosen from the total number of teams (420).",
+        "If both are chosen, you need to select 4 more batsmen from the remaining 6, and 3 more bowlers from the remaining 4.",
+        "Calculate the forbidden teams: $\\binom{6}{4} \\times \\binom{4}{3} \\times \\binom{2}{1} \\times \\binom{2}{1} = 15 \\times 4 \\times 2 \\times 2 = 240$.",
+        "Subtract this value from 420 to find the valid teams."
+      ],
+      "walkthrough": [
+        "One particular batsman refuses to play if one particular bowler is in the team. This restriction means that the particular batsman and particular bowler cannot both be selected together.",
+        "The simplest method is the complement method:\n$$\\text{Valid teams} = \\text{Total teams} - \\text{Teams where both are selected}$$",
+        "From part (b)(i), the total number of possible teams without restriction is $420$.",
+        "Now count how many teams contain both the particular batsman and the particular bowler:\n- The particular batsman is included, so we must pick the remaining $5 - 1 = 4$ batsmen from the other $7 - 1 = 6$ batsmen: $\\binom{6}{4} = 15$\n- The particular bowler is included, so we must pick the remaining $4 - 1 = 3$ bowlers from the other $5 - 1 = 4$ bowlers: $\\binom{4}{3} = 4$\n- The all-rounder and wicketkeeper selections are unchanged: $\\binom{2}{1} = 2$ and $\\binom{2}{1} = 2$",
+        "Multiply to find the number of teams with both players:\n$$\\text{Teams with both} = 15 \\times 4 \\times 2 \\times 2 = 240$$",
+        "Subtract from the total:\n$$\\text{Valid teams} = 420 - 240 = 180\\text{ teams}$$"
+      ]
+    }
+  ]
+}

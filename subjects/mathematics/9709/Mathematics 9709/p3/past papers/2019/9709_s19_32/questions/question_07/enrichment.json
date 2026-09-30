@@ -1,0 +1,51 @@
+{
+  "schema_version": "9709_math_enrichment_v8",
+  "question_id": "9709_s19_32_q7",
+  "difficulty": 4,
+  "parts": [
+    {
+      "part_id": "9709_s19_32_q7_i",
+      "difficulty": 4,
+      "mapping": {
+        "topic_id": "9709_p3_t_logarithmic_and_exponential_functions",
+        "lesson_id": "9709_p3_t_logarithmic_and_exponential_functions_m03_l01"
+      },
+      "hints": [
+        "Separate the differential equation as $e^{-y}\\,dy=xe^x\\,dx$.",
+        "Integrate the left side directly and use integration by parts on $\\int xe^x\\,dx$.",
+        "Include a constant and apply $x=0,y=0$ before rearranging.",
+        "Factor the resulting right side as $e^x(1-x)$, take logarithms, and isolate $y$."
+      ],
+      "walkthrough": [
+        "Start from the differential equation:\n$$\\dfrac{\\mathrm{d}y}{\\mathrm{d}x} = x\\mathrm{e}^{x+y}$$",
+        "Use the index law $\\mathrm{e}^{x+y} = \\mathrm{e}^x\\mathrm{e}^y$:\n$$\\dfrac{\\mathrm{d}y}{\\mathrm{d}x} = x\\mathrm{e}^x\\mathrm{e}^y$$",
+        "Separate variables by dividing by $\\mathrm{e}^y$ and multiplying by $\\mathrm{d}x$:\n$$\\dfrac{1}{\\mathrm{e}^y}\\,\\mathrm{d}y = x\\mathrm{e}^x\\,\\mathrm{d}x$$\n$$\\mathrm{e}^{-y}\\,\\mathrm{d}y = x\\mathrm{e}^x\\,\\mathrm{d}x$$",
+        "Integrate both sides:\n$$\\int \\mathrm{e}^{-y}\\,\\mathrm{d}y = \\int x\\mathrm{e}^x\\,\\mathrm{d}x$$",
+        "Evaluate the left integral:\n$$\\int \\mathrm{e}^{-y}\\,\\mathrm{d}y = -\\mathrm{e}^{-y}$$",
+        "Evaluate the right integral using integration by parts $\\int u v' = uv - \\int u' v$:\nLet $u = x \\implies u' = 1$, and $v' = \\mathrm{e}^x \\implies v = \\mathrm{e}^x$:\n$$\\int x\\mathrm{e}^x\\,\\mathrm{d}x = x\\mathrm{e}^x - \\int 1 \\cdot \\mathrm{e}^x\\,\\mathrm{d}x = x\\mathrm{e}^x - \\mathrm{e}^x + C$$",
+        "Equate the two expressions:\n$$-\\mathrm{e}^{-y} = x\\mathrm{e}^x - \\mathrm{e}^x + C$$\n$$\\mathrm{e}^{-y} = \\mathrm{e}^x - x\\mathrm{e}^x - C = (1 - x)\\mathrm{e}^x + c \\quad (\\text{where } c = -C)$$",
+        "Apply the initial condition $x = 0$ when $y = 0$:\n$$\\mathrm{e}^{-0} = (1 - 0)\\mathrm{e}^0 + c$$\n$$1 = 1(1) + c \\implies c = 0$$",
+        "Substitute $c = 0$:\n$$\\mathrm{e}^{-y} = (1 - x)\\mathrm{e}^x$$",
+        "Take the natural logarithm of both sides:\n$$-y = \\ln\\bigl((1 - x)\\mathrm{e}^x\\bigr)$$\n$$-y = \\ln(1 - x) + \\ln(\\mathrm{e}^x) = \\ln(1 - x) + x$$",
+        "Multiply by $-1$ to express $y$ in terms of $x$:\n$$y = -\\ln(1 - x) - x \\quad \\left(\\text{or } y = \\ln\\left(\\dfrac{1}{1 - x}\\right) - x\\right)$$"
+      ]
+    },
+    {
+      "part_id": "9709_s19_32_q7_ii",
+      "difficulty": 1,
+      "mapping": {
+        "topic_id": "9709_p3_t_logarithmic_and_exponential_functions",
+        "lesson_id": "9709_p3_t_logarithmic_and_exponential_functions_m03_l01"
+      },
+      "hints": [
+        "Use the logarithm domain in the solution from part (i).",
+        "For $\\ln(1-x)$ to be real, its argument must satisfy $1-x>0$; rearrange this inequality for $x$."
+      ],
+      "walkthrough": [
+        "Examine the argument of the logarithm in the solution $y = -\\ln(1 - x) - x$:\nFor the natural logarithm $\\ln(1 - x)$ to be defined for real values, its argument must be strictly positive:\n$$1 - x > 0$$",
+        "Solve the inequality for $x$:\n$$-x > -1 \\implies x < 1$$",
+        "Conclude that $x$ can only take values that are strictly less than $1$."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "schema_version": "9709_math_enrichment_v8",
+  "question_id": "9709_m22_52_q2",
+  "difficulty": 3,
+  "parts": [
+    {
+      "part_id": "9709_m22_52_q2_a",
+      "difficulty": 3,
+      "mapping": {
+        "topic_id": "9709_s1_t_discrete_random_variables",
+        "lesson_id": "9709_s1_t_discrete_random_variables_m03_l02"
+      },
+      "hints": [
+        "Identify the distribution: let $X$ be the number of days with more than 10 cm of rain out of 7 days, so $X \\sim \\mathrm{B}(7, 0.18)$.",
+        "Use the complement rule to calculate the tail probability: $\\mathrm{P}(X > 2) = 1 - \\mathrm{P}(X \\le 2) = 1 - [\\mathrm{P}(X = 0) + \\mathrm{P}(X = 1) + \\mathrm{P}(X = 2)]$.",
+        "Apply the binomial formula $\\binom{7}{x}(0.18)^x(0.82)^{7-x}$ for $x = 0, 1, 2$, sum the results, and subtract from 1."
+      ],
+      "walkthrough": [
+        "Step 1: Identify the binomial model.\nEach day has two possible outcomes regarding rainfall exceeding 10 cm:\n- Success (more than 10 cm of rain): $p = 0.18$\n- Failure (10 cm or less of rain): $q = 1 - p = 1 - 0.18 = 0.82$\nSince the days are independent and the period has $n = 7$ days, the number of days with more than 10 cm of rain is distributed as:\n$$X \\sim \\mathrm{B}(7, 0.18)$$\n\nStep 2: Formulate the complement probability.\nWe want $\\mathrm{P}(X > 2)$, which corresponds to $X \\in \\{3, 4, 5, 6, 7\\}$.\nSumming five terms directly is longer, so we use the complement rule:\n$$\\mathrm{P}(X > 2) = 1 - \\mathrm{P}(X \\le 2) = 1 - [\\mathrm{P}(X = 0) + \\mathrm{P}(X = 1) + \\mathrm{P}(X = 2)]$$\n\nStep 3: Calculate each binomial probability using $\\mathrm{P}(X = x) = \\binom{n}{x} p^x q^{n-x}$.\n- For $x = 0$:\n  $$\\mathrm{P}(X = 0) = \\binom{7}{0} (0.18)^0 (0.82)^7 = 1 \\times 1 \\times 0.249285 = 0.249285$$\n- For $x = 1$:\n  $$\\mathrm{P}(X = 1) = \\binom{7}{1} (0.18)^1 (0.82)^6 = 7 \\times 0.18 \\times 0.304006 = 0.383048$$\n- For $x = 2$:\n  $$\\binom{7}{2} = \\frac{7 \\times 6}{2 \\times 1} = 21$$\n  $$\\mathrm{P}(X = 2) = 21 \\times (0.18)^2 \\times (0.82)^5 = 21 \\times 0.0324 \\times 0.370740 = 0.252251$$\n\nStep 4: Sum the unsimplified terms and subtract from 1.\n$$\\mathrm{P}(X \\le 2) = 0.249285 + 0.383048 + 0.252251 = 0.884584$$\n$$\\mathrm{P}(X > 2) = 1 - 0.884584 = 0.115416$$\nRounding to 3 significant figures gives $0.115$."
+      ]
+    },
+    {
+      "part_id": "9709_m22_52_q2_b",
+      "difficulty": 2,
+      "mapping": {
+        "topic_id": "9709_s1_t_discrete_random_variables",
+        "lesson_id": "9709_s1_t_discrete_random_variables_m03_l05"
+      },
+      "hints": [
+        "First find the probability that a single 7-day period has at least one day with more than 10 cm of rain using the complement of no rainy days.",
+        "Calculate $p_1 = 1 - (0.82)^7$ for one period.",
+        "Define a new binomial variable $Y \\sim \\mathrm{B}(3, p_1)$ representing the number of such 7-day periods out of 3, and calculate $\\mathrm{P}(Y = 2) = \\binom{3}{2} p_1^2 (1 - p_1)$."
+      ],
+      "walkthrough": [
+        "Step 1: Calculate the single-period probability.\nLet event $A$ be that a 7-day period has at least one day with more than 10 cm of rain.\nThe complement event $A'$ is that the period has zero days with more than 10 cm of rain.\nSince each day has rain $\\le 10$ cm with probability $0.82$ independently:\n$$\\mathrm{P}(A') = (0.82)^7 \\approx 0.249285$$\nTherefore, the probability for one period is:\n$$\\mathrm{P}(A) = 1 - \\mathrm{P}(A') = 1 - (0.82)^7 = 1 - 0.249285 = 0.750715$$\n\nStep 2: Model the number of successful periods.\nWe are considering $n = 3$ independent 7-day periods.\nLet $Y$ denote the number of periods that have at least one day with more than 10 cm of rain.\nThen $Y$ follows a binomial distribution:\n$$Y \\sim \\mathrm{B}(3, p)$$\nwhere $p = 0.750715$ and $q = 1 - p = 0.249285$.\n\nStep 3: Calculate the probability of exactly two periods.\nUsing the binomial probability formula $\\mathrm{P}(Y = y) = \\binom{n}{y} p^y q^{n-y}$ with $y = 2$:\n$$\\mathrm{P}(Y = 2) = \\binom{3}{2} p^2 q^{3-2} = \\binom{3}{2} p^2 q^1$$\nCalculate the combination factor:\n$$\\binom{3}{2} = \\frac{3!}{2!1!} = 3$$\nSubstitute the numerical values:\n$$\\mathrm{P}(Y = 2) = 3 \\times (0.750715)^2 \\times (0.249285)$$\nCompute $(0.750715)^2$:\n$$(0.750715)^2 \\approx 0.563573$$\nMultiply the three terms:\n$$\\mathrm{P}(Y = 2) = 3 \\times 0.563573 \\times 0.249285 = 1.690719 \\times 0.249285 \\approx 0.42146$$\nRounding to 3 significant figures gives $0.421$."
+      ]
+    }
+  ]
+}

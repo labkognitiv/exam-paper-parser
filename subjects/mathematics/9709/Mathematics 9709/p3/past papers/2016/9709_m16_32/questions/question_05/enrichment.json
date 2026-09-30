@@ -1,0 +1,50 @@
+{
+  "schema_version": "9709_math_enrichment_v8",
+  "question_id": "9709_m16_32_q5",
+  "difficulty": 3,
+  "parts": [
+    {
+      "part_id": "9709_m16_32_q5_i",
+      "difficulty": 3,
+      "mapping": {
+        "topic_id": "9709_p3_t_integration",
+        "lesson_id": "9709_p3_t_integration_m01_l01"
+      },
+      "hints": [
+        "With $x=\\sqrt3\\tan\\theta$, calculate $dx=\\sqrt3\\sec^2\\theta\\,d\\theta$.",
+        "Transform the endpoints: $x=0$ and $x=1$ give the corresponding values of $\\theta$.",
+        "Replace $3+x^2$ by $3(1+\\tan^2\\theta)$ and simplify using $1+\\tan^2\\theta=\\sec^2\\theta$.",
+        "Cancel the powers of $\\sec\\theta$ to obtain the stated $\\cos^2\\theta$ integral."
+      ],
+      "walkthrough": [
+        "Differentiate the substitution $x = \\sqrt{3}\\tan\\theta$ with respect to $\\theta$:\n$$\\dfrac{\\mathrm{d}x}{\\mathrm{d}\\theta} = \\sqrt{3}\\sec^2\\theta \\implies \\mathrm{d}x = \\sqrt{3}\\sec^2\\theta\\,\\mathrm{d}\\theta$$",
+        "Convert the limits of integration from $x$ to $\\theta$:\nWhen $x = 0$:\n$$0 = \\sqrt{3}\\tan\\theta \\implies \\tan\\theta = 0 \\implies \\theta = 0$$\nWhen $x = 1$:\n$$1 = \\sqrt{3}\\tan\\theta \\implies \\tan\\theta = \\dfrac{1}{\\sqrt{3}} \\implies \\theta = \\dfrac{\\pi}{6}$$",
+        "Express the denominator $(3 + x^2)^2$ in terms of $\\theta$ using the identity $1 + \\tan^2\\theta = \\sec^2\\theta$:\n$$3 + x^2 = 3 + (\\sqrt{3}\\tan\\theta)^2 = 3 + 3\\tan^2\\theta = 3(1 + \\tan^2\\theta) = 3\\sec^2\\theta$$\n$$(3 + x^2)^2 = (3\\sec^2\\theta)^2 = 9\\sec^4\\theta$$",
+        "Substitute $x$, $(3 + x^2)^2$, and $\\mathrm{d}x$ into the integral $I$:\n$$I = \\int_0^{\\pi/6} \\dfrac{9}{9\\sec^4\\theta} \\cdot \\left(\\sqrt{3}\\sec^2\\theta\\,\\mathrm{d}\\theta\\right) = \\sqrt{3}\\int_0^{\\pi/6} \\dfrac{\\sec^2\\theta}{\\sec^4\\theta}\\,\\mathrm{d}\\theta = \\sqrt{3}\\int_0^{\\pi/6} \\dfrac{1}{\\sec^2\\theta}\\,\\mathrm{d}\\theta$$",
+        "Use the reciprocal identity $\\dfrac{1}{\\sec^2\\theta} = \\cos^2\\theta$ to obtain the required expression:\n$$I = \\sqrt{3}\\int_0^{\\pi/6} \\cos^2\\theta\\,\\mathrm{d}\\theta$$"
+      ]
+    },
+    {
+      "part_id": "9709_m16_32_q5_ii",
+      "difficulty": 3,
+      "mapping": {
+        "topic_id": "9709_p3_t_integration",
+        "lesson_id": "9709_p3_t_integration_m01_l01"
+      },
+      "hints": [
+        "Use the result $I=\\sqrt3\\int_0^{\\pi/6}\\cos^2\\theta\\,d\\theta$ from part (i).",
+        "Replace $\\cos^2\\theta$ by $\\tfrac12(1+\\cos2\\theta)$.",
+        "Integrate to $\\tfrac12\\theta+\\tfrac14\\sin2\\theta$ and apply the bounds $0$ and $\\pi/6$.",
+        "Multiply by $\\sqrt3$ and simplify the exact terms."
+      ],
+      "walkthrough": [
+        "Apply the double angle formula $\\cos 2\\theta = 2\\cos^2\\theta - 1$ to rewrite the integrand $\\cos^2\\theta$:\n$$\\cos^2\\theta = \\dfrac{1 + \\cos 2\\theta}{2} = \\dfrac{1}{2} + \\dfrac{1}{2}\\cos 2\\theta$$",
+        "Substitute this into the expression for $I$:\n$$I = \\sqrt{3}\\int_0^{\\pi/6} \\left(\\dfrac{1}{2} + \\dfrac{1}{2}\\cos 2\\theta\\right)\\mathrm{d}\\theta$$",
+        "Find the antiderivative:\n$$\\int \\left(\\dfrac{1}{2} + \\dfrac{1}{2}\\cos 2\\theta\\right)\\mathrm{d}\\theta = \\left[\\dfrac{1}{2}\\theta + \\dfrac{1}{4}\\sin 2\\theta\\right]_0^{\\pi/6}$$",
+        "Evaluate the antiderivative at the upper limit $\\theta = \\dfrac{\\pi}{6}$:\n$$\\dfrac{1}{2}\\left(\\dfrac{\\pi}{6}\\right) + \\dfrac{1}{4}\\sin\\left(2 \\cdot \\dfrac{\\pi}{6}\\right) = \\dfrac{\\pi}{12} + \\dfrac{1}{4}\\sin\\left(\\dfrac{\\pi}{3}\\right) = \\dfrac{\\pi}{12} + \\dfrac{1}{4}\\left(\\dfrac{\\sqrt{3}}{2}\\right) = \\dfrac{\\pi}{12} + \\dfrac{\\sqrt{3}}{8}$$",
+        "Evaluate the antiderivative at the lower limit $\\theta = 0$:\n$$\\dfrac{1}{2}(0) + \\dfrac{1}{4}\\sin(0) = 0$$",
+        "Multiply the evaluated definite integral by $\\sqrt{3}$:\n$$I = \\sqrt{3}\\left(\\dfrac{\\pi}{12} + \\dfrac{\\sqrt{3}}{8}\\right) = \\dfrac{\\sqrt{3}\\pi}{12} + \\dfrac{(\\sqrt{3})(\\sqrt{3})}{8} = \\dfrac{\\sqrt{3}\\pi}{12} + \\dfrac{3}{8}$$"
+      ]
+    }
+  ]
+}

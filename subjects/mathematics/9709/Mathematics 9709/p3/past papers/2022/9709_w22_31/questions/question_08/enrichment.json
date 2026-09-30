@@ -1,0 +1,49 @@
+{
+  "schema_version": "9709_math_enrichment_v8",
+  "question_id": "9709_w22_31_q8",
+  "difficulty": 3,
+  "parts": [
+    {
+      "part_id": "9709_w22_31_q8_a",
+      "difficulty": 3,
+      "mapping": {
+        "topic_id": "9709_p3_t_differential_equations",
+        "lesson_id": "9709_p3_t_differential_equations_m03_l01"
+      },
+      "hints": [
+        "The differential equation is separable: put all factors involving $x$ with $dx$ and all factors involving $t$ with $dt$.",
+        "Integrate $1/x$ with respect to $x$ and $ke^{-0.1t}$ with respect to $t$, taking care that integrating the exponential introduces a factor of $-10$.",
+        "Use the initial condition $x=20$ when $t=0$ to determine the integration constant, then rearrange to a relation between $\\ln x$, $t$, and $k$."
+      ],
+      "walkthrough": [
+        "Separate variables in the differential equation $\\dfrac{\\mathrm{d}x}{\\mathrm{d}t} = kx\\mathrm{e}^{-0.1t}$:\n$$\\dfrac{1}{x}\\,\\mathrm{d}x = k\\mathrm{e}^{-0.1t}\\,\\mathrm{d}t$$\n$$\\int \\dfrac{1}{x}\\,\\mathrm{d}x = \\int k\\mathrm{e}^{-0.1t}\\,\\mathrm{d}t$$",
+        "Integrate the left-hand side with respect to $x$:\n$$\\int \\dfrac{1}{x}\\,\\mathrm{d}x = \\ln x$$",
+        "Integrate the right-hand side with respect to $t$:\n$$\\int k\\mathrm{e}^{-0.1t}\\,\\mathrm{d}t = \\dfrac{k}{-0.1}\\mathrm{e}^{-0.1t} = -10k\\mathrm{e}^{-0.1t}$$",
+        "Combine the integrated terms with a constant of integration $C$:\n$$\\ln x = -10k\\mathrm{e}^{-0.1t} + C$$",
+        "Substitute the initial condition $x = 20$ when $t = 0$ to find $C$:\n$$\\ln(20) = -10k\\mathrm{e}^0 + C$$\n$$\\ln 20 = -10k + C \\implies C = 10k + \\ln 20$$",
+        "Substitute $C$ back into the equation and factor $10k$:\n$$\\ln x = -10k\\mathrm{e}^{-0.1t} + 10k + \\ln 20$$\n$$\\ln x = 10k(1 - \\mathrm{e}^{-0.1t}) + \\ln 20$$"
+      ]
+    },
+    {
+      "part_id": "9709_w22_31_q8_b",
+      "difficulty": 2,
+      "mapping": {
+        "topic_id": "9709_p3_t_logarithmic_and_exponential_functions",
+        "lesson_id": "9709_p3_t_logarithmic_and_exponential_functions_m03_l01"
+      },
+      "hints": [
+        "Substitute the new data $x=40$ and $t=10$ into the relation obtained in part (a) to determine $k$.",
+        "Simplify using $e^{-0.1(10)}=e^{-1}$ and $\\ln40-\\ln20=\\ln2$ before solving for $k$.",
+        "For the long-term amount, let $t\\to\\infty$, use $e^{-0.1t}\\to0$, and then exponentiate the limiting value of $\\ln x$ to obtain a numerical amount."
+      ],
+      "walkthrough": [
+        "Substitute $x = 40$ and $t = 10$ into the relation from part (a):\n$$\\ln(40) = 10k(1 - \\mathrm{e}^{-0.1 \\times 10}) + \\ln 20$$\n$$\\ln 40 - \\ln 20 = 10k(1 - \\mathrm{e}^{-1})$$",
+        "Simplify the left-hand side using the quotient law of logarithms $\\ln 40 - \\ln 20 = \\ln\\left(\\dfrac{40}{20}\\right) = \\ln 2$:\n$$\\ln 2 = 10k(1 - \\mathrm{e}^{-1})$$",
+        "Solve for $10k$ and $k$:\n$$10k = \\dfrac{\\ln 2}{1 - \\mathrm{e}^{-1}} \\approx \\dfrac{0.693147}{1 - 0.367879} = \\dfrac{0.693147}{0.632121} \\approx 1.09654$$\n$$k = \\dfrac{1.09654}{10} \\approx 0.10965 \\implies k \\approx 0.110$$",
+        "Determine the limiting value of $x$ as $t$ becomes very large ($t \\to \\infty$):\nSince $-0.1 < 0$, $\\mathrm{e}^{-0.1t} \\to 0$ as $t \\to \\infty$.\nTherefore:\n$$\\ln x \\to 10k(1 - 0) + \\ln 20 = 10k + \\ln 20$$",
+        "Substitute $10k = 1.09654$ and solve for the limiting value of $x$:\n$$x \\to \\mathrm{e}^{10k + \\ln 20} = 20\\mathrm{e}^{10k} = 20\\mathrm{e}^{1.09654} \\approx 20(2.99380) \\approx 59.876$$",
+        "State the limiting value of $x$ correct to 3 significant figures:\n$$x \\to 59.9$$"
+      ]
+    }
+  ]
+}

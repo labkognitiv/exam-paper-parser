@@ -1,0 +1,54 @@
+{
+  "schema_version": "9709_math_enrichment_v8",
+  "question_id": "9709_w16_32_q7",
+  "difficulty": 5,
+  "parts": [
+    {
+      "part_id": "9709_w16_32_q7_i",
+      "difficulty": 3,
+      "mapping": {
+        "topic_id": "9709_p3_t_differentiation",
+        "lesson_id": "9709_p3_t_differentiation_m01_l01"
+      },
+      "hints": [
+        "Apply the product rule to $(2x-x^2)e^{x/2}$, including the chain-rule factor $1/2$.",
+        "Set the derivative to zero and remove the non-zero exponential factor.",
+        "Solve the resulting quadratic equation exactly.",
+        "Choose the root giving the maximum shown on the portion bounded by the positive $x$-axis."
+      ],
+      "walkthrough": [
+        "Differentiate $y = (2x - x^2)\\mathrm{e}^{x/2}$ with respect to $x$ using the product rule:\n$$\\dfrac{\\mathrm{d}y}{\\mathrm{d}x} = \\dfrac{\\mathrm{d}}{\\mathrm{d}x}(2x - x^2)\\mathrm{e}^{x/2} + (2x - x^2)\\dfrac{\\mathrm{d}}{\\mathrm{d}x}(\\mathrm{e}^{x/2})$$",
+        "Compute the derivative of each factor:\n$$\\dfrac{\\mathrm{d}y}{\\mathrm{d}x} = (2 - 2x)\\mathrm{e}^{x/2} + (2x - x^2)\\left(\\dfrac{1}{2}\\mathrm{e}^{x/2}\\right)$$",
+        "Factor out $\\mathrm{e}^{x/2}$:\n$$\\dfrac{\\mathrm{d}y}{\\mathrm{d}x} = \\mathrm{e}^{x/2}\\left(2 - 2x + x - \\dfrac{1}{2}x^2\\right) = \\mathrm{e}^{x/2}\\left(2 - x - \\dfrac{1}{2}x^2\\right)$$",
+        "At the maximum point $M$, set $\\dfrac{\\mathrm{d}y}{\\mathrm{d}x} = 0$. Since the exponential factor $\\mathrm{e}^{x/2} > 0$ for all real $x$:\n$$2 - x - \\dfrac{1}{2}x^2 = 0$$",
+        "Multiply through by $-2$ to obtain standard quadratic form:\n$$x^2 + 2x - 4 = 0$$",
+        "Solve using the quadratic formula:\n$$x = \\dfrac{-2 \\pm \\sqrt{2^2 - 4(1)(-4)}}{2(1)} = \\dfrac{-2 \\pm \\sqrt{4 + 16}}{2} = \\dfrac{-2 \\pm \\sqrt{20}}{2} = \\dfrac{-2 \\pm 2\\sqrt{5}}{2} = -1 \\pm \\sqrt{5}$$",
+        "Since $M$ lies in the first quadrant where $x > 0$, discard the negative root $-1 - \\sqrt{5}$ and state the exact $x$-coordinate:\n$$x = \\sqrt{5} - 1$$"
+      ]
+    },
+    {
+      "part_id": "9709_w16_32_q7_ii",
+      "difficulty": 5,
+      "mapping": {
+        "topic_id": "9709_p3_t_logarithmic_and_exponential_functions",
+        "lesson_id": "9709_p3_t_logarithmic_and_exponential_functions_m03_l01"
+      },
+      "hints": [
+        "Find the positive-axis intercepts from $(2x-x^2)e^{x/2}=0$ and use them as the area bounds.",
+        "Integrate the polynomial times $e^{x/2}$ by parts, differentiating $2x-x^2$.",
+        "Repeat integration by parts for the remaining linear polynomial times the exponential.",
+        "Evaluate at the two bounds and simplify the exact expression."
+      ],
+      "walkthrough": [
+        "Find the $x$-intercepts where the curve meets the $x$-axis by setting $y = 0$:\n$$(2x - x^2)\\mathrm{e}^{x/2} = 0 \\implies x(2 - x) = 0 \\implies x = 0 \\quad \\text{or} \\quad x = 2$$",
+        "The area of the shaded region is given by the definite integral:\n$$\\text{Area} = \\int_0^2 (2x - x^2)\\mathrm{e}^{x/2}\\,\\mathrm{d}x$$",
+        "Apply integration by parts $\\int u\\,\\mathrm{d}v = uv - \\int v\\,\\mathrm{d}u$ with $u = 2x - x^2 \\implies \\mathrm{d}u = (2 - 2x)\\,\\mathrm{d}x$ and $\\mathrm{d}v = \\mathrm{e}^{x/2}\\,\\mathrm{d}x \\implies v = 2\\mathrm{e}^{x/2}$:\n$$\\int (2x - x^2)\\mathrm{e}^{x/2}\\,\\mathrm{d}x = 2(2x - x^2)\\mathrm{e}^{x/2} - 2\\int (2 - 2x)\\mathrm{e}^{x/2}\\,\\mathrm{d}x$$",
+        "Integrate the second term $\\int (2 - 2x)\\mathrm{e}^{x/2}\\,\\mathrm{d}x$ by parts with $u_1 = 2 - 2x \\implies \\mathrm{d}u_1 = -2\\,\\mathrm{d}x$ and $\\mathrm{d}v_1 = \\mathrm{e}^{x/2}\\,\\mathrm{d}x \\implies v_1 = 2\\mathrm{e}^{x/2}$:\n$$\\int (2 - 2x)\\mathrm{e}^{x/2}\\,\\mathrm{d}x = 2(2 - 2x)\\mathrm{e}^{x/2} - \\int 2\\mathrm{e}^{x/2}(-2\\,\\mathrm{d}x) = (4 - 4x)\\mathrm{e}^{x/2} + 4\\int \\mathrm{e}^{x/2}\\,\\mathrm{d}x = (4 - 4x)\\mathrm{e}^{x/2} + 8\\mathrm{e}^{x/2} = (12 - 4x)\\mathrm{e}^{x/2}$$",
+        "Combine into the complete antiderivative:\n$$\\int (2x - x^2)\\mathrm{e}^{x/2}\\,\\mathrm{d}x = 2(2x - x^2)\\mathrm{e}^{x/2} - 2(12 - 4x)\\mathrm{e}^{x/2} = \\mathrm{e}^{x/2}(4x - 2x^2 - 24 + 8x) = (-2x^2 + 12x - 24)\\mathrm{e}^{x/2}$$",
+        "Evaluate at the upper limit $x = 2$:\n$$(-2(2^2) + 12(2) - 24)\\mathrm{e}^{2/2} = (-8 + 24 - 24)\\mathrm{e}^1 = -8\\mathrm{e}$$",
+        "Evaluate at the lower limit $x = 0$:\n$$(-2(0)^2 + 12(0) - 24)\\mathrm{e}^0 = -24(1) = -24$$",
+        "Subtract the lower limit evaluation from the upper limit evaluation:\n$$\\text{Area} = -8\\mathrm{e} - (-24) = 24 - 8\\mathrm{e}$$"
+      ]
+    }
+  ]
+}

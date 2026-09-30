@@ -1,0 +1,67 @@
+{
+  "schema_version": "9709_math_enrichment_v8",
+  "question_id": "9709_s20_51_q5",
+  "difficulty": 4,
+  "parts": [
+    {
+      "part_id": "9709_s20_51_q5_a",
+      "difficulty": 2,
+      "mapping": {
+        "topic_id": "9709_s1_t_probability",
+        "lesson_id": "9709_s1_t_probability_m02_l01"
+      },
+      "hints": [
+        "The first stage represents Rani's meal choice: pizza (0.35), burger (0.44), or curry (0.21).",
+        "The second stage represents whether she has fruit ($F$) or no fruit ($F'$).",
+        "After pizza: $\\mathrm{P}(F) = 0.3$, so $\\mathrm{P}(F') = 1 - 0.3 = 0.7$.",
+        "After burger: $\\mathrm{P}(F) = 0.8$, so $\\mathrm{P}(F') = 0.2$. After curry: $\\mathrm{P}(F) = 0$, so $\\mathrm{P}(F') = 1$."
+      ],
+      "walkthrough": [
+        "We need to construct a fully labelled tree diagram representing Rani's evening meal choices and whether she has fruit.",
+        "Step 1: First stage (meal choice).\nRani selects one of three meals on Monday evening with probabilities:\nPizza ($P$): $0.35$\nBurger ($B$): $0.44$\nCurry ($C$): $0.21$\nCheck: $0.35 + 0.44 + 0.21 = 1.00$.",
+        "Step 2: Second stage (fruit choice conditional on meal).\nFor each meal, draw branches for 'Fruit' ($F$) and 'No fruit' ($F'$):\n- If Rani has Pizza:\n$$\\mathrm{P}(F \\mid P) = 0.3$$\n$$\\mathrm{P}(F' \\mid P) = 1 - 0.3 = 0.7$$\n- If Rani has a Burger:\n$$\\mathrm{P}(F \\mid B) = 0.8$$\n$$\\mathrm{P}(F' \\mid B) = 1 - 0.8 = 0.2$$\n- If Rani has a Curry:\n$$\\mathrm{P}(F \\mid C) = 0$$\n$$\\mathrm{P}(F' \\mid C) = 1 - 0 = 1$$\n(This can be shown as two branches with probabilities 0 and 1, or as a single branch for no fruit with probability 1).",
+        "Step 3: Label all branch names and probabilities clearly on the diagram."
+      ]
+    },
+    {
+      "part_id": "9709_s20_51_q5_b",
+      "difficulty": 2,
+      "mapping": {
+        "topic_id": "9709_s1_t_probability",
+        "lesson_id": "9709_s1_t_probability_m02_l02"
+      },
+      "hints": [
+        "Identify all paths on the tree diagram that lead to Rani having fruit: Pizza then Fruit, or Burger then Fruit.",
+        "Multiply the probabilities along each valid branch using the multiplication rule.",
+        "Add the branch probabilities using the law of total probability: $(0.35 \\times 0.3) + (0.44 \\times 0.8) + (0.21 \\times 0)$."
+      ],
+      "walkthrough": [
+        "We want to find the overall probability that Rani has some fruit on Monday evening.",
+        "Step 1: Identify all paths ending in Fruit ($F$).\nRani can have fruit in two possible scenarios (since she never has fruit with curry):\nScenario 1: She cooks pizza and has fruit, denoted $(P \\cap F)$.\nScenario 2: She cooks a burger and has fruit, denoted $(B \\cap F)$.",
+        "Step 2: Apply the multiplication rule to find the probability of each scenario:\n$$\\mathrm{P}(P \\cap F) = \\mathrm{P}(P) \\times \\mathrm{P}(F \\mid P) = 0.35 \\times 0.3 = 0.105$$\n$$\\mathrm{P}(B \\cap F) = \\mathrm{P}(B) \\times \\mathrm{P}(F \\mid B) = 0.44 \\times 0.8 = 0.352$$",
+        "Step 3: Apply the law of total probability:\n$$\\mathrm{P}(F) = \\mathrm{P}(P \\cap F) + \\mathrm{P}(B \\cap F) + \\mathrm{P}(C \\cap F)$$\n$$\\mathrm{P}(F) = 0.105 + 0.352 + 0 = 0.457$$\nTherefore, the probability that Rani has some fruit is $0.457$."
+      ]
+    },
+    {
+      "part_id": "9709_s20_51_q5_c",
+      "difficulty": 4,
+      "mapping": {
+        "topic_id": "9709_s1_t_probability",
+        "lesson_id": "9709_s1_t_probability_m03_l02"
+      },
+      "hints": [
+        "Use the conditional probability formula: $\\mathrm{P}(B' \\mid F') = \\dfrac{\\mathrm{P}(B' \\cap F')}{\\mathrm{P}(F')}$.",
+        "Find the denominator $\\mathrm{P}(F')$ using the complement of part (b): $\\mathrm{P}(F') = 1 - \\mathrm{P}(F) = 1 - 0.457 = 0.543$.",
+        "Find the numerator: not a burger and no fruit means either Pizza with no fruit or Curry with no fruit: $(0.35 \\times 0.7) + (0.21 \\times 1) = 0.455$.",
+        "Divide the numerator by the denominator: $\\dfrac{0.455}{0.543} = \\dfrac{455}{543} \\approx 0.838$."
+      ],
+      "walkthrough": [
+        "We are given that Rani does not have any fruit ($F'$), and we want to find the probability that she does not have a burger ($B'$).",
+        "Step 1: Write down the definition of conditional probability:\n$$\\mathrm{P}(B' \\mid F') = \\frac{\\mathrm{P}(B' \\cap F')}{\\mathrm{P}(F')}$$",
+        "Step 2: Calculate the denominator $\\mathrm{P}(F')$.\nFrom part (b), the probability that Rani has some fruit is $\\mathrm{P}(F) = 0.457$.\nBy the complement rule:\n$$\\mathrm{P}(F') = 1 - \\mathrm{P}(F) = 1 - 0.457 = 0.543$$",
+        "Step 3: Calculate the numerator $\\mathrm{P}(B' \\cap F')$.\nThe event $(B' \\cap F')$ means Rani does not have a burger AND does not have fruit.\nSince the only other meal choices are pizza and curry:\n$$\\mathrm{P}(B' \\cap F') = \\mathrm{P}(P \\cap F') + \\mathrm{P}(C \\cap F')$$\nEvaluate each path from the tree diagram:\nPizza with no fruit:\n$$\\mathrm{P}(P \\cap F') = \\mathrm{P}(P) \\times \\mathrm{P}(F' \\mid P) = 0.35 \\times 0.7 = 0.245$$\nCurry with no fruit:\n$$\\mathrm{P}(C \\cap F') = \\mathrm{P}(C) \\times \\mathrm{P}(F' \\mid C) = 0.21 \\times 1.0 = 0.210$$\nAdd these two disjoint path probabilities:\n$$\\mathrm{P}(B' \\cap F') = 0.245 + 0.210 = 0.455$$",
+        "Step 4: Compute the conditional probability:\n$$\\mathrm{P}(B' \\mid F') = \\frac{0.455}{0.543}$$\nMultiply numerator and denominator by 1000:\n$$\\mathrm{P}(B' \\mid F') = \\frac{455}{543}$$\nIn decimal form:\n$$\\frac{455}{543} \\approx 0.837937... \\approx 0.838$$\nRounding to 3 significant figures gives $0.838$."
+      ]
+    }
+  ]
+}

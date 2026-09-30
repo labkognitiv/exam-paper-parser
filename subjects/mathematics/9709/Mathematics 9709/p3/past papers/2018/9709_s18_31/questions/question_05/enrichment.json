@@ -1,0 +1,50 @@
+{
+  "schema_version": "9709_math_enrichment_v8",
+  "question_id": "9709_s18_31_q5",
+  "difficulty": 3,
+  "parts": [
+    {
+      "part_id": "9709_s18_31_q5_i",
+      "difficulty": 3,
+      "mapping": {
+        "topic_id": "9709_p3_t_integration",
+        "lesson_id": "9709_p3_t_integration_m01_l01"
+      },
+      "hints": [
+        "Make the stated substitution consistently in the integrand, differential, and limits.",
+        "Differentiate $x=\\cos^2\\theta$ to obtain $dx$ in terms of $d\\theta$.",
+        "On the relevant angular interval, use $1-\\cos^2\\theta=\\sin^2\\theta$ and choose the correct sign of the square root.",
+        "Convert both $x$-limits to angles; note that $\\cos^2\\theta$ decreases across this interval, so the reversal of limits absorbs the negative sign."
+      ],
+      "walkthrough": [
+        "Differentiate the substitution $x = \\cos^2\\theta$ with respect to $\\theta$:\n$$\\dfrac{\\mathrm{d}x}{\\mathrm{d}\\theta} = 2\\cos\\theta(-\\sin\\theta) = -2\\cos\\theta\\sin\\theta$$\n$$\\mathrm{d}x = -2\\cos\\theta\\sin\\theta\\,\\mathrm{d}\\theta$$",
+        "Transform the integrand using $1 - x = 1 - \\cos^2\\theta = \\sin^2\\theta$:\n$$\\sqrt{\\dfrac{x}{1 - x}} = \\sqrt{\\dfrac{\\cos^2\\theta}{\\sin^2\\theta}} = \\dfrac{\\cos\\theta}{\\sin\\theta}$$",
+        "Determine the new integration limits for $\\theta$:\n- Lower limit: when $x = \\dfrac{1}{4}$, $\\cos^2\\theta = \\dfrac{1}{4} \\implies \\cos\\theta = \\dfrac{1}{2} \\implies \\theta = \\dfrac{\\pi}{3}$.\n- Upper limit: when $x = \\dfrac{3}{4}$, $\\cos^2\\theta = \\dfrac{3}{4} \\implies \\cos\\theta = \\dfrac{\\sqrt{3}}{2} \\implies \\theta = \\dfrac{\\pi}{6}$.",
+        "Substitute the integrand, differential, and limits into $I$:\n$$I = \\int_{\\frac{\\pi}{3}}^{\\frac{\\pi}{6}} \\left(\\dfrac{\\cos\\theta}{\\sin\\theta}\\right)(-2\\cos\\theta\\sin\\theta)\\,\\mathrm{d}\\theta$$",
+        "Simplify the integrand:\n$$\\left(\\dfrac{\\cos\\theta}{\\sin\\theta}\\right)(-2\\cos\\theta\\sin\\theta) = -2\\cos^2\\theta$$\n$$I = \\int_{\\frac{\\pi}{3}}^{\\frac{\\pi}{6}} (-2\\cos^2\\theta)\\,\\mathrm{d}\\theta$$",
+        "Reverse the order of integration limits to absorb the negative sign:\n$$I = \\int_{\\frac{1}{6}\\pi}^{\\frac{1}{3}\\pi} 2\\cos^2\\theta\\,\\mathrm{d}\\theta$$"
+      ]
+    },
+    {
+      "part_id": "9709_s18_31_q5_ii",
+      "difficulty": 2,
+      "mapping": {
+        "topic_id": "9709_p3_t_integration",
+        "lesson_id": "9709_p3_t_integration_m01_l02"
+      },
+      "hints": [
+        "Begin with the transformed definite integral established in part (i).",
+        "Use $2\\cos^2\\theta=1+\\cos 2\\theta$ before integrating.",
+        "Find an exact antiderivative in terms of $\\theta$ and $\\sin 2\\theta$.",
+        "Apply the angular limits carefully and simplify the exact special-angle values."
+      ],
+      "walkthrough": [
+        "Apply the double angle formula $2\\cos^2\\theta = 1 + \\cos 2\\theta$ to rewrite the integrand:\n$$I = \\int_{\\frac{1}{6}\\pi}^{\\frac{1}{3}\\pi} (1 + \\cos 2\\theta)\\,\\mathrm{d}\\theta$$",
+        "Integrate each term with respect to $\\theta$:\n$$\\int (1 + \\cos 2\\theta)\\,\\mathrm{d}\\theta = \\left[ \\theta + \\dfrac{1}{2}\\sin 2\\theta \\right]_{\\frac{1}{6}\\pi}^{\\frac{1}{3}\\pi}$$",
+        "Evaluate at the upper limit $\\theta = \\dfrac{\\pi}{3}$:\n$$2\\left(\\dfrac{\\pi}{3}\\right) = \\dfrac{2\\pi}{3} \\implies \\sin\\left(\\dfrac{2\\pi}{3}\\right) = \\dfrac{\\sqrt{3}}{2}$$\n$$\\text{Upper value} = \\dfrac{\\pi}{3} + \\dfrac{1}{2}\\left(\\dfrac{\\sqrt{3}}{2}\\right) = \\dfrac{\\pi}{3} + \\dfrac{\\sqrt{3}}{4}$$",
+        "Evaluate at the lower limit $\\theta = \\dfrac{\\pi}{6}$:\n$$2\\left(\\dfrac{\\pi}{6}\\right) = \\dfrac{\\pi}{3} \\implies \\sin\\left(\\dfrac{\\pi}{3}\\right) = \\dfrac{\\sqrt{3}}{2}$$\n$$\\text{Lower value} = \\dfrac{\\pi}{6} + \\dfrac{1}{2}\\left(\\dfrac{\\sqrt{3}}{2}\\right) = \\dfrac{\\pi}{6} + \\dfrac{\\sqrt{3}}{4}$$",
+        "Subtract the lower evaluation from the upper evaluation:\n$$I = \\left(\\dfrac{\\pi}{3} + \\dfrac{\\sqrt{3}}{4}\\right) - \\left(\\dfrac{\\pi}{6} + \\dfrac{\\sqrt{3}}{4}\\right) = \\dfrac{\\pi}{3} - \\dfrac{\\pi}{6} = \\dfrac{\\pi}{6}$$"
+      ]
+    }
+  ]
+}

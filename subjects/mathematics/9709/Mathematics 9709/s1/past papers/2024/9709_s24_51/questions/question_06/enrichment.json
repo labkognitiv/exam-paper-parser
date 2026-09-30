@@ -1,0 +1,50 @@
+{
+  "schema_version": "9709_math_enrichment_v8",
+  "question_id": "9709_s24_51_q6",
+  "difficulty": 4,
+  "parts": [
+    {
+      "part_id": "9709_s24_51_q6_a",
+      "difficulty": 4,
+      "mapping": {
+        "topic_id": "9709_s1_t_discrete_random_variables",
+        "lesson_id": "9709_s1_t_discrete_random_variables_m01_l01"
+      },
+      "hints": [
+        "Three coins are thrown with head probabilities 1/3, 1/4, and 1/5. Their tail probabilities are 2/3, 3/4, and 4/5.",
+        "The possible number of heads X can be 0, 1, 2, or 3.",
+        "Calculate P(X = 0) = (2/3) * (3/4) * (4/5) = 24/60 = 2/5.",
+        "Calculate P(X = 1) by summing the three paths with 1 head and 2 tails: (1/3)(3/4)(4/5) + (2/3)(1/4)(4/5) + (2/3)(3/4)(1/5) = (12 + 8 + 6)/60 = 26/60 = 13/30.",
+        "Calculate P(X = 2) = (2 + 3 + 4)/60 = 9/60 = 3/20, and P(X = 3) = (1/3)(1/4)(1/5) = 1/60."
+      ],
+      "walkthrough": [
+        "Step 1: Understand the sample space and individual coin probabilities:\nLet the outcomes on the three independent coins be denoted by $H_i$ (heads) and $T_i$ (tails) for $i=1,2,3$:\n- Coin 1: $P(H_1) = \\frac{1}{3}, \\quad P(T_1) = 1 - \\frac{1}{3} = \\frac{2}{3}$\n- Coin 2: $P(H_2) = \\frac{1}{4}, \\quad P(T_2) = 1 - \\frac{1}{4} = \\frac{3}{4}$\n- Coin 3: $P(H_3) = \\frac{1}{5}, \\quad P(T_3) = 1 - \\frac{1}{5} = \\frac{4}{5}$",
+        "Step 2: List the attainable values of the random variable X:\nThe total number of heads obtained $X$ can be $0,1,2,$ or $3$.",
+        "Step 3: Calculate each probability systematically:\n1. $P(X = 0)$: all three coins show tails:\n$$P(X = 0) = P(T_1) P(T_2) P(T_3) = \\frac{2}{3} \\times \\frac{3}{4} \\times \\frac{4}{5} = \\frac{24}{60} = \\frac{2}{5} = 0.4$$\n2. $P(X = 1)$: exactly one coin shows heads (three mutually exclusive cases):\n$$P(X = 1) = P(H_1 T_2 T_3) + P(T_1 H_2 T_3) + P(T_1 T_2 H_3)$$\n$$P(X = 1) = \\left(\\frac{1}{3} \\times \\frac{3}{4} \\times \\frac{4}{5}\\right) + \\left(\\frac{2}{3} \\times \\frac{1}{4} \\times \\frac{4}{5}\\right) + \\left(\\frac{2}{3} \\times \\frac{3}{4} \\times \\frac{1}{5}\\right)$$\n$$P(X = 1) = \\frac{12}{60} + \\frac{8}{60} + \\frac{6}{60} = \\frac{26}{60} = \\frac{13}{30} \\approx 0.433$$\n3. $P(X = 2)$: exactly two coins show heads (three mutually exclusive cases):\n$$P(X = 2) = P(H_1 H_2 T_3) + P(H_1 T_2 H_3) + P(T_1 H_2 H_3)$$\n$$P(X = 2) = \\left(\\frac{1}{3} \\times \\frac{1}{4} \\times \\frac{4}{5}\\right) + \\left(\\frac{1}{3} \\times \\frac{3}{4} \\times \\frac{1}{5}\\right) + \\left(\\frac{2}{3} \\times \\frac{1}{4} \\times \\frac{1}{5}\\right)$$\n$$P(X = 2) = \\frac{4}{60} + \\frac{3}{60} + \\frac{2}{60} = \\frac{9}{60} = \\frac{3}{20} = 0.15$$\n4. $P(X = 3)$: all three coins show heads:\n$$P(X = 3) = P(H_1) P(H_2) P(H_3) = \\frac{1}{3} \\times \\frac{1}{4} \\times \\frac{1}{5} = \\frac{1}{60} \\approx 0.0167$$",
+        "Step 4: Verify the probability axiom:\n$$\\sum P(X = x) = \\frac{24}{60} + \\frac{26}{60} + \\frac{9}{60} + \\frac{1}{60} = \\frac{60}{60} = 1$$\nAll probabilities are valid and sum to 1."
+      ]
+    },
+    {
+      "part_id": "9709_s24_51_q6_b",
+      "difficulty": 3,
+      "mapping": {
+        "topic_id": "9709_s1_t_discrete_random_variables",
+        "lesson_id": "9709_s1_t_discrete_random_variables_m01_l02"
+      },
+      "hints": [
+        "Five coins are thrown in total: the original three plus two new coins with head probability p and tail probability 1 - p.",
+        "Express P(Y = 0) as the product of getting tails on all 5 coins: (2/3)*(3/4)*(4/5)*(1-p)^2 = (24/60)*(1-p)^2.",
+        "Express P(Y = 5) as the product of getting heads on all 5 coins: (1/3)*(1/4)*(1/5)*p^2 = (1/60)*p^2.",
+        "Set up the equation P(Y = 0) = 6 * P(Y = 5): (24/60)*(1-p)^2 = 6 * (1/60)*p^2, which simplifies to 24*(1-p)^2 = 6*p^2.",
+        "Divide by 6 to get 4*(1-p)^2 = p^2, take the square root or expand the quadratic, and reject any solution p > 1."
+      ],
+      "walkthrough": [
+        "Step 1: Define the five coin setup and random variable Y:\nHarry throws five coins:\n- Coin 1: $P(H_1) = \\frac{1}{3}, P(T_1) = \\frac{2}{3}$\n- Coin 2: $P(H_2) = \\frac{1}{4}, P(T_2) = \\frac{3}{4}$\n- Coin 3: $P(H_3) = \\frac{1}{5}, P(T_3) = \\frac{4}{5}$\n- Coin 4: $P(H_4) = p, P(T_4) = 1 - p$\n- Coin 5: $P(H_5) = p, P(T_5) = 1 - p$\nLet $Y$ be the total number of heads obtained across all five coins.",
+        "Step 2: Express P(Y = 0):\nFor $Y=0$, all five coins must land on tails:\n$$P(Y = 0) = P(T_1) P(T_2) P(T_3) P(T_4) P(T_5)$$\n$$P(Y = 0) = \\frac{2}{3} \\times \\frac{3}{4} \\times \\frac{4}{5} \\times (1 - p) \\times (1 - p) = \\frac{24}{60} (1 - p)^2$$",
+        "Step 3: Express P(Y = 5):\nFor $Y=5$, all five coins must land on heads:\n$$P(Y = 5) = P(H_1) P(H_2) P(H_3) P(H_4) P(H_5)$$\n$$P(Y = 5) = \\frac{1}{3} \\times \\frac{1}{4} \\times \\frac{1}{5} \\times p \\times p = \\frac{1}{60} p^2$$",
+        "Step 4: Use the given relationship P(Y = 0) = 6 P(Y = 5):\n$$\\frac{24}{60} (1 - p)^2 = 6 \\times \\frac{1}{60} p^2$$\nMultiply both sides by $60$:\n$$24 (1 - p)^2 = 6 p^2$$\nDivide both sides by $6$:\n$$4 (1 - p)^2 = p^2$$",
+        "Step 5: Solve the equation and reject extraneous roots:\nExpanding gives:\n$$4(1 - 2p + p^2) = p^2$$\n$$4 - 8p + 4p^2 = p^2$$\n$$3p^2 - 8p + 4 = 0$$\nFactorise the three-term quadratic:\n$$(3p - 2)(p - 2) = 0$$\nThis gives two mathematical roots:\n$$p = \\frac{2}{3} \\quad \\text{or} \\quad p = 2$$\nSince $p$ is a probability, $0 \\le p \\le 1$. Therefore, we reject $p=2$, yielding:\n$$p = \\frac{2}{3}$$\n(Alternatively, taking square roots: $2(1 - p) = p \\implies 2 - 2p = p \\implies 3p = 2 \\implies p = 2/3$)."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,71 @@
+{
+  "schema_version": "9709_math_enrichment_v8",
+  "question_id": "9709_s16_61_q6",
+  "difficulty": 5,
+  "parts": [
+    {
+      "part_id": "9709_s16_61_q6_a_i",
+      "difficulty": 2,
+      "mapping": {
+        "topic_id": "9709_s1_t_permutations_and_combinations",
+        "lesson_id": "9709_s1_t_permutations_and_combinations_m02_l01"
+      },
+      "hints": [
+        "A 3-digit number between 100 and 999 is formed from the available digits $\\{0, 1, 2, \\dots, 9\\}$ with no repeated digits.",
+        "The hundreds digit cannot be $0$, leaving 9 choices ($1$ to $9$).",
+        "The tens digit can be $0$ or any digit other than the chosen hundreds digit (9 choices). The units digit must differ from both previous digits (8 choices).",
+        "Multiply the choices across the three positions."
+      ],
+      "walkthrough": [
+        "We are forming 3-digit numbers between 100 and 999 with no repeated digits. Choose the digits step by step from left to right:",
+        "For the hundreds digit: any digit from 1 to 9 can be used (it cannot be 0), giving 9 choices.",
+        "For the tens digit: any digit from 0 to 9 can be used, except the one already placed in the hundreds place, leaving $10 - 1 = 9$ choices.",
+        "For the units digit: any digit from 0 to 9 can be used, except the two already placed, leaving $10 - 2 = 8$ choices.",
+        "Multiply the choices together:\n$$\\text{Total 3-digit numbers} = 9 \\times 9 \\times 8 = 648$$"
+      ]
+    },
+    {
+      "part_id": "9709_s16_61_q6_a_ii",
+      "difficulty": 4,
+      "mapping": {
+        "topic_id": "9709_s1_t_permutations_and_combinations",
+        "lesson_id": "9709_s1_t_permutations_and_combinations_m05_l01"
+      },
+      "hints": [
+        "Numbers greater than 700 have a hundreds digit of 7, 8, or 9. Odd numbers must end in 1, 3, 5, 7, or 9.",
+        "Because 7 and 9 are odd, choosing 7 or 9 as the first digit reduces the number of available odd digits for the last position. Split into cases by the hundreds digit: starting with 7, starting with 8, and starting with 9.",
+        "For each case, count choices for hundreds, units, and then the middle (tens) digit.",
+        "Sum the counts from the three cases."
+      ],
+      "walkthrough": [
+        "The number must be greater than 700 and odd, with all 3 digits different. This means the hundreds digit must be 7, 8, or 9, and the units digit must be odd (1, 3, 5, 7, 9). Split into cases based on the first digit:",
+        "Case 1 (Starts with 7): The hundreds digit is fixed (1 choice). The units digit must be odd but cannot be 7, leaving 4 choices (1, 3, 5, 9). The tens digit can be any of the remaining 8 digits:\n$$1 \\times 8 \\times 4 = 32\\text{ numbers}$$",
+        "Case 2 (Starts with 8): The hundreds digit is fixed (1 choice). The units digit can be any of the 5 odd digits (1, 3, 5, 7, 9). The tens digit can be any of the remaining 8 digits:\n$$1 \\times 8 \\times 5 = 40\\text{ numbers}$$",
+        "Case 3 (Starts with 9): The hundreds digit is fixed (1 choice). The units digit must be odd but cannot be 9, leaving 4 choices (1, 3, 5, 7). The tens digit can be any of the remaining 8 digits:\n$$1 \\times 8 \\times 4 = 32\\text{ numbers}$$",
+        "Add the counts from all three mutually exclusive cases:\n$$\\text{Total valid numbers} = 32 + 40 + 32 = 104$$"
+      ]
+    },
+    {
+      "part_id": "9709_s16_61_q6_b",
+      "difficulty": 5,
+      "mapping": {
+        "topic_id": "9709_s1_t_permutations_and_combinations",
+        "lesson_id": "9709_s1_t_permutations_and_combinations_m05_l01"
+      },
+      "hints": [
+        "There are 6 roses, 5 tulips, and 4 daffodils. Tom selects 7 flowers with at least 2 of each type: $R \\ge 2$, $T \\ge 2$, $D \\ge 2$, and $R + T + D = 7$.",
+        "List the possible distributions $(R, T, D)$ that sum to 7: $(2, 2, 3)$, $(2, 3, 2)$, and $(3, 2, 2)$.",
+        "For each distribution, multiply the corresponding combinations: $\\binom{6}{R} \\binom{5}{T} \\binom{4}{D}$.",
+        "Add the counts from all three disjoint cases to obtain the final answer."
+      ],
+      "walkthrough": [
+        "We need to choose 7 flowers from 6 roses, 5 tulips, and 4 daffodils, ensuring at least 2 of each flower are included.",
+        "Since each flower type needs at least 2, and $2 + 2 + 2 = 6$, the 7th flower must be one extra rose, one extra tulip, or one extra daffodil. This gives exactly three possible composition cases:",
+        "Case 1 (3 roses, 2 tulips, 2 daffodils):\n$$\\binom{6}{3} \\times \\binom{5}{2} \\times \\binom{4}{2} = 20 \\times 10 \\times 6 = 1200\\text{ ways}$$",
+        "Case 2 (2 roses, 3 tulips, 2 daffodils):\n$$\\binom{6}{2} \\times \\binom{5}{3} \\times \\binom{4}{2} = 15 \\times 10 \\times 6 = 900\\text{ ways}$$",
+        "Case 3 (2 roses, 2 tulips, 3 daffodils):\n$$\\binom{6}{2} \\times \\binom{5}{2} \\times \\binom{4}{3} = 15 \\times 10 \\times 4 = 600\\text{ ways}$$",
+        "Add all three cases to find the total possible selections:\n$$\\text{Total selections} = 1200 + 900 + 600 = 2700$$"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "schema_version": "9709_math_enrichment_v8",
+  "question_id": "9709_w16_62_q4",
+  "difficulty": 4,
+  "parts": [
+    {
+      "part_id": "9709_w16_62_q4_i",
+      "difficulty": 3,
+      "mapping": {
+        "topic_id": "9709_s1_t_the_normal_distribution",
+        "lesson_id": "9709_s1_t_the_normal_distribution_m01_l02"
+      },
+      "hints": [
+        "State the cooking time distribution: $X \\sim \\mathrm{N}(4.2, 0.6^2)$.",
+        "Standardise both boundaries $3.5$ and $4.5$ using $Z = \\dfrac{X - 4.2}{0.6}$.",
+        "Find $\\Phi(0.5)$ and $\\Phi(-1.167) = 1 - \\Phi(1.167)$, then subtract the two cumulative probabilities."
+      ],
+      "walkthrough": [
+        "Let $X$ denote the time in minutes taken to cook an egg: $X \\sim \\mathrm{N}(4.2, 0.6^2)$ with mean $\\mu = 4.2$ and standard deviation $\\sigma = 0.6$.",
+        "We need to find the probability that cooking time is between 3.5 and 4.5 minutes:\n$$\\mathrm{P}(3.5 < X < 4.5) = \\mathrm{P}(X < 4.5) - \\mathrm{P}(X < 3.5)$$",
+        "Standardise the upper limit $X = 4.5$:\n$$Z_1 = \\frac{4.5 - 4.2}{0.6} = \\frac{0.3}{0.6} = 0.5$$\nFrom the standard normal table:\n$$\\Phi(0.5) = 0.6915$$",
+        "Standardise the lower limit $X = 3.5$:\n$$Z_2 = \\frac{3.5 - 4.2}{0.6} = \\frac{-0.7}{0.6} \\approx -1.1667$$\nBy normal curve symmetry:\n$$\\mathrm{P}(Z < -1.167) = 1 - \\Phi(1.167)$$\nFrom the table, $\\Phi(1.167) = 0.8784$, so:\n$$\\mathrm{P}(Z < -1.167) = 1 - 0.8784 = 0.1216$$",
+        "Subtract the lower tail from the upper tail:\n$$\\mathrm{P}(3.5 < X < 4.5) = 0.6915 - 0.1216 = 0.5699$$\nRounding to 3 significant figures gives $0.570$."
+      ]
+    },
+    {
+      "part_id": "9709_w16_62_q4_ii",
+      "difficulty": 3,
+      "mapping": {
+        "topic_id": "9709_s1_t_the_normal_distribution",
+        "lesson_id": "9709_s1_t_the_normal_distribution_m02_l01"
+      },
+      "hints": [
+        "Note that 12% of people take more than $t$ minutes to cook an egg, meaning $\\mathrm{P}(X > t) = 0.12$.",
+        "Find the cumulative probability: $\\mathrm{P}(X < t) = 1 - 0.12 = 0.88$.",
+        "Look up $\\Phi(z) = 0.88$ in the normal distribution table to find $z = 1.175$.",
+        "Set up the standardisation equation $\\dfrac{t - 4.2}{0.6} = 1.175$ and solve for $t$."
+      ],
+      "walkthrough": [
+        "We are given that $12\\%$ of people take more than $t$ minutes to cook an egg: $\\mathrm{P}(X > t) = 0.12$.",
+        "Convert this upper tail into a cumulative probability:\n$$\\mathrm{P}(X < t) = 1 - 0.12 = 0.88$$",
+        "Look up $0.88$ in the main body of the normal distribution table:\n$$\\Phi(1.17) = 0.8790, \\quad \\text{difference for } 5 \\text{ is } 10 \\implies \\Phi(1.175) = 0.8800$$\nSo the standard score is:\n$$z = 1.175$$",
+        "Write down the standardisation formula:\n$$Z = \\frac{X - \\mu}{\\sigma}$$\nSubstitute $Z = 1.175$, $X = t$, $\\mu = 4.2$, and $\\sigma = 0.6$:\n$$1.175 = \\frac{t - 4.2}{0.6}$$",
+        "Multiply both sides by $0.6$:\n$$t - 4.2 = 1.175 \\times 0.6 = 0.705$$",
+        "Add $4.2$ to both sides:\n$$t = 4.2 + 0.705 = 4.905\\text{ minutes}$$\nRounding to 3 significant figures gives $t = 4.91\\text{ minutes}$."
+      ]
+    },
+    {
+      "part_id": "9709_w16_62_q4_iii",
+      "difficulty": 4,
+      "mapping": {
+        "topic_id": "9709_s1_t_the_normal_distribution",
+        "lesson_id": "9709_s1_t_the_normal_distribution_m01_l04"
+      },
+      "hints": [
+        "Recall from part (ii) that the probability of a person taking at most $t$ minutes is $\\mathrm{P}(X \\le t) = 0.88$.",
+        "For a sample of $n$ independent people, the probability that none of them takes more than $t$ minutes is $(0.88)^n$.",
+        "Set up the inequality $(0.88)^n < 0.003$ and take logarithms of both sides.",
+        "Remember to reverse the inequality sign when dividing by $\\ln(0.88)$ (since it is negative), and round up to the next integer."
+      ],
+      "walkthrough": [
+        "From part (ii), we know that $88\\%$ of people take at most $t$ minutes to cook an egg, while $12\\%$ take more than $t$ minutes:\n$$\\mathrm{P}(\\text{takes } \\le t) = 0.88$$",
+        "In a random sample of $n$ people, the probability that none of them takes more than $t$ minutes means that all $n$ people take at most $t$ minutes. Since people are independent, this probability is:\n$$\\mathrm{P}(\\text{none takes } > t) = (0.88)^n$$",
+        "We are required to find the smallest integer $n$ such that this probability is less than $0.003$:\n$$(0.88)^n < 0.003$$",
+        "Take the natural logarithm (or base 10 log) of both sides:\n$$\\ln((0.88)^n) < \\ln(0.003)$$\nUse the power rule of logarithms:\n$$n \\ln(0.88) < \\ln(0.003)$$",
+        "Evaluate the logarithms:\n$$\\ln(0.88) \\approx -0.127833$$\n$$\\ln(0.003) \\approx -5.809143$$",
+        "Divide both sides by $\\ln(0.88)$. Crucially, because $\\ln(0.88)$ is negative, the inequality sign flips:\n$$n > \\frac{-5.809143}{-0.127833}$$\nDivide:\n$$n > 45.44$$",
+        "Because $n$ must be an integer, round up to the smallest whole number greater than $45.44$:\n$$n = 46$$"
+      ]
+    }
+  ]
+}

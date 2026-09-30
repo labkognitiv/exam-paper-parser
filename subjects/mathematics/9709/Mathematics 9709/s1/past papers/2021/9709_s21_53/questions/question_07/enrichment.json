@@ -1,0 +1,83 @@
+{
+  "schema_version": "9709_math_enrichment_v8",
+  "question_id": "9709_s21_53_q7",
+  "difficulty": 3,
+  "parts": [
+    {
+      "part_id": "9709_s21_53_q7_a_i",
+      "difficulty": 1,
+      "mapping": {
+        "topic_id": "9709_s1_t_probability",
+        "lesson_id": "9709_s1_t_probability_m01_l01"
+      },
+      "hints": [
+        "Find the entry in the table where the row 'Shan' and the column 'Poor' intersect: there are 40 households.",
+        "The total number of households across all three villages is given as 800.",
+        "Divide the cell frequency by the total number of households: $\\dfrac{40}{800}$."
+      ],
+      "walkthrough": [
+        "Step 1: Read the joint frequency from the contingency table.\nLocate the row for the village 'Shan' and the column for 'Poor' broadband quality.\nThe intersection cell gives:\n$$n(\\text{Shan and Poor}) = 40$$",
+        "Step 2: Calculate the probability.\nThe total number of households surveyed in the three villages is $800$.\n$$\\mathrm{P}(\\text{Shan and Poor}) = \\frac{40}{800} = \\frac{1}{20} = 0.05$$"
+      ]
+    },
+    {
+      "part_id": "9709_s21_53_q7_a_ii",
+      "difficulty": 2,
+      "mapping": {
+        "topic_id": "9709_s1_t_probability",
+        "lesson_id": "9709_s1_t_probability_m03_l01"
+      },
+      "hints": [
+        "This is a conditional probability: find $\\mathrm{P}(\\text{Good} \\mid \\text{Shan})$.",
+        "The condition 'given that the household is in Shan' restricts the sample space to the Shan row.",
+        "Calculate the total number of households in Shan: $223 + 177 + 40 = 440$.",
+        "Find the number of households in Shan with good broadband service (177) and divide by the Shan total: $\\dfrac{177}{440}$."
+      ],
+      "walkthrough": [
+        "Step 1: Identify the condition and formula.\nWe need the probability that a household has good broadband service given that it is located in Shan:\n$$\\mathrm{P}(\\text{Good} \\mid \\text{Shan}) = \\frac{\\mathrm{P}(\\text{Good} \\cap \\text{Shan})}{\\mathrm{P}(\\text{Shan})} = \\frac{n(\\text{Good} \\cap \\text{Shan})}{n(\\text{Shan})}$$",
+        "Step 2: Read the counts from the 'Shan' row in the table:\n- Excellent: 223\n- Good: 177\n- Poor: 40\nThe total number of households in Shan is:\n$$n(\\text{Shan}) = 223 + 177 + 40 = 440$$",
+        "Step 3: Calculate the conditional probability:\n$$\\mathrm{P}(\\text{Good} \\mid \\text{Shan}) = \\frac{177}{440} \\approx 0.402272 \\dots$$\nRounding to 3 significant figures gives $0.402$ (or exact fraction $\\frac{177}{440}$)."
+      ]
+    },
+    {
+      "part_id": "9709_s21_53_q7_b_i",
+      "difficulty": 3,
+      "mapping": {
+        "topic_id": "9709_s1_t_discrete_random_variables",
+        "lesson_id": "9709_s1_t_discrete_random_variables_m03_l03"
+      },
+      "hints": [
+        "Model the number of households with no broadband service as a binomial random variable $X \\sim B(n, p)$ with $n = 10$ and $p = 0.35$.",
+        "The condition 'fewer than 3' means $X < 3$, which corresponds to $X = 0, 1, 2$.",
+        "Compute $\\mathrm{P}(X = 0) = (0.65)^{10}$, $\\mathrm{P}(X = 1) = \\binom{10}{1} (0.35)(0.65)^9$, and $\\mathrm{P}(X = 2) = \\binom{10}{2} (0.35)^2 (0.65)^8$.",
+        "Sum the three probabilities and round your answer to 3 significant figures."
+      ],
+      "walkthrough": [
+        "Step 1: Identify the binomial distribution.\nLet $X$ be the number of households in the sample of 10 that have no broadband service.\nEach household independently has probability $p = 0.35$ of having no broadband service, so $q = 1 - p = 0.65$:\n$$X \\sim B(n, p) = B(10, 0.35)$$",
+        "Step 2: Express the required event.\n'Fewer than 3' means strictly less than 3:\n$$\\mathrm{P}(X < 3) = \\mathrm{P}(X = 0) + \\mathrm{P}(X = 1) + \\mathrm{P}(X = 2)$$",
+        "Step 3: Calculate each term using $\\mathrm{P}(X = x) = \\binom{10}{x} p^x q^{10-x}$:\n- For $x = 0$:\n$$\\mathrm{P}(X = 0) = \\binom{10}{0} (0.35)^0 (0.65)^{10} = 1 \\times 1 \\times 0.01346274 = 0.013463$$\n- For $x = 1$:\n$$\\mathrm{P}(X = 1) = \\binom{10}{1} (0.35)^1 (0.65)^9 = 10 \\times 0.35 \\times 0.0207119 = 0.072492$$\n- For $x = 2$:\n$$\\binom{10}{2} = \\frac{10 \\times 9}{2} = 45$$\n$$\\mathrm{P}(X = 2) = 45 \\times (0.35)^2 \\times (0.65)^8 = 45 \\times 0.1225 \\times 0.03186448 = 0.175653$$",
+        "Step 4: Sum the probabilities:\n$$\\mathrm{P}(X < 3) = 0.013463 + 0.072492 + 0.175653 = 0.261608$$\nRounding to 3 significant figures gives $0.262$."
+      ]
+    },
+    {
+      "part_id": "9709_s21_53_q7_b_ii",
+      "difficulty": 3,
+      "mapping": {
+        "topic_id": "9709_s1_t_the_normal_distribution",
+        "lesson_id": "9709_s1_t_the_normal_distribution_m03_l02"
+      },
+      "hints": [
+        "For $n = 120$ and $p = 0.35$, calculate the mean $\\mu = np = 120 \\times 0.35 = 42$ and variance $\\sigma^2 = np(1 - p) = 120 \\times 0.35 \\times 0.65 = 27.3$.",
+        "Apply the continuity correction to the strict inequality $X > 32$: in the continuous distribution, this becomes $W > 32.5$.",
+        "Standardise to find the $Z$-score: $z = \\dfrac{32.5 - 42}{\\sqrt{27.3}} = \\dfrac{-9.5}{\\sqrt{27.3}} \\approx -1.818$.",
+        "Calculate the upper tail probability: $\\mathrm{P}(Z > -1.818) = \\Phi(1.818)$, and look up the value in the standard normal table."
+      ],
+      "walkthrough": [
+        "Step 1: Check conditions and find normal parameters.\nWith $n = 120$ and $p = 0.35$:\n$$np = 120 \\times 0.35 = 42 > 5$$\n$$n(1 - p) = 120 \\times 0.65 = 78 > 5$$\nBoth conditions are well satisfied, so $X \\sim B(120, 0.35)$ is approximated by $W \\sim N(\\mu, \\sigma^2)$:\n$$\\mu = np = 42$$\n$$\\sigma^2 = np(1 - p) = 120 \\times 0.35 \\times 0.65 = 27.3$$\n$$\\sigma = \\sqrt{27.3} \\approx 5.22494$$",
+        "Step 2: Apply the continuity correction.\nWe need the probability of strictly more than 32 households:\n$$\\mathrm{P}(X > 32) = \\mathrm{P}(X \\ge 33)$$\nOn a continuous scale, the integer 32 occupies the interval $[31.5, 32.5]$, while 33 occupies $[32.5, 33.5]$.\nTo be strictly greater than 32 (meaning 33 or more), the continuous region begins at $32.5$:\n$$\\mathrm{P}(X > 32) \\approx \\mathrm{P}(W > 32.5)$$",
+        "Step 3: Standardise to find the $Z$-score:\n$$Z = \\frac{32.5 - 42}{\\sqrt{27.3}} = \\frac{-9.5}{5.22494} \\approx -1.8182 \\dots \\approx -1.818$$",
+        "Step 4: Find the probability using standard normal tables.\nBy symmetry of the standard normal curve:\n$$\\mathrm{P}(Z > -1.818) = \\mathrm{P}(Z < 1.818) = \\Phi(1.818)$$\nFrom Cambridge normal tables:\n$$\\Phi(1.81) = 0.9649$$\nThe addition for $8$ in the third decimal place is $+6$ or $+7$:\n$$\\Phi(1.818) = 0.9649 + 0.0007 = 0.9656$$\nRounding to 3 significant figures gives $0.966$ (values between $0.965$ and $0.966$ are accepted)."
+      ]
+    }
+  ]
+}

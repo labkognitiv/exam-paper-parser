@@ -1,0 +1,49 @@
+{
+  "schema_version": "9709_math_enrichment_v8",
+  "question_id": "9709_s23_33_q5",
+  "difficulty": 4,
+  "parts": [
+    {
+      "part_id": "9709_s23_33_q5_a",
+      "difficulty": 3,
+      "mapping": {
+        "topic_id": "9709_p3_t_trigonometry",
+        "lesson_id": "9709_p3_t_trigonometry_m04_l04"
+      },
+      "hints": [
+        "At the maximum point $M$, differentiate $y=x^2\\cos3x$ and set the derivative equal to zero.",
+        "The product and chain rules give $\\dfrac{dy}{dx}=2x\\cos3x-3x^2\\sin3x$.",
+        "At $x=a>0$, rearrange the stationary-point equation to $\\tan3a=\\dfrac{2}{3a}$.",
+        "Apply $\\tan^{-1}$ and isolate $a$, using the stated interval to select the relevant angle."
+      ],
+      "walkthrough": [
+        "Differentiate $y = x^2\\cos(3x)$ using the product rule and chain rule:\n$$\\dfrac{\\mathrm{d}y}{\\mathrm{d}x} = \\dfrac{\\mathrm{d}}{\\mathrm{d}x}(x^2)\\cos(3x) + x^2\\dfrac{\\mathrm{d}}{\\mathrm{d}x}(\\cos(3x)) = 2x\\cos(3x) - 3x^2\\sin(3x)$$",
+        "Set $\\dfrac{\\mathrm{d}y}{\\mathrm{d}x} = 0$ at the stationary point $M$ where $x = a$:\n$$2a\\cos(3a) - 3a^2\\sin(3a) = 0$$",
+        "Divide by $a > 0$ and rearrange the equation:\n$$3a\\sin(3a) = 2\\cos(3a)$$\n$$\\dfrac{\\sin(3a)}{\\cos(3a)} = \\dfrac{2}{3a}$$\n$$\\tan(3a) = \\dfrac{2}{3a}$$",
+        "Take the inverse tangent and divide by 3 to isolate $a$:\n$$3a = \\tan^{-1}\\left(\\dfrac{2}{3a}\\right)$$\n$$a = \\dfrac{1}{3}\\tan^{-1}\\left(\\dfrac{2}{3a}\\right)$$"
+      ]
+    },
+    {
+      "part_id": "9709_s23_33_q5_b",
+      "difficulty": 4,
+      "mapping": {
+        "topic_id": "9709_p3_t_numerical_solution_of_equations",
+        "lesson_id": "9709_p3_t_numerical_solution_of_equations_m03_l01"
+      },
+      "hints": [
+        "Use the fixed-point equation from part (a) directly as an iteration in radians.",
+        "Set $a_{n+1}=\\dfrac13\\tan^{-1}\\left(\\dfrac{2}{3a_n}\\right)$ and choose a reasonable positive starting value in $0<a<\\pi/6$.",
+        "Record every iterate to 4 decimal places and continue until successive values settle sufficiently to justify rounding $a$ to 2 decimal places."
+      ],
+      "walkthrough": [
+        "State the iterative formula based on part (a):\n$$a_{n+1} = \\dfrac{1}{3}\\tan^{-1}\\left(\\dfrac{2}{3a_n}\\right)$$",
+        "Choose starting value $a_1 = 0.5$ and compute iterations to 4 decimal places in radians:\n$$a_2 = \\dfrac{1}{3}\\tan^{-1}\\left(\\dfrac{2}{3(0.5)}\\right) = \\dfrac{1}{3}\\tan^{-1}\\left(\\dfrac{4}{3}\\right) \\approx \\dfrac{1}{3}(0.927295) = 0.3091$$",
+        "Calculate $a_3$:\n$$a_3 = \\dfrac{1}{3}\\tan^{-1}\\left(\\dfrac{2}{3(0.3091)}\\right) = \\dfrac{1}{3}\\tan^{-1}(2.156734) \\approx \\dfrac{1}{3}(1.136458) = 0.3788$$",
+        "Calculate $a_4$:\n$$a_4 = \\dfrac{1}{3}\\tan^{-1}\\left(\\dfrac{2}{3(0.3788)}\\right) = \\dfrac{1}{3}\\tan^{-1}(1.760086) \\approx \\dfrac{1}{3}(1.053894) = 0.3513$$",
+        "Calculate $a_5$:\n$$a_5 = \\dfrac{1}{3}\\tan^{-1}\\left(\\dfrac{2}{3(0.3513)}\\right) = \\dfrac{1}{3}\\tan^{-1}(1.897723) \\approx \\dfrac{1}{3}(1.086111) = 0.3620$$",
+        "Calculate $a_6, a_7,$ and $a_8$ to confirm stability:\n$$a_6 = \\dfrac{1}{3}\\tan^{-1}\\left(\\dfrac{2}{3(0.3620)}\\right) = \\dfrac{1}{3}\\tan^{-1}(1.841621) \\approx \\dfrac{1}{3}(1.073679) = 0.3579$$\n$$a_7 = \\dfrac{1}{3}\\tan^{-1}\\left(\\dfrac{2}{3(0.3579)}\\right) = \\dfrac{1}{3}\\tan^{-1}(1.862718) \\approx \\dfrac{1}{3}(1.078393) = 0.3595$$\n$$a_8 = \\dfrac{1}{3}\\tan^{-1}\\left(\\dfrac{2}{3(0.3595)}\\right) = \\dfrac{1}{3}\\tan^{-1}(1.854428) \\approx \\dfrac{1}{3}(1.076541) = 0.3588$$",
+        "Round the final answer correct to 2 decimal places:\n$$a = 0.36$$"
+      ]
+    }
+  ]
+}

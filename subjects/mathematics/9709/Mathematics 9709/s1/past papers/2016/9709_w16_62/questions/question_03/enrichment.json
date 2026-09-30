@@ -1,0 +1,48 @@
+{
+  "schema_version": "9709_math_enrichment_v8",
+  "question_id": "9709_w16_62_q3",
+  "difficulty": 4,
+  "parts": [
+    {
+      "part_id": "9709_w16_62_q3_i",
+      "difficulty": 3,
+      "mapping": {
+        "topic_id": "9709_s1_t_discrete_random_variables",
+        "lesson_id": "9709_s1_t_discrete_random_variables_m03_l04"
+      },
+      "hints": [
+        "Find the probability that Kersley is asleep or studying on any single day: $p = 0.2 + 0.6 = 0.8$.",
+        "Model the number of days $Y$ out of 7 as a binomial distribution: $Y \\sim \\mathrm{B}(7, 0.8)$.",
+        "Express 'at least 6 days' as $\\mathrm{P}(Y \\ge 6) = \\mathrm{P}(Y = 6) + \\mathrm{P}(Y = 7)$, and evaluate using the binomial formula."
+      ],
+      "walkthrough": [
+        "On any given day at noon, the events 'asleep' and 'studying' are mutually exclusive. Therefore, the probability that Kersley is either asleep or studying is:\n$$p = 0.2 + 0.6 = 0.8$$\nThe probability that he is doing neither is $q = 1 - 0.8 = 0.2$.",
+        "In a 7-day period ($n = 7$), let $Y$ be the number of days he is asleep or studying at noon:\n$$Y \\sim \\mathrm{B}(7, 0.8)$$",
+        "We want the probability that this occurs on at least 6 days, which means $Y = 6$ or $Y = 7$:\n$$\\mathrm{P}(Y \\ge 6) = \\mathrm{P}(Y = 6) + \\mathrm{P}(Y = 7)$$",
+        "Apply the binomial formula $\\mathrm{P}(Y = r) = \\binom{n}{r} p^r (1 - p)^{n - r}$:\n- For $r = 6$:\n  $$\\mathrm{P}(Y = 6) = \\binom{7}{6} (0.8)^6 (0.2)^1 = 7 \\times 0.262144 \\times 0.2 = 0.3670016$$\n- For $r = 7$:\n  $$\\mathrm{P}(Y = 7) = \\binom{7}{7} (0.8)^7 (0.2)^0 = 1 \\times 0.2097152 = 0.2097152$$",
+        "Add the two probabilities:\n$$\\mathrm{P}(Y \\ge 6) = 0.3670016 + 0.2097152 = 0.5767168$$\nRounding to 3 significant figures gives $0.577$."
+      ]
+    },
+    {
+      "part_id": "9709_w16_62_q3_ii",
+      "difficulty": 4,
+      "mapping": {
+        "topic_id": "9709_s1_t_the_normal_distribution",
+        "lesson_id": "9709_s1_t_the_normal_distribution_m03_l02"
+      },
+      "hints": [
+        "Define the binomial variable for being asleep: $W \\sim \\mathrm{B}(100, 0.2)$.",
+        "Calculate the approximating normal distribution parameters: $\\mu = n p = 100 \\times 0.2 = 20$ and $\\sigma^2 = n p q = 100 \\times 0.2 \\times 0.8 = 16$.",
+        "Apply the continuity correction to 'at most 30 days': $\\mathrm{P}(W \\le 30) \\approx \\mathrm{P}(V < 30.5)$.",
+        "Standardise $30.5$ using $Z = \\dfrac{30.5 - 20}{4}$ and evaluate $\\Phi(z)$."
+      ],
+      "walkthrough": [
+        "Let $W$ be the number of days Kersley is asleep at noon in a 100-day period. Because the probability of being asleep on any single day is $p = 0.2$:\n$$W \\sim \\mathrm{B}(100, 0.2)$$\nHere $n = 100$ is large, and $np = 20 > 5$ and $n(1-p) = 80 > 5$, so we approximate $W$ with a normal distribution $V \\sim \\mathrm{N}(\\mu, \\sigma^2)$.",
+        "Compute the mean and variance:\n$$\\mu = n p = 100 \\times 0.2 = 20$$\n$$\\sigma^2 = n p (1 - p) = 100 \\times 0.2 \\times 0.8 = 16$$\nThe standard deviation is:\n$$\\sigma = \\sqrt{16} = 4$$",
+        "We need the probability that he is asleep on at most 30 days ($W \\le 30$). Because $W$ is discrete, the integer 30 occupies the continuous interval from $29.5$ to $30.5$. Thus, the upper boundary including 30 is $30.5$:\n$$\\mathrm{P}(W \\le 30) \\approx \\mathrm{P}(V < 30.5)$$",
+        "Standardise $30.5$:\n$$Z = \\frac{30.5 - \\mu}{\\sigma} = \\frac{30.5 - 20}{4}$$\nSubtract:\n$$30.5 - 20 = 10.5$$\nDivide:\n$$Z = \\frac{10.5}{4} = 2.625$$",
+        "Look up $Z = 2.625$ in the standard normal table:\n$$\\Phi(2.62) = 0.9956, \\quad \\text{difference for } 5 \\text{ is } 1 \\implies \\Phi(2.625) = 0.9957$$\nRounding to 3 significant figures gives $0.996$."
+      ]
+    }
+  ]
+}

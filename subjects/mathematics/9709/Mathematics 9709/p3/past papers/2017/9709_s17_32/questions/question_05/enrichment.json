@@ -1,0 +1,45 @@
+{
+  "schema_version": "9709_math_enrichment_v8",
+  "question_id": "9709_s17_32_q5",
+  "difficulty": 3,
+  "parts": [
+    {
+      "part_id": "9709_s17_32_q5_i",
+      "difficulty": 3,
+      "mapping": {
+        "topic_id": "9709_p3_t_differential_equations",
+        "lesson_id": "9709_p3_t_differential_equations_m03_l01"
+      },
+      "hints": [
+        "Insert $x=10/(1+t)^2$ into the given rate law before separating the variables.",
+        "Separate as $dy/y=-2(1+t)^{-2}dt$ and integrate both sides.",
+        "Use $y=100$ when $t=0$ to determine the integration constant, then state $y$ explicitly or in logarithmic form."
+      ],
+      "walkthrough": [
+        "Substitute the expression for $x$, $x = \\dfrac{10}{(1 + t)^2}$, into the given differential rate law $\\dfrac{\\mathrm{d}y}{\\mathrm{d}t} = -0.2xy$:\n$$\\dfrac{\\mathrm{d}y}{\\mathrm{d}t} = -0.2\\left(\\dfrac{10}{(1 + t)^2}\\right)y = -\\dfrac{2y}{(1 + t)^2}$$",
+        "Separate the variables $y$ and $t$:\n$$\\dfrac{1}{y}\\,\\mathrm{d}y = -\\dfrac{2}{(1 + t)^2}\\,\\mathrm{d}t = -2(1 + t)^{-2}\\,\\mathrm{d}t$$",
+        "Integrate both sides with respect to their respective variables:\n$$\\int \\dfrac{1}{y}\\,\\mathrm{d}y = \\int -2(1 + t)^{-2}\\,\\mathrm{d}t$$\n$$\\ln y = -2\\left(\\dfrac{(1 + t)^{-1}}{-1}\\right) + c = \\dfrac{2}{1 + t} + c$$",
+        "Use the initial condition that $y = 100$ when $t = 0$ to find the constant $c$:\n$$\\ln(100) = \\dfrac{2}{1 + 0} + c = 2 + c \\implies c = \\ln(100) - 2$$",
+        "Substitute $c$ back into the solution to obtain the relation between $y$ and $t$:\n$$\\ln y = \\dfrac{2}{1 + t} - 2 + \\ln 100$$",
+        "Exponentiate both sides with base $e$ to express $y$ explicitly:\n$$y = e^{\\ln 100 + \\frac{2}{1 + t} - 2} = e^{\\ln 100} \\cdot e^{\\frac{2}{1 + t} - 2} = 100e^{\\frac{2}{1 + t} - 2} \\quad \\left(\\text{or } \\dfrac{100}{e^2}e^{\\frac{2}{1 + t}}\\right)$$"
+      ]
+    },
+    {
+      "part_id": "9709_s17_32_q5_ii",
+      "difficulty": 2,
+      "mapping": {
+        "topic_id": "9709_p3_t_logarithmic_and_exponential_functions",
+        "lesson_id": "9709_p3_t_logarithmic_and_exponential_functions_m03_l02"
+      },
+      "hints": [
+        "Take the limit as $t\\to\\infty$ in the solution for $y$ from part (i); the term $2/(1+t)$ tends to zero.",
+        "Separately apply the same limit to $x=10/(1+t)^2$ and interpret both limits as masses."
+      ],
+      "walkthrough": [
+        "Consider the long-term behaviour of $y$ as $t \\to \\infty$:\nAs $t$ becomes very large, $\\dfrac{2}{1 + t} \\to 0$.",
+        "Evaluate the limit of $y$ as $t \\to \\infty$:\n$$y = 100e^{\\frac{2}{1 + t} - 2} \\to 100e^{0 - 2} = 100e^{-2} = \\dfrac{100}{e^2}$$\nThus, the mass of $B$ approaches the exact value $\\dfrac{100}{e^2}$.",
+        "Consider the long-term behaviour of $x$ as $t \\to \\infty$:\nFrom $x = \\dfrac{10}{(1 + t)^2}$, as $t \\to \\infty$, the denominator $(1 + t)^2 \\to \\infty$, which means:\n$$x \\to 0$$\nThus, the mass of $A$ tends to zero."
+      ]
+    }
+  ]
+}

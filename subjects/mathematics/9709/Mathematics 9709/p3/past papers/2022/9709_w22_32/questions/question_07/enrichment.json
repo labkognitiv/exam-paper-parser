@@ -1,0 +1,51 @@
+{
+  "schema_version": "9709_math_enrichment_v8",
+  "question_id": "9709_w22_32_q7",
+  "difficulty": 4,
+  "parts": [
+    {
+      "part_id": "9709_w22_32_q7_a",
+      "difficulty": 2,
+      "mapping": {
+        "topic_id": "9709_p3_t_differentiation",
+        "lesson_id": "9709_p3_t_differentiation_m04_l01"
+      },
+      "hints": [
+        "Differentiate $\\cot^2\\theta$ by the chain rule, treating it as the square of $\\cot\\theta$.",
+        "Use the given derivative $d(\\cot\\theta)/d\\theta=-\\operatorname{cosec}^2\\theta$, then replace $\\operatorname{cosec}^2\\theta$ by $1/\\sin^2\\theta$ to reach the stated form."
+      ],
+      "walkthrough": [
+        "Differentiate $(\\cot\\theta)^2$ using the chain rule $\\dfrac{\\mathrm{d}}{\\mathrm{d}\\theta}(u^2) = 2u\\dfrac{\\mathrm{d}u}{\\mathrm{d}\\theta}$:\n$$\\dfrac{\\mathrm{d}}{\\mathrm{d}\\theta}(\\cot^2\\theta) = 2\\cot\\theta\\dfrac{\\mathrm{d}}{\\mathrm{d}\\theta}(\\cot\\theta)$$",
+        "Substitute the given standard derivative $\\dfrac{\\mathrm{d}}{\\mathrm{d}\\theta}(\\cot\\theta) = -\\operatorname{cosec}^2\\theta$:\n$$\\dfrac{\\mathrm{d}}{\\mathrm{d}\\theta}(\\cot^2\\theta) = 2\\cot\\theta(-\\operatorname{cosec}^2\\theta) = -2\\cot\\theta\\operatorname{cosec}^2\\theta$$",
+        "Express $\\operatorname{cosec}^2\\theta$ as $\\dfrac{1}{\\sin^2\\theta}$ to establish the result:\n$$\\dfrac{\\mathrm{d}}{\\mathrm{d}\\theta}(\\cot^2\\theta) = -2\\cot\\theta\\left(\\dfrac{1}{\\sin^2\\theta}\\right) = -\\dfrac{2\\cot\\theta}{\\sin^2\\theta}$$"
+      ]
+    },
+    {
+      "part_id": "9709_w22_32_q7_b",
+      "difficulty": 4,
+      "mapping": {
+        "topic_id": "9709_p3_t_differential_equations",
+        "lesson_id": "9709_p3_t_differential_equations_m02_l02"
+      },
+      "hints": [
+        "Separate the differential equation so that $x$ is integrated with respect to $x$ and the trigonometric expression with respect to $\\theta$.",
+        "After dividing by $\\sin^2\\theta$, write $\\int x\\,dx=\\int\\left(\\dfrac{\\tan^2\\theta}{\\sin^2\\theta}-\\dfrac{2\\cot\\theta}{\\sin^2\\theta}\\right)d\\theta$.",
+        "Recognise the first integrand as the derivative of $\\tan\\theta$ and use part (a) for the second, keeping a constant of integration.",
+        "Apply $x=2$ when $\\theta=\\tfrac14\\pi$ to determine the constant before substituting $\\theta=\\tfrac16\\pi$.",
+        "Use the condition $x>0$ when taking the square root, and round the requested value to 3 significant figures."
+      ],
+      "walkthrough": [
+        "Separate the variables in $x\\sin^2\\theta\\,\\dfrac{\\mathrm{d}x}{\\mathrm{d}\\theta} = \\tan^2\\theta - 2\\cot\\theta$ by dividing by $\\sin^2\\theta$:\n$$x\\,\\mathrm{d}x = \\left(\\dfrac{\\tan^2\\theta}{\\sin^2\\theta} - \\dfrac{2\\cot\\theta}{\\sin^2\\theta}\\right)\\mathrm{d}\\theta$$\n$$\\int x\\,\\mathrm{d}x = \\int \\left(\\dfrac{\\tan^2\\theta}{\\sin^2\\theta} - \\dfrac{2\\cot\\theta}{\\sin^2\\theta}\\right)\\mathrm{d}\\theta$$",
+        "Integrate the left-hand side:\n$$\\int x\\,\\mathrm{d}x = \\dfrac{1}{2}x^2$$",
+        "Simplify and integrate the first term on the right-hand side using $\\tan^2\\theta = \\dfrac{\\sin^2\\theta}{\\cos^2\\theta}$:\n$$\\dfrac{\\tan^2\\theta}{\\sin^2\\theta} = \\dfrac{\\sin^2\\theta}{\\cos^2\\theta\\sin^2\\theta} = \\dfrac{1}{\\cos^2\\theta} = \\sec^2\\theta$$\n$$\\int \\sec^2\\theta\\,\\mathrm{d}\\theta = \\tan\\theta$$",
+        "Integrate the second term on the right-hand side using the result from part (a), $\\dfrac{\\mathrm{d}}{\\mathrm{d}\\theta}(\\cot^2\\theta) = -\\dfrac{2\\cot\\theta}{\\sin^2\\theta}$:\n$$\\int \\left(-\\dfrac{2\\cot\\theta}{\\sin^2\\theta}\\right)\\mathrm{d}\\theta = \\cot^2\\theta$$",
+        "Combine the integrated terms with a constant of integration $C$:\n$$\\dfrac{1}{2}x^2 = \\tan\\theta + \\cot^2\\theta + C$$",
+        "Substitute the initial condition $x = 2$ when $\\theta = \\dfrac{1}{4}\\pi$ to determine $C$:\n$$\\dfrac{1}{2}(2)^2 = \\tan\\left(\\dfrac{1}{4}\\pi\\right) + \\cot^2\\left(\\dfrac{1}{4}\\pi\\right) + C$$\n$$\\dfrac{1}{2}(4) = 1 + 1^2 + C \\implies 2 = 2 + C \\implies C = 0$$",
+        "State the particular solution:\n$$\\dfrac{1}{2}x^2 = \\tan\\theta + \\cot^2\\theta$$",
+        "Substitute $\\theta = \\dfrac{1}{6}\\pi$ to evaluate $x$:\n$$\\tan\\left(\\dfrac{1}{6}\\pi\\right) = \\dfrac{1}{\\sqrt{3}} = \\dfrac{\\sqrt{3}}{3}$$\n$$\\cot\\left(\\dfrac{1}{6}\\pi\\right) = \\sqrt{3} \\implies \\cot^2\\left(\\dfrac{1}{6}\\pi\\right) = (\\sqrt{3})^2 = 3$$\n$$\\dfrac{1}{2}x^2 = \\dfrac{\\sqrt{3}}{3} + 3 = \\dfrac{9 + \\sqrt{3}}{3}$$\n$$x^2 = 2\\left(\\dfrac{9 + \\sqrt{3}}{3}\\right) = \\dfrac{18 + 2\\sqrt{3}}{3}$$",
+        "Since $x > 0$, take the positive square root and evaluate:\n$$x = \\sqrt{\\dfrac{18 + 2\\sqrt{3}}{3}} \\approx \\sqrt{\\dfrac{18 + 3.46410}{3}} = \\sqrt{7.15470} \\approx 2.6748$$",
+        "State the value of $x$ correct to 3 significant figures:\n$$x = 2.67$$"
+      ]
+    }
+  ]
+}

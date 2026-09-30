@@ -1,0 +1,54 @@
+{
+  "schema_version": "9709_math_enrichment_v8",
+  "question_id": "9709_m16_32_q9",
+  "difficulty": 2,
+  "parts": [
+    {
+      "part_id": "9709_m16_32_q9_i",
+      "difficulty": 2,
+      "mapping": {
+        "topic_id": "9709_p3_t_logarithmic_and_exponential_functions",
+        "lesson_id": "9709_p3_t_logarithmic_and_exponential_functions_m02_l02"
+      },
+      "hints": [
+        "Because numerator and denominator have the same degree, first identify the constant polynomial term $A$.",
+        "Multiply $A+B/x+(Cx+D)/(x^2+2)$ by $x(x^2+2)$.",
+        "Compare coefficients of $x^3,x^2,x,$ and the constant term to determine $B,C,D$.",
+        "Recombine the terms briefly to check the decomposition."
+      ],
+      "walkthrough": [
+        "Observe that the numerator $3x^3 + 6x - 8$ and denominator $x(x^2 + 2) = x^3 + 2x$ both have degree $3$. Dividing the leading terms gives the constant term $A$:\n$$A = \\dfrac{3x^3}{x^3} = 3$$",
+        "Set up the partial fraction decomposition identity:\n$$\\dfrac{3x^3 + 6x - 8}{x(x^2 + 2)} = 3 + \\dfrac{B}{x} + \\dfrac{Cx + D}{x^2 + 2}$$",
+        "Multiply through by the common denominator $x(x^2 + 2)$:\n$$3x^3 + 6x - 8 = 3x(x^2 + 2) + B(x^2 + 2) + (Cx + D)x$$",
+        "Expand the right-hand side and collect terms by powers of $x$:\n$$3x^3 + 6x - 8 = 3x^3 + 6x + Bx^2 + 2B + Cx^2 + Dx$$\n$$3x^3 + 6x - 8 = 3x^3 + (B + C)x^2 + (6 + D)x + 2B$$",
+        "Subtract $3x^3 + 6x$ from both sides:\n$$-8 = (B + C)x^2 + Dx + 2B$$",
+        "Equate coefficients on both sides:\nConstant term: $2B = -8 \\implies B = -4$\nCoefficient of $x$: $D = 0$\nCoefficient of $x^2$: $B + C = 0 \\implies C = -B = -(-4) = 4$",
+        "State the complete partial fraction expansion of $f(x)$:\n$$f(x) = 3 - \\dfrac{4}{x} + \\dfrac{4x}{x^2 + 2}$$"
+      ]
+    },
+    {
+      "part_id": "9709_m16_32_q9_ii",
+      "difficulty": 2,
+      "mapping": {
+        "topic_id": "9709_p3_t_integration",
+        "lesson_id": "9709_p3_t_integration_m03_l01"
+      },
+      "hints": [
+        "Integrate the decomposition from part (i): $3-4/x+4x/(x^2+2)$.",
+        "Recognise $4x/(x^2+2)$ as a constant multiple of the derivative of $x^2+2$ over itself.",
+        "Apply the bounds 1 and 2 to $3x-4\\ln x+2\\ln(x^2+2)$.",
+        "Use logarithm laws to simplify the exact result to the required form."
+      ],
+      "walkthrough": [
+        "Use the partial fractions from part (i) to set up the definite integral:\n$$\\int_1^2 f(x)\\,\\mathrm{d}x = \\int_1^2 \\left(3 - \\dfrac{4}{x} + \\dfrac{4x}{x^2 + 2}\\right)\\mathrm{d}x$$",
+        "Integrate each term individually:\n$$\\int 3\\,\\mathrm{d}x = 3x$$\n$$\\int -\\dfrac{4}{x}\\,\\mathrm{d}x = -4\\ln x \\quad (\\text{since } x > 0 \\text{ on } [1, 2])$$\n$$\\int \\dfrac{4x}{x^2 + 2}\\,\\mathrm{d}x = 2\\int \\dfrac{2x}{x^2 + 2}\\,\\mathrm{d}x = 2\\ln(x^2 + 2)$$",
+        "Combine into the integrated expression:\n$$\\int_1^2 f(x)\\,\\mathrm{d}x = \\left[3x - 4\\ln x + 2\\ln(x^2 + 2)\\right]_1^2$$",
+        "Evaluate at the upper limit $x = 2$:\n$$3(2) - 4\\ln 2 + 2\\ln(2^2 + 2) = 6 - 4\\ln 2 + 2\\ln 6$$",
+        "Evaluate at the lower limit $x = 1$:\n$$3(1) - 4\\ln 1 + 2\\ln(1^2 + 2) = 3 - 4(0) + 2\\ln 3 = 3 + 2\\ln 3$$",
+        "Subtract the lower limit evaluation from the upper limit evaluation:\n$$\\int_1^2 f(x)\\,\\mathrm{d}x = (6 - 4\\ln 2 + 2\\ln 6) - (3 + 2\\ln 3) = (6 - 3) - 4\\ln 2 + 2(\\ln 6 - \\ln 3)$$",
+        "Simplify using the quotient law of logarithms $\\ln 6 - \\ln 3 = \\ln\\left(\\dfrac{6}{3}\\right) = \\ln 2$:\n$$\\int_1^2 f(x)\\,\\mathrm{d}x = 3 - 4\\ln 2 + 2\\ln 2 = 3 - 2\\ln 2$$",
+        "Apply the power law of logarithms $2\\ln 2 = \\ln(2^2) = \\ln 4$ to obtain the required exact form:\n$$\\int_1^2 f(x)\\,\\mathrm{d}x = 3 - \\ln 4$$"
+      ]
+    }
+  ]
+}

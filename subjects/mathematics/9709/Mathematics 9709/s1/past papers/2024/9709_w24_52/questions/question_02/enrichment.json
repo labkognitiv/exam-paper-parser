@@ -1,0 +1,50 @@
+{
+  "schema_version": "9709_math_enrichment_v8",
+  "question_id": "9709_w24_52_q2",
+  "difficulty": 3,
+  "parts": [
+    {
+      "part_id": "9709_w24_52_q2_a",
+      "difficulty": 1,
+      "mapping": {
+        "topic_id": "9709_s1_t_permutations_and_combinations",
+        "lesson_id": "9709_s1_t_permutations_and_combinations_m02_l02"
+      },
+      "hints": [
+        "Count the total letters in ALGEBRAIC: 9 letters.",
+        "Identify repeated letters: A appears 2 times, all other letters (L, G, E, B, R, I, C) appear 1 time each.",
+        "Divide 9! by 2!.",
+        "Calculate 362880 / 2 = 181440."
+      ],
+      "walkthrough": [
+        "Step 1: List the multiset of letters in ALGEBRAIC:\nThere are $n = 9$ letters:\n- $\\text{A}: 2$\n- $\\text{L}: 1$\n- $\\text{G}: 1$\n- $\\text{E}: 1$\n- $\\text{B}: 1$\n- $\\text{R}: 1$\n- $\\text{I}: 1$\n- $\\text{C}: 1$",
+        "Step 2: Apply the permutations formula for repeated items:\n$$\\text{Arrangements} = \\frac{n!}{p!} = \\frac{9!}{2!}$$",
+        "Step 3: Evaluate:\n$$9! = 362880$$\n$$\\frac{362880}{2} = 181440$$"
+      ]
+    },
+    {
+      "part_id": "9709_w24_52_q2_b",
+      "difficulty": 3,
+      "mapping": {
+        "topic_id": "9709_s1_t_permutations_and_combinations",
+        "lesson_id": "9709_s1_t_permutations_and_combinations_m03_l01"
+      },
+      "hints": [
+        "No more than two letters between the two As means: 0 letters, 1 letter, or 2 letters between the As.",
+        "Consider the 7 other distinct letters (L, G, E, B, R, I, C) arranged in 7! = 5040 ways.",
+        "These 7 letters create 8 available positions (slots) for the two As.",
+        "Alternatively, count by the number of letters separating the As:",
+        "Case 0 (AA together): 8 positions to place the block (AA) -> 8 * 7! = 8 * 5040 = 40320.",
+        "Case 1 (A_A): 7 positions to place A_A -> 7 * 7! = 7 * 5040 = 35280.",
+        "Case 2 (A__A): 6 positions to place A__A -> 6 * 7! = 6 * 5040 = 30240.",
+        "Sum the three cases: 40320 + 35280 + 30240 = 105840."
+      ],
+      "walkthrough": [
+        "Step 1: Understand the condition 'no more than two letters between the two As':\nThis means the number of letters separating the two $\\text{A}$s can be $0, 1,$ or $2$.\nThe remaining $7$ letters (L, G, E, B, R, I, C) are all distinct.",
+        "Step 2: Method of placing As in slots around the 7 distinct letters:\nArrange the $7$ distinct letters first:\n$$7! = 5040\\text{ ways}$$\nThis creates $8$ possible positions (slots) for the two $\\text{A}$s:\n$$\\_ \\; L_1 \\; \\_ \\; L_2 \\; \\_ \\; L_3 \\; \\_ \\; L_4 \\; \\_ \\; L_5 \\; \\_ \\; L_6 \\; \\_ \\; L_7 \\; \\_$$\n- For $0$ letters between As: both $\\text{A}$s go into the same slot $\\implies 8$ choices.\n- For $1$ letter between As: the two $\\text{A}$s occupy adjacent slots $(1,2), (2,3), \\dots, (7,8) \\implies 7$ choices.\n- For $2$ letters between As: the two $\\text{A}$s occupy slots separated by one slot $(1,3), (2,4), \\dots, (6,8) \\implies 6$ choices.",
+        "Step 3: Total valid slot choices for the pair of As:\n$$8 + 7 + 6 = 21\\text{ slot choices}$$",
+        "Step 4: Multiply by the arrangements of the 7 distinct letters:\n$$\\text{Total} = 21 \\times 7! = 21 \\times 5040 = 105840$$"
+      ]
+    }
+  ]
+}

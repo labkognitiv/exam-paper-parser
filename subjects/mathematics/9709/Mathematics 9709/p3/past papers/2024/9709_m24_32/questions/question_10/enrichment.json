@@ -1,0 +1,49 @@
+{
+  "schema_version": "9709_math_enrichment_v8",
+  "question_id": "9709_m24_32_q10",
+  "difficulty": 3,
+  "parts": [
+    {
+      "part_id": "9709_m24_32_q10_a",
+      "difficulty": 3,
+      "mapping": {
+        "topic_id": "9709_p3_t_logarithmic_and_exponential_functions",
+        "lesson_id": "9709_p3_t_logarithmic_and_exponential_functions_m02_l02"
+      },
+      "hints": [
+        "Write the partial fraction decomposition as $\\dfrac{36a^2}{(2a + x)(2a - x)(5a - 2x)} = \\dfrac{A}{2a + x} + \\dfrac{B}{2a - x} + \\dfrac{C}{5a - 2x}$.",
+        "Multiply through by the common denominator to form the identity $36a^2 = A(2a - x)(5a - 2x) + B(2a + x)(5a - 2x) + C(2a + x)(2a - x)$.",
+        "Substitute root values $x = -2a, 2a, \\dfrac{5}{2}a$ to find constants $A, B, C$."
+      ],
+      "walkthrough": [
+        "Set up the partial fraction decomposition for $f(x)$ with linear factors:\n$$\\dfrac{36a^2}{(2a + x)(2a - x)(5a - 2x)} = \\dfrac{A}{2a + x} + \\dfrac{B}{2a - x} + \\dfrac{C}{5a - 2x}$$",
+        "Clear the denominators by multiplying both sides by $(2a + x)(2a - x)(5a - 2x)$:\n$$36a^2 = A(2a - x)(5a - 2x) + B(2a + x)(5a - 2x) + C(2a + x)(2a - x)$$",
+        "Substitute $x = -2a$ into the identity to isolate $A$:\n$$36a^2 = A(2a - (-2a))(5a - 2(-2a)) + 0 + 0$$\n$$36a^2 = A(4a)(5a + 4a) = A(4a)(9a) = 36a^2 A$$\n$$A = \\dfrac{36a^2}{36a^2} = 1$$",
+        "Substitute $x = 2a$ into the identity to isolate $B$:\n$$36a^2 = 0 + B(2a + 2a)(5a - 2(2a)) + 0$$\n$$36a^2 = B(4a)(5a - 4a) = B(4a)(a) = 4a^2 B$$\n$$B = \\dfrac{36a^2}{4a^2} = 9$$",
+        "Substitute $x = \\dfrac{5}{2}a$ into the identity to isolate $C$:\n$$36a^2 = 0 + 0 + C\\left(2a + \\dfrac{5}{2}a\\right)\\left(2a - \\dfrac{5}{2}a\\right)$$\n$$36a^2 = C\\left(\\dfrac{9}{2}a\\right)\\left(-\\dfrac{1}{2}a\\right) = -\\dfrac{9}{4}a^2 C$$\n$$C = 36a^2 \\times \\left(-\\dfrac{4}{9a^2}\\right) = -16$$",
+        "Write the complete partial fraction decomposition:\n$$f(x) = \\dfrac{1}{2a + x} + \\dfrac{9}{2a - x} - \\dfrac{16}{5a - 2x}$$"
+      ]
+    },
+    {
+      "part_id": "9709_m24_32_q10_b",
+      "difficulty": 3,
+      "mapping": {
+        "topic_id": "9709_p3_t_integration",
+        "lesson_id": "9709_p3_t_integration_m03_l01"
+      },
+      "hints": [
+        "Integrate each partial fraction term individually using $\\int \\dfrac{1}{px + q}\\,\\mathrm{d}x = \\dfrac{1}{p}\\ln|px + q|$.",
+        "Apply limits from $-a$ to $a$.",
+        "Simplify using logarithm laws $\\ln(3a) = \\ln 3 + \\ln a$ to cancel all terms in $a$ and arrive at the form $p\\ln q + r\\ln s$."
+      ],
+      "walkthrough": [
+        "Integrate each term of $f(x) = \\dfrac{1}{2a + x} + \\dfrac{9}{2a - x} - \\dfrac{16}{5a - 2x}$ with respect to $x$:\n$$\\int \\dfrac{1}{2a + x}\\,\\mathrm{d}x = \\ln|2a + x|$$\n$$\\int \\dfrac{9}{2a - x}\\,\\mathrm{d}x = 9\\left(-\\ln|2a - x|\\right) = -9\\ln|2a - x|$$\n$$\\int -\\dfrac{16}{5a - 2x}\\,\\mathrm{d}x = -16\\left(-\\dfrac{1}{2}\\ln|5a - 2x|\\right) = +8\\ln|5a - 2x|$$",
+        "Write the definite integral with limits from $-a$ to $a$:\n$$\\int_{-a}^a f(x)\\,\\mathrm{d}x = \\left[ \\ln|2a + x| - 9\\ln|2a - x| + 8\\ln|5a - 2x| \\right]_{-a}^a$$",
+        "Evaluate at the upper limit $x = a$:\n$$\\text{Upper} = \\ln|2a + a| - 9\\ln|2a - a| + 8\\ln|5a - 2a| = \\ln(3a) - 9\\ln(a) + 8\\ln(3a)$$\nCombine like terms:\n$$\\text{Upper} = 9\\ln(3a) - 9\\ln(a) = 9(\\ln 3 + \\ln a) - 9\\ln a = 9\\ln 3$$",
+        "Evaluate at the lower limit $x = -a$:\n$$\\text{Lower} = \\ln|2a - a| - 9\\ln|2a - (-a)| + 8\\ln|5a - 2(-a)| = \\ln(a) - 9\\ln(3a) + 8\\ln(7a)$$\nExpand using $\\ln(ka) = \\ln k + \\ln a$:\n$$\\text{Lower} = \\ln a - 9(\\ln 3 + \\ln a) + 8(\\ln 7 + \\ln a)$$\n$$= \\ln a - 9\\ln 3 - 9\\ln a + 8\\ln 7 + 8\\ln a$$\n$$= (1 - 9 + 8)\\ln a - 9\\ln 3 + 8\\ln 7 = -9\\ln 3 + 8\\ln 7$$",
+        "Subtract the lower limit from the upper limit:\n$$\\int_{-a}^a f(x)\\,\\mathrm{d}x = \\text{Upper} - \\text{Lower}$$\n$$= 9\\ln 3 - (-9\\ln 3 + 8\\ln 7)$$\n$$= 9\\ln 3 + 9\\ln 3 - 8\\ln 7$$\n$$= 18\\ln 3 - 8\\ln 7$$",
+        "Verify the form $p\\ln q + r\\ln s$:\nHere $p = 18$ and $r = -8$ are integers, and $q = 3$ and $s = 7$ are prime numbers."
+      ]
+    }
+  ]
+}

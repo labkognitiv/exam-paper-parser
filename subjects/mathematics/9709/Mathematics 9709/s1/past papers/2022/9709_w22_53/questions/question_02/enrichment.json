@@ -1,0 +1,23 @@
+{
+  "schema_version": "9709_math_enrichment_v8",
+  "question_id": "9709_w22_53_q2",
+  "difficulty": 3,
+  "parts": [
+    {
+      "part_id": "9709_w22_53_q2",
+      "difficulty": 3,
+      "mapping": {
+        "topic_id": "9709_s1_t_the_normal_distribution",
+        "lesson_id": "9709_s1_t_the_normal_distribution_m03_l01"
+      },
+      "hints": [
+        "Model the number of students with blue eyes as $X \\sim \\mathrm{B}(80, 0.32)$ and calculate $\\mu = np$ and $\\sigma^2 = np(1-p)$.",
+        "Apply continuity correction to the strict inequality 'fewer than 20': $X < 20 \\iff X \\le 19$, which corresponds to $Y < 19.5$.",
+        "Standardize $z = \\frac{19.5 - \\mu}{\\sigma}$ and evaluate the lower tail probability $1 - \\Phi(|z|)$."
+      ],
+      "walkthrough": [
+        "Step 1: Set up the distribution.\nLet $X$ be the number of students in the sample of $80$ who have blue eyes:\n$$X \\sim \\mathrm{B}(80, 0.32)$$\n\nStep 2: Find the parameters of the normal approximation.\n$$\\mu = np = 80 \\times 0.32 = 25.6$$\n$$\\sigma^2 = npq = 80 \\times 0.32 \\times 0.68 = 17.408$$\n$$\\sigma = \\sqrt{17.408} \\approx 4.17229$$\nCheck conditions: $np = 25.6 > 5$ and $nq = 54.4 > 5$, so the approximation is suitable.\n\nStep 3: Apply the continuity correction.\nWe require $\\mathrm{P}(X < 20)$.\nOn the integer scale, $X < 20$ means $X \\le 19$.\nThe upper boundary for the integer $19$ is $19.5$.\nTherefore:\n$$\\mathrm{P}(X < 20) \\approx \\mathrm{P}(Y < 19.5)$$\n\nStep 4: Standardize.\n$$z = \\frac{19.5 - 25.6}{4.17229} = \\frac{-6.1}{4.17229} \\approx -1.462$$\n\nStep 5: Compute the probability.\n$$\\mathrm{P}(Z < -1.462) = 1 - \\Phi(1.462)$$\nFrom the standard normal table:\n$$\\Phi(1.46) = 0.9279$$\nWith add-difference for $2$ ($3$):\n$$\\Phi(1.462) = 0.9279 + 0.0003 = 0.9282$$\nTherefore:\n$$1 - 0.9282 = 0.0718$$\nRounding to 3 significant figures gives $0.0718$."
+      ]
+    }
+  ]
+}

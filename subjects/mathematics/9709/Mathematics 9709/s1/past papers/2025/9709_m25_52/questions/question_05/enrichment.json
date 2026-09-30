@@ -1,0 +1,85 @@
+{
+  "schema_version": "9709_math_enrichment_v8",
+  "question_id": "9709_m25_52_q5",
+  "difficulty": 3,
+  "parts": [
+    {
+      "part_id": "9709_m25_52_q5_a",
+      "difficulty": 2,
+      "mapping": {
+        "topic_id": "9709_s1_t_the_normal_distribution",
+        "lesson_id": "9709_s1_t_the_normal_distribution_m01_l01"
+      },
+      "hints": [
+        "Standardise both boundaries using Z = (X - mu) / sigma with mu = 65.8 and sigma = 9.6.",
+        "For X = 56, z1 = (56 - 65.8) / 9.6 = -1.0208. For X = 75, z2 = (75 - 65.8) / 9.6 = 0.9583.",
+        "Express the interval probability as Phi(0.9583) - Phi(-1.0208) = Phi(0.9583) + Phi(1.0208) - 1.",
+        "Look up the standard normal values: 0.8309 + 0.8463 - 1 = 0.677 (3 s.f.)."
+      ],
+      "walkthrough": [
+        "Step 1: Identify the distribution and parameters:\nLet $X$ be the mass of peaches sold per day in kg. We are given:\n$$X \\sim N(65.8, 9.6^2)$$\nwhere the mean is $\\mu = 65.8$ and the standard deviation is $\\sigma = 9.6$.",
+        "Step 2: Standardise the lower and upper endpoints of the interval $(56, 75)$:\nUsing the standardisation formula $Z = \\frac{X - \\mu}{\\sigma}$:\n- Lower boundary $X = 56$:\n$$z_1 = \\frac{56 - 65.8}{9.6} = \\frac{-9.8}{9.6} \\approx -1.0208$$\n- Upper boundary $X = 75$:\n$$z_2 = \\frac{75 - 65.8}{9.6} = \\frac{9.2}{9.6} \\approx 0.9583$$",
+        "Step 3: Express the probability in terms of $\\Phi(z)$:\n$$\\mathrm{P}(56 < X < 75) = \\mathrm{P}(-1.0208 < Z < 0.9583) = \\Phi(0.9583) - \\Phi(-1.0208)$$",
+        "Step 4: Use the symmetry property $\\Phi(-z) = 1 - \\Phi(z)$ for the negative score:\n$$\\Phi(-1.0208) = 1 - \\Phi(1.0208)$$\n$$\\mathrm{P}(-1.0208 < Z < 0.9583) = \\Phi(0.9583) - [1 - \\Phi(1.0208)] = \\Phi(0.9583) + \\Phi(1.0208) - 1$$",
+        "Step 5: Look up the values in the standard normal distribution table:\n- For $z = 0.9583$: $\\Phi(0.958) = 0.8310$, difference 3 is $7$, giving $\\Phi(0.9583) \\approx 0.8309$.\n- For $z = 1.0208$: $\\Phi(1.021) \\approx 0.8463$.\nSubstitute these values:\n$$0.8309 + 0.8463 - 1 = 1.6772 - 1 = 0.6772 \\approx 0.677\\text{ (3 s.f.)}$$"
+      ]
+    },
+    {
+      "part_id": "9709_m25_52_q5_b",
+      "difficulty": 3,
+      "mapping": {
+        "topic_id": "9709_s1_t_the_normal_distribution",
+        "lesson_id": "9709_s1_t_the_normal_distribution_m02_l02"
+      },
+      "hints": [
+        "Write down the lower tail condition for cherries: P(Y < 59.1) = 0.10, where Y ~ N(72.4, v^2).",
+        "Standardise the value 59.1: Z = (59.1 - 72.4) / v = -13.3 / v.",
+        "Use the standard normal table to find the z-score corresponding to a lower tail of 0.10: because Phi(1.282) = 0.90, the lower tail critical value is z = -1.282.",
+        "Equate -13.3 / v = -1.282 and solve for v: v = -13.3 / -1.282 = 10.4 kg (3 s.f.)."
+      ],
+      "walkthrough": [
+        "Step 1: State the distribution and given tail condition:\nLet $Y$ be the daily mass of cherries sold in kg. We are given:\n$$Y \\sim N(72.4, v^2)$$\nwhere the mean is $\\mu = 72.4$ and the standard deviation is $v$.\nWe are given that on $10\\%$ of days, less than $59.1$ kg are sold:\n$$\\mathrm{P}(Y < 59.1) = 0.10$$",
+        "Step 2: Standardise the threshold value $59.1$:\n$$Z = \\frac{Y - \\mu}{\\sigma} = \\frac{59.1 - 72.4}{v} = \\frac{-13.3}{v}$$",
+        "Step 3: Find the corresponding standard normal critical value $z$:\nSince the tail probability is $0.10 < 0.5$, the z-score must be negative:\n$$\\mathrm{P}(Z < z) = 0.10 \\implies \\mathrm{P}(Z > -z) = 0.10 \\implies \\Phi(-z) = 0.90$$\nFrom the critical values table for the normal distribution:\n$$\\Phi(1.282) = 0.9000 \\implies z = -1.282$$",
+        "Step 4: Form the equation and solve for $v$:\n$$\\frac{-13.3}{v} = -1.282$$\nMultiply both sides by $v$ and divide by $-1.282$:\n$$v = \\frac{-13.3}{-1.282} = \\frac{13.3}{1.282} \\approx 10.3744$$\nRounding to 3 significant figures gives:\n$$v = 10.4\\text{ kg}$$"
+      ]
+    },
+    {
+      "part_id": "9709_m25_52_q5_c",
+      "difficulty": 2,
+      "mapping": {
+        "topic_id": "9709_s1_t_discrete_random_variables",
+        "lesson_id": "9709_s1_t_discrete_random_variables_m04_l01"
+      },
+      "hints": [
+        "Identify the daily probability of selling less than 59.1 kg of cherries as p = 0.10, and the failure probability as q = 1 - 0.10 = 0.90.",
+        "For the first occurrence to be on the fifth day, the first 4 days must not have less than 59.1 kg sold, followed by less than 59.1 kg sold on day 5.",
+        "Calculate P(W = 5) = q^4 * p = (0.9)^4 * 0.1 = 0.6561 * 0.1 = 0.0656 (3 s.f.)."
+      ],
+      "walkthrough": [
+        "Step 1: Identify the model and daily probabilities:\nLet a success on any given day be the event that less than $59.1$ kg of cherries are sold.\nFrom part (b), the probability of success on any day is:\n$$p = 0.10$$\nThe probability of not selling less than $59.1$ kg on any day is:\n$$q = 1 - p = 1 - 0.10 = 0.90$$",
+        "Step 2: Model the trial of first success:\nLet $W$ be the day number on which less than $59.1$ kg of cherries are first sold.\nBecause days are independent, $W$ follows a geometric distribution:\n$$W \\sim \\operatorname{Geo}(0.10)$$",
+        "Step 3: State the geometric probability formula:\n$$\\mathrm{P}(W = r) = q^{r - 1} p = (1 - p)^{r - 1} p$$",
+        "Step 4: Substitute $r = 5$ and evaluate step-by-step:\n$$\\mathrm{P}(W = 5) = (0.90)^{5 - 1} \\times 0.10 = (0.90)^4 \\times 0.10$$\nCalculate the fourth power of $0.90$:\n$$(0.90)^2 = 0.81$$\n$$(0.90)^4 = 0.81^2 = 0.6561$$\nMultiply by $0.10$:\n$$\\mathrm{P}(W = 5) = 0.6561 \\times 0.10 = 0.06561 \\approx 0.0656\\text{ (3 s.f.)}$$"
+      ]
+    },
+    {
+      "part_id": "9709_m25_52_q5_d",
+      "difficulty": 2,
+      "mapping": {
+        "topic_id": "9709_s1_t_discrete_random_variables",
+        "lesson_id": "9709_s1_t_discrete_random_variables_m04_l01"
+      },
+      "hints": [
+        "The first day being before the fifth day means the event occurs on day 1, 2, 3, or 4: P(W < 5) = P(W <= 4).",
+        "Use the cumulative formula for a geometric distribution or the complement of failing on all 4 days: P(W <= 4) = 1 - (1 - p)^4.",
+        "Calculate 1 - (0.9)^4 = 1 - 0.6561 = 0.344 (3 s.f.)."
+      ],
+      "walkthrough": [
+        "Step 1: Understand what before the fifth day means:\nThe first day on which less than $59.1$ kg are sold must be day 1, day 2, day 3, or day 4. In terms of the random variable $W$:\n$$\\mathrm{P}(W < 5) = \\mathrm{P}(W \\le 4)$$",
+        "Step 2: Method 1 using the geometric cumulative probability formula:\nFor a geometric distribution $W \\sim \\operatorname{Geo}(p)$, the probability that the first success occurs on or before trial $k$ is:\n$$\\mathrm{P}(W \\le k) = 1 - (1 - p)^k = 1 - q^k$$\nHere $k = 4$ and $q = 0.90$:\n$$\\mathrm{P}(W \\le 4) = 1 - (0.90)^4$$\nCalculate $(0.90)^4$:\n$$(0.90)^4 = 0.6561$$\nSubtract from 1:\n$$\\mathrm{P}(W \\le 4) = 1 - 0.6561 = 0.3439 \\approx 0.344\\text{ (3 s.f.)}$$",
+        "Step 3: Method 2 by summing individual days (verification):\n$$\\mathrm{P}(W = 1) = 0.10$$\n$$\\mathrm{P}(W = 2) = 0.90 \\times 0.10 = 0.09$$\n$$\\mathrm{P}(W = 3) = (0.90)^2 \\times 0.10 = 0.81 \\times 0.10 = 0.081$$\n$$\\mathrm{P}(W = 4) = (0.90)^3 \\times 0.10 = 0.729 \\times 0.10 = 0.0729$$\nSumming all four disjoint days:\n$$0.10 + 0.09 + 0.081 + 0.0729 = 0.3439 \\approx 0.344$$"
+      ]
+    }
+  ]
+}

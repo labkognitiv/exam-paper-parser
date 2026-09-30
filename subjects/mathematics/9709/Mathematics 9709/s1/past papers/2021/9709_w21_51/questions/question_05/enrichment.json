@@ -1,0 +1,83 @@
+{
+  "schema_version": "9709_math_enrichment_v8",
+  "question_id": "9709_w21_51_q5",
+  "difficulty": 3,
+  "parts": [
+    {
+      "part_id": "9709_w21_51_q5_a",
+      "difficulty": 1,
+      "mapping": {
+        "topic_id": "9709_s1_t_permutations_and_combinations",
+        "lesson_id": "9709_s1_t_permutations_and_combinations_m03_l01"
+      },
+      "hints": [
+        "There are 9 positions in the line, with position 5 being the exact centre.",
+        "Fix Raman at position 5: there is only 1 way to place Raman.",
+        "Arrange the remaining 8 distinct members of the quiz team into the remaining 8 positions in $8!$ ways.",
+        "Evaluate $8!$ to obtain the final count."
+      ],
+      "walkthrough": [
+        "Step 1: Identify the fixed position constraint.\nThe line has 9 positions. The centre is position 5 (with 4 positions to the left and 4 positions to the right).\nRaman must occupy position 5, so there is only 1 choice for this position.",
+        "Step 2: Permute the remaining members.\nThere are 8 distinct members remaining to fill the other 8 positions.\nBy the fundamental counting principle, the number of ways to arrange 8 distinct items in 8 positions is:\n$$8! = 8 \\times 7 \\times 6 \\times 5 \\times 4 \\times 3 \\times 2 \\times 1 = 40320$$"
+      ]
+    },
+    {
+      "part_id": "9709_w21_51_q5_b",
+      "difficulty": 3,
+      "mapping": {
+        "topic_id": "9709_s1_t_permutations_and_combinations",
+        "lesson_id": "9709_s1_t_permutations_and_combinations_m03_l03"
+      },
+      "hints": [
+        "Use the complement method: Total unrestricted arrangements minus arrangements where Raman and Sanjay stand next to each other.",
+        "The total number of unrestricted arrangements of 9 distinct members is $9! = 362880$.",
+        "To count arrangements where Raman and Sanjay are next to each other, treat [R, S] as a single block: there are 8 items that can be arranged in $8!$ ways, and Raman and Sanjay can swap places within the block in $2!$ ways, giving $8! \\times 2 = 80640$.",
+        "Subtract the 'together' arrangements from the total: $362880 - 80640$."
+      ],
+      "walkthrough": [
+        "Step 1: Use the complement approach.\nThe condition 'not next to each other' is most directly solved by subtracting the arrangements where Raman and Sanjay ARE next to each other from the total unrestricted arrangements:\n$$\\text{Not together} = \\text{Total} - \\text{Together}$$",
+        "Step 2: Calculate total unrestricted arrangements.\nArranging 9 distinct members in a line:\n$$\\text{Total} = 9! = 362880$$",
+        "Step 3: Calculate arrangements where Raman and Sanjay are together.\nTreat Raman and Sanjay as a single block: $[\\text{R, S}]$.\nThe line now consists of this block plus the other 7 members, giving $1 + 7 = 8$ units.\nThese 8 units can be arranged in $8!$ ways.\nWithin the block, Raman and Sanjay can be arranged in $2!$ ways ($[\\text{R, S}]$ or $[\\text{S, R}]$):\n$$\\text{Together} = 8! \\times 2! = 40320 \\times 2 = 80640$$",
+        "Step 4: Subtract to find the required number of arrangements:\n$$\\text{Not together} = 362880 - 80640 = 282240$$\n(Alternatively, using the gap method: arrange the 7 other members in $7! = 5040$ ways. This creates 8 available gaps. Placing Raman and Sanjay into 2 of these 8 gaps gives $8 \\times 7 = 56$ ways: $5040 \\times 56 = 282240$)."
+      ]
+    },
+    {
+      "part_id": "9709_w21_51_q5_c",
+      "difficulty": 2,
+      "mapping": {
+        "topic_id": "9709_s1_t_permutations_and_combinations",
+        "lesson_id": "9709_s1_t_permutations_and_combinations_m01_l02"
+      },
+      "hints": [
+        "Dividing 9 members into a group of 5 (back row) and a group of 4 (front row) simply requires selecting 5 members from the 9.",
+        "Once 5 members are chosen for the back row, the remaining 4 members automatically form the front row.",
+        "Apply the combinations formula: $\\binom{9}{5} = \\dfrac{9!}{5! \\times 4!}$.",
+        "Evaluate the combination to get the final integer count."
+      ],
+      "walkthrough": [
+        "Step 1: Understand the group division.\nThe 9 members must be divided into two specific groups: a group of 5 for the back row and a group of 4 for the front row.\nBecause the two rows have different sizes (5 and 4), choosing the 5 members for the back row uniquely determines the 4 members for the front row.",
+        "Step 2: Apply the combinations formula:\n$$\\text{Number of ways} = \\binom{9}{5} = \\frac{9 \\times 8 \\times 7 \\times 6 \\times 5}{5 \\times 4 \\times 3 \\times 2 \\times 1} = \\frac{9 \\times 8 \\times 7 \\times 6}{4 \\times 3 \\times 2 \\times 1}$$\n$$\\text{Number of ways} = 126$$"
+      ]
+    },
+    {
+      "part_id": "9709_w21_51_q5_d",
+      "difficulty": 3,
+      "mapping": {
+        "topic_id": "9709_s1_t_probability",
+        "lesson_id": "9709_s1_t_probability_m05_l01"
+      },
+      "hints": [
+        "Raman and Sanjay can be in the same group in two mutually exclusive cases: both in the group of 5, or both in the group of 4.",
+        "If both are in the group of 5, choose the remaining 3 members for this group from the other 7 quiz members: $\\binom{7}{3} = 35$.",
+        "If both are in the group of 4, choose the remaining 2 members for this group from the other 7 quiz members: $\\binom{7}{2} = 21$.",
+        "Add the favourable counts ($35 + 21 = 56$) and divide by the total number of divisions from part (c), which is 126."
+      ],
+      "walkthrough": [
+        "Step 1: Identify favourable cases for Raman and Sanjay being together.\nRaman and Sanjay can be together either in the back row (group of 5) or in the front row (group of 4).\nSince these two groups are disjoint, the two scenarios are mutually exclusive.",
+        "Step 2: Case 1 - Both Raman and Sanjay in the group of 5:\nSince Raman and Sanjay already occupy 2 of the 5 spots, we need to choose 3 more people from the remaining $9 - 2 = 7$ team members:\n$$\\binom{7}{3} = \\frac{7 \\times 6 \\times 5}{3 \\times 2 \\times 1} = 35\\text{ ways}$$",
+        "Step 3: Case 2 - Both Raman and Sanjay in the group of 4:\nSince Raman and Sanjay occupy 2 of the 4 spots, we need to choose 2 more people from the remaining $7$ team members:\n$$\\binom{7}{2} = \\frac{7 \\times 6}{2 \\times 1} = 21\\text{ ways}$$",
+        "Step 4: Combine favourable cases and compute probability:\n$$\\text{Total favourable outcomes} = 35 + 21 = 56$$\nFrom part (c), the total number of ways to divide the 9 members into groups of 5 and 4 is $126$:\n$$\\text{Probability} = \\frac{56}{126}$$\nSimplify the fraction by dividing numerator and denominator by 14:\n$$\\frac{56 \\div 14}{126 \\div 14} = \\frac{4}{9} \\approx 0.4444 \\dots \\approx 0.444$$"
+      ]
+    }
+  ]
+}

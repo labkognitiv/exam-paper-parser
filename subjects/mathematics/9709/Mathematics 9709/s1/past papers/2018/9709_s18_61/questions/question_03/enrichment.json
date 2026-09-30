@@ -1,0 +1,70 @@
+{
+  "schema_version": "9709_math_enrichment_v8",
+  "question_id": "9709_s18_61_q3",
+  "difficulty": 2,
+  "parts": [
+    {
+      "part_id": "9709_s18_61_q3_i",
+      "difficulty": 2,
+      "mapping": {
+        "topic_id": "9709_s1_t_probability",
+        "lesson_id": "9709_s1_t_probability_m02_l01"
+      },
+      "hints": [
+        "The drawer contains 4 red socks and 8 black socks, giving 12 socks in total.",
+        "Taking socks of different colours means taking either (Red then Black) or (Black then Red) without replacement.",
+        "Compute $\\mathrm{P}(RB) + \\mathrm{P}(BR) = \\left(\\frac{4}{12} \\times \\frac{8}{11}\\right) + \\left(\\frac{8}{12} \\times \\frac{4}{11}\\right)$, or use combinations $\\frac{\\binom{4}{1}\\binom{8}{1}}{\\binom{12}{2}}$."
+      ],
+      "walkthrough": [
+        "Andy has 4 red socks and 8 black socks, so there are $4 + 8 = 12$ socks in total. Two socks are drawn at random without replacement.",
+        "We want the probability that the two socks have different colours (one red and one black).",
+        "Method 1 (Tree diagram / conditional multiplication rule):\n- Case 1: First sock is red, second is black:\n  $$\\mathrm{P}(RB) = \\frac{4}{12} \\times \\frac{8}{11} = \\frac{32}{132}$$\n- Case 2: First sock is black, second is red:\n  $$\\mathrm{P}(BR) = \\frac{8}{12} \\times \\frac{4}{11} = \\frac{32}{132}$$\n- Sum the probabilities of these two disjoint orders:\n  $$\\mathrm{P}(\\text{Different colours}) = \\frac{32}{132} + \\frac{32}{132} = \\frac{64}{132} = \\frac{16}{33} \\approx 0.485$$",
+        "Method 2 (Combinations approach):\n- Number of ways to choose 1 red from 4 and 1 black from 8: $\\binom{4}{1} \\times \\binom{8}{1} = 4 \\times 8 = 32$.\n- Total number of ways to choose any 2 socks from 12: $\\binom{12}{2} = \\frac{12 \\times 11}{2 \\times 1} = 66$.\n- Probability:\n  $$\\frac{32}{66} = \\frac{16}{33}$$",
+        "Both methods yield $16/33$ (or $0.485$ to 3 significant figures)."
+      ]
+    },
+    {
+      "part_id": "9709_s18_61_q3_ii",
+      "difficulty": 2,
+      "mapping": {
+        "topic_id": "9709_s1_t_discrete_random_variables",
+        "lesson_id": "9709_s1_t_discrete_random_variables_m01_l01"
+      },
+      "hints": [
+        "Let $X$ denote the number of red socks taken when drawing 2 socks without replacement. The possible values of $X$ are 0, 1, and 2.",
+        "Compute $\\mathrm{P}(X = 0)$ as the probability of picking 2 black socks: $\\frac{8}{12} \\times \\frac{7}{11}$.",
+        "Use the result from part (i) for $\\mathrm{P}(X = 1) = \\frac{16}{33}$.",
+        "Compute $\\mathrm{P}(X = 2)$ as the probability of picking 2 red socks: $\\frac{4}{12} \\times \\frac{3}{11}$, and check that the probabilities sum to 1."
+      ],
+      "walkthrough": [
+        "Let $X$ denote the discrete random variable representing the number of red socks selected when Andy takes 2 socks from the drawer.",
+        "Since there are 4 red and 8 black socks, selecting 2 socks means Andy can get 0, 1, or 2 red socks. The sample space of outcomes for $X$ is $\\{0, 1, 2\\}$.",
+        "Step 1: Calculate $\\mathrm{P}(X = 0)$ (both socks are black):\n$$\\mathrm{P}(X = 0) = \\frac{8}{12} \\times \\frac{7}{11} = \\frac{56}{132} = \\frac{14}{33}$$",
+        "Step 2: Calculate $\\mathrm{P}(X = 1)$ (one red and one black sock):\nFrom part (i), this probability is:\n$$\\mathrm{P}(X = 1) = \\frac{16}{33}$$",
+        "Step 3: Calculate $\\mathrm{P}(X = 2)$ (both socks are red):\n$$\\mathrm{P}(X = 2) = \\frac{4}{12} \\times \\frac{3}{11} = \\frac{12}{132} = \\frac{3}{33} = \\frac{1}{11}$$",
+        "Step 4: Check total probability:\n$$\\sum \\mathrm{P}(X = x) = \\frac{14}{33} + \\frac{16}{33} + \\frac{3}{33} = \\frac{33}{33} = 1$$",
+        "Step 5: Write the probability distribution table:\n$$\\begin{array}{|c|c|c|c|} \\hline x & 0 & 1 & 2 \\\\ \\hline \\mathrm{P}(X=x) & \\frac{14}{33} & \\frac{16}{33} & \\frac{3}{33} \\\\ \\hline \\end{array}$$"
+      ]
+    },
+    {
+      "part_id": "9709_s18_61_q3_iii",
+      "difficulty": 1,
+      "mapping": {
+        "topic_id": "9709_s1_t_discrete_random_variables",
+        "lesson_id": "9709_s1_t_discrete_random_variables_m02_l01"
+      },
+      "hints": [
+        "Use the expectation formula: $\\mathrm{E}(X) = \\sum x \\mathrm{P}(X = x)$.",
+        "Multiply each outcome $x \\in \\{0, 1, 2\\}$ by its respective probability from the table in part (ii).",
+        "Sum the products and simplify the resulting fraction."
+      ],
+      "walkthrough": [
+        "Write the foundational formula for the expected value of a discrete random variable:\n$$\\mathrm{E}(X) = \\sum x \\mathrm{P}(X = x)$$",
+        "Substitute each outcome $x$ and its probability from the distribution table in part (ii):\n- For $x = 0$: $0 \\times \\frac{14}{33} = 0$\n- For $x = 1$: $1 \\times \\frac{16}{33} = \\frac{16}{33}$\n- For $x = 2$: $2 \\times \\frac{3}{33} = \\frac{6}{33}$",
+        "Add the resulting terms:\n$$\\mathrm{E}(X) = 0 + \\frac{16}{33} + \\frac{6}{33} = \\frac{22}{33}$$",
+        "Divide numerator and denominator by 11 to simplify:\n$$\\mathrm{E}(X) = \\frac{2}{3}$$",
+        "Therefore, the expected number of red socks is $\\frac{2}{3}$ (or approximately $0.667$)."
+      ]
+    }
+  ]
+}

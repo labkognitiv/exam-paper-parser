@@ -1,0 +1,48 @@
+{
+  "schema_version": "9709_math_enrichment_v8",
+  "question_id": "9709_s23_32_q8",
+  "difficulty": 4,
+  "parts": [
+    {
+      "part_id": "9709_s23_32_q8_a",
+      "difficulty": 4,
+      "mapping": {
+        "topic_id": "9709_p3_t_differential_equations",
+        "lesson_id": "9709_p3_t_differential_equations_m02_l01"
+      },
+      "hints": [
+        "Separate the variables as $\\frac{dy}{4+9y^2}=e^{-2x-1}\\,dx$ before integrating.",
+        "For the left side, scale to the standard $\\int du/(1+u^2)$ form using $u=3y/2$; integrate the exponential on the right with its chain-rule factor.",
+        "Apply $y=0$ when $x=1$ to determine the integration constant exactly.",
+        "Isolate $\\tan^{-1}(3y/2)$, take tangent, and then solve explicitly for $y$."
+      ],
+      "walkthrough": [
+        "Separate variables in the differential equation $\\dfrac{\\mathrm{d}y}{\\mathrm{d}x} = \\dfrac{4 + 9y^2}{\\mathrm{e}^{2x + 1}}$:\n$$\\dfrac{\\mathrm{d}y}{4 + 9y^2} = \\mathrm{e}^{-(2x + 1)}\\,\\mathrm{d}x = \\mathrm{e}^{-2x - 1}\\,\\mathrm{d}x$$",
+        "Integrate the left-hand side using the standard integral $\\int \\dfrac{\\mathrm{d}u}{a^2 + u^2} = \\dfrac{1}{a}\\tan^{-1}\\left(\\dfrac{u}{a}\\right)$ with $a = 2$ and $u = 3y$:\n$$\\int \\dfrac{1}{2^2 + (3y)^2}\\,\\mathrm{d}y = \\dfrac{1}{3} \\cdot \\dfrac{1}{2}\\tan^{-1}\\left(\\dfrac{3y}{2}\\right) = \\dfrac{1}{6}\\tan^{-1}\\left(\\dfrac{3y}{2}\\right)$$",
+        "Integrate the right-hand side with respect to $x$:\n$$\\int \\mathrm{e}^{-2x - 1}\\,\\mathrm{d}x = -\\dfrac{1}{2}\\mathrm{e}^{-2x - 1} + C$$",
+        "Equate the two integrals:\n$$\\dfrac{1}{6}\\tan^{-1}\\left(\\dfrac{3y}{2}\\right) = -\\dfrac{1}{2}\\mathrm{e}^{-2x - 1} + C$$",
+        "Apply the initial condition $y = 0$ when $x = 1$ to determine $C$:\n$$\\dfrac{1}{6}\\tan^{-1}(0) = -\\dfrac{1}{2}\\mathrm{e}^{-2(1) - 1} + C$$\n$$0 = -\\dfrac{1}{2}\\mathrm{e}^{-3} + C \\implies C = \\dfrac{1}{2}\\mathrm{e}^{-3}$$",
+        "Substitute $C$ into the equation and multiply through by 6:\n$$\\dfrac{1}{6}\\tan^{-1}\\left(\\dfrac{3y}{2}\\right) = \\dfrac{1}{2}\\mathrm{e}^{-3} - \\dfrac{1}{2}\\mathrm{e}^{-2x - 1}$$\n$$\\tan^{-1}\\left(\\dfrac{3y}{2}\\right) = 3(\\mathrm{e}^{-3} - \\mathrm{e}^{-2x - 1})$$",
+        "Solve explicitly for $y$ in terms of $x$:\n$$\\dfrac{3y}{2} = \\tan\\left[3(\\mathrm{e}^{-3} - \\mathrm{e}^{-2x - 1})\\right]$$\n$$y = \\dfrac{2}{3}\\tan\\left[3(\\mathrm{e}^{-3} - \\mathrm{e}^{-2x - 1})\\right]$$"
+      ]
+    },
+    {
+      "part_id": "9709_s23_32_q8_b",
+      "difficulty": 2,
+      "mapping": {
+        "topic_id": "9709_p3_t_logarithmic_and_exponential_functions",
+        "lesson_id": "9709_p3_t_logarithmic_and_exponential_functions_m03_l01"
+      },
+      "hints": [
+        "Use the explicit solution from part (a) and take its limit as $x\\to\\infty$.",
+        "The term $e^{-2x-1}$ tends to zero, so remove only that term from the tangent's argument.",
+        "Leave the limiting value in exact exponential-and-trigonometric form rather than replacing it by a decimal."
+      ],
+      "walkthrough": [
+        "Take the limit of the solution $y = \\dfrac{2}{3}\\tan\\left[3(\\mathrm{e}^{-3} - \\mathrm{e}^{-2x - 1})\\right]$ as $x \\to \\infty$:\n$$\\lim_{x \\to \\infty} \\mathrm{e}^{-2x - 1} = 0$$",
+        "Evaluate the limiting argument of the tangent function:\n$$3(\\mathrm{e}^{-3} - 0) = 3\\mathrm{e}^{-3}$$",
+        "State the exact limiting value of $y$:\n$$y \\to \\dfrac{2}{3}\\tan(3\\mathrm{e}^{-3})$$"
+      ]
+    }
+  ]
+}

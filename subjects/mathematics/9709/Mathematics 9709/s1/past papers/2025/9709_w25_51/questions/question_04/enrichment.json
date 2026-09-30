@@ -1,0 +1,45 @@
+{
+  "schema_version": "9709_math_enrichment_v8",
+  "question_id": "9709_w25_51_q4",
+  "difficulty": 3,
+  "parts": [
+    {
+      "part_id": "9709_w25_51_q4_a",
+      "difficulty": 2,
+      "mapping": {
+        "topic_id": "9709_s1_t_probability",
+        "lesson_id": "9709_s1_t_probability_m03_l01"
+      },
+      "hints": [
+        "Follow the marble transfer rules carefully at each stage.",
+        "Stage 2 (from Bag B): if Red from Bag A was discarded, Bag B has 4 Red and 1 Blue (total 5): P(R) = 4/5, P(B) = 1/5. If Blue from Bag A was added, Bag B has 4 Red and 2 Blue (total 6): P(R) = 4/6 (or 2/3), P(B) = 2/6 (or 1/3).",
+        "Stage 3 (from Bag A): track Bag A's count after each stage: after RR, Bag A has 7 R, 3 B (P(R) = 7/10, P(B) = 3/10); after RB, Bag A has 7 R, 4 B (P(R) = 7/11, P(B) = 4/11); after BR, Bag A has 8 R, 2 B (P(R) = 8/10, P(B) = 2/10); after BB, Bag A has 8 R, 3 B (P(R) = 8/11, P(B) = 3/11)."
+      ],
+      "walkthrough": [
+        "Step 1: Understand Bag contents and transfer rules:\n- Bag A initially: 8 Red, 3 Blue (total 11).\n- Bag B initially: 4 Red, 1 Blue (total 5).\n- Draw 1 from Bag A: Red is discarded; Blue is put into Bag B.\n- Draw 2 from Bag B: Red is discarded; Blue is put into Bag A.\n- Draw 3 from Bag A: chosen from the updated contents of Bag A.",
+        "Step 2: Second stage branch probabilities (from Bag B):\n- If first draw was Red: Bag B is untouched with 4 Red, 1 Blue ($5$ total):\n  $$\\mathrm{P}(R_B) = \\frac{4}{5}, \\quad \\mathrm{P}(B_B) = \\frac{1}{5}$$\n- If first draw was Blue: Bag B now has 4 Red, 2 Blue ($6$ total):\n  $$\\mathrm{P}(R_B) = \\frac{4}{6} = \\frac{2}{3}, \\quad \\mathrm{P}(B_B) = \\frac{2}{6} = \\frac{1}{3}$$",
+        "Step 3: Third stage branch probabilities (from Bag A):\n- Path $R_A, R_B$: Bag A lost 1 Red, gained nothing $\\implies 7R, 3B$ ($10$ total):\n  $$\\mathrm{P}(R) = \\frac{7}{10}, \\quad \\mathrm{P}(B) = \\frac{3}{10}$$\n- Path $R_A, B_B$: Bag A lost 1 Red, gained 1 Blue $\\implies 7R, 4B$ ($11$ total):\n  $$\\mathrm{P}(R) = \\frac{7}{11}, \\quad \\mathrm{P}(B) = \\frac{4}{11}$$\n- Path $B_A, R_B$: Bag A lost 1 Blue, gained nothing $\\implies 8R, 2B$ ($10$ total):\n  $$\\mathrm{P}(R) = \\frac{8}{10}, \\quad \\mathrm{P}(B) = \\frac{2}{10}$$\n- Path $B_A, B_B$: Bag A lost 1 Blue, gained 1 Blue $\\implies 8R, 3B$ ($11$ total):\n  $$\\mathrm{P}(R) = \\frac{8}{11}, \\quad \\mathrm{P}(B) = \\frac{3}{11}$$"
+      ]
+    },
+    {
+      "part_id": "9709_w25_51_q4_b",
+      "difficulty": 2,
+      "mapping": {
+        "topic_id": "9709_s1_t_probability",
+        "lesson_id": "9709_s1_t_probability_m03_l02"
+      },
+      "hints": [
+        "All three marbles chosen are the same colour corresponds to RRR or BBB.",
+        "Calculate P(RRR) = (8/11) * (4/5) * (7/10) = 224 / 550 = 112 / 275.",
+        "Calculate P(BBB) = (3/11) * (2/6) * (3/11) = 18 / 726 = 3 / 121.",
+        "Sum the two probabilities: (112/275) + (3/121) = 1307 / 3025 = 0.432 (3 s.f.)."
+      ],
+      "walkthrough": [
+        "Step 1: Identify the two paths where all 3 marbles have the same colour:\nPath 1: All Red ($R_1 \\cap R_2 \\cap R_3$)\nPath 2: All Blue ($B_1 \\cap B_2 \\cap B_3$)\nThese paths are mutually exclusive.",
+        "Step 2: Evaluate the Red path:\n$$\\mathrm{P}(RRR) = \\mathrm{P}(R_1) \\times \\mathrm{P}(R_2 \\mid R_1) \\times \\mathrm{P}(R_3 \\mid R_1 \\cap R_2)$$\n$$\\mathrm{P}(RRR) = \\frac{8}{11} \\times \\frac{4}{5} \\times \\frac{7}{10} = \\frac{224}{550} = \\frac{112}{275}$$",
+        "Step 3: Evaluate the Blue path:\n$$\\mathrm{P}(BBB) = \\mathrm{P}(B_1) \\times \\mathrm{P}(B_2 \\mid B_1) \\times \\mathrm{P}(B_3 \\mid B_1 \\cap B_2)$$\n$$\\mathrm{P}(BBB) = \\frac{3}{11} \\times \\frac{2}{6} \\times \\frac{3}{11} = \\frac{18}{726} = \\frac{3}{121}$$",
+        "Step 4: Sum the probabilities:\n$$\\mathrm{P}(\\text{all same}) = \\frac{112}{275} + \\frac{3}{121}$$\nCommon denominator is $25 \\times 11^2 = 3025$:\n$$\\frac{112 \\times 11}{3025} + \\frac{3 \\times 25}{3025} = \\frac{1232 + 75}{3025} = \\frac{1307}{3025}$$\nConvert to decimal form:\n$$\\frac{1307}{3025} = 0.432066\\dots \\approx 0.432\\text{ (3 s.f.)}$$"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "schema_version": "9709_math_enrichment_v8",
+  "question_id": "9709_w18_31_q7",
+  "difficulty": 3,
+  "parts": [
+    {
+      "part_id": "9709_w18_31_q7_i",
+      "difficulty": 3,
+      "mapping": {
+        "topic_id": "9709_p3_t_trigonometry",
+        "lesson_id": "9709_p3_t_trigonometry_m01_l03"
+      },
+      "hints": [
+        "Differentiate $5\\sin^2x\\cos^3x$ using the product and chain rules.",
+        "Factor the derivative by taking out the common powers of $\\sin x$ and $\\cos x$.",
+        "For the interior maximum, set the remaining factor equal to zero and reduce it to an equation in $\\tan^2x$.",
+        "Choose the solution in $0<x<\\frac\\pi2$ and round the coordinate to three decimal places."
+      ],
+      "walkthrough": [
+        "Differentiate $y = 5\\sin^2 x\\cos^3 x$ using the product rule $\\dfrac{\\mathrm{d}y}{\\mathrm{d}x} = u'v + uv'$:\n$$u = 5\\sin^2 x \\implies u' = 10\\sin x\\cos x$$\n$$v = \\cos^3 x \\implies v' = 3\\cos^2 x(-\\sin x) = -3\\sin x\\cos^2 x$$\n$$\\dfrac{\\mathrm{d}y}{\\mathrm{d}x} = (10\\sin x\\cos x)(\\cos^3 x) + (5\\sin^2 x)(-3\\sin x\\cos^2 x) = 10\\sin x\\cos^4 x - 15\\sin^3 x\\cos^2 x$$",
+        "Factor out the common factor $5\\sin x\\cos^2 x$:\n$$\\dfrac{\\mathrm{d}y}{\\mathrm{d}x} = 5\\sin x\\cos^2 x(2\\cos^2 x - 3\\sin^2 x)$$",
+        "Set $\\dfrac{\\mathrm{d}y}{\\mathrm{d}x} = 0$ at the maximum point $M$. In $0 < x < \\dfrac{\\pi}{2}$, $\\sin x \\ne 0$ and $\\cos x \\ne 0$, so:\n$$2\\cos^2 x - 3\\sin^2 x = 0$$\n$$3\\sin^2 x = 2\\cos^2 x$$\n$$\\tan^2 x = \\dfrac{2}{3}$$",
+        "Solve for $\\tan x$ (taking the positive root since $x$ is in the first quadrant):\n$$\\tan x = \\sqrt{\\dfrac{2}{3}} \\approx 0.8164966$$",
+        "Calculate $x$ in radians:\n$$x = \\tan^{-1}(0.8164966) \\approx 0.684719$$",
+        "Round to 3 decimal places:\n$$x = 0.685$$"
+      ]
+    },
+    {
+      "part_id": "9709_w18_31_q7_ii",
+      "difficulty": 3,
+      "mapping": {
+        "topic_id": "9709_p3_t_integration",
+        "lesson_id": "9709_p3_t_integration_m04_l01"
+      },
+      "hints": [
+        "The required area is the definite integral of the curve from $0$ to $\\frac\\pi2$.",
+        "With $u=\\sin x$, reserve one factor of $\\cos x\\,dx$ for $du$.",
+        "Rewrite the remaining $\\cos^2x$ as $1-u^2$ and convert the limits to $u$-values.",
+        "Integrate the resulting polynomial exactly and evaluate it at the transformed limits."
+      ],
+      "walkthrough": [
+        "Apply the substitution $u = \\sin x$, so that $\\mathrm{d}u = \\cos x\\,\\mathrm{d}x$.",
+        "Express the integrand $5\\sin^2 x\\cos^3 x$ in terms of $u$:\n$$5\\sin^2 x\\cos^3 x\\,\\mathrm{d}x = 5\\sin^2 x\\cos^2 x(\\cos x\\,\\mathrm{d}x) = 5u^2(1 - u^2)\\,\\mathrm{d}u$$",
+        "Determine the integration limits for $u$:\n- When $x = 0$, $u = \\sin 0 = 0$.\n- When $x = \\dfrac{\\pi}{2}$, $u = \\sin\\left(\\dfrac{\\pi}{2}\\right) = 1$.",
+        "Set up and expand the integral:\n$$\\text{Area} = \\int_0^1 5u^2(1 - u^2)\\,\\mathrm{d}u = 5\\int_0^1 (u^2 - u^4)\\,\\mathrm{d}u$$",
+        "Integrate each power of $u$:\n$$5\\left[ \\dfrac{u^3}{3} - \\dfrac{u^5}{5} \\right]_0^1 = 5\\left( \\dfrac{1^3}{3} - \\dfrac{1^5}{5} \\right) - 0 = 5\\left( \\dfrac{1}{3} - \\dfrac{1}{5} \\right) = 5\\left( \\dfrac{5 - 3}{15} \\right) = 5\\left( \\dfrac{2}{15} \\right) = \\dfrac{2}{3}$$",
+        "State the exact area:\n$$\\dfrac{2}{3}$$"
+      ]
+    }
+  ]
+}

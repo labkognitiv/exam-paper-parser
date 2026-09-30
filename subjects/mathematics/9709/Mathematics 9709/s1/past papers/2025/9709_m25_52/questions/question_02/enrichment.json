@@ -1,0 +1,69 @@
+{
+  "schema_version": "9709_math_enrichment_v8",
+  "question_id": "9709_m25_52_q2",
+  "difficulty": 3,
+  "parts": [
+    {
+      "part_id": "9709_m25_52_q2_a",
+      "difficulty": 2,
+      "mapping": {
+        "topic_id": "9709_s1_t_permutations_and_combinations",
+        "lesson_id": "9709_s1_t_permutations_and_combinations_m02_l01"
+      },
+      "hints": [
+        "Identify the probabilities that a randomly selected computer is made by each company: P(F) = 0.55, P(G) = 0.30, and P(H) = 0.15.",
+        "Calculate the probability of one specific order in which all three companies appear, such as F then G then H: 0.55 * 0.30 * 0.15.",
+        "Multiply by 3! = 6 to account for all possible orderings of the three distinct companies: 0.55 * 0.30 * 0.15 * 6 = 0.1485."
+      ],
+      "walkthrough": [
+        "Step 1: Understand the setup and identify the given probabilities:\nThree customers are chosen independently. The probability of each customer buying a computer from a specific company is given as:\n- Company F: $p_F = 0.55$\n- Company G: $p_G = 0.30$\n- Company H: $p_H = 0.15$\nWe want all three customers to have bought computers from different companies, meaning the sample contains exactly one computer from F, one from G, and one from H.",
+        "Step 2: Calculate the probability of one specific order:\nConsider the specific order where Customer 1 buys from F, Customer 2 from G, and Customer 3 from H:\n$$\\mathrm{P}(F \\cap G \\cap H) = 0.55 \\times 0.30 \\times 0.15$$\nMultiply step-by-step:\n$$0.55 \\times 0.30 = 0.165$$\n$$0.165 \\times 0.15 = 0.02475$$",
+        "Step 3: Count the number of possible orderings:\nThe three distinct companies can be assigned to the three customers in any order. The number of permutations of 3 distinct items is:\n$$3! = 3 \\times 2 \\times 1 = 6$$",
+        "Step 4: Multiply the probability of one order by the total number of orderings:\n$$\\mathrm{P}(\\text{all different}) = 6 \\times 0.02475 = 0.1485$$\nIn exact fraction form:\n$$0.1485 = \\frac{1485}{10000} = \\frac{297}{2000}$$"
+      ]
+    },
+    {
+      "part_id": "9709_m25_52_q2_b",
+      "difficulty": 3,
+      "mapping": {
+        "topic_id": "9709_s1_t_discrete_random_variables",
+        "lesson_id": "9709_s1_t_discrete_random_variables_m03_l03"
+      },
+      "hints": [
+        "Define the random variable X as the number of customers buying from company F, and identify the model as binomial: X ~ B(12, 0.55).",
+        "Fewer than 10 means P(X < 10) = P(X <= 9). Use the complement rule: P(X < 10) = 1 - [P(X = 10) + P(X = 11) + P(X = 12)].",
+        "Calculate P(X = 10) = 12C10 * (0.55)^10 * (0.45)^2, P(X = 11) = 12C11 * (0.55)^11 * (0.45)^1, and P(X = 12) = (0.55)^12.",
+        "Sum the three upper tail probabilities to find P(X >= 10) = 0.04217, then subtract from 1 to obtain 0.958 (3 s.f.)."
+      ],
+      "walkthrough": [
+        "Step 1: Define the random variable and identify the probability distribution:\nLet $X$ be the number of customers in the sample of 12 who bought a computer made by company F.\nSince the store sold a large number of computers, the selections are independent with constant probability $p = 0.55$:\n$$X \\sim B(12, 0.55)$$\nHere, $n = 12$, $p = 0.55$, and $q = 1 - p = 0.45$.",
+        "Step 2: Set up the required probability using the complement rule:\nWe want $\\mathrm{P}(X < 10)$, which is $\\mathrm{P}(X \\le 9)$. Rather than calculating ten individual probabilities from $x = 0$ to $9$, use the complement of the upper tail:\n$$\\mathrm{P}(X < 10) = 1 - \\mathrm{P}(X \\ge 10) = 1 - [\\mathrm{P}(X = 10) + \\mathrm{P}(X = 11) + \\mathrm{P}(X = 12)]$$",
+        "Step 3: State the binomial probability formula:\n$$\\mathrm{P}(X = r) = \\binom{n}{r} p^r (1 - p)^{n - r}$$",
+        "Step 4: Compute each of the three terms step-by-step:\n- For $r = 10$:\n$$\\binom{12}{10} = \\frac{12 \\times 11}{2 \\times 1} = 66$$\n$$\\mathrm{P}(X = 10) = 66 \\times (0.55)^{10} \\times (0.45)^2 = 66 \\times 0.00253295 \\times 0.2025 \\approx 0.033874$$\n- For $r = 11$:\n$$\\binom{12}{11} = 12$$\n$$\\mathrm{P}(X = 11) = 12 \\times (0.55)^{11} \\times (0.45)^1 = 12 \\times 0.00139312 \\times 0.45 \\approx 0.007528$$\n- For $r = 12$:\n$$\\binom{12}{12} = 1$$\n$$\\mathrm{P}(X = 12) = 1 \\times (0.55)^{12} \\times (0.45)^0 = (0.55)^{12} \\approx 0.000767$$",
+        "Step 5: Sum the upper tail probabilities:\n$$\\mathrm{P}(X \\ge 10) = 0.033874 + 0.007528 + 0.000767 = 0.042169$$",
+        "Step 6: Subtract from 1 to obtain the final answer:\n$$\\mathrm{P}(X < 10) = 1 - 0.042169 = 0.957831 \\approx 0.958\\text{ (3 s.f.)}$$"
+      ]
+    },
+    {
+      "part_id": "9709_m25_52_q2_c",
+      "difficulty": 4,
+      "mapping": {
+        "topic_id": "9709_s1_t_the_normal_distribution",
+        "lesson_id": "9709_s1_t_the_normal_distribution_m03_l02"
+      },
+      "hints": [
+        "Identify the underlying distribution as binomial X ~ B(140, 0.15). Because n is large, approximate X using a normal distribution Y ~ N(mu, sigma^2).",
+        "Calculate the mean mu = np = 140 * 0.15 = 21 and the variance sigma^2 = np(1 - p) = 140 * 0.15 * 0.85 = 17.85.",
+        "Apply a continuity correction to the strict inequality P(X > 24): the discrete region X >= 25 corresponds to the continuous region Y > 24.5.",
+        "Standardise to find Z = (24.5 - 21) / sqrt(17.85) = 0.8284, and calculate 1 - Phi(0.8284) = 1 - 0.7961 = 0.204."
+      ],
+      "walkthrough": [
+        "Step 1: Identify the distribution and verify the conditions for a normal approximation:\nLet $X$ be the number of customers buying a computer from company H out of $n = 140$ customers.\nThe exact distribution is binomial:\n$$X \\sim B(140, 0.15)$$\nWe check the approximation conditions:\n$$np = 140 \\times 0.15 = 21 > 5$$\n$$nq = 140 \\times 0.85 = 119 > 5$$\nBoth $np > 5$ and $nq > 5$ are satisfied, so a normal approximation $Y \\sim N(\\mu, \\sigma^2)$ is appropriate.",
+        "Step 2: Calculate the mean $\\mu$ and variance $\\sigma^2$:\n$$\\mu = np = 140 \\times 0.15 = 21$$\n$$\\sigma^2 = np(1 - p) = 21 \\times 0.85 = 17.85$$\n$$\\sigma = \\sqrt{17.85} \\approx 4.224926$$",
+        "Step 3: Apply the continuity correction:\nWe need $\\mathrm{P}(X > 24)$. In terms of discrete integers, $X > 24$ means $X \\ge 25$.\nThe discrete value $25$ corresponds to the continuous interval $[24.5, 25.5]$.\nTherefore, the region $X \\ge 25$ corresponds to $Y > 24.5$:\n$$\\mathrm{P}(X > 24) \\approx \\mathrm{P}(Y > 24.5)$$",
+        "Step 4: Standardise the value $24.5$ to find the standard normal score $Z$:\n$$Z = \\frac{Y - \\mu}{\\sigma} = \\frac{24.5 - 21}{\\sqrt{17.85}} = \\frac{3.5}{4.224926} \\approx 0.8284$$",
+        "Step 5: Compute the upper-tail probability using the symmetry of the standard normal curve:\n$$\\mathrm{P}(Z > 0.8284) = 1 - \\Phi(0.8284)$$\nFrom the standard normal cumulative distribution tables:\n$$\\Phi(0.828) = 0.7961$$\n$$\\mathrm{P}(Z > 0.8284) = 1 - 0.7961 = 0.2039 \\approx 0.204\\text{ (3 s.f.)}$$"
+      ]
+    }
+  ]
+}

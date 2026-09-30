@@ -1,0 +1,52 @@
+{
+  "schema_version": "9709_math_enrichment_v8",
+  "question_id": "9709_w20_51_q1",
+  "difficulty": 2,
+  "parts": [
+    {
+      "part_id": "9709_w20_51_q1_a",
+      "difficulty": 2,
+      "mapping": {
+        "topic_id": "9709_s1_t_probability",
+        "lesson_id": "9709_s1_t_probability_m01_l01"
+      },
+      "hints": [
+        "Event A means the score on the red die is divisible by 3, so the red score must be 3 or 6.",
+        "Event B means the sum of the red and blue scores is at least 9 ($R + B \\ge 9$).",
+        "List all pairs $(R, B)$ where $R \\in \\{3, 6\\}$ and $R + B \\ge 9$: $(3, 6)$, $(6, 3)$, $(6, 4)$, $(6, 5)$, $(6, 6)$.",
+        "Divide the 5 favorable outcomes by the total number of equally likely outcomes ($36$)."
+      ],
+      "walkthrough": [
+        "Two ordinary fair dice, one red ($R$) and one blue ($B$), are rolled.",
+        "Event A: 'The score on the red die is divisible by 3.'\nEvent B: 'The sum of the two scores is at least 9.'",
+        "Step 1: Understand the sample space size.\nEach die has 6 faces numbered 1 to 6. The total number of equally likely outcomes is:\n$$N = 6 \\times 6 = 36$$",
+        "Step 2: Define event A.\nThe scores on a fair die divisible by 3 are $\\{3, 6\\}$.\nSo $A$ occurs when $R = 3$ or $R = 6$.",
+        "Step 3: Define event B.\nThe sum $R + B \\ge 9$.",
+        "Step 4: Find the intersection $A \\cap B$.\nWe require $R \\in \\{3, 6\\}$ and $R + B \\ge 9$ simultaneously:\n- If $R = 3$:\n$$3 + B \\ge 9 \\implies B \\ge 6 \\implies B = 6$$\nOutcome: $(3, 6)$. (1 outcome)\n- If $R = 6$:\n$$6 + B \\ge 9 \\implies B \\ge 3 \\implies B \\in \\{3, 4, 5, 6\\}$$\nOutcomes: $(6, 3), (6, 4), (6, 5), (6, 6)$. (4 outcomes)",
+        "Step 5: Compute the probability:\n$$n(A \\cap B) = 1 + 4 = 5$$\n$$\\mathrm{P}(A \\cap B) = \\frac{5}{36}$$"
+      ]
+    },
+    {
+      "part_id": "9709_w20_51_q1_b",
+      "difficulty": 2,
+      "mapping": {
+        "topic_id": "9709_s1_t_probability",
+        "lesson_id": "9709_s1_t_probability_m04_l01"
+      },
+      "hints": [
+        "State the product rule criterion for independence: events A and B are independent if and only if $\\mathrm{P}(A \\cap B) = \\mathrm{P}(A) \\times \\mathrm{P}(B)$.",
+        "Find $\\mathrm{P}(A)$: red score is 3 or 6, so $\\mathrm{P}(A) = \\frac{2}{6} = \\frac{1}{3}$.",
+        "Find $\\mathrm{P}(B)$: count all pairs where the sum is at least 9 ($10$ outcomes out of $36$, so $\\mathrm{P}(B) = \\frac{10}{36} = \\frac{5}{18}$).",
+        "Multiply $\\mathrm{P}(A) \\times \\mathrm{P}(B) = \\frac{1}{3} \\times \\frac{10}{36} = \\frac{5}{54}$, compare with $\\mathrm{P}(A \\cap B) = \\frac{5}{36}$, and state your conclusion."
+      ],
+      "walkthrough": [
+        "We are determining whether events A and B are independent.",
+        "Step 1: State the formal condition for statistical independence.\nEvents A and B are independent if and only if:\n$$\\mathrm{P}(A \\cap B) = \\mathrm{P}(A) \\times \\mathrm{P}(B)$$",
+        "Step 2: Find $\\mathrm{P}(A)$.\nRed die scores divisible by 3 are 3 and 6, out of 6 possible values:\n$$\\mathrm{P}(A) = \\frac{2}{6} = \\frac{1}{3}$$",
+        "Step 3: Find $\\mathrm{P}(B)$.\nThe sum of the two dice must be at least 9 ($R + B \\ge 9$):\n- Sum $= 9$: $(3, 6), (4, 5), (5, 4), (6, 3)$ (4 pairs)\n- Sum $= 10$: $(4, 6), (5, 5), (6, 4)$ (3 pairs)\n- Sum $= 11$: $(5, 6), (6, 5)$ (2 pairs)\n- Sum $= 12$: $(6, 6)$ (1 pair)\nTotal pairs with sum $\\ge 9$ is $4 + 3 + 2 + 1 = 10$ pairs.\n$$\\mathrm{P}(B) = \\frac{10}{36} = \\frac{5}{18}$$",
+        "Step 4: Compute the product $\\mathrm{P}(A) \\times \\mathrm{P}(B)$:\n$$\\mathrm{P}(A) \\times \\mathrm{P}(B) = \\frac{1}{3} \\times \\frac{10}{36} = \\frac{10}{108} = \\frac{5}{54} \\approx 0.0926$$",
+        "Step 5: Compare with $\\mathrm{P}(A \\cap B) = \\frac{5}{36} \\approx 0.1389$:\n$$\\frac{5}{36} \\ne \\frac{5}{54}$$\nAlternatively, $\\mathrm{P}(B \\mid A) = \\frac{5/36}{1/3} = \\frac{5}{12} \\ne \\frac{10}{36} = \\mathrm{P}(B)$.\nBecause the joint probability does not equal the product of the marginal probabilities, the events are not independent."
+      ]
+    }
+  ]
+}

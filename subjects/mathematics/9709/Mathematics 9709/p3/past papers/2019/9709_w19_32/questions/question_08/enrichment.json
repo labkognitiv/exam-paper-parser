@@ -1,0 +1,53 @@
+{
+  "schema_version": "9709_math_enrichment_v8",
+  "question_id": "9709_w19_32_q8",
+  "difficulty": 3,
+  "parts": [
+    {
+      "part_id": "9709_w19_32_q8_i",
+      "difficulty": 3,
+      "mapping": {
+        "topic_id": "9709_p3_t_logarithmic_and_exponential_functions",
+        "lesson_id": "9709_p3_t_logarithmic_and_exponential_functions_m02_l02"
+      },
+      "hints": [
+        "For the irreducible quadratic factor, use a linear numerator.",
+        "Write $f(x)=A/(2x-1)+(Bx+C)/(x^2+2)$ and clear denominators.",
+        "Substitute $x=1/2$ for $A$, then compare coefficients to determine $B$ and $C$."
+      ],
+      "walkthrough": [
+        "Set up the partial fraction decomposition for the linear factor $(2x - 1)$ and quadratic factor $(x^2 + 2)$:\n$$\\dfrac{2x^2 + x + 8}{(2x - 1)(x^2 + 2)} = \\dfrac{A}{2x - 1} + \\dfrac{Bx + C}{x^2 + 2}$$",
+        "Clear denominators by multiplying through by $(2x - 1)(x^2 + 2)$:\n$$2x^2 + x + 8 = A(x^2 + 2) + (Bx + C)(2x - 1)$$",
+        "Substitute $x = \\dfrac{1}{2}$ to isolate $A$:\n$$\\text{LHS} = 2\\left(\\dfrac{1}{4}\\right) + \\dfrac{1}{2} + 8 = \\dfrac{1}{2} + \\dfrac{1}{2} + 8 = 9$$\n$$\\text{RHS} = A\\left(\\left(\\dfrac{1}{2}\\right)^2 + 2\\right) = A\\left(\\dfrac{1}{4} + 2\\right) = \\dfrac{9}{4}A$$\n$$\\dfrac{9}{4}A = 9 \\implies A = 4$$",
+        "Substitute $x = 0$ to find $C$:\n$$\\text{LHS} = 8$$\n$$\\text{RHS} = A(2) + C(-1) = 2(4) - C = 8 - C$$\n$$8 = 8 - C \\implies C = 0$$",
+        "Equate coefficients of $x^2$ to find $B$:\nOn the LHS, the coefficient of $x^2$ is $2$.\nOn the RHS, the terms in $x^2$ are $A + 2B$:\n$$A + 2B = 2$$\nSubstitute $A = 4$:\n$$4 + 2B = 2 \\implies 2B = -2 \\implies B = -1$$",
+        "Verify with $x = 1$:\n$$\\text{LHS} = 2(1)^2 + 1 + 8 = 11$$\n$$\\text{RHS} = 4(1^2 + 2) + (-1(1) + 0)(2(1) - 1) = 4(3) - 1(1) = 12 - 1 = 11 \\quad \\text{(verified)}$$",
+        "Write out the partial fraction expansion:\n$$\\mathrm{f}(x) = \\dfrac{4}{2x - 1} - \\dfrac{x}{x^2 + 2}$$"
+      ]
+    },
+    {
+      "part_id": "9709_w19_32_q8_ii",
+      "difficulty": 2,
+      "mapping": {
+        "topic_id": "9709_p3_t_logarithmic_and_exponential_functions",
+        "lesson_id": "9709_p3_t_logarithmic_and_exponential_functions_m02_l02"
+      },
+      "hints": [
+        "Integrate the partial fractions from part (i) using inner derivatives.",
+        "The first term gives a multiple of $\\ln(2x-1)$, and the numerator $x$ over $x^2+2$ gives half a logarithm.",
+        "Evaluate at $x=5$ and $x=1$.",
+        "Use logarithm power and quotient laws to combine the exact result into one $\\ln c$ and verify that $c$ is an integer."
+      ],
+      "walkthrough": [
+        "Substitute the partial fractions into the definite integral:\n$$\\int_1^5 \\mathrm{f}(x)\\,\\mathrm{d}x = \\int_1^5 \\left(\\dfrac{4}{2x - 1} - \\dfrac{x}{x^2 + 2}\\right)\\mathrm{d}x$$",
+        "Integrate each term individually:\n- $\\int \\dfrac{4}{2x - 1}\\,\\mathrm{d}x = 4 \\cdot \\dfrac{1}{2}\\ln(2x - 1) = 2\\ln(2x - 1) = \\ln\\bigl((2x - 1)^2\\bigr)$\n- $\\int \\dfrac{x}{x^2 + 2}\\,\\mathrm{d}x = \\dfrac{1}{2}\\ln(x^2 + 2) = \\ln\\left(\\sqrt{x^2 + 2}\\right)$",
+        "Combine into a single antiderivative:\n$$\\left[2\\ln(2x - 1) - \\dfrac{1}{2}\\ln(x^2 + 2)\\right]_1^5 = \\left[\\ln\\left(\\dfrac{(2x - 1)^2}{\\sqrt{x^2 + 2}}\\right)\\right]_1^5$$",
+        "Evaluate at the upper limit $x = 5$:\n- $2(5) - 1 = 9 \\implies (2x - 1)^2 = 9^2 = 81$\n- $5^2 + 2 = 27 \\implies \\sqrt{x^2 + 2} = \\sqrt{27}$\n$$\\text{At } x = 5: \\quad \\ln\\left(\\dfrac{81}{\\sqrt{27}}\\right)$$",
+        "Evaluate at the lower limit $x = 1$:\n- $2(1) - 1 = 1 \\implies (2x - 1)^2 = 1^2 = 1$\n- $1^2 + 2 = 3 \\implies \\sqrt{x^2 + 2} = \\sqrt{3}$\n$$\\text{At } x = 1: \\quad \\ln\\left(\\dfrac{1}{\\sqrt{3}}\\right)$$",
+        "Subtract the lower limit value from the upper limit value:\n$$\\text{Integral} = \\ln\\left(\\dfrac{81}{\\sqrt{27}}\\right) - \\ln\\left(\\dfrac{1}{\\sqrt{3}}\\right) = \\ln\\left(\\dfrac{81\\sqrt{3}}{\\sqrt{27}}\\right)$$",
+        "Simplify the quotient inside the logarithm:\n$$\\dfrac{\\sqrt{3}}{\\sqrt{27}} = \\sqrt{\\dfrac{3}{27}} = \\sqrt{\\dfrac{1}{9}} = \\dfrac{1}{3}$$\n$$\\dfrac{81\\sqrt{3}}{\\sqrt{27}} = 81 \\times \\dfrac{1}{3} = 27$$",
+        "State the exact answer in the form $\\ln c$:\n$$\\text{Integral} = \\ln 27 \\quad (c = 27)$$"
+      ]
+    }
+  ]
+}

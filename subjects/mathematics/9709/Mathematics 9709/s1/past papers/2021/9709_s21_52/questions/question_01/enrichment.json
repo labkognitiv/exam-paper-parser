@@ -1,0 +1,65 @@
+{
+  "schema_version": "9709_math_enrichment_v8",
+  "question_id": "9709_s21_52_q1",
+  "difficulty": 2,
+  "parts": [
+    {
+      "part_id": "9709_s21_52_q1_a",
+      "difficulty": 1,
+      "mapping": {
+        "topic_id": "9709_s1_t_discrete_random_variables",
+        "lesson_id": "9709_s1_t_discrete_random_variables_m05_l01"
+      },
+      "hints": [
+        "Identify the distribution of $X$, the number of throws of a fair die until a 5 is first obtained.",
+        "Since each throw is independent with constant probability of success $p = \\dfrac{1}{6}$, $X$ follows a geometric distribution $X \\sim \\mathrm{Geo}\\left(\\dfrac{1}{6}\\right)$.",
+        "Recall the formula for the mean of a geometric distribution: $\\mathrm{E}(X) = \\dfrac{1}{p}$.",
+        "Substitute $p = \\dfrac{1}{6}$ to find the mean."
+      ],
+      "walkthrough": [
+        "Step 1: Identify the random variable and its distribution.\nAn ordinary fair six-sided die is rolled repeatedly until a 5 appears for the first time. The throws are independent, each throw has a constant success probability $p = \\frac{1}{6}$, and the variable $X$ represents the number of throws up to and including the first success. This fits the exact definition of a geometric distribution:\n$$X \\sim \\mathrm{Geo}(p) \\quad \\text{with} \\quad p = \\frac{1}{6}$$",
+        "Step 2: State the formula for the mean (expectation) of a geometric distribution:\n$$\\mathrm{E}(X) = \\frac{1}{p}$$",
+        "Step 3: Evaluate the mean:\n$$\\mathrm{E}(X) = \\frac{1}{1/6} = 6$$\nOn average, it takes 6 throws to obtain a 5."
+      ]
+    },
+    {
+      "part_id": "9709_s21_52_q1_b",
+      "difficulty": 2,
+      "mapping": {
+        "topic_id": "9709_s1_t_discrete_random_variables",
+        "lesson_id": "9709_s1_t_discrete_random_variables_m05_l01"
+      },
+      "hints": [
+        "Interpret 'after the 3rd throw but before the 8th throw' in terms of discrete integer values of $X$: $3 < X < 8$, which means $X \\in \\{4, 5, 6, 7\\}$.",
+        "Using the sum of individual probabilities, compute $\\mathrm{P}(X = 4) + \\mathrm{P}(X = 5) + \\mathrm{P}(X = 6) + \\mathrm{P}(X = 7)$, where $\\mathrm{P}(X = r) = q^{r-1} p$ with $q = \\dfrac{5}{6}$ and $p = \\dfrac{1}{6}$.",
+        "Alternatively, notice that obtaining the first success between throws 4 and 7 is equivalent to having failures on the first 3 throws minus failures on the first 7 throws: $q^3 - q^7 = \\left(\\dfrac{5}{6}\\right)^3 - \\left(\\dfrac{5}{6}\\right)^7$.",
+        "Evaluate either expression to at least 3 significant figures."
+      ],
+      "walkthrough": [
+        "Step 1: Understand the required range of throws.\nThe problem requires the first 5 to be obtained after the 3rd throw and before the 8th throw:\n$$3 < X < 8$$\nBecause $X$ is a discrete integer count of throws, the strictly possible outcomes are:\n$$X \\in \\{4, 5, 6, 7\\}$$",
+        "Step 2: Method of summing individual probabilities.\nFor a geometric distribution with $p = \\frac{1}{6}$ and failure probability $q = 1 - p = \\frac{5}{6}$:\n$$\\mathrm{P}(X = r) = q^{r-1} p = \\left(\\frac{5}{6}\\right)^{r-1} \\left(\\frac{1}{6}\\right)$$\nEvaluate for each value:\n- For $r = 4$: $\\left(\\frac{5}{6}\\right)^3 \\left(\\frac{1}{6}\\right) = \\frac{125}{216} \\times \\frac{1}{6} = \\frac{125}{1296} \\approx 0.096451$\n- For $r = 5$: $\\left(\\frac{5}{6}\\right)^4 \\left(\\frac{1}{6}\\right) = \\frac{625}{1296} \\times \\frac{1}{6} = \\frac{625}{7776} \\approx 0.080375$\n- For $r = 6$: $\\left(\\frac{5}{6}\\right)^5 \\left(\\frac{1}{6}\\right) = \\frac{3125}{7776} \\times \\frac{1}{6} = \\frac{3125}{46656} \\approx 0.066980$\n- For $r = 7$: $\\left(\\frac{5}{6}\\right)^6 \\left(\\frac{1}{6}\\right) = \\frac{15625}{46656} \\times \\frac{1}{6} = \\frac{15625}{279936} \\approx 0.055816$",
+        "Step 3: Sum the terms:\n$$\\text{Total} = 0.096451 + 0.080375 + 0.066980 + 0.055816 = 0.299622$$",
+        "Step 4: Alternative tail difference approach.\nNotice that the first success occurs after throw 3 if the first 3 throws are failures, which has probability $q^3 = \\left(\\frac{5}{6}\\right)^3$. The first success occurs after throw 7 if the first 7 throws are failures, which has probability $q^7 = \\left(\\frac{5}{6}\\right)^7$. The probability that the first success occurs between throw 4 and throw 7 is simply:\n$$q^3 - q^7 = \\left(\\frac{5}{6}\\right)^3 - \\left(\\frac{5}{6}\\right)^7 = 0.578704 - 0.279082 = 0.299622$$\nRounding to 3 significant figures gives $0.300$."
+      ]
+    },
+    {
+      "part_id": "9709_s21_52_q1_c",
+      "difficulty": 2,
+      "mapping": {
+        "topic_id": "9709_s1_t_discrete_random_variables",
+        "lesson_id": "9709_s1_t_discrete_random_variables_m03_l03"
+      },
+      "hints": [
+        "The condition 'fewer than 10 throws' means $X < 10$, which for integer counts of throws corresponds to $X \\le 9$.",
+        "Use the cumulative geometric distribution formula $\\mathrm{P}(X \\le r) = 1 - q^r$, where $q = 1 - p = \\dfrac{5}{6}$.",
+        "Substitute $r = 9$: $\\mathrm{P}(X \\le 9) = 1 - \\left(\\dfrac{5}{6}\\right)^9$.",
+        "Evaluate $\\left(\\dfrac{5}{6}\\right)^9$, subtract from 1, and round your answer to 3 significant figures."
+      ],
+      "walkthrough": [
+        "Step 1: Translate the phrase into a probability inequality.\n'Fewer than 10 throws' means strictly less than 10. Since the number of throws must be an integer, this is equivalent to at most 9 throws:\n$$\\mathrm{P}(X < 10) = \\mathrm{P}(X \\le 9)$$",
+        "Step 2: Understand the cumulative geometric probability logic.\nThe only way that more than 9 throws are required is if the first 9 consecutive throws all fail to produce a 5:\n$$\\mathrm{P}(X > 9) = q^9 = \\left(\\frac{5}{6}\\right)^9$$\nBy the complement rule:\n$$\\mathrm{P}(X \\le 9) = 1 - \\mathrm{P}(X > 9) = 1 - \\left(\\frac{5}{6}\\right)^9$$",
+        "Step 3: Calculate the value:\n$$\\left(\\frac{5}{6}\\right)^9 = \\frac{5^9}{6^9} = \\frac{1953125}{10077696} \\approx 0.193807$$\nNow subtract from 1:\n$$1 - 0.193807 = 0.806193$$\nRounding to 3 significant figures gives $0.806$."
+      ]
+    }
+  ]
+}

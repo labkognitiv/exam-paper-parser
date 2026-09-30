@@ -1,0 +1,65 @@
+{
+  "schema_version": "9709_math_enrichment_v8",
+  "question_id": "9709_w25_52_q7",
+  "difficulty": 3,
+  "parts": [
+    {
+      "part_id": "9709_w25_52_q7_a",
+      "difficulty": 3,
+      "mapping": {
+        "topic_id": "9709_s1_t_permutations_and_combinations",
+        "lesson_id": "9709_s1_t_permutations_and_combinations_m03_l02"
+      },
+      "hints": [
+        "ZOOLOGICAL has 10 letters: O: 3, L: 2, Z: 1, G: 1, I: 1, C: 1, A: 1.",
+        "Treat the three Os as one single unit [OOO]. The remaining units to arrange are [OOO], Z, G, I, C, A, and the two Ls (8 units total).",
+        "To ensure the two Ls are not next to each other, arrange the 6 non-L units first: 6! = 720 ways (since [OOO], Z, G, I, C, A are all distinct).",
+        "These 6 units create 7 available spaces. Choose 2 spaces for the 2 identical Ls: 7C2 = 21 ways. Multiply: 720 * 21 = 15120."
+      ],
+      "walkthrough": [
+        "Step 1: Letter breakdown of ZOOLOGICAL:\n- Total: 10 letters\n- Counts: $O: 3, \\; L: 2, \\; Z: 1, \\; G: 1, \\; I: 1, \\; C: 1, \\; A: 1$\nConditions:\n1. The three $O$s must be together.\n2. The two $L$s must not be next to each other.",
+        "Step 2: Group the three $O$s into a single unit $[OOO]$:\nThe units to arrange are $[OOO], Z, G, I, C, A, L, L$ (8 units in total).\nNotice that the 6 units $[OOO], Z, G, I, C, A$ are all distinct from each other.",
+        "Step 3: Use the slot/insertion method to separate the two $L$s:\n- First arrange the 6 non-L units in $6! = 720$ ways.\n- These 6 units create 7 available gaps:\n$$\\_\\; U_1 \\;\\_\\; U_2 \\;\\_\\; U_3 \\;\\_\\; U_4 \\;\\_\\; U_5 \\;\\_\\; U_6 \\;\\_$$\n- Choose 2 of these 7 gaps for the two identical $L$s:\n$$\\binom{7}{2} = \\frac{7 \\times 6}{2 \\times 1} = 21$$\nSince the two $L$s are identical, placing them into the 2 chosen gaps takes only $1$ way.",
+        "Step 4: Multiply the results:\n$$\\text{Total arrangements} = 720 \\times 21 = 15120$$\n(Alternatively, using subtraction: total with $O$s together $= \\frac{8!}{2!} = 20160$; with both $O$s and $L$s together $= 7! = 5040$; $20160 - 5040 = 15120$)."
+      ]
+    },
+    {
+      "part_id": "9709_w25_52_q7_b",
+      "difficulty": 3,
+      "mapping": {
+        "topic_id": "9709_s1_t_permutations_and_combinations",
+        "lesson_id": "9709_s1_t_permutations_and_combinations_m03_l01"
+      },
+      "hints": [
+        "Having exactly 5 letters between the two Ls means their positions differ by 6: (l1, l2) where l2 - l1 = 6.",
+        "Identify valid position pairs for the two Ls in a 10-letter line: (1, 7), (2, 8), (3, 9), (4, 10). There are 4 pairs.",
+        "The remaining 8 positions are filled by the remaining 8 letters: 3 Os, 1 Z, 1 G, 1 I, 1 C, 1 A.",
+        "Number of arrangements of the remaining 8 letters: 8! / 3! = 40320 / 6 = 6720. Multiply by 4 pairs: 4 * 6720 = 26880."
+      ],
+      "walkthrough": [
+        "Step 1: Determine the positions for the two identical $L$s:\nThe line has 10 numbered positions: $1, 2, \\dots, 10$.\nLet $l_1$ and $l_2$ be the positions of the two $L$s ($l_1 < l_2$).\nExactly 5 letters between them means:\n$$l_2 - l_1 - 1 = 5 \\implies l_2 - l_1 = 6$$\nPossible position pairs:\n- $(1, 7)$\n- $(2, 8)$\n- $(3, 9)$\n- $(4, 10)$\nThere are $4$ valid position pairs.",
+        "Step 2: Arrange the remaining letters:\nThe remaining 8 positions must be filled by the remaining 8 letters:\n$O: 3, \\; Z: 1, \\; G: 1, \\; I: 1, \\; C: 1, \\; A: 1$.\nThe number of distinct arrangements is:\n$$\\frac{8!}{3! \\times 1! \\times 1! \\times 1! \\times 1! \\times 1!} = \\frac{8!}{3!} = \\frac{40320}{6} = 6720$$",
+        "Step 3: Multiply by the number of position pairs:\n$$\\text{Total arrangements} = 4 \\times 6720 = 26880$$"
+      ]
+    },
+    {
+      "part_id": "9709_w25_52_q7_c",
+      "difficulty": 2,
+      "mapping": {
+        "topic_id": "9709_s1_t_probability",
+        "lesson_id": "9709_s1_t_probability_m05_l01"
+      },
+      "hints": [
+        "Use the complement rule: P(different) = 1 - P(same).",
+        "Total ways to select 2 letters from the 10 letter tokens: 10C2 = 45.",
+        "The two letters can only be the same if both are Os or both are Ls: 3C2 = 3 ways for Os, and 2C2 = 1 way for Ls. Total same = 3 + 1 = 4.",
+        "Compute: P(different) = 1 - (4/45) = 41/45 = 0.911 (3 s.f.)."
+      ],
+      "walkthrough": [
+        "Step 1: Total sample space for choosing 2 letters from 10:\n$$\\binom{10}{2} = \\frac{10 \\times 9}{2} = 45$$",
+        "Step 2: Use the complementary event (both letters chosen are identical):\nIn ZOOLOGICAL, repeated letters are only $O$ (3 of them) and $L$ (2 of them).\n- Choosing two $O$s: $\\binom{3}{2} = 3$ ways\n- Choosing two $L$s: $\\binom{2}{2} = 1$ way\n$$\\text{Ways with both same} = 3 + 1 = 4$$\n$$\\mathrm{P}(\\text{same}) = \\frac{4}{45}$$",
+        "Step 3: Subtract from 1:\n$$\\mathrm{P}(\\text{different}) = 1 - \\frac{4}{45} = \\frac{41}{45} \\approx 0.9111\\dots \\approx 0.911\\text{ (3 s.f.)}$$"
+      ]
+    }
+  ]
+}

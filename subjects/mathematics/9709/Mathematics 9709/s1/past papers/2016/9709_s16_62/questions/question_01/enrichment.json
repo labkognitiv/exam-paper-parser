@@ -1,0 +1,46 @@
+{
+  "schema_version": "9709_math_enrichment_v8",
+  "question_id": "9709_s16_62_q1",
+  "difficulty": 3,
+  "parts": [
+    {
+      "part_id": "9709_s16_62_q1_i",
+      "difficulty": 1,
+      "mapping": {
+        "topic_id": "9709_s1_t_probability",
+        "lesson_id": "9709_s1_t_probability_m02_l01"
+      },
+      "hints": [
+        "Identify the two sequential stages: the first stage represents the drink chosen (Tea, Coffee, or Hot Chocolate), and the second stage represents whether the drink contains Milk ($M$) or No Milk ($M'$).",
+        "Draw three initial branches from the start node with probabilities $\\mathrm{P}(\\text{Tea}) = 0.65$, $\\mathrm{P}(\\text{Coffee}) = 0.28$, and $\\mathrm{P}(\\text{Hot Chocolate}) = 0.07$.",
+        "From each drink branch, draw conditional branches for Milk and No Milk: for Tea, $0.8$ and $0.2$; for Coffee, $0.5$ and $0.5$; for Hot Chocolate, a single branch of $1$ (or branches of $1$ and $0$)."
+      ],
+      "walkthrough": [
+        "Start by identifying the first stage, which is the type of drink chosen. Draw three branches originating from a single start node for Tea ($T$), Coffee ($C$), and Hot Chocolate ($H$):\n$$\\mathrm{P}(T) = 0.65, \\quad \\mathrm{P}(C) = 0.28, \\quad \\mathrm{P}(H) = 0.07$$\nCheck that these initial probabilities sum to 1:\n$$0.65 + 0.28 + 0.07 = 1.00$$",
+        "Next, extend secondary branches from each drink representing the presence of Milk ($M$) or No Milk ($M'$). For Tea, we are given that the probability of milk is $0.8$:\n$$\\mathrm{P}(M \\mid T) = 0.8 \\implies \\mathrm{P}(M' \\mid T) = 1 - 0.8 = 0.2$$",
+        "For Coffee, we are given that the probability of milk is $0.5$:\n$$\\mathrm{P}(M \\mid C) = 0.5 \\implies \\mathrm{P}(M' \\mid C) = 1 - 0.5 = 0.5$$",
+        "For Hot Chocolate, Ayman always has milk in it, which gives a certain probability of 1:\n$$\\mathrm{P}(M \\mid H) = 1 \\quad (\\text{with } \\mathrm{P}(M' \\mid H) = 0)$$\nLabel all branch paths clearly to complete the tree diagram."
+      ]
+    },
+    {
+      "part_id": "9709_s16_62_q1_ii",
+      "difficulty": 3,
+      "mapping": {
+        "topic_id": "9709_s1_t_probability",
+        "lesson_id": "9709_s1_t_probability_m03_l01"
+      },
+      "hints": [
+        "State the conditional probability formula: $\\mathrm{P}(\\text{Coffee} \\mid \\text{Milk}) = \\dfrac{\\mathrm{P}(\\text{Coffee} \\cap \\text{Milk})}{\\mathrm{P}(\\text{Milk})}$.",
+        "Calculate the intersection probability $\\mathrm{P}(\\text{Coffee} \\cap \\text{Milk})$ along the Coffee and Milk branch: $0.28 \\times 0.5$.",
+        "Calculate the total probability of having milk, $\\mathrm{P}(\\text{Milk})$, by summing the probabilities of the three mutually exclusive milk paths: Tea with Milk, Coffee with Milk, and Hot Chocolate with Milk.",
+        "Divide the numerator by the denominator and round your final answer to 3 significant figures."
+      ],
+      "walkthrough": [
+        "We need to find the probability that Ayman is drinking coffee given that his drink contains milk. Start by writing the conditional probability formula:\n$$\\mathrm{P}(C \\mid M) = \\frac{\\mathrm{P}(C \\cap M)}{\\mathrm{P}(M)}$$",
+        "First, calculate the numerator $\\mathrm{P}(C \\cap M)$, which represents the probability that he chose coffee and had milk in it:\n$$\\mathrm{P}(C \\cap M) = \\mathrm{P}(C) \\times \\mathrm{P}(M \\mid C)$$\nSubstitute the values from our tree diagram:\n$$\\mathrm{P}(C \\cap M) = 0.28 \\times 0.5 = 0.14$$",
+        "Next, calculate the denominator $\\mathrm{P}(M)$, which is the total probability that his drink has milk. By the law of total probability, sum the products along each drink path that includes milk:\n$$\\mathrm{P}(M) = (0.65 \\times 0.8) + (0.28 \\times 0.5) + (0.07 \\times 1)$$\nCompute each product individually:\n$$0.65 \\times 0.8 = 0.52$$\n$$0.28 \\times 0.5 = 0.14$$\n$$0.07 \\times 1 = 0.07$$\nAdd the three components:\n$$\\mathrm{P}(M) = 0.52 + 0.14 + 0.07 = 0.73$$",
+        "Substitute the numerator and denominator into the conditional probability formula:\n$$\\mathrm{P}(C \\mid M) = \\frac{0.14}{0.73}$$\nMultiply the numerator and denominator by 100 to write this as an exact fraction:\n$$\\mathrm{P}(C \\mid M) = \\frac{14}{73} \\approx 0.19178\\dots$$\nRound to 3 significant figures to obtain the final answer:\n$$\\mathrm{P}(C \\mid M) \\approx 0.192$$"
+      ]
+    }
+  ]
+}

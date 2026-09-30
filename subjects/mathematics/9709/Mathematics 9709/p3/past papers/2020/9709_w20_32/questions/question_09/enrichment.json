@@ -1,0 +1,49 @@
+{
+  "schema_version": "9709_math_enrichment_v8",
+  "question_id": "9709_w20_32_q9",
+  "difficulty": 5,
+  "parts": [
+    {
+      "part_id": "9709_w20_32_q9_a",
+      "difficulty": 2,
+      "mapping": {
+        "topic_id": "9709_p3_t_logarithmic_and_exponential_functions",
+        "lesson_id": "9709_p3_t_logarithmic_and_exponential_functions_m02_l02"
+      },
+      "hints": [
+        "Use the partial-fraction form \\(\\frac{A}{3x+2}+\\frac{Bx+C}{x^2+4}\\), since \\(x^2+4\\) is an irreducible quadratic.",
+        "Clear denominators to obtain \\(7x+18=A(x^2+4)+(Bx+C)(3x+2)\\).",
+        "Choose \\(x=-2/3\\) to find \\(A\\), then compare the \\(x^2\\), \\(x\\), and constant coefficients to determine \\(B\\) and \\(C\\)."
+      ],
+      "walkthrough": [
+        "State the partial fraction decomposition form for $f(x)$ with a linear factor and an irreducible quadratic factor:\n$$f(x) = \\dfrac{7x + 18}{(3x + 2)(x^2 + 4)} = \\dfrac{A}{3x + 2} + \\dfrac{Bx + C}{x^2 + 4}$$",
+        "Multiply both sides by the denominator $(3x + 2)(x^2 + 4)$ to form the identity:\n$$7x + 18 = A(x^2 + 4) + (Bx + C)(3x + 2)$$",
+        "Substitute the root of the linear factor $x = -\\dfrac{2}{3}$:\n$$7\\left(-\\dfrac{2}{3}\\right) + 18 = A\\left(\\left(-\\dfrac{2}{3}\\right)^2 + 4\\right) + 0$$\n$$-\\dfrac{14}{3} + \\dfrac{54}{3} = A\\left(\\dfrac{4}{9} + \\dfrac{36}{9}\\right)$$\n$$\\dfrac{40}{3} = A\\left(\\dfrac{40}{9}\\right) \\implies A = \\dfrac{40}{3} \\times \\dfrac{9}{40} = 3$$",
+        "Equate the coefficients of $x^2$ on both sides of the identity:\n$$0 = A + 3B$$\nSubstitute $A = 3$:\n$$0 = 3 + 3B \\implies 3B = -3 \\implies B = -1$$",
+        "Equate the constant terms on both sides of the identity:\n$$18 = 4A + 2C$$\nSubstitute $A = 3$:\n$$18 = 4(3) + 2C = 12 + 2C$$\n$$2C = 18 - 12 = 6 \\implies C = 3$$",
+        "State the partial fraction decomposition:\n$$f(x) = \\dfrac{3}{3x + 2} + \\dfrac{-x + 3}{x^2 + 4}$$"
+      ]
+    },
+    {
+      "part_id": "9709_w20_32_q9_b",
+      "difficulty": 5,
+      "mapping": {
+        "topic_id": "9709_p3_t_integration",
+        "lesson_id": "9709_p3_t_integration_m03_l02"
+      },
+      "hints": [
+        "Integrate the decomposition from part (a) term by term over \\(0\\le x\\le2\\).",
+        "Use a logarithm for \\(3/(3x+2)\\), recognise \\(-x/(x^2+4)\\) as a constant multiple of the derivative of its denominator, and use an inverse tangent for \\(3/(x^2+4)\\).",
+        "Evaluate the complete antiderivative at 2 and 0 before combining logarithms; keep \\(\\tan^{-1}(1)\\) exact."
+      ],
+      "walkthrough": [
+        "Split the integrand into three standard integrable fractions:\n$$\\int_0^2 f(x)\\,dx = \\int_0^2 \\left( \\dfrac{3}{3x + 2} - \\dfrac{x}{x^2 + 4} + \\dfrac{3}{x^2 + 4} \\right) dx$$",
+        "Integrate each term separately:\n$$\\int \\dfrac{3}{3x + 2}\\,dx = \\ln(3x + 2)$$\n$$\\int \\dfrac{x}{x^2 + 4}\\,dx = \\dfrac{1}{2}\\int \\dfrac{2x}{x^2 + 4}\\,dx = \\dfrac{1}{2}\\ln(x^2 + 4)$$\n$$\\int \\dfrac{3}{x^2 + 4}\\,dx = 3\\left(\\dfrac{1}{2}\\tan^{-1}\\!\\left(\\dfrac{x}{2}\\right)\\right) = \\dfrac{3}{2}\\tan^{-1}\\!\\left(\\dfrac{x}{2}\\right)$$",
+        "Write the combined antiderivative $F(x)$:\n$$F(x) = \\ln(3x + 2) - \\dfrac{1}{2}\\ln(x^2 + 4) + \\dfrac{3}{2}\\tan^{-1}\\!\\left(\\dfrac{x}{2}\\right)$$",
+        "Evaluate $F(x)$ at the upper limit $x = 2$:\n$$F(2) = \\ln(3(2) + 2) - \\dfrac{1}{2}\\ln(2^2 + 4) + \\dfrac{3}{2}\\tan^{-1}\\!\\left(\\dfrac{2}{2}\\right)$$\n$$= \\ln(8) - \\dfrac{1}{2}\\ln(8) + \\dfrac{3}{2}\\tan^{-1}(1)$$\n$$= \\dfrac{1}{2}\\ln(8) + \\dfrac{3}{2}\\left(\\dfrac{\\pi}{4}\\right) = \\dfrac{1}{2}\\ln(2^3) + \\dfrac{3\\pi}{8} = \\dfrac{3}{2}\\ln 2 + \\dfrac{3\\pi}{8}$$",
+        "Evaluate $F(x)$ at the lower limit $x = 0$:\n$$F(0) = \\ln(3(0) + 2) - \\dfrac{1}{2}\\ln(0^2 + 4) + \\dfrac{3}{2}\\tan^{-1}\\!\\left(\\dfrac{0}{2}\\right)$$\n$$= \\ln 2 - \\dfrac{1}{2}\\ln 4 + \\dfrac{3}{2}(0) = \\ln 2 - \\dfrac{1}{2}(2\\ln 2) = \\ln 2 - \\ln 2 = 0$$",
+        "Calculate the definite integral $F(2) - F(0)$:\n$$\\int_0^2 f(x)\\,dx = \\left(\\dfrac{3}{2}\\ln 2 + \\dfrac{3\\pi}{8}\\right) - 0 = \\dfrac{3}{2}\\ln 2 + \\dfrac{3\\pi}{8}$$"
+      ]
+    }
+  ]
+}

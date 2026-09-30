@@ -1,0 +1,67 @@
+{
+  "schema_version": "9709_math_enrichment_v8",
+  "question_id": "9709_w16_41_q7",
+  "difficulty": 4,
+  "parts": [
+    {
+      "part_id": "9709_w16_41_q7_i",
+      "difficulty": 3,
+      "mapping": {
+        "topic_id": "9709_m1_t_kinematics_of_motion_in_a_straight_line",
+        "lesson_id": "9709_m1_t_kinematics_of_motion_in_a_straight_line_m05_l01"
+      },
+      "hints": [
+        "Maximum acceleration occurs where the derivative of acceleration with respect to time is zero: $\\frac{da}{dt} = 0$.",
+        "Differentiate $a(t) = 15t - 3t^2$ with respect to $t$ to obtain $15 - 6t = 0$.",
+        "Solve for time $t = 2.5\\text{ s}$, then substitute back into $a(t)$ to find the maximum acceleration."
+      ],
+      "walkthrough": [
+        "To find when acceleration is maximized, find the stationary point by differentiating $a(t)$ with respect to $t$ and setting the derivative to zero:\n$$\\frac{da}{dt} = 0$$",
+        "Given $a(t) = 15t - 3t^2$:\n$$\\frac{da}{dt} = 15 - 6t$$",
+        "Set the derivative equal to zero and solve for $t$:\n$$15 - 6t = 0$$\n$$6t = 15 \\implies t = \\frac{15}{6} = 2.5\\text{ s}$$",
+        "Verify this is a maximum using the second derivative: $\\frac{d^2a}{dt^2} = -6 < 0$, confirming a maximum.",
+        "Substitute $t = 2.5\\text{ s}$ into the acceleration function:\n$$a(2.5) = 15(2.5) - 3(2.5)^2 = 37.5 - 3(6.25) = 37.5 - 18.75 = 18.75\\text{ m s}^{-2}$$"
+      ]
+    },
+    {
+      "part_id": "9709_w16_41_q7_ii",
+      "difficulty": 3,
+      "mapping": {
+        "topic_id": "9709_m1_t_kinematics_of_motion_in_a_straight_line",
+        "lesson_id": "9709_m1_t_kinematics_of_motion_in_a_straight_line_m05_l01"
+      },
+      "hints": [
+        "Integrate acceleration $a(t) = 15t - 3t^2$ with respect to $t$ to find velocity $v(t) = 7.5t^2 - t^3$ (using $v(0) = 0$).",
+        "Integrate velocity with respect to $t$ to find displacement $s(t) = 2.5t^3 - 0.25t^4$ (using $s(0) = 0$).",
+        "Evaluate $s(5)$ to determine the distance of the car from its starting point."
+      ],
+      "walkthrough": [
+        "Velocity is the integral of acceleration with respect to time:\n$$v(t) = \\int a(t)\\,dt = \\int (15t - 3t^2)\\,dt = \\frac{15t^2}{2} - \\frac{3t^3}{3} + c = 7.5t^2 - t^3 + c$$",
+        "Since the car starts from rest at $t = 0$, $v(0) = 0 \\implies c = 0$, so:\n$$v(t) = 7.5t^2 - t^3$$",
+        "Displacement is the integral of velocity with respect to time:\n$$s(t) = \\int v(t)\\,dt = \\int (7.5t^2 - t^3)\\,dt = \\frac{7.5t^3}{3} - \\frac{t^4}{4} + d = 2.5t^3 - 0.25t^4 + d$$",
+        "Since displacement starts at zero ($s(0) = 0$), $d = 0$, so:\n$$s(t) = 2.5t^3 - 0.25t^4$$",
+        "Substitute $t = 5\\text{ s}$:\n$$s(5) = 2.5(125) - 0.25(625) = 312.5 - 156.25 = 156.25\\text{ m} = \\frac{625}{4}\\text{ m}$$"
+      ]
+    },
+    {
+      "part_id": "9709_w16_41_q7_iii",
+      "difficulty": 4,
+      "mapping": {
+        "topic_id": "9709_m1_t_kinematics_of_motion_in_a_straight_line",
+        "lesson_id": "9709_m1_t_kinematics_of_motion_in_a_straight_line_m05_l01"
+      },
+      "hints": [
+        "Calculate the speed at $t = 5\\text{ s}$: $v(5) = 7.5(5^2) - 5^3 = 187.5 - 125 = 62.5\\text{ m s}^{-1}$.",
+        "For $t \\ge 5$, integrate acceleration $a(t) = -625t^{-2}$ from $5$ to $k$: $\\Delta v = \\int_5^k -625t^{-2}\\,dt = \\left[\\frac{625}{t}\\right]_5^k$.",
+        "Set the final velocity to zero ($v(k) = 0$): $62.5 + \\left(\\frac{625}{k} - \\frac{625}{5}\\right) = 0$, and solve for $k$."
+      ],
+      "walkthrough": [
+        "First, calculate the velocity of the car at the transition time $t = 5\\text{ s}$ using $v(t) = 7.5t^2 - t^3$:\n$$v(5) = 7.5(25) - 125 = 187.5 - 125 = 62.5\\text{ m s}^{-1}$$",
+        "For $t > 5$, the acceleration is $a(t) = -625t^{-2}$. Find the velocity function by integration:\n$$v(t) = \\int -625t^{-2}\\,dt = \\frac{625}{t} + C$$",
+        "Use the boundary condition $v(5) = 62.5\\text{ m s}^{-1}$ to determine constant $C$:\n$$62.5 = \\frac{625}{5} + C = 125 + C$$\n$$C = 62.5 - 125 = -62.5$$",
+        "The velocity function for $t \\ge 5$ is therefore:\n$$v(t) = \\frac{625}{t} - 62.5$$",
+        "The car comes to rest at $t = k$, meaning $v(k) = 0$:\n$$\\frac{625}{k} - 62.5 = 0$$\n$$\\frac{625}{k} = 62.5$$\n$$k = \\frac{625}{62.5} = 10$$"
+      ]
+    }
+  ]
+}

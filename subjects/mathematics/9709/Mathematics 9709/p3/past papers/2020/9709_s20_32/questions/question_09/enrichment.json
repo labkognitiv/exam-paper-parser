@@ -1,0 +1,69 @@
+{
+  "schema_version": "9709_math_enrichment_v8",
+  "question_id": "9709_s20_32_q9",
+  "difficulty": 4,
+  "parts": [
+    {
+      "part_id": "9709_s20_32_q9_a",
+      "difficulty": 3,
+      "mapping": {
+        "topic_id": "9709_p3_t_trigonometry",
+        "lesson_id": "9709_p3_t_trigonometry_m04_l04"
+      },
+      "hints": [
+        "At a point of contact, the curves have both the same value and the same gradient at \\(x=p\\).",
+        "Use \\(\\cos p=k/(1+p)\\), then differentiate both curve equations and equate their derivatives at \\(p\\).",
+        "Eliminate \\(k\\) between the value and gradient equations, then divide by \\(\\cos p\\) to obtain the required relation in \\(p\\)."
+      ],
+      "walkthrough": [
+        "State the equations of the two curves:\n$$y_1 = \\cos x, \\quad y_2 = \\dfrac{k}{1 + x} = k(1 + x)^{-1}$$",
+        "Differentiate both functions with respect to $x$:\n$$\\dfrac{dy_1}{dx} = -\\sin x$$\n$$\\dfrac{dy_2}{dx} = -k(1 + x)^{-2} = -\\dfrac{k}{(1 + x)^2}$$",
+        "Since the two curves touch at $x = p$, they share the same $y$-value at $x = p$:\n$$\\cos p = \\dfrac{k}{1 + p} \\quad \\text{--- (Equation 1)}$$",
+        "Since the curves touch, they also share the same gradient (tangent slope) at $x = p$:\n$$-\\sin p = -\\dfrac{k}{(1 + p)^2} \\implies \\sin p = \\dfrac{k}{(1 + p)^2} \\quad \\text{--- (Equation 2)}$$",
+        "Divide Equation 2 by Equation 1 to eliminate the constant $k$:\n$$\\dfrac{\\sin p}{\\cos p} = \\dfrac{\\dfrac{k}{(1 + p)^2}}{\\dfrac{k}{1 + p}}$$",
+        "Simplify both sides of the equation:\n$$\\tan p = \\dfrac{k}{(1 + p)^2} \\times \\dfrac{1 + p}{k} = \\dfrac{1}{1 + p}$$",
+        "State the final concluded identity:\n$$\\tan p = \\dfrac{1}{1 + p}, \\quad \\text{as required.}$$"
+      ]
+    },
+    {
+      "part_id": "9709_s20_32_q9_b",
+      "difficulty": 4,
+      "mapping": {
+        "topic_id": "9709_p3_t_numerical_solution_of_equations",
+        "lesson_id": "9709_p3_t_numerical_solution_of_equations_m03_l01"
+      },
+      "hints": [
+        "Use the given fixed-point recurrence in radian mode, beginning with a sensible estimate for \\(p\\) in \\([0,\\pi/2]\\).",
+        "Substitute each current value into \\(p_{n+1}=\\tan^{-1}(1/(1+p_n))\\) and record every iterate to 5 decimal places.",
+        "Continue until successive iterates agree sufficiently to justify one stable value when rounded to 3 decimal places."
+      ],
+      "walkthrough": [
+        "State the given iterative formula in radian mode:\n$$p_{n+1} = \\tan^{-1}\\left(\\dfrac{1}{1 + p_n}\\right)$$",
+        "Choose an initial approximation $p_1 = 0.5$ (or $0.6$):\n$$p_1 = 0.5$$",
+        "Compute successive iterations, giving each value to $5$ decimal places:\n$$p_2 = \\tan^{-1}\\left(\\dfrac{1}{1 + 0.5}\\right) = \\tan^{-1}\\left(\\dfrac{2}{3}\\right) \\approx 0.58800$$\n$$p_3 = \\tan^{-1}\\left(\\dfrac{1}{1 + 0.58800}\\right) \\approx 0.56199$$\n$$p_4 = \\tan^{-1}\\left(\\dfrac{1}{1 + 0.56199}\\right) \\approx 0.56946$$\n$$p_5 = \\tan^{-1}\\left(\\dfrac{1}{1 + 0.56946}\\right) \\approx 0.56730$$\n$$p_6 = \\tan^{-1}\\left(\\dfrac{1}{1 + 0.56730}\\right) \\approx 0.56792$$\n$$p_7 = \\tan^{-1}\\left(\\dfrac{1}{1 + 0.56792}\\right) \\approx 0.56774$$",
+        "Confirm the value of $p$ correct to $3$ decimal places using a sign-change check on the continuous function $f(x) = \\tan x - \\dfrac{1}{1 + x}$ on the interval $[0.5675, 0.5685]$:\n$$f(0.5675) = \\tan(0.5675) - \\dfrac{1}{1 + 0.5675} \\approx 0.63737 - 0.63796 = -0.00051 < 0$$\n$$f(0.5685) = \\tan(0.5685) - \\dfrac{1}{1 + 0.5685} \\approx 0.63886 - 0.63755 = +0.00130 > 0$$\nSince there is a sign change and $f(x)$ is continuous on $[0.5675, 0.5685]$, the root $p$ lies in this interval.",
+        "Round $p$ to $3$ decimal places:\n$$p = 0.568$$"
+      ]
+    },
+    {
+      "part_id": "9709_s20_32_q9_c",
+      "difficulty": 1,
+      "mapping": {
+        "topic_id": "9709_p3_t_trigonometry",
+        "lesson_id": "9709_p3_t_trigonometry_m04_l04"
+      },
+      "hints": [
+        "Return to the equality of the two curve values at their contact point: \\(\\cos p=k/(1+p)\\).",
+        "Rearrange this equation for \\(k\\), then substitute the iterated value of \\(p\\) from part (b) without premature rounding.",
+        "Evaluate in radian mode and round the resulting constant to 2 decimal places."
+      ],
+      "walkthrough": [
+        "Recall Equation 1 from part (a):\n$$\\cos p = \\dfrac{k}{1 + p}$$",
+        "Rearrange to make $k$ the subject:\n$$k = (1 + p)\\cos p$$",
+        "Substitute the converged value $p \\approx 0.56778$ (or $0.568$):\n$$k = (1 + 0.56778)\\cos(0.56778\\text{ rad})$$\n$$1 + p \\approx 1.56778$$\n$$\\cos(0.56778) \\approx 0.843098$$",
+        "Multiply the values:\n$$k = 1.56778 \\times 0.843098 \\approx 1.32179$$",
+        "Round to $2$ decimal places:\n$$k = 1.32$$"
+      ]
+    }
+  ]
+}

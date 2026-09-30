@@ -1,0 +1,73 @@
+{
+  "schema_version": "9709_math_enrichment_v8",
+  "question_id": "9709_m20_52_q6",
+  "difficulty": 5,
+  "parts": [
+    {
+      "part_id": "9709_m20_52_q6_a",
+      "difficulty": 3,
+      "mapping": {
+        "topic_id": "9709_s1_t_probability",
+        "lesson_id": "9709_s1_t_probability_m02_l01"
+      },
+      "hints": [
+        "Start with Box A: it contains 7 red balls and 1 blue ball, giving a total of 8 balls. Write the probabilities for the first draw.",
+        "Consider what happens to Box B after a red ball is transferred: Box B initially has 9 red and 5 blue (14 balls); adding 1 red gives 10 red and 5 blue (15 balls in total).",
+        "Consider what happens to Box B after a blue ball is transferred: adding 1 blue to Box B gives 9 red and 6 blue (15 balls in total).",
+        "Fill in the four second-stage branch probabilities on the tree using the updated counts out of 15."
+      ],
+      "walkthrough": [
+        "This problem models a two-stage sequential experiment with transfer between two containers.",
+        "Initial state of Box A:\n7 red balls, 1 blue ball\nTotal in Box A $= 7 + 1 = 8$ balls.",
+        "Initial state of Box B:\n9 red balls, 5 blue balls\nTotal in Box B $= 9 + 5 = 14$ balls.",
+        "Step 1: First stage (drawing a ball from Box A).\nA single ball is drawn from Box A:\n$$\\mathrm{P}(\\text{Red from A}) = \\frac{7}{8}$$\n$$\\mathrm{P}(\\text{Blue from A}) = \\frac{1}{8}$$\nNotice that $\\frac{7}{8} + \\frac{1}{8} = 1$, as required for branches emerging from a single node.",
+        "Step 2: Second stage case 1 (a red ball is transferred to Box B).\nWhen a red ball is added to Box B, its contents become:\nRed balls: $9 + 1 = 10$\nBlue balls: 5 (unchanged)\nNew total in Box B: $10 + 5 = 15$ balls.\nThe conditional probabilities for the ball drawn from Box B are:\n$$\\mathrm{P}(\\text{Red from B} \\mid \\text{Red from A}) = \\frac{10}{15}$$\n$$\\mathrm{P}(\\text{Blue from B} \\mid \\text{Red from A}) = \\frac{5}{15}$$\nCheck: $\\frac{10}{15} + \\frac{5}{15} = \\frac{15}{15} = 1$.",
+        "Step 3: Second stage case 2 (a blue ball is transferred to Box B).\nWhen a blue ball is added to Box B, its contents become:\nRed balls: 9 (unchanged)\nBlue balls: $5 + 1 = 6$\nNew total in Box B: $9 + 6 = 15$ balls.\nThe conditional probabilities for the ball drawn from Box B are:\n$$\\mathrm{P}(\\text{Red from B} \\mid \\text{Blue from A}) = \\frac{9}{15}$$\n$$\\mathrm{P}(\\text{Blue from B} \\mid \\text{Blue from A}) = \\frac{6}{15}$$\nCheck: $\\frac{9}{15} + \\frac{6}{15} = \\frac{15}{15} = 1$.",
+        "Step 4: Record each probability on the corresponding tree branches:\nBox A: red $\\frac{7}{8}$, blue $\\frac{1}{8}$.\nBox B following red from A: red $\\frac{10}{15}$, blue $\\frac{5}{15}$.\nBox B following blue from A: red $\\frac{9}{15}$, blue $\\frac{6}{15}$."
+      ]
+    },
+    {
+      "part_id": "9709_m20_52_q6_b",
+      "difficulty": 3,
+      "mapping": {
+        "topic_id": "9709_s1_t_probability",
+        "lesson_id": "9709_s1_t_probability_m02_l02"
+      },
+      "hints": [
+        "Identify the two mutually exclusive paths on the tree diagram where the two balls have different colours: $(R_A \\text{ and } B_B)$ or $(B_A \\text{ and } R_B)$.",
+        "Apply the multiplication rule along each branch to find the probability of each path.",
+        "Add the two path probabilities: $\\left(\\dfrac{7}{8} \\times \\dfrac{5}{15}\\right) + \\left(\\dfrac{1}{8} \\times \\dfrac{9}{15}\\right)$.",
+        "Simplify the resulting fraction to lowest terms $\\dfrac{11}{30}$ or write as a 3-figure decimal $0.367$."
+      ],
+      "walkthrough": [
+        "We want to find the probability that the two chosen balls are not the same colour.",
+        "Step 1: Identify all matching paths from the tree diagram.\nThe two balls have different colours in two mutually exclusive cases:\nCase 1: Red from Box A, then Blue from Box B, denoted $(R_A \\cap B_B)$.\nCase 2: Blue from Box A, then Red from Box B, denoted $(B_A \\cap R_B)$.",
+        "Step 2: Apply the multiplication rule along each path:\nFor Case 1:\n$$\\mathrm{P}(R_A \\cap B_B) = \\mathrm{P}(R_A) \\times \\mathrm{P}(B_B \\mid R_A) = \\frac{7}{8} \\times \\frac{5}{15}$$\nMultiply numerators and denominators:\n$$\\frac{7 \\times 5}{8 \\times 15} = \\frac{35}{120}$$\nFor Case 2:\n$$\\mathrm{P}(B_A \\cap R_B) = \\mathrm{P}(B_A) \\times \\mathrm{P}(R_B \\mid B_A) = \\frac{1}{8} \\times \\frac{9}{15}$$\nMultiply numerators and denominators:\n$$\\frac{1 \\times 9}{8 \\times 15} = \\frac{9}{120}$$",
+        "Step 3: Apply the addition rule for mutually exclusive events:\n$$\\mathrm{P}(\\text{different colours}) = \\mathrm{P}(R_A \\cap B_B) + \\mathrm{P}(B_A \\cap R_B)$$\nSubstitute the fractions:\n$$\\mathrm{P}(\\text{different colours}) = \\frac{35}{120} + \\frac{9}{120} = \\frac{35 + 9}{120} = \\frac{44}{120}$$",
+        "Step 4: Simplify the fraction.\nDivide numerator and denominator by 4:\n$$\\frac{44 \\div 4}{120 \\div 4} = \\frac{11}{30}$$\nIn decimal form, $\\frac{11}{30} = 0.3666... \\approx 0.367$ (to 3 significant figures)."
+      ]
+    },
+    {
+      "part_id": "9709_m20_52_q6_c",
+      "difficulty": 5,
+      "mapping": {
+        "topic_id": "9709_s1_t_probability",
+        "lesson_id": "9709_s1_t_probability_m03_l03"
+      },
+      "hints": [
+        "State the conditional probability formula: $\\mathrm{P}(B_A \\mid B_B) = \\dfrac{\\mathrm{P}(B_A \\cap B_B)}{\\mathrm{P}(B_B)}$.",
+        "Calculate the numerator: the probability that both balls are blue, $\\mathrm{P}(B_A \\cap B_B) = \\dfrac{1}{8} \\times \\dfrac{6}{15}$.",
+        "Calculate the denominator using the law of total probability: add all paths ending in a blue ball from Box B, $\\mathrm{P}(B_B) = \\left(\\dfrac{7}{8} \\times \\dfrac{5}{15}\\right) + \\left(\\dfrac{1}{8} \\times \\dfrac{6}{15}\\right)$.",
+        "Form the fraction and simplify: $\\dfrac{6/120}{41/120} = \\dfrac{6}{41}$."
+      ],
+      "walkthrough": [
+        "We are given that the ball chosen from Box B is blue, and we want the probability that the ball chosen from Box A was also blue.",
+        "Step 1: Write down Bayes' rule / the conditional probability definition:\n$$\\mathrm{P}(B_A \\mid B_B) = \\frac{\\mathrm{P}(B_A \\cap B_B)}{\\mathrm{P}(B_B)}$$",
+        "Step 2: Find the joint probability for the numerator.\nThe event $(B_A \\cap B_B)$ corresponds to choosing a blue ball from Box A and then a blue ball from Box B:\n$$\\mathrm{P}(B_A \\cap B_B) = \\mathrm{P}(B_A) \\times \\mathrm{P}(B_B \\mid B_A) = \\frac{1}{8} \\times \\frac{6}{15} = \\frac{6}{120}$$",
+        "Step 3: Find the total probability for the denominator.\nA blue ball can be chosen from Box B in two mutually exclusive ways:\nWay 1: Red from Box A, then Blue from Box B:\n$$\\mathrm{P}(R_A \\cap B_B) = \\frac{7}{8} \\times \\frac{5}{15} = \\frac{35}{120}$$\nWay 2: Blue from Box A, then Blue from Box B:\n$$\\mathrm{P}(B_A \\cap B_B) = \\frac{1}{8} \\times \\frac{6}{15} = \\frac{6}{120}$$\nBy the law of total probability:\n$$\\mathrm{P}(B_B) = \\frac{35}{120} + \\frac{6}{120} = \\frac{35 + 6}{120} = \\frac{41}{120}$$",
+        "Step 4: Substitute numerator and denominator into the conditional probability ratio:\n$$\\mathrm{P}(B_A \\mid B_B) = \\frac{\\frac{6}{120}}{\\frac{41}{120}}$$",
+        "Step 5: Simplify the compound fraction.\nMultiply numerator and denominator by 120:\n$$\\mathrm{P}(B_A \\mid B_B) = \\frac{6}{41}$$\nIn decimal form:\n$$\\frac{6}{41} \\approx 0.14634... \\approx 0.146$$\nRounding to 3 significant figures gives $0.146$."
+      ]
+    }
+  ]
+}

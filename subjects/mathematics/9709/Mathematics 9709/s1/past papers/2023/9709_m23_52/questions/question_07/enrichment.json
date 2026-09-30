@@ -1,0 +1,71 @@
+{
+  "schema_version": "9709_math_enrichment_v8",
+  "question_id": "9709_m23_52_q7",
+  "difficulty": 4,
+  "parts": [
+    {
+      "part_id": "9709_m23_52_q7_a",
+      "difficulty": 3,
+      "mapping": {
+        "topic_id": "9709_s1_t_permutations_and_combinations",
+        "lesson_id": "9709_s1_t_permutations_and_combinations_m03_l04"
+      },
+      "hints": [
+        "The letters of DELIVERED are 3 Es, 2 Ds, 1 L, 1 I, 1 V, 1 R (9 letters total). Treat the three Es as a single block: (EEE).",
+        "Count the total arrangements with the (EEE) block: you have 7 items with two repeated Ds, giving 7! / 2! = 2520.",
+        "Subtract the arrangements where the two Ds are also together: treat (DD) as another block, giving 6! = 720 arrangements.",
+        "Subtract to find the arrangements where the Ds are separated: 2520 - 720 = 1800."
+      ],
+      "walkthrough": [
+        "Step 1: Analyze the letters in the word DELIVERED:\n- Count: 9 letters in total.\n- Repeated letters: 3 Es and 2 Ds.\n- Single letters: 1 L, 1 I, 1 V, 1 R.",
+        "Step 2: Apply the block method to the restriction that the three Es must be together:\nTreat $(EEE)$ as one single entity.\nNow we have 7 entities: $(EEE), D, D, L, I, V, R$.\nThe number of arrangements of these 7 entities (where $D$ appears twice) is:\n$$\\frac{7!}{2!} = \\frac{5040}{2} = 2520$$",
+        "Step 3: Consider the restriction that the two Ds must NOT be next to each other:\nWe use the subtraction method:\n$$\\text{Separated Ds} = \\text{Total with Es together} - \\text{Both Es together and Ds together}$$",
+        "Step 4: Count arrangements where the two Ds ARE together:\nTreat $(DD)$ as a single entity as well.\nNow we have 6 distinct entities: $(EEE), (DD), L, I, V, R$.\nThese 6 distinct entities can be arranged in:\n$$6! = 720 \\text{ ways}$$",
+        "Step 5: Subtract the unwanted arrangements:\n$$\\text{Required arrangements} = 2520 - 720 = 1800$$",
+        "Alternative verification via the gap method:\nArrange the 5 entities other than Ds: $(EEE), L, I, V, R$ in $5! = 120$ ways.\nThese 5 entities create 6 spaces for the two Ds: $\\binom{6}{2} = 15$ ways.\n$$120 \\times 15 = 1800$$\nBoth methods yield 1800."
+      ]
+    },
+    {
+      "part_id": "9709_m23_52_q7_b",
+      "difficulty": 4,
+      "mapping": {
+        "topic_id": "9709_s1_t_probability",
+        "lesson_id": "9709_s1_t_probability_m05_l01"
+      },
+      "hints": [
+        "Find the total number of different arrangements of all 9 letters in DELIVERED: 9! / (3! * 2!) = 30240.",
+        "Determine the pairs of positions that have exactly 4 letters between them: positions (1, 6), (2, 7), (3, 8), and (4, 9).",
+        "For each of the 4 pairs of positions, the remaining 7 letters (3 Es, 1 L, 1 I, 1 V, 1 R) can be arranged in 7! / 3! = 840 ways.",
+        "Multiply by 4 to get the favourable arrangements 4 * 840 = 3360, then divide by 30240 to get the probability 1/9."
+      ],
+      "walkthrough": [
+        "Step 1: State the classical definition of probability:\n$$\\mathrm{P}(E) = \\frac{\\text{Number of favourable outcomes}}{\\text{Total number of possible outcomes}}$$",
+        "Step 2: Compute the total number of unrestricted arrangements of DELIVERED:\nThere are 9 letters with 3 Es and 2 Ds:\n$$\\text{Total} = \\frac{9!}{3! \\, 2!} = \\frac{362880}{6 \\times 2} = \\frac{362880}{12} = 30240$$",
+        "Step 3: Analyze the restriction: exactly 4 letters between the two Ds.\nLet the 9 positions in the word be numbered $1, 2, 3, 4, 5, 6, 7, 8, 9$.\nIf the first D is placed at position $i$, then having 4 letters between them means the second D must be placed at position $i + 5$:\n- First D at 1: second D at 6 (letters between: 2, 3, 4, 5, which is 4 letters)\n- First D at 2: second D at 7 (letters between: 3, 4, 5, 6)\n- First D at 3: second D at 8 (letters between: 4, 5, 6, 7)\n- First D at 4: second D at 9 (letters between: 5, 6, 7, 8)\nThis gives exactly 4 possible pairs of positions for the two Ds.",
+        "Step 4: For each pair of positions, count the ways to arrange the remaining 7 letters:\nThe remaining 7 letters are E, E, E, L, I, V, R (7 letters with 3 repeated Es):\n$$\\frac{7!}{3!} = \\frac{5040}{6} = 840$$",
+        "Step 5: Calculate total favourable arrangements:\n$$\\text{Favourable} = 4 \\times 840 = 3360$$",
+        "Step 6: Compute the probability and simplify:\n$$\\mathrm{P} = \\frac{3360}{30240}$$\nDivide numerator and denominator by 3360:\n$$\\frac{3360 \\div 3360}{30240 \\div 3360} = \\frac{1}{9}$$\nPositional reasoning note: There are $\\binom{9}{2} = 36$ equally likely position pairs for the two Ds, and exactly 4 have 4 letters between them, confirming $\\frac{4}{36} = \\frac{1}{9}$."
+      ]
+    },
+    {
+      "part_id": "9709_m23_52_q7_c",
+      "difficulty": 3,
+      "mapping": {
+        "topic_id": "9709_s1_t_permutations_and_combinations",
+        "lesson_id": "9709_s1_t_permutations_and_combinations_m04_l02"
+      },
+      "hints": [
+        "We are choosing 5 letters from the letters of DELIVERED: up to two Ds, up to three Es, and 4 other single letters {L, I, V, R}.",
+        "The selection must include at least one D and at least one E. Partition into cases based on the number of Ds (1 or 2) and Es (1, 2, or 3).",
+        "There are 6 mutually exclusive cases: (1D, 1E), (1D, 2E), (1D, 3E), (2D, 1E), (2D, 2E), and (2D, 3E).",
+        "For each case, choose the remaining letters from the 4 distinct single letters {L, I, V, R}, and sum the results."
+      ],
+      "walkthrough": [
+        "Step 1: Understand the letter pool and selection criteria:\n- Letter pool: two Ds, three Es, and 4 distinct other letters $\\{L, I, V, R\\}$.\n- We choose 5 letters in total.\n- Condition: at least one D and at least one E.",
+        "Step 2: List the allowed numbers of Ds and Es:\n- Number of Ds can be $1$ or $2$.\n- Number of Es can be $1, 2$, or $3$.",
+        "Step 3: Evaluate each of the 6 mutually exclusive cases by choosing remaining letters from $\\{L, I, V, R\\}$:\n- Case 1: $1\\text{ D}, 1\\text{ E}$ (2 letters chosen, need 3 from 4 others):\n$$\\binom{4}{3} = 4$$\n- Case 2: $1\\text{ D}, 2\\text{ Es}$ (3 letters chosen, need 2 from 4 others):\n$$\\binom{4}{2} = 6$$\n- Case 3: $1\\text{ D}, 3\\text{ Es}$ (4 letters chosen, need 1 from 4 others):\n$$\\binom{4}{1} = 4$$\n- Case 4: $2\\text{ Ds}, 1\\text{ E}$ (3 letters chosen, need 2 from 4 others):\n$$\\binom{4}{2} = 6$$\n- Case 5: $2\\text{ Ds}, 2\\text{ Es}$ (4 letters chosen, need 1 from 4 others):\n$$\\binom{4}{1} = 4$$\n- Case 6: $2\\text{ Ds}, 3\\text{ Es}$ (5 letters chosen, need 0 from 4 others):\n$$\\binom{4}{0} = 1$$",
+        "Step 4: Sum all cases to get the total number of selections:\n$$\\text{Total} = 4 + 6 + 4 + 6 + 4 + 1 = 25$$\nThere are 25 different selections."
+      ]
+    }
+  ]
+}

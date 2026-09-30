@@ -1,0 +1,31 @@
+{
+  "schema_version": "9709_math_enrichment_v8",
+  "question_id": "9709_s16_61_q2",
+  "difficulty": 4,
+  "parts": [
+    {
+      "part_id": "9709_s16_61_q2",
+      "difficulty": 4,
+      "mapping": {
+        "topic_id": "9709_s1_t_discrete_random_variables",
+        "lesson_id": "9709_s1_t_discrete_random_variables_m01_l03"
+      },
+      "hints": [
+        "Use the fact that all probabilities in the distribution table sum to $1$ to determine the value of $p$, which is $\\mathrm{P}(X = 4)$.",
+        "Model the number of times a score of $4$ occurs in $n = 3$ throws as a binomial random variable $Y \\sim \\mathrm{B}(3, p)$, identifying failure probability $q = 1 - p$.",
+        "'Not more than $1$' means $Y \\le 1$, which requires evaluating $\\mathrm{P}(Y = 0) + \\mathrm{P}(Y = 1)$.",
+        "Compute the binomial terms $(1-p)^3$ and $\\binom{3}{1} p (1-p)^2$, sum them, and round to 3 significant figures."
+      ],
+      "walkthrough": [
+        "In any probability distribution, the sum of all probabilities must equal exactly 1. Add every probability in the table:\n$$\\sum \\mathrm{P}(X = x) = p + 0.1 + 0.15 + p + 0.15 + 2p = 1$$",
+        "Collect the like terms (combine the $p$ terms and constant numbers):\n$$(p + p + 2p) + (0.1 + 0.15 + 0.15) = 1$$\n$$4p + 0.40 = 1$$",
+        "Subtract $0.40$ from both sides, then divide by 4 to solve for $p$:\n$$4p = 1 - 0.40 = 0.60 \\implies p = \\frac{0.60}{4} = 0.15$$",
+        "The die is thrown $n = 3$ times. The probability of rolling a 4 on any throw is $p = 0.15$, so the probability of not rolling a 4 is $q = 1 - 0.15 = 0.85$. This follows a Binomial distribution $Y \\sim \\mathrm{B}(3, 0.15)$.",
+        "We want the probability of getting a 4 at most once ($Y \\le 1$). This means either rolling zero 4s ($Y = 0$) or exactly one 4 ($Y = 1$):\n$$\\mathrm{P}(Y \\le 1) = \\mathrm{P}(Y = 0) + \\mathrm{P}(Y = 1)$$",
+        "Use the binomial probability formula $\\mathrm{P}(Y = r) = \\binom{n}{r} p^r (1-p)^{n-r}$ for $r = 0$:\n$$\\mathrm{P}(Y = 0) = \\binom{3}{0} (0.15)^0 (0.85)^3 = 1 \\times 1 \\times 0.614125 = 0.614125$$",
+        "Use the binomial probability formula for $r = 1$:\n$$\\mathrm{P}(Y = 1) = \\binom{3}{1} (0.15)^1 (0.85)^2 = 3 \\times 0.15 \\times 0.7225 = 0.325125$$",
+        "Add the two probabilities together to get the final answer:\n$$\\mathrm{P}(Y \\le 1) = 0.614125 + 0.325125 = 0.93925 \\approx 0.939$$"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "schema_version": "9709_math_enrichment_v8",
+  "question_id": "9709_m16_62_q5",
+  "difficulty": 5,
+  "parts": [
+    {
+      "part_id": "9709_m16_62_q5_i",
+      "difficulty": 5,
+      "mapping": {
+        "topic_id": "9709_s1_t_probability",
+        "lesson_id": "9709_s1_t_probability_m03_l01"
+      },
+      "hints": [
+        "Identify the two main branches: holiday abroad ($A$) with probability $0.35$, and holiday in own country ($H$) with probability $0.65$.",
+        "For those staying in their own country, $20\\%$ go to the seaside, so the remaining $80\\%$ is divided equally between camping and city breaks, giving $\\mathrm{P}(C \\mid H) = 0.40$.",
+        "Use the law of total probability to calculate $\\mathrm{P}(C) = \\mathrm{P}(A \\cap C) + \\mathrm{P}(H \\cap C)$.",
+        "Apply Bayes' theorem: $\\mathrm{P}(A \\mid C) = \\dfrac{\\mathrm{P}(A \\cap C)}{\\mathrm{P}(C)}$."
+      ],
+      "walkthrough": [
+        "Organize the given information into two holiday routes: going abroad ($A$) or staying in own country ($A'$):\n$$\\mathrm{P}(A) = 0.35,\\quad \\mathrm{P}(A') = 1 - 0.35 = 0.65$$",
+        "Find the chance of a person going abroad and camping by multiplying along that branch:\n$$\\mathrm{P}(A \\cap \\text{Camping}) = 0.35 \\times 0.15 = 0.0525$$",
+        "Find the chance of staying in own country and camping by multiplying along that branch:\n$$\\mathrm{P}(A' \\cap \\text{Camping}) = 0.65 \\times 0.20 = 0.13$$",
+        "Add both camping paths to find the overall chance that any randomly chosen person camps:\n$$\\mathrm{P}(\\text{Camping}) = 0.0525 + 0.13 = 0.1825$$",
+        "We know the person camps. Divide the abroad-and-camping chance by the total camping chance to find the conditional probability:\n$$\\mathrm{P}(\\text{Abroad} \\mid \\text{Camping}) = \\frac{0.0525}{0.1825} = \\frac{525}{1825} = \\frac{21}{73} \\approx 0.288$$"
+      ]
+    },
+    {
+      "part_id": "9709_m16_62_q5_ii",
+      "difficulty": 2,
+      "mapping": {
+        "topic_id": "9709_s1_t_discrete_random_variables",
+        "lesson_id": "9709_s1_t_discrete_random_variables_m04_l02"
+      },
+      "hints": [
+        "The probability of an individual taking a holiday in their own country is $0.65$.",
+        "For $n$ independently chosen individuals, the probability that all $n$ take a holiday in their own country is $(0.65)^n$.",
+        "Form the inequality $(0.65)^n < 0.002$ and take logarithms of both sides.",
+        "Remember to reverse the inequality sign when dividing by $\\ln(0.65)$ (since $\\ln(0.65) < 0$), then identify the smallest integer $n$."
+      ],
+      "walkthrough": [
+        "The probability of any single person taking a holiday in their own country is $0.65$. For $n$ independent people, the probability that all $n$ people take a holiday in their own country is:\n$$\\text{Probability} = (0.65)^n$$",
+        "We want this probability to be strictly less than $0.002$. Set up the inequality:\n$$(0.65)^n < 0.002$$",
+        "To solve for the exponent $n$, take the natural logarithm ($\\ln$) of both sides:\n$$\\ln\\left(0.65^n\\right) < \\ln(0.002)$$",
+        "Apply the power rule of logarithms $\\ln(a^b) = b\\ln(a)$ to bring the exponent $n$ to the front as a multiplier:\n$$n \\times \\ln(0.65) < \\ln(0.002)$$",
+        "Evaluate the logarithms on a calculator:\n$$\\ln(0.65) \\approx -0.43078,\\quad \\ln(0.002) \\approx -6.21461$$",
+        "Divide both sides by $\\ln(0.65)$. Because $\\ln(0.65)$ is a negative number ($-0.43078 < 0$), dividing by a negative number reverses the inequality sign from $<$ to $>$:\n$$n > \\frac{\\ln(0.002)}{\\ln(0.65)} = \\frac{-6.21461}{-0.43078}$$",
+        "Complete the division:\n$$n > 14.426$$",
+        "Since $n$ must be a whole number of people, take the smallest integer greater than $14.426$:\n$$n = 15$$"
+      ]
+    }
+  ]
+}
