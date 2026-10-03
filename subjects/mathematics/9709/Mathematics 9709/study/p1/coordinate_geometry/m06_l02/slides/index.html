@@ -1,0 +1,922 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Two circles and transformations · Lesson 11</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../../../lesson-ui/slides/deck.css">
+<style>
+  /* a column vector, written the exam way: top number over bottom number, in brackets */
+  .vec{display:inline-flex;flex-direction:column;align-items:center;vertical-align:middle;line-height:1.05;font-size:.9em;
+       padding:0 6px;margin:0 2px;border-left:2px solid currentColor;border-right:2px solid currentColor;border-radius:9px}
+  /* five groups side by side on the sort slide */
+  .five .qs{max-width:1060px}
+  .five .bins{grid-template-columns:repeat(5,1fr)}
+  .five .bin{min-height:150px}
+</style>
+</head>
+<body>
+<header><b>Coordinate Geometry · Lesson 11</b><span><a href="../../m06_l01/slides/index.html" style="color:#fff">← Lesson 10</a> · Two circles and transformations · last lesson of the topic</span></header>
+<div class="progress"><i id="bar"></i></div>
+
+<main>
+<div class="deck">
+
+  <!-- ================= START ================= -->
+  <section class="slide statement" data-board="r0">
+    <div class="head">
+      <p class="step">Where we left off</p>
+      <h1>Two circles at once</h1>
+      <p class="lead">In lesson 10, one circle and one line made a chord. Keep that circle: <b>C₁</b>, centre (2, 1), radius 5. Now add a second circle, <b>C₂</b>, centre (8, 4), radius √10.</p>
+    </div>
+    <div class="cards">
+      <div><span class="n">Part 1</span><svg viewBox="0 0 240 150"></svg><h3>How two circles sit</h3><p>Apart, touching or crossing? One distance decides.</p></div>
+      <div><span class="n">Part 2</span><svg viewBox="0 0 240 150"></svg><h3>The common chord</h3><p>The line through both crossing points.</p></div>
+      <div><span class="n">Part 3</span><svg viewBox="0 0 240 150"></svg><h3>Move a circle</h3><p>Slide it, or reflect it in a mirror line.</p></div>
+    </div>
+  </section>
+
+  <!-- ================= PART 1 ================= -->
+  <section class="slide divider"><div class="dv">
+    <p class="dv-n">Part 1</p><h1>How two circles sit</h1>
+    <p class="dv-line">Measure the distance between the centres. Compare it with the radii.</p>
+    <p class="dv-map">Five ways to sit · The rules · Drag a circle · Our two circles · Sort them · Where they touch</p>
+  </div></section>
+
+  <section class="slide gallery" data-board="g1">
+    <div class="head">
+      <p class="step">Five ways to sit</p>
+      <h1>Slide a small circle towards a big one</h1>
+      <p class="lead">The big circle has radius 3. The small one has radius 2. Watch <b>d</b>, the distance between the two centres.</p>
+    </div>
+    <div class="gal">
+      <figure><div class="board"><svg viewBox="0 0 240 190"></svg></div><figcaption><b>Apart</b>d = 6.5. More than 3 + 2.</figcaption></figure>
+      <figure><div class="board"><svg viewBox="0 0 240 190"></svg></div><figcaption><b>Touch outside</b>d = 5. Exactly 3 + 2.</figcaption></figure>
+      <figure><div class="board"><svg viewBox="0 0 240 190"></svg></div><figcaption><b>Cross</b>d = 3. Between 3 − 2 and 3 + 2: two points.</figcaption></figure>
+      <figure><div class="board"><svg viewBox="0 0 240 190"></svg></div><figcaption><b>Touch inside</b>d = 1. Exactly 3 − 2.</figcaption></figure>
+      <figure><div class="board"><svg viewBox="0 0 240 190"></svg></div><figcaption><b>One inside</b>d = 0.5. Less than 3 − 2.</figcaption></figure>
+    </div>
+  </section>
+
+  <section class="slide table">
+    <div class="head">
+      <p class="step">The rules</p>
+      <h1>Compare d with the sum and the difference of the radii</h1>
+      <p class="lead">Call the bigger radius r₁ and the smaller one r₂. Work out <b>r₁ + r₂</b> and <b>r₁ − r₂</b>. Then see where d fits.</p>
+    </div>
+    <table class="big">
+      <tr><th>If d is…</th><th>the circles…</th><th>Radii 5 and 3</th></tr>
+      <tr><td>more than r₁ + r₂</td><td>are apart. No shared points</td><td>d = 10</td></tr>
+      <tr class="hid"><td>equal to r₁ + r₂</td><td>touch on the outside. One shared point</td><td>d = 8</td></tr>
+      <tr class="hid"><td>between r₁ − r₂ and r₁ + r₂</td><td>cross. Two shared points</td><td>d = 5</td></tr>
+      <tr class="hid"><td>equal to r₁ − r₂</td><td>touch on the inside. One shared point</td><td>d = 2</td></tr>
+      <tr class="hid"><td>less than r₁ − r₂</td><td>one is inside the other. No shared points</td><td>d = 1</td></tr>
+    </table>
+    <p><button class="btn ghost" data-rows>Show the next row</button> <span class="hint">Before each row: picture it. Is the small circle further in or further out?</span></p>
+  </section>
+
+  <section class="slide lab" data-board="lab1">
+    <div class="board"><svg viewBox="0 0 400 400"></svg></div>
+    <div class="panel">
+      <p class="step">Play with it</p>
+      <h1>Drag the small circle</h1>
+      <p>C₁ stays put: centre (2, 1), radius 5. Drag the centre of the small circle. Its radius is 2.</p>
+      <div class="ro"><span>d, centre to centre</span><b data-ro="d"></b></div>
+      <div class="ro al"><span>r₁ + r₂</span><b>7</b></div>
+      <div class="ro up"><span>r₁ − r₂</span><b>3</b></div>
+      <div class="ro"><span>The circles…</span><b data-ro="how"></b></div>
+      <div class="goal" data-goal>Goal: make them touch on the outside. Then make them touch on the inside.</div>
+      <p class="hint">Mouse, finger, or tab to the centre and use the arrow keys.</p>
+    </div>
+  </section>
+
+  <section class="slide" data-board="w1">
+    <div>
+      <p class="step">Worked example · our two circles</p>
+      <h1>How do C₁ and C₂ sit?</h1>
+      <p class="q-box">C₁: (x − 2)² + (y − 1)² = 25 and C₂: (x − 8)² + (y − 4)² = 10. Do they meet? If so, how?</p>
+      <div class="ws" data-ws="w1" data-open>
+        <ol>
+          <li>Read off the centres and radii: <b>(2, 1)</b>, r₁ = 5 and <b>(8, 4)</b>, r₂ = √10 ≈ 3.16.</li>
+          <li>The centres are 6 along, 3 up:
+            <div class="calc">
+              d = √(6² + 3²) = √45
+              != 3√5 ≈ 6.71
+            </div></li>
+          <li>The sum and the difference of the radii:
+            <div class="calc">
+              r₁ + r₂ = 5 + √10 ≈ 8.16
+              r₁ − r₂ = 5 − √10 ≈ 1.84
+            </div></li>
+          <li>1.84 &lt; 6.71 &lt; 8.16. So d is in between: <b>the circles cross at two points.</b></li>
+        </ol>
+        <div class="ws-nav"><button class="btn nxt">Next step</button><button class="btn ghost all">Show all</button></div>
+      </div>
+    </div>
+    <div class="board"><svg viewBox="0 0 380 400"></svg><button class="replay" type="button">↻ Start again</button></div>
+  </section>
+
+  <section class="slide qcard five">
+    <div class="head qs">
+      <p class="step">Sort · tap a card, then tap its group</p>
+      <h1>How do the circles sit?</h1>
+      <p class="lead">Each card gives the two radii and d. Add them, take them away, then compare.</p>
+    </div>
+    <div class="qs turn sort">
+      <div class="chips">
+        <button class="chip" data-g="apart" data-yes="3 + 4 = 7, and 9 is more than 7." data-why="Add the radii: 3 + 4 = 7. Is 9 more or less than that?">Radii 3, 4 · d = 9</button>
+        <button class="chip" data-g="out" data-yes="3 + 4 = 7 exactly." data-why="Add the radii: 3 + 4 = 7. d is exactly that.">Radii 3, 4 · d = 7</button>
+        <button class="chip" data-g="cross" data-yes="4 − 3 = 1 and 3 + 4 = 7. 5 is in between." data-why="5 is less than 3 + 4 = 7. Is it more than 4 − 3 = 1?">Radii 3, 4 · d = 5</button>
+        <button class="chip" data-g="in" data-yes="8 − 3 = 5 exactly." data-why="Take the radii away: 8 − 3 = 5. d is exactly that.">Radii 8, 3 · d = 5</button>
+        <button class="chip" data-g="inside" data-yes="9 − 2 = 7, and 4 is less than 7." data-why="Take the radii away: 9 − 2 = 7. d = 4 is less than that, so they never meet.">Radii 9, 2 · d = 4</button>
+        <button class="chip" data-g="cross" data-yes="6 − 6 = 0 and 6 + 6 = 12. 11 is in between." data-why="11 is less than 6 + 6 = 12, and more than 6 − 6 = 0.">Radii 6, 6 · d = 11</button>
+        <button class="chip" data-g="apart" data-yes="√58 is about 7.6, more than 5 + 2 = 7." data-why="√58 is between √49 = 7 and √64 = 8. Compare with 5 + 2.">Radii 5, 2 · d = √58</button>
+        <button class="chip" data-g="in" data-yes="10 − 4 = 6 exactly." data-why="Take the radii away: 10 − 4 = 6. d is exactly that.">Radii 10, 4 · d = 6</button>
+      </div>
+      <div class="bins">
+        <div class="bin" data-g="apart"><h4>Apart</h4><div class="got"></div></div>
+        <div class="bin" data-g="out"><h4>Touch outside</h4><div class="got"></div></div>
+        <div class="bin" data-g="cross"><h4>Cross</h4><div class="got"></div></div>
+        <div class="bin" data-g="in"><h4>Touch inside</h4><div class="got"></div></div>
+        <div class="bin" data-g="inside"><h4>One inside</h4><div class="got"></div></div>
+      </div>
+      <div class="fb"></div>
+    </div>
+  </section>
+
+  <section class="slide split-r" data-board="t1">
+    <div>
+      <p class="step">Worked example · where they touch</p>
+      <h1>The touching point is on the line of centres</h1>
+      <p class="q-box">Circle S has centre (1, 1) and radius √5. Circle T has centre (7, 4) and radius 2√5. Show that they touch, and find the point R where they touch.</p>
+      <div class="ws" data-ws="t1" data-open>
+        <ol>
+          <li>The centres are 6 along, 3 up:
+            <div class="calc">
+              d = √(6² + 3²) = √45 = 3√5
+              r₁ + r₂ = √5 + 2√5 = 3√5
+            </div>
+            They are equal, so the circles touch on the outside.</li>
+          <li>R is √5 from S's centre, out of 3√5. That is <b>√5 ÷ 3√5 = 1/3</b> of the way to T's centre.</li>
+          <li>A third of the jump (6, 3) is (2, 1):
+            <div class="calc">
+              !R = (1 + 2, 1 + 1) = (3, 2)
+            </div></li>
+        </ol>
+        <div class="ws-nav"><button class="btn nxt">Next step</button><button class="btn ghost all">Show all</button></div>
+      </div>
+    </div>
+    <div class="board"><svg viewBox="0 0 380 330"></svg><button class="replay" type="button">↻ Start again</button></div>
+  </section>
+
+  <section class="slide qcard">
+    <div class="head qs">
+      <p class="step">Quick check</p>
+      <h1>Touching circles</h1>
+    </div>
+    <div class="qs">
+      <div class="turn" data-mcq>
+        <div class="q">1. Radii 4 and 6. The circles touch on the outside. d is…</div>
+        <div class="opts">
+          <button data-ok data-fb="Yes. Touching on the outside: d = 4 + 6 = 10.">10</button>
+          <button data-fb="6 − 4 = 2 is for touching on the inside. Outside, add them.">2</button>
+          <button data-fb="Add the radii, don't multiply: 4 + 6.">24</button>
+        </div>
+        <div class="fb"></div>
+      </div>
+      <div class="turn" data-mcq>
+        <div class="q">2. Centres (1, 2) and (9, 2), radii 3 and 5. They touch at…</div>
+        <div class="opts">
+          <button data-ok data-fb="Yes. d = 8 = 3 + 5. Go 3 from (1, 2) towards (9, 2): (4, 2).">(4, 2)</button>
+          <button data-fb="That's the midpoint. The radii are different, so go 3 from (1, 2), not halfway.">(5, 2)</button>
+          <button data-fb="That's 5 from (1, 2). Use the first circle's own radius, 3.">(6, 2)</button>
+        </div>
+        <div class="fb"></div>
+      </div>
+      <div class="turn" data-mcq>
+        <div class="q">3. A big circle has centre (2, 1), radius 5. A small one has centre (2, 4), radius 2. They touch inside at…</div>
+        <div class="opts">
+          <button data-ok data-fb="Yes. d = 3 = 5 − 2. Go 5 from (2, 1), through the small centre: (2, 6).">(2, 6)</button>
+          <button data-fb="(2, 3) is inside the big circle. The touch point is on the big circle: 5 from (2, 1), through (2, 4).">(2, 3)</button>
+          <button data-fb="That's 5 the wrong way. Go through the small circle's centre: (2, 6).">(2, −4)</button>
+        </div>
+        <div class="fb"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= PART 2 ================= -->
+  <section class="slide divider"><div class="dv">
+    <p class="dv-n">Part 2</p><h1>The common chord</h1>
+    <p class="dv-line">When two circles cross, subtract one equation from the other. What is left is a straight line.</p>
+    <p class="dv-map">What a common chord is · Subtract to get the line · The two points · The line of centres · The kite</p>
+  </div></section>
+
+  <section class="slide define" data-board="d1">
+    <div class="head">
+      <p class="step">A new word</p>
+    </div>
+    <div class="defcard">
+      <div>
+        <p class="term">Common chord</p>
+        <dl>
+          <dt>IN PLAIN WORDS</dt><dd>When two circles cross at P and Q, the chord PQ belongs to <b>both</b> circles. "Common" means shared.</dd>
+          <dt>EXAMPLE</dt><dd>C₁ and C₂ cross at P(5, 5) and Q(7, 1). PQ is their common chord. It lies on the line 2x + y = 15.</dd>
+          <dt>WATCH OUT</dt><dd>To find its line, write both circles in expanded form, x² + y² + … = 0, with just 1 in front of x² and y².</dd>
+        </dl>
+      </div>
+      <div class="board"><svg viewBox="0 0 300 300"></svg></div>
+    </div>
+  </section>
+
+  <section class="slide worked" data-board="w2">
+    <div>
+      <p class="step">Worked example · subtract to get the line</p>
+      <h1>The equation of the common chord</h1>
+      <p class="q-box">C₁: x² + y² − 4x − 2y − 20 = 0 and C₂: (x − 8)² + (y − 4)² = 10. Find the equation of their common chord.</p>
+      <div class="ws" data-ws="w2" data-open>
+        <ol>
+          <li>Expand C₂ so both look the same:
+            <div class="calc">
+              x² − 16x + 64 + y² − 8y + 16 = 10
+              x² + y² − 16x − 8y + 70 = 0
+            </div></li>
+          <li>P and Q fit <b>both</b> equations. So subtract one from the other. The x² and the y² cancel:
+            <div class="calc">
+              −4x − (−16x) = 12x
+              −2y − (−8y) = 6y
+              −20 − 70 = −90
+            </div></li>
+          <li>What is left is a straight line. Divide by 6:
+            <div class="calc">
+              12x + 6y − 90 = 0
+              !2x + y = 15
+            </div></li>
+        </ol>
+        <div class="ws-nav"><button class="btn nxt">Next step</button><button class="btn ghost all">Show all</button></div>
+      </div>
+    </div>
+    <div class="board"><svg viewBox="0 0 380 400"></svg><button class="replay" type="button">↻ Start again</button></div>
+  </section>
+
+  <section class="slide split-r" data-board="w3">
+    <div>
+      <p class="step">Worked example · your go first</p>
+      <h1>The two points, and the chord's length</h1>
+      <p class="q-box">Use 2x + y = 15 to find P and Q, where C₁ and C₂ cross. Then find the exact length PQ.</p>
+      <div class="ws" data-ws="w3">
+        <p class="try">This is lesson 10 again: a line and a circle. Try it first.</p>
+        <ol>
+          <li>Get y on its own, y = 15 − 2x. Put it into C₁. Then y − 1 becomes 14 − 2x:
+            <div class="calc">
+              (x − 2)² + (14 − 2x)² = 25
+              5x² − 60x + 175 = 0
+              x² − 12x + 35 = 0
+            </div></li>
+          <li><b>(x − 5)(x − 7) = 0</b>. Put x = 5 and x = 7 into y = 15 − 2x:
+            <div class="calc">
+              !P = (5, 5), Q = (7, 1)
+            </div></li>
+          <li>P to Q is 2 along, 4 down:
+            <div class="calc">
+              PQ = √(2² + 4²) = √20
+              != 2√5
+            </div></li>
+        </ol>
+        <div class="ws-nav"><button class="btn nxt">Next step</button><button class="btn ghost all">Show all</button></div>
+      </div>
+    </div>
+    <div class="board"><svg viewBox="0 0 380 400"></svg><button class="replay" type="button">↻ Start again</button></div>
+  </section>
+
+  <section class="slide" data-board="pr1">
+    <div>
+      <p class="step">Predict · guess, then watch</p>
+      <h1>The line of centres and the common chord</h1>
+      <p>Join the two centres, C₁(2, 1) and C₂(8, 4). This line is called the <b>line of centres</b>.</p>
+      <div class="turn predict" data-predict="perp">
+        <div class="q">How does the line of centres meet the common chord PQ?</div>
+        <div class="opts">
+          <button data-ok data-fb="Yes. Gradients 3 ÷ 6 = 1/2 and −2, and 1/2 × (−2) = −1. Both centres are on PQ's perpendicular bisector (lesson 10), so the line of centres cuts PQ in half at N, at a right angle.">At a right angle</button>
+          <button data-fb="Not parallel: the gradients are 1/2 and −2, and 1/2 × (−2) = −1. It's a right angle. Both centres are on PQ's perpendicular bisector.">They are parallel</button>
+          <button data-fb="There is something special. Gradients 1/2 and −2 multiply to −1: a right angle. Both centres are on PQ's perpendicular bisector.">At no special angle</button>
+        </div>
+        <div class="verdict"></div>
+      </div>
+    </div>
+    <div class="board"><svg viewBox="0 0 380 400"></svg><button class="replay" type="button">↻ Start again</button></div>
+  </section>
+
+  <section class="slide hero" data-board="h1">
+    <div class="head">
+      <p class="step">The kite</p>
+      <h1>The centres and the crossing points make a kite</h1>
+    </div>
+    <div class="board"><svg viewBox="0 0 900 340"></svg><button class="replay" type="button">↻ Watch again</button></div>
+    <div class="cap">
+      <p>Join C₁, P, C₂ and Q. C₁P = C₁Q = 5 and C₂P = C₂Q = √10. Two pairs of equal sides: a <b>kite</b> (lesson 4).</p>
+      <p>Its diagonals are C₁C₂ = 3√5 and PQ = 2√5. They cross at a right angle.</p>
+      <p>Area = ½ × 3√5 × 2√5 = ½ × 6 × 5 = <b>15</b>.<br><span class="take">Kite area: half of one diagonal times the other.</span></p>
+    </div>
+  </section>
+
+  <!-- ================= PART 3 ================= -->
+  <section class="slide divider"><div class="dv">
+    <p class="dv-n">Part 3</p><h1>Moving a circle</h1>
+    <p class="dv-line">Move the centre. Keep the radius.</p>
+    <p class="dv-map">Sliding a circle · The sign trap · Reflecting in a line · Reflecting in a tangent · Your turn</p>
+  </div></section>
+
+  <section class="slide hero" data-board="h2">
+    <div class="head">
+      <p class="step">Sliding a circle</p>
+      <h1>A translation slides the whole circle</h1>
+    </div>
+    <div class="board"><svg viewBox="0 0 900 340"></svg><button class="replay" type="button">↻ Watch again</button></div>
+    <div class="cap">
+      <p>A <b>translation</b> is a slide. No turning, no stretching. The vector <span class="vec"><span>3</span><span>−2</span></span> means <span class="al">3 right</span> and <span class="up">2 down</span>.</p>
+      <p>Every point of C₁ slides the same way. The centre goes from (2, 1) to <b>(2 + 3, 1 − 2) = (5, −1)</b>. The radius stays 5.</p>
+      <p>New circle: <b>(x − 5)² + (y + 1)² = 25</b>.<br><span class="take">Move the centre. Keep the radius.</span></p>
+    </div>
+  </section>
+
+  <section class="slide compare">
+    <div class="head">
+      <p class="step">The sign trap</p>
+      <h1>Translate C₁ by <span class="vec"><span>3</span><span>−2</span></span></h1>
+      <p class="lead">C₁ is (x − 2)² + (y − 1)² = 25.</p>
+    </div>
+    <div class="cols">
+      <div>
+        <h2 style="color:var(--up)">✗ Adding inside the brackets</h2>
+        <div class="calc">
+          x − 2 + 3 = x + 1
+          y − 1 − 2 = y − 3
+          (x + 1)² + (y − 3)² = 25
+        </div>
+        <p>That circle has centre (−1, 3). It moved <b>left</b> and <b>up</b>: the wrong way both times.</p>
+      </div>
+      <div>
+        <h2 style="color:var(--teal)">✓ Moving the centre</h2>
+        <div class="calc">
+          Centre = (2 + 3, 1 − 2)
+          = (5, −1)
+          !(x − 5)² + (y + 1)² = 25
+        </div>
+        <p>The number in a bracket is the <b>opposite</b> of the centre's number. Move the centre first, then write the brackets.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide steps" data-board="st1">
+    <div class="head">
+      <p class="step">Reflecting in a line</p>
+      <h1>Reflect C₂ in the line y = 2</h1>
+      <p class="lead">A <b>reflection</b> flips the circle over a mirror line. Only the centre needs working out.</p>
+    </div>
+    <div class="stepsrow">
+      <div><svg viewBox="0 0 240 170"></svg><h3>Find the centre</h3><p>C₂ has centre (8, 4) and radius √10.</p></div>
+      <div><svg viewBox="0 0 240 170"></svg><h3>How far from the mirror?</h3><p>From y = 4 down to y = 2 is 2.</p></div>
+      <div><svg viewBox="0 0 240 170"></svg><h3>The same on the other side</h3><p>2 below y = 2 is y = 0. New centre (8, 0).</p></div>
+      <div><svg viewBox="0 0 240 170"></svg><h3>Same radius</h3><p>(x − 8)² + y² = 10.</p></div>
+    </div>
+    <p class="take">x stays 8: the mirror is flat, so only y changes.</p>
+  </section>
+
+  <section class="slide split-r" data-board="w4">
+    <div>
+      <p class="step">Worked example · your go first</p>
+      <h1>Reflect C₁ in its tangent at T(6, 4)</h1>
+      <p class="q-box">The line 4x + 3y = 36 is the tangent to C₁ at T(6, 4). C₁ is reflected in this line. Find the equation of the new circle.</p>
+      <div class="ws" data-ws="w4">
+        <p class="try">Think about lesson 8: how does a tangent meet the radius? Try it first.</p>
+        <ol>
+          <li>The radius C₁T meets the tangent at a right angle. So the mirror is at a right angle to C₁T, at T.</li>
+          <li>The new centre is as far past T as C₁ is before it. So T is the <b>midpoint</b>. Make the jump from C₁ to T again:
+            <div class="calc">
+              C₁ to T = 4 along, 3 up
+              New centre = (6 + 4, 4 + 3) = (10, 7)
+            </div></li>
+          <li>Same radius, 5:
+            <div class="calc">
+              !(x − 10)² + (y − 7)² = 25
+            </div>
+            The two circles touch at T.</li>
+        </ol>
+        <div class="ws-nav"><button class="btn nxt">Next step</button><button class="btn ghost all">Show all</button></div>
+      </div>
+    </div>
+    <div class="board"><svg viewBox="0 0 380 400"></svg><button class="replay" type="button">↻ Start again</button></div>
+  </section>
+
+  <section class="slide qcard">
+    <div class="head qs">
+      <p class="step">Your turn</p>
+      <h1>Move the centre, keep the radius</h1>
+    </div>
+    <div class="qs">
+      <div class="turn" data-check="tr">
+        <div class="q">1. (x + 1)² + (y − 3)² = 16 is translated by <span class="vec"><span>4</span><span>−5</span></span>. What is the new centre?</div>
+        <form autocomplete="off"><label>(</label><input inputmode="text"><label>,</label><input inputmode="text"><label>)</label><button class="btn">Check</button></form>
+        <div class="fb"></div>
+      </div>
+      <div class="turn" data-mcq>
+        <div class="q">2. (x − 4)² + (y + 2)² = 9 is reflected in the line x = 1. The new centre is…</div>
+        <div class="opts">
+          <button data-ok data-fb="Yes. (4, −2) is 3 right of x = 1. So go 3 left of it: x = −2. y stays −2.">(−2, −2)</button>
+          <button data-fb="That's a reflection in the y-axis, x = 0. The mirror is x = 1: 3 right of it becomes 3 left.">(−4, −2)</button>
+          <button data-fb="x = 1 is an upright mirror, so only x changes. y stays −2.">(4, 2)</button>
+          <button data-fb="(1, −2) is on the mirror. Go the same distance, 3, past it.">(1, −2)</button>
+        </div>
+        <div class="fb"></div>
+      </div>
+      <div class="turn" data-mcq>
+        <div class="q">3. After a reflection, the radius of a circle…</div>
+        <div class="opts">
+          <button data-ok data-fb="Yes. A reflection flips the circle but doesn't stretch it.">stays the same</button>
+          <button data-fb="A mirror image is the same size. Only the centre moves.">changes sign</button>
+          <button data-fb="Nothing is stretched. The radius stays the same.">depends on the mirror</button>
+        </div>
+        <div class="fb"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= PART 4 ================= -->
+  <section class="slide divider"><div class="dv">
+    <p class="dv-n">Part 4</p><h1>A full exam question</h1>
+    <p class="dv-line">Four parts, one part per slide. Try each on paper before you reveal it.</p>
+    <p class="dv-map">(a) Centre and radius · (b) The gap · (c) Slide it until they touch · (d) Where they touch</p>
+  </div></section>
+
+  <section class="slide statement">
+    <div class="head">
+      <p class="step">Exam-style question · 11 marks</p>
+      <h1>Two circles, and a slide</h1>
+      <p class="lead">Circle C₁ has equation x² + y² − 2x + 4y = 0. Circle C₂ has centre (13, 4) and radius 2√5.</p>
+    </div>
+    <div class="paper">
+      <p><span>(a) Find the centre and the radius of C₁.</span><span class="marks">[3]</span></p>
+      <p><span>(b) Show that C₁ and C₂ do not meet, and find the shortest distance between them.</span><span class="marks">[3]</span></p>
+      <p><span>(c) C₁ is translated by <span class="vec"><span>6</span><span>3</span></span> to give C₃. Find the equation of C₃, and show that C₃ and C₂ touch.</span><span class="marks">[3]</span></p>
+      <p><span>(d) Find the coordinates of the point where C₃ and C₂ touch.</span><span class="marks">[2]</span></p>
+    </div>
+    <p class="take">Get a pen. Do all four parts on paper, then go to the next slide.</p>
+  </section>
+
+  <section class="slide worked" data-board="xa">
+    <div>
+      <p class="step">Part (a) · 3 marks</p>
+      <h1>The centre and radius of C₁</h1>
+      <div class="ws" data-ws="xa">
+        <p class="try">Complete the square, as in lesson 7. Try it first.</p>
+        <ol>
+          <li>Group the x terms and the y terms:
+            <div class="calc">
+              x² − 2x + y² + 4y = 0
+            </div></li>
+          <li>Complete the square on each:
+            <div class="calc">
+              (x − 1)² − 1 + (y + 2)² − 4 = 0
+              (x − 1)² + (y + 2)² = 5
+            </div></li>
+          <li>Read them off:
+            <div class="calc">
+              !Centre (1, −2), radius √5
+            </div></li>
+        </ol>
+        <div class="ws-nav"><button class="btn nxt">Next step</button><button class="btn ghost all">Show all</button></div>
+      </div>
+    </div>
+    <div class="board"><svg viewBox="0 0 400 330"></svg><button class="replay" type="button">↻ Start again</button></div>
+  </section>
+
+  <section class="slide" data-board="xb">
+    <div>
+      <p class="step">Part (b) · 3 marks</p>
+      <h1>They don't meet: find the gap</h1>
+      <div class="ws" data-ws="xb">
+        <p class="try">Compare d with r₁ + r₂. The gap is what is left over. Try it first.</p>
+        <ol>
+          <li>From (1, −2) to (13, 4) is 12 along, 6 up:
+            <div class="calc">
+              d = √(12² + 6²) = √180
+              != 6√5
+            </div></li>
+          <li>Add the radii:
+            <div class="calc">
+              r₁ + r₂ = √5 + 2√5 = 3√5
+            </div>
+            6√5 is more than 3√5, so the circles do not meet.</li>
+          <li>Along the line of centres, take off both radii:
+            <div class="calc">
+              Gap = 6√5 − 3√5
+              != 3√5
+            </div></li>
+        </ol>
+        <div class="ws-nav"><button class="btn nxt">Next step</button><button class="btn ghost all">Show all</button></div>
+      </div>
+    </div>
+    <div class="board"><svg viewBox="0 0 400 330"></svg><button class="replay" type="button">↻ Start again</button></div>
+  </section>
+
+  <section class="slide split-r" data-board="xc">
+    <div>
+      <p class="step">Part (c) · 3 marks</p>
+      <h1>Slide C₁ to get C₃</h1>
+      <div class="ws" data-ws="xc">
+        <p class="try">Move the centre, keep the radius. Then test d again. Try it first.</p>
+        <ol>
+          <li>Move the centre 6 right, 3 up:
+            <div class="calc">
+              Centre = (1 + 6, −2 + 3) = (7, 1)
+              !(x − 7)² + (y − 1)² = 5
+            </div></li>
+          <li>From (7, 1) to (13, 4) is 6 along, 3 up:
+            <div class="calc">
+              d = √(6² + 3²) = √45 = 3√5
+            </div></li>
+          <li>d = 3√5 = √5 + 2√5 = r₁ + r₂. <b>So C₃ and C₂ touch on the outside.</b> The slide was √(6² + 3²) = 3√5: exactly the gap.</li>
+        </ol>
+        <div class="ws-nav"><button class="btn nxt">Next step</button><button class="btn ghost all">Show all</button></div>
+      </div>
+    </div>
+    <div class="board"><svg viewBox="0 0 400 330"></svg><button class="replay" type="button">↻ Start again</button></div>
+  </section>
+
+  <section class="slide" data-board="xd">
+    <div>
+      <p class="step">Part (d) · 2 marks</p>
+      <h1>Where C₃ and C₂ touch</h1>
+      <div class="ws" data-ws="xd">
+        <p class="try">The touching point is on the line of centres. How far along? Try it first.</p>
+        <ol>
+          <li>R is √5 from (7, 1), out of 3√5. That is <b>1/3</b> of the way to (13, 4).</li>
+          <li>A third of the jump (6, 3) is (2, 1):
+            <div class="calc">
+              !R = (7 + 2, 1 + 1) = (9, 2)
+            </div></li>
+          <li>Check R is on C₂:
+            <div class="calc">
+              (9 − 13)² + (2 − 4)² = 16 + 4 = 20 ✓
+            </div>
+            And 20 = (2√5)².</li>
+        </ol>
+        <div class="ws-nav"><button class="btn nxt">Next step</button><button class="btn ghost all">Show all</button></div>
+      </div>
+    </div>
+    <div class="board"><svg viewBox="0 0 400 330"></svg><button class="replay" type="button">↻ Start again</button></div>
+  </section>
+
+  <!-- ================= PART 5 ================= -->
+  <section class="slide divider"><div class="dv">
+    <p class="dv-n">Part 5</p><h1>Before you practise</h1>
+    <p class="dv-line">The slips that cost marks, and the whole topic on one page.</p>
+    <p class="dv-map">Common mistakes · Summary</p>
+  </div></section>
+
+  <section class="slide wide mis">
+    <div>
+      <p class="step">Common mistakes</p>
+      <h1>Six slips that cost marks</h1>
+      <div class="cols">
+        <div><h3>Checking only the sum</h3><p class="x">✗ d is less than r₁ + r₂, so they cross</p><p class="ok">✓ Also check d is more than r₁ − r₂. If not, one is inside the other</p></div>
+        <div><h3>Touching at the midpoint</h3><p class="x">✗ R is halfway between the centres</p><p class="ok">✓ R is r₁ from C₁: go r₁ ÷ d of the way</p></div>
+        <div><h3>Subtracting before expanding</h3><p class="x">✗ (x − 2)² − (x − 8)², bracket by bracket</p><p class="ok">✓ Expand both to x² + y² + … = 0 first. Then subtract</p></div>
+        <div><h3>The sign trap</h3><p class="x">✗ Translate by <span class="vec"><span>3</span><span>−2</span></span>: (x − 2 + 3)²</p><p class="ok">✓ Move the centre to (5, −1): (x − 5)² + (y + 1)²</p></div>
+        <div><h3>Changing the radius</h3><p class="x">✗ The new circle has a new radius</p><p class="ok">✓ Slides and reflections never change the radius</p></div>
+        <div><h3>Reflecting by changing a sign</h3><p class="x">✗ (8, 4) reflected in y = 2 is (8, −4)</p><p class="ok">✓ 2 above the mirror becomes 2 below it: (8, 0)</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide wide sum">
+    <div>
+      <p class="step">Summary · end of Coordinate Geometry</p>
+      <h1>Everything on one page</h1>
+      <div class="cols">
+        <div>
+          <h2>Two circles: compare d with the radii</h2>
+          <table>
+            <tr><td>Apart</td><td>d &gt; r₁ + r₂</td></tr>
+            <tr><td>Touch outside</td><td>d = r₁ + r₂. R is r₁ ÷ d of the way from C₁ to C₂</td></tr>
+            <tr><td>Cross</td><td>r₁ − r₂ &lt; d &lt; r₁ + r₂</td></tr>
+            <tr><td>Touch inside</td><td>d = r₁ − r₂</td></tr>
+            <tr><td>One inside</td><td>d &lt; r₁ − r₂</td></tr>
+          </table>
+        </div>
+        <div>
+          <h2>Methods</h2>
+          <ol>
+            <li><b>Common chord:</b> expand both, subtract, then put the line back into one circle. The line of centres cuts it in half at 90°.</li>
+            <li><b>Translate:</b> add the vector to the centre. Same radius.</li>
+            <li><b>Reflect:</b> reflect the centre only. Same radius. In a tangent at T, T is the midpoint of the old and new centres.</li>
+          </ol>
+          <p class="take" style="margin-top:10px">That is the whole topic: lines in lessons 1 to 5, circles in lessons 6 to 11. Next: the practice questions.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+</main>
+
+<nav>
+  <button id="prev" aria-label="Previous slide">&#8592;</button>
+  <span id="count"></span>
+  <button id="next" aria-label="Next slide">&#8594;</button>
+</nav>
+
+<script src="../../../../lesson-ui/slides/engine.js"></script>
+<script>
+/* ============ the running pair: C₁ centre (2, 1) radius 5 (from lesson 10); C₂ centre (8, 4) radius √10 ============ */
+const C1 = [2, 1], C2 = [8, 4], R1 = 5, R2 = Math.sqrt(10), P0 = [5, 5], Q0 = [7, 1];
+
+const icon = (svg, xr, yr, m = 12) => new Board(svg, xr, yr, { small: true, center: true, margin: { l: m, r: m + 2, t: m, b: m } });
+/* a solid circle: an SVG arc path handed to board.path */
+const circD = (b, cx, cy, r) => { const R = r * b.U, X = b.X(cx), Y = b.Y(cy); return `M${X + R} ${Y}A${R} ${R} 0 1 0 ${X - R} ${Y}A${R} ${R} 0 1 0 ${X + R} ${Y}`; };
+const circ = (b, cx, cy, r, color = C.plum, ms = 900, w = 3.5, dash) => b.path(circD(b, cx, cy, r), color, ms, w, dash);
+const pd = (b, pts, close = true) => "M" + pts.map(([x, y]) => `${b.X(x).toFixed(1)} ${b.Y(y).toFixed(1)}`).join("L") + (close ? "Z" : "");
+const shade = (b, pts, color = C.mid, op = 0.14) => { const p = b.el("path", { d: pd(b, pts), fill: color, opacity: op, stroke: "none" }); b.svg.insertBefore(p, b.svg.querySelector("path.ink, circle") || null); return p; };
+const setRo = (root, k, v) => { const n = root.querySelector(`[data-ro="${k}"]`); if (n) n.textContent = v; };
+/* live redraw without the per-shape tick-tidy (slow with circles on the board); tidy once, when the dragging pauses */
+const redrawOnce = (b, g, fn) => {
+  const t = b.tidy; b.tidy = () => {};
+  try { b.redraw(g, fn); } finally { b.tidy = t; }
+  clearTimeout(b._tidyLater); b._tidyLater = setTimeout(() => b.tidy(), 120);
+};
+/* a label that finds its own place: tries spots round (x, y), nearest first, and keeps the first one
+   whose box clears every drawn line (checked every 4 px) and every other label */
+function autoLabel(b, x, y, s, color, size = 18, weight = 700, avoid = []) {   // avoid: [[x1, y1, x2, y2]] segments a later step will draw
+  const t = b.text(x, y, s, color, size, "middle", 0, 0, weight);
+  const pts = [...b.svg.querySelectorAll("path.ink")].flatMap(p => { const L = p.getTotalLength(), n = Math.ceil(L / 4); return Array.from({ length: n + 1 }, (_, k) => p.getPointAtLength(L * k / n)); })
+    .concat(avoid.flatMap(([x1, y1, x2, y2]) => Array.from({ length: 41 }, (_, k) => ({ x: b.X(x1 + (x2 - x1) * k / 40), y: b.Y(y1 + (y2 - y1) * k / 40) }))));
+  const others = [...b.svg.querySelectorAll("text:not(.tick)")].filter(o => o !== t && o.style.visibility !== "hidden").map(o => o.getBBox());
+  const vb = b.svg.viewBox.baseVal, X = b.X(x), Y = b.Y(y);
+  const hits = (u, v) => Math.min(u.x + u.width, v.x + v.width) - Math.max(u.x, v.x) > 0 && Math.min(u.y + u.height, v.y + v.height) - Math.max(u.y, v.y) > 0;
+  for (const r of [14, 20, 28, 38, 50, 64, 80]) for (let k = 0; k < 16; k++) {
+    const a = [4, 12, 0, 8, 2, 6, 10, 14, 3, 5, 11, 13, 1, 7, 9, 15][k] * Math.PI / 8;      // right, left, up, down first
+    const dx = r * Math.cos(a), dy = -r * Math.sin(a);
+    t.setAttribute("x", X + dx); t.setAttribute("y", Y + dy + size * 0.35);
+    const bb = t.getBBox(), box = { x: bb.x - 1, y: bb.y + 1, width: bb.width + 2, height: bb.height - 2 };
+    if (bb.x < 2 || bb.y < 2 || bb.x + bb.width > vb.width - 2 || bb.y + bb.height > vb.height - 2) continue;
+    if (pts.some(q => q.x > box.x && q.x < box.x + box.width && q.y > box.y && q.y < box.y + box.height)) continue;
+    if (others.some(o => hits(o, bb))) continue;
+    b.tidy(); return t;
+  }
+  t.setAttribute("x", X + 14); t.setAttribute("y", Y - 10); b.tidy(); return t;
+}
+const pin = (b, x, y, s, color = C.plum, size = 18, avoid) => { b.dot(x, y, null, 0, 0, color); return autoLabel(b, x, y, s, color, size, 700, avoid); };
+
+/* slide a group of shapes by (dx, dy) grid units */
+const slide = (b, g, dx, dy, ms = 1400) => { g.animate([{ transform: "translate(0,0)" }, { transform: `translate(${dx * b.U}px,${-dy * b.U}px)` }], { duration: D(ms), easing: "ease-in-out", fill: "forwards" }); return wait(ms); };
+
+const scenes = {
+  async r0(root) {
+    const [a, b, c] = [...root.querySelectorAll("svg")].map(v => icon(v, [-4, 12], [-5, 7]));
+    circ(a, 2, 1, 5, C.plum, 700, 2.5); circ(a, 8, 4, R2, C.mid, 700, 2.5); a.seg(...C1, ...C2, C.up, 500, 2, "4 3"); a.dot(...C1, null, 0, 0, C.ink); a.dot(...C2, null, 0, 0, C.ink);
+    circ(b, 2, 1, 5, C.plum, 700, 2.5); circ(b, 8, 4, R2, C.mid, 700, 2.5); b.seg(...P0, ...Q0, C.along, 500, 4); b.dot(...P0, null, 0, 0, C.along); b.dot(...Q0, null, 0, 0, C.along);
+    circ(c, 2, 1, 5, C.faint, 700, 2, "5 4"); circ(c, 5, -1, 5, C.plum, 700, 2.5); c.seg(2, 1, 5, -1, C.up, 500, 3);
+  },
+
+  async g1(root, ok) {
+    const ds = [6.5, 5, 3, 1, 0.5];
+    const bs = [...root.querySelectorAll("svg")].map(v => icon(v, [-3.5, 9], [-3.5, 3.5], 10));
+    for (const b of bs) circ(b, 0, 0, 3, C.plum, 600, 3);
+    await wait(500); if (!ok()) return;
+    for (let i = 0; i < 5; i++) {
+      const b = bs[i], d = ds[i];
+      await circ(b, d, 0, 2, C.mid, 500, 3); if (!ok()) return;
+      b.dot(0, 0, null, 0, 0, C.ink); b.dot(d, 0, null, 0, 0, C.mid);
+      if (d >= 1) b.seg(0, 0, d, 0, C.up, 300, 2.5, "4 3");
+      if (i === 1 || i === 3) b.dot(3, 0, null, 0, 0, C.along);
+    }
+  },
+
+  /* explore: drag the small circle's centre */
+  async lab1(root) {
+    const b = B(root, [-5, 12], [-6, 10]);
+    circ(b, 2, 1, 5, C.plum, 1, 3);
+    b.dot(...C1, null, 0, 0, C.ink);
+    const live = b.layer(), goalEl = root.querySelector("[data-goal]");
+    const seen = { out: false, in: false };
+    const limit = (x, y) => [Math.max(-3, Math.min(10, x)), Math.max(-4, Math.min(8, y))];
+    const update = (x, y) => {
+      const d2 = (x - 2) ** 2 + (y - 1) ** 2, d = Math.sqrt(d2);
+      const how = d2 > 49 ? "are apart" : d2 === 49 ? "touch outside" : d2 > 9 ? "cross" : d2 === 9 ? "touch inside" : "one is inside";
+      if (d2 === 49) seen.out = true;
+      if (d2 === 9) seen.in = true;
+      redrawOnce(b, live, g => {
+        circ(g, x, y, 2, C.mid, 0, 3);
+        if (d2) g.seg(...C1, x, y, C.up, 0, 2.5, "5 4");
+        if (d2 === 49 || d2 === 9) { const k = 5 / d; g.dot(2 + (x - 2) * k, 1 + (y - 1) * k, null, 0, 0, C.along); }
+        // C₁'s label sits on the far side of C₁ from the small circle, clear of it
+        const ux = d ? (2 - x) / d : -0.7, uy = d ? (1 - y) / d : -0.7, far = Math.max(24, (2 - d) * g.U + 20);
+        g.text(...C1, "C₁", C.ink, 20, "middle", far * ux, -far * uy + 7);
+      });
+      const r = surd(d2);
+      setRo(root, "d", d2 && !/^\d+$/.test(r) ? `${r} ≈ ${d.toFixed(2)}` : r);
+      setRo(root, "how", how);
+      goalEl.textContent = `Goal: make them touch on the outside${seen.out ? " ✓" : ""}. Then make them touch on the inside${seen.in ? " ✓" : ""}.`;
+      goalEl.classList.toggle("done", seen.out && seen.in);
+    };
+    b.drag(10, 7, { onMove: update, limit });
+    update(10, 7);
+  },
+
+  async w1(root, ok) {
+    const b = B(root, [-4, 12], [-5, 8]);
+    await circ(b, 2, 1, 5, C.plum, 800, 3); if (!ok()) return;
+    await circ(b, 8, 4, R2, C.mid, 700, 3); if (!ok()) return;
+    autoLabel(b, -1.6, 4.6, "C₁", C.plum, 20); autoLabel(b, 10.3, 6.2, "C₂", C.mid, 20);
+  },
+
+  async t1(root, ok) {
+    const b = B(root, [-2, 12], [-3, 9]);
+    await circ(b, 1, 1, Math.sqrt(5), C.plum, 700, 3); if (!ok()) return;
+    await circ(b, 7, 4, 2 * Math.sqrt(5), C.mid, 800, 3); if (!ok()) return;
+    pin(b, 1, 1, "S", C.plum); pin(b, 7, 4, "T", C.mid);
+  },
+
+  async d1(root, ok) {
+    const b = icon(root.querySelector("svg"), [-4, 12], [-5, 8], 16); root._b = b;
+    await circ(b, 2, 1, 5, C.plum, 700, 3); if (!ok()) return;
+    await circ(b, 8, 4, R2, C.mid, 700, 3); if (!ok()) return;
+    await b.fn(x => 15 - 2 * x, C.faint, 500, 2, "6 5"); if (!ok()) return;
+    await b.seg(...P0, ...Q0, C.along, 500, 5); if (!ok()) return;
+    pin(b, ...P0, "P", C.along, 17); pin(b, ...Q0, "Q", C.along, 17);
+  },
+
+  async w2(root, ok) {
+    const b = B(root, [-4, 12], [-5, 8]);
+    await circ(b, 2, 1, 5, C.plum, 800, 3); if (!ok()) return;
+    await circ(b, 8, 4, R2, C.mid, 700, 3); if (!ok()) return;
+    autoLabel(b, -1.6, 4.6, "C₁", C.plum, 20); autoLabel(b, 10.3, 6.2, "C₂", C.mid, 20);
+  },
+
+  w3(root) {          // try-first slide: set up without waiting, so "Show all" can't cut it short
+    const b = B(root, [-4, 12], [-5, 8]);
+    circ(b, 2, 1, 5, C.plum, 800, 3);
+    circ(b, 8, 4, R2, C.mid, 700, 3);
+    b.fn(x => 15 - 2 * x, C.along, 700, 2.5, "7 6");
+    autoLabel(b, 3.6, 7.8, "2x + y = 15", C.along, 17);
+  },
+
+  pr1(root) {          // predict slide: set up without waiting, so an early answer can't cut it short
+    const b = B(root, [-4, 12], [-5, 8]);
+    circ(b, 2, 1, 5, C.plum, 800, 3);
+    circ(b, 8, 4, R2, C.mid, 700, 3);
+    b.seg(...P0, ...Q0, C.along, 500, 4.5);
+    pin(b, ...P0, "P", C.along); pin(b, ...Q0, "Q", C.along);
+    pin(b, ...C1, "C₁", C.plum); pin(b, ...C2, "C₂", C.mid);
+  },
+
+  async h1(root, ok) {
+    const b = new Board(root.querySelector("svg"), [-8, 16], [-5, 8], { center: true }); root._b = b;
+    await circ(b, 2, 1, 5, C.faint, 700, 2.5); if (!ok()) return;
+    await circ(b, 8, 4, R2, C.faint, 700, 2.5); if (!ok()) return;
+    const kite = [C1, P0, C2, Q0];
+    await b.path(pd(b, kite), C.plum, 900, 3.5); if (!ok()) return;
+    shade(b, kite, C.mid, 0.16);
+    await b.seg(...C1, ...C2, C.up, 600, 2.5, "7 6"); if (!ok()) return;
+    await b.seg(...P0, ...Q0, C.along, 600, 2.5, "7 6"); if (!ok()) return;
+    b.square(6, 3, [2, 1], [-1, 2]);
+    pin(b, ...C1, "C₁", C.plum); pin(b, ...C2, "C₂", C.mid); pin(b, ...P0, "P", C.along); pin(b, ...Q0, "Q", C.along);
+    b.text(12.2, 1.6, "C₁C₂ = 3√5", C.up, 17, "start", 0, 0);
+    b.text(12.2, 0.4, "PQ = 2√5", C.along, 17, "start", 0, 0);
+    b.text(12.2, -0.8, "Area = 15", C.plum, 19, "start", 0, 0);
+  },
+
+  async h2(root, ok) {
+    const b = new Board(root.querySelector("svg"), [-8, 16], [-7, 7], { center: true }); root._b = b;
+    await circ(b, 2, 1, 5, C.faint, 700, 2.5, "7 6"); if (!ok()) return;
+    const g = b.group(); circ(b, 2, 1, 5, C.plum, 1, 3.5); b.dot(2, 1, null, 0, 0, C.plum); b.endGroup();
+    autoLabel(b, 2, 1, "(2, 1)", C.muted, 18);
+    await wait(500); if (!ok()) return;
+    await b.go(2, 1, 5, 1, C.along); if (!ok()) return;
+    await b.go(5, 1, 5, -1, C.up); if (!ok()) return;
+    await slide(b, g, 3, -2); if (!ok()) return;
+    g.remove(); circ(b, 5, -1, 5, C.plum, 1, 3.5);          // the slid copy, redrawn where it now is
+    pin(b, 5, -1, "(5, −1)", C.plum);
+    autoLabel(b, 10.8, -1, "radius still 5", C.plum, 17);
+  },
+
+  async st1(root) {
+    const bs = [...root.querySelectorAll("svg")].map(v => icon(v, [2, 14], [-4, 8]));
+    for (const g of bs) g.seg(2.3, 2, 13.7, 2, C.faint, 1, 2.5, "5 4");
+    circ(bs[0], 8, 4, R2, C.mid, 500, 3); bs[0].dot(8, 4, null, 0, 0, C.mid);
+    circ(bs[1], 8, 4, R2, C.faint, 1, 2); bs[1].dot(8, 4, null, 0, 0, C.mid); bs[1].seg(8, 4, 8, 2, C.up, 500, 4);
+    circ(bs[2], 8, 4, R2, C.faint, 1, 2); bs[2].dot(8, 4, null, 0, 0, C.mid); bs[2].seg(8, 4, 8, 2, C.up, 1, 4); bs[2].seg(8, 2, 8, 0, C.up, 500, 4); bs[2].dot(8, 0, null, 0, 0, C.along);
+    circ(bs[3], 8, 4, R2, C.faint, 1, 2); circ(bs[3], 8, 0, R2, C.along, 600, 3); bs[3].dot(8, 0, null, 0, 0, C.along);
+  },
+
+  w4(root) {          // try-first slide: set up without waiting, so "Show all" can't cut it short
+    const b = B(root, [-4, 16], [-5, 13]);
+    circ(b, 2, 1, 5, C.plum, 800, 3);
+    b.fn(x => (36 - 4 * x) / 3, C.faint, 700, 2.5, "7 6", 1.5, 13.5);
+    b.seg(...C1, 6, 4, C.faint, 400, 2, "5 4");          // the radius to T, drawn in colour at step 1
+    pin(b, ...C1, "C₁", C.plum); pin(b, 6, 4, "T", C.ink, 18, [[6, 4, 10, 4], [10, 4, 10, 7], [6, 4, 10, 7]]);
+    autoLabel(b, 12, -4, "4x + 3y = 36", C.muted, 16, 600);
+  },
+
+  /* exam question: C₁ centre (1, −2) radius √5; C₂ centre (13, 4) radius 2√5 */
+  xa(root) {          // try-first slide: set up without waiting, so "Show all" can't cut it short
+    const b = B(root, [-2, 17], [-5, 9]);
+    circ(b, 13, 4, 2 * Math.sqrt(5), C.mid, 800, 3);
+    pin(b, 13, 4, "C₂", C.mid);
+  },
+  xb(root) {          // try-first slide: set up without waiting, so "Show all" can't cut it short
+    const b = B(root, [-2, 17], [-5, 9]);
+    circ(b, 1, -2, Math.sqrt(5), C.plum, 700, 3);
+    circ(b, 13, 4, 2 * Math.sqrt(5), C.mid, 800, 3);
+    b.seg(1, -2, 13, 4, C.faint, 400, 2, "6 5");
+    pin(b, 1, -2, "C₁", C.plum); pin(b, 13, 4, "C₂", C.mid);
+  },
+  xc(root) {          // try-first slide: set up without waiting, so "Show all" can't cut it short
+    const b = B(root, [-2, 17], [-5, 9]);
+    circ(b, 1, -2, Math.sqrt(5), C.faint, 600, 2.5, "6 5");
+    circ(b, 13, 4, 2 * Math.sqrt(5), C.mid, 800, 3);
+    pin(b, 1, -2, "C₁", C.muted); pin(b, 13, 4, "C₂", C.mid);
+  },
+  xd(root) {          // try-first slide: set up without waiting, so "Show all" can't cut it short
+    const b = B(root, [-2, 17], [-5, 9]);
+    circ(b, 7, 1, Math.sqrt(5), C.plum, 700, 3);
+    circ(b, 13, 4, 2 * Math.sqrt(5), C.mid, 800, 3);
+    b.seg(7, 1, 13, 4, C.faint, 400, 2, "6 5");
+    pin(b, 7, 1, "C₃", C.plum); pin(b, 13, 4, "C₂", C.mid);
+  },
+};
+
+/* ============ step-by-step actions on the board (index = step) ============ */
+const acts = {
+  w1: [
+    async b => { await b.seg(...C1, ...C2, C.faint, 300, 2, "5 4"); pin(b, ...C1, "(2, 1)", C.plum); pin(b, ...C2, "(8, 4)", C.mid); },
+    async b => { await b.seg(...C1, ...C2, C.up, 600, 3); autoLabel(b, 5, 2.5, "d = 3√5", C.up, 18); },
+    null,
+    async b => { b.dot(...P0, null, 0, 0, C.along); b.dot(...Q0, null, 0, 0, C.along); },
+  ],
+  t1: [
+    async b => { await b.seg(1, 1, 7, 4, C.up, 600, 2.5, "6 5"); },
+    null,
+    async b => { await b.go(1, 1, 3, 1, C.along); await b.go(3, 1, 3, 2, C.up); pin(b, 3, 2, "R(3, 2)", C.ink); },
+  ],
+  w2: [
+    null, null,
+    async b => { await b.fn(x => 15 - 2 * x, C.along, 800, 3); autoLabel(b, 3.6, 7.8, "2x + y = 15", C.along, 17); },
+  ],
+  w3: [
+    null,
+    async b => { pin(b, ...P0, "P(5, 5)", C.along); pin(b, ...Q0, "Q(7, 1)", C.along); },
+    async b => { await b.seg(...P0, ...Q0, C.along, 600, 5); autoLabel(b, 6, 3, "2√5", C.along, 18); },
+  ],
+  xa: [
+    null, null,
+    async b => { await circ(b, 1, -2, Math.sqrt(5), C.plum, 800, 3); pin(b, 1, -2, "(1, −2)", C.plum); },
+  ],
+  xb: [
+    async b => { await b.seg(1, -2, 13, 4, C.up, 800, 2.5, "6 5"); autoLabel(b, 7, 1, "6√5", C.up, 18); },
+    null,
+    async b => {
+      const k = Math.sqrt(5) / Math.sqrt(180), e1 = [1 + 12 * k, -2 + 6 * k], e2 = [13 - 12 * 2 * k, 4 - 6 * 2 * k];
+      await b.seg(...e1, ...e2, C.along, 600, 5); autoLabel(b, (e1[0] + e2[0]) / 2, (e1[1] + e2[1]) / 2 - 0.6, "gap 3√5", C.along, 18);
+    },
+  ],
+  xc: [
+    async b => { await b.go(1, -2, 7, -2, C.along); await b.go(7, -2, 7, 1, C.up); await circ(b, 7, 1, Math.sqrt(5), C.plum, 700, 3); pin(b, 7, 1, "C₃", C.plum); },
+    async b => { await b.seg(7, 1, 13, 4, C.up, 600, 2.5, "6 5"); },
+    async b => { b.dot(9, 2, null, 0, 0, C.ink); },
+  ],
+  xd: [
+    async b => { await b.seg(7, 1, 13, 4, C.up, 600, 3); },
+    async b => { await b.go(7, 1, 9, 1, C.along); await b.go(9, 1, 9, 2, C.up); pin(b, 9, 2, "R(9, 2)", C.ink); },
+    null,
+  ],
+  w4: [
+    async b => { await b.seg(...C1, 6, 4, C.up, 500, 3); b.square(6, 4, [-4, -3], [3, -4]); },
+    async b => { await b.go(6, 4, 10, 4, C.along); await b.go(10, 4, 10, 7, C.up); await b.seg(6, 4, 10, 7, C.up, 400, 3); pin(b, 10, 7, "(10, 7)", C.mid); },
+    async b => { await circ(b, 10, 7, 5, C.mid, 900, 3); },
+  ],
+};
+const reveals = {};
+
+predicts.perp = async b => {
+  await b.seg(...C1, ...C2, C.up, 700, 3);
+  b.square(6, 3, [2, 1], [-1, 2]);
+  pin(b, 6, 3, "N", C.ink);
+};
+
+/* ============ answer checking with feedback on the usual slips ============ */
+const checks = {
+  tr: ([a, c]) => eq(a, 3) && eq(c, -2) ? [true, "Yes. The centre was (−1, 3). Add the vector: (−1 + 4, 3 − 5) = (3, −2). The radius stays 4."]
+    : eq(a, 5) && eq(c, -8) ? [false, "The centre isn't (1, −3). (x + 1)² means x = −1: the opposite sign. Start from (−1, 3)."]
+    : eq(a, -5) && eq(c, 8) ? [false, "You took the vector away. A translation adds it: (−1 + 4, 3 − 5)."]
+    : eq(a, 3) || eq(c, -2) ? [false, "One number is right. Add the vector to each: x = −1 + 4, y = 3 − 5."]
+    : [false, "Read the centre first: (−1, 3). Then add the vector: 4 right, 5 down."],
+};
+</script>
+<script src="../../../../lesson-ui/slides/deck.js"></script>
+<script src="../../../../lesson-ui/slides/interact.js"></script>
+</body>
+</html>

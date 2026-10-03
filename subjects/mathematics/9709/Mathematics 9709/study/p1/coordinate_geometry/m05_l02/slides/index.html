@@ -1,0 +1,828 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tangents from a point outside · Lesson 9</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../../../lesson-ui/slides/deck.css">
+</head>
+<body>
+<header><b>Coordinate Geometry · Lesson 9</b><span><a href="../../m05_l01/slides/index.html" style="color:#fff">← Lesson 8</a> · Tangents from a point outside the circle · <a href="../../m06_l01/slides/index.html" style="color:#fff">Lesson 10 →</a></span></header>
+<div class="progress"><i id="bar"></i></div>
+
+<main>
+<div class="deck">
+
+  <!-- ================= START ================= -->
+  <section class="slide statement" data-board="r0">
+    <div class="head">
+      <p class="step">Where we are</p>
+      <h1>This time, P is unknown</h1>
+      <p class="lead">In lesson 8 you knew the point of contact P. Now you start from a point T outside the circle, or from a gradient. Two tools do the work: the right angle at P, and the discriminant from lesson 5.</p>
+    </div>
+    <div class="cards">
+      <div><span class="n">Part 1</span><svg viewBox="0 0 240 150"></svg><h3>From a point outside</h3><p>How many tangents, and how long they are.</p></div>
+      <div><span class="n">Part 2</span><svg viewBox="0 0 240 150"></svg><h3>A given gradient</h3><p>Two parallel tangents, and where they touch.</p></div>
+      <div><span class="n">Part 3</span><svg viewBox="0 0 240 150"></svg><h3>Through a given point</h3><p>Find the two gradients with the discriminant.</p></div>
+    </div>
+  </section>
+
+  <!-- ================= PART 1 ================= -->
+  <section class="slide divider"><div class="dv">
+    <p class="dv-n">Part 1</p><h1>From a point outside</h1>
+    <p class="dv-line">Lesson 8's circle again: centre C(2, 2), radius 5. T is a point, and P is where a tangent from T touches.</p>
+    <p class="dv-map">Inside, on or outside · Sort the points · The tangent length · Your turn</p>
+  </div></section>
+
+  <section class="slide gallery" data-board="g1">
+    <div class="head">
+      <p class="step">How many tangents?</p>
+      <h1>It depends where T is</h1>
+      <p class="lead">Compare CT² with r² = 25. No square roots needed.</p>
+    </div>
+    <div class="gal">
+      <figure><div class="board"><svg viewBox="0 0 300 240"></svg></div><figcaption><b>Inside: no tangents</b>T(4, 3). CT² = 2² + 1² = 5, less than 25. Every line through T cuts the circle twice.</figcaption></figure>
+      <figure><div class="board"><svg viewBox="0 0 300 240"></svg></div><figcaption><b>On: one tangent</b>P(5, 6). CP² = 3² + 4² = 25 exactly. Lesson 8's tangent, 3x + 4y = 39.</figcaption></figure>
+      <figure><div class="board"><svg viewBox="0 0 300 240"></svg></div><figcaption><b>Outside: two tangents</b>T(9, 3). CT² = 7² + 1² = 50, more than 25. The tangents touch at P(5, 6) and R(6, −1).</figcaption></figure>
+    </div>
+  </section>
+
+  <section class="slide qcard">
+    <div class="head qs">
+      <p class="step">Sort · tap a point, then tap its group</p>
+      <h1>(x − 2)² + (y − 2)² = 25. Where is each point?</h1>
+    </div>
+    <div class="qs turn sort">
+      <div class="chips">
+        <button class="chip" data-g="in" data-yes="CT² = 3² + 3² = 18, less than 25." data-why="CT² = 3² + 3² = 18. Compare it with r² = 25, not with r = 5.">(5, 5)</button>
+        <button class="chip" data-g="on" data-yes="CT² = 3² + 4² = 25 exactly." data-why="From C(2, 2): 3 left and 4 up. 3² + 4² = 25, exactly r².">(−1, 6)</button>
+        <button class="chip" data-g="out" data-yes="CT² = 6² + 4² = 52, more than 25." data-why="From C(2, 2): 6 along and 4 up. 36 + 16 = 52. That's more than 25.">(8, 6)</button>
+        <button class="chip" data-g="out" data-yes="CT² = 5² + 4² = 41, more than 25." data-why="From C(2, 2): 5 along and 4 down. 25 + 16 = 41, more than 25.">(7, −2)</button>
+        <button class="chip" data-g="on" data-yes="CT² = 4² + 3² = 25 exactly." data-why="From C(2, 2): 4 left and 3 down. 16 + 9 = 25, exactly r².">(−2, −1)</button>
+        <button class="chip" data-g="in" data-yes="CT² = 2² + 3² = 13, less than 25." data-why="CT² = 2² + 3² = 13. Compare it with r² = 25, not with r = 5.">(0, −1)</button>
+      </div>
+      <div class="bins">
+        <div class="bin" data-g="in"><h4>Inside · no tangents</h4><div class="got"></div></div>
+        <div class="bin" data-g="on"><h4>On · one tangent</h4><div class="got"></div></div>
+        <div class="bin" data-g="out"><h4>Outside · two tangents</h4><div class="got"></div></div>
+      </div>
+      <div class="fb"></div>
+    </div>
+  </section>
+
+  <section class="slide formula">
+    <div class="head">
+      <p class="step">The tangent length</p>
+      <h1>How far is it from T to the circle, along a tangent?</h1>
+    </div>
+    <div class="bigf">TP = √( <span class="p1">CT²</span> − <span class="p2">r²</span> )</div>
+    <div class="anno">
+      <div class="p1"><b>CT²</b>Centre to T, squared: along² + up². No root yet.</div>
+      <div class="p2"><b>r²</b>Read it straight from the equation. In (x − 2)² + (y − 2)² = 25, r² is 25.</div>
+      <div class="p3"><b>Why take away</b>Triangle CPT has its right angle at P. So CT is the longest side, and TP is shorter.</div>
+      <div><b>Both tangents</b>TP = TR. The two triangles are mirror images.</div>
+    </div>
+    <p class="take">Lesson 8's T(9, 3): TP = √(50 − 25) = √25 = 5.</p>
+  </section>
+
+  <section class="slide split-r" data-board="tl1">
+    <div>
+      <p class="step">Your turn</p>
+      <h1>(x + 1)² + (y − 2)² = 9, and T(4, 4)</h1>
+      <p>A tangent from T touches the circle at P. You don't know P, and you don't need it.</p>
+      <div class="turn" data-mcq>
+        <div class="q">The exact length of TP is…</div>
+        <div class="opts">
+          <button data-ok data-fb="Yes. C is (−1, 2). CT² = 5² + 2² = 29, and r² = 9. TP² = 29 − 9 = 20, so TP = √20 = 2√5.">2√5</button>
+          <button data-fb="You added. CT is the longest side, so take away: 29 − 9 = 20.">√38</button>
+          <button data-fb="√29 is CT, the distance to the centre. The tangent is shorter: take away r².">√29</button>
+          <button data-fb="Take away r² = 9, not r = 3. 29 − 9 = 20.">√26</button>
+        </div>
+        <div class="fb"></div>
+      </div>
+    </div>
+    <div class="board"><svg viewBox="0 0 380 300"></svg><button class="replay" type="button">↻ Start again</button></div>
+  </section>
+
+  <!-- ================= PART 2 ================= -->
+  <section class="slide divider"><div class="dv">
+    <p class="dv-n">Part 2</p><h1>A tangent with a given gradient</h1>
+    <p class="dv-line">A new circle, x² + y² = 8. Its centre is O(0, 0) and its radius is √8.</p>
+    <p class="dv-map">What the discriminant says · Slide a line across · Find k · Where it touches · Two ways</p>
+  </div></section>
+
+  <section class="slide table">
+    <div class="head">
+      <p class="step">Recap from lesson 5</p>
+      <h1>Put the line into the circle. Then read the discriminant.</h1>
+      <p class="lead">You get a quadratic ax² + bx + c = 0. Its discriminant is Δ = b² − 4ac. Say what each row means before you show it.</p>
+    </div>
+    <table class="big">
+      <tr><th>Discriminant</th><th>The quadratic has…</th><th>So the line…</th></tr>
+      <tr><td>Δ &gt; 0</td><td>two different roots</td><td>cuts the circle at two points</td></tr>
+      <tr class="hid"><td>Δ = 0</td><td>one repeated root</td><td>touches: it is a tangent</td></tr>
+      <tr class="hid"><td>Δ &lt; 0</td><td>no real roots</td><td>misses the circle</td></tr>
+    </table>
+    <p><button class="btn ghost" data-rows>Show the next row</button> <span class="hint">A tangent means Δ = 0. That one line does most of this lesson.</span></p>
+  </section>
+
+  <section class="slide hero" data-board="h1">
+    <div class="head">
+      <p class="step">Watch it happen</p>
+      <h1>Slide the line y = x + k across the circle</h1>
+    </div>
+    <div class="board"><svg viewBox="0 0 900 340"></svg><button class="replay" type="button">↻ Watch again</button></div>
+    <div class="cap">
+      <p>Every line here has gradient 1. Only k changes, so the lines are parallel.</p>
+      <p>At k = 6 the line misses. At k = 4 it just touches. At k = 0 it cuts twice. At k = −4 it touches again.</p>
+      <p>So exactly two values of k give a tangent.<br><span class="take">Δ = 0 finds them.</span></p>
+    </div>
+  </section>
+
+  <section class="slide worked" data-board="w1">
+    <div>
+      <p class="step">Worked example · a given gradient</p>
+      <h1>y = x + k is a tangent to x² + y² = 8</h1>
+      <p class="q-box">Find the two possible values of k.</p>
+      <div class="ws" data-ws="w1" data-open>
+        <ol>
+          <li>Put y = x + k into the circle, and collect:
+            <div class="calc">
+              x² + (x + k)² = 8
+              x² + x² + 2kx + k² = 8
+              2x² + 2kx + k² − 8 = 0
+            </div></li>
+          <li>Read off the three numbers: <b>a = 2</b>, <b>b = 2k</b>, <b>c = k² − 8</b>.</li>
+          <li>The discriminant:
+            <div class="calc">
+              Δ = (2k)² − 4 × 2 × (k² − 8)
+              = 4k² − 8k² + 64
+              = 64 − 4k²
+            </div></li>
+          <li>A tangent needs Δ = 0:
+            <div class="calc">
+              4k² = 64
+              k² = 16
+              !k = 4 or k = −4
+            </div></li>
+        </ol>
+        <div class="ws-nav"><button class="btn nxt">Next step</button><button class="btn ghost all">Show all</button></div>
+      </div>
+    </div>
+    <div class="board"><svg viewBox="0 0 380 380"></svg><button class="replay" type="button">↻ Start again</button></div>
+  </section>
+
+  <section class="slide" data-board="ct1">
+    <div>
+      <p class="step">Where does it touch?</p>
+      <h1>The repeated root is the point of contact</h1>
+      <p>For y = x + 4 the quadratic is 2x² + 8x + 8 = 0. Δ = 0, so both roots are the same x.</p>
+      <div class="calc">
+        x² + 4x + 4 = 0
+        (x + 2)² = 0
+        x = −2, so y = −2 + 4 = 2
+      </div>
+      <p>It touches at <b>(−2, 2)</b>. Shortcut: when Δ = 0, x = −b ÷ 2a = −8 ÷ 4 = −2.</p>
+      <div class="turn" data-check="ct1">
+        <div class="q">Your turn: where does y = x − 4 touch x² + y² = 8?</div>
+        <form autocomplete="off"><label>(</label><input inputmode="text" aria-label="x"><label>,</label><input inputmode="text" aria-label="y"><label>)</label><button class="btn">Check</button></form>
+        <div class="fb"></div>
+      </div>
+    </div>
+    <div class="board"><svg viewBox="0 0 380 380"></svg><button class="replay" type="button">↻ Start again</button></div>
+  </section>
+
+  <section class="slide compare">
+    <div class="head">
+      <p class="step">Another way to the same two lines</p>
+      <h1>Two ways to find parallel tangents</h1>
+      <p class="q-box">Tangents to x² + y² = 8 with gradient 1.</p>
+    </div>
+    <div class="cols">
+      <div>
+        <h2>Way 1: the discriminant</h2>
+        <div class="calc">
+          2x² + 2kx + k² − 8 = 0
+          Δ = 64 − 4k² = 0
+          !k = 4 or k = −4
+        </div>
+        <p>Works for any line and any circle. This is the method to learn first.</p>
+      </div>
+      <div>
+        <h2>Way 2: the diameter</h2>
+        <div class="calc">
+          Radius gradient = −1
+          Diameter: y = −x
+          x² + x² = 8, so x = ±2
+          !Contacts (2, −2) and (−2, 2)
+        </div>
+        <p>Each tangent is at 90° to its radius, so both contacts are on the diameter with gradient −1. Then lines of gradient 1 through them give y = x − 4 and y = x + 4.</p>
+      </div>
+    </div>
+    <p class="take">Both ways give y = x + 4 and y = x − 4. Way 2 hands you the contact points too.</p>
+  </section>
+
+  <!-- ================= PART 3 ================= -->
+  <section class="slide divider"><div class="dv">
+    <p class="dv-n">Part 3</p><h1>Tangents through a point outside</h1>
+    <p class="dv-line">Now T is fixed, and the gradient m is unknown.</p>
+    <p class="dv-map">The method · Turn the line · From T(4, 0) · The line with no gradient · An unknown centre · Quick check</p>
+  </div></section>
+
+  <section class="slide steps" data-board="st1">
+    <div class="head">
+      <p class="step">The method</p>
+      <h1>Tangents through T in four steps</h1>
+    </div>
+    <div class="stepsrow">
+      <div><svg viewBox="0 0 240 170"></svg><h3>A line through T</h3><p>Gradient m, so y − y<sub>T</sub> = m(x − x<sub>T</sub>). Here T is (4, 0), so y = m(x − 4).</p></div>
+      <div><svg viewBox="0 0 240 170"></svg><h3>Put it in the circle</h3><p>Collect a quadratic in x. The numbers in it contain m.</p></div>
+      <div><svg viewBox="0 0 240 170"></svg><h3>Set Δ = 0</h3><p>That gives an equation in m alone. Solve it: usually two answers.</p></div>
+      <div><svg viewBox="0 0 240 170"></svg><h3>Check straight up</h3><p>The line x = x<sub>T</sub> has no gradient, so test it by itself.</p></div>
+    </div>
+  </section>
+
+  <section class="slide lab" data-board="lab1">
+    <div class="board"><svg viewBox="0 0 380 380"></svg></div>
+    <div class="panel">
+      <p class="step">Play with it</p>
+      <h1>Turn the line about T</h1>
+      <p>The line y = m(x − 4) always goes through T(4, 0). Slide to change its gradient m.</p>
+      <input type="range" min="-8" max="8" step="1" value="6" data-slider aria-label="gradient m">
+      <div class="ro"><span>Gradient m</span><b data-ro="m"></b></div>
+      <div class="ro"><span>The quadratic</span><b data-ro="q"></b></div>
+      <div class="ro up"><span>Δ = 32 − 32m²</span><b data-ro="d"></b></div>
+      <div class="ro al"><span>Meeting points</span><b data-ro="n"></b></div>
+      <div class="goal" data-goal>Goal: make the line a tangent. Watch Δ.</div>
+    </div>
+  </section>
+
+  <section class="slide worked" data-board="w2">
+    <div>
+      <p class="step">Worked example · your go first</p>
+      <h1>Tangents to x² + y² = 8 through T(4, 0)</h1>
+      <p class="q-box">Find the gradients of the two tangents, and their equations.</p>
+      <div class="ws" data-ws="w2">
+        <p class="try">Try it on paper first. Then show the steps one at a time.</p>
+        <ol>
+          <li>A line through T(4, 0): <b>y = m(x − 4) = mx − 4m</b>.</li>
+          <li>Put it in the circle, and collect:
+            <div class="calc">
+              x² + (mx − 4m)² = 8
+              x² + m²x² − 8m²x + 16m² = 8
+              (1 + m²)x² − 8m²x + 16m² − 8 = 0
+            </div></li>
+          <li>The discriminant, b² − 4ac:
+            <div class="calc">
+              Δ = 64m⁴ − 4(1 + m²)(16m² − 8)
+              = 64m⁴ − 64m⁴ − 32m² + 32
+              = 32 − 32m²
+            </div></li>
+          <li>Δ = 0 gives <b>m² = 1</b>, so <b>m = 1 or m = −1</b>. The tangents are <b>y = x − 4</b> and <b>y = −x + 4</b>.</li>
+          <li>Straight up through T: x = 4 gives 16 + y² = 8. No points, so it is not a tangent.</li>
+        </ol>
+        <div class="ws-nav"><button class="btn nxt">Next step</button><button class="btn ghost all">Show all</button></div>
+      </div>
+    </div>
+    <div class="board"><svg viewBox="0 0 380 380"></svg><button class="replay" type="button">↻ Start again</button></div>
+  </section>
+
+  <section class="slide split-r" data-board="pr1">
+    <div>
+      <p class="step">Predict · then watch</p>
+      <h1>x² + y² = 4, and T(2, 4)</h1>
+      <p>T is outside: 2² + 4² = 20, more than 4. Sam does the method. Δ = 0 gives him just <b>one</b> gradient, m = 3/4.</p>
+      <div class="turn predict" data-predict="vert">
+        <div class="q">How many tangents go through T?</div>
+        <div class="opts">
+          <button data-fb="The method only finds lines that have a gradient. The line straight up, x = 2, touches the circle at (2, 0). So there are 2.">1</button>
+          <button data-ok data-fb="Yes. T is outside, so there are always two. The second is x = 2, straight up, touching at (2, 0). It has no gradient, so the method can't see it.">2</button>
+          <button data-fb="T is outside the circle, so there are two tangents. One has m = 3/4. The other is x = 2.">0</button>
+        </div>
+        <div class="verdict"></div>
+      </div>
+    </div>
+    <div class="board"><svg viewBox="0 0 380 380"></svg><button class="replay" type="button">↻ Start again</button></div>
+  </section>
+
+  <section class="slide" data-board="w3">
+    <div>
+      <p class="step">Worked example · your go first</p>
+      <h1>An unknown centre: (x − a)² + y² = 5</h1>
+      <p class="q-box">The line y = 2x − 1 is a tangent to this circle. Find the two possible values of a.</p>
+      <div class="ws" data-ws="w3">
+        <p class="try">Same idea: substitute, then Δ = 0. This time Δ = 0 gives an equation in a.</p>
+        <ol>
+          <li>Put y = 2x − 1 in, and collect:
+            <div class="calc">
+              (x − a)² + (2x − 1)² = 5
+              x² − 2ax + a² + 4x² − 4x + 1 = 5
+              5x² − (2a + 4)x + a² − 4 = 0
+            </div></li>
+          <li>The discriminant:
+            <div class="calc">
+              Δ = (2a + 4)² − 4 × 5 × (a² − 4)
+              = −16a² + 16a + 96
+            </div></li>
+          <li>Δ = 0. Divide by −16, then factorise:
+            <div class="calc">
+              a² − a − 6 = 0
+              (a − 3)(a + 2) = 0
+              !a = 3 or a = −2
+            </div></li>
+        </ol>
+        <div class="ws-nav"><button class="btn nxt">Next step</button><button class="btn ghost all">Show all</button></div>
+      </div>
+    </div>
+    <div class="board"><svg viewBox="0 0 380 280"></svg><button class="replay" type="button">↻ Start again</button></div>
+  </section>
+
+  <section class="slide qcard">
+    <div class="head qs">
+      <p class="step">Quick check</p>
+      <h1>Δ = 0, and what it gives you</h1>
+    </div>
+    <div class="qs">
+      <div class="turn" data-mcq>
+        <div class="q">1. Putting a line into a circle gives 3x² + 6x + p = 0. The line is a tangent when…</div>
+        <div class="opts">
+          <button data-ok data-fb="Yes. Δ = 6² − 4 × 3 × p = 36 − 12p. That is 0 when p = 3.">p = 3</button>
+          <button data-fb="Use Δ = b² − 4ac: 36 − 4 × 3 × p = 36 − 12p. Set it to 0.">p = 12</button>
+          <button data-fb="p = 0 makes x = 0 a root, but a tangent needs Δ = 0: 36 − 12p = 0.">p = 0</button>
+        </div>
+        <div class="fb"></div>
+      </div>
+      <div class="turn" data-mcq>
+        <div class="q">2. Δ = 0 gives m² = 9/4. The tangents' gradients are…</div>
+        <div class="opts">
+          <button data-ok data-fb="Yes. Both 3/2 and −3/2 square to 9/4. Two tangents, one for each.">3/2 and −3/2</button>
+          <button data-fb="(−3/2)² is 9/4 too. Keep both roots: that's two tangents.">3/2 only</button>
+          <button data-fb="Take the square root: √(9/4) = 3/2.">9/4 and −9/4</button>
+        </div>
+        <div class="fb"></div>
+      </div>
+      <div class="turn" data-mcq>
+        <div class="q">3. Which equation makes the line a tangent?</div>
+        <div class="opts">
+          <button data-fb="That is the quadratic itself. Its roots are the x's where they meet. A tangent needs its discriminant to be 0.">(1 + m²)x² − 8m²x + 16m² − 8 = 0</button>
+          <button data-ok data-fb="Yes. A tangent meets the circle once, so the discriminant is 0.">b² − 4ac = 0</button>
+          <button data-fb="b² − 4ac &gt; 0 means two meeting points. The line cuts the circle.">b² − 4ac &gt; 0</button>
+        </div>
+        <div class="fb"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= PART 4 ================= -->
+  <section class="slide divider"><div class="dv">
+    <p class="dv-n">Part 4</p><h1>A full exam question</h1>
+    <p class="dv-line">Four parts, one part per slide. Try each on paper before you reveal it.</p>
+    <p class="dv-map">(a) Outside, and the tangent length · (b) The two gradients · (c) The points of contact · (d) The kite's area</p>
+  </div></section>
+
+  <section class="slide statement">
+    <div class="head">
+      <p class="step">Exam-style question · 13 marks</p>
+      <h1>The circle x² + y² = 10 and the point T(5, 5)</h1>
+      <p class="lead">O is the origin. Two tangents from T touch the circle at A and B.</p>
+    </div>
+    <div class="paper">
+      <p><span>(a) Show that T is outside the circle, and find the exact length of TA.</span><span class="marks">[3]</span></p>
+      <p><span>(b) A line through T has gradient m. Show that it is a tangent when 3m² − 10m + 3 = 0. Hence find the two values of m.</span><span class="marks">[5]</span></p>
+      <p><span>(c) Find the coordinates of A and B.</span><span class="marks">[3]</span></p>
+      <p><span>(d) Find the area of the kite OATB.</span><span class="marks">[2]</span></p>
+    </div>
+    <p class="take">Get a pen. Do all four parts on paper, then go to the next slide.</p>
+  </section>
+
+  <section class="slide" data-board="xa">
+    <div>
+      <p class="step">Part (a) · 3 marks</p>
+      <h1>Outside, and the tangent length</h1>
+      <div class="ws" data-ws="xa">
+        <p class="try">Compare squares. Then take away r². Try it first.</p>
+        <ol>
+          <li>The centre is O(0, 0) and r² = 10:
+            <div class="calc">
+              OT² = 5² + 5² = 50
+            </div>
+            50 &gt; 10, so T is outside.</li>
+          <li>The right angle is at A:
+            <div class="calc">
+              TA² = 50 − 10 = 40
+              !TA = √40 = 2√10
+            </div></li>
+        </ol>
+        <div class="ws-nav"><button class="btn nxt">Next step</button><button class="btn ghost all">Show all</button></div>
+      </div>
+    </div>
+    <div class="board"><svg viewBox="0 0 380 340"></svg><button class="replay" type="button">↻ Start again</button></div>
+  </section>
+
+  <section class="slide worked" data-board="xb">
+    <div>
+      <p class="step">Part (b) · 5 marks</p>
+      <h1>The two gradients</h1>
+      <div class="ws" data-ws="xb">
+        <p class="try">"Show that" means every line of working. Try it first.</p>
+        <ol>
+          <li>The line through T: <b>y − 5 = m(x − 5)</b>, so <b>y = mx + (5 − 5m)</b>.</li>
+          <li>Put it in x² + y² = 10, and collect:
+            <div class="calc">
+              x² + (mx + 5 − 5m)² = 10
+              (1 + m²)x² + (10m − 10m²)x + 25m² − 50m + 15 = 0
+            </div></li>
+          <li>The discriminant, b² − 4ac:
+            <div class="calc">
+              (10m − 10m²)² = 100m⁴ − 200m³ + 100m²
+              4(1 + m²)(25m² − 50m + 15) = 100m⁴ − 200m³ + 160m² − 200m + 60
+              Δ = −60m² + 200m − 60
+            </div></li>
+          <li>Δ = 0. Divide by −20, then factorise:
+            <div class="calc">
+              3m² − 10m + 3 = 0
+              (3m − 1)(m − 3) = 0
+              !m = 1/3 or m = 3
+            </div></li>
+        </ol>
+        <div class="ws-nav"><button class="btn nxt">Next step</button><button class="btn ghost all">Show all</button></div>
+      </div>
+    </div>
+    <div class="board"><svg viewBox="0 0 380 340"></svg><button class="replay" type="button">↻ Start again</button></div>
+  </section>
+
+  <section class="slide split-r" data-board="xc">
+    <div>
+      <p class="step">Part (c) · 3 marks</p>
+      <h1>The points of contact</h1>
+      <div class="ws" data-ws="xc">
+        <p class="try">Δ = 0, so each quadratic has a repeated root. Try it first.</p>
+        <ol>
+          <li>m = 3: the line is y = 3x − 10.
+            <div class="calc">
+              x² + (3x − 10)² = 10
+              10x² − 60x + 90 = 0
+              (x − 3)² = 0
+            </div>
+            x = 3 and y = 9 − 10 = −1. <b>A is (3, −1)</b>.</li>
+          <li>m = 1/3: the line is y = (x + 10) ÷ 3. Times 9 to clear the fraction:
+            <div class="calc">
+              9x² + (x + 10)² = 90
+              10x² + 20x + 10 = 0
+              (x + 1)² = 0
+            </div>
+            x = −1 and y = 9 ÷ 3 = 3. <b>B is (−1, 3)</b>.</li>
+        </ol>
+        <div class="ws-nav"><button class="btn nxt">Next step</button><button class="btn ghost all">Show all</button></div>
+      </div>
+    </div>
+    <div class="board"><svg viewBox="0 0 380 340"></svg><button class="replay" type="button">↻ Start again</button></div>
+  </section>
+
+  <section class="slide worked" data-board="xd">
+    <div>
+      <p class="step">Part (d) · 2 marks</p>
+      <h1>The area of the kite OATB</h1>
+      <div class="ws" data-ws="xd">
+        <p class="try">Where are the right angles? Try it first.</p>
+        <ol>
+          <li>The radius meets each tangent at 90°. So OATB is two right-angled triangles, OAT and OBT, each with sides <b>√10</b> and <b>2√10</b> round the right angle.</li>
+          <li>Two triangles, each half of base times height:
+            <div class="calc">
+              Area = 2 × ½ × √10 × 2√10
+              = 2 × 10
+              != 20
+            </div></li>
+        </ol>
+        <div class="ws-nav"><button class="btn nxt">Next step</button><button class="btn ghost all">Show all</button></div>
+      </div>
+      <p>√10 × √10 = 10. That's why the square roots vanish.</p>
+    </div>
+    <div class="board"><svg viewBox="0 0 380 340"></svg><button class="replay" type="button">↻ Start again</button></div>
+  </section>
+
+  <!-- ================= PART 5 ================= -->
+  <section class="slide divider"><div class="dv">
+    <p class="dv-n">Part 5</p><h1>Before you practise</h1>
+    <p class="dv-line">The slips that cost marks, and everything on one page.</p>
+    <p class="dv-map">Common mistakes · Summary</p>
+  </div></section>
+
+  <section class="slide wide mis">
+    <div>
+      <p class="step">Common mistakes</p>
+      <h1>Six slips that cost marks</h1>
+      <div class="cols">
+        <div><h3>Comparing with r, not r²</h3><p class="x">✗ CT² = 18, more than r = 5, so outside</p><p class="ok">✓ 18 is less than r² = 25, so inside</p></div>
+        <div><h3>Adding in the tangent length</h3><p class="x">✗ TP² = CT² + r²</p><p class="ok">✓ CT is the longest side: TP² = CT² − r²</p></div>
+        <div><h3>Squaring a bracket badly</h3><p class="x">✗ (x + k)² = x² + k²</p><p class="ok">✓ (x + k)² = x² + 2kx + k²</p></div>
+        <div><h3>Solving the quadratic instead of Δ = 0</h3><p class="x">✗ Solve 2x² + 2kx + k² − 8 = 0 for k</p><p class="ok">✓ Set its discriminant to 0: 64 − 4k² = 0</p></div>
+        <div><h3>Keeping only one root</h3><p class="x">✗ m² = 1, so m = 1</p><p class="ok">✓ m = 1 or m = −1: two tangents</p></div>
+        <div><h3>Forgetting the line straight up</h3><p class="x">✗ Δ = 0 gave one m, so there's one tangent</p><p class="ok">✓ Test x = x<sub>T</sub> by itself. From T(2, 4), x = 2 is the other</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide wide sum">
+    <div>
+      <p class="step">Summary</p>
+      <h1>Everything on one page</h1>
+      <div class="cols">
+        <div>
+          <h2>The facts</h2>
+          <table>
+            <tr><td>Where is T?</td><td>CT² less than r²: inside, no tangents. Equal: on, one. More: outside, two</td></tr>
+            <tr><td>Tangent length</td><td>TP² = CT² − r². Both tangents from T are the same length</td></tr>
+            <tr><td>Tangent test</td><td>Put the line in the circle. Tangent means Δ = b² − 4ac = 0</td></tr>
+            <tr><td>Point of contact</td><td>The repeated root: x = −b ÷ 2a, then y from the line</td></tr>
+          </table>
+        </div>
+        <div>
+          <h2>The method</h2>
+          <ol>
+            <li><b>Write the line</b> with one unknown: y = x + k for a given gradient, or y − y<sub>T</sub> = m(x − x<sub>T</sub>) through T.</li>
+            <li><b>Substitute</b> into the circle and collect a quadratic in x.</li>
+            <li><b>Set Δ = 0</b> and solve for the unknown. Keep both roots.</li>
+            <li><b>Through T:</b> test the line straight up, x = x<sub>T</sub>, by itself.</li>
+          </ol>
+          <p class="take" style="margin-top:10px">Next: chords, and where they cross the circle.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+</main>
+
+<nav>
+  <button id="prev" aria-label="Previous slide">&#8592;</button>
+  <span id="count"></span>
+  <button id="next" aria-label="Next slide">&#8594;</button>
+</nav>
+
+<script src="../../../../lesson-ui/slides/engine.js"></script>
+<script>
+/* ============ circles and helpers for this lesson ============ */
+const CC = [2, 2], RAD = 5;                           // lesson 8's circle (x − 2)² + (y − 2)² = 25
+const P0 = [5, 6], R1 = [6, -1], T0 = [9, 3];         // its tangents from T(9, 3)
+const O = [0, 0], R8 = Math.sqrt(8);                  // x² + y² = 8
+const TT = [4, 0];                                    // the point outside it
+
+const icon = (svg, xr, yr, m = 12) => new Board(svg, xr, yr, { small: true, center: true, margin: { l: m, r: m + 2, t: m, b: m } });
+const setRo = (root, k, v) => { const n = root.querySelector(`[data-ro="${k}"]`); if (n) n.textContent = v; };
+const goal = (root, done) => root.querySelector("[data-goal]").classList.toggle("done", done);
+// a solid circle: two SVG arcs, drawn like any other line
+const circ = (b, c, r, color = C.plum, ms = 900, w = 3) => {
+  const R = r * b.U, X = b.X(c[0]), Y = b.Y(c[1]);
+  return b.path(`M${X + R} ${Y}A${R} ${R} 0 1 0 ${X - R} ${Y}A${R} ${R} 0 1 0 ${X + R} ${Y}`, color, ms, w);
+};
+// the part of the line through p, direction d, that is inside the board
+const clip = (b, p, d, pad = 0.25) => {
+  let t0 = -Infinity, t1 = Infinity;
+  const lim = (q, e, lo, hi) => {
+    if (Math.abs(e) < 1e-12) { if (q < lo || q > hi) { t0 = 1; t1 = 0; } return; }
+    let a = (lo - q) / e, c = (hi - q) / e; if (a > c) [a, c] = [c, a];
+    t0 = Math.max(t0, a); t1 = Math.min(t1, c);
+  };
+  lim(p[0], d[0], b.xr[0] + pad, b.xr[1] - pad); lim(p[1], d[1], b.yr[0] + pad, b.yr[1] - pad);
+  return [p[0] + t0 * d[0], p[1] + t0 * d[1], p[0] + t1 * d[0], p[1] + t1 * d[1]];
+};
+const line = (b, p, d, color, ms = 700, w = 3.5, dash, pad) => b.seg(...clip(b, p, d, pad), color, ms, w, dash);
+const tdir = (c, p) => [-(p[1] - c[1]), p[0] - c[0]];                 // along the tangent at p
+// the two points where tangents from t touch the circle (centre c, radius r)
+const contacts = (c, r, t) => {
+  const dx = t[0] - c[0], dy = t[1] - c[1], base = Math.atan2(dy, dx), al = Math.acos(r / Math.hypot(dx, dy));
+  return [base + al, base - al].map(a => [c[0] + r * Math.cos(a), c[1] + r * Math.sin(a)]);
+};
+const shade = (b, pts, color = C.mid, op = 0.13) => {
+  const d = "M" + pts.map(([x, y]) => `${b.X(x).toFixed(1)} ${b.Y(y).toFixed(1)}`).join("L") + "Z";
+  const p = b.el("path", { d, fill: color, opacity: op, stroke: "none" });
+  b.svg.insertBefore(p, b.svg.querySelector("path.ink, circle") || null); return p;
+};
+
+const scenes = {
+  async r0(root) {
+    const [a, b, c] = [...root.querySelectorAll("svg")].map((v, i) => i ? icon(v, [-6.5, 6.5], [-5, 5]) : icon(v, [-5, 12], [-4, 8.5]));
+    circ(a, CC, RAD, C.plum, 700, 2.5); a.seg(...T0, ...P0, C.along, 600, 3); a.seg(...T0, ...R1, C.along, 600, 3);
+    a.dot(...P0); a.dot(...R1); a.dot(...T0, null, 0, 0, C.up);
+    circ(b, O, R8, C.plum, 700, 2.5); b.fn(x => x + 4, C.along, 600, 3); b.fn(x => x - 4, C.along, 600, 3);
+    b.dot(-2, 2); b.dot(2, -2);
+    circ(c, O, R8, C.plum, 700, 2.5); c.fn(x => x - 4, C.along, 600, 3); c.fn(x => 4 - x, C.along, 600, 3);
+    c.dot(...TT, null, 0, 0, C.up);
+  },
+
+  async g1(root, ok) {
+    const [a, b, c] = [...root.querySelectorAll("svg")].map(v => icon(v, [-4, 11], [-4, 8.5]));
+    for (const g of [a, b, c]) circ(g, CC, RAD, C.plum, 1, 2.5);
+    a.dot(...CC, null, 0, 0, C.mid); b.dot(...CC, null, 0, 0, C.mid); c.dot(...CC, null, 0, 0, C.mid);
+    await line(a, [4, 3], [1, 0], C.faint, 400, 2.5, "6 5"); if (!ok()) return;
+    await line(a, [4, 3], [1, 2], C.faint, 400, 2.5, "6 5"); if (!ok()) return;
+    a.dot(4, 3, null, 0, 0, C.up);
+    await line(b, P0, tdir(CC, P0), C.along, 500, 3.5); if (!ok()) return;
+    b.dot(...P0, null, 0, 0, C.up);
+    await c.seg(...T0, ...P0, C.along, 400, 3.5); if (!ok()) return;
+    await c.seg(...T0, ...R1, C.along, 400, 3.5); if (!ok()) return;
+    c.dot(...P0); c.dot(...R1); c.dot(...T0, null, 0, 0, C.up);
+  },
+
+  async tl1(root, ok) {
+    const b = B(root, [-5, 6], [-2, 7]);
+    const Cq = [-1, 2], T = [4, 4], P = contacts(Cq, 3, T)[0];
+    await circ(b, Cq, 3, C.plum, 800, 3); if (!ok()) return;
+    b.dot(...Cq, "C", -10, 22, C.plum, "end"); b.dot(...T, "T(4, 4)", 10, 6, C.up);
+    shade(b, [Cq, P, T]);
+    await b.seg(...T, ...P, C.along, 500, 3.5); if (!ok()) return;
+    b.dot(...P, "P", 0, -14, C.plum, "middle");
+    await b.seg(...Cq, ...P, C.mid, 400, 3); if (!ok()) return;
+    b.square(...P, [Cq[0] - P[0], Cq[1] - P[1]], [T[0] - P[0], T[1] - P[1]]);
+    await b.seg(...Cq, ...T, C.up, 500, 2.5, "7 6"); if (!ok()) return;
+    b.text(1.5, 4.46, "?", C.along, 20, "middle", 0, -12);
+  },
+
+  async h1(root, ok) {
+    const b = new Board(root.querySelector("svg"), [-10, 10], [-4.5, 4.5], { center: true }); root._b = b;
+    await circ(b, O, R8, C.plum, 800, 3); if (!ok()) return;
+    const ks = [[6, C.faint], [4, C.along], [0, C.mid], [-4, C.along], [-6, C.faint]];
+    for (const [k, col] of ks) {
+      await b.fn(x => x + k, col, 600, k === 4 || k === -4 ? 3.5 : 2.5); if (!ok()) return;
+      if (k >= 0) b.text(4.2 - k, 4.2, `k = ${sg(k)}`, col === C.faint ? C.muted : col, 17, k === 6 ? "end" : "start", k === 6 ? -8 : 8, 4);
+      else b.text(-4.2 - k, -4.2, `k = ${sg(k)}`, col === C.faint ? C.muted : col, 17, "end", -8, 4);
+      if (k === 4) b.dot(-2, 2, null, 0, 0, C.along);
+      if (k === -4) b.dot(2, -2, null, 0, 0, C.along);
+      if (k === 0) { b.dot(-2, -2, null, 0, 0, C.mid); b.dot(2, 2, null, 0, 0, C.mid); }
+      await wait(350); if (!ok()) return;
+    }
+  },
+
+  async w1(root, ok) {
+    const b = B(root, [-6, 6], [-6, 6]);
+    await circ(b, O, R8, C.plum, 800, 3); if (!ok()) return;
+    b.text(2.1, 2.1, "x² + y² = 8", C.plum, 17, "start", 4, -4);
+  },
+
+  async ct1(root, ok, alt) {
+    const b = B(root, [-6, 6], [-6, 6]);
+    await circ(b, O, R8, C.plum, 800, 3); if (!ok()) return;
+    await b.fn(x => x + 4, C.along, 700, 3.5); if (!ok()) return;
+    b.text(-5.6, -1.3, "y = x + 4", C.along, 17, "start", 0, 24);
+    b.seg(0, 0, -2, 2, C.mid, 400, 2.5); b.dot(-2, 2, "(−2, 2)", -10, -10, C.along, "end"); b.square(-2, 2, [1, 1], [1, -1]);
+    if (!alt) return;
+    await b.fn(x => x - 4, C.along, 700, 3.5); if (!ok()) return;
+    b.text(1.3, -5.6, "y = x − 4", C.along, 17, "start", 26, 0);
+    b.seg(0, 0, 2, -2, C.mid, 400, 2.5); b.dot(2, -2, "(2, −2)", 10, 22, C.along); b.square(2, -2, [-1, -1], [-1, 1]);
+  },
+
+  async st1(root) {
+    const [a, b, c, d] = [...root.querySelectorAll("svg")].map(v => icon(v, [-4, 6], [-4, 4], 10));
+    for (const g of [a, b, c, d]) { circ(g, O, R8, C.plum, 1, 2.5); g.dot(...TT, null, 0, 0, C.up); }
+    a.fn(x => 0.5 * (x - 4), C.faint, 500, 3, "6 5"); a.fn(x => -1.6 * (x - 4), C.faint, 500, 3, "6 5");
+    b.fn(x => -0.5 * (x - 4), C.mid, 500, 3.5);
+    for (const xx of [(2 + Math.sqrt(24)) / 2.5, (2 - Math.sqrt(24)) / 2.5]) b.dot(xx, -0.5 * (xx - 4), null, 0, 0, C.mid);   // 1.25x² − 2x − 4 = 0
+    c.fn(x => -(x - 4), C.along, 500, 3.5); c.dot(2, 2, null, 0, 0, C.along);
+    d.fn(x => x - 4, C.along, 1, 3); d.fn(x => 4 - x, C.along, 1, 3); d.seg(4, -3.8, 4, 3.8, C.up, 500, 2.5, "6 5");
+  },
+
+  async lab1(root) {
+    const b = B(root, [-5, 6], [-5, 5]);
+    circ(b, O, R8, C.plum, 1, 3);
+    b.dot(0, 0, "O", -10, 22, C.plum, "end"); b.dot(...TT, "T", 12, 5, C.up);
+    const live = b.layer(), slider = root.querySelector("[data-slider]");
+    const update = () => {
+      const s = +slider.value, m = s / 4, D = 32 - 32 * m * m;
+      const A = 1 + m * m, Bq = -8 * m * m, Cq = 16 * m * m - 8;
+      b.redraw(live, g => {
+        g.fn(x => m * (x - 4), D === 0 ? C.along : D > 0 ? C.mid : C.up, 0, 3.5);
+        if (D >= 0) {
+          const xs = D === 0 ? [-Bq / (2 * A)] : [(-Bq + Math.sqrt(D)) / (2 * A), (-Bq - Math.sqrt(D)) / (2 * A)];
+          xs.forEach(x => g.dot(x, m * (x - 4), null, 0, 0, D === 0 ? C.along : C.mid));
+        }
+      });
+      const term = (n, d, v) => { const f = frac(n, d); return f === "1" ? v : f.includes("/") ? `(${f})${v}` : f + v; };
+      const k = frac(16 * s * s - 128, 16);
+      setRo(root, "m", frac(s, 4));
+      setRo(root, "q", s === 0 ? "x² − 8 = 0" : `${term(16 + s * s, 16, "x²")} − ${term(8 * s * s, 16, "x")} ${k.startsWith("−") ? "− " + k.slice(1) : "+ " + k} = 0`);
+      setRo(root, "d", frac(32 * 16 - 32 * s * s, 16));
+      setRo(root, "n", D > 0 ? "2: it cuts" : D === 0 ? "1: a tangent" : "0: it misses");
+      goal(root, D === 0);
+    };
+    slider.oninput = update; update();
+  },
+
+  async w2(root, ok) {
+    const b = B(root, [-5, 6], [-5, 5]);
+    circ(b, O, R8, C.plum, 800, 3);                               // not awaited: an early "Show all" keeps the labels
+    b.dot(...TT, "T", 12, 5, C.up);
+  },
+
+  async pr1(root, ok) {
+    const b = B(root, [-4, 5], [-3, 6]);
+    circ(b, O, 2, C.plum, 800, 3);                                // not awaited: an early answer keeps the labels
+    b.dot(0, 0, "O", -10, 22, C.plum, "end"); b.dot(2, 4, "T(2, 4)", -12, -8, C.up, "end");
+  },
+
+  async w3(root, ok) {
+    const b = B(root, [-5, 6], [-3, 4]);
+    b.fn(x => 2 * x - 1, C.along, 800, 3.5);
+    b.text(2.3, 3.6, "y = 2x − 1", C.along, 17, "start", 10, 4);
+  },
+
+  /* exam question */
+  async xa(root, ok) {
+    const b = B(root, [-4, 7], [-3, 7]);
+    circ(b, O, Math.sqrt(10), C.plum, 800, 3);                  // not awaited: an early "Show all" keeps the labels
+    b.dot(0, 0, "O", -10, 22, C.plum, "end"); b.dot(5, 5, "T(5, 5)", -12, -6, C.up, "end");
+  },
+  async xb(root, ok) {
+    const b = B(root, [-4, 7], [-3, 7]);
+    circ(b, O, Math.sqrt(10), C.plum, 800, 3);                  // not awaited: an early "Show all" keeps the labels
+    b.dot(0, 0, "O", -10, 22, C.plum, "end"); b.dot(5, 5, "T(5, 5)", -12, -6, C.up, "end");
+  },
+  async xc(root, ok) {
+    const b = B(root, [-4, 7], [-3, 7]);
+    circ(b, O, Math.sqrt(10), C.plum, 800, 3);                  // not awaited: an early "Show all" keeps the labels
+    b.dot(0, 0, "O", -10, 22, C.plum, "end"); b.dot(5, 5, "T(5, 5)", -12, -6, C.up, "end");
+  },
+  async xd(root, ok) {
+    const b = B(root, [-4, 7], [-3, 7]);
+    circ(b, O, Math.sqrt(10), C.plum, 800, 3);                  // not awaited: an early "Show all" keeps the labels
+    b.dot(0, 0, "O", -10, 22, C.plum, "end"); b.dot(5, 5, "T(5, 5)", -12, -6, C.up, "end");
+    b.seg(5, 5, 3, -1, C.along, 500, 3.5); b.seg(5, 5, -1, 3, C.along, 500, 3.5);
+    b.dot(3, -1, "A", 12, 8, C.plum); b.dot(-1, 3, "B", -12, -6, C.plum, "end");
+  },
+};
+
+/* ============ step-by-step actions on the board (index = step) ============ */
+const acts = {
+  w1: [
+    null, null, null,
+    async b => {
+      await b.fn(x => x + 4, C.along, 700, 3.5); b.text(-2.2, 3.6, "y = x + 4", C.along, 17, "end");
+      await b.fn(x => x - 4, C.along, 700, 3.5); b.text(2.2, -3.6, "y = x − 4", C.along, 17, "start");
+      b.dot(-2, 2, null, 0, 0, C.along); b.dot(2, -2, null, 0, 0, C.along);
+    },
+  ],
+  w2: [
+    null, null, null,
+    async b => {
+      await b.fn(x => x - 4, C.along, 700, 3.5); b.dot(2, -2, null, 0, 0, C.along); b.text(1.2, -4.6, "y = x − 4", C.along, 17, "start", 0, 0);
+      await b.fn(x => 4 - x, C.along, 700, 3.5); b.dot(2, 2, null, 0, 0, C.along); b.text(-4.6, 4.2, "y = −x + 4", C.along, 17, "start", 0, 0);
+    },
+    async b => { await b.seg(4, -4.7, 4, 4.7, C.up, 500, 2.5, "7 6"); b.text(4, 4.4, "x = 4 misses", C.up, 16, "end", -8, 0, 600); },
+  ],
+  w3: [
+    null, null,
+    async b => {
+      await circ(b, [3, 0], Math.sqrt(5), C.mid, 700, 3); b.dot(3, 0, "a = 3", 0, 24, C.mid, "middle"); b.dot(1, 1, null, 0, 0, C.along);
+      await circ(b, [-2, 0], Math.sqrt(5), C.up, 700, 3); b.dot(-2, 0, "a = −2", 0, 24, C.up, "middle"); b.dot(0, -1, null, 0, 0, C.along);
+    },
+  ],
+  xa: [
+    async b => { await b.seg(0, 0, 5, 5, C.up, 600, 2.5, "7 6"); b.text(2.5, 3.9, "√50", C.up, 18, "end", 0, 0); },
+    async b => {
+      shade(b, [[0, 0], [3, -1], [5, 5]]); await b.seg(0, 0, 3, -1, C.mid, 400, 3); await b.seg(5, 5, 3, -1, C.along, 500, 4);
+      b.square(3, -1, [-3, 1], [2, 6]); b.text(4, 2, "2√10", C.along, 18, "start", 12, 4); b.dot(3, -1, "A", 12, 10, C.plum);
+    },
+  ],
+  xb: [
+    null, null, null,
+    async b => {
+      await line(b, [5, 5], [1, 3], C.along, 700, 3.5); b.text(6.3, 4, "m = 3", C.along, 17, "end", 0, 26);
+      await line(b, [5, 5], [3, 1], C.along, 700, 3.5); b.text(-3.8, 6.3, "m = 1/3", C.along, 17, "start", 0, 0);
+    },
+  ],
+  xc: [
+    async b => { await line(b, [5, 5], [1, 3], C.along, 700, 3.5); b.dot(3, -1, "A(3, −1)", 12, 10, C.plum); },
+    async b => { await line(b, [5, 5], [3, 1], C.along, 700, 3.5); b.dot(-1, 3, "B(−1, 3)", -12, -8, C.plum, "end"); },
+  ],
+  xd: [
+    async b => { await b.seg(0, 0, 3, -1, C.mid, 400, 3); await b.seg(0, 0, -1, 3, C.mid, 400, 3); b.square(3, -1, [-3, 1], [2, 6]); b.square(-1, 3, [1, -3], [6, 2]); },
+    async b => { shade(b, [[0, 0], [3, -1], [5, 5], [-1, 3]], C.mid, 0.16); b.text(3.1, 2.8, "20", C.plum, 26, "middle", 0, 8); },
+  ],
+};
+const reveals = {};
+
+predicts.vert = async b => {
+  await b.fn(x => 0.75 * x + 2.5, C.along, 800, 3.5);
+  b.dot(-1.2, 1.6, null, 0, 0, C.along); b.text(-3.8, 1.2, "m = 3/4", C.along, 17, "start", 0, 0);
+  await wait(300);
+  await b.seg(2, -2.8, 2, 5.8, C.mid, 700, 3.5);
+  b.dot(2, 0, null, 0, 0, C.mid); b.text(2, -1.8, "x = 2", C.mid, 17, "start", 10, 0);
+};
+
+/* ============ answer checking with feedback on the usual slips ============ */
+const checks = {
+  ct1: ([x, y]) => eq(x, 2) && eq(y, -2) ? [true, "Yes. 2x² − 8x + 8 = 0, so (x − 2)² = 0 and x = 2. Then y = 2 − 4 = −2.", true]
+    : eq(x, -2) && eq(y, 2) ? [false, "That's where y = x + 4 touches. Redo it with y = x − 4: x² + (x − 4)² = 8."]
+    : eq(x, -2) ? [false, "Check the sign: 2x² − 8x + 8 = 0, so x = −b ÷ 2a = 8 ÷ 4 = 2."]
+    : eq(x, 2) && eq(y, 2) ? [false, "x = 2 is right. Now use the line: y = 2 − 4."]
+    : eq(x, 2) ? [false, "x = 2 is right. Put it into y = x − 4."]
+    : isNaN(x) || isNaN(y) ? [false, "Fill in both boxes: x and y."]
+    : [false, "Put y = x − 4 into x² + y² = 8. You get 2x² − 8x + 8 = 0. Then x = −b ÷ 2a."],
+};
+</script>
+<script src="../../../../lesson-ui/slides/deck.js"></script>
+<script src="../../../../lesson-ui/slides/interact.js"></script>
+</body>
+</html>

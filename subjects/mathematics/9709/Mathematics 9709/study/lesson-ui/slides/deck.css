@@ -1,0 +1,261 @@
+/* Tokens from the live lesson pages (brand-theme.css) */
+:root{
+  --plum:#29213f; --teal:#08756f; --canvas:#f7f8fa; --paper:#fff;
+  --ink:#302b40; --muted:#655f70; --divider:#d8d5e0;
+  --along:#08756f; --up:#c2562b; --mid:#5b3fa8;
+}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%}
+body{background:var(--canvas);color:var(--ink);font:400 20px/1.55 'Source Sans 3',Arial,sans-serif;
+     display:flex;flex-direction:column;min-height:100vh}
+
+header{background:var(--plum);color:#fff;padding:12px 28px;display:flex;justify-content:space-between;align-items:center;font-size:15px}
+header b{font-weight:700}
+header span{opacity:.7}
+.progress{height:4px;background:#e9e7ef}
+.progress i{display:block;height:100%;background:var(--teal);transition:width .35s ease}
+
+main{flex:1;display:grid;place-items:center;padding:22px 16px 6px}
+.deck{width:min(100%,1140px)}
+.slide{display:none;background:var(--paper);border:1px solid var(--divider);border-radius:16px;
+       padding:34px 44px;grid-template-columns:1fr 1fr;gap:40px;align-items:center;min-height:700px;
+       box-shadow:0 12px 32px -18px rgba(41,33,63,.25)}
+.slide.active{display:grid;animation:in .4s ease-out}
+.slide.formula:not(.active){display:none}   /* .formula (inline formula row) sets display:flex; keep hidden formula slides hidden */
+.slide.wide{grid-template-columns:1fr;align-items:start}
+@keyframes in{from{opacity:0;transform:translateX(18px)}}
+
+/* section dividers */
+.slide.divider{background:var(--plum);color:#fff;border-color:var(--plum);grid-template-columns:1fr;
+       background-image:linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);
+       background-size:36px 36px}
+.dv{max-width:680px;padding-left:12px}
+.dv-n{font-size:16px;font-weight:700;color:#7fd6cf;margin:0 0 8px}
+.divider h1{color:#fff;font-size:52px;margin:0 0 16px}
+.dv-line{font-size:24px;opacity:.9;margin:0 0 28px}
+.dv-map{font-size:16px;opacity:.6;margin:0;padding-top:16px;border-top:1px solid rgba(255,255,255,.2)}
+
+.step{color:var(--muted);font-size:15px;font-weight:600;margin:0 0 4px}
+h1{font-size:32px;line-height:1.15;margin:0 0 16px;color:var(--plum);letter-spacing:-.01em}
+p{margin:0 0 11px}
+.al{color:var(--along);font-weight:700}
+.up{color:var(--up);font-weight:700}
+.md{color:var(--mid);font-weight:700}
+.take{font-weight:700;color:var(--plum);margin-top:4px}
+.nw{white-space:nowrap}
+.q-box{font-weight:600;color:var(--plum)}
+i.v{font-family:Georgia,'Times New Roman',serif;font-style:italic}
+.frac{display:inline-flex;flex-direction:column;align-items:center;vertical-align:middle;margin:0 3px;line-height:1.2}
+.frac>span:first-child{border-bottom:1.5px solid currentColor;padding:0 4px}
+.frac>span:last-child{padding:0 4px}
+.formula{font-size:23px;margin:6px 0 12px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.marks{font-size:15px;font-weight:600;color:var(--muted);white-space:nowrap}
+
+/* the board: graph paper */
+.board{position:relative;background:#fff;border-radius:12px;padding:10px 10px 34px;border:1px solid #eeecf2}   /* one grid only: the board draws its own, lined up with the numbers */
+.board svg{display:block;width:100%;height:auto}
+.board svg text{font-family:'Source Sans 3',Arial,sans-serif}
+.board svg text:not(.tick){paint-order:stroke;stroke:#fff;stroke-width:5px;stroke-linejoin:round}
+.board.four{display:grid;grid-template-columns:1fr 1fr;gap:6px;padding-bottom:10px}
+.board.four figure{margin:0;text-align:center;font-size:16px}
+.board.four figcaption{font-weight:600;margin-top:-4px}
+.replay{position:absolute;right:14px;bottom:6px;font:600 15px 'Source Sans 3',sans-serif;color:var(--muted);
+        background:none;border:0;cursor:pointer;padding:4px 6px}
+.replay:hover{color:var(--plum)}
+
+/* worked steps: revealed one at a time */
+.ws ol{list-style:none;margin:6px 0 10px;padding:0;counter-reset:s}
+.ws li{display:none;margin:0 0 8px;font-size:18px;counter-increment:s;padding-left:34px;position:relative}
+.ws li::before{content:counter(s);position:absolute;left:0;top:2px;width:24px;height:24px;border-radius:50%;
+       background:#ecebf0;color:var(--plum);font-size:14px;font-weight:700;display:grid;place-items:center}
+.ws li.on{display:block;animation:rise .35s ease-out}
+.ws li b{white-space:nowrap}
+@keyframes rise{from{opacity:0;transform:translateY(6px)}}
+.ws-nav{display:flex;gap:10px;align-items:center}
+.ws[data-open] .ws-nav{display:none}
+.ws .try{font-size:17px;color:var(--muted);margin:0 0 4px}
+/* vertical working: one line per step, equals signs lined up */
+.calc{display:grid;grid-template-columns:max-content max-content auto;column-gap:8px;row-gap:1px;
+      margin:4px 0 10px;font-size:19px;font-weight:600;line-height:1.4;justify-content:start}
+.calc .full{grid-column:1 / -1}
+.calc .l{text-align:right}
+.calc .hl{color:var(--plum);font-weight:700}
+.ws li .calc{margin:3px 0 2px}
+
+/* your turn + choices */
+.turn{margin-top:14px;padding-top:12px;border-top:1.5px dashed var(--divider)}
+.turn .q{font-weight:700;color:var(--plum)}
+.turn form{display:flex;flex-wrap:wrap;align-items:center;gap:10px 12px;margin-top:6px}
+.turn label{font-weight:600}
+.turn input{width:74px;font:600 20px 'Source Sans 3',sans-serif;text-align:center;padding:6px;
+            border:1.5px solid var(--divider);border-radius:8px;background:#fff;color:var(--ink)}
+.turn input:focus{outline:2px solid var(--teal);outline-offset:1px}
+.opts{display:flex;flex-wrap:wrap;gap:10px;margin-top:8px}
+.opts button{font:600 19px 'Source Sans 3',sans-serif;background:#fff;color:var(--ink);border:1.5px solid var(--divider);
+             border-radius:10px;padding:8px 16px;cursor:pointer}
+.opts button:hover{border-color:var(--plum)}
+.opts button.right{border-color:var(--teal);color:var(--teal)}
+.opts button.wrong{border-color:var(--up);color:var(--up)}
+.btn{font:600 17px 'Source Sans 3',sans-serif;background:var(--plum);color:#fff;border:0;border-radius:999px;padding:9px 18px;cursor:pointer}
+.btn.ghost{background:#fff;color:var(--plum);border:1.5px solid var(--divider)}
+.btn:disabled{opacity:.4;cursor:default}
+.fb{min-height:26px;margin-top:8px;font-weight:600;font-size:18px}
+.reveal{display:flex;flex-direction:column;gap:10px;margin-top:6px}
+.reveal .row{display:flex;gap:14px;align-items:baseline;flex-wrap:wrap}
+.reveal .ans{opacity:0;transition:opacity .4s}
+.reveal .ans.on{opacity:1}
+
+/* mistakes and summary */
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:10px 48px}
+.mis h3{font-size:19px;margin:0 0 2px;color:var(--plum)}
+.mis p{margin:0 0 2px;font-size:18px}
+.mis .x{color:var(--up)} .mis .ok{color:var(--teal)}
+.mis .cols>div{padding:10px 0;border-top:1px solid var(--divider)}
+.sum h2{font-size:20px;color:var(--plum);margin:0 0 8px}
+.sum table{border-collapse:collapse;width:100%;font-size:18px}
+.sum td{padding:9px 8px 9px 0;border-top:1px solid var(--divider);vertical-align:top}
+.sum td:first-child{font-weight:700;color:var(--plum);width:34%}
+.sum ol{margin:0;padding-left:22px;font-size:18px}
+.sum li{margin:0 0 10px}
+
+nav{display:flex;justify-content:center;align-items:center;gap:18px;padding:10px 0 20px}
+nav button{width:50px;height:50px;border-radius:50%;border:1px solid var(--divider);background:#fff;
+           color:var(--plum);font-size:22px;cursor:pointer;display:grid;place-items:center}
+nav button:hover:not(:disabled){background:var(--plum);color:#fff;border-color:var(--plum)}
+nav button:disabled{opacity:.3;cursor:default}
+#count{font:600 15px 'Source Sans 3',sans-serif;color:var(--muted);min-width:64px;text-align:center}
+
+/* ============ layouts: choose by what the slide does (see LAYOUTS.md) ============
+   split · split-r · worked · hero · gallery · statement · qcard · compare
+   steps · table · flip · formula · zigzag · define · lab     (+ custom for one-offs) */
+.slide.split-r>.board{order:-1}
+.slide.worked{grid-template-columns:1.15fr .85fr}
+.slide.hero,.slide.gallery,.slide.statement,.slide.qcard,.slide.compare,.slide.steps,.slide.table,.slide.flip,.slide.formula,.slide.zigzag,.slide.define{grid-template-columns:1fr;align-content:center;align-items:start;gap:16px}
+.slide .head h1{margin-bottom:6px}
+.slide .lead{font-size:21px;margin:0}
+.hero .board{padding-bottom:10px}
+.hero .cap{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;font-size:18px}
+.hero .cap p{margin:0}
+.gal{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:18px}
+.gal figure{margin:0}
+.gal .board{padding:8px}
+.gal figcaption{margin-top:10px;font-size:18px;line-height:1.4}
+.gal figcaption>b:first-child{display:block;color:var(--plum);font-size:19px;margin-bottom:2px}
+.statement{text-align:center;justify-items:center}
+.statement h1{font-size:44px;margin-bottom:10px}
+.statement .lead{max-width:760px}
+.statement .calc{justify-content:center;font-size:22px}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;width:100%;max-width:980px;text-align:left;margin-top:8px}
+.cards>div{border-top:3px solid var(--plum);padding-top:12px}
+.cards .n{font-size:15px;font-weight:700;color:var(--teal)}
+.cards h3{font-size:21px;margin:2px 0 4px;color:var(--plum)}
+.cards p{font-size:17px;margin:0;color:var(--muted)}
+.cards svg{display:block;width:100%;height:auto;margin:6px 0 8px;background:#fafafb;border-radius:8px}
+.paper{width:100%;max-width:860px;border:1px solid var(--divider);border-radius:10px;padding:24px 34px;text-align:left;background:#fcfcfd}
+.paper p{display:flex;justify-content:space-between;align-items:baseline;gap:24px;margin:0 0 14px}
+.paper p:last-child{margin:0}
+.qcard .qs{width:100%;max-width:860px;justify-self:center}
+.qcard .turn{margin-top:18px}
+.qcard .opts button{font-size:21px;padding:10px 22px}
+.compare .cols{gap:10px 40px;align-items:start}
+.compare h2{font-size:20px;color:var(--plum);margin:0 0 6px}
+.compare .cols>div{border-top:3px solid var(--divider);padding-top:12px}
+
+/* steps: a process as numbered stages in a row */
+.stepsrow{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:20px;counter-reset:st}
+.stepsrow>div{counter-increment:st;border-top:3px solid var(--teal);padding-top:12px;position:relative}
+.stepsrow>div::before{content:counter(st);position:absolute;top:-17px;left:0;width:30px;height:30px;border-radius:50%;background:var(--teal);color:#fff;font-weight:700;display:grid;place-items:center;font-size:16px}
+.stepsrow svg{display:block;width:100%;height:auto;background:#fafafb;border-radius:8px;margin:8px 0}
+.stepsrow h3{font-size:19px;margin:0 0 2px;color:var(--plum)}
+.stepsrow p{font-size:17px;margin:0;color:var(--muted)}
+/* table: the table is the main thing; rows can appear one at a time */
+table.big{border-collapse:collapse;width:100%;max-width:980px;font-size:20px}
+table.big th{text-align:left;font-size:15px;color:var(--muted);font-weight:700;padding:8px 14px;border-bottom:2px solid var(--plum)}
+table.big td{padding:12px 14px;border-bottom:1px solid var(--divider)}
+table.big td:last-child{font-weight:700;color:var(--plum)}
+table.big tr.hid td{opacity:0}
+table.big tr.hid.on td{opacity:1;transition:opacity .4s}
+/* flip: guess, then turn the card */
+.flipgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:18px}
+.fcard{perspective:900px;height:210px;cursor:pointer;background:none;border:0;padding:0;font:inherit;color:inherit;text-align:left}
+.fcard .in{position:relative;width:100%;height:100%;transition:transform .5s;transform-style:preserve-3d}
+.fcard.on .in{transform:rotateY(180deg)}
+.fcard .fa,.fcard .fb2{position:absolute;inset:0;backface-visibility:hidden;border-radius:12px;padding:18px 20px;display:flex;flex-direction:column;justify-content:center}
+.fcard .fa{background:var(--plum);color:#fff;font-size:24px;font-weight:700}
+.fcard .fa small{font-size:14px;font-weight:600;opacity:.7;margin-top:8px}
+.fcard .fb2{background:#fff;border:1.5px solid var(--divider);transform:rotateY(180deg);font-size:17px}
+.fcard .fb2 b{color:var(--plum)}
+/* formula: one formula, big, with its parts explained underneath */
+.bigf{font-size:46px;font-weight:600;text-align:center;letter-spacing:.01em;margin:10px 0 4px}
+.bigf .p1{color:var(--along)} .bigf .p2{color:var(--up)} .bigf .p3{color:var(--mid)}
+.anno{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:20px}
+.anno>div{border-top:4px solid var(--divider);padding-top:10px;font-size:17px}
+.anno b{display:block;font-size:19px;margin-bottom:2px}
+.anno .p1{border-color:var(--along)} .anno .p1 b{color:var(--along)}
+.anno .p2{border-color:var(--up)} .anno .p2 b{color:var(--up)}
+.anno .p3{border-color:var(--mid)} .anno .p3 b{color:var(--mid)}
+/* zigzag: short rows, picture and words swapping sides */
+.zz{display:flex;flex-direction:column;gap:12px}
+.zz>div{display:grid;grid-template-columns:250px 1fr;gap:26px;align-items:center}
+.zz>div:nth-child(even){grid-template-columns:1fr 250px}
+.zz>div:nth-child(even) svg{order:2}
+.zz svg{display:block;width:100%;height:auto;background:#fafafb;border-radius:8px}
+.zz h3{font-size:20px;margin:0 0 2px;color:var(--plum)}
+.zz p{margin:0;font-size:18px}
+/* define: a word, what it means, an example, a warning, and a picture */
+.defcard{display:grid;grid-template-columns:1.2fr .8fr;gap:34px;align-items:center;border-left:4px solid var(--teal);padding:4px 0 4px 28px;width:100%;max-width:1000px}
+.defcard .term{font-size:40px;font-weight:700;color:var(--plum);line-height:1.1;margin:0 0 14px}
+.defcard dl{margin:0}
+.defcard dt{font-size:14px;font-weight:700;color:var(--muted);letter-spacing:.04em}
+.defcard dd{margin:0 0 14px;font-size:19px}
+/* lab: a big board to play with, and a panel of live numbers */
+.slide.lab{grid-template-columns:1.1fr .9fr}
+.slide.lab>.board{width:100%;max-width:460px;justify-self:center}
+.panel h1{font-size:28px}
+.ro{display:flex;justify-content:space-between;align-items:baseline;padding:8px 0;border-bottom:1px solid var(--divider);font-size:19px}
+.ro b{font-size:22px;color:var(--plum);font-variant-numeric:tabular-nums}
+.ro.al b{color:var(--along)} .ro.up b{color:var(--up)}
+.goal{margin-top:14px;padding:12px 14px;border-radius:10px;background:#f4f3f7;font-weight:600;font-size:18px}
+.goal.done{background:#e3f4f0;color:var(--teal)}
+.goal.done::before{content:"✓ "}
+.panel input[type=range]{width:100%;accent-color:var(--mid);margin:10px 0 4px}
+.hint{font-size:15px;color:var(--muted);margin-top:8px}
+.drag{cursor:grab}
+.drag.held{cursor:grabbing}
+.drag:focus{outline:none;stroke:var(--plum);stroke-width:3}
+
+/* ============ interactions (see LAYOUTS.md) ============ */
+/* sort: tap a card, then tap its group */
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin:8px 0 16px}
+.chip{font:600 18px 'Source Sans 3',sans-serif;background:#fff;border:1.5px solid var(--divider);border-radius:10px;padding:8px 14px;cursor:pointer;color:var(--ink)}
+.chip.sel{border-color:var(--plum);box-shadow:0 0 0 3px rgba(41,33,63,.12)}
+.chip.ok{border-color:var(--teal);color:var(--teal);cursor:default}
+.chip.no{animation:shake .35s}
+@keyframes shake{25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}
+.bins{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px}
+.bin{border:1.5px dashed var(--divider);border-radius:12px;padding:10px 12px;min-height:120px;cursor:pointer}
+.bin h4{margin:0 0 8px;font-size:17px;color:var(--plum)}
+.bin .got{display:flex;flex-direction:column;gap:6px;align-items:flex-start}
+.bin.hot{border-color:var(--plum);background:#faf9fc}
+/* order: tap the steps in the right order */
+.order ol{margin:6px 0 12px;padding-left:24px;min-height:40px}
+.order ol li{font-weight:600;margin:4px 0;animation:rise .3s ease-out}
+/* predict: choose, then watch */
+.predict .opts button:disabled{cursor:default}
+.predict .verdict{margin-top:10px;font-weight:600}
+/* tap: tap a place on the board */
+[data-tap] svg{cursor:crosshair}
+
+@media (max-width:880px){
+  .slide{grid-template-columns:1fr;padding:24px 20px;gap:20px;min-height:0}
+  .cols{grid-template-columns:1fr}
+  .hero .cap,.cards{grid-template-columns:1fr}
+  .slide.split-r>.board{order:0}
+  .slide.worked,.slide.lab{grid-template-columns:1fr}
+  .zz>div,.zz>div:nth-child(even),.defcard{grid-template-columns:1fr}
+  .zz>div:nth-child(even) svg{order:0}
+  .bigf{font-size:30px}
+  h1{font-size:26px}
+  .divider h1{font-size:38px}
+  body{font-size:18px}
+}

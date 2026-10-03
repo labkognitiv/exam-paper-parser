@@ -1,0 +1,959 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chords · Lesson 10</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../../../lesson-ui/slides/deck.css">
+</head>
+<body>
+<header><b>Coordinate Geometry · Lesson 10</b><span><a href="../../m05_l02/slides/index.html" style="color:#fff">← Lesson 9</a> · Chords · <a href="../../m06_l02/slides/index.html" style="color:#fff">Lesson 11 →</a></span></header>
+<div class="progress"><i id="bar"></i></div>
+
+<main>
+<div class="deck">
+
+  <!-- ================= START ================= -->
+  <section class="slide statement" data-board="r0">
+    <div class="head">
+      <p class="step">Where we are</p>
+      <h1>The piece of line inside a circle</h1>
+      <p class="lead">You can already find where a line meets a curve (lesson 5), read a circle's centre and radius (lessons 6 and 7), and find tangents (lessons 8 and 9). This lesson is about the piece of a line that sits <b>inside</b> a circle.</p>
+    </div>
+    <div class="cards">
+      <div><span class="n">Part 1</span><svg viewBox="0 0 240 150"></svg><h3>Find the chord</h3><p>Where a line cuts a circle, and how long the piece inside is.</p></div>
+      <div><span class="n">Parts 2 and 3</span><svg viewBox="0 0 240 150"></svg><h3>Use the centre</h3><p>A right angle from the centre, and Pythagoras.</p></div>
+      <div><span class="n">Part 4</span><svg viewBox="0 0 240 150"></svg><h3>Find the centre</h3><p>Every chord points back to the centre.</p></div>
+    </div>
+  </section>
+
+  <!-- ================= PART 1 ================= -->
+  <section class="slide divider"><div class="dv">
+    <p class="dv-n">Part 1</p><h1>The chord</h1>
+    <p class="dv-line">Where a line crosses a circle, and how long the piece inside is.</p>
+    <p class="dv-map">What a chord is · Finding the two ends · The steps in order · Cut, touch or miss · Flat and upright lines · A line with k in it</p>
+  </div></section>
+
+  <section class="slide define" data-board="d1">
+    <div class="head">
+      <p class="step">A new word</p>
+    </div>
+    <div class="defcard">
+      <div>
+        <p class="term">Chord</p>
+        <dl>
+          <dt>IN PLAIN WORDS</dt><dd>A straight line from one point on a circle to another. A line crosses the circle at two points. The chord is only the piece <b>between</b> them.</dd>
+          <dt>EXAMPLE</dt><dd>The circle (x − 2)² + (y − 1)² = 25 has centre C(2, 1) and radius 5. The line y = 2x − 8 crosses it at A(2, −4) and B(6, 4). AB is a chord.</dd>
+          <dt>WATCH OUT</dt><dd>A chord through the centre is a <b>diameter</b>, the longest chord. A tangent only touches once, so it makes no chord.</dd>
+        </dl>
+      </div>
+      <div class="board"><svg viewBox="0 0 300 330"></svg></div>
+    </div>
+  </section>
+
+  <section class="slide worked" data-board="w1">
+    <div>
+      <p class="step">Worked example · the two ends</p>
+      <h1>Where does y = 2x − 8 cross the circle?</h1>
+      <p class="q-box">The line y = 2x − 8 meets the circle (x − 2)² + (y − 1)² = 25 at A and B. Find A and B.</p>
+      <div class="ws" data-ws="w1" data-open>
+        <ol>
+          <li>Put 2x − 8 in place of y. Then y − 1 becomes 2x − 9:
+            <div class="calc">
+              (x − 2)² + (2x − 9)² = 25
+            </div></li>
+          <li>Multiply out both brackets. Collect everything on one side:
+            <div class="calc">
+              x² − 4x + 4 + 4x² − 36x + 81 = 25
+              5x² − 40x + 60 = 0
+              x² − 8x + 12 = 0
+            </div></li>
+          <li>Factorise: <b>(x − 2)(x − 6) = 0</b>. So x = 2 or x = 6.</li>
+          <li>Put each x back into the <b>line</b> to get its y:
+            <div class="calc">
+              y = 2(2) − 8 = −4
+              y = 2(6) − 8 = 4
+              !A = (2, −4), B = (6, 4)
+            </div></li>
+        </ol>
+        <div class="ws-nav"><button class="btn nxt">Next step</button><button class="btn ghost all">Show all</button></div>
+      </div>
+    </div>
+    <div class="board"><svg viewBox="0 0 380 400"></svg><button class="replay" type="button">↻ Start again</button></div>
+  </section>
+
+  <section class="slide statement">
+    <div class="head">
+      <p class="step">Order · tap the steps in the order you'd do them</p>
+      <h1>How long is the chord?</h1>
+      <p class="lead">A question gives a line and a circle, and asks for the exact length of the chord. Build the method.</p>
+    </div>
+    <div class="turn order" style="text-align:left;width:100%;max-width:760px">
+      <div class="chips">
+        <button class="chip" data-n="4" data-why="You need the x values first. They come from the quadratic.">Put each x into the line to get its y</button>
+        <button class="chip" data-n="1" data-why="">Put the line into the circle's equation</button>
+        <button class="chip" data-n="5" data-why="That is the last step. You need both ends, A and B, first.">Use the distance formula on A and B</button>
+        <button class="chip" data-n="3" data-why="You can't solve it until it is a tidy quadratic equal to 0.">Solve to get the two x values</button>
+        <button class="chip" data-n="2" data-why="Good step, but something comes before it: the line has to go into the circle.">Multiply out and tidy to a quadratic = 0</button>
+      </div>
+      <ol></ol>
+      <div class="fb"></div>
+    </div>
+    <p class="take">For our chord: AB = √(4² + 8²) = √80 = 4√5. Leave the square root in. That is the <b>exact</b> length.</p>
+  </section>
+
+  <section class="slide gallery" data-board="g1">
+    <div class="head">
+      <p class="step">Cut, touch or miss</p>
+      <h1>The quadratic tells you what the line does</h1>
+      <p class="lead">After you substitute, look at <b>b² − 4ac</b>, just like in lesson 5. Same circle each time: centre (2, 1), radius 5.</p>
+    </div>
+    <div class="gal">
+      <figure><div class="board"><svg viewBox="0 0 300 240"></svg></div><figcaption><b>Cuts: two points</b>y = 2x − 8 gives x² − 8x + 12 = 0. b² − 4ac = 64 − 48 = 16. More than 0.</figcaption></figure>
+      <figure><div class="board"><svg viewBox="0 0 300 240"></svg></div><figcaption><b>Touches: one point</b>y = 6 gives x² − 4x + 4 = 0. b² − 4ac = 16 − 16 = 0. A tangent.</figcaption></figure>
+      <figure><div class="board"><svg viewBox="0 0 300 240"></svg></div><figcaption><b>Misses: no points</b>y = x + 8 gives x² + 5x + 14 = 0. b² − 4ac = 25 − 56 = −31. Less than 0.</figcaption></figure>
+    </div>
+  </section>
+
+  <section class="slide table">
+    <div class="head">
+      <p class="step">Flat and upright lines</p>
+      <h1>y = a number, or x = a number, is quicker</h1>
+      <p class="lead">Just put the number into the circle (x − 2)² + (y − 1)² = 25. When you square-root, take <b>both</b> answers: + and −.</p>
+    </div>
+    <table class="big">
+      <tr><th>Line</th><th>Put the number in</th><th>The two ends</th><th>Midpoint</th></tr>
+      <tr><td>y = −2</td><td>(x − 2)² + 9 = 25, so x − 2 = ±4</td><td>(−2, −2) and (6, −2)</td><td>(2, −2)</td></tr>
+      <tr class="hid"><td>y = 5</td><td>(x − 2)² + 16 = 25, so x − 2 = ±3</td><td>(−1, 5) and (5, 5)</td><td>(2, 5)</td></tr>
+      <tr class="hid"><td>x = 5</td><td>9 + (y − 1)² = 25, so y − 1 = ±4</td><td>(5, −3) and (5, 5)</td><td>(5, 1)</td></tr>
+      <tr class="hid"><td>y = 6</td><td>(x − 2)² + 25 = 25, so x − 2 = 0</td><td>Only (2, 6): a tangent</td><td>none</td></tr>
+    </table>
+    <p><button class="btn ghost" data-rows>Show the next row</button> <span class="hint">Try each row in your head first. Look at the midpoints: what do you notice?</span></p>
+    <p class="take">A flat chord's midpoint has the same x as the centre. An upright chord's midpoint has the same y.</p>
+  </section>
+
+  <section class="slide split-r" data-board="k1">
+    <div>
+      <p class="step">Worked example · a line with k in it</p>
+      <h1>For which k does the line cut the circle?</h1>
+      <p class="q-box">The line y = x + k meets the circle x² + y² = 18 at two different points. Find the set of values of k.</p>
+      <div class="ws" data-ws="k1">
+        <p class="try">You met b² − 4ac in lesson 5. Try it first, then show the steps.</p>
+        <ol>
+          <li>Put x + k in place of y, and tidy:
+            <div class="calc">
+              x² + (x + k)² = 18
+              2x² + 2kx + k² − 18 = 0
+            </div></li>
+          <li>Two different points means b² − 4ac &gt; 0. Here a = 2, b = 2k, c = k² − 18:
+            <div class="calc">
+              (2k)² − 4 × 2 × (k² − 18) &gt; 0
+              4k² − 8k² + 144 &gt; 0
+              k² &lt; 36
+            </div></li>
+          <li>k can be anything between −6 and 6:
+            <div class="calc">
+              !−6 &lt; k &lt; 6
+            </div>
+            At k = 6 and k = −6 the line only touches.</li>
+        </ol>
+        <div class="ws-nav"><button class="btn nxt">Next step</button><button class="btn ghost all">Show all</button></div>
+      </div>
+    </div>
+    <div class="board"><svg viewBox="0 0 380 400"></svg><button class="replay" type="button">↻ Start again</button></div>
+  </section>
+
+  <!-- ================= PART 2 ================= -->
+  <section class="slide divider"><div class="dv">
+    <p class="dv-n">Part 2</p><h1>The centre and the chord</h1>
+    <p class="dv-line">One right angle from the centre gives a right-angled triangle. Pythagoras does the rest.</p>
+    <p class="dv-map">Where the line from the centre lands · Drag the chord · The half-chord formula · Length and area · Quick check</p>
+  </div></section>
+
+  <section class="slide" data-board="pr1">
+    <div>
+      <p class="step">Predict · guess, then watch</p>
+      <h1>A line from the centre to the chord</h1>
+      <p>Here is our chord again, from A(2, −4) to B(6, 4). From the centre C(2, 1), draw a line that meets AB at a <b>right angle</b>.</p>
+      <div class="turn predict" data-predict="foot">
+        <div class="q">Where does it land on AB?</div>
+        <div class="opts">
+          <button data-ok data-fb="Yes. CA and CB are both radii, so both are 5. Triangle CAB is like a tent with two equal sides. A line straight down from the top of a tent lands in the middle. So it cuts the chord in half.">Exactly halfway</button>
+          <button data-fb="It lands exactly halfway. CA and CB are both radii, both 5. With two equal sides, the triangle is balanced, so the right angle lands in the middle.">Nearer to A</button>
+          <button data-fb="It lands exactly halfway. CA and CB are both 5, so neither end is special. The right angle lands in the middle.">Nearer to B</button>
+        </div>
+        <div class="verdict"></div>
+      </div>
+    </div>
+    <div class="board"><svg viewBox="0 0 380 400"></svg><button class="replay" type="button">↻ Start again</button></div>
+  </section>
+
+  <section class="slide lab" data-board="lab1">
+    <div class="board"><svg viewBox="0 0 380 400"></svg></div>
+    <div class="panel">
+      <p class="step">Play with it</p>
+      <h1>Drag A round the circle</h1>
+      <p>B stays at (6, 4). Move A to other points on the circle. The purple line leaves the centre at a right angle to the chord.</p>
+      <div class="ro"><span>Gradient AB × gradient CM</span><b data-ro="prod"></b></div>
+      <div class="ro al"><span>AM</span><b data-ro="am"></b></div>
+      <div class="ro al"><span>MB</span><b data-ro="mb"></b></div>
+      <div class="ro up"><span>CM</span><b data-ro="cm"></b></div>
+      <div class="ro"><span>CM² + AM²</span><b data-ro="pyth"></b></div>
+      <div class="goal" data-goal>Goal: make the chord exactly 6 long. How far is M from the centre then?</div>
+      <p class="hint">Mouse, finger, or tab to A and use the arrow keys.</p>
+    </div>
+  </section>
+
+  <section class="slide formula">
+    <div class="head">
+      <p class="step">The formula</p>
+      <h1>Half a chord, from the radius and the distance</h1>
+      <p class="lead">Triangle CMA has a right angle at M. So Pythagoras works: <b>d² + (half-chord)² = r²</b>. Get the half-chord on its own:</p>
+    </div>
+    <div class="bigf">half-chord = <span class="p3">√</span>( <span class="p1">r²</span> − <span class="p2">d²</span> )</div>
+    <div class="anno">
+      <div class="p1"><b>r, the radius</b>From the centre C to an end, A. It is the longest side of the triangle.</div>
+      <div class="p2"><b>d, the distance</b>From C to the chord, at a right angle. It lands on the midpoint M.</div>
+      <div class="p3"><b>Subtract, then root</b>r is the longest side, so take d² away from r².</div>
+      <div><b>Then double it</b>The whole chord is AB = 2√(r² − d²).</div>
+    </div>
+  </section>
+
+  <section class="slide worked" data-board="w2">
+    <div>
+      <p class="step">Worked example · length and area</p>
+      <h1>Chord AB, from the centre</h1>
+      <p class="q-box">M(4, 0) is the midpoint of chord AB. The circle has centre C(2, 1) and radius 5. Find the exact length AB, and the area of triangle CAB.</p>
+      <div class="ws" data-ws="w2" data-open>
+        <ol>
+          <li>d is the distance CM. C to M is 2 along, 1 down:
+            <div class="calc">
+              d = √(2² + 1²) = √5
+            </div></li>
+          <li>The half-chord, from the formula:
+            <div class="calc">
+              AM = √(25 − 5) = √20 = 2√5
+            </div></li>
+          <li>Double it. It matches the distance formula from before ✓
+            <div class="calc">
+              !AB = 2 × 2√5 = 4√5
+            </div></li>
+          <li>Triangle CAB has base AB. Its height is d, the right-angle line CM:
+            <div class="calc">
+              Area = ½ × 4√5 × √5 = ½ × 4 × 5
+              != 10
+            </div></li>
+        </ol>
+        <div class="ws-nav"><button class="btn nxt">Next step</button><button class="btn ghost all">Show all</button></div>
+      </div>
+    </div>
+    <div class="board"><svg viewBox="0 0 380 400"></svg><button class="replay" type="button">↻ Start again</button></div>
+  </section>
+
+  <section class="slide qcard">
+    <div class="head qs">
+      <p class="step">Quick check</p>
+      <h1>Radius, distance, chord</h1>
+    </div>
+    <div class="qs">
+      <div class="turn" data-mcq>
+        <div class="q">1. A circle has radius 7. A chord is 3 from the centre. The chord is…</div>
+        <div class="opts">
+          <button data-ok data-fb="Yes. Half is √(49 − 9) = √40 = 2√10. Double it: 4√10.">4√10</button>
+          <button data-fb="That is the half-chord, √(49 − 9) = 2√10. Double it for the whole chord.">2√10</button>
+          <button data-fb="You added. The radius is the longest side, so subtract: 49 − 9.">2√58</button>
+          <button data-fb="√(49 − 9) is not 7 − 3. Square first, then subtract, then root.">8</button>
+        </div>
+        <div class="fb"></div>
+      </div>
+      <div class="turn" data-mcq>
+        <div class="q">2. A chord 10 long is in a circle of radius 13. How far is the chord from the centre?</div>
+        <div class="opts">
+          <button data-ok data-fb="Yes. Use half the chord, 5: √(169 − 25) = √144 = 12.">12</button>
+          <button data-fb="Use half the chord, 5, not 10. The right angle is at the midpoint: √(169 − 25).">√69</button>
+          <button data-fb="Subtract. 13 is the longest side of the triangle: √(169 − 25).">√194</button>
+        </div>
+        <div class="fb"></div>
+      </div>
+      <div class="turn" data-mcq>
+        <div class="q">3. Same circle and chord. The area of triangle CAB is…</div>
+        <div class="opts">
+          <button data-ok data-fb="Yes. Base 10, height 12: ½ × 10 × 12 = 60.">60</button>
+          <button data-fb="13 is a slanted side, not the height. The height is d = 12: ½ × 10 × 12.">65</button>
+          <button data-fb="Don't forget the ½. A triangle is half of its box: ½ × 10 × 12.">120</button>
+        </div>
+        <div class="fb"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= PART 3 ================= -->
+  <section class="slide divider"><div class="dv">
+    <p class="dv-n">Part 3</p><h1>How far is a point from a line?</h1>
+    <p class="dv-line">A formula that measures straight to a line, at a right angle.</p>
+    <p class="dv-map">The distance formula · Using it · Two ways to get d · Cut, touch or miss, by distance</p>
+  </div></section>
+
+  <section class="slide formula">
+    <div class="head">
+      <p class="step">The formula</p>
+      <h1>The distance from a point to a line</h1>
+      <p class="lead">The shortest way from a point to a line meets the line at a right angle. This formula gives that distance straight away.</p>
+    </div>
+    <div class="bigf">d = <span class="frac"><span><span class="p3">|</span> <span class="p1">a</span><span class="p2">x₀</span> + <span class="p1">b</span><span class="p2">y₀</span> + <span class="p1">c</span> <span class="p3">|</span></span><span>√(<span class="p1">a</span>² + <span class="p1">b</span>²)</span></span></div>
+    <div class="anno">
+      <div class="p1"><b>a, b and c</b>Write the line as ax + by + c = 0 first: everything on one side, 0 on the other.</div>
+      <div class="p2"><b>x₀ and y₀</b>The point, often the centre. Put its numbers in place of x and y.</div>
+      <div class="p3"><b>The bars | |</b>They mean "drop any minus sign". A distance is never negative.</div>
+      <div><b>Underneath</b>Only the two numbers in front of x and y. Square them, add, then root.</div>
+    </div>
+  </section>
+
+  <section class="slide" data-board="p3">
+    <div>
+      <p class="step">Using the formula</p>
+      <h1>How far is C(2, 1) from y = 2x − 8?</h1>
+      <div class="ws" data-ws="p3">
+        <p class="try">Try it first. Then show the steps.</p>
+        <ol>
+          <li>Everything on one side: <b>2x − y − 8 = 0</b>. So a = 2, b = −1, c = −8.</li>
+          <li>Put in x₀ = 2 and y₀ = 1:
+            <div class="calc">
+              d = |4 − 1 − 8| ÷ √(4 + 1)
+              = |−5| ÷ √5 = 5 ÷ √5
+              != √5
+            </div>
+            The same √5 as CM. And 5 ÷ √5 = √5, because √5 × √5 = 5.</li>
+        </ol>
+        <div class="ws-nav"><button class="btn nxt">Next step</button><button class="btn ghost all">Show all</button></div>
+      </div>
+      <div class="turn" data-check="dist">
+        <div class="q">Your turn: how far is (−1, 3) from the line 5x + 12y − 5 = 0?</div>
+        <form autocomplete="off"><label>d =</label><input inputmode="text"><button class="btn">Check</button></form>
+        <div class="fb"></div>
+      </div>
+    </div>
+    <div class="board"><svg viewBox="0 0 380 400"></svg><button class="replay" type="button">↻ Start again</button></div>
+  </section>
+
+  <section class="slide compare">
+    <div class="head">
+      <p class="step">Two ways to get d</p>
+      <h1>How far is the centre C(2, 1) from chord AB?</h1>
+      <p class="lead">A(2, −4) and B(6, 4) are on the line y = 2x − 8.</p>
+    </div>
+    <div class="cols">
+      <div>
+        <h2>Way 1: through the midpoint</h2>
+        <div class="calc">
+          M = ((2 + 6) ÷ 2, (−4 + 4) ÷ 2) = (4, 0)
+          CM = √(2² + 1²)
+          !d = √5
+        </div>
+        <p>Use this when you already know both ends of the chord.</p>
+      </div>
+      <div>
+        <h2>Way 2: the formula</h2>
+        <div class="calc">
+          Line: 2x − y − 8 = 0
+          d = |4 − 1 − 8| ÷ √5
+          !d = √5
+        </div>
+        <p>Use this when you only have the line's equation.</p>
+      </div>
+    </div>
+    <p class="take">Both give √5. Pick the way that needs less work.</p>
+  </section>
+
+  <section class="slide qcard">
+    <div class="head qs">
+      <p class="step">Sort · tap a card, then tap its group</p>
+      <h1>Cut, touch or miss? Compare d with the radius</h1>
+      <p class="lead">The circle is (x − 2)² + (y − 1)² = 25: centre (2, 1), radius 5.</p>
+    </div>
+    <div class="qs turn sort">
+      <div class="chips">
+        <button class="chip" data-g="cut" data-yes="3 is less than 5, so the line gets inside the circle." data-why="d = 3 and r = 5. Is the line closer than the edge?">d = 3</button>
+        <button class="chip" data-g="touch" data-yes="d = r: the line just reaches the edge. It is a tangent." data-why="d is exactly the radius. The line reaches the edge and no further.">d = 5</button>
+        <button class="chip" data-g="miss" data-yes="√30 is about 5.5, more than 5." data-why="√30 is between √25 = 5 and √36 = 6. So it is more than 5.">d = √30</button>
+        <button class="chip" data-g="touch" data-yes="y = 6 is 5 above the centre's y = 1. So d = 5." data-why="How far is y = 6 from the centre's y = 1? That is d.">y = 6</button>
+        <button class="chip" data-g="miss" data-yes="x = 8 is 6 to the right of x = 2. 6 is more than 5." data-why="How far is x = 8 from the centre's x = 2? Compare it with 5.">x = 8</button>
+        <button class="chip" data-g="cut" data-yes="d = √5, about 2.2. Less than 5." data-why="We found d = √5 for this line. √5 is about 2.2.">y = 2x − 8</button>
+        <button class="chip" data-g="cut" data-yes="d = 0. It cuts, and its chord is a diameter." data-why="A line through the centre has d = 0. That is less than 5.">Any line through C</button>
+        <button class="chip" data-g="touch" data-yes="x = −3 is 5 to the left of x = 2." data-why="How far is x = −3 from the centre's x = 2? Count: 5.">x = −3</button>
+      </div>
+      <div class="bins">
+        <div class="bin" data-g="cut"><h4>Cuts: d less than r</h4><div class="got"></div></div>
+        <div class="bin" data-g="touch"><h4>Touches: d = r</h4><div class="got"></div></div>
+        <div class="bin" data-g="miss"><h4>Misses: d more than r</h4><div class="got"></div></div>
+      </div>
+      <div class="fb"></div>
+    </div>
+  </section>
+
+  <!-- ================= PART 4 ================= -->
+  <section class="slide divider"><div class="dv">
+    <p class="dv-n">Part 4</p><h1>Finding the centre</h1>
+    <p class="dv-line">The perpendicular bisector of every chord goes through the centre.</p>
+    <p class="dv-map">Two chords point to the centre · The method · A worked example</p>
+  </div></section>
+
+  <section class="slide hero" data-board="h1">
+    <div class="head">
+      <p class="step">Every chord points to the centre</p>
+      <h1>Two perpendicular bisectors meet at the centre</h1>
+    </div>
+    <div class="board"><svg viewBox="0 0 900 340"></svg><button class="replay" type="button">↻ Watch again</button></div>
+    <div class="cap">
+      <p>The line from C at a right angle to a chord hits its midpoint. So it <b>is</b> the chord's perpendicular bisector (lesson 2).</p>
+      <p>Chord AB: through M(4, 0), gradient −1/2. Chord PQ, from (−1, 5) to (5, 5): the line x = 2. Both go through C.</p>
+      <p>Where two of them cross, you have found the centre.<br><span class="take">The perpendicular bisector of a chord goes through the centre.</span></p>
+    </div>
+  </section>
+
+  <section class="slide steps" data-board="st1">
+    <div class="head">
+      <p class="step">The method</p>
+      <h1>Find the centre from one chord and one line</h1>
+      <p class="lead">A question gives you a chord PQ, and a line that the centre is on.</p>
+    </div>
+    <div class="stepsrow">
+      <div><svg viewBox="0 0 240 170"></svg><h3>Midpoint of the chord</h3><p>Add and halve the ends of PQ.</p></div>
+      <div><svg viewBox="0 0 240 170"></svg><h3>Flip the gradient</h3><p>Gradient of PQ, then flip it and change the sign.</p></div>
+      <div><svg viewBox="0 0 240 170"></svg><h3>The bisector</h3><p>The line through the midpoint with that new gradient.</p></div>
+      <div><svg viewBox="0 0 240 170"></svg><h3>Meet the other line</h3><p>Solve the two lines together. That point is the centre.</p></div>
+    </div>
+    <p class="take">Then the radius is the distance from the centre to P, or to Q.</p>
+  </section>
+
+  <section class="slide worked" data-board="w3">
+    <div>
+      <p class="step">Worked example · your go first</p>
+      <h1>P(−3, 5) and Q(3, 7) are the ends of a chord</h1>
+      <p class="q-box">The centre of the circle lies on the line y = 2x + 1. Find the centre, and the equation of the circle.</p>
+      <div class="ws" data-ws="w3">
+        <p class="try">Try it on paper first. Then show the steps one at a time.</p>
+        <ol>
+          <li>Midpoint of PQ is <b>(0, 6)</b>. Gradient of PQ is <b>2 ÷ 6 = 1/3</b>.</li>
+          <li>Flip and change the sign: −3. The bisector goes through (0, 6):
+            <div class="calc">
+              y − 6 = −3(x − 0)
+              y = −3x + 6
+            </div></li>
+          <li>The centre is on both lines:
+            <div class="calc">
+              −3x + 6 = 2x + 1
+              5 = 5x
+              x = 1, y = 3
+            </div></li>
+          <li>r² is the distance from (1, 3) to P, squared:
+            <div class="calc">
+              r² = 4² + 2² = 20
+              !(x − 1)² + (y − 3)² = 20
+            </div>
+            Check with Q: <b>2² + 4² = 20</b> ✓</li>
+        </ol>
+        <div class="ws-nav"><button class="btn nxt">Next step</button><button class="btn ghost all">Show all</button></div>
+      </div>
+    </div>
+    <div class="board"><svg viewBox="0 0 380 400"></svg><button class="replay" type="button">↻ Start again</button></div>
+  </section>
+
+  <!-- ================= PART 5 ================= -->
+  <section class="slide divider"><div class="dv">
+    <p class="dv-n">Part 5</p><h1>A full exam question</h1>
+    <p class="dv-line">Four parts, one part per slide. Try each on paper before you reveal it.</p>
+    <p class="dv-map">(a) Centre and radius · (b) A and B · (c) A right angle · (d) Length and area</p>
+  </div></section>
+
+  <section class="slide statement">
+    <div class="head">
+      <p class="step">Exam-style question · 12 marks</p>
+      <h1>A chord of a circle</h1>
+      <p class="lead">The circle x² + y² − 6x + 4y + 3 = 0 has centre C. The line x + 2y = 4 meets the circle at A and B.</p>
+    </div>
+    <div class="paper">
+      <p><span>(a) Find the coordinates of C and the radius of the circle.</span><span class="marks">[3]</span></p>
+      <p><span>(b) Find the coordinates of A and B.</span><span class="marks">[4]</span></p>
+      <p><span>(c) M is the midpoint of AB. Show that CM is perpendicular to AB.</span><span class="marks">[2]</span></p>
+      <p><span>(d) Find the exact length of AB, and the area of triangle CAB.</span><span class="marks">[3]</span></p>
+    </div>
+    <p class="take">Get a pen. Do all four parts on paper, then go to the next slide.</p>
+  </section>
+
+  <section class="slide" data-board="xa">
+    <div>
+      <p class="step">Part (a) · 3 marks</p>
+      <h1>The centre and the radius</h1>
+      <div class="ws" data-ws="xa">
+        <p class="try">Complete the square, as in lesson 7. Try it first.</p>
+        <ol>
+          <li>Group the x terms and the y terms:
+            <div class="calc">
+              x² − 6x + y² + 4y + 3 = 0
+            </div></li>
+          <li>Complete the square on each:
+            <div class="calc">
+              (x − 3)² − 9 + (y + 2)² − 4 + 3 = 0
+              (x − 3)² + (y + 2)² = 10
+            </div></li>
+          <li>Read off the centre and radius:
+            <div class="calc">
+              !C = (3, −2), r = √10
+            </div></li>
+        </ol>
+        <div class="ws-nav"><button class="btn nxt">Next step</button><button class="btn ghost all">Show all</button></div>
+      </div>
+    </div>
+    <div class="board"><svg viewBox="0 0 380 380"></svg><button class="replay" type="button">↻ Start again</button></div>
+  </section>
+
+  <section class="slide worked" data-board="xb">
+    <div>
+      <p class="step">Part (b) · 4 marks</p>
+      <h1>Find A and B</h1>
+      <div class="ws" data-ws="xb">
+        <p class="try">Tip: getting x on its own, x = 4 − 2y, avoids fractions. Try it first.</p>
+        <ol>
+          <li>Put 4 − 2y in place of x. Then x − 3 becomes 1 − 2y:
+            <div class="calc">
+              (1 − 2y)² + (y + 2)² = 10
+            </div></li>
+          <li>Multiply out and tidy:
+            <div class="calc">
+              1 − 4y + 4y² + y² + 4y + 4 = 10
+              5y² = 5
+              y = 1 or y = −1
+            </div></li>
+          <li>Put each y into x = 4 − 2y:
+            <div class="calc">
+              x = 4 − 2(1) = 2
+              x = 4 − 2(−1) = 6
+              !A = (2, 1), B = (6, −1)
+            </div></li>
+        </ol>
+        <div class="ws-nav"><button class="btn nxt">Next step</button><button class="btn ghost all">Show all</button></div>
+      </div>
+    </div>
+    <div class="board"><svg viewBox="0 0 380 380"></svg><button class="replay" type="button">↻ Start again</button></div>
+  </section>
+
+  <section class="slide split-r" data-board="xc">
+    <div>
+      <p class="step">Part (c) · 2 marks</p>
+      <h1>Show that CM is perpendicular to AB</h1>
+      <div class="ws" data-ws="xc">
+        <p class="try">"Show that" means: work out both gradients and multiply. Try it first.</p>
+        <ol>
+          <li>Midpoint of A(2, 1) and B(6, −1): <b>M = (4, 0)</b>.</li>
+          <li>Up ÷ along for each line:
+            <div class="calc">
+              Gradient of AB = −2 ÷ 4 = −1/2
+              Gradient of CM = 2 ÷ 1 = 2
+            </div></li>
+          <li>Multiply them:
+            <div class="calc">
+              !−1/2 × 2 = −1
+            </div>
+            So CM is perpendicular to AB.</li>
+        </ol>
+        <div class="ws-nav"><button class="btn nxt">Next step</button><button class="btn ghost all">Show all</button></div>
+      </div>
+    </div>
+    <div class="board"><svg viewBox="0 0 380 380"></svg><button class="replay" type="button">↻ Start again</button></div>
+  </section>
+
+  <section class="slide worked" data-board="xd">
+    <div>
+      <p class="step">Part (d) · 3 marks</p>
+      <h1>The length of AB, and the area</h1>
+      <div class="ws" data-ws="xd">
+        <p class="try">"Exact" means keep the square roots. Which length is the height? Try it first.</p>
+        <ol>
+          <li>A to B is 4 along, 2 down:
+            <div class="calc">
+              AB = √(4² + 2²) = √20
+              != 2√5
+            </div></li>
+          <li>The height is CM, from C(3, −2) to M(4, 0):
+            <div class="calc">
+              d = √(1² + 2²) = √5
+            </div></li>
+          <li>Half of base times height:
+            <div class="calc">
+              Area = ½ × 2√5 × √5 = ½ × 2 × 5
+              != 5
+            </div>
+            Check: √(r² − d²) = √(10 − 5) = √5, half of 2√5 ✓</li>
+        </ol>
+        <div class="ws-nav"><button class="btn nxt">Next step</button><button class="btn ghost all">Show all</button></div>
+      </div>
+    </div>
+    <div class="board"><svg viewBox="0 0 380 380"></svg><button class="replay" type="button">↻ Start again</button></div>
+  </section>
+
+  <!-- ================= PART 6 ================= -->
+  <section class="slide divider"><div class="dv">
+    <p class="dv-n">Part 6</p><h1>Before you practise</h1>
+    <p class="dv-line">The slips that cost marks, and everything on one page.</p>
+    <p class="dv-map">Common mistakes · Summary</p>
+  </div></section>
+
+  <section class="slide wide mis">
+    <div>
+      <p class="step">Common mistakes</p>
+      <h1>Six slips that cost marks</h1>
+      <div class="cols">
+        <div><h3>The whole chord in Pythagoras</h3><p class="x">✗ d² + AB² = r²</p><p class="ok">✓ The right angle is at the midpoint: d² + (½AB)² = r²</p></div>
+        <div><h3>Mixing up the ends</h3><p class="x">✗ x = 2 goes with y = 4, so (2, 4)</p><p class="ok">✓ Put each x into the line: (2, −4) and (6, 4)</p></div>
+        <div><h3>Only one square root</h3><p class="x">✗ (x − 2)² = 16, so x = 6</p><p class="ok">✓ x − 2 = 4 or −4, so x = 6 or x = −2</p></div>
+        <div><h3>The wrong sign for c</h3><p class="x">✗ 2x − y = 8, so c = 8</p><p class="ok">✓ Make it 2x − y − 8 = 0 first: c = −8</p></div>
+        <div><h3>The radius as the height</h3><p class="x">✗ Area of CAB = ½ × AB × r</p><p class="ok">✓ The height meets AB at 90°: ½ × AB × d</p></div>
+        <div><h3>≥ for two points</h3><p class="x">✗ Two points: b² − 4ac ≥ 0</p><p class="ok">✓ Two different points: b² − 4ac &gt; 0. Equal to 0 is a tangent</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide wide sum">
+    <div>
+      <p class="step">Summary</p>
+      <h1>Everything on one page</h1>
+      <div class="cols">
+        <div>
+          <h2>Facts to use</h2>
+          <table>
+            <tr><td>Chord</td><td>A straight line from one point on a circle to another</td></tr>
+            <tr><td>From the centre</td><td>The line at a right angle to a chord lands on its midpoint</td></tr>
+            <tr><td>Half-chord</td><td>√(r² − d²). The whole chord is double that</td></tr>
+            <tr><td>Point to line</td><td>d = |ax₀ + by₀ + c| ÷ √(a² + b²), with the line as ax + by + c = 0</td></tr>
+            <tr><td>Triangle CAB</td><td>Area = ½ × AB × d</td></tr>
+          </table>
+        </div>
+        <div>
+          <h2>Methods</h2>
+          <ol>
+            <li><b>The ends of a chord:</b> put the line into the circle, solve the quadratic, then put each x into the line.</li>
+            <li><b>Cut, touch or miss:</b> b² − 4ac more than, equal to, or less than 0. Or compare d with r.</li>
+            <li><b>Find the centre:</b> the perpendicular bisector of a chord goes through it. Meet it with a second line.</li>
+          </ol>
+          <p class="take" style="margin-top:10px">Next: Lesson 11, two circles at once.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+</main>
+
+<nav>
+  <button id="prev" aria-label="Previous slide">&#8592;</button>
+  <span id="count"></span>
+  <button id="next" aria-label="Next slide">&#8594;</button>
+</nav>
+
+<script src="../../../../lesson-ui/slides/engine.js"></script>
+<script>
+/* ============ the running circle: centre C(2, 1), radius 5; chord A(2, −4) to B(6, 4) on y = 2x − 8 ============ */
+const CC = [2, 1], R5 = 5, A0 = [2, -4], B0 = [6, 4], M0 = [4, 0];
+const chordLine = x => 2 * x - 8;
+
+const icon = (svg, xr, yr, m = 12) => new Board(svg, xr, yr, { small: true, center: true, margin: { l: m, r: m + 2, t: m, b: m } });
+/* a solid circle: an SVG arc path handed to board.path */
+const circD = (b, cx, cy, r) => { const R = r * b.U, X = b.X(cx), Y = b.Y(cy); return `M${X + R} ${Y}A${R} ${R} 0 1 0 ${X - R} ${Y}A${R} ${R} 0 1 0 ${X + R} ${Y}`; };
+const circ = (b, cx, cy, r, color = C.plum, ms = 900, w = 3.5, dash) => b.path(circD(b, cx, cy, r), color, ms, w, dash);
+const pd = (b, pts, close = true) => "M" + pts.map(([x, y]) => `${b.X(x).toFixed(1)} ${b.Y(y).toFixed(1)}`).join("L") + (close ? "Z" : "");
+const shade = (b, pts, color = C.mid, op = 0.14) => { const p = b.el("path", { d: pd(b, pts), fill: color, opacity: op, stroke: "none" }); b.svg.insertBefore(p, b.svg.querySelector("path.ink, circle") || null); return p; };
+const tick = (b, a, c, color = C.up) => {           // a small equal-length mark across the middle of segment ac
+  const mx = (a[0] + c[0]) / 2, my = (a[1] + c[1]) / 2, dx = c[1] - a[1], dy = -(c[0] - a[0]), L = Math.hypot(dx, dy) * b.U / 8;
+  b.el("path", { d: `M${b.X(mx) - dx / L} ${b.Y(my) + dy / L}L${b.X(mx) + dx / L} ${b.Y(my) - dy / L}`, stroke: color, "stroke-width": 2.5 });
+};
+const setRo = (root, k, v) => { const n = root.querySelector(`[data-ro="${k}"]`); if (n) n.textContent = v; };
+const goal = (root, done) => root.querySelector("[data-goal]").classList.toggle("done", done);
+/* √n ÷ 2 in simplest form, n a whole number */
+const halfSurd = n => {
+  let k = 1, m = n;
+  for (let f = Math.floor(Math.sqrt(n)); f > 1; f--) if (m % (f * f) === 0) { k = f; m = n / (f * f); break; }
+  if (k % 2 === 0) { const q = k / 2; return m === 1 ? `${q}` : `${q === 1 ? "" : q}√${m}`; }
+  return m === 1 ? `${k}/2` : `${k === 1 ? "" : k}√${m} ÷ 2`;
+};
+
+/* the 12 whole-number points on the running circle, in order round it */
+const LATTICE = [[5, 0], [4, 3], [3, 4], [0, 5], [-3, 4], [-4, 3], [-5, 0], [-4, -3], [-3, -4], [0, -5], [3, -4], [4, -3]]
+  .map(([u, v]) => [CC[0] + u, CC[1] + v]);
+const ang = ([x, y]) => Math.atan2(y - CC[1], x - CC[0]);
+/* live redraw without the per-shape tick-tidy (slow with circles on the board); tidy once, when the dragging pauses */
+const redrawOnce = (b, g, fn) => {
+  const t = b.tidy; b.tidy = () => {};
+  try { b.redraw(g, fn); } finally { b.tidy = t; }
+  clearTimeout(b._tidyLater); b._tidyLater = setTimeout(() => b.tidy(), 120);
+};
+
+const scenes = {
+  async r0(root) {
+    const [a, b, c] = [...root.querySelectorAll("svg")].map(v => icon(v, [-4, 8], [-5, 7]));
+    circ(a, 2, 1, 5, C.plum, 700, 2.5); a.fn(chordLine, C.faint, 500, 2, "5 4"); a.seg(...A0, ...B0, C.mid, 600, 4); a.dot(...A0); a.dot(...B0);
+    circ(b, 2, 1, 5, C.plum, 700, 2.5); b.seg(...A0, ...B0, C.mid, 600, 3.5); b.seg(...CC, ...M0, C.up, 500, 3); b.dot(...CC, null, 0, 0, C.ink); b.square(4, 0, [-2, 1], [1, 2]);
+    circ(c, 2, 1, 5, C.plum, 700, 2.5); c.seg(...A0, ...B0, C.mid, 500, 3); c.seg(-1, 5, 5, 5, C.mid, 500, 3);
+    c.fn(x => -x / 2 + 2, C.along, 600, 2, "5 4", -3, 8); c.seg(2, -4.5, 2, 6.5, C.along, 600, 2, "5 4"); c.dot(...CC, null, 0, 0, C.up);
+  },
+
+  async d1(root, ok) {
+    const b = icon(root.querySelector("svg"), [-4, 8], [-5, 7], 18); root._b = b;
+    await circ(b, 2, 1, 5, C.plum, 800, 3); if (!ok()) return;
+    b.dot(...CC, "C", -10, 20, C.ink, "end");
+    await b.fn(chordLine, C.faint, 500, 2.5, "6 5"); if (!ok()) return;
+    await b.seg(...A0, ...B0, C.mid, 600, 5); if (!ok()) return;
+    b.dot(...A0, "A", 8, 26, C.mid); b.dot(...B0, "B", 14, 10, C.mid);
+  },
+
+  async w1(root, ok) {
+    const b = B(root, [-4, 8], [-5, 7]);
+    await circ(b, 2, 1, 5, C.plum, 800, 3); if (!ok()) return;
+    b.dot(...CC, "C(2, 1)", -10, -12, C.ink, "end");
+  },
+
+  async g1(root, ok) {
+    const bs = [...root.querySelectorAll("svg")].map(v => icon(v, [-5, 9], [-5, 8]));
+    for (const b of bs) b.dot(...CC, null, 0, 0, C.ink);
+    for (const b of bs) { circ(b, 2, 1, 5, C.plum, 600, 3); }
+    await wait(500); if (!ok()) return;
+    await bs[0].fn(chordLine, C.mid, 600, 3); if (!ok()) return;
+    bs[0].dot(...A0, null, 0, 0, C.mid); bs[0].dot(...B0, null, 0, 0, C.mid);
+    await bs[1].fn(() => 6, C.mid, 600, 3); if (!ok()) return;
+    bs[1].dot(2, 6, null, 0, 0, C.mid);
+    await bs[2].fn(x => x + 8, C.mid, 600, 3); if (!ok()) return;
+  },
+
+  k1(root) {          // try-first slide: set up without waiting, so "Show all" can't cut it short
+    const b = B(root, [-6, 6], [-6, 6]);
+    circ(b, 0, 0, Math.sqrt(18), C.plum, 800, 3);
+    b.text(-5.6, -5.6, "x² + y² = 18", C.plum, 17, "start", 0, 0);
+  },
+
+  pr1(root) {          // predict slide: set up without waiting, so an early answer can't cut it short
+    const b = B(root, [-4, 8], [-5, 7]);
+    circ(b, 2, 1, 5, C.plum, 800, 3);
+    b.dot(...CC, "C", -10, -8, C.ink, "end");
+    b.seg(...A0, ...B0, C.mid, 600, 4);
+    b.dot(...A0, "A", 8, 26, C.mid); b.dot(...B0, "B", 14, 10, C.mid);
+  },
+
+  /* explore: drag A round the circle; B stays put */
+  async lab1(root) {
+    const b = B(root, [-4, 8], [-5, 7]);
+    circ(b, 2, 1, 5, C.plum, 1, 3);
+    b.dot(...CC, "C", -8, -8, C.ink, "end");
+    b.dot(...B0, null, 0, 0, C.plum);
+    const live = b.layer();
+    let cur = [-3, 1];
+    const others = LATTICE.filter(p => !(p[0] === B0[0] && p[1] === B0[1]));
+    // keep A on the circle's whole-number points; arrow keys step to the next point round
+    const limit = (x, y) => {
+      if (Number.isInteger(x) && Number.isInteger(y) && Math.abs(x - cur[0]) + Math.abs(y - cur[1]) === 1) {
+        const i = others.findIndex(p => p[0] === cur[0] && p[1] === cur[1]);
+        const turn = (cur[0] - CC[0]) * (y - cur[1]) - (cur[1] - CC[1]) * (x - cur[0]);   // + means anticlockwise
+        return others[(i + (turn >= 0 ? 1 : others.length - 1)) % others.length];
+      }
+      const a = Math.atan2(y - CC[1], x - CC[0]);
+      let best = others[0], bd = 9;
+      for (const p of others) { let d = Math.abs(ang(p) - a); d = Math.min(d, 2 * Math.PI - d); if (d < bd) { bd = d; best = p; } }
+      return best;
+    };
+    const update = (x, y) => {
+      cur = [x, y];
+      const mx = (x + B0[0]) / 2, my = (y + B0[1]) / 2, ab2 = (B0[0] - x) ** 2 + (B0[1] - y) ** 2;
+      const s2 = (2 * mx - 2 * CC[0]) ** 2 + (2 * my - 2 * CC[1]) ** 2;          // (2·CM)², a whole number
+      redrawOnce(b, live, g => {
+        g.seg(x, y, ...B0, C.plum, 0, 4);
+        if (s2) { g.seg(...CC, mx, my, C.mid, 0, 3); g.square(mx, my, [B0[0] - x, B0[1] - y], [CC[0] - mx, CC[1] - my]); }
+        tick(g, [x, y], [mx, my]); tick(g, [mx, my], B0);
+        g.dot(mx, my, null, 0, 0, C.mid);
+        const out = [x - CC[0], y - CC[1]], L = Math.hypot(...out);   // A's label goes straight out from the centre
+        g.text(x + out[0] / L * 0.9, y + out[1] / L * 0.9, "A", C.mid, 20, "middle", 0, 7);
+        g.text(B0[0] + 0.72, B0[1] + 0.54, "B", C.plum, 20, "middle", 0, 7);
+        if (s2) {
+          const lu = Math.hypot(mx - CC[0], my - CC[1]), lw = Math.hypot(B0[0] - x, B0[1] - y);
+          const ux = (mx - CC[0]) / lu, uy = (my - CC[1]) / lu, wx = (B0[0] - x) / lw, wy = (B0[1] - y) / lw;
+          // three free corners round M (the fourth holds the right-angle mark): take the one furthest from the other labels
+          const labels = [[CC[0] - 0.4, CC[1] + 0.4], [x + out[0] / L * 0.9, y + out[1] / L * 0.9], [B0[0] + 0.72, B0[1] + 0.54]];
+          let best = null, bd = -1;
+          for (const [ex, ey] of [[-ux - wx, -uy - wy], [ux - wx, uy - wy], [ux + wx, uy + wy]]) {
+            const le = Math.hypot(ex, ey), px = mx + 0.8 * ex / le, py = my + 0.8 * ey / le;
+            const d = Math.min(...labels.map(([lx, ly]) => Math.hypot(px - lx, py - ly)));
+            if (d > bd) { bd = d; best = [ex / le, ey / le]; }
+          }
+          g.text(mx, my, "M", C.mid, 18, "middle", 22 * best[0], -22 * best[1] + 6);
+        } else g.text(mx, my, "M", C.mid, 18, "middle", 0, -12);
+      });
+      const dx = B0[0] - x, dy = B0[1] - y, cx = mx - CC[0], cy = my - CC[1];
+      if (!s2) setRo(root, "prod", "diameter: no CM");
+      else if (dx === 0) setRo(root, "prod", "upright × flat: 90°");
+      else if (dy === 0) setRo(root, "prod", "flat × upright: 90°");
+      else setRo(root, "prod", `${frac(dy, dx)} × ${frac(cy * 2, cx * 2)} = ${frac(dy * cy * 2, dx * cx * 2)}`);
+      setRo(root, "am", halfSurd(ab2)); setRo(root, "mb", halfSurd(ab2));
+      setRo(root, "cm", s2 ? halfSurd(s2) : "0");
+      setRo(root, "pyth", `${frac(s2, 4)} + ${frac(ab2, 4)} = ${frac(s2 + ab2, 4)}`);
+      goal(root, ab2 === 36);
+    };
+    b.drag(...cur, { onMove: update, limit });
+    update(...cur);
+  },
+
+  async w2(root, ok) {
+    const b = B(root, [-4, 8], [-5, 7]);
+    await circ(b, 2, 1, 5, C.plum, 800, 3); if (!ok()) return;
+    b.dot(...CC, "C", -10, -8, C.ink, "end");
+    await b.seg(...A0, ...B0, C.plum, 600, 4); if (!ok()) return;
+    b.dot(...A0, "A", 8, 26, C.plum); b.dot(...B0, "B", 14, 10, C.plum);
+    b.dot(...M0, "M", 14, 16, C.mid);
+  },
+
+  p3(root) {          // try-first slide: set up without waiting, so "Show all" can't cut it short
+    const b = B(root, [-4, 8], [-5, 7]);
+    b.dot(...CC, "C(2, 1)", -10, -10, C.ink, "end");
+    b.fn(chordLine, C.plum, 800, 3.5);
+    b.text(6.4, 4.8, "y = 2x − 8", C.plum, 17, "end", -10, 0);
+  },
+
+  async h1(root, ok) {
+    const b = new Board(root.querySelector("svg"), [-8, 12], [-5, 7], { center: true }); root._b = b;
+    await circ(b, 2, 1, 5, C.faint, 700, 2.5); if (!ok()) return;
+    await b.seg(...A0, ...B0, C.plum, 500, 4); if (!ok()) return;
+    b.dot(...A0, "A", 8, 26, C.plum); b.dot(...B0, "B", 14, 10, C.plum);
+    b.dot(...M0, null, 0, 0, C.mid); b.square(4, 0, [2, 4], [-2, 1]);
+    await b.fn(x => -x / 2 + 2, C.mid, 900, 2.5, "7 6", -4, 12); if (!ok()) return;
+    b.text(8.5, -1.2, "y = −½x + 2", C.mid, 17, "start", 0, 0);
+    await wait(300); if (!ok()) return;
+    await b.seg(-1, 5, 5, 5, C.plum, 500, 4); if (!ok()) return;
+    b.dot(-1, 5, "P", -12, 6, C.plum, "end"); b.dot(5, 5, "Q", 12, 6, C.plum);
+    b.dot(2, 5, null, 0, 0, C.along); b.square(2, 5, [1, 0], [0, -1]);
+    await b.seg(2, 6.6, 2, -4.6, C.along, 800, 2.5, "7 6"); if (!ok()) return;
+    b.text(2, 6.6, "x = 2", C.along, 17, "start", 8, 4);
+    await wait(300); if (!ok()) return;
+    await circ(b, 2, 1, 5, C.plum, 900, 3); if (!ok()) return;
+    b.dot(...CC, "C(2, 1)", -12, 22, C.up, "end");
+  },
+
+  async st1(root) {
+    const bs = [...root.querySelectorAll("svg")].map(v => icon(v, [-5, 6], [-1, 9]));
+    const P = [-3, 5], Q = [3, 7];
+    for (const g of bs) { g.seg(...P, ...Q, C.plum, 400, 3); g.dot(...P); g.dot(...Q); }
+    bs[0].dot(0, 6, null, 0, 0, C.mid);
+    bs[1].seg(-3, 5, 3, 5, C.along, 400, 3); bs[1].seg(3, 5, 3, 7, C.up, 400, 3);
+    bs[2].dot(0, 6, null, 0, 0, C.mid); bs[2].fn(x => -3 * x + 6, C.mid, 500, 3); bs[2].square(0, 6, [3, 1], [1, -3]);
+    bs[3].fn(x => -3 * x + 6, C.mid, 500, 3); bs[3].fn(x => 2 * x + 1, C.along, 500, 3); bs[3].dot(1, 3, null, 0, 0, C.up);
+  },
+
+  w3(root) {          // try-first slide: set up without waiting, so "Show all" can't cut it short
+    const b = B(root, [-5, 6], [-3, 9]);
+    b.dot(-3, 5, "P", -8, -10, C.plum, "end"); b.dot(3, 7, "Q", 12, -8, C.plum, "start");
+    b.seg(-3, 5, 3, 7, C.plum, 600, 3.5);
+    b.fn(x => 2 * x + 1, C.along, 700, 2.5, "7 6");
+    b.text(-1.6, -1.2, "y = 2x + 1", C.along, 17, "end", -8, 0);
+  },
+
+  /* exam question: circle centre (3, −2), radius √10; line x + 2y = 4 */
+  xa(root) {          // try-first slide: set up without waiting, so "Show all" can't cut it short
+    const b = B(root, [-1, 8], [-6, 3]);
+    b.fn(x => (4 - x) / 2, C.faint, 700, 2.5, "7 6");
+    b.text(5.2, 1.6, "x + 2y = 4", C.muted, 16, "start", 0, 0, 600);
+  },
+  xb(root) {          // try-first slide: set up without waiting, so "Show all" can't cut it short
+    const b = B(root, [-1, 8], [-6, 3]);
+    circ(b, 3, -2, Math.sqrt(10), C.plum, 800, 3);
+    b.dot(3, -2, "C(3, −2)", 0, 26, C.ink, "middle");
+    b.fn(x => (4 - x) / 2, C.faint, 700, 2.5, "7 6");
+  },
+  xc(root) {          // try-first slide: set up without waiting, so "Show all" can't cut it short
+    const b = B(root, [-1, 8], [-6, 3]);
+    circ(b, 3, -2, Math.sqrt(10), C.plum, 800, 3);
+    b.dot(3, -2, "C", -10, 20, C.ink, "end");
+    b.seg(2, 1, 6, -1, C.plum, 600, 4);
+    b.dot(2, 1, "A(2, 1)", 6, -14, C.plum); b.dot(6, -1, "B(6, −1)", 12, -10, C.plum);
+  },
+  xd(root) {          // try-first slide: set up without waiting, so "Show all" can't cut it short
+    const b = B(root, [-1, 8], [-6, 3]);
+    circ(b, 3, -2, Math.sqrt(10), C.plum, 800, 3);
+    b.dot(3, -2, "C", -10, 20, C.ink, "end");
+    b.dot(2, 1, "A", 6, -14, C.plum); b.dot(6, -1, "B", 12, -10, C.plum);
+    b.dot(4, 0, "M", 5, 28, C.mid, "middle");
+  },
+};
+
+/* ============ step-by-step actions on the board (index = step) ============ */
+const acts = {
+  w1: [
+    async b => { await b.fn(chordLine, C.mid, 800, 3); b.text(6.9, 6.6, "y = 2x − 8", C.mid, 17, "end", -6, 0); },
+    null,
+    async b => { await b.seg(2, 0, 2, -4, C.faint, 400, 2, "5 4"); await b.seg(6, 0, 6, 4, C.faint, 400, 2, "5 4"); },
+    async b => { b.dot(...A0); b.text(...A0, "A(2, −4)", C.plum, 18, "end", -14, 16); b.dot(...B0); b.text(...B0, "B(6, 4)", C.plum, 18, "start", 12, -2); await b.seg(...A0, ...B0, C.plum, 600, 5); },
+  ],
+  k1: [
+    async b => { await b.fn(x => x + 2, C.mid, 700, 3); b.text(-5.4, -3.4, "k = 2: cuts", C.mid, 16, "start", 0, 18); },
+    async b => {
+      await b.fn(x => x + 6, C.up, 600, 3); b.dot(-3, 3, null, 0, 0, C.up); b.text(-5.2, 1.2, "k = 6", C.up, 16, "end", -8, 0);
+      await b.fn(x => x - 6, C.up, 600, 3); b.dot(3, -3, null, 0, 0, C.up); b.text(4.0, -5.4, "k = −6", C.up, 16, "start", 0, 0);
+    },
+    async b => { b.text(-5.6, 5.4, "−6 < k < 6", C.plum, 20, "start", 0, 0); },
+  ],
+  w2: [
+    async b => { await b.seg(...CC, ...M0, C.up, 500, 3.5); b.square(4, 0, [2, 4], [-2, 1]); b.text(3, 0.5, "√5", C.up, 18, "end", -8, 20); },
+    async b => { await b.seg(...M0, ...B0, C.along, 500, 5); b.text(5, 2, "2√5", C.along, 18, "start", 12, 8); },
+    async b => { await b.seg(...A0, ...M0, C.along, 500, 5); b.text(3, -2, "2√5", C.along, 18, "start", 12, 8); },
+    async b => { shade(b, [CC, A0, B0], C.mid, 0.18); b.text(4.2, 1.8, "10", C.plum, 24, "middle", 0, 8); },
+  ],
+  p3: [
+    null,
+    async b => { await b.seg(...CC, ...M0, C.up, 600, 3.5); b.square(4, 0, [2, 4], [-2, 1]); b.text(3, 0.5, "d = √5", C.up, 18, "end", -8, 22); },
+  ],
+  w3: [
+    async b => { b.dot(0, 6, "M", 10, 22, C.mid); },
+    async b => { await b.fn(x => -3 * x + 6, C.mid, 700, 2.5); b.square(0, 6, [3, 1], [1, -3]); },
+    async b => { b.dot(1, 3, "(1, 3)", 12, 8, C.up); },
+    async b => { await circ(b, 1, 3, Math.sqrt(20), C.plum, 900, 3); },
+  ],
+  xa: [
+    null, null,
+    async b => { b.dot(3, -2, "C(3, −2)", 0, 26, C.ink, "middle"); await circ(b, 3, -2, Math.sqrt(10), C.plum, 900, 3); await b.seg(3, -2, 3 - Math.sqrt(10), -2, C.up, 400, 2.5); b.text(1.4, -2, "√10", C.up, 17, "middle", 0, -10); },
+  ],
+  xb: [
+    null, null,
+    async b => { b.dot(2, 1, "A(2, 1)", 6, -14, C.plum); b.dot(6, -1, "B(6, −1)", 12, -10, C.plum); await b.seg(2, 1, 6, -1, C.plum, 600, 4.5); },
+  ],
+  xc: [
+    async b => { b.dot(4, 0, "M", 5, 28, C.mid, "middle"); },
+    async b => { await b.seg(3, -2, 4, 0, C.mid, 500, 3.5); },
+    async b => { b.square(4, 0, [2, -1], [-1, -2]); },
+  ],
+  xd: [
+    async b => { await b.seg(2, 1, 6, -1, C.along, 600, 5); b.text(4, 0, "2√5", C.along, 18, "middle", 0, -12); },
+    async b => { await b.seg(3, -2, 4, 0, C.up, 500, 4); b.square(4, 0, [2, -1], [-1, -2]); b.text(3.5, -1, "√5", C.up, 18, "end", -10, 6); },
+    async b => { shade(b, [[3, -2], [2, 1], [6, -1]], C.mid, 0.18); b.text(3.2, -4.3, "area 5", C.plum, 20, "middle", 0, 0); },
+  ],
+};
+const reveals = {};
+
+predicts.foot = async b => {
+  await b.seg(...CC, ...A0, C.along, 500, 3); b.text(1.8, -1.5, "5", C.along, 19, "end", -8, 0);
+  await b.seg(...CC, ...B0, C.along, 500, 3); b.text(4, 2.6, "5", C.along, 19, "end", -6, -8);
+  await b.seg(...CC, ...M0, C.up, 600, 3.5); b.square(4, 0, [2, 4], [-2, 1]);
+  b.dot(...M0, "M", 14, 18, C.up);
+  tick(b, A0, M0); tick(b, M0, B0);
+};
+
+/* ============ answer checking with feedback on the usual slips ============ */
+const checks = {
+  dist: ([a]) => eq(a, 2) ? [true, "Yes. |−5 + 36 − 5| = 26, and √(25 + 144) = 13. So d = 26 ÷ 13 = 2."]
+    : eq(a, 26) ? [false, "That's the top. Now divide by √(5² + 12²) = 13."]
+    : eq(a, 36 / 13) ? [false, "Watch the signs. x₀ = −1, so 5x₀ = −5. And c = −5. The top is |−5 + 36 − 5|."]
+    : eq(a, 26 / 17) ? [false, "Underneath is √(5² + 12²), not 5 + 12. Square, add, then root: 13."]
+    : eq(a, 26 / 169) ? [false, "Take the square root underneath: √169 = 13."]
+    : [false, "Put x₀ = −1 and y₀ = 3 into |5x₀ + 12y₀ − 5|. Then divide by √(5² + 12²)."],
+};
+</script>
+<script src="../../../../lesson-ui/slides/deck.js"></script>
+<script src="../../../../lesson-ui/slides/interact.js"></script>
+</body>
+</html>

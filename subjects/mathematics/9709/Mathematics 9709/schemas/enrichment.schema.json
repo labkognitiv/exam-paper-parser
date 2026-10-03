@@ -1,0 +1,532 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kognitiv.local/schemas/9709-mathematics-enrichment-v9.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "question_id",
+    "difficulty",
+    "parts"
+  ],
+  "properties": {
+    "schema_version": {
+      "enum": [
+        "9709_math_enrichment_v3",
+        "9709_math_enrichment_v4",
+        "9709_math_enrichment_v5",
+        "9709_math_enrichment_v6",
+        "9709_math_enrichment_v7",
+        "9709_math_enrichment_v8"
+      ]
+    },
+    "paper_code": {
+      "type": "string"
+    },
+    "question_id": {
+      "type": "string"
+    },
+    "question_num": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "subject_code": {
+      "const": "9709"
+    },
+    "component": {
+      "enum": [
+        "P1",
+        "P3",
+        "M1",
+        "S1"
+      ]
+    },
+    "year": {
+      "type": "integer",
+      "minimum": 2016,
+      "maximum": 2025
+    },
+    "session": {
+      "type": "string"
+    },
+    "variant": {
+      "type": "string"
+    },
+    "difficulty": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 5
+    },
+    "numerical_values_checked": {
+      "const": false
+    },
+    "parts": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/part"
+      }
+    }
+  },
+  "$defs": {
+    "part": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "part_id",
+        "difficulty",
+        "mapping",
+        "hints",
+        "walkthrough"
+      ],
+      "properties": {
+        "part_id": {
+          "type": "string"
+        },
+        "difficulty": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 5
+        },
+        "practice_tier": {
+          "type": "string",
+          "minLength": 1
+        },
+        "mapping": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "topic_id",
+            "lesson_id"
+          ],
+          "properties": {
+            "topic_id": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "module_id": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "lesson_id": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          }
+        },
+        "skills": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "primary_skill_id"
+          ],
+          "properties": {
+            "primary_skill_id": {
+              "type": "string",
+              "pattern": "^9709_(p1|p3|m1|s1)_skill_"
+            },
+            "skill_tags": {
+              "type": "array",
+              "minItems": 1,
+              "uniqueItems": true,
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "question_pattern_ids": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "pattern": "^9709_(p1|p3|m1|s1)_pattern_"
+          }
+        },
+        "knowledge_refs": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "formula_ids",
+            "identity_ids",
+            "method_ids",
+            "fact_ids"
+          ],
+          "properties": {
+            "formula_ids": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "type": "string"
+              }
+            },
+            "identity_ids": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "type": "string"
+              }
+            },
+            "method_ids": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "type": "string"
+              }
+            },
+            "fact_ids": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "hints": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string"
+          }
+        },
+        "walkthrough": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "teacher_walkthrough": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "checking": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "mode",
+            "criteria_source"
+          ],
+          "properties": {
+            "mode": {
+              "const": "ai"
+            },
+            "ai_rubric": {
+              "type": "object",
+              "minProperties": 1
+            },
+            "criteria_source": {
+              "const": "mark_scheme_structured"
+            }
+          }
+        }
+      }
+    }
+  },
+  "title": "Cambridge Mathematics 9709 shared enrichment (past paper or lesson practice)",
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "schema_version": {
+            "enum": [
+              "9709_math_enrichment_v4",
+              "9709_math_enrichment_v5",
+              "9709_math_enrichment_v6",
+              "9709_math_enrichment_v7",
+              "9709_math_enrichment_v8"
+            ]
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "parts": {
+            "items": {
+              "properties": {
+                "mapping": {
+                  "not": {
+                    "required": [
+                      "module_id"
+                    ]
+                  },
+                  "properties": {
+                    "topic_id": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "lesson_id": {
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "else": {
+        "properties": {
+          "parts": {
+            "items": {
+              "properties": {
+                "mapping": {
+                  "required": [
+                    "module_id"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "schema_version": {
+            "enum": [
+              "9709_math_enrichment_v5",
+              "9709_math_enrichment_v6",
+              "9709_math_enrichment_v7",
+              "9709_math_enrichment_v8"
+            ]
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "parts": {
+            "items": {
+              "properties": {
+                "checking": {
+                  "not": {
+                    "required": [
+                      "ai_rubric"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "else": {
+        "properties": {
+          "parts": {
+            "items": {
+              "properties": {
+                "checking": {
+                  "required": [
+                    "ai_rubric"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "schema_version": {
+            "enum": [
+              "9709_math_enrichment_v6",
+              "9709_math_enrichment_v7",
+              "9709_math_enrichment_v8"
+            ]
+          }
+        }
+      },
+      "then": {
+        "not": {
+          "required": [
+            "numerical_values_checked"
+          ]
+        },
+        "properties": {
+          "parts": {
+            "items": {
+              "not": {
+                "anyOf": [
+                  {
+                    "required": [
+                      "question_pattern_ids"
+                    ]
+                  },
+                  {
+                    "required": [
+                      "knowledge_refs"
+                    ]
+                  }
+                ]
+              },
+              "properties": {
+                "skills": {
+                  "not": {
+                    "required": [
+                      "skill_tags"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "else": {
+        "required": [
+          "numerical_values_checked"
+        ],
+        "properties": {
+          "parts": {
+            "items": {
+              "required": [
+                "question_pattern_ids",
+                "knowledge_refs"
+              ],
+              "properties": {
+                "skills": {
+                  "required": [
+                    "skill_tags"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "schema_version": {
+            "enum": [
+              "9709_math_enrichment_v7",
+              "9709_math_enrichment_v8"
+            ]
+          }
+        }
+      },
+      "then": {
+        "not": {
+          "anyOf": [
+            {
+              "required": [
+                "paper_code"
+              ]
+            },
+            {
+              "required": [
+                "question_num"
+              ]
+            },
+            {
+              "required": [
+                "subject_code"
+              ]
+            },
+            {
+              "required": [
+                "component"
+              ]
+            },
+            {
+              "required": [
+                "year"
+              ]
+            },
+            {
+              "required": [
+                "session"
+              ]
+            },
+            {
+              "required": [
+                "variant"
+              ]
+            }
+          ]
+        }
+      },
+      "else": {
+        "required": [
+          "paper_code",
+          "question_num",
+          "subject_code",
+          "component",
+          "year",
+          "session",
+          "variant"
+        ]
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "schema_version": {
+            "const": "9709_math_enrichment_v8"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "parts": {
+            "items": {
+              "not": {
+                "anyOf": [
+                  {
+                    "required": [
+                      "skills"
+                    ]
+                  },
+                  {
+                    "required": [
+                      "checking"
+                    ]
+                  },
+                  {
+                    "required": [
+                      "practice_tier"
+                    ]
+                  },
+                  {
+                    "required": [
+                      "teacher_walkthrough"
+                    ]
+                  }
+                ]
+              }
+            }
+          }
+        }
+      },
+      "else": {
+        "properties": {
+          "parts": {
+            "items": {
+              "required": [
+                "skills",
+                "checking",
+                "practice_tier"
+              ]
+            }
+          }
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,1009 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Quadrilaterals from coordinates · Lesson 4</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../../../lesson-ui/slides/deck.css">
+</head>
+<body>
+<header><b>Coordinate Geometry · Lesson 4</b><span><a href="../../m02_l01/slides/index.html" style="color:#fff">← Lesson 3</a> · Quadrilaterals from coordinates · <a href="../../m03_l01/slides/index.html" style="color:#fff">Lesson 5 →</a></span></header>
+<div class="progress"><i id="bar"></i></div>
+
+<main>
+<div class="deck">
+
+  <!-- ================= START ================= -->
+  <section class="slide statement" data-board="r0">
+    <div class="head">
+      <p class="step">Where we are</p>
+      <h1>Four corners instead of three</h1>
+      <p class="lead">You already have every tool you need: gradient, midpoint, distance, parallel and perpendicular lines, and √a × √b from lesson 3. This lesson uses them on shapes with <b>four</b> corners.</p>
+    </div>
+    <div class="cards">
+      <div><span class="n">Part 1</span><svg viewBox="0 0 240 150"></svg><h3>Name the shape</h3><p>Corners, sides, diagonals, and the shape family.</p></div>
+      <div><span class="n">Parts 2 and 4</span><svg viewBox="0 0 240 150"></svg><h3>Find a missing corner</h3><p>Parallelograms, kites and squares.</p></div>
+      <div><span class="n">Parts 3 and 5</span><svg viewBox="0 0 240 150"></svg><h3>Prove it, then find the area</h3><p>Rectangles, rhombuses and trapeziums.</p></div>
+    </div>
+  </section>
+
+  <!-- ================= PART 1 ================= -->
+  <section class="slide divider"><div class="dv">
+    <p class="dv-n">Part 1</p><h1>Reading a four-sided shape</h1>
+    <p class="dv-line">Before any working: which corners are next to each other, and what does the shape's name promise?</p>
+    <p class="dv-map">Corners in order · The parallelogram family · What each shape promises · Which tool proves it</p>
+  </div></section>
+
+  <section class="slide define" data-board="d1">
+    <div class="head">
+      <p class="step">A new word</p>
+    </div>
+    <div class="defcard">
+      <div>
+        <p class="term">Quadrilateral</p>
+        <dl>
+          <dt>IN PLAIN WORDS</dt><dd>A flat shape with four straight sides. "Quad" means four. The corners are called <b>vertices</b>.</dd>
+          <dt>EXAMPLE</dt><dd>ABCD with A(0, 2), B(5, 1), C(8, 6), D(3, 7). The letters go round the edge in order: A to B to C to D, and back to A.</dd>
+          <dt>WATCH OUT</dt><dd>A and C are <b>opposite</b>, not next to each other. AC and BD are the <b>diagonals</b>: they go across the inside, not round the edge.</dd>
+        </dl>
+      </div>
+      <div class="board"><svg viewBox="0 0 300 260"></svg></div>
+    </div>
+  </section>
+
+  <section class="slide gallery" data-board="g1">
+    <div class="head">
+      <p class="step">The parallelogram family</p>
+      <h1>Four shapes, each one a parallelogram with extras</h1>
+      <p class="lead">Look at the sides and corners of each. Each shape adds one more fact to the one before.</p>
+    </div>
+    <div class="gal">
+      <figure><div class="board"><svg viewBox="0 0 300 240"></svg></div><figcaption><b>Parallelogram</b>Opposite sides parallel. AB and DC both go 5 along, 1 down.</figcaption></figure>
+      <figure><div class="board"><svg viewBox="0 0 300 240"></svg></div><figcaption><b>Rectangle</b>A parallelogram with right angles. The corner gradients −1/2 and 2 multiply to −1.</figcaption></figure>
+      <figure><div class="board"><svg viewBox="0 0 300 240"></svg></div><figcaption><b>Rhombus</b>A parallelogram with four equal sides. Here every side is √20.</figcaption></figure>
+      <figure><div class="board"><svg viewBox="0 0 300 240"></svg></div><figcaption><b>Square</b>Both extras: right angles and four equal sides.</figcaption></figure>
+    </div>
+  </section>
+
+  <section class="slide table">
+    <div class="head">
+      <p class="step">What each shape promises</p>
+      <h1>The name tells you the facts you can use</h1>
+      <p class="lead">Say what you think goes in each row. Then show it.</p>
+    </div>
+    <table class="big">
+      <tr><th>Shape</th><th>Sides</th><th>Diagonals</th></tr>
+      <tr><td>Parallelogram</td><td>Opposite sides parallel and equal</td><td>Cut each other in half: same midpoint</td></tr>
+      <tr class="hid"><td>Rectangle</td><td>A parallelogram with right angles</td><td>Same midpoint, and equal in length</td></tr>
+      <tr class="hid"><td>Rhombus</td><td>A parallelogram with all four sides equal</td><td>Same midpoint, and cross at a right angle</td></tr>
+      <tr class="hid"><td>Square</td><td>All sides equal, and right angles</td><td>Same midpoint, equal, and at a right angle</td></tr>
+      <tr class="hid"><td>Kite</td><td>Two pairs of equal sides, next to each other</td><td>Cross at a right angle. The mirror one cuts the other in half</td></tr>
+      <tr class="hid"><td>Trapezium</td><td>Just one pair of parallel sides</td><td>Nothing special</td></tr>
+    </table>
+    <p><button class="btn ghost" data-rows>Show the next row</button> <span class="hint">Try each row in your head first.</span></p>
+  </section>
+
+  <section class="slide flip">
+    <div class="head">
+      <p class="step">Which tool proves it?</p>
+      <h1>Every fact has a tool from lessons 1 to 3</h1>
+      <p class="lead">Say which tool you would use. Then tap the card.</p>
+    </div>
+    <div class="flipgrid">
+      <button class="fcard" type="button"><div class="in"><div class="fa">Two sides are parallel<small>tap to turn</small></div><div class="fb2"><b>Gradient.</b>Work out both gradients. They must be the same.</div></div></button>
+      <button class="fcard" type="button"><div class="in"><div class="fa">A corner is a right angle<small>tap to turn</small></div><div class="fb2"><b>Gradient.</b>The two sides' gradients multiply to −1.</div></div></button>
+      <button class="fcard" type="button"><div class="in"><div class="fa">Two sides are equal<small>tap to turn</small></div><div class="fb2"><b>Distance.</b>Compare the squares, like 20 and 20. No square roots needed.</div></div></button>
+      <button class="fcard" type="button"><div class="in"><div class="fa">The diagonals cut each other in half<small>tap to turn</small></div><div class="fb2"><b>Midpoint.</b>Both diagonals have the same midpoint.</div></div></button>
+    </div>
+  </section>
+
+  <!-- ================= PART 2 ================= -->
+  <section class="slide divider"><div class="dv">
+    <p class="dv-n">Part 2</p><h1>The parallelogram</h1>
+    <p class="dv-line">Three corners are given. Where is the fourth?</p>
+    <p class="dv-map">Opposite sides are the same jump · Finding D · Two ways · Drag D · Why the order matters</p>
+  </div></section>
+
+  <section class="slide hero" data-board="h1">
+    <div class="head">
+      <p class="step">Opposite sides</p>
+      <h1>Opposite sides are the same jump</h1>
+    </div>
+    <div class="board"><svg viewBox="0 0 900 340"></svg><button class="replay" type="button">↻ Watch again</button></div>
+    <div class="cap">
+      <p>Walk from A to B: <span class="al">5 along</span>, <span class="up">1 down</span>. Now walk from D to C. It is the same walk: <span class="al">5 along</span>, <span class="up">1 down</span>.</p>
+      <p>The same is true of the other pair. B to C and A to D are both <span class="al">3 along</span>, <span class="up">5 up</span>.</p>
+      <p>Same walk means same gradient and same length.<br><span class="take">In a parallelogram, opposite sides are the same jump.</span></p>
+    </div>
+  </section>
+
+  <section class="slide worked" data-board="w1">
+    <div>
+      <p class="step">Worked example · the fourth corner</p>
+      <h1>A(0, 2), B(5, 1) and C(8, 6)</h1>
+      <p class="q-box">These are three corners of parallelogram ABCD, in that order. Find D.</p>
+      <div class="ws" data-ws="w1" data-open>
+        <ol>
+          <li>In order means AD is the side opposite BC. So find the jump from B to C:
+            <div class="calc">
+              Along = 8 − 5 = 3
+              Up = 6 − 1 = 5
+            </div></li>
+          <li>Make the same jump from A:
+            <div class="calc">
+              !D = (0 + 3, 2 + 5) = (3, 7)
+            </div></li>
+          <li>Check the other pair. A to B is 5 along, 1 down. D to C is <b>8 − 3 = 5</b> along and <b>6 − 7 = −1</b> up ✓</li>
+        </ol>
+        <div class="ws-nav"><button class="btn nxt">Next step</button><button class="btn ghost all">Show all</button></div>
+      </div>
+    </div>
+    <div class="board"><svg viewBox="0 0 380 340"></svg><button class="replay" type="button">↻ Start again</button></div>
+  </section>
+
+  <section class="slide compare">
+    <div class="head">
+      <p class="step">Another way to get the same corner</p>
+      <h1>Two ways to find D</h1>
+      <p class="q-box">A(0, 2), B(5, 1), C(8, 6) are three corners of parallelogram ABCD. Find D.</p>
+    </div>
+    <div class="cols">
+      <div>
+        <h2>Way 1: the same jump</h2>
+        <div class="calc">
+          B to C = 3 along, 5 up
+          D = (0 + 3, 2 + 5)
+          !D = (3, 7)
+        </div>
+        <p>Quick, and easy to check on the grid.</p>
+      </div>
+      <div>
+        <h2>Way 2: the diagonals share a midpoint</h2>
+        <div class="calc">
+          Midpoint of AC = (4, 4)
+          (5 + x) ÷ 2 = 4
+          5 + x = 8
+          x = 3
+          (1 + y) ÷ 2 = 4
+          !y = 7
+        </div>
+        <p>The midpoint of BD must also be (4, 4). Use this way when a question says "hence" after a midpoint.</p>
+      </div>
+    </div>
+    <p class="take">Both ways give D(3, 7). A parallelogram's diagonals always cut each other in half.</p>
+  </section>
+
+  <section class="slide lab" data-board="lab1">
+    <div class="board"><svg viewBox="0 0 380 350"></svg></div>
+    <div class="panel">
+      <p class="step">Play with it</p>
+      <h1>Drag D</h1>
+      <p>A, B and C stay put. Move D and watch the gradients and the two midpoints.</p>
+      <div class="ro"><span>Gradient AB</span><b data-ro="ab"></b></div>
+      <div class="ro"><span>Gradient DC</span><b data-ro="dc"></b></div>
+      <div class="ro"><span>Gradient BC</span><b data-ro="bc"></b></div>
+      <div class="ro"><span>Gradient AD</span><b data-ro="ad"></b></div>
+      <div class="ro"><span>Midpoint of AC</span><b data-ro="mac"></b></div>
+      <div class="ro"><span>Midpoint of BD</span><b data-ro="mbd"></b></div>
+      <div class="goal" data-goal>Goal: make ABCD a parallelogram. Both pairs of gradients must match.</div>
+      <p class="hint">Mouse, finger, or tab to D and use the arrow keys. Look at the midpoints when you get there.</p>
+    </div>
+  </section>
+
+  <section class="slide split-r" data-board="pr1">
+    <div>
+      <p class="step">Why the order matters</p>
+      <h1>P(2, 3), Q(5, 2) and R(4, 5), in any order</h1>
+      <p>These are three corners of a parallelogram. This time the question does <b>not</b> say which corners are next to each other.</p>
+      <div class="turn predict" data-predict="three">
+        <div class="q">How many places could the fourth corner go?</div>
+        <div class="opts">
+          <button data-fb="There are more. Any of P, Q or R could be the corner opposite the new one. That gives 3 places.">1</button>
+          <button data-fb="Close. Any of P, Q or R could be opposite the new corner, so there are 3 places, not 2.">2</button>
+          <button data-ok data-fb="Yes. Any of P, Q or R can be opposite the new corner. That is why exam questions say the corners are 'in order'.">3</button>
+        </div>
+        <div class="verdict"></div>
+      </div>
+      <p class="take">Read the order of the letters before you do any working.</p>
+    </div>
+    <div class="board"><svg viewBox="0 0 380 400"></svg><button class="replay" type="button">↻ Start again</button></div>
+  </section>
+
+  <!-- ================= PART 3 ================= -->
+  <section class="slide divider"><div class="dv">
+    <p class="dv-n">Part 3</p><h1>Rectangles, rhombuses and squares</h1>
+    <p class="dv-line">Prove which shape it is. Then find its area.</p>
+    <p class="dv-map">The four checks · A rectangle · Why diagonals give area · ½ × d₁ × d₂ · A rhombus · Sort the shapes</p>
+  </div></section>
+
+  <section class="slide steps" data-board="st1">
+    <div class="head">
+      <p class="step">The method</p>
+      <h1>Prove what it is in four checks</h1>
+    </div>
+    <div class="stepsrow">
+      <div><svg viewBox="0 0 240 170"></svg><h3>Sketch it, in order</h3><p>Join the corners round the edge. Now you can see which sides are opposite.</p></div>
+      <div><svg viewBox="0 0 240 170"></svg><h3>Opposite sides</h3><p>Same gradients? Then it is a parallelogram.</p></div>
+      <div><svg viewBox="0 0 240 170"></svg><h3>One corner</h3><p>Gradients multiply to −1? Then it is a rectangle.</p></div>
+      <div><svg viewBox="0 0 240 170"></svg><h3>Two sides next to each other</h3><p>Same length? Then it is a rhombus, or a square if check 3 passed too.</p></div>
+    </div>
+  </section>
+
+  <section class="slide worked" data-board="w2">
+    <div>
+      <p class="step">Worked example · a rectangle</p>
+      <h1>E(0, 3), F(6, 0), G(8, 4), H(2, 7)</h1>
+      <p class="q-box">Show that EFGH is a rectangle, and find its area.</p>
+      <div class="ws" data-ws="w2" data-open>
+        <ol>
+          <li>Gradients of the four sides, up ÷ along:
+            <div class="calc">
+              EF = −3 ÷ 6 = −1/2
+              HG = −3 ÷ 6 = −1/2
+              FG = 4 ÷ 2 = 2
+              EH = 4 ÷ 2 = 2
+            </div>
+            Opposite sides match, so EFGH is a parallelogram.</li>
+          <li>The corner at F: <b>−1/2 × 2 = −1</b>. That is a right angle, so EFGH is a rectangle.</li>
+          <li>The two side lengths:
+            <div class="calc">
+              EF = √(6² + 3²) = √45 = 3√5
+              FG = √(2² + 4²) = √20 = 2√5
+            </div></li>
+          <li>Area of a rectangle is length × width:
+            <div class="calc">
+              Area = 3√5 × 2√5 = 6 × 5
+              != 30
+            </div></li>
+        </ol>
+        <div class="ws-nav"><button class="btn nxt">Next step</button><button class="btn ghost all">Show all</button></div>
+      </div>
+    </div>
+    <div class="board"><svg viewBox="0 0 380 360"></svg><button class="replay" type="button">↻ Start again</button></div>
+  </section>
+
+  <section class="slide" data-board="s12">
+    <div>
+      <p class="step">Area from the diagonals</p>
+      <h1>A rhombus is half of its box</h1>
+      <p>Here is a rhombus with corners (1, 4), (4, 6), (7, 4) and (4, 2). Its diagonals are <span class="al">6 long</span> and <span class="up">4 long</span>.</p>
+      <p>Draw a box around it. The box is 6 by 4.</p>
+      <p>The diagonals cut the box into 4 small rectangles. The rhombus takes exactly half of each one. Count the squares if you like.</p>
+      <div class="calc">
+        Box = 6 × 4 = 24
+        !Rhombus = 24 ÷ 2 = 12
+      </div>
+      <p class="take">Area = half of one diagonal times the other.</p>
+    </div>
+    <div class="board"><svg viewBox="0 0 380 340"></svg><button class="replay" type="button">↻ Watch again</button></div>
+  </section>
+
+  <section class="slide formula">
+    <div class="head">
+      <p class="step">The formula</p>
+      <h1>Area from the two diagonals</h1>
+    </div>
+    <div class="bigf">Area = <span class="p3">½</span> × <span class="p1">d₁</span> × <span class="p2">d₂</span></div>
+    <div class="anno">
+      <div class="p3"><b>½</b>The shape is half of the box around its diagonals.</div>
+      <div class="p1"><b>d₁</b>The length of one diagonal. Use the distance formula.</div>
+      <div class="p2"><b>d₂</b>The length of the other diagonal.</div>
+      <div><b>Only if they cross at 90°</b>Rhombus, square and kite: yes. A rectangle or a plain parallelogram: no, use its sides.</div>
+    </div>
+    <p class="take">In a square both diagonals are the same length d, so the area is ½ × d × d = ½d².</p>
+  </section>
+
+  <section class="slide split-r" data-board="w3">
+    <div>
+      <p class="step">Worked example · your go first</p>
+      <h1>R(1, 1), S(5, 3), T(7, 7), U(3, 5)</h1>
+      <p class="q-box">Show that RSTU is a rhombus, and find its area.</p>
+      <div class="ws" data-ws="w3">
+        <p class="try">Try it on paper first. Then show the steps one at a time.</p>
+        <ol>
+          <li>Compare the squares of the sides:
+            <div class="calc">
+              RS² = 4² + 2² = 20
+              ST² = 2² + 4² = 20
+            </div>
+            TU and UR are the same jumps backwards, so they are 20 too. Four equal sides: a rhombus.</li>
+          <li>Diagonal RT has gradient <b>6 ÷ 6 = 1</b>. SU has gradient <b>2 ÷ (−2) = −1</b>. They multiply to −1 ✓</li>
+          <li>The diagonal lengths:
+            <div class="calc">
+              RT = √(6² + 6²) = √72 = 6√2
+              SU = √(2² + 2²) = √8 = 2√2
+            </div></li>
+          <li>Half of one times the other:
+            <div class="calc">
+              Area = ½ × 6√2 × 2√2
+              = ½ × 12 × 2
+              != 12
+            </div></li>
+        </ol>
+        <div class="ws-nav"><button class="btn nxt">Next step</button><button class="btn ghost all">Show all</button></div>
+      </div>
+    </div>
+    <div class="board"><svg viewBox="0 0 380 400"></svg><button class="replay" type="button">↻ Start again</button></div>
+  </section>
+
+  <section class="slide qcard">
+    <div class="head qs">
+      <p class="step">Sort · tap a card, then tap its shape</p>
+      <h1>What shape is it? Pick the most exact name</h1>
+    </div>
+    <div class="qs turn sort">
+      <div class="chips">
+        <button class="chip" data-g="par" data-yes="No right angle, and the sides are not all equal. Just a parallelogram." data-why="Look for a right angle or equal sides. There are neither, so it is only a parallelogram.">Opposite sides parallel. Sides √26 and √34. No right angle.</button>
+        <button class="chip" data-g="rect" data-yes="−1/2 × 2 = −1 is a right angle, and the sides are different lengths." data-why="−1/2 × 2 = −1, so there is a right angle. But 3√5 and 2√5 are different, so not a square.">Gradients −1/2 and 2 at a corner. Sides 3√5 and 2√5.</button>
+        <button class="chip" data-g="rhom" data-yes="Equal sides, but equal diagonals would make it a square. These differ." data-why="All sides equal, so rhombus or square. A square's diagonals are equal. These are not.">All sides √20. Diagonals 6√2 and 2√2.</button>
+        <button class="chip" data-g="sq" data-yes="Equal sides and a right angle: a square." data-why="All sides equal gives a rhombus. Add a right angle and it becomes a square.">All sides 5. A right angle at one corner.</button>
+        <button class="chip" data-g="rect" data-yes="Diagonals that bisect each other and are equal: a rectangle." data-why="Equal diagonals with a shared midpoint make a rectangle. The sides 3 and 4 are not equal, so not a square.">Diagonals share a midpoint and are equal. Sides 3 and 4.</button>
+        <button class="chip" data-g="rhom" data-yes="3 × (−1/3) = −1, and the diagonals are different lengths." data-why="3 × (−1/3) = −1: the diagonals cross at 90°. They are different lengths, so not a square.">Diagonals share a midpoint. Gradients 3 and −1/3. Lengths √10 and √40.</button>
+        <button class="chip" data-g="sq" data-yes="Equal and at 90°: the diagonals of a square." data-why="Diagonals that are equal make a rectangle. At 90° as well, it's a square.">Diagonals share a midpoint, are equal, and cross at 90°.</button>
+      </div>
+      <div class="bins">
+        <div class="bin" data-g="par"><h4>Parallelogram</h4><div class="got"></div></div>
+        <div class="bin" data-g="rect"><h4>Rectangle</h4><div class="got"></div></div>
+        <div class="bin" data-g="rhom"><h4>Rhombus</h4><div class="got"></div></div>
+        <div class="bin" data-g="sq"><h4>Square</h4><div class="got"></div></div>
+      </div>
+      <div class="fb"></div>
+    </div>
+  </section>
+
+  <!-- ================= PART 4 ================= -->
+  <section class="slide divider"><div class="dv">
+    <p class="dv-n">Part 4</p><h1>Kites and squares</h1>
+    <p class="dv-line">A mirror line, or a centre, finds the missing corner.</p>
+    <p class="dv-map">What a kite is · The mirror finds the corner · A square from its diagonal · Quick check</p>
+  </div></section>
+
+  <section class="slide define" data-board="d2">
+    <div class="head">
+      <p class="step">A new word</p>
+    </div>
+    <div class="defcard">
+      <div>
+        <p class="term">Kite</p>
+        <dl>
+          <dt>IN PLAIN WORDS</dt><dd>Two pairs of equal sides, with each pair next to each other. One diagonal is a <b>mirror line</b>: fold along it and the two halves match.</dd>
+          <dt>EXAMPLE</dt><dd>W(0, 1), X(5, 2), Y(5, 6), Z(1, 6). WX = WZ = √26 and YX = YZ = 4. The mirror line is WY.</dd>
+          <dt>WATCH OUT</dt><dd>The mirror diagonal WY cuts XZ in half, at a right angle. XZ does <b>not</b> cut WY in half.</dd>
+        </dl>
+      </div>
+      <div class="board"><svg viewBox="0 0 300 260"></svg></div>
+    </div>
+  </section>
+
+  <section class="slide zigzag" data-board="z1">
+    <div class="head">
+      <p class="step">The mirror finds the corner</p>
+      <h1>W(0, 1) and Y(5, 6) are on the mirror line. X is (5, 2). Find Z.</h1>
+    </div>
+    <div class="zz">
+      <div><svg viewBox="0 0 250 130"></svg><div><h3>1. Two lines</h3><p>Mirror WY: gradient 5 ÷ 5 = 1, so <b class="nw">y = x + 1</b>. XZ crosses it at 90°, so gradient −1 through X: <b class="nw">y = −x + 7</b>.</p></div></div>
+      <div><svg viewBox="0 0 250 130"></svg><div><h3>2. Where they meet</h3><p><b class="nw">x + 1 = −x + 7</b>, so 2x = 6 and x = 3. Then y = 4. They meet at <b>M(3, 4)</b>, the midpoint of XZ.</p></div></div>
+      <div><svg viewBox="0 0 250 130"></svg><div><h3>3. The same jump again</h3><p>X to M is <span class="al">2 left</span>, <span class="up">2 up</span>. Do it again from M: <b>Z = (1, 6)</b>.</p></div></div>
+    </div>
+  </section>
+
+  <section class="slide split-r" data-board="w4">
+    <div>
+      <p class="step">Worked example · your go first</p>
+      <h1>P(2, 0) and R(4, 8) are opposite corners of square PQRS</h1>
+      <p class="q-box">Find the centre, the equation of QS, the corners Q and S, and the area.</p>
+      <div class="ws" data-ws="w4">
+        <p class="try">Try it on paper first. Then show the steps one at a time.</p>
+        <ol>
+          <li>The centre is the midpoint of PR: <b>M = (3, 4)</b>.</li>
+          <li>PR has gradient 8 ÷ 2 = 4. QS crosses it at 90°, through M:
+            <div class="calc">
+              Gradient of QS = −1/4
+              !y − 4 = −1/4 (x − 3)
+            </div></li>
+          <li>M to R is 1 along, 4 up. Turn it a quarter turn: 4 along, 1 down. Go that way and the opposite way from M:
+            <div class="calc">
+              Q = (3 + 4, 4 − 1) = (7, 3)
+              !S = (3 − 4, 4 + 1) = (−1, 5)
+            </div></li>
+          <li>Both diagonals are √68, because PR² = 2² + 8² = 68:
+            <div class="calc">
+              Area = ½ × √68 × √68 = ½ × 68
+              != 34
+            </div></li>
+        </ol>
+        <div class="ws-nav"><button class="btn nxt">Next step</button><button class="btn ghost all">Show all</button></div>
+      </div>
+    </div>
+    <div class="board"><svg viewBox="0 0 380 420"></svg><button class="replay" type="button">↻ Start again</button></div>
+  </section>
+
+  <section class="slide qcard">
+    <div class="head qs">
+      <p class="step">Quick check</p>
+      <h1>Kites and squares</h1>
+    </div>
+    <div class="qs">
+      <div class="turn" data-mcq>
+        <div class="q">1. In kite WXYZ the mirror diagonal is WY. The diagonals cross at M. M is the midpoint of…</div>
+        <div class="opts">
+          <button data-ok data-fb="Yes. The mirror line cuts the other diagonal, XZ, in half.">XZ</button>
+          <button data-fb="The mirror line cuts the other diagonal in half, not itself. M is the midpoint of XZ.">WY</button>
+          <button data-fb="That is true for a rhombus or a square. In a kite only XZ is cut in half.">both diagonals</button>
+        </div>
+        <div class="fb"></div>
+      </div>
+      <div class="turn" data-mcq>
+        <div class="q">2. M(2, 3) is the midpoint of QS, and Q is (−1, 1). S is…</div>
+        <div class="opts">
+          <button data-ok data-fb="Yes. Q to M is 3 along, 2 up. Do it again from M: (5, 5).">(5, 5)</button>
+          <button data-fb="That is halfway between Q and M. S is past M: the same jump again.">(0.5, 2)</button>
+          <button data-fb="(3, 2) is the jump from Q to M. Add that jump on to M.">(3, 2)</button>
+        </div>
+        <div class="fb"></div>
+      </div>
+      <div class="turn" data-mcq>
+        <div class="q">3. A square has diagonals √50 long. Its area is…</div>
+        <div class="opts">
+          <button data-ok data-fb="Yes. ½ × √50 × √50 = ½ × 50 = 25.">25</button>
+          <button data-fb="√50 × √50 = 50. Don't forget the ½ in ½ × d₁ × d₂.">50</button>
+          <button data-fb="5 is the length of a side. The area is 5 × 5, or ½ × 50.">5</button>
+        </div>
+        <div class="fb"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= PART 5 ================= -->
+  <section class="slide divider"><div class="dv">
+    <p class="dv-n">Part 5</p><h1>Trapeziums and letters</h1>
+    <p class="dv-line">One pair of parallel sides, and unknown numbers in the corners.</p>
+    <p class="dv-map">What a trapezium is · Parallel sides with k · One clue, one job</p>
+  </div></section>
+
+  <section class="slide define" data-board="d3">
+    <div class="head">
+      <p class="step">A new word</p>
+    </div>
+    <div class="defcard">
+      <div>
+        <p class="term">Trapezium</p>
+        <dl>
+          <dt>IN PLAIN WORDS</dt><dd>A quadrilateral with one pair of parallel sides. Its area is half the two parallel sides added, times the gap between them.</dd>
+          <dt>EXAMPLE</dt><dd>Parallel sides <b>7</b> and <b>4</b>, gap <b>3</b>. Area = ½ × (7 + 4) × 3 = 16.5.</dd>
+          <dt>WATCH OUT</dt><dd>The gap is measured at a right angle to the parallel sides, not along a slanted side. If a side meets both parallel sides at 90°, that side <b>is</b> the gap.</dd>
+        </dl>
+      </div>
+      <div class="board"><svg viewBox="0 0 300 200"></svg></div>
+    </div>
+  </section>
+
+  <section class="slide" data-board="k1">
+    <div>
+      <p class="step">Parallel sides with k</p>
+      <h1>P(−1, 0), Q(5, 3), R(6, 7), S(k, 5)</h1>
+      <p class="q-box">In quadrilateral PQRS, PQ is parallel to SR. Find k.</p>
+      <div class="ws" data-ws="k1">
+        <p class="try">Try it on paper first. Then show the steps.</p>
+        <ol>
+          <li>Gradient of PQ: <b>3 ÷ 6 = 1/2</b>.</li>
+          <li>Parallel, so SR has the same gradient. Up is 7 − 5 = 2, along is 6 − k:
+            <div class="calc">
+              2 ÷ (6 − k) = 1/2
+              6 − k = 4
+              !k = 2
+            </div></li>
+        </ol>
+        <div class="ws-nav"><button class="btn nxt">Next step</button><button class="btn ghost all">Show all</button></div>
+      </div>
+      <div class="turn" data-check="k1">
+        <div class="q">Your turn: A(0, 2), B(4, 4), C(5, 8), D(k, 7). AB is parallel to DC. Find k.</div>
+        <form autocomplete="off"><label>k =</label><input inputmode="decimal"><button class="btn">Check</button></form>
+        <div class="fb"></div>
+      </div>
+    </div>
+    <div class="board"><svg viewBox="0 0 380 400"></svg><button class="replay" type="button">↻ Start again</button></div>
+  </section>
+
+  <section class="slide qcard">
+    <div class="head qs">
+      <p class="step">One clue, one job</p>
+      <h1>Turn each clue into one fact</h1>
+    </div>
+    <div class="qs">
+      <div class="turn" data-mcq>
+        <div class="q">1. Side PQ is parallel to the x-axis, and P is (3, 7). So Q…</div>
+        <div class="opts">
+          <button data-ok data-fb="Yes. A side parallel to the x-axis is flat, so both ends are at the same height: y = 7.">has y = 7</button>
+          <button data-fb="x = 3 is a line going straight up. Parallel to the x-axis is flat: the same y.">has x = 3</button>
+          <button data-fb="Q can be anywhere on the flat line y = 7, not only on the y-axis.">is (0, 7)</button>
+        </div>
+        <div class="fb"></div>
+      </div>
+      <div class="turn" data-mcq>
+        <div class="q">2. Angle PQR = 90°, and PQ has gradient 3. QR has gradient…</div>
+        <div class="opts">
+          <button data-ok data-fb="Yes. Flip 3 and change the sign: −1/3. And 3 × (−1/3) = −1.">−1/3</button>
+          <button data-fb="You flipped it. Now change the sign too: −1/3.">1/3</button>
+          <button data-fb="You changed the sign. Now flip it too: −1/3.">−3</button>
+          <button data-fb="The same gradient means parallel. A right angle needs flip and change the sign.">3</button>
+        </div>
+        <div class="fb"></div>
+      </div>
+      <div class="turn" data-mcq>
+        <div class="q">3. C(h, 2h) is on a line through B(1, 1) with gradient 3. Which equation finds h?</div>
+        <div class="opts">
+          <button data-ok data-fb="Yes. Up is 2h − 1, along is h − 1, and up ÷ along = 3.">(2h − 1) ÷ (h − 1) = 3</button>
+          <button data-fb="Upside down. Up (the y change) goes on top.">(h − 1) ÷ (2h − 1) = 3</button>
+          <button data-fb="Take away B's numbers first: up is 2h − 1, along is h − 1.">2h ÷ h = 3</button>
+        </div>
+        <div class="fb"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= PART 6 ================= -->
+  <section class="slide divider"><div class="dv">
+    <p class="dv-n">Part 6</p><h1>A full exam question</h1>
+    <p class="dv-line">Four parts, one part per slide. Try each on paper before you reveal it.</p>
+    <p class="dv-map">(a) Find h · (b) Find D · (c) Three exact lengths · (d) The area</p>
+  </div></section>
+
+  <section class="slide statement">
+    <div class="head">
+      <p class="step">Exam-style question · 10 marks</p>
+      <h1>The trapezium ABCD</h1>
+      <p class="lead">A is (−2, 3), B is (2, 1) and C is (h, h + 1). Angle ABC = 90°. CD is parallel to the x-axis, and AD is parallel to BC.</p>
+    </div>
+    <div class="paper">
+      <p><span>(a) Find the gradient of AB, and show that h = 4.</span><span class="marks">[3]</span></p>
+      <p><span>(b) Find the coordinates of D.</span><span class="marks">[3]</span></p>
+      <p><span>(c) Find the exact lengths of AB, BC and AD.</span><span class="marks">[2]</span></p>
+      <p><span>(d) Hence find the area of the trapezium ABCD.</span><span class="marks">[2]</span></p>
+    </div>
+    <p class="take">Get a pen. Do all four parts on paper, then go to the next slide.</p>
+  </section>
+
+  <section class="slide" data-board="xa">
+    <div>
+      <p class="step">Part (a) · 3 marks</p>
+      <h1>The gradient of AB, and h</h1>
+      <div class="ws" data-ws="xa">
+        <p class="try">Try it first. Then show the steps.</p>
+        <ol>
+          <li>Up −2, along 4:
+            <div class="calc">
+              Gradient of AB = −2 ÷ 4
+              != −1/2
+            </div></li>
+          <li>Angle ABC = 90°, so BC is perpendicular to AB. Flip and change the sign:
+            <div class="calc">
+              !Gradient of BC = 2
+            </div></li>
+          <li>Write the gradient of BC with h in it. Up is (h + 1) − 1 = h, along is h − 2:
+            <div class="calc">
+              h ÷ (h − 2) = 2
+              h = 2h − 4
+              !h = 4
+            </div></li>
+        </ol>
+        <div class="ws-nav"><button class="btn nxt">Next step</button><button class="btn ghost all">Show all</button></div>
+      </div>
+      <p>So C is (4, 5).</p>
+    </div>
+    <div class="board"><svg viewBox="0 0 380 380"></svg><button class="replay" type="button">↻ Start again</button></div>
+  </section>
+
+  <section class="slide worked" data-board="xb">
+    <div>
+      <p class="step">Part (b) · 3 marks</p>
+      <h1>Find D</h1>
+      <div class="ws" data-ws="xb">
+        <p class="try">Give each clue one job. Try it first.</p>
+        <ol>
+          <li>CD is parallel to the x-axis, so it is flat. D is at the same height as C: <b>D = (x, 5)</b>.</li>
+          <li>AD is parallel to BC, so AD has gradient 2. From A(−2, 3) to D(x, 5), up is 5 − 3 = 2:
+            <div class="calc">
+              2 ÷ (x − (−2)) = 2
+              x + 2 = 1
+              x = −1
+              !D = (−1, 5)
+            </div></li>
+        </ol>
+        <div class="ws-nav"><button class="btn nxt">Next step</button><button class="btn ghost all">Show all</button></div>
+      </div>
+    </div>
+    <div class="board"><svg viewBox="0 0 380 380"></svg><button class="replay" type="button">↻ Start again</button></div>
+  </section>
+
+  <section class="slide split-r" data-board="xc">
+    <div>
+      <p class="step">Part (c) · 2 marks</p>
+      <h1>Three exact lengths</h1>
+      <div class="ws" data-ws="xc">
+        <p class="try">"Exact" means leave the square roots in. Try it first.</p>
+        <ol>
+          <li>A to B is 4 along, 2 down:
+            <div class="calc">
+              AB = √(4² + 2²) = √20
+              != 2√5
+            </div></li>
+          <li>B to C is 2 along, 4 up:
+            <div class="calc">
+              BC = √(2² + 4²) = √20
+              != 2√5
+            </div></li>
+          <li>A to D is 1 along, 2 up:
+            <div class="calc">
+              !AD = √(1² + 2²) = √5
+            </div></li>
+        </ol>
+        <div class="ws-nav"><button class="btn nxt">Next step</button><button class="btn ghost all">Show all</button></div>
+      </div>
+    </div>
+    <div class="board"><svg viewBox="0 0 380 380"></svg><button class="replay" type="button">↻ Start again</button></div>
+  </section>
+
+  <section class="slide worked" data-board="xd">
+    <div>
+      <p class="step">Part (d) · 2 marks</p>
+      <h1>The area of the trapezium</h1>
+      <div class="ws" data-ws="xd">
+        <p class="try">"Hence" means use part (c). Which length is the gap?</p>
+        <ol>
+          <li>AD and BC are the parallel sides. AB meets BC at 90°, and AD is parallel to BC, so AB meets AD at 90° too. <b>AB is the gap.</b></li>
+          <li>Half the parallel sides added, times the gap:
+            <div class="calc">
+              Area = ½ × (√5 + 2√5) × 2√5
+              = ½ × 3√5 × 2√5
+              = ½ × 6 × 5
+              != 15
+            </div></li>
+        </ol>
+        <div class="ws-nav"><button class="btn nxt">Next step</button><button class="btn ghost all">Show all</button></div>
+      </div>
+      <p>√5 + 2√5 is 3√5, just like 1 apple + 2 apples = 3 apples.</p>
+    </div>
+    <div class="board"><svg viewBox="0 0 380 380"></svg><button class="replay" type="button">↻ Start again</button></div>
+  </section>
+
+  <!-- ================= PART 7 ================= -->
+  <section class="slide divider"><div class="dv">
+    <p class="dv-n">Part 7</p><h1>Before you practise</h1>
+    <p class="dv-line">The slips that cost marks, and everything on one page.</p>
+    <p class="dv-map">Common mistakes · Summary</p>
+  </div></section>
+
+  <section class="slide wide mis">
+    <div>
+      <p class="step">Common mistakes</p>
+      <h1>Six slips that cost marks</h1>
+      <div class="cols">
+        <div><h3>Mixing up sides and diagonals</h3><p class="x">✗ In ABCD, AC is a side</p><p class="ok">✓ A and C are opposite. AC is a diagonal</p></div>
+        <div><h3>Jumping from the wrong corner</h3><p class="x">✗ D = B + (the jump from B to C)</p><p class="ok">✓ AD matches BC: jump from A. D = (3, 7)</p></div>
+        <div><h3>Stopping after the parallel sides</h3><p class="x">✗ Opposite sides parallel, so it's a rectangle</p><p class="ok">✓ That shows a parallelogram. You also need a right angle</p></div>
+        <div><h3>Forgetting the half</h3><p class="x">✗ Rhombus area = 6√2 × 2√2 = 24</p><p class="ok">✓ ½ × 6√2 × 2√2 = 12</p></div>
+        <div><h3>Halving the wrong diagonal of a kite</h3><p class="x">✗ M is the midpoint of the mirror line WY</p><p class="ok">✓ The mirror line cuts the other diagonal, XZ, in half</p></div>
+        <div><h3>A slanted side as the gap</h3><p class="x">✗ Trapezium gap = any side that joins the parallel sides</p><p class="ok">✓ The gap meets the parallel sides at 90°</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide wide sum">
+    <div>
+      <p class="step">Summary</p>
+      <h1>Everything on one page</h1>
+      <div class="cols">
+        <div>
+          <h2>What to show</h2>
+          <table>
+            <tr><td>Parallelogram</td><td>Both pairs of opposite sides have the same gradient</td></tr>
+            <tr><td>Rectangle</td><td>A parallelogram, and one corner's gradients multiply to −1</td></tr>
+            <tr><td>Rhombus</td><td>All four sides the same length</td></tr>
+            <tr><td>Square</td><td>Equal sides and a right angle</td></tr>
+            <tr><td>Area</td><td>Rectangle: length × width. Rhombus, square, kite: ½ × d₁ × d₂. Trapezium: ½ × (a + b) × gap</td></tr>
+          </table>
+        </div>
+        <div>
+          <h2>Finding a missing corner or letter</h2>
+          <ol>
+            <li><b>Parallelogram:</b> make the same jump as the opposite side, or use the shared midpoint.</li>
+            <li><b>Kite:</b> find M where the diagonals cross, then make the same jump again past M. <b>Square:</b> from the centre M, turn the half-diagonal a quarter turn.</li>
+            <li><b>A clue with a letter:</b> one clue, one equation. Parallel means the same gradient. A right angle means flip and change the sign. Flat means the same y.</li>
+          </ol>
+          <p class="take" style="margin-top:10px">Next: the practice questions for this lesson.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+</main>
+
+<nav>
+  <button id="prev" aria-label="Previous slide">&#8592;</button>
+  <span id="count"></span>
+  <button id="next" aria-label="Next slide">&#8594;</button>
+</nav>
+
+<script src="../../../../lesson-ui/slides/engine.js"></script>
+<script>
+/* ============ shapes used on this lesson's boards ============ */
+const ABCD = [[0, 2], [5, 1], [8, 6], [3, 7]];                 // running parallelogram
+const EFGH = [[0, 3], [6, 0], [8, 4], [2, 7]];                 // rectangle
+const RSTU = [[1, 1], [5, 3], [7, 7], [3, 5]];                 // rhombus
+const PQRS = [[2, 0], [7, 3], [4, 8], [-1, 5]];                // square
+const WXYZ = [[0, 1], [5, 2], [5, 6], [1, 6]];                 // kite
+const TRAP = [[-2, 3], [2, 1], [4, 5], [-1, 5]];               // exam trapezium ABCD
+
+const icon = (svg, xr, yr, m = 12) => new Board(svg, xr, yr, { small: true, center: true, margin: { l: m, r: m + 2, t: m, b: m } });
+const pd = (b, pts, close = true) => "M" + pts.map(([x, y]) => `${b.X(x).toFixed(1)} ${b.Y(y).toFixed(1)}`).join("L") + (close ? "Z" : "");
+const poly = (b, pts, color = C.plum, ms = 700, w = 3.5, dash) => b.path(pd(b, pts), color, ms, w, dash);
+const shade = (b, pts, color = C.mid, op = 0.12) => { const p = b.el("path", { d: pd(b, pts), fill: color, opacity: op, stroke: "none" }); b.svg.insertBefore(p, b.svg.querySelector("path.ink, circle") || null); return p; };
+const letters = (b, pts, names, offs, color = C.plum) => pts.forEach(([x, y], i) => { const [dx, dy, a] = offs[i]; b.dot(x, y, names[i], dx, dy, color, a); });
+const setRo = (root, k, v) => { const n = root.querySelector(`[data-ro="${k}"]`); if (n) n.textContent = v; };
+const goal = (root, done) => root.querySelector("[data-goal]").classList.toggle("done", done);
+const OUT4 = [[-12, 6, "end"], [0, 26, "middle"], [12, 6, "start"], [0, -14, "middle"]];   // left, below, right, above
+
+const scenes = {
+  async r0(root, ok) {
+    const [a, b, c] = [...root.querySelectorAll("svg")].map(v => icon(v, [-1, 9], [0, 8]));
+    a.dot(0, 2); a.dot(5, 1); a.dot(8, 6); a.dot(3, 7);
+    poly(a, ABCD, C.plum, 700, 3);
+    b.dot(0, 2); b.dot(5, 1); b.dot(8, 6);
+    b.seg(0, 2, 5, 1, C.plum, 500, 3); b.seg(5, 1, 8, 6, C.plum, 500, 3);
+    b.seg(0, 2, 3, 7, C.faint, 500, 2.5, "5 4"); b.seg(8, 6, 3, 7, C.faint, 500, 2.5, "5 4"); b.dot(3, 7, null, 0, 0, C.mid);
+    shade(c, [[1, 3], [6, 1], [8, 5], [3, 7]], C.mid, 0.14);
+    poly(c, [[1, 3], [6, 1], [8, 5], [3, 7]], C.plum, 700, 3);
+    c.square(6, 1, [-5, 2], [2, 4]);
+  },
+
+  async d1(root, ok) {
+    const b = icon(root.querySelector("svg"), [-1, 9], [0, 8], 18); root._b = b;
+    await poly(b, ABCD, C.plum, 800, 3.5); if (!ok()) return;
+    letters(b, ABCD, ["A", "B", "C", "D"], [[-12, 7, "end"], [0, 26, "middle"], [12, 7, "start"], [0, -14, "middle"]]);
+    await wait(300); if (!ok()) return;
+    await b.seg(0, 2, 8, 6, C.mid, 500, 2.5, "7 6"); await b.seg(5, 1, 3, 7, C.mid, 500, 2.5, "7 6");
+  },
+
+  async g1(root, ok) {
+    const [p, r, h, s] = [...root.querySelectorAll("svg")];
+    const bp = icon(p, [-1, 9], [0, 8]), br = icon(r, [-1, 9], [-1, 8]), bh = icon(h, [0, 8], [0, 8]), bs = icon(s, [-2, 8], [-1, 9]);
+    const tick = (b, a, c) => { const mx = (a[0] + c[0]) / 2, my = (a[1] + c[1]) / 2, dx = c[1] - a[1], dy = -(c[0] - a[0]), L = Math.hypot(dx, dy) * b.U / 7; b.el("path", { d: `M${b.X(mx) - dx / L} ${b.Y(my) + dy / L}L${b.X(mx) + dx / L} ${b.Y(my) - dy / L}`, stroke: C.up, "stroke-width": 2.5 }); };
+    const sides = pts => pts.map((q, i) => [q, pts[(i + 1) % 4]]);
+    await poly(bp, ABCD, C.plum, 600); if (!ok()) return;
+    bp.seg(0, 2, 5, 1, C.along, 1, 4.5); bp.seg(3, 7, 8, 6, C.along, 1, 4.5);
+    await poly(br, EFGH, C.plum, 600); if (!ok()) return;
+    br.square(6, 0, [-6, 3], [2, 4]); br.square(2, 7, [6, -3], [-2, -4]);
+    await poly(bh, RSTU, C.plum, 600); if (!ok()) return;
+    sides(RSTU).forEach(([a, c]) => tick(bh, a, c));
+    await poly(bs, PQRS, C.plum, 600); if (!ok()) return;
+    sides(PQRS).forEach(([a, c]) => tick(bs, a, c));
+    bs.square(7, 3, [-5, -3], [-3, 5]);
+  },
+
+  async h1(root, ok) {
+    const b = new Board(root.querySelector("svg"), [-2, 10], [0, 8], { center: true }); root._b = b;
+    ABCD.forEach(([x, y]) => b.dot(x, y));
+    letters(b, ABCD, ["A(0, 2)", "B(5, 1)", "C(8, 6)", "D(3, 7)"], [[-12, 7, "end"], [12, 12, "start"], [12, 7, "start"], [-12, -8, "end"]]);
+    await wait(400); if (!ok()) return;
+    await b.go(0, 2, 5, 2, C.along); await b.go(5, 2, 5, 1, C.up); if (!ok()) return;
+    await b.seg(0, 2, 5, 1, C.plum, 500, 3.5); if (!ok()) return;
+    await b.go(3, 7, 8, 7, C.along); await b.go(8, 7, 8, 6, C.up); if (!ok()) return;
+    await b.seg(3, 7, 8, 6, C.plum, 500, 3.5); if (!ok()) return;
+    b.text(5.5, 7, "5 along, 1 down", C.along, 17, "middle", 0, -12);
+    b.text(2.5, 1.5, "5 along, 1 down", C.along, 17, "end", -8, 26);
+    await wait(500); if (!ok()) return;
+    await b.seg(5, 1, 8, 6, C.plum, 500, 3.5); await b.seg(0, 2, 3, 7, C.plum, 500, 3.5); if (!ok()) return;
+    b.text(6.5, 3.5, "3 along, 5 up", C.up, 17, "start", 14, 0);
+    b.text(1.5, 4.5, "3 along, 5 up", C.up, 17, "end", -14, 0);
+  },
+
+  async w1(root, ok) {
+    const b = B(root, [-2, 10], [-1, 9]);
+    letters(b, ABCD.slice(0, 3), ["A(0, 2)", "B(5, 1)", "C(8, 6)"], [[-12, 7, "end"], [-10, 26, "end"], [0, -14, "middle"]]);
+    await b.seg(0, 2, 5, 1, C.plum, 500, 3.5); if (!ok()) return;
+    await b.seg(5, 1, 8, 6, C.plum, 500, 3.5);
+  },
+
+  async lab1(root) {
+    const b = B(root, [-2, 10], [-1, 9]);
+    letters(b, ABCD.slice(0, 3), ["A", "B", "C"], [[-12, 7, "end"], [0, 26, "middle"], [12, 7, "start"]]);
+    const live = b.layer();
+    const [A, B_, C_] = ABCD;
+    const update = (x, y) => {
+      b.redraw(live, g => {
+        g.seg(...A, ...B_, C.plum, 0, 3.5); g.seg(...B_, ...C_, C.plum, 0, 3.5);
+        g.seg(...C_, x, y, C.mid, 0, 3.5); g.seg(x, y, ...A, C.mid, 0, 3.5);
+        g.seg(...A, ...C_, C.faint, 0, 2, "6 5"); g.seg(...B_, x, y, C.faint, 0, 2, "6 5");
+        g.dot(4, 4, null, 0, 0, C.along);
+        const mx = (5 + x) / 2, my = (1 + y) / 2;
+        if (mx !== 4 || my !== 4) g.dot(mx, my, null, 0, 0, C.up);
+        g.text(x, y, "D", C.mid, 20, "middle", 0, -18);
+      });
+      setRo(root, "ab", frac(-1, 5)); setRo(root, "bc", frac(5, 3));
+      setRo(root, "dc", frac(6 - y, 8 - x)); setRo(root, "ad", frac(y - 2, x));
+      setRo(root, "mac", "(4, 4)"); setRo(root, "mbd", `(${frac(5 + x, 2)}, ${frac(1 + y, 2)})`);
+      goal(root, x === 3 && y === 7);
+    };
+    b.drag(2, 5, { onMove: update });
+    update(2, 5);
+  },
+
+  async pr1(root) {
+    const b = B(root, [-1, 8], [-1, 7]);
+    const P = [2, 3], Q = [5, 2], R = [4, 5];
+    b.seg(...P, ...Q, C.faint, 1, 2.5, "6 5"); b.seg(...Q, ...R, C.faint, 1, 2.5, "6 5"); b.seg(...R, ...P, C.faint, 1, 2.5, "6 5");
+    letters(b, [P, Q, R], ["P", "Q", "R"], [[-12, 7, "end"], [12, 12, "start"], [8, -12, "start"]]);
+  },
+
+  async st1(root) {
+    const [a, b, c, d] = [...root.querySelectorAll("svg")].map(v => icon(v, [-1, 9], [-1, 8]));
+    EFGH.forEach(p => a.dot(...p)); poly(a, EFGH, C.plum, 700, 3);
+    poly(b, EFGH, C.faint, 1, 2.5); b.seg(0, 3, 6, 0, C.along, 500, 4); b.seg(2, 7, 8, 4, C.along, 500, 4);
+    poly(c, EFGH, C.faint, 1, 2.5); c.seg(0, 3, 6, 0, C.plum, 500, 4); c.seg(6, 0, 8, 4, C.plum, 500, 4); c.square(6, 0, [-6, 3], [2, 4]);
+    poly(d, EFGH, C.faint, 1, 2.5); d.seg(0, 3, 6, 0, C.along, 500, 4); d.seg(6, 0, 8, 4, C.up, 500, 4);
+  },
+
+  async w2(root, ok) {
+    const b = B(root, [-1, 9], [-1, 8]);
+    letters(b, EFGH, ["E", "F", "G", "H"], [[-12, 7, "end"], [0, 26, "middle"], [12, 7, "start"], [0, -14, "middle"]]);
+    await poly(b, EFGH, C.plum, 800, 3.5);
+  },
+
+  async s12(root, ok) {
+    const b = B(root, [-1, 8], [-1, 7]);
+    const rh = [[1, 4], [4, 6], [7, 4], [4, 2]], box = [[1, 2], [7, 2], [7, 6], [1, 6]];
+    await poly(b, box, C.faint, 600, 2.5, "7 6"); if (!ok()) return;
+    shade(b, box, C.faint, 0.18);
+    await poly(b, rh, C.plum, 800, 3.5); if (!ok()) return;
+    shade(b, rh, C.mid, 0.2);
+    await b.seg(1, 4, 7, 4, C.along, 600, 3); if (!ok()) return;
+    b.text(2.5, 4, "6", C.along, 20, "middle", 0, -8);
+    await b.seg(4, 2, 4, 6, C.up, 600, 3); if (!ok()) return;
+    b.text(4, 2.9, "4", C.up, 20, "start", 10, 6);
+    b.square(4, 4, [1, 0], [0, 1]);
+  },
+
+  async w3(root, ok) {
+    const b = B(root, [-1, 8], [-1, 8]);
+    letters(b, RSTU, ["R", "S", "T", "U"], [[-10, 20, "end"], [12, 8, "start"], [10, -10, "start"], [-12, 6, "end"]]);
+    await poly(b, RSTU, C.plum, 800, 3.5);
+  },
+
+  async d2(root, ok) {
+    const b = icon(root.querySelector("svg"), [-1, 6], [0, 7], 18); root._b = b;
+    await poly(b, WXYZ, C.plum, 800, 3.5); if (!ok()) return;
+    letters(b, WXYZ, ["W", "X", "Y", "Z"], [[-12, 7, "end"], [12, 8, "start"], [12, -6, "start"], [-12, -4, "end"]]);
+    await b.seg(0, 1, 5, 6, C.mid, 600, 2.5, "7 6"); if (!ok()) return;
+    await b.seg(5, 2, 1, 6, C.up, 500, 2.5, "7 6"); if (!ok()) return;
+    b.dot(3, 4, "M", 0, 26, C.mid, "middle"); b.square(3, 4, [1, 1], [-1, 1]);
+  },
+
+  async z1(root) {
+    const [a, b, c] = [...root.querySelectorAll("svg")].map(v => icon(v, [-1, 7], [0, 7], 8));
+    for (const g of [a, b, c]) { g.fn(x => x + 1, C.mid, 500, 3); g.fn(x => -x + 7, C.up, 500, 3); g.dot(0, 1); g.dot(5, 6); g.dot(5, 2, null, 0, 0, C.up); }
+    b.dot(3, 4, null, 0, 0, C.along); b.square(3, 4, [1, 1], [-1, 1]);
+    c.dot(3, 4, null, 0, 0, C.along); c.seg(5, 2, 3, 2, C.along, 1, 2.5, "5 4"); c.seg(3, 2, 3, 4, C.up, 1, 2.5, "5 4");
+    c.seg(3, 4, 1, 4, C.along, 1, 2.5, "5 4"); c.seg(1, 4, 1, 6, C.up, 1, 2.5, "5 4"); c.dot(1, 6, null, 0, 0, C.mid);
+  },
+
+  async w4(root, ok) {
+    const b = B(root, [-2, 9], [-1, 9]);
+    letters(b, [PQRS[0], PQRS[2]], ["P(2, 0)", "R(4, 8)"], [[12, 20, "start"], [12, 6, "start"]]);
+    await b.seg(2, 0, 4, 8, C.plum, 700, 3.5);
+  },
+
+  async d3(root, ok) {
+    const b = icon(root.querySelector("svg"), [0, 9], [0, 5], 16); root._b = b;
+    const t = [[1, 1], [8, 1], [6, 4], [2, 4]];
+    shade(b, t, C.mid, 0.12);
+    await poly(b, t, C.plum, 800, 3.5); if (!ok()) return;
+    b.text(4.5, 1, "7", C.along, 20, "middle", 0, 24); b.text(4, 4, "4", C.along, 20, "middle", 0, -10);
+    await b.seg(5, 4, 5, 1, C.up, 500, 2.5, "6 5"); if (!ok()) return;
+    b.corner(5, 1, 1, 1); b.text(5, 2.5, "3", C.up, 20, "start", 10, 6);
+  },
+
+  async k1(root, ok) {
+    const b = B(root, [-2, 8], [-1, 8]);
+    letters(b, [[-1, 0], [5, 3], [6, 7]], ["P", "Q", "R"], [[-10, -10, "end"], [12, 8, "start"], [12, 6, "start"]]);
+    await b.seg(-1, 0, 5, 3, C.plum, 600, 3.5); if (!ok()) return;
+    await b.seg(5, 3, 6, 7, C.plum, 400, 3.5); if (!ok()) return;
+    await b.seg(-1.8, 5, 7.8, 5, C.faint, 500, 2.5, "7 6"); if (!ok()) return;
+    b.text(-1.8, 5, "S(k, 5) is on this line", C.muted, 16, "start", 0, -10, 600);
+  },
+
+  /* exam question: one board for every part */
+  async xa(root) { const b = B(root, [-3, 6], [-1, 7]); letters(b, [TRAP[0], TRAP[1]], ["A(−2, 3)", "B(2, 1)"], [[0, -14, "middle"], [12, 16, "start"]]); },
+  async xb(root, ok) {
+    const b = B(root, [-3, 6], [-1, 7]);
+    letters(b, TRAP.slice(0, 3), ["A", "B", "C(4, 5)"], [[-12, 7, "end"], [0, 26, "middle"], [0, -14, "middle"]]);
+    await b.seg(-2, 3, 2, 1, C.plum, 500, 3.5); await b.seg(2, 1, 4, 5, C.plum, 500, 3.5); b.square(2, 1, [-2, 1], [1, 2]);
+  },
+  async xc(root, ok) {
+    const b = B(root, [-3, 6], [-1, 7]);
+    letters(b, TRAP, ["A", "B", "C", "D"], [[-12, 7, "end"], [0, 26, "middle"], [12, 7, "start"], [0, -14, "middle"]]);
+    await poly(b, TRAP, C.plum, 800, 3.5);
+  },
+  async xd(root, ok) {
+    const b = B(root, [-3, 6], [-1, 7]);
+    letters(b, TRAP, ["A", "B", "C", "D"], [[-12, 7, "end"], [0, 26, "middle"], [12, 7, "start"], [0, -14, "middle"]]);
+    await poly(b, TRAP, C.plum, 800, 3.5);
+  },
+};
+
+/* ============ step-by-step actions on the board (index = step) ============ */
+const acts = {
+  w1: [
+    async b => { await b.go(5, 1, 8, 1, C.along); await b.go(8, 1, 8, 6, C.up); b.text(8, 3.5, "5 up", C.up, 17, "start", 10, 6); b.text(6.5, 1, "3 along", C.along, 17, "middle", 0, 22); },
+    async b => { await b.go(0, 2, 3, 2, C.along); await b.go(3, 2, 3, 7, C.up); b.dot(3, 7, "D(3, 7)", 0, -14, C.mid, "middle"); await b.seg(0, 2, 3, 7, C.mid, 500, 3.5); },
+    async b => { await b.seg(3, 7, 8, 6, C.mid, 500, 3.5); },
+  ],
+  w2: [
+    async b => { await b.seg(0, 3, 6, 0, C.along, 500, 4.5); await b.seg(2, 7, 8, 4, C.along, 500, 4.5); await b.seg(6, 0, 8, 4, C.up, 400, 4.5); await b.seg(0, 3, 2, 7, C.up, 400, 4.5); },
+    async b => { b.square(6, 0, [-6, 3], [2, 4]); },
+    async b => { b.text(3, 1.5, "3√5", C.along, 18, "end", -8, 20); b.text(7, 2, "2√5", C.up, 18, "start", 12, 6); },
+    async b => { shade(b, EFGH, C.mid, 0.16); b.text(4, 3.5, "30", C.plum, 26, "middle", 0, 8); },
+  ],
+  w3: [
+    null,
+    async b => { await b.seg(1, 1, 7, 7, C.mid, 600, 2.5, "7 6"); await b.seg(5, 3, 3, 5, C.up, 400, 2.5, "7 6"); b.square(4, 4, [1, 1], [-1, 1]); },
+    async b => { b.text(4.6, 1.2, "RT = 6√2", C.mid, 18, "start", 0, 6); b.text(4.6, 0.5, "SU = 2√2", C.up, 18, "start", 0, 6); },
+    async b => { shade(b, RSTU, C.mid, 0.16); },
+  ],
+  w4: [
+    async b => { b.dot(3, 4, "M", 10, 26, C.along, "start"); },
+    async b => { await b.fn(x => -(x - 3) / 4 + 4, C.mid, 800, 2.5, "7 6"); b.square(3, 4, [1, 4], [4, -1]); },
+    async b => { await b.go(3, 4, 7, 4, C.along); await b.go(7, 4, 7, 3, C.up); b.dot(7, 3, "Q", 12, -6, C.plum, "start"); await b.go(3, 4, -1, 4, C.along); await b.go(-1, 4, -1, 5, C.up); b.dot(-1, 5, "S", -8, -10, C.plum, "end"); },
+    async b => { shade(b, PQRS, C.mid, 0.14); await poly(b, PQRS, C.plum, 800, 3.5); },
+  ],
+  k1: [
+    async b => { b.text(2, 1.5, "gradient 1/2", C.plum, 16, "start", 6, 24, 600); },
+    async b => { [...b.svg.querySelectorAll("text")].filter(t => t.textContent.startsWith("S(k")).forEach(t => t.remove()); await b.walk([[6, 5], [2, 5]], 250); b.dot(2, 5, "S(2, 5)", -10, -10, C.mid, "end"); await b.seg(2, 5, 6, 7, C.mid, 500, 3.5); await b.seg(2, 5, -1, 0, C.faint, 500, 2.5); },
+  ],
+  xa: [
+    async b => { await b.seg(-2, 3, 2, 1, C.plum, 600, 3.5); },
+    async b => { await b.fn(x => 2 * (x - 2) + 1, C.faint, 700, 2.5, "7 6"); b.square(2, 1, [-2, 1], [1, 2]); },
+    async b => { b.dot(4, 5, "C(4, 5)", -12, -6, C.mid, "end"); await b.seg(2, 1, 4, 5, C.mid, 500, 3.5); },
+  ],
+  xb: [
+    async b => { await b.seg(-2.8, 5, 5.8, 5, C.faint, 600, 2.5, "7 6"); b.text(5.8, 5, "y = 5", C.muted, 16, "end", 0, 22, 600); },
+    async b => { await b.walk([[3, 5], [-1, 5]], 250); b.dot(-1, 5, "D(−1, 5)", -10, -10, C.mid, "end"); await b.seg(-2, 3, -1, 5, C.mid, 500, 3.5); await b.seg(-1, 5, 4, 5, C.mid, 500, 3.5); },
+  ],
+  xc: [
+    async b => { await b.seg(-2, 3, 2, 1, C.along, 500, 5); b.text(0, 2, "2√5", C.along, 18, "end", -6, 22); },
+    async b => { await b.seg(2, 1, 4, 5, C.up, 500, 5); b.text(3, 3, "2√5", C.up, 18, "start", 12, 6); },
+    async b => { await b.seg(-2, 3, -1, 5, C.mid, 500, 5); b.text(-1.5, 4, "√5", C.mid, 18, "end", -10, 4); },
+  ],
+  xd: [
+    async b => { b.square(2, 1, [-2, 1], [1, 2]); b.square(-2, 3, [2, -1], [1, 2]); await b.seg(-2, 3, 2, 1, C.up, 500, 5); b.text(0, 2, "gap 2√5", C.up, 17, "end", -6, 22); },
+    async b => { shade(b, TRAP, C.mid, 0.16); b.text(1.2, 3.4, "15", C.plum, 26, "middle", 0, 8); },
+  ],
+};
+const reveals = {};
+
+predicts.three = async b => {
+  const P = [2, 3], Q = [5, 2], R = [4, 5];
+  const opts = [[[1, 6], [P, Q, R, [1, 6]], C.along, [0, -14, "middle"]], [[3, 0], [P, [3, 0], Q, R], C.up, [0, 26, "middle"]], [[7, 4], [P, Q, [7, 4], R], C.mid, [10, -10, "start"]]];
+  for (const [pt, shape, col, [dx, dy, an]] of opts) {
+    await poly(b, shape, col, 700, 2.5, "7 5");
+    b.dot(...pt, `(${sg(pt[0])}, ${sg(pt[1])})`, dx, dy, col, an);
+    await wait(300);
+  }
+};
+
+/* ============ answer checking with feedback on the usual slips ============ */
+const checks = {
+  k1: ([a]) => eq(a, 3) ? [true, "Yes. AB has gradient 2 ÷ 4 = 1/2. So (8 − 7) ÷ (5 − k) = 1/2, 5 − k = 2, k = 3."]
+    : eq(a, 7) ? [false, "Check the sign: 5 − k = 2 means k = 5 − 2."]
+    : eq(a, 4.5) ? [false, "The gradient of AB is up ÷ along = 2 ÷ 4 = 1/2, not 2."]
+    : eq(a, 5) ? [false, "Parallel means the same gradient, not the same x. Set (8 − 7) ÷ (5 − k) = 1/2."]
+    : [false, "AB has gradient 2 ÷ 4 = 1/2. DC must match: (8 − 7) ÷ (5 − k) = 1/2."],
+};
+</script>
+<script src="../../../../lesson-ui/slides/deck.js"></script>
+<script src="../../../../lesson-ui/slides/interact.js"></script>
+</body>
+</html>
