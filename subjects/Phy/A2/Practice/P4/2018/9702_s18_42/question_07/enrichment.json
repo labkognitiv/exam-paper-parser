@@ -1,0 +1,55 @@
+{
+  "9702_s18_42_q07_a_i": {
+    "hints": [
+      "Think about the word feedback - where in the circuit does the signal go after it leaves the output?",
+      "For it to be negative, think about whether the fed-back signal adds to or opposes the original input at the inverting (-) terminal."
+    ],
+    "walkthrough": [
+      "**Picture What Feedback Means**\nThink of the amplifier as a loop. The signal goes in, gets amplified, and comes out. With feedback, you take a small sample of that output and bring it back round to the input side again.",
+      "**Why It Is Called Negative**\nThe fed-back fraction is returned to the inverting (-) input, so it opposes or is subtracted from the input signal. This reduces the net input to the op-amp itself and stabilises the whole circuit.",
+      "Final answer: A fraction of the output voltage is fed back to the input and is subtracted from the input voltage."
+    ]
+  },
+  "9702_s18_42_q07_a_ii": {
+    "hints": [
+      "If you are subtracting part of the output from the input, do you expect the overall amplification to get bigger or smaller?",
+      "Remember the trade-off in op-amps - when gain is sacrificed, what useful property of frequency response is gained in return?"
+    ],
+    "walkthrough": [
+      "**Gain Gets Smaller**\nBecause you are subtracting, the effective input driving the op-amp is smaller. So the closed-loop gain is much smaller than the huge open-loop gain of the op-amp alone.",
+      "**Bandwidth Gets Larger**\nYou pay for stability with gain, but you gain something valuable. The range of frequencies that are amplified uniformly, the bandwidth, becomes larger. In fact $$ \\text{gain} \\times \\text{bandwidth} = \\text{constant} $$ so halving the gain doubles the bandwidth.",
+      "Final answer: 1. The voltage gain is reduced. 2. The bandwidth is increased, so the gain-bandwidth product remains constant."
+    ]
+  },
+  "9702_s18_42_q07_b_i": {
+    "hints": [
+      "Look carefully at Fig. 7.1 - $V_{IN}$ goes directly to the non-inverting (+) input, so which standard op-amp configuration is this?"
+    ],
+    "walkthrough": [
+      "**Recognise the Circuit**\n$V_{IN}$ is applied to the + terminal, while the 800 $\\Omega$ resistor goes to 0 V and the 6400 $\\Omega$ resistor bridges output to the - terminal. That is the classic non-inverting amplifier with negative feedback.",
+      "**Apply the Gain Rule**\nFor a non-inverting amplifier: $$ G = 1 + \\frac{R_f}{R_1} $$ Here $R_f = 6400\\,\\Omega$ and $R_1 = 800\\,\\Omega$, so $$ G = 1 + \\frac{6400}{800} = 1 + 8 = 9.0 $$ The gain is positive and has no units.",
+      "Final answer: $G = 1 + 6400/800 = 9.0$"
+    ]
+  },
+  "9702_s18_42_q07_b_ii": {
+    "hints": [
+      "In the linear region the output is simply gain times input, but what are the power supply limits shown on the op-amp symbol in Fig. 7.1?",
+      "Calculate $G \\times V_{IN}$ for each case first, then check if the result would try to exceed the supplies and so saturate."
+    ],
+    "walkthrough": [
+      "**Linear Calculation**\nIn normal operation $$ V_{OUT} = G \\times V_{IN} $$ With $G = 9.0$, for $V_{IN} = +0.60\\text{ V}$: $$ V_{OUT} = 9.0 \\times 0.60 = +5.4\\text{ V} $$ This lies between +9.0 V and -9.0 V, so it is allowed.",
+      "**Check for Saturation**\nFor $V_{IN} = -2.1\\text{ V}$: $$ V_{OUT} = 9.0 \\times (-2.1) = -18.9\\text{ V} $$ An ideal op-amp cannot output beyond its supply rails of $+9.0\\text{ V}$ and $-9.0\\text{ V}$. The output therefore clips or saturates at approximately $$ V_{OUT} = -9.0\\text{ V} $$",
+      "Final answer: 1. $V_{OUT} = 9.0 \\times 0.60 = +5.4\\text{ V}$. 2. Calculated $-18.9\\text{ V}$ exceeds $-9.0\\text{ V}$ supply, so op-amp saturates at $V_{OUT} = -9.0\\text{ V}$."
+    ]
+  },
+  "9702_s18_42_q07_b_iii": {
+    "hints": [
+      "Recall $G = 1 + R_f/R_1$ - to make $G$ fall as temperature rises, should the top feedback resistance fall or the bottom resistance rise?"
+    ],
+    "walkthrough": [
+      "**Link Gain to Resistance**\nFor this non-inverting circuit $$ G = 1 + \\frac{R_f}{R_1} $$ To make $G$ decrease when temperature rises, you need $R_f$ to decrease when temperature rises.",
+      "**Choose the Sensor**\nAn NTC (negative temperature coefficient) thermistor has a resistance that falls sharply with rising temperature. Replacing the 6400 $\\Omega$ resistor with an NTC thermistor therefore makes the circuit act as a temperature monitor with falling gain.",
+      "Final answer: Replace the $6400\\,\\Omega$ feedback resistor with an NTC thermistor whose resistance decreases as temperature rises."
+    ]
+  }
+}

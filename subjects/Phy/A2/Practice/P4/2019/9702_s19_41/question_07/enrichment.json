@@ -1,0 +1,39 @@
+{
+  "9702_s19_41_q07_a_i": {
+    "hints": [
+      "Start by looking at where the two op-amp inputs are connected - what is the potential at the non-inverting (+) input in Fig. 7.1?",
+      "Recall that an ideal op-amp has a very large open-loop gain, so for a finite output voltage the voltage difference between the - and + inputs must be almost zero.",
+      "Think about why point P is at earth potential but is not actually wired to earth, and why almost no current enters the op-amp itself."
+    ],
+    "walkthrough": [
+      "**Spot the earthed input**\nYou are sitting beside the circuit, so first check the + input. It is wired straight to the earth line, so $V_{+} = 0\\text{ V}$. That is a real earth.",
+      "**Use the golden rule for an ideal op-amp**\nAn ideal op-amp has huge open-loop gain $A_0$, with $$V_{OUT} = A_0(V_{+} - V_{-})$$ For $V_{OUT}$ to stay finite and not saturated, $(V_{+} - V_{-})$ must be essentially zero. So $V_{-} \\approx V_{+}$.",
+      "**Explain virtual earth**\nSince $V_{+} = 0\\text{ V}$, point P at the - input is also held at about $0\\text{ V}$. It behaves like earth in potential, but there is no wire from P to earth and no current flows into the op-amp input. That is why it is called a virtual earth, not a real earth.",
+      "Final answer: The non-inverting input is earthed at $0\\text{ V}$. For an ideal op-amp the potential difference between inputs is zero, so P is also at $0\\text{ V}$. P is not directly connected to earth, so it is a virtual earth."
+    ]
+  },
+  "9702_s19_41_q07_a_ii": {
+    "hints": [
+      "Identify this as an inverting amplifier and recall which two resistors set the magnitude of the voltage gain.",
+      "Remember to include the minus sign for phase inversion and check the ratio of the $5.2\\text{ k}\\Omega$ feedback resistor to the $0.80\\text{ k}\\Omega$ input resistor."
+    ],
+    "walkthrough": [
+      "**Recall the inverting gain rule**\nFor an inverting amplifier with virtual earth at P, all the input current flows through the feedback resistor. This gives $$G = \\frac{V_{OUT}}{V_{IN}} = -\\frac{R_f}{R_{in}}$$ The minus sign means the output is inverted relative to the input.",
+      "**Put in the numbers**\nHere $R_f = 5.2\\text{ k}\\Omega$ and $R_{in} = 0.80\\text{ k}\\Omega$, so $$G = -\\frac{5.2}{0.80} = -6.5$$ No units, because gain is a voltage ratio.",
+      "Final answer: gain $= -R_f/R_{in} = -5.2/0.80 = -6.5$"
+    ]
+  },
+  "9702_s19_41_q07_b": {
+    "hints": [
+      "Focus on the output branch - the resistor R and LED D are in series across $V_{OUT}$ to earth, so think about what $V_{OUT}$ is when the op-amp saturates.",
+      "Use the LED voltage of $2.3\\text{ V}$ to work out how much voltage must be left across resistor R, and convert the $30\\text{ mA}$ limit to amperes.",
+      "Apply $R = V/I$ to resistor R, or treat R and the LED as a potential divider of the saturated output voltage."
+    ],
+    "walkthrough": [
+      "**Find the saturated output voltage**\nThe op-amp is powered by $+5\\text{ V}$ and $-5\\text{ V}$ rails. When saturated positive, $V_{OUT}$ is approximately the positive rail, so $$V_{OUT} \\approx +5.0\\text{ V}$$ This $5.0\\text{ V}$ appears across the series combination of R and the LED to earth.",
+      "**Share the voltage between R and LED**\nThe LED takes $2.3\\text{ V}$, so by Kirchhoff's voltage law the resistor must drop the rest: $$V_R = V_{OUT} - V_{LED} = 5.0 - 2.3 = 2.7\\text{ V}$$ The same current flows through both, limited to $$I = 30\\text{ mA} = 0.030\\text{ A}$$",
+      "**Calculate the minimum R**\nUse Ohm's law for the resistor: $$R = \\frac{V_R}{I} = \\frac{2.7}{0.030} = 90\\,\\Omega$$ This can also be seen as an effective LED resistance of $2.3/0.030 = 77\\,\\Omega$ forming a divider: $2.3 = 77/(R+77) \\times 5.0$. A smaller R would let more than $30\\text{ mA}$ flow, so $90\\,\\Omega$ is the minimum safe value.",
+      "Final answer: Saturated $V_{OUT} = 5\\text{ V}$, p.d. across R $= 5.0 - 2.3 = 2.7\\text{ V}$. $R = 2.7/0.030 = 90\\,\\Omega$."
+    ]
+  }
+}

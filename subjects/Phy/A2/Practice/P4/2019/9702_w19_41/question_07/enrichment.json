@@ -1,0 +1,64 @@
+{
+  "9702_w19_41_q07_a_i": {
+    "hints": [
+      "Think about what bandwidth tells you about frequency - what happens to the gain of a real op-amp when the input frequency gets very high?"
+    ],
+    "walkthrough": [
+      "**What bandwidth means**\nThink of bandwidth as the range of input signal frequencies that get amplified properly. A real op-amp has a limited range and its gain falls off at high frequencies.",
+      "**Ideal means no limit**\nInfinite bandwidth means there is no upper frequency limit. So $$\\text{gain is the same for all frequencies}$$ from zero up to infinitely high frequency.",
+      "Final answer: All frequencies are amplified equally, the gain is independent of frequency."
+    ]
+  },
+  "9702_w19_41_q07_a_ii": {
+    "hints": [
+      "Think of the op-amp output as a source with a small internal resistance in series - what would that internal resistance do to the output voltage when a load draws current?"
+    ],
+    "walkthrough": [
+      "**Model the output**\nImagine the output has a tiny internal resistor in series with the load. Any output current $I$ would cause a lost voltage $I \\times R_{out}$ inside the op-amp.",
+      "**Set resistance to zero**\nIf $R_{out} = 0$, there is no lost voltage. So the full calculated $$V_{OUT}$$ appears across the load, no matter how much current is supplied.",
+      "Final answer: The output voltage does not drop when current is drawn from the output, the op-amp acts as an ideal voltage source."
+    ]
+  },
+  "9702_w19_41_q07_b_i": {
+    "hints": [
+      "Look at Fig. 7.1 and decide which type of amplifier this is - where does $V_{IN}$ enter, and which two resistors set the fraction fed back to the inverting input?",
+      "Check the units of the two resistors are the same before you form their ratio, then remember the +1 part for this type of amplifier."
+    ],
+    "walkthrough": [
+      "**Spot the non-inverting formula**\nHere $V_{IN}$ goes straight to the + input, so this is a non-inverting amplifier. You are sitting beside me, so remember it as: $$G = 1 + \\frac{R_F}{R_{IN}}$$ where $R_F$ is the feedback resistor between output and - input, and $R_{IN}$ is the resistor from - input to 0 V.",
+      "**Put in the numbers**\nFrom Fig. 7.1, $R_F = 4.0\\text{ k}\\Omega = 4000\\text{ }\\Omega$ and $R_{IN} = 800\\text{ }\\Omega$. So $$G = 1 + \\frac{4000}{800} = 1 + 5.0 = 6.0$$ The gain has no unit.",
+      "Final answer: Gain $= 1 + R_F/R_{IN} = 1 + 4000/800 = 6.0$"
+    ]
+  },
+  "9702_w19_41_q07_b_ii": {
+    "hints": [
+      "Think how output and input are linked by the gain you just found - if you know the wanted output, how can you work backwards to the needed input?"
+    ],
+    "walkthrough": [
+      "**Use gain backwards**\nGain links them as $$V_{OUT} = G \\times V_{IN}$$ so to get a wanted $V_{OUT}$ you rearrange: $$V_{IN} = \\frac{V_{OUT}}{G}$$",
+      "**Calculate**\nFor $V_{OUT} = +2.0\\text{ V}$ and $G = 6.0$: $$V_{IN} = \\frac{2.0}{6.0} = 0.33\\text{ V}$$ This is the input needed just to reach the LED turn-on voltage.",
+      "Final answer: $V_{IN} = V_{OUT}/G = 2.0/6.0 = 0.33\\text{ V}$"
+    ]
+  },
+  "9702_w19_41_q07_b_iii": {
+    "hints": [
+      "Look at the power supply connections on the op-amp symbol in Fig. 7.1 - what limits how large the output can possibly go?"
+    ],
+    "walkthrough": [
+      "**Why saturation happens**\nA real op-amp, even an ideal one in a circuit, cannot output more than its supply rails. Once the calculation $G \\times V_{IN}$ would exceed the supply, the output sticks at the supply value.",
+      "**Read the supply**\nFig. 7.1 shows supplies of $+5.0\\text{ V}$ and $-5.0\\text{ V}$. So the largest positive output is $$V_{OUT(max)} = +5.0\\text{ V}$$",
+      "Final answer: Maximum $V_{OUT} = +5.0\\text{ V}$, the positive supply voltage (saturation voltage)."
+    ]
+  },
+  "9702_w19_41_q07_b_iv": {
+    "hints": [
+      "Focus on the LED plus R branch - it is in parallel with $V_{OUT}$, so the full saturated output is shared between the LED and resistor R. What voltage is left for R if the LED takes 2.2 V?",
+      "Now you know the voltage across R and the maximum allowed current through it, think which law links $V$, $I$ and $R$ and remember to convert 20 mA to amperes."
+    ],
+    "walkthrough": [
+      "**Find voltage left for the resistor**\nWhen saturated, $V_{OUT} = 5.0\\text{ V}$ appears across the series combination of LED and R. By Kirchhoff's law: $$V_R = V_{OUT} - V_{LED}$$ So $$V_R = 5.0 - 2.2 = 2.8\\text{ V}$$ A common slip is to use 5.0 V directly for R - the LED already drops part of it.",
+      "**Apply Ohm's law for minimum R**\nThe same current flows in R and the LED. To limit current to $I_{max} = 20\\text{ mA} = 0.020\\text{ A}$: $$R = \\frac{V_R}{I} = \\frac{2.8}{0.020} = 140\\text{ }\\Omega$$ A smaller R would let more than 20 mA flow, so $140\\text{ }\\Omega$ is the minimum safe value.",
+      "Final answer: Voltage across R $= 5.0 - 2.2 = 2.8\\text{ V}$. $R = V/I = 2.8/0.020 = 140\\text{ }\\Omega$."
+    ]
+  }
+}

@@ -1,0 +1,69 @@
+{
+  "9702_w24_43_q06_ai": {
+    "hints": [
+      "Think about how current direction differs between an a.c. supply that keeps reversing and a d.c. supply that flows one way only."
+    ],
+    "walkthrough": [
+      "**Picture a.c. and d.c.**\nAn alternating voltage keeps changing polarity, so current flows first one way then the opposite way. A direct voltage keeps the same polarity, so current flows in one direction only.",
+      "**Define the process**\nRectification means taking that reversing a.c. input and producing a one-directional d.c. output. In practice this is done with diodes that allow current in one direction only.",
+      "Final answer: Rectification is the conversion of alternating current/voltage to direct current/voltage."
+    ]
+  },
+  "9702_w24_43_q06_aii": {
+    "hints": [
+      "Focus on what happens to the half of the a.c. cycle that tries to push current the wrong way through the diode.",
+      "Compare blocking that unwanted half completely with flipping it over so it adds to the wanted half."
+    ],
+    "walkthrough": [
+      "**Half-wave means keep one half**\nWith a single diode, current can pass during one half-cycle but is blocked during the opposite half-cycle. So the output is zero for half the time. One polarity is removed.",
+      "**Full-wave means use both halves**\nWith a bridge of diodes, the negative half-cycle is not blocked but rerouted so it appears as positive at the output. The voltage in one direction is reversed, giving a continuous series of one-directional pulses with no long gaps.",
+      "Final answer: Half-wave: the voltage in one direction is removed/blocked, leaving gaps with zero output. Full-wave: the voltage in one direction is reversed, so both halves contribute to output in the same direction."
+    ]
+  },
+  "9702_w24_43_q06_bi": {
+    "hints": [
+      "Remember half-wave needs only one one-way device in series with the output, so one of the two gaps in Fig. 6.1 must stay a plain wire.",
+      "Recall the diode symbol is a triangle pointing towards a bar, and it must be placed in series on either the top or bottom lead between $V_{IN}$ and the $R$-$C$ parallel combination."
+    ],
+    "walkthrough": [
+      "**See the two gaps to fill**\nFig. 6.1 has a break in the top wire and a break in the bottom wire between the $V_{IN}$ terminals on the left and the parallel $C$ and $R$ on the right. Current to the load must go out through one wire and back through the other.",
+      "**Add one diode only**\nFor half-wave you need current blocked in one direction but free in the other. Put a single diode in series in either the top gap or the bottom gap, and join the other gap with a plain wire. Either orientation works, it just decides which half-cycle is passed.",
+      "**Draw the symbol correctly**\nDraw the diode as a triangle pointing to a vertical bar. The triangle points in the direction of conventional current flow when conducting.",
+      "Final answer: Connect one lead from $V_{IN}$ to the output section with a single diode in series, and connect the other lead directly with a wire. Diode drawn with correct triangle-and-bar symbol in series."
+    ]
+  },
+  "9702_w24_43_q06_bii": {
+    "hints": [
+      "Look at Fig. 6.3 where $V_{OUT}$ stays high and falls only slowly instead of dropping to zero like a plain rectified pulse."
+    ],
+    "walkthrough": [
+      "**Why a capacitor in parallel**\nThe rectified voltage alone is still pulsing with gaps. The capacitor charges up to the peak when the diode conducts, then when the input falls or is blocked it discharges slowly through $R$. This fills in the gaps and keeps $V_{OUT}$ nearly steady, which is called smoothing.",
+      "Final answer: To smooth the rectified output / to reduce variation in $V_{OUT}$ by storing charge and discharging through R."
+    ]
+  },
+  "9702_w24_43_q06_ci": {
+    "hints": [
+      "Identify the maximum voltage on the capacitor from Fig. 6.3 and link maximum stored energy to maximum voltage.",
+      "Rearrange the energy-voltage-capacitance relation to make $C$ the subject before inserting $E = 0.041\\text{ J}$ and $V = 12\\text{ V}$."
+    ],
+    "walkthrough": [
+      "**Pick the governing energy relation**\nEnergy in a capacitor depends on capacitance and voltage squared:\n$$E = \\frac{1}{2}CV^2$$\nMaximum energy occurs at maximum voltage.",
+      "**Read the peak voltage**\nFrom Fig. 6.3, $V_{OUT}$ which equals capacitor voltage reaches $V_0 = 12\\text{ V}$. Given $E_{max} = 0.041\\text{ J}$, rearrange:\n$$C = \\frac{2E}{V^2}$$",
+      "**Calculate**\n$$C = \\frac{2 \\times 0.041}{12^2} = \\frac{0.082}{144} \\approx 5.7 \\times 10^{-4}\\text{ F}$$\n$$C \\approx 570\\,\\mu\\text{F}$$\nThis shows the required value.",
+      "Final answer: $C = 5.7 \\times 10^{-4}\\text{ F} \\approx 570\\,\\mu\\text{F}$."
+    ]
+  },
+  "9702_w24_43_q06_cii": {
+    "hints": [
+      "Find a discharge interval on Fig. 6.3 where the capacitor falls from the 12 V peak without being recharged, and read the voltage drop and time taken.",
+      "Remember discharge through a resistor follows an exponential law linking $V$, $V_0$, time $t$, $R$ and the $C$ just found.",
+      "Take natural logs to bring $R$ out of the exponent, then rearrange for $R$ and check units with $C$ in farads and $t$ in seconds."
+    ],
+    "walkthrough": [
+      "**Read the discharge from the graph**\nBetween $t = 0.01\\text{ s}$ and $t = 0.02\\text{ s}$ the diode is reverse biased so the capacitor discharges through $R$ alone. From Fig. 6.3:\n$$V_0 = 12.0\\text{ V}, \\quad V = 8.0\\text{ V}, \\quad t = 0.010\\text{ s}$$",
+      "**Apply exponential discharge**\nFor discharge:\n$$V = V_0 e^{-t/RC}$$\nSo:\n$$8.0 = 12.0 \\exp\\left(\\frac{-0.010}{R C}\\right)$$",
+      "**Solve with logs**\nTake natural logs:\n$$\\ln\\left(\\frac{8.0}{12.0}\\right) = \\frac{-0.010}{R \\times 5.7 \\times 10^{-4}}$$\n$$-0.4055 = \\frac{-0.010}{R \\times 5.7 \\times 10^{-4}}$$\nRearrange:\n$$R = \\frac{0.010}{0.4055 \\times 5.7 \\times 10^{-4}} \\approx 43\\,\\Omega$$",
+      "Final answer: $R \\approx 43\\,\\Omega$."
+    ]
+  }
+}
