@@ -1,0 +1,46 @@
+{
+  "9702_w16_41_q04_a_i": {
+    "hints": [
+      "Think about what a digital signal looks like - only two distinct levels - and what happens to it as it travels. What unwanted addition builds up on top of the clean 1s and 0s?",
+      "Because there are only two allowed values, a circuit can decide if what arrives is meant to be a 1 or a 0. What could it then do to make a fresh, clean copy?"
+    ],
+    "walkthrough": [
+      "**Picture a Digital Signal Plus Noise**\nA digital signal is discrete - it only has two levels, high for 1 and low for 0. As it travels it picks up noise and becomes attenuated and distorted, so the highs and lows look messy.",
+      "**Decide and Rebuild a Clean Signal**\nA regenerator samples the messy signal and compares it to a threshold. If it is above threshold it outputs a brand new clean 1, if below it outputs a brand new clean 0. So $$\\text{noisy 1s and 0s} \\rightarrow \\text{threshold decision} \\rightarrow \\text{new clean 1s and 0s}$$ The noise is left behind and the original shape is restored.",
+      "Final answer: Regeneration removes noise/distortion from the received digital signal and reforms the original signal. Values above/below a threshold are used to create a new clean series of 1s and 0s."
+    ]
+  },
+  "9702_w16_41_q04_a_ii": {
+    "hints": [
+      "Contrast an analogue waveform with a digital one. If the voltage can be any value at any time, how can you tell which small wiggle is the music and which is noise?",
+      "If you cannot separate them, what happens when you try to boost the weak signal with an amplifier?"
+    ],
+    "walkthrough": [
+      "**Why Analogue Has No Threshold**\nAn analogue signal carries information in its exact shape - every small change in voltage matters. Noise adds a small random extra voltage on top. Because there are no fixed 1 and 0 levels, there is no way to decide what part is signal and what part is noise.",
+      "**Amplification Keeps the Noise**\nAn amplifier simply makes everything bigger: $$V_{out} = \\text{gain} \\times (V_{signal} + V_{noise})$$ Both signal and noise grow together. The distortion stays and gets worse at each stage, so a clean original can never be reformed. That is why analogue can only be amplified, not regenerated.",
+      "Final answer: An analogue signal is continuously variable so noise is superposed on the signal displacement and cannot be distinguished from it. Any amplification boosts the noise together with the signal, so the original cannot be recovered."
+    ]
+  },
+  "9702_w16_41_q04_b_i": {
+    "hints": [
+      "Start from what signal-to-noise ratio in dB means. It compares two powers - which power goes on top of the ratio for a signal-to-noise value?",
+      "Convert the noise $0.38 \\, \\mu\\text{W}$ to watts, then rearrange the log equation to make $P_{MIN}$ the subject before using $10^{x}$."
+    ],
+    "walkthrough": [
+      "**Write the dB Rule for Power**\nFor power ratios the decibel rule uses $10 \\lg$. Here the ratio is signal power to noise power: $$\\text{signal-to-noise ratio in dB} = 10 \\lg\\left(\\frac{P_{signal}}{P_{noise}}\\right)$$ You are given ratio $= 32 \\text{ dB}$ and $P_{noise} = 0.38 \\, \\mu\\text{W} = 0.38 \\times 10^{-6} \\text{ W}$.",
+      "**Substitute and Solve for P_MIN**\nPut $P_{signal} = P_{MIN}$: $$32 = 10 \\lg\\left(\\frac{P_{MIN}}{0.38 \\times 10^{-6}}\\right)$$ Divide by 10 and take antilog: $$\\lg\\left(\\frac{P_{MIN}}{0.38 \\times 10^{-6}}\\right) = 3.2$$ $$\\frac{P_{MIN}}{0.38 \\times 10^{-6}} = 10^{3.2} \\approx 1585$$ $$P_{MIN} = 0.38 \\times 10^{-6} \\times 1585 \\approx 6.0 \\times 10^{-4} \\text{ W}$$ This is the smallest signal power that still keeps the required quality.",
+      "Final answer: $P_{MIN} = 6.0 \\times 10^{-4} \\text{ W}$"
+    ]
+  },
+  "9702_w16_41_q04_b_ii": {
+    "hints": [
+      "Attenuation in dB also uses $10 \\lg$, but now it compares input power to output power along the fibre. Which value is $9.5 \\text{ mW}$ and which is $P_{MIN}$?",
+      "Once you have the total loss in dB for the whole 58 km, how do you spread that loss evenly to get dB per km?"
+    ],
+    "walkthrough": [
+      "**Find Total Attenuation in dB**\nAttenuation is the loss from input to output: $$\\text{attenuation in dB} = 10 \\lg\\left(\\frac{P_{in}}{P_{out}}\\right)$$ Here $P_{in} = 9.5 \\text{ mW} = 9.5 \\times 10^{-3} \\text{ W}$ and $P_{out} = P_{MIN} = 6.0 \\times 10^{-4} \\text{ W}$. So $$\\text{attenuation} = 10 \\lg\\left(\\frac{9.5 \\times 10^{-3}}{6.0 \\times 10^{-4}}\\right) = 10 \\lg(15.8) \\approx 12 \\text{ dB}$$",
+      "**Divide by Length**\nLoss per km is assumed uniform: $$\\text{attenuation per unit length} = \\frac{\\text{total attenuation}}{\\text{length}}$$ $$= \\frac{12}{58} \\approx 0.21 \\text{ dB km}^{-1}$$ A small value like this is typical for optic fibre with infra-red.",
+      "Final answer: Total attenuation $\\approx 12 \\text{ dB}$, attenuation per unit length $= 0.21 \\text{ dB km}^{-1}$"
+    ]
+  }
+}
