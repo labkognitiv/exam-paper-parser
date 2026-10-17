@@ -1,0 +1,21 @@
+{
+  "9700_w25_13_q27": {
+    "hints": [
+      "Split the original 15 bases C T A G A A T C C T C T C C C into five triplets from the left and use the table to find the five original amino acids. Count how many amino acids are coded for after the mutation.",
+      "A frameshift changes how all downstream triplets are grouped. Try deleting the third base A and regrouping the rest into new triplets CTA, AAT, CCT, CTC, then check them in the table."
+    ],
+    "walkthrough": [
+      "**Read the original code in triplets**\n\nStart by grouping the original sequence from the left in threes. This is how the cell reads it.\n\n$$CTA \\; GAA \\; TCC \\; TCT \\; CCC$$\nUse the table with 1st base on the left and 2nd base on top. You get Asp, Leu, Arg, Arg, Gly. That is five amino acids.",
+      "**Notice what changed after mutation**\n\nAfter mutation there are only four amino acids: Asp, Leu, Gly and Glu.\nThis tells you the reading frame must have shifted, because a simple substitution would still give five triplets. An insertion or deletion shifts every triplet after the mutation point.",
+      "**Test deletion of one nucleotide**\n\nDelete the third base, the A in CTA:\n\n$$C T [A] G A A T C C T C T C C C \\rightarrow C T G A A T C C T C T C C C$$\nNow regroup from the left:\n$$CTG \\; AAT \\; CCT \\; CTC$$\nCheck the table: CTG is Asp, AAT is Leu, CCT is Gly, CTC is Glu. This matches exactly Asp, Leu, Gly, Glu.",
+      "**Conclude the mutation type**\n\nOnly removing one base gives the correct new set of four amino acids by a frameshift. So the mutation was deletion of one nucleotide.",
+      "**Final answer**\n\nThe answer is **A**."
+    ],
+    "options": {
+      "A": "Correct. Deleting the A at position 3 shifts the frame to give CTG, AAT, CCT, CTC which code for Asp, Leu, Gly, Glu exactly.",
+      "B": "False. Insertion of one base would give 16 bases and would not regroup to CTA/AAT type triplets that give Asp, Leu, Gly, Glu.",
+      "C": "False. Insertion of two bases would give 17 bases and a different frameshift, it cannot produce the observed four triplets CTG, AAT, CCT, CTC.",
+      "D": "False. Substitution of one base keeps 15 bases and five amino acids with no frameshift, so it cannot reduce the chain to four different amino acids."
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "9700_w17_11_q09": {
+    "hints": [
+      "Start at the N terminal end and trace the whole chain to the C terminal end, checking the shape and shading of every pair of neighbours.",
+      "Remember that each cut increases the number of pieces by one, but a single amino acid cut out on both sides is not counted as a peptide chain."
+    ],
+    "walkthrough": [
+      "**Identify the two target types**\n\nLook at the key first. Polar basic is the dark rectangle, like Lys, Arg and His. Non-polar is the light oval, like Ala, Phe, Met, Leu, Val and Pro.\n\nYou are only interested in a peptide bond where these two types sit next to each other in either order.",
+      "**Find every PB to NP junction**\n\nTrace carefully from N to C: Lys-Glu-Thr-Ala-Ala-Ala-Lys-Phe-Glu-Arg-Gln-His-Met... and so on to the C end.\n\nYou will find 6 places where PB sits next to NP: Ala-Lys, Lys-Phe, His-Met, Met-Lys, Lys-Pro, and Val-His.",
+      "**Convert cuts to peptides**\n\nFor a single starting polypeptide:\n$$ \\text{pieces} = \\text{number of cuts} + 1 $$\nSo 6 cuts gives 7 pieces in total.",
+      "**Subtract the free amino acid**\n\nNotice that Lys between Ala-Ala-Ala and Phe is cut on both sides. It is released as a single amino acid, not a chain.\n\nSo 7 pieces minus 1 single amino acid = 6 peptides, which are chains of 2 or more amino acids.",
+      "**Final answer**\n\nThe answer is **B**."
+    ],
+    "options": {
+      "A": "5 is too low. It misses one or more of the 6 PB to NP junctions or miscounts the single Lys fragment.",
+      "B": "Correct. There are 6 cuts giving 7 pieces, but one piece is a single Lys, leaving 6 true peptide chains.",
+      "C": "8 is too high. It likely counts the single free Lys as a peptide, or includes a P to NP junction by mistake.",
+      "D": "13 is far too high. It likely counts every polar basic amino acid as a cut site, instead of only those next to a non-polar amino acid."
+    }
+  }
+}
