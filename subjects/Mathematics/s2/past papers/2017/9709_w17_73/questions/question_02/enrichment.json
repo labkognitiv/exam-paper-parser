@@ -1,0 +1,19 @@
+{
+ "9709_w17_73_q2": {
+  "hints": [
+   "You have a binomial situation: $n = 403$ seats sold, each passenger independently fails to arrive with probability $p = \\frac{1}{100}$. When $n$ is large and $p$ is small, which distribution is a suitable approximation?",
+   "The mean of the approximating distribution is $np$, which here is $403 \\times \\frac{1}{100}$.",
+   "Overbooked means the number of no-shows is fewer than 3, so you need $\\text{P}(X = 0) + \\text{P}(X = 1) + \\text{P}(X = 2)$, each of the form $\\text{e}^{-\\lambda}\\dfrac{\\lambda^r}{r!}$.",
+   "Put your $\\lambda$ into $\\text{e}^{-\\lambda}\\left(1 + \\lambda + \\dfrac{\\lambda^2}{2!}\\right)$, work it out on your calculator and round to 3 significant figures."
+  ],
+  "walkthrough": [
+   "**What are we modelling?**\n\nLet $X$ be the number of passengers (out of the 403 who bought a seat) who do not arrive. Each one independently does not arrive with probability $\\frac{1}{100}$. That is a binomial situation: $X \\sim \\text{B}(403, \\frac{1}{100})$. But a binomial with $n = 403$ would be awful to calculate by hand.",
+   "**Choose the approximation (earns B1)**\n\nWhen $n$ is large and $p$ is small, a binomial is approximated well by a **Poisson** distribution. Here $n = 403$ is large and $p = 0.01$ is small, so we use a Poisson. The question also says the no-shows happen \"randomly\", which is the Poisson wording. Saying (or showing) Poisson earns the first B1.",
+   "**Find the Poisson mean (earns B1)**\n\nThe Poisson mean $\\lambda$ equals the binomial mean $np$:\n\n$$\\lambda = np = 403 \\times \\frac{1}{100} = 4.03$$\n\nSo $X \\approx \\text{Po}(4.03)$. This gives the second B1.",
+   "**Translate the words into a probability**\n\nThe flight is overbooked if the number of no-shows is **less than 3**. The whole numbers less than 3 are 0, 1 and 2, so we want\n\n$$\\text{P}(X < 3) = \\text{P}(X = 0) + \\text{P}(X = 1) + \\text{P}(X = 2)$$\n\nQuick check: \"less than 3\" does not include 3. Adding the $X = 3$ term would be an extra term, and the M1 is lost if there are extra or missing terms.",
+   "**Write each Poisson term (earns M1)**\n\nThe Poisson probability formula is $\\text{P}(X = r) = \\text{e}^{-\\lambda}\\dfrac{\\lambda^r}{r!}$. With $\\lambda = 4.03$:\n\n$$\\text{P}(X = 0) = \\text{e}^{-4.03}, \\qquad \\text{P}(X = 1) = \\text{e}^{-4.03} \\times 4.03, \\qquad \\text{P}(X = 2) = \\text{e}^{-4.03} \\times \\frac{4.03^2}{2!}$$\n\nTake out the common factor $\\text{e}^{-4.03}$:\n\n$$\\text{P}(X < 3) = \\text{e}^{-4.03}\\left(1 + 4.03 + \\frac{4.03^2}{2!}\\right)$$\n\nThis is the M1 line.",
+   "**Calculate**\n\n$\\text{e}^{-4.03} = 0.017774$ (use the $\\text{e}^x$ key with $-4.03$).\n\n$4.03^2 = 16.2409$, and $\\dfrac{16.2409}{2} = 8.12045$.\n\nInside the bracket: $1 + 4.03 + 8.12045 = 13.15045$.\n\n$$0.017774 \\times 13.15045 = 0.2337$$\n\nYour calculator's Poisson cdf with $\\lambda = 4.03$ and $x = 2$ gives the same value. Rounded to 3 significant figures this is $0.234$ (the A1).",
+   "**Final answer**\n\n$$\\text{P}(\\text{overbooked}) = 0.234 \\;(3 \\text{ s.f.})$$"
+  ]
+ }
+}

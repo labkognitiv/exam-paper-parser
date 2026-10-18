@@ -1,0 +1,37 @@
+{
+  "9709_s23_62_q2_a": {
+    "hints": [
+      "A Poisson distribution has just one parameter, $\\lambda$. Think about what its mean and its variance are each equal to, and say how they compare."
+    ],
+    "walkthrough": [
+      "**Recall the Poisson facts**\n\nIf $W$ has a Poisson distribution with parameter $\\lambda$ (the average number of events), then both of these are true:\n\n$$\\text{E}(W) = \\lambda \\qquad \\text{Var}(W) = \\lambda$$\n\n$\\text{E}(W)$ means the mean of $W$ and $\\text{Var}(W)$ means the variance of $W$. They are both equal to $\\lambda$, so they are equal to each other.\n\nQuick check: the scheme wants an equals sign, not 'approximately equal'. Writing $\\approx$ loses the mark.",
+      "**Final answer**\n\n$\\text{E}(W) = \\text{Var}(W)$ (the mean and the variance are equal)."
+    ]
+  },
+  "9709_s23_62_q2_b": {
+    "hints": [
+      "Write down $\\text{E}(X)$ and $\\text{Var}(X)$ for $\\text{B}(n, p)$. A Poisson distribution needs the mean and variance to be (nearly) equal, so compare your two formulae and ask what $1 - p$ has to be close to for that to happen."
+    ],
+    "walkthrough": [
+      "**Why we compare mean and variance**\n\nA Poisson distribution always has mean equal to variance. So if a binomial is going to look like a Poisson, its mean and variance must be close to each other.\n\n**The binomial formulae**\n\nFor $X \\sim \\text{B}(n, p)$:\n\n$$\\text{E}(X) = np \\qquad \\text{Var}(X) = np(1-p)$$\n\nHere $1 - p$ is the probability of failure, often called $q$.",
+      "**Compare them**\n\nWe need\n\n$$np \\approx np(1-p)$$\n\nBoth sides have the same factor $np$. For the two sides to be nearly equal, the other factor, $(1-p)$, must be close to $1$.\n\nThis is the conclusion the mark scheme asks for. You must show both formulae, show $1 - p$ (or $q$), and then state the conclusion.",
+      "**Link back to $p$**\n\nIf $1 - p$ is close to $1$, then $p$ must be close to $0$. That is exactly what the question asked us to explain.",
+      "**Final answer**\n\n$np \\approx np(1-p)$ needs $1 - p$ close to $1$, so $p$ must be close to $0$."
+    ]
+  },
+  "9709_s23_62_q2_c": {
+    "hints": [
+      "Use the Poisson approximation to $\\text{B}(n, p)$ with the same mean: $\\lambda = np$, where $n = 20\\,000$ and $p = 0.000\\,07$.",
+      "$\\text{P}(Y > 2)$ is everything above 2, so use the complement: $1 - \\text{P}(Y \\leqslant 2) = 1 - \\text{P}(Y = 0) - \\text{P}(Y = 1) - \\text{P}(Y = 2)$. Each term is $\\text{e}^{-\\lambda}\\dfrac{\\lambda^r}{r!}$.",
+      "Work out the three terms, add them, then subtract the total from 1. Give the answer to 3 s.f."
+    ],
+    "walkthrough": [
+      "**Why a Poisson approximation**\n\n$n = 20\\,000$ is very large and $p = 0.000\\,07$ is very small (from part (b), $p$ close to 0 is what we need). So we can approximate $Y$ by a Poisson distribution. The Poisson must have the same mean as the binomial, which is $np$.",
+      "**Find $\\lambda$ (this is the B1)**\n\n$$\\lambda = np = 20\\,000 \\times 0.000\\,07 = 1.4$$\n\nSo we use $Y \\approx \\text{Po}(1.4)$.",
+      "**Rewrite the probability (this is the M1 set-up)**\n\n$Y$ is a whole number, so '$Y > 2$' means $Y = 3, 4, 5, \\ldots$ and goes on forever. It is easier to use the complement, everything except $0, 1, 2$:\n\n$$\\text{P}(Y > 2) = 1 - \\text{P}(Y \\leqslant 2) = 1 - \\left[\\text{P}(0) + \\text{P}(1) + \\text{P}(2)\\right]$$\n\nThe Poisson formula is $\\text{P}(Y = r) = \\text{e}^{-\\lambda}\\dfrac{\\lambda^r}{r!}$, so:\n\n$$\\text{P}(Y > 2) = 1 - \\text{e}^{-1.4}\\left(1 + 1.4 + \\frac{1.4^2}{2}\\right)$$\n\nThe scheme needs to see this expression (or the three separate values).",
+      "**Work out each term**\n\n$$\\text{e}^{-1.4} = 0.246597\\ldots$$\n\n$$\\text{P}(0) = 0.246597 \\times 1 = 0.246597$$\n\n$$\\text{P}(1) = 0.246597 \\times 1.4 = 0.345236$$\n\n$$\\frac{1.4^2}{2} = \\frac{1.96}{2} = 0.98 \\quad\\Rightarrow\\quad \\text{P}(2) = 0.246597 \\times 0.98 = 0.241665$$",
+      "**Add and subtract from 1 (this is the A1)**\n\n$$0.246597 + 0.345236 + 0.241665 = 0.833498$$\n\n$$1 - 0.833498 = 0.166502\\ldots$$\n\nTo 3 s.f. this is $0.167$. (The scheme also accepts $0.166$.)\n\nSlips to avoid: using the binomial gives a very similar number but earns only a special mark, and using a Normal approximation scores nothing, because the question asks for a Poisson.",
+      "**Final answer**\n\n$\\lambda = 1.4$ and $\\text{P}(Y > 2) = 0.167$ (3 s.f.). The scheme also accepts $0.166$."
+    ]
+  }
+}

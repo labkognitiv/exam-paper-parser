@@ -1,0 +1,40 @@
+{
+  "9709_w16_73_q5_i": {
+    "hints": [
+      "Define $p$ in words (the probability that a packet contains a free gift). $\\text{H}_0$ is the claim being tested. For $\\text{H}_1$, ask which direction Andre suspects: is it \"different\", \"more\" or \"less\" than 30%?"
+    ],
+    "walkthrough": [
+      "**Hypotheses**\n\nA hypothesis test starts with a **null hypothesis** $\\text{H}_0$, the claim we assume true, and an **alternative hypothesis** $\\text{H}_1$, what we suspect instead. Let $p$ be the probability that a packet of Froogum contains a free gift.\n\nThe company claims $30\\%$, so $\\text{H}_0$ says $p = 0.3$. Andre thinks the actual proportion is **less** than $30\\%$, so $\\text{H}_1$ has a $<$ sign. That makes it a one-tailed test (the lower tail).",
+      "**Final answer**\n\n$$\\text{H}_0: p = 0.3$$\n\n$$\\text{H}_1: p < 0.3$$\n\nwhere $p$ is the probability that a packet contains a free gift."
+    ]
+  },
+  "9709_w16_73_q5_ii": {
+    "hints": [
+      "A Type I error means rejecting $\\text{H}_0$ when it is true. First find the critical region. Under $\\text{H}_0$, $X \\sim \\text{B}(20, 0.3)$. Try $X \\leqslant 2$ first and write it as a sum of three binomial terms, $\\text{P}(X = r) = {}^{20}\\text{C}_r\\,0.3^r(1 - 0.3)^{20 - r}$.",
+      "Work out that sum for $\\text{P}(X \\leqslant 2)$ (you can also use binomial cdf on your calculator). Keep at least 4 significant figures.",
+      "Now try the next value: add $\\text{P}(X = 3)$ to your previous total to get $\\text{P}(X \\leqslant 3)$.",
+      "Compare each of the two cumulative probabilities with the 5% significance level, 0.05. The critical region is the largest set of lower values whose probability is still below 0.05.",
+      "The probability of a Type I error is the probability, when $p = 0.3$, of landing in the critical region you found. Give it to 3 significant figures."
+    ],
+    "walkthrough": [
+      "**What is a Type I error?**\n\nA Type I error means we **reject** $\\text{H}_0$ even though $\\text{H}_0$ is actually true. So we need the **critical region**: the set of results that make us reject $\\text{H}_0$. The probability of a Type I error is the probability of that region **when $p = 0.3$**.\n\nWhy binomial: there are 20 packets, each either has a gift or not, independent, with the same chance. If $\\text{H}_0$ is true, $X \\sim \\text{B}(20, 0.3)$, where $X$ is the number of packets with a gift. The alternative says $p$ is smaller, so the critical region is small values: $X \\leqslant c$ for some $c$. We want the largest $c$ with $\\text{P}(X \\leqslant c)$ below $0.05$.",
+      "**Try $c = 2$ (first M1)**\n\n$$\\text{P}(X \\leqslant 2) = \\text{P}(0) + \\text{P}(1) + \\text{P}(2)$$\n\nEach term is ${}^{20}\\text{C}_r \\times 0.3^r \\times 0.7^{20 - r}$:\n\n$$\\text{P}(0) = 0.7^{20} = 0.000798$$\n\n$$\\text{P}(1) = 20 \\times 0.3 \\times 0.7^{19} = 20 \\times 0.3 \\times 0.0011399 = 0.006839$$\n\n$$\\text{P}(2) = 190 \\times 0.3^2 \\times 0.7^{18} = 190 \\times 0.09 \\times 0.0016284 = 0.027846$$\n\n(${}^{20}\\text{C}_2 = \\dfrac{20 \\times 19}{2} = 190$.)",
+      "**Add them (first A1)**\n\n$$0.000798 + 0.006839 + 0.027846 = 0.03548$$\n\nSo $\\text{P}(X \\leqslant 2) = 0.0355$ (3 s.f.). Calculator check: binomial cdf with $n = 20$, $p = 0.3$, upper value $2$.",
+      "**Try $c = 3$ (second M1)**\n\nAdd the next term, $\\text{P}(X = 3)$, where ${}^{20}\\text{C}_3 = \\dfrac{20 \\times 19 \\times 18}{6} = 1140$:\n\n$$\\text{P}(3) = 1140 \\times 0.3^3 \\times 0.7^{17} = 1140 \\times 0.027 \\times 0.0023263 = 0.071604$$\n\n$$\\text{P}(X \\leqslant 3) = 0.03548 + 0.07160 = 0.1071$$",
+      "**Compare with 0.05 (third M1)**\n\n$\\text{P}(X \\leqslant 2) = 0.0355 < 0.05$, so $X \\leqslant 2$ is allowed in the critical region.\n\n$\\text{P}(X \\leqslant 3) = 0.107 > 0.05$, so $X = 3$ is **too likely** to be included.\n\nSo the critical region is $X \\leqslant 2$.",
+      "**Type I error probability (final A1)**\n\nThis is the probability of being in the critical region when $\\text{H}_0$ is true:\n\n$$\\text{P}(\\text{Type I error}) = \\text{P}(X \\leqslant 2) = 0.0355$$\n\nIt is a bit smaller than the nominal 5% because the binomial is discrete and we cannot take exactly 5%.",
+      "**Final answer**\n\n$$\\text{P}(\\text{Type I error}) = 0.0355 \\text{ (3 s.f.)}$$\n\n(Before rounding, $\\text{P}(X \\leqslant 2) = 0.03548$.)"
+    ]
+  },
+  "9709_w16_73_q5_iii": {
+    "hints": [
+      "Andre got 3 gifts. Compare $\\text{P}(X \\leqslant 3)$, which you found in part (ii), with the 5% significance level (or ask whether 3 lies in your critical region).",
+      "If the probability is bigger than 0.05 the result is not significant, so you do not reject $\\text{H}_0$. Write your conclusion in context and not as a definite statement."
+    ],
+    "walkthrough": [
+      "**Compare with the significance level (M1)**\n\nAndre's result is $X = 3$. The probability of getting 3 **or fewer** gifts, if $p = 0.3$, is from part (ii):\n\n$$\\text{P}(X \\leqslant 3) = 0.107$$\n\nThe significance level is $5\\% = 0.05$.\n\n$$0.107 > 0.05$$\n\nEquivalent check: the critical region from (ii) is $X \\leqslant 2$, and $3$ is not in it.",
+      "**Decide (A1)**\n\nSince $0.107 > 0.05$, the result is not significant, so we do **not** reject $\\text{H}_0$.\n\nConclusion in context: there is not enough evidence, at the 5% level, that the proportion of packets with a free gift is less than $30\\%$. Avoid saying \"the claim is true\"; we only say we have no evidence against it.",
+      "**Final answer**\n\nDo not reject $\\text{H}_0$: there is no evidence at the 5% level that the proportion of Froogum packets with a free gift is less than $30\\%$."
+    ]
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "9709_w16_73_q3": {
+    "hints": [
+      "The race time is the sum of three independent normal times, so it is also normal. Add the three means 34.0, 87.1 and 56.9 to get its mean. The mean of a sample of 15 has the same mean.",
+      "For independent variables, **variances** add (not standard deviations): square 3.2, 4.1 and 3.8, then add them.",
+      "The sample mean of 15 competitors has variance $\\dfrac{\\text{Var}}{15}$. Standardise 175: $z = \\dfrac{175 - \\mu}{\\sqrt{\\text{Var}}\\,/\\sqrt{15}}$, using your mean and variance from before.",
+      "Your $z$ will be negative, which the table does not cover. Use symmetry: $\\Phi(-a) = 1 - \\Phi(a)$, with $a$ the positive version of your $z$.",
+      "Look up $\\Phi(a)$ in the normal table (or use your calculator), subtract it from 1, and give the answer to 3 significant figures."
+    ],
+    "walkthrough": [
+      "**Plan**\n\nWe want the chance that the **average** race time of 15 competitors is below 175 minutes. So we need (1) the distribution of one competitor's race time $R$, then (2) the distribution of the mean of 15 such times, then (3) a normal probability.",
+      "**Mean of one race time**\n\n$R$ is swimming + cycling + running. Each part is normal and they are independent, so $R$ is normal too. When you add variables, you add their means:\n\n$$34.0 + 87.1 + 56.9 = 121.1 + 56.9 = 178.0$$\n\nSo $R \\sim \\text{N}(178, \\ldots)$. That is the first B mark (the variance can still be missing).",
+      "**Variance of one race time**\n\nBecause the three parts are independent, **variances add**. The standard deviations are $3.2$, $4.1$ and $3.8$, so we square each to get a variance:\n\n$$3.2^2 = 10.24 \\qquad 4.1^2 = 16.81 \\qquad 3.8^2 = 14.44$$\n\n$$\\text{Var}(R) = 10.24 + 16.81 + 14.44 = 41.49$$\n\nSo $R \\sim \\text{N}(178,\\ 41.49)$. Common slip: adding the standard deviations ($3.2 + 4.1 + 3.8$), which is wrong. This is the second B mark.",
+      "**Distribution of the mean of 15 competitors**\n\nLet $\\bar{R}$ be the mean race time of 15 competitors ($\\bar{R}$ is read \"R bar\", the sample mean). Its mean is the same, $178$, but its variance is the variance of one competitor divided by $15$:\n\n$$\\bar{R} \\sim \\text{N}\\left(178,\\ \\frac{41.49}{15}\\right)$$\n\n$$\\frac{41.49}{15} = 2.766 \\qquad \\sqrt{2.766} = 1.6631$$\n\nCheck: $\\sqrt{41.49} = 6.4413$ and $6.4413 \\div \\sqrt{15} = 6.4413 \\div 3.8730 = 1.6631$. Same.",
+      "**Standardise (first M mark)**\n\nStandardising means turning $175$ into a $z$-value: subtract the mean, divide by the standard deviation.\n\n$$z = \\frac{175 - 178}{\\sqrt{41.49}\\ \\div\\ \\sqrt{15}} = \\frac{-3}{1.6631} = -1.804$$\n\nThe $\\sqrt{15}$ is essential because we have a mean of 15 values. There is no continuity correction, because time is a continuous variable.",
+      "**Turn the $z$-value into a probability (second M mark)**\n\nWe want $\\text{P}(\\bar{R} < 175) = \\text{P}(Z < -1.804) = \\Phi(-1.804)$. Normal tables only list positive $z$, so use symmetry: the area below $-1.804$ equals the area above $+1.804$.\n\n$$\\Phi(-1.804) = 1 - \\Phi(1.804)$$\n\nLook up $\\Phi(1.804)$ in the table (or use normal cdf on your calculator): $0.9644$. Then:\n\n$$1 - 0.9644 = 0.0356$$\n\nQuick check: $175$ is below the mean $178$, so the probability should be below $0.5$, and $0.0356$ is.",
+      "**Final answer**\n\n$$\\text{P}(\\bar{R} < 175) = 0.0356 \\text{ (3 s.f.)}$$"
+    ]
+  }
+}

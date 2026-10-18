@@ -1,0 +1,59 @@
+{
+  "9709_s17_71_q6_i": {
+    "hints": [
+      "The test covers 6 months and the mean is 1.1 per month. Scale the Poisson mean to 6 months so $X \\sim \\text{Po}(\\lambda)$ where $\\lambda = 1.1 \\times 6$.",
+      "The principal wants to know if injuries have **reduced**, so the critical region is in the lower tail. Start with $\\text{P}(X \\leqslant 1) = \\text{e}^{-\\lambda}(1 + \\lambda)$ using your $\\lambda$.",
+      "Next try the next value up: $\\text{P}(X \\leqslant 2) = \\text{e}^{-\\lambda}\\left(1 + \\lambda + \\dfrac{\\lambda^2}{2}\\right)$.",
+      "Calculate both probabilities with your calculator's Poisson cdf (or by hand) and write them to 3 significant figures.",
+      "Compare each with the significance level 2% (0.02). The critical region is the largest set of the form $X \\leqslant c$ whose probability does not go over 0.02.",
+      "The probability of a Type I error is the probability of landing in the critical region when $\\text{H}_0$ is true: take the cumulative probability for your critical region from the earlier step."
+    ],
+    "walkthrough": [
+      "**Set up the distribution (this earns the B1)**\n\nLet $X$ be the number of sports injuries in 6 months. Injuries happen at random at a steady rate, so a Poisson distribution is used. The rate is 1.1 per month, and we are watching for 6 months. Rates scale with time, so the mean for 6 months is\n\n$$\\lambda = 1.1 \\times 6 = 6.6$$\n\nUnder the null hypothesis (no change in the mean), $X \\sim \\text{Po}(6.6)$.",
+      "**Decide which tail**\n\nThe principal wants to test whether the mean has been **reduced**. Evidence for a reduction would be an unusually **small** number of injuries, so the critical region is $X \\leqslant c$ for some value $c$ (the lower tail). This is a one-tailed test at the 2% level, so we look for the largest $c$ with $\\text{P}(X \\leqslant c) \\leqslant 0.02$.",
+      "**Try $c = 1$ (this earns the first M1)**\n\n$\\text{P}(X \\leqslant 1)$ means $\\text{P}(X = 0) + \\text{P}(X = 1)$, using $\\text{P}(X=r) = \\text{e}^{-6.6}\\dfrac{6.6^r}{r!}$:\n\n$$\\text{P}(X \\leqslant 1) = \\text{e}^{-6.6}(1 + 6.6)$$\n\nOn your calculator, $\\text{e}^{-6.6} = 0.0013604\\ldots$ and $1 + 6.6 = 7.6$:\n\n$$\\text{P}(X \\leqslant 1) = 0.0013604 \\times 7.6 = 0.010339\\ldots = 0.0103 \\text{ (3 s.f.)}$$",
+      "**Try $c = 2$ (this earns the second M1 and, with both values, the A1)**\n\nAdd the $r = 2$ term. First $6.6^2 = 43.56$, then divide by $2! = 2$ to get $21.78$:\n\n$$\\text{P}(X \\leqslant 2) = \\text{e}^{-6.6}\\left(1 + 6.6 + \\dfrac{6.6^2}{2}\\right) = \\text{e}^{-6.6}(1 + 6.6 + 21.78)$$\n\n$$1 + 6.6 + 21.78 = 29.38$$\n\n$$\\text{P}(X \\leqslant 2) = 0.0013604 \\times 29.38 = 0.03997\\ldots = 0.0400 \\text{ (3 s.f.)}$$\n\nQuick check: adding another term can only make the cumulative probability bigger, and indeed $0.0400 > 0.0103$.",
+      "**Choose the critical region (this earns the DA1)**\n\nCompare each with the 2% significance level (0.02):\n\n$$\\text{P}(X \\leqslant 1) = 0.0103 < 0.02 \\quad \\checkmark$$\n\n$$\\text{P}(X \\leqslant 2) = 0.0400 > 0.02 \\quad \\times$$\n\n$X \\leqslant 1$ is inside the 2% level but adding 2 would take us over it. So the critical region is $X \\leqslant 1$.",
+      "**Probability of a Type I error (this earns the B1 FT)**\n\nA Type I error happens when $\\text{H}_0$ is true but we land in the critical region and reject it anyway. Its probability is the probability of the critical region under $\\text{H}_0$:\n\n$$\\text{P}(\\text{Type I error}) = \\text{P}(X \\leqslant 1) = 0.0103$$\n\nNote that it is **not** 0.02. The significance level is the most we allow; the actual probability is what the Poisson distribution gives, which is lower because the values are discrete.",
+      "**Final answer**\n\nCritical region: $X \\leqslant 1$.\n\n$$\\text{P}(\\text{Type I error}) = 0.0103$$"
+    ]
+  },
+  "9709_s17_71_q6_ii": {
+    "hints": [
+      "A Type I error means rejecting $\\text{H}_0$ when $\\text{H}_0$ is actually true. Say what $\\text{H}_0$ claims here, and what the principal would wrongly conclude, in terms of sports injuries."
+    ],
+    "walkthrough": [
+      "**What a Type I error is**\n\nIn any hypothesis test there are two ways of being wrong. A **Type I error** is rejecting the null hypothesis when it is actually true. So we need to say it in words about injuries, not just give a definition.\n\nHere $\\text{H}_0$ says the mean number of injuries has not changed (it is still 1.1 a month). $\\text{H}_1$ says it has decreased.",
+      "**Final answer**\n\nA Type I error would be wrongly concluding that the mean number of sports injuries has decreased, when in fact it has not changed."
+    ]
+  },
+  "9709_s17_71_q6_iii": {
+    "hints": [
+      "Write the hypotheses about the Poisson mean for 6 months, $\\lambda$, using the value you found in part (i). The principal expects a reduction, so $\\text{H}_1$ is one-tailed.",
+      "Compare the observed total of 2 injuries with the critical region you found in part (i), or compare $\\text{P}(X \\leqslant 2)$ with 2%. Decide whether 2 is inside.",
+      "If 2 is outside the critical region you do not reject $\\text{H}_0$; if inside you do. Then write the conclusion about the mean number of injuries, using the word \"evidence\" and not definite wording."
+    ],
+    "walkthrough": [
+      "**Write the hypotheses (this earns the B1)**\n\nThe parameter is $\\lambda$, the mean number of injuries per 6 months. The null hypothesis is that nothing has changed and the alternative is that injuries have been reduced:\n\n$$\\text{H}_0: \\lambda = 6.6 \\qquad \\text{H}_1: \\lambda < 6.6$$\n\nThe 6.6 comes from $1.1 \\times 6$ months, as in part (i). Under $\\text{H}_0$, $X \\sim \\text{Po}(6.6)$.",
+      "**Compare the observed value with the critical region (this earns the M1)**\n\nThe observed number of injuries is $X = 2$. From part (i) the critical region is $X \\leqslant 1$. Is 2 in it? No: $2 > 1$.\n\nEquivalent check using probabilities: $\\text{P}(X \\leqslant 2) = 0.0400$, and $0.0400 > 0.02$. The probability of getting 2 or fewer injuries is bigger than the 2% significance level, so the result is not unusual enough.\n\nThe M1 is for saying that 2 is not in the critical region.",
+      "**Conclusion in context (this earns the A1 FT)**\n\nSince 2 is not in the critical region, we do **not reject** $\\text{H}_0$. In words: at the 2% level there is no evidence that the mean number of sports injuries per month has decreased. Avoid saying it has \"definitely not changed\" — we only say we lack evidence.",
+      "**Final answer**\n\n2 is not in the critical region $X \\leqslant 1$ (equivalently $\\text{P}(X \\leqslant 2) = 0.0400 > 0.02$), so do not reject $\\text{H}_0$: there is no evidence, at the 2% level, that the mean number of sports injuries has decreased."
+    ]
+  },
+  "9709_s17_71_q6_iv": {
+    "hints": [
+      "Over 36 months the Poisson mean is $1.1 \\times 36$, which is large (above 15). A large-mean Poisson is approximately normal with mean and variance both equal to that value.",
+      "\"Fewer than 30\" means $X \\leqslant 29$. Moving from a discrete to a continuous distribution needs a continuity correction: use the boundary half a unit above 29, the largest value included. Standardise $z = \\dfrac{\\text{boundary} - \\text{mean}}{\\sqrt{\\text{variance}}}$.",
+      "You want the lower tail. If your $z$ is negative, use symmetry: $\\Phi(-a) = 1 - \\Phi(a)$ where $a$ is the positive version of $z$.",
+      "Look up $\\Phi(a)$, subtract from 1 and round to 3 significant figures."
+    ],
+    "walkthrough": [
+      "**Why use a normal approximation (this earns the B1)**\n\nLet $Y$ be the number of injuries in 36 months. Rates scale with time, so the Poisson mean is\n\n$$1.1 \\times 36 = 39.6$$\n\n$Y \\sim \\text{Po}(39.6)$. Working out $\\text{P}(Y \\leqslant 29)$ exactly means adding 30 Poisson terms. But when the Poisson mean is large (a rule of thumb is more than 15), the distribution is close to symmetric and bell-shaped, so we approximate it with a normal distribution having the **same mean and the same variance** (for a Poisson, mean = variance):\n\n$$Y \\approx \\text{N}(39.6,\\ 39.6)$$",
+      "**Continuity correction (this is part of the first M1)**\n\n$Y$ takes whole numbers only, while a normal variable is continuous. \"Fewer than 30\" means $Y = 29$ or lower, i.e. $Y \\leqslant 29$. In the continuous version, the whole number 29 occupies the interval from 28.5 to 29.5, so \"29 or fewer\" ends at **29.5**:\n\n$$\\text{P}(Y < 30) = \\text{P}(Y \\leqslant 29) \\approx \\text{P}(Y_{\\text{normal}} < 29.5)$$",
+      "**Standardise (this earns the first M1)**\n\nThe standard deviation is the square root of the variance: $\\sqrt{39.6} = 6.2928\\ldots$\n\n$$z = \\dfrac{29.5 - 39.6}{\\sqrt{39.6}} = \\dfrac{-10.1}{6.2928} = -1.6050\\ldots = -1.605 \\text{ (3 d.p.)}$$\n\nThe mark scheme allows this M1 even with a wrong or missing continuity correction, but you need it for the right answer.",
+      "**Use symmetry (this earns the second M1)**\n\nWe want the area to the left of $z = -1.605$. The tables only list positive $z$, so use symmetry:\n\n$$\\text{P}(Z < -1.605) = 1 - \\Phi(1.605)$$\n\nSense check: 29.5 is well below the mean 39.6, so a small probability is expected.",
+      "**Look up (this earns the A1)**\n\nFrom the normal table, $\\Phi(1.605) \\approx 0.9457$.\n\n$$1 - 0.9457 = 0.0543$$\n\nThis is the mark scheme's value. A calculator that keeps $z$ unrounded can show $0.0542$ in the last digit; the difference only comes from rounding $z$ and from the table, and the scheme quotes $0.0543$.",
+      "**Final answer**\n\n$$\\text{P}(\\text{fewer than 30 injuries in 36 months}) \\approx 0.0543 \\text{ (3 s.f.)}$$"
+    ]
+  }
+}

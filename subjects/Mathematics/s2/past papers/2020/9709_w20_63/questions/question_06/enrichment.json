@@ -1,0 +1,55 @@
+{
+ "9709_w20_63_q6_a": {
+  "hints": [
+   "The sample mean $\\bar{X}$ of 30 journeys has mean $38.4$ and standard deviation $\\dfrac{6.9}{\\sqrt{30}}$ (the standard deviation shrinks by $\\sqrt{n}$). With $n = 30$ it is approximately normal by the Central Limit theorem. Standardise the upper end: $z = \\dfrac{40 - 38.4}{6.9/\\sqrt{30}}$.",
+   "Enter it in the calculator with brackets round the whole $6.9 \\div \\sqrt{30}$ and keep at least 3 decimal places in your $z$.",
+   "Do the same for the lower end, $z = \\dfrac{38 - 38.4}{6.9/\\sqrt{30}}$. It is negative because 38 is below the mean.",
+   "The probability between the two ends is $\\Phi(z_{\\text{upper}}) - \\Phi(z_{\\text{lower}})$. For the negative $z$, use $\\Phi(-z) = 1 - \\Phi(z)$ with the positive value.",
+   "Work out the two $\\Phi$ values on the table or calculator, subtract them, and give the answer to 3 significant figures."
+  ],
+  "walkthrough": [
+   "**Which distribution?**\n\nWe are asked about the **mean** of 30 journey times, $\\bar{X}$ (the sample mean), not one journey. The population mean is $\\mu = 38.4$ and the population standard deviation is $\\sigma = 6.9$, so the population variance is $6.9^2 = 47.61$.\n\nBecause the sample size $n = 30$ is large, the Central Limit theorem says $\\bar{X}$ is approximately normal with the same mean and the variance divided by $n$:\n\n$$\\bar{X} \\sim \\text{N}\\left(38.4, \\frac{6.9^2}{30}\\right)$$\n\n$\\dfrac{47.61}{30} = 1.587$, and the standard deviation of $\\bar{X}$ is $\\dfrac{6.9}{\\sqrt{30}} = \\sqrt{1.587} = 1.2598$. No continuity correction is needed, because times are continuous.",
+   "**Standardise the upper value, 40**\n\nTo standardise a sample mean: $z = \\dfrac{\\bar{x} - \\mu}{\\sigma/\\sqrt{n}}$. Use $\\sqrt{30}$, not 30, because it is a mean of 30 values.\n\n$$z = \\frac{40 - 38.4}{\\frac{6.9}{\\sqrt{30}}} = \\frac{1.6}{1.2598} = 1.270$$\n\nSetting this up with $\\sqrt{30}$ earns the **M1**, and the value $1.270$ earns the first **A1**.",
+   "**Standardise the lower value, 38**\n\n$$z = \\frac{38 - 38.4}{\\frac{6.9}{\\sqrt{30}}} = \\frac{-0.4}{1.2598} = -0.3175$$\n\nIt is negative because 38 is below the mean 38.4. This is the second **A1**.",
+   "**Find the area between the two**\n\nWe want $\\text{P}(38 < \\bar{X} < 40) = \\text{P}(-0.3175 < Z < 1.270)$, the area up to $1.270$ minus the area up to $-0.3175$:\n\n$$\\Phi(1.270) - \\Phi(-0.3175)$$\n\nTables use positive values only, so rewrite using symmetry: $\\Phi(-0.3175) = 1 - \\Phi(0.3175)$.\n\n$$\\Phi(1.270) - \\left(1 - \\Phi(0.3175)\\right)$$\n\nCommon slip: forgetting the $1 -$ for the negative $z$. This is the **M1**.",
+   "**Calculate**\n\nFrom the table or the calculator's normal cdf:\n\n$$\\Phi(1.270) = 0.89797 \\qquad \\Phi(0.3175) = 0.62458$$\n\n$$1 - 0.62458 = 0.37542$$\n\n$$0.89797 - 0.37542 = 0.52255$$",
+   "**Final answer**\n\n$$\\text{P}(38 < \\bar{X} < 40) = 0.523 \\text{ (3 s.f.)}$$\n\n(The scheme also allows $0.522$, which comes from rounding the $z$ values to 2 or 3 decimal places.) This is the **A1**."
+  ]
+ },
+ "9709_w20_63_q6_b_i": {
+  "hints": [
+   "Look at the wording of what Anjan wants to find out: is he looking for a specific direction (longer or shorter) or just any difference from Mondays?"
+  ],
+  "walkthrough": [
+   "**Decide between one-tail and two-tail**\n\nA **one-tailed** test is used when the question names a direction ('increased' or 'decreased'). A **two-tailed** test is used when we only care about 'different' or 'changed', in either direction.\n\nAnjan wishes to test whether his mean journey time is **different** on Tuesdays. He does not say longer or shorter, so he must look for change in both directions.",
+   "**Final answer**\n\nA **two-tail** test, because he is testing for a change (different), not specifically an increase or a decrease."
+  ]
+ },
+ "9709_w20_63_q6_b_ii": {
+  "hints": [
+   "Write $\\text{H}_0$ and $\\text{H}_1$ about the **population** mean journey time on Tuesdays $\\mu$ (say what $\\mu$ is), comparing with the Monday mean in the question. Part (i) tells you the form of $\\text{H}_1$.",
+   "Standardise the sample mean for 30 Tuesdays: $z = \\dfrac{40.2 - 38.4}{6.9/\\sqrt{30}}$. Note the $\\sqrt{30}$, because it is a mean of 30 journeys.",
+   "Evaluate it carefully, putting brackets around the whole $6.9 \\div \\sqrt{30}$, and keep at least 3 decimal places.",
+   "At the 10% level in a two-tailed test, 5% sits in each tail, so the critical value is the $z$ with $\\Phi(z) = 0.95$. Compare your $z$ with it (or compare the tail area with the 5% in one tail).",
+   "Decide whether to reject $\\text{H}_0$, then write the conclusion in context about mean journey time, not definite: 'There is (not) evidence that…'."
+  ],
+  "walkthrough": [
+   "**Hypotheses**\n\nLet $\\mu$ be the **population mean journey time on Tuesdays**. Our baseline is the Monday mean of 38.4 minutes. By part (i) the test is two-tailed:\n\n$$\\text{H}_0: \\mu = 38.4$$\n\n$$\\text{H}_1: \\mu \\neq 38.4$$\n\nNaming $\\mu$ as the population mean journey time earns the **B1**; writing only 'mean journey time' is not enough.",
+   "**Distribution of the sample mean under $\\text{H}_0$**\n\nThe sample is $n = 30$ Tuesdays, large enough for the Central Limit theorem. If $\\text{H}_0$ is true, $\\bar{X} \\sim \\text{N}\\left(38.4, \\dfrac{6.9^2}{30}\\right)$, so the standard deviation of $\\bar{X}$ is $\\dfrac{6.9}{\\sqrt{30}} = 1.2598$.",
+   "**Test statistic**\n\nStandardise the sample mean $\\bar{x} = 40.2$. You must use $\\sqrt{30}$ here: this is the **M1**.\n\n$$z = \\frac{40.2 - 38.4}{\\frac{6.9}{\\sqrt{30}}} = \\frac{1.8}{1.2598} = 1.429$$\n\nThe value $1.429$ earns the **A1**.",
+   "**Compare with the critical value**\n\nThe significance level is 10% and the test is two-tailed, so 5% is in each tail. The critical $z$ is the value with $\\Phi(z) = 0.95$, which is $1.645$. We reject $\\text{H}_0$ only if $z$ is above $1.645$ or below $-1.645$.\n\n$$1.429 < 1.645$$\n\nSo $z$ is **not** in the rejection region. (Using areas instead: the tail area is $1 - \\Phi(1.429) = 0.0765$, which is bigger than $0.05$.) Do **not** reject $\\text{H}_0$. This is the **M1**.\n\nCommon slip: using a one-tailed test and comparing with $1.282$, which loses marks.",
+   "**A critical-value check in minutes**\n\nThe same test using critical values: the upper critical value for $\\bar{x}$ is $38.4 + 1.645 \\times 1.2598 = 40.47$. Since $40.2 < 40.47$, the same decision follows. (The printed alternative method in the mark scheme shows $38 +$ here, which is a misprint for $38.4 +$; the value $40.47$ is correct.)",
+   "**Final answer**\n\nThere is no evidence, at the 10% level, that Anjan's mean journey time on Tuesdays is different from 38.4 minutes.\n\nWrite it in context and not as a certainty ('mean journey time has not changed' would be too definite). This is the **A1**."
+  ]
+ },
+ "9709_w20_63_q6_b_iii": {
+  "hints": [
+   "The Central Limit theorem is used to say a sample mean is approximately normal when the population itself may not be. Does the question say what the distribution of Anjan's journey times is?"
+  ],
+  "walkthrough": [
+   "**What the Central Limit theorem does**\n\nIf the population is **normal**, the sample mean is exactly normal, whatever the sample size. If the population is **not known** to be normal, the Central Limit theorem lets us treat the sample mean as approximately normal, provided $n$ is large (here $n = 30$).",
+   "**Apply to this question**\n\nThe question gives the mean and standard deviation of Anjan's journey times but never says they are normally distributed. So we needed the theorem to say $\\bar{X}$ is approximately normal and use the normal distribution in the test.",
+   "**Final answer**\n\nYes, it was necessary, because the distribution of journey times (the population) is not known to be normal."
+  ]
+ }
+}

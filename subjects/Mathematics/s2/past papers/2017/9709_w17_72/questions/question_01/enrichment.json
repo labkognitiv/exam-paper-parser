@@ -1,0 +1,38 @@
+{
+  "9709_w17_72_q1_a_i": {
+    "hints": [
+      "The Poisson approximation to $\\text{B}(n, p)$ is $\\text{Po}(np)$. Here $n = 2540$ and $p = 0.001$, so write down the Poisson distribution you will use.",
+      "$X > 1$ means $X = 2, 3, 4, \\dots$ with no top end. Use the complement: $\\text{P}(X > 1) = 1 - \\text{P}(X \\leqslant 1) = 1 - \\text{P}(0) - \\text{P}(1)$.",
+      "Use $\\text{P}(X = r) = \\text{e}^{-\\lambda}\\dfrac{\\lambda^r}{r!}$ for $r = 0$ and $r = 1$ with your $\\lambda$, so you have $1 - \\text{e}^{-\\lambda}(1 + \\lambda)$. Type it into your calculator and give 3 significant figures."
+    ],
+    "walkthrough": [
+      "**Why we use the Poisson distribution**\n\n$X$ is binomial: $2540$ trials, each with a tiny chance $0.001$ of success. Working out binomial probabilities with $2540$ trials is awkward, so the question lets us use a Poisson distribution instead. Poisson is the distribution for rare events happening at random, and it is easy to work with.\n\nThe rule is: $\\text{B}(n, p)$ is approximated by $\\text{Po}(\\lambda)$ where $\\lambda = np$ (the Poisson mean is set equal to the binomial mean).",
+      "**Find the Poisson mean (first M1)**\n\n$$\\lambda = np = 2540 \\times 0.001 = 2.54$$\n\nSo we use $X \\sim \\text{Po}(2.54)$.",
+      "**Turn $\\text{P}(X > 1)$ into something we can calculate (second M1)**\n\nA Poisson variable can take the values $0, 1, 2, 3, \\dots$ and keeps going. \"$X > 1$\" means $X$ is $2$ or more, which would need infinitely many terms.\n\nThe total probability is $1$, so it is far easier to take away the values we do **not** want:\n\n$$\\text{P}(X > 1) = 1 - \\text{P}(X \\leqslant 1) = 1 - \\text{P}(X = 0) - \\text{P}(X = 1)$$",
+      "**Calculate the two small probabilities**\n\nThe Poisson formula is $\\text{P}(X = r) = \\text{e}^{-\\lambda}\\dfrac{\\lambda^r}{r!}$. With $\\lambda = 2.54$:\n\n$$\\text{P}(X = 0) = \\text{e}^{-2.54}\\times\\frac{2.54^0}{0!} = \\text{e}^{-2.54} = 0.0788664\\ldots$$\n\n(Remember $2.54^0 = 1$ and $0! = 1$.)\n\n$$\\text{P}(X = 1) = \\text{e}^{-2.54}\\times\\frac{2.54^1}{1!} = 0.0788664 \\times 2.54 = 0.2003207\\ldots$$\n\nAdd them:\n\n$$\\text{P}(X \\leqslant 1) = 0.0788664 + 0.2003207 = 0.2791871$$\n\nQuick check: your calculator's Poisson cumulative distribution with mean $2.54$ and $x = 1$ should show about $0.27919$.",
+      "**Subtract from 1 (this line earns the A1)**\n\n$$\\text{P}(X > 1) = 1 - 0.2791871 = 0.7208129\\ldots$$\n\nWritten as one expression, this is the working the mark scheme shows: $1 - \\text{e}^{-2.54}(1 + 2.54)$.",
+      "**Final answer**\n\n$$\\text{P}(X > 1) = 0.721 \\text{ (3 s.f.)}$$"
+    ]
+  },
+  "9709_w17_72_q1_a_ii": {
+    "hints": [
+      "The Poisson approximation works well when $n$ is large and $p$ is small. Compare $n = 2540$ and $p = 0.001$ with these two conditions."
+    ],
+    "walkthrough": [
+      "**What makes the approximation suitable**\n\nThe Poisson distribution approximates the binomial well when there are **many trials** and each one has a **small chance** of success. Check both for this question:\n\n- $n = 2540$ is large.\n\n- $p = 0.001$ is small.\n\nAnother way the mark scheme accepts: $np = 2540 \\times 0.001 = 2.54$, which is less than $5$. (Common rules of thumb are $n > 50$ and $p < 0.1$.)",
+      "**Final answer**\n\nThe approximation is appropriate because $n$ is large ($2540$) and $p$ is small ($0.001$), so $np = 2.54 < 5$."
+    ]
+  },
+  "9709_w17_72_q1_b": {
+    "hints": [
+      "The sum of independent Poisson variables is also Poisson. For $S + T$, add the two means $2.1$ and $3.5$ to get its mean.",
+      "For a Poisson distribution the variance equals the mean. The standard deviation is the square root of the variance, so take the square root of the mean of $S + T$."
+    ],
+    "walkthrough": [
+      "**The distribution of $S + T$**\n\n$S \\sim \\text{Po}(2.1)$ and $T \\sim \\text{Po}(3.5)$ are independent. When you add independent Poisson variables, the result is Poisson and the means add. So $S + T$ is Poisson.",
+      "**The mean (first B1)**\n\n$$\\mu = \\text{E}(S + T) = 2.1 + 3.5 = 5.6$$",
+      "**The standard deviation (second B1)**\n\nQuick check: for any Poisson distribution, **variance = mean**. So $S + T \\sim \\text{Po}(5.6)$ has variance $5.6$.\n\n(You can also see this from $\\text{Var}(S) = 2.1$ and $\\text{Var}(T) = 3.5$, which add for independent variables: $2.1 + 3.5 = 5.6$.)\n\nThe standard deviation $\\sigma$ is the **square root** of the variance:\n\n$$\\sigma = \\sqrt{5.6} = 2.3664\\ldots$$\n\nType `√5.6` into your calculator to see this.",
+      "**Final answer**\n\nMean $= 5.6$, standard deviation $= 2.37$ (3 s.f.)."
+    ]
+  }
+}

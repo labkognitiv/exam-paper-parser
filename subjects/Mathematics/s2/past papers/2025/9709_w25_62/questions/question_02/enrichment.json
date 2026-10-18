@@ -1,0 +1,29 @@
+{
+  "9709_w25_62_q2_a": {
+    "hints": [
+      "$Y$ is Poisson. What do you know about the relationship between the mean and the variance of a Poisson distribution? That gives $\\text{Var}(Y)$.",
+      "For independent variables, $\\text{Var}(X + Y) = \\text{Var}(X) + \\text{Var}(Y)$. Careful: the 3 in the question is a standard deviation, so convert it to a variance first.",
+      "You have added **variances**, so finish by taking the square root to get the standard deviation (never add standard deviations)."
+    ],
+    "walkthrough": [
+      "**Find the variance of $Y$ (this earns the B1)**\n\nA Poisson distribution has a special property: its **variance equals its mean**. $Y$ has mean 4, so\n\n$$\\text{Var}(Y) = 4$$\n\n(Equivalently its standard deviation is $\\sqrt{4} = 2$; the scheme accepts that too.)",
+      "**Find the variance of $X$**\n\nThe question gives the **standard deviation** of $X$, which is 3. Variance is the standard deviation squared.\n\n$$\\text{Var}(X) = 3^2 = 9$$",
+      "**Add the variances (this earns the M1)**\n\nVariances add for **independent** variables, and the question says $X$ and $Y$ are independent. Standard deviations do **not** add, so we must work with variances.\n\n$$\\text{Var}(X + Y) = \\text{Var}(X) + \\text{Var}(Y) = 3^2 + 4 = 9 + 4 = 13$$",
+      "**Square root to get the standard deviation (this earns the A1)**\n\nThe question asks for the standard deviation, which is the square root of the variance.\n\n$$\\text{sd}(X + Y) = \\sqrt{13} = 3.6055\\ldots$$\n\nRounded to 3 significant figures, 3.61.",
+      "**Final answer**\n\n$$\\text{sd}(X + Y) = \\sqrt{13} = 3.61 \\text{ (3 s.f.)}$$"
+    ]
+  },
+  "9709_w25_62_q2_b": {
+    "hints": [
+      "When you multiply a variable by a constant $a$, the variance is multiplied by $a^2$: $\\text{Var}(aX) = a^2\\,\\text{Var}(X)$. Use $a = 5$ and $\\text{Var}(X) = 3^2$.",
+      "For independent variables, the variance of a **difference** is still the **sum** of the variances: $\\text{Var}(5X - Y) = \\text{Var}(5X) + \\text{Var}(Y)$. Use your $\\text{Var}(Y)$ from part (a).",
+      "Finish by taking the square root of your total variance."
+    ],
+    "walkthrough": [
+      "**Find $\\text{Var}(5X)$ (this earns the B1)**\n\nMultiplying a variable by 5 multiplies its variance by $5^2$ (the variance is measured in squared units, so the multiplier gets squared). We know $\\text{Var}(X) = 3^2 = 9$.\n\n$$\\text{Var}(5X) = 5^2 \\times 3^2 = 25 \\times 9 = 225$$",
+      "**Combine with $Y$ (this earns the M1)**\n\nThe rule is $\\text{Var}(aX + bY) = a^2\\text{Var}(X) + b^2\\text{Var}(Y)$ for independent $X$ and $Y$. Here we have $5X - Y$, so the multiplier of $Y$ is $-1$, and $(-1)^2 = 1$. So the minus sign **disappears** and the variances are added. (Subtracting variances is the classic slip.)\n\nFrom part (a), $\\text{Var}(Y) = 4$.\n\n$$\\text{Var}(5X - Y) = \\text{Var}(5X) + \\text{Var}(Y) = 225 + 4 = 229$$",
+      "**Square root (this earns the A1)**\n\n$$\\text{sd}(5X - Y) = \\sqrt{229} = 15.132\\ldots$$\n\nRounded to 3 significant figures, 15.1.",
+      "**Final answer**\n\n$$\\text{sd}(5X - Y) = \\sqrt{229} = 15.1 \\text{ (3 s.f.)}$$"
+    ]
+  }
+}

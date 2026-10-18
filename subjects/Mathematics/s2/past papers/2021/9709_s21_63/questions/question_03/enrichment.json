@@ -1,0 +1,36 @@
+{
+ "9709_s21_63_q3_a_i": {
+  "hints": [
+   "Name the parameter: the mean (average) number of accidents, written $\\lambda$. $\\text{H}_0$ says it is the council's value, and Jane's claim is 'greater', so $\\text{H}_1$ uses $>$. Her sample covers 3 years, so either keep the rate per year or write $3 \\times 0.8$ for the 3-year mean."
+  ],
+  "walkthrough": [
+   "**Choose the parameter and the direction**\n\nThe number of accidents follows a Poisson distribution with some mean $\\lambda$. Let $\\lambda$ be the mean number of accidents on this road in **3 years**, which matches Jane's sample of 3 years.\n\nThe null hypothesis is the council's claim: 0.8 accidents per year. Over 3 years that is $3 \\times 0.8 = 2.4$.\n\nJane says the true average is *greater*, so the alternative has '$>$' (one-tailed).\n\n$$\\text{H}_0: \\lambda = 2.4 \\qquad \\text{H}_1: \\lambda > 2.4$$\n\nYou may also write the hypotheses as 0.8 per year and $>0.8$ per year. Both are accepted, as long as you are consistent in part (ii).",
+   "**Final answer**\n\n$\\text{H}_0$: $\\lambda = 2.4$ (equivalently 0.8 per year); $\\text{H}_1$: $\\lambda > 2.4$ (equivalently $> 0.8$ per year)."
+  ]
+ },
+ "9709_s21_63_q3_a_ii": {
+  "hints": [
+   "Under $\\text{H}_0$ the number of accidents in the 3 years is Poisson with mean $3 \\times 0.8$. Jane saw 5 accidents and her claim is 'greater', so the probability you need is $\\text{P}(X \\geqslant 5)$. Write it as $1 - \\text{P}(X \\leqslant 4)$.",
+   "Work out $\\text{P}(X \\leqslant 4)$ by adding the terms $\\text{e}^{-\\lambda}\\dfrac{\\lambda^r}{r!}$ for $r = 0, 1, 2, 3, 4$, or use the Poisson cdf on your calculator. Then subtract from 1.",
+   "The significance level is 5%, so compare the probability you found directly with $0.05$. If the probability is below $0.05$ the result is in the rejection region.",
+   "Decide whether to reject $\\text{H}_0$. Then state the conclusion in context about Jane's claim, in the form 'there is evidence that…' or 'there is insufficient evidence that…', not as a definite statement."
+  ],
+  "walkthrough": [
+   "**Find the distribution under $\\text{H}_0$**\n\nWe assume $\\text{H}_0$ is true. The council's rate is 0.8 accidents per year, so over 3 years the mean is $3 \\times 0.8 = 2.4$. Let $X$ be the number of accidents in 3 years.\n\n$$X \\sim \\text{Po}(2.4)$$\n\nJane's sample has 5 accidents.",
+   "**Which probability do we need?**\n\nJane thinks there are *more* accidents than the council says. So the evidence for her is 5 accidents *or more*. We ask: if $\\text{H}_0$ were true, how likely is a result as extreme as 5 or more?\n\nPoisson tables and calculators give 'at most' probabilities, so turn 'at least 5' around:\n\n$$\\text{P}(X \\geqslant 5) = 1 - \\text{P}(X \\leqslant 4)$$\n\nThis is the working that earns the first M1. (The scheme allows one end error, but the correct end is 4.)",
+   "**Calculate the probability (A1)**\n\nUse the Poisson formula $\\text{P}(X = r) = \\text{e}^{-2.4}\\dfrac{2.4^r}{r!}$ and add the five terms for $r = 0$ to $4$.\n\n$$\\text{P}(X \\leqslant 4) = \\text{e}^{-2.4}\\left(1 + 2.4 + \\frac{2.4^2}{2} + \\frac{2.4^3}{3!} + \\frac{2.4^4}{4!}\\right)$$\n\nEach term inside the bracket: $1$; $2.4$; $\\dfrac{5.76}{2} = 2.88$; $\\dfrac{13.824}{6} = 2.304$; $\\dfrac{33.1776}{24} = 1.3824$.\n\nAdd them: $1 + 2.4 + 2.88 + 2.304 + 1.3824 = 9.9664$.\n\nOn the calculator, $\\text{e}^{-2.4} = 0.090718$, and $0.090718 \\times 9.9664 = 0.90413$.\n\n(Shortcut: use the Poisson cdf on your calculator with mean 2.4 and upper value 4. It shows $0.90413$.)\n\n$$\\text{P}(X \\geqslant 5) = 1 - 0.90413 = 0.0959 \\text{ (3 s.f.)}$$\n\nBe careful: an answer of 0.0959 with no working only scores B1 on this mark scheme, so write down the line with the sum.",
+   "**Compare with the significance level (M1)**\n\nThe significance level is 5%, which is $0.05$. If the probability of a result this extreme is less than $0.05$, we reject $\\text{H}_0$.\n\n$$0.0959 > 0.05$$\n\nThe probability is *bigger* than 0.05, so the result is not extreme enough. (Equivalent check: $0.9041 < 0.95$.) We do not reject $\\text{H}_0$.",
+   "**Conclusion in context (A1)**\n\nSay what this means for Jane's claim, in cautious words. We have not proved she is wrong, only that the data are not strong enough to support her.",
+   "**Final answer**\n\n$\\text{P}(X \\geqslant 5) = 0.0959$ (3 s.f.), which is greater than $0.05$, so do not reject $\\text{H}_0$.\n\nThere is insufficient evidence, at the 5% level, to support Jane's claim that the mean number of accidents is greater than 2.4 in 3 years (0.8 per year)."
+  ]
+ },
+ "9709_s21_63_q3_b": {
+  "hints": [
+   "A Poisson model needs the mean number of accidents per year to stay the same each year. What does 'gradually increasing' say about that, and so about the test?"
+  ],
+  "walkthrough": [
+   "**What the Poisson model assumes**\n\nThe test in (a)(ii) used a Poisson distribution with a fixed mean. That only works if the accidents happen at a constant average rate, year after year.\n\n**What Jane found**\n\nIf the number of accidents per year has been gradually increasing, then the mean is not the same every year. The constant-mean assumption is broken, so the Poisson model is not a good fit and the test may not be valid.",
+   "**Final answer**\n\nThe mean number of accidents is not constant, so the Poisson model is not valid and the test result is unreliable."
+  ]
+ }
+}

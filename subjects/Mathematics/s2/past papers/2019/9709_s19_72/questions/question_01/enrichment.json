@@ -1,0 +1,35 @@
+{
+  "9709_s19_72_q1_i": {
+    "hints": [
+      "$X$ is Poisson, so use $\\text{P}(X = r) = \\text{e}^{-\\lambda}\\dfrac{\\lambda^r}{r!}$ with $\\lambda = 5$ and $r = 2$ — then evaluate on your calculator."
+    ],
+    "walkthrough": [
+      "**What the notation tells us**\n\n$X \\sim \\text{Po}(5)$ means $X$ counts how many times something happens when the average number of times is $\\lambda = 5$. For a Poisson variable the probability of exactly $r$ events is\n\n$$\\text{P}(X = r) = \\text{e}^{-\\lambda}\\,\\frac{\\lambda^r}{r!}$$\n\nHere $r!$ ('$r$ factorial') means $r \\times (r-1) \\times \\dots \\times 1$.",
+      "**Substitute the numbers**\n\nWe want $r = 2$ and $\\lambda = 5$:\n\n$$\\text{P}(X = 2) = \\text{e}^{-5} \\times \\frac{5^2}{2!}$$",
+      "**Work each piece out**\n\n$5^2 = 25$ and $2! = 2 \\times 1 = 2$, so $\\dfrac{5^2}{2!} = \\dfrac{25}{2} = 12.5$.\n\nType $\\text{e}^{-5}$ into your calculator: it shows $0.006737947\\ldots$\n\n$$\\text{P}(X = 2) = 0.006737947 \\times 12.5 = 0.0842243\\ldots$$\n\nQuick check: your calculator's Poisson probability function (pdf) with mean 5 and $x = 2$ should give the same number. This line earns the **B1**.",
+      "**Final answer**\n\n$$\\text{P}(X = 2) = 0.0842 \\text{ (3 s.f.)}$$"
+    ]
+  },
+  "9709_s19_72_q1_ii": {
+    "hints": [
+      "Write $\\text{P}(X = n)$ and $\\text{P}(X = n+1)$ with the Poisson formula (mean 5), then set the two expressions equal."
+    ],
+    "walkthrough": [
+      "**Write each probability with the Poisson formula**\n\nThe formula is $\\text{P}(X = r) = \\text{e}^{-5}\\dfrac{5^r}{r!}$. Put $r = n$, then $r = n + 1$:\n\n$$\\text{P}(X = n) = \\text{e}^{-5} \\times \\frac{5^n}{n!} \\qquad\\qquad \\text{P}(X = n+1) = \\text{e}^{-5} \\times \\frac{5^{n+1}}{(n+1)!}$$",
+      "**Set them equal**\n\nThe question says these two probabilities are equal, so\n\n$$\\text{e}^{-5} \\times \\frac{5^n}{n!} = \\text{e}^{-5} \\times \\frac{5^{n+1}}{(n+1)!}$$\n\nThis is the equation in $n$ and earns the **B1**. The scheme also accepts it with the $\\text{e}^{-5}$ already cancelled from both sides.",
+      "**Final answer**\n\n$$\\text{e}^{-5} \\times \\frac{5^n}{n!} = \\text{e}^{-5} \\times \\frac{5^{n+1}}{(n+1)!}$$"
+    ]
+  },
+  "9709_s19_72_q1_iii": {
+    "hints": [
+      "Cancel $\\text{e}^{-5}$, then use $(n+1)! = (n+1) \\times n!$ and $5^{n+1} = 5 \\times 5^n$ so that almost everything cancels and you are left with a simple equation for $n$."
+    ],
+    "walkthrough": [
+      "**Cancel what is common to both sides**\n\nBoth sides have the factor $\\text{e}^{-5}$, so divide both sides by it:\n\n$$\\frac{5^n}{n!} = \\frac{5^{n+1}}{(n+1)!}$$",
+      "**Break the awkward parts into pieces**\n\nTwo facts help:\n\n$5^{n+1} = 5^n \\times 5$ (one more factor of 5).\n\n$(n+1)! = (n+1) \\times n!$ (a factorial is the number times the factorial just below it).\n\n$$\\frac{5^n}{n!} = \\frac{5^n \\times 5}{(n+1) \\times n!}$$",
+      "**Cancel again**\n\nNow $5^n$ and $n!$ appear on the top and bottom of both sides. Divide both sides by $\\dfrac{5^n}{n!}$:\n\n$$1 = \\frac{5}{n+1}$$\n\nThis line earns the **B1**.",
+      "**Solve for n**\n\nMultiply both sides by $n + 1$:\n\n$$n + 1 = 5$$\n\n$$n = 4$$\n\nQuick check: $\\text{P}(X=4) = \\text{e}^{-5}\\dfrac{5^4}{4!} = \\text{e}^{-5}\\dfrac{625}{24}$ and $\\text{P}(X=5) = \\text{e}^{-5}\\dfrac{5^5}{5!} = \\text{e}^{-5}\\dfrac{3125}{120}$. Both fractions equal $26.04\\ldots$, so the probabilities are equal.",
+      "**Final answer**\n\n$$n = 4$$"
+    ]
+  }
+}

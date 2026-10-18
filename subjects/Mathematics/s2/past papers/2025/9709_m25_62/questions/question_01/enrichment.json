@@ -1,0 +1,19 @@
+{
+ "9709_m25_62_q1": {
+  "hints": [
+   "A difference of two independent normal variables is itself normal. The mean of $X - Y$ comes from the two means: subtract $44$ and $30$.",
+   "Variances of independent variables **add**, even when you subtract the variables: $\\text{Var}(X - Y) = \\text{Var}(X) + \\text{Var}(Y)$, using $16$ and $9$.",
+   "Standardise $X - Y$ at the value $15$: $z = \\dfrac{15 - \\text{(mean)}}{\\sqrt{\\text{(variance)}}}$. Use the standard deviation, not the variance, on the bottom.",
+   "You want $\\text{P}(X - Y < 15) = \\text{P}(Z < z)$, which is $\\Phi(z)$ with your $z$. Use the normal table or the calculator's normal cdf.",
+   "Round the value of $\\Phi(z)$ to 3 significant figures."
+  ],
+  "walkthrough": [
+   "**What kind of problem this is**\n\nWe have two independent normal random variables, $X$ and $Y$, and we want the probability that $X - Y$ is less than $15$.\n\nA fact to know: if $X$ and $Y$ are independent and normally distributed, then $X - Y$ is also normally distributed. So the plan is: find the mean and variance of $X - Y$, standardise, then read off a probability from the normal distribution.\n\nIn $\\text{N}(\\mu, \\sigma^2)$ the second number is the **variance** $\\sigma^2$, not the standard deviation. So $X$ has mean $44$ and variance $16$; $Y$ has mean $30$ and variance $9$.",
+   "**The mean of $X - Y$ (first B1)**\n\nThe mean of a difference is the difference of the means:\n\n$$\\text{E}(X - Y) = \\text{E}(X) - \\text{E}(Y) = 44 - 30 = 14$$",
+   "**The variance of $X - Y$ (second B1)**\n\nFor independent variables the variances **add**, even though we are subtracting the variables. Reason: both $X$ and $Y$ bring their own spread, and subtracting one does not cancel the other's variability.\n\n$$\\text{Var}(X - Y) = \\text{Var}(X) + \\text{Var}(Y) = 16 + 9 = 25$$\n\nThe standard deviation is $\\sqrt{25} = 5$.\n\nQuick check: a common slip is $16 - 9 = 7$. Do not subtract the variances.\n\nSo $X - Y \\sim \\text{N}(14, 25)$.",
+   "**Standardise (first M1)**\n\nTo use the standard normal table we convert the value $15$ into a $z$-value. $z$ tells us how many standard deviations the value is above the mean:\n\n$$z = \\frac{15 - 14}{\\sqrt{25}} = \\frac{1}{5} = 0.2$$\n\nNote the denominator is the standard deviation $5$, not the variance $25$.",
+   "**Find the probability (second M1)**\n\nThe event $X - Y < 15$ has the same probability as $Z < 0.2$ where $Z \\sim \\text{N}(0, 1)$. The cumulative probability up to $z$ is written $\\Phi(z)$, so\n\n$$\\text{P}(X - Y < 15) = \\text{P}(Z < 0.2) = \\Phi(0.2)$$\n\nOn the calculator, use normal cdf with lower bound $-\\infty$ (or a very negative number such as $-99$), upper bound $0.2$, mean $0$, standard deviation $1$. It shows $0.57926\\ldots$\n\nQuick check: $z = 0.2$ is a little above the mean, so the probability should be a little above $0.5$. It is.",
+   "**Final answer**\n\n$$\\text{P}(X - Y < 15) = 0.579 \\text{ (3 s.f.)}$$"
+  ]
+ }
+}

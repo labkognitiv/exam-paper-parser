@@ -1,0 +1,47 @@
+{
+ "9709_m25_62_q4_a_i": {
+  "hints": [
+   "For any pdf the total area under the graph is $1$. The shape between $x = 0$ and $x = 2$ is a trapezium with parallel sides $a$ and $b$.",
+   "Write area $= \\dfrac{1}{2}(a + b) \\times 2 = 1$ and simplify to the required result."
+  ],
+  "walkthrough": [
+   "**Why the area is 1 (M1)**\n\nFor any probability density function, the total area under the graph equals $1$ (the total probability). The graph is a straight line from height $a$ at $x = 0$ to height $b$ at $x = 2$, so the shape under it is a trapezium. Its parallel sides are $a$ and $b$ and its width is $2$.\n\nArea of a trapezium $= \\dfrac{1}{2}(\\text{sum of parallel sides}) \\times \\text{width}$:\n\n$$\\frac{a + b}{2} \\times 2 = 1$$",
+   "**Simplify (A1)**\n\nThe $2$s cancel, since $\\dfrac{a + b}{2} \\times 2 = a + b$:\n\n$$a + b = 1$$\n\nSubtract $a$ from both sides:\n\n$$b = 1 - a$$\n\nThis is the result we had to show. Include the intermediate line $a + b = 1$ for the A1.",
+   "**Final answer**\n\nFrom area $= 1$: $a + b = 1$, so $b = 1 - a$ (shown)."
+  ]
+ },
+ "9709_m25_62_q4_a_ii": {
+  "hints": [
+   "Find the equation of the line through $(0, a)$ and $(2, b)$: the $y$-intercept is $a$ and the gradient is $\\dfrac{b - a}{2}$. Replace $b$ using part (i).",
+   "$\\text{E}(X) = \\int x\\,\\text{f}(x)\\,\\text{d}x$ over the range $0$ to $2$: multiply your line equation by $x$ before you integrate.",
+   "Integrate term by term with the power rule: $\\int ax\\,\\text{d}x$ and $\\int \\dfrac{1-2a}{2}x^2\\,\\text{d}x$.",
+   "Substitute the limits $2$ and $0$ into your integral, then put the result equal to $1.2$. You should get an equation in $a$ only.",
+   "Collect the terms in $a$ and solve the linear equation."
+  ],
+  "walkthrough": [
+   "**Plan**\n\nThe mean of a continuous random variable is $\\text{E}(X) = \\int x\\,\\text{f}(x)\\,\\text{d}x$. We need the formula for $\\text{f}(x)$ first, then integrate, then use the given $\\text{E}(X) = 1.2$ to find $a$.\n\nFrom (i), $b = 1 - a$. That means the whole graph depends only on $a$.",
+   "**Equation of the line (B1)**\n\nA straight line is $y = mx + c$. It passes through $(0, a)$, so the $y$-intercept is $c = a$.\n\nGradient $m = \\dfrac{\\text{change in } y}{\\text{change in } x} = \\dfrac{b - a}{2 - 0} = \\dfrac{(1 - a) - a}{2} = \\dfrac{1 - 2a}{2}$.\n\n$$\\text{f}(x) = a + \\frac{1 - 2a}{2}x \\qquad 0 \\leqslant x \\leqslant 2$$",
+   "**Set up $x\\,\\text{f}(x)$ (M1)**\n\nMultiply by $x$:\n\n$$x\\,\\text{f}(x) = ax + \\frac{1 - 2a}{2}x^2$$\n\nSo the mean is\n\n$$\\text{E}(X) = \\int_0^2 \\left(ax + \\frac{1 - 2a}{2}x^2\\right)\\text{d}x$$\n\nThe limits are $0$ and $2$ because $\\text{f}$ is zero elsewhere. Treat $a$ as a constant (a number) when integrating with respect to $x$.",
+   "**Integrate (A1)**\n\nPower rule: $\\int x^n\\,\\text{d}x = \\dfrac{x^{n+1}}{n+1}$. So $\\int ax\\,\\text{d}x = \\dfrac{ax^2}{2}$ and $\\int \\dfrac{1-2a}{2}x^2\\,\\text{d}x = \\dfrac{1-2a}{2}\\times\\dfrac{x^3}{3} = \\dfrac{(1-2a)x^3}{6}$.\n\n$$\\text{E}(X) = \\left[\\frac{ax^2}{2} + \\frac{(1 - 2a)x^3}{6}\\right]_0^2$$",
+   "**Substitute the limits and equate to 1.2 (second M1)**\n\nAt $x = 2$: $\\dfrac{a \\times 4}{2} = 2a$ and $\\dfrac{(1 - 2a)\\times 8}{6} = \\dfrac{4}{3}(1 - 2a)$. At $x = 0$ everything is $0$.\n\nThe question says $\\text{E}(X) = 1.2$:\n\n$$2a + \\frac{4}{3}(1 - 2a) = 1.2$$",
+   "**Solve for $a$ (final A1)**\n\nExpand: $\\dfrac{4}{3}(1 - 2a) = \\dfrac{4}{3} - \\dfrac{8a}{3}$.\n\n$2a - \\dfrac{8a}{3} = \\dfrac{6a}{3} - \\dfrac{8a}{3} = -\\dfrac{2a}{3}$.\n\nSo $\\dfrac{4}{3} - \\dfrac{2a}{3} = 1.2$, which is $\\dfrac{4 - 2a}{3} = 1.2$.\n\nMultiply both sides by $3$: $4 - 2a = 3.6$.\n\nRearrange: $2a = 0.4$, so $a = 0.2$.\n\nQuick check: then $b = 1 - 0.2 = 0.8$, both positive as the question says.",
+   "**Final answer**\n\n$$a = 0.2$$"
+  ]
+ },
+ "9709_m25_62_q4_b": {
+  "hints": [
+   "The probability is an integral of the pdf: $\\text{P}(-c < T < c) = \\int_{-c}^{c}\\dfrac{1}{2}\\cos t\\,\\text{d}t$, set equal to $\\dfrac{1}{2}$. Alternatively use symmetry and integrate from $0$ to $c$.",
+   "Integrate $\\cos t$ to get $\\sin t$, then substitute the limits (remember $\\sin 0 = 0$).",
+   "Rearrange your equation to give $\\sin c$ on its own.",
+   "Use the inverse sine to find $c$, in radians. Check that it lies within the allowed range of $t$."
+  ],
+  "walkthrough": [
+   "**Plan**\n\nFor a continuous variable, probability is the area under the pdf. We want the value of $c$ so that the area between $-c$ and $c$ is $\\dfrac{1}{2}$.\n\nThe pdf $\\dfrac{1}{2}\\cos t$ is symmetrical about $t = 0$ (since $\\cos(-t) = \\cos t$). So the area from $-c$ to $0$ equals the area from $0$ to $c$, and each must be half of $\\dfrac{1}{2}$, that is $\\dfrac{1}{4}$.",
+   "**Set up the integral (M1)**\n\n$$\\frac{1}{2}\\int_0^c \\cos t\\,\\text{d}t = \\frac{1}{4}$$\n\n(Equivalent: $\\dfrac{1}{2}\\int_{-c}^{c}\\cos t\\,\\text{d}t = \\dfrac{1}{2}$.)",
+   "**Integrate and use the limits (first A1)**\n\nThe integral of $\\cos t$ is $\\sin t$:\n\n$$\\frac{1}{2}\\left[\\sin t\\right]_0^c = \\frac{1}{2}(\\sin c - \\sin 0) = \\frac{1}{2}\\sin c$$\n\nsince $\\sin 0 = 0$. So the equation is $\\dfrac{1}{2}\\sin c = \\dfrac{1}{4}$.",
+   "**Isolate $\\sin c$ (second A1)**\n\nMultiply both sides by $2$:\n\n$$\\sin c = \\frac{1}{2}$$",
+   "**Find $c$ (third A1)**\n\nUse the calculator in **radian** mode: $c = \\sin^{-1}\\left(\\dfrac{1}{2}\\right) = 0.5236$, which is exactly $\\dfrac{\\pi}{6}$.\n\nThe range of $T$ is $-\\dfrac{\\pi}{2}$ to $\\dfrac{\\pi}{2}$, so $c$ must lie between $0$ and $\\dfrac{\\pi}{2} = 1.571$. The value $0.5236$ is in range.\n\nThe other solution of $\\sin c = \\dfrac{1}{2}$, $c = \\dfrac{5\\pi}{6}$, is outside the range of $T$, so we ignore it.",
+   "**Final answer**\n\n$$c = \\frac{\\pi}{6} \\ (= 0.5236)$$"
+  ]
+ }
+}

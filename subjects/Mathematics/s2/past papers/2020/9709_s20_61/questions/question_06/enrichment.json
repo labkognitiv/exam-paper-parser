@@ -1,0 +1,74 @@
+{
+ "9709_s20_61_q6_a": {
+  "hints": [
+   "For $0 \\leqslant t \\leqslant 20$, $\\text{f}(t) = \\frac{3}{4000}\\,t\\,(20 - t)$ is a quadratic with a negative $t^2$ term, so it is an upside-down parabola. Where does it cut the $t$-axis? Draw only the stated range and show $\\text{f}(t) = 0$ elsewhere."
+  ],
+  "walkthrough": [
+   "**What shape is it?**\n\nFactorise: $20t - t^2 = t(20 - t)$. So $\\text{f}(t) = \\dfrac{3}{4000}\\,t\\,(20 - t)$.\n\nThe coefficient of $t^2$ is negative, so the graph is an **upside-down** (tails-down) parabola.",
+   "**Key points**\n\nIt crosses zero when $t = 0$ or $t = 20$. Halfway between them, at $t = 10$, is the highest point:\n\n$$\\text{f}(10) = \\frac{3}{4000}(20 \\times 10 - 10^2) = \\frac{3}{4000} \\times 100 = 0.075$$\n\nOutside $0 \\leqslant t \\leqslant 20$ the pdf is $0$, so the graph lies on the $t$-axis there (or is simply not drawn).",
+   "**The sketch (earns the B1)**\n\nDraw axes, label the horizontal axis $t$ and the vertical axis $\\text{f}(t)$. Draw an upside-down parabola that starts at the origin $(0, 0)$, rises to a maximum at $t = 10$ (height $0.075$), then falls back to $(20, 0)$. Draw it **only** between $t = 0$ and $t = 20$.",
+   "**Final answer**\n\nA tails-down parabola drawn only from $t = 0$ to $t = 20$, with its maximum at $t = 10$."
+  ]
+ },
+ "9709_s20_61_q6_b": {
+  "hints": [
+   "Look at your sketch in (a): is there a vertical line that splits the graph into two mirror-image halves? Where does it cut the $t$-axis, and what does that tell you about the mean of a symmetrical pdf?"
+  ],
+  "walkthrough": [
+   "**Use the sketch**\n\nThe graph in part (a) is a parabola from $t = 0$ to $t = 20$. A parabola is symmetrical about the vertical line through its highest point, and here that line is $t = 10$, exactly halfway between $0$ and $20$.",
+   "**Link symmetry to the mean (earns the B1)**\n\nThe mean is the 'balance point' of the distribution. If the pdf is symmetrical about a line, the mean is on that line:\n\n$$\\text{E}(T) = 10$$\n\nNo integration is needed.",
+   "**Final answer**\n\nThe pdf is symmetrical about $t = 10$, so $\\text{E}(T) = 10$."
+  ]
+ },
+ "9709_s20_61_q6_c": {
+  "hints": [
+   "Use $\\text{Var}(T) = \\text{E}(T^2) - [\\text{E}(T)]^2$ with $\\text{E}(T^2) = \\displaystyle\\int t^2\\,\\text{f}(t)\\,\\text{d}t$ over the range $0$ to $20$. Multiply $\\text{f}(t)$ by $t^2$ first.",
+   "Integrate each power of $t$ (raise the power by one and divide by the new power), then substitute the upper limit $20$. The lower limit $0$ gives $0$. Do not forget the factor $\\frac{3}{4000}$.",
+   "Subtract $[\\text{E}(T)]^2$ using $\\text{E}(T) = 10$ from part (b)."
+  ],
+  "walkthrough": [
+   "**Which formula and why**\n\nThe variance measures spread: $\\text{Var}(T) = \\text{E}(T^2) - [\\text{E}(T)]^2$. From part (b), $\\text{E}(T) = 10$. We still need $\\text{E}(T^2)$, which for a pdf is $\\displaystyle\\int t^2\\,\\text{f}(t)\\,\\text{d}t$.",
+   "**Set up the integral (earns the first M1)**\n\nMultiply the pdf by $t^2$:\n\n$$t^2 \\times \\frac{3}{4000}(20t - t^2) = \\frac{3}{4000}\\left(20t^3 - t^4\\right)$$\n\n$$\\text{E}(T^2) = \\frac{3}{4000}\\int_0^{20}\\left(20t^3 - t^4\\right)\\text{d}t$$\n\n(The printed mark scheme writes $\\text{d}x$ here; it should be $\\text{d}t$, since the variable is $t$.)",
+   "**Integrate**\n\nRaise each power by 1 and divide by the new power: $20t^3 \\to 20 \\times \\dfrac{t^4}{4} = 5t^4$ and $t^4 \\to \\dfrac{t^5}{5}$.\n\n$$\\text{E}(T^2) = \\frac{3}{4000}\\left[5t^4 - \\frac{t^5}{5}\\right]_0^{20}$$",
+   "**Substitute the limits**\n\nAt $t = 20$: $20^4 = 160000$, so $5 \\times 160000 = 800000$. And $20^5 = 3200000$, so $\\dfrac{3200000}{5} = 640000$.\n\n$$5 \\times 20^4 - \\frac{20^5}{5} = 800000 - 640000 = 160000$$\n\nAt $t = 0$ everything is $0$.\n\n$$\\text{E}(T^2) = \\frac{3}{4000} \\times 160000 = 120$$",
+   "**Subtract the mean squared (earns the second M1)**\n\n$$\\text{Var}(T) = \\text{E}(T^2) - [\\text{E}(T)]^2 = 120 - 10^2 = 120 - 100 = 20$$",
+   "**Final answer**\n\n$\\text{Var}(T) = 20$."
+  ]
+ },
+ "9709_s20_61_q6_d": {
+  "hints": [
+   "Use the symmetry of the pdf about $t = 10$: the area below $10 - a$ equals the area above $10 + a$. Write that area in terms of $p$, using $\\text{P}(T < 10 + a) = p$.",
+   "The probability you want is $\\text{P}(T < 10 + a) - \\text{P}(T < 10 - a)$. Substitute $p$ and your expression for the lower tail."
+  ],
+  "walkthrough": [
+   "**Picture it**\n\nThe curve is symmetrical about $t = 10$. Mark two points the same distance $a$ either side of $10$: at $10 - a$ and at $10 + a$. By symmetry the two tails are equal:\n\n$$\\text{P}(T < 10 - a) = \\text{P}(T > 10 + a)$$",
+   "**Write the tail in terms of $p$ (earns the M1)**\n\nWe are told $\\text{P}(T < 10 + a) = p$. The area above $10 + a$ is whatever is left of the total $1$:\n\n$$\\text{P}(T > 10 + a) = 1 - p$$\n\nSo by symmetry $\\text{P}(T < 10 - a) = 1 - p$ as well.",
+   "**Subtract the two tails (earns the A1)**\n\nThe area between $10 - a$ and $10 + a$ is the area below $10 + a$ minus the area below $10 - a$:\n\n$$\\text{P}(10 - a < T < 10 + a) = p - (1 - p) = p - 1 + p = 2p - 1$$\n\nQuick check: if $a = 10$ then $p = 1$ and the area is $2 - 1 = 1$, as it should be.",
+   "**Final answer**\n\n$\\text{P}(10 - a < T < 10 + a) = 2p - 1$."
+  ]
+ },
+ "9709_s20_61_q6_e": {
+  "hints": [
+   "The probability is the area under the pdf between $8$ and $12$: integrate $\\text{f}(t)$, the version that applies between $0$ and $20$, from $t = 8$ to $t = 12$.",
+   "Integrate $20t - t^2$ term by term (raise the power by one and divide by the new power), then substitute the upper limit $12$ and the lower limit $8$ into the result.",
+   "Subtract the value at the lower limit from the value at the upper limit, multiply by $\\frac{3}{4000}$ and give your answer as an exact fraction or a decimal."
+  ],
+  "walkthrough": [
+   "**Set up the integral (earns the M1)**\n\nFor a continuous variable, $\\text{P}(8 < T < 12)$ is the area under $\\text{f}(t)$ between $t = 8$ and $t = 12$. Both limits are inside $0 \\leqslant t \\leqslant 20$, so we use $\\text{f}(t) = \\dfrac{3}{4000}(20t - t^2)$:\n\n$$\\text{P}(8 < T < 12) = \\frac{3}{4000}\\int_8^{12}\\left(20t - t^2\\right)\\text{d}t$$",
+   "**Integrate**\n\n$20t \\to \\dfrac{20t^2}{2} = 10t^2$ and $t^2 \\to \\dfrac{t^3}{3}$.\n\n$$= \\frac{3}{4000}\\left[10t^2 - \\frac{t^3}{3}\\right]_8^{12}$$",
+   "**Substitute the limits (earns the first A1)**\n\nAt $t = 12$: $10 \\times 144 = 1440$ and $\\dfrac{12^3}{3} = \\dfrac{1728}{3} = 576$, so the value is $1440 - 576 = 864$.\n\nAt $t = 8$: $10 \\times 64 = 640$ and $\\dfrac{8^3}{3} = \\dfrac{512}{3}$, so the value is $640 - \\dfrac{512}{3}$.\n\nUpper minus lower:\n\n$$\\frac{3}{4000}\\left(1440 - 576 - 640 + \\frac{512}{3}\\right)$$\n\n(Careful: subtracting the bracket $640 - \\frac{512}{3}$ changes the sign of $\\frac{512}{3}$ to $+$.)",
+   "**Evaluate (earns the second A1)**\n\n$1440 - 576 - 640 = 224$. And $224 + \\dfrac{512}{3} = \\dfrac{672}{3} + \\dfrac{512}{3} = \\dfrac{1184}{3}$.\n\n$$\\frac{3}{4000} \\times \\frac{1184}{3} = \\frac{1184}{4000} = 0.296$$\n\nDivide top and bottom by 32: $\\dfrac{1184}{4000} = \\dfrac{37}{125}$.",
+   "**Final answer**\n\n$\\text{P}(8 < T < 12) = \\dfrac{37}{125} = 0.296$."
+  ]
+ },
+ "9709_s20_61_q6_f": {
+  "hints": [
+   "Look at the range of $t$ where the pdf is non-zero. Could a real passenger ever wait longer than that?"
+  ],
+  "walkthrough": [
+   "**Compare the model with real life**\n\nThe model has $\\text{f}(t) = 0$ for all $t > 20$. That means a passenger can **never** wait more than 20 minutes.",
+   "**Why that may be unrealistic (earns the B1)**\n\nIn real life buses can be late or break down, or traffic can delay them, so a wait longer than 20 minutes is possible. The model gives it probability $0$.",
+   "**Final answer**\n\nThe model does not allow waiting times greater than 20 minutes."
+  ]
+ }
+}

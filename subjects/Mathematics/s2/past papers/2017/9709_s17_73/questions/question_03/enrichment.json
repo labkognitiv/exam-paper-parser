@@ -1,0 +1,20 @@
+{
+  "9709_s17_73_q3": {
+    "hints": [
+      "The total over 10 days is a sum of 10 independent normal variables, so means add and variances add: the variance of the total is $10 \\times 0.46^2$.",
+      "Write the distribution of the total mass $T$ as $T \\sim \\text{N}(\\text{mean}, \\text{variance})$, where the mean is $10 \\times 7.0$ and the variance is the one you found in the first hint.",
+      "Standardise: $z = \\dfrac{71 - \\text{mean}}{\\text{sd}}$, where the standard deviation is the square root of the variance (not the variance itself).",
+      "You want $\\text{P}(T > 71)$, the upper tail, so sketch the curve and write this as $1 - \\Phi(z)$.",
+      "Use your calculator's normal cdf (or the table) to find $\\Phi(z)$ for your $z$, then subtract from 1 and give your answer to 3 significant figures."
+    ],
+    "walkthrough": [
+      "**What the question is asking**\n\nOne day's ore mass is normal with mean $7.0$ and standard deviation $0.46$. We add up 10 independent days and call the total $T$. We want $\\text{P}(T > 71)$.\n\nThe key idea: for the **sum** of independent normal variables, **means add** and **variances add** (variances, not standard deviations).",
+      "**Find the variance of the total (first B1)**\n\nOne day has standard deviation $0.46$, so its variance is $0.46^2$. For 10 days we add 10 of these variances:\n\n$$\\text{Var}(T) = 10 \\times 0.46^2$$\n\n$$0.46^2 = 0.2116$$\n\n$$10 \\times 0.2116 = 2.116$$\n\n(Quick check: the standard deviation of the total is $\\sqrt{2.116} = 1.4546\\ldots$, not $10 \\times 0.46$. Standard deviations do not add this way.)\n\nSeeing $10 \\times 0.46^2$ earns the first **B1**.",
+      "**State the distribution of the total (second B1)**\n\nThe mean of the total is $10 \\times 7.0 = 70$. So\n\n$$T \\sim \\text{N}(70,\\ 2.116)$$\n\nThis statement earns the second **B1**. (The scheme also accepts the equivalent route using the mean of 10 days: $\\bar{X} \\sim \\text{N}\\left(7, \\left(\\frac{0.46}{\\sqrt{10}}\\right)^2\\right)$ and asking for $\\bar{X} > 7.1$.)",
+      "**Standardise (first M1)**\n\nWe turn $T = 71$ into a $z$-value: subtract the mean, divide by the standard deviation.\n\n$$z = \\frac{71 - 70}{\\sqrt{2.116}} = \\frac{1}{1.4546\\ldots} = 0.687$$\n\nCareful: divide by $\\sqrt{2.116}$, the standard deviation, not by $2.116$. This line earns the first **M1**. (Using the 10-day mean instead gives $\\frac{7.1 - 7.0}{0.46/\\sqrt{10}}$, which is the same $0.687$.)",
+      "**Choose the correct tail (second M1)**\n\nWe want $T$ **more than** 71, which is the area to the **right** of $z = 0.687$. Normal tables and calculators give the area to the **left**, so we subtract from 1:\n\n$$\\text{P}(T > 71) = \\text{P}(Z > 0.687) = 1 - \\Phi(0.687)$$\n\nThis earns the second **M1**.",
+      "**Calculate**\n\nOn your calculator, use normal cdf for $\\Phi(0.687)$: it shows about $0.7541$.\n\n$$1 - 0.7541 = 0.2459\\ldots$$\n\n(If you round $z$ to $0.69$ and use a table you get $0.245$; the mark scheme uses $z = 0.687$ and gets $0.246$. Keep three decimal places in $z$.)",
+      "**Final answer**\n\n$$\\text{P}(\\text{total} > 71 \\text{ tonnes}) = 0.246 \\quad (3 \\text{ sf})$$"
+    ]
+  }
+}

@@ -1,0 +1,31 @@
+{
+ "9709_w21_62_q3_a": {
+  "hints": [
+   "A confidence interval for a proportion has the form $\\hat{p} \\pm z\\sqrt{\\dfrac{\\hat{p}(1-\\hat{p})}{n}}$. Here the sample proportion is $\\hat{p} = \\dfrac{35}{140}$ and $n = 140$.",
+   "For a 96% interval, 4% is left over, split equally between the two tails: 2% in each. So you need the value $z$ with $\\Phi(z) = 0.98$ (use the inverse normal on your calculator or the table).",
+   "Put your $z$ and the numbers into the formula. Work out the square root and the multiplication first, then subtract it from and add it to $\\hat{p}$ to get the two ends, and write the answer as an interval to 3 significant figures."
+  ],
+  "walkthrough": [
+   "**What we know**\n\nWe have a sample of $n = 140$ spins, and the spinner landed on red $35$ times. Our best estimate of $p$ is the sample proportion:\n\n$$\\hat{p} = \\frac{35}{140} = 0.25$$\n\n($\\hat{p}$ is read 'p hat': it means the proportion found in the sample.)",
+   "**The formula for the interval (the M1 mark)**\n\nWith a large sample, the sample proportion is approximately Normal, and an approximate confidence interval for $p$ is\n\n$$\\hat{p} \\pm z\\sqrt{\\frac{\\hat{p}(1-\\hat{p})}{n}}$$\n\nSubstituting $\\hat{p} = 0.25$ and $n = 140$:\n\n$$0.25 \\pm z\\sqrt{\\frac{0.25 \\times 0.75}{140}}$$\n\nNote that $1 - \\hat{p} = 1 - 0.25 = 0.75$. The scheme must see a $z$-value here, not a $t$-value or a number from nowhere.",
+   "**Finding $z$ for 96% (the B1 mark)**\n\nA 96% interval leaves $100\\% - 96\\% = 4\\%$ outside it. That is split equally between the two tails, so $2\\%$ (that is $0.02$) lies in each tail.\n\nSo the area **below** the upper end is $1 - 0.02 = 0.98$, and we need the $z$ with $\\Phi(z) = 0.98$.\n\nUse the inverse normal function on your calculator (or the table of percentage points) with area $0.98$:\n\n$$z = 2.054$$\n\n(The scheme accepts $2.054$ or $2.055$.)",
+   "**Work out the half-width of the interval**\n\nFirst the number inside the square root:\n\n$$0.25 \\times 0.75 = 0.1875$$\n\n$$\\frac{0.1875}{140} = 0.00133929\\ldots$$\n\nSquare root:\n\n$$\\sqrt{0.00133929} = 0.036596\\ldots$$\n\nMultiply by $z$:\n\n$$2.054 \\times 0.036596 = 0.07517\\ldots$$",
+   "**The two ends (the A1 mark)**\n\nLower end: $0.25 - 0.07517 = 0.17483$.\n\nUpper end: $0.25 + 0.07517 = 0.32517$.\n\nRounded to 3 significant figures the interval is $0.175$ to $0.325$. Remember the answer must be written as an interval, not as just one number.",
+   "**Final answer**\n\nAn approximate 96% confidence interval for $p$ is $0.175$ to $0.325$ (3 significant figures)."
+  ]
+ },
+ "9709_w21_62_q3_b": {
+  "hints": [
+   "A 90% confidence interval contains the true value of $p$ with probability $0.9$, a 95% interval with probability $0.95$ and a 99% interval with probability $0.99$. Each interval either contains $p$ or it does not, and the three are independent.",
+   "'Exactly two contain $p$' can happen in three different ways: choose which one interval **misses**. For the 99% interval to be the one that misses, the product is $0.9 \\times 0.95 \\times 0.01$. Write down the other two products in the same way, using $0.1$ and $0.05$ for the others' failing.",
+   "Add the three products together, since the three cases cannot happen at the same time, and enter the sum on your calculator."
+  ],
+  "walkthrough": [
+   "**Turn each confidence level into a probability**\n\nA 90% confidence interval is built so that, in the long run, 90% of such intervals contain the true value of $p$. So for each experiment:\n\n- 90% interval contains $p$ with probability $0.9$, misses with probability $0.1$.\n\n- 95% interval contains $p$ with probability $0.95$, misses with probability $0.05$.\n\n- 99% interval contains $p$ with probability $0.99$, misses with probability $0.01$.\n\nThe three experiments are separate, so the events are independent and we can multiply probabilities.",
+   "**List the ways to get exactly two intervals containing $p$**\n\nExactly two contain $p$ means exactly one misses. There are three possibilities, depending on which one misses:\n\n- The 99% interval misses (the other two contain $p$): $0.9 \\times 0.95 \\times 0.01$.\n\n- The 95% interval misses: $0.9 \\times 0.05 \\times 0.99$.\n\n- The 90% interval misses: $0.1 \\times 0.95 \\times 0.99$.\n\nNote that we cannot use a Binomial here, because the three probabilities are different. That is why we list the cases.",
+   "**Work out each product (the first M1 mark is for one correct product)**\n\n$$0.9 \\times 0.95 \\times 0.01 = 0.00855$$\n\n$$0.9 \\times 0.05 \\times 0.99 = 0.04455$$\n\n$$0.1 \\times 0.95 \\times 0.99 = 0.09405$$",
+   "**Add the three cases (the second M1 mark)**\n\nThese cases cannot happen together, so we add:\n\n$$0.00855 + 0.04455 + 0.09405 = 0.14715$$\n\nRounded to 3 significant figures this is $0.147$.",
+   "**Final answer**\n\nThe probability that exactly two of the three intervals contain the true value of $p$ is $0.147$ (3 significant figures)."
+  ]
+ }
+}

@@ -1,0 +1,21 @@
+{
+ "9709_w20_61_q3": {
+  "hints": [
+   "'Female less than half the male' is $F < \\frac{1}{2}M$. Rearrange so that one side is zero, and make the combined quantity $F - \\frac{1}{2}M$ the thing you find the distribution of.",
+   "A linear combination of independent normal variables is normal. Find its mean with $\\text{E}(F - \\frac{1}{2}M) = \\text{E}(F) - \\frac{1}{2}\\text{E}(M)$, using the two means given.",
+   "For the variance, $\\text{Var}(aX + bY) = a^2\\text{Var}(X) + b^2\\text{Var}(Y)$: the variances **add** even though you subtract the variables, and the coefficient $\\frac{1}{2}$ gets squared. The question gives standard deviations $27$ and $55$, so square them first.",
+   "Standardise with $z = \\dfrac{0 - \\text{mean}}{\\sqrt{\\text{variance}}}$: you want the probability that the combination is below 0, and do not forget the square root.",
+   "Write the probability you need as $\\text{P}(Z < z)$ for your negative $z$, i.e. the area to the left of a point below the mean, and use symmetry: $\\Phi(-z) = 1 - \\Phi(z)$.",
+   "Read $\\Phi$ of the positive value from the table or calculator, subtract it from 1 and round to 3 significant figures."
+  ],
+  "walkthrough": [
+   "**Set up what we are comparing**\n\nLet $F$ be the mass of a randomly chosen female, so $F \\sim \\text{N}(102, 27^2)$, and $M$ the mass of a randomly chosen male, so $M \\sim \\text{N}(170, 55^2)$. The two animals are chosen independently.\n\nWe want the probability that the female's mass is less than **half** the male's mass:\n\n$$\\text{P}\\left(F < \\tfrac{1}{2}M\\right)$$\n\nSubtract $\\frac{1}{2}M$ from both sides so that the right side is 0. Then we only need the distribution of one quantity:\n\n$$\\text{P}\\left(F - \\tfrac{1}{2}M < 0\\right)$$\n\nWriting $F - 0.5M$ earns the **M1**.",
+   "**Why this is normal, and its mean**\n\nA combination $aF + bM$ of independent normal variables is itself normally distributed, so $F - 0.5M$ is normal. We just need its mean and variance.\n\nFor the mean, means combine in the same way as the variables:\n\n$$\\text{E}(F - 0.5M) = \\text{E}(F) - 0.5\\,\\text{E}(M) = 102 - 0.5 \\times 170 = 102 - 85 = 17$$\n\nSo $F - 0.5M \\sim \\text{N}(17, \\ldots)$. This is the first **B1**.",
+   "**The variance**\n\nVariance works differently. For independent variables, $\\text{Var}(aX + bY) = a^2\\text{Var}(X) + b^2\\text{Var}(Y)$. Two things to notice:\n\n- the minus sign disappears, because $(-0.5)^2 = +0.25$ (a spread can never be reduced by combining independent things), and\n\n- the multiplier 0.5 is **squared**.\n\nThe question gives standard deviations, so the variances are $27^2 = 729$ and $55^2 = 3025$.\n\n$$\\text{Var}(F - 0.5M) = 27^2 + 0.5^2 \\times 55^2 = 729 + 0.25 \\times 3025 = 729 + 756.25 = 1485.25$$\n\nSo $F - 0.5M \\sim \\text{N}(17, 1485.25)$. This is the second **B1**.",
+   "**Standardise**\n\nWe want $\\text{P}(F - 0.5M < 0)$. Standardising means subtracting the mean and dividing by the **standard deviation** (the square root of the variance, not the variance itself):\n\n$$\\sqrt{1485.25} = 38.5389\\ldots$$\n\n$$z = \\frac{0 - 17}{\\sqrt{1485.25}} = \\frac{-17}{38.5389} = -0.4411$$\n\nThis is the first **M1**.",
+   "**Find the probability**\n\nWe need the area under the standard normal curve to the left of $z = -0.4411$. Tables only list positive $z$, so use symmetry: the area to the left of $-0.4411$ equals the area to the right of $+0.4411$:\n\n$$\\text{P}(Z < -0.4411) = 1 - \\Phi(0.4411)$$\n\nUsing the table or your calculator's normal cdf, $\\Phi(0.4411) = 0.67043$, so\n\n$$1 - 0.67043 = 0.32957$$\n\nThis is the second **M1**. Quick check: the mean of $F - 0.5M$ is above 0 and we want the part below 0, so the probability should be less than $0.5$; it is.",
+   "**Another route (same answer)**\n\nYou can also use $2F - M < 0$. Then the mean is $2 \\times 102 - 170 = 34$, the variance is $2^2 \\times 27^2 + 55^2 = 2916 + 3025 = 5941$, and $z = \\dfrac{-34}{\\sqrt{5941}} = -0.4411$, exactly the same $z$.",
+   "**Final answer**\n\n$$\\text{P}(\\text{female mass} < \\tfrac{1}{2} \\times \\text{male mass}) = 0.330 \\text{ (3 s.f.)}$$\n\nThis earns the **A1** (0.33 is accepted if no greater accuracy is given)."
+  ]
+ }
+}

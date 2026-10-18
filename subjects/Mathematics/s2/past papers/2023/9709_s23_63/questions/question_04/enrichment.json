@@ -1,0 +1,21 @@
+{
+ "9709_s23_63_q4": {
+  "hints": [
+   "Work with the total mass produced in 7 days. Independent normal variables add, so the mean of the total is $7 \\times 65.2$.",
+   "For the variance of a total of 7 independent days, add the variances: $7 \\times 3.6^2$. Do not add the standard deviations.",
+   "The profit is \\$50 for each tonne, so a profit of less than \\$22 000 is the same as a mass of less than $22\\,000 \\div 50$ tonnes. Doing it this way you can use your total mean and variance for the mass.",
+   "Standardise with the total's mean and standard deviation: $z = \\dfrac{\\text{that mass} - \\text{total mean}}{\\sqrt{\\text{total variance}}}$. Do not mix in the daily values.",
+   "Your $z$ will be negative. You want $\\text{P}(Z < z)$, which by symmetry equals $1 - \\Phi$ of the positive version of $z$.",
+   "Find $\\Phi$ of the positive value (normal table or calculator), take it away from $1$, and give your answer to 3 significant figures."
+  ],
+  "walkthrough": [
+   "**Set up**\n\nLet $D$ be the mass of steel (in tonnes) made on one day, so $D \\sim \\text{N}(65.2,\\ 3.6^2)$. The days are independent. Let $T$ be the total mass over 7 days: $T = D_1 + D_2 + \\dots + D_7$.\n\nA sum of independent normal variables is also normal, so $T$ is normal. We need its mean and variance.\n\nThe profit is \\$50 for every tonne. So 'profit less than \\$22 000' means 'mass less than $22\\,000 \\div 50$ tonnes'. We will find $\\text{P}(T < \\ldots)$ using masses.",
+   "**Mean of the 7-day total (this earns the B1)**\n\nThe mean of a total is the sum of the means: 7 days, each with mean $65.2$.\n\n$$\\text{E}(T) = 7 \\times 65.2 = 456.4$$",
+   "**Variance of the 7-day total (this earns the first M1)**\n\nFor independent variables, **variances** add (standard deviations do not). The variance of one day is $3.6^2$, so\n\n$$\\text{Var}(T) = 7 \\times 3.6^2 = 7 \\times 12.96 = 90.72$$\n\nQuick check: a slip to avoid is $(7 \\times 3.6)^2$ or $49 \\times 3.6^2$. That is the variance of $7D$ (one day's mass multiplied by 7), which is a different thing from 7 separate days added.",
+   "**Convert the profit to a mass (this earns the second M1)**\n\nProfit $< 22\\,000$ means $50 \\times (\\text{mass}) < 22\\,000$, so\n\n$$\\text{mass} < \\frac{22\\,000}{50} = 440 \\text{ tonnes}$$\n\nSo we need $\\text{P}(T < 440)$ where $T \\sim \\text{N}(456.4,\\ 90.72)$.",
+   "**Standardise (this earns the third M1)**\n\nStandardising means: subtract the mean, then divide by the standard deviation. The standard deviation is the square root of the variance: $\\sqrt{90.72} = 9.5247\\ldots$\n\n$$z = \\frac{440 - 456.4}{\\sqrt{90.72}} = \\frac{-16.4}{9.5247} = -1.722$$\n\nAll three numbers here (440, 456.4 and 90.72) are for the 7-day total. Don't mix, for example, a 7-day mean with a one-day variance.",
+   "**Find the probability (this earns the fourth M1)**\n\nWe want the area to the left of $z = -1.722$. The normal table only gives areas for positive $z$, so use symmetry: the area to the left of $-1.722$ equals the area to the right of $+1.722$.\n\n$$\\text{P}(Z < -1.722) = 1 - \\Phi(1.722)$$\n\nCalculator: normal cdf of $1.722$ (lower bound very negative, upper bound $1.722$) gives $\\Phi(1.722) = 0.9575$ (to 4 d.p.), so\n\n$$1 - 0.9575 = 0.0425$$\n\nTip: use the calculator with the full $z$ value, not a table value rounded to $1.72$. The table value $\\Phi(1.72) = 0.9573$ would give $0.0427$, which is slightly off.",
+   "**Final answer**\n\nThe probability that the total profit in a week is less than \\$22 000 is $0.0425$ (the mark scheme also accepts $0.0426$).\n\nAlternative route: work in profit instead. $\\text{Mean} = 7 \\times 65.2 \\times 50 = 22\\,820$, $\\text{Var} = 50^2 \\times 90.72 = 226\\,800$, and $z = \\dfrac{22\\,000 - 22\\,820}{\\sqrt{226\\,800}} = -1.722$, the same $z$ and the same answer."
+  ]
+ }
+}

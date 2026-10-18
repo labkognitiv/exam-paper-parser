@@ -1,0 +1,45 @@
+{
+  "9709_w17_72_q6_i": {
+    "hints": [
+      "The count is over **5 days**, so scale the daily rate $1.03$ to 5 days. State $\\text{H}_0$ for the mean number of defective items in 5 days (say what your symbol means), and $\\text{H}_1$ for 'decreased'.",
+      "If $\\text{H}_0$ is true, the 5-day total follows a Poisson distribution with your scaled mean. You saw $2$ defective items, and we are testing for a decrease, so look at the lower tail: $\\text{P}(X \\leqslant 2)$.",
+      "Write $\\text{P}(X \\leqslant 2) = \\text{P}(0) + \\text{P}(1) + \\text{P}(2)$ with $\\text{P}(r) = \\text{e}^{-\\lambda}\\dfrac{\\lambda^r}{r!}$, using the mean from $\\text{H}_0$.",
+      "Evaluate $\\text{e}^{-\\lambda}\\left(1 + \\lambda + \\dfrac{\\lambda^2}{2}\\right)$ with your mean, or use the Poisson cdf on your calculator, and give 3 s.f.",
+      "Compare your probability with the significance level, $10\\% = 0.1$. It is a lower-tail test, so no doubling.",
+      "Decide whether your probability is smaller or larger than $0.1$, then write your conclusion in context about the mean number of defective items, using 'evidence' wording."
+    ],
+    "walkthrough": [
+      "**Set up: the Poisson mean for 5 days**\n\nBefore the new controls, the number of defective items per day was $\\text{Po}(1.03)$. The test counts the **total** over $5$ days. For Poisson variables the mean scales with the time period (independent days add), so over $5$ days the mean is\n\n$$5 \\times 1.03 = 5.15$$",
+      "**Hypotheses (the B1)**\n\nLet $\\lambda$ be the population mean number of defective items in $5$ days.\n\n$$\\text{H}_0: \\lambda = 5.15 \\quad (\\text{i.e. the mean is still } 1.03 \\text{ per day})$$\n\n$$\\text{H}_1: \\lambda < 5.15$$\n\n$\\text{H}_1$ has \"$<$\" because management wishes to test whether the mean has **decreased**.",
+      "**Which probability to find (first M1)**\n\nIf $\\text{H}_0$ is true, the 5-day total is $X \\sim \\text{Po}(5.15)$. We observed $X = 2$.\n\nWe ask: if nothing had changed, how likely is a result as low as this, or lower? Since we are testing for a decrease, we want the lower tail:\n\n$$\\text{P}(X \\leqslant 2)$$",
+      "**Write it out (second M1)**\n\n$\\text{P}(X \\leqslant 2) = \\text{P}(X = 0) + \\text{P}(X = 1) + \\text{P}(X = 2)$. With the Poisson formula $\\text{P}(X = r) = \\text{e}^{-\\lambda}\\dfrac{\\lambda^r}{r!}$ and $\\lambda = 5.15$:\n\n$$\\text{P}(X \\leqslant 2) = \\text{e}^{-5.15}\\left(1 + 5.15 + \\frac{5.15^2}{2}\\right)$$",
+      "**Calculate (the A1)**\n\n$$\\text{e}^{-5.15} = 0.0057994$$\n\n$$\\text{P}(X = 0) = 0.0057994$$\n\n$$\\text{P}(X = 1) = 0.0057994 \\times 5.15 = 0.029867$$\n\n$$\\text{P}(X = 2) = 0.0057994 \\times \\frac{5.15^2}{2} = 0.0057994 \\times 13.26125 = 0.076907$$\n\nAdd:\n\n$$\\text{P}(X \\leqslant 2) = 0.0057994 + 0.029867 + 0.076907 = 0.11257 = 0.113 \\text{ (3 s.f.)}$$\n\nQuick check: the calculator's Poisson cdf with mean $5.15$ and $x = 2$ should give about $0.1126$.",
+      "**Compare with the significance level (third M1)**\n\nThe significance level is $10\\% = 0.1$. Compare:\n\n$$0.113 > 0.1$$\n\nOur probability is **bigger** than the significance level, so the result is not unusual enough to reject $\\text{H}_0$.",
+      "**Conclusion (the A1 FT)**\n\nWe do not reject $\\text{H}_0$. In context: there is no evidence at the 10% level that the mean number of defective items has decreased.",
+      "**Final answer**\n\n$\\text{P}(X \\leqslant 2) = 0.113 > 0.1$, so do not reject $\\text{H}_0$: no evidence that the mean number of defective items has decreased."
+    ]
+  },
+  "9709_w17_72_q6_ii": {
+    "hints": [
+      "A Type I error means rejecting $\\text{H}_0$ when it is true. First find the rejection (critical) region: the largest values of $X$ with lower-tail probability at most $0.1$. You already have $\\text{P}(X \\leqslant 2)$; you will also need $\\text{P}(X \\leqslant 1)$, from the same Poisson distribution.",
+      "Compare each cumulative probability with $0.1$ (the significance level). Which values of $X$ have a cumulative probability not above $0.1$?",
+      "$\\text{P}(\\text{Type I error}) = \\text{P}(X \\text{ is in the rejection region})$, calculated assuming $\\text{H}_0$ is true. Read it off the cumulative probability for the largest value in the rejection region."
+    ],
+    "walkthrough": [
+      "**What a Type I error is, and how we find its probability**\n\nA Type I error is rejecting $\\text{H}_0$ when $\\text{H}_0$ is actually true. So its probability is the probability that the test's rejection rule fires, when the mean really is $5.15$ in $5$ days ($X \\sim \\text{Po}(5.15)$).\n\nFirst we need the rejection (critical) region: the values of $X$ for which we would reject $\\text{H}_0$.",
+      "**Find the cumulative probabilities (first B1)**\n\nFrom part (i):\n\n$$\\text{P}(X \\leqslant 2) = \\text{e}^{-5.15}(1 + 5.15 + \\tfrac{5.15^2}{2}) = 0.113$$\n\nNow one value lower:\n\n$$\\text{P}(X \\leqslant 1) = \\text{e}^{-5.15}(1 + 5.15) = 0.0057994 \\times 6.15 = 0.0357$$",
+      "**Compare with 0.1 (the DB1)**\n\nWe reject $\\text{H}_0$ when the cumulative probability is $\\leqslant 0.1$.\n\n- $\\text{P}(X \\leqslant 2) = 0.113 > 0.1$, so $X = 2$ is **not** in the rejection region (this is what we found in part (i)).\n\n- $\\text{P}(X \\leqslant 1) = 0.0357 \\leqslant 0.1$, so $X = 1$ is in the rejection region.\n\nSo the rejection region is $X \\leqslant 1$. (The mark scheme guidance prints \"0.01\" here; this is a misprint for the $0.1$ significance level.)",
+      "**The probability of a Type I error (the final B1)**\n\n$$\\text{P}(\\text{Type I error}) = \\text{P}(X \\leqslant 1) = 0.0357 \\text{ (3 s.f.)}$$\n\nNote this is not the same as the $10\\%$ significance level, because Poisson values are discrete: the nearest cut-off below $10\\%$ is $3.57\\%$.",
+      "**Final answer**\n\n$$\\text{P}(\\text{Type I error}) = 0.0357$$"
+    ]
+  },
+  "9709_w17_72_q6_iii": {
+    "hints": [
+      "A Type I error is rejecting $\\text{H}_0$ when it is actually true. Say what is really true about the mean number of defective items, and what the manager would wrongly conclude."
+    ],
+    "walkthrough": [
+      "**Type I error in this context**\n\nA Type I error means rejecting $\\text{H}_0$ when $\\text{H}_0$ is true.\n\n- Truth ($\\text{H}_0$ true): the mean number of defective items has **not** decreased; it is still $1.03$ per day.\n\n- Wrong conclusion (reject $\\text{H}_0$): the manager would conclude that the mean number of defective items **has** decreased.",
+      "**Final answer**\n\nConcluding that the mean number of defective items per day has decreased, when in fact the mean is still $1.03$ per day."
+    ]
+  }
+}

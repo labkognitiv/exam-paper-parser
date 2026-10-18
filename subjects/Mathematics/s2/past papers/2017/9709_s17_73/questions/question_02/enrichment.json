@@ -1,0 +1,26 @@
+{
+  "9709_s17_73_q2_i": {
+    "hints": [
+      "A 92% confidence interval leaves 8% outside, split equally into the two tails. Use the area in one tail to find the matching $z$ value (inverse normal on your calculator, or the tables).",
+      "The sample proportion is $\\hat{p} = \\dfrac{103}{200}$. The interval has the form $\\hat{p} \\pm z\\sqrt{\\dfrac{\\hat{p}(1-\\hat{p})}{n}}$ with $n = 200$.",
+      "Substitute $\\hat{p} = \\dfrac{103}{200}$, $1 - \\hat{p}$ and $n = 200$ into the square root, then add and subtract $z \\times$ that value to get the two ends, giving the answer as an interval to 3 significant figures."
+    ],
+    "walkthrough": [
+      "**What we are building**\n\nWe want a confidence interval for a **population proportion** $p$ (the proportion of all shareholders who want a change). We only have a sample, so we use the sample proportion $\\hat{p}$ (\"p-hat\") as our best estimate.\n\nFor a large sample, an approximate confidence interval for $p$ is\n\n$$\\hat{p} \\pm z\\sqrt{\\frac{\\hat{p}(1-\\hat{p})}{n}}$$\n\nwhere $n$ is the sample size and $z$ depends on the confidence level.",
+      "**Find z for 92% confidence (B1)**\n\nA 92% interval means 92% of the normal curve sits in the middle. That leaves $100\\% - 92\\% = 8\\%$ outside, split into two equal tails of $4\\%$ each.\n\nSo the area to the left of the upper end is $1 - 0.04 = 0.96$. We need $z$ with\n\n$$\\Phi(z) = 0.96$$\n\nIn the table look for $0.96$ in the body: $\\Phi(1.75) = 0.9599$ and $\\Phi(1.76) = 0.9608$, so $z$ is very slightly above $1.75$. With the inverse normal on a calculator (InvNorm with area $0.96$) you get $z = 1.7507$, which the mark scheme gives as\n\n$$z = 1.751$$\n\nThis earns the **B1**.",
+      "**Work out the sample proportion**\n\n$$\\hat{p} = \\frac{103}{200} = 0.515$$\n\n$$1 - \\hat{p} = 1 - 0.515 = 0.485$$",
+      "**Work out the standard error (M1)**\n\nPut the numbers into the square root, one step at a time:\n\n$$\\hat{p}(1-\\hat{p}) = 0.515 \\times 0.485 = 0.249775$$\n\n$$\\frac{0.249775}{200} = 0.001248875$$\n\n$$\\sqrt{0.001248875} = 0.035339\\ldots$$\n\nWriting the interval as $\\frac{103}{200} \\pm z\\sqrt{\\frac{\\frac{103}{200}\\left(1-\\frac{103}{200}\\right)}{200}}$ is the **M1**. (Quick check: the square root must be there, and $n = 200$ goes underneath, not $\\sqrt{200}$ by itself.)",
+      "**Find both ends of the interval**\n\nMultiply by $z$:\n\n$$1.751 \\times 0.035339 = 0.061880\\ldots$$\n\nLower end:\n\n$$0.515 - 0.061880 = 0.453120\\ldots \\approx 0.453$$\n\nUpper end:\n\n$$0.515 + 0.061880 = 0.576880\\ldots \\approx 0.577$$",
+      "**Final answer**\n\nThe approximate 92% confidence interval for $p$ is\n\n$$0.453 \\text{ to } 0.577 \\quad (3 \\text{ sf})$$\n\nThe mark scheme says the answer must be given as an interval (two values), not just a single number, to earn the final **A1**."
+    ]
+  },
+  "9709_s17_73_q2_ii": {
+    "hints": [
+      "A 92% confidence interval contains $p$ in 92% of samples. The chance that it does not contain $p$ is the rest: the percentage that is left over after the 92%."
+    ],
+    "walkthrough": [
+      "**What the confidence level means**\n\nIf we took many random samples and built a 92% confidence interval from each, about 92% of those intervals would contain the true proportion $p$.\n\nSo the chance that an interval does **not** contain $p$ is whatever is left over:\n\n$$100\\% - 92\\% = 8\\%$$\n\nAs a probability, $8\\% = \\frac{8}{100} = 0.08$.",
+      "**Final answer**\n\n$$\\text{Probability} = 0.08 \\quad (\\text{or } 8\\%,\\ \\tfrac{8}{100})$$\n\nQuick check: this is the same 8% that we split into two 4% tails in part (i)."
+    ]
+  }
+}

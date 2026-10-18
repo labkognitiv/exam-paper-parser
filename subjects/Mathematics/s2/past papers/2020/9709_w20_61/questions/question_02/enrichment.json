@@ -1,0 +1,40 @@
+{
+ "9709_w20_61_q2_a": {
+  "hints": [
+   "The sample proportion is $\\hat{p} = \\dfrac{102}{250}$. For a proportion, the variance of $\\hat{p}$ is approximately $\\dfrac{\\hat{p}(1 - \\hat{p})}{n}$ with $n = 250$; the interval is $\\hat{p} \\pm z\\sqrt{\\dfrac{\\hat{p}(1 - \\hat{p})}{n}}$.",
+   "A 90% interval leaves 10% in the two tails, so 5% in each tail: find $z$ with $\\Phi(z) = 0.95$ (percentage-points table or inverse normal on your calculator).",
+   "Work out $\\hat{p} - z\\sqrt{\\cdots}$ and $\\hat{p} + z\\sqrt{\\cdots}$ separately, and write the answer as an interval, both ends to 3 significant figures."
+  ],
+  "walkthrough": [
+   "**The sample proportion**\n\nWe want an interval for the proportion $p$ of **all** adults in Fromleigh who travel by bus. Our best estimate is the proportion in the sample. The sample has $n = 250$ adults and 102 travel by bus, so $\\hat{p}$ (read 'p-hat', the sample proportion) is\n\n$$\\hat{p} = \\frac{102}{250} = 0.408$$",
+   "**The standard error**\n\nFor a large sample, the sample proportion is approximately normal with variance $\\dfrac{\\hat{p}(1 - \\hat{p})}{n}$. First the pieces:\n\n$$1 - \\hat{p} = \\frac{250 - 102}{250} = \\frac{148}{250} = 0.592$$\n\n$$\\hat{p}(1 - \\hat{p}) = 0.408 \\times 0.592 = 0.241536$$\n\n$$\\frac{\\hat{p}(1 - \\hat{p})}{n} = \\frac{0.241536}{250} = 0.000966144$$\n\nThe standard error is the square root of that variance:\n\n$$\\sqrt{0.000966144} = 0.031083$$\n\nSetting up $\\dfrac{102}{250} \\pm z\\sqrt{0.000966144}$ earns the **M1**.",
+   "**The $z$ value for 90%**\n\nA 90% confidence interval covers the middle 90% of the normal curve. That leaves $100\\% - 90\\% = 10\\%$ in the tails, split equally: 5% in each tail. So we need the $z$ with $\\Phi(z) = 0.95$ (95% of the curve to its left).\n\nFrom the normal tables (percentage points) or your calculator's inverse normal, $z = 1.645$. This is the **B1**.",
+   "**Build the interval**\n\nThe margin of error is $z \\times$ standard error:\n\n$$1.645 \\times 0.031083 = 0.051131$$\n\nLower end: $0.408 - 0.051131 = 0.356869$\n\nUpper end: $0.408 + 0.051131 = 0.459131$\n\nRound each end to 3 s.f.: $0.357$ and $0.459$.",
+   "**Final answer**\n\nThe approximate 90% confidence interval for the proportion who travel by bus is\n\n$$0.357 \\text{ to } 0.459 \\text{ (3 s.f.)}$$\n\nThe A1 needs it written as an **interval** (two ends), not a single number."
+  ]
+ },
+ "9709_w20_61_q2_b": {
+  "hints": [
+   "The unbiased estimate of a population mean is just the sample mean: $\\bar{x} = \\dfrac{\\sum x}{n}$ with $\\sum x = 50\\,460$ and $n = 250$.",
+   "The unbiased estimate of the population variance divides by $n - 1$, not $n$: $s^2 = \\dfrac{1}{n - 1}\\left(\\sum x^2 - \\dfrac{(\\sum x)^2}{n}\\right)$. Substitute $\\sum x^2 = 19\\,854\\,200$.",
+   "Type the whole expression into the calculator in one go, using brackets, with $n - 1 = 249$. Give units (dollars squared) and make sure you divided by $249$, not $250$."
+  ],
+  "walkthrough": [
+   "**The mean**\n\nAn **unbiased estimate** of the population mean is the sample mean $\\bar{x}$ (the total of the values divided by how many there are):\n\n$$\\bar{x} = \\frac{\\sum x}{n} = \\frac{50\\,460}{250} = 201.84$$\n\nSo the estimate of the mean amount spent per year is \\$201.84. This is the **B1**.",
+   "**Why the variance is different**\n\nThe sample's own variance (dividing by $n$) tends to come out too small. To get an unbiased estimate of the population variance we divide by $n - 1$ instead of $n$. Here $n - 1 = 250 - 1 = 249$.",
+   "**The variance formula with this question's numbers**\n\n$$s^2 = \\frac{1}{n - 1}\\left(\\sum x^2 - \\frac{\\left(\\sum x\\right)^2}{n}\\right) = \\frac{1}{249}\\left(19\\,854\\,200 - \\frac{50\\,460^2}{250}\\right)$$\n\n(Equivalent form: $\\dfrac{250}{249}\\left(\\dfrac{19\\,854\\,200}{250} - \\left(\\dfrac{50\\,460}{250}\\right)^2\\right)$.) Writing either form earns the **M1**.",
+   "**Calculate it step by step**\n\nFirst square the total: $50\\,460^2 = 2\\,546\\,211\\,600$.\n\nDivide by $n$: $\\dfrac{2\\,546\\,211\\,600}{250} = 10\\,184\\,846.4$.\n\nSubtract from $\\sum x^2$: $19\\,854\\,200 - 10\\,184\\,846.4 = 9\\,669\\,353.6$.\n\nDivide by $249$:\n\n$$s^2 = \\frac{9\\,669\\,353.6}{249} = 38\\,832.745\\ldots \\approx 38\\,832.75$$\n\nCommon slip: dividing by $250$ gives $38\\,677.41$ (about $38\\,700$), which is the **biased** value and scores no marks.",
+   "**Final answer**\n\nEstimate of population mean: $\\$201.84$ (or $\\$202$ to 3 s.f.).\n\nEstimate of population variance: $38\\,832.75$ dollars$^2$, which is $38\\,800$ to 3 s.f."
+  ]
+ },
+ "9709_w20_61_q2_c": {
+  "hints": [
+   "A random sample means every member of the population has the same chance of being chosen. Ask: with this plan, does every house in Fromleigh have a chance of being picked, and is it the same chance?"
+  ],
+  "walkthrough": [
+   "**What 'random' means**\n\nIn a random sample, **every** house in Fromleigh must have an equal chance of being chosen. Test the councillor's plan against that.",
+   "**Why the plan fails**\n\nHe only picks the **first** house on each of the 143 streets. A house that is not first in its street has no chance at all of being chosen, so most houses cannot be selected. Also, a street with few houses gives each of its houses a larger chance than a long street does, so the chances are not equal.\n\nSaying only 'it is biased' with no explanation does not earn the mark.",
+   "**Final answer**\n\nThis is not a random sample because not every house has an equal chance of being selected: houses that are not first in their street have no chance of selection."
+  ]
+ }
+}

@@ -1,0 +1,38 @@
+{
+ "9709_s20_62_q2_a": {
+  "hints": [
+   "Let $p$ be the proportion of Grade A apples. $\\text{H}_0$ states the value that was true before the change (5% as a decimal). $\\text{H}_1$ says what management suspect: that the proportion has **increased**, so it is one-tailed."
+  ],
+  "walkthrough": [
+   "**Define the parameter**\n\nA hypothesis is a statement about a population parameter. Here the parameter is the proportion of Grade A apples from this farm, so let $p$ be that proportion.",
+   "**Null hypothesis**\n\n$\\text{H}_0$ is the 'nothing has changed' statement. Before the change, 5% of apples were Grade A, and as a decimal $5\\% = \\frac{5}{100} = 0.05$. So\n\n$$\\text{H}_0: p = 0.05$$",
+   "**Alternative hypothesis**\n\nManagement want to know whether the proportion has **increased**. 'Increased' means 'greater than', so the alternative has a $>$ sign (a one-tailed test):\n\n$$\\text{H}_1: p > 0.05$$\n\nWrite 'proportion' or define $p$ in words so the examiner knows what $p$ is. This earns the **B1**.",
+   "**Final answer**\n\n$\\text{H}_0: p = 0.05$ and $\\text{H}_1: p > 0.05$, where $p$ is the proportion of Grade A apples from this farm."
+  ]
+ },
+ "9709_s20_62_q2_b": {
+  "hints": [
+   "A Type I error means rejecting $\\text{H}_0$ when it is actually true. So assume $p = 0.05$: the number of Grade A apples $X$ in 25 is $\\text{B}(25, 0.05)$, and you reject when $X > 3$. You need $\\text{P}(X > 3)$.",
+   "Write $\\text{P}(X > 3) = 1 - \\text{P}(X \\leqslant 3)$, then split $\\text{P}(X \\leqslant 3)$ into the four terms $X = 0, 1, 2, 3$. Each term is ${}^{25}\\text{C}_r \\times (1-p)^{25-r} \\times p^r$ with $p = 0.05$.",
+   "Type all four terms into your calculator inside the bracket, subtract from 1, and give the answer to 3 significant figures (or use binomial cdf with $n = 25$, $p = 0.05$, up to 3)."
+  ],
+  "walkthrough": [
+   "**What a Type I error is**\n\nA Type I error means rejecting $\\text{H}_0$ when $\\text{H}_0$ is really true. So we pretend $\\text{H}_0$ is true, that is $p = 0.05$, and ask: how likely is it that we reject anyway?\n\nWe reject when the number of Grade A apples is **more than 3**.",
+   "**The distribution**\n\nThere are 25 apples, each Grade A with probability $0.05$, independently. Let $X$ be the number of Grade A apples, so\n\n$$X \\sim \\text{B}(25, 0.05)$$\n\nThe probability of a Type I error is $\\text{P}(X > 3)$.",
+   "**Use the complement**\n\n$\\text{P}(X > 3)$ would need $X = 4, 5, \\ldots, 25$, which is a very long list. It is quicker to subtract the short list from 1:\n\n$$\\text{P}(X > 3) = 1 - \\text{P}(X \\leqslant 3) = 1 - \\left[\\text{P}(X=0) + \\text{P}(X=1) + \\text{P}(X=2) + \\text{P}(X=3)\\right]$$\n\nThe binomial formula is $\\text{P}(X = r) = {}^{25}\\text{C}_r \\times 0.05^r \\times 0.95^{25-r}$. Putting that in gives\n\n$$1 - \\left(0.95^{25} + 25 \\times 0.95^{24} \\times 0.05 + {}^{25}\\text{C}_2 \\times 0.95^{23} \\times 0.05^2 + {}^{25}\\text{C}_3 \\times 0.95^{22} \\times 0.05^3\\right)$$\n\nThis earns the **M1** (method) and, if every term is correct, the first **A1**.",
+   "**Evaluate each term**\n\nThe combinations: ${}^{25}\\text{C}_2 = \\frac{25 \\times 24}{2} = 300$ and ${}^{25}\\text{C}_3 = \\frac{25 \\times 24 \\times 23}{6} = 2300$.\n\n$$\\text{P}(X=0) = 0.95^{25} = 0.2774$$\n\n$$\\text{P}(X=1) = 25 \\times 0.95^{24} \\times 0.05 = 0.3650$$\n\n$$\\text{P}(X=2) = 300 \\times 0.95^{23} \\times 0.05^2 = 0.2305$$\n\n$$\\text{P}(X=3) = 2300 \\times 0.95^{22} \\times 0.05^3 = 0.0930$$\n\nAdd them up:\n\n$$0.2774 + 0.3650 + 0.2305 + 0.0930 = 0.9659$$",
+   "**Final answer**\n\nSubtract from 1:\n\n$$1 - 0.9659 = 0.0341$$\n\n(Using unrounded values the sum is $0.965909\\ldots$, so $1 - 0.965909 = 0.03409$, which is $0.0341$ to 3 s.f.)\n\nThe probability of a Type I error is $\\mathbf{0.0341}$. (A1)"
+  ]
+ },
+ "9709_s20_62_q2_c": {
+  "hints": [
+   "The test rule is: conclude the proportion has increased only if the number of Grade A apples is more than 3. Apply that rule to the observed count of 2. What does the test conclude?",
+   "A Type I error is rejecting a true $\\text{H}_0$. A Type II error is **not** rejecting (accepting) a false $\\text{H}_0$. Match the decision you just found to one of these, and say it in a sentence."
+  ],
+  "walkthrough": [
+   "**Apply the test rule**\n\nThe shop only concludes the proportion has increased if there are **more than 3** Grade A apples. In fact there were 2, and $2$ is not more than $3$.\n\nSo the test does **not** reject $\\text{H}_0$: the shop concludes the proportion has not increased.",
+   "**Which error?**\n\n- Type I error: $\\text{H}_0$ is true but we **reject** it.\n\n- Type II error: $\\text{H}_0$ is false but we **do not reject** it.\n\nWe did not reject $\\text{H}_0$, so a Type I error cannot have happened. The only error that could have happened is Type II, if the proportion really has increased but the sample did not show it.",
+   "**Final answer**\n\nType II is the possible error, because the test concludes that the proportion has not increased (2 is not more than 3), so $\\text{H}_0$ is not rejected. (B1 B1)"
+  ]
+ }
+}

@@ -1,0 +1,44 @@
+{
+ "9709_s20_62_q6_a": {
+  "hints": [
+   "A probability density function must have total area 1 over its range. Write the integral of $\\dfrac{k}{x^2}$ from 1 to $a$ and set it equal to 1.",
+   "Write $\\dfrac{k}{x^2} = kx^{-2}$ and integrate (add 1 to the power, divide by the new power), then substitute the limits $a$ and $1$.",
+   "Write $1 - \\dfrac{1}{a}$ as a single fraction over a common denominator, then rearrange the equation to get $k$ on its own and reach the printed result."
+  ],
+  "walkthrough": [
+   "**Total probability is 1**\n\nFor a probability density function, the total area under the curve over its range must be $1$ (the probabilities add to 1). The range is $1 \\leqslant x \\leqslant a$, so\n\n$$\\int_1^a \\frac{k}{x^2}\\,\\text{d}x = 1$$\n\nThis earns the **M1**.",
+   "**Integrate**\n\n$k$ is a constant, so keep it outside. Write $\\dfrac{1}{x^2} = x^{-2}$. To integrate, add 1 to the power ($-2 + 1 = -1$) and divide by the new power:\n\n$$\\int x^{-2}\\,\\text{d}x = \\frac{x^{-1}}{-1} = -\\frac{1}{x}$$\n\nSo\n\n$$k\\left[-\\frac{1}{x}\\right]_1^a = 1$$\n\nSubstitute the top limit and subtract the bottom limit:\n\n$$k\\left[\\left(-\\frac{1}{a}\\right) - \\left(-\\frac{1}{1}\\right)\\right] = k\\left[1 - \\frac{1}{a}\\right] = 1$$\n\nThis earns the first **A1**.",
+   "**Rearrange for $k$**\n\nWrite $1 - \\dfrac{1}{a}$ over a common denominator: $1 = \\dfrac{a}{a}$, so\n\n$$1 - \\frac{1}{a} = \\frac{a}{a} - \\frac{1}{a} = \\frac{a - 1}{a}$$\n\nSo $k\\left[\\dfrac{a-1}{a}\\right] = 1$. Multiply both sides by $\\dfrac{a}{a-1}$ (the reciprocal of the bracket):\n\n$$k = \\frac{a}{a-1}$$\n\nThis is the printed result. It earns the final **A1**. (The mark scheme's bracketed line '$k = \\frac{1}{a-1}$' is a misprint; the correct line is $k = \\frac{a}{a-1}$, as above.)",
+   "**Final answer**\n\n$k = \\dfrac{a}{a-1}$, as required (shown)."
+  ]
+ },
+ "9709_s20_62_q6_b": {
+  "hints": [
+   "For a continuous variable, $\\text{E}(X) = \\int x\\,\\text{f}(x)\\,\\text{d}x$ over the range 1 to $a$. Multiply $x$ by $\\dfrac{k}{x^2}$, simplify, and use $k = \\dfrac{a}{a-1}$ from part (a).",
+   "After simplifying, the integrand is $\\dfrac{1}{x}$ times a constant. Recall the standard integral of $\\dfrac{1}{x}$ (a natural log) and substitute the limits $a$ and $1$.",
+   "Use the value of $\\ln 1$ to simplify, and leave the answer in terms of $a$."
+  ],
+  "walkthrough": [
+   "**Set up the mean**\n\nFor a continuous random variable, $\\text{E}(X) = \\int x\\,\\text{f}(x)\\,\\text{d}x$ over the range where $\\text{f}$ is non-zero. Here that is $1$ to $a$, and $\\text{f}(x) = \\dfrac{k}{x^2}$ with $k = \\dfrac{a}{a-1}$ from part (a):\n\n$$\\text{E}(X) = \\int_1^a x \\times \\frac{a}{a-1} \\times \\frac{1}{x^2}\\,\\text{d}x$$",
+   "**Simplify the integrand**\n\n$x \\times \\dfrac{1}{x^2} = \\dfrac{x}{x^2} = \\dfrac{1}{x}$. The factor $\\dfrac{a}{a-1}$ is a constant, so take it outside:\n\n$$\\text{E}(X) = \\frac{a}{a-1}\\int_1^a \\frac{1}{x}\\,\\text{d}x$$\n\nThis earns the **M1**.",
+   "**Integrate**\n\nThe integral of $\\dfrac{1}{x}$ is $\\ln x$:\n\n$$\\text{E}(X) = \\frac{a}{a-1}\\left[\\ln x\\right]_1^a$$\n\nThis earns the first **A1**.",
+   "**Substitute the limits**\n\n$$\\left[\\ln x\\right]_1^a = \\ln a - \\ln 1 = \\ln a - 0 = \\ln a$$\n\nbecause $\\ln 1 = 0$. So\n\n$$\\text{E}(X) = \\frac{a}{a-1} \\times \\ln a = \\frac{a\\ln a}{a-1}$$",
+   "**Final answer**\n\n$\\text{E}(X) = \\dfrac{a\\ln a}{a-1}$. (A1)"
+  ]
+ },
+ "9709_s20_62_q6_c": {
+  "hints": [
+   "The 60th percentile $m$ is the value with 60% of the probability below it: $\\text{P}(X \\leqslant m) = 0.6$. Integrate the pdf from 1 (the bottom of the range) to $m$, using $k$ from part (a), and set it equal to 0.6.",
+   "Integrate $x^{-2}$ again and substitute the limits $m$ and $1$; this gives an expression containing $\\dfrac{1}{m}$.",
+   "Divide both sides by $\\dfrac{a}{a-1}$ and rearrange to isolate $\\dfrac{1}{m}$. Put it over a single common denominator.",
+   "You now have $\\dfrac{1}{m}$ as a single fraction. Take the reciprocal of both sides to get $m$."
+  ],
+  "walkthrough": [
+   "**What a percentile is**\n\nThe 60th percentile $m$ is the value of $x$ below which 60% of the probability lies. As a decimal, $60\\% = \\frac{60}{100} = \\frac{3}{5}$. So we need\n\n$$\\text{P}(X \\leqslant m) = \\frac{3}{5}$$\n\nThe pdf starts at $x = 1$, so this is the area from $1$ to $m$, with $k = \\dfrac{a}{a-1}$:\n\n$$\\frac{a}{a-1}\\int_1^m \\frac{1}{x^2}\\,\\text{d}x = \\frac{3}{5}$$\n\nThis earns the **M1**.",
+   "**Integrate**\n\nThe integral of $\\dfrac{1}{x^2}$ is $-\\dfrac{1}{x}$ (as in part (a)). Substitute $m$ and $1$:\n\n$$\\frac{a}{a-1}\\left[-\\frac{1}{x}\\right]_1^m = \\frac{a}{a-1}\\left[\\left(-\\frac{1}{m}\\right) - (-1)\\right] = \\frac{a}{a-1}\\left[1 - \\frac{1}{m}\\right] = \\frac{3}{5}$$\n\nThis earns the first **A1**.",
+   "**Isolate $\\dfrac{1}{m}$**\n\nMultiply both sides by $\\dfrac{a-1}{a}$ to remove the factor in front of the bracket:\n\n$$1 - \\frac{1}{m} = \\frac{3}{5} \\times \\frac{a-1}{a} = \\frac{3(a-1)}{5a}$$\n\nMove $\\dfrac{1}{m}$ to one side:\n\n$$\\frac{1}{m} = 1 - \\frac{3(a-1)}{5a}$$\n\nThis earns the second **A1**. Now combine over the common denominator $5a$, writing $1 = \\dfrac{5a}{5a}$:\n\n$$\\frac{1}{m} = \\frac{5a - 3(a-1)}{5a} = \\frac{5a - 3a + 3}{5a} = \\frac{2a+3}{5a}$$",
+   "**Solve for $m$**\n\nTake the reciprocal of both sides:\n\n$$m = \\frac{5a}{2a+3}$$\n\nQuick check with $a = 2$: $m = \\frac{10}{7} = 1.4286$, and $\\frac{a}{a-1}\\left(1 - \\frac{1}{m}\\right) = 2\\left(1 - 0.7\\right) = 0.6$, as required.",
+   "**Final answer**\n\nThe 60th percentile is $m = \\dfrac{5a}{2a+3}$. (A1)"
+  ]
+ }
+}

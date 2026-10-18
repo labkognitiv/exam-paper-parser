@@ -1,0 +1,42 @@
+{
+  "9709_s23_62_q7_a_i": {
+    "hints": [
+      "The graph of $\\text{f}$ is a straight line through the origin ending at $x = 4$ and the region under it is a triangle. For a probability density function the total area under the graph must equal $1$.",
+      "Let the height of the triangle at $x = 4$ be $h$ and use area $= \\frac{1}{2} \\times \\text{base} \\times \\text{height}$ with base $4$, set equal to $1$. Then the line through the origin has gradient $\\dfrac{h}{4}$, which is $k$. (Or: integrate $kx$ from $0$ to $4$ and set equal to $1$.)"
+    ],
+    "walkthrough": [
+      "**Why the total area is 1**\n\n$\\text{f}$ is a probability density function. The area under the graph between $0$ and $4$ is the total probability, and the total probability is always $1$.\n\nThe line is straight and starts at the origin, so $\\text{f}(x)$ must have the form $\\text{f}(x) = kx$. (A line through $(0, 0)$ is $y = \\text{gradient} \\times x$.) We need to find the gradient, $k$.",
+      "**Use the area (this is the M1)**\n\nFrom the diagram, the region is a triangle with base $4$ (from $0$ to $4$) and height equal to $\\text{f}(4)$. Call that height $h$. Then:\n\n$$\\frac{1}{2} \\times 4 \\times h = 1$$\n\n$$2h = 1 \\qquad h = \\frac{1}{2}$$\n\n(The mark scheme calls the height $a$.) So the line passes through $(4, \\frac{1}{2})$.\n\nAlternative method, with calculus: $\\int_0^4 kx\\,\\text{d}x = 1$.\n\n$$k\\left[\\frac{x^2}{2}\\right]_0^4 = k\\left(\\frac{16}{2} - 0\\right) = 8k = 1 \\quad\\Rightarrow\\quad k = \\frac{1}{8}$$",
+      "**Find $k$ (this is the A1)**\n\nThe gradient of the line through $(0, 0)$ and $(4, \\frac{1}{2})$ is:\n\n$$k = \\frac{1/2}{4} = \\frac{1}{8}$$\n\nSo $\\text{f}(x) = \\dfrac{1}{8}x$ for $0 \\leqslant x \\leqslant 4$, which is what we were asked to show.\n\nCheck: at $x = 4$, $\\text{f}(4) = \\frac{4}{8} = \\frac{1}{2}$, which matches the height we found.",
+      "**Final answer**\n\n$\\text{f}(x) = kx$ with $k = \\dfrac{1}{8}$, so $\\text{f}(x) = \\dfrac{1}{8}x$ for $0 \\leqslant x \\leqslant 4$."
+    ]
+  },
+  "9709_s23_62_q7_a_ii": {
+    "hints": [
+      "For a continuous random variable, $\\text{E}(X) = \\int x\\,\\text{f}(x)\\,\\text{d}x$ over the range where $\\text{f}$ is non-zero. Write it with $\\text{f}(x) = \\frac{1}{8}x$ from part (i) and limits $0$ and $4$.",
+      "Multiply out the integrand $x \\times \\frac{1}{8}x$ first, then integrate by raising the power of $x$ by one and dividing by the new power.",
+      "Substitute the upper limit $4$ and the lower limit $0$ into your integral, and subtract. Leave the answer as a fraction or give 3 s.f."
+    ],
+    "walkthrough": [
+      "**The formula for the mean**\n\nFor a continuous random variable the mean is found by multiplying each value by its density and integrating:\n\n$$\\text{E}(X) = \\int x\\,\\text{f}(x)\\,\\text{d}x$$\n\nThe limits are the ends of the range where $\\text{f}$ is not zero, here $0$ and $4$.",
+      "**Set up the integral (this is the M1)**\n\nUsing $\\text{f}(x) = \\dfrac{1}{8}x$:\n\n$$\\text{E}(X) = \\int_0^4 x \\times \\frac{1}{8}x\\,\\text{d}x = \\int_0^4 \\frac{1}{8}x^2\\,\\text{d}x$$\n\n$x \\times x = x^2$, so the integrand is $\\frac{1}{8}x^2$.",
+      "**Integrate (this is the A1 ft)**\n\nRaise the power by one ($x^2 \\to x^3$) and divide by the new power ($3$):\n\n$$\\int \\frac{1}{8}x^2\\,\\text{d}x = \\frac{1}{8} \\times \\frac{x^3}{3} = \\frac{x^3}{24}$$\n\nSo:\n\n$$\\text{E}(X) = \\left[\\frac{x^3}{24}\\right]_0^4$$",
+      "**Put in the limits (this is the final A1)**\n\n$$\\frac{4^3}{24} - \\frac{0^3}{24} = \\frac{64}{24} - 0$$\n\nDivide top and bottom by $8$:\n\n$$\\frac{64}{24} = \\frac{8}{3} = 2.6666\\ldots$$\n\nQuick check: the graph is higher on the right, so most probability is near $4$ and the mean should be bigger than the midpoint $2$. $\\frac{8}{3}$ is bigger than $2$ and smaller than $4$, which makes sense.",
+      "**Final answer**\n\n$\\text{E}(X) = \\dfrac{8}{3}$ (or $2.67$ to 3 s.f.)."
+    ]
+  },
+  "9709_s23_62_q7_b": {
+    "hints": [
+      "The graph of $\\text{g}$ is a straight line starting at height $h$ on the vertical axis and falling to zero at $w = a$, so the total area is a triangle with base $a$. Use total area $= 1$ to express $h$ in terms of $a$.",
+      "The median $m$ has half the area on each side. Since $m = 1$, the area to the right of $w = 1$ is $\\frac{1}{2}$. That area is a small triangle with base $a - 1$. Find its height at $w = 1$ using the line's equation $\\text{g}(w) = \\dfrac{2}{a} - \\dfrac{2}{a^2}w$.",
+      "Set $\\frac{1}{2} \\times (a - 1) \\times \\text{height} = \\frac{1}{2}$, simplify to get a relationship between $a - 1$ and $a$, and solve for $a$. (A quadratic, or a square root rearrangement, will appear.)"
+    ],
+    "walkthrough": [
+      "**Find the equation of the line**\n\nFrom the diagram the line starts at height $h$ on the vertical axis ($w = 0$) and falls to $0$ at $w = a$. The whole region is a triangle with base $a$ and height $h$, and the total area must be $1$:\n\n$$\\frac{1}{2} \\times a \\times h = 1 \\quad\\Rightarrow\\quad h = \\frac{2}{a}$$\n\nThe gradient is $\\dfrac{0 - 2/a}{a - 0} = -\\dfrac{2}{a^2}$, so:\n\n$$\\text{g}(w) = \\frac{2}{a} - \\frac{2}{a^2}w$$",
+      "**Use the median (this is the M1)**\n\nThe median is the value of $w$ with half the probability on each side. We are told the median is $1$, so the area to the left of $w = 1$ is $\\frac{1}{2}$ and the area to the right of $w = 1$ is also $\\frac{1}{2}$.\n\nThe area to the right of $w = 1$ is a small triangle. It has:\n\nIts base is $a - 1$ (from $w = 1$ to $w = a$). Its height is $\\text{g}(1)$:\n\n$$\\text{g}(1) = \\frac{2}{a} - \\frac{2}{a^2} = \\frac{2a - 2}{a^2} = \\frac{2(a - 1)}{a^2}$$\n\nSo its area is:\n\n$$\\frac{1}{2} \\times (a - 1) \\times \\frac{2(a - 1)}{a^2} = \\frac{(a - 1)^2}{a^2}$$\n\nSetting that equal to $\\frac{1}{2}$:\n\n$$\\frac{(a-1)^2}{a^2} = \\frac{1}{2}$$\n\nTake the positive square root of both sides ($a > 1$ so $\\frac{a-1}{a}$ is positive):\n\n$$\\frac{a - 1}{a} = \\frac{1}{\\sqrt{2}}$$\n\nThis is the M1 equation in the scheme.",
+      "**Remove the fractions (this is the A1)**\n\nMultiply both sides by $a\\sqrt{2}$:\n\n$$\\sqrt{2}(a - 1) = a$$\n\n$$a\\sqrt{2} - \\sqrt{2} = a$$\n\nThis is the equation the scheme shows. (Squaring instead gives the equivalent $a^2 - 4a + 2 = 0$.)",
+      "**Solve for $a$ (this is the final A1)**\n\nCollect the $a$ terms on one side:\n\n$$a\\sqrt{2} - a = \\sqrt{2} \\quad\\Rightarrow\\quad a(\\sqrt{2} - 1) = \\sqrt{2}$$\n\n$$a = \\frac{\\sqrt{2}}{\\sqrt{2} - 1}$$\n\nTo remove the root from the bottom, multiply top and bottom by $\\sqrt{2} + 1$:\n\n$$a = \\frac{\\sqrt{2}(\\sqrt{2} + 1)}{(\\sqrt{2} - 1)(\\sqrt{2} + 1)} = \\frac{2 + \\sqrt{2}}{2 - 1} = 2 + \\sqrt{2}$$\n\n$$2 + \\sqrt{2} = 2 + 1.41421\\ldots = 3.41421\\ldots$$\n\nQuick check with the quadratic $a^2 - 4a + 2 = 0$: $a = \\dfrac{4 \\pm \\sqrt{16 - 8}}{2} = 2 \\pm \\sqrt{2}$. The root $2 - \\sqrt{2} = 0.586$ is less than $1$, so it is rejected, because the median $1$ must be inside the range $0$ to $a$.",
+      "**Final answer**\n\n$a = 2 + \\sqrt{2} = 3.41$ (3 s.f.)."
+    ]
+  }
+}

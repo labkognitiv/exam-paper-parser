@@ -1,0 +1,43 @@
+{
+ "9709_s17_72_q6_i": {
+  "hints": [
+   "Arrivals that are random and independent at a constant average rate are Poisson. The rate is 1.2 per day, so scale it to a 2-day period to get the Poisson mean $\\lambda$.",
+   "Use $\\text{P}(X = r) = e^{-\\lambda}\\dfrac{\\lambda^r}{r!}$ with $r = 2$ (or the Poisson probability distribution function on your calculator). Give 3 significant figures."
+  ],
+  "walkthrough": [
+   "**Why a Poisson distribution?**\n\nEvents (televisions arriving) happen randomly, independently, at a constant average rate. That is exactly the situation for a **Poisson distribution**.",
+   "**Find the mean for 2 days (M1)**\n\nThe rate is 1.2 per day. For 2 days we multiply by 2:\n\n$$\\lambda = 1.2 \\times 2 = 2.4$$\n\nSo the number of televisions $X$ in 2 days has $X \\sim \\text{Po}(2.4)$. Then use the formula with $r = 2$:\n\n$$\\text{P}(X = 2) = e^{-2.4} \\times \\frac{2.4^2}{2!}$$\n\nThis line earns the M1.",
+   "**Calculate (A1)**\n\n$$e^{-2.4} = 0.090718\\ldots$$\n\n$$\\frac{2.4^2}{2!} = \\frac{5.76}{2} = 2.88$$\n\n$$0.090718 \\times 2.88 = 0.26127\\ldots$$\n\nCalculator check: Poisson pdf with mean $2.4$ and $x = 2$ gives $0.2613$.",
+   "**Final answer**\n\n$$\\text{P}(\\text{exactly 2 in 2 days}) = 0.261 \\quad (3\\text{ sf})$$"
+  ]
+ },
+ "9709_s17_72_q6_ii": {
+  "hints": [
+   "Scale the rate to 50 days: $1.2 \\times 50$. When the Poisson mean is large (about 15 or more) it is approximated by a normal distribution with mean and variance both equal to $\\lambda$: $\\text{N}(\\lambda, \\lambda)$.",
+   "Poisson is discrete and normal is continuous, so use a continuity correction. \"At least 55\" means $X \\geqslant 55$, so the boundary is half a unit below 55. Standardise with $\\dfrac{\\text{boundary} - \\text{mean}}{\\sqrt{\\text{variance}}}$ — the denominator is the square root of the variance.",
+   "You want the area to the right of your $z$ value. Write it as $1 - \\Phi(z)$; if $z$ is negative, use symmetry to turn this into $\\Phi$ of the positive number.",
+   "Evaluate with your calculator's normal distribution function (or the table) and give 3 significant figures."
+  ],
+  "walkthrough": [
+   "**Choose the approximating distribution (B1)**\n\nOver 50 days the mean number of televisions is\n\n$$\\lambda = 1.2 \\times 50 = 60$$\n\nSo $X \\sim \\text{Po}(60)$. Calculating Poisson terms up to 55 and beyond is very long, and when $\\lambda$ is large (greater than about 15) the Poisson distribution is close to a normal distribution with the **same mean and variance**. A Poisson has variance equal to its mean, so\n\n$$X \\approx \\text{N}(60,\\ 60)$$\n\nThis earns the B1. Note: the second 60 is the variance, so the standard deviation is $\\sqrt{60} = 7.746\\ldots$",
+   "**Apply the continuity correction (M1)**\n\nPoisson takes whole numbers only, but the normal is a smooth curve. To fix this, each whole number $r$ is treated as covering the interval from $r - 0.5$ to $r + 0.5$. \"At least 55\" means 55, 56, 57, ... The first of those starts at $54.5$. So\n\n$$\\text{P}(X \\geqslant 55) \\to \\text{P}(Y > 54.5) \\quad \\text{where } Y \\sim \\text{N}(60, 60)$$\n\nNow standardise ($z = \\frac{y - \\text{mean}}{\\text{standard deviation}}$):\n\n$$z = \\frac{54.5 - 60}{\\sqrt{60}} = \\frac{-5.5}{7.746} = -0.710\\ldots$$\n\nThis earns the M1 (the scheme allows it even with a wrong or missing correction).",
+   "**Find the probability (M1)**\n\nWe want the area **above** $z = -0.710$. Sketch it: most of the curve is to the right of $-0.71$, so the answer will be quite large.\n\n$$\\text{P}(Z > -0.710) = 1 - \\Phi(-0.710) = \\Phi(0.710)$$\n\nThe two forms are equal because the normal curve is symmetric. This earns the second M1.",
+   "**Calculate (A1)**\n\nTable or calculator (normal cumulative distribution function):\n\n$$\\Phi(0.710) = 0.761\\ldots$$\n\n(With the unrounded $z$ on a calculator you get $0.76116$.)",
+   "**Final answer**\n\n$$\\text{P}(\\text{at least 55 televisions in 50 days}) = 0.761 \\quad (3\\text{ sf})$$"
+  ]
+ },
+ "9709_s17_72_q6_iii": {
+  "hints": [
+   "Work out the Poisson mean for each item over a 3-day period: televisions at 1.2 per day, computers at 4 per 7 days. The sum of two independent Poisson variables is also Poisson, so add the two means.",
+   "\"Less than 4\" means 0, 1, 2 or 3 in total. Write $\\text{P}(T \\leqslant 3)$ as the sum of four Poisson terms, $e^{-\\lambda}\\dfrac{\\lambda^r}{r!}$, using the combined mean.",
+   "Evaluate each term (or use the Poisson cumulative distribution function with $x = 3$) and add. Give 3 significant figures."
+  ],
+  "walkthrough": [
+   "**Why the two Poisson means can be added**\n\nTelevisions and computers arrive independently. If $A \\sim \\text{Po}(\\lambda_1)$ and $B \\sim \\text{Po}(\\lambda_2)$ are independent, then $A + B \\sim \\text{Po}(\\lambda_1 + \\lambda_2)$. So we find a mean for each over 3 days, then add them.",
+   "**Means over 3 days (first M1)**\n\nTelevisions: $1.2$ per day, so over 3 days:\n\n$$1.2 \\times 3 = 3.6$$\n\nComputers: 4 per 7-day week, which is $\\frac{4}{7}$ per day. Over 3 days:\n\n$$\\frac{4}{7} \\times 3 = \\frac{12}{7} = 1.7142\\ldots$$\n\nTotal mean:\n\n$$\\lambda = 3.6 + \\frac{12}{7} = \\frac{186}{35} = 5.3142\\ldots$$\n\nSo the total $T$ has $T \\sim \\text{Po}(5.314\\ldots)$. Keep the fraction (or the full calculator value) to avoid rounding errors.",
+   "**Set up the probability (second M1)**\n\n\"Less than 4\" means 0, 1, 2 or 3. So\n\n$$\\text{P}(T < 4) = e^{-5.314}\\left(1 + 5.314 + \\frac{5.314^2}{2!} + \\frac{5.314^3}{3!}\\right)$$\n\nThis line earns the second M1. Four terms; no more, no fewer.",
+   "**Calculate (A1)**\n\n$$e^{-5.3143} = 0.0049208\\ldots$$\n\nThe terms inside the bracket:\n\n$$1 \\qquad 5.31429 \\qquad \\frac{5.31429^2}{2} = 14.12082 \\qquad \\frac{5.31429^3}{6} = 25.01402$$\n\n$$1 + 5.31429 + 14.12082 + 25.01402 = 45.44913$$\n\n$$0.0049208 \\times 45.44913 = 0.22365\\ldots$$\n\nCalculator check: Poisson cumulative distribution function, mean $5.3143$, $x = 3$, gives $0.2236$.",
+   "**Final answer**\n\n$$\\text{P}(\\text{total} < 4) = 0.224 \\quad (3\\text{ sf})$$"
+  ]
+ }
+}

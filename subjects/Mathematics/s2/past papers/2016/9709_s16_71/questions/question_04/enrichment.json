@@ -1,0 +1,31 @@
+{
+ "9709_s16_71_q4_i": {
+  "hints": [
+   "Write the hypotheses about the population mean $\\mu$. The claim is that the mean time has 'changed', which could mean up or down, so $\\text{H}_1$ must be two-sided. $\\text{H}_0$ is that the mean is still $12.5$.",
+   "With $n = 50$ the sample mean $\\bar{X}$ is approximately normal (central limit theorem), with mean $12.5$ and standard deviation $\\dfrac{4.2}{\\sqrt{50}}$. Standardise: $z = \\dfrac{13.5 - 12.5}{4.2 \\div \\sqrt{50}}$. Note the $\\sqrt{50}$, because this is a mean of 50 customers.",
+   "Calculate $z$ carefully: find $\\sqrt{50}$ and the standard deviation $4.2 \\div \\sqrt{50}$ first, then divide the difference of the means by it. Keep at least 3 significant figures.",
+   "This is a two-tailed test at 5%, so the 5% is split into $2.5\\%$ in each tail. The critical $z$ value is $\\pm 1.96$. Compare your $z$ with $1.96$.",
+   "Decide whether your $z$ is inside or outside the rejection region (beyond $\\pm 1.96$), and say whether you reject $\\text{H}_0$. Write your conclusion in the context of the shop, using the words 'evidence' and 'mean time', not a definite statement."
+  ],
+  "walkthrough": [
+   "**What the test is asking**\n\nIn the past, customers spent a mean of $12.5$ minutes in the shop. After a change of layout, a sample of 50 customers has a mean of $13.5$ minutes. That is a minute longer, but samples vary, so a small difference could just be luck. The test decides whether the difference is big enough to be real evidence that the true mean has changed.",
+   "**Hypotheses (B1)**\n\nLet $\\mu$ mean the population mean time (in minutes) spent by a customer in the shop after the change.\n\n$$\\text{H}_0: \\mu = 12.5$$\n\n$$\\text{H}_1: \\mu \\neq 12.5$$\n\nThe question asks whether the mean has **changed**. It could have gone up or down, so we use $\\neq$ and the test is **two-tailed**. Stating $\\text{H}_1$ correctly earns the B1.",
+   "**Distribution of the sample mean (why $\\sqrt{50}$)**\n\nIf $\\text{H}_0$ is true, individual times have mean $\\mu = 12.5$ and standard deviation $\\sigma = 4.2$. The sample is large ($n = 50$), so the central limit theorem tells us the sample mean $\\bar{X}$ is approximately normally distributed:\n\n$$\\bar{X} \\sim \\text{N}\\left(12.5, \\frac{4.2^2}{50}\\right)$$\n\nAverages vary less than single customers do, so the standard deviation of $\\bar{X}$ is $\\frac{\\sigma}{\\sqrt{n}} = \\frac{4.2}{\\sqrt{50}}$, not $4.2$.",
+   "**Standardise (M1)**\n\nWe convert our sample mean $13.5$ to a $z$-value, which says how many standard deviations it is above the mean $12.5$:\n\n$$z = \\frac{\\bar{x} - \\mu}{\\sigma / \\sqrt{n}} = \\frac{13.5 - 12.5}{4.2 \\div \\sqrt{50}}$$\n\nThis substitution earns the M1. (The scheme allows $4.2 \\div 50$ as a slip for this mark, but the correct value is $\\sqrt{50}$.)",
+   "**Calculate z (A1)**\n\nStep by step:\n\n$$\\sqrt{50} = 7.0711 \\text{ (4 d.p.)}$$\n\n$$\\frac{4.2}{7.0711} = 0.59397$$\n\n$$13.5 - 12.5 = 1$$\n\n$$z = \\frac{1}{0.59397} = 1.6836$$\n\nSo $z = 1.68$ (3 s.f.). The scheme prints $1.68(4)$. On a calculator, type $1 \\div (4.2 \\div \\sqrt{50})$, using brackets so the whole of $4.2 \\div \\sqrt{50}$ is divided into $1$.",
+   "**Compare with the critical value (M1)**\n\nAt the 5% significance level with a two-tailed test, there is $2.5\\%$ in each tail. The critical value is the $z$ with $97.5\\%$ of the distribution below it: $\\Phi(1.96) = 0.975$. So we reject $\\text{H}_0$ only if $z > 1.96$ or $z < -1.96$.\n\n$$1.684 < 1.96$$\n\nOur $z$ is smaller than $1.96$, so it lies outside the rejection region. (Comparing with $1.645$ is only right for a one-tailed $\\text{H}_1: \\mu > 12.5$, and we have a two-tailed test.)\n\nEquivalent method: $1 - \\Phi(1.684) = 0.0461$, compared with $0.025$. Since $0.0461 > 0.025$, the same decision follows.",
+   "**Conclusion (A1 ft)**\n\nWe do not reject $\\text{H}_0$. In context: there is no evidence, at the 5% significance level, that the mean time spent by customers in the shop has changed.\n\nNotice the wording. We have not proved the mean is still $12.5$ minutes. We only say the sample gives no convincing evidence of a change.",
+   "**Final answer**\n\n$z = 1.68$, which is less than the critical value $1.96$. Do not reject $\\text{H}_0$. There is no evidence, at the 5% level, that the mean time spent by customers has changed."
+  ]
+ },
+ "9709_s16_71_q4_ii": {
+  "hints": [
+   "A Type I error means rejecting $\\text{H}_0$ when $\\text{H}_0$ is actually true. Think about how often a test rejects a true $\\text{H}_0$, and which quantity in the question controls that."
+  ],
+  "walkthrough": [
+   "**What a Type I error is**\n\nA **Type I error** happens when we reject $\\text{H}_0$ although $\\text{H}_0$ is really true. A test is designed so that, if $\\text{H}_0$ is true, the sample falls in the rejection region with probability equal to the significance level. That is how the rejection region is chosen. For example, with $\\pm 1.96$ the two tails together hold $5\\%$.",
+   "**Apply to this test**\n\nThe new test uses the same 5% significance level, so the probability of rejecting a true $\\text{H}_0$ is the significance level written as a decimal: $5\\% = \\frac{5}{100}$.",
+   "**Final answer**\n\n$\\text{P}(\\text{Type I error}) = 0.05$."
+  ]
+ }
+}

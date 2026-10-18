@@ -1,0 +1,17 @@
+{
+  "9709_s23_61_q6": {
+    "hints": [
+      "The unbiased estimate of variance is $s^2 = \\dfrac{1}{n-1}\\left(\\sum x^2 - \\dfrac{(\\sum x)^2}{n}\\right)$ with $n = 5$. Write $\\sum x$ and $\\sum x^2$ for the values $1, 2, 6, 1, a$ in terms of $a$, and set $s^2 = \\dfrac{11}{2}$.",
+      "Clear the fractions by multiplying through, expand $(10 + a)^2$ carefully (it is a bracket squared, not just $10 + a^2$), and collect terms into a quadratic in $a$ equal to $0$.",
+      "Solve the quadratic by factorising (look for a common factor), then use the condition $a > 0$ to decide between the roots."
+    ],
+    "walkthrough": [
+      "**The formula**\n\nWe want an **unbiased estimate of the population variance** from a sample of $n = 5$ values. The formula is\n\n$$s^2 = \\frac{1}{n-1}\\left(\\sum x^2 - \\frac{(\\sum x)^2}{n}\\right)$$\n\nHere $n - 1 = 4$ (we divide by $n-1$ rather than $n$ to make the estimate unbiased).",
+      "**Find the two sums in terms of a**\n\nAdd the values:\n\n$$\\sum x = 1 + 2 + 6 + 1 + a = 10 + a$$\n\nAdd the squares of the values:\n\n$$\\sum x^2 = 1^2 + 2^2 + 6^2 + 1^2 + a^2 = 1 + 4 + 36 + 1 + a^2 = 42 + a^2$$",
+      "**Write the equation (this earns the M1)**\n\nPut the sums into the formula and set it equal to $\\dfrac{11}{2}$:\n\n$$\\frac{1}{4}\\left((42 + a^2) - \\frac{(10 + a)^2}{5}\\right) = \\frac{11}{2}$$\n\n(The scheme's second form prints this as '$(10+a^2)$' but the bracket should be $(10+a)^2$, as in the first form; this is a misprint in the official scheme.)",
+      "**Remove the fractions and expand (this earns the DM1)**\n\nMultiply both sides by $4$:\n\n$$(42 + a^2) - \\frac{(10 + a)^2}{5} = 22$$\n\nMultiply both sides by $5$:\n\n$$5(42 + a^2) - (10 + a)^2 = 110$$\n\nExpand each bracket: $5(42 + a^2) = 210 + 5a^2$, and $(10 + a)^2 = 100 + 20a + a^2$. The minus sign goes in front of **all three** terms:\n\n$$210 + 5a^2 - 100 - 20a - a^2 = 110$$\n\nCollect: $4a^2 - 20a + 110 = 110$. Subtract $110$ from both sides:\n\n$$4a^2 - 20a = 0 \\quad\\Longrightarrow\\quad a^2 - 5a = 0$$",
+      "**Solve (this earns the A1)**\n\nFactorise by taking out $a$:\n\n$$a(a - 5) = 0$$\n\nSo $a = 0$ or $a = 5$. The question says $a > 0$, so reject $a = 0$ (the scheme ignores it if you show it).\n\nQuick check with $a = 5$: the values $1, 2, 6, 1, 5$ have mean $3$. The squared differences from $3$ are $4, 1, 9, 4, 4$, which add to $22$, and $\\dfrac{22}{4} = \\dfrac{11}{2}$. Correct.",
+      "**Final answer**\n\n$$a = 5$$"
+    ]
+  }
+}

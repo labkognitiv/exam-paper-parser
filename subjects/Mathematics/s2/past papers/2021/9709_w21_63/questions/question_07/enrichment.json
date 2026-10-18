@@ -1,0 +1,37 @@
+{
+ "9709_w21_63_q7_a": {
+  "hints": [
+   "Define the hypotheses in terms of the population mean $\\mu$. The farmer says $\\mu = 64.6$ ($\\text{H}_0$), and the inspector claims it is **less than** that, so $\\text{H}_1$ is one-tailed.",
+   "Under $\\text{H}_0$ the sample mean of $100$ apples is normal with mean $64.6$ and standard deviation $\\dfrac{5.2}{\\sqrt{100}}$ (note the $\\sqrt{100}$: this is a mean of $100$ apples). Standardise: $z = \\dfrac{63.5 - 64.6}{5.2/\\sqrt{100}}$.",
+   "Work out the bottom of the fraction first, then the whole $z$. Since $63.5$ is below $64.6$, your $z$ must be negative.",
+   "For a $2.5\\%$ one-tailed test (lower tail), compare your $z$ with the critical value $-1.96$. The test statistic being more extreme than the critical value means reject $\\text{H}_0$.",
+   "Conclude in context and not definitely: 'there is (not) evidence that', and refer to the mean mass of the apples from the farm."
+  ],
+  "walkthrough": [
+   "**Hypotheses (B1)**\n\n$\\mu$ is the population mean mass of apples from this farm. We assume the farmer is right unless the sample strongly says otherwise. The inspector thinks it is lower, so the test is one-tailed.\n\n$$\\text{H}_0: \\mu = 64.6$$$$\\text{H}_1: \\mu < 64.6$$",
+   "**Distribution of the sample mean under $\\text{H}_0$**\n\nWe know the population standard deviation, $\\sigma = 5.2$. The sample size is $n = 100$ (large, so the sample mean is approximately normal). The sample mean $\\bar{X}$ has\n\n$$\\text{mean} = 64.6 \\qquad \\text{standard deviation} = \\frac{\\sigma}{\\sqrt{n}} = \\frac{5.2}{\\sqrt{100}} = \\frac{5.2}{10} = 0.52$$\n\nWe divide by $\\sqrt{100}$ because we are looking at a mean of $100$ apples, which varies less than one apple. Missing the $\\sqrt{100}$ loses the M1.",
+   "**Standardise (M1 and A1)**\n\nThe observed sample mean is $63.5$.\n\n$$z = \\frac{63.5 - 64.6}{5.2 \\div \\sqrt{100}} = \\frac{-1.1}{0.52} = -2.115$$\n\nAccept $-2.12$ to 3 s.f.",
+   "**Compare with the critical value (second M1)**\n\nThis is a one-tailed test at the $2.5\\%$ level and $\\text{H}_1$ is a 'less than', so we look at the lower tail. The critical $z$-value for $2.5\\%$ in one tail is $-1.96$ (from the normal table, $\\Phi(-1.96) = 0.025$).\n\n$$-2.115 < -1.96$$\n\nOur $z$ is further out in the tail than the critical value, so we reject $\\text{H}_0$.\n\nEquivalent check by area: $\\Phi(-2.115) = 0.0172$ and $0.0172 < 0.025$, so reject $\\text{H}_0$. Equivalent by critical mean: $64.6 - 1.96 \\times 0.52 = 63.58$ and $63.5 < 63.58$.",
+   "**Conclusion in context (A1 ft)**\n\nWe cannot prove the inspector is right, only say what the evidence shows. At the $2.5\\%$ significance level, there is evidence that the mean mass of apples from the farm is less than $64.6$ g. (Writing '$\\mu < 64.6$' as a definite statement would lose the mark.)",
+   "**Final answer**\n\n$z = -2.115 < -1.96$, so reject $\\text{H}_0$: there is evidence that $\\mu < 64.6$."
+  ]
+ },
+ "9709_w21_63_q7_b": {
+  "hints": [
+   "A Type II error means not rejecting $\\text{H}_0$ when $\\mu$ really is $62.7$. First you need the cut-off for rejecting: the sample mean $m$ where the standardised value equals the critical value $-1.96$ under $\\text{H}_0$: $\\dfrac{m - 64.6}{5.2/\\sqrt{100}} = -1.96$.",
+   "Solve that equation for $m$: multiply by $\\dfrac{5.2}{\\sqrt{100}}$, then add $64.6$.",
+   "Now assume the true mean is $62.7$. The sample mean is $\\text{N}\\!\\left(62.7, \\left(\\tfrac{5.2}{\\sqrt{100}}\\right)^2\\right)$. Standardise the cut-off $m$ using this distribution: $\\dfrac{m - 62.7}{5.2/\\sqrt{100}}$.",
+   "You do not reject $\\text{H}_0$ when the sample mean is **above** $m$, so the Type II error probability is the upper tail: $1 - \\Phi(z)$ for your $z$.",
+   "Find $\\Phi(z)$ with the table or calculator and subtract from 1. Expect a small probability. Give 3 s.f."
+  ],
+  "walkthrough": [
+   "**What a Type II error is**\n\nA Type II error happens when we do **not** reject $\\text{H}_0$ although $\\text{H}_0$ is actually false. Here the true mean is $62.7$, which is below $64.6$, so $\\text{H}_0$ is false. We need the probability that the test still fails to reject $\\text{H}_0$.",
+   "**Find the rejection boundary (first M1)**\n\nWe reject $\\text{H}_0$ when the sample mean is below some value $m$. $m$ is the value whose $z$-score, under $\\text{H}_0$, is the critical value $-1.96$. Under $\\text{H}_0$ the sample mean is $\\text{N}\\!\\left(64.6, \\left(\\dfrac{5.2}{\\sqrt{100}}\\right)^2\\right)$, with standard deviation $0.52$.\n\n$$\\frac{m - 64.6}{5.2 \\div \\sqrt{100}} = -1.96$$",
+   "**Solve for $m$ (first A1)**\n\n$$m - 64.6 = -1.96 \\times 0.52 = -1.0192$$$$m = 64.6 - 1.0192 = 63.5808$$\n\nSo we reject $\\text{H}_0$ if the sample mean is below $63.5808$ and do not reject if it is $63.5808$ or above.",
+   "**Switch to the true distribution (second M1)**\n\nNow suppose the farm's true mean is $62.7$. Then the sample mean is $\\text{N}\\!\\left(62.7, \\left(\\dfrac{5.2}{\\sqrt{100}}\\right)^2\\right)$, with the same standard deviation $0.52$. Standardise the boundary using this mean:\n\n$$z = \\frac{63.5808 - 62.7}{0.52} = \\frac{0.8808}{0.52} = 1.694$$",
+   "**Pick the correct tail (third M1)**\n\nA Type II error means the sample mean is **above** the boundary $63.5808$ (so the test does not reject). That is the right-hand tail.\n\n$$\\text{P(Type II error)} = \\text{P}(\\bar{X} > 63.5808) = 1 - \\Phi(1.694)$$",
+   "**Evaluate (final A1)**\n\n$\\Phi(1.694)$: normal table or calculator normal cdf $\\to 0.95487$.\n\n$$1 - 0.95487 = 0.04513$$\n\nThe scheme accepts any answer that rounds to $0.045$.\n\nQuick check: the true mean $62.7$ is about $1.7$ standard deviations below the boundary $63.5808$, so the test usually rejects $\\text{H}_0$ correctly; a small Type II error probability is sensible.",
+   "**Final answer**\n\n$$\\text{P(Type II error)} = 0.0451 \\text{ (3 s.f.)}$$"
+  ]
+ }
+}

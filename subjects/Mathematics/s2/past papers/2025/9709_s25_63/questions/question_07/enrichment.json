@@ -1,0 +1,45 @@
+{
+ "9709_s25_63_q7_a": {
+  "hints": [
+   "Under $\\text{H}_0$ the proportion is still one quarter. Name the distribution of $R$, the number of first-class degrees among the 35 applicants, using $35$ and the past proportion of one quarter.",
+   "The director thinks the proportion has **decreased**, so this is a lower-tail test. You are looking for the largest $r$ with $\\text{P}(R \\leqslant r) < 0.04$. Build up $\\text{P}(R \\leqslant r)$ from the terms ${}^{35}\\text{C}_x \\left(\\tfrac{3}{4}\\right)^{35-x}\\left(\\tfrac{1}{4}\\right)^x$ starting at $x = 0$.",
+   "Evaluate the cumulative probability for a small $r$ (add the terms, or use binomial cdf on the calculator) and compare it with $0.04$. Is it still below?",
+   "Move to the next value of $r$: add the next term ${}^{35}\\text{C}_x \\left(\\tfrac{3}{4}\\right)^{35-x}\\left(\\tfrac{1}{4}\\right)^x$ to your last total.",
+   "Compare this new total with $0.04$. Is it still below, or has it crossed?",
+   "The critical region is all the $r$ with $\\text{P}(R \\leqslant r) < 0.04$. State the largest such $r$, quoting both comparisons with $0.04$ as your evidence."
+  ],
+  "walkthrough": [
+   "**Hypotheses and the plan**\n\nLet $p$ be the proportion of job applicants with first-class degrees. In the past $p = 0.25$. The director believes it has decreased:\n\n$$\\text{H}_0: p = 0.25 \\qquad \\text{H}_1: p < 0.25$$\n\nWe reject $\\text{H}_0$ (and so support the director) only if $r$ is so small that $\\text{P}(R \\leqslant r)$ is below the $4\\%$ significance level. We must find the largest $r$ that still counts.",
+   "**Choose the distribution (first M1)**\n\nEach of the $35$ applicants either has a first-class degree or not, independently, with the same probability. If $\\text{H}_0$ is true, that probability is $0.25$. So with $R$ the number with first-class degrees:\n\n$$R \\sim \\text{B}(35, 0.25)$$",
+   "**Find the boundary (second M1)**\n\nTo find the boundary, start at $r = 0$ and add one term at a time to the running total (or read the calculator's binomial cdf table), stopping when the total first goes above $0.04$. This happens between $r = 3$ and $r = 4$, so we work out both.\n\nFirst, $r = 3$. We want $\\text{P}(R \\leqslant 3) = \\text{P}(R = 0) + \\text{P}(R = 1) + \\text{P}(R = 2) + \\text{P}(R = 3)$. The binomial formula is $\\text{P}(R = x) = {}^{35}\\text{C}_x \\times 0.75^{35-x} \\times 0.25^x$:\n\n$$\\text{P}(R = 0) = 0.75^{35} = 0.0000424$$\n\n$$\\text{P}(R = 1) = 35 \\times 0.75^{34} \\times 0.25 = 0.000494$$\n\n$$\\text{P}(R = 2) = {}^{35}\\text{C}_2 \\times 0.75^{33} \\times 0.25^2 = 595 \\times 0.75^{33} \\times 0.0625 = 0.002802$$\n\n$$\\text{P}(R = 3) = {}^{35}\\text{C}_3 \\times 0.75^{32} \\times 0.25^3 = 6545 \\times 0.75^{32} \\times 0.015625 = 0.010273$$\n\nOn a calculator you can do this in one go with binomial cdf: number of trials $35$, probability $0.25$, upper value $3$.",
+   "**Add and compare with 0.04 (first A1)**\n\n$$0.0000424 + 0.000494 + 0.002802 + 0.010273 = 0.013611$$\n\n$$\\text{P}(R \\leqslant 3) = 0.0136 \\text{ (3 s.f.)} < 0.04$$\n\nSo $r = 3$ is in the rejection region.",
+   "**Try $r = 4$ (third M1)**\n\nAdd one more term to the last total:\n\n$$\\text{P}(R = 4) = {}^{35}\\text{C}_4 \\times 0.75^{31} \\times 0.25^4 = 52\\,360 \\times 0.75^{31} \\times 0.00390625 = 0.027394$$\n\n$$\\text{P}(R \\leqslant 4) = 0.0136 + 0.027394$$",
+   "**Add and compare again (second A1)**\n\n$$0.0136 + 0.027394 = 0.0410$$\n\n$$\\text{P}(R \\leqslant 4) = 0.041 > 0.04$$\n\nSo $r = 4$ is **not** in the rejection region: the probability is just above the $4\\%$ level.",
+   "**Conclude (final A1)**\n\n$r = 3$ gives a probability below $0.04$ and $r = 4$ gives one above $0.04$. Probabilities of $\\text{P}(R \\leqslant r)$ only grow as $r$ grows, so no value above $3$ can work. The largest $r$ that gives sufficient evidence is $3$.\n\n(This mark needs both probabilities and at least one comparison with $0.04$ to be seen.)\n\nCommon slip: choosing $r = 4$ because $0.041$ is \"closest to $0.04$\". The rejection region must have probability **below** $0.04$, so $4$ is excluded. Another slip is using an upper-tail test: the director believes the proportion has *decreased*, so we look at small values of $r$.\n\nQuick check: if $p = 0.25$ we expect about $35 \\times 0.25 = 8.75$ first-class degrees, so $r = 3$ is well down in the lower tail. That fits.",
+   "**Final answer**\n\nLargest value of $r$ is $3$ (since $\\text{P}(R \\leqslant 3) = 0.0136 < 0.04$ but $\\text{P}(R \\leqslant 4) = 0.041 > 0.04$)."
+  ]
+ },
+ "9709_s25_63_q7_b": {
+  "hints": [
+   "A Type I error means rejecting $\\text{H}_0$ when it is actually true. In this context, say what $\\text{H}_0$ says about the proportion and what the director wrongly concludes.",
+   "The probability of a Type I error is the probability of landing in the rejection region when $\\text{H}_0$ is true. Look back at part (a) for the cumulative probability at the edge of that region. It is not simply the $4\\%$ level, because the binomial is discrete."
+  ],
+  "walkthrough": [
+   "**What a Type I error is (B1)**\n\nA Type I error happens when we **reject** $\\text{H}_0$ even though $\\text{H}_0$ is **true**. Here $\\text{H}_0$ says the proportion of applicants with first-class degrees is still $0.25$. So a Type I error means:\n\nThe director concludes that the proportion of first-class degrees has decreased, when in fact it has not (it is still $\\frac{1}{4}$).",
+   "**The probability of a Type I error (B1)**\n\nThis is the probability that $R$ falls in the rejection region when $\\text{H}_0$ is true. The rejection region is $R \\leqslant 3$ from part (a), and under $\\text{H}_0$ we have $R \\sim \\text{B}(35, 0.25)$:\n\n$$\\text{P}(\\text{Type I error}) = \\text{P}(R \\leqslant 3) = 0.0136$$\n\nWhy not $0.04$? The $4\\%$ is only the **upper limit** we allow. The binomial distribution jumps in steps, so the actual probability of the region we chose is $0.0136$, which is below $0.04$.",
+   "**Final answer**\n\nA Type I error: concluding the proportion has decreased when in fact it has not. $\\text{P}(\\text{Type I error}) = 0.0136$"
+  ]
+ },
+ "9709_s25_63_q7_c": {
+  "hints": [
+   "A Type II error is **not** rejecting $\\text{H}_0$ when it is false. With the true proportion $0.05$, the number of first-class degrees is $\\text{B}(35, 0.05)$. You do not reject when $r$ is outside the rejection region from part (a), so you need $1 - \\text{P}(R \\leqslant \\text{your critical value})$.",
+   "Use ${}^{35}\\text{C}_x \\times 0.95^{35-x} \\times 0.05^x$ for each $x$ up to your critical value, add them (or use binomial cdf with $35$ trials and probability $0.05$), subtract from $1$ and give 3 significant figures."
+  ],
+  "walkthrough": [
+   "**What a Type II error is**\n\nA Type II error is failing to reject $\\text{H}_0$ although it is false. Here the true proportion is $0.05$ rather than $0.25$. In part (a) we found we reject $\\text{H}_0$ when $r \\leqslant 3$. So we fail to reject when $r \\geqslant 4$, i.e. when $r > 3$.\n\nNow the distribution is based on the **true** proportion: $R \\sim \\text{B}(35, 0.05)$.\n\n$$\\text{P}(\\text{Type II error}) = \\text{P}(R \\geqslant 4) = 1 - \\text{P}(R \\leqslant 3)$$\n\nWe use the complement because $R \\geqslant 4$ has many terms, whereas $R \\leqslant 3$ has only four.",
+   "**Work out the four terms (M1)**\n\nUse $\\text{P}(R = x) = {}^{35}\\text{C}_x \\times 0.95^{35-x} \\times 0.05^x$:\n\n$$\\text{P}(R = 0) = 0.95^{35} = 0.16608$$\n\n$$\\text{P}(R = 1) = 35 \\times 0.95^{34} \\times 0.05 = 0.30594$$\n\n$$\\text{P}(R = 2) = 595 \\times 0.95^{33} \\times 0.05^2 = 0.27374$$\n\n$$\\text{P}(R = 3) = 6545 \\times 0.95^{32} \\times 0.05^3 = 0.15848$$\n\nOn a calculator: binomial cdf with $35$ trials, probability $0.05$, upper value $3$ gives the sum in one go.\n\n$$\\text{P}(R \\leqslant 3) = 0.16608 + 0.30594 + 0.27374 + 0.15848 = 0.90424$$",
+   "**Subtract from 1 (A1)**\n\n$$1 - 0.90424 = 0.09575\\ldots = 0.0958 \\text{ (3 s.f.)}$$\n\nQuick check: if the true proportion is as small as $0.05$, we would expect about $35 \\times 0.05 = 1.75$ first-class degrees, so a count of 4 or more is unlikely. A small probability like $0.0958$ makes sense.",
+   "**Final answer**\n\n$$\\text{P}(\\text{Type II error}) = 0.0958 \\text{ (3 s.f.)}$$"
+  ]
+ }
+}

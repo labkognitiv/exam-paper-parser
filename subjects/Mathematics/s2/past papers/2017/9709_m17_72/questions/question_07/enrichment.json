@@ -1,0 +1,54 @@
+{
+ "9709_m17_72_q7_i": {
+  "hints": [
+   "Think about the average number of planes per hour: what must be true about it at different times of the day (daytime only)?",
+   "Think about how one plane arriving affects the next one: what must be true about the way planes arrive? Answer in terms of planes at the airport."
+  ],
+  "walkthrough": [
+   "**What the Poisson model needs**\n\nA Poisson distribution models the number of events in a fixed interval when:\n\n- events happen at a **constant average rate**, and\n\n- events happen **randomly and independently** of each other (one arrival does not change the chance of another).\n\nThe mark scheme wants these written in the context of planes, not just as general statements.",
+   "**Final answer**\n\n1. Planes arrive at a constant mean rate (the same average number per hour throughout the daytime).\n\n2. Planes arrive at random, independently of each other."
+  ]
+ },
+ "9709_m17_72_q7_ii_a": {
+  "hints": [
+   "15 minutes is a quarter of an hour. Scale the hourly mean 5.2 by dividing by 4 to get the new $\\lambda$.",
+   "\"Greater than 1 and less than 4\" means the whole numbers 2 and 3. So you need $\\text{P}(X = 2) + \\text{P}(X = 3)$.",
+   "Use $\\text{P}(X = r) = \\text{e}^{-\\lambda}\\dfrac{\\lambda^r}{r!}$ for $r = 2$ and $r = 3$ with your $\\lambda$, add them and give 3 significant figures."
+  ],
+  "walkthrough": [
+   "**Scale the mean to 15 minutes (this earns the first M1)**\n\nThe mean 5.2 is *per hour*. 15 minutes is $\\dfrac{15}{60} = \\dfrac{1}{4}$ of an hour, so divide the mean by 4:\n\n$$\\lambda = 5.2 \\div 4 = 1.3$$\n\nSo in 15 minutes, $X \\sim \\text{Po}(1.3)$.",
+   "**Which values do we need?**\n\n\"Greater than 1 *and* less than 4\" means $X$ is 2 or 3 (1 and 4 are excluded). So\n\n$$\\text{P}(1 < X < 4) = \\text{P}(X = 2) + \\text{P}(X = 3)$$",
+   "**Write the expression (this earns the second M1)**\n\nUse $\\text{P}(X = r) = \\text{e}^{-\\lambda}\\dfrac{\\lambda^r}{r!}$ and take $\\text{e}^{-1.3}$ outside as a common factor:\n\n$$\\text{e}^{-1.3}\\left(\\frac{1.3^2}{2!} + \\frac{1.3^3}{3!}\\right)$$",
+   "**Calculate (this earns the A1)**\n\n$$\\text{e}^{-1.3} = 0.27253\\ldots$$\n\n$$\\frac{1.3^2}{2!} = \\frac{1.69}{2} = 0.845$$\n\n$$\\frac{1.3^3}{3!} = \\frac{2.197}{6} = 0.36617$$\n\n$$0.845 + 0.36617 = 1.21117$$\n\n$$0.27253 \\times 1.21117 = 0.33008\\ldots$$\n\nTo 3 significant figures: $0.330$.",
+   "**Final answer**\n\n$$\\text{P}(1 < X < 4) = 0.330$$"
+  ]
+ },
+ "9709_m17_72_q7_ii_b": {
+  "hints": [
+   "40 minutes is $\\frac{40}{60}$ of an hour. Scale $5.2$ for $\\lambda$. Then \"more than 3\" is $\\text{P}(X > 3) = 1 - \\text{P}(X \\leqslant 3)$.",
+   "Write $1 - \\text{e}^{-\\lambda}\\left(1 + \\lambda + \\dfrac{\\lambda^2}{2!} + \\dfrac{\\lambda^3}{3!}\\right)$ with your $\\lambda$ and evaluate it to 3 significant figures."
+  ],
+  "walkthrough": [
+   "**Scale the mean and set up the probability (this earns the M1)**\n\n40 minutes is $\\dfrac{40}{60} = \\dfrac{2}{3}$ of an hour, so\n\n$$\\lambda = 5.2 \\times \\frac{2}{3} = 3.4667\\ldots \\approx 3.467$$\n\nSo $X \\sim \\text{Po}(3.467)$ for the 40-minute period.\n\n\"More than 3\" means 4, 5, 6, … with no upper limit, so use the complement. All probabilities add to 1, so subtract the outcomes we do *not* want (0, 1, 2, 3) from 1:\n\n$$\\text{P}(X > 3) = 1 - \\text{P}(X \\leqslant 3) = 1 - \\text{e}^{-3.467}\\left(1 + 3.467 + \\frac{3.467^2}{2!} + \\frac{3.467^3}{3!}\\right)$$\n\nSlip to avoid: stopping at $r = 2$ or going to $r = 4$. \"More than 3\" excludes 3, so 3 must be in the part we subtract.",
+   "**Calculate (this earns the A1)**\n\nFind each term (using $\\lambda = 3.4667$ from your calculator):\n\n$$\\text{P}(X = 0) = 0.03122, \\quad \\text{P}(X = 1) = 0.10823$$\n\n$$\\text{P}(X = 2) = 0.18760, \\quad \\text{P}(X = 3) = 0.21679$$\n\nAdd them:\n\n$$0.03122 + 0.10823 + 0.18760 + 0.21679 = 0.54384$$\n\n$$1 - 0.54384 = 0.45616\\ldots$$\n\nTo 3 significant figures: $0.456$. (Your calculator's Poisson cdf with $x = 3$ gives $0.54384$, the same.)",
+   "**Final answer**\n\n$$\\text{P}(X > 3) = 0.456$$"
+  ]
+ },
+ "9709_m17_72_q7_iii": {
+  "hints": [
+   "Over a 10-hour day the mean is $10 \\times 5.2$. This mean is large, so approximate $\\text{Po}(\\lambda)$ by $\\text{N}(\\lambda, \\lambda)$: the mean and variance of a Poisson are equal.",
+   "\"A maximum of 60\" means $X \\leqslant 60$. Poisson values are whole numbers, normal values are continuous, so apply a continuity correction: move the boundary 60 by 0.5 in the direction that includes 60. Then $z = \\dfrac{\\text{your boundary} - \\text{mean}}{\\sqrt{\\text{variance}}}$.",
+   "The staff can cope when the number is at most 60, which is the lower tail, so the probability is $\\Phi(z)$ for your $z$.",
+   "Find $\\Phi(z)$ with the table or your calculator and give it to 3 significant figures."
+  ],
+  "walkthrough": [
+   "**Find the Poisson mean for 10 hours**\n\nThe rate is 5.2 planes per hour. A 10-hour day is 10 times as long, so the mean is multiplied by 10:\n\n$$\\lambda = 5.2 \\times 10 = 52$$\n\nSo the number of planes in 10 hours is $X \\sim \\text{Po}(52)$.",
+   "**Why a normal approximation, and which one (this earns the B1)**\n\nAdding up $\\text{P}(X = 0), \\text{P}(X = 1), \\ldots, \\text{P}(X = 60)$ would be 61 terms. When $\\lambda$ is large (here 52, comfortably above 15), a Poisson distribution looks like a normal curve, so we can approximate.\n\nFor a Poisson, the mean and the variance are both equal to $\\lambda$. Quick check: the variance is 52, not $52^2$ and not $\\sqrt{52}$.\n\n$$X \\approx \\text{N}(52,\\ 52)$$",
+   "**Write the probability**\n\nStaff can deal with a *maximum* of 60 planes, so the number of planes must be 60 or fewer:\n\n$$\\text{P}(X \\leqslant 60)$$",
+   "**Apply the continuity correction and standardise (this earns the first M1)**\n\n$X$ takes whole numbers only, but the normal is continuous. Whole number 60 occupies the interval from 59.5 to 60.5 on the continuous scale. \"60 or fewer\" includes all of that interval, so the cut-off is 60.5:\n\n$$\\text{P}(X \\leqslant 60) \\approx \\text{P}(Y < 60.5), \\qquad Y \\sim \\text{N}(52, 52)$$\n\nStandardise with the standard deviation $\\sqrt{52} = 7.2111\\ldots$ (the square root of the variance):\n\n$$60.5 - 52 = 8.5$$\n\n$$z = \\frac{8.5}{7.2111} = 1.1787\\ldots \\approx 1.179$$\n\nThe mark scheme still allows this M1 if the continuity correction is wrong, but you will lose the accuracy mark.",
+   "**Use the table (this earns the second M1)**\n\nWe want the area to the *left* (60 or fewer), which is exactly what $\\Phi$ gives:\n\n$$\\Phi(1.179)$$",
+   "**Calculate (this earns the A1)**\n\nFrom the normal table (or calculator normal cdf), $\\Phi(1.179) = 0.8807\\ldots$. To 3 significant figures:\n\n$$0.881$$",
+   "**Final answer**\n\n$$\\text{P}(\\text{staff can deal with all the planes}) = 0.881$$"
+  ]
+ }
+}

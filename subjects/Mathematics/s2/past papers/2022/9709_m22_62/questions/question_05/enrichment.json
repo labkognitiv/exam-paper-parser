@@ -1,0 +1,36 @@
+{
+  "9709_m22_62_q5_a": {
+    "hints": [
+      "Let $T = X_1 + X_2 + X_3 + X_4 + X_5$, five independent heights. For a sum of independent normals the mean is $5 \\times 18.3$ and the variance is $5 \\times 2.5^2$. Variances add, standard deviations do not.",
+      "Standardise the total: $z = \\dfrac{95 - \\text{mean}}{\\sqrt{\\text{variance}}}$, using your mean and variance for $T$. Divide by the square root of the variance.",
+      "You want $\\text{P}(T > 95)$, the upper tail. Tables and calculators give the area to the left, so write this as $1 - \\Phi(z)$.",
+      "Evaluate $1 - \\Phi(z)$ with your calculator's normal cdf and give 3 significant figures."
+    ],
+    "walkthrough": [
+      "**Set up the total**\n\nLet $X_1, X_2, X_3, X_4, X_5$ be the heights of the five buildings, each $\\text{N}(18.3, 2.5^2)$, and let $T$ be their total:\n\n$$T = X_1 + X_2 + X_3 + X_4 + X_5$$\n\nA sum of independent normal variables is itself normal, so $T$ is normal. We need its mean and variance.",
+      "**Mean and variance of $T$ (B1)**\n\nThe mean of a sum is the sum of the means:\n\n$$\\text{E}(T) = 5 \\times 18.3 = 91.5$$\n\nThe variance of a sum of independent variables is the sum of the variances:\n\n$$2.5^2 = 6.25$$\n\n$$\\text{Var}(T) = 5 \\times 6.25 = 31.25$$\n\nSo $T \\sim \\text{N}(91.5, 31.25)$. This earns the B1.\n\nCommon slip: treating the total as $5X$ (one building's height times five). That would give variance $5^2 \\times 2.5^2 = 156.25$, which is wrong, because five different buildings are unlikely to be all tall or all short together.",
+      "**Standardise (M1)**\n\nWe want $\\text{P}(T > 95)$. Standardising means subtracting the mean and dividing by the standard deviation $\\sqrt{31.25}$ (not the variance):\n\n$$z = \\frac{95 - 91.5}{\\sqrt{31.25}}$$\n\n$$95 - 91.5 = 3.5$$\n\n$$\\sqrt{31.25} = 5.5901\\ldots$$\n\n$$z = \\frac{3.5}{5.5901\\ldots} = 0.6261\\ldots = 0.626 \\text{ (3 d.p.)}$$",
+      "**Choose the correct tail (M1)**\n\n\"More than $95$\" is the **upper** tail. The normal table gives the area to the left of $z$, so:\n\n$$\\text{P}(T > 95) = 1 - \\Phi(0.626)$$\n\nUse the table or your calculator's normal cdf to get $\\Phi(0.626) = 0.7343$.\n\nQuick check: $95$ is a little above the mean $91.5$, so the probability of being above it should be a bit less than $0.5$. Our answer should be about a quarter, which makes sense.",
+      "**Calculate (A1)**\n\n$$1 - 0.7343 = 0.2657 = 0.266 \\text{ (3 s.f.)}$$",
+      "**Final answer**\n\nThe probability that the total height of $5$ buildings is more than $95$ m is $0.266$ (3 s.f.)."
+    ]
+  },
+  "9709_m22_62_q5_b": {
+    "hints": [
+      "Let the two heights be $X_1$ and $X_2$ and define $D = X_1 - X_2$. Both have mean $18.3$, so find $\\text{E}(D)$ for a difference.",
+      "For $\\text{Var}(D)$, variances add even though the heights are subtracted: $\\text{Var}(X_1 - X_2) = \\text{Var}(X_1) + \\text{Var}(X_2)$, with each variance $2.5^2$.",
+      "Because $D$ can be positive or negative, \"difference less than $1$\" means $-1 < D < 1$. Standardise the upper boundary: $z = \\dfrac{1 - \\text{E}(D)}{\\sqrt{\\text{Var}(D)}}$.",
+      "The wanted area is between $-z$ and $z$ on a symmetric curve: $\\Phi(z) - \\Phi(-z)$, which can be written $\\Phi(z) - (1 - \\Phi(z))$.",
+      "Evaluate it with your calculator's normal cdf (or use normalcdf from $-1$ to $1$ on $D$) and give 3 significant figures."
+    ],
+    "walkthrough": [
+      "**What \"difference\" means here**\n\nLet $X_1$ and $X_2$ be the heights of two randomly chosen buildings and let $D = X_1 - X_2$. The difference between the heights is less than $1$ m when $D$ is between $-1$ and $1$ (it could be either building that is taller). So we want\n\n$$\\text{P}(-1 < D < 1)$$\n\n$D$ is a difference of independent normal variables, so it is also normal.",
+      "**Mean of $D$ (B1)**\n\nThe mean of a difference is the difference of the means:\n\n$$\\text{E}(D) = 18.3 - 18.3 = 0$$\n\nThis makes sense: neither building is expected to be taller than the other.",
+      "**Variance of $D$ (B1)**\n\nVariances add, even when the variables are subtracted (the two heights add to the uncertainty, they do not cancel it):\n\n$$\\text{Var}(D) = 2.5^2 + 2.5^2 = 6.25 + 6.25 = 12.5$$\n\nSo $D \\sim \\text{N}(0, 12.5)$.",
+      "**Standardise (M1)**\n\nThe upper boundary is $D = 1$:\n\n$$z = \\frac{1 - 0}{\\sqrt{12.5}}$$\n\n$$\\sqrt{12.5} = 3.5355\\ldots$$\n\n$$z = \\frac{1}{3.5355\\ldots} = 0.2828\\ldots = 0.283 \\text{ (3 d.p.)}$$\n\nThe lower boundary $D = -1$ gives $z = -0.283$, by symmetry. Either boundary earns the M1.",
+      "**Find the area between the boundaries (M1)**\n\nWe want the area between $z = -0.283$ and $z = 0.283$:\n\n$$\\text{P}(-0.283 < Z < 0.283) = \\Phi(0.283) - \\Phi(-0.283)$$\n\nBy symmetry, $\\Phi(-0.283) = 1 - \\Phi(0.283)$, so\n\n$$= \\Phi(0.283) - \\left(1 - \\Phi(0.283)\\right)$$\n\nFrom the normal table or calculator, $\\Phi(0.283) = 0.6114$ (the mark scheme's table value is $0.6115$, which does not change the final answer).\n\n$$1 - 0.6114 = 0.3886$$",
+      "**Calculate (A1)**\n\n$$0.6114 - 0.3886 = 0.2228 = 0.223 \\text{ (3 s.f.)}$$\n\nQuick check: a spread of $\\pm 1$ against a standard deviation of about $3.5$ is narrow, so a probability of about a fifth is sensible.",
+      "**Final answer**\n\nThe probability that the heights of two randomly chosen buildings differ by less than $1$ m is $0.223$ (3 s.f.)."
+    ]
+  }
+}

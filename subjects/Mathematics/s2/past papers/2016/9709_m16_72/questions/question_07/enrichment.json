@@ -1,0 +1,54 @@
+{
+ "9709_m16_72_q7_a_i": {
+  "hints": [
+   "Look at the graph: the curve is symmetrical about the middle of its range $0 \\leqslant x \\leqslant 3$. Use that symmetry to state $\\text{E}(X)$ without integrating.",
+   "$\\text{Var}(X) = \\text{E}(X^2) - \\left[\\text{E}(X)\\right]^2$. For $\\text{E}(X^2)$, multiply $\\text{f}(x)$ by $x^2$ and set up $\\int_0^3 x^2\\,\\text{f}(x)\\,\\text{d}x$.",
+   "Integrate term by term (raise each power by 1, divide by the new power), then substitute the limits 3 and 0.",
+   "Finish with $\\text{Var}(X) = \\text{E}(X^2) - \\left[\\text{E}(X)\\right]^2$: subtract the square of your mean from your integral value. A variance cannot be negative, so use that as a check."
+  ],
+  "walkthrough": [
+   "**The mean from symmetry (B1)**\n\nThe pdf is $\\text{f}(x) = \\frac{2}{9}(3x - x^2) = \\frac{2}{9}x(3 - x)$. It is zero at $x = 0$ and at $x = 3$, and its graph is a symmetrical arch. The balance point of a symmetrical shape is its centre line, half way between 0 and 3:\n\n$$\\text{E}(X) = \\frac{0 + 3}{2} = 1.5$$\n\nOptional check by integration: $\\text{E}(X) = \\int_0^3 x\\,\\text{f}(x)\\,\\text{d}x = \\frac{2}{9}\\left[x^3 - \\frac{x^4}{4}\\right]_0^3 = \\frac{2}{9}\\left(27 - \\frac{81}{4}\\right) = \\frac{2}{9} \\times \\frac{27}{4} = 1.5$. It agrees.",
+   "**Set up $\\text{E}(X^2)$ (first M1)**\n\nThe variance formula is $\\text{Var}(X) = \\text{E}(X^2) - \\left[\\text{E}(X)\\right]^2$, and for a continuous variable $\\text{E}(X^2) = \\int x^2\\,\\text{f}(x)\\,\\text{d}x$ over the range where $\\text{f}$ is non-zero.\n\nMultiply out $x^2(3x - x^2) = 3x^3 - x^4$:\n\n$$\\text{E}(X^2) = \\frac{2}{9}\\int_0^3 (3x^3 - x^4)\\,\\text{d}x$$",
+   "**Integrate**\n\nRaise each power by 1 and divide by the new power: $3x^3 \\to \\dfrac{3x^4}{4}$ and $x^4 \\to \\dfrac{x^5}{5}$.\n\n$$\\text{E}(X^2) = \\frac{2}{9}\\left[\\frac{3x^4}{4} - \\frac{x^5}{5}\\right]_0^3$$",
+   "**Substitute the limits (second M1)**\n\nAt $x = 3$: $3^4 = 81$ and $3^5 = 243$. At $x = 0$ everything is zero.\n\n$$\\frac{3 \\times 81}{4} - \\frac{243}{5} = \\frac{243}{4} - \\frac{243}{5} = 60.75 - 48.6 = 12.15$$\n\n$$\\text{E}(X^2) = \\frac{2}{9} \\times 12.15 = 2.7$$",
+   "**Finish the variance (A1 ft)**\n\n$$\\text{Var}(X) = \\text{E}(X^2) - \\left[\\text{E}(X)\\right]^2 = 2.7 - 1.5^2 = 2.7 - 2.25 = 0.45$$\n\nQuick check: the variance is positive, which it must be.",
+   "**Final answer**\n\n$\\text{E}(X) = 1.5$, with $\\text{E}(X^2) = 2.7$, so $\\text{Var}(X) = 0.45$."
+  ]
+ },
+ "9709_m16_72_q7_a_ii": {
+  "hints": [
+   "$\\text{f}$ is zero beyond 3, so $\\text{P}(1.5 \\leqslant X \\leqslant 4)$ is really $\\text{P}(1.5 \\leqslant X \\leqslant 3)$. Use the symmetry of the graph about the line through its centre and the fact that the total area under the curve is 1."
+  ],
+  "walkthrough": [
+   "**Reduce the range**\n\nThere is no probability above $x = 3$ because $\\text{f}(x) = 0$ there. So\n\n$$\\text{P}(1.5 \\leqslant X \\leqslant 4) = \\text{P}(1.5 \\leqslant X \\leqslant 3)$$",
+   "**Use symmetry**\n\nThe graph is symmetrical about $x = 1.5$ (the mean from part (i)), so the area to the right of 1.5 is the same as the area to the left. The total area under a pdf is 1, so each half is half of 1.",
+   "**Final answer**\n\n$\\text{P}(1.5 \\leqslant X \\leqslant 4) = 0.5$."
+  ]
+ },
+ "9709_m16_72_q7_a_iii": {
+  "hints": [
+   "The graph is symmetrical about $x = 1.5$, so $\\text{P}(X < 1)$ and $\\text{P}(X > 2)$ are equal. All three pieces, $X < 1$, $1 \\leqslant X \\leqslant 2$ and $X > 2$, add up to 1.",
+   "Write $1 = \\text{P}(X < 1) + \\dfrac{13}{27} + \\text{P}(X > 2)$ with the two outer pieces equal, and solve for $\\text{P}(X > 2)$ as $\\left(1 - \\dfrac{13}{27}\\right) \\div 2$."
+  ],
+  "walkthrough": [
+   "**Split the range into three pieces (M1)**\n\nThe values 1 and 2 are the same distance from the centre 1.5 (one is 0.5 below, the other 0.5 above). Because the graph is symmetrical, the tail below 1 has the same area as the tail above 2:\n\n$$\\text{P}(X < 1) = \\text{P}(X > 2)$$\n\nAll the probability adds to 1, so the two equal tails share what is left after the middle piece.\n\n$$\\text{P}(X > 2) = \\left(1 - \\frac{13}{27}\\right) \\div 2$$",
+   "**Calculate (A1)**\n\n$$1 - \\frac{13}{27} = \\frac{27}{27} - \\frac{13}{27} = \\frac{14}{27}$$\n\n$$\\frac{14}{27} \\div 2 = \\frac{7}{27} = 0.259$$\n\nCheck by integrating (the scheme's other method): $\\frac{2}{9}\\int_2^3 (3x - x^2)\\,\\text{d}x = \\frac{2}{9}\\left[\\frac{3x^2}{2} - \\frac{x^3}{3}\\right]_2^3 = \\frac{2}{9}\\left(4.5 - \\frac{10}{3}\\right) = \\frac{2}{9} \\times \\frac{7}{6} = \\frac{7}{27}$. It agrees.",
+   "**Final answer**\n\n$\\text{P}(X > 2) = \\dfrac{7}{27}$ (or $0.259$ to 3 s.f.)."
+  ]
+ },
+ "9709_m16_72_q7_b": {
+  "hints": [
+   "The median $m$ splits the probability in half: $\\text{P}(W \\leqslant m) = \\frac{1}{2}$. With $m = 2$, set up $\\int_0^2 aw\\,\\text{d}w = \\frac{1}{2}$ (or use the area of a triangle with base 2 and height $2a$).",
+   "Integrate $aw$ to get $\\dfrac{aw^2}{2}$, substitute the limits 2 and 0, and solve the equation for $a$.",
+   "The total probability must be 1, so $\\int_0^b aw\\,\\text{d}w = 1$. Put in your value of $a$ to get an equation in $b$ alone.",
+   "Solve for $b^2$, then take the positive square root (a length $b$ must be positive). A surd answer is fine."
+  ],
+  "walkthrough": [
+   "**Use the median condition (M1)**\n\nThe median $m$ is the value with half the probability below it. Here $m = 2$:\n\n$$\\int_0^2 aw\\,\\text{d}w = \\frac{1}{2}$$\n\n(Equivalent: the region under $\\text{g}$ from 0 to 2 is a triangle with base 2 and height $2a$, so area $\\frac{1}{2} \\times 2 \\times 2a$.)",
+   "**Solve for $a$ (A1)**\n\nIntegrate: $\\displaystyle\\int aw\\,\\text{d}w = \\frac{aw^2}{2}$. Now put in the limits.\n\n$$\\left[\\frac{aw^2}{2}\\right]_0^2 = \\frac{a \\times 4}{2} - 0 = 2a$$\n\n$$2a = \\frac{1}{2} \\;\\Rightarrow\\; a = \\frac{1}{4}$$",
+   "**Use total probability = 1 (second M1)**\n\nEvery pdf must have total area 1, and $\\text{g}$ lives on $0 \\leqslant w \\leqslant b$:\n\n$$\\int_0^b \\frac{1}{4}w\\,\\text{d}w = 1$$\n\n$$\\left[\\frac{w^2}{8}\\right]_0^b = \\frac{b^2}{8} = 1$$",
+   "**Solve for $b$ (A1 ft)**\n\n$$b^2 = 8$$\n\n$b$ is the upper end of the range, so it is positive:\n\n$$b = \\sqrt{8} = \\sqrt{4 \\times 2} = 2\\sqrt{2} \\approx 2.83$$\n\nCheck: at $w = b$ the height is $\\frac{1}{4} \\times 2.83 = 0.71 > 0$, so $\\text{g}$ is a valid pdf.",
+   "**Final answer**\n\n$a = \\dfrac{1}{4}$ and $b = 2\\sqrt{2}$ (also written $\\sqrt{8}$, or $2.83$ to 3 s.f.)."
+  ]
+ }
+}

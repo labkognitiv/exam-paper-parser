@@ -1,0 +1,32 @@
+{
+ "9709_w22_62_q1_a": {
+  "hints": [
+   "The unbiased estimate of the population mean is just the sample mean: use $\\Sigma h$ and $n = 80$.",
+   "For the unbiased estimate of the population variance, divide by $n - 1$, not $n$: $s^2 = \\dfrac{1}{n-1}\\left(\\Sigma h^2 - \\dfrac{(\\Sigma h)^2}{n}\\right)$. Put in $52\\,760$, $2048$ and $80$.",
+   "Evaluate the bracket first, then divide by $n - 1$. Give 3 significant figures. Quick check: dividing by $80$ instead would be the biased estimate, which scores nothing."
+  ],
+  "walkthrough": [
+   "**What the question wants**\n\nThe $80$ estimates are a *sample*. We use the sample to estimate two properties of *all* possible estimates (the population): its mean $\\mu$ and its variance $\\sigma^2$. \"Unbiased\" means the estimate is not systematically too big or too small. The unbiased estimate of $\\mu$ is the sample mean $\\bar{h}$. The unbiased estimate of $\\sigma^2$ is $s^2$, which divides by $n - 1$.\n\nWe are given $n = 80$ (sample size), $\\Sigma h = 2048$ (the total of all the estimates) and $\\Sigma h^2 = 52\\,760$ (the total of all the estimates squared).",
+   "**Unbiased estimate of the mean (B1)**\n\nThe sample mean is the total divided by the number of values:\n\n$$\\bar{h} = \\frac{\\Sigma h}{n} = \\frac{2048}{80}$$\n\nOn the calculator: $2048 \\div 80$ shows $25.6$.\n\n$$\\text{Estimate of } \\mu = 25.6$$\n\nThis earns the B1.",
+   "**Choose the variance formula (M1)**\n\nThe unbiased estimate of the population variance is\n\n$$s^2 = \\frac{1}{n-1}\\left(\\Sigma h^2 - \\frac{(\\Sigma h)^2}{n}\\right)$$\n\nWhy $n - 1$ and not $n$? Dividing by $n$ would give a value that is, on average, a little too small. Dividing by $n - 1$ corrects this. That is what \"unbiased\" means here.\n\nSubstitute our numbers:\n\n$$s^2 = \\frac{1}{79}\\left(52\\,760 - \\frac{2048^2}{80}\\right)$$\n\nThis substitution into a correct formula earns the M1.",
+   "**Work it out one piece at a time (A1)**\n\nFirst the square: $2048^2 = 4\\,194\\,304$.\n\nDivide by $80$:\n\n$$\\frac{4\\,194\\,304}{80} = 52\\,428.8$$\n\nSubtract from $52\\,760$:\n\n$$52\\,760 - 52\\,428.8 = 331.2$$\n\nDivide by $79$:\n\n$$s^2 = \\frac{331.2}{79} = 4.19240\\ldots$$\n\nTo 3 significant figures this is $4.19$. As an exact fraction it is $\\frac{1656}{395}$. This earns the A1.\n\nCommon slip: calculating $\\frac{52\\,760}{80} - \\left(\\frac{2048}{80}\\right)^2 = 659.5 - 655.36 = 4.14$ gives the *biased* variance. The scheme gives M0 for that.",
+   "**Final answer**\n\nUnbiased estimate of the population mean: $25.6$.\n\nUnbiased estimate of the population variance: $4.19$ (3 s.f.), or $\\frac{1656}{395}$."
+  ]
+ },
+ "9709_w22_62_q1_b": {
+  "hints": [
+   "A confidence interval for the mean is $\\bar{x} \\pm z\\sqrt{\\dfrac{s^2}{n}}$. Its upper boundary is $\\bar{x} + z\\sqrt{\\dfrac{s^2}{n}}$: put your two estimates from (a) and $n = 80$ into this and set it equal to $26.0$.",
+   "Rearrange the equation to get $z$: $z = \\dfrac{26.0 - \\bar{x}}{\\sqrt{s^2/n}}$. Work out the denominator first, then divide. Keep $3$ decimal places.",
+   "$z$ is the point with area $\\Phi(z)$ to its left. A confidence interval is the *middle* area, between $-z$ and $+z$, so it is $\\Phi(z) - \\bigl(1 - \\Phi(z)\\bigr)$. Find $\\Phi(z)$ from the table or your calculator first.",
+   "That middle area is a probability. The confidence level $\\alpha\\%$ is a percentage, so convert it. Check that your answer is between $0$ and $100$, and give it to 3 s.f."
+  ],
+  "walkthrough": [
+   "**The plan**\n\nAn $\\alpha\\%$ confidence interval for $\\mu$ is built from the sample mean, plus and minus a margin:\n\n$$\\bar{x} \\pm z\\sqrt{\\frac{s^2}{n}}$$\n\nHere $\\bar{x}$ is the sample mean, $s^2$ is the unbiased variance estimate, $n = 80$ is the sample size, and $z$ is a number that depends on how confident we want to be. A bigger $z$ means a wider interval and a higher confidence level.\n\nWe are told the **upper** boundary is $26.0$. So we can find $z$, and then work back to the confidence level $\\alpha$. We use the answers from part (a): $\\bar{x} = 25.6$ and $s^2 = 4.1924\\ldots$.\n\n(We can use the normal distribution because $n = 80$ is large.)",
+   "**Write the equation for the upper boundary (M1)**\n\nUpper boundary $=$ sample mean $+ z \\times \\sqrt{s^2/n}$:\n\n$$25.6 + z\\sqrt{\\frac{4.1924\\ldots}{80}} = 26.0$$\n\nThis correct equation, using our values from (a), earns the M1.",
+   "**Solve for $z$ (A1)**\n\nFirst the number under the square root:\n\n$$\\frac{4.1924\\ldots}{80} = 0.052405\\ldots$$\n\nThen the square root: $\\sqrt{0.052405\\ldots} = 0.22892\\ldots$ (this is the standard deviation of the sample mean).\n\nNow rearrange. Subtract $25.6$ from both sides:\n\n$$z \\times 0.22892\\ldots = 26.0 - 25.6 = 0.4$$\n\nDivide by $0.22892\\ldots$:\n\n$$z = \\frac{0.4}{0.22892\\ldots} = 1.7473\\ldots = 1.747$$\n\nThis earns the A1. If you used the rounded $4.19$ you get $z = 1.748$, which the scheme also accepts. (If you wrongly used the biased variance $4.14$, you would get $1.758$; the scheme follows that through.)",
+   "**Turn $z$ into an area (M1)**\n\nThe table or calculator gives the area to the *left* of $z$:\n\n$$\\Phi(1.747) = 0.9597\\ldots \\approx 0.960$$\n\n(On a calculator: normal cdf with lower bound $-\\infty$, upper bound $1.747$, mean $0$, standard deviation $1$.)\n\nThe confidence interval runs from $-z$ to $+z$, so it covers the *middle* of the curve. Each tail outside it has area $1 - 0.960 = 0.040$. The middle area is the whole left area minus the left tail:\n\n$$0.960 - (1 - 0.960) = 0.960 - 0.040 = 0.920$$\n\nThis earns the M1.",
+   "**Convert to a percentage (A1)**\n\nThe middle area $0.920$ means $92.0\\%$ of the distribution, so the confidence level is $\\alpha = 92.0$.\n\nThe unrounded working gives $\\alpha = 91.9$ (since $\\Phi(1.747\\ldots) = 0.95971$), and the scheme accepts both $92.0$ and $91.9$. Careful: the question asks for $\\alpha$ as a percentage, so a final answer of $0.92$ scores A0.",
+   "**Final answer**\n\n$z = 1.748$ (or $1.747$), and $\\alpha = 92.0$ (or $91.9$): it is a $92\\%$ confidence interval."
+  ]
+ }
+}

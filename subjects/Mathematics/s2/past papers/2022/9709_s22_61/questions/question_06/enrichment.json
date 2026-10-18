@@ -1,0 +1,49 @@
+{
+  "9709_s22_61_q6_a": {
+    "hints": [
+      "The graph of f is a flat line (a rectangle) from $0$ to $a$. The median splits the area into two equal halves, so think about the middle of the interval."
+    ],
+    "walkthrough": [
+      "**Why the median is the middle**\n\nThe median $m$ is the value with half the probability below it: $\\text{P}(X < m) = \\frac{1}{2}$. The probability is the area under the graph. The graph of f is a horizontal line, so the area is a rectangle with the same height all the way across from $0$ to $a$.\n\nCutting the rectangle into two equal-area pieces means cutting it at the middle of its base, the same distance from each end:\n\n$$m = \\frac{0 + a}{2} = \\frac{a}{2}$$",
+      "**Final answer**\n\nThe median of $X$ is **$\\dfrac{a}{2}$**."
+    ]
+  },
+  "9709_s22_61_q6_b": {
+    "hints": [
+      "On a rectangle of equal height, probability is the fraction of the width. What fraction of the interval from $0$ to $a$ lies above $\\frac{3}{4}a$?"
+    ],
+    "walkthrough": [
+      "**Probability as a fraction of the width**\n\nSince f is a constant, the area (probability) between two values is proportional to the width. The whole interval is from $0$ to $a$, width $a$.\n\n$X > \\frac{3}{4}a$ means the part from $\\frac{3}{4}a$ to $a$. Its width is\n\n$$a - \\frac{3}{4}a = \\frac{1}{4}a$$\n\nSo the fraction of the total is\n\n$$\\text{P}\\left(X > \\tfrac{3}{4}a\\right) = \\frac{\\frac{1}{4}a}{a} = \\frac{1}{4}$$",
+      "**Final answer**\n\n$\\text{P}(X > \\frac{3}{4}a) = $ **$\\dfrac{1}{4}$**."
+    ]
+  },
+  "9709_s22_61_q6_c": {
+    "hints": [
+      "The total area under f must equal 1. The rectangle has width $a$, so its height is $1$ divided by that width.",
+      "The distribution is symmetrical about the middle of $0$ to $a$, so $\\text{E}(X)$ is the midpoint. (You already found this in part (a).)",
+      "Use $\\text{Var}(X) = \\text{E}(X^2) - \\left[\\text{E}(X)\\right]^2$ with $\\text{E}(X^2) = \\int x^2\\,\\text{f}(x)\\,\\text{d}x$ over the range $0$ to $a$. Write the integral.",
+      "Integrate $\\frac{1}{a}x^2$ using the power rule, then substitute the limits $a$ and $0$.",
+      "Subtract the square of the mean, $\\left(\\frac{a}{2}\\right)^2$, from your $\\text{E}(X^2)$ and simplify to the printed $\\frac{1}{12}a^2$. Combine the two fractions over a common denominator."
+    ],
+    "walkthrough": [
+      "**Find f(x) (first B1)**\n\nFor a probability density function the total area under the graph is 1. Here the graph is a rectangle with width $a$ (from $0$ to $a$) and unknown height $h$:\n\n$$h \\times a = 1 \\implies h = \\frac{1}{a}$$\n\nSo $\\text{f}(x) = \\dfrac{1}{a}$ for $0 \\leqslant x \\leqslant a$, and $0$ otherwise.",
+      "**Find E(X) (second B1)**\n\nThe expected value is the balance point. Since the rectangle is symmetrical about its middle, the mean is the same as the median found in part (a):\n\n$$\\text{E}(X) = \\frac{a}{2}$$",
+      "**Set up E(X²) (M1)**\n\nTo find the variance we use $\\text{Var}(X) = \\text{E}(X^2) - \\left[\\text{E}(X)\\right]^2$. For a continuous variable, $\\text{E}(X^2)$ is the integral of $x^2$ times f over the whole range:\n\n$$\\text{E}(X^2) = \\int_0^a x^2 \\times \\frac{1}{a}\\,\\text{d}x = \\int_0^a \\frac{1}{a}x^2\\,\\text{d}x$$",
+      "**Integrate (first A1)**\n\n$\\frac{1}{a}$ is a constant (it does not contain $x$), so keep it out front and integrate $x^2$ using the power rule: add 1 to the power, divide by the new power.\n\n$$\\int \\frac{1}{a}x^2\\,\\text{d}x = \\frac{1}{a}\\times\\frac{x^3}{3} = \\frac{x^3}{3a}$$\n\nSubstitute the upper limit $a$, then subtract the value at the lower limit $0$:\n\n$$\\left[\\frac{x^3}{3a}\\right]_0^a = \\frac{a^3}{3a} - \\frac{0^3}{3a} = \\frac{a^3}{3a} = \\frac{a^2}{3}$$\n\nSo $\\text{E}(X^2) = \\dfrac{a^2}{3}$.",
+      "**Subtract the mean squared and reach the printed result (second A1)**\n\n$$\\text{Var}(X) = \\frac{a^2}{3} - \\left(\\frac{a}{2}\\right)^2 = \\frac{a^2}{3} - \\frac{a^2}{4}$$\n\nUse a common denominator of $12$: $\\dfrac{a^2}{3} = \\dfrac{4a^2}{12}$ and $\\dfrac{a^2}{4} = \\dfrac{3a^2}{12}$.\n\n$$\\text{Var}(X) = \\frac{4a^2}{12} - \\frac{3a^2}{12} = \\frac{a^2}{12}$$\n\nThe mark needs the previous line and the printed answer both visible, with no errors.",
+      "**Final answer**\n\nHence $\\text{Var}(X) = \\dfrac{1}{12}a^2$, as required."
+    ]
+  },
+  "9709_s22_61_q6_d": {
+    "hints": [
+      "Because f is constant, probability is proportional to width. The strip from $0$ to $\\frac{b}{3}$ is one third as wide as the strip from $0$ to $b$, so how does its probability compare with $p$?",
+      "By symmetry the strip from $a - \\frac{b}{3}$ to $a$ has that same probability. The wanted region is everything except these two end strips, so subtract both from the total of 1."
+    ],
+    "walkthrough": [
+      "**The left end strip (M1)**\n\nf is flat, so the probability of a strip is proportional to its width. We are told $\\text{P}(X < b) = p$, a strip of width $b$ starting at $0$. The strip $X < \\frac{b}{3}$ also starts at $0$ but has one third of the width, so it has one third of the probability:\n\n$$\\text{P}\\left(X < \\tfrac{b}{3}\\right) = \\frac{p}{3}$$\n\n(Check by integrating: $p = \\frac{b}{a}$, and $\\int_0^{b/3}\\frac{1}{a}\\,\\text{d}x = \\frac{b}{3a} = \\frac{p}{3}$.)",
+      "**The right end strip**\n\nThe distribution is symmetrical about $\\frac{a}{2}$, so the strip at the right end $a - \\frac{b}{3} < X < a$ has the same width $\\frac{b}{3}$, and so the same probability:\n\n$$\\text{P}\\left(X > a - \\tfrac{b}{3}\\right) = \\frac{p}{3}$$",
+      "**Everything in between (A1)**\n\nThe region $\\frac{b}{3} < X < a - \\frac{b}{3}$ is the whole range with these two end strips removed. The total probability is 1:\n\n$$\\text{P}\\left(\\tfrac{b}{3} < X < a - \\tfrac{b}{3}\\right) = 1 - \\frac{p}{3} - \\frac{p}{3} = 1 - \\frac{2p}{3}$$",
+      "**Final answer**\n\n$\\text{P}\\left(\\frac{1}{3}b < X < a - \\frac{1}{3}b\\right) = $ **$1 - \\dfrac{2p}{3}$**."
+    ]
+  }
+}

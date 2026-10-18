@@ -1,0 +1,50 @@
+{
+ "9709_s20_62_q3_a_i": {
+  "hints": [
+   "Each of the 3600 items is either entered incorrectly or not, independently, with the same probability: that is a binomial situation. Convert 0.12% into a decimal probability for the second parameter."
+  ],
+  "walkthrough": [
+   "**Why binomial**\n\nWe have a fixed number of trials (3600 data items). Each is either an error or not, each is independent, and each has the same probability of being an error. That is exactly what a binomial distribution models.",
+   "**The parameters**\n\nThe number of trials is $n = 3600$. The probability of an error is $0.12\\%$, and to turn a percentage into a decimal we divide by 100:\n\n$$p = \\frac{0.12}{100} = 0.0012$$",
+   "**Final answer**\n\n$X \\sim \\text{B}(3600, 0.0012)$. (B1)"
+  ]
+ },
+ "9709_s20_62_q3_a_ii": {
+  "hints": [
+   "$n$ is very large and $p$ is very small, which points to approximating the binomial by a **Poisson** distribution. Name it as $\\text{Po}(\\lambda)$.",
+   "The Poisson mean is $\\lambda = np$. Multiply the two parameters you found in part (i).",
+   "To justify the choice, state the conditions: $n$ is large, $p$ is small, and compare $np$ with 5 (a Poisson approximation is suitable when $np < 5$; a Normal approximation needs $np > 5$)."
+  ],
+  "walkthrough": [
+   "**Which approximation?**\n\nThere are two standard approximations to a binomial $\\text{B}(n, p)$:\n\n- Normal, when $n$ is large and $np > 5$ and $nq > 5$ (here $q = 1 - p$).\n\n- Poisson, when $n$ is large, $p$ is small and $np < 5$.\n\nHere $n = 3600$ is large and $p = 0.0012$ is tiny, so we check which fits by calculating $np$.",
+   "**Find the mean**\n\n$$np = 3600 \\times 0.0012 = 4.32$$\n\nQuick check: $3600 \\times 0.001 = 3.6$ and $3600 \\times 0.0002 = 0.72$, and $3.6 + 0.72 = 4.32$.\n\nA Poisson distribution has its mean equal to $\\lambda$, so we use $\\lambda = np = 4.32$:\n\n$$X \\approx \\text{Po}(4.32)$$\n\nThis earns the **B2**: one mark for Poisson, one mark for $\\lambda = 4.32$.",
+   "**Justify**\n\nThe condition for a Poisson approximation is that $n$ is large, $p$ is small and $np < 5$. Check each:\n\n- $n = 3600$ is large.\n\n- $p = 0.0012$ is small.\n\n- $np = 4.32$, and $4.32 < 5$.\n\nSo Poisson is appropriate (Normal would need $np > 5$). The mark scheme prints '$p = 0.12$', which is a misprint for $p = 0.0012$ (that is, $0.12\\%$); the meaning is the same. This earns the final **B1**.",
+   "**Final answer**\n\n$X \\approx \\text{Po}(4.32)$, because $n = 3600$ is large, $p = 0.0012$ is small and $np = 4.32 < 5$. (B2 B1)"
+  ]
+ },
+ "9709_s20_62_q3_a_iii": {
+  "hints": [
+   "Use $X \\sim \\text{Po}(\\lambda)$ with the $\\lambda$ from part (ii). $\\text{P}(X > 2) = 1 - \\text{P}(X \\leqslant 2)$, so you need $\\text{P}(X=0)$, $\\text{P}(X=1)$ and $\\text{P}(X=2)$, each from $\\text{e}^{-\\lambda}\\lambda^r / r!$.",
+   "Factor out $\\text{e}^{-\\lambda}$ to write $1 - \\text{e}^{-\\lambda}\\left(1 + \\lambda + \\dfrac{\\lambda^2}{2!}\\right)$, evaluate it on your calculator and give 3 significant figures."
+  ],
+  "walkthrough": [
+   "**Set up**\n\nWe use the approximation from (ii): $X \\approx \\text{Po}(4.32)$. For a Poisson variable,\n\n$$\\text{P}(X = r) = \\text{e}^{-4.32}\\,\\frac{4.32^r}{r!}$$\n\n$X$ can be 0, 1, 2, 3, and so on without end, so $\\text{P}(X > 2)$ is an endless sum. Use the complement instead:\n\n$$\\text{P}(X > 2) = 1 - \\text{P}(X \\leqslant 2) = 1 - \\left[\\text{P}(X=0) + \\text{P}(X=1) + \\text{P}(X=2)\\right]$$",
+   "**Write the expression**\n\nEvery term has $\\text{e}^{-4.32}$, so factor it out. Remember $4.32^0 = 1$, $0! = 1$ and $1! = 1$:\n\n$$1 - \\text{e}^{-4.32}\\left(1 + 4.32 + \\frac{4.32^2}{2}\\right)$$\n\nThis earns the **M1**.",
+   "**Calculate**\n\n$$4.32^2 = 18.6624, \\qquad \\frac{18.6624}{2} = 9.3312$$\n\n$$1 + 4.32 + 9.3312 = 14.6512$$\n\n$$\\text{e}^{-4.32} = 0.013300\\ (\\text{use the } \\text{e}^x \\text{ key with } -4.32)$$\n\n$$0.013300 \\times 14.6512 = 0.19486$$\n\n$$1 - 0.19486 = 0.80514$$",
+   "**Final answer**\n\n$\\text{P}(X > 2) = \\mathbf{0.805}$ (3 s.f.). (A1)"
+  ]
+ },
+ "9709_s20_62_q3_b": {
+  "hints": [
+   "Use the Poisson approximation again, but now the mean depends on $n$: $\\lambda = 0.0012n$. 'No incorrect items' is $\\text{P}(X = 0) = \\text{e}^{-\\lambda}$. Write the inequality saying this is more than 0.1.",
+   "Take natural logs of both sides of $\\text{e}^{-\\lambda} > 0.1$. Be careful: multiplying or dividing an inequality by a negative number reverses its direction. Then replace $\\lambda$ by $0.0012n$.",
+   "Divide both sides by 0.0012 to get a bound on $n$. Then remember $n$ is a whole number and the inequality is strict: pick the largest whole number that still satisfies it."
+  ],
+  "walkthrough": [
+   "**Set up**\n\nFor a large sample of $n$ items, the number of errors $X$ is approximately Poisson with mean\n\n$$\\lambda = np = n \\times 0.0012 = 0.0012n$$\n\nThe sample has **no** errors when $X = 0$, and for a Poisson distribution\n\n$$\\text{P}(X = 0) = \\text{e}^{-\\lambda}\\,\\frac{\\lambda^0}{0!} = \\text{e}^{-\\lambda}$$\n\nWe need this to be more than 0.1:\n\n$$\\text{e}^{-\\lambda} > 0.1$$\n\nThis earns the **M1**.",
+   "**Solve for $\\lambda$**\n\nTake natural logs of both sides ($\\ln$ is an increasing function, so the inequality direction stays):\n\n$$-\\lambda > \\ln 0.1$$\n\n$$\\ln 0.1 = -2.302585\\ldots$$\n\nMultiply both sides by $-1$. This **reverses** the inequality:\n\n$$\\lambda < 2.302585\\ldots$$\n\n(Equivalently $\\lambda < \\ln 10$.) Now substitute $\\lambda = 0.0012n$:\n\n$$0.0012n < 2.302585\\ldots$$\n\nThis earns the first **A1**.",
+   "**Solve for $n$**\n\nDivide both sides by $0.0012$:\n\n$$n < \\frac{2.302585\\ldots}{0.0012} = 1918.82\\ldots$$\n\n$n$ must be a whole number strictly less than $1918.82\\ldots$, so the largest possible value is $1918$. (Do not round up to 1919: that would break the inequality.)\n\nQuick check: for $n = 1918$, $\\lambda = 2.3016$ and $\\text{e}^{-2.3016} = 0.1001 > 0.1$. For $n = 1919$, $\\lambda = 2.3028$ and $\\text{e}^{-2.3028} = 0.09998 < 0.1$.",
+   "**Final answer**\n\nSince $n < 1918.8$ and $n$ must be a whole number, the largest possible value of $n$ is $\\mathbf{1918}$. (A1)"
+  ]
+ }
+}

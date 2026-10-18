@@ -1,0 +1,28 @@
+{
+ "9709_m16_72_q3_i": {
+  "hints": [
+   "A Type I error means rejecting $\\text{H}_0$ when it is actually true. So start by stating $\\text{H}_0$ (the population mean $\\mu$ is still 35.2 minutes) and $\\text{H}_1$ (the new route is quicker, so which way does $\\mu$ move?).",
+   "Assume $\\text{H}_0$ is true. Then the mean of 25 journeys has a normal distribution with mean 35.2 and standard deviation $\\dfrac{5.6}{\\sqrt{25}}$. Standardise the cut-off: $z = \\dfrac{34.7 - 35.2}{5.6/\\sqrt{25}}$.",
+   "Arvinder rejects $\\text{H}_0$ when the sample mean is less than 34.7, so a Type I error has probability $\\text{P}(Z < z)$ with your $z$. Your $z$ is negative, so use $\\Phi(-a) = 1 - \\Phi(a)$.",
+   "Find $\\Phi$ of the positive value in a normal table or on your calculator, subtract it from 1, and round to 3 s.f."
+  ],
+  "walkthrough": [
+   "**What a Type I error is, and the hypotheses (earns the B1)**\n\nA **Type I error** means rejecting $\\text{H}_0$ when $\\text{H}_0$ is actually true. Here, that means Arvinder decides the new route is quicker when really it is no quicker.\n\nLet $\\mu$ be the population mean journey time on the new route. If nothing has changed, $\\mu$ is still the old mean. Arvinder hopes the time is **reduced**, so $\\text{H}_1$ has a 'less than'.\n\n$$\\text{H}_0: \\mu = 35.2 \\text{ minutes}$$\n\n$$\\text{H}_1: \\mu < 35.2 \\text{ minutes}$$",
+   "**The distribution of the sample mean if $\\text{H}_0$ is true**\n\nWe assume $\\text{H}_0$ is true, because a Type I error is about what happens in that case. Single journey times are normal with standard deviation $5.6$. The question is about the **mean of 25 journeys**, $\\bar{X}$ (the sample mean). A mean of 25 values varies less than a single value, so its standard deviation is divided by $\\sqrt{25}$.\n\n$$\\bar{X} \\sim \\text{N}\\left(35.2, \\frac{5.6^2}{25}\\right), \\qquad \\text{standard deviation} = \\frac{5.6}{\\sqrt{25}} = \\frac{5.6}{5} = 1.12$$",
+   "**Standardise the cut-off value (first M1)**\n\nArvinder says the new route is quicker if $\\bar{x} < 34.7$. To use the normal table we convert $34.7$ to a $z$-value, which says how many standard deviations it is from the mean.\n\n$$z = \\frac{34.7 - 35.2}{5.6/\\sqrt{25}} = \\frac{-0.5}{1.12} = -0.446$$\n\nCommon slip: forgetting the $\\sqrt{25}$ and dividing by 5.6 instead. The $\\sqrt{25}$ is needed for the method mark.",
+   "**Find the correct area (second M1)**\n\nA Type I error happens when the sample mean is below $34.7$ even though $\\text{H}_0$ is true, so we want the area to the left of $z = -0.446$.\n\n$$\\text{P}(Z < -0.446) = \\Phi(-0.446)$$\n\nTables only list positive $z$, and the normal curve is symmetrical, so the area below $-0.446$ equals the area above $+0.446$:\n\n$$\\Phi(-0.446) = 1 - \\Phi(0.446)$$",
+   "**Evaluate (A1)**\n\nTable or calculator (normal cdf): $\\Phi(0.446) = 0.6722$.\n\n$$1 - 0.6722 = 0.3278$$\n\nTo 3 significant figures that is $0.328$. In words: if the new route made no difference, Arvinder would wrongly conclude it was quicker about 33% of the time.",
+   "**Final answer**\n\n$\\text{P}(\\text{Type I error}) = 0.328$ (3 s.f.)."
+  ]
+ },
+ "9709_m16_72_q3_ii": {
+  "hints": [
+   "Compare the sample mean 34.5 with Arvinder's cut-off 34.7: does this result make him reject $\\text{H}_0$ or not? Then recall which of the two decisions a Type II error needs."
+  ],
+  "walkthrough": [
+   "**Recall the two types of error**\n\n- A **Type I** error is rejecting $\\text{H}_0$ when it is true.\n\n- A **Type II** error is **not rejecting** $\\text{H}_0$ when it is false.\n\nNotice that a Type II error can only happen when the decision was 'do not reject $\\text{H}_0$'.",
+   "**Look at Arvinder's decision**\n\nHis rule is: if the sample mean is less than $34.7$, conclude the new route is quicker (reject $\\text{H}_0$). His sample mean is $34.5$ and $34.5 < 34.7$, so he **rejects** $\\text{H}_0$.",
+   "**Final answer**\n\nHis sample mean $34.5$ is below $34.7$, so $\\text{H}_0$ is rejected. A Type II error can only be made when $\\text{H}_0$ is **not** rejected, so it is impossible here."
+  ]
+ }
+}

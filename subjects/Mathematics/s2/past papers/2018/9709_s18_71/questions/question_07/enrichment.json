@@ -1,0 +1,64 @@
+{
+  "9709_s18_71_q7_i": {
+    "hints": [
+      "Add the two independent Poisson variables: the daily means $0.2$ and $0.3$ add. The period is 2 days, so scale the mean by 2 and state the new Poisson distribution.",
+      "\"Less than 3\" means 0, 1 or 2 absences: add $\\text{P}(X = 0) + \\text{P}(X = 1) + \\text{P}(X = 2)$ using $\\text{P}(X = r) = \\text{e}^{-\\lambda}\\dfrac{\\lambda^r}{r!}$.",
+      "Evaluate the sum on your calculator and give the answer to 3 s.f."
+    ],
+    "walkthrough": [
+      "**Combine girls and boys (B1)**\n\nThe sum of two independent Poisson variables is also Poisson, with the means added. Per day: $0.2 + 0.3 = 0.5$ absences.\n\nOver 2 days the mean doubles:\n\n$$0.5 \\times 2 = 1$$\n\nSo the total absences in 2 days is $\\text{Po}(1)$. Writing this earns the **B1**.",
+      "**Which values are wanted (M1)**\n\n\"Less than 3\" means $0$, $1$ or $2$ absences (not $3$). Using $\\text{P}(X = r) = \\text{e}^{-\\lambda}\\dfrac{\\lambda^r}{r!}$ with $\\lambda = 1$:\n\n$$\\text{P}(X = 0) = \\text{e}^{-1}\\frac{1^0}{0!} = \\text{e}^{-1}$$\n\n$$\\text{P}(X = 1) = \\text{e}^{-1}\\frac{1^1}{1!} = \\text{e}^{-1}$$\n\n$$\\text{P}(X = 2) = \\text{e}^{-1}\\frac{1^2}{2!} = \\frac{1}{2}\\text{e}^{-1}$$\n\nAdd them:\n\n$$\\text{P}(X < 3) = \\text{e}^{-1}\\left(1 + 1 + \\frac{1}{2}\\right)$$\n\nThis is the **M1**; there is a mark even if you slip by one value at an end.",
+      "**Calculate (A1)**\n\n$\\text{e}^{-1} = 0.367879\\ldots$ and the bracket is $2.5$:\n\n$$0.367879 \\times 2.5 = 0.91970\\ldots$$\n\nQuick check: a probability must be between 0 and 1, and with a mean of 1 absence, fewer than 3 should be very likely.",
+      "**Final answer**\n\n$\\text{P}(\\text{total absences} < 3) = 0.920$ (3 s.f.)."
+    ]
+  },
+  "9709_s18_71_q7_ii": {
+    "hints": [
+      "Only boys now, mean $0.3$ per day: for 5 days scale the mean by 5, then write $\\text{P}(X > 3) = 1 - \\text{P}(X \\leqslant 3)$.",
+      "Find $\\text{P}(X \\leqslant 3)$ by adding the probabilities for 0, 1, 2 and 3 absences with $\\text{e}^{-\\lambda}\\dfrac{\\lambda^r}{r!}$, then subtract from 1 and give 3 s.f."
+    ],
+    "walkthrough": [
+      "**Distribution for boys over 5 days**\n\nBoys per day: $\\text{Po}(0.3)$. For 5 days multiply the mean by 5:\n\n$$0.3 \\times 5 = 1.5$$\n\nSo $X \\sim \\text{Po}(1.5)$.",
+      "**Why we use the complement (M1)**\n\n\"More than 3\" would need $4, 5, 6, \\ldots$ with no upper end. It is quicker to find the probability of the opposite, $0$ to $3$, and subtract from 1:\n\n$$\\text{P}(X > 3) = 1 - \\text{P}(X \\leqslant 3) = 1 - \\text{e}^{-1.5}\\left(1 + 1.5 + \\frac{1.5^2}{2!} + \\frac{1.5^3}{3!}\\right)$$\n\nThis is the **M1**. Mind the inequality: $X > 3$ leaves out 3, so the sum ends at $3$ in the bracket.",
+      "**Work out each term in the bracket**\n\n$$1.5^2 = 2.25, \\qquad \\frac{2.25}{2} = 1.125$$\n\n$$1.5^3 = 3.375, \\qquad \\frac{3.375}{6} = 0.5625$$\n\n$$1 + 1.5 + 1.125 + 0.5625 = 4.1875$$\n\n$$\\text{e}^{-1.5} = 0.223130\\ldots$$\n\n$$0.223130 \\times 4.1875 = 0.934357\\ldots$$",
+      "**Subtract from 1 (A1)**\n\n$$1 - 0.934357 = 0.065643\\ldots$$\n\nTo 3 significant figures that is $0.0656$ (the first non-zero digit is the 6, so we count from there).",
+      "**Final answer**\n\n$\\text{P}(\\text{boys' absences} > 3) = 0.0656$ (3 s.f.)."
+    ]
+  },
+  "9709_s18_71_q7_iii_a": {
+    "hints": [
+      "A Type I error means rejecting $\\text{H}_0$ when $\\text{H}_0$ is actually true: say what the teacher would wrongly conclude here and what is really the case."
+    ],
+    "walkthrough": [
+      "**What a Type I error is**\n\nA Type I error is rejecting the null hypothesis when it is actually true. In this question $\\text{H}_0$ says the boys' absences are at the usual rate, and the claim (the alternative) is that there are more.\n\nSo in context, a Type I error is the teacher **concluding that there are more absences by boys than usual during the football season, when in fact there are not** (the rate is still the usual one).",
+      "**Final answer**\n\nIncorrectly concluding that boys' absences during the football season are higher than usual when they are not."
+    ]
+  },
+  "9709_s18_71_q7_iii_b": {
+    "hints": [
+      "Define $\\lambda$ as the mean number of boys' absences in a 5-day period during the football season. $\\text{H}_0$ uses the usual value (the one you found in **(ii)**) and $\\text{H}_1$ is one-tailed because the claim is \"more than\".",
+      "The probability of a Type I error is the probability of landing in the rejection region when $\\text{H}_0$ is true. Your answer to **(ii)** is already above 5%, so test whether $\\text{P}(X > 4)$ is below 5%, using $\\text{P}(X > 4) = \\text{P}(X > 3) - \\text{P}(X = 4)$.",
+      "Use $\\text{P}(X = 4) = \\text{e}^{-\\lambda}\\dfrac{\\lambda^4}{4!}$ with your $\\lambda$, subtract from your answer to **(ii)**, and state that this is the Type I error probability."
+    ],
+    "walkthrough": [
+      "**Hypotheses (B1)**\n\nLet $\\lambda$ be the mean number of boys' absences in a 5-day period during the football season. Normally it is $0.3 \\times 5 = 1.5$ (from part **(ii)**). The teacher claims it is higher:\n\n$$\\text{H}_0: \\lambda = 1.5$$\n\n$$\\text{H}_1: \\lambda > 1.5$$\n\nOne-tailed upper test because of \"more than\". Both must be correct for the **B1**; using $\\mu$ or $0.3$ per day is also accepted.",
+      "**Find the rejection region**\n\nUnder $\\text{H}_0$ the count is $X \\sim \\text{Po}(1.5)$. We reject $\\text{H}_0$ only for large values, and the probability of the tail must be no more than $5\\%$.\n\nFrom **(ii)**, $\\text{P}(X > 3) = 0.0656$. That is more than $0.05$, so 4 absences is **not** enough to reject.\n\nTry $X > 4$ (that is, 5 or more). It differs from $X > 3$ by removing the value $X = 4$:\n\n$$\\text{P}(X > 4) = \\text{P}(X > 3) - \\text{P}(X = 4)$$",
+      "**Calculate (M1)**\n\n$$\\text{P}(X = 4) = \\text{e}^{-1.5} \\times \\frac{1.5^4}{4!}$$\n\n$$1.5^4 = 5.0625, \\qquad 4! = 24, \\qquad \\frac{5.0625}{24} = 0.2109375$$\n\n$$0.223130 \\times 0.2109375 = 0.047067\\ldots$$\n\n$$\\text{P}(X > 4) = 0.065643 - 0.047067 = 0.018576\\ldots \\approx 0.0186$$\n\nThis is below $0.05$, so the rejection region is $X \\geqslant 5$ (that is $X > 4$). This is the **M1**.",
+      "**Probability of a Type I error (A1ft)**\n\nA Type I error happens when $\\text{H}_0$ is true but the result lands in the rejection region. So its probability is the probability of the rejection region, computed under $\\text{H}_0$:\n\n$$\\text{P}(\\text{Type I error}) = \\text{P}(X > 4) = 0.0186$$\n\nThe scheme also allows $0.0185$, which you get if you subtract already-rounded numbers ($0.0656 - 0.0471$). The follow-through mark needs a value below $0.05$.",
+      "**Final answer**\n\n$\\text{H}_0: \\lambda = 1.5$, $\\text{H}_1: \\lambda > 1.5$, and $\\text{P}(\\text{Type I error}) = 0.0186$ (3 s.f.), or $0.0185$ from rounded values."
+    ]
+  },
+  "9709_s18_71_q7_iii_c": {
+    "hints": [
+      "The observed count is 4 and the test is upper-tailed, so the probability you need is $\\text{P}(X \\geqslant 4)$, which you can write as $\\text{P}(X > 3)$; you already have it from part **(ii)**.",
+      "Compare that probability with the significance level, 5%, and decide whether it is smaller or larger.",
+      "State whether you reject $\\text{H}_0$, then give the conclusion in context about boys' absences during the football season, using \"evidence\", and not definite wording."
+    ],
+    "walkthrough": [
+      "**The probability to test (B1ft)**\n\nWe saw 4 absences. The question for an upper-tail test is: if $\\text{H}_0$ is true, how likely is a result **as extreme as 4 or more**?\n\n$$\\text{P}(X \\geqslant 4) = \\text{P}(X > 3) = 0.0656$$\n\nThis is exactly the answer to part **(ii)**, so we reuse it. (The scheme lets you follow through your own part **(ii)** value.)",
+      "**Compare with the significance level (M1)**\n\nThe significance level is $5\\% = 0.05$. We reject $\\text{H}_0$ only if the probability is **smaller** than that.\n\n$$0.0656 > 0.05$$\n\nOur probability is bigger than $0.05$, so the result is not unusual enough: we do **not** reject $\\text{H}_0$.",
+      "**Conclusion in context (A1ft)**\n\nWording matters: we do not say the claim is false, only that there is not enough evidence.\n\nThere is no evidence, at the 5% significance level, that there are more absences by boys than usual during the football season.",
+      "**Final answer**\n\n$0.0656 > 0.05$, so do not reject $\\text{H}_0$: there is no evidence of more than the usual number of absences by boys during the football season."
+    ]
+  }
+}

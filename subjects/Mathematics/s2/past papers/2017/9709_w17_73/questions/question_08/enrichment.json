@@ -1,0 +1,43 @@
+{
+ "9709_w17_73_q8_i": {
+  "hints": [
+   "The sample mean is $\\bar{x} = \\dfrac{\\sum x}{n}$, using $\\sum x = 27.0$ and $n = 150$.",
+   "The population variance is unknown, so estimate it from the sample: $s^2 = \\dfrac{1}{n-1}\\left(\\sum x^2 - \\dfrac{(\\sum x)^2}{n}\\right)$ with $n = 150$. Then take the square root to get $s$.",
+   "Let $\\mu$ be the population mean concentration. Write $\\text{H}_0$ with the known value 0.185 for patients not on the drug, and $\\text{H}_1$ in the direction the researcher suspects (look at the word \"less\").",
+   "With $n = 150$ the central limit theorem says $\\bar{X}$ is approximately normal. Standardise: $z = \\dfrac{\\bar{x} - 0.185}{s/\\sqrt{150}}$.",
+   "Put your $\\bar{x}$ and $s$ into that expression. Work out the standard error (with $\\sqrt{150}$) first, then divide, and keep the sign of your answer.",
+   "For a 1% one-tailed test in the lower tail, find the critical $z$ from the percentage points table (it is negative) and compare it with your $z$, keeping the signs consistent.",
+   "Is your $z$ beyond the critical value (in the rejection region) or not? Then write a conclusion in context, about the protein concentration with and without the drug, using the word \"evidence\"."
+  ],
+  "walkthrough": [
+   "**What we have**\n\nWe have 150 patients taking the drug. We want to test whether their mean protein concentration is **less than** 0.185. We are given $n = 150$, $\\sum x = 27.0$ and $\\sum x^2 = 5.01$. We have no value for the population variance, so we will estimate it from the sample.",
+   "**Sample mean (earns B1)**\n\n$\\bar{x}$ (\"x-bar\") means the mean of the sample: add up all the $x$ values and divide by how many there are.\n\n$$\\bar{x} = \\frac{\\sum x}{n} = \\frac{27.0}{150} = 0.18$$",
+   "**Unbiased estimate of the variance (earns M1)**\n\nBecause we only have a sample, we use the \"unbiased estimate\" of the population variance, which divides by $n - 1$ (not $n$). The formula is\n\n$$s^2 = \\frac{1}{n-1}\\left(\\sum x^2 - \\frac{(\\sum x)^2}{n}\\right)$$\n\nBuild it in pieces. $27.0^2 = 729$, and $\\dfrac{729}{150} = 4.86$. So $5.01 - 4.86 = 0.15$. Then divide by $n - 1 = 149$:\n\n$$s^2 = \\frac{0.15}{149} = 0.0010067$$\n\n$$s = \\sqrt{0.0010067} = 0.031729$$\n\n(The mark scheme finds the same thing by $\\sqrt{\\frac{150}{149}} \\times \\sqrt{\\frac{5.01}{150} - 0.18^2}$.)",
+   "**Hypotheses (earns B1)**\n\nLet $\\mu$ be the population mean concentration of the protein for patients taking the drug.\n\n$$\\text{H}_0: \\mu = 0.185$$\n\n$$\\text{H}_1: \\mu < 0.185$$\n\n$\\text{H}_0$ says the drug makes no difference. $\\text{H}_1$ is one-tailed (\"less than\") because the researcher wants to know if the drug lowers the concentration.",
+   "**Distribution under $\\text{H}_0$**\n\nThe sample is large ($n = 150$), so by the central limit theorem the sample mean $\\bar{X}$ is approximately normal, even though we do not know how single readings are distributed. Under $\\text{H}_0$ its mean is $0.185$ and its standard deviation (the \"standard error\") is $\\dfrac{s}{\\sqrt{150}}$.",
+   "**Test statistic: set up (earns M1)**\n\n$$z = \\frac{\\bar{x} - 0.185}{\\dfrac{s}{\\sqrt{150}}} = \\frac{0.18 - 0.185}{\\dfrac{0.031729}{\\sqrt{150}}}$$\n\nThe divisor must contain $\\sqrt{150}$ because we are dealing with a mean of 150 readings.",
+   "**Test statistic: calculate (earns A1)**\n\nTop: $0.18 - 0.185 = -0.005$.\n\nBottom: $\\sqrt{150} = 12.2474$, and $\\dfrac{0.031729}{12.2474} = 0.0025906$.\n\n$$z = \\frac{-0.005}{0.0025906} = -1.930$$\n\nKeep the negative sign: the sample mean is below 0.185.",
+   "**Compare (earns M1)**\n\nFor a 1% one-tailed test, in the lower tail, the critical value is the $z$ with $\\Phi(z) = 0.01$. By symmetry this is minus the value with $\\Phi = 0.99$, so $z_{\\text{crit}} = -2.326$ (percentage points table).\n\nThe rule: reject $\\text{H}_0$ only if $z$ is **less than** (further left than) $-2.326$. We have\n\n$$-1.930 > -2.326$$\n\nso our $z$ is not in the rejection region. (The same conclusion follows from probabilities: $\\Phi(-1.930) = 0.0268 > 0.01$.) Quick check: both numbers are negative; $-1.93$ is closer to 0, so it is the bigger number.",
+   "**Conclusion in context (earns A1 FT)**\n\nWe do not reject $\\text{H}_0$. In words: there is no evidence, at the 1% significance level, that the mean concentration of the protein in patients taking the drug is less than for patients not taking the drug.",
+   "**Final answer**\n\n$z = -1.930$ is not less than $-2.326$, so do not reject $\\text{H}_0$: there is no evidence (at the 1% level) that the concentration with the drug is less than without it."
+  ]
+ },
+ "9709_w17_73_q8_ii": {
+  "hints": [
+   "A Type II error means not rejecting $\\text{H}_0$ when it is actually false. First find the boundary of the acceptance region for $\\bar{x}$: set $\\dfrac{c - 0.185}{s/\\sqrt{150}}$ equal to the critical $z$-value for the test (lower tail, 1%).",
+   "Rearrange that equation to get the critical value $c$ of the sample mean. $\\text{H}_0$ is accepted when $\\bar{x}$ is bigger than $c$.",
+   "Now suppose the true mean is 0.175: $\\bar{X}$ is normal with mean 0.175 and the same standard error $\\dfrac{s}{\\sqrt{150}}$. Standardise $c$ using $0.175$ in place of $0.185$.",
+   "A Type II error happens when $\\bar{x} > c$ under the true mean, which is an upper tail: write $1 - \\Phi(\\cdot)$ of your new $z$.",
+   "Evaluate $1 - \\Phi(\\cdot)$ with a table or your calculator's normal cdf and round to 3 significant figures."
+  ],
+  "walkthrough": [
+   "**What a Type II error is**\n\nA Type II error is accepting (not rejecting) $\\text{H}_0$ when $\\text{H}_0$ is really false. Here the true mean is 0.175, so $\\text{H}_0$ ($\\mu = 0.185$) is false. A Type II error happens if the sample mean is high enough that the test fails to reject $\\text{H}_0$. So first we need to know exactly which sample means lead to \"not reject\".",
+   "**Find the critical value of the sample mean (earns M1)**\n\nThe test rejects $\\text{H}_0$ when $z$ is below $-2.326$. For the cut-off sample mean $c$:\n\n$$\\frac{c - 0.185}{\\dfrac{0.031729}{\\sqrt{150}}} = -2.326$$\n\nThe standard error is $\\dfrac{0.031729}{\\sqrt{150}} = 0.0025906$ (as in part (i)). The mark scheme needs 0.185 (the mean under $\\text{H}_0$) and $\\sqrt{150}$ here.",
+   "**Solve for $c$ (earns A1)**\n\nMultiply both sides by $0.0025906$: $-2.326 \\times 0.0025906 = -0.006026$. Then add $0.185$:\n\n$$c = 0.185 - 0.006026 = 0.17897$$\n\nSo we reject $\\text{H}_0$ if $\\bar{x} < 0.179$ and do not reject it if $\\bar{x} > 0.179$. (Notice that in part (i) the sample mean 0.18 is just above this boundary, which agrees with the answer there.)",
+   "**Standardise using the true mean (earns M1)**\n\nNow the sample mean has its real distribution: $\\bar{X} \\sim \\text{N}\\left(0.175, \\left(\\dfrac{0.031729}{\\sqrt{150}}\\right)^2\\right)$. Convert the boundary $0.17897$ to a $z$ value with the **true** mean $0.175$:\n\n$$z = \\frac{0.17897 - 0.175}{0.0025906} = \\frac{0.00397}{0.0025906} = 1.534$$\n\n(Using the unrounded boundary, $0.178973$, gives $1.5337$, which is also $1.534$.)",
+   "**Find the probability (earns M1)**\n\nA Type II error means $\\bar{X} > 0.17897$, the area to the right of $z = 1.534$. The calculator and tables give areas to the left, so\n\n$$\\text{P}(\\text{Type II error}) = \\text{P}(Z > 1.534) = 1 - \\Phi(1.534)$$",
+   "**Calculate (earns A1)**\n\n$\\Phi(1.534) = 0.9375$ (normal table or calculator).\n\n$$1 - 0.9375 = 0.0625$$\n\nRounded to 3 significant figures, $0.0625$ (answers from $0.0610$ to $0.0628$ are accepted). Quick check: the true mean is only a little below the boundary, so a fairly small chance of a wrong \"accept\" is sensible.",
+   "**Final answer**\n\n$$\\text{P}(\\text{Type II error}) = 0.0625 \\;(3 \\text{ s.f.})$$"
+  ]
+ }
+}

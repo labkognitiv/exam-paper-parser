@@ -1,0 +1,31 @@
+{
+ "9709_s17_72_q4_i": {
+  "hints": [
+   "A Type I error means rejecting $\\text{H}_0$ when it is actually true. So assume the claim is true, $p = \\dfrac{1}{4}$, and the number of packets with gifts is $X \\sim \\text{B}(20, \\dfrac{1}{4})$. Marisa rejects when \"fewer than 3\": that is $X = 0, 1$ or $2$.",
+   "Add $\\text{P}(X = 0) + \\text{P}(X = 1) + \\text{P}(X = 2)$, each of the form $\\binom{20}{r}p^r q^{20-r}$ with $q = 1 - p$ (or use the binomial cumulative distribution function). Give 3 significant figures."
+  ],
+  "walkthrough": [
+   "**What is a Type I error?**\n\nA **Type I error** is rejecting $\\text{H}_0$ when $\\text{H}_0$ is in fact true. Here $\\text{H}_0$ is the claim that the probability of a free gift is $\\frac{1}{4}$. Marisa rejects the claim if fewer than 3 of her 20 packets contain a gift. So we need the probability that she rejects **when the claim is true**.",
+   "**Set up the distribution (M1)**\n\nIf the claim is true, each packet has probability $\\frac{1}{4} = 0.25$ of a gift and $0.75$ of none. With 20 independent packets:\n\n$$X \\sim \\text{B}(20,\\ 0.25)$$\n\n\"Fewer than 3\" means 0, 1 or 2 gifts:\n\n$$\\text{P}(X \\leqslant 2) = 0.75^{20} + 20 \\times 0.75^{19} \\times 0.25 + {}^{20}\\text{C}_2 \\times 0.75^{18} \\times 0.25^2$$\n\nThis line earns the M1. Each term is $\\binom{20}{r}\\, 0.25^r\\, 0.75^{20-r}$. Note ${}^{20}\\text{C}_2 = \\dfrac{20 \\times 19}{2} = 190$.",
+   "**Calculate each term (A1)**\n\n$$0.75^{20} = 0.0031712\\ldots$$\n\n$$20 \\times 0.75^{19} \\times 0.25 = 20 \\times 0.0042283 \\times 0.25 = 0.0211414\\ldots$$\n\n$$190 \\times 0.75^{18} \\times 0.25^2 = 190 \\times 0.0056377 \\times 0.0625 = 0.0669478\\ldots$$\n\nAdd:\n\n$$0.0031712 + 0.0211414 + 0.0669478 = 0.0912604$$\n\nCalculator check: binomial cumulative distribution function with $n = 20$, $p = 0.25$, $x = 2$ gives $0.09126$.",
+   "**Final answer**\n\n$$\\text{P}(\\text{Type I error}) = 0.0913 \\quad (3\\text{ sf})$$"
+  ]
+ },
+ "9709_s17_72_q4_ii": {
+  "hints": [
+   "Let $p$ be the true probability that a packet contains a free gift. $\\text{H}_0$ is the claim ($p = \\dfrac{1}{4}$). Both Marisa and André suspect the proportion is *less* than 1 in 4, so $\\text{H}_1$ is one-sided.",
+   "Under $\\text{H}_0$, with 25 packets, $X \\sim \\text{B}(25, \\dfrac{1}{4})$. André saw 1 gift. The probability of a result this extreme or more extreme is $\\text{P}(X \\leqslant 1)$: write it as two terms.",
+   "Evaluate $\\text{P}(X = 0) + \\text{P}(X = 1)$ with the binomial formula $\\binom{25}{r}p^r q^{25-r}$, or use the binomial cumulative distribution function with $n = 25$, $x = 1$.",
+   "Compare your probability with the significance level of 1%. Remember to compare like with like (a probability with a probability).",
+   "If your probability is smaller than the significance level, you reject $\\text{H}_0$; otherwise you do not. Then write the conclusion about the biscuit claim, in context, using \"evidence\" wording."
+  ],
+  "walkthrough": [
+   "**State the hypotheses (B1)**\n\nLet $p$ be the true proportion (probability) of packets that contain a free gift. The claim is that it is 1 in 4. André suspects it is less.\n\n$$\\text{H}_0: p = 0.25$$\n\n$$\\text{H}_1: p < 0.25$$\n\nThis is a one-tailed test, because he only suspects it is *less*. (The scheme asks for $p$ or $\\pi$ and not just the word \"proportion\".)",
+   "**Distribution under $\\text{H}_0$ and the probability we need (M1)**\n\nIf $\\text{H}_0$ is true, 25 independent packets each have probability $0.25$ of a gift:\n\n$$X \\sim \\text{B}(25,\\ 0.25)$$\n\nAndré saw $X = 1$. For a \"less than\" test we ask: how likely is a result as low as this, or lower, if the claim is true? That is $\\text{P}(X \\leqslant 1)$:\n\n$$\\text{P}(X \\leqslant 1) = \\text{P}(X = 0) + \\text{P}(X = 1) = 0.75^{25} + 25 \\times 0.75^{24} \\times 0.25$$\n\nThis line earns the M1. Be careful that there is no end error: it is 0 and 1, both included.",
+   "**Calculate it (A1)**\n\n$$0.75^{25} = 0.00075254\\ldots$$\n\n$$25 \\times 0.75^{24} \\times 0.25 = 25 \\times 0.0010034 \\times 0.25 = 0.0062712\\ldots$$\n\n$$\\text{P}(X \\leqslant 1) = 0.00075254 + 0.0062712 = 0.0070237\\ldots \\approx 0.00702$$\n\nCalculator check: binomial cumulative distribution function with $n = 25$, $p = 0.25$, $x = 1$ gives $0.00702$.",
+   "**Compare with the significance level (M1)**\n\nThe significance level is 1%, which as a probability is $0.01$. Compare:\n\n$$0.00702 < 0.01$$\n\nThe probability of getting a result this low (or lower) if the claim were true is smaller than the significance level.",
+   "**Conclusion (A1)**\n\nSince $0.00702 < 0.01$, the result is in the rejection region. We reject $\\text{H}_0$. In words, in context: a result like this would be very unlikely if 1 in 4 packets really had a gift, so we have evidence the claim is too high.",
+   "**Final answer**\n\n$\\text{P}(X \\leqslant 1) = 0.00702$, which is less than $0.01$, so we reject $\\text{H}_0$.\n\nThere is evidence, at the 1% level, that the proportion of packets with a free gift is less than 1 in 4, so the claim is not justified."
+  ]
+ }
+}

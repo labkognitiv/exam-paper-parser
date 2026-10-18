@@ -1,0 +1,50 @@
+{
+ "9709_s18_72_q7_i": {
+  "hints": [
+   "Let $p$ be the probability that the spinner lands on 10. Under $\\text{H}_0$ the spinner is fair, so $p$ is the value for a fair ten-sided spinner. Sanjeev claims it lands on the 10 *more* often, so $\\text{H}_1$ is one-sided ('greater than').",
+   "Under $\\text{H}_0$ the number of 10s in $9$ spins is binomial: $X \\sim \\text{B}(9, p)$ with your $p$. The observed value is $3$, so the p-value is $\\text{P}(X \\geqslant 3)$.",
+   "Write $\\text{P}(X \\geqslant 3) = 1 - \\text{P}(X \\leqslant 2) = 1 - \\left[\\text{P}(0) + \\text{P}(1) + \\text{P}(2)\\right]$, with each term ${}^9\\text{C}_r\\, p^r (1-p)^{9-r}$.",
+   "Evaluate the probability and compare it with the significance level, $1\\%$ (that is $0.01$ as a decimal).",
+   "If the probability is bigger than the significance level you cannot reject $\\text{H}_0$; if smaller you can. Decide, then write the conclusion about Sanjeev's claim in context, with 'evidence' wording."
+  ],
+  "walkthrough": [
+   "**Set up the hypotheses (this is the B1)**\n\nLet $p$ be the probability that the spinner lands on the 10 in one spin. If the spinner is **not** biased, all ten edges are equally likely, so $p = \\dfrac{1}{10} = 0.1$.\n\nSanjeev claims it lands on 10 **more** often, so the alternative is one-sided:\n\n$$\\text{H}_0: p = 0.1$$\n\n$$\\text{H}_1: p > 0.1$$",
+   "**The distribution under $\\text{H}_0$**\n\nThere are $9$ spins, each one is either '10' or 'not 10', the spins are independent, and the chance is the same each time. That is a binomial situation. Let $X$ be the number of 10s in 9 spins:\n\n$$X \\sim \\text{B}(9, 0.1)$$\n\nWe saw $X = 3$. Since $\\text{H}_1$ is 'more often', we ask: how likely is a result **as extreme as or more extreme than 3** if $\\text{H}_0$ is true? That is $\\text{P}(X \\geqslant 3)$.",
+   "**Write the probability (this is the M1)**\n\n$\\text{P}(X \\geqslant 3)$ includes $3, 4, 5, \\ldots, 9$, which is long. Use the complement instead:\n\n$$\\text{P}(X \\geqslant 3) = 1 - \\left(0.9^9 + 9 \\times 0.9^8 \\times 0.1 + {}^9\\text{C}_2 \\times 0.9^7 \\times 0.1^2\\right)$$\n\nWhere this comes from: each term is ${}^9\\text{C}_r \\times 0.1^r \\times 0.9^{9-r}$ for $r = 0, 1, 2$, and ${}^9\\text{C}_0 = 1$, ${}^9\\text{C}_1 = 9$, ${}^9\\text{C}_2 = 36$.",
+   "**Calculate (this is the A1)**\n\n$$\\text{P}(X=0) = 0.9^9 = 0.387420\\ldots$$\n\n$$\\text{P}(X=1) = 9 \\times 0.9^8 \\times 0.1 = 9 \\times 0.430467\\ldots \\times 0.1 = 0.387420\\ldots$$\n\n$$\\text{P}(X=2) = 36 \\times 0.9^7 \\times 0.1^2 = 36 \\times 0.478296\\ldots \\times 0.01 = 0.172186\\ldots$$\n\n$$\\text{P}(X \\leqslant 2) = 0.387420 + 0.387420 + 0.172186 = 0.947028\\ldots$$\n\n$$\\text{P}(X \\geqslant 3) = 1 - 0.947028\\ldots = 0.052972\\ldots = 0.0530 \\text{ (3 s.f.)}$$\n\nQuick check: your calculator's binomial cdf with $n = 9$, $p = 0.1$, upper value $2$ shows $0.9470$.",
+   "**Compare with the significance level (this is the second M1)**\n\nThe significance level is $1\\% = 0.01$.\n\n$$0.0530 > 0.01$$\n\nThe probability of getting 3 or more tens by chance is bigger than $1\\%$, so the result is **not unusual enough** to reject $\\text{H}_0$. (If you compared $0.9470$ with $0.99$, that is also valid: $0.9470 < 0.99$.)",
+   "**Conclusion (this is the A1 ft)**\n\nWe do not reject $\\text{H}_0$. In context, and not as a definite fact: there is not enough evidence, at the 1% level, to support Sanjeev's claim that the spinner lands on 10 more often than an unbiased one.",
+   "**Final answer**\n\n$\\text{P}(X \\geqslant 3) = 0.0530$, which is greater than $0.01$.\n\nDo not reject $\\text{H}_0$: there is no evidence at the 1% level that the spinner is biased towards 10, so Sanjeev's claim is not justified."
+  ]
+ },
+ "9709_s18_72_q7_ii": {
+  "hints": [
+   "A Type I error means rejecting $\\text{H}_0$ when it is actually true. Look back at your decision in part (i): did you reject $\\text{H}_0$?"
+  ],
+  "walkthrough": [
+   "**What a Type I error is**\n\nA **Type I error** happens when we **reject** $\\text{H}_0$ although $\\text{H}_0$ is true. So to make a Type I error, we must first reject $\\text{H}_0$.\n\nIn part (i) we did **not** reject $\\text{H}_0$. So no Type I error can have been made. (The other kind of mistake, failing to reject a false $\\text{H}_0$, is a Type II error, which is the topic of part (iii).)",
+   "**Final answer**\n\nA Type I error is rejecting $\\text{H}_0$ wrongly, and $\\text{H}_0$ was not rejected in part (i)."
+  ]
+ },
+ "9709_s18_72_q7_iii": {
+  "hints": [
+   "First find the critical region. From part (i), $\\text{P}(X \\geqslant 3)$ is bigger than $1\\%$, so $3$ is not in it. Try $4$: $\\text{P}(X \\geqslant 4) = \\text{P}(X \\geqslant 3) - \\text{P}(X = 3)$, with $\\text{P}(X = 3) = {}^9\\text{C}_3\\, p^3 (1-p)^6$, using your $\\text{H}_0$ value of $p$.",
+   "Evaluate the subtraction and check whether the result is below the 1% significance level.",
+   "Use your two checks (3 is too small to reject, the next value works) to state the smallest value of $X$ that gives a rejection: the critical value.",
+   "A Type II error is **failing to reject** $\\text{H}_0$ when it is false. The true distribution is now $X \\sim \\text{B}(9, 0.5)$. Failing to reject means $X$ is below your critical value.",
+   "Write $\\text{P}(X < \\text{critical value})$ as a sum of binomial terms from $X = 0$ upwards, each ${}^9\\text{C}_r \\times 0.5^r \\times 0.5^{9-r}$.",
+   "Work out each term, add them (or use binomial cdf with $n = 9$, $p = 0.5$) to get the probability of a Type II error."
+  ],
+  "walkthrough": [
+   "**Plan**\n\nA **Type II error** means we do **not** reject $\\text{H}_0$ even though it is false. To find its probability we need two things:\n\n1. the **rejection (critical) region** of the 1% test with $9$ spins, found assuming $\\text{H}_0$ ($p = 0.1$);\n\n2. the probability that $X$ lies **outside** that region when the true $p$ is $0.5$.",
+   "**Find the critical region: is 3 enough? (uses part (i))**\n\nFrom part (i), $\\text{P}(X \\geqslant 3) = 0.05297\\ldots$. This is greater than $0.01$, so getting $3$ or more is **not** rare enough, and $3$ is not in the critical region.",
+   "**Find the critical region: try 4 (this is the M1)**\n\n$\\text{P}(X \\geqslant 4) = \\text{P}(X \\geqslant 3) - \\text{P}(X = 3)$, because the values $\\geqslant 3$ are the values $\\geqslant 4$ plus the single value $3$.\n\n$$\\text{P}(X = 3) = {}^9\\text{C}_3 \\times 0.9^6 \\times 0.1^3 = 84 \\times 0.531441 \\times 0.001 = 0.044641\\ldots$$\n\n$$\\text{P}(X \\geqslant 4) = 0.05297\\ldots - 0.04464\\ldots$$",
+   "**Evaluate (this is the A1)**\n\n$$\\text{P}(X \\geqslant 4) = 0.008331\\ldots = 0.00833 \\text{ (3 s.f.)}$$\n\nThis is below $0.01$. (The scheme needs both $0.05297$ and $0.00833$ somewhere in parts (i) or (iii), to justify the critical value.)",
+   "**State the critical value (this is the B1)**\n\n$\\text{P}(X \\geqslant 3) = 0.0530 > 0.01$ but $\\text{P}(X \\geqslant 4) = 0.00833 < 0.01$, so the smallest value that leads to rejection is $4$. The rejection region is $X \\geqslant 4$, and the **acceptance region** (where we do not reject $\\text{H}_0$) is $X \\leqslant 3$, that is, $X < 4$.",
+   "**The true distribution (this is the second M1)**\n\nThe spinner is in fact biased with $p = 0.5$, so the true distribution of the number of 10s in 9 spins is $X \\sim \\text{B}(9, 0.5)$.\n\nA Type II error happens when this $X$ falls in the acceptance region:\n\n$$\\text{P}(\\text{Type II}) = \\text{P}(X < 4) \\text{ with } X \\sim \\text{B}(9, 0.5)$$",
+   "**Write out the terms (this is the third M1)**\n\n$X < 4$ means $X = 0, 1, 2, 3$. Each term is ${}^9\\text{C}_r \\times 0.5^r \\times 0.5^{9-r}$, and $0.5^r \\times 0.5^{9-r} = 0.5^9$ in every case:\n\n$$\\text{P}(X<4) = 0.5^9 + 9 \\times 0.5^8 \\times 0.5 + {}^9\\text{C}_2 \\times 0.5^7 \\times 0.5^2 + {}^9\\text{C}_3 \\times 0.5^6 \\times 0.5^3$$",
+   "**Calculate (this is the final A1)**\n\n$$0.5^9 = \\frac{1}{512} = 0.001953\\ldots$$\n\n$$\\text{terms: } 1 \\times 0.001953\\ldots = 0.001953 \\qquad 9 \\times 0.001953\\ldots = 0.017578 \\qquad 36 \\times 0.001953\\ldots = 0.070313 \\qquad 84 \\times 0.001953\\ldots = 0.164063$$\n\n$$\\text{sum} = 0.001953 + 0.017578 + 0.070313 + 0.164063 = 0.253906\\ldots$$\n\nQuick check: $1 + 9 + 36 + 84 = 130$ and $\\dfrac{130}{512} = 0.2539\\ldots$.",
+   "**Final answer**\n\n$$\\text{P}(\\text{Type II error}) = 0.254 \\text{ (3 s.f.)}$$"
+  ]
+ }
+}

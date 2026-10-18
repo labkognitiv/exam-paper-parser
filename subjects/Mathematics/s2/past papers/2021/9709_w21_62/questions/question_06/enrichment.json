@@ -1,0 +1,58 @@
+{
+ "9709_w21_62_q6_a": {
+  "hints": [
+   "The null hypothesis is that the machine is fair: $\\text{P}(0) = \\dfrac{1}{10}$. Bob suspects the probability is **smaller**, so choose the direction of $\\text{H}_1$ from that."
+  ],
+  "walkthrough": [
+   "**Hypotheses**\n\n$\\text{H}_0$ is the 'nothing unusual' statement. A fair machine produces each digit with equal probability, so the digit $0$ comes up with probability $\\dfrac{1}{10}$.\n\nBob thinks the probability is **less than** $\\dfrac{1}{10}$, so $\\text{H}_1$ uses $<$ (one-tailed, lower tail).\n\n$$\\text{H}_0: \\text{P}(0) = \\frac{1}{10} \\qquad \\text{H}_1: \\text{P}(0) < \\frac{1}{10}$$",
+   "**Final answer**\n\n$\\text{H}_0: p = \\dfrac{1}{10}$ and $\\text{H}_1: p < \\dfrac{1}{10}$, where $p$ is the probability that the machine produces the digit $0$."
+  ]
+ },
+ "9709_w21_62_q6_b": {
+  "hints": [
+   "Under $\\text{H}_0$ the number of zeros $X$ in $30$ digits is Binomial: $X \\sim \\text{B}(30, 0.1)$. You must use this distribution, not merely write it.",
+   "The rejection region is in the lower tail. Start with the smallest value: $\\text{P}(X = 0) = 0.9^{30}$. Is it at most the $10\\%$ significance level?",
+   "Now check the next value: $\\text{P}(X \\leqslant 1) = 0.9^{30} + 30 \\times 0.9^{29} \\times 0.1$. Is it still at most $0.1$?",
+   "The rejection region is the largest set of values $\\{0, 1, \\ldots\\}$ whose total probability does not go above $0.1$. Decide where to stop, using your two comparisons."
+  ],
+  "walkthrough": [
+   "**What a rejection region is**\n\nThe rejection region is the set of results so low that, if $\\text{H}_0$ were true, they would have a probability of $10\\%$ or less. If Bob's count falls in it, he rejects $\\text{H}_0$. Because $\\text{H}_1$ is $p < \\frac{1}{10}$, the region is at the **lower** end: $X \\leqslant c$ for some $c$.",
+   "**The distribution under $\\text{H}_0$ (the first M1 mark)**\n\nThere are $30$ digits, each one is a $0$ or not independently, so with $p = 0.1$:\n\n$$X \\sim \\text{B}(30, 0.1)$$\n\nwhere $X$ is the number of zeros in the $30$ digits. The mark is for **using** it in the working below.",
+   "**Test $X = 0$ (the second M1 mark)**\n\n$X = 0$ means all $30$ digits are non-zeros. Each has probability $0.9$:\n\n$$\\text{P}(X = 0) = 0.9^{30} = 0.0424$$\n\n$0.0424 < 0.1$, so $X = 0$ is in the rejection region.",
+   "**Test $X \\leqslant 1$ (the B1 mark)**\n\n$X \\leqslant 1$ means $X = 0$ or $X = 1$. For $X = 1$ choose which one of the $30$ digits is the zero: $30$ ways.\n\n$$\\text{P}(X = 1) = 30 \\times 0.9^{29} \\times 0.1 = 0.1413$$\n\n$$\\text{P}(X \\leqslant 1) = 0.0424 + 0.1413 = 0.184$$\n\n(Using more decimal places: $0.042391 + 0.141304 = 0.183695$. The scheme accepts $0.184$ or $0.183$.)\n\n$0.184 > 0.1$, so $X = 1$ is **not** in the rejection region. Adding it would push the probability over $10\\%$.",
+   "**State the rejection region (the A1 mark)**\n\n$X = 0$ is in, $X \\leqslant 1$ is out. So the only value in the rejection region is $0$.\n\nNote: this mark needs at least one comparison with $0.1$ shown.",
+   "**Final answer**\n\nThe rejection region is $X = 0$, that is, $0$ zeros in the $30$ digits."
+  ]
+ },
+ "9709_w21_62_q6_c": {
+  "hints": [
+   "A Type I error means rejecting $\\text{H}_0$ when it is true. Find the probability of landing in your rejection region when $p = \\dfrac{1}{10}$. You have already worked this out in **(b)**."
+  ],
+  "walkthrough": [
+   "**What a Type I error is**\n\nA Type I error happens when we **reject** $\\text{H}_0$ even though $\\text{H}_0$ is **true**. The probability of this is the probability of landing in the rejection region when $p = \\frac{1}{10}$.\n\nThe rejection region from **(b)** is just $X = 0$, and we found $\\text{P}(X = 0) = 0.9^{30}$.",
+   "**Final answer**\n\n$\\text{P}(\\text{Type I error}) = 0.0424$ (3 significant figures). Note that it is less than the $10\\%$ significance level, because the distribution is discrete and the next value would have taken us over $10\\%$."
+  ]
+ },
+ "9709_w21_62_q6_d": {
+  "hints": [
+   "Now the true probability of a zero is $\\dfrac{1}{40}$, so the number of zeros in $30$ digits is $\\text{B}(30, \\dfrac{1}{40})$.",
+   "A Type II error means **not** rejecting $\\text{H}_0$ when it is false, i.e. $X$ lands **outside** your rejection region. Use the complement: $1 - \\text{P}(X = 0)$, where $\\text{P}(X = 0) = \\left(1 - \\dfrac{1}{40}\\right)^{30}$.",
+   "Work out $1 - \\dfrac{1}{40}$ first, raise it to the power $30$ on the calculator, and subtract the result from $1$."
+  ],
+  "walkthrough": [
+   "**The true distribution (the B1 mark)**\n\nThe machine actually produces a $0$ once in every $40$ digits, so the real probability of a $0$ is $\\dfrac{1}{40} = 0.025$. For the $30$ digits,\n\n$$X \\sim \\text{B}\\left(30, \\frac{1}{40}\\right)$$",
+   "**What a Type II error is**\n\nA Type II error means we **fail to reject** $\\text{H}_0$ when it is actually false (here it is false, since $\\frac{1}{40} < \\frac{1}{10}$). We fail to reject when $X$ is **not** in the rejection region $\\{0\\}$, that is, $X \\geqslant 1$.\n\n$$\\text{P}(\\text{Type II error}) = \\text{P}(X \\geqslant 1) = 1 - \\text{P}(X = 0)$$",
+   "**Calculate (the M1 and A1 marks)**\n\n$\\text{P}(X = 0)$ means every digit is non-zero. The chance of a non-zero digit is $1 - \\dfrac{1}{40} = \\dfrac{39}{40} = 0.975$.\n\n$$\\text{P}(X = 0) = 0.975^{30} = 0.4679$$\n\n$$1 - 0.975^{30} = 1 - 0.4679 = 0.5321$$\n\n(Using more decimal places: $1 - 0.467884 = 0.532116$.)",
+   "**Final answer**\n\n$\\text{P}(\\text{Type II error}) = 0.532$ (3 decimal places)."
+  ]
+ },
+ "9709_w21_62_q6_e": {
+  "hints": [
+   "A Type II error means $\\text{H}_0$ is not rejected although it is false. Put that into the words of this question (the machine, the digit $0$, Bob's conclusion)."
+  ],
+  "walkthrough": [
+   "**Translate the definition into this context**\n\nGenerally, a Type II error is: **not rejecting** $\\text{H}_0$ when $\\text{H}_0$ is **false**.\n\nHere, $\\text{H}_0$ says the probability of a $0$ is $\\dfrac{1}{10}$. It is false when the probability really is less than $\\dfrac{1}{10}$. Not rejecting means Bob does not conclude that the probability is lower.",
+   "**Final answer**\n\nA Type II error means Bob concludes there is no evidence that the probability of the machine producing a $0$ is less than $\\dfrac{1}{10}$ (he does not reject $\\text{H}_0$), when in fact the probability **is** less than $\\dfrac{1}{10}$."
+  ]
+ }
+}

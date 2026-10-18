@@ -1,0 +1,38 @@
+{
+ "9709_s22_62_q6_a": {
+  "hints": [
+   "Let $L$ be a large sack and $S$ a small sack. \"Large is more than four times small\" is $L > 4S$, so define $D = L - 4S$ and find $\\text{P}(D > 0)$. Write $\\text{E}(D)$ using $53$ and $14$.",
+   "When you subtract independent variables their variances **add**, and a multiplier is squared: $\\text{Var}(D) = \\text{Var}(L) + 4^2\\,\\text{Var}(S)$, with $11$ and $3$.",
+   "$D$ is normal (a combination of normals). Standardise the boundary $0$: $z = \\dfrac{0 - \\text{E}(D)}{\\sqrt{\\text{Var}(D)}}$. Use the standard deviation, not the variance.",
+   "You want $D > 0$, the **upper** tail. Use $1 - \\Phi(z)$ for the $z$ you found.",
+   "Evaluate with the calculator and give $3$ significant figures. Sense check: the mean of $D$ is negative, so $\\text{P}(D > 0)$ should be less than one half."
+  ],
+  "walkthrough": [
+   "**Turn the words into a single variable**\n\nLet $L \\sim \\text{N}(53, 11)$ be the mass of a large sack and $S \\sim \\text{N}(14, 3)$ the mass of a small sack. (The second number is the **variance**.) We assume the two sacks are chosen independently.\n\n\"Mass of large sack is greater than four times the mass of a small sack\" means $L > 4S$, which is the same as $L - 4S > 0$. So define\n\n$$D = L - 4S$$\n\nand we want $\\text{P}(D > 0)$. A combination of independent normal variables is again normal.",
+   "**Mean of D**\n\nMeans combine just as the formula does: $\\text{E}(D) = \\text{E}(L) - 4\\,\\text{E}(S)$.\n\n$$\\text{E}(D) = 53 - 4 \\times 14 = 53 - 56 = -3$$\n\nThis earns the first **B1**.",
+   "**Variance of D**\n\nFor independent variables, variances **add even when you subtract**, and a multiplier gets **squared**: $\\text{Var}(aS) = a^2\\,\\text{Var}(S)$.\n\n$$\\text{Var}(D) = \\text{Var}(L) + 4^2\\,\\text{Var}(S) = 11 + 16 \\times 3 = 11 + 48 = 59$$\n\nSo $D \\sim \\text{N}(-3, 59)$. This earns the second **B1**.\n\nCommon slip: subtracting the variances ($11 - 48$) gives a negative variance, which is impossible.",
+   "**Standardise**\n\nWe want the probability that $D$ is above $0$. Standardise by subtracting the mean and dividing by the standard deviation $\\sqrt{59} = 7.68114\\ldots$:\n\n$$z = \\frac{0 - (-3)}{\\sqrt{59}} = \\frac{3}{7.68114} = 0.3905\\ldots$$\n\nThis earns the first **M1**. No continuity correction is needed because masses are continuous.",
+   "**Choose the correct tail**\n\n$\\Phi(z)$ gives the area to the **left** of $z$, but we want $D > 0$, the area to the **right**. So\n\n$$\\text{P}(D > 0) = 1 - \\Phi(0.3905)$$\n\nThis earns the second **M1**.",
+   "**Calculate**\n\nNormal cdf (or table): $\\Phi(0.3905) = 0.65195\\ldots$\n\n$$1 - 0.65195 = 0.34805\\ldots$$\n\nTo $3$ significant figures this is $0.348$, earning the **A1**. It is below $0.5$, matching our sense check.",
+   "**Final answer**\n\n$$\\text{P}(L > 4S) = 0.348 \\text{ (3 s.f.)}$$"
+  ]
+ },
+ "9709_s22_62_q6_b": {
+  "hints": [
+   "Let $T$ be the total mass of $12$ large and $25$ small sacks. The lift is safe if $T < 1000$. The mean of $T$ is $12$ lots of $53$ plus $25$ lots of $14$.",
+   "For a sum of **independent different** sacks, add one variance per sack: $12$ lots of $11$ plus $25$ lots of $3$. Do **not** write $12L$, which would multiply the variance by $12^2$.",
+   "Standardise the boundary $1000$ using your mean and the square root of your variance: $z = \\dfrac{1000 - \\text{E}(T)}{\\sqrt{\\text{Var}(T)}}$.",
+   "You want $T < 1000$, the area to the **left**, so this is just $\\Phi(z)$ with your positive $z$.",
+   "Evaluate $\\Phi(z)$ with the calculator and give $3$ significant figures. It should be above one half, since the mean of $T$ is below $1000$."
+  ],
+  "walkthrough": [
+   "**Define the total**\n\nLet $T$ be the total mass of the $37$ sacks: $12$ large ones $L_1, \\ldots, L_{12}$ and $25$ small ones $S_1, \\ldots, S_{25}$. The lift is safe when the total is at most $1000$ kg, so we want $\\text{P}(T < 1000)$. We assume the sacks are independent. A sum of normals is normal.",
+   "**Mean of T**\n\nAdd the means of all sacks: $12$ sacks with mean $53$ and $25$ sacks with mean $14$.\n\n$$\\text{E}(T) = 12 \\times 53 + 25 \\times 14$$\n\n$12 \\times 53 = 636$ and $25 \\times 14 = 350$, so\n\n$$\\text{E}(T) = 636 + 350 = 986$$\n\nThis earns the first **B1**.",
+   "**Variance of T**\n\nThese are $37$ *different* sacks, so we add their variances one by one: $12$ lots of $11$ and $25$ lots of $3$.\n\n$$\\text{Var}(T) = 12 \\times 11 + 25 \\times 3 = 132 + 75 = 207$$\n\nSo $T \\sim \\text{N}(986, 207)$. This earns the second **B1**.\n\nCommon slip: using $12^2 \\times 11$. That would be for one large sack counted $12$ times (the same sack copied), not for $12$ separate sacks.",
+   "**Standardise**\n\nThe standard deviation is $\\sqrt{207} = 14.3875\\ldots$.\n\n$$z = \\frac{1000 - 986}{\\sqrt{207}} = \\frac{14}{14.3875} = 0.9730\\ldots$$\n\nThis earns the first **M1**.",
+   "**Choose the correct tail**\n\nWe want $T$ *below* $1000$, which is the area to the left of $z$, which is exactly what $\\Phi$ gives:\n\n$$\\text{P}(T < 1000) = \\Phi(0.9730)$$\n\nThis earns the second **M1**.",
+   "**Calculate**\n\nNormal cdf (or table): $\\Phi(0.9730) = 0.83474\\ldots$\n\nTo $3$ significant figures this is $0.835$, earning the **A1**. It is above $0.5$ as expected, because the average total $986$ is below the limit $1000$.",
+   "**Final answer**\n\n$$\\text{P}(\\text{lift can safely carry the sacks}) = 0.835 \\text{ (3 s.f.)}$$"
+  ]
+ }
+}

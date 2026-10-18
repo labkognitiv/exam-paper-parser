@@ -1,0 +1,42 @@
+{
+ "9709_s20_63_q4_a": {
+  "hints": [
+   "The sum of two independent Poisson variables is also Poisson, with the **means added**: $A_1 + A_2 \\sim \\text{Po}(1.5 + 1.5)$.",
+   "$A_1 + A_2$ is a whole number, so '$< 2$' means $0$ or $1$ only. Use $\\text{P}(X = r) = \\text{e}^{-\\lambda}\\dfrac{\\lambda^r}{r!}$ for $r = 0$ and $r = 1$ with your $\\lambda$, and add them.",
+   "Both terms contain $\\text{e}^{-\\lambda}$, so you can write the sum as $\\text{e}^{-\\lambda}(1 + \\ldots)$. Evaluate it on your calculator and give 3 significant figures."
+  ],
+  "walkthrough": [
+   "**Why we can add the two Poisson variables (this earns the B1)**\n\n$A_1$ and $A_2$ are independent and each is $\\text{Po}(1.5)$. A key fact about the Poisson distribution: if you add two **independent** Poisson variables, the result is also Poisson, and its mean is the sum of the two means.\n\nLet $S = A_1 + A_2$. Then\n\n$$S \\sim \\text{Po}(1.5 + 1.5) = \\text{Po}(3)$$\n\nso $\\lambda = 3$.",
+   "**Which values count**\n\nA Poisson variable counts things, so $S$ can only be $0, 1, 2, 3, \\ldots$ The condition $S < 2$ therefore includes only two values, $0$ and $1$:\n\n$$\\text{P}(S < 2) = \\text{P}(S = 0) + \\text{P}(S = 1)$$",
+   "**The two probabilities (the M1)**\n\nThe Poisson formula is $\\text{P}(S = r) = \\text{e}^{-\\lambda}\\dfrac{\\lambda^r}{r!}$ with $\\lambda = 3$.\n\nFor $r = 0$: $\\lambda^0 = 1$ and $0! = 1$, so\n\n$$\\text{P}(S = 0) = \\text{e}^{-3} \\times \\frac{3^0}{0!} = \\text{e}^{-3}$$\n\nFor $r = 1$: $\\lambda^1 = 3$ and $1! = 1$, so\n\n$$\\text{P}(S = 1) = \\text{e}^{-3} \\times \\frac{3^1}{1!} = 3\\text{e}^{-3}$$\n\nAdd them, taking out the common factor $\\text{e}^{-3}$:\n\n$$\\text{P}(S < 2) = \\text{e}^{-3} + 3\\text{e}^{-3} = \\text{e}^{-3}(1 + 3)$$",
+   "**Calculate (the A1)**\n\nOn the calculator type $e^{(-3)}$, which shows $0.049787\\ldots$ Then\n\n$$\\text{e}^{-3}(1 + 3) = 4\\text{e}^{-3} = 4 \\times 0.049787\\ldots = 0.19914\\ldots$$\n\nRounded to 3 significant figures this is $0.199$.",
+   "**Final answer**\n\n$\\text{P}(A_1 + A_2 < 2) = 0.199$ (3 s.f.)"
+  ]
+ },
+ "9709_s20_63_q4_b": {
+  "hints": [
+   "This is conditional probability: $\\text{P}(A_1 = 1 \\mid A_1 + A_2 < 2) = \\dfrac{\\text{P}(A_1 = 1 \\text{ and } A_1 + A_2 < 2)}{\\text{P}(A_1 + A_2 < 2)}$. First find the numerator. If $A_1 = 1$, what value must $A_2$ take for the total to be below $2$?",
+   "Since $A_1$ and $A_2$ are independent, multiply: $\\text{P}(A_1 = 1) \\times \\text{P}(A_2 = ?)$. Both come from $\\text{Po}(1.5)$, so use $\\text{e}^{-1.5}\\dfrac{1.5^r}{r!}$ for the right values of $r$ (note: $\\text{Po}(1.5)$ here, not $\\text{Po}(3)$).",
+   "Now set up the fraction: numerator is your product, denominator is the answer to part **(a)**.",
+   "Work out the fraction. The powers of $\\text{e}$ cancel, so you can leave an exact fraction (or give 3 significant figures)."
+  ],
+  "walkthrough": [
+   "**Reading the question: 'given that'**\n\n'Given that $A_1 + A_2 < 2$' means we already know this has happened, and we want the chance that $A_1 = 1$ **within those cases**. That is conditional probability:\n\n$$\\text{P}(A_1 = 1 \\mid A_1 + A_2 < 2) = \\frac{\\text{P}(A_1 = 1 \\text{ and } A_1 + A_2 < 2)}{\\text{P}(A_1 + A_2 < 2)}$$\n\nThe bottom is the answer to part **(a)**. The top needs working out.",
+   "**The numerator: what has to happen (the M1)**\n\nWe need $A_1 = 1$ **and** $A_1 + A_2 < 2$. If $A_1 = 1$, then $1 + A_2 < 2$, which means $A_2 < 1$, and since $A_2$ is a whole number that forces $A_2 = 0$.\n\nSo the combined event is exactly '$A_1 = 1$ and $A_2 = 0$'. The two are independent, so we multiply:\n\n$$\\text{P}(A_1 = 1 \\text{ and } A_1 + A_2 < 2) = \\text{P}(A_1 = 1) \\times \\text{P}(A_2 = 0)$$",
+   "**Work out each factor (the A1)**\n\nEach of $A_1$ and $A_2$ is $\\text{Po}(1.5)$, so use $\\lambda = 1.5$ (not $3$, because we are looking at one variable at a time).\n\n$$\\text{P}(A_1 = 1) = \\text{e}^{-1.5} \\times \\frac{1.5^1}{1!} = 1.5\\text{e}^{-1.5}$$\n\n$$\\text{P}(A_2 = 0) = \\text{e}^{-1.5} \\times \\frac{1.5^0}{0!} = \\text{e}^{-1.5}$$\n\nMultiply:\n\n$$1.5\\text{e}^{-1.5} \\times \\text{e}^{-1.5} = 1.5\\text{e}^{-3}$$\n\nOn the calculator: $\\text{e}^{-1.5} = 0.22313\\ldots$, so $1.5 \\times 0.22313\\ldots \\times 0.22313\\ldots = 0.07468\\ldots$, which is $0.0747$ to 3 s.f.",
+   "**Divide (the second M1)**\n\nPut the numerator over the answer to part **(a)**, which was $4\\text{e}^{-3}$ (about $0.199$):\n\n$$\\text{P}(A_1 = 1 \\mid A_1 + A_2 < 2) = \\frac{1.5\\text{e}^{-3}}{4\\text{e}^{-3}}$$\n\nUsing the rounded values, $\\frac{0.0747}{0.199}$, gives roughly the same, but keeping $\\text{e}^{-3}$ lets us cancel exactly.",
+   "**Simplify (the final A1)**\n\n$\\text{e}^{-3}$ is on both the top and the bottom, so it cancels:\n\n$$\\frac{1.5\\text{e}^{-3}}{4\\text{e}^{-3}} = \\frac{1.5}{4}$$\n\nMultiply top and bottom by $2$ to remove the decimal:\n\n$$\\frac{1.5}{4} = \\frac{3}{8} = 0.375$$",
+   "**Final answer**\n\n$\\text{P}(A_1 = 1 \\mid A_1 + A_2 < 2) = \\dfrac{3}{8}$, which is $0.375$ (3 s.f.)"
+  ]
+ },
+ "9709_s20_63_q4_c": {
+  "hints": [
+   "List the values a Poisson variable can take. Then test whether $A_1 - A_2$ stays inside that list: try small values such as $A_1 = 0$ and $A_2 = 1$."
+  ],
+  "walkthrough": [
+   "**What values does a Poisson variable take?**\n\nA Poisson variable counts events, so its possible values are $0, 1, 2, 3, \\ldots$ It can **never be negative**.",
+   "**What values can $A_1 - A_2$ take?**\n\n$A_1$ and $A_2$ are independent counts, so they can be any whole numbers $0, 1, 2, \\ldots$ Take $A_1 = 0$ and $A_2 = 1$. Then\n\n$$A_1 - A_2 = 0 - 1 = -1$$\n\nBoth of these values are possible, so $A_1 - A_2$ can be negative. A Poisson variable cannot, so $A_1 - A_2$ cannot be Poisson. (The mean of $A_1 - A_2$ is $0$ and the variance is $3$; a Poisson variable would need them to be equal, which is a second reason, but one is enough for the mark.)",
+   "**Final answer**\n\n$A_1 - A_2$ can take negative values, but a Poisson variable can only take values $0, 1, 2, \\ldots$"
+  ]
+ }
+}

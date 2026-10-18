@@ -1,0 +1,49 @@
+{
+  "9709_s17_73_q5_i_a": {
+    "hints": [
+      "The mean $\\lambda = 42$ is large, so a Poisson distribution can be approximated by a normal distribution with the same mean and the same variance: $X \\approx \\text{N}(\\lambda, \\lambda)$.",
+      "The Poisson is discrete and the normal is continuous, so use a continuity correction. $X \\geqslant 40$ includes 40, so the boundary goes half a unit below 40. Standardise: $z = \\dfrac{\\text{boundary} - 42}{\\sqrt{42}}$.",
+      "You want the area to the right of this boundary. Sketch it: your $z$ is negative, so this tail is bigger than half. Use $1 - \\Phi(-z) = \\Phi(z)$ for the positive $z$.",
+      "Use the normal cdf on your calculator (or the table) for the probability, and give the answer to 3 significant figures."
+    ],
+    "walkthrough": [
+      "**Choose the approximation (B1)**\n\n$X \\sim \\text{Po}(42)$ has a large mean, so its bar chart is roughly bell-shaped. We can approximate it by a normal distribution with the **same mean and the same variance**. For a Poisson, mean = variance = $\\lambda = 42$.\n\n$$X \\approx \\text{N}(42,\\ 42)$$\n\nStating this earns the **B1**.",
+      "**Continuity correction**\n\n$X$ takes whole numbers only, while the normal variable takes every value. We think of the whole number 40 as covering the interval from $39.5$ to $40.5$.\n\n$\\text{P}(X \\geqslant 40)$ includes 40 and everything above it, so on the continuous scale we start at $39.5$:\n\n$$\\text{P}(X \\geqslant 40) \\approx \\text{P}(Y > 39.5), \\quad Y \\sim \\text{N}(42, 42)$$",
+      "**Standardise (M1)**\n\nThe variance is $42$, so the standard deviation is $\\sqrt{42} = 6.4807\\ldots$\n\n$$z = \\frac{39.5 - 42}{\\sqrt{42}} = \\frac{-2.5}{6.4807} = -0.3857\\ldots \\approx -0.386$$\n\nThis earns the **M1**. (The scheme allows the M1 even if the continuity correction is wrong or missing, but the answer will then be wrong.)",
+      "**Choose the area (M1)**\n\nWe want the area to the **right** of $z = -0.386$. By symmetry, that equals the area to the left of $+0.386$:\n\n$$\\text{P}(Z > -0.386) = 1 - \\Phi(-0.386) = \\Phi(0.386)$$\n\nThis earns the second **M1**.",
+      "**Calculate (A1)**\n\nUsing the normal cdf on your calculator (or the table, $\\Phi(0.39) = 0.6517$, which is close):\n\n$$\\Phi(0.386) = 0.6502\\ldots$$",
+      "**Final answer**\n\n$$\\text{P}(X \\geqslant 40) \\approx 0.650 \\quad (3 \\text{ sf})$$"
+    ]
+  },
+  "9709_s17_73_q5_i_b": {
+    "hints": [
+      "The normal approximation to a Poisson is only good when $\\lambda$ satisfies a certain condition (the mean must be large enough). Check that condition for $\\lambda = 42$."
+    ],
+    "walkthrough": [
+      "**Why the normal approximation is allowed**\n\nA Poisson distribution with a small mean is lopsided: lots of probability on the smallest values and a long tail to the right. As $\\lambda$ gets bigger the shape becomes symmetrical and bell-shaped, like a normal curve.\n\nThe usual rule is that the normal approximation is suitable when $\\lambda$ is **large**, for example $\\lambda > 15$.",
+      "**Final answer**\n\nThe mean $\\lambda = 42$ is large (bigger than 15), so the normal approximation is suitable."
+    ]
+  },
+  "9709_s17_73_q5_ii_a": {
+    "hints": [
+      "$n = 60$ is large and $p = 0.02$ is small, so approximate the binomial by a Poisson distribution whose mean is $np$.",
+      "$\\text{P}(Y > 2) = 1 - \\text{P}(Y \\leqslant 2)$, and $\\text{P}(Y \\leqslant 2) = \\text{P}(0) + \\text{P}(1) + \\text{P}(2)$ with each term $\\text{e}^{-\\lambda}\\dfrac{\\lambda^r}{r!}$.",
+      "Work out the Poisson probabilities for $r = 0, 1, 2$ (or use the Poisson cdf on your calculator), add them, subtract from 1 and give 3 significant figures."
+    ],
+    "walkthrough": [
+      "**Choose the approximation (B1)**\n\n$Y \\sim \\text{B}(60, 0.02)$ has $n = 60$ trials (large) and a success probability $p = 0.02$ (small). In that case the binomial is well approximated by a Poisson distribution with mean\n\n$$\\lambda = np = 60 \\times 0.02 = 1.2$$\n\n$$Y \\approx \\text{Po}(1.2)$$\n\nStating this earns the **B1**.",
+      "**Choose the tail (M1)**\n\n$Y > 2$ means $Y = 3, 4, 5, \\ldots$, which goes on for ever. It is easier to use the complement:\n\n$$\\text{P}(Y > 2) = 1 - \\text{P}(Y \\leqslant 2) = 1 - \\left[\\text{P}(0) + \\text{P}(1) + \\text{P}(2)\\right]$$\n\nWith the Poisson formula $\\text{P}(r) = \\text{e}^{-1.2}\\dfrac{1.2^r}{r!}$:\n\n$$\\text{P}(Y > 2) = 1 - \\text{e}^{-1.2}\\left(1 + 1.2 + \\frac{1.2^2}{2}\\right)$$\n\nThis earns the **M1**.",
+      "**Calculate (A1)**\n\n$$\\text{e}^{-1.2} = 0.30119\\ldots$$\n\n$$\\frac{1.2^2}{2} = \\frac{1.44}{2} = 0.72$$\n\n$$1 + 1.2 + 0.72 = 2.92$$\n\n$$0.30119 \\times 2.92 = 0.87949\\ldots$$\n\n$$1 - 0.87949 = 0.12051\\ldots$$",
+      "**Final answer**\n\n$$\\text{P}(Y > 2) \\approx 0.121 \\quad (3 \\text{ sf})$$\n\n(For comparison, the exact binomial answer is $0.119$. The scheme gives only the B1 mark for this exact calculation, because the question asks for the approximation.)"
+    ]
+  },
+  "9709_s17_73_q5_ii_b": {
+    "hints": [
+      "Check the condition for a Poisson approximation to a binomial: $n$ is large and $p$ is small, so the mean $np = 60 \\times 0.02$ is small. Compare that mean with the usual limit."
+    ],
+    "walkthrough": [
+      "**Why the Poisson approximation is allowed**\n\nThe Poisson approximation to a binomial works when $n$ is large and $p$ is small, so that the mean $np$ is small. The usual rule is $np < 5$.\n\nHere:\n\n$$np = 60 \\times 0.02 = 1.2$$",
+      "**Final answer**\n\n$n = 60$ is large and $p = 0.02$ is small; the mean $np = 1.2$ is less than 5 (it is small), so the Poisson approximation is suitable."
+    ]
+  }
+}

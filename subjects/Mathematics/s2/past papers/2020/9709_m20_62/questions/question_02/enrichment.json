@@ -1,0 +1,19 @@
+{
+ "9709_m20_62_q2": {
+  "hints": [
+   "A confidence interval for $\\mu$ is $\\bar{x} \\pm z \\times \\dfrac{\\sigma}{\\sqrt{n}}$. Its total width is the distance from one end to the other: write $2 \\times z \\times \\dfrac{3.2}{\\sqrt{100}} = 1.25$.",
+   "Rearrange your equation to make $z$ the subject, and give it to 3 decimal places.",
+   "$z$ is the point on the standard normal distribution that cuts off the upper tail of the interval. Find $\\Phi(z)$ for your $z$ (normal table or your calculator's normal cdf).",
+   "The interval is central, so there is the same tail area above $z$ and below $-z$. Confidence level $= 1 - 2(1 - \\Phi(z))$ as a probability.",
+   "Change your probability into a percentage and round to 3 significant figures. Compare it with the familiar 95% interval, which uses $z = 1.96$, as a sense check."
+  ],
+  "walkthrough": [
+   "**What the width of a confidence interval is**\n\nThe population is normal with known standard deviation $\\sigma = 3.2$, so the interval for the population mean $\\mu$ is\n\n$$\\bar{x} \\pm z \\times \\frac{\\sigma}{\\sqrt{n}}$$\n\nwhere $\\bar{x}$ is the sample mean and $n = 100$ is the sample size. We divide by $\\sqrt{n}$ because the interval is about the **sample mean**, and a mean of 100 lizards varies much less than one lizard.\n\nThe interval goes from $\\bar{x} - z\\frac{\\sigma}{\\sqrt{n}}$ up to $\\bar{x} + z\\frac{\\sigma}{\\sqrt{n}}$. The distance between the two ends is **two** lots of $z\\frac{\\sigma}{\\sqrt{n}}$, so\n\n$$\\text{width} = 2 \\times z \\times \\frac{3.2}{\\sqrt{100}} = 2 \\times z \\times \\frac{3.2}{10}$$",
+   "**Write the equation (this earns the M1)**\n\nThe width is given as 1.25 cm, so\n\n$$2 \\times z \\times \\frac{3.2}{10} = 1.25$$\n\nKeep the 2. The scheme gives the method mark even if it is missing, but your $z$ would then be wrong.",
+   "**Solve for $z$ (this earns the A1)**\n\nFirst $\\frac{3.2}{10} = 0.32$, and $2 \\times 0.32 = 0.64$. So\n\n$$0.64z = 1.25$$\n\nDivide both sides by 0.64:\n\n$$z = \\frac{1.25}{0.64} = 1.953125 \\approx 1.953$$",
+   "**Find $\\Phi(1.953)$ (this earns the second M1)**\n\n$\\Phi(z)$ means the area under the standard normal curve to the **left** of $z$. Use the normal table, or your calculator's normal cdf: lower limit a very negative number (such as $-10^{99}$), upper limit 1.953, mean 0, standard deviation 1.\n\n$$\\Phi(1.953) = 0.9746$$\n\nSo 97.46% of the area is to the left of 1.953. That leaves a tail of $1 - 0.9746 = 0.0254$ on the right.",
+   "**Convert to the confidence level (this earns the third M1)**\n\nThe interval is in the **middle**, between $-1.953$ and $+1.953$. By symmetry there is a tail of 0.0254 on the right *and* the same tail of 0.0254 on the left. The area in the middle is what is left:\n\n$$1 - 2(1 - 0.9746) = 1 - 2 \\times 0.0254 = 1 - 0.0508 = 0.9492$$\n\nThis is the probability that the interval contains the true mean, which is what a confidence level means.",
+   "**Final answer**\n\nAs a percentage, $0.9492 = 94.92\\%$, so\n\n$$\\alpha = 94.9 \\text{ (or } 95\\text{)}$$\n\nSense check: a 95% interval uses $z = 1.96$. Our $z = 1.953$ is just a little smaller, so our confidence level should be just a little under 95%. It is."
+  ]
+ }
+}

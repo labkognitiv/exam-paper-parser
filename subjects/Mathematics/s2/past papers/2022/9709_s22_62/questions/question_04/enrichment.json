@@ -1,0 +1,65 @@
+{
+ "9709_s22_62_q4_a": {
+  "hints": [
+   "Write both hypotheses about the *population mean* number of cars arriving, starting from $4.6$ per minute. The officer suspects \"fewer\", so decide the direction of $\\text{H}_1$. State which time period your mean refers to."
+  ],
+  "walkthrough": [
+   "**What the hypotheses say**\n\nThe null hypothesis $\\text{H}_0$ is the \"nothing has changed\" statement: the mean is still $4.6$ cars per minute. The alternative $\\text{H}_1$ is what the officer suspects: there are now *fewer* cars, so the mean is below $4.6$. Let $\\lambda$ be the population mean number of cars per minute.",
+   "**Write them down**\n\n$$\\text{H}_0: \\lambda = 4.6$$\n\n$$\\text{H}_1: \\lambda < 4.6$$\n\nWriting them for the 2-minute period instead ($\\lambda = 9.2$ and $\\lambda < 9.2$) is also accepted. Just writing \"mean\" with no symbol or word like *population* does not earn the mark.",
+   "**Final answer**\n\n$\\text{H}_0$: population mean $= 4.6$ cars per minute; $\\text{H}_1$: population mean $< 4.6$ cars per minute (equivalently $9.2$ and $< 9.2$ for a $2$-minute period)."
+  ]
+ },
+ "9709_s22_62_q4_b": {
+  "hints": [
+   "The officer counts cars over $2$ minutes, but the given rate is per minute. Scale the mean to the $2$-minute period; the count then has a Poisson distribution with that mean.",
+   "The critical region is made of small values of $X$ (the alternative is \"fewer\"). Write $\\text{P}(X \\leqslant 3)$ as $\\text{e}^{-\\lambda}\\left(1 + \\lambda + \\dfrac{\\lambda^2}{2} + \\dfrac{\\lambda^3}{3!}\\right)$ with your $\\lambda$ and compare with $0.02$.",
+   "Also work out the next cumulative probability, $\\text{P}(X \\leqslant 4)$, by adding the single term for $X = 4$ to your previous total. You need to see where the total crosses $0.02$.",
+   "The critical region is all the values up to the **last** one whose cumulative probability is still below $0.02$. Write it as $X \\leqslant$ (that value), quoting both comparisons."
+  ],
+  "walkthrough": [
+   "**Set up the distribution for 2 minutes**\n\nThe rate is $4.6$ cars per minute and the officer watches for $2$ minutes. Poisson means scale with time, so the mean number of cars in $2$ minutes is\n\n$$\\lambda = 2 \\times 4.6 = 9.2$$\n\nLet $X$ be the number of cars in the $2$ minutes. Under $\\text{H}_0$, $X \\sim \\text{Po}(9.2)$. This earns the **B1**.",
+   "**What a critical region is**\n\nThe **critical region** is the set of results so low that, if $\\text{H}_0$ were true, they would happen with probability at most $2\\%$ (the significance level). We find the biggest set of low values whose total probability is $\\leqslant 0.02$.\n\nWe check cumulative probabilities $\\text{P}(X \\leqslant k)$ for increasing $k$ until we pass $0.02$.",
+   "**Try X ≤ 3**\n\nWrite each term as $\\text{e}^{-9.2}\\dfrac{9.2^r}{r!}$ and add them. Use `e^(-9.2)` $= 0.000101039$:\n\n$$\\text{P}(X \\leqslant 3) = \\text{e}^{-9.2}\\left(1 + 9.2 + \\frac{9.2^2}{2} + \\frac{9.2^3}{3!}\\right)$$\n\nThe terms are $1$, $9.2$, $\\dfrac{84.64}{2} = 42.32$ and $\\dfrac{778.688}{6} = 129.7813$. Their sum is $1 + 9.2 + 42.32 + 129.7813 = 182.3013$.\n\n$$0.000101039 \\times 182.3013 = 0.01842\\ldots$$\n\nSo $\\text{P}(X \\leqslant 3) = 0.0184$, and $0.0184 < 0.02$, so $3$ is inside the critical region. A Poisson expression is seen here, which earns the **M1**.",
+   "**Try X ≤ 4**\n\nAdd the term for $X = 4$:\n\n$$\\text{P}(X = 4) = \\text{e}^{-9.2}\\times\\frac{9.2^4}{4!} = 0.000101039 \\times \\frac{7163.9296}{24} = 0.000101039 \\times 298.497 = 0.03016$$\n\n$$\\text{P}(X \\leqslant 4) = 0.01842 + 0.03016 = 0.0486\\ldots$$\n\nSo $\\text{P}(X \\leqslant 4) = 0.0486$, and $0.0486 > 0.02$, so $4$ is **not** allowed in the critical region. Both probabilities correct earns the **A1**.\n\n*Calculator shortcut:* `Poisson cdf` with $\\lambda = 9.2$ at $3$ and at $4$ gives the same two numbers.",
+   "**State the critical region**\n\nThe largest $k$ with $\\text{P}(X \\leqslant k) \\leqslant 0.02$ is $k = 3$, and we showed both comparisons. This earns the final **A1**.\n\n$$X \\leqslant 3$$",
+   "**Final answer**\n\nUsing $X \\sim \\text{Po}(9.2)$, the critical region is $X \\leqslant 3$ (since $\\text{P}(X \\leqslant 3) = 0.0184 < 0.02$ and $\\text{P}(X \\leqslant 4) = 0.0486 > 0.02$)."
+  ]
+ },
+ "9709_s22_62_q4_c": {
+  "hints": [
+   "The test statistic is the observed count $5$. Check whether $5$ falls inside the critical region you found in part **(b)**, or compare $\\text{P}(X \\leqslant 5)$ with $0.02$.",
+   "Say whether you reject $\\text{H}_0$, then give the conclusion in the context of cars arriving, using the word *evidence* and avoiding a definite claim."
+  ],
+  "walkthrough": [
+   "**What we are testing**\n\nIn the $2$ minutes, exactly $5$ cars arrived. Under $\\text{H}_0$, $X \\sim \\text{Po}(9.2)$. The test asks whether $5$ is low enough to be surprising.",
+   "**Compare with the critical region**\n\nFrom part **(b)** the critical region is $X \\leqslant 3$. Our value is $5$, and $5 > 3$, so it is **not** in the critical region. This earns the **M1**.\n\n*Another way:* find the probability of a result as low as ours, $\\text{P}(X \\leqslant 5) = \\text{P}(X \\leqslant 4) + \\text{P}(X = 5)$. Using the calculator,\n\n$$\\text{P}(X \\leqslant 5) = 0.104\\ldots$$\n\nand $0.104 > 0.02$, so again the result is not unusual enough.",
+   "**Conclusion**\n\nWe do **not reject** $\\text{H}_0$. In context, and not definitely: there is no evidence that the number of cars arriving at the junction is now fewer than before. This earns the **A1**.\n\nCommon slip: writing \"the number of cars is not fewer\" as if proven. A test only says whether there is *evidence*.",
+   "**Final answer**\n\n$5$ is not in the critical region $X \\leqslant 3$ (also $\\text{P}(X \\leqslant 5) = 0.104 > 0.02$), so do not reject $\\text{H}_0$. There is no evidence that fewer cars are now arriving."
+  ]
+ },
+ "9709_s22_62_q4_d": {
+  "hints": [
+   "A Type I error means rejecting $\\text{H}_0$ when it is actually true. Look at what you decided in part **(c)** and ask whether a Type I error is even possible."
+  ],
+  "walkthrough": [
+   "**What a Type I error is**\n\nA **Type I error** happens when we *reject* $\\text{H}_0$ even though $\\text{H}_0$ is true (a false alarm). So it can only happen when the test result is \"reject\".",
+   "**Apply it to part (c)**\n\nIn part **(c)** we did not reject $\\text{H}_0$. If we never rejected, we cannot have rejected wrongly. (The only error possible in this case is a Type II error: not rejecting when $\\text{H}_0$ is false.)",
+   "**Final answer**\n\n**No**, a Type I error is not possible, because $\\text{H}_0$ was not rejected in part **(c)**."
+  ]
+ },
+ "9709_s22_62_q4_e": {
+  "hints": [
+   "One hour is $60$ minutes, so scale the rate of $4.6$ per minute. The mean is large, so approximate the Poisson by a normal with variance equal to the mean.",
+   "\"More than $300$\" means $301$ or more. Because you are going from discrete to continuous, the boundary goes halfway between $300$ and $301$. Standardise with $z = \\dfrac{\\text{boundary} - \\text{mean}}{\\sqrt{\\text{variance}}}$.",
+   "You want the **upper** tail, so the probability is $1 - \\Phi(z)$."
+  ],
+  "walkthrough": [
+   "**Set up the Poisson for one hour**\n\nThe rate is $4.6$ per minute and one hour is $60$ minutes, so the mean number of cars in an hour is\n\n$$\\lambda = 60 \\times 4.6 = 276$$\n\nLet $X$ be the number of cars in an hour, so $X \\sim \\text{Po}(276)$.",
+   "**Why use a normal approximation**\n\nAdding up Poisson terms from $301$ upwards is impossible by hand, and a Poisson with a large mean ($\\lambda > 15$) is very close to a normal distribution. For a Poisson, variance equals mean, so\n\n$$X \\approx \\text{N}(276, 276)$$\n\nHere the second number is the **variance**, $276$, not the standard deviation. This earns the **B1**.",
+   "**Continuity correction**\n\n$X$ only takes whole numbers, but a normal variable $Y$ is continuous. \"More than $300$\" means $X \\geqslant 301$, which in the continuous world starts at $300.5$ (halfway between $300$ and $301$):\n\n$$\\text{P}(X > 300) \\approx \\text{P}(Y > 300.5)$$",
+   "**Standardise**\n\nSubtract the mean and divide by the standard deviation, which is $\\sqrt{276} = 16.6132\\ldots$:\n\n$$z = \\frac{300.5 - 276}{\\sqrt{276}} = \\frac{24.5}{16.6132} = 1.4747\\ldots$$\n\nThis earns the **M1**.",
+   "**Find the upper tail**\n\n$\\Phi(1.4747)$ is the area *below* $z$. On the calculator use normal cdf with lower bound $1.4747$ and upper bound a big number (say $10^{99}$), or use $1 - \\Phi(1.4747)$:\n\n$$1 - \\Phi(1.4747) = 1 - 0.92985 = 0.07014\\ldots$$\n\nTo 3 significant figures this is $0.0701$. This earns the **A1**.",
+   "**Final answer**\n\nWith $z = 1.475$:\n\n$$\\text{P}(\\text{more than } 300 \\text{ cars in an hour}) = 1 - \\Phi(1.475) = 0.0701 \\text{ (3 s.f.)}$$"
+  ]
+ }
+}

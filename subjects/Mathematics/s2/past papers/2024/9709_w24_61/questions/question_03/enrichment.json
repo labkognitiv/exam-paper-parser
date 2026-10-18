@@ -1,0 +1,31 @@
+{
+ "9709_w24_61_q3_a": {
+  "hints": [
+   "The unbiased estimate of the population mean is just the sample mean: $\\bar{t} = \\dfrac{\\sum t}{n}$ with $\\sum t = 230$ and $n = 75$.",
+   "The unbiased estimate of the variance uses divisor $n - 1$, not $n$: $s^2 = \\dfrac{1}{n-1}\\left(\\sum t^2 - \\dfrac{(\\sum t)^2}{n}\\right)$, or equivalently $\\dfrac{n}{n-1}\\left(\\dfrac{\\sum t^2}{n} - \\bar{t}^2\\right)$.",
+   "Put $\\sum t^2 = 930$, $\\sum t = 230$ and $n = 75$ into your formula. Square first, then divide, then subtract, then divide by $74$. Keep the full calculator value for $\\bar{t}$ while you work."
+  ],
+  "walkthrough": [
+   "**Plan**\n\nWe have $n = 75$ students, with $\\sum t = 230$ (the total of all the times) and $\\sum t^2 = 930$ (the total of the squares of the times).\n\n'Unbiased estimate' means a value worked out from the sample that is correct on average. For the mean this is the ordinary sample mean. For the variance it is *not* the plain sample variance: we divide by $n - 1$ instead of $n$ to correct a small tendency to be too low.",
+   "**The mean (this is the B1)**\n\n$$\\bar{t} = \\frac{\\sum t}{n} = \\frac{230}{75}$$\n\n$$\\bar{t} = 3.0666\\ldots = \\frac{46}{15}$$\n\nThe scheme accepts $3.07$ (3 s.f.), or the fraction. Keep the unrounded value for part (b).",
+   "**Choose and write the variance formula (this is the M1)**\n\nThe unbiased estimate of the population variance is:\n\n$$s^2 = \\frac{n}{n-1}\\left(\\frac{\\sum t^2}{n} - \\bar{t}^{\\,2}\\right)$$\n\nSubstitute $n = 75$, $\\sum t^2 = 930$, $\\bar{t} = \\dfrac{230}{75}$:\n\n$$s^2 = \\frac{75}{74}\\left(\\frac{930}{75} - \\left(\\frac{230}{75}\\right)^2\\right)$$\n\nThe scheme also accepts the equivalent form $\\dfrac{1}{74}\\left(930 - \\dfrac{230^2}{75}\\right)$. The common slip is to divide by $75$ instead of $74$, which loses the mark.",
+   "**Calculate each piece**\n\n$$\\frac{930}{75} = 12.4$$\n\n$$\\frac{230}{75} = 3.0666\\ldots, \\qquad \\left(\\frac{230}{75}\\right)^2 = 9.4044\\ldots$$\n\n$$12.4 - 9.4044\\ldots = 2.9955\\ldots$$\n\n$$\\frac{75}{74} \\times 2.9955\\ldots = 1.01351\\ldots \\times 2.9955\\ldots = 3.0360\\ldots$$",
+   "**Final answer**\n\nUnbiased estimate of the population mean: $\\bar{t} = 3.07$ minutes (3 s.f.), exactly $\\dfrac{46}{15}$.\n\nUnbiased estimate of the population variance: $s^2 = 3.0360\\ldots = 3.04$ (3 s.f.), exactly $\\dfrac{337}{111}$."
+  ]
+ },
+ "9709_w24_61_q3_b": {
+  "hints": [
+   "$\\text{P}(\\bar{T} > a) = 0.234$ puts $0.234$ in the upper tail. Find the $z$ with $\\Phi(z) = 1 - 0.234$ using the inverse normal.",
+   "With the true values from part (a), the sample mean of $75$ students has distribution $\\text{N}\\left(\\mu, \\dfrac{\\sigma^2}{75}\\right)$. Write $\\dfrac{a - \\mu}{\\sqrt{\\sigma^2 / 75}} = z$ with your mean and variance. Keep the $\\sqrt{75}$ because $\\bar{T}$ is a mean.",
+   "Rearrange your equation to make $a$ the subject: $a = \\mu + z \\times \\sqrt{\\sigma^2/75}$. Substitute, calculate, and give $a$ to 3 s.f."
+  ],
+  "walkthrough": [
+   "**What we are told**\n\nWe now treat our estimates as the true values: population mean $\\mu = 3.0667$ and population variance $\\sigma^2 = 3.04$ (from part (a)). We take a *new* sample of $75$ students and find its sample mean $\\bar{T}$.\n\nBecause the sample has $n = 75$ values, the sample mean is approximately normal (central limit theorem) with the same mean and a *smaller* variance:\n\n$$\\bar{T} \\sim \\text{N}\\left(3.0667,\\ \\frac{3.04}{75}\\right)$$",
+   "**Find $z$ for the tail area (this is the B1)**\n\nWe want $\\text{P}(\\bar{T} > a) = 0.234$. This is an **upper** tail area of $0.234$.\n\nThe inverse normal on a calculator works with the area to the *left*, which is $1 - 0.234 = 0.766$. Use inverse normal with area $0.766$, mean $0$, standard deviation $1$:\n\n$$z = 0.7257\\ldots = 0.726$$\n\nThe scheme says that using $0.766$ itself as the $z$ value (a very common slip) earns no marks.",
+   "**Standardise (this is the M1)**\n\nStandardising means: subtract the mean and divide by the standard deviation of $\\bar{T}$. That standard deviation is $\\sqrt{\\dfrac{3.04}{75}}$. The $75$ must be inside the square root, because $\\bar{T}$ is a mean of $75$ students.\n\n$$\\frac{a - 3.0667}{\\sqrt{3.04/75}} = 0.726$$\n\nThe upper tail means $a$ is above the mean, so $z$ is positive. (The scheme accepts a $\\pm$ here, but the sign must make sense.)",
+   "**Work out the standard deviation of $\\bar{T}$**\n\n$$\\frac{3.04}{75} = 0.040533\\ldots$$\n\n$$\\sqrt{0.040533\\ldots} = 0.20132\\ldots$$",
+   "**Solve for $a$ (this is the A1)**\n\nMultiply both sides by $0.20132\\ldots$:\n\n$$a - 3.0667 = 0.726 \\times 0.20132\\ldots = 0.14616\\ldots$$\n\nAdd $3.0667$ to both sides:\n\n$$a = 3.0667 + 0.14616\\ldots = 3.2128\\ldots$$\n\n(Using the exact variance $3.0360\\ldots$ instead of $3.04$ gives the same value to 3 s.f.)",
+   "**Final answer**\n\n$a = 3.21$ (3 s.f.)"
+  ]
+ }
+}

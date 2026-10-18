@@ -1,0 +1,18 @@
+{
+  "9709_s18_71_q3": {
+    "hints": [
+      "A 300-day period is 30 ten-day periods: add 30 independent $\\text{Po}(5.1)$ variables, so the mean is $5.1 \\times 30$. This mean is large, so approximate with a normal distribution whose mean and variance both equal that mean.",
+      "Poisson takes whole numbers, normal is continuous: \"fewer than 140\" means at most 139, so use the boundary 139 plus a half, then standardise with $\\dfrac{x - \\mu}{\\sigma}$ (remember $\\sigma$ is the square root of the variance).",
+      "Your $z$ will be negative, and the area below a negative $z$ is found using $\\Phi(-z) = 1 - \\Phi(z)$.",
+      "Look up (or use the calculator for) $\\Phi$ of the positive value, subtract from 1 and give the answer to 3 s.f."
+    ],
+    "walkthrough": [
+      "**Scale the mean up to 300 days**\n\nSales in 10 days follow $\\text{Po}(5.1)$, so the mean is $5.1$ per 10 days. Over 300 days there are $300 \\div 10 = 30$ such periods. Adding independent Poisson variables adds their means:\n\n$$\\lambda = 5.1 \\times 30 = 153$$\n\nSo the number sold in 300 days is $\\text{Po}(153)$.",
+      "**Choose the approximating distribution (B1)**\n\nCalculating Poisson probabilities for every value up to 139 would be huge. When $\\lambda$ is large (bigger than about 15) a Poisson distribution is close to a normal one with the **same mean and the same variance** (for a Poisson the variance equals the mean):\n\n$$X \\sim \\text{Po}(153) \\approx \\text{N}(153, 153)$$\n\nThis earns the **B1**. Careful: the second number in $\\text{N}(\\mu, \\sigma^2)$ is the variance, $153$, not the standard deviation.",
+      "**Continuity correction**\n\nPoisson counts whole numbers. \"Fewer than 140\" means $0, 1, \\ldots, 139$, so $\\text{P}(X < 140) = \\text{P}(X \\leqslant 139)$.\n\nIn the continuous normal, the whole number 139 stands for the stretch from $138.5$ to $139.5$. To include all of 139 we go up to $139.5$:\n\n$$\\text{P}(X \\leqslant 139) \\approx \\text{P}(Y < 139.5)$$\n\nwhere $Y \\sim \\text{N}(153, 153)$.",
+      "**Standardise (M1)**\n\nTo use the normal tables we convert to $z$: subtract the mean, divide by the standard deviation. The standard deviation is $\\sqrt{153}$.\n\n$$\\sqrt{153} = 12.3693\\ldots$$\n\n$$z = \\frac{139.5 - 153}{\\sqrt{153}} = \\frac{-13.5}{12.3693\\ldots} = -1.0914\\ldots$$\n\nThe scheme shows $-1.091$. This is the first **M1**; it is awarded even if the continuity correction is wrong or missing, but then the final answer is lost.",
+      "**Find the area below $z$ (M1)**\n\nTables only list positive $z$. The curve is symmetrical, so the area below $-1.091$ equals the area above $+1.091$:\n\n$$\\text{P}(Z < -1.091) = 1 - \\Phi(1.091)$$\n\nLook up $\\Phi(1.091)$ (tables, or calculator normal cdf): $0.8624$ (to 4 d.p.).\n\n$$1 - 0.8624 = 0.1376$$\n\nThis is the second **M1**, the correct area for your $z$. Quick check: $139.5$ is below the mean $153$, so the probability must be less than $0.5$. It is.",
+      "**Final answer**\n\n$\\text{P}(\\text{fewer than 140 sold in 300 days}) = 0.138$ (3 s.f.)."
+    ]
+  }
+}

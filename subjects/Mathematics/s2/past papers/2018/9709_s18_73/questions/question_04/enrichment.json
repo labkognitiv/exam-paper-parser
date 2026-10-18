@@ -1,0 +1,42 @@
+{
+ "9709_s18_73_q4_i": {
+  "hints": [
+   "A Poisson variable counts events that happen at random, independently, singly and at a constant average rate. Pick one of these conditions and word it for male students leaving to study engineering."
+  ],
+  "walkthrough": [
+   "**What do we need for a Poisson distribution?**\n\nA Poisson distribution models how many times something happens in a fixed period if the events happen **at random**, **independently** of each other, and at a **constant average rate**.",
+   "**Put it in context**\n\nThe question says 'in context', so we must talk about male students and engineering, not just say 'independent'. Any one of these is enough:\n\n- Male students leave to study engineering independently of each other.\n\n- Male students leave to study engineering at random.\n\n- The mean number of male students leaving each year is constant.",
+   "**Final answer**\n\nFor example: **male students leave the school to study engineering independently of one another.** This earns the **B1**."
+  ]
+ },
+ "9709_s18_73_q4_ii": {
+  "hints": [
+   "The sum of two independent Poisson variables is also Poisson, with mean equal to the sum of the means. Add the means 3.1 and 0.8 to get the mean of the total $T = M + F$.",
+   "'More than 3' means 4 or more, so use the complement: $\\text{P}(T > 3) = 1 - \\text{P}(T \\leqslant 3)$, and $\\text{P}(T \\leqslant 3)$ is $\\text{P}(T=0)+\\text{P}(T=1)+\\text{P}(T=2)+\\text{P}(T=3)$.",
+   "Write $1 - \\text{e}^{-\\lambda}\\left(1 + \\lambda + \\dfrac{\\lambda^2}{2!} + \\dfrac{\\lambda^3}{3!}\\right)$ with your $\\lambda$, evaluate on the calculator and give 3 significant figures."
+  ],
+  "walkthrough": [
+   "**Why add the means?**\n\nLet $T = M + F$ be the total number of students leaving to study engineering. $M$ and $F$ are independent and Poisson, so $T$ is also Poisson, and its mean is the sum of the two means. (Quick check: for Poisson variables mean and variance are equal, and variances of independent variables add, so the means add too.)\n\n$$\\lambda = 3.1 + 0.8 = 3.9$$\n\nSo $T \\sim \\text{Po}(3.9)$. This earns the **B1**.",
+   "**Rewrite 'more than 3'**\n\n$T > 3$ means $T = 4, 5, 6, \\ldots$ which never ends. It is much easier to use the complement:\n\n$$\\text{P}(T > 3) = 1 - \\text{P}(T \\leqslant 3) = 1 - \\left[\\text{P}(T=0) + \\text{P}(T=1) + \\text{P}(T=2) + \\text{P}(T=3)\\right]$$",
+   "**Write the four probabilities**\n\nUsing $\\text{P}(T = r) = \\text{e}^{-3.9}\\dfrac{3.9^r}{r!}$ and taking $\\text{e}^{-3.9}$ out as a common factor:\n\n$$\\text{P}(T > 3) = 1 - \\text{e}^{-3.9}\\left(1 + 3.9 + \\frac{3.9^2}{2!} + \\frac{3.9^3}{3!}\\right)$$\n\nThis line earns the **M1**. Common slip: stopping at the term for 2, or including the term for 4.",
+   "**Calculate**\n\n$3.9^2 = 15.21$, and $15.21 \\div 2 = 7.605$.\n\n$3.9^3 = 59.319$, and $59.319 \\div 6 = 9.8865$.\n\n$$1 + 3.9 + 7.605 + 9.8865 = 22.3915$$\n\n$\\text{e}^{-3.9} = 0.020242$ on the calculator.\n\n$$0.020242 \\times 22.3915 = 0.45325$$\n\n$$1 - 0.45325 = 0.54675$$",
+   "**Final answer**\n\n$\\text{P}(\\text{total} > 3) = \\mathbf{0.547}$ (3 significant figures; more exactly $0.546753$). This earns the **A1**."
+  ]
+ },
+ "9709_s18_73_q4_iii": {
+  "hints": [
+   "This is conditional probability: $\\text{P}(A \\mid B) = \\dfrac{\\text{P}(A \\text{ and } B)}{\\text{P}(B)}$, where $A$ is 'no female students leave' and $B$ is 'the total is more than 3'.",
+   "If $F = 0$, the total is just $M$. So '$F = 0$ and total $> 3$' is '$F = 0$ and $M > 3$'. As $M$ and $F$ are independent, multiply $\\text{P}(F=0)$, using mean 0.8, by $\\text{P}(M>3)$, using mean 3.1.",
+   "Divide your product by $\\text{P}(\\text{total} > 3)$ from part (ii). The answer must be less than 1."
+  ],
+  "walkthrough": [
+   "**What kind of probability is this?**\n\nThe words 'given that' tell us it is a **conditional probability**. We know the total is more than 3, and want the chance that, within that situation, there were no female students.\n\n$$\\text{P}(F = 0 \\mid M + F > 3) = \\frac{\\text{P}(F = 0 \\text{ and } M + F > 3)}{\\text{P}(M + F > 3)}$$\n\nThe bottom is the answer to part (ii).",
+   "**Simplify the top line**\n\nIf $F = 0$ then $M + F = M$. So the event '$F = 0$ and $M + F > 3$' is the same as '$F = 0$ and $M > 3$'. Because $M$ and $F$ are independent we multiply:\n\n$$\\text{P}(F = 0 \\text{ and } M > 3) = \\text{P}(F = 0) \\times \\text{P}(M > 3)$$",
+   "**Find $\\text{P}(F = 0)$**\n\n$F \\sim \\text{Po}(0.8)$, so\n\n$$\\text{P}(F = 0) = \\text{e}^{-0.8} = 0.44933$$",
+   "**Find $\\text{P}(M > 3)$**\n\n$M \\sim \\text{Po}(3.1)$, and again we use the complement:\n\n$$\\text{P}(M > 3) = 1 - \\text{e}^{-3.1}\\left(1 + 3.1 + \\frac{3.1^2}{2!} + \\frac{3.1^3}{3!}\\right)$$\n\n$3.1^2 = 9.61$, so $9.61 \\div 2 = 4.805$. $3.1^3 = 29.791$, so $29.791 \\div 6 = 4.96517$.\n\n$$1 + 3.1 + 4.805 + 4.96517 = 13.87017$$\n\n$\\text{e}^{-3.1} = 0.045049$, so $0.045049 \\times 13.87017 = 0.62484$.\n\n$$\\text{P}(M > 3) = 1 - 0.62484 = 0.37516$$",
+   "**Multiply**\n\n$$\\text{P}(F = 0 \\text{ and } M > 3) = 0.44933 \\times 0.37516 = 0.16857$$\n\nThis earns the first **M1**.",
+   "**Divide by the condition**\n\nFrom part (ii), $\\text{P}(M + F > 3) = 0.54675$.\n\n$$\\frac{0.16857}{0.54675} = 0.30831$$\n\nThis line earns the second **M1**. Quick check: the top event (no females and more than 3 males) is part of the bottom event (total more than 3), so the answer must be less than 1. It is.",
+   "**Final answer**\n\nThe probability is **0.308** (3 significant figures). This earns the **A1**."
+  ]
+ }
+}

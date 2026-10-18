@@ -1,0 +1,18 @@
+{
+ "9709_w24_62_q1": {
+  "hints": [
+   "A Poisson distribution approximates a binomial when $n$ is large and $p$ is small. Its mean is $\\lambda = np$ — use the $n = 4\\,500\\,000$ and $p = \\dfrac{1}{1\\,000\\,000}$ in the question.",
+   "$\\text{P}(X \\geqslant 4)$ has no upper limit, so use $1 - \\text{P}(X \\leqslant 3)$. Write the four terms $\\text{P}(X = 0), \\ldots, \\text{P}(X = 3)$ using $\\text{P}(X = r) = \\text{e}^{-\\lambda}\\dfrac{\\lambda^r}{r!}$.",
+   "Work out the four probabilities (or use the Poisson cumulative probability for $r = 3$ on your calculator), add them, and subtract the total from 1. Give 3 significant figures."
+  ],
+  "walkthrough": [
+   "**Why a Poisson distribution?**\n\nThe question gives a binomial with a huge number of trials ($n = 4\\,500\\,000$) and a tiny chance of success ($p = \\frac{1}{1\\,000\\,000}$). That is exactly when a Poisson distribution is a good, much easier, stand-in. We say $X$ is approximately $\\text{Po}(\\lambda)$, where $\\lambda$ is the mean of the binomial, $np$.",
+   "**Find the Poisson mean**\n\nThis line earns the B1.\n\n$$\\lambda = np = 4\\,500\\,000 \\times \\frac{1}{1\\,000\\,000} = 4.5$$\n\nSo $X \\approx \\text{Po}(4.5)$.",
+   "**Turn the probability into something you can add up**\n\n$\\text{P}(X \\geqslant 4)$ means $X = 4, 5, 6, \\ldots$ — the list never ends. The values left over are only $0, 1, 2, 3$, so it is quicker to use the complement (everything except those):\n\n$$\\text{P}(X \\geqslant 4) = 1 - \\text{P}(X \\leqslant 3) = 1 - \\left[\\text{P}(X=0) + \\text{P}(X=1) + \\text{P}(X=2) + \\text{P}(X=3)\\right]$$",
+   "**Write each term**\n\nFor a Poisson distribution, $\\text{P}(X = r) = \\text{e}^{-\\lambda}\\dfrac{\\lambda^r}{r!}$. With $\\lambda = 4.5$:\n\n$$\\text{P}(X \\leqslant 3) = \\text{e}^{-4.5}\\left(1 + 4.5 + \\frac{4.5^2}{2!} + \\frac{4.5^3}{3!}\\right)$$\n\nThe brackets: $\\dfrac{4.5^2}{2!} = \\dfrac{20.25}{2} = 10.125$ and $\\dfrac{4.5^3}{3!} = \\dfrac{91.125}{6} = 15.1875$.\n\n$$\\text{P}(X \\leqslant 3) = \\text{e}^{-4.5}(1 + 4.5 + 10.125 + 15.1875)$$\n\nThis expression, with correct figures, earns the M1.",
+   "**Evaluate it**\n\nOn your calculator, $\\text{e}^{-4.5} = 0.011109$ (to 6 d.p.). Multiply it by each number in the bracket:\n\n$$0.011109 \\times 1 = 0.011109$$\n\n$$0.011109 \\times 4.5 = 0.049990$$\n\n$$0.011109 \\times 10.125 = 0.112479$$\n\n$$0.011109 \\times 15.1875 = 0.168718$$\n\nAdd them:\n\n$$\\text{P}(X \\leqslant 3) = 0.011109 + 0.049990 + 0.112479 + 0.168718 = 0.342296$$\n\nQuick check: the official scheme prints the second term as 0.049999, a small typo; it makes no difference to the answer.",
+   "**Subtract from 1**\n\n$$\\text{P}(X \\geqslant 4) = 1 - 0.342296 = 0.657704$$",
+   "**Final answer**\n\nRounded to 3 significant figures:\n\n$$\\text{P}(X \\geqslant 4) \\approx 0.658$$"
+  ]
+ }
+}

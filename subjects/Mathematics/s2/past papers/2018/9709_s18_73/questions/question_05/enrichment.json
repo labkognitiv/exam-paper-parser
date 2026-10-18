@@ -1,0 +1,39 @@
+{
+ "9709_s18_73_q5_i": {
+  "hints": [
+   "We are using $\\sigma = 0.3$ for the new timetable, which is only valid if the spread of the times has not changed. State that assumption, then write $\\text{H}_0$: population mean $\\mu = 2.4$.",
+   "The question asks whether the mean has **changed**, in either direction. So $\\text{H}_1$ uses $\\neq$ (a two-tailed test).",
+   "Standardise the sample mean: $z = \\dfrac{2.3 - 2.4}{0.3/\\sqrt{30}}$. Note the $\\sqrt{30}$, because $2.3$ is a mean of 30 journeys.",
+   "Work out $0.3 \\div \\sqrt{30}$ first, then divide $2.3 - 2.4$ by it. Keep at least 4 significant figures.",
+   "Two-tailed at 5%: $2.5\\%$ is in each tail, so the critical values are the $z$ with $\\Phi(z) = 0.975$ and its negative. Compare your $z$ with them.",
+   "Decide: if your $z$ is beyond the critical value reject $\\text{H}_0$, otherwise do not reject it. Then write a conclusion in the context of the journey time, using 'there is evidence' or 'there is no evidence'."
+  ],
+  "walkthrough": [
+   "**What are we testing?**\n\nIn the past, journey time had a mean of $2.4$ hours. After the new timetable we measured $30$ journeys and the sample mean was $\\bar{x} = 2.3$ hours. We want to know if this is a real change or just chance variation from sample to sample. A **hypothesis test** answers this.",
+   "**State the assumption and the hypotheses**\n\nThe times are normal, so the sample mean is normal. To work out its standard deviation we need $\\sigma$, the standard deviation of the times. We have no new value for it, so we **assume it is still $0.3$ hours** after the timetable change. This earns the first **B1** together with $\\text{H}_0$.\n\n$$\\text{H}_0: \\mu = 2.4$$\n\nHere $\\mu$ means the true population mean journey time after the new timetable. $\\text{H}_0$ says nothing has changed.\n\n$$\\text{H}_1: \\mu \\neq 2.4$$\n\nWe use $\\neq$ because the question asks whether the time has *changed*; it could have gone up or down. That is a two-tailed test, so $2.5\\%$ is in each tail. This earns the second **B1**.",
+   "**The distribution of the sample mean under $\\text{H}_0$**\n\nIf $\\text{H}_0$ is true, individual times are $\\text{N}(2.4,\\ 0.3^2)$. The mean of $n = 30$ journeys is then\n\n$$\\bar{X} \\sim \\text{N}\\left(2.4,\\ \\frac{0.3^2}{30}\\right)$$\n\nThe standard deviation of $\\bar{X}$ (the *standard error*) is\n\n$$\\frac{0.3}{\\sqrt{30}} = \\frac{0.3}{5.4772} = 0.05477$$",
+   "**Calculate the test statistic**\n\nWe measure how many standard errors $\\bar{x} = 2.3$ is away from $2.4$:\n\n$$z = \\frac{2.3 - 2.4}{\\dfrac{0.3}{\\sqrt{30}}} = \\frac{-0.1}{0.05477}$$\n\nThis line earns the **M1** (the $\\sqrt{30}$ must be there).\n\n$$z = -1.826$$\n\nThis earns the **A1**. The sign is negative because $2.3$ is below $2.4$; the scheme allows $\\pm 1.826$.",
+   "**Compare with the critical value**\n\nThe test is at the $5\\%$ level and is two-tailed, so $2.5\\%$ goes in each tail. The critical values are the $z$ for which $\\Phi(z) = 0.975$ and its negative:\n\n$$z = \\pm 1.96$$\n\nWe compare $|{-1.826}| = 1.826$ with $1.96$. Since $1.826 < 1.96$, our value is **inside** the acceptance region (between $-1.96$ and $1.96$). This earns the **M1**.\n\nAnother way: the probability of being this far below is $\\Phi(-1.826) = 0.034$, which is more than $0.025$; the scheme accepts this comparison too. A third way: the critical region for $\\bar{x}$ is below $2.293$ or above $2.507$, and $2.3$ is not in it.",
+   "**Final answer**\n\nWe do not reject $\\text{H}_0$. There is **no evidence that the mean journey time has changed** from $2.4$ hours (at the $5\\%$ level). This earns the final **A1** (follow-through from your comparison). Note the careful wording: we never say 'proved'."
+  ]
+ },
+ "9709_s18_73_q5_ii_a": {
+  "hints": [
+   "A Type I error is rejecting $\\text{H}_0$ when it is actually true. Its probability is the same as the significance level of the test."
+  ],
+  "walkthrough": [
+   "**What is a Type I error?**\n\nA Type I error happens when we reject $\\text{H}_0$ even though it is true, for example by being unlucky with the sample. The test is set up so that the chance of this is exactly the significance level.",
+   "**Final answer**\n\nThe significance level is $5\\%$, so the probability of a Type I error is **0.05**. This earns the **B1**."
+  ]
+ },
+ "9709_s18_73_q5_ii_b": {
+  "hints": [
+   "A Type II error is not rejecting (accepting) $\\text{H}_0$ when it is actually false. Say this using the journey time: what is true, and what do we wrongly conclude?"
+  ],
+  "walkthrough": [
+   "**What is a Type II error?**\n\nThe two ways a test can be wrong are:\n\n- Type I: reject $\\text{H}_0$ when it is true.\n\n- Type II: do not reject $\\text{H}_0$ when it is false.\n\nNow put the second one into words about the trains.",
+   "**In context**\n\n$\\text{H}_0$ says the mean journey time is still $2.4$ hours. $\\text{H}_0$ being false means the mean time really **has changed**. A Type II error is then concluding from the sample that the mean time has not changed, when it has.",
+   "**Final answer**\n\nA Type II error means **concluding that the mean journey time has not changed when it actually has**. This earns the **B1**. The word 'concluding' or 'accepting' must be there; just describing the truth is not enough."
+  ]
+ }
+}

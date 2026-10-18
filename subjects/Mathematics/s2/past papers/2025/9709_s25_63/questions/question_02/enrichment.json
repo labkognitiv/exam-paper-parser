@@ -1,0 +1,40 @@
+{
+ "9709_s25_63_q2_a_i": {
+  "hints": [
+   "The test statistic for a sample mean is $z = \\dfrac{\\bar{x} - \\mu}{\\sigma/\\sqrt{n}}$. Put in $\\bar{x} = 10.03$, $\\mu = 10$ and $n = 50$. Note the $\\sqrt{50}$, because it is the mean of 50 pencils.",
+   "The question tells you the value of $z$. Set your expression equal to $1.995$ (the $z$-value itself, not $\\Phi(1.995)$).",
+   "Multiply both sides to isolate $\\sigma$ (the $\\sqrt{50}$ moves across too), then work it out on the calculator and give 3 significant figures."
+  ],
+  "walkthrough": [
+   "**What we know**\n\n$\\sigma$ is the population standard deviation, which is unknown. We have a sample of $n = 50$ pencils with sample mean $\\bar{x} = 10.03$ cm, and the supposed population mean is $\\mu = 10$ cm. We are told the test statistic is $z = 1.995$. So the plan is: write the usual formula for $z$ with $\\sigma$ in it, set it equal to $1.995$, and solve for $\\sigma$.",
+   "**Write the test statistic formula (first M1)**\n\nBecause the lengths are normally distributed, the sample mean of $n$ pencils has standard deviation $\\dfrac{\\sigma}{\\sqrt{n}}$. Dividing by $\\sqrt{n}$ matters: the average of 50 pencils varies much less than a single pencil. So\n\n$$z = \\frac{\\bar{x} - \\mu}{\\dfrac{\\sigma}{\\sqrt{50}}} = \\frac{10.03 - 10}{\\dfrac{\\sigma}{\\sqrt{50}}}$$\n\nYou must see $\\sqrt{50}$ to earn this mark.",
+   "**Equate to the given value (second M1)**\n\nWe are told the value of $z$, so we make our expression equal to it:\n\n$$\\frac{10.03 - 10}{\\dfrac{\\sigma}{\\sqrt{50}}} = 1.995$$\n\nBe careful: $1.995$ is the $z$-value itself. Do not look up $\\Phi(1.995)$ here.",
+   "**Solve for $\\sigma$ (A1)**\n\nThe top is $10.03 - 10 = 0.03$. So $\\dfrac{0.03}{\\sigma/\\sqrt{50}} = 1.995$.\n\nMultiply both sides by $\\dfrac{\\sigma}{\\sqrt{50}}$:\n\n$$0.03 = 1.995 \\times \\frac{\\sigma}{\\sqrt{50}}$$\n\nMultiply both sides by $\\sqrt{50}$ and divide by $1.995$:\n\n$$\\sigma = \\frac{0.03 \\times \\sqrt{50}}{1.995}$$\n\nNow the arithmetic: $\\sqrt{50} = 7.0711$, so $0.03 \\times 7.0711 = 0.21213$, and\n\n$$\\sigma = \\frac{0.21213}{1.995} = 0.10633\\ldots = 0.106 \\text{ (3 s.f.)}$$",
+   "**Final answer**\n\n$$\\sigma = 0.106 \\text{ (3 s.f.)}$$"
+  ]
+ },
+ "9709_s25_63_q2_a_ii": {
+  "hints": [
+   "The inspector thinks the mean is **greater** than 10 cm, so the test is one-tailed. Write $\\text{H}_0$ and $\\text{H}_1$ in terms of the **population** mean $\\mu$.",
+   "Find the critical value for a 2.5% one-tailed test from the normal table (the $z$ with $\\Phi(z) = 0.975$), then compare it with the test statistic $z = 1.995$.",
+   "If the test statistic lies beyond the critical value, reject $\\text{H}_0$. Then write the conclusion in the context of the pencil lengths, using non-definite wording (say there is evidence that, not that it is proved)."
+  ],
+  "walkthrough": [
+   "**Plan**\n\nA hypothesis test asks: if the factory mean really is 10 cm, would a sample mean as high as $10.03$ be surprisingly unlikely? If yes, we have evidence that the mean is higher. The test statistic is already given: $z = 1.995$.",
+   "**Hypotheses (B1)**\n\n$\\mu$ is the **population** mean length of pencils made at the factory. The null hypothesis is the \"nothing has changed\" claim; the alternative is what the inspector suspects:\n\n$$\\text{H}_0: \\mu = 10 \\qquad \\text{H}_1: \\mu > 10$$\n\nThe inspector thinks the mean is *greater* than 10, so $\\text{H}_1$ has just one \"$>$\" tail. Write \"$\\mu$\" or say \"population mean\" (just \"mean\" is not enough).\n\n(You may have written these in part (i) and still score the mark.)",
+   "**Compare with the critical value (M1)**\n\nThe significance level is 2.5% and the test is one-tailed, so all of the 2.5% is in the upper tail. We need the $z$ with $\\Phi(z) = 1 - 0.025 = 0.975$. From the normal table (or the calculator's inverse normal) this is\n\n$$z_{\\text{crit}} = 1.96$$\n\nCompare: the test statistic is $1.995$ and\n\n$$1.995 > 1.96$$\n\nso it lies in the rejection region (the upper tail).\n\nEquivalent check by probability: $\\Phi(1.995) = 0.977$, and $0.977 > 0.975$. Or the tail probability is $1 - 0.977 = 0.023 < 0.025$. Any of these valid comparisons earns the mark.",
+   "**Conclusion (A1)**\n\nSince $1.995 > 1.96$ we **reject** $\\text{H}_0$. In words, in the context of the question, and not definite (a test can never prove anything):\n\nThere is sufficient evidence, at the 2.5% significance level, to suggest that the mean length of pencils made at the factory is greater than 10 cm.\n\nCommon slip: using a two-tailed test. That would split the 2.5% into two tails of 1.25% and need a larger critical value, which is the wrong test because the inspector only suspects the mean is *greater*. The scheme gives B0M1A0 for a two-tailed test.",
+   "**Final answer**\n\nReject $\\text{H}_0$: $1.995 > 1.96$. There is sufficient evidence at the 2.5% level to suggest that the mean length of pencils is greater than 10 cm."
+  ]
+ },
+ "9709_s25_63_q2_b": {
+  "hints": [
+   "The Central Limit Theorem is needed when the population is **not** normal (or unknown) and you want the sample mean to be treated as normal. Look at what the question says about the distribution of the pencil lengths."
+  ],
+  "walkthrough": [
+   "**What the Central Limit Theorem does**\n\nThe CLT says: for a large sample, the sample mean is approximately normally distributed, **even if the population itself is not normal**. We use it only when we do not know the population is normal.",
+   "**Apply it here**\n\nThe question states that the lengths of pencils are *normally distributed*. If the population is already normal, then the mean of any sample, big or small, is exactly normal. So we did not need the CLT.\n\nThe sample size $50$ being large is therefore not the reason we could do the test; the normal population is.",
+   "**Final answer**\n\nNo, it was not necessary, because the population distribution of pencil lengths is already normal."
+  ]
+ }
+}

@@ -1,0 +1,35 @@
+{
+ "9709_w17_71_q7_i": {
+  "hints": [
+   "You are looking at the total over 5 days, so the Poisson mean must be for 5 days: scale the daily mean of 0.7. Write $\\text{H}_0$ as a statement about this mean, using $\\lambda$ (or $\\mu$) and saying what it is the mean of.",
+   "The campaign is hoped to increase sales, so the test is one-tailed. Write $\\text{H}_1$ with the same symbol and the same time period as $\\text{H}_0$, using $>$.",
+   "The test statistic is the probability of a result at least as extreme as the one observed: $\\text{P}(X \\geqslant 5)$. Write it as $1 - \\text{P}(X \\leqslant 4)$ and expand with $\\text{e}^{-\\lambda}\\dfrac{\\lambda^r}{r!}$ for each term.",
+   "Work it out with your calculator's Poisson cdf (or add the terms), subtract from 1, and round to 3 significant figures.",
+   "Compare your probability with the significance level, which is written as a decimal in the question as 10%.",
+   "Reject $\\text{H}_0$ only if your probability is smaller than the significance level. Then write a conclusion in context (sales per day), using the word \"evidence\" and not claiming certainty."
+  ],
+  "walkthrough": [
+   "**What the test is about**\n\nBefore the campaign, daily sales follow $\\text{Po}(0.7)$. We want to know if the mean has gone up. We watch for 5 days, and the total over the 5 days is 5 cars. The Poisson distribution is still a good model, so the total over 5 days is also Poisson, but with 5 times the daily mean (means of independent Poisson variables add up).",
+   "**Hypotheses (earns B1 and M1)**\n\nThe null hypothesis $\\text{H}_0$ says nothing has changed. The alternative hypothesis $\\text{H}_1$ says the mean has increased. Using $\\lambda$ for the mean number of sales over 5 days: before the campaign, $5 \\times 0.7 = 3.5$.\n\n$$\\text{H}_0: \\lambda = 3.5 \\quad (\\text{mean sales in 5 days})$$\n\n$$\\text{H}_1: \\lambda > 3.5$$\n\nThe B1 is for $\\text{H}_0$ and the M1 for $\\text{H}_1$. You must use a symbol such as $\\lambda$ or $\\mu$ (not just the word \"mean\"). It is one-tailed because the aim is to see an **increase**. You could equally write $\\text{H}_0$: mean sales per day $= 0.7$.",
+   "**Distribution under $\\text{H}_0$**\n\nIf $\\text{H}_0$ is true, the number of sales in 5 days is $X \\sim \\text{Po}(3.5)$.",
+   "**Probability of the result (earns M1)**\n\nThe data show 5 sales. For a test we ask: if $\\text{H}_0$ is true, how likely is it to see **5 or more**? (\"At least as extreme\" means 5 or any larger number, because $\\text{H}_1$ is about bigger values.)\n\n$$\\text{P}(X \\geqslant 5) = 1 - \\text{P}(X \\leqslant 4)$$\n\nNow write out the terms for $X = 0, 1, 2, 3, 4$ with $\\text{P}(X = r) = \\text{e}^{-3.5}\\dfrac{3.5^r}{r!}$:\n\n$$\\text{P}(X \\geqslant 5) = 1 - \\text{e}^{-3.5}\\left(1 + 3.5 + \\frac{3.5^2}{2!} + \\frac{3.5^3}{3!} + \\frac{3.5^4}{4!}\\right)$$",
+   "**Calculate (earns A1)**\n\nWork out each term of the bracket:\n\n$3.5^2 = 12.25$, divided by $2$ gives $6.125$.\n\n$3.5^3 = 42.875$, divided by $6$ gives $7.1458$.\n\n$3.5^4 = 150.0625$, divided by $24$ gives $6.2526$.\n\nBracket: $1 + 3.5 + 6.125 + 7.1458 + 6.2526 = 24.0234$.\n\n$\\text{e}^{-3.5} = 0.030197$.\n\n$$\\text{P}(X \\leqslant 4) = 0.030197 \\times 24.0234 = 0.72545$$\n\n$$\\text{P}(X \\geqslant 5) = 1 - 0.72545 = 0.27455 = 0.275$$\n\nA calculator's Poisson cdf (mean 3.5, $x = 4$) gives the same $0.7254$. The mark scheme accepts $0.274$ too.",
+   "**Compare with the significance level (earns M1)**\n\nThe significance level is $10\\% = 0.10$. Compare the probability with it:\n\n$$0.275 > 0.10$$\n\nThe rule: if the probability is **smaller** than the significance level, the result is unusual enough to reject $\\text{H}_0$. Here the probability is larger.",
+   "**Conclusion in context (earns A1)**\n\nSince $0.275 > 0.10$, we do not reject $\\text{H}_0$. Writing it in the context of the question, and not as a certainty:\n\nThere is no evidence, at the 10% significance level, that the mean number of sales per day has increased since the campaign.\n\nAvoid wording like \"sales have not increased\" (definite) or \"the campaign failed\".",
+   "**Final answer**\n\n$\\text{P}(X \\geqslant 5) = 0.275 > 0.10$, so do not reject $\\text{H}_0$: there is no evidence (at the 10% level) to believe that sales per day have increased."
+  ]
+ },
+ "9709_w17_71_q7_ii": {
+  "hints": [
+   "Independent Poisson variables add: the two showrooms together have a combined rate per day equal to $0.7 + 0.6$. The period is 3 days, so scale the mean by 3.",
+   "For exactly 2 sales you need a single Poisson term, $\\text{P}(X = 2) = \\text{e}^{-\\lambda}\\dfrac{\\lambda^2}{2!}$, using your new $\\lambda$.",
+   "Substitute your $\\lambda$ into that term, work it out on your calculator, and round to 3 significant figures."
+  ],
+  "walkthrough": [
+   "**Combine the showrooms (earns B1)**\n\nThe sum of two independent Poisson variables is also Poisson, and its mean is the sum of the means. Per day, the two showrooms together have mean\n\n$$0.7 + 0.6 = 1.3$$\n\nFor 3 days we multiply by 3:\n\n$$\\lambda = 3 \\times 1.3 = 3.9$$\n\nSo $X \\sim \\text{Po}(3.9)$ is the total number of cars sold in both showrooms over 3 days.",
+   "**Write the probability (earns M1)**\n\n\"Exactly 2\" is one single value, so we need only one term, not a sum:\n\n$$\\text{P}(X = 2) = \\text{e}^{-3.9} \\times \\frac{3.9^2}{2!}$$",
+   "**Calculate (earns A1)**\n\n$\\text{e}^{-3.9} = 0.020242$.\n\n$3.9^2 = 15.21$, and $\\dfrac{15.21}{2} = 7.605$.\n\n$$0.020242 \\times 7.605 = 0.15394$$\n\nRounded to 3 significant figures, $0.154$.",
+   "**Final answer**\n\n$$\\text{P}(\\text{total} = 2) = 0.154 \\;(3 \\text{ s.f.})$$"
+  ]
+ }
+}

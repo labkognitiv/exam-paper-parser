@@ -1,0 +1,62 @@
+{
+ "9709_m18_72_q7_i": {
+  "hints": [
+   "Start with the sample mean $\\bar{x}$: add the 10 values and divide by $10$.",
+   "A confidence interval for $\\mu$ with known population variance has the form $\\bar{x} \\pm z\\,\\dfrac{\\sigma}{\\sqrt{n}}$. Here the distribution is $\\text{N}(\\mu, 0.01)$, so $\\sigma$ is the square root of $0.01$, and $n = 10$.",
+   "For 99% there is $0.5\\%$ in each tail, so you need the $z$ that has $0.995$ below it. Use the percentage points table (or inverse normal) for this value.",
+   "Work out the margin $z\\,\\dfrac{\\sigma}{\\sqrt{10}}$, then subtract it from and add it to $\\bar{x}$ to get the two ends of the interval. Give them to 4 significant figures, or 2 d.p."
+  ],
+  "walkthrough": [
+   "**What a confidence interval is**\n\nWe want a range of values in which we are 99% confident the true population mean $\\mu$ lies. The population is normal with a known variance $\\sigma^2 = 0.01$, so the standard deviation is $\\sigma = \\sqrt{0.01} = 0.1$.",
+   "**The sample mean (earns the first B1)**\n\n$\\bar{x}$ means the sample mean: add all ten values and divide by $10$.\n\n$$\\sum x = 11.9 + 11.7 + 11.8 + 11.9 + 11.6 + 12.1 + 11.7 + 11.9 + 11.8 + 11.9 = 118.3$$\n\n$$\\bar{x} = \\frac{118.3}{10} = 11.83$$",
+   "**The formula (earns the M1)**\n\nBecause $X$ is normal, $\\bar{X} \\sim \\text{N}\\left(\\mu, \\dfrac{0.01}{10}\\right)$, and the confidence interval is\n\n$$\\bar{x} \\pm z \\times \\frac{\\sigma}{\\sqrt{n}} = 11.83 \\pm z \\times \\frac{0.1}{\\sqrt{10}}$$\n\nHere $\\sqrt{10} = 3.162278\\ldots$, so $\\dfrac{0.1}{\\sqrt{10}} = 0.031623\\ldots$ This is the standard deviation of the sample mean.",
+   "**The $z$ value (earns the second B1)**\n\nA 99% interval leaves $1\\%$ outside, split equally: $0.5\\%$ in each tail. So the lower end of the central 99% has $0.005$ below it, and the upper end has $0.995$ below it. We need $z$ so that $\\Phi(z) = 0.995$.\n\nUse the percentage points table, or the inverse normal function on your calculator with area $0.995$:\n\n$$z = 2.576$$\n\nDo not use $1.96$. That is for 95%.",
+   "**The interval (earns the A1)**\n\nFirst the margin:\n\n$$2.576 \\times 0.031623 = 0.08146\\ldots$$\n\nSubtract it from and add it to the mean:\n\n$$11.83 - 0.08146 = 11.7485\\ldots, \\qquad 11.83 + 0.08146 = 11.9115\\ldots$$\n\nTo 4 significant figures, the interval is $11.75$ to $11.91$.",
+   "**Final answer**\n\n$$99\\%\\ \\text{confidence interval for } \\mu: \\quad [11.75,\\ 11.91]$$"
+  ]
+ },
+ "9709_m18_72_q7_ii": {
+  "hints": [
+   "The Central Limit Theorem is needed when the population is not known to be normal. Look at what the question tells you about the distribution of the sugar content, then decide whether it was needed."
+  ],
+  "walkthrough": [
+   "**What the Central Limit Theorem does**\n\nThe Central Limit Theorem says that for a large sample, the sample mean is approximately normal, whatever the shape of the population. We only need it when the population is **not** normal.",
+   "**Apply it here**\n\nThe question says the mass of sugar has the distribution $\\text{N}(\\mu, 0.01)$, which is already a normal population. For a normal population, the sample mean $\\bar{X}$ is exactly normal for any sample size, even a small one like $n = 10$. So we did not need the theorem.",
+   "**Final answer**\n\nNo, it was not necessary, because the population is already normally distributed, so the sample mean $\\bar{X}$ is normally distributed without the Central Limit Theorem."
+  ]
+ },
+ "9709_m18_72_q7_iii": {
+  "hints": [
+   "Compare the manufacturer's claimed mean, $11.7$ g, with the two ends of your interval from part (i). Is it inside or outside?"
+  ],
+  "walkthrough": [
+   "**What the interval tells us**\n\nThe 99% confidence interval is the set of values for $\\mu$ that are believable given the sample. A claimed mean outside the interval is not supported by the data.",
+   "**Compare with the claim**\n\nThe interval is $[11.75,\\ 11.91]$. The claimed mean is $11.7$, and $11.7 < 11.75$, so it lies below the lower end of the interval.",
+   "**Final answer**\n\nThe claimed mean $11.7$ is not within the 99% confidence interval $[11.75,\\ 11.91]$, so the interval does not support the manufacturer's claim."
+  ]
+ },
+ "9709_m18_72_q7_iv": {
+  "hints": [
+   "Think about what changes from a 99% interval to a 95% one: the $z$ value gets smaller or larger? Then ask whether the narrower interval is inside or outside the wider one, and where $11.7$ sits relative to it."
+  ],
+  "walkthrough": [
+   "**How the width depends on the confidence level**\n\nThe interval is $\\bar{x} \\pm z\\dfrac{\\sigma}{\\sqrt{n}}$. Only $z$ changes between 99% and 95%. A lower confidence level gives a smaller $z$ (about $1.96$ against $2.576$), so the margin is smaller. The 95% interval is **narrower** than the 99% interval and sits inside it. This needs no calculation.",
+   "**What this means for the claim**\n\nThe claimed value $11.7$ was already outside the wider 99% interval, below its lower end. A narrower interval, centred on the same mean $11.83$, has a lower end that is even higher, so $11.7$ would still be outside it.",
+   "**Final answer**\n\nNo, the suggestion is not correct. A 95% confidence interval is narrower than a 99% interval, so it is even less likely to contain $11.7$."
+  ]
+ },
+ "9709_m18_72_q7_v": {
+  "hints": [
+   "The unbiased estimate of the population variance is $\\dfrac{n}{n-1}\\left(\\dfrac{\\sum x^2}{n} - \\bar{x}^2\\right)$, or $\\dfrac{1}{n-1}\\left(\\sum x^2 - \\dfrac{(\\sum x)^2}{n}\\right)$. First work out $\\sum x^2$: square each of the ten values and add.",
+   "Substitute into the formula with $n = 10$, your $\\sum x^2$, and $\\sum x$ (or $\\bar{x}$) from part (i): $\\dfrac{10}{9}\\left(\\dfrac{\\sum x^2}{10} - \\left(\\dfrac{\\sum x}{10}\\right)^2\\right)$.",
+   "Evaluate the bracket first (the difference between the two quantities), then multiply by $\\dfrac{10}{9}$. Give 3 significant figures."
+  ],
+  "walkthrough": [
+   "**Why an 'unbiased estimate' needs $n - 1$**\n\nWe want to estimate the true population variance $\\sigma^2$ from the sample. If we divide by $n$ the answer tends to be a bit too small, so we divide by $n - 1$ instead. That is called the **unbiased estimate**, $s^2$.\n\n$$s^2 = \\frac{n}{n-1}\\left(\\frac{\\sum x^2}{n} - \\bar{x}^2\\right)$$",
+   "**Work out $\\sum x^2$ (earns the first M1)**\n\nSquare each value. Note that $11.9$ appears 4 times, $11.7$ and $11.8$ twice each, and $11.6$ and $12.1$ once.\n\n$$11.9^2 = 141.61 \\ (\\times 4 = 566.44), \\qquad 11.7^2 = 136.89 \\ (\\times 2 = 273.78)$$\n\n$$11.8^2 = 139.24 \\ (\\times 2 = 278.48), \\qquad 11.6^2 = 134.56, \\qquad 12.1^2 = 146.41$$\n\n$$\\sum x^2 = 566.44 + 273.78 + 278.48 + 134.56 + 146.41 = 1399.67$$",
+   "**Substitute into the formula (earns the second M1)**\n\nWe have $n = 10$, $\\sum x = 118.3$ from part (i) and $\\sum x^2 = 1399.67$.\n\n$$s^2 = \\frac{10}{9}\\left(\\frac{1399.67}{10} - \\left(\\frac{118.3}{10}\\right)^2\\right)$$",
+   "**Calculate (earns the A1)**\n\nWork inside the bracket:\n\n$$\\frac{1399.67}{10} = 139.967, \\qquad \\left(\\frac{118.3}{10}\\right)^2 = 11.83^2 = 139.9489$$\n\n$$139.967 - 139.9489 = 0.0181$$\n\nNow multiply by $\\dfrac{10}{9}$:\n\n$$s^2 = \\frac{10}{9} \\times 0.0181 = 0.020111\\ldots \\approx 0.0201$$\n\nAs a fraction, this is $\\dfrac{181}{9000}$. Quick check: the two numbers in the bracket are very close, so use your calculator's full values. Rounding them early would give a wrong difference. The answer $0.0201$ is about twice the value $0.01$ that was assumed, which is why the question suggests it may not be correct.",
+   "**Final answer**\n\n$$s^2 = 0.0201 \\ \\left(\\text{or } \\tfrac{181}{9000}\\right)$$"
+  ]
+ }
+}

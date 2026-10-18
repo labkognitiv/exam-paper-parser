@@ -1,0 +1,29 @@
+{
+ "9709_w19_73_q3_i": {
+  "hints": [
+   "The sample is only 10 competitors, so the central limit theorem does not help you. For the interval to be valid, what must you assume about the distribution of the puzzle times in the whole population?",
+   "Find the sample mean $\\bar{x}$: add all 10 times and divide by $n = 10$.",
+   "A 97% interval leaves 3% outside, split equally between the two tails. The $z$ you need has area $1 - \\dfrac{0.03}{2}$ to its left, so use the inverse normal (or the table of percentage points) on that value.",
+   "The interval is $\\bar{x} \\pm z \\times \\dfrac{\\sigma}{\\sqrt{n}}$. The standard deviation is given as $\\sigma = 3$ and $n = 10$ is the sample size, not 3.",
+   "Work out $z \\times \\dfrac{3}{\\sqrt{10}}$ once, then subtract it from and add it to $\\bar{x}$ to get the two ends, each rounded to 3 s.f."
+  ],
+  "walkthrough": [
+   "**The assumption (first B1)**\n\nA confidence interval for a mean built from the normal distribution needs the sample mean $\\bar{x}$ to be normally distributed. With a sample as small as 10, that is only true if the **population itself** is normally distributed.\n\nSo we state: **assume the times taken by competitors are normally distributed.** This earns the first B1.\n\nNote that we do not need to assume the standard deviation, as the question tells us it is 3.",
+   "**The sample mean (second B1)**\n\n$\\bar{x}$ (read 'x bar') means the sample mean: the total of the sample values divided by how many there are.\n\n$$\\sum x = 25.2 + 26.8 + 18.5 + 25.5 + 30.1 + 28.9 + 27.0 + 26.1 + 26.0 + 24.9 = 259.0$$\n\n$$\\bar{x} = \\frac{259.0}{10} = 25.9$$\n\nThis earns the second B1.",
+   "**Find z for 97% (third B1)**\n\nA 97% confidence interval means 97% of the normal curve is in the middle. The remaining $100\\% - 97\\% = 3\\%$ is shared between two tails, so each tail has 1.5%, or 0.015.\n\nSo we need the value $z$ with 0.015 above it. That means 0.985 below it:\n\n$$\\Phi(z) = 1 - 0.015 = 0.985$$\n\nOn a calculator use inverse normal with area 0.985, mean 0 and standard deviation 1. In the tables, look in the percentage points table for 0.985.\n\n$$z = 2.17$$\n\nThis earns the third B1 (the exact value is 2.1701, which is 2.17 to 3 s.f.).",
+   "**Write the interval (M1)**\n\nThe formula for a confidence interval for a mean when $\\sigma$ is known is:\n\n$$\\bar{x} \\pm z \\times \\frac{\\sigma}{\\sqrt{n}}$$\n\nHere $\\sigma = 3$ is the population standard deviation, $n = 10$ is the sample size. Substitute:\n\n$$25.9 \\pm 2.17 \\times \\frac{3}{\\sqrt{10}}$$\n\nThis earns the M1 as it has the correct form and the correct $z$. Be careful: the denominator is $\\sqrt{10}$, because the sample has 10 people, not $\\sqrt{3}$.",
+   "**Work out the ends (A1)**\n\nFirst the standard error: $\\sqrt{10} = 3.16228$, so\n\n$$\\frac{3}{\\sqrt{10}} = 0.94868$$\n\nMultiply by $z$:\n\n$$2.17 \\times 0.94868 = 2.05864$$\n\nNow subtract and add:\n\n$$25.9 - 2.05864 = 23.84136$$\n\n$$25.9 + 2.05864 = 27.95864$$\n\nRound each to 3 significant figures: 23.8 and 28.0. The A1 needs the final answer written correctly (the scheme says 'CWO', correct working only).",
+   "**Final answer**\n\nThe 97% confidence interval for $\\mu$ is **23.8 to 28.0** (3 s.f.), assuming the population of times is normally distributed."
+  ]
+ },
+ "9709_w19_73_q3_ii": {
+  "hints": [
+   "A 97% interval fails to contain $\\mu$ with probability $1 - 0.97$. The two new intervals come from independent samples, so multiply the two probabilities together."
+  ],
+  "walkthrough": [
+   "**Probability one interval misses μ**\n\nA 97% confidence interval contains the true value of $\\mu$ in 97% of samples. So the chance that one interval does **not** contain $\\mu$ is\n\n$$1 - 0.97 = 0.03$$",
+   "**Both intervals miss (B1)**\n\nThe two new samples are separate and random, so the events are independent. For independent events we multiply their probabilities:\n\n$$\\text{P}(\\text{neither contains } \\mu) = 0.03 \\times 0.03 = 0.03^2$$\n\n$$0.03^2 = 0.0009$$\n\nThis earns the B1.",
+   "**Final answer**\n\nThe probability that neither interval contains $\\mu$ is **0.0009** ($0.03^2$)."
+  ]
+ }
+}

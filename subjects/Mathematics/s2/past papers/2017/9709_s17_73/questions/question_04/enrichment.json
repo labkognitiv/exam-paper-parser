@@ -1,0 +1,33 @@
+{
+  "9709_s17_73_q4_i": {
+    "hints": [
+      "The unbiased estimate of the population mean is just the sample mean, $\\bar{x} = \\dfrac{\\sum x}{n}$, using $\\sum x = 6.7$ and $n = 200$.",
+      "For the unbiased variance estimate divide by $n - 1$, not $n$: $s^2 = \\dfrac{1}{n-1}\\left(\\sum x^2 - n\\bar{x}^2\\right)$, or equivalently $\\dfrac{n}{n-1}\\left(\\dfrac{\\sum x^2}{n} - \\bar{x}^2\\right)$.",
+      "Put $\\sum x^2 = 0.2312$, $n = 200$ and your $\\bar{x}$ into the formula, doing each part on your calculator without rounding in between, and give the answer to 3 significant figures."
+    ],
+    "walkthrough": [
+      "**What 'unbiased estimate' means**\n\nWe only have a sample of 200 locations, but we want to estimate the mean and variance of **all** the pollutant levels in the river. An *unbiased estimate* is a sample-based value that is right on average. For the mean it is $\\bar{x}$ (\"x-bar\", the sample mean). For the variance it is $s^2$, which uses $n - 1$ rather than $n$.",
+      "**The mean (B1)**\n\n$$\\bar{x} = \\frac{\\sum x}{n} = \\frac{6.7}{200} = 0.0335$$\n\nThis earns the **B1**.",
+      "**The unbiased variance estimate (M1)**\n\nUse\n\n$$s^2 = \\frac{n}{n-1}\\left(\\frac{\\sum x^2}{n} - \\bar{x}^2\\right) = \\frac{200}{199}\\left(\\frac{0.2312}{200} - 0.0335^2\\right)$$\n\nWork out the bracket in pieces:\n\n$$\\frac{0.2312}{200} = 0.001156$$\n\n$$0.0335^2 = 0.00112225$$\n\n$$0.001156 - 0.00112225 = 0.00003375$$\n\nNow multiply by $\\frac{200}{199}$:\n\n$$0.00003375 \\times \\frac{200}{199} = \\frac{0.00675}{199} = 0.0000339196\\ldots$$\n\nWriting $\\frac{200}{199} \\times (\\ldots)$ like this earns the **M1**. Common slip: forgetting the $\\frac{200}{199}$ and stopping at $0.00003375$. That is the variance of the sample only, not the unbiased estimate (M0 / A0).",
+      "**Final answer**\n\n$$\\text{Unbiased estimate of the mean} = 0.0335$$\n\n$$\\text{Unbiased estimate of the variance} = 0.0000339 \\;\\left(= \\tfrac{27}{796000}\\right)$$\n\n(Three significant figures: $0.0000339$, that is $3.39 \\times 10^{-5}$.)"
+    ]
+  },
+  "9709_s17_73_q4_ii": {
+    "hints": [
+      "'Has changed' can mean higher or lower, so the alternative hypothesis is two-sided. Write $\\text{H}_0: \\mu = 0.034$ and $\\text{H}_1: \\mu \\neq 0.034$, explaining that $\\mu$ is the population mean pollutant level.",
+      "You are testing a sample mean, so standardise with $z = \\dfrac{\\bar{x} - \\mu}{s/\\sqrt{n}}$, using $\\mu = 0.034$, $n = 200$, and your $\\bar{x}$ and $s^2$ from part (i). Remember the $\\sqrt{200}$.",
+      "Substitute your $\\bar{x}$ and $\\sqrt{s^2}$ into this formula, work out the denominator first, then the whole fraction, and give $z$ to 3 significant figures. Look carefully at its sign.",
+      "A two-sided test at the 10% level splits the 10% between two tails. Compare your $z$ with the critical values $\\pm 1.645$ (or compare the tail area $\\Phi(z)$ with the area in one tail).",
+      "Decide whether your $z$ is in the rejection region, then write your conclusion in context about the mean pollutant level, using wording like 'there is (no) evidence that...', not 'proved'."
+    ],
+    "walkthrough": [
+      "**Choose the hypotheses (B1)**\n\nLast year's mean was $0.034$. The question asks whether the mean has **changed**, which means it could have gone up *or* down. So the test is **two-tailed**.\n\n$$\\text{H}_0: \\mu = 0.034 \\qquad \\text{(the population mean level is still } 0.034 \\text{ g per ml)}$$\n\n$$\\text{H}_1: \\mu \\neq 0.034 \\qquad \\text{(the population mean level has changed)}$$\n\nHere $\\mu$ is the **population** mean level of pollutant in the river. Say this in words; writing only \"mean\" is not enough. This earns the **B1**.",
+      "**Why we use a normal test**\n\nThe sample is large ($n = 200$), so by the Central Limit Theorem the sample mean $\\bar{X}$ is approximately normal. If $\\text{H}_0$ is true,\n\n$$\\bar{X} \\sim \\text{N}\\left(0.034,\\ \\frac{s^2}{200}\\right)$$\n\nWe do not know the true variance, so we use our unbiased estimate $s^2$ from part (i).",
+      "**Work out the test statistic (M1)**\n\n$$z = \\frac{\\bar{x} - \\mu}{\\dfrac{s}{\\sqrt{n}}} = \\frac{0.0335 - 0.034}{\\dfrac{\\sqrt{0.0000339196}}{\\sqrt{200}}}$$\n\nDo the pieces one at a time:\n\n$$\\sqrt{0.0000339196} = 0.0058240\\ldots$$\n\n$$\\sqrt{200} = 14.1421\\ldots$$\n\n$$\\frac{0.0058240}{14.1421} = 0.00041182\\ldots$$\n\n$$0.0335 - 0.034 = -0.0005$$\n\nWriting the fraction with the $\\sqrt{200}$ in the denominator earns the **M1**. Common slip: using $s$ alone, without dividing by $\\sqrt{200}$.\n\n(The mark scheme prints \"030335\" here; that is a typing error for $0.0335$.)",
+      "**Evaluate z (A1)**\n\n$$z = \\frac{-0.0005}{0.00041182} = -1.214\\ldots \\approx -1.21$$\n\nThis earns the **A1**. (The mark scheme also accepts $-1.217$, which is what you get if you use $0.00003375$ for the variance. Either way it is $-1.21$ to 3 significant figures.)",
+      "**Compare with the critical value (M1)**\n\nThe significance level is 10%, and the test is two-tailed, so there is $5\\%$ in each tail. The critical values are $\\pm 1.645$, because $\\Phi(1.645) = 0.95$ (normal table, or inverse normal on your calculator with area $0.95$).\n\nOur $z = -1.214$ is between $-1.645$ and $1.645$, so it is **not** in the rejection region.\n\nAlternatively: $\\Phi(-1.214) = 0.1124$, and $0.1124 > 0.05$, so the tail area is bigger than 5%. This comparison earns the **M1**.",
+      "**Conclusion in context (A1 FT)**\n\nWe do not reject $\\text{H}_0$ (accept $\\text{H}_0$). In words: there is **not enough evidence** that the mean pollutant level has changed.\n\nQuick check: if you used a one-tailed test, the mark scheme gives only M1 A1 for the calculation and A0 for the comparison, so use two tails for 'changed'.",
+      "**Final answer**\n\n$z = -1.21$, which is greater than the critical value $-1.645$. At the 10% significance level there is **no evidence** that the mean level of pollutant has changed from $0.034$ grams per millilitre."
+    ]
+  }
+}

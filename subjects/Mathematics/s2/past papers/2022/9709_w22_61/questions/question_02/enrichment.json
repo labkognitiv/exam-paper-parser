@@ -1,0 +1,36 @@
+{
+ "9709_w22_61_q2_a": {
+  "hints": [
+   "Let $p$ be the probability the spinner lands on red. A fair spinner has five equal sectors, so $\\text{H}_0$ sets $p$ equal to $\\tfrac{1}{5}$. Susma suspects red comes up *less* often, so $\\text{H}_1$ has $p$ below that value.",
+   "Let $X$ be the number of reds in 40 spins; under $\\text{H}_0$ it is binomial with $n = 40$. Because $\\text{H}_1$ says \"fewer\", you need $\\text{P}(X \\leqslant 4)$: write it as the sum of $\\binom{40}{r}\\left(\\tfrac{4}{5}\\right)^{40-r}\\left(\\tfrac{1}{5}\\right)^{r}$ for $r = 0, 1, 2, 3, 4$.",
+   "Evaluate your sum: either work out the five terms and add them, or use your calculator's binomial cumulative distribution with $n = 40$, $p = \\tfrac{1}{5}$ and upper value $4$. Quote it to 3 significant figures.",
+   "This is a one-tailed test at the 5% level, so compare your probability directly with $0.05$ (not $0.025$).",
+   "If your probability is bigger than $0.05$ you do not reject $\\text{H}_0$; if it is smaller you reject it. Then write the conclusion in the context of the spinner and red, saying \"evidence\" rather than anything definite."
+  ],
+  "walkthrough": [
+   "**What the test is about**\n\nA **hypothesis test** asks: if the spinner really is fair, would a result as unusual as Susma's be easy to get by chance?\n\nThe spinner has 5 sectors with different colours. If it is fair, each colour is equally likely, so the probability of red on one spin is $\\dfrac{1}{5} = 0.2$.",
+   "**State the hypotheses (B1)**\n\nLet $p$ be the probability that the spinner lands on red on one spin. We write two statements:\n\n$$\\text{H}_0: p = 0.2 \\qquad \\text{H}_1: p < 0.2$$\n\n$\\text{H}_0$ is the \"nothing unusual\" claim (the spinner is fair for red). $\\text{H}_1$ is what Susma suspects: red comes up *less* than it should. The question says \"fewer\", so $\\text{H}_1$ uses \"$<$\" and the test is **one-tailed** (we only look at the low end).\n\nThis earns the B1.",
+   "**Choose the distribution**\n\nLet $X$ be the number of times the spinner lands on red in 40 spins. There are a fixed number of spins ($40$), each spin is red or not red, each spin has the same chance of red, and the spins are independent. That is exactly a **binomial** situation. If $\\text{H}_0$ is true:\n\n$$X \\sim \\text{B}(40, 0.2)$$",
+   "**Write the probability we need (M1)**\n\nSusma got 4 reds. Because we are looking for *fewer* reds than expected, \"as unusual as this or more unusual\" means **4 or fewer** reds:\n\n$$\\text{P}(X \\leqslant 4) = \\text{P}(X=0) + \\text{P}(X=1) + \\text{P}(X=2) + \\text{P}(X=3) + \\text{P}(X=4)$$\n\nEach term uses $\\text{P}(X = r) = \\binom{40}{r} 0.8^{40-r}\\, 0.2^{r}$ (here $0.8 = 1 - 0.2$ is the chance of *not* red). Written out in full:\n\n$$0.8^{40} + 40 \\times 0.8^{39} \\times 0.2 + {}^{40}\\text{C}_2 \\times 0.8^{38} \\times 0.2^2 + {}^{40}\\text{C}_3 \\times 0.8^{37} \\times 0.2^3 + {}^{40}\\text{C}_4 \\times 0.8^{36} \\times 0.2^4$$\n\nSeeing this full expression earns the M1. (Common slip: using $\\text{P}(X < 4)$ or $\\text{P}(X = 4)$ alone.)",
+   "**Evaluate it (A1)**\n\nCalculating each term (calculator: binomial pdf with $n = 40$, $p = 0.2$):\n\n$$\\text{P}(X=0) = 0.000133,\\quad \\text{P}(X=1) = 0.001329,\\quad \\text{P}(X=2) = 0.006480$$\n\n$$\\text{P}(X=3) = 0.020520,\\quad \\text{P}(X=4) = 0.047452$$\n\nAdd them:\n\n$$0.000133 + 0.001329 + 0.006480 + 0.020520 + 0.047452 = 0.075914$$\n\nOr in one go: binomial cumulative distribution (binomcdf) with $n = 40$, $p = 0.2$, upper value $4$ gives the same.\n\n$$\\text{P}(X \\leqslant 4) = 0.0759 \\text{ (3 s.f.)}$$\n\nThis earns the A1.",
+   "**Compare with the significance level (M1)**\n\nThe significance level is 5%, which is $0.05$. We compare the probability with it:\n\n$$0.0759 > 0.05$$\n\nA probability **bigger** than $0.05$ means the result is not unusual enough. This comparison earns the M1.",
+   "**Conclusion in context (A1 FT)**\n\nSince $0.0759 > 0.05$ we **do not reject** $\\text{H}_0$.\n\nIn words, and not too definite: there is not enough evidence at the 5% level to suggest that the spinner lands on red fewer times than a fair one would (that is, not enough evidence that it is biased).\n\nAvoid saying \"the spinner is fair\" or \"it is proved\": a test can only say whether there is evidence or not.",
+   "**Final answer**\n\n$\\text{P}(X \\leqslant 4) = 0.0759 > 0.05$, so do not reject $\\text{H}_0$: there is not enough evidence that the spinner lands on red fewer times than if it were fair."
+  ]
+ },
+ "9709_w22_61_q2_b": {
+  "hints": [
+   "The rejection region is the set of values of $r$ whose cumulative probability $\\text{P}(X \\leqslant r)$ is at most $0.05$, using the same $\\text{B}(40, \\tfrac{1}{5})$. You know $\\text{P}(X \\leqslant 4)$ from (a), so get $\\text{P}(X \\leqslant 3)$ from it by removing $\\text{P}(X = 4)$.",
+   "Work out $\\text{P}(X = 4) = \\binom{40}{4}\\left(\\tfrac{4}{5}\\right)^{36}\\left(\\tfrac{1}{5}\\right)^{4}$ (binomial pdf on your calculator) and subtract it from your value of $\\text{P}(X \\leqslant 4)$ from (a).",
+   "Compare $\\text{P}(X \\leqslant 3)$ with $0.05$, remembering how $\\text{P}(X \\leqslant 4)$ compared in (a). The largest $r$ with a cumulative probability of at most $0.05$ is the largest value in the rejection region."
+  ],
+  "walkthrough": [
+   "**What a rejection region is**\n\nThe **rejection region** is the set of results so low that we would reject $\\text{H}_0$ at the 5% level. For this one-tailed test that is every value $r$ with $\\text{P}(X \\leqslant r) \\leqslant 0.05$, where $X \\sim \\text{B}(40, 0.2)$ as before.\n\nWe want the **largest** $r$ that still has $\\text{P}(X \\leqslant r) \\leqslant 0.05$.",
+   "**Test $r = 4$ first**\n\nFrom part (a), $\\text{P}(X \\leqslant 4) = 0.0759$, and $0.0759 > 0.05$. So $r = 4$ is **not** in the rejection region (this is why Susma did not reject).\n\nNext try $r = 3$.",
+   "**Find $\\text{P}(X \\leqslant 3)$ (M1)**\n\n$\\text{P}(X \\leqslant 3)$ is $\\text{P}(X \\leqslant 4)$ with the $X = 4$ term taken away:\n\n$$\\text{P}(X \\leqslant 3) = 0.0759 - {}^{40}\\text{C}_4 \\times 0.8^{36} \\times 0.2^4$$\n\nWork out the term you remove (binomial pdf, $n = 40$, $p = 0.2$, $x = 4$): ${}^{40}\\text{C}_4 \\times 0.8^{36} \\times 0.2^4 = 0.047452$.\n\nThis earns the M1. Using the full-precision value from (a) ($0.075914$) is best, or add $\\text{P}(X=0)$ to $\\text{P}(X=3)$ directly.",
+   "**Evaluate (A1)**\n\n$$\\text{P}(X \\leqslant 3) = 0.075914 - 0.047452 = 0.028462$$\n\n$$\\text{P}(X \\leqslant 3) = 0.0285 \\text{ (3 s.f.)}$$\n\nThe scheme accepts $0.0285$ or $0.0284$ (the difference is only rounding of the earlier figures).",
+   "**Pick the largest value (DA1)**\n\n$$0.0285 \\leqslant 0.05 \\quad\\text{so } r = 3 \\text{ is in the rejection region}$$\n\n$r = 4$ is not (its probability is $0.0759 > 0.05$), and anything above $4$ is even less extreme, so it is not either. The values in the rejection region are $0, 1, 2, 3$.",
+   "**Final answer**\n\nThe largest value of $r$ in the rejection region is $3$ (since $\\text{P}(X \\leqslant 3) = 0.0285 \\leqslant 0.05$ but $\\text{P}(X \\leqslant 4) = 0.0759 > 0.05$)."
+  ]
+ }
+}

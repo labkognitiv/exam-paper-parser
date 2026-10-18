@@ -1,0 +1,63 @@
+{
+ "9709_s16_72_q7_a": {
+  "hints": [
+   "In the diagram the bell-shaped curve peaks at $x = 1$ and carries on to both sides of 0 and 2, so there is area in both tails. The interval from 0 to 2 is centred on the line of symmetry $x = 1$. The total area is 1, so the area outside $0 < x < 2$ is $1 - 0.6$. How is it split between the two tails?",
+   "$\\text{P}(X > 0)$ is the middle part $\\text{P}(0 < X < 2)$ plus the right tail $\\text{P}(X > 2)$. You can also use $1 - \\text{P}(X < 0)$."
+  ],
+  "walkthrough": [
+   "**Use the total area (M1)**\n\nLook at the diagram: the curve peaks at $x = 1$, and it continues to the left of 0 and to the right of 2, so there is some area outside the interval from 0 to 2.\n\nFor any pdf the total area under the curve is 1. The area between 0 and 2 is 0.6, so the area in the two tails (left of 0 and right of 2) is:\n\n$$1 - 0.6 = 0.4$$\n\nThe curve is symmetrical about $x = 1$. The point 0 is 1 unit left of the line, and 2 is 1 unit right of it. So the two tails are mirror images and have equal areas:\n\n$$\\text{P}(X < 0) = \\text{P}(X > 2) = \\frac{0.4}{2} = 0.2$$",
+   "**Find $\\text{P}(X > 0)$ (A1)**\n\n$X > 0$ means everything except the left tail:\n\n$$\\text{P}(X > 0) = 1 - \\text{P}(X < 0) = 1 - 0.2 = 0.8$$\n\nCheck the other way: $\\text{P}(0 < X < 2) + \\text{P}(X > 2) = 0.6 + 0.2 = 0.8$. Same answer.",
+   "**Final answer**\n\n$\\text{P}(X > 0) = 0.8$"
+  ]
+ },
+ "9709_s16_72_q7_b_i": {
+  "hints": [
+   "For any pdf, the total area under the curve is 1. Here $\\text{f}(x)$ is non-zero only between 0 and 1.5, so set $\\displaystyle\\int_0^{1.5} k(2.25 - x^2)\\,\\text{d}x$ equal to 1.",
+   "Integrate $2.25 - x^2$ term by term using the power rule: $2.25$ becomes $2.25x$ and $x^2$ becomes $\\dfrac{x^3}{3}$. Keep $k$ outside, then put in the limits 1.5 and 0.",
+   "Work out $2.25 \\times 1.5$ and $\\dfrac{1.5^3}{3}$ separately and subtract. Then you have $k \\times (\\text{your number}) = 1$. Solve for $k$ and show it equals $\\dfrac{4}{9}$."
+  ],
+  "walkthrough": [
+   "**Why the area must equal 1 (M1)**\n\nA pdf describes probabilities as areas. The probability of *something* happening is 1, so the total area under the pdf must be 1. The function is non-zero only for $0 \\leqslant x \\leqslant 1.5$, so:\n\n$$\\int_0^{1.5} k(2.25 - x^2)\\,\\text{d}x = 1$$\n\nThis is the M1: integrating $\\text{f}(x)$ and setting it equal to 1.",
+   "**Integrate (A1)**\n\n$k$ is a constant, so it stays outside. Integrate each term: $\\int 2.25\\,\\text{d}x = 2.25x$ and $\\int x^2\\,\\text{d}x = \\dfrac{x^3}{3}$.\n\n$$k\\left[2.25x - \\frac{x^3}{3}\\right]_0^{1.5} = 1$$",
+   "**Put in the limits**\n\nSubstitute the top limit $x = 1.5$, then subtract what you get at the bottom limit $x = 0$ (which is 0).\n\n$$2.25 \\times 1.5 = 3.375$$\n\n$$\\frac{1.5^3}{3} = \\frac{3.375}{3} = 1.125$$\n\n$$k \\times (3.375 - 1.125) = 1 \\quad\\Rightarrow\\quad k \\times 2.25 = 1 \\quad \\text{i.e. } k \\times \\frac{9}{4} = 1$$",
+   "**Solve for $k$ (A1)**\n\nSince $2.25 = \\dfrac{9}{4}$, divide both sides by $\\dfrac{9}{4}$ (which is the same as multiplying by $\\dfrac{4}{9}$):\n\n$$k = \\frac{1}{9/4} = \\frac{4}{9}$$\n\nThis is a 'show that' question, so the final line must be exactly the printed result, with no errors on the way.",
+   "**Final answer**\n\n$k = \\dfrac{4}{9}$, as required."
+  ]
+ },
+ "9709_s16_72_q7_b_ii": {
+  "hints": [
+   "The mean of a continuous variable is $\\text{E}(X) = \\displaystyle\\int x\\,\\text{f}(x)\\,\\text{d}x$ over the range where $\\text{f}$ is non-zero. Use $k = \\dfrac{4}{9}$ from part (i) and integrate $x \\times (2.25 - x^2)$ from 0 to 1.5.",
+   "Multiply out first: $x(2.25 - x^2) = 2.25x - x^3$. Then integrate each term using the power rule, and keep the $\\dfrac{4}{9}$ outside the bracket.",
+   "Substitute $x = 1.5$ and $x = 0$ into your bracket, then multiply by $\\dfrac{4}{9}$. Careful: $X$ is measured in **hundreds** of hours, so the mean is not yet the answer in hours.",
+   "Convert your mean to hours by using the units of $X$. Any decimal part of an hour can then be turned into minutes by multiplying by 60."
+  ],
+  "walkthrough": [
+   "**The formula for a mean (M1)**\n\nFor a continuous variable with pdf $\\text{f}(x)$, the mean is found by multiplying each value by its density and integrating: $\\text{E}(X) = \\int x\\,\\text{f}(x)\\,\\text{d}x$. With $k = \\dfrac{4}{9}$:\n\n$$\\text{E}(X) = \\int_0^{1.5} x \\times \\frac{4}{9}(2.25 - x^2)\\,\\text{d}x = \\frac{4}{9}\\int_0^{1.5}(2.25x - x^3)\\,\\text{d}x$$\n\nWe multiplied $x$ into the bracket: $x \\times 2.25 = 2.25x$ and $x \\times x^2 = x^3$.",
+   "**Integrate (A1)**\n\nPower rule: add 1 to the power and divide by the new power. $\\int 2.25x\\,\\text{d}x = 2.25 \\times \\dfrac{x^2}{2}$ and $\\int x^3\\,\\text{d}x = \\dfrac{x^4}{4}$.\n\n$$\\text{E}(X) = \\frac{4}{9}\\left[2.25\\,\\frac{x^2}{2} - \\frac{x^4}{4}\\right]_0^{1.5}$$",
+   "**Put in the limits**\n\nAt $x = 0$ everything is 0. At $x = 1.5$:\n\n$$1.5^2 = 2.25 \\qquad 2.25 \\times \\frac{2.25}{2} = \\frac{5.0625}{2} = 2.53125$$\n\n$$1.5^4 = 5.0625 \\qquad \\frac{5.0625}{4} = 1.265625$$\n\n$$\\text{bracket} = 2.53125 - 1.265625 = 1.265625$$\n\n$$\\text{E}(X) = \\frac{4}{9} \\times 1.265625 = 0.5625$$",
+   "**Convert the units (A1)**\n\nThe question says $X$ is in **hundreds of hours**. So $0.5625$ means $0.5625$ hundred hours:\n\n$$0.5625 \\times 100 = 56.25 \\text{ hours}$$\n\nSo the mean number of hours is $56.25$ (the scheme also accepts $56.3$ or $56$). Forgetting this step and answering $0.5625$ hours loses the mark.",
+   "**Hours and minutes (A1 ft)**\n\nThe mark scheme also awards a mark for expressing the extra $0.25$ hour in minutes: $0.25 \\times 60 = 15$ minutes. So the mean is 56 hours and 15 minutes. This mark follows through from your value of $0.5625$.",
+   "**Final answer**\n\nMean $= 0.5625$ hundred hours $= 56.25$ hours, that is 56 hours 15 minutes."
+  ]
+ },
+ "9709_s16_72_q7_b_iii": {
+  "hints": [
+   "Look at the range of $x$ where $\\text{f}(x)$ is non-zero: what is the largest value a tulip lifetime can take in this model? $X$ is in hundreds of hours, so compare it with 290 hours in the same units."
+  ],
+  "walkthrough": [
+   "**What the model says**\n\nFor the tulips, $\\text{f}(x)$ is zero for $x > 1.5$. So the model says no tulip lasts longer than $x = 1.5$.",
+   "**Compare with the daffodils**\n\n$X$ is in hundreds of hours, so the model's longest time is:\n\n$$1.5 \\times 100 = 150 \\text{ hours}$$\n\nBut the longest-lasting daffodil lasted $290$ hours.\n\n$$150 < 290$$\n\nThe mark needs this numerical comparison, not just 'the range is too small'.",
+   "**Final answer**\n\n$\\text{f}(x)$ is not suitable because its maximum value of $x$ is $1.5$ (150 hours), which is less than the 290 hours (that is, $2.9$ in the units of $x$) that one daffodil lasted."
+  ]
+ },
+ "9709_s16_72_q7_b_iv": {
+  "hints": [
+   "In $\\text{g}(x)$, the pdf is non-zero for $0 \\leqslant x \\leqslant a$, so $a$ is the longest time the model allows, in hundreds of hours. It must be at least as big as 290 hours expressed in those units, but not unreasonably large."
+  ],
+  "walkthrough": [
+   "**What $a$ means**\n\nIn $\\text{g}(x)$, the pdf is non-zero only up to $x = a$, so $a$ is the largest lifetime the model allows. It is in hundreds of hours, like $x$ in the tulip model.",
+   "**Choose a suitable value**\n\nA daffodil lasted 290 hours, which is $2.9$ hundred hours. So the model must allow at least $2.9$:\n\n$$a \\geqslant 2.9$$\n\nIt should not be much larger, because then the model would allow lifetimes that never happen. The mark scheme accepts any value from $2.9$ to $5$:\n\n$$2.9 \\leqslant a \\leqslant 5$$\n\nFor example, $a = 3$.",
+   "**Final answer**\n\nAny value $2.9 \\leqslant a \\leqslant 5$, for example $a = 3$ (hundred hours)."
+  ]
+ }
+}

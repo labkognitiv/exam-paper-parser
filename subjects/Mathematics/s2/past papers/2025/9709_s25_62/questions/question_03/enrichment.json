@@ -1,0 +1,25 @@
+{
+ "9709_s25_62_q3_a": {
+  "hints": [
+   "The Poisson formula is $\\text{P}(X = r) = \\text{e}^{-\\lambda}\\dfrac{\\lambda^r}{r!}$. Here the mean is $\\lambda = 15$ and you want $r = 12$. The question asks for an expression, so leave it unevaluated."
+  ],
+  "walkthrough": [
+   "**The Poisson probability formula**\n\n$X \\sim \\text{Po}(15)$ means $X$ counts events at an average rate of $\\lambda = 15$. For a Poisson variable with mean $\\lambda$, the probability of exactly $r$ events is\n\n$$\\text{P}(X = r) = \\text{e}^{-\\lambda}\\,\\frac{\\lambda^r}{r!}$$\n\nHere $r!$ means $r$ factorial, $r \\times (r-1) \\times \\dots \\times 1$.",
+   "**Substitute (the B1)**\n\nPut $\\lambda = 15$ and $r = 12$:\n\n$$\\text{P}(X = 12) = \\text{e}^{-15}\\,\\frac{15^{12}}{12!}$$\n\nThe question only asks for an expression in terms of e, so we stop here. (If you want to check it on a calculator it is about $0.0829$.)",
+   "**Final answer**\n\n$\\text{P}(X = 12) = \\text{e}^{-15} \\times \\dfrac{15^{12}}{12!}$"
+  ]
+ },
+ "9709_s25_62_q3_b": {
+  "hints": [
+   "Write $\\text{P}(X = n)$ and $\\text{P}(X = n+1)$ using the Poisson formula with $\\lambda = 15$, and put one equal to the other.",
+   "Both sides contain $\\text{e}^{-15}$, so cancel it. Then use $15^{n+1} = 15 \\times 15^n$ and $(n+1)! = (n+1) \\times n!$ so that $15^n$ and $n!$ cancel too.",
+   "You are left with a simple equation containing $15$ and $(n+1)$. Solve it for $n + 1$, then for $n$. Quick check: put your $n$ back into the original statement."
+  ],
+  "walkthrough": [
+   "**The equation (B1)**\n\nThe Poisson formula is $\\text{P}(X = r) = \\text{e}^{-15}\\dfrac{15^r}{r!}$. Use $r = n$ for the left side and $r = n+1$ for the right side:\n\n$$\\text{e}^{-15}\\,\\frac{15^{n}}{n!} = \\text{e}^{-15}\\,\\frac{15^{n+1}}{(n+1)!}$$\n\nThis is the equation in $n$ the question asks for. Note the brackets in $(n+1)!$: the factorial applies to the whole of $n+1$.",
+   "**Remove powers and factorials (M1)**\n\nDivide both sides by $\\text{e}^{-15}$, since it is the same on both sides:\n\n$$\\frac{15^{n}}{n!} = \\frac{15^{n+1}}{(n+1)!}$$\n\nNow rewrite the right side. A power with $n+1$ is the power with $n$ times one more $15$, so $15^{n+1} = 15^n \\times 15$. Likewise $(n+1)! = (n+1) \\times n!$ (for example $5! = 5 \\times 4!$):\n\n$$\\frac{15^{n}}{n!} = \\frac{15^n \\times 15}{(n+1) \\times n!}$$\n\nDivide both sides by $\\dfrac{15^n}{n!}$. That leaves $1$ on the left, and on the right everything cancels except $\\dfrac{15}{n+1}$:\n\n$$1 = \\frac{15}{n+1}$$",
+   "**Solve (A1)**\n\nMultiply both sides by $(n+1)$:\n\n$$n + 1 = 15$$\n\nSubtract $1$:\n\n$$n = 14$$\n\nQuick check: for a Poisson variable with whole-number mean $\\lambda$, the two neighbouring probabilities at $\\lambda - 1$ and $\\lambda$ are equal, the top of the distribution. So $\\text{P}(X = 14) = \\text{P}(X = 15)$ is what we expect.",
+   "**Final answer**\n\nThe equation is $\\text{e}^{-15}\\dfrac{15^n}{n!} = \\text{e}^{-15}\\dfrac{15^{n+1}}{(n+1)!}$, which reduces to $1 = \\dfrac{15}{n+1}$, and $n = 14$."
+  ]
+ }
+}

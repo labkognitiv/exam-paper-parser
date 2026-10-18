@@ -1,0 +1,60 @@
+{
+ "9709_s21_61_q8_a": {
+  "hints": [
+   "Think about who is in Grade 12 and who is left out. Would students from only one grade behave like students from the whole school?"
+  ],
+  "walkthrough": [
+   "**What makes a good sample**\n\nTo test a statement about **all** students in the school, the sample must be **representative** of all of them: it must reflect the whole school.\n\nA sample of only Grade 12 students leaves out every other grade. Students in different grades can differ in how likely they are to wear the correct uniform (for example, older students may behave differently from younger ones), so Grade 12 alone could give a misleading proportion.\n\nThe mark scheme asks for the idea of \"not representative\" of the whole school. Saying only \"it is biased\" or \"it is not random\" without this explanation does not score.",
+   "**Final answer**\n\nGrade 12 students are not representative of all the students in the school, since other grades may have a different proportion not wearing the correct uniform."
+  ]
+ },
+ "9709_s21_61_q8_b": {
+  "hints": [
+   "Write both hypotheses about the population proportion $p$ not wearing correct uniform. $\\text{H}_0$ keeps the old value given in the question; the direction of $\\text{H}_1$ comes from the word \"reduced\"."
+  ],
+  "walkthrough": [
+   "**What a hypothesis test compares**\n\nLet $p$ be the true proportion of students in the school who do not wear correct uniform. The null hypothesis $\\text{H}_0$ says nothing has changed, so $p$ is still the old value from the question. The alternative hypothesis $\\text{H}_1$ says what the school is hoping to show.\n\nThe school wants to know whether the proportion has been **reduced**, so $\\text{H}_1$ is a one-tailed (lower-tail) statement with $<$, not $\\neq$.",
+   "**Final answer**\n\n$$\\text{H}_0: p = 0.15$$\n\n$$\\text{H}_1: p < 0.15$$\n\nwhere $p$ is the population proportion of students not wearing correct uniform."
+  ]
+ },
+ "9709_s21_61_q8_c": {
+  "hints": [
+   "A Type I error means rejecting $\\text{H}_0$ when it is actually true, so work under $\\text{H}_0$: the number $X$ not in uniform in the sample is $\\text{B}(50, 0.15)$. Use $\\text{P}(X = r) = {}^{50}\\text{C}_r\\,(1-0.15)^{50-r}\\,0.15^{r}$ for the lowest values of $r$.",
+   "The critical region is the set of small values of $X$ whose total probability is no more than the significance level of $0.05$. Start at $r = 0$ and keep adding $\\text{P}(X = 0) + \\text{P}(X = 1) + \\dots$ one term at a time.",
+   "Because you need the largest region that stays within $0.05$, you must see where the running total first goes over $0.05$: add the next probability as well.",
+   "Compare both running totals (the last one at or under $0.05$ and the first one over it) with $0.05$ to state the critical region.",
+   "The probability of a Type I error is the probability of landing in the critical region when $\\text{H}_0$ is true, so it equals the running total you identified as the last one not exceeding $0.05$. Give it to 3 significant figures."
+  ],
+  "walkthrough": [
+   "**What a Type I error is**\n\nA **Type I error** happens when we reject $\\text{H}_0$ although $\\text{H}_0$ is true. So we assume $p = 0.15$ is true. Let $X$ be the number of students in the sample of 50 who are not wearing correct uniform. Under $\\text{H}_0$:\n\n$$X \\sim \\text{B}(50, 0.15)$$\n\nThe probability of a Type I error is the probability that $X$ falls in the critical region (the values for which we would reject $\\text{H}_0$).",
+   "**The critical region is in the lower tail**\n\nBecause $\\text{H}_1$ is $p < 0.15$, we reject $\\text{H}_0$ when $X$ is very small. The critical region is $X \\leqslant c$ for the largest value $c$ such that $\\text{P}(X \\leqslant c) \\leqslant 0.05$ (the 5% significance level). We find $c$ by adding probabilities from $X = 0$ upwards, using $\\text{P}(X = r) = {}^{50}\\text{C}_r \\times 0.85^{50-r} \\times 0.15^r$ (first M1: any two of these).",
+   "**Probabilities for $r = 0, 1, 2, 3$ (second M1)**\n\n$$\\text{P}(X = 0) = 0.85^{50} = 0.00029576$$\n\n$$\\text{P}(X = 1) = 50 \\times 0.85^{49} \\times 0.15 = 0.0026097$$\n\n$$\\text{P}(X = 2) = {}^{50}\\text{C}_2 \\times 0.85^{48} \\times 0.15^2 = 1225 \\times 0.85^{48} \\times 0.0225 = 0.011283$$\n\n$$\\text{P}(X = 3) = {}^{50}\\text{C}_3 \\times 0.85^{47} \\times 0.15^3 = 19\\,600 \\times 0.85^{47} \\times 0.003375 = 0.031858$$\n\n(${}^{50}\\text{C}_2$ and ${}^{50}\\text{C}_3$ are found on the calculator with the nCr button.) Add them:\n\n$$\\text{P}(X \\leqslant 3) = 0.00029576 + 0.0026097 + 0.011283 + 0.031858 = 0.046047$$\n\nThis is below $0.05$. You can confirm it with your calculator's binomial cdf: $n = 50$, $p = 0.15$, $x = 3$ gives $0.0460$.",
+   "**Check the next value, $r = 4$ (third M1)**\n\nTo be sure that $3$ is the largest possible cut-off, we check that including $4$ goes over the limit:\n\n$$\\text{P}(X = 4) = {}^{50}\\text{C}_4 \\times 0.85^{46} \\times 0.15^4 = 230\\,300 \\times 0.85^{46} \\times 0.00050625 = 0.066059$$\n\n$$\\text{P}(X \\leqslant 4) = 0.046047 + 0.066059 = 0.1121$$",
+   "**State the critical region (first A1)**\n\n$$\\text{P}(X \\leqslant 3) = 0.0460 < 0.05 \\qquad \\text{and} \\qquad \\text{P}(X \\leqslant 4) = 0.112 > 0.05$$\n\nSo the largest cut-off that stays within 5% is $3$: the critical region is $X \\leqslant 3$. You must show both comparisons to \"justify your answer fully\".",
+   "**Probability of a Type I error (second A1)**\n\nThe probability of a Type I error is the probability of being in the critical region when $\\text{H}_0$ is true:\n\n$$\\text{P}(\\text{Type I error}) = \\text{P}(X \\leqslant 3) = 0.0460$$\n\nNotice that it is **not** exactly $0.05$. Because the binomial is discrete, the actual probability is the one just below $0.05$.",
+   "**Final answer**\n\nThe probability of a Type I error is $\\mathbf{0.0460}$ (3 s.f.; the mark scheme also accepts $0.0461$), with critical region $X \\leqslant 3$."
+  ]
+ },
+ "9709_s21_61_q8_d": {
+  "hints": [
+   "Compare the observed value $4$ with the critical region you found in (c) (or compare $\\text{P}(X \\leqslant 4)$ with $0.05$). Decide whether it falls inside.",
+   "Write the conclusion about $\\text{H}_0$, then in context about the proportion not wearing correct uniform. Use cautious wording such as \"there is evidence that\" or \"there is no evidence that\", and avoid definite statements like \"has not decreased\"."
+  ],
+  "walkthrough": [
+   "**Compare the result with the critical region (M1)**\n\nThe test statistic is the observed number of students not wearing correct uniform: $4$. From part (c), the critical region is $X \\leqslant 3$, so $4$ is **not** in it.\n\nEquivalent check: $\\text{P}(X \\leqslant 4) = 0.112$, and $0.112 > 0.05$, so the result is not unusual enough at the 5% level.\n\nSo we do not reject $\\text{H}_0$.",
+   "**Write the conclusion in context (A1)**\n\nFailing to reject $\\text{H}_0$ does not prove that the proportion is still $0.15$; it only means the sample does not give enough evidence that it has dropped. So we say it carefully, not as a fact.",
+   "**Final answer**\n\nDo not reject $\\text{H}_0$: there is no evidence at the 5% level that the proportion of students not wearing correct uniform has decreased (since $4$ is not in the critical region, or $0.112 > 0.05$)."
+  ]
+ },
+ "9709_s21_61_q8_e": {
+  "hints": [
+   "A Type I error means rejecting $\\text{H}_0$ when it is true; a Type II error means not rejecting $\\text{H}_0$ when it is false. Which decision did you make in part (d)?",
+   "You can only make the error that goes with the decision you made, because the other error needs the opposite decision. Name that error and give the reason in words."
+  ],
+  "walkthrough": [
+   "**Match the error to the decision (B1)**\n\nThe two errors are:\n\n- **Type I**: rejecting $\\text{H}_0$ when $\\text{H}_0$ is true.\n\n- **Type II**: not rejecting $\\text{H}_0$ when $\\text{H}_0$ is false.\n\nIn part (d) we did **not** reject $\\text{H}_0$. A Type I error needs us to have rejected it, so that cannot have happened.",
+   "**Name the error (B1)**\n\nWe may have failed to reject $\\text{H}_0$ when in fact the proportion really had decreased, which is a Type II error.",
+   "**Final answer**\n\nA Type II error may have been made, because $\\text{H}_0$ was not rejected (and it might in fact be false)."
+  ]
+ }
+}

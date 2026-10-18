@@ -1,0 +1,44 @@
+{
+ "9709_w18_71_q6_i": {
+  "hints": [
+   "The total probability under a pdf is 1, so $\\int_2^6 kx^{-1}\\,\\text{d}x = 1$. Remember that $\\int x^{-1}\\,\\text{d}x = \\ln x$.",
+   "Substitute the limits 6 and 2 into $k\\ln x$, then use $\\ln a - \\ln b = \\ln\\dfrac{a}{b}$ to combine the logs before you solve for $k$."
+  ],
+  "walkthrough": [
+   "**Why the integral equals 1**\n\nA probability density function describes how the probability is spread. The probability of all possible values together is 1, and for a pdf that is the area under the curve. The curve is non-zero only between $x = 2$ and $x = 6$, so\n\n$$\\int_2^6 kx^{-1}\\,\\text{d}x = 1$$\n\nThis earns the **M1** (integrate $\\text{f}(x)$ and set equal to 1).",
+   "**Integrating**\n\n$k$ is a constant, so it stays outside. The integral of $\\dfrac{1}{x}$ is $\\ln x$:\n\n$$k\\big[\\ln x\\big]_2^6 = 1$$\n\nSubstitute the upper limit, then subtract what you get from the lower limit:\n\n$$k(\\ln 6 - \\ln 2) = 1$$",
+   "**Combining the logs and solving for k**\n\nThe log rule $\\ln a - \\ln b = \\ln\\dfrac{a}{b}$ gives\n\n$$\\ln 6 - \\ln 2 = \\ln\\frac{6}{2} = \\ln 3$$\n\nSo $k\\ln 3 = 1$. Divide both sides by $\\ln 3$:\n\n$$k = \\frac{1}{\\ln 3}$$\n\nThis earns the **A1**; every step must be shown, since the answer is given.",
+   "**Final answer**\n\n$$k = \\frac{1}{\\ln 3} \\quad \\text{(shown)}$$"
+  ]
+ },
+ "9709_w18_71_q6_ii": {
+  "hints": [
+   "The expected value is $\\text{E}(X) = \\int x\\,\\text{f}(x)\\,\\text{d}x$ over the range where $\\text{f}$ is non-zero, here 2 to 6. Multiply $x$ by $\\dfrac{1}{x\\ln 3}$ first; notice what happens to the $x$.",
+   "After multiplying you are integrating a constant, $\\dfrac{1}{\\ln 3}$. Its integral is $\\dfrac{1}{\\ln 3}\\,x$. Substitute the limits 6 and 2.",
+   "Take the difference between the two limit values, then use your calculator for $\\ln 3$ and the division. Check that it rounds to 3.64."
+  ],
+  "walkthrough": [
+   "**The formula for the mean**\n\nFor a continuous variable, the expected value (mean) is found by multiplying each value by its density and integrating:\n\n$$\\text{E}(X) = \\int_2^6 x\\,\\text{f}(x)\\,\\text{d}x$$\n\nUse $\\text{f}(x) = \\dfrac{1}{\\ln 3}\\,x^{-1}$ from part (i).",
+   "**Multiplying by x**\n\n$$x \\times \\frac{1}{\\ln 3}\\,x^{-1} = \\frac{1}{\\ln 3}\\,x^{1-1} = \\frac{1}{\\ln 3}\\,x^{0} = \\frac{1}{\\ln 3}$$\n\nThe $x$ cancels completely, so we integrate a constant:\n\n$$\\text{E}(X) = \\frac{1}{\\ln 3}\\int_2^6 1\\,\\text{d}x$$\n\nThis earns the **M1**.",
+   "**Integrating and substituting the limits**\n\nThe integral of 1 is $x$:\n\n$$\\text{E}(X) = \\frac{1}{\\ln 3}\\big[x\\big]_2^6 = \\frac{1}{\\ln 3}(6 - 2)$$\n\nThis earns the first **A1**.",
+   "**Evaluating**\n\n$6 - 2 = 4$, so\n\n$$\\text{E}(X) = \\frac{4}{\\ln 3}$$\n\nOn the calculator, $\\ln 3 = 1.09861\\ldots$, and $\\dfrac{4}{1.09861\\ldots} = 3.6409\\ldots$\n\nRounded to 3 significant figures this is $3.64$, as required. This earns the second **A1**.",
+   "**Final answer**\n\n$$\\text{E}(X) = \\frac{4}{\\ln 3} = 3.64 \\text{ (3 s.f.)} \\quad \\text{(shown)}$$"
+  ]
+ },
+ "9709_w18_71_q6_iii": {
+  "hints": [
+   "Split the required probability: $\\text{P}(m < X < \\text{E}(X)) = \\text{P}(X < \\text{E}(X)) - \\text{P}(X < m)$. Start with the first part: integrate $\\text{f}(x)$ from the bottom of the range, 2, up to $\\text{E}(X) = 3.64$.",
+   "The antiderivative of $\\dfrac{1}{\\ln 3}\\,x^{-1}$ is $\\dfrac{1}{\\ln 3}\\ln x$. Substitute the limits 3.64 and 2 and evaluate the result.",
+   "By definition of the median, half of the probability lies below $m$. So $\\text{P}(X < m)$ is the number you subtract.",
+   "Keep unrounded figures on your calculator until the very last subtraction; the two probabilities are close, so early rounding would change the answer's second significant figure."
+  ],
+  "walkthrough": [
+   "**Picture the question**\n\n$m$ is the median: the value that has half the probability below it, so $\\text{P}(X < m) = 0.5$. $\\text{E}(X) = 3.64$ is the mean from part (ii).\n\nWe want the probability between $m$ and the mean. The probability up to the mean contains the probability up to $m$, so\n\n$$\\text{P}(m < X < \\text{E}(X)) = \\text{P}(X < \\text{E}(X)) - \\text{P}(X < m) = \\text{P}(X < \\text{E}(X)) - 0.5$$\n\nFirst we find $\\text{P}(X < \\text{E}(X))$.",
+   "**Setting up the integral**\n\nThe pdf is non-zero from 2 upwards, so the probability below 3.64 is the area from 2 to 3.64:\n\n$$\\text{P}(X < 3.64) = \\frac{1}{\\ln 3}\\int_2^{3.64} x^{-1}\\,\\text{d}x$$\n\nThis earns the first **M1**. (Using the exact value $\\dfrac{4}{\\ln 3}$ instead of 3.64 is also fine.)",
+   "**Integrating and substituting**\n\n$$\\text{P}(X < 3.64) = \\frac{1}{\\ln 3}\\big[\\ln x\\big]_2^{3.64} = \\frac{1}{\\ln 3}(\\ln 3.64 - \\ln 2)$$\n\nThis earns the first **A1**. Now evaluate with the calculator: $\\ln 3.64 = 1.29198\\ldots$, $\\ln 2 = 0.69315\\ldots$, $\\ln 3 = 1.09861\\ldots$\n\n$$\\ln 3.64 - \\ln 2 = 0.59884\\ldots$$\n\n$$\\frac{0.59884\\ldots}{1.09861\\ldots} = 0.5451\\ldots \\approx 0.545$$",
+   "**Subtracting the probability below the median**\n\nRemove the part below $m$, which is 0.5:\n\n$$\\text{P}(m < X < \\text{E}(X)) = 0.5451\\ldots - 0.5 = 0.0451\\ldots$$\n\nThis earns the second **M1**: it is the subtraction of 0.5 from the probability found.",
+   "**Check using the median itself**\n\nQuick check: the median satisfies $\\dfrac{1}{\\ln 3}\\ln\\dfrac{m}{2} = 0.5$, so $\\ln\\dfrac{m}{2} = 0.5\\ln 3 = \\ln\\sqrt{3}$, giving $m = 2\\sqrt{3} = \\sqrt{12} = 3.464\\ldots$\n\nThat is below the mean 3.64, so the interval from $m$ to $\\text{E}(X)$ is valid and the probability is positive. The scheme's alternative method integrates from $\\sqrt{12}$ to 3.64 and gets the same value.",
+   "**Final answer**\n\n$$\\text{P}(m < X < \\text{E}(X)) = 0.045 \\text{ (2 s.f.)}$$\n\nThis earns the final **A1**. The scheme says not 0.046, so avoid rounding early."
+  ]
+ }
+}

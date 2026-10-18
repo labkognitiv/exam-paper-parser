@@ -1,0 +1,55 @@
+{
+  "9709_s23_62_q4_a": {
+    "hints": [
+      "Recall what has to be true about events for a Poisson model: they occur singly, at random, independently of each other, at a constant average rate. Choose one and say it about the books received at the shop."
+    ],
+    "walkthrough": [
+      "**The Poisson conditions**\n\nA Poisson distribution models the number of events in a fixed interval when the events happen randomly, happen independently of each other (one event does not make another more or less likely), happen singly (not in groups), and happen at a constant average rate. The question already tells us the mean is constant at $5.1$ per day.\n\n**Put it in context**\n\nThe mark scheme wants the condition in context, so talk about books, not 'events'. For example: books are received independently of each other. Only one condition is needed. If you give several, the extras are ignored.",
+      "**Final answer**\n\nBooks are received independently of each other (or singly, or randomly)."
+    ]
+  },
+  "9709_s23_62_q4_b": {
+    "hints": [
+      "The mean is $5.1$ per day, and you want a $3$-day period. Scale the mean to the new interval so that $X \\sim \\text{Po}(\\lambda)$ for 3 days.",
+      "Use $\\text{P}(X = r) = \\text{e}^{-\\lambda}\\dfrac{\\lambda^r}{r!}$ with $r = 10$ and your new $\\lambda$, then evaluate on your calculator."
+    ],
+    "walkthrough": [
+      "**Change the mean to 3 days**\n\nThe mean is $5.1$ per day. The Poisson mean must match the time period in the question. Three days is three times as long, so the mean is three times as big:\n\n$$\\lambda = 3 \\times 5.1 = 15.3$$\n\nSo for 3 days $X \\sim \\text{Po}(15.3)$.",
+      "**Use the Poisson formula (this is the M1)**\n\n$$\\text{P}(X = 10) = \\text{e}^{-15.3} \\times \\frac{15.3^{10}}{10!}$$\n\nThe scheme gives M1 for this form even with a wrong $\\lambda$.",
+      "**Work out each part (this is the A1)**\n\n$$\\text{e}^{-15.3} = 2.26618 \\times 10^{-7}$$\n\n$$15.3^{10} = 7.02934 \\times 10^{11}$$\n\n$$10! = 3\\,628\\,800$$\n\nMultiply the first two:\n\n$$2.26618 \\times 10^{-7} \\times 7.02934 \\times 10^{11} = 159\\,297.4\\ldots$$\n\nDivide by $10!$:\n\n$$\\frac{159\\,297.4}{3\\,628\\,800} = 0.043898\\ldots$$\n\nCalculator tip: you can also use Poisson pdf (point probability) with mean $15.3$ and $x = 10$.",
+      "**Final answer**\n\n$\\text{P}(X = 10) = 0.0439$ (3 s.f.)."
+    ]
+  },
+  "9709_s23_62_q4_c": {
+    "hints": [
+      "Scale the mean to a 30-day period. A Poisson with a large mean can be approximated by a normal distribution with mean and variance both equal to $\\lambda$. State $\\text{N}(\\lambda, \\lambda)$ with your $\\lambda$.",
+      "'More than 180' for a whole-number variable means $181$ or more, so the boundary for the continuity correction is halfway between $180$ and $181$. Standardise: $z = \\dfrac{\\text{boundary} - \\mu}{\\sqrt{\\sigma^2}}$.",
+      "You want the upper tail (more than the boundary), so write $\\text{P}(X > 180) = 1 - \\Phi(z)$ with the $z$ you found.",
+      "Evaluate $\\Phi(z)$ with the tables or your calculator's normal cdf, subtract from $1$, and give the answer to 3 s.f."
+    ],
+    "walkthrough": [
+      "**Why a normal approximation**\n\nFor 30 days the Poisson mean would be large, and a Poisson with a large mean (the syllabus rule is $\\lambda > 15$) has a bell shape, so it can be approximated by a normal distribution. Also, calculating $\\text{P}(X \\leqslant 180)$ directly would mean adding 181 terms, which is not sensible.",
+      "**Find the parameters (this is the B1)**\n\nThe mean over 30 days:\n\n$$\\lambda = 30 \\times 5.1 = 153$$\n\nFor a Poisson the variance equals the mean, so the variance is also $153$. The normal approximation is:\n\n$$X \\approx \\text{N}(153, 153)$$\n\nThe second number in $\\text{N}(\\mu, \\sigma^2)$ is the *variance*, so the standard deviation is $\\sqrt{153} = 12.3693\\ldots$",
+      "**Use the continuity correction**\n\n$X$ counts whole books, but the normal distribution is continuous. 'More than 180' means $X \\geqslant 181$. On the continuous scale, the value $181$ starts at $180.5$. So:\n\n$$\\text{P}(X > 180) \\to \\text{P}(X > 180.5)$$\n\nSlip to avoid: using $180$ or $181$ instead of $180.5$. (The scheme allows a wrong or missing continuity correction for the M1 but the A1 will not be earned.)",
+      "**Standardise (this is the first M1)**\n\n$$z = \\frac{180.5 - 153}{\\sqrt{153}} = \\frac{27.5}{12.3693} = 2.2232\\ldots$$\n\nThe scheme shows $2.223$.",
+      "**Find the upper tail (this is the second M1)**\n\nWe need the probability of being *above* $z = 2.223$. The calculator and tables give the area to the *left*, so subtract it from 1:\n\n$$\\text{P}(X > 180) = 1 - \\Phi(2.223)$$\n\n$$\\Phi(2.223) = 0.98690$$",
+      "**Subtract (this is the A1)**\n\n$$1 - 0.98690 = 0.0131$$",
+      "**Final answer**\n\n$\\text{P}(X > 180) = 0.0131$ (3 s.f.), using $\\text{N}(153, 153)$."
+    ]
+  },
+  "9709_s23_62_q4_d": {
+    "hints": [
+      "Books and DVDs are independent Poisson variables. The sum of two independent Poissons is also Poisson: add the two daily means ($5.1$ and $2.5$).",
+      "'More than 3' is the complement of '3 or fewer': $1 - \\text{P}(T \\leqslant 3) = 1 - \\left[\\text{P}(0) + \\text{P}(1) + \\text{P}(2) + \\text{P}(3)\\right]$, with each term $\\text{e}^{-\\lambda}\\dfrac{\\lambda^r}{r!}$.",
+      "Work out the four terms, add them, and subtract the total from $1$. Give the answer to 3 s.f."
+    ],
+    "walkthrough": [
+      "**Why we can add the means**\n\nLet $T$ be the total number of books and DVDs received in one day. The books and DVDs are independent Poisson variables. The sum of two independent Poisson variables is again a Poisson variable, whose mean is the sum of the two means.",
+      "**Find the new mean (this is the B1)**\n\n$$\\lambda = 5.1 + 2.5 = 7.6$$\n\nSo $T \\sim \\text{Po}(7.6)$.",
+      "**Rewrite the probability (this is the M1)**\n\n'More than 3' means $4, 5, 6, \\ldots$ with no end. It is much easier to use the complement:\n\n$$\\text{P}(T > 3) = 1 - \\text{P}(T \\leqslant 3) = 1 - \\left[\\text{P}(0) + \\text{P}(1) + \\text{P}(2) + \\text{P}(3)\\right]$$\n\nUsing $\\text{P}(T = r) = \\text{e}^{-7.6}\\dfrac{7.6^r}{r!}$:\n\n$$= 1 - \\text{e}^{-7.6}\\left(1 + 7.6 + \\frac{7.6^2}{2} + \\frac{7.6^3}{3!}\\right)$$\n\nSlip to avoid: stopping at 2 or going to 4. The scheme allows one end error for the M1 but the answer would then be wrong.",
+      "**Work out the pieces**\n\nFirst the numbers in the brackets:\n\n$$\\frac{7.6^2}{2} = \\frac{57.76}{2} = 28.88$$\n\n$$7.6^3 = 438.976 \\qquad \\frac{7.6^3}{3!} = \\frac{438.976}{6} = 73.1627\\ldots$$\n\nSo the bracket is:\n\n$$1 + 7.6 + 28.88 + 73.1627 = 110.6427\\ldots$$",
+      "**Multiply by $\\text{e}^{-7.6}$ and subtract (this is the A1)**\n\n$$\\text{e}^{-7.6} = 0.000500451\\ldots$$\n\n$$\\text{e}^{-7.6} \\times 110.6427 = 0.055371\\ldots$$\n\n(The scheme shows the four terms as $0.0005005 + 0.003803 + 0.01445 + 0.03661$, which add to the same $0.05537$.)\n\n$$\\text{P}(T > 3) = 1 - 0.055371 = 0.944629\\ldots$$\n\nTo 3 s.f. this is $0.945$.",
+      "**Final answer**\n\n$\\text{P}(T > 3) = 0.945$ (3 s.f.), with $T \\sim \\text{Po}(7.6)$."
+    ]
+  }
+}

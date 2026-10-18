@@ -1,0 +1,35 @@
+{
+ "9709_w19_73_q7_i": {
+  "hints": [
+   "Write the hypotheses in terms of the population mean $\\mu$ (the weekly income). $\\text{H}_0$ keeps the old mean, 546. $\\text{H}_1$ says the income has increased: which way does that point, and is it one-tailed or two-tailed?",
+   "The sample has 40 weeks and $\\sigma = 120$ is known, so the sample mean is normal with standard deviation $\\dfrac{120}{\\sqrt{40}}$. Standardise: $z = \\dfrac{581 - 546}{120/\\sqrt{40}}$.",
+   "On a calculator put brackets round the whole denominator: (581 - 546) / (120 / $\\sqrt{40}$). Work out $z$ and keep at least 3 significant figures.",
+   "This is a one-tailed test at 2.5%, so the critical value is the $z$ with 2.5% in the upper tail, that is $\\Phi(z) = 0.975$. Compare your $z$ with it.",
+   "Decide whether your $z$ lies in the rejection region or not, and then write the conclusion in the context of Bob's weekly income, using 'there is (no) evidence that...', not a definite statement."
+  ],
+  "walkthrough": [
+   "**Hypotheses (B1)**\n\n$\\mu$ means the (population) mean weekly income of Bob now. Before the change it was \\$546, so $\\text{H}_0$ says nothing has changed. Bob thinks it has **increased**, so $\\text{H}_1$ is one-tailed with '$>$':\n\n$$\\text{H}_0: \\mu = 546$$\n\n$$\\text{H}_1: \\mu > 546$$\n\nYou need both for the B1.",
+   "**Distribution of the sample mean under H0**\n\nIf $\\text{H}_0$ is true, individual incomes have mean 546 and standard deviation 120. We have the mean $\\bar{x}$ of a sample of $n = 40$ weeks. For a large sample, the central limit theorem says $\\bar{X}$ is approximately normal:\n\n$$\\bar{X} \\sim \\text{N}\\left(546, \\frac{120^2}{40}\\right)$$\n\nThe standard deviation of $\\bar{X}$ is $\\dfrac{120}{\\sqrt{40}}$, not 120, because averages of 40 weeks vary much less than single weeks:\n\n$$\\sqrt{40} = 6.32456 \\qquad \\frac{120}{6.32456} = 18.9737$$",
+   "**Test statistic (M1 and A1)**\n\nStandardise the observed sample mean 581:\n\n$$z = \\frac{581 - 546}{\\dfrac{120}{\\sqrt{40}}}$$\n\nThis earns the M1 (it must contain $\\dfrac{120}{\\sqrt{40}}$). Now the numbers:\n\n$$581 - 546 = 35$$\n\n$$z = \\frac{35}{18.9737} = 1.8447$$\n\nSo $z = 1.845$ (the scheme also allows 1.844, 1.84 or 1.85). This earns the A1.",
+   "**Compare with the critical value (second M1)**\n\nThe test is one-tailed at 2.5%, so the rejection region is the top 2.5% of the normal curve. The $z$ value with 0.975 below it is\n\n$$\\Phi^{-1}(0.975) = 1.96$$\n\nWe compare our value:\n\n$$1.845 < 1.96$$\n\nOur $z$ is not in the rejection region. (Equivalent: $\\text{P}(Z > 1.845) = 0.0325$, which is bigger than 0.025.) This earns the M1.",
+   "**Conclusion in context (A1FT)**\n\nBecause $1.845 < 1.96$ we do not reject $\\text{H}_0$. In words, with no definite claim:\n\nThere is **no evidence**, at the 2.5% level, that Bob's mean weekly income has increased.\n\nNote that this does not prove it has stayed the same. Common slip: using a two-tailed critical value, which is not right here as the question asks about an increase.",
+   "**Final answer**\n\n$z = 1.845 < 1.96$, so we do not reject $\\text{H}_0$: there is no evidence that Bob's mean weekly income has increased."
+  ]
+ },
+ "9709_w19_73_q7_ii": {
+  "hints": [
+   "A Type II error means accepting $\\text{H}_0$ when it is actually false (the true mean is 595). First find the boundary of the acceptance region in terms of the sample mean: call it $a$, the value of $\\bar{x}$ that gives exactly the critical $z$, using the mean 546 from $\\text{H}_0$.",
+   "Set $\\dfrac{a - 546}{120/\\sqrt{40}} = 1.96$ (the 2.5% one-tailed critical value) and rearrange: $a = 546 + 1.96 \\times \\dfrac{120}{\\sqrt{40}}$. Work it out.",
+   "$\\text{H}_0$ is accepted when $\\bar{x} < a$. Now the sample mean really comes from a population with mean 595 (same $\\sigma$, same 40 weeks), so standardise your boundary using 595: $z = \\dfrac{a - 595}{120/\\sqrt{40}}$.",
+   "You want $\\text{P}(\\bar{X} < a)$, the area to the left of that $z$. If your $z$ is negative, the area to the left is a small tail, equal to $1 - \\Phi(|z|)$.",
+   "Find $\\Phi(|z|)$ from the normal table or your calculator, subtract from 1 (or use normal cdf directly) and round to 3 significant figures."
+  ],
+  "walkthrough": [
+   "**What a Type II error is here**\n\nA **Type II error** happens when we accept $\\text{H}_0$ although it is false. Here $\\text{H}_0$ is $\\mu = 546$, but the true mean is now 595. So we need the probability that the sample mean lands in the 'accept $\\text{H}_0$' region even though the true mean is 595.\n\nThe test is the same as in (i): one-tailed, 2.5% level, $n = 40$, $\\sigma = 120$.",
+   "**Find the boundary of the acceptance region (M1 and A1)**\n\nWe reject $\\text{H}_0$ when $z > 1.96$. The boundary is the sample mean $a$ with exactly $z = 1.96$, **calculated using the $\\text{H}_0$ mean 546**:\n\n$$\\frac{a - 546}{\\dfrac{120}{\\sqrt{40}}} = 1.96$$\n\nThis earns the M1 (it needs $\\dfrac{120}{\\sqrt{40}}$, 546 and a $z$ value). Multiply both sides by $\\dfrac{120}{\\sqrt{40}} = 18.9737$:\n\n$$a - 546 = 1.96 \\times 18.9737 = 37.1884$$\n\n$$a = 546 + 37.1884 = 583.1884 \\approx 583.19$$\n\nThis earns the A1 (583 to 3 s.f. is allowed). So we accept $\\text{H}_0$ when $\\bar{x} < 583.19$.",
+   "**Standardise using the true mean 595 (third M1)**\n\nNow the sample mean $\\bar{X}$ has the true distribution: mean 595, standard deviation $\\dfrac{120}{\\sqrt{40}}$. A Type II error is $\\text{P}(\\bar{X} < 583.19)$. Standardise with 595:\n\n$$z = \\frac{583.19 - 595}{\\dfrac{120}{\\sqrt{40}}}$$\n\n$$583.19 - 595 = -11.81$$\n\n$$z = \\frac{-11.81}{18.9737} = -0.6224 \\approx -0.622$$\n\nThis earns the M1. Slip to avoid: using 546 here instead of 595.",
+   "**Find the probability (last M1 and A1)**\n\nWe want the area to the left of $z = -0.622$: a small tail on the left of the bell curve (sketch it). By symmetry it equals the area to the right of $+0.622$:\n\n$$\\text{P}(Z < -0.622) = 1 - \\Phi(0.622)$$\n\nThis earns the M1 (a consistent area). Use the normal table or your calculator's normal cdf:\n\n$$\\Phi(0.622) = 0.7330$$\n\n$$1 - 0.7330 = 0.2670$$\n\nTo 3 significant figures this is 0.267. This earns the A1.",
+   "**Final answer**\n\nThe probability of a Type II error is **0.267** (3 s.f.)."
+  ]
+ }
+}

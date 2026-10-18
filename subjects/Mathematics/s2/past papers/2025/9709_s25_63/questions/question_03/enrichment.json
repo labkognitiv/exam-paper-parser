@@ -1,0 +1,42 @@
+{
+ "9709_s25_63_q3_a_i": {
+  "hints": [
+   "The best estimate of the population mean $\\mu$ is the sample mean: $\\bar{v} = \\dfrac{\\sum v}{n}$ with $\\sum v = 46\\,350$ and $n = 150$.",
+   "For the unbiased estimate of the variance divide by $n - 1$, not $n$: $s^2 = \\dfrac{1}{n-1}\\left(\\sum v^2 - \\dfrac{(\\sum v)^2}{n}\\right)$ with $n = 150$.",
+   "Substitute $\\sum v^2 = 14\\,410\\,800$ and $\\sum v = 46\\,350$. Square $\\sum v$ first, divide by $150$, subtract from $\\sum v^2$, then divide by $n - 1$. Give 3 significant figures."
+  ],
+  "walkthrough": [
+   "**What \"unbiased estimate\" means**\n\nWe only have a sample of $150$ cups, but we want to say something about **all** cups the machine fills (the population). An *unbiased estimate* is a value calculated from the sample that, on average, hits the true population value. The symbols: $\\mu$ is the population mean, $\\sigma^2$ is the population variance, $n = 150$ is the sample size.",
+   "**Estimate of the mean (B1)**\n\nThe sample mean is the unbiased estimate of $\\mu$:\n\n$$\\text{Est}(\\mu) = \\frac{\\sum v}{n} = \\frac{46\\,350}{150} = 309$$",
+   "**Formula for the unbiased variance (M1)**\n\nDividing by $n$ would give the variance of the sample itself, which tends to be a bit too small as an estimate of the population. To correct this we divide by $n - 1 = 149$ instead:\n\n$$\\text{Est}(\\sigma^2) = \\frac{1}{n - 1}\\left(\\sum v^2 - \\frac{(\\sum v)^2}{n}\\right) = \\frac{1}{149}\\left(14\\,410\\,800 - \\frac{46\\,350^2}{150}\\right)$$\n\nAnother form that gives the same value (and also earns the M1) is $\\dfrac{150}{149}\\left[\\dfrac{\\sum v^2}{150} - \\left(\\dfrac{\\sum v}{150}\\right)^2\\right]$.",
+   "**Calculate (A1)**\n\nWork in small pieces:\n\n$$46\\,350^2 = 2\\,148\\,322\\,500$$\n\n$$\\frac{2\\,148\\,322\\,500}{150} = 14\\,322\\,150$$\n\n$$14\\,410\\,800 - 14\\,322\\,150 = 88\\,650$$\n\n$$\\text{Est}(\\sigma^2) = \\frac{88\\,650}{149} = 594.97\\ldots = 595 \\text{ (3 s.f.)}$$\n\nQuick check with the other form: $\\frac{14\\,410\\,800}{150} = 96\\,072$, $309^2 = 95\\,481$, the difference is $591$, and $591 \\times \\frac{150}{149} = 594.97$. Same answer. (The $591$ on its own is the *biased* variance; do not stop there.)",
+   "**Final answer**\n\n$$\\text{Est}(\\mu) = 309 \\qquad \\text{Est}(\\sigma^2) = 595 \\text{ (3 s.f.), exactly } \\frac{88\\,650}{149}$$"
+  ]
+ },
+ "9709_s25_63_q3_a_ii": {
+  "hints": [
+   "For a 95% confidence interval the two tails share 5%, so the $z$ value has $\\Phi(z) = 0.975$. Write down this value from the normal table.",
+   "The interval is $\\bar{v} \\pm z \\times \\sqrt{\\dfrac{s^2}{n}}$. Use your estimates from part (i) with $n = 150$. Divide the variance by $n$ **before** taking the square root.",
+   "Work out the margin $z \\times \\sqrt{s^2/n}$, then subtract it from and add it to the sample mean to get the two ends. Give each end to 3 significant figures."
+  ],
+  "walkthrough": [
+   "**What a confidence interval is**\n\nA 95% confidence interval is a range of values for the population mean $\\mu$, calculated so that 95% of intervals made this way would contain the true $\\mu$. Its centre is the sample mean and its half-width is $z$ standard errors.",
+   "**The $z$ value (B1)**\n\n95% in the middle leaves $5\\%$ in the tails, so $2.5\\%$ in each tail. The $z$ with $0.975$ of the area to its left is\n\n$$z = 1.96$$\n\nThe mark is given for seeing $1.96$.",
+   "**Write the interval (M1)**\n\nThe standard deviation of a sample mean (the *standard error*) is $\\dfrac{\\sigma}{\\sqrt{n}}$. We do not know $\\sigma$, but $n = 150$ is large, so we use our estimate, the square root of $595$:\n\n$$\\bar{v} \\pm z\\sqrt{\\frac{\\sigma^2}{n}} = 309 \\pm 1.96 \\times \\sqrt{\\frac{595}{150}}$$",
+   "**Calculate (A1)**\n\nStep by step:\n\n$$\\frac{595}{150} = 3.9667$$\n\n$$\\sqrt{3.9667} = 1.9916$$\n\n$$1.96 \\times 1.9916 = 3.9036$$\n\nLower end: $309 - 3.9036 = 305.096$.\n\nUpper end: $309 + 3.9036 = 312.904$.\n\nTo 3 significant figures: $305$ to $313$.\n\nSlip to avoid: using $591$ (the biased variance) gives the same interval to 3 s.f., but the scheme records that as B1M1A0, because the formula needs the unbiased estimate. Also an unsupported answer with no working scores at most B1B1.",
+   "**Final answer**\n\n$$305 < \\mu < 313 \\text{ (3 s.f.)}$$"
+  ]
+ },
+ "9709_s25_63_q3_b": {
+  "hints": [
+   "The width of the interval is $2z\\sqrt{\\dfrac{s^2}{n}}$. The question says $s^2$ stays much the same and $z$ is still the 95% value, so only $n$ changes: this sample has $100 < n < 120$ while the earlier one had $150$.",
+   "Compare $\\dfrac{1}{\\sqrt{n}}$ for $n < 120$ with $\\dfrac{1}{\\sqrt{150}}$: which is larger? Say what that does to the margin $z\\sqrt{s^2/n}$, and so decide wider or narrower, linking your reason to the sample size."
+  ],
+  "walkthrough": [
+   "**What controls the width**\n\nHalf the width of the interval is $z \\times \\sqrt{\\dfrac{s^2}{n}}$, which can be written $z \\times s \\times \\dfrac{1}{\\sqrt{n}}$. The question tells us not to worry about $s^2$ (the estimates are very similar) and the confidence level is still 95%, so $z$ is the same. Only $n$ is different.",
+   "**Compare the sample sizes (the B1*)**\n\nEarlier sample: $n = 150$, so $\\dfrac{1}{\\sqrt{150}} = 0.0816$.\n\nNew sample: $n$ is between $100$ and $120$. For example:\n\n$$\\frac{1}{\\sqrt{120}} = 0.0913 \\qquad \\frac{1}{\\sqrt{100}} = 0.1$$\n\nBoth are bigger than $0.0816$. In general, a smaller $n$ makes $\\dfrac{1}{\\sqrt{n}}$ bigger. In plain words: a smaller sample gives us less information, so we are less certain where $\\mu$ lies.",
+   "**Conclusion (B1 dependent on the reason)**\n\nA bigger $\\dfrac{1}{\\sqrt{n}}$ makes the margin bigger, so the interval is **wider**. This mark depends on having a correct reason first.",
+   "**Final answer**\n\nWider, because the sample size is smaller ($n < 120 < 150$), so $\\dfrac{1}{\\sqrt{n}}$ is larger and there is more uncertainty about $\\mu$."
+  ]
+ }
+}

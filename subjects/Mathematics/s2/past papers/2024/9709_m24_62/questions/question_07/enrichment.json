@@ -1,0 +1,31 @@
+{
+ "9709_m24_62_q7_a": {
+  "hints": [
+   "A Type I error means rejecting $\\text{H}_0$ when it is actually true. Which quantity given in the question tells you how often that is allowed to happen?"
+  ],
+  "walkthrough": [
+   "**What a Type I error is**\n\nA Type I error is rejecting $\\text{H}_0$ when $\\text{H}_0$ is actually true. In a hypothesis test we choose the significance level to control how often this happens: it **is** the probability of a Type I error.",
+   "**Read the question**\n\nThe test is carried out at the 1% significance level.",
+   "**Final answer**\n\n$\\text{P}(\\text{Type I error}) = 0.01$ (that is, 1%). Write exactly this, not '$\\leqslant 0.01$'."
+  ]
+ },
+ "9709_m24_62_q7_b": {
+  "hints": [
+   "First find where the test rejects $\\text{H}_0$. Under $\\text{H}_0$ the sample mean is $\\text{N}\\!\\left(163.21, \\dfrac{6.95^2}{300}\\right)$. For a 1% upper-tail test, $z = 2.326$, so solve $2.326 = \\dfrac{\\bar{h} - 163.21}{6.95/\\sqrt{300}}$.",
+   "Rearrange for $\\bar{h}$ (multiply by $6.95/\\sqrt{300}$, then add $163.21$). You reject $\\text{H}_0$ above this value; a Type II error is **not** rejecting, so $\\bar{h}$ is below it, even though $\\mu = 164.91$.",
+   "Now use the true distribution $\\bar{h} \\sim \\text{N}\\!\\left(164.91, \\dfrac{6.95^2}{300}\\right)$ and standardise your critical value: $z = \\dfrac{\\text{critical value} - 164.91}{6.95/\\sqrt{300}}$.",
+   "You need $\\text{P}(\\bar{h} < \\text{critical value})$. That is the area to the left of your $z$ (a negative number), which equals $1 - \\Phi$ of the positive version of it.",
+   "Evaluate with your calculator's normal cdf (or the table) and give the answer to 3 s.f."
+  ],
+  "walkthrough": [
+   "**What a Type II error is**\n\nA Type II error is **not** rejecting $\\text{H}_0$ when $\\text{H}_0$ is false. Here the true mean is $164.91$, higher than $163.21$, so $\\text{H}_0$ is false. A Type II error happens if our sample mean is not high enough to reach the rejection region anyway.\n\nTo find that probability, first locate the rejection region, then see how likely the sample mean is to fall below it when $\\mu = 164.91$.",
+   "**Distribution of the sample mean under $\\text{H}_0$**\n\n$\\text{H}_0: \\mu = 163.21$ and $\\text{H}_1: \\mu > 163.21$. The sample has $n = 300$ and $\\sigma = 6.95$. The sample mean $\\bar{h}$ has standard deviation (the 'standard error')\n\n$$\\frac{\\sigma}{\\sqrt{n}} = \\frac{6.95}{\\sqrt{300}} = \\frac{6.95}{17.3205} = 0.40126$$\n\nWe divide by $\\sqrt{300}$ because this is a mean of 300 females. So under $\\text{H}_0$: $\\bar{h} \\sim \\text{N}(163.21, 0.40126^2)$.",
+   "**The critical value (earns the M1)**\n\nThe test is one-tailed at 1%, so we need the $z$ with $1\\%$ to its right, that is $\\Phi(z) = 0.99$:\n\n$$z = 2.326$$\n\nRejection starts where $$\\frac{\\bar{h} - 163.21}{0.40126} = 2.326$$",
+   "**Solve for $\\bar{h}$ (earns the A1)**\n\nMultiply both sides by $0.40126$: $$\\bar{h} - 163.21 = 2.326 \\times 0.40126 = 0.93333$$\n\nAdd $163.21$: $$\\bar{h} = 163.21 + 0.93333 = 164.14$$\n\nSo we reject $\\text{H}_0$ if $\\bar{h} > 164.14$. A Type II error is $\\bar{h} < 164.14$ when $\\mu$ is really $164.91$:\n\n$$\\text{P}(\\text{Type II}) = \\text{P}(\\bar{h} < 164.14 \\mid \\mu = 164.91)$$",
+   "**Standardise using the true mean (earns the second M1)**\n\nNow the sample mean is distributed as $\\text{N}(164.91, 0.40126^2)$, with the same standard error:\n\n$$z = \\frac{164.14 - 164.91}{0.40126} = \\frac{-0.77}{0.40126} = -1.919$$",
+   "**Find the area (earns the third M1)**\n\nWe want the area to the left of $z = -1.919$. By symmetry of the normal curve:\n\n$$\\Phi(-1.919) = 1 - \\Phi(1.919) = 1 - 0.9725$$\n\n($\\Phi(1.919) = 0.9725$ from normal cdf on the calculator, or the table.)",
+   "**Subtract (earns the A1)**\n\n$$1 - 0.9725 = 0.0275$$",
+   "**Final answer**\n\n$\\text{P}(\\text{Type II error}) = 0.0275$ (3 s.f.). The mark scheme accepts $0.0275$, $0.0276$ or $0.028$, because small differences arise from how the critical value was rounded."
+  ]
+ }
+}

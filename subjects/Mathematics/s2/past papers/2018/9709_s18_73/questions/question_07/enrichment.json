@@ -1,0 +1,47 @@
+{
+ "9709_s18_73_q7_i": {
+  "hints": [
+   "The total area under a probability density function equals 1: set $\\displaystyle\\int_1^2 k\\left(\\frac{1}{x^2} + \\frac{1}{x^3}\\right)\\text{d}x = 1$.",
+   "Write $\\dfrac{1}{x^2} + \\dfrac{1}{x^3}$ as $x^{-2} + x^{-3}$. Integrate by adding 1 to each power and dividing by the new power, then put in the limits $2$ and $1$ in square brackets.",
+   "Substitute $x = 2$ and $x = 1$, subtract (top limit minus bottom limit), add the fractions inside the bracket, then divide to find $k$ and show it equals $\\frac{8}{7}$."
+  ],
+  "walkthrough": [
+   "**Why set the integral equal to 1?**\n\n$\\text{f}(x)$ is a probability density function. The probability that $X$ takes *some* value is 1, so the total area under $\\text{f}(x)$ must be 1. Since $\\text{f}(x)$ is only non-zero between $x = 1$ and $x = 2$, we integrate over that range:\n\n$$k\\int_1^2 \\left(\\frac{1}{x^2} + \\frac{1}{x^3}\\right)\\text{d}x = 1$$\n\nThis earns the **M1**.",
+   "**Integrate**\n\nRewrite with negative powers: $\\dfrac{1}{x^2} = x^{-2}$ and $\\dfrac{1}{x^3} = x^{-3}$. To integrate $x^n$ we use $\\dfrac{x^{n+1}}{n+1}$:\n\n$$\\int x^{-2}\\,\\text{d}x = \\frac{x^{-1}}{-1} = -\\frac{1}{x}$$\n\n$$\\int x^{-3}\\,\\text{d}x = \\frac{x^{-2}}{-2} = -\\frac{1}{2x^2}$$\n\n$$k\\left[-\\frac{1}{x} - \\frac{1}{2x^2}\\right]_1^2 = 1$$\n\nThis earns the first **A1** (correct integral, correct limits, equals 1).",
+   "**Substitute the limits**\n\nPut in the top limit $x = 2$, then subtract the value at the bottom limit $x = 1$.\n\nAt $x = 2$: $-\\dfrac{1}{2} - \\dfrac{1}{2 \\times 2^2} = -\\dfrac{1}{2} - \\dfrac{1}{8}$.\n\nAt $x = 1$: $-\\dfrac{1}{1} - \\dfrac{1}{2 \\times 1^2} = -1 - \\dfrac{1}{2}$.\n\n$$k\\left[\\left(-\\frac{1}{2} - \\frac{1}{8}\\right) - \\left(-1 - \\frac{1}{2}\\right)\\right] = 1$$\n\n$$k\\left[-\\frac{1}{2} - \\frac{1}{8} + 1 + \\frac{1}{2}\\right] = 1$$",
+   "**Simplify and solve for $k$**\n\nThe $-\\frac{1}{2}$ and $+\\frac{1}{2}$ cancel, leaving $1 - \\frac{1}{8} = \\frac{8}{8} - \\frac{1}{8} = \\frac{7}{8}$.\n\n$$k \\times \\frac{7}{8} = 1$$\n\nMultiply both sides by $\\dfrac{8}{7}$:\n\n$$k = \\frac{8}{7}$$",
+   "**Final answer**\n\n$k = \\dfrac{8}{7}$, as required. This earns the last **A1** (every step of the working must be shown, with no errors)."
+  ]
+ },
+ "9709_s18_73_q7_ii": {
+  "hints": [
+   "For a continuous variable $\\text{E}(X) = \\displaystyle\\int x\\,\\text{f}(x)\\,\\text{d}x$. Multiply $\\text{f}(x)$ by $x$ and integrate from 1 to 2, with $k = \\frac{8}{7}$.",
+   "Simplify $x\\left(\\dfrac{1}{x^2} + \\dfrac{1}{x^3}\\right)$ into two terms, $\\dfrac{1}{x} + \\dfrac{1}{x^2}$. Remember $\\int \\dfrac{1}{x}\\,\\text{d}x = \\ln x$ and $\\int x^{-2}\\,\\text{d}x = -\\dfrac{1}{x}$.",
+   "Substitute $x = 2$ and $x = 1$ into $\\left[\\ln x - \\dfrac{1}{x}\\right]$, subtract, remember $\\ln 1 = 0$, then multiply by $\\frac{8}{7}$. Give an exact value or 3 significant figures."
+  ],
+  "walkthrough": [
+   "**Formula for the mean**\n\nFor a continuous random variable the mean is $\\text{E}(X) = \\displaystyle\\int x\\,\\text{f}(x)\\,\\text{d}x$ over the range where $\\text{f}(x)$ is non-zero. Now $k = \\frac{8}{7}$ (from part (i)).\n\n$$\\text{E}(X) = \\frac{8}{7}\\int_1^2 x\\left(\\frac{1}{x^2} + \\frac{1}{x^3}\\right)\\text{d}x$$\n\nMultiply out the bracket: $x \\times \\dfrac{1}{x^2} = \\dfrac{1}{x}$ and $x \\times \\dfrac{1}{x^3} = \\dfrac{1}{x^2}$.\n\n$$\\text{E}(X) = \\frac{8}{7}\\int_1^2 \\left(\\frac{1}{x} + \\frac{1}{x^2}\\right)\\text{d}x$$\n\nThis earns the **M1**.",
+   "**Integrate**\n\n$\\displaystyle\\int \\frac{1}{x}\\,\\text{d}x = \\ln x$ and $\\displaystyle\\int \\frac{1}{x^2}\\,\\text{d}x = \\int x^{-2}\\,\\text{d}x = -\\frac{1}{x}$.\n\n$$\\text{E}(X) = \\frac{8}{7}\\left[\\ln x - \\frac{1}{x}\\right]_1^2$$\n\nThis earns the first **A1**.",
+   "**Substitute the limits**\n\nAt $x = 2$: $\\ln 2 - \\dfrac{1}{2}$.\n\nAt $x = 1$: $\\ln 1 - \\dfrac{1}{1} = 0 - 1 = -1$.\n\n$$\\text{E}(X) = \\frac{8}{7}\\left[\\left(\\ln 2 - \\frac{1}{2}\\right) - (-1)\\right] = \\frac{8}{7}\\left(\\ln 2 + \\frac{1}{2}\\right)$$\n\nCheck on calculator: $\\ln 2 = 0.693147$, so $0.693147 + 0.5 = 1.193147$, and $\\frac{8}{7} \\times 1.193147 = 1.3636$.",
+   "**Final answer**\n\n$\\text{E}(X) = \\dfrac{8}{7}\\left(\\ln 2 + \\dfrac{1}{2}\\right) = \\mathbf{1.36}$ (3 significant figures). This earns the last **A1**. Quick check: $X$ lies between 1 and 2, and $1.36$ does."
+  ]
+ },
+ "9709_s18_73_q7_iii": {
+  "hints": [
+   "First find $p = \\text{P}(X < 1.5) = \\dfrac{8}{7}\\displaystyle\\int_1^{1.5}\\left(\\dfrac{1}{x^2} + \\dfrac{1}{x^3}\\right)\\text{d}x$. Use the same antiderivative as in part (i), $\\left[-\\dfrac{1}{x} - \\dfrac{1}{2x^2}\\right]$, with limits $1.5$ and $1$.",
+   "Evaluate the bracket with $x = 1.5$ and $x = 1$ (top limit minus bottom limit), then multiply by $\\frac{8}{7}$ and keep it as a fraction or a long decimal. Then $\\text{P}(X > 1.5) = 1 - p$.",
+   "For one particular order (first value below $1.5$, the other two above), the probability is $p \\times (1-p) \\times (1-p)$.",
+   "The value below $1.5$ could be the 1st, 2nd or 3rd of the three chosen, so multiply by the number of arrangements, $3$.",
+   "Put your $p$ into $3 \\times p\\,(1-p)^2$, work it out on the calculator and give 3 significant figures."
+  ],
+  "walkthrough": [
+   "**Plan**\n\nEach value chosen is either below $1.5$ (call the probability $p$) or above $1.5$ (probability $1 - p$). We need exactly one below and two above, in any order. This is like a binomial situation with $n = 3$ trials, where we want exactly one success. First we need $p$.",
+   "**Find $p = \\text{P}(X < 1.5)$**\n\nWe integrate the pdf from the start of the range, $x = 1$, up to $x = 1.5$, using $k = \\frac{8}{7}$:\n\n$$p = \\frac{8}{7}\\int_1^{1.5}\\left(\\frac{1}{x^2} + \\frac{1}{x^3}\\right)\\text{d}x = \\frac{8}{7}\\left[-\\frac{1}{x} - \\frac{1}{2x^2}\\right]_1^{1.5}$$\n\nThis earns the first **M1**. (You could also integrate from $1.5$ to $2$ and find $1 - p$ directly.)",
+   "**Substitute the limits**\n\nAt $x = 1.5$: $-\\dfrac{1}{1.5} - \\dfrac{1}{2 \\times 1.5^2} = -\\dfrac{2}{3} - \\dfrac{1}{4.5} = -\\dfrac{2}{3} - \\dfrac{2}{9} = -\\dfrac{8}{9}$.\n\nAt $x = 1$: $-1 - \\dfrac{1}{2} = -\\dfrac{3}{2}$.\n\n$$\\left[\\ldots\\right]_1^{1.5} = -\\frac{8}{9} - \\left(-\\frac{3}{2}\\right) = -\\frac{16}{18} + \\frac{27}{18} = \\frac{11}{18}$$\n\n$$p = \\frac{8}{7} \\times \\frac{11}{18} = \\frac{88}{126} = \\frac{44}{63} = 0.698$$\n\nThis earns the first **A1**. Then $1 - p = 1 - \\dfrac{44}{63} = \\dfrac{19}{63} = 0.302$.",
+   "**One particular order**\n\nIf the first value is below $1.5$ and the second and third are above, the probability is (the values are chosen independently, so multiply):\n\n$$p\\,(1-p)(1-p) = \\frac{44}{63}\\left(1 - \\frac{44}{63}\\right)^2 = \\frac{44}{63} \\times \\left(\\frac{19}{63}\\right)^2$$\n\nThis earns the second **M1**.",
+   "**All the orders**\n\nThe value below $1.5$ could be the first, the second or the third, so there are $3$ different orders (below-above-above, above-below-above, above-above-below), all with the same probability. Multiply by $3$. This earns the third **M1**. A common slip is forgetting this factor.",
+   "**Calculate**\n\n$$\\left(\\frac{19}{63}\\right)^2 = \\frac{361}{3969} = 0.090955$$\n\n$$\\frac{44}{63} \\times 0.090955 = 0.69841 \\times 0.090955 = 0.063524$$\n\n$$3 \\times 0.063524 = 0.19057$$",
+   "**Final answer**\n\nThe probability is **0.191** (3 significant figures). This earns the final **A1**."
+  ]
+ }
+}

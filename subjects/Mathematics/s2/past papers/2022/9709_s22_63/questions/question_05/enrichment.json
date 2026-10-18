@@ -1,0 +1,40 @@
+{
+ "9709_s22_63_q5_a": {
+  "hints": [
+   "The mean is given per 5 minutes. A 15-minute period is three times as long, so scale the mean by that factor to get the new Poisson parameter $\\lambda$.",
+   "For a Poisson variable, $\\text{P}(X = r) = \\text{e}^{-\\lambda}\\dfrac{\\lambda^r}{r!}$. You want exactly 6, so $r = 6$ with your new $\\lambda$.",
+   "Type this into your calculator (or Poisson pdf with your $\\lambda$ and $x = 6$) and round to 3 significant figures."
+  ],
+  "walkthrough": [
+   "**Scale the mean (B1)**\n\nThe Poisson mean is $2.2$ per **5-minute** period. A 15-minute period is $15 \\div 5 = 3$ of those periods, so the mean is three times bigger:\n\n$$\\lambda = 2.2 \\times 3 = 6.6$$\n\nSo $X \\sim \\text{Po}(6.6)$, where $X$ is the number of clients in 15 minutes.",
+   "**Use the Poisson formula (M1)**\n\n$$\\text{P}(X = r) = \\text{e}^{-\\lambda}\\frac{\\lambda^r}{r!}$$\n\nwith $r = 6$ and $\\lambda = 6.6$:\n\n$$\\text{P}(X = 6) = \\text{e}^{-6.6} \\times \\frac{6.6^6}{6!}$$",
+   "**Work out the numbers (A1)**\n\n$\\text{e}^{-6.6} = 0.0013604$\n\n$6.6^6 = 82653.95$\n\n$6! = 6 \\times 5 \\times 4 \\times 3 \\times 2 \\times 1 = 720$\n\n$$\\frac{82653.95}{720} = 114.797$$\n\n$$0.0013604 \\times 114.797 = 0.15617$$\n\nYou can also press Poisson pdf with $\\lambda = 6.6$, $x = 6$.",
+   "**Final answer**\n\n$\\text{P}(X = 6) = 0.156$ (3 s.f.)"
+  ]
+ },
+ "9709_s22_63_q5_b": {
+  "hints": [
+   "\"More than 4 clients\" means 5 or more in a single 5-minute period, where the mean is the 2.2 given. Write this as $1 - \\text{P}(X \\leqslant \\ldots)$ using the largest number that can still be served.",
+   "Add the Poisson probabilities $\\text{e}^{-2.2}\\dfrac{2.2^r}{r!}$ for each $r$ from $0$ to the largest number served, then subtract from 1. Use Poisson cdf on your calculator to check."
+  ],
+  "walkthrough": [
+   "**Set up (M1)**\n\nNow the period is 5 minutes, so $X \\sim \\text{Po}(2.2)$. Not all clients can be served when more than 4 arrive, i.e. when $X \\geqslant 5$.\n\nAdding $X = 5, 6, 7, \\ldots$ never ends, so take the opposite: $X$ is $0, 1, 2, 3$ or $4$ (all can be served), and subtract from 1:\n\n$$\\text{P}(X > 4) = 1 - \\text{P}(X \\leqslant 4) = 1 - \\text{e}^{-2.2}\\left(1 + 2.2 + \\frac{2.2^2}{2!} + \\frac{2.2^3}{3!} + \\frac{2.2^4}{4!}\\right)$$\n\nThe scheme says you need the \"$1 -$\". Taking out the common factor $\\text{e}^{-2.2}$ is just tidier.",
+   "**Work out the numbers (A1)**\n\n$\\text{e}^{-2.2} = 0.110803$\n\nThe terms in the bracket:\n\n$$1,\\quad 2.2,\\quad \\frac{2.2^2}{2} = \\frac{4.84}{2} = 2.42,\\quad \\frac{2.2^3}{6} = \\frac{10.648}{6} = 1.77467,\\quad \\frac{2.2^4}{24} = \\frac{23.4256}{24} = 0.97607$$\n\nAdd: $1 + 2.2 + 2.42 + 1.77467 + 0.97607 = 8.37074$\n\n$$0.110803 \\times 8.37074 = 0.92750$$\n\n$$1 - 0.92750 = 0.07250\\ldots$$\n\nCalculator: Poisson cdf with $\\lambda = 2.2$ and $x = 4$ gives $0.9275$.",
+   "**Final answer**\n\n$\\text{P}(\\text{not all served}) = 0.0725$ (3 s.f.)"
+  ]
+ },
+ "9709_s22_63_q5_c": {
+  "hints": [
+   "1 hour is a number of 5-minute periods: find the mean for the hour by scaling 2.2. Since this mean is large, a Poisson with this mean is well approximated by a normal with mean and variance both equal to it.",
+   "\"Fewer than 20\" for a discrete variable means at most 19. Because you replace a discrete distribution by a continuous one, apply a continuity correction: use the boundary halfway between 19 and the next whole number.",
+   "Standardise: $z = \\dfrac{\\text{boundary} - \\mu}{\\sqrt{\\sigma^2}}$. For this approximation the variance equals the mean, so the denominator is the square root of the mean.",
+   "You want the lower tail $\\text{P}(Z < z)$ with a negative $z$. Use symmetry to write it as $1 - \\Phi$ of the positive value, then evaluate on your calculator."
+  ],
+  "walkthrough": [
+   "**Find the mean and choose the approximation (B1)**\n\nOne hour is $60 \\div 5 = 12$ periods of 5 minutes, so the mean number of clients in an hour is\n\n$$\\lambda = 2.2 \\times 12 = 26.4$$\n\nSo $X \\sim \\text{Po}(26.4)$. Adding $\\text{P}(X = 0)$ to $\\text{P}(X = 19)$ by hand is very long. When $\\lambda$ is large (above 15), the Poisson is well approximated by a normal with **mean = variance = $\\lambda$**:\n\n$$X \\approx \\text{N}(26.4,\\ 26.4)$$\n\nThe second number is the variance, so the standard deviation is $\\sqrt{26.4}$.",
+   "**Continuity correction and standardise (first M1)**\n\n$X$ is a whole number, but the normal is continuous. \"Fewer than 20\" means $X \\leqslant 19$. On the continuous scale, the whole number 19 covers the range from $18.5$ to $19.5$, so the boundary is $19.5$:\n\n$$\\text{P}(X < 20) = \\text{P}(X \\leqslant 19) \\approx \\text{P}(Y < 19.5)$$\n\nStandardise: $\\sqrt{26.4} = 5.1381$\n\n$$z = \\frac{19.5 - 26.4}{\\sqrt{26.4}} = \\frac{-6.9}{5.1381} = -1.3429 \\approx -1.343$$\n\nThe scheme allows a wrong or missing continuity correction for this M1, but it affects the final answer.",
+   "**Choose the tail (second M1)**\n\n$\\text{P}(Z < -1.343) = \\Phi(-1.343)$. By symmetry, this equals the area to the right of $+1.343$:\n\n$$\\Phi(-1.343) = 1 - \\Phi(1.343)$$\n\n$\\Phi(1.343) = 0.9104$, so $1 - 0.9104 = 0.0896$ or $0.0897$ depending on rounding.",
+   "**Final answer**\n\n$\\text{P}(X < 20) \\approx 0.0897$ (3 s.f.). The scheme accepts $0.0897$ or $0.0896$ (the exact $z = -1.3429$ gives $0.08965$, which rounds to $0.0897$).\n\n(Check: the exact Poisson answer is $0.0846$, close enough for an approximation.)"
+  ]
+ }
+}

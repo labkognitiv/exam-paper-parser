@@ -1,0 +1,36 @@
+{
+ "9709_s25_63_q6_a": {
+  "hints": [
+   "The total area under a probability density function is $1$. Here $\\text{f}(x) = ax$ between $0$ and $b$, so integrate $\\text{f}(x)$ over its range (or find the area of the triangle) and set it equal to $1$.",
+   "Integrate $ax$ using the power rule (the constant $a$ stays outside) and apply the limits $0$ and $b$.",
+   "Set your result equal to $1$ and rearrange to make $a$ the subject so that you reach the printed form."
+  ],
+  "walkthrough": [
+   "**The rule we use**\n\nFor any probability density function the total probability is $1$, which is the total area under the graph. Here $\\text{f}(x) = ax$ for $0 \\leqslant x \\leqslant b$ and zero elsewhere, so only the part from $0$ to $b$ contributes.",
+   "**Write the equation (M1)**\n\n$$\\int_0^b ax\\,\\text{d}x = 1$$\n\nThe constant $a$ can be taken outside the integral. (Alternatively: the graph of $y = ax$ from $0$ to $b$ is a triangle with base $b$ and height $ab$, so its area is $\\frac{1}{2} \\times b \\times ab = 1$. The scheme accepts this too.)",
+   "**Integrate (first A1)**\n\nPower rule: $\\int x\\,\\text{d}x = \\dfrac{x^2}{2}$. So\n\n$$a\\left[\\frac{x^2}{2}\\right]_0^b = 1$$",
+   "**Substitute the limits and rearrange (second A1)**\n\nPut in the top limit $x = b$ and subtract the value at $x = 0$ (which is $0$):\n\n$$a\\left(\\frac{b^2}{2} - \\frac{0^2}{2}\\right) = \\frac{ab^2}{2} = 1$$\n\nMultiply both sides by $2$, then divide by $b^2$:\n\n$$ab^2 = 2 \\quad\\Rightarrow\\quad a = \\frac{2}{b^2}$$\n\nThis is the printed result.\n\nCommon slip: forgetting that the lower limit $x = 0$ must also be substituted. Here it gives $0$, so it is easy to skip, but you should still show it.\n\nQuick check: the triangle with base $b$ and height $ab$ has area $\\frac{1}{2} \\times b \\times ab = \\frac{ab^2}{2}$. Setting this equal to $1$ gives the same equation, so the integration is right.",
+   "**Final answer**\n\n$$a = \\frac{2}{b^2}$$"
+  ]
+ },
+ "9709_s25_63_q6_b": {
+  "hints": [
+   "The expected value is $\\text{E}(X) = \\displaystyle\\int x\\,\\text{f}(x)\\,\\text{d}x$ over the range $0$ to $b$. Use $a = \\dfrac{2}{b^2}$ from part (a) in $\\text{f}(x)$ and multiply by $x$.",
+   "Integrate $x^2$ by the power rule, keeping the constant $\\dfrac{2}{b^2}$ outside.",
+   "Substitute the limits $b$ and $0$ and simplify the powers of $b$ to get $\\text{E}(X)$ as a multiple of $b$.",
+   "$\\text{P}(X < \\text{E}(X))$ is the area under $\\text{f}(x)$ from $0$ up to your $\\text{E}(X)$, so integrate $\\text{f}(x)$ between those limits.",
+   "Integrate $x$ by the power rule (keep $\\dfrac{2}{b^2}$ outside) and use $0$ and your $\\text{E}(X)$ as the limits.",
+   "Square the upper limit carefully, cancel the $b^2$ in the top with the $b^2$ in $\\dfrac{2}{b^2}$, and check you end with the printed fraction $\\dfrac{4}{9}$."
+  ],
+  "walkthrough": [
+   "**The plan**\n\nFirst find the mean $\\text{E}(X)$ in terms of $b$. Then find the probability that $X$ is below it by integrating $\\text{f}(x)$ from $0$ to that mean. We use $a = \\dfrac{2}{b^2}$ from part (a), so $\\text{f}(x) = \\dfrac{2}{b^2}x$ for $0 \\leqslant x \\leqslant b$.",
+   "**Set up the expected value (M1)**\n\nFor a continuous variable, $\\text{E}(X) = \\int x\\,\\text{f}(x)\\,\\text{d}x$ over the whole range. Multiplying $x$ by $\\dfrac{2}{b^2}x$ gives $\\dfrac{2}{b^2}x^2$:\n\n$$\\text{E}(X) = \\int_0^b x \\times \\frac{2}{b^2}x\\,\\text{d}x = \\frac{2}{b^2}\\int_0^b x^2\\,\\text{d}x$$",
+   "**Integrate (first A1)**\n\nPower rule: $\\int x^2\\,\\text{d}x = \\dfrac{x^3}{3}$. The constant $\\dfrac{2}{b^2}$ stays outside:\n\n$$\\text{E}(X) = \\frac{2}{b^2}\\left[\\frac{x^3}{3}\\right]_0^b$$",
+   "**Substitute the limits (second A1)**\n\n$$\\text{E}(X) = \\frac{2}{b^2}\\left(\\frac{b^3}{3} - \\frac{0^3}{3}\\right) = \\frac{2}{b^2} \\times \\frac{b^3}{3} = \\frac{2b^3}{3b^2} = \\frac{2}{3}b$$\n\n(The scheme also accepts equivalent forms such as $\\dfrac{ab^3}{3}$.)\n\nQuick check: the density increases with $x$, so the mean should be more than half-way along $0$ to $b$. $\\frac{2}{3}b$ is. Good.",
+   "**Set up the probability (second M1)**\n\n$X < \\text{E}(X)$ means $X < \\frac{2}{3}b$. The probability is the area under $\\text{f}(x)$ from $0$ up to $\\frac{2}{3}b$:\n\n$$\\text{P}\\left(X < \\text{E}(X)\\right) = \\int_0^{\\frac{2}{3}b} \\frac{2}{b^2}x\\,\\text{d}x$$\n\n(Alternatively use the triangle: base $\\frac{2b}{3}$, height $\\frac{2}{3}ab$.)",
+   "**Integrate (third A1, follow-through on your $\\text{E}(X)$)**\n\n$$= \\frac{2}{b^2}\\left[\\frac{x^2}{2}\\right]_0^{\\frac{2}{3}b}$$\n\nThe $\\dfrac{2}{b^2}$ must still be there.",
+   "**Substitute and simplify to the printed result (final A1)**\n\nPut in the upper limit and square it: $\\left(\\frac{2}{3}b\\right)^2 = \\frac{4}{9}b^2$. The lower limit gives $0$.\n\n$$= \\frac{2}{b^2} \\times \\frac{\\frac{4}{9}b^2}{2}$$\n\nHalving $\\frac{4}{9}b^2$ gives $\\frac{2}{9}b^2$, so\n\n$$= \\frac{2}{b^2} \\times \\frac{2b^2}{9}$$\n\nMultiply the tops and the bottoms, then cancel the common factor $b^2$:\n\n$$= \\frac{4b^2}{9b^2} = \\frac{4}{9}$$\n\nYou must show this correct expression after substituting the limits.",
+   "**Final answer**\n\n$$\\text{P}(X < \\text{E}(X)) = \\frac{4}{9}$$"
+  ]
+ }
+}

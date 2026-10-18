@@ -1,0 +1,38 @@
+{
+ "9709_s18_73_q2_i": {
+  "hints": [
+   "Students are numbered 1 to 265, which needs up to three digits. Read the digits of the random numbers in groups of three after the decimal point: $0.213\\,165\\,448$ gives the groups 213, 165, 448.",
+   "Reject any group that is bigger than 265, and reject any number that has already been chosen (a student cannot be picked twice). Carry on into $0.073\\,165\\,196$ until you have four students."
+  ],
+  "walkthrough": [
+   "**Why groups of three digits?**\n\nThe largest student number is 265, which has three digits. So each random number is cut into groups of three digits, and each group is a possible student number. A group such as 073 is just student 73.",
+   "**Split the random numbers**\n\n$$0.213\\,165\\,448 \\rightarrow 213,\\ 165,\\ 448$$\n\n$$0.073\\,165\\,196 \\rightarrow 073,\\ 165,\\ 196$$\n\nWe use them in order, and we check each group against two rules: it must be at most 265, and it must not have been chosen before.",
+   "**Go through the groups in order**\n\n- 213: at most 265, new. Keep it (student 1).\n\n- 165: at most 265, new. Keep it (student 2).\n\n- 448: bigger than 265 so there is no student 448. Reject it.\n\n- 073 (student 73): at most 265, new. Keep it (student 3).\n\n- 165: already chosen. Reject it, because the sample cannot contain the same student twice.\n\n- 196: at most 265, new. Keep it (student 4).\n\nWe now have four students. The first **B1** is earned by getting three valid numbers; the second **B1** by getting the other numbers.",
+   "**Final answer**\n\nThe first four students in the sample are **213, 165, 73 and 196**. The scheme says other methods are allowed if they are clearly explained, for example reading the digits in a different valid way."
+  ]
+ },
+ "9709_s18_73_q2_ii": {
+  "hints": [
+   "An unbiased estimate of the population mean is just the sample mean: $\\dfrac{\\Sigma x}{n}$ with $\\Sigma x = 510$ and $n = 25$.",
+   "The unbiased estimate of the population variance is $s^2 = \\dfrac{1}{n-1}\\left(\\Sigma x^2 - \\dfrac{(\\Sigma x)^2}{n}\\right)$. Substitute $\\Sigma x^2 = 13\\,225$, $\\Sigma x = 510$ and $n = 25$.",
+   "Work out the bracket first: $(\\Sigma x)^2 \\div n$ then subtract it from $\\Sigma x^2$. Then divide by $n - 1$ (not by $n$) and give 3 significant figures."
+  ],
+  "walkthrough": [
+   "**What is an unbiased estimate?**\n\nWe only have a sample of 25 students, but we want to say something about the whole population. An *unbiased estimate* is a value worked out from the sample that is correct on average. For the mean this is the ordinary sample mean $\\bar{x}$. For the variance we must divide by $n - 1$, not $n$, because dividing by $n$ would on average give a number that is too small.",
+   "**Estimate of the population mean**\n\n$$\\bar{x} = \\frac{\\Sigma x}{n} = \\frac{510}{25} = 20.4$$\n\nThis earns the **B1**. The scheme also accepts $\\frac{102}{5}$.",
+   "**Estimate of the population variance: the formula**\n\n$$s^2 = \\frac{1}{n-1}\\left(\\Sigma x^2 - \\frac{(\\Sigma x)^2}{n}\\right)$$\n\nWith $n = 25$ we divide by $n - 1 = 24$. Substituting the numbers from the question:\n\n$$s^2 = \\frac{1}{24}\\left(13\\,225 - \\frac{510^2}{25}\\right)$$\n\nThis line earns the **M1**. (The scheme also accepts $\\frac{25}{24}\\left[\\frac{13225}{25} - 20.4^2\\right]$, which is the same thing.)",
+   "**Calculate step by step**\n\nFirst square 510: $510^2 = 260\\,100$.\n\n$$\\frac{260\\,100}{25} = 10\\,404$$\n\n$$13\\,225 - 10\\,404 = 2821$$\n\n$$s^2 = \\frac{2821}{24} = 117.54166\\ldots$$\n\nQuick check: the variance must be positive. It is.",
+   "**Final answer**\n\nUnbiased estimate of the population mean = **20.4**.\n\nUnbiased estimate of the population variance = **118** (3 significant figures), exactly $\\frac{2821}{24}$. This earns the **A1**."
+  ]
+ },
+ "9709_s18_73_q2_iii": {
+  "hints": [
+   "The population is the whole group that you want to learn about, not the 25 you asked. Say whose weekly earnings are meant."
+  ],
+  "walkthrough": [
+   "**What is a population?**\n\nIn statistics the *population* is the complete set of things we want to find out about. The *sample* is the smaller part we actually measure. Amy measured 25 students, but she wants to know about everyone in her year.",
+   "**Be careful what is measured**\n\nThe variable measured is $x$, the money a student earns in a week on average. So the population is the **values** of weekly earnings for all the students, not just the students themselves. The scheme says 'All students in Amy's year' on its own is not enough.",
+   "**Final answer**\n\nThe population is the **(average) weekly earnings of all the students in Amy's year** at the college. This earns the **B1**."
+  ]
+ }
+}

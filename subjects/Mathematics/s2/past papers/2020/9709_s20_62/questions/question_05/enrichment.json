@@ -1,0 +1,50 @@
+{
+ "9709_s20_62_q5_a_i": {
+  "hints": [
+   "A Poisson variable counts how many events occur. Think about which counts are possible: can the count be negative, or a fraction? Is there an upper limit?"
+  ],
+  "walkthrough": [
+   "**What a Poisson variable counts**\n\nA Poisson variable counts how many times something happens (for example arrivals in an hour). A count is a whole number, it cannot be negative, and in theory it has no upper limit.",
+   "**Final answer**\n\n$X$ can take the values $0, 1, 2, 3, \\ldots$ (all non-negative whole numbers, without end). (B1)"
+  ]
+ },
+ "9709_s20_62_q5_a_ii": {
+  "hints": [
+   "Write both sides using $\\text{P}(X = r) = \\text{e}^{-\\lambda}\\dfrac{\\lambda^r}{r!}$ with $r = 1$ and $r = 0$, then divide out the common factor."
+  ],
+  "walkthrough": [
+   "**The two probabilities**\n\nFor a Poisson variable $\\text{P}(X = r) = \\text{e}^{-\\lambda}\\dfrac{\\lambda^r}{r!}$. So\n\n$$\\text{P}(X = 1) = \\text{e}^{-\\lambda}\\,\\frac{\\lambda^1}{1!} = \\lambda\\text{e}^{-\\lambda}$$\n\n$$\\text{P}(X = 0) = \\text{e}^{-\\lambda}\\,\\frac{\\lambda^0}{0!} = \\text{e}^{-\\lambda}$$\n\n(Remember $\\lambda^0 = 1$ and $0! = 1$.)",
+   "**Use the given condition**\n\n$\\text{P}(X = 1) = 3 \\times \\text{P}(X = 0)$ becomes\n\n$$\\lambda\\text{e}^{-\\lambda} = 3\\text{e}^{-\\lambda}$$\n\n$\\text{e}^{-\\lambda}$ is never zero, so divide both sides by it:\n\n$$\\lambda = 3$$",
+   "**Final answer**\n\n$\\lambda = \\mathbf{3}$. (B1)"
+  ]
+ },
+ "9709_s20_62_q5_a_iii": {
+  "hints": [
+   "Use $\\text{Po}(\\lambda)$ with the $\\lambda$ from part (ii). The inequality $4 \\leqslant X \\leqslant 6$ includes three values, so add $\\text{P}(X = 4)$, $\\text{P}(X = 5)$ and $\\text{P}(X = 6)$, each from $\\text{e}^{-\\lambda}\\lambda^r/r!$.",
+   "Factor out $\\text{e}^{-\\lambda}$, evaluate the bracket and multiply, then round to 3 significant figures."
+  ],
+  "walkthrough": [
+   "**Which values**\n\nWith $\\lambda = 3$, $X \\sim \\text{Po}(3)$. The condition $4 \\leqslant X \\leqslant 6$ includes both ends, so $X$ is 4, 5 or 6:\n\n$$\\text{P}(4 \\leqslant X \\leqslant 6) = \\text{P}(X=4) + \\text{P}(X=5) + \\text{P}(X=6)$$",
+   "**Write the expression**\n\nEach term is $\\text{e}^{-3}\\dfrac{3^r}{r!}$, so factor out $\\text{e}^{-3}$:\n\n$$\\text{e}^{-3}\\left(\\frac{3^4}{4!} + \\frac{3^5}{5!} + \\frac{3^6}{6!}\\right)$$\n\nThis earns the **M1**.",
+   "**Calculate**\n\n$$\\frac{3^4}{4!} = \\frac{81}{24} = 3.375, \\quad \\frac{3^5}{5!} = \\frac{243}{120} = 2.025, \\quad \\frac{3^6}{6!} = \\frac{729}{720} = 1.0125$$\n\n$$3.375 + 2.025 + 1.0125 = 6.4125$$\n\n$$\\text{e}^{-3} = 0.049787\\ldots$$\n\n$$0.049787 \\times 6.4125 = 0.31926\\ldots$$",
+   "**Final answer**\n\n$\\text{P}(4 \\leqslant X \\leqslant 6) = \\mathbf{0.319}$ (3 s.f.). (A1)"
+  ]
+ },
+ "9709_s20_62_q5_b": {
+  "hints": [
+   "$\\text{P}(Y < 46) = 0.0668$ is a probability below 0.5, so the corresponding $z$-value is negative. Use the inverse normal on 0.0668 to find that $z$.",
+   "For a Poisson variable the mean and the variance are both $\\mu$. When $\\mu$ is large, approximate $Y$ by a normal distribution with mean $\\mu$ and variance $\\mu$: $\\text{N}(\\mu, \\mu)$.",
+   "$Y$ is discrete, so apply a continuity correction: $Y < 46$ means $Y \\leqslant 45$, and the continuous boundary is half a unit above 45. Standardise: $\\dfrac{\\text{boundary} - \\mu}{\\sqrt{\\mu}} = z$ with your $z$ from the first hint.",
+   "Rearrange into a quadratic in $\\sqrt{\\mu}$: let $s = \\sqrt{\\mu}$, so $s^2 = \\mu$. Solve with the quadratic formula and keep only the positive root, since $s$ cannot be negative.",
+   "$s = \\sqrt{\\mu}$, so square your positive value of $s$ to get $\\mu$, and round to 3 significant figures."
+  ],
+  "walkthrough": [
+   "**Find the $z$-value**\n\nWe are told $\\text{P}(Y < 46) = 0.0668$. The normal approximation turns this into $\\text{P}(Z < z) = 0.0668$ for some $z$. Use inverse normal on your calculator:\n\n$$z = \\Phi^{-1}(0.0668) = -1.500\\ldots \\approx -1.5$$\n\nIt is negative because $0.0668$ is less than $0.5$ (the point is below the mean). This earns the first **M1**.",
+   "**Approximating distribution**\n\nA Poisson distribution $\\text{Po}(\\mu)$ has mean $\\mu$ and variance $\\mu$ (they are equal). For large $\\mu$ it is approximately normal with the same mean and variance:\n\n$$Y \\approx \\text{N}(\\mu, \\mu)$$\n\nThis earns the second **M1**. Note that the standard deviation is $\\sqrt{\\mu}$.",
+   "**Continuity correction and standardising**\n\n$Y$ takes whole-number values, so $Y < 46$ is the same as $Y \\leqslant 45$. In the continuous normal this covers everything up to $45.5$. So\n\n$$\\text{P}(Y < 46) \\approx \\text{P}\\left(Z < \\frac{45.5 - \\mu}{\\sqrt{\\mu}}\\right)$$\n\nSet this standardised value equal to the $z$ found earlier:\n\n$$\\frac{45.5 - \\mu}{\\sqrt{\\mu}} = -1.5$$\n\nThis earns the third **M1**.",
+   "**Turn it into a quadratic**\n\nMultiply both sides by $\\sqrt{\\mu}$:\n\n$$45.5 - \\mu = -1.5\\sqrt{\\mu}$$\n\nMove everything to one side:\n\n$$\\mu - 1.5\\sqrt{\\mu} - 45.5 = 0$$\n\nLet $s = \\sqrt{\\mu}$, so $\\mu = s^2$:\n\n$$s^2 - 1.5s - 45.5 = 0$$\n\nUse the quadratic formula with $a = 1$, $b = -1.5$, $c = -45.5$:\n\n$$s = \\frac{1.5 \\pm \\sqrt{(-1.5)^2 + 4 \\times 45.5}}{2}$$\n\nThe pieces: $(-1.5)^2 = 2.25$, $4 \\times 45.5 = 182$, $2.25 + 182 = 184.25$, $\\sqrt{184.25} = 13.5739\\ldots$\n\n$$s = \\frac{1.5 + 13.5739}{2} = 7.5369\\ldots \\quad \\text{or} \\quad s = \\frac{1.5 - 13.5739}{2} = -6.0369\\ldots$$\n\n$s = \\sqrt{\\mu}$ cannot be negative, so reject the negative root. This earns the fourth **M1**.",
+   "**Find $\\mu$**\n\nSquare the positive root:\n\n$$\\mu = 7.5369\\ldots^2 = 56.80\\ldots \\approx 56.8$$\n\nQuick check: with $\\mu = 56.8$, $\\sqrt{56.8} = 7.537$ and $\\dfrac{45.5 - 56.8}{7.537} = -1.5$, as needed.",
+   "**Final answer**\n\n$\\mu = \\mathbf{56.8}$ (3 s.f.). (A1)"
+  ]
+ }
+}

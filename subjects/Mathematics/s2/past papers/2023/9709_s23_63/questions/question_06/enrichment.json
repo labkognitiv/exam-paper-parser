@@ -1,0 +1,27 @@
+{
+ "9709_s23_63_q6_a": {
+  "hints": [
+   "$X$ is really binomial, $\\text{B}(12\\,500, \\tfrac{1}{5000})$, but $n$ is large and $p$ is small, so use a Poisson distribution with mean $np = 12\\,500 \\times \\tfrac{1}{5000}$. State it as $X \\sim \\text{Po}(\\ldots)$.",
+   "For a Poisson distribution $\\text{P}(X = r) = \\text{e}^{-\\lambda}\\dfrac{\\lambda^r}{r!}$. You want $\\text{P}(X \\leqslant 3)$, so add the terms for $r = 0, 1, 2, 3$.",
+   "Take out the common factor $\\text{e}^{-\\lambda}$, work out the four terms inside the bracket and add them, then multiply by $\\text{e}^{-\\lambda}$. (Or use your calculator's Poisson cdf.) Give the answer to 3 significant figures."
+  ],
+  "walkthrough": [
+   "**Why a Poisson approximation**\n\nThe number with the condition is really binomial: $12\\,500$ people, each with probability $\\frac{1}{5000}$. That is $X \\sim \\text{B}\\left(12\\,500, \\frac{1}{5000}\\right)$.\n\nBinomial with a large $n$ and a small $p$ is awkward to work by hand. In that case, a Poisson distribution with the same mean ($np$) is a good approximation.",
+   "**The Poisson distribution (this earns the B1)**\n\nThe mean is $np = 12\\,500 \\times \\dfrac{1}{5000} = 2.5$.\n\n$$X \\sim \\text{Po}(2.5)$$",
+   "**Write the probability as a sum (this earns the M1)**\n\nFor a Poisson distribution, $\\text{P}(X = r) = \\text{e}^{-\\lambda}\\dfrac{\\lambda^r}{r!}$. 'At most 3' means $X$ is $0$, $1$, $2$ or $3$, so add those four probabilities:\n\n$$\\text{P}(X \\leqslant 3) = \\text{e}^{-2.5}\\left(1 + 2.5 + \\frac{2.5^2}{2!} + \\frac{2.5^3}{3!}\\right)$$\n\nWhy does the first term read $1$? $r = 0$: $\\dfrac{2.5^0}{0!} = \\dfrac{1}{1} = 1$. A slip to avoid is leaving out a term at the start or the end (the scheme allows one such slip for the M1 but not the final A1).",
+   "**Evaluate (this earns the A1)**\n\nThe terms in the bracket: $1$; $2.5$; $\\dfrac{2.5^2}{2} = \\dfrac{6.25}{2} = 3.125$; $\\dfrac{2.5^3}{6} = \\dfrac{15.625}{6} = 2.6042$.\n\nAdd them: $1 + 2.5 + 3.125 + 2.6042 = 9.2292$.\n\n$\\text{e}^{-2.5} = 0.082085$ (calculator: $\\text{e}^x$ with $x = -2.5$). Multiply:\n\n$$\\text{P}(X \\leqslant 3) = 0.082085 \\times 9.2292 = 0.7576 = 0.758 \\text{ (3 s.f.)}$$\n\nQuick check: you can check with the calculator's Poisson cumulative distribution with $\\lambda = 2.5$ and upper value $3$.",
+   "**Final answer**\n\n$\\text{P}(X \\leqslant 3) = 0.758$ (3 s.f.)."
+  ]
+ },
+ "9709_s23_63_q6_b": {
+  "hints": [
+   "Use the true (binomial) distribution $\\text{B}(12\\,500, \\tfrac{1}{5000})$: $\\text{E}(X) = np$ and $\\text{Var}(X) = np(1 - p)$. Substitute the numbers; leave $1 - p$ as $\\tfrac{4999}{5000}$ if you like.",
+   "A Poisson distribution has its mean equal to its variance. Compare your two values and say how close they are, and what that tells you about using Poisson."
+  ],
+  "walkthrough": [
+   "**Mean and variance of the real distribution (this earns the first B1)**\n\n$X$ is binomial with $n = 12\\,500$ and $p = \\frac{1}{5000}$. For a binomial, the mean is $np$ and the variance is $np(1 - p)$.\n\n$$\\text{E}(X) = 12\\,500 \\times \\frac{1}{5000} = 2.5$$\n\n$$\\text{Var}(X) = 12\\,500 \\times \\frac{1}{5000} \\times \\frac{4999}{5000} = 2.5 \\times 0.9998 = 2.4995$$\n\nWriting just $2.5$ for the variance is not enough here. You must show the value $2.4995$ (or $\\frac{4999}{2000}$) to show how close it is.",
+   "**Why this shows Poisson is appropriate (this earns the second B1)**\n\nFor a Poisson distribution the mean and the variance are **equal**. Here the mean is $2.5$ and the variance is $2.4995$. They are almost equal.\n\nSo a Poisson distribution has nearly the same mean and variance as the true distribution, which suggests it is a suitable approximation.",
+   "**Final answer**\n\n$\\text{E}(X) = 2.5$ and $\\text{Var}(X) = \\dfrac{4999}{2000} = 2.4995$. These are almost equal, which is a property of a Poisson distribution, so the Poisson approximation is likely to be appropriate."
+  ]
+ }
+}

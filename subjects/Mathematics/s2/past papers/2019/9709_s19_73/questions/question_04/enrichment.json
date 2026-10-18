@@ -1,0 +1,19 @@
+{
+  "9709_s19_73_q4": {
+    "hints": [
+      "The total is 10 large bricks, 20 small bricks and the box. Means add, so the mean of the total comes from $10 \\times 60 + 20 \\times 30 + 8$.",
+      "Independent masses have their **variances** added. The box is a fixed 8 g, so it adds nothing. Remember that in $\\text{N}(60, 1.2)$ the second number is already the variance, so do not square it.",
+      "Standardise: $z = \\dfrac{1200 - \\text{mean}}{\\sqrt{\\text{variance}}}$ using the mean and variance of the total. Take the square root of the variance, not the variance itself.",
+      "Sketch the normal curve. Is 1200 above or below the mean of the total? That tells you whether $z$ is positive or negative and which tail you want.",
+      "A negative $z$ means $\\text{P}(Z < z) = 1 - \\Phi(\\text{positive value of } z)$. Find $\\Phi$ of the positive value, subtract it from 1 and round to 3 significant figures."
+    ],
+    "walkthrough": [
+      "**Set up the total mass**\n\nLet $T$ be the total mass of a box and its contents, in grams:\n\n$$T = L_1 + L_2 + \\cdots + L_{10} + S_1 + S_2 + \\cdots + S_{20} + 8$$\n\nHere each $L$ is the mass of one large brick, each $S$ the mass of one small brick, and $8$ is the empty box. Each brick is independent. A sum of independent normal variables is itself normally distributed, so $T$ is normal and we only need its mean and variance.",
+      "**Mean of the total (first B1 mark)**\n\nMeans add:\n\n$$\\text{E}(T) = 10 \\times 60 + 20 \\times 30 + 8$$\n\n$$= 600 + 600 + 8 = 1208$$\n\nSo $T \\sim \\text{N}(1208, \\ldots)$.",
+      "**Variance of the total (second B1 mark)**\n\nFor independent variables, **variances** add (standard deviations do not). In $\\text{N}(60, 1.2)$ the second number is the variance, $1.2$. Ten large bricks give a variance of $10 \\times 1.2$; twenty small bricks give $20 \\times 0.7$. The box has a fixed mass, so its variance is $0$.\n\n$$\\text{Var}(T) = 10 \\times 1.2 + 20 \\times 0.7 + 0$$\n\n$$= 12 + 14 = 26$$\n\nSo $T \\sim \\text{N}(1208, 26)$.\n\nCommon slip: working out $10 \\times 1.2^2 + 20 \\times 0.7^2$. That treats $1.2$ and $0.7$ as standard deviations, but the question gives variances. (The mark scheme lets you follow through this slip for the later marks, but the first accuracy mark is lost.)",
+      "**Standardise (first M1 mark)**\n\nWe want $\\text{P}(T < 1200)$. Convert to the standard normal $Z$ using $z = \\dfrac{x - \\mu}{\\sigma}$, where $\\sigma = \\sqrt{26}$ is the standard deviation (the square root of the variance).\n\n$$\\sqrt{26} = 5.0990\\ldots$$\n\n$$z = \\frac{1200 - 1208}{\\sqrt{26}} = \\frac{-8}{5.0990\\ldots} = -1.569$$\n\nThe negative sign makes sense: $1200$ is below the mean $1208$.",
+      "**Find the probability (second M1 mark)**\n\n$$\\text{P}(T < 1200) = \\text{P}(Z < -1.569)$$\n\nThe normal curve is symmetrical, so the area below $-1.569$ equals the area above $+1.569$:\n\n$$\\text{P}(Z < -1.569) = 1 - \\Phi(1.569)$$\n\nUse your calculator's normal cdf (or the normal table) for $\\Phi(1.569)$:\n\n$$\\Phi(1.569) = 0.94168$$\n\n$$1 - 0.94168 = 0.05832$$",
+      "**Final answer**\n\nThe probability that the total weight is less than 1200 g is $0.0583$ (3 significant figures)."
+    ]
+  }
+}

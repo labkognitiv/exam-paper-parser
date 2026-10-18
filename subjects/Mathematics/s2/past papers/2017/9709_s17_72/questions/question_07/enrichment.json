@@ -1,0 +1,36 @@
+{
+ "9709_s17_72_q7_a": {
+  "hints": [
+   "Call the two chosen values $X_1$ and $X_2$. The mean of the sum is $\\text{E}(X_1 + X_2) = 2 \\times 4.2$. The variances add: $\\text{Var}(X_1 + X_2) = 2 \\times 1.1^2$. Watch that this is the sum of two separate values, not $2X$.",
+   "The sum is normal, so standardise: $z = \\dfrac{10 - \\text{mean}}{\\sqrt{\\text{variance}}}$. The denominator is the square root of the variance, not the variance itself.",
+   "You want $\\text{P}(\\text{sum} > 10)$, the upper tail. With tables or a calculator giving $\\Phi(z)$, the area above $z$ is $1 - \\Phi(z)$.",
+   "Evaluate $1 - \\Phi(z)$ with your calculator and give 3 significant figures."
+  ],
+  "walkthrough": [
+   "**What we need**\n\n$X_1$ and $X_2$ are two independent values of $X$, where $X \\sim \\text{N}(4.2,\\ 1.1^2)$. We want $\\text{P}(X_1 + X_2 > 10)$. A sum of independent normal variables is also normal, so we find its mean and variance.",
+   "**Mean and variance of the sum (B1)**\n\nMeans add:\n\n$$\\text{E}(X_1 + X_2) = 4.2 + 4.2 = 8.4$$\n\nVariances add (for independent variables). The variance of one $X$ is $1.1^2$:\n\n$$1.1^2 = 1.21$$\n\n$$\\text{Var}(X_1 + X_2) = 1.21 + 1.21 = 2.42$$\n\nSo $X_1 + X_2 \\sim \\text{N}(8.4,\\ 2.42)$. This earns the B1.\n\nCommon slip: working with $2X$ instead (which has variance $2^2 \\times 1.21 = 4.84$). That is a different thing: it would mean doubling a single value, not adding two separate values.",
+   "**Standardise (M1)**\n\nThe standard deviation is the square root of the variance:\n\n$$\\sqrt{2.42} = 1.5556\\ldots$$\n\n$$z = \\frac{10 - 8.4}{\\sqrt{2.42}} = \\frac{1.6}{1.5556} = 1.029\\ldots$$\n\nThis earns the M1. Do not divide by $2.42$ itself: that is mixing up variance and standard deviation.",
+   "**Find the probability (M1)**\n\nWe want the area **above** $z = 1.029$. Normal tables give the area **below**. So\n\n$$\\text{P}(Z > 1.029) = 1 - \\Phi(1.029)$$\n\nThis earns the second M1.",
+   "**Calculate (A1)**\n\n$$\\Phi(1.029) = 0.8483\\ldots$$\n\n$$1 - 0.8483 = 0.1517\\ldots$$\n\nRounded to 3 significant figures this is $0.152$.\n\nQuick check: $z$ is about 1, and about 16% of the curve lies above $z = 1$. So an answer near 0.15 is sensible.",
+   "**Final answer**\n\n$$\\text{P}(X_1 + X_2 > 10) = 0.152 \\quad (3\\text{ sf})$$"
+  ]
+ },
+ "9709_s17_72_q7_b": {
+  "hints": [
+   "Let the overall score be $Y = C - \\frac{1}{2}S$. The mean of a combination is found by the same combination of the means: $\\text{E}(Y) = 29 - \\frac{1}{2} \\times 17$.",
+   "For independent variables, $\\text{Var}(aC + bS) = a^2\\text{Var}(C) + b^2\\text{Var}(S)$. The minus sign in front of $S$ does not subtract variance, and the $\\frac{1}{2}$ gets squared. The numbers 105 and 15 in $\\text{N}(\\mu, \\sigma^2)$ are already variances.",
+   "A negative overall score means $Y < 0$. Standardise: $z = \\dfrac{0 - \\text{mean}}{\\sqrt{\\text{variance}}}$. Use the standard deviation, the square root of the variance, on the bottom.",
+   "Your $z$ will be negative and you want the area below it. If your table only has positive values, use $\\Phi(-z) = 1 - \\Phi(z)$.",
+   "Evaluate with the normal tables or your calculator. A proportion of candidates is a probability; give it to 3 significant figures."
+  ],
+  "walkthrough": [
+   "**What we need**\n\nThe overall score is $Y = C - \\frac{1}{2}S$, where $C \\sim \\text{N}(29, 105)$ and $S \\sim \\text{N}(17, 15)$ are independent. In $\\text{N}(\\mu, \\sigma^2)$ the second number is the **variance**, so $\\text{Var}(C) = 105$ and $\\text{Var}(S) = 15$. The proportion of candidates with a negative score is $\\text{P}(Y < 0)$.",
+   "**Mean of $Y$ (B1)**\n\nA combination of normal variables is normal, and means combine in the same way as the variables do:\n\n$$\\text{E}(Y) = \\text{E}(C) - \\tfrac{1}{2}\\text{E}(S) = 29 - \\tfrac{1}{2} \\times 17$$\n\n$$\\tfrac{1}{2} \\times 17 = 8.5 \\qquad 29 - 8.5 = 20.5$$\n\n$$\\text{E}(Y) = 20.5$$",
+   "**Variance of $Y$ (M1)**\n\nFor independent variables, $\\text{Var}(aC + bS) = a^2\\text{Var}(C) + b^2\\text{Var}(S)$. Here $a = 1$ and $b = -\\frac{1}{2}$. The coefficient is **squared**, so the minus sign disappears and **variances are added**, even though the scores are subtracted:\n\n$$\\text{Var}(Y) = 1^2 \\times 105 + \\left(-\\tfrac{1}{2}\\right)^2 \\times 15 = 105 + 0.25 \\times 15$$\n\n$$0.25 \\times 15 = 3.75 \\qquad 105 + 3.75 = 108.75$$\n\nSo $Y \\sim \\text{N}(20.5,\\ 108.75)$.",
+   "**Standardise (M1)**\n\nWe want $\\text{P}(Y < 0)$. The standard deviation is the square root of the variance:\n\n$$\\sqrt{108.75} = 10.4283\\ldots$$\n\n$$z = \\frac{0 - 20.5}{\\sqrt{108.75}} = \\frac{-20.5}{10.4283} = -1.966\\ldots$$\n\nDo not divide by $108.75$ itself: that mixes up variance and standard deviation. (The scheme ignores any attempted continuity correction, because $Y$ is already continuous.)",
+   "**Choose the right area (M1)**\n\nWe want the area **below** $z = -1.966$. Normal tables only list positive $z$, so use symmetry:\n\n$$\\text{P}(Z < -1.966) = \\Phi(-1.966) = 1 - \\Phi(1.966)$$\n\nThis earns the second M1.",
+   "**Calculate (A1)**\n\n$$\\Phi(1.966) = 0.9754 \\quad\\Rightarrow\\quad 1 - 0.9754 = 0.0246$$\n\nIf your calculator keeps the unrounded $z$ the value is $0.02466$, which rounds to $0.0247$; the mark scheme accepts both.\n\nQuick check: $z$ is nearly $-2$, and about 2.3% of the curve is below $-2$. So an answer near 0.025 is sensible.",
+   "**Final answer**\n\nThe proportion of candidates with a negative overall score is\n\n$$0.0246 \\quad \\text{(or } 2.46\\%\\text{)} \\quad (3\\text{ sf})$$\n\n($0.0247$ is also accepted.)"
+  ]
+ }
+}

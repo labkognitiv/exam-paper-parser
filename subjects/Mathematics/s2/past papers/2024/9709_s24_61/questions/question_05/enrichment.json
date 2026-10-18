@@ -1,0 +1,40 @@
+{
+ "9709_s24_61_q5_a": {
+  "hints": [
+   "The question already lists singly, randomly and independently. Think about the average rate of sales across the whole time period: what must be true about it, whether it is a busy or a quiet time of day?"
+  ],
+  "walkthrough": [
+   "**What a Poisson model needs**\n\nA Poisson distribution models events that happen **singly**, **randomly** and **independently**. The question has already given us these three. The one remaining condition is that the events happen at a **constant average rate**: the expected number of sales per hour must be the same throughout the time period, with no busy and quiet periods.",
+   "**Final answer**\n\nSales occur at a constant average rate."
+  ]
+ },
+ "9709_s24_61_q5_b": {
+  "hints": [
+   "The rate is 1.2 per hour and you want a 12-hour period: scale the mean to match the time period, so that the number of sales is Poisson with that new mean.",
+   "'More than 12 and less than 16' means the whole numbers strictly between 12 and 16. Write the sum of those Poisson probabilities, each as $\\text{e}^{-\\lambda}\\dfrac{\\lambda^r}{r!}$.",
+   "Evaluate the sum, either term by term or as the cumulative probability for 15 minus the cumulative probability for 12 on your calculator, then round to 3 significant figures."
+  ],
+  "walkthrough": [
+   "**Scale the mean to 12 hours (this earns the B1)**\n\nThe mean is 1.2 sales **per hour**. A Poisson mean grows in proportion to the time, so for 12 hours:\n\n$$\\lambda = 1.2 \\times 12 = 14.4$$\n\nSo $X \\sim \\text{Po}(14.4)$, where $X$ is the number of sales in 12 hours.",
+   "**Decide which values of X are wanted**\n\n'More than 12' means $X$ starts at 13 ($12$ itself is not included). 'Less than 16' means $X$ stops at 15 ($16$ itself is not included). So $X = 13, 14$ or $15$.\n\nCommon slip: including 12 or 16. The scheme allows one end error for the method mark only.",
+   "**Write the sum (this earns the M1)**\n\nUse $\\text{P}(X = r) = \\text{e}^{-\\lambda}\\dfrac{\\lambda^r}{r!}$ with $\\lambda = 14.4$ for each value:\n\n$$\\text{P}(12 < X < 16) = \\text{e}^{-14.4}\\left(\\frac{14.4^{13}}{13!} + \\frac{14.4^{14}}{14!} + \\frac{14.4^{15}}{15!}\\right)$$",
+   "**Evaluate (this earns the A1)**\n\n$\\text{e}^{-14.4} = 0.00000055739$ (calculator). The three terms are:\n\n$$\\text{P}(13) = 0.102469 \\qquad \\text{P}(14) = 0.105396 \\qquad \\text{P}(15) = 0.101181$$\n\nAdd them:\n\n$$0.102469 + 0.105396 + 0.101181 = 0.309046$$\n\nQuick check with the cumulative function: $\\text{P}(X \\leqslant 15) - \\text{P}(X \\leqslant 12) = 0.629301 - 0.320255 = 0.309046$, the same.",
+   "**Final answer**\n\n$$\\text{P}(12 < X < 16) = 0.309 \\text{ (3 s.f.)}$$"
+  ]
+ },
+ "9709_s24_61_q5_c": {
+  "hints": [
+   "A month is 140 hours, so the Poisson mean is $140 \\times 1.2$. That is large, so approximate with a normal distribution whose mean and variance are both equal to the Poisson mean.",
+   "Poisson is discrete and normal is continuous, so apply a continuity correction. 'Less than 150' for a whole number means 149 or fewer, so the boundary sits halfway between 149 and 150. Standardise: $\\dfrac{\\text{boundary} - \\text{mean}}{\\sqrt{\\text{variance}}}$.",
+   "The boundary is below the mean, so $z$ is negative. Use symmetry: $\\Phi(-z) = 1 - \\Phi(z)$ for the positive value of $z$.",
+   "Find $\\Phi$ of the positive $z$ on your calculator or table, subtract from 1 and round to 3 significant figures. The answer should be small, as 150 is well below the expected number of sales."
+  ],
+  "walkthrough": [
+   "**Why a normal approximation, and which one (this earns the B1)**\n\nFor a 140-hour month the number of sales is Poisson with mean\n\n$$\\lambda = 140 \\times 1.2 = 168$$\n\nAdding up 150 Poisson terms by hand is not sensible. When the Poisson mean is large (bigger than about 15), the distribution is close to a normal distribution with the **same mean** and **the same variance** (a Poisson distribution has variance equal to its mean). So\n\n$$X \\approx \\text{N}(168, 168)$$",
+   "**Continuity correction**\n\n$X$ counts whole sales (discrete), but the normal distribution is continuous. To account for that, replace each whole number by the interval around it. 'Less than 150' for a whole number means $X \\leqslant 149$, and $149$ covers the interval up to $149.5$:\n\n$$\\text{P}(X < 150) = \\text{P}(X \\leqslant 149) \\approx \\text{P}(Y < 149.5)$$\n\nwhere $Y \\sim \\text{N}(168, 168)$.",
+   "**Standardise (this earns the first M1)**\n\nThe standard deviation is the square root of the variance, $\\sqrt{168} = 12.9615$.\n\n$$z = \\frac{149.5 - 168}{\\sqrt{168}} = \\frac{-18.5}{12.9615} = -1.427$$\n\n(The scheme allows this mark even with a wrong or missing continuity correction, but the accuracy mark needs the correct one.)",
+   "**Find the area (this earns the second M1)**\n\nWe want the area **below** $z = -1.427$. The normal curve is symmetrical, so\n\n$$\\Phi(-1.427) = 1 - \\Phi(1.427)$$\n\nFrom the calculator or table, $\\Phi(1.427) = 0.9232$, so\n\n$$1 - 0.9232 = 0.0768$$\n\nQuick check: 150 is below the mean 168, so the probability should be less than 0.5, and it is small because 150 is more than one standard deviation below the mean.\n\nA note on rounding: using the unrounded $z$ gives $0.07675$, which rounds to $0.0767$. The mark scheme accepts both $0.0768$ and $0.0767$.",
+   "**Final answer**\n\n$$\\text{P}(X < 150) = 0.0768 \\text{ (3 s.f.)}$$\n\n($0.0767$ is also accepted.)"
+  ]
+ }
+}

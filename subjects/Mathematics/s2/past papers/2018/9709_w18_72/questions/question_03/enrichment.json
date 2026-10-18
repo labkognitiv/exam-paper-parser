@@ -1,0 +1,19 @@
+{
+ "9709_w18_72_q3": {
+  "hints": [
+   "Let $T$ be the total mass of one cake: $T = S_1 + S_2 + F_1 + F_2 + F_3 + F_4 + F_5$, where each $S$ is one cup of sugar and each $F$ is one cup of flour. The mean of a sum is the sum of the means, so add up $2$ lots of $250$ and $5$ lots of $160$.",
+   "The second number in $\\text{N}(250, 10)$ is a **variance**. Independent variances add, so add up $2$ lots of $10$ and $5$ lots of $9$. Do not use $2^2 \\times 10$: these are $2$ separate cups, not one cup counted twice.",
+   "Standardise: $z = \\dfrac{1310 - \\text{mean of } T}{\\sqrt{\\text{variance of } T}}$. Use the square root of the variance, not the variance itself.",
+   "The question says the total **exceeds** $1310$ g, so you want the upper tail: $\\text{P}(T > 1310) = \\text{P}(Z > z) = 1 - \\Phi(z)$.",
+   "Find $\\Phi(z)$ from your calculator's normal cdf (or the table), subtract it from $1$, and give your answer to 3 significant figures."
+  ],
+  "walkthrough": [
+   "**What the question is asking**\n\nOne cake uses $2$ cups of sugar and $5$ cups of flour. Let $T$ be the total mass in grams of the sugar and flour in one cake. We want $\\text{P}(T > 1310)$.\n\nEach cup is a separate, independent measurement:\n\n\n- a cup of sugar: $\\text{N}(250, 10)$, mean $250$, variance $10$\n\n- a cup of flour: $\\text{N}(160, 9)$, mean $160$, variance $9$\n\nIn $\\text{N}(\\mu, \\sigma^2)$ notation the second number is the **variance**.",
+   "**Find the mean of $T$ (this earns the first B1)**\n\nThe mean of a sum is the sum of the means. We have $2$ cups of sugar and $5$ cups of flour:\n\n$$\\text{E}(T) = 2 \\times 250 + 5 \\times 160$$\n\n$$\\text{E}(T) = 500 + 800 = 1300$$",
+   "**Find the variance of $T$ (this earns the second B1)**\n\nBecause the cups are independent, their variances add up, one variance for each cup:\n\n$$\\text{Var}(T) = 2 \\times 10 + 5 \\times 9$$\n\n$$\\text{Var}(T) = 20 + 45 = 65$$\n\nQuick check: do **not** write $2^2 \\times 10$. That would be for one cup of sugar doubled ($2X$). Here there are $2$ different cups ($X_1 + X_2$), so the variance is $2 \\times 10$.\n\nSo $T \\sim \\text{N}(1300, 65)$. A sum of independent normal variables is itself normal.",
+   "**Standardise (this earns the first M1)**\n\nTo use the standard normal $Z \\sim \\text{N}(0, 1)$ we subtract the mean and divide by the **standard deviation**. The standard deviation is the square root of the variance:\n\n$$\\sqrt{65} = 8.062257\\ldots$$\n\n$$z = \\frac{1310 - 1300}{\\sqrt{65}} = \\frac{10}{8.062257} = 1.240347\\ldots \\approx 1.240$$",
+   "**Choose the correct area (this earns the second M1)**\n\nWe want the total to be **more than** $1310$, so we want the area to the **right** of $z = 1.240$. Tables and calculators give the area to the **left**, $\\Phi(z)$, so subtract from $1$:\n\n$$\\text{P}(T > 1310) = 1 - \\Phi(1.240)$$\n\n$\\Phi(1.240)$: use the normal table or your calculator's normal cdf $\\to 0.8925$.\n\n$$1 - 0.8925 = 0.1075$$\n\nSketch check: $1310$ is above the mean $1300$, so the answer must be less than $0.5$. It is.",
+   "**Final answer**\n\n$$\\text{P}(T > 1310) = 0.1075$$\n\n(Using the unrounded $z$ gives $0.10742$. The mark scheme accepts any answer from $0.107$ to $0.108$.)"
+  ]
+ }
+}

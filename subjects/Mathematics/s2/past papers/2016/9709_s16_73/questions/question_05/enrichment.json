@@ -1,0 +1,56 @@
+{
+ "9709_s16_73_q5_i": {
+  "hints": [
+   "For any probability density function, the total area under the curve is 1. Write that as an equation using $\\int_5^{10} k(10t - t^2)\\,\\text{d}t$.",
+   "Integrate $10t - t^2$ term by term (raise the power by 1 and divide by the new power), keep the $k$ outside, and put in the limits 5 and 10.",
+   "Evaluate the bracket at 10, subtract its value at 5, and combine the fractions over a common denominator. Then solve for $k$ and check that it equals $\\dfrac{3}{250}$."
+  ],
+  "walkthrough": [
+   "**Why the total area is 1**\n\n$\\text{f}(t)$ is a probability density function. The probability of *all* possible times is 1, and probabilities are areas under the curve, so the total area must be 1. The function is non-zero only for $5 \\leqslant t \\leqslant 10$, so\n\n$$\\int_5^{10} k(10t - t^2)\\,\\text{d}t = 1$$\n\nThis earns the **M1**.",
+   "**Integrate**\n\n$k$ is a constant, so it stays in front. Integrate each term by raising the power by 1 and dividing by the new power: $10t \\to \\dfrac{10t^2}{2} = 5t^2$ and $t^2 \\to \\dfrac{t^3}{3}$.\n\n$$k\\left[5t^2 - \\frac{t^3}{3}\\right]_5^{10} = 1$$\n\nThis earns the **A1** (correct integral with the limits).",
+   "**Substitute the limits**\n\nPut in the top limit $t = 10$, then the bottom limit $t = 5$, and subtract (top minus bottom):\n\n$$k\\left(5(10)^2 - \\frac{10^3}{3} - \\left(5(5)^2 - \\frac{5^3}{3}\\right)\\right) = 1$$\n\n$$k\\left(500 - \\frac{1000}{3} - \\left(125 - \\frac{125}{3}\\right)\\right) = 1$$",
+   "**Simplify with fractions, one step at a time**\n\nTop limit: $500 - \\dfrac{1000}{3} = \\dfrac{1500}{3} - \\dfrac{1000}{3} = \\dfrac{500}{3}$.\n\nBottom limit: $125 - \\dfrac{125}{3} = \\dfrac{375}{3} - \\dfrac{125}{3} = \\dfrac{250}{3}$.\n\nSubtract: $\\dfrac{500}{3} - \\dfrac{250}{3} = \\dfrac{250}{3}$. So\n\n$$k \\times \\frac{250}{3} = 1$$\n\nKeep it as a fraction. Using a rounded decimal here would lose the final mark, because the question says \"show that\".",
+   "**Solve for $k$**\n\nMultiply both sides by $\\dfrac{3}{250}$:\n\n$$k = \\frac{3}{250}$$\n\nThis is the printed result, so the **A1** is earned.",
+   "**Final answer**\n\n$k = \\dfrac{3}{250}$, as required."
+  ]
+ },
+ "9709_s16_73_q5_ii": {
+  "hints": [
+   "The mean of a continuous variable is $\\text{E}(T) = \\int t\\,\\text{f}(t)\\,\\text{d}t$. Multiply $t$ by $k(10t - t^2)$ first, using $k = \\dfrac{3}{250}$.",
+   "Integrate $10t^2 - t^3$ term by term, keeping $\\dfrac{3}{250}$ outside, and write it with the limits 5 and 10.",
+   "Substitute 10 then 5 into your integrated expression, subtract, and multiply by $\\dfrac{3}{250}$. Keep fractions exact until the end."
+  ],
+  "walkthrough": [
+   "**The formula for the mean**\n\nFor a continuous variable, the mean is found by multiplying each value $t$ by its density and integrating over the range where the density is non-zero:\n\n$$\\text{E}(T) = \\int_5^{10} t\\,\\text{f}(t)\\,\\text{d}t = \\frac{3}{250}\\int_5^{10} t(10t - t^2)\\,\\text{d}t$$\n\nMultiply out the bracket: $t(10t - t^2) = 10t^2 - t^3$. So\n\n$$\\text{E}(T) = \\frac{3}{250}\\int_5^{10}(10t^2 - t^3)\\,\\text{d}t$$\n\nThis earns the **M1**.",
+   "**Integrate**\n\nRaise each power by 1 and divide by the new power: $10t^2 \\to \\dfrac{10t^3}{3}$ and $t^3 \\to \\dfrac{t^4}{4}$.\n\n$$\\text{E}(T) = \\frac{3}{250}\\left[\\frac{10t^3}{3} - \\frac{t^4}{4}\\right]_5^{10}$$\n\nThis earns the **A1**.",
+   "**Substitute the limits**\n\nAt $t = 10$: $\\dfrac{10 \\times 10^3}{3} - \\dfrac{10^4}{4} = \\dfrac{10000}{3} - \\dfrac{10000}{4}$.\n\nAt $t = 5$: $\\dfrac{10 \\times 5^3}{3} - \\dfrac{5^4}{4} = \\dfrac{1250}{3} - \\dfrac{625}{4}$.\n\n$$\\text{E}(T) = \\frac{3}{250}\\left(\\frac{10000}{3} - \\frac{10000}{4} - \\left(\\frac{1250}{3} - \\frac{625}{4}\\right)\\right)$$",
+   "**Work out the bracket**\n\nUpper: $\\dfrac{10000}{3} - 2500 = \\dfrac{10000}{3} - \\dfrac{7500}{3} = \\dfrac{2500}{3}$.\n\nLower: $\\dfrac{1250}{3} - \\dfrac{625}{4} = \\dfrac{5000}{12} - \\dfrac{1875}{12} = \\dfrac{3125}{12}$.\n\nSubtract: $\\dfrac{2500}{3} - \\dfrac{3125}{12} = \\dfrac{10000}{12} - \\dfrac{3125}{12} = \\dfrac{6875}{12}$.",
+   "**Multiply by $\\frac{3}{250}$**\n\n$$\\text{E}(T) = \\frac{3}{250} \\times \\frac{6875}{12} = \\frac{20625}{3000} = 6.875$$\n\nQuick check: the times run from 5 to 10, so a mean of 6.875 is sensible. The pdf is larger at the lower end of the range, so we expect the mean below the midpoint 7.5.",
+   "**Final answer**\n\n$\\text{E}(T) = $ **6.875** minutes (also $\\dfrac{55}{8}$; 6.88 is accepted). This earns the final **A1**."
+  ]
+ },
+ "9709_s16_73_q5_iii": {
+  "hints": [
+   "First find $\\text{P}(T < \\text{E}(T))$ by integrating $\\text{f}(t)$ from 5 up to the value of $\\text{E}(T)$ you found in part (ii), using $\\dfrac{3}{250}\\left[5t^2 - \\dfrac{t^3}{3}\\right]$.",
+   "By definition, exactly half the probability lies below the median. So $\\text{P}(T < \\text{E}(T)) - 0.5$ is the probability between the median and the mean.",
+   "Your answer should be a small positive probability: the bigger cumulative probability minus the smaller one. Give it to 3 significant figures."
+  ],
+  "walkthrough": [
+   "**Plan**\n\nWe need the probability that $T$ is between the mean $\\text{E}(T) = 6.875$ and the median $m$. By definition of the median, $\\text{P}(T < m) = 0.5$. So if we know $\\text{P}(T < 6.875)$, we can subtract $0.5$ without finding $m$ at all.",
+   "**Find $\\text{P}(T < 6.875)$**\n\nProbability is the area under the pdf from the lower end (5) up to 6.875. We use the integral from part (i), with the top limit changed:\n\n$$\\text{P}(T < 6.875) = \\frac{3}{250}\\left[5t^2 - \\frac{t^3}{3}\\right]_5^{6.875}$$\n\nThis earns the first **M1** (the scheme says ft their $\\text{E}(T)$).",
+   "**Substitute the limits**\n\nAt $t = 6.875$: $6.875^2 = 47.265625$, so $5 \\times 47.265625 = 236.328125$. Also $6.875^3 = 324.951171875$, and divided by 3 that is $108.317057$. So $236.328125 - 108.317057 = 128.011068$.\n\nAt $t = 5$: $5 \\times 25 - \\dfrac{125}{3} = 125 - 41.666667 = 83.333333$.\n\nSubtract: $128.011068 - 83.333333 = 44.677734$.\n\nMultiply by $\\dfrac{3}{250} = 0.012$:\n\n$$\\text{P}(T < 6.875) = 0.012 \\times 44.677734 = 0.5361$$",
+   "**Subtract one half**\n\nSince $\\text{P}(T < m) = 0.5$ and $\\text{P}(T < 6.875) = 0.5361$ is bigger, the mean lies above the median. The probability between them is the difference:\n\n$$0.5361 - 0.5 = 0.0361$$\n\nThis earns the **DM1** (the scheme allows 0.036 here).",
+   "**Optional check using the median**\n\nSolving $\\dfrac{3}{250}\\left[5t^2 - \\dfrac{t^3}{3}\\right]_5^{m} = 0.5$ gives $m \\approx 6.736$. So the median is 6.736 and the mean 6.875: the probability between them is $\\text{P}(6.736 < T < 6.875) = 0.5361 - 0.5$, the same as above. This is the scheme's alternative method.",
+   "**Final answer**\n\nThe probability that $T$ lies between $\\text{E}(T)$ and the median is **0.0361** (3 significant figures). This earns the **A1**."
+  ]
+ },
+ "9709_s16_73_q5_iv": {
+  "hints": [
+   "Look at the definition of $\\text{f}(t)$: for which values of $t$ is it non-zero? The largest of these is the greatest possible time."
+  ],
+  "walkthrough": [
+   "**Read the range**\n\nThe pdf is $k(10t - t^2)$ only for $5 \\leqslant t \\leqslant 10$, and $0$ otherwise. So no one takes less than 5 minutes or more than the upper limit of this range.",
+   "**Final answer**\n\nThe greatest possible time is **10 minutes**."
+  ]
+ }
+}

@@ -1,0 +1,19 @@
+{
+ "9709_m19_72_q2": {
+  "hints": [
+   "Treat $X - 3Y$ as one new variable. Its mean is $\\text{E}(X - 3Y) = \\text{E}(X) - 3\\,\\text{E}(Y)$, using the means $9.2$ and $3.0$.",
+   "For independent variables $\\text{Var}(X - 3Y) = \\text{Var}(X) + 3^2\\,\\text{Var}(Y)$: the minus becomes a plus and the 3 is squared. Use the variances $12.1$ and $8.6$.",
+   "$X > 3Y$ means the same as $X - 3Y > 0$. Standardise with $z = \\dfrac{0 - \\text{E}(X - 3Y)}{\\sqrt{\\text{Var}(X - 3Y)}}$, putting in your mean and variance from the first two steps.",
+   "You need the area to the right of your $z$: $\\text{P}(Z > z) = 1 - \\Phi(z)$. If your $z$ is negative, this is the same as $\\Phi$ of the positive version, $\\Phi(-z)$, by symmetry.",
+   "Find $\\Phi(-z)$ with your calculator's normal cdf or the normal table, and round to 3 significant figures."
+  ],
+  "walkthrough": [
+   "**Turn the question into one variable**\n\nWe want $\\text{P}(X > 3Y)$. Move everything to one side: $X > 3Y$ is the same as $X - 3Y > 0$.\n\nSo let $D = X - 3Y$ and find $\\text{P}(D > 0)$. A combination of independent normal variables is itself normal, so $D$ is normally distributed. We just need its mean and variance.",
+   "**Mean of $D$ (this earns the first B1)**\n\nFor means, $\\text{E}(aX + bY) = a\\text{E}(X) + b\\text{E}(Y)$. Here $a = 1$ and $b = -3$.\n\n$$\\text{E}(X - 3Y) = \\text{E}(X) - 3\\,\\text{E}(Y) = 9.2 - 3 \\times 3.0$$\n\n$$3 \\times 3.0 = 9.0 \\quad\\Rightarrow\\quad 9.2 - 9.0 = 0.2$$",
+   "**Variance of $D$ (this earns the second B1)**\n\nFor **independent** variables, $\\text{Var}(aX + bY) = a^2\\,\\text{Var}(X) + b^2\\,\\text{Var}(Y)$. The coefficients are **squared**, so a minus sign disappears and the variances are always added.\n\n$$\\text{Var}(X - 3Y) = 1^2 \\times 12.1 + (-3)^2 \\times 8.6 = 12.1 + 9 \\times 8.6$$\n\n$$9 \\times 8.6 = 77.4 \\quad\\Rightarrow\\quad 12.1 + 77.4 = 89.5$$\n\nCommon slip: writing $12.1 - 3 \\times 8.6$ or using $3$ instead of $3^2 = 9$. Quick check: a variance can never be negative, and subtracting variances is a warning sign.\n\nSo $D \\sim \\text{N}(0.2,\\ 89.5)$. The second number is the **variance**, so the standard deviation is $\\sqrt{89.5}$.",
+   "**Standardise (this earns the first M1)**\n\nTo use the normal table we convert to $Z \\sim \\text{N}(0, 1)$ using $z = \\dfrac{\\text{value} - \\text{mean}}{\\text{standard deviation}}$. The value we care about is $0$.\n\n$$z = \\frac{0 - 0.2}{\\sqrt{89.5}}$$\n\n$\\sqrt{89.5} = 9.4604\\ldots$ and $-0.2 \\div 9.4604 = -0.02114\\ldots$\n\n$$z = -0.021$$\n\nThis is very close to $0$, which makes sense: the mean of $D$ is only just above $0$ compared with a spread of about $9.5$.",
+   "**Choose the right tail (this earns the second M1)**\n\nWe want $\\text{P}(D > 0)$, which is $\\text{P}(Z > -0.021)$, the area to the **right** of $-0.021$.\n\nThe normal table gives areas to the left. By symmetry, the area to the right of $-0.021$ equals the area to the left of $+0.021$:\n\n$$\\text{P}(Z > -0.021) = \\Phi(0.021)$$\n\nCalculator: normal cdf with lower bound $-0.021$ and upper bound a very large number (say $10^{99}$), mean $0$, standard deviation $1$. It shows $0.50843\\ldots$",
+   "**Final answer**\n\nThis earns the A1. Round $0.50843$ to 3 significant figures: the first three digits are $5, 0, 8$ and the next digit is $4$, which is below $5$, so we keep $0.508$.\n\n$$\\text{P}(X > 3Y) = 0.508$$"
+  ]
+ }
+}

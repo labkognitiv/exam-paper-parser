@@ -1,0 +1,43 @@
+{
+ "9709_w22_62_q7_a": {
+  "hints": [
+   "The graph is symmetrical about $x = -0.5$. Reflect the point $x = -1$ in that line: which $x$-value does it map to? Then areas to the left of $-1$ and to the right of that point are equal.",
+   "Write $\\text{P}(-1 < X < 0) = \\text{P}(X < 0) - \\text{P}(X < -1)$. The total area is $1$, so rewrite $\\text{P}(X < -1)$ using the reflected point and the complement, in terms of $p$."
+  ],
+  "walkthrough": [
+   "**Use the symmetry**\n\nThe curve is a mirror image about the line $x = -0.5$. Reflecting a point in that line moves it the same distance to the other side. The point $x = -1$ is $0.5$ to the left of the line, so its mirror image is $0.5$ to the right of the line: $x = -0.5 + 0.5 = 0$.\n\nSo the area to the left of $x = -1$ equals the area to the right of $x = 0$:\n\n$$\\text{P}(X < -1) = \\text{P}(X > 0)$$",
+   "**Write $\\text{P}(X > 0)$ in terms of $p$ (M1)**\n\nThe total area under a pdf is $1$, and $\\text{P}(X < 0) = p$, so\n\n$$\\text{P}(X > 0) = 1 - p$$\n\nTherefore $\\text{P}(X < -1) = 1 - p$. (Writing $1 - p$ somewhere clearly, even just on the diagram, earns the M1. Another route is $\\text{P}(-0.5 < X < 0) = p - 0.5$, since half the area, $0.5$, lies left of the line of symmetry.)",
+   "**Find the area between $-1$ and $0$ (A1)**\n\nThe area between $-1$ and $0$ is the area to the left of $0$ minus the area to the left of $-1$:\n\n$$\\text{P}(-1 < X < 0) = \\text{P}(X < 0) - \\text{P}(X < -1) = p - (1 - p) = 2p - 1$$\n\nThis earns the A1. (Check with the other route: this strip is $2 \\times (p - 0.5) = 2p - 1$.)",
+   "**Final answer**\n\n$\\text{P}(-1 < X < 0) = 2p - 1$."
+  ]
+ },
+ "9709_w22_62_q7_b_i": {
+  "hints": [
+   "The total area under any probability density function is $1$. Write a definite integral of $a - b(x^2 + x)$ with limits $-3$ to $2$ (the range where $\\text{f}$ is non-zero), and set it equal to $1$.",
+   "Integrate each term with respect to $x$: $a$ becomes $ax$, and $x^2 + x$ becomes $\\dfrac{x^3}{3} + \\dfrac{x^2}{2}$. Keep $b$ outside as a bracket.",
+   "Substitute the upper limit $x = 2$, then subtract the substitution of the lower limit $x = -3$ (take care with the negative signs). Collect the $a$ terms and the $b$ terms and show it equals $1$; multiply through by a number to clear the fractions and reach $30a - 55b = 6$."
+  ],
+  "walkthrough": [
+   "**Why the integral equals $1$**\n\nFor a probability density function the total area under the curve must be $1$ (the probabilities of all outcomes add up to $1$). The function is non-zero only for $-3 \\leqslant x \\leqslant 2$, so we integrate between those limits:\n\n$$\\int_{-3}^{2} \\bigl(a - b(x^2 + x)\\bigr)\\,\\text{d}x = 1$$\n\nThis earns the M1 (correct limits and right-hand side).",
+   "**Integrate (A1)**\n\nIntegrate each term: $a$ gives $ax$; $x^2$ gives $\\frac{x^3}{3}$; $x$ gives $\\frac{x^2}{2}$. The constant $b$ stays as a multiplier:\n\n$$\\left[ax - b\\left(\\frac{x^3}{3} + \\frac{x^2}{2}\\right)\\right]_{-3}^{2} = 1$$\n\nThis earns the A1.",
+   "**Substitute the upper limit $x = 2$**\n\n$$2a - b\\left(\\frac{2^3}{3} + \\frac{2^2}{2}\\right) = 2a - b\\left(\\frac{8}{3} + 2\\right) = 2a - \\frac{8b}{3} - 2b$$",
+   "**Substitute the lower limit $x = -3$**\n\n$x^3 = (-3)^3 = -27$, so $\\frac{x^3}{3} = -9$. And $x^2 = 9$, so $\\frac{x^2}{2} = \\frac{9}{2}$. Hence\n\n$$-3a - b\\left(-9 + \\frac{9}{2}\\right) = -3a - b\\left(-\\frac{9}{2}\\right) = -3a + \\frac{9b}{2}$$",
+   "**Upper minus lower (A1)**\n\nSubtract the lower-limit value, which flips its signs:\n\n$$\\left(2a - \\frac{8b}{3} - 2b\\right) - \\left(-3a + \\frac{9b}{2}\\right) = 2a - \\frac{8b}{3} - 2b + 3a - \\frac{9b}{2} = 1$$\n\nThe scheme writes this as $2a - \\frac{8b}{3} - 2b + 3a - 9b + \\frac{9b}{2} = 1$; the $-9b + \\frac{9b}{2}$ is the same as $-\\frac{9b}{2}$.\n\nCollect the $a$ terms: $2a + 3a = 5a$.\n\nCollect the $b$ terms with a common denominator of $6$:\n\n$$-\\frac{8b}{3} - 2b - \\frac{9b}{2} = -\\frac{16b}{6} - \\frac{12b}{6} - \\frac{27b}{6} = -\\frac{55b}{6}$$\n\nSo\n\n$$5a - \\frac{55b}{6} = 1$$",
+   "**Clear the fraction to reach the printed result**\n\nMultiply every term by $6$:\n\n$$6 \\times 5a - 6 \\times \\frac{55b}{6} = 6 \\times 1 \\quad\\Longrightarrow\\quad 30a - 55b = 6$$\n\nThis is the printed result, so the last A1 is earned (it needs a correct route with no errors).",
+   "**Final answer**\n\n$30a - 55b = 6$ (shown)."
+  ]
+ },
+ "9709_w22_62_q7_b_ii": {
+  "hints": [
+   "Look at the graph: $\\text{f}(x)$ meets the $x$-axis at the ends of the range, $x = -3$ and $x = 2$. So $\\text{f}$ at one of those values is $0$. Substitute it into $a - b(x^2 + x)$ for a second equation in $a$ and $b$.",
+   "You now have two equations in $a$ and $b$: your new one and $30a - 55b = 6$. Use the simple one to write $a$ in terms of $b$, and substitute it into the other (do not integrate again).",
+   "That leaves one equation in $b$ only: solve it for $b$, then substitute back to find $a$. Both $a$ and $b$ should come out positive, as the question says."
+  ],
+  "walkthrough": [
+   "**Why $\\text{f}(-3) = 0$ (M1)**\n\nFrom the diagram the curve touches the $x$-axis at $x = -3$ and at $x = 2$, and $\\text{f}$ is $0$ outside that range with no jump. So $\\text{f}(-3) = 0$ (or $\\text{f}(2) = 0$). Using $x = -3$:\n\n$$a - b\\bigl((-3)^2 + (-3)\\bigr) = a - b(9 - 3) = a - 6b = 0$$\n\nUsing $x = 2$ gives the same: $a - b(2^2 + 2) = a - 6b = 0$. This earns the first M1. (Do not integrate again; the scheme gives M0 for that.)",
+   "**Solve the two equations (DM1)**\n\nWe have\n\n$$a - 6b = 0 \\quad (1) \\qquad 30a - 55b = 6 \\quad (2)$$\n\nFrom (1), $a = 6b$. Substitute this into (2):\n\n$$30 \\times 6b - 55b = 6$$\n\n$$180b - 55b = 6$$\n\n$$125b = 6$$\n\n$$b = \\frac{6}{125} = 0.048$$\n\nThis solving step earns the DM1.",
+   "**Find $a$ (A1)**\n\nFrom $a = 6b$:\n\n$$a = 6 \\times \\frac{6}{125} = \\frac{36}{125} = 0.288$$\n\nCheck in (2): $30 \\times 0.288 - 55 \\times 0.048 = 8.64 - 2.64 = 6$. Correct. Both are positive, as the question requires.",
+   "**Final answer**\n\n$a = \\frac{36}{125}$ (or $0.288$) and $b = \\frac{6}{125}$ (or $0.048$)."
+  ]
+ }
+}

@@ -1,0 +1,17 @@
+{
+ "9709_m18_72_q1": {
+  "hints": [
+   "You are asked about a sample mean, not a single value. With $n = 75$ the sample mean $\\bar{X}$ is approximately normal (Central Limit Theorem) with the same mean $4.9$ and standard deviation $\\dfrac{2.21}{\\sqrt{75}}$, not $2.21$.",
+   "Standardise the value $5.0$: $z = \\dfrac{5.0 - 4.9}{2.21/\\sqrt{75}}$. Keep the $\\sqrt{75}$ in the denominator, because this is a mean of 75 values.",
+   "You want $\\text{P}(\\bar{X} > 5.0)$, the upper tail, so write it as $1 - \\Phi(z)$, using the $z$ you found. Give the answer to 3 significant figures."
+  ],
+  "walkthrough": [
+   "**What the question is asking**\n\n$X$ is a random variable with mean $\\mu = 4.9$ and standard deviation $\\sigma = 2.21$. We do not know the shape of its distribution. We take a sample of $n = 75$ values and work out their average, the **sample mean** $\\bar{X}$. We want $\\text{P}(\\bar{X} > 5.0)$.",
+   "**Why we can use a normal distribution**\n\nThe sample size $75$ is large. The **Central Limit Theorem** says that for a large sample the sample mean $\\bar{X}$ is approximately normally distributed, whatever the shape of $X$.\n\nIts mean is the same as the mean of $X$, but it is less spread out, because averaging 75 values smooths out the extremes. Its standard deviation is $\\dfrac{\\sigma}{\\sqrt{n}}$.\n\n$$\\bar{X} \\sim \\text{N}\\left(4.9, \\dfrac{2.21^2}{75}\\right)$$",
+   "**Find the standard deviation of the sample mean**\n\nThis is the part students most often miss: divide by $\\sqrt{75}$, not by $75$, and do not leave the $\\sqrt{75}$ out. Type $\\sqrt{75}$ into your calculator:\n\n$$\\sqrt{75} = 8.660254\\ldots$$\n\n$$\\frac{\\sigma}{\\sqrt{n}} = \\frac{2.21}{8.660254} = 0.255189\\ldots$$",
+   "**Standardise (this earns the first M1)**\n\nTo use the normal tables or calculator for the standard normal $Z \\sim \\text{N}(0,1)$, we turn $5.0$ into a $z$-value: subtract the mean, then divide by the standard deviation of $\\bar{X}$.\n\n$$z = \\frac{5.0 - 4.9}{\\dfrac{2.21}{\\sqrt{75}}} = \\frac{0.1}{0.255189} = 0.391867\\ldots \\approx 0.392$$\n\nQuick check: the value $5.0$ is only a little above the mean $4.9$, so $z$ should be a small positive number. It is.",
+   "**Find the probability (this earns the second M1)**\n\nWe want the probability that $\\bar{X}$ is **greater than** $5.0$, so we want the area to the right of $z = 0.392$. Tables and calculators give the area to the **left**, $\\Phi(z)$, so we subtract it from 1.\n\n$\\Phi(0.392)$: use the normal table or your calculator's normal cdf $\\to 0.6525$ (using the full unrounded $z$ gives $0.65242$).\n\n$$\\text{P}(\\bar{X} > 5.0) = 1 - \\Phi(0.392) = 1 - 0.6525 = 0.3475\\ldots$$\n\nThe unrounded value is $0.34758$, which rounds to $0.348$ to 3 significant figures. This earns the A1.",
+   "**Final answer**\n\n$$\\text{P}(\\bar{X} > 5.0) = 0.348$$"
+  ]
+ }
+}

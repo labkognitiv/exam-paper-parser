@@ -1,0 +1,16 @@
+{
+ "9709_s23_63_q1": {
+  "hints": [
+   "The mean of a continuous random variable is $\\text{E}(X) = \\int x\\,\\text{f}(x)\\,\\text{d}x$, taken over the range where f is not zero. Multiply the $x$ into $\\frac{3}{2}(1 - x^2)$ before you integrate.",
+   "Take the $\\frac{3}{2}$ outside, expand the bracket so you have a sum of powers of $x$, and integrate each power using $\\int x^n\\,\\text{d}x = \\frac{x^{n+1}}{n+1}$.",
+   "Substitute the limits $x = 1$ and $x = 0$ into your integrated expression and subtract. Then multiply by the $\\frac{3}{2}$ you took outside."
+  ],
+  "walkthrough": [
+   "**What we are finding**\n\n$\\text{E}(X)$ means the **expected value** (the mean) of $X$. For a continuous random variable with probability density function f, the mean is found by integrating $x$ times the density:\n\n$$\\text{E}(X) = \\int x\\,\\text{f}(x)\\,\\text{d}x$$\n\nWe only integrate where f is not zero, which here is from $x = 0$ to $x = 1$ (outside that, $\\text{f}(x) = 0$ adds nothing).",
+   "**Set up the integral (this earns the M1)**\n\nReplace f by $\\frac{3}{2}(1 - x^2)$ and multiply by $x$:\n\n$$\\text{E}(X) = \\int_0^1 x \\times \\frac{3}{2}(1 - x^2)\\,\\text{d}x$$\n\nTake the constant $\\frac{3}{2}$ outside the integral, and multiply $x$ into the bracket: $x \\times 1 = x$ and $x \\times x^2 = x^3$.\n\n$$\\text{E}(X) = \\frac{3}{2}\\int_0^1 (x - x^3)\\,\\text{d}x$$",
+   "**Integrate (this earns the first A1)**\n\nRaise each power by one and divide by the new power: $\\int x\\,\\text{d}x = \\frac{x^2}{2}$ and $\\int x^3\\,\\text{d}x = \\frac{x^4}{4}$.\n\n$$\\text{E}(X) = \\frac{3}{2}\\left[\\frac{x^2}{2} - \\frac{x^4}{4}\\right]_0^1$$\n\nThe square brackets with $0$ and $1$ mean: put $x = 1$ in, then put $x = 0$ in, and subtract the second from the first.",
+   "**Put in the limits (this earns the last A1)**\n\nAt $x = 1$: $\\frac{1^2}{2} - \\frac{1^4}{4} = \\frac{1}{2} - \\frac{1}{4} = \\frac{1}{4}$.\n\nAt $x = 0$: every term has an $x$ in it, so the value is $0$.\n\n$$\\text{E}(X) = \\frac{3}{2}\\left(\\frac{1}{4} - 0\\right) = \\frac{3}{2} \\times \\frac{1}{4} = \\frac{3}{8}$$\n\nQuick check: the density lives on $0$ to $1$, so the mean must lie between $0$ and $1$. $\\frac{3}{8} = 0.375$ does. It is below $0.5$ because f is largest near $x = 0$ and falls away, which pulls the mean down.",
+   "**Final answer**\n\n$$\\text{E}(X) = \\frac{3}{8}$$"
+  ]
+ }
+}

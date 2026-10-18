@@ -1,0 +1,18 @@
+{
+ "9709_s16_73_q1": {
+  "hints": [
+   "The sample is large ($n = 150$), so the sample mean is approximately normal. A confidence interval has the form $\\bar{x} \\pm z \\times \\dfrac{\\sigma}{\\sqrt{n}}$: write it with $\\bar{x} = 192.4$ and the variance $43.6$ in place of $\\sigma^2$.",
+   "For a 98% interval, 1% is left in each tail. So $z$ is the value with $\\Phi(z) = 0.99$: find it from the inverse normal table.",
+   "Work out $z \\times \\sqrt{\\dfrac{43.6}{150}}$ once, then subtract it from and add it to $192.4$. Give both ends to 3 significant figures."
+  ],
+  "walkthrough": [
+   "**What kind of interval is this?**\n\nWe want a range of values that is likely to contain the true mean drying time $\\mu$ (the mean for ALL points on the wall, not just our 150).\n\nHere $n = 150$ is a large sample. By the Central Limit Theorem, the sample mean $\\bar{X}$ is then approximately normally distributed, even though we do not know the shape of the original times. So we use a normal-based confidence interval.\n\nThe question gives an *unbiased estimate of the population variance*, $s^2 = 43.6$. That is already the correct estimate of $\\sigma^2$, so we use $43.6$ directly. We do not divide by anything again.",
+   "**The formula**\n\nThe interval is\n\n$$\\bar{x} \\pm z \\times \\sqrt{\\frac{\\sigma^2}{n}}$$\n\nwhere $\\bar{x}$ is the sample mean, $n$ is the sample size and $z$ comes from the normal distribution. Putting in our numbers:\n\n$$192.4 \\pm z \\sqrt{\\frac{43.6}{150}}$$\n\nThis line earns the **M1** (the scheme also accepts $\\frac{43.6}{\\sqrt{150}}$ in place of the square root of the fraction).",
+   "**Find the value of $z$**\n\nA 98% interval leaves $100\\% - 98\\% = 2\\%$ outside the interval. That 2% is split equally between the two tails, so 1% is in each tail.\n\nSo the area to the left of $z$ is $98\\% + 1\\% = 99\\%$:\n\n$$\\Phi(z) = 0.99$$\n\nOn your calculator use inverse normal with area $0.99$, mean $0$, standard deviation $1$. It shows $z = 2.326$ (the percentage-points table gives the same).\n\nThis earns the **B1**. A common slip is to use $1.96$, which is for 95%, or to look up $0.98$ instead of $0.99$.",
+   "**Work out the standard error**\n\nThe standard error is the standard deviation of the sample mean:\n\n$$\\frac{43.6}{150} = 0.290666\\ldots$$\n\n$$\\sqrt{0.290666\\ldots} = 0.5391$$\n\nCalculator tip: type $\\sqrt{43.6 \\div 150}$ in one go and keep the full number on screen.",
+   "**Work out the margin**\n\nMultiply $z$ by the standard error:\n\n$$2.326 \\times 0.5391 = 1.254$$\n\nThis is how far either side of $192.4$ the interval reaches.",
+   "**Find both ends**\n\n$$192.4 - 1.254 = 191.146$$\n\n$$192.4 + 1.254 = 193.654$$",
+   "**Final answer**\n\nThe 98% confidence interval for the mean drying time is **191 to 194 minutes** (3 significant figures), that is about $(191.1, 193.7)$ before rounding. This earns the final **A1**, which needs the working shown (CWO)."
+  ]
+ }
+}

@@ -1,0 +1,45 @@
+{
+ "9709_m25_62_q3_a": {
+  "hints": [
+   "A Poisson variable has no upper limit, so use the complement: $\\text{P}(X \\geqslant 3) = 1 - \\text{P}(X \\leqslant 2)$.",
+   "Add $\\text{P}(X = 0)$, $\\text{P}(X = 1)$ and $\\text{P}(X = 2)$ using $\\text{P}(X = r) = \\text{e}^{-1.5}\\dfrac{1.5^r}{r!}$, then subtract the total from $1$."
+  ],
+  "walkthrough": [
+   "**Why use $1 - \\text{P}(X \\leqslant 2)$**\n\n$X \\sim \\text{Po}(1.5)$ can take the values $0, 1, 2, 3, 4, \\ldots$ without end. We cannot add infinitely many terms. But $\\text{P}(X \\geqslant 3)$ is everything **except** $0, 1, 2$. So:\n\n$$\\text{P}(X \\geqslant 3) = 1 - \\text{P}(X \\leqslant 2) = 1 - \\left[\\text{P}(X = 0) + \\text{P}(X = 1) + \\text{P}(X = 2)\\right]$$",
+   "**Write the Poisson probabilities (M1)**\n\nThe formula for $X \\sim \\text{Po}(\\lambda)$ is $\\text{P}(X = r) = \\text{e}^{-\\lambda}\\dfrac{\\lambda^r}{r!}$. With $\\lambda = 1.5$:\n\n$$1 - \\text{e}^{-1.5}\\left(1 + 1.5 + \\frac{1.5^2}{2}\\right) = 1 - \\text{e}^{-1.5}(1 + 1.5 + 1.125)$$\n\nRemember $0! = 1$, $1! = 1$, $2! = 2$ and $1.5^2 = 2.25$, so $\\dfrac{2.25}{2} = 1.125$.",
+   "**Calculate (A1)**\n\nOn the calculator, $\\text{e}^{-1.5} = 0.22313$.\n\n$\\text{P}(X = 0) = 0.22313$\n\n$\\text{P}(X = 1) = 1.5 \\times 0.22313 = 0.334695$\n\n$\\text{P}(X = 2) = 1.125 \\times 0.22313 = 0.25102$\n\nAdd them: $0.22313 + 0.334695 + 0.25102 = 0.808845$.\n\n$$1 - 0.808845 = 0.191155$$\n\nQuick check: the answer is a probability so must lie between $0$ and $1$; it does.",
+   "**Final answer**\n\n$$\\text{P}(X \\geqslant 3) = 0.191 \\text{ (3 s.f.)}$$"
+  ]
+ },
+ "9709_m25_62_q3_b": {
+  "hints": [
+   "Adding independent Poisson variables adds their means. You have three values of $X$, each with mean $1.5$.",
+   "'Between 3 and 5 inclusive' means the sum can be $3$, $4$ or $5$: $\\text{P}(S = 3) + \\text{P}(S = 4) + \\text{P}(S = 5)$.",
+   "Use $\\text{P}(S = r) = \\text{e}^{-\\lambda}\\dfrac{\\lambda^r}{r!}$ for $r = 3, 4, 5$, with your new $\\lambda$, and add the three terms."
+  ],
+  "walkthrough": [
+   "**The distribution of the sum (B1)**\n\nIf independent variables are Poisson, their sum is also Poisson, and the means add. The sum $S$ of three independent values of $X$ has\n\n$$\\lambda = 1.5 + 1.5 + 1.5 = 4.5, \\qquad S \\sim \\text{Po}(4.5)$$",
+   "**Which values are wanted (M1)**\n\n'Between $3$ and $5$ **inclusive**' means $3$, $4$ and $5$ are all included.\n\n$$\\text{P}(3 \\leqslant S \\leqslant 5) = \\text{P}(S = 3) + \\text{P}(S = 4) + \\text{P}(S = 5)$$\n\nUsing $\\text{P}(S = r) = \\text{e}^{-4.5}\\dfrac{4.5^r}{r!}$:\n\n$$\\text{e}^{-4.5}\\left(\\frac{4.5^3}{3!} + \\frac{4.5^4}{4!} + \\frac{4.5^5}{5!}\\right)$$",
+   "**Calculate each term (A1)**\n\n$\\dfrac{4.5^3}{3!} = \\dfrac{91.125}{6} = 15.1875$\n\n$\\dfrac{4.5^4}{4!} = \\dfrac{410.0625}{24} = 17.0859$\n\n$\\dfrac{4.5^5}{5!} = \\dfrac{1845.28125}{120} = 15.3773$\n\n$\\text{e}^{-4.5} = 0.011109$ on the calculator, so the three probabilities are:\n\n$\\text{P}(S = 3) = 0.011109 \\times 15.1875 = 0.1687$\n\n$\\text{P}(S = 4) = 0.011109 \\times 17.0859 = 0.1898$\n\n$\\text{P}(S = 5) = 0.011109 \\times 15.3773 = 0.1708$\n\nAdd them:\n\n$$0.1687 + 0.1898 + 0.1708 = 0.5293$$",
+   "**Final answer**\n\n$$\\text{P}(3 \\leqslant S \\leqslant 5) = 0.529 \\text{ (3 s.f.)}$$"
+  ]
+ },
+ "9709_m25_62_q3_c": {
+  "hints": [
+   "For large $n$ the total of $n$ Poisson values is approximately normal, with mean and variance both equal to $1.5n$. State this.",
+   "Turn the given tail probability into a $z$-value: $\\text{P}(T > 330) = 0.0391$ means the area to the **left** is $1 - 0.0391$. Use the inverse normal.",
+   "$T$ is discrete, so use a continuity correction: $T > 330$ means $T \\geqslant 331$, so the boundary lies halfway between $330$ and $331$. Write $\\dfrac{\\text{(boundary)} - 1.5n}{\\sqrt{1.5n}} = z$.",
+   "The unknown $n$ appears both on its own and under a square root. Write $\\sqrt{1.5n} = \\sqrt{1.5}\\sqrt{n}$ and rearrange to a quadratic in $\\sqrt{n}$, then use the quadratic formula.",
+   "Reject the negative root, since $\\sqrt{n}$ cannot be negative, then square the positive root to get $n$. It should be a whole number."
+  ],
+  "walkthrough": [
+   "**Plan**\n\n$T$ is the sum of $n$ independent $\\text{Po}(1.5)$ values. We are told $\\text{P}(T > 330) = 0.0391$ and must find $n$. We will approximate $T$ by a normal distribution, then form an equation in $n$.\n\nWe cannot just use the Poisson formula: $n$ is unknown and also large.",
+   "**The approximation (B1)**\n\nA sum of $n$ independent $\\text{Po}(1.5)$ variables is $\\text{Po}(1.5n)$. When the mean is large, a Poisson is well approximated by a normal with the **same mean and same variance** (for a Poisson both equal $\\lambda$):\n\n$$T \\approx \\text{N}(1.5n,\\ 1.5n)$$",
+   "**Find $z$ from the probability (first M1)**\n\n$\\text{P}(T > 330) = 0.0391$ is an upper-tail area. The normal table and inverse normal work with the area to the left, so the area to the left is\n\n$$1 - 0.0391 = 0.9609$$\n\nOn the calculator, inverse normal with area $0.9609$ gives $\\Phi^{-1}(0.9609) = 1.761$.\n\nSo the standardised boundary must equal $1.761$.",
+   "**Continuity correction and standardise (M1*)**\n\n$T$ only takes whole-number values. $T > 330$ means $T \\geqslant 331$. On the continuous scale, the boundary between $330$ and $331$ is $330.5$. This is the **continuity correction**.\n\nNow standardise: subtract the mean $1.5n$ and divide by the standard deviation $\\sqrt{1.5n}$, and set equal to $1.761$:\n\n$$\\frac{330.5 - 1.5n}{\\sqrt{1.5n}} = 1.761$$\n\nSlip to avoid: dividing by $\\sqrt{1.5}$ instead of $\\sqrt{1.5n}$ loses a mark.",
+   "**Form a quadratic (dependent M1)**\n\nMultiply both sides by $\\sqrt{1.5n}$:\n\n$$330.5 - 1.5n = 1.761\\sqrt{1.5n}$$\n\nWrite $\\sqrt{1.5n} = \\sqrt{1.5}\\times\\sqrt{n} = 1.2247\\sqrt{n}$. Then $1.761 \\times 1.2247 \\approx 2.1568$ (keep the unrounded values on your calculator to get this), so\n\n$$330.5 - 1.5n = 2.1568\\sqrt{n} \\quad\\Longrightarrow\\quad 1.5n + 2.1568\\sqrt{n} - 330.5 = 0$$\n\nThis is a quadratic in $u = \\sqrt{n}$: $1.5u^2 + 2.1568u - 330.5 = 0$.",
+   "**Solve (A1)**\n\nQuadratic formula with $a = 1.5$, $b = 2.1568$, $c = -330.5$:\n\n$b^2 = 4.6518$ and $4ac = 4 \\times 1.5 \\times (-330.5) = -1983$.\n\n$$u = \\frac{-2.1568 \\pm \\sqrt{4.6518 + 1983}}{2 \\times 1.5} = \\frac{-2.1568 \\pm 44.5831}{3}$$\n\nPositive root: $\\dfrac{42.4263}{3} = 14.14$. The other root, $\\dfrac{-46.7399}{3} = -15.58$, is negative, and $\\sqrt{n}$ cannot be negative, so we reject it.\n\nNow $n = u^2 = 14.142^2 \\approx 200$ (using the unrounded $u$; $n$ must be a whole number).\n\nCheck: with $n = 200$, the mean is $300$ and the standard deviation is $\\sqrt{300} = 17.32$. Then $\\dfrac{330.5 - 300}{17.32} = 1.761$. It matches.\n\nThe A1 requires the continuity correction $330.5$ to have been used.",
+   "**Final answer**\n\n$\\sqrt{n} = 14.14$ (the other root, $-15.58$, is rejected), so\n\n$$n = 200$$"
+  ]
+ }
+}

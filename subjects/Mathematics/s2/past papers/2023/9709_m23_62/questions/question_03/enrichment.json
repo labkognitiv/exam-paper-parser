@@ -1,0 +1,47 @@
+{
+ "9709_m23_62_q3_a": {
+  "hints": [
+   "The total probability is 1, so $\\text{P}(0.6 < X < 1.8) = 1 - \\text{P}(X < 0.6) - \\text{P}(X > 1.8)$.",
+   "The graph is symmetrical about $x = 1.5$: 1.8 is as far above 1.5 as 1.2 is below it. Use that to write $\\text{P}(X > 1.8)$ in terms of $a$ and $b$."
+  ],
+  "walkthrough": [
+   "**Picture it**\n\nThe area under the graph from 0 to 3 is 1. The diagram shows dashed lines at $x = 0.6$ and $x = 1.2$, and the peak at $x = 1.5$; the line $x = 1.8$ is not drawn, but you can imagine it on the right-hand side. We want the area between 0.6 and 1.8. It is easier to take away the two pieces we do not want: the piece to the left of 0.6, and the piece to the right of 1.8.\n\n$$\\text{P}(0.6 < X < 1.8) = 1 - \\text{P}(X < 0.6) - \\text{P}(X > 1.8)$$",
+   "**The left piece**\n\nWe are told $\\text{P}(X < 0.6) = a$.",
+   "**The right piece, using symmetry**\n\nThe graph is a mirror image about $x = 1.5$. The point 1.8 is $1.8 - 1.5 = 0.3$ above the line, and its mirror image is $1.5 - 0.3 = 1.2$. So the area to the right of 1.8 equals the area to the left of 1.2.\n\nThe area to the left of 1.2 is the area to the left of 0.6 plus the area between 0.6 and 1.2:\n\n$$\\text{P}(X > 1.8) = \\text{P}(X < 1.2) = a + b$$\n\nSeeing a correct expression for the total minus these two pieces earns the **M1**.",
+   "**Put it together (A1)**\n\n$$\\text{P}(0.6 < X < 1.8) = 1 - a - (a + b) = 1 - 2a - b$$",
+   "**Final answer**\n\n$\\text{P}(0.6 < X < 1.8) = 1 - 2a - b$."
+  ]
+ },
+ "9709_m23_62_q3_b_i": {
+  "hints": [
+   "The total area under a pdf is 1, so set $\\displaystyle\\int_0^3 kx^2(3-x)^2\\,\\text{d}x = 1$. Expand $(3-x)^2$ and multiply by $x^2$ first.",
+   "Integrate each term of $9x^2 - 6x^3 + x^4$ by raising the power by 1 and dividing by the new power. Keep $k$ outside.",
+   "Substitute the limits 3 and 0 into every term, add, then solve $k \\times (\\text{value}) = 1$ to reach $k = \\dfrac{10}{81}$."
+  ],
+  "walkthrough": [
+   "**Why integrate and set equal to 1**\n\nFor any probability density function the total area under the curve is 1, because the probabilities of all possible values add up to 1. The variable lives between 0 and 3, so:\n\n$$\\int_0^3 kx^2(3-x)^2\\,\\text{d}x = 1$$",
+   "**Expand the bracket (M1 starts here)**\n\n$(3-x)^2 = (3-x)(3-x) = 9 - 3x - 3x + x^2 = 9 - 6x + x^2$. Multiply by $x^2$, term by term:\n\n$$x^2(9 - 6x + x^2) = 9x^2 - 6x^3 + x^4$$\n\n$k$ is a constant, so it sits outside the integral:\n\n$$k\\int_0^3 (9x^2 - 6x^3 + x^4)\\,\\text{d}x = 1$$\n\nAttempting to integrate $\\text{f}(x)$ like this earns the **M1**.",
+   "**Integrate (A1)**\n\nRule: $\\int x^n\\,\\text{d}x = \\dfrac{x^{n+1}}{n+1}$.\n\n$$\\int 9x^2\\,\\text{d}x = \\frac{9x^3}{3} \\qquad \\int 6x^3\\,\\text{d}x = \\frac{6x^4}{4} \\qquad \\int x^4\\,\\text{d}x = \\frac{x^5}{5}$$\n\n$$k\\left[\\frac{9x^3}{3} - \\frac{6x^4}{4} + \\frac{x^5}{5}\\right]_0^3 = 1$$\n\nThe scheme wants this integration seen, with the limits.",
+   "**Substitute the limits (A1)**\n\nPut $x = 3$ in each term. At $x = 0$ every term is 0, so we subtract nothing.\n\n$$\\frac{9 \\times 27}{3} = 81 \\qquad \\frac{6 \\times 81}{4} = 121.5 \\qquad \\frac{243}{5} = 48.6$$\n\n$$81 - 121.5 + 48.6 = 8.1 = \\frac{81}{10}$$\n\nSo:\n\n$$k \\times \\frac{81}{10} = 1$$",
+   "**Solve for $k$**\n\nMultiply both sides by $\\frac{10}{81}$:\n\n$$k = \\frac{10}{81}$$\n\nThis is the printed answer, so we have shown it.",
+   "**Final answer**\n\n$k \\times \\dfrac{81}{10} = 1$, so $k = \\dfrac{10}{81}$, as required."
+  ]
+ },
+ "9709_m23_62_q3_b_ii": {
+  "hints": [
+   "Use $\\text{Var}(X) = \\text{E}(X^2) - [\\text{E}(X)]^2$. For $\\text{E}(X^2)$ integrate $x^2\\text{f}(x)$ from 0 to 3 with $k = \\dfrac{10}{81}$: first multiply out $x^2 \\times x^2(3-x)^2$ to get terms in $x^4$, $x^5$ and $x^6$.",
+   "You do not need to integrate for the mean: the graph is symmetrical about $x = 1.5$, so write $\\text{E}(X)$ down, then square it.",
+   "Substitute 3 in your integrated terms, multiply by $\\dfrac{10}{81}$ to get $\\text{E}(X^2)$, subtract the mean squared, and simplify."
+  ],
+  "walkthrough": [
+   "**Which formula**\n\nVariance measures spread: $\\text{Var}(X) = \\text{E}(X^2) - [\\text{E}(X)]^2$, where $\\text{E}(X^2) = \\int x^2\\text{f}(x)\\,\\text{d}x$. We need both pieces.",
+   "**The mean, by symmetry**\n\nThe graph of $\\text{f}$ is symmetrical about $x = 1.5$, so the balance point of the distribution is at $x = 1.5$:\n\n$$\\text{E}(X) = 1.5$$",
+   "**Set up $\\text{E}(X^2)$ (M1 starts here)**\n\n$$\\text{E}(X^2) = \\int_0^3 x^2 \\times \\frac{10}{81}x^2(3-x)^2\\,\\text{d}x$$\n\nFrom part (i), $x^2(3-x)^2 = 9x^2 - 6x^3 + x^4$. Multiplying by another $x^2$ shifts each power up by 2:\n\n$$\\text{E}(X^2) = \\frac{10}{81}\\int_0^3 (9x^4 - 6x^5 + x^6)\\,\\text{d}x$$",
+   "**Integrate**\n\nRaise each power by 1 and divide by the new power:\n\n$$\\frac{10}{81}\\left[\\frac{9x^5}{5} - \\frac{6x^6}{6} + \\frac{x^7}{7}\\right]_0^3 = \\frac{10}{81}\\left[\\frac{9x^5}{5} - x^6 + \\frac{x^7}{7}\\right]_0^3$$",
+   "**Substitute the limits**\n\nAt $x = 0$ everything is 0. At $x = 3$:\n\n$$\\frac{9 \\times 243}{5} = 437.4 \\qquad 3^6 = 729 \\qquad \\frac{2187}{7} = 312.428\\ldots$$\n\n$$437.4 - 729 + 312.428\\ldots = 20.828\\ldots$$\n\n$$\\text{E}(X^2) = \\frac{10}{81} \\times 20.828\\ldots = 2.5714\\ldots = \\frac{18}{7}$$\n\nThat is the first **M1**: seeing the integral of $x^2\\text{f}(x)$ or the value $\\frac{18}{7}$.",
+   "**Subtract the mean squared (M1)**\n\n$$[\\text{E}(X)]^2 = 1.5^2 = 2.25 = \\frac{9}{4}$$\n\n$$\\text{Var}(X) = \\frac{18}{7} - 1.5^2$$",
+   "**Calculate (A1)**\n\nUse a common denominator of 28:\n\n$$\\frac{18}{7} = \\frac{72}{28} \\qquad \\frac{9}{4} = \\frac{63}{28}$$\n\n$$\\text{Var}(X) = \\frac{72 - 63}{28} = \\frac{9}{28} = 0.3214\\ldots$$\n\nQuick check: variance must be positive, and the whole range is only 3 wide, so a value near 0.32 is sensible.",
+   "**Final answer**\n\n$\\text{Var}(X) = \\dfrac{9}{28}$ or $0.321$ (3 s.f.)."
+  ]
+ }
+}

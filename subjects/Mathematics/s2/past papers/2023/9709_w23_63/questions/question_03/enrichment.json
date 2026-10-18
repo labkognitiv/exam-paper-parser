@@ -1,0 +1,55 @@
+{
+ "9709_w23_63_q3_a_i": {
+  "hints": [
+   "The rate is $0.3$ per minute and you want $10$ minutes: scale the rate, so $X \\sim \\text{Po}(\\lambda)$ with $\\lambda = 0.3 \\times 10$.",
+   "'At least 4' is the opposite of 'at most 3': $\\text{P}(X \\geqslant 4) = 1 - \\text{P}(X \\leqslant 3)$. Use $\\text{P}(X = r) = \\text{e}^{-\\lambda}\\dfrac{\\lambda^r}{r!}$ for $r = 0, 1, 2, 3$.",
+   "Take $\\text{e}^{-\\lambda}$ out as a common factor, add the four terms in the bracket, multiply, then subtract from 1. (Or use your calculator's Poisson cdf at 3.)"
+  ],
+  "walkthrough": [
+   "**Find the Poisson mean (B1)**\n\nThe website gets $0.3$ hits **per minute**, but the question is about a **10-minute** period. For a Poisson distribution the mean grows in proportion to the time, so we multiply:\n\n$$\\lambda = 0.3 \\times 10 = 3$$\n\nSo the number of hits in 10 minutes is $X \\sim \\text{Po}(3)$. This earns the B1.",
+   "**Change 'at least 4' into something we can add up**\n\n'At least 4' means $4, 5, 6, 7, \\ldots$ with no top end, so we cannot add all of those. Instead use the complement: the only values **not** in 'at least 4' are $0, 1, 2, 3$. All probabilities add to 1, so\n\n$$\\text{P}(X \\geqslant 4) = 1 - \\text{P}(X \\leqslant 3) = 1 - \\left[\\text{P}(0) + \\text{P}(1) + \\text{P}(2) + \\text{P}(3)\\right]$$",
+   "**Write each probability (M1)**\n\nFor a Poisson distribution, $\\text{P}(X = r) = \\text{e}^{-\\lambda}\\dfrac{\\lambda^r}{r!}$. With $\\lambda = 3$ and $r = 0, 1, 2, 3$ (remember $0! = 1$):\n\n$$\\text{P}(X \\leqslant 3) = \\text{e}^{-3}\\left(1 + 3 + \\frac{3^2}{2!} + \\frac{3^3}{3!}\\right)$$\n\n$$= \\text{e}^{-3}\\left(1 + 3 + 4.5 + 4.5\\right)$$\n\nYou can see where the terms come from: $\\dfrac{3^2}{2!} = \\dfrac{9}{2} = 4.5$ and $\\dfrac{3^3}{3!} = \\dfrac{27}{6} = 4.5$. This line earns the M1. One end error (such as one term too many or too few) still earns it.",
+   "**Add and finish (A1)**\n\nAdd the bracket: $1 + 3 + 4.5 + 4.5 = 13$. On your calculator, $\\text{e}^{-3} = 0.049787$. Multiply:\n\n$$\\text{P}(X \\leqslant 3) = 0.049787 \\times 13 = 0.64723$$\n\nNow subtract from 1:\n\n$$\\text{P}(X \\geqslant 4) = 1 - 0.64723 = 0.35277$$\n\nRounded to 3 significant figures this is $0.353$. Quick check: the mean is 3, so getting 4 or more should be fairly likely, around one in three. That fits.",
+   "**Final answer**\n\n$\\text{P}(\\text{at least 4 hits in 10 minutes}) = 0.353$ (3 significant figures)."
+  ]
+ },
+ "9709_w23_63_q3_a_ii": {
+  "hints": [
+   "Fewer than 40 hits in 3 hours: change 3 hours into minutes and scale the rate $0.3$ to get the Poisson mean. A Poisson with a large mean can be approximated by a normal with mean and variance both equal to $\\lambda$: $\\text{N}(\\lambda, \\lambda)$.",
+   "Standardise with a continuity correction. 'Fewer than 40' means $X \\leqslant 39$, so the boundary goes halfway between 39 and 40: $z = \\dfrac{\\text{boundary} - \\text{mean}}{\\sqrt{\\text{variance}}}$. Use the square root of the variance.",
+   "Your $z$ will be negative. Rewrite the left-tail area using symmetry: $\\Phi(-z) = 1 - \\Phi(z)$.",
+   "Look up $\\Phi$ of the positive $z$ value, subtract it from 1 and give 3 significant figures."
+  ],
+  "walkthrough": [
+   "**Find the Poisson mean for 3 hours**\n\nThe rate is $0.3$ hits per minute. 3 hours is $3 \\times 60 = 180$ minutes, so the mean number of hits is\n\n$$\\lambda = 0.3 \\times 180 = 54$$\n\nSo exactly, the number of hits is $X \\sim \\text{Po}(54)$.",
+   "**Why use an approximation, and which one (first M1)**\n\nTo find $\\text{P}(X < 40)$ exactly we would have to add $\\text{P}(0) + \\text{P}(1) + \\ldots + \\text{P}(39)$, which is 40 terms. When the Poisson mean is large (more than about 15), its shape is close to a bell curve, so we approximate it with a normal distribution.\n\nThe matching normal distribution has the same mean, and the same variance. For a Poisson, the variance equals the mean, so both are $54$:\n\n$$X \\approx \\text{N}(54, 54)$$\n\nThis earns the first M1.",
+   "**The continuity correction**\n\nA Poisson variable takes whole numbers only, while a normal variable takes every value. 'Fewer than 40' for a whole number means $X \\leqslant 39$. On the normal scale, the whole number 39 stands for everything from $38.5$ to $39.5$. So the region 'up to and including 39' ends at $39.5$:\n\n$$\\text{P}(X < 40) = \\text{P}(X \\leqslant 39) \\approx \\text{P}(\\text{Normal} < 39.5)$$",
+   "**Standardise (second M1)**\n\n$$z = \\frac{39.5 - 54}{\\sqrt{54}}$$\n\nThe standard deviation is the square root of the variance: $\\sqrt{54} = 7.3485$. The top is $39.5 - 54 = -14.5$. So\n\n$$z = \\frac{-14.5}{7.3485} = -1.973$$\n\nThis earns the second M1. The scheme gives this mark even if the continuity correction is wrong or missing, but it will cost you the final accuracy mark.",
+   "**Use symmetry for the negative z (third M1)**\n\nWe want the area to the left of $-1.973$. Tables only list positive $z$, and the curve is symmetric, so\n\n$$\\text{P}(Z < -1.973) = 1 - \\Phi(1.973)$$\n\nThis earns the third M1.",
+   "**Evaluate (A1)**\n\nUse the table or your calculator's normal cdf: $\\Phi(1.973) = 0.97575$. Then\n\n$$1 - 0.97575 = 0.02425$$\n\nUsing the unrounded $z = -1.9732$ on a calculator gives $0.024236$. Both give $0.0242$ to 3 significant figures.\n\nCommon slips the scheme warns about: leaving out the continuity correction (using $40$ instead of $39.5$) gives $0.0284$, which loses the final marks.",
+   "**Final answer**\n\n$\\text{P}(\\text{fewer than 40 hits in 3 hours}) \\approx 0.0242$ (3 significant figures)."
+  ]
+ },
+ "9709_w23_63_q3_b_i": {
+  "hints": [
+   "A Poisson model needs the mean number of hits per minute to be the same at every minute. Compare that requirement with what your friend noticed about day-time and night-time."
+  ],
+  "walkthrough": [
+   "**What a Poisson model assumes**\n\nFor the number of hits per minute to follow a Poisson distribution, hits must happen at a **constant average rate**. The mean number of hits per minute must be the same at 3 am as at 3 pm.",
+   "**Compare with the friend's observation**\n\nThe friend notices that the day-time number of hits is about **twice** the night-time number. So the average number of hits per minute is bigger in the day than at night. It changes during the 24 hours, so it is not constant. That contradicts the Poisson assumption.",
+   "**Final answer**\n\nThe mean number of hits per minute (the rate) is not constant: it is about twice as large in the day-time as at night, but a Poisson distribution needs a constant mean."
+  ]
+ },
+ "9709_w23_63_q3_b_ii": {
+  "hints": [
+   "Let the night-time rate be $p$ per minute, so the day-time rate is $2p$. Day and night are each 12 hours, so the overall average rate is the mean of the two: $\\dfrac{2p + p}{2} = 0.3$ (or $2p + p = 2 \\times 0.3$).",
+   "Solve for $p$, then state two Poisson distributions, one for day-time and one for night-time, with the rate for each (say per minute)."
+  ],
+  "walkthrough": [
+   "**Set up the two rates (M1)**\n\nLet $p$ be the night-time mean number of hits **per minute**. The day-time rate is twice that, so it is $2p$ per minute.\n\nThe whole-day average is still $0.3$ per minute (the friend agrees). Day-time (9 am to 9 pm) and night-time (9 pm to 9 am) are both exactly 12 hours long, so each is half of the day. The overall average is therefore the mean of the two rates:\n\n$$\\frac{2p + p}{2} = 0.3$$\n\nMultiplying both sides by 2 gives $2p + p = 2 \\times 0.3$. This earns the M1.",
+   "**Solve for p**\n\n$$3p = 0.6$$\n\n$$p = \\frac{0.6}{3} = 0.2$$\n\nSo the night-time rate is $0.2$ per minute and the day-time rate is $2 \\times 0.2 = 0.4$ per minute.",
+   "**Write the two Poisson models (A1)**\n\nNumber of hits **per minute**: day-time $\\text{Po}(0.4)$ and night-time $\\text{Po}(0.2)$.\n\nThe scheme also accepts the same rates for other time units: per hour, $\\text{Po}(24)$ and $\\text{Po}(12)$ (since $0.4 \\times 60 = 24$ and $0.2 \\times 60 = 12$), or per 12-hour shift, $\\text{Po}(288)$ and $\\text{Po}(144)$.\n\nSlip to avoid: $\\text{Po}(432)$ and $\\text{Po}(216)$ are not accepted. These would be the means for a whole **24 hours** at the two rates, which is not what each period is.",
+   "**Final answer**\n\nDay-time: $\\text{Po}(0.4)$ per minute. Night-time: $\\text{Po}(0.2)$ per minute."
+  ]
+ }
+}

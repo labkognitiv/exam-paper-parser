@@ -1,0 +1,30 @@
+{
+ "9709_w24_63_q4_a": {
+  "hints": [
+   "For any probability density function the total area under the curve is $1$. Here that means $\\displaystyle\\int_2^3 \\text{f}(x)\\,\\text{d}x = 1$.",
+   "Integrate $\\dfrac{a}{x^2} - \\dfrac{18}{x^3}$ term by term. Write the terms as powers, $a x^{-2} - 18 x^{-3}$, and use $\\int x^n\\,\\text{d}x = \\dfrac{x^{n+1}}{n+1}$. Treat $a$ as a constant.",
+   "Substitute the upper limit $3$ and the lower limit $2$ into your integral (upper minus lower), set the result equal to $1$, collect the terms in $a$ and solve. Show every substitution so you arrive at the printed value."
+  ],
+  "walkthrough": [
+   "**Why we integrate (this is the M1)**\n\n$X$ can only take values from $2$ to $3$, and the total probability must be $1$. For a probability density function, probability is area under the curve, so the area from $2$ to $3$ must be $1$:\n\n$$\\int_2^3 \\left(\\frac{a}{x^2} - \\frac{18}{x^3}\\right)\\text{d}x = 1$$",
+   "**Integrate (this is the first A1)**\n\nWrite the terms as powers of $x$: $\\dfrac{a}{x^2} = a x^{-2}$ and $\\dfrac{18}{x^3} = 18 x^{-3}$.\n\nAdd $1$ to the power and divide by the new power:\n\n$$\\int a x^{-2}\\,\\text{d}x = \\frac{a x^{-1}}{-1} = -\\frac{a}{x}$$\n\n$$\\int -18 x^{-3}\\,\\text{d}x = \\frac{-18 x^{-2}}{-2} = \\frac{9}{x^2}$$\n\nSo:\n\n$$\\left[-\\frac{a}{x} + \\frac{9}{x^2}\\right]_2^3 = 1$$",
+   "**Substitute the limits (upper minus lower)**\n\nPut $x = 3$:\n\n$$-\\frac{a}{3} + \\frac{9}{3^2} = -\\frac{a}{3} + 1$$\n\nPut $x = 2$:\n\n$$-\\frac{a}{2} + \\frac{9}{2^2} = -\\frac{a}{2} + \\frac{9}{4}$$\n\nSubtract the second from the first. Be careful with the minus sign: it changes both terms in the second bracket.\n\n$$\\left(-\\frac{a}{3} + 1\\right) - \\left(-\\frac{a}{2} + \\frac{9}{4}\\right) = -\\frac{a}{3} + 1 + \\frac{a}{2} - \\frac{9}{4} = 1$$\n\nThe mark scheme needs this substitution to be visible, so write it all.",
+   "**Solve for $a$ (this is the last A1)**\n\nCollect the terms in $a$: $\\dfrac{a}{2} - \\dfrac{a}{3} = \\dfrac{3a}{6} - \\dfrac{2a}{6} = \\dfrac{a}{6}$.\n\nCollect the numbers: $1 - \\dfrac{9}{4} = \\dfrac{4}{4} - \\dfrac{9}{4} = -\\dfrac{5}{4}$.\n\n$$\\frac{a}{6} - \\frac{5}{4} = 1$$\n\nAdd $\\dfrac{5}{4}$ to both sides: $\\dfrac{a}{6} = 1 + \\dfrac{5}{4} = \\dfrac{9}{4}$.\n\nMultiply both sides by $6$: $a = \\dfrac{9}{4} \\times 6 = \\dfrac{54}{4} = \\dfrac{27}{2}$.",
+   "**Final answer**\n\n$a = \\dfrac{27}{2}$, as required."
+  ]
+ },
+ "9709_w24_63_q4_b": {
+  "hints": [
+   "The expected value is $\\text{E}(X) = \\displaystyle\\int x\\,\\text{f}(x)\\,\\text{d}x$ over the range $2$ to $3$. Put $a = \\dfrac{27}{2}$ in and multiply each term of $\\text{f}(x)$ by $x$, simplifying the powers.",
+   "Integrate each term: $\\int \\dfrac{1}{x}\\,\\text{d}x = \\ln x$, and $\\dfrac{1}{x^2}$ is $x^{-2}$, which integrates to $-x^{-1}$. Watch the sign of the second term: $-18 \\times (-x^{-1})$.",
+   "Substitute $3$ then $2$ and subtract. Collect the two $\\ln$ terms and use $\\ln p - \\ln q = \\ln\\dfrac{p}{q}$ to reach the printed result."
+  ],
+  "walkthrough": [
+   "**The formula for $\\text{E}(X)$ (this is the M1)**\n\nFor a continuous random variable, the mean is found by multiplying the density by $x$ and integrating over the range:\n\n$$\\text{E}(X) = \\int_2^3 x\\,\\text{f}(x)\\,\\text{d}x$$\n\nUse $a = \\dfrac{27}{2}$ from part (a), so $\\text{f}(x) = \\dfrac{27}{2x^2} - \\dfrac{18}{x^3}$. Multiply each term by $x$ (the power of $x$ in the denominator drops by one):\n\n$$x \\times \\frac{27}{2x^2} = \\frac{27}{2x}, \\qquad x \\times \\frac{18}{x^3} = \\frac{18}{x^2}$$\n\n$$\\text{E}(X) = \\int_2^3 \\left(\\frac{27}{2x} - \\frac{18}{x^2}\\right)\\text{d}x$$",
+   "**Integrate (this is the first A1)**\n\nFirst term: $\\dfrac{27}{2x} = \\dfrac{27}{2} \\times \\dfrac{1}{x}$, and $\\int \\dfrac{1}{x}\\,\\text{d}x = \\ln x$. So it gives $\\dfrac{27}{2}\\ln x$.\n\nSecond term: $-\\dfrac{18}{x^2} = -18 x^{-2}$. Add $1$ to the power and divide by it: $\\dfrac{-18 x^{-1}}{-1} = \\dfrac{18}{x}$. The two minus signs cancel, so it becomes $+\\dfrac{18}{x}$.\n\n$$\\text{E}(X) = \\left[\\frac{27}{2}\\ln x + \\frac{18}{x}\\right]_2^3$$\n\n(The scheme also accepts $\\ln 2x$ in place of $\\ln x$, because it only changes the constant.)",
+   "**Substitute the limits (this is the last A1)**\n\nUpper limit $x = 3$:\n\n$$\\frac{27}{2}\\ln 3 + \\frac{18}{3} = \\frac{27}{2}\\ln 3 + 6$$\n\nLower limit $x = 2$:\n\n$$\\frac{27}{2}\\ln 2 + \\frac{18}{2} = \\frac{27}{2}\\ln 2 + 9$$\n\nSubtract (upper minus lower), putting brackets round the second to keep the signs right:\n\n$$\\text{E}(X) = \\frac{27}{2}\\ln 3 + 6 - \\frac{27}{2}\\ln 2 - 9$$",
+   "**Tidy to the printed form**\n\nNumbers: $6 - 9 = -3$.\n\nLogs: $\\dfrac{27}{2}\\ln 3 - \\dfrac{27}{2}\\ln 2 = \\dfrac{27}{2}(\\ln 3 - \\ln 2) = \\dfrac{27}{2}\\ln\\dfrac{3}{2}$, using $\\ln p - \\ln q = \\ln\\dfrac{p}{q}$.\n\n$$\\text{E}(X) = \\frac{27}{2}\\ln\\frac{3}{2} - 3$$\n\nQuick check: $\\ln 1.5 = 0.4055\\ldots$, so $13.5 \\times 0.4055\\ldots - 3 = 2.474\\ldots$. That lies between $2$ and $3$, as a mean must.",
+   "**Final answer**\n\n$\\text{E}(X) = \\dfrac{27}{2}\\ln\\dfrac{3}{2} - 3$, as required."
+  ]
+ }
+}

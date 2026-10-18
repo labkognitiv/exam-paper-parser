@@ -1,0 +1,27 @@
+{
+ "9709_s24_63_q1_a": {
+  "hints": [
+   "$X \\sim \\text{B}(4000, 0.001)$ has $n$ very large and $p$ very small, so approximate it by a Poisson distribution whose mean is $np$, using $n = 4000$ and $p = 0.001$.",
+   "$2 \\leqslant X < 5$ means $X = 2, 3$ or $4$ only, because the $<$ sign leaves out $5$. Write each term as $\\text{e}^{-\\lambda}\\dfrac{\\lambda^r}{r!}$ with $r = 2, 3, 4$ and your $\\lambda$.",
+   "Add the three Poisson terms (or use the calculator's Poisson cdf as $\\text{P}(X \\leqslant 4) - \\text{P}(X \\leqslant 1)$) and round to 3 significant figures."
+  ],
+  "walkthrough": [
+   "**Why we cannot just use the binomial by hand**\n\n$X \\sim \\text{B}(4000, 0.001)$ means: there are $n = 4000$ trials and each has probability $p = 0.001$ of success. Working out $\\binom{4000}{2}\\,0.001^2\\,0.999^{3998}$ by hand is horrible, and the question tells us to use an approximating distribution.\n\nWhen $n$ is large and $p$ is small, the binomial is very close to a **Poisson** distribution with the same mean. Poisson probabilities are much easier to write down.",
+   "**Find the Poisson mean (the B1 mark)**\n\nThe mean of a binomial is $np$. This is the value we give to the Poisson, called $\\lambda$ (the Greek letter lambda, the Poisson mean):\n\n$$\\lambda = np = 4000 \\times 0.001 = 4$$\n\nSo we approximate $X$ by $\\text{Po}(4)$.",
+   "**Decide which values of $X$ we need**\n\n$\\text{P}(2 \\leqslant X < 5)$ means $X$ is at least $2$ **and** strictly less than $5$. The values are $X = 2, 3, 4$. The value $5$ is **not** included because of the $<$ sign.\n\nQuick check: slipping on the end values (including $5$ or leaving out $2$) is the usual mistake here, so list the values before doing anything else.\n\n$$\\text{P}(2 \\leqslant X < 5) = \\text{P}(X = 2) + \\text{P}(X = 3) + \\text{P}(X = 4)$$",
+   "**Write the Poisson probabilities (the M1 mark)**\n\nFor a Poisson distribution with mean $\\lambda$: $\\text{P}(X = r) = \\text{e}^{-\\lambda}\\dfrac{\\lambda^r}{r!}$. Put in $\\lambda = 4$:\n\n$$\\text{P}(X = 2) = \\text{e}^{-4}\\frac{4^2}{2!} = \\text{e}^{-4}\\times\\frac{16}{2} = \\text{e}^{-4}\\times 8$$\n\n$$\\text{P}(X = 3) = \\text{e}^{-4}\\frac{4^3}{3!} = \\text{e}^{-4}\\times\\frac{64}{6} = \\text{e}^{-4}\\times 10.667$$\n\n$$\\text{P}(X = 4) = \\text{e}^{-4}\\frac{4^4}{4!} = \\text{e}^{-4}\\times\\frac{256}{24} = \\text{e}^{-4}\\times 10.667$$\n\nTogether, this is the expression the mark scheme wants to see (it must be written down, not just typed into the calculator):\n\n$$\\text{e}^{-4}\\left(\\frac{4^2}{2!} + \\frac{4^3}{3!} + \\frac{4^4}{4!}\\right)$$",
+   "**Work out the numbers (the A1 mark)**\n\nUse $\\text{e}^{-4} = 0.018316$ (calculator: press the $\\text{e}^x$ key and type $-4$). Then:\n\n$$0.018316 \\times 8 = 0.1465$$\n\n$$0.018316 \\times 10.667 = 0.1954$$\n\nAdd the three terms (the last two are equal):\n\n$$0.1465 + 0.1954 + 0.1954 = 0.5373$$\n\nA calculator with Poisson cdf gives the same result as $\\text{P}(X \\leqslant 4) - \\text{P}(X \\leqslant 1)$. Rounded to 3 significant figures this is $0.537$.\n\nNote: if you instead used the exact binomial and got $0.537$ too, the scheme gives special credit, but it is not the method asked for.",
+   "**Final answer**\n\n$$\\text{P}(2 \\leqslant X < 5) \\approx 0.537 \\text{ (3 s.f.)}$$"
+  ]
+ },
+ "9709_s24_63_q1_b": {
+  "hints": [
+   "State the conditions for approximating a binomial by a Poisson: $n$ large, and either $np$ small or $p$ small. Check each condition against $n = 4000$ and $p = 0.001$, quoting the values."
+  ],
+  "walkthrough": [
+   "**What we have to justify**\n\nA binomial $\\text{B}(n, p)$ can be approximated by a Poisson distribution when $n$ is large and $p$ is small. In 9709 the usual rules are: $n > 50$ and either $np < 5$ or $p < 0.1$.\n\nThe mark is for quoting **explicit values** from this question, not just the words 'large' and 'small'.",
+   "**Check each condition**\n\n$$n = 4000 > 50$$\n\n$$np = 4000 \\times 0.001 = 4 < 5 \\quad (\\text{also } p = 0.001 < 0.1)$$\n\nBoth conditions are met, so a Poisson approximation $\\text{Po}(4)$ is suitable.",
+   "**Final answer**\n\nThe approximation is justified because $n = 4000 > 50$ and $np = 4 < 5$ (or $p = 0.001 < 0.1$). The normal approximation is not appropriate because $np = 4$ is too small."
+  ]
+ }
+}

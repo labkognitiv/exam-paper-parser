@@ -1,0 +1,36 @@
+{
+ "9709_s24_62_q2_a": {
+  "hints": [
+   "The student numbers go up to 804, which has three digits, so read the random digits in groups of three, starting after the first two numbers (567 and 109) already used.",
+   "Reject a group if it is larger than 804 or if it repeats a student already chosen (a student cannot be in the sample twice). Keep going until you have two valid numbers; a number such as $021$ is student 21."
+  ],
+  "walkthrough": [
+   "**Split the digits into groups of three**\n\nThe students are numbered 1 to 804, and 804 has three digits, so each student number is made of three random digits.\n\nThe 20 digits are\n\n$$5\\ 6\\ 7\\ 1\\ 0\\ 9\\ 8\\ 4\\ 3\\ 1\\ 0\\ 9\\ 6\\ 6\\ 5\\ 0\\ 2\\ 1\\ 7\\ 6$$\n\nTaking them three at a time:\n\n$$567 \\quad 109 \\quad 843 \\quad 109 \\quad 665 \\quad 021 \\quad (76 \\text{ left over})$$\n\nThe first two groups, $567$ and $109$, are the ones Henri has already used.",
+   "**Reject any group that cannot be used**\n\nGo through the next groups in order.\n\n- $843$: this is bigger than $804$, and there is no student 843, so **reject** it.\n\n- $109$ (the fourth group): student 109 is already in the sample, and a sample must not contain the same student twice, so **reject** it.\n\n- $665$: between 1 and 804 and new, so **accept**. This earns the first **B1**.\n\n- $021$: this is student number 21 (the leading zero does not change the value). It is between 1 and 804 and new, so **accept**. This earns the second **B1**.",
+   "**Final answer**\n\nThe next two students in the sample are numbers **665** and **21** (writing $021$ is also accepted)."
+  ]
+ },
+ "9709_s24_62_q2_b": {
+  "hints": [
+   "An unbiased estimate of the population mean is just the sample mean, $\\dfrac{\\Sigma x}{n}$ with the totals given.",
+   "For the unbiased estimate of the variance use $s^2 = \\dfrac{1}{n-1}\\left(\\Sigma x^2 - \\dfrac{(\\Sigma x)^2}{n}\\right)$ with $n = 30$, $\\Sigma x = 610$, $\\Sigma x^2 = 12405$ (note the $n - 1$).",
+   "Work out the bracket first, then divide by $29$, and compare the result with $0.1$ to show it is smaller."
+  ],
+  "walkthrough": [
+   "**Unbiased estimate of the mean (B1)**\n\nThe best (unbiased) estimate of the population mean is the mean of the sample. The mean is the total divided by how many there are:\n\n$$\\bar{x} = \\frac{\\Sigma x}{n} = \\frac{610}{30}$$\n\n$$\\frac{610}{30} = \\frac{61}{3} = 20.33\\ldots \\approx 20.3$$\n\nSo the estimate of the mean time on social media is about $20.3$ hours a week. This earns the **B1**.",
+   "**Choose the formula for the variance (M1)**\n\nA sample tends to be less spread out than the whole population, so we divide by $n - 1$ instead of $n$ to correct this. That gives an *unbiased* estimate:\n\n$$s^2 = \\frac{1}{n - 1}\\left(\\Sigma x^2 - \\frac{(\\Sigma x)^2}{n}\\right)$$\n\nHere $n = 30$, so $n - 1 = 29$. Put in the numbers from the question:\n\n$$s^2 = \\frac{1}{29}\\left(12405 - \\frac{610^2}{30}\\right)$$\n\nThis line is the **M1** for the correct formula. (An equivalent form is $\\frac{30}{29}\\left(\\frac{12405}{30} - \\left(\\frac{610}{30}\\right)^2\\right)$.)",
+   "**Work it out one step at a time (A1)**\n\nFirst square the total:\n\n$$610^2 = 372100$$\n\nDivide by $n = 30$:\n\n$$\\frac{372100}{30} = 12403.33\\ldots$$\n\nSubtract from $\\Sigma x^2$:\n\n$$12405 - 12403.33\\ldots = 1.666\\ldots = \\frac{5}{3}$$\n\nDivide by $29$:\n\n$$s^2 = \\frac{1.666\\ldots}{29} = 0.05747\\ldots \\approx 0.0575 \\text{ (3 s.f.)}$$\n\nQuick check: the bracket is tiny because $12405$ and $12403.3$ are almost equal, so a small answer is what we expect. This earns the **A1**.",
+   "**Final answer**\n\nUnbiased estimate of the mean: $\\dfrac{61}{3} \\approx 20.3$ hours.\n\nUnbiased estimate of the variance: $0.0575$ (equal to $\\dfrac{5}{87}$), and $0.0575 < 0.1$, as required."
+  ]
+ },
+ "9709_s24_62_q2_c": {
+  "hints": [
+   "Think about what a variance this small says about the spread of 30 different students' weekly times on social media. Is it realistic for everyone to be that similar? Then say whether the friend is likely to be right."
+  ],
+  "walkthrough": [
+   "**What the variance tells us**\n\nThe variance measures how spread out the times are. Our estimate is $0.0575$, so the standard deviation is\n\n$$\\sqrt{0.0575} = 0.24 \\text{ hours}$$\n\nThat is about 14 minutes. It means almost all 30 students spent within a few tenths of an hour of the mean of about $20.3$ hours each week.\n\nReal students vary a lot: one might spend 5 hours, another 40. So a spread this small is unrealistically small.",
+   "**Compare with the friend's claim**\n\nA wrongly copied $\\Sigma x$ or $\\Sigma x^2$ could easily produce an odd variance, since the variance comes from the tiny difference between two big numbers.\n\nYou need both parts to earn the **B1**: say the variance is (unrealistically) *small*, and so Henri has probably made a mistake. Saying only that it is \"less than $0.1$\", or commenting only on the mean, earns nothing.",
+   "**Final answer**\n\nThe variance (standard deviation about $0.24$ hours) is unrealistically small for 30 different students, so Henri has probably made a mistake and his friend's claim is probably correct."
+  ]
+ }
+}

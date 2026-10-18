@@ -1,0 +1,56 @@
+{
+ "9709_w24_62_q6_a": {
+  "hints": [
+   "Look at where $\\text{f}(x)$ is non-zero: only between $a$ and $b$. $X$ is a time in hours, so say what $a$ and $b$ are in terms of the challenge."
+  ],
+  "walkthrough": [
+   "**Read the pdf**\n\n$\\text{f}(x) = \\dfrac{1}{x^2}$ for $a \\leqslant x \\leqslant b$ and 0 otherwise. So the only times that can occur lie between $a$ and $b$, and $X$ is the time taken to complete the challenge.",
+   "**Final answer**\n\n$a$ is the minimum (shortest) time taken to complete the challenge, and $b$ is the maximum (longest) time. A good answer talks about the times, not just 'the min and max of $x$'."
+  ]
+ },
+ "9709_w24_62_q6_b": {
+  "hints": [
+   "For any pdf the total area under it is 1. Write $\\displaystyle\\int_a^b \\frac{1}{x^2}\\,\\text{d}x = 1$ and rewrite $\\dfrac{1}{x^2}$ as $x^{-2}$ so that you can integrate.",
+   "$\\int x^{-2}\\,\\text{d}x = -x^{-1}$. Substitute the limits (upper $b$, then lower $a$, and subtract) and set the result equal to 1.",
+   "Multiply every term of your equation by $ab$ to clear the fractions, then collect the terms in $a$ on one side and factorise to make $a$ the subject."
+  ],
+  "walkthrough": [
+   "**Total probability is 1**\n\nA probability density function must have total area 1 over its range, which here is from $a$ to $b$:\n\n$$\\int_a^b \\frac{1}{x^2}\\,\\text{d}x = 1$$\n\nThis earns the M1.",
+   "**Integrate**\n\nWrite $\\dfrac{1}{x^2} = x^{-2}$. Add 1 to the power and divide by it: $\\int x^{-2}\\,\\text{d}x = \\dfrac{x^{-1}}{-1} = -\\dfrac{1}{x}$.\n\n$$\\left[-\\frac{1}{x}\\right]_a^b = 1$$",
+   "**Substitute the limits**\n\nUpper limit minus lower limit:\n\n$$\\left(-\\frac{1}{b}\\right) - \\left(-\\frac{1}{a}\\right) = 1$$\n\n$$-\\frac{1}{b} + \\frac{1}{a} = 1$$\n\nThis earns the first A1.",
+   "**Clear the fractions**\n\nMultiply every term by $ab$:\n\n$$-\\frac{ab}{b} + \\frac{ab}{a} = ab$$\n\nSimplify each fraction ($\\frac{ab}{b} = a$ and $\\frac{ab}{a} = b$):\n\n$$-a + b = ab$$",
+   "**Make a the subject**\n\nMove $-a$ to the other side:\n\n$$b = ab + a$$\n\nFactorise the right side (take $a$ out):\n\n$$b = a(b + 1)$$\n\nDivide by $b + 1$:\n\n$$a = \\frac{b}{b + 1}$$",
+   "**Final answer**\n\nWe have shown that\n\n$$a = \\frac{b}{b+1}$$"
+  ]
+ },
+ "9709_w24_62_q6_c": {
+  "hints": [
+   "The mean is $\\text{E}(X) = \\displaystyle\\int_a^b x\\,\\text{f}(x)\\,\\text{d}x$. Multiply out $x \\times \\dfrac{1}{x^2}$ first, to get something that integrates to a logarithm.",
+   "$\\int \\dfrac{1}{x}\\,\\text{d}x = \\ln x$. Substitute the limits $b$ (upper) and $a$ (lower) and subtract.",
+   "Use part **(b)** to replace $a$ by an expression in $b$. Combine the two logs (for example with $\\ln p - \\ln q = \\ln\\dfrac{p}{q}$) to get one equation in $b$ only, and compare with $\\ln 3$.",
+   "Solve your equation for $b$; then put this $b$ into $a = \\dfrac{b}{b+1}$ to find $a$."
+  ],
+  "walkthrough": [
+   "**Formula for the mean**\n\nFor a continuous random variable, $\\text{E}(X) = \\int x\\,\\text{f}(x)\\,\\text{d}x$ over the range of $X$. Here $x \\times \\dfrac{1}{x^2} = \\dfrac{1}{x}$, so\n\n$$\\text{E}(X) = \\int_a^b \\frac{1}{x}\\,\\text{d}x$$\n\nThis earns the M1.",
+   "**Integrate and substitute limits**\n\n$\\int \\dfrac{1}{x}\\,\\text{d}x = \\ln x$. Upper limit minus lower limit:\n\n$$\\text{E}(X) = \\left[\\ln x\\right]_a^b = \\ln b - \\ln a$$\n\nThis earns the first A1.",
+   "**Replace a using part (b)**\n\nFrom part **(b)**, $a = \\dfrac{b}{b+1}$, so\n\n$$\\text{E}(X) = \\ln b - \\ln\\left(\\frac{b}{b+1}\\right)$$\n\nUse the log law $\\ln p - \\ln q = \\ln\\dfrac{p}{q}$:\n\n$$\\ln b - \\ln\\left(\\frac{b}{b+1}\\right) = \\ln\\left(b \\div \\frac{b}{b+1}\\right) = \\ln\\left(b \\times \\frac{b+1}{b}\\right) = \\ln(b+1)$$\n\n(Equivalently: $\\ln\\frac{b}{b+1} = \\ln b - \\ln(b+1)$, so the $\\ln b$ cancels.)",
+   "**Use the given mean**\n\nWe are told $\\text{E}(X) = \\ln 3$, so\n\n$$\\ln(b+1) = \\ln 3$$\n\nThis is an equation in $b$ only, and it earns the second A1.",
+   "**Solve for b and find a**\n\nIf the logs are equal, the numbers inside are equal:\n\n$$b + 1 = 3 \\quad\\Rightarrow\\quad b = 2$$\n\nNow use part **(b)**:\n\n$$a = \\frac{b}{b+1} = \\frac{2}{2+1} = \\frac{2}{3}$$",
+   "**Final answer**\n\nWe have shown $b = 2$, and $a = \\dfrac{2}{3}$."
+  ]
+ },
+ "9709_w24_62_q6_d": {
+  "hints": [
+   "The median $m$ is the value with half of the probability below it. Write $\\displaystyle\\int_a^m \\frac{1}{x^2}\\,\\text{d}x = 0.5$, using your value of $a$ from part **(c)** as the lower limit.",
+   "Integrate to get $-\\dfrac{1}{x}$, substitute the limits $m$ (upper) and $a$ (lower), and set equal to 0.5.",
+   "Replace $a$ by your value, evaluate $\\dfrac{1}{a}$, rearrange to find $\\dfrac{1}{m}$, then take the reciprocal."
+  ],
+  "walkthrough": [
+   "**What the median means**\n\nThe median $m$ is the time such that half of all the people take less than $m$. The smallest time is $a = \\frac{2}{3}$ (from part **(c)**), so the probability from $a$ up to $m$ must be $0.5$:\n\n$$\\int_{2/3}^{m} \\frac{1}{x^2}\\,\\text{d}x = 0.5$$\n\nThis earns the M1.",
+   "**Integrate**\n\nAs in part **(b)**, the integral of $\\frac{1}{x^2}$ is $-\\frac{1}{x}$:\n\n$$\\left[-\\frac{1}{x}\\right]_{2/3}^{m} = 0.5$$\n\nThis earns the A1FT.",
+   "**Substitute the limits**\n\nUpper limit minus lower limit:\n\n$$-\\frac{1}{m} - \\left(-\\frac{1}{2/3}\\right) = 0.5$$\n\nSince $\\dfrac{1}{2/3} = \\dfrac{3}{2}$:\n\n$$-\\frac{1}{m} + \\frac{3}{2} = 0.5$$",
+   "**Solve**\n\nSubtract $\\frac{3}{2}$ from both sides:\n\n$$-\\frac{1}{m} = 0.5 - 1.5 = -1$$\n\nSo $\\dfrac{1}{m} = 1$ and\n\n$$m = 1$$\n\nQuick check: $m = 1$ lies between $\\frac{2}{3}$ and 2, as a median must.",
+   "**Final answer**\n\nThe median of $X$ is $1$ hour."
+  ]
+ }
+}

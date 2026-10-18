@@ -1,0 +1,58 @@
+{
+  "9709_m21_62_q4_a": {
+    "hints": [
+      "Each microchip is either faulty or not, independently, with the same probability each time. Which distribution counts successes in a fixed number of such trials? Take $n$ from the sample size and $p$ from 'on average 1 in 400'."
+    ],
+    "walkthrough": [
+      "**Why binomial**\n\nThere are a fixed number of microchips (1000). Each one is either faulty or not faulty, the chips are independent, and each has the same chance of being faulty. Those are exactly the conditions for a **binomial distribution**.\n\nThe number of trials is $n = 1000$. The probability a chip is faulty is 1 in 400, so $p = \\frac{1}{400}$.",
+      "**Final answer**\n\n$X \\sim \\text{B}\\left(1000, \\dfrac{1}{400}\\right)$"
+    ]
+  },
+  "9709_m21_62_q4_b": {
+    "hints": [
+      "With $n = 1000$ very large and $p = \\frac{1}{400}$ very small, the binomial can be approximated by which distribution that counts rare events?",
+      "A Poisson distribution has a single parameter, its mean. Make it equal to the mean of the binomial: $np$ with your $n$ and $p$ from part **(a)**."
+    ],
+    "walkthrough": [
+      "**Choose the approximating distribution (first B1)**\n\nWhen $n$ is large and $p$ is small, a binomial distribution is well approximated by a **Poisson distribution**. Here $n = 1000$ is large and $p = \\frac{1}{400}$ is tiny, and the mean $np$ is small, so the Normal approximation would not be suitable (that needs $np$ and $nq$ both large, usually greater than 5).",
+      "**Choose the parameter (second B1)**\n\nThe Poisson parameter $\\lambda$ is its mean. We make it equal to the mean of the binomial, which is $np$:\n\n$$\\lambda = np = 1000 \\times \\frac{1}{400} = 2.5$$",
+      "**Final answer**\n\n$X \\approx \\text{Po}(2.5)$"
+    ]
+  },
+  "9709_m21_62_q4_c_i": {
+    "hints": [
+      "For a Poisson variable, $\\text{P}(X = r) = \\text{e}^{-\\lambda}\\dfrac{\\lambda^r}{r!}$. Put in the $\\lambda$ from part **(b)** and $r = 4$.",
+      "Evaluate it on your calculator: either type the expression with $\\text{e}^{-\\lambda}$, $\\lambda^4$ and $4!$, or use the Poisson pdf function. Round to 3 s.f."
+    ],
+    "walkthrough": [
+      "**Write the Poisson formula (M1)**\n\nWe use the approximating distribution $X \\approx \\text{Po}(2.5)$. For a Poisson variable with mean $\\lambda$ the probability of exactly $r$ events is $\\text{e}^{-\\lambda}\\dfrac{\\lambda^r}{r!}$. Here $\\lambda = 2.5$ and $r = 4$:\n\n$$\\text{P}(X = 4) = \\text{e}^{-2.5} \\times \\frac{2.5^4}{4!}$$",
+      "**Calculate it (A1)**\n\nWork out each piece. $\\text{e}^{-2.5} = 0.082085\\ldots$\n\n$2.5^4 = 2.5 \\times 2.5 \\times 2.5 \\times 2.5 = 39.0625$\n\n$4! = 4 \\times 3 \\times 2 \\times 1 = 24$\n\n$$\\frac{39.0625}{24} = 1.62760\\ldots$$\n\n$$0.082085\\ldots \\times 1.62760\\ldots = 0.13360\\ldots$$\n\nRounded to 3 significant figures this is $0.134$.",
+      "**Final answer**\n\n$\\text{P}(X = 4) = 0.134$ (3 s.f.)"
+    ]
+  },
+  "9709_m21_62_q4_c_ii": {
+    "hints": [
+      "$2 \\leqslant X \\leqslant 4$ means $X$ is $2$, $3$ or $4$. These are separate outcomes, so add the three Poisson probabilities (or use $\\text{P}(X \\leqslant 4) - \\text{P}(X \\leqslant 1)$).",
+      "Use $\\text{P}(X = r) = \\text{e}^{-\\lambda}\\dfrac{\\lambda^r}{r!}$ for $r = 2, 3, 4$ with the same $\\lambda$ as before, add them, and round to 3 s.f."
+    ],
+    "walkthrough": [
+      "**Which values are included (M1)**\n\nThe inequality $2 \\leqslant X \\leqslant 4$ includes both ends, so $X$ can be $2$, $3$ or $4$. Probabilities of separate values add up. We factor out $\\text{e}^{-2.5}$ because it is in every term:\n\n$$\\text{P}(2 \\leqslant X \\leqslant 4) = \\text{e}^{-2.5}\\left(\\frac{2.5^2}{2!} + \\frac{2.5^3}{3!} + \\frac{2.5^4}{4!}\\right)$$",
+      "**Work out each term inside the bracket (A1)**\n\n$$\\frac{2.5^2}{2!} = \\frac{6.25}{2} = 3.125$$\n\n$$\\frac{2.5^3}{3!} = \\frac{15.625}{6} = 2.60416\\ldots$$\n\n$$\\frac{2.5^4}{4!} = \\frac{39.0625}{24} = 1.62760\\ldots$$\n\nAdd them:\n\n$$3.125 + 2.60416\\ldots + 1.62760\\ldots = 7.35677\\ldots$$\n\nMultiply by $\\text{e}^{-2.5} = 0.082085\\ldots$:\n\n$$0.082085\\ldots \\times 7.35677\\ldots = 0.60388\\ldots$$\n\nRounded to 3 significant figures this is $0.604$.\n\nQuick check using the individual probabilities: $0.2565 + 0.2138 + 0.1336 = 0.6039$, which agrees.",
+      "**Final answer**\n\n$\\text{P}(2 \\leqslant X \\leqslant 4) = 0.604$ (3 s.f.)"
+    ]
+  },
+  "9709_m21_62_q4_d": {
+    "hints": [
+      "The mean number of faulty chips is proportional to the sample size. Scale the rate of 1 in 400 up to a sample of 700 chips to get the new Poisson mean $\\lambda$.",
+      "'At least 1' is the complement of 'none': $\\text{P}(X \\geqslant 1) = 1 - \\text{P}(X = 0)$, and $\\text{P}(X = 0) = \\text{e}^{-\\lambda}$.",
+      "Substitute your new $\\lambda$ into $1 - \\text{e}^{-\\lambda}$, evaluate on the calculator and round to 3 s.f."
+    ],
+    "walkthrough": [
+      "**Which approximation and why**\n\nThe sample is now 700 chips (still large) and faults are still rare (1 in 400), so a Poisson approximation is suitable again. We need a new mean because the sample size has changed.",
+      "**Find the new mean (M1)**\n\nThe average number of faulty chips is the sample size times the chance each is faulty:\n\n$$\\lambda = 700 \\times \\frac{1}{400} = 1.75$$\n\n(Equivalently, 700 is $0.7$ of 1000, so $2.5 \\times 0.7 = 1.75$.) So the number of faulty chips in the sample of 700 is approximately $\\text{Po}(1.75)$.",
+      "**Use the complement (M1)**\n\n'At least 1 faulty' covers $1, 2, 3, \\ldots$ with no end, which is too many terms to add. It is much quicker to use the opposite event, 'none faulty':\n\n$$\\text{P}(X \\geqslant 1) = 1 - \\text{P}(X = 0)$$\n\nFor $r = 0$, $\\dfrac{\\lambda^0}{0!} = \\dfrac{1}{1} = 1$, so $\\text{P}(X = 0) = \\text{e}^{-1.75}$. Therefore\n\n$$\\text{P}(X \\geqslant 1) = 1 - \\text{e}^{-1.75}$$",
+      "**Calculate (A1)**\n\n$$\\text{e}^{-1.75} = 0.17377\\ldots$$\n\n$$1 - 0.17377\\ldots = 0.82622\\ldots$$\n\nRounded to 3 significant figures this is $0.826$.",
+      "**Final answer**\n\nThe probability that there is at least 1 faulty microchip in the sample of 700 is $0.826$ (3 s.f.)."
+    ]
+  }
+}

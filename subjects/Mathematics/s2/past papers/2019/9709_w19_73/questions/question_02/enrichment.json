@@ -1,0 +1,31 @@
+{
+ "9709_w19_73_q2_i": {
+  "hints": [
+   "Cars arrive randomly at a constant average rate, so the number of arrivals is Poisson: $X \\sim \\text{Po}(\\lambda)$. The rate 2.4 is per minute but the period is 2 minutes, so scale the mean to match the period.",
+   "'Fewer than 4' means $X \\leqslant 3$, so add $\\text{P}(X=0)$, $\\text{P}(X=1)$, $\\text{P}(X=2)$ and $\\text{P}(X=3)$, each equal to $\\text{e}^{-\\lambda}\\dfrac{\\lambda^r}{r!}$. Or use your calculator's Poisson cumulative probability."
+  ],
+  "walkthrough": [
+   "**Why Poisson, and which mean**\n\nThe cars arrive **randomly** and at a **constant average rate**. These are the signs of a Poisson distribution. Let $X$ be the number of cars arriving in 2 minutes, so $X \\sim \\text{Po}(\\lambda)$.\n\nThe mean of a Poisson distribution is $\\lambda$, and it must match the time period. The rate is 2.4 cars **per minute**, but we want a **2-minute** period, so we multiply by 2.\n\n$$\\lambda = 2 \\times 2.4 = 4.8$$\n\nSo $X \\sim \\text{Po}(4.8)$. Finding the right mean earns the method mark (M1) once it is used in the probability.",
+   "**What 'fewer than 4' means**\n\n$X$ counts whole cars: 0, 1, 2, 3, 4, ... 'Fewer than 4' means 0, 1, 2 or 3 cars, so we want $\\text{P}(X \\leqslant 3)$. Note that 4 itself is **not** included.\n\n$$\\text{P}(X \\leqslant 3) = \\text{P}(X=0) + \\text{P}(X=1) + \\text{P}(X=2) + \\text{P}(X=3)$$",
+   "**Write each term with the Poisson formula**\n\nFor a Poisson variable, $\\text{P}(X = r) = \\text{e}^{-\\lambda}\\dfrac{\\lambda^r}{r!}$. Remember $0! = 1$ and $1! = 1$.\n\n$$\\text{P}(X \\leqslant 3) = \\text{e}^{-4.8}\\left(1 + 4.8 + \\frac{4.8^2}{2!} + \\frac{4.8^3}{3!}\\right)$$\n\nHere is the same sum with each value worked out separately, to help you check your calculator work:\n\n$$\\text{e}^{-4.8} = 0.0082297$$\n\n$$\\text{P}(X=0) = 0.0082297 \\times 1 = 0.0082297$$\n\n$$\\text{P}(X=1) = 0.0082297 \\times 4.8 = 0.0395028$$\n\n$$\\text{P}(X=2) = 0.0082297 \\times \\frac{23.04}{2} = 0.0948067$$\n\n$$\\text{P}(X=3) = 0.0082297 \\times \\frac{110.592}{6} = 0.1516907$$\n\nThe mark scheme allows any $\\lambda$ for this M1, so setting up this sum is what earns it.",
+   "**Add them up (A1)**\n\n$$0.0082297 + 0.0395028 + 0.0948067 + 0.1516907 = 0.2942299$$\n\nShortcut: on your calculator use Poisson cumulative distribution with mean 4.8 and upper value 3. It shows 0.29423..., the same.\n\nRound to 3 significant figures: 0.294.",
+   "**Final answer**\n\nThe probability that fewer than 4 cars arrive in a 2-minute period is **0.294** (3 s.f.)."
+  ]
+ },
+ "9709_w19_73_q2_ii": {
+  "hints": [
+   "In one hour the mean is large, so a Poisson is awkward to work with and we approximate it by a normal distribution. First scale the rate 2.4 per minute to a full hour (60 minutes). For a Poisson the variance equals the mean, so the normal is $\\text{N}(\\mu, \\mu)$ with that mean $\\mu$.",
+   "Poisson counts are whole numbers, so use a continuity correction. 'At least 140' means $X \\geqslant 140$, so on the continuous scale the boundary is half a unit below 140. Standardise that boundary: $z = \\dfrac{\\text{boundary} - \\mu}{\\sqrt{\\mu}}$, remembering to use the square root of the variance.",
+   "'At least' means the upper tail, so you want $\\text{P}(Z > z)$. Sketch a bell curve and shade the area to the right of your $z$. If your $z$ is negative, this shaded area is more than half the curve, so it equals $\\Phi(|z|)$.",
+   "Find $\\Phi(|z|)$ using the normal table or your calculator's normal cumulative distribution, then round to 3 significant figures."
+  ],
+  "walkthrough": [
+   "**Why approximate with a normal distribution**\n\nLet $X$ be the number of cars arriving in 1 hour. Arrivals are random and at a constant rate, so $X$ is Poisson.\n\nThe rate is per minute and one hour is 60 minutes, so the mean is\n\n$$\\lambda = 60 \\times 2.4 = 144$$\n\nSo $X \\sim \\text{Po}(144)$. Adding up 140, 141, 142, ... by hand would take forever. When the Poisson mean is large (the syllabus says bigger than 15), the distribution is bell shaped, so we can use a normal distribution with the same mean **and** variance.",
+   "**State the approximating distribution (first M1)**\n\nFor a Poisson, variance = mean. So both the mean and the variance of the normal are 144:\n\n$$X \\approx \\text{N}(144, 144)$$\n\nThe variance is 144, so the standard deviation is $\\sqrt{144} = 12$. This earns the first M1 (a normal distribution with variance equal to the mean).\n\nSlip to avoid: putting 144 as the standard deviation. The second parameter in $\\text{N}(\\mu, \\sigma^2)$ is the variance.",
+   "**Continuity correction**\n\n$X$ takes whole numbers, but the normal is continuous. Each whole number $r$ is represented by the interval from $r - 0.5$ to $r + 0.5$. So '$X \\geqslant 140$' covers everything from 139.5 upwards.\n\n$$\\text{P}(X \\geqslant 140) \\to \\text{P}(X > 139.5)$$\n\nQuick check: 140 must be included, so the boundary has to be below 140. That is why we use 139.5, not 140.5.",
+   "**Standardise (second M1)**\n\nTo use the standard normal table we convert to $Z$ using $z = \\dfrac{x - \\mu}{\\sigma}$:\n\n$$z = \\frac{139.5 - 144}{\\sqrt{144}}$$\n\n$$z = \\frac{-4.5}{12}$$\n\n$$z = -0.375$$\n\nThis earns the second M1. The scheme also allows this M1 if you forgot the continuity correction, but you would lose accuracy.",
+   "**Find the probability (third M1 and A1)**\n\nWe want $\\text{P}(X > 139.5)$, which becomes $\\text{P}(Z > -0.375)$. Sketch the bell curve: $-0.375$ is a little to the left of the middle, and we shade everything to the **right** of it. That is more than half the curve.\n\nBy symmetry, the area to the right of $-0.375$ equals the area to the left of $+0.375$:\n\n$$\\text{P}(Z > -0.375) = \\Phi(0.375)$$\n\nThis earns the third M1 (the correct area for the working). Normal cdf on a calculator with lower bound $-0.375$ and no upper bound (or $\\Phi(0.375)$ from the table):\n\n$$\\Phi(0.375) = 0.64617...$$\n\nRound to 3 significant figures: 0.646. This earns the A1.",
+   "**Final answer**\n\nThe probability that at least 140 cars arrive in 1 hour is **0.646** (3 s.f.)."
+  ]
+ }
+}

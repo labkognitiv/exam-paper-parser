@@ -1,0 +1,33 @@
+{
+ "9709_s25_61_q7_a": {
+  "hints": [
+   "For a probability density function, $\\text{P}(X < \\tfrac12)$ is the area under $\\text{f}(x)$ from the lower end of the range up to $\\tfrac12$. Write that integral with limits $0$ and $\\tfrac12$.",
+   "Integrate term by term: the integral of $1$ is $x$, and the integral of $\\cos \\pi x$ is $\\dfrac{\\sin \\pi x}{\\pi}$ (the $\\pi$ in the denominator comes from the chain rule in reverse).",
+   "Substitute the limits $\\tfrac12$ and $0$ into $x + \\dfrac{\\sin \\pi x}{\\pi}$. Show the value of $\\sin\\frac{\\pi}{2}$ and $\\sin 0$ before you finish, since this is a \"show that\"."
+  ],
+  "walkthrough": [
+   "**Set up the integral (this earns the M1)**\n\nFor a continuous random variable, a probability is the area under the density function $\\text{f}(x)$. $\\text{f}(x)$ is zero for $x < 0$, so the area for $X < \\tfrac12$ starts at $0$:\n\n$$\\text{P}\\left(X < \\tfrac12\\right) = \\int_0^{\\frac12} \\left(1 + \\cos \\pi x\\right) \\text{d}x$$",
+   "**Integrate (this earns the first A1)**\n\nTake each term separately. The integral of $1$ is $x$. For $\\cos \\pi x$: differentiating $\\sin \\pi x$ gives $\\pi \\cos \\pi x$, so to undo that we must divide by $\\pi$: the integral is $\\dfrac{\\sin \\pi x}{\\pi}$.\n\n$$\\int_0^{\\frac12} \\left(1 + \\cos \\pi x\\right) \\text{d}x = \\left[x + \\frac{\\sin \\pi x}{\\pi}\\right]_0^{\\frac12}$$",
+   "**Substitute the limits (this earns the second A1)**\n\nPut in the top limit, then subtract what you get from the bottom limit:\n\n$$\\left(\\frac12 + \\frac{\\sin \\frac{\\pi}{2}}{\\pi}\\right) - \\left(0 + \\frac{\\sin 0}{\\pi}\\right)$$\n\nNow use $\\sin\\frac{\\pi}{2} = 1$ and $\\sin 0 = 0$ (in radians; check your calculator is in radian mode):\n\n$$= \\frac12 + \\frac{1}{\\pi} - 0$$\n\nThe scheme wants you to show the line with $\\sin\\frac{\\pi}{2}$ before the printed answer.",
+   "**Final answer**\n\n$$\\text{P}\\left(X < \\tfrac12\\right) = \\frac12 + \\frac1\\pi$$\n\nwhich is the result we were asked to show."
+  ]
+ },
+ "9709_s25_61_q7_b": {
+  "hints": [
+   "For a continuous variable, $\\text{E}(X) = \\int x\\,\\text{f}(x)\\,\\text{d}x$ over the range where $\\text{f}$ is non-zero. Write it with limits $0$ and $1$ and multiply out the bracket.",
+   "The term $x\\cos \\pi x$ is a product of two functions of $x$: integrate by parts with $u = x$ and $\\text{d}v = \\cos \\pi x\\,\\text{d}x$ (so $v = \\dfrac{\\sin \\pi x}{\\pi}$), using $\\int u\\,\\text{d}v = uv - \\int v\\,\\text{d}u$.",
+   "After parts you must integrate $\\dfrac{\\sin \\pi x}{\\pi}$. The integral of $\\sin \\pi x$ is $-\\dfrac{\\cos \\pi x}{\\pi}$, and there is a minus sign in front of the integral, so watch the signs.",
+   "Now put the limits $1$ and $0$ into every term, evaluating $\\sin\\pi$, $\\cos\\pi$ and $\\cos 0$, and write the lines out in full.",
+   "Collect the like terms: the $\\frac{1}{\\pi^2}$ pieces should combine to give the printed result."
+  ],
+  "walkthrough": [
+   "**Set up the integral (this earns the first M1)**\n\n$\\text{E}(X)$ is the mean of $X$. For a continuous variable it is $\\int x\\,\\text{f}(x)\\,\\text{d}x$, over the range where $\\text{f}(x)$ is non-zero, here $0$ to $1$. Multiply out the bracket:\n\n$$\\text{E}(X) = \\int_0^1 x\\left(1 + \\cos \\pi x\\right) \\text{d}x = \\int_0^1 \\left(x + x\\cos \\pi x\\right) \\text{d}x$$",
+   "**Split into two integrals**\n\nThe first piece is easy: $\\int x\\,\\text{d}x = \\dfrac{x^2}{2}$. The second, $\\int x\\cos \\pi x\\,\\text{d}x$, is a product of two different types of function, so we use **integration by parts**: $\\int u\\,\\text{d}v = uv - \\int v\\,\\text{d}u$.",
+   "**Integration by parts (this earns the second M1)**\n\nChoose $u = x$ (it becomes simpler when differentiated, $\\text{d}u = \\text{d}x$) and $\\text{d}v = \\cos \\pi x\\,\\text{d}x$ (so $v = \\dfrac{\\sin \\pi x}{\\pi}$).\n\n$$\\int x\\cos \\pi x\\,\\text{d}x = x \\times \\frac{\\sin \\pi x}{\\pi} - \\int \\frac{\\sin \\pi x}{\\pi}\\,\\text{d}x$$\n\nPutting the whole thing together:\n\n$$\\text{E}(X) = \\left[\\frac{x^2}{2} + x \\times \\frac{\\sin \\pi x}{\\pi} - \\int \\frac{\\sin \\pi x}{\\pi}\\,\\text{d}x\\right]_0^1$$",
+   "**Finish the last integral (this earns the A1)**\n\n$\\int \\sin \\pi x\\,\\text{d}x = -\\dfrac{\\cos \\pi x}{\\pi}$, so $\\int \\dfrac{\\sin \\pi x}{\\pi}\\,\\text{d}x = -\\dfrac{\\cos \\pi x}{\\pi^2}$. It sits after a minus sign, so the two minuses make a plus:\n\n$$\\text{E}(X) = \\left[\\frac{x^2}{2} + x \\times \\frac{\\sin \\pi x}{\\pi} + \\frac{\\cos \\pi x}{\\pi^2}\\right]_0^1$$",
+   "**Substitute the limits (this earns the DM1)**\n\nThe DM1 is only awarded if both M1 marks were earned. Put $x = 1$, then subtract the value at $x = 0$. At $x = 0$ the first two terms are both $0$, which leaves only the $\\cos$ term:\n\n$$= \\frac12 + \\frac{\\sin \\pi}{\\pi} + \\frac{\\cos \\pi}{\\pi^2} - \\frac{\\cos 0}{\\pi^2}$$\n\nThe standard values (radians): $\\sin \\pi = 0$, $\\cos \\pi = -1$, $\\cos 0 = 1$.\n\n$$= \\frac12 + \\frac{0}{\\pi} + \\frac{-1}{\\pi^2} - \\frac{1}{\\pi^2}$$",
+   "**Combine (this earns the final A1)**\n\n$$-\\frac{1}{\\pi^2} - \\frac{1}{\\pi^2} = -\\frac{2}{\\pi^2}$$\n\n$$\\text{E}(X) = \\frac12 - \\frac{2}{\\pi^2}$$\n\nQuick check: $\\frac12 - \\frac{2}{\\pi^2} = 0.5 - 0.2026 = 0.297$. The density is larger near $x = 0$ (where $1 + \\cos \\pi x$ is biggest), so a mean below the midpoint $0.5$ is just what we expect.",
+   "**Final answer**\n\n$$\\text{E}(X) = \\frac12 - \\frac{2}{\\pi^2}$$\n\nwhich is the result we were asked to show."
+  ]
+ }
+}

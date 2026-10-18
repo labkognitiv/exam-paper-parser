@@ -1,0 +1,28 @@
+{
+ "9709_w20_63_q4_a": {
+  "hints": [
+   "For any probability density function the total area under the graph is 1. The graph is a rectangle: write its area using its width and height read from the diagram, and set it equal to 1."
+  ],
+  "walkthrough": [
+   "**Read the diagram**\n\nThe graph of $\\text{f}(x)$ is a flat line at height $k$ from $x = 0$ to $x = a$, and $0$ everywhere else. So the area under the graph is a **rectangle** of width $a - 0 = a$ and height $k$.",
+   "**Use total probability**\n\nFor every probability density function, the total area under the curve must be 1 (the probabilities of all outcomes add up to 1).\n\n$$\\text{area} = \\text{width} \\times \\text{height} = a \\times k = 1$$\n\nDivide both sides by $a$:\n\n$$k = \\frac{1}{a}$$\n\n(Using integration instead: $\\int_0^a k\\,\\mathrm{d}x = [kx]_0^a = ka = 1$, the same equation.)",
+   "**Final answer**\n\n$$k = \\frac{1}{a}$$"
+  ]
+ },
+ "9709_w20_63_q4_b": {
+  "hints": [
+   "The mean is $\\text{E}(X) = \\int x\\,\\text{f}(x)\\,\\mathrm{d}x$ over the range where $\\text{f}$ is not zero, here from $0$ to $a$, with $\\text{f}(x) = k$ replaced by your answer to (a).",
+   "For $\\text{E}(X^2)$ use $\\int x^2\\,\\text{f}(x)\\,\\mathrm{d}x$ over the same limits. Integrate $x^2$, then substitute the limits $a$ and $0$.",
+   "Variance is $\\text{Var}(X) = \\text{E}(X^2) - \\left[\\text{E}(X)\\right]^2$: subtract the square of your mean from your $\\text{E}(X^2)$, and simplify to a single fraction in $a$.",
+   "You are told $\\text{Var}(X) = 3$: set your expression in $a$ equal to 3 and solve for $a$. Remember that $a$ is the length of the interval, so it must be positive."
+  ],
+  "walkthrough": [
+   "**Plan**\n\nWe need $\\text{Var}(X)$ in terms of $a$, then set it equal to 3. The formula is $\\text{Var}(X) = \\text{E}(X^2) - [\\text{E}(X)]^2$, so we need both $\\text{E}(X)$ and $\\text{E}(X^2)$. From part (a), $\\text{f}(x) = \\dfrac{1}{a}$ for $0 \\leqslant x \\leqslant a$.",
+   "**The mean $\\text{E}(X)$**\n\n$\\text{E}(X) = \\int x\\,\\text{f}(x)\\,\\mathrm{d}x$, and $\\text{f}$ is zero outside $0 \\leqslant x \\leqslant a$, so only those limits are needed:\n\n$$\\text{E}(X) = \\int_0^a x \\times \\frac{1}{a}\\,\\mathrm{d}x = \\frac{1}{a}\\left[\\frac{x^2}{2}\\right]_0^a = \\frac{1}{a}\\left(\\frac{a^2}{2} - 0\\right) = \\frac{a}{2}$$\n\nQuick check: the graph is a rectangle, so the mean is in the middle, at $\\frac{a}{2}$. This earns the **B1** (follow-through from your $k$).",
+   "**The mean of $X^2$**\n\n$\\text{E}(X^2) = \\int x^2\\,\\text{f}(x)\\,\\mathrm{d}x$. The rule for integrating is $\\int x^2\\,\\mathrm{d}x = \\frac{x^3}{3}$.\n\n$$\\text{E}(X^2) = \\int_0^a x^2 \\times \\frac{1}{a}\\,\\mathrm{d}x = \\frac{1}{a}\\left[\\frac{x^3}{3}\\right]_0^a = \\frac{1}{a} \\times \\frac{a^3}{3} = \\frac{a^2}{3}$$\n\nThis earns the first **M1** (correct integral with limits used).",
+   "**The variance**\n\n$$\\text{Var}(X) = \\text{E}(X^2) - [\\text{E}(X)]^2 = \\frac{a^2}{3} - \\left(\\frac{a}{2}\\right)^2 = \\frac{a^2}{3} - \\frac{a^2}{4}$$\n\nPut both fractions over 12: $\\dfrac{a^2}{3} = \\dfrac{4a^2}{12}$ and $\\dfrac{a^2}{4} = \\dfrac{3a^2}{12}$.\n\n$$\\text{Var}(X) = \\frac{4a^2}{12} - \\frac{3a^2}{12} = \\frac{a^2}{12}$$\n\nSubtracting the square of the mean earns the second **M1**.",
+   "**Solve for $a$**\n\nWe are told $\\text{Var}(X) = 3$:\n\n$$\\frac{a^2}{12} = 3 \\quad\\Rightarrow\\quad a^2 = 3 \\times 12 = 36 \\quad\\Rightarrow\\quad a = \\pm 6$$\n\n$a$ is the right-hand end of the interval starting at 0, so it is positive: $a = 6$. Check: $\\dfrac{6^2}{12} = \\dfrac{36}{12} = 3$. This is the **A1**.",
+   "**Final answer**\n\n$$a = 6$$"
+  ]
+ }
+}

@@ -1,0 +1,55 @@
+{
+ "9709_m16_72_q6_i": {
+  "hints": [
+   "Events happening randomly at a steady average rate suggest a Poisson distribution. Scale the rate to 25 days: $\\lambda = 3.3 \\times \\dfrac{25}{30}$.",
+   "'Fewer than 3' means 0, 1 or 2 times, so $\\text{P}(X < 3) = \\text{P}(0) + \\text{P}(1) + \\text{P}(2)$, each from $\\text{P}(X = r) = \\text{e}^{-\\lambda}\\dfrac{\\lambda^r}{r!}$.",
+   "Combine into $\\text{e}^{-\\lambda}\\left(1 + \\lambda + \\dfrac{\\lambda^2}{2}\\right)$ using your $\\lambda$, and round to 3 s.f."
+  ],
+  "walkthrough": [
+   "**Why a Poisson distribution, and the new mean (B1)**\n\nThe battery runs out at random moments, independently, at a steady average rate. That is the situation for a Poisson distribution. Its parameter $\\lambda$ is the average number of events in the time interval we care about.\n\nThe rate given is $3.3$ per 30 days, but we need 25 days. Rates scale in proportion to time:\n\n$$\\lambda = 3.3 \\times \\frac{25}{30} = \\frac{82.5}{30} = 2.75$$\n\n$$X \\sim \\text{Po}(2.75)$$",
+   "**Choose the probabilities to add (M1)**\n\n'Fewer than 3 times' means $X$ is 0, 1 or 2. (Not 3.)\n\n$$\\text{P}(X < 3) = \\text{P}(X = 0) + \\text{P}(X = 1) + \\text{P}(X = 2)$$\n\nThe Poisson formula is $\\text{P}(X = r) = \\text{e}^{-\\lambda}\\dfrac{\\lambda^r}{r!}$. Factorise out $\\text{e}^{-\\lambda}$ to get:\n\n$$\\text{e}^{-2.75}\\left(1 + 2.75 + \\frac{2.75^2}{2}\\right)$$",
+   "**Calculate (A1)**\n\n$$\\text{e}^{-2.75} = 0.063928$$\n\n$$\\text{P}(0) = 0.063928, \\quad \\text{P}(1) = 0.063928 \\times 2.75 = 0.175802$$\n\n$$\\text{P}(2) = 0.063928 \\times \\frac{2.75^2}{2} = 0.063928 \\times 3.78125 = 0.241727$$\n\n$$0.063928 + 0.175802 + 0.241727 = 0.481457 \\approx 0.481$$\n\nOn a calculator you can also use Poisson cdf with $\\lambda = 2.75$ and upper value 2. Small rounding differences can give $0.482$, which the scheme also accepts.",
+   "**Final answer**\n\nThe probability is $0.481$ (3 s.f.)."
+  ]
+ },
+ "9709_m16_72_q6_ii_a": {
+  "hints": [
+   "Scale the rate to a year: $\\lambda = 3.3 \\times \\dfrac{365}{30}$.",
+   "This $\\lambda$ is large, so approximate $\\text{Po}(\\lambda)$ by $\\text{N}(\\lambda, \\lambda)$. 'More than 50' for whole numbers means 51 or more, so the continuity-correction boundary is half way between 50 and 51. Standardise: $z = \\dfrac{\\text{boundary} - \\lambda}{\\sqrt{\\lambda}}$.",
+   "You want the upper tail, $\\text{P}(X > \\text{boundary})$, which is $1 - \\Phi(z)$ for your $z$.",
+   "Evaluate $1 - \\Phi(z)$ from the table or your calculator and round to 3 s.f."
+  ],
+  "walkthrough": [
+   "**Scale the mean to a year (B1)**\n\nRate: $3.3$ per 30 days. A year here is 365 days.\n\n$$\\lambda = 3.3 \\times \\frac{365}{30} = \\frac{1204.5}{30} = 40.15$$\n\nSo $X \\sim \\text{Po}(40.15)$, where $X$ is the number of times the battery runs out in a year.",
+   "**Switch to a normal approximation**\n\nAdding up $\\text{P}(X = 51) + \\text{P}(X = 52) + \\dots$ goes on for ever. Because $\\lambda$ is large, the Poisson distribution is close to normal, with mean and variance both equal to $\\lambda$:\n\n$$X \\sim \\text{Po}(40.15) \\;\\Rightarrow\\; X \\approx \\text{N}(40.15,\\ 40.15)$$\n\nThe standard deviation is $\\sqrt{40.15} = 6.336$.",
+   "**Continuity correction and standardising (first M1)**\n\n$X$ takes whole numbers only, but the normal is continuous. 'More than 50' means $X \\geqslant 51$. On the continuous scale, the whole number 51 occupies $50.5$ to $51.5$, so the boundary is $50.5$. This adjustment is the **continuity correction**.\n\n$$\\text{P}(X > 50) \\approx \\text{P}(X_{\\text{normal}} > 50.5)$$\n\n$$z = \\frac{50.5 - 40.15}{\\sqrt{40.15}} = \\frac{10.35}{6.336} = 1.633$$",
+   "**Choose the correct area (second M1)**\n\n'Greater than' is the upper tail, so subtract the area up to $z$ from 1:\n\n$$\\text{P}(Z > 1.633) = 1 - \\Phi(1.633)$$",
+   "**Evaluate (A1)**\n\n$\\Phi(1.633) = 0.94877$, so\n\n$$1 - 0.94877 = 0.0512\\ldots$$\n\nThe mark scheme prints $0.0513$ (3 s.f.) and also accepts $0.0512$; the small difference comes from how the $z$-value or table is rounded. Either is fine in the exam.",
+   "**Final answer**\n\nThe probability is $0.0513$ (3 s.f.), with $0.0512$ also accepted."
+  ]
+ },
+ "9709_m16_72_q6_ii_b": {
+  "hints": [
+   "Recall the condition on the size of the Poisson mean $\\lambda$ that makes a normal approximation reasonable, and compare it with the $\\lambda$ you found in part (a)."
+  ],
+  "walkthrough": [
+   "**The rule for the normal approximation**\n\nA Poisson distribution is close enough to a normal distribution when its mean $\\lambda$ is large; the syllabus rule is $\\lambda > 15$. For small $\\lambda$ the Poisson shape is lopsided, which the symmetric normal curve cannot copy.",
+   "**Check our $\\lambda$**\n\nIn part (a), $\\lambda = 40.15$, and $40.15 > 15$, so the condition is met.",
+   "**Final answer**\n\nThe approximation is justified because $\\lambda = 40.15$ is greater than $15$ (large)."
+  ]
+ },
+ "9709_m16_72_q6_iii": {
+  "hints": [
+   "Find the mean for each battery over 10 days: the phone from $3.3$ per 30 days, the computer from 2 per 15 days. The two counts are independent Poisson, so their total is Poisson with the two means added.",
+   "'At least 4' is the complement of 'at most 3': $\\text{P}(T \\geqslant 4) = 1 - \\left[\\text{P}(0) + \\text{P}(1) + \\text{P}(2) + \\text{P}(3)\\right]$.",
+   "Evaluate $1 - \\text{e}^{-\\lambda}\\left(1 + \\lambda + \\dfrac{\\lambda^2}{2!} + \\dfrac{\\lambda^3}{3!}\\right)$ with your combined $\\lambda$, rounding to 3 s.f."
+  ],
+  "walkthrough": [
+   "**Mean for each battery over 10 days**\n\nScale each rate to 10 days.\n\nPhone: $3.3$ per 30 days, so $3.3 \\times \\dfrac{10}{30} = 1.1$.\n\nComputer: 2 per 15 days, so $2 \\times \\dfrac{10}{15} = \\dfrac{20}{15} = \\dfrac{4}{3} = 1.3333$.",
+   "**Combine them (B1)**\n\nThe two batteries are independent. The sum of two independent Poisson variables is also Poisson, and its mean is the sum of the means. Let $T$ be the total number of times either battery runs out in 10 days.\n\n$$\\lambda = 1.1 + \\frac{4}{3} = \\frac{33}{30} + \\frac{40}{30} = \\frac{73}{30} = 2.4333$$\n\n$$T \\sim \\text{Po}\\left(\\tfrac{73}{30}\\right)$$\n\nThe scheme rounds this to $2.43$. It is best to keep $\\frac{73}{30}$ in your calculator to avoid rounding errors.",
+   "**Write the probability using the complement (M1)**\n\n'At least 4' means $4, 5, 6, \\dots$ with no upper limit, which is too many terms to add. Use the fact that all probabilities add to 1:\n\n$$\\text{P}(T \\geqslant 4) = 1 - \\text{P}(T \\leqslant 3) = 1 - \\text{e}^{-\\lambda}\\left(1 + \\lambda + \\frac{\\lambda^2}{2!} + \\frac{\\lambda^3}{3!}\\right)$$\n\nCommon slip: stopping at $\\lambda^2/2$, which would give $\\text{P}(T \\geqslant 3)$ instead. Check the last term is $\\lambda^3/3!$.",
+   "**Calculate (A1)**\n\n$$\\text{e}^{-2.4333} = 0.087744$$\n\n$$\\text{P}(0) = 0.087744, \\quad \\text{P}(1) = 0.087744 \\times 2.4333 = 0.213510$$\n\n$$\\text{P}(2) = 0.087744 \\times \\frac{2.4333^2}{2} = 0.259771, \\quad \\text{P}(3) = 0.087744 \\times \\frac{2.4333^3}{6} = 0.210703$$\n\n$$0.087744 + 0.213510 + 0.259771 + 0.210703 = 0.771728$$\n\n$$1 - 0.771728 = 0.228272 \\approx 0.228$$",
+   "**Final answer**\n\nThe probability is $0.228$ (3 s.f.)."
+  ]
+ }
+}

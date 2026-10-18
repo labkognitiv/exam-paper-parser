@@ -1,0 +1,45 @@
+{
+ "9709_m21_62_q6_a": {
+  "hints": [
+   "Let $p$ be the proportion of all adults in the town who own a Chantor car. $\\text{H}_0$ says $p$ is still $8\\%$. The dealer is testing for an *increase*, which sets the direction of $\\text{H}_1$.",
+   "If $\\text{H}_0$ is true then $X \\sim \\text{B}(25, \\frac{8}{100})$. A result of 4 or more is 'as extreme or more extreme', so you need $\\text{P}(X \\geqslant 4) = 1 - \\text{P}(X \\leqslant 3)$.",
+   "Use the binomial cdf with $n = 25$ up to $3$ (or add the four terms $r = 0, 1, 2, 3$ of $\\binom{25}{r}\\left(\\frac{92}{100}\\right)^{25-r}\\left(\\frac{8}{100}\\right)^r$), subtract from 1 and round to 3 s.f.",
+   "Compare your probability with the significance level, $5\\%$. Is it smaller or larger? That decides whether $\\text{H}_0$ is rejected.",
+   "State the conclusion in the context of Chantor cars, using 'there is (no) evidence that...' rather than a definite statement."
+  ],
+  "walkthrough": [
+   "**Write the hypotheses (B1)**\n\nLet $p$ be the proportion of all adults in the town who own a Chantor car. The old value is $8\\% = 0.08$. The dealer is checking whether it has **increased**, so the test is one-tail (upper tail).\n\n$$\\text{H}_0: p = 0.08$$\n\n$$\\text{H}_1: p > 0.08$$",
+   "**The distribution if $\\text{H}_0$ is true**\n\nLet $X$ be the number of adults in the sample of 25 who own a Chantor car. Each adult either owns one or does not, independently, with the same probability. So if $\\text{H}_0$ is true:\n\n$$X \\sim \\text{B}(25, 0.08)$$\n\nThe sample gave $X = 4$.",
+   "**Find the probability of a result at least this extreme (M1)**\n\nWe test by asking: if $\\text{H}_0$ were true, how likely is a result of 4 **or more**? This is the upper tail, since $\\text{H}_1$ says the proportion went up.\n\n$$\\text{P}(X \\geqslant 4) = 1 - \\text{P}(X \\leqslant 3)$$\n\nWe use the complement because $X \\geqslant 4$ would need terms all the way to $25$, whereas $X \\leqslant 3$ has only four terms. Each term is $\\binom{25}{r}\\,0.92^{25-r}\\,0.08^r$:\n\n$$\\text{P}(X = 0) = 0.92^{25} = 0.12436\\ldots$$\n\n$$\\text{P}(X = 1) = 25 \\times 0.92^{24} \\times 0.08 = 0.27035\\ldots$$\n\n$$\\text{P}(X = 2) = 300 \\times 0.92^{23} \\times 0.08^2 = 0.28211\\ldots$$\n\n$$\\text{P}(X = 3) = 2300 \\times 0.92^{22} \\times 0.08^3 = 0.18807\\ldots$$\n\n(The numbers $300 = \\binom{25}{2}$ and $2300 = \\binom{25}{3}$ come from the calculator's $\\text{nCr}$ key.) Add the four terms:\n\n$$\\text{P}(X \\leqslant 3) = 0.12436 + 0.27035 + 0.28211 + 0.18807 = 0.86490\\ldots$$\n\nOn the calculator, binomial cdf with $n = 25$, $p = 0.08$, upper value $3$ gives the same $0.8649\\ldots$",
+   "**The probability (A1)**\n\n$$\\text{P}(X \\geqslant 4) = 1 - 0.86490\\ldots = 0.13509\\ldots = 0.135 \\text{ (3 s.f.)}$$",
+   "**Compare with the significance level (M1)**\n\nThe significance level is $5\\% = 0.05$. If the probability of our result (or a more extreme one) is smaller than $0.05$ we would reject $\\text{H}_0$. Here:\n\n$$0.135 > 0.05$$\n\nSo the result is not unusual enough: we do **not** reject $\\text{H}_0$.",
+   "**Conclusion in context (A1)**\n\nWe never say 'the proportion has not increased' as if it were certain. We only say whether the data gives enough evidence.",
+   "**Final answer**\n\n$\\text{P}(X \\geqslant 4) = 0.135$ (3 s.f.), which is greater than $0.05$, so do not reject $\\text{H}_0$. There is no evidence, at the 5% significance level, that the proportion of adults owning a Chantor car has increased."
+  ]
+ },
+ "9709_m21_62_q6_b": {
+  "hints": [
+   "Look back at your conclusion in part **(a)**: did the test reject $\\text{H}_0$ or not reject it?",
+   "A Type I error means rejecting $\\text{H}_0$ when it is actually true. A Type II error means not rejecting $\\text{H}_0$ when it is actually false. Which of these two describes the decision you made in part **(a)**?"
+  ],
+  "walkthrough": [
+   "**What the two errors mean**\n\nA **Type I error** is made when we *reject* $\\text{H}_0$ although $\\text{H}_0$ is really true.\n\nA **Type II error** is made when we *do not reject* $\\text{H}_0$ although $\\text{H}_0$ is really false.",
+   "**Match to our decision**\n\nIn part **(a)** we did **not** reject $\\text{H}_0$ (because $0.135 > 0.05$). The only way a decision of 'not reject' can be wrong is if $\\text{H}_0$ was really false. We could not have made a Type I error, because we did not reject anything.",
+   "**Final answer**\n\n$\\text{H}_0$ was not rejected, so a Type II error might have been made."
+  ]
+ },
+ "9709_m21_62_q6_c": {
+  "hints": [
+   "A Type I error is rejecting $\\text{H}_0$ when it is true. First find the rejection region for $n = 25$. From part **(a)**, $X \\geqslant 4$ was not significant, so test the next value up: work out $\\text{P}(X \\geqslant 5) = 1 - \\text{P}(X \\leqslant 4)$ using $\\text{B}(25, \\frac{8}{100})$.",
+   "Compare that probability with $5\\%$. If it is below $5\\%$, then $X \\geqslant 5$ is the smallest rejection region that fits.",
+   "The probability of a Type I error is the probability of landing in the rejection region when $\\text{H}_0$ is true, which is the probability you just found."
+  ],
+  "walkthrough": [
+   "**What a Type I error is here**\n\nA Type I error means rejecting $\\text{H}_0$ when $\\text{H}_0$ is true. For this test, $\\text{H}_0$ is rejected when $X$ is in the **rejection (critical) region**, the set of large values of $X$ whose probability under $\\text{H}_0$ is at most $5\\%$. So the probability of a Type I error is the probability of $X$ falling in that region when $X \\sim \\text{B}(25, 0.08)$.",
+   "**Find the rejection region (M1)**\n\nFrom part **(a)**: $\\text{P}(X \\geqslant 4) = 0.135 > 0.05$, so $4$ is not in the rejection region. Try $5$:\n\n$$\\text{P}(X \\geqslant 5) = 1 - \\text{P}(X \\leqslant 4)$$\n\nWe already have $\\text{P}(X \\leqslant 3) = 0.86490\\ldots$ from part **(a)**, so we only need the extra term for $r = 4$:\n\n$$\\text{P}(X = 4) = \\binom{25}{4} \\times 0.92^{21} \\times 0.08^4 = 12650 \\times 0.92^{21} \\times 0.08^4 = 0.08994\\ldots$$\n\n$$\\text{P}(X \\leqslant 4) = 0.86490\\ldots + 0.08994\\ldots = 0.95485\\ldots$$\n\n$$\\text{P}(X \\geqslant 5) = 1 - 0.95485\\ldots = 0.04514\\ldots$$",
+   "**Check it is in the rejection region (first A1)**\n\n$$0.0451 < 0.05$$\n\nSo $X \\geqslant 5$ is the rejection region (and $X = 4$ is not, as we saw). The rejection region is $X \\geqslant 5$.",
+   "**The probability of a Type I error (second A1)**\n\nThe significance level is an upper limit, but the **actual** probability of rejecting a true $\\text{H}_0$ is the probability of being in the rejection region under $\\text{H}_0$, which is exactly the value just found:\n\n$$\\text{P}(\\text{Type I error}) = \\text{P}(X \\geqslant 5) = 0.0451\\ldots$$",
+   "**Final answer**\n\n$\\text{P}(\\text{Type I error}) = 0.0451$ (3 s.f.; the mark scheme also accepts $0.0452$ from rounding earlier values)."
+  ]
+ }
+}

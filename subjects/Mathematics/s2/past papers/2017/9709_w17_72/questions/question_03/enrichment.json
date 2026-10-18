@@ -1,0 +1,33 @@
+{
+  "9709_w17_72_q3_i": {
+    "hints": [
+      "Start with the sample mean: $\\bar{m} = \\dfrac{\\sum m}{n}$, using $\\sum m = 98.2$ and $n = 100$.",
+      "The population variance is not given, so estimate it from the sample: $s^2 = \\dfrac{1}{n-1}\\left(\\sum m^2 - n\\bar{m}^2\\right)$, or equivalently $\\dfrac{n}{n-1}\\left(\\dfrac{\\sum m^2}{n} - \\bar{m}^2\\right)$, with $\\sum m^2 = 104.52$. Then take the square root for $s$.",
+      "The claim to test is that the mean is **less than** $1.01$. Write $\\text{H}_0$ and $\\text{H}_1$ in terms of the population mean mass (say what $\\mu$ is), with $\\text{H}_1$ one-tailed.",
+      "Your test statistic is $z = \\dfrac{\\bar{m} - 1.01}{s/\\sqrt{100}}$. Put in your $\\bar{m}$ and your $s$.",
+      "Type the whole fraction into your calculator and keep 3 s.f. Check the sign: your sample mean is below $1.01$, so $z$ should come out negative.",
+      "The test is one-tailed at 5%, lower tail. The critical value is $z = -1.645$. Compare your $z$ with it. (Alternatively, find $\\text{P}(Z < z)$ and compare with $0.05$.)",
+      "Decide whether your $z$ is in the rejection region (below $-1.645$) or not. Then state your conclusion about the mean mass of flour packets, using the words 'evidence' or 'no evidence', not a definite statement."
+    ],
+    "walkthrough": [
+      "**What kind of test this is**\n\nThe company claims the mean mass is $1.01$ kg. The officer weighed $100$ packets and wants to know whether the true mean is **less than** $1.01$. The masses are normally distributed, and we will compare the sample mean with the claimed mean using a $z$ test. Because we only care about \"less than\", it is a one-tailed test.\n\nHere $m$ is the mass of a packet in kg.",
+      "**The sample mean (first B1)**\n\nThe sample mean $\\bar{m}$ is the total of the masses divided by how many there are:\n\n$$\\bar{m} = \\frac{\\sum m}{n} = \\frac{98.2}{100} = 0.982$$",
+      "**Estimate the population variance (first M1)**\n\nWe are not told the true variance of the masses, so we estimate it from the sample using the **unbiased estimate** $s^2$. The factor $\\dfrac{n}{n-1}$ (here $\\dfrac{100}{99}$) corrects for the fact that a sample tends to be a little less spread out than the whole population.\n\nFirst the \"mean of the squares\" part:\n\n$$\\frac{\\sum m^2}{n} = \\frac{104.52}{100} = 1.0452$$\n\nNext the square of the sample mean:\n\n$$\\bar{m}^2 = 0.982^2 = 0.964324$$\n\nSubtract:\n\n$$1.0452 - 0.964324 = 0.080876$$\n\nMultiply by $\\dfrac{100}{99}$:\n\n$$s^2 = \\frac{100}{99} \\times 0.080876 = 0.081693$$\n\nSquare root:\n\n$$s = \\sqrt{0.081693} = 0.28582$$\n\n(The mark scheme also accepts using $\\dfrac{1}{n}$ instead: $s = \\sqrt{0.080876} = 0.28439$. This gives $z = -0.985$ and the same conclusion.)",
+      "**The hypotheses (second B1)**\n\nLet $\\mu$ be the population mean mass of packets of flour, in kg.\n\n$$\\text{H}_0: \\mu = 1.01$$\n\n$$\\text{H}_1: \\mu < 1.01$$\n\n$\\text{H}_1$ has \"$<$\" because we are only testing whether the mean is **less** than $1.01$ kg. The 5% significance level goes entirely in the lower tail.",
+      "**Standardise the sample mean (second M1)**\n\nIf $\\text{H}_0$ is true, the masses are normal with mean $1.01$, so the mean of a sample of $100$ is also normal, with mean $1.01$ and standard deviation $\\dfrac{s}{\\sqrt{n}}$. We turn the sample mean into a $z$ value:\n\n$$z = \\frac{\\bar{m} - 1.01}{s/\\sqrt{n}} = \\frac{0.982 - 1.01}{0.28582/\\sqrt{100}}$$",
+      "**Calculate $z$ (the A1)**\n\nTop of the fraction: $0.982 - 1.01 = -0.028$.\n\nStandard error: $\\dfrac{0.28582}{\\sqrt{100}} = \\dfrac{0.28582}{10} = 0.028582$.\n\n$$z = \\frac{-0.028}{0.028582} = -0.9796 = -0.980 \\text{ (3 s.f.)}$$\n\nIt is negative because the sample mean is below $1.01$.",
+      "**Compare with the critical value (third M1)**\n\nFor a one-tailed 5% test in the lower tail, the critical value is $z = -1.645$ (the point with $5\\%$ of the normal curve below it). The rejection region is $z < -1.645$.\n\nOur $z = -0.980$ is **not** below $-1.645$, so it is not in the rejection region.\n\nEquivalent method: $\\text{P}(Z < -0.980) = 0.1635$ from the table or calculator. Since $0.1635 > 0.05$, we do not reject $\\text{H}_0$.",
+      "**Conclusion in context (the A1 FT)**\n\nWe do not reject $\\text{H}_0$. In context: there is no evidence at the 5% level that the mean mass of the packets is less than $1.01$ kg.\n\nWe say \"no evidence\" rather than \"the mean is $1.01$\", because a test can never prove $\\text{H}_0$ is true.",
+      "**Final answer**\n\n$z = -0.980$, which is greater than $-1.645$. Do not reject $\\text{H}_0$: there is no evidence that the mean mass is less than $1.01$ kg."
+    ]
+  },
+  "9709_w17_72_q3_ii": {
+    "hints": [
+      "The Central Limit theorem is used to say a sample mean is approximately normal when the population is not known to be normal. Re-read the first line of the question: what is already said about the distribution of the masses?"
+    ],
+    "walkthrough": [
+      "**What the Central Limit theorem is for**\n\nThe Central Limit theorem says that the mean of a large sample is approximately normally distributed **even if** the population it comes from is not normal. We need it when we do not know the shape of the population.\n\nHere the question tells us the masses are **normally distributed**. When the population is normal, the mean of a sample of any size is exactly normal, so we do not need the theorem.",
+      "**Final answer**\n\nNo, it was not necessary: the masses are already normally distributed (the parent population is normal), so the distribution of the sample mean $\\bar{m}$ is normal without needing the Central Limit theorem."
+    ]
+  }
+}

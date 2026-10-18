@@ -1,0 +1,20 @@
+{
+  "9709_m22_62_q3": {
+    "hints": [
+      "A confidence interval for a proportion has the form $\\hat{p} \\pm z\\sqrt{\\dfrac{\\hat{p}(1-\\hat{p})}{n}}$, so it is symmetrical about $\\hat{p}$. Find $\\hat{p}$ as the midpoint of $0.355$ and $0.445$.",
+      "The upper end of the interval must equal $\\hat{p} + z\\sqrt{\\dfrac{\\hat{p}(1-\\hat{p})}{500}}$. Write that expression, using your $\\hat{p}$ and $n = 500$, equal to $0.445$.",
+      "Rearrange for $z$: the half-width $\\dfrac{0.445 - 0.355}{2}$ divided by $\\sqrt{\\dfrac{\\hat{p}(1-\\hat{p})}{500}}$. Give $z$ to 3 decimal places.",
+      "A confidence level is the area of the standard normal curve between $-z$ and $z$. Look up $\\Phi(z)$; each tail then has area $1 - \\Phi(z)$, so the middle area is $\\Phi(z) - (1 - \\Phi(z))$.",
+      "Turn that central probability into a percentage and round to the nearest whole number, as the question asks."
+    ],
+    "walkthrough": [
+      "**The plan**\n\nA confidence interval for a proportion is built as\n\n$$\\hat{p} \\pm z\\sqrt{\\frac{\\hat{p}(1-\\hat{p})}{n}}$$\n\nwhere $\\hat{p}$ is the sample proportion and $n = 500$. We are given the interval, so we work backwards: find $\\hat{p}$, then $z$, then the confidence level that goes with that $z$.",
+      "**Find $\\hat{p}$ (B1)**\n\nThe interval is symmetrical about $\\hat{p}$, so $\\hat{p}$ is the midpoint:\n\n$$\\hat{p} = \\frac{0.355 + 0.445}{2} = \\frac{0.800}{2} = 0.4$$\n\nHalf of the width of the interval is\n\n$$\\frac{0.445 - 0.355}{2} = \\frac{0.090}{2} = 0.045$$\n\nThis $0.045$ is the part $z\\sqrt{\\dfrac{\\hat{p}(1-\\hat{p})}{n}}$.",
+      "**Set up the equation for $z$ (M1)**\n\nThe upper end of the interval is $\\hat{p}$ plus that half-width:\n\n$$0.4 + z\\sqrt{\\frac{0.4 \\times (1 - 0.4)}{500}} = 0.445$$\n\nThis line (using your $\\hat{p}$ in a correct expression) earns the M1.",
+      "**Calculate the standard error**\n\n$$0.4 \\times (1 - 0.4) = 0.4 \\times 0.6 = 0.24$$\n\n$$\\frac{0.24}{500} = 0.00048$$\n\n$$\\sqrt{0.00048} = 0.021909\\ldots$$",
+      "**Solve for $z$ (A1)**\n\n$$z \\times 0.021909\\ldots = 0.045$$\n\n$$z = \\frac{0.045}{0.021909\\ldots} = 2.054$$\n\nThe scheme also condones $2.053$ and $2.05$.",
+      "**From $z$ to the confidence level (M1)**\n\nUse the normal table or your calculator's normal cdf:\n\n$$\\Phi(2.054) = 0.98$$\n\nSo $98\\%$ of the area lies to the left of $z = 2.054$ and $2\\%$ lies to the right. By symmetry, another $2\\%$ lies to the left of $-2.054$. The confidence level is the area in the middle:\n\n$$0.98 - (1 - 0.98) = 0.98 - 0.02 = 0.96$$\n\nA common slip is to stop at $98\\%$. That is only the area to the left of $z$, not the area between $-z$ and $z$.",
+      "**Final answer**\n\nThe confidence level is $96\\%$ (an integer, as asked)."
+    ]
+  }
+}

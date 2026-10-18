@@ -1,0 +1,33 @@
+{
+  "9709_w17_71_q5_i": {
+    "hints": [
+      "The mean of a continuous variable is $\\text{E}(X) = \\int x\\,\\text{f}(x)\\,\\text{d}x$ over the range where $\\text{f}$ is not zero. Multiply $\\frac{1}{4}(x+1)$ by $x$ and expand the bracket before integrating.",
+      "Integrate each term using the power rule (add 1 to the power, divide by the new power), then substitute the limits 2 and 0.",
+      "Add the two fractions you get from the upper limit, multiply by $\\frac{1}{4}$, and give the result as a fraction in lowest terms."
+    ],
+    "walkthrough": [
+      "**What $\\text{E}(X)$ means**\n\n$\\text{E}(X)$ is the mean (expected value) of $X$. For a continuous variable we find it by integrating $x$ times the probability density function, over the values $X$ can take. Here $\\text{f}(x)$ is non-zero only for $0 \\leqslant x \\leqslant 2$, so the limits are 0 and 2:\n\n$$\\text{E}(X) = \\int_0^2 x\\,\\text{f}(x)\\,\\text{d}x$$",
+      "**Set up the integral (earns M1)**\n\nReplace $\\text{f}(x)$ with $\\frac{1}{4}(x+1)$ and multiply out the bracket:\n\n$$x \\times \\frac{1}{4}(x+1) = \\frac{1}{4}(x^2 + x)$$\n\n$$\\text{E}(X) = \\frac{1}{4}\\int_0^2 (x^2 + x)\\,\\text{d}x$$\n\nThe fraction $\\frac{1}{4}$ is a constant, so we can leave it outside the integral.",
+      "**Integrate**\n\nPower rule: $\\int x^n\\,\\text{d}x = \\dfrac{x^{n+1}}{n+1}$. So $\\int x^2\\,\\text{d}x = \\dfrac{x^3}{3}$ and $\\int x\\,\\text{d}x = \\dfrac{x^2}{2}$:\n\n$$\\text{E}(X) = \\frac{1}{4}\\left[\\frac{x^3}{3} + \\frac{x^2}{2}\\right]_0^2$$",
+      "**Substitute the limits (earns A1)**\n\nPut in $x = 2$, then subtract what you get from $x = 0$ (which is 0):\n\n$$\\frac{2^3}{3} + \\frac{2^2}{2} = \\frac{8}{3} + 2$$\n\n$$\\text{E}(X) = \\frac{1}{4}\\left(\\frac{8}{3} + 2\\right) - 0$$",
+      "**Add and simplify (earns A1)**\n\nWrite 2 as $\\frac{6}{3}$ so both fractions have the same bottom: $\\dfrac{8}{3} + \\dfrac{6}{3} = \\dfrac{14}{3}$.\n\n$$\\text{E}(X) = \\frac{1}{4} \\times \\frac{14}{3} = \\frac{14}{12} = \\frac{7}{6}$$\n\nAs a decimal, $\\frac{7}{6} = 1.1666\\ldots = 1.17$ to 3 s.f. Quick check: the density is bigger for larger $x$, so the mean should be in the upper half of $0$ to $2$, and 1.17 is just above the middle, which is sensible.",
+      "**Final answer**\n\n$$\\text{E}(X) = \\frac{7}{6} \\;(= 1.17 \\text{ to 3 s.f.})$$"
+    ]
+  },
+  "9709_w17_71_q5_ii": {
+    "hints": [
+      "The median $m$ splits the probability in half: the area under $\\text{f}$ from $0$ up to $m$ is $0.5$, so write $\\int_0^m \\frac{1}{4}(x+1)\\,\\text{d}x = 0.5$.",
+      "Integrate $\\frac{1}{4}(x+1)$, substitute $m$ (the lower limit gives 0) and set equal to $0.5$. Multiply through to clear the fractions and get a quadratic equation in $m$.",
+      "Solve the quadratic with the formula. Only one root lies in the range $0 \\leqslant x \\leqslant 2$ where $\\text{f}$ is defined, so reject the other."
+    ],
+    "walkthrough": [
+      "**What the median is**\n\nThe median $m$ is the value that has half of the probability on each side: $\\text{P}(X \\leqslant m) = 0.5$. For a continuous variable, that probability is the area under $\\text{f}(x)$ from the bottom of the range (0) up to $m$.",
+      "**Set up the equation (earns M1)**\n\n$$\\int_0^m \\frac{1}{4}(x+1)\\,\\text{d}x = 0.5$$\n\nThe upper limit is the unknown $m$, and we set the result equal to $0.5$.",
+      "**Integrate and substitute (earns A1)**\n\n$\\int (x+1)\\,\\text{d}x = \\dfrac{x^2}{2} + x$. Substituting $m$ at the top and $0$ at the bottom (which gives 0):\n\n$$\\frac{1}{4}\\left[\\frac{x^2}{2} + x\\right]_0^m = \\frac{1}{4}\\left(\\frac{m^2}{2} + m\\right) = 0.5$$\n\nThis is a correct equation in $m$, which earns the A1.",
+      "**Make it a quadratic**\n\nMultiply both sides by 4:\n\n$$\\frac{m^2}{2} + m = 2$$\n\nMultiply both sides by 2 to remove the fraction:\n\n$$m^2 + 2m = 4$$\n\nMove everything to one side:\n\n$$m^2 + 2m - 4 = 0$$",
+      "**Solve the quadratic**\n\nQuadratic formula with $a = 1$, $b = 2$, $c = -4$:\n\n$$m = \\frac{-2 \\pm \\sqrt{2^2 - 4(1)(-4)}}{2(1)} = \\frac{-2 \\pm \\sqrt{4 + 16}}{2} = \\frac{-2 \\pm \\sqrt{20}}{2}$$\n\n$\\sqrt{20} = 4.4721$, so the two roots are\n\n$$m = \\frac{-2 + 4.4721}{2} = 1.2361 \\qquad \\text{or} \\qquad m = \\frac{-2 - 4.4721}{2} = -3.2361$$\n\n(These are $-1 \\pm \\sqrt{5}$.)",
+      "**Reject the wrong root (earns A1)**\n\n$\\text{f}(x)$ is only defined for $0 \\leqslant x \\leqslant 2$, so the median must be in that range. $-3.2361$ is outside it, so reject it. The mark scheme needs you to say this when a negative root appears. Keep $m = 1.2361$, which is between 0 and 2.",
+      "**Final answer**\n\n$$m = 1.24 \\;(3 \\text{ s.f.})$$"
+    ]
+  }
+}

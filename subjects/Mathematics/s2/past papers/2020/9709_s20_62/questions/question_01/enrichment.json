@@ -1,0 +1,18 @@
+{
+ "9709_s20_62_q1": {
+  "hints": [
+   "The weight of a bag is the **sum** of 6 independent plum masses. For a sum of independent normal variables, add the means ($6 \\times 40.4$) and add the variances ($6 \\times 5.2^2$). Write down the distribution of the bag total.",
+   "Standardise the bag total at the rejection limit: $z = \\dfrac{220 - \\text{mean of total}}{\\text{standard deviation of total}}$. Careful: the denominator is the square root of the variance of the **total**.",
+   "A bag is rejected when the total is **less than** 220 g, so you want the lower-tail area $\\text{P}(Z < z)$. If your $z$ is negative, use $\\Phi(-z) = 1 - \\Phi(z)$ with the normal table or your calculator.",
+   "The question asks for a **percentage** of bags, but your answer so far is a probability. Convert it, and give 3 significant figures."
+  ],
+  "walkthrough": [
+   "**Why the bag total is normal**\n\nEach plum has mass $X$ with $X \\sim \\text{N}(40.4, 5.2^2)$. This means the mean mass is $40.4$ g and the standard deviation is $5.2$ g, so the variance is $5.2^2$.\n\nA bag holds 6 plums. Let $T$ be the total mass of the 6 plums, so\n\n$$T = X_1 + X_2 + X_3 + X_4 + X_5 + X_6$$\n\nwhere $X_1, \\ldots, X_6$ are the masses of the 6 plums. A sum of independent normal variables is itself normal, so $T$ is normal. We only need its mean and variance.",
+   "**Mean of the total**\n\nThe mean of a sum is the sum of the means. All six plums have mean $40.4$, so\n\n$$\\text{E}(T) = 6 \\times 40.4 = 242.4$$",
+   "**Variance of the total**\n\nFor independent variables the **variances** add (not the standard deviations). Each plum has variance $5.2^2$:\n\n$$5.2^2 = 5.2 \\times 5.2 = 27.04$$\n\n$$\\text{Var}(T) = 6 \\times 27.04 = 162.24$$\n\nQuick check: the variance is $6 \\times 5.2^2$, not $6^2 \\times 5.2^2$. We are adding 6 different plums, not multiplying one plum by 6.\n\nSo $T \\sim \\text{N}(242.4, 162.24)$. This earns the **B1**.",
+   "**Standardise**\n\nWe want $\\text{P}(T < 220)$. To use the standard normal table we convert 220 to a $z$-value: take the value, subtract the mean, divide by the standard deviation.\n\nThe standard deviation is the square root of the variance:\n\n$$\\sqrt{162.24} = 12.7373\\ldots$$\n\nThen\n\n$$z = \\frac{220 - 242.4}{12.7373\\ldots} = \\frac{-22.4}{12.7373\\ldots} = -1.7586\\ldots \\approx -1.759$$\n\nThis line earns the first **M1**. The negative sign is correct: 220 is below the mean of the total.",
+   "**Find the probability**\n\nA bag is rejected when the total is less than 220 g, so we want the area to the left of $z = -1.759$:\n\n$$\\text{P}(T < 220) = \\text{P}(Z < -1.759) = \\Phi(-1.759)$$\n\nTables only list positive $z$, so use the symmetry of the normal curve:\n\n$$\\Phi(-1.759) = 1 - \\Phi(1.759) = 1 - 0.9607 = 0.0393$$\n\nOn a calculator: normal cdf with lower bound $-\\infty$, upper bound $-1.759$, mean $0$, standard deviation $1$, which gives $0.0393$. This earns the second **M1**.",
+   "**Final answer**\n\nThe question asks for the **percentage** of bags rejected, so multiply the probability by 100:\n\n$$0.0393 \\times 100 = 3.93\\%$$\n\nAbout $\\mathbf{3.93\\%}$ of bags are rejected. (A1)"
+  ]
+ }
+}

@@ -1,0 +1,29 @@
+{
+ "9709_s16_72_q2_i": {
+  "hints": [
+   "A Type I error is made when the null hypothesis $p = 0.9$ is rejected although it is actually true. Say what 'reject $\\text{H}_0$' means for Marie's conclusion about Jacques' customers."
+  ],
+  "walkthrough": [
+   "**What a Type I error is**\n\nIn any hypothesis test there are two ways to go wrong. A **Type I error** means we **reject the null hypothesis $\\text{H}_0$ when $\\text{H}_0$ is actually true**.\n\n(The other way, a Type II error, is accepting $\\text{H}_0$ when it is false. It is not asked here.)",
+   "**Put it in the context of Jacques**\n\nHere $\\text{H}_0$ is $p = 0.9$: Jacques is right and 90% of his customers are satisfied.\n\nRejecting $\\text{H}_0$ means Marie concludes that fewer than 90% of customers are satisfied. So a Type I error is: Marie concludes that the percentage of satisfied customers is less than 90%, **when in fact it is 90%**.\n\nThe question says 'in the context', so you must mention the customers or their satisfaction. Writing only 'rejecting $\\text{H}_0$ when it is true' does not earn the mark.",
+   "**Final answer**\n\nA Type I error is Marie concluding that less than 90% of Jacques' customers are satisfied, when the true percentage is 90%."
+  ]
+ },
+ "9709_s16_72_q2_ii": {
+  "hints": [
+   "A Type I error happens when $\\text{H}_0$ is true, so $p = 0.9$ and the number satisfied is $X \\sim \\text{B}(15,\\ 0.9)$. Marie rejects when fewer than 12 are satisfied, so you need $\\text{P}(X \\leqslant 11)$. This is quicker as $1 - \\text{P}(X \\geqslant 12)$.",
+   "Write out the terms for $X = 15, 14, 13, 12$ with the binomial formula $\\binom{15}{r}\\,0.9^r\\,(1 - 0.9)^{15-r}$. Start with $0.9^{15} + 15 \\times 0.9^{14} \\times (1 - 0.9)$.",
+   "Add the terms for $X = 13$ and $X = 12$ in the same way ($\\binom{15}{2}$ and $\\binom{15}{3}$ come from choosing the unsatisfied customers), then subtract the whole sum from 1. Give 3 s.f."
+  ],
+  "walkthrough": [
+   "**What we are finding**\n\nThe probability of a Type I error is the probability of rejecting $\\text{H}_0$ **when $\\text{H}_0$ is true**. So we pretend $p = 0.9$ is true and find the chance that Marie's rule rejects it.\n\nMarie rejects $\\text{H}_0$ if fewer than 12 customers are satisfied. So we need $\\text{P}(X < 12) = \\text{P}(X \\leqslant 11)$.",
+   "**Why binomial**\n\nThere are a fixed number of customers (15), each is either satisfied or not, they are independent, and each has the same chance 0.9 of being satisfied (if $\\text{H}_0$ is true). So $X$, the number satisfied, follows a binomial distribution:\n\n$$X \\sim \\text{B}(15,\\ 0.9)$$",
+   "**Use the complement to save work**\n\n$\\text{P}(X \\leqslant 11)$ would need twelve terms ($X = 0$ up to $11$). The opposite event $X \\geqslant 12$ needs only four terms ($X = 12, 13, 14, 15$). So:\n\n$$\\text{P}(X \\leqslant 11) = 1 - \\text{P}(X \\geqslant 12) = 1 - \\big(\\text{P}(X = 15) + \\text{P}(X = 14) + \\text{P}(X = 13) + \\text{P}(X = 12)\\big)$$\n\nThe first M1 is for an attempt at this, with up to one end error allowed.",
+   "**The binomial formula**\n\nFor $X \\sim \\text{B}(n, p)$: $\\text{P}(X = r) = \\binom{n}{r} p^r (1-p)^{n-r}$. Here $n = 15$, $p = 0.9$, and $1 - p = 0.1$.",
+   "**The first two terms (first M1)**\n\n$X = 15$: all 15 satisfied. $\\binom{15}{15} = 1$, so $\\text{P}(X = 15) = 0.9^{15} = 0.205891$.\n\n$X = 14$: one customer is not satisfied. $\\binom{15}{14} = 15$.\n\n$$\\text{P}(X = 14) = 15 \\times 0.9^{14} \\times 0.1 = 15 \\times 0.228768 \\times 0.1 = 0.343152$$",
+   "**The next two terms (second M1)**\n\n$X = 13$: two not satisfied. $\\binom{15}{2} = \\dfrac{15 \\times 14}{2} = 105$.\n\n$$\\text{P}(X = 13) = 105 \\times 0.9^{13} \\times 0.1^2 = 105 \\times 0.254187 \\times 0.01 = 0.266896$$\n\n$X = 12$: three not satisfied. $\\binom{15}{3} = \\dfrac{15 \\times 14 \\times 13}{3 \\times 2 \\times 1} = 455$.\n\n$$\\text{P}(X = 12) = 455 \\times 0.9^{12} \\times 0.1^3 = 455 \\times 0.282430 \\times 0.001 = 0.128505$$\n\nQuick check: you can also get all four with your calculator's binomial pdf (n = 15, p = 0.9) for $x = 12, 13, 14, 15$.",
+   "**Add up and take from 1**\n\n$$0.205891 + 0.343152 + 0.266896 + 0.128505 = 0.944444$$\n\n$$\\text{P}(X \\leqslant 11) = 1 - 0.944444 = 0.055556$$\n\nThis earns the A1. Keep at least 5 decimal places in the sum; rounding the four terms too early can give $0.0555$, which the scheme also accepts.",
+   "**Final answer**\n\nThe probability of a Type I error is $0.0556$ (3 s.f.). The scheme also accepts $0.0555$."
+  ]
+ }
+}

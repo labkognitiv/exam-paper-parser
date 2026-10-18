@@ -1,0 +1,38 @@
+{
+  "9709_s17_71_q5_i": {
+    "hints": [
+      "Let $W$ be the weight of a full carton: 12 packets plus one empty carton. The mean is the sum of the means: $12 \\times 505 + 150$.",
+      "For independent normal variables the **variances** add (not the standard deviations). The 12 packets are 12 separate variables, so their variance is $12 \\times 3.2^2$; then add the carton's variance $7^2$.",
+      "Standardise: $z = \\dfrac{6200 - \\text{mean}}{\\sqrt{\\text{variance}}}$, using the mean and the variance you found, taking the square root to get the standard deviation.",
+      "6200 is below your mean, so $z$ is negative. Use the symmetry of the normal curve: $\\text{P}(Z < -a) = 1 - \\Phi(a)$ with $a$ the positive version of your $z$.",
+      "Look up $\\Phi(a)$ with your calculator or the normal table, subtract it from 1, and round to 3 significant figures."
+    ],
+    "walkthrough": [
+      "**Set up the variable**\n\nLet $W$ grams be the total weight of a full carton. A full carton is 12 sugar packets plus the empty carton. Write each packet weight as $P_1, P_2, \\ldots, P_{12}$ and the empty carton weight as $C$:\n\n$$W = P_1 + P_2 + \\cdots + P_{12} + C$$\n\nEach $P \\sim \\text{N}(505, 3.2^2)$ and $C \\sim \\text{N}(150, 7^2)$, all independent. A sum of independent normal variables is itself normal, so $W$ is normal. We need its mean and variance.",
+      "**The mean of $W$ (this earns the first B1)**\n\nMeans simply add:\n\n$$\\text{E}(W) = 12 \\times 505 + 150$$\n\n$$12 \\times 505 = 6060$$\n\n$$\\text{E}(W) = 6060 + 150 = 6210$$",
+      "**The variance of $W$ (this earns the second B1)**\n\nFor independent variables, **variances** add (standard deviations do not). The standard deviation 3.2 g is for one packet, so first square it to get one packet's variance, then multiply by 12 because there are 12 separate packets. Note: this is $12 \\times 3.2^2$, not $12^2 \\times 3.2^2$ — that would be what you get for one packet counted 12 times over.\n\n$$3.2^2 = 10.24$$\n\n$$12 \\times 10.24 = 122.88$$\n\nThe carton has variance $7^2 = 49$. Add:\n\n$$\\text{Var}(W) = 122.88 + 49 = 171.88$$\n\n$$W \\sim \\text{N}(6210,\\ 171.88)$$\n\nThe B2 is for stating this, one mark for each correct parameter.",
+      "**Standardise (this earns the first M1)**\n\nWe want $\\text{P}(W < 6200)$. Convert 6200 into a z-value: subtract the mean and divide by the standard deviation, which is the **square root of the variance**.\n\n$$\\sqrt{171.88} = 13.1103\\ldots$$\n\n$$z = \\dfrac{6200 - 6210}{\\sqrt{171.88}} = \\dfrac{-10}{13.1103} = -0.7628\\ldots = -0.763 \\text{ (3 d.p.)}$$\n\nThe slip to avoid is dividing by 171.88 itself (the variance) instead of its square root.",
+      "**Use symmetry to get a positive value (this earns the second M1)**\n\nThe normal tables only list positive $z$. By symmetry, the area to the left of $-0.763$ equals the area to the **right** of $+0.763$:\n\n$$\\text{P}(W < 6200) = \\text{P}(Z < -0.763) = 1 - \\Phi(0.763)$$\n\nSense check: 6200 is only 10 below the mean 6210, so the probability should be a bit below one half.",
+      "**Look up and subtract (this earns the A1)**\n\nOn your calculator use the normal cdf (or table): $\\Phi(0.763) = 0.7773$.\n\n$$1 - 0.7773 = 0.2227$$\n\nRounded to 3 significant figures, the answer is $0.223$.",
+      "**Final answer**\n\n$$\\text{P}(\\text{total weight of a full carton} < 6200\\text{ g}) = 0.223 \\text{ (3 s.f.)}$$"
+    ]
+  },
+  "9709_s17_71_q5_ii": {
+    "hints": [
+      "Let $C$ be the weight of a full carton (from part (i)) and $B$ the weight of a full box. \"Carton less than double the box\" is $C < 2B$, which you can write as $C - 2B < 0$. Find the mean of $C - 2B$ using your mean for $C$ and 3130 for $B$.",
+      "For the variance, subtract the means but **add** the variances. Doubling a single box multiplies its variance by $2^2$, and the box's variance is $12.1^2$. So $\\text{Var}(C - 2B) = \\text{Var}(C) + 2^2 \\times 12.1^2$.",
+      "Standardise the value 0: $z = \\dfrac{0 - \\text{mean}}{\\sqrt{\\text{variance}}}$ using the mean and variance of $C - 2B$ you found.",
+      "You want $\\text{P}(C - 2B < 0)$, the lower tail. Decide whether your $z$ is positive or negative; if it is positive, the answer is $\\Phi$ of that value directly.",
+      "Evaluate $\\Phi(z)$ with your calculator or the normal table and round to 3 significant figures."
+    ],
+    "walkthrough": [
+      "**Turn the question into one normal variable (this sets up the first M1)**\n\nLet $C$ be the weight of a full carton, so from part (i) $C \\sim \\text{N}(6210,\\ 171.88)$. Let $B$ be the weight of a full box, $B \\sim \\text{N}(3130,\\ 12.1^2)$.\n\n\"The carton is less than double the box\" means $C < 2B$. Move everything to one side so we compare with zero:\n\n$$C < 2B \\iff C - 2B < 0$$\n\nLet $D = C - 2B$. We need $\\text{P}(D < 0)$. $D$ is normal, because it is built from independent normal variables.",
+      "**The mean of $D$ (this earns the first M1)**\n\nMeans combine just as the formula does, with a minus sign for the $2B$:\n\n$$\\text{E}(D) = 6210 - 2 \\times 3130$$\n\n$$2 \\times 3130 = 6260$$\n\n$$\\text{E}(D) = 6210 - 6260 = -50$$",
+      "**The variance of $D$ (this earns the second M1)**\n\nTwo rules: (1) when you subtract independent variables, the variances still **add** (spreads never cancel); (2) multiplying a variable by 2 multiplies its variance by $2^2 = 4$.\n\n$$\\text{Var}(D) = \\text{Var}(C) + 2^2 \\times \\text{Var}(B)$$\n\nThe box's standard deviation is 12.1 g so its variance is $12.1^2 = 146.41$.\n\n$$\\text{Var}(D) = 171.88 + 4 \\times 146.41$$\n\n$$4 \\times 146.41 = 585.64$$\n\n$$\\text{Var}(D) = 171.88 + 585.64 = 757.52$$\n\nNote that the \"double\" means the same box counted twice (a single $B$ times 2), not two different boxes added. Two different boxes would have variance $2 \\times 12.1^2$ instead.",
+      "**Standardise (this earns the third M1)**\n\nWe want $\\text{P}(D < 0)$. The standard deviation is $\\sqrt{757.52} = 27.5231\\ldots$\n\n$$z = \\dfrac{0 - (-50)}{\\sqrt{757.52}} = \\dfrac{50}{27.5231} = 1.8166\\ldots = 1.817 \\text{ (3 d.p.)}$$",
+      "**Choose the tail (this earns the fourth M1)**\n\nThe mean of $D$ is $-50$, which is below 0. So 0 is above the mean, and the area to the left of 0 is more than a half. That is the area to the left of a positive $z$, which is just $\\Phi(z)$:\n\n$$\\text{P}(D < 0) = \\Phi(1.817)$$",
+      "**Look up (this earns the A1)**\n\nOn your calculator use the normal cdf with $z = 1.817$ → $\\Phi(1.817) = 0.9654$. To 3 significant figures:\n\n$$0.965$$\n\nSense check: on average the carton is 50 g lighter than double a box, so the carton being lighter is likely — a probability near 1 makes sense.",
+      "**Final answer**\n\n$$\\text{P}(\\text{carton weighs less than double a box}) = 0.965 \\text{ (3 s.f.)}$$"
+    ]
+  }
+}

@@ -1,0 +1,28 @@
+{
+ "9709_s24_62_q1_a": {
+  "hints": [
+   "$\\lambda = 145$ is large, so the Poisson probabilities are too long to add up one by one. Approximate $X$ by a normal distribution whose mean and variance are both equal to the Poisson parameter, and write it down.",
+   "A Poisson variable is discrete and the normal is continuous, so apply a continuity correction: $\\text{P}(X \\leqslant 150)$ becomes $\\text{P}(Y < 150 + \\tfrac12)$. Then standardise: $z = \\dfrac{150 + \\frac12 - 145}{\\sqrt{145}}$ (the sd is the square root of the variance).",
+   "You want the area to the left of your $z$ value, so write the probability as $\\Phi(z)$.",
+   "Find $\\Phi(z)$ with the normal table or your calculator's normal cdf, and give the answer to 3 significant figures."
+  ],
+  "walkthrough": [
+   "**Why we use an approximation**\n\n$X \\sim \\text{Po}(145)$. To find $\\text{P}(X \\leqslant 150)$ exactly we would have to work out $\\text{P}(X = 0), \\text{P}(X = 1), \\dots, \\text{P}(X = 150)$ and add up 151 numbers. Nobody wants to do that.\n\nWhen the Poisson mean is large, its shape looks very like a normal \"bell curve\". So we replace the Poisson by a normal distribution that has the same mean and the same variance.",
+   "**State the approximating distribution (B1)**\n\nFor a Poisson distribution the mean and the variance are equal. Here both are $145$.\n\nQuick check: $\\text{E}(X) = \\lambda = 145$ and $\\text{Var}(X) = \\lambda = 145$.\n\nSo we use a normal variable $Y$ with mean $145$ and variance $145$:\n\n$$Y \\sim \\text{N}(145, 145)$$\n\nThis statement earns the **B1**. Careful: the second number in $\\text{N}(\\mu, \\sigma^2)$ is the *variance*, $145$, not the standard deviation.",
+   "**Apply the continuity correction**\n\nA Poisson variable can only take whole numbers $0, 1, 2, \\dots$. A normal variable can take any value, including $150.3$ or $150.9$.\n\nOn a continuous scale the whole number $150$ \"occupies\" everything from $149.5$ to $150.5$. We want $X \\leqslant 150$, which includes $150$ itself, so we must go up to the top edge of that block, $150.5$.\n\n$$\\text{P}(X \\leqslant 150) \\approx \\text{P}(Y < 150.5)$$\n\nSlip to avoid: using $150$ (no correction) or $149.5$ (correction the wrong way). The scheme condones this slip in the method mark, but the final answer will then be wrong.",
+   "**Standardise (first M1)**\n\nTo use the normal table we convert to the standard normal $Z$ by taking away the mean and dividing by the standard deviation. The standard deviation is $\\sqrt{145}$.\n\n$$z = \\frac{150.5 - 145}{\\sqrt{145}}$$\n\nNow one arithmetic step at a time:\n\n$$150.5 - 145 = 5.5$$\n\n$$\\sqrt{145} = 12.0416\\ldots$$\n\n$$z = \\frac{5.5}{12.0416} = 0.4568\\ldots \\approx 0.457$$\n\nThis line earns the first **M1**. Make sure you divide by $\\sqrt{145}$ and not by $145$.",
+   "**Find the area (second M1, A1)**\n\nWe want $\\text{P}(Y < 150.5)$, which is the area to the *left* of $z = 0.457$. That is exactly what $\\Phi(0.457)$ means ($\\Phi$ is the standard normal cumulative probability).\n\n$$\\text{P}(X \\leqslant 150) \\approx \\Phi(0.457)$$\n\nIn your calculator choose normal cumulative distribution with lower bound $-\\infty$ (or a very small number such as $-99$), upper bound $0.457$, mean $0$, standard deviation $1$. It shows $0.676$. A table gives a very slightly different value because tables round $z$ to 2 decimal places, so use the calculator for 3 significant figures.\n\nThis is the second **M1** (area consistent with the working) and the **A1**.",
+   "**Final answer**\n\n$$\\text{P}(X \\leqslant 150) \\approx 0.676 \\text{ (3 s.f.)}$$\n\nFor interest, the exact Poisson sum is $0.680$, so the approximation is close."
+  ]
+ },
+ "9709_s24_62_q1_b": {
+  "hints": [
+   "The normal approximation to a Poisson distribution is only reliable when its parameter $\\lambda$ is large enough. Recall the rule of thumb for $\\lambda$ and say whether $\\lambda = 145$ meets it, stating the value of $\\lambda$ in your answer."
+  ],
+  "walkthrough": [
+   "**Why a condition is needed**\n\nA Poisson distribution with a small mean is lopsided: most of the probability sits near $0$ with a long tail to the right. A normal curve is perfectly symmetric, so it would fit badly.\n\nAs $\\lambda$ gets larger the Poisson becomes more symmetric and bell shaped. The syllabus rule of thumb is that the normal approximation can be used when $\\lambda > 15$.",
+   "**Check this question**\n\nHere the Poisson parameter (the mean) is $\\lambda = 145$.\n\n$$145 > 15$$\n\nYou must state the value $\\lambda = 145$ explicitly and compare it with $15$; writing \"$\\lambda > 15$\" without saying that $\\lambda = 145$ earns **B0**. This earns the **B1**.",
+   "**Final answer**\n\nThe Poisson mean $\\lambda = 145$ is greater than $15$, so the normal approximation is suitable."
+  ]
+ }
+}

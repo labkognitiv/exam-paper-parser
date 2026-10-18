@@ -1,0 +1,21 @@
+{
+ "9709_s21_61_q4": {
+  "hints": [
+   "Start with the sample mean, the centre of the interval: $\\bar{l} = \\dfrac{\\Sigma l}{n}$ using the values in the summary.",
+   "The population variance is unknown, so you need an unbiased estimate from the sample: $s^2 = \\dfrac{1}{n-1}\\left(\\Sigma l^2 - \\dfrac{(\\Sigma l)^2}{n}\\right)$ with $n = 100$. Be careful: divide by $n - 1$, not by $n$.",
+   "Evaluate that expression carefully with the given $\\Sigma l = 3820$ and $\\Sigma l^2 = 182\\,200$ to get your value of $s^2$ (note that $\\sqrt{s^2}$ is the estimated standard deviation).",
+   "The interval has the form $\\bar{l} \\pm z \\times \\sqrt{\\dfrac{s^2}{n}}$. Put in your mean and your $s^2$, and keep $z$ as a letter for now.",
+   "For a 94% interval, $6\\%$ is left in the two tails, so $3\\%$ in each. You need the $z$ with $\\Phi(z) = 0.97$ from the normal table (inverse normal).",
+   "Work out $z \\times \\sqrt{\\dfrac{s^2}{100}}$, then subtract it from, and add it to, your sample mean. Quote the two ends of the interval to 3 s.f."
+  ],
+  "walkthrough": [
+   "**What we are doing, and why a $z$ interval**\n\nWe want an interval, calculated from a sample, that has a 94% chance of containing the true population mean $\\mu$. The sample has $n = 100$, which is large, so the sample mean $\\bar{l}$ is approximately normal (Central Limit theorem) and we can use a $z$-value. We do not know the population variance, so we estimate it from the sample.",
+   "**Sample mean (B1)**\n\n$\\bar{l}$ means the mean length of the 100 throws: the total length divided by the number of throws.\n\n$$\\bar{l} = \\frac{\\Sigma l}{n} = \\frac{3820}{100} = 38.2$$",
+   "**Unbiased estimate of the population variance (M1 and A1)**\n\nWe divide by $n - 1 = 99$ and not by $n$, because a sample tends to look a bit less spread out than the whole population; dividing by $n - 1$ corrects that. The formula is\n\n$$s^2 = \\frac{1}{n-1}\\left(\\Sigma l^2 - \\frac{(\\Sigma l)^2}{n}\\right) = \\frac{1}{99}\\left(182\\,200 - \\frac{3820^2}{100}\\right)$$\n\nDo the arithmetic one piece at a time:\n\n$$3820^2 = 14\\,592\\,400, \\qquad \\frac{14\\,592\\,400}{100} = 145\\,924$$\n\n$$182\\,200 - 145\\,924 = 36\\,276$$\n\n$$s^2 = \\frac{36\\,276}{99} = 366.424\\ldots = \\frac{12092}{33}$$\n\nQuick check with the other form: $\\dfrac{100}{99}\\left(\\dfrac{182\\,200}{100} - 38.2^2\\right) = \\dfrac{100}{99}(1822 - 1459.24) = \\dfrac{100}{99} \\times 362.76 = 366.424$. Same answer. Slip to avoid: stopping at $362.76$ (the biased value, dividing by $n$) scores M0.",
+   "**Standard error (the spread of the sample mean)**\n\nThe sample mean varies less than a single throw: its standard deviation is $\\sqrt{\\dfrac{s^2}{n}}$.\n\n$$\\sqrt{\\frac{366.424}{100}} = \\sqrt{3.66424} = 1.9142$$\n\nThis is the form of the interval needed for the next M1: $38.2 \\pm z \\times \\sqrt{\\dfrac{366.424}{100}}$.",
+   "**Find the $z$-value (B1)**\n\nA 94% confidence interval leaves $100\\% - 94\\% = 6\\%$ outside the interval, split equally into the two tails: $3\\%$ in each tail. So the area to the left of the upper end is $1 - 0.03 = 0.97$.\n\n$$\\Phi(z) = 0.97 \\quad \\Rightarrow \\quad z = 1.881$$\n\nOn the calculator use inverse normal with area $0.97$, mean $0$, standard deviation $1$: it shows $1.8808$, which is $1.881$ to 3 d.p. (the scheme accepts $1.881$ or $1.882$).",
+   "**Calculate the interval (final A1)**\n\nFirst the margin (the amount we go either side of the mean):\n\n$$1.881 \\times 1.9142 = 3.6006$$\n\nThen subtract and add it:\n\n$$38.2 - 3.6006 = 34.5994, \\qquad 38.2 + 3.6006 = 41.8006$$\n\nRound each end to 3 significant figures: $34.6$ and $41.8$. The answer must be given as an interval.",
+   "**Final answer**\n\nA 94% confidence interval for the population mean length of throws is $\\mathbf{34.6 \\text{ to } 41.8}$ metres (3 s.f.)."
+  ]
+ }
+}

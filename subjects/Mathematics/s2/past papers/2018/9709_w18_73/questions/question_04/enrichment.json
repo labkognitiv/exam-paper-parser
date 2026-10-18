@@ -1,0 +1,35 @@
+{
+ "9709_w18_73_q4_i": {
+  "hints": [
+   "The counts of drops of $A$ and of $B$ are independent Poisson variables, so their total is also Poisson, and you add the means. Scale each rate to 10 cm$^3$: $10 \\times 0.25 + 10 \\times 0.36$.",
+   "'At least 4' means 4 or more, so use $\\text{P}(X \\geqslant 4) = 1 - \\text{P}(X \\leqslant 3)$. The terms you need to subtract are for $0, 1, 2, 3$ drops.",
+   "Each term is $\\text{e}^{-\\lambda}\\dfrac{\\lambda^r}{r!}$. Add the four terms for $r = 0, 1, 2, 3$ (or use the Poisson cdf on your calculator), subtract from 1, and give 3 s.f."
+  ],
+  "walkthrough": [
+   "**Why the total is Poisson**\n\nDrops are scattered randomly and independently, so the number of drops of $A$ in a region is a Poisson variable, and the same for $B$. When you add two independent Poisson variables, the total is also Poisson, and its mean is the sum of the two means.\n\nLet $X$ be the total number of drops of $A$ and $B$ in 10 cm$^3$.",
+   "**Finding the mean for 10 cm$^3$**\n\nThe rates are per cubic centimetre, and we have 10 cm$^3$, so multiply each rate by 10:\n\n$$10 \\times 0.25 = 2.5, \\qquad 10 \\times 0.36 = 3.6$$\n\n$$\\lambda = 2.5 + 3.6 = 6.1$$\n\nSo $X \\sim \\text{Po}(6.1)$. This earns the **B1**.",
+   "**Setting up the probability**\n\n'At least 4' means $X = 4, 5, 6, \\ldots$ with no top end. It is much easier to use the opposite: $X \\leqslant 3$ (that is 0, 1, 2 or 3 drops). All probabilities add to 1, so\n\n$$\\text{P}(X \\geqslant 4) = 1 - \\text{P}(X \\leqslant 3)$$\n\nBe careful with the end: the subtraction must go up to 3, not 4. (The scheme allows one end error for the **M1**, but the answer would then be wrong.)",
+   "**Writing out P(X ≤ 3)**\n\nThe Poisson formula is $\\text{P}(X = r) = \\text{e}^{-\\lambda}\\dfrac{\\lambda^r}{r!}$. Adding the four terms:\n\n$$\\text{P}(X \\leqslant 3) = \\text{e}^{-6.1}\\left(1 + 6.1 + \\frac{6.1^2}{2!} + \\frac{6.1^3}{3!}\\right)$$\n\nSo the whole probability is $1 - \\text{e}^{-6.1}\\left(1 + 6.1 + \\frac{6.1^2}{2} + \\frac{6.1^3}{6}\\right)$. This earns the **M1**.",
+   "**Calculating each term**\n\nFirst $\\text{e}^{-6.1}$: type `e^(-6.1)` and you get $0.0022429\\ldots$ Then each term:\n\n$$r = 0: \\ 0.0022429 \\times 1 = 0.0022429$$\n\n$$r = 1: \\ 0.0022429 \\times 6.1 = 0.013681$$\n\n$$r = 2: \\ 0.0022429 \\times \\frac{6.1^2}{2} = 0.0022429 \\times 18.605 = 0.041729$$\n\n$$r = 3: \\ 0.0022429 \\times \\frac{6.1^3}{6} = 0.0022429 \\times 37.830 = 0.084848$$\n\nAdd them:\n\n$$\\text{P}(X \\leqslant 3) = 0.0022429 + 0.013681 + 0.041729 + 0.084848 = 0.142501$$\n\nQuick check: you can also use your calculator's Poisson cdf with mean 6.1 and $x = 3$, which gives the same $0.1425$.",
+   "**Final answer**\n\n$$\\text{P}(X \\geqslant 4) = 1 - 0.142501 = 0.857499\\ldots = 0.857 \\text{ (3 s.f.)}$$\n\nThis earns the **A1**. The scheme also allows 0.858."
+  ]
+ },
+ "9709_w18_73_q4_ii": {
+  "hints": [
+   "The sample is now 100 cm$^3$. Scale the rates again: $100 \\times 0.25 + 100 \\times 0.36$ (or scale your answer to part (i) up by the right factor).",
+   "The mean is large, so approximate the Poisson by a normal with the same mean, and with the variance equal to that mean as well: $\\text{N}(\\lambda, \\lambda)$.",
+   "Poisson counts are whole numbers, so apply a continuity correction: 'less than 60' means at most 59, so the boundary goes half a unit above 59. Standardise that boundary: $z = \\dfrac{\\text{boundary} - \\lambda}{\\sqrt{\\lambda}}$ (a square root of the variance, not the variance itself).",
+   "You want the area to the left of your $z$. If $z$ is negative, that area is below 0.5, and it equals $1 - \\Phi$ of the positive version of $z$.",
+   "Look up $\\Phi$ of the positive version of your $z$ in the table or with your calculator, subtract it from 1, and give the answer to 3 s.f."
+  ],
+  "walkthrough": [
+   "**The mean for 100 cm$^3$**\n\nAs in part (i), the total number of drops is Poisson and the means scale with volume. For 100 cm$^3$:\n\n$$100 \\times 0.25 = 25, \\qquad 100 \\times 0.36 = 36$$\n\n$$\\lambda = 25 + 36 = 61$$\n\nQuick check: 100 cm$^3$ is 10 times 10 cm$^3$, and $10 \\times 6.1 = 61$. This earns the **B1** (follow-through from part (i)).",
+   "**Why we can approximate with a normal distribution**\n\nLet $X \\sim \\text{Po}(61)$. Calculating $\\text{P}(X < 60)$ exactly would need 60 terms. When the Poisson mean is large (about 15 or more), the shape is close to a bell curve, so the normal distribution is a good approximation.\n\nFor a Poisson, the variance equals the mean. So the approximating normal has mean 61 **and** variance 61:\n\n$$X \\approx \\text{N}(61, 61)$$\n\nThis earns the first **M1**.",
+   "**The continuity correction**\n\n$X$ takes only whole numbers, but the normal is continuous. A whole number such as 59 is represented on the normal curve by the interval from 58.5 to 59.5.\n\n'Less than 60' for a whole number means $X \\leqslant 59$, so we want everything up to 59.5:\n\n$$\\text{P}(X < 60) = \\text{P}(X \\leqslant 59) \\approx \\text{P}(Y < 59.5)$$\n\nwhere $Y \\sim \\text{N}(61, 61)$.",
+   "**Standardising**\n\nSubtract the mean and divide by the standard deviation. The standard deviation is the square root of the variance:\n\n$$\\sqrt{61} = 7.8102\\ldots$$\n\n$$z = \\frac{59.5 - 61}{\\sqrt{61}} = \\frac{-1.5}{7.8102\\ldots} = -0.19205\\ldots \\approx -0.192$$\n\nThis earns the second **M1**. A common slip is to divide by $61$ (or $\\frac{61}{100}$) instead of $\\sqrt{61}$, which loses the mark.",
+   "**Choosing the correct area**\n\n'Less than' means the area to the **left** of $z$, so we want $\\Phi(-0.192)$. Tables only list positive values, and the normal curve is symmetric, so\n\n$$\\Phi(-0.192) = 1 - \\Phi(0.192)$$\n\nThis earns the third **M1**.",
+   "**Reading the value**\n\n$\\Phi(0.192)$: use the normal table or your calculator's normal cdf (lower limit a very small number, upper limit 0.192, mean 0, standard deviation 1). It shows $0.5761\\ldots$ (the table gives $\\Phi(0.19) = 0.5753$ and $\\Phi(0.20) = 0.5793$, and 0.192 is just above 0.19).\n\n$$1 - 0.5761 = 0.4239$$\n\nQuick check: 59.5 is a little below the mean 61, so the answer should be a little below 0.5. It is.",
+   "**Final answer**\n\n$$\\text{P}(\\text{total} < 60) \\approx 0.424 \\text{ (3 s.f.)}$$\n\nThis earns the **A1**."
+  ]
+ }
+}

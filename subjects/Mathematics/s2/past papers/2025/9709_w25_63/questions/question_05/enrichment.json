@@ -1,0 +1,40 @@
+{
+ "9709_w25_63_q5_a": {
+  "hints": [
+   "A Type I error is rejecting $\\text{H}_0$ when it is true, so use $p=0.2$: $X\\sim\\text{B}(40,0.2)$. Test whether $X\\leqslant2$ can be the rejection region by writing $\\text{P}(0)+\\text{P}(1)+\\text{P}(2)$, each term ${}^{40}\\text{C}_r\\,0.2^r\\,0.8^{40-r}$.",
+   "Evaluate the three terms and add them. Compare the total with the significance level of $2.5\\%$: is it within it?",
+   "Check the next value as well: add $\\text{P}(X=3)={}^{40}\\text{C}_3\\times0.2^3\\times0.8^{37}$ to your total and compare that with $2.5\\%$. Does the region grow to include $3$?",
+   "The probability of a Type I error is the probability of the rejection region you settled on, calculated with $p=0.2$. It is that probability, not the significance level, that you quote."
+  ],
+  "walkthrough": [
+   "**Set up the test**\n\nLet $p$ be the proportion of households in Laxmi's town that contain more than $4$ people. The national figure is $20\\%$, and she thinks her town's figure is lower:\n\n$$\\text{H}_0:\\ p=0.2\\qquad\\text{H}_1:\\ p<0.2$$\n\nLet $X$ be the number out of $40$ households that have more than $4$ people. If $\\text{H}_0$ is true, each household independently has probability $0.2$, so\n\n$$X\\sim\\text{B}(40,\\,0.2)$$\n\nThe alternative says $p$ is lower, so we reject $\\text{H}_0$ when $X$ is small. The test is at the $2.5\\%$ level, so we look for the biggest cut-off $c$ for which $\\text{P}(X\\leqslant c)\\leqslant0.025$.",
+   "**What a Type I error is**\n\nA Type I error means rejecting $\\text{H}_0$ when $\\text{H}_0$ is actually true. If $\\text{H}_0$ is true then $p=0.2$, so the probability of a Type I error is the probability that $X$ falls in the rejection region when $X\\sim\\text{B}(40,0.2)$.\n\nSo the first job is to find the rejection region.",
+   "**Try X ≤ 2: write the probabilities (this earns the M1)**\n\nThe binomial formula is $\\text{P}(X=r)={}^{n}\\text{C}_r\\,p^r\\,q^{n-r}$ with $n=40$, $p=0.2$ and $q=1-p=0.8$.\n\n$$\\text{P}(X\\leqslant2)=\\text{P}(0)+\\text{P}(1)+\\text{P}(2)$$\n\n$$\\text{P}(0)={}^{40}\\text{C}_0\\times0.2^0\\times0.8^{40}=0.8^{40}$$\n\n$$\\text{P}(1)={}^{40}\\text{C}_1\\times0.2\\times0.8^{39}=40\\times0.8^{39}\\times0.2$$\n\n$$\\text{P}(2)={}^{40}\\text{C}_2\\times0.2^2\\times0.8^{38}$$\n\nThe scheme wants to see these expressions written down.",
+   "**Calculate each term**\n\n$\\text{P}(0)$: type $0.8^{40}$ on the calculator to get $0.0001329$.\n\n$\\text{P}(1)$: $0.8^{39}=0.00016615$; then $40\\times0.00016615=0.0066461$; then $\\times0.2$ gives $0.0013292$.\n\n$\\text{P}(2)$: ${}^{40}\\text{C}_2=\\dfrac{40\\times39}{2}=780$; $0.8^{38}=0.00020769$; $0.2^2=0.04$. So $780\\times0.04=31.2$ and $31.2\\times0.00020769=0.0064800$.\n\nAdd: $0.0001329+0.0013292+0.0064800=0.0079421$.",
+   "**Compare with 0.025 (this earns the A1)**\n\n$$\\text{P}(X\\leqslant2)=0.00794\\ (<0.025)$$\n\nSo $X\\leqslant2$ is small enough to be inside a $2.5\\%$ rejection region. But is it the **biggest** such region? We must check the next value, $3$.",
+   "**Try X ≤ 3 (this earns the B1FT)**\n\n$$\\text{P}(X=3)={}^{40}\\text{C}_3\\times0.2^3\\times0.8^{37}$$\n\n${}^{40}\\text{C}_3=\\dfrac{40\\times39\\times38}{3\\times2\\times1}=\\dfrac{59\\,280}{6}=9880$. Also $0.2^3=0.008$ and $0.8^{37}=0.00025961$. So $9880\\times0.008=79.04$ and $79.04\\times0.00025961=0.0205199$.\n\n$$\\text{P}(X\\leqslant3)=0.0079421+0.0205199=0.0284620\\approx0.0285>0.025$$\n\nThis is bigger than $0.025$, so $3$ is **not** allowed in the rejection region. This second comparison is needed to show why the region stops at $2$.",
+   "**The probability of a Type I error (this earns the final B1)**\n\nThe rejection region is $X\\leqslant2$. The probability that $X$ lands there when $\\text{H}_0$ is true is the probability of a Type I error:\n\n$$\\text{P}(\\text{Type I error})=\\text{P}(X\\leqslant2)=0.00794$$\n\nA common slip is to answer $0.025$. The $2.5\\%$ is only the limit we were allowed (the significance level). Because the binomial is discrete, the actual probability is smaller, $0.00794$.",
+   "**Final answer**\n\n$$\\text{P}(\\text{Type I error})=0.00794\\text{ (3 s.f.)}$$"
+  ]
+ },
+ "9709_w25_63_q5_b": {
+  "hints": [
+   "Use the two comparisons from part (a): find the largest value $c$ for which $\\text{P}(X\\leqslant c)$ stays within the $2.5\\%$ level, then write the region in the form '$X \\leqslant c$'."
+  ],
+  "walkthrough": [
+   "**Use the working from part (a)**\n\nThe rejection region is the set of results that make us reject $\\text{H}_0$. For this lower-tail test it has the form $X\\leqslant c$, where $c$ is the largest value with $\\text{P}(X\\leqslant c)\\leqslant0.025$.\n\nFrom part (a):\n\n$$\\text{P}(X\\leqslant2)=0.00794\\leqslant0.025\\ \\checkmark$$\n\n$$\\text{P}(X\\leqslant3)=0.0285>0.025\\ \\times$$\n\nSo $c=2$.",
+   "**Final answer**\n\nThe rejection region is $X\\leqslant2$ (that is, $X=0,1$ or $2$)."
+  ]
+ },
+ "9709_w25_63_q5_c": {
+  "hints": [
+   "A Type II error means $\\text{H}_0$ is not rejected although it is false. Compare Laxmi's result of $2$ households with your rejection region from part (b): what does the test do with that result?"
+  ],
+  "walkthrough": [
+   "**What a Type II error is**\n\nA Type II error happens when we do **not** reject $\\text{H}_0$, but $\\text{H}_0$ is actually false. So to make a Type II error you must first fail to reject $\\text{H}_0$.\n\nThe two errors are easy to mix up: Type I = rejecting a true $\\text{H}_0$; Type II = keeping a false $\\text{H}_0$.",
+   "**Look at Laxmi's result**\n\nLaxmi finds exactly $2$ households with more than $4$ people, so $X=2$.\n\nFrom part (b) the rejection region is $X\\leqslant2$. The value $2$ is inside it.",
+   "**Conclude**\n\nBecause $X=2$ is in the rejection region, the test **rejects** $\\text{H}_0$. Since $\\text{H}_0$ is not kept, a Type II error cannot happen. (If anything went wrong it could only be a Type I error.)",
+   "**Final answer**\n\n$\\text{H}_0$ will be rejected, because the result $X=2$ lies in the rejection region. A Type II error needs $\\text{H}_0$ to be accepted, so it is impossible."
+  ]
+ }
+}

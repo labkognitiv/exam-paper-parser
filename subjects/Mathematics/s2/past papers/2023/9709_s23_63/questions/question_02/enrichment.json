@@ -1,0 +1,24 @@
+{
+ "9709_s23_63_q2_a": {
+  "hints": [
+   "The members are numbered up to 264, which has 3 digits, so read the digits in groups of 3 from the list. The first two groups gave 106 and 121. Carry on with the next groups of three digits, left to right.",
+   "Reject any group that is bigger than 264, and skip any member already chosen (you cannot pick the same member twice). Keep going until you have two new members."
+  ],
+  "walkthrough": [
+   "**Why groups of three digits**\n\nThe largest member number is 264, which has three digits. So we read the random digits three at a time, left to right. Every group is then a number between $000$ and $999$.\n\nA group is only useful if it is a real member number: from $001$ to $264$. Anything else (like $000$ or a number above $264$) is skipped. We also skip a member who has already been chosen, because a person cannot be in the sample twice.",
+   "**Write the digits in one line and cut them into threes**\n\nThe 20 digits are $10612\\ 11801\\ 21473\\ 22759$. In one line, with the groups marked:\n\n$$106\\ |\\ 121\\ |\\ 180\\ |\\ 121\\ |\\ 473\\ |\\ 227\\ |\\ 59$$\n\nThe first two groups are $106$ and $121$, which matches the question (these are members 1 and 2).",
+   "**Go through the next groups one by one**\n\nThird group: $180$. This is between $1$ and $264$ and has not been used, so member $180$ is chosen (this earns the first B1).\n\nFourth group: $121$. This is a valid number but it was already chosen as the 2nd member, so we skip it.\n\nFifth group: $473$. This is bigger than $264$, so there is no such member and we skip it.\n\nSixth group: $227$. This is between $1$ and $264$ and is new, so member $227$ is chosen (this earns the second B1).\n\nThe two numbers must both be right, and there must be no extra numbers written down beside them.",
+   "**Final answer**\n\nThe 3rd and 4th members of the sample are numbers $180$ and $227$."
+  ]
+ },
+ "9709_s23_63_q2_b": {
+  "hints": [
+   "For a sample to be random, each number chosen should not depend on the numbers chosen before it. Look at which digits make up 061 and 211, and compare them with the digits already used for 106, 121, 180 and 227."
+  ],
+  "walkthrough": [
+   "**What a random sample needs**\n\nIn a random sample, each new choice must be made independently of the choices already made. The digits used for one member should not be re-used in a way that ties the next numbers to the earlier ones.",
+   "**What is wrong with Donash's new method**\n\nStarting from the second digit means he re-uses digits that were already used to make the first members. Write the digits in one line: $1\\ 0\\ 6\\ 1\\ 2\\ 1\\ 1\\ 8\\ 0\\ 1\\ \\ldots$ The first group $106$ used the digits $1, 0, 6$ and the second group $121$ used $1, 2, 1$.\n\nHis new groups start from the second digit: $061$ uses $0, 6$ (taken from the first group, $106$) and $1$ (taken from the second group, $121$). The next group $211$ uses $2, 1$ (from $121$) and $1$ (from the next digits). So the new numbers are built from digits already used.\n\nThis means the new numbers are **not independent of the previous numbers**: once you know the earlier members, the later ones are largely already decided.\n\nAlso, he only has a finite list of digits (20), so there is a fixed, small set of numbers he can ever get. Either of these reasons earns the mark. Just writing 'it is not random' or 'it is biased' without a reason scores nothing.",
+   "**Final answer**\n\nThe method is not random because the new numbers are not independent of the earlier ones: they re-use the same digits already used for the first four members. (Alternatively: only a finite number of digits is available.)"
+  ]
+ }
+}

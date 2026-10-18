@@ -1,0 +1,36 @@
+{
+ "9709_s16_71_q5_i": {
+  "hints": [
+   "Let $T = X_1 + X_2 + \\dots + X_6$ be the total thickness. A sum of independent normal variables is normal. Find its mean $\\text{E}(T) = 6 \\times 2.4$ and its variance $\\text{Var}(T) = 6 \\times 0.3^2$. Variances add (standard deviations do not).",
+   "Standardise using the standard deviation, which is the square root of the variance: $z = \\dfrac{16 - \\text{E}(T)}{\\sqrt{\\text{Var}(T)}}$.",
+   "You want $\\text{P}(T > 16)$, the upper tail. Since the table or calculator gives $\\Phi(z) = \\text{P}(Z < z)$, write the probability as $1 - \\Phi(z)$.",
+   "Look up $\\Phi(z)$ for your $z$ (normal table, or your calculator's normal cdf), subtract from $1$ and give the answer to 3 significant figures."
+  ],
+  "walkthrough": [
+   "**Setting up the total**\n\nLet $X$ be the thickness of one book, so $X \\sim \\text{N}(2.4, 0.3^2)$. The mean is $2.4$ cm and the standard deviation is $0.3$ cm, so the variance is $0.3^2 = 0.09$.\n\nLet $T = X_1 + X_2 + X_3 + X_4 + X_5 + X_6$ be the total of 6 randomly chosen books. Each book is chosen independently, and a sum of independent normal variables is also normally distributed. So $T$ is normal and we only need its mean and variance.",
+   "**Mean and variance of T (M1)**\n\nMeans add: $\\text{E}(T) = 6 \\times 2.4 = 14.4$.\n\nVariances add too, for independent variables: $\\text{Var}(T) = 6 \\times 0.3^2 = 6 \\times 0.09 = 0.54$.\n\n$$T \\sim \\text{N}(14.4, 0.54)$$\n\nQuick check: we add **variances**, not standard deviations. The standard deviation of $T$ is $\\sqrt{0.54}$, not $6 \\times 0.3$. Writing this distribution earns the first M1. (The scheme also accepts working with the sample mean $\\text{N}(2.4, 0.3^2/6)$ and the corresponding comparison.)",
+   "**Standardise (M1)**\n\nWe want $\\text{P}(T > 16)$. To use the standard normal tables we turn $16$ into a $z$-value, the number of standard deviations above the mean:\n\n$$z = \\frac{16 - 14.4}{\\sqrt{0.54}}$$\n\nTop line: $16 - 14.4 = 1.6$.\n\nBottom line: $\\sqrt{0.54} = 0.73485$.\n\n$$z = \\frac{1.6}{0.73485} = 2.1773$$\n\nSo $z = 2.177$ (3 d.p.). A common slip is to divide by $0.54$ instead of its square root. The scheme allows this for the mark but the answer will be wrong.",
+   "**Choose the correct tail (M1)**\n\nTables and calculators give $\\Phi(z) = \\text{P}(Z < z)$, the area to the left. We want the area to the right of $z = 2.177$, because 'more than 16 cm' is the upper tail:\n\n$$\\text{P}(T > 16) = \\text{P}(Z > 2.177) = 1 - \\Phi(2.177)$$\n\nSketch a bell curve and shade the region to the right of $2.177$. It is a small sliver, so the answer should be a small probability.",
+   "**Evaluate (A1)**\n\nUse the normal table or your calculator's normal cdf: $\\Phi(2.177) = 0.98526$.\n\n$$1 - 0.98526 = 0.01474$$\n\nTo 3 significant figures: $0.0147$ (the leading zeros do not count; the first three significant digits are $1, 4, 7$). It is small, as expected.",
+   "**Final answer**\n\n$\\text{P}(\\text{total thickness of 6 books} > 16) = 0.0147$ (3 s.f.)."
+  ]
+ },
+ "9709_s16_71_q5_ii": {
+  "hints": [
+   "'Less than $1.1$ times the second' means $X_1 < 1.1X_2$. Rewrite it as one variable compared with zero: let $D = X_1 - 1.1X_2$, so you want $\\text{P}(D < 0)$. Find $\\text{E}(D)$ using $\\text{E}(X_1) - 1.1\\,\\text{E}(X_2)$ with $\\text{E}(X) = 2.4$.",
+   "For the variance use $\\text{Var}(aX) = a^2\\text{Var}(X)$, and variances add even for a difference: $\\text{Var}(D) = \\text{Var}(X_1) + 1.1^2\\,\\text{Var}(X_2)$, with $\\text{Var}(X) = 0.3^2$.",
+   "Standardise $0$: $z = \\dfrac{0 - \\text{E}(D)}{\\sqrt{\\text{Var}(D)}}$. Take the square root of the variance, and keep the sign of $\\text{E}(D)$ in mind.",
+   "Decide which area you need: $\\text{P}(D < 0)$ is the lower tail. Is that $\\Phi(z)$ or $1 - \\Phi(z)$ for your value of $z$? A sketch helps.",
+   "Look up $\\Phi(z)$ for your $z$ with the normal table or your calculator's normal cdf, and give the answer to 3 significant figures."
+  ],
+  "walkthrough": [
+   "**Turning the question into a single variable**\n\nLet $X_1$ be the thickness of the first book and $X_2$ the thickness of the second, both with distribution $\\text{N}(2.4, 0.3^2)$ and independent of each other. The event is $X_1 < 1.1X_2$.\n\nMove everything to one side so we compare with zero:\n\n$$X_1 < 1.1X_2 \\iff X_1 - 1.1X_2 < 0$$\n\nSo define $D = X_1 - 1.1X_2$. We want $\\text{P}(D < 0)$. $D$ is a linear combination of independent normal variables, so it is normal.",
+   "**Mean of D (B1)**\n\nUse $\\text{E}(aX + bY) = a\\text{E}(X) + b\\text{E}(Y)$:\n\n$$\\text{E}(D) = \\text{E}(X_1) - 1.1\\,\\text{E}(X_2) = 2.4 - 1.1 \\times 2.4$$\n\n$1.1 \\times 2.4 = 2.64$, so\n\n$$\\text{E}(D) = 2.4 - 2.64 = -0.24$$\n\nThis earns the B1. The negative sign makes sense: the second book is multiplied by $1.1$, so on average $D$ is a bit below zero.",
+   "**Variance of D (M1)**\n\nFor independent variables, $\\text{Var}(aX + bY) = a^2\\text{Var}(X) + b^2\\text{Var}(Y)$. The coefficient is squared, so a minus sign vanishes and the variances **add** even though we subtract the variables:\n\n$$\\text{Var}(D) = 1^2 \\times 0.3^2 + (-1.1)^2 \\times 0.3^2 = 0.3^2 + 1.1^2 \\times 0.3^2$$\n\n$0.3^2 = 0.09$ and $1.1^2 = 1.21$, so $1.21 \\times 0.09 = 0.1089$.\n\n$$\\text{Var}(D) = 0.09 + 0.1089 = 0.1989$$\n\nSo $D \\sim \\text{N}(-0.24, 0.1989)$.",
+   "**Standardise (M1)**\n\nWe want $\\text{P}(D < 0)$, so the value to standardise is $0$:\n\n$$z = \\frac{0 - (-0.24)}{\\sqrt{0.1989}}$$\n\nTop line: $0 - (-0.24) = +0.24$ (subtracting a negative gives a positive).\n\nBottom line: $\\sqrt{0.1989} = 0.44598$.\n\n$$z = \\frac{0.24}{0.44598} = 0.5381$$\n\nSo $z = 0.538$ (3 d.p.). Quick check: $0$ lies above the mean $-0.24$, so $z$ must be positive.",
+   "**Choose the area (M1)**\n\nWe want $\\text{P}(D < 0)$, the area to the **left** of $z = 0.538$. This is exactly what $\\Phi$ gives:\n\n$$\\text{P}(D < 0) = \\Phi(0.538)$$\n\nA positive $z$ means we are above the mean, so more than half the probability lies to the left. The answer should be bigger than $0.5$.",
+   "**Evaluate (A1)**\n\nUse the normal table or your calculator's normal cdf: $\\Phi(0.538) = 0.7047$ (using the more exact $z = 0.5381$ gives $0.70475$).\n\nTo 3 significant figures: $0.705$. It is bigger than $0.5$, as expected.",
+   "**Final answer**\n\n$\\text{P}(X_1 < 1.1X_2) = 0.705$ (3 s.f.)."
+  ]
+ }
+}

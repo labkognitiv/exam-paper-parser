@@ -1,0 +1,42 @@
+{
+ "9709_w24_61_q6_a": {
+  "hints": [
+   "Desk $A$ has mean $1.8$ per **10** minutes, and you want **15** minutes. Scale the mean by the ratio of the times to get the new $\\lambda$ for $X \\sim \\text{Po}(\\lambda)$.",
+   "'More than 2' is the complement of 'at most 2': $\\text{P}(X > 2) = 1 - \\text{P}(X \\leqslant 2)$. Write $1 - \\text{e}^{-\\lambda}\\left(1 + \\lambda + \\dfrac{\\lambda^2}{2!}\\right)$ with your $\\lambda$, then evaluate to 3 s.f."
+  ],
+  "walkthrough": [
+   "**Scale the mean to 15 minutes**\n\nDesk $A$ has a mean of $1.8$ customers per $10$ minutes. For a Poisson process the mean grows in proportion to the time, so for $15$ minutes we multiply by $\\dfrac{15}{10} = 1.5$:\n\n$$\\lambda = 1.8 \\times 1.5 = 2.7$$\n\nSo the number of customers $X \\sim \\text{Po}(2.7)$.",
+   "**Set up the probability (this is the M1)**\n\n'More than 2' means $3, 4, 5, \\ldots$ with no end. Instead of adding infinitely many terms, use the complement: $\\text{P}(X > 2) = 1 - \\text{P}(X \\leqslant 2)$, and $\\text{P}(X \\leqslant 2) = \\text{P}(0) + \\text{P}(1) + \\text{P}(2)$.\n\nThe Poisson formula is $\\text{P}(X = r) = \\text{e}^{-\\lambda}\\dfrac{\\lambda^r}{r!}$. So:\n\n$$\\text{P}(X > 2) = 1 - \\text{e}^{-2.7}\\left(1 + 2.7 + \\frac{2.7^2}{2}\\right)$$\n\nThe scheme says you must see this expression; a common slip is to stop one term early or add one too many.",
+   "**Calculate (this is the A1)**\n\n$$\\text{e}^{-2.7} = 0.06720\\ldots$$\n\n$$\\frac{2.7^2}{2} = \\frac{7.29}{2} = 3.645$$\n\n$$1 + 2.7 + 3.645 = 7.345$$\n\n$$0.06720\\ldots \\times 7.345 = 0.49362\\ldots$$\n\n$$1 - 0.49362\\ldots = 0.50638\\ldots$$\n\n(You can also use Poisson cdf on a calculator: $1 - \\text{P}(X \\leqslant 2)$ with $\\lambda = 2.7$.)",
+   "**Final answer**\n\n$\\text{P}(\\text{more than 2 customers}) = 0.506$ (3 s.f.)"
+  ]
+ },
+ "9709_w24_61_q6_b": {
+  "hints": [
+   "The sum of independent Poisson variables is Poisson, with the means added. The two desks have means $1.8$ and $2.1$ per 10 minutes. Add them, then scale from 10 minutes to the 5 minutes asked for.",
+   "'Less than 4' means $0, 1, 2$ or $3$ customers. Write $\\text{P}(X \\leqslant 3) = \\text{e}^{-\\lambda}\\left(1 + \\lambda + \\dfrac{\\lambda^2}{2!} + \\dfrac{\\lambda^3}{3!}\\right)$ with your $\\lambda$.",
+   "Work out each of the four terms with your calculator, add them and give the sum to 3 s.f. (or use Poisson cdf with $\\lambda$ and $r = 3$ as a check)."
+  ],
+  "walkthrough": [
+   "**Combine the two desks (this is the B1)**\n\nThe desks are independent, and the sum of two independent Poisson variables is also Poisson, with the two means added. In $10$ minutes the combined mean is:\n\n$$1.8 + 2.1 = 3.9$$\n\nWe want $5$ minutes, which is half of $10$ minutes, so halve the mean:\n\n$$\\lambda = 3.9 \\times \\frac{5}{10} = 1.95$$\n\nSo the total number of customers $X \\sim \\text{Po}(1.95)$.",
+   "**Set up the probability (this is the M1)**\n\n'Less than $4$' means $0, 1, 2$ or $3$ customers, so we want $\\text{P}(X \\leqslant 3)$. Use $\\text{P}(X = r) = \\text{e}^{-\\lambda}\\dfrac{\\lambda^r}{r!}$ for each and add:\n\n$$\\text{P}(X \\leqslant 3) = \\text{e}^{-1.95}\\left(1 + 1.95 + \\frac{1.95^2}{2!} + \\frac{1.95^3}{3!}\\right)$$\n\nThe scheme says there should be no end errors: it must stop at $3$, not at $4$ (which would be a 'less than or equal to $4$' slip).",
+   "**Calculate each term (this is the A1)**\n\n$$\\text{e}^{-1.95} = 0.14227\\ldots$$\n\n$$\\frac{1.95^2}{2} = \\frac{3.8025}{2} = 1.90125$$\n\n$$\\frac{1.95^3}{6} = \\frac{7.414875}{6} = 1.2358\\ldots$$\n\nAdd the bracket: $1 + 1.95 + 1.90125 + 1.2358\\ldots = 6.0870\\ldots$\n\n$$0.14227\\ldots \\times 6.0870\\ldots = 0.8660\\ldots$$\n\nQuick check: the mean is about $2$, so most of the probability should be on $0$ to $3$. A value of about $0.87$ is sensible.",
+   "**Final answer**\n\n$\\text{P}(\\text{total} < 4) = 0.866$ (3 s.f.)"
+  ]
+ },
+ "9709_w24_61_q6_c": {
+  "hints": [
+   "Let the waiting time be $x$ in units of $10$ minutes, so desk $B$ has $\\lambda = 2.1x$. 'At least one customer' is $1 - \\text{P}(0) = 1 - \\text{e}^{-2.1x}$, and you want this to be at least $90\\%$.",
+   "Rearrange to isolate the exponential, $\\text{e}^{-2.1x} \\leqslant \\dots$, then take natural logs of both sides. Taking $\\ln$ of a number less than $1$ is negative, so watch the inequality when you divide by $-2.1$.",
+   "Divide to find $x$ in units of $10$ minutes, then convert to minutes by multiplying by $10$.",
+   "Your answer in minutes will not be a whole number. She needs the probability to be *at least* 90%, so decide which whole number of minutes is enough, and check by substituting it back."
+  ],
+  "walkthrough": [
+   "**Set up the inequality (this is the first M1)**\n\nLet $x$ be the waiting time in units of $10$ minutes. Desk $B$ has mean $2.1$ per $10$ minutes, so in $x$ units the mean is $\\lambda = 2.1x$.\n\n'At least one customer' is the complement of 'none': $\\text{P}(X \\geqslant 1) = 1 - \\text{P}(X = 0)$. The Poisson probability of $0$ is $\\text{e}^{-\\lambda}\\dfrac{\\lambda^0}{0!} = \\text{e}^{-\\lambda}$. She wants to be at least $90\\%$ certain:\n\n$$1 - \\text{e}^{-2.1x} \\geqslant 0.9$$",
+   "**Isolate the exponential and take logs (this is the second M1)**\n\nSubtract $1$ from both sides, then multiply by $-1$ (which flips the inequality):\n\n$$\\text{e}^{-2.1x} \\leqslant 0.1$$\n\nTake natural logs of both sides. $\\ln$ is increasing, so the inequality keeps its direction:\n\n$$-2.1x \\leqslant \\ln 0.1$$\n\nOn your calculator, $\\ln 0.1 = -2.3025\\ldots$, so:\n\n$$-2.1x \\leqslant -2.3025\\ldots$$\n\nDivide both sides by $-2.1$. Dividing by a negative **flips the inequality**:\n\n$$x \\geqslant \\frac{2.3025\\ldots}{2.1}$$\n\nThe scheme condones using '$=$' all the way through, but the final answer must say 'at least'.",
+   "**Find the time (this is the *A1)**\n\n$$x \\geqslant 1.0964\\ldots$$\n\nOne unit is $10$ minutes, so in minutes:\n\n$$1.0964\\ldots \\times 10 = 10.96\\ldots \\text{ minutes}$$\n\nThe scheme must see $1.096$ or $10.96$ (it accepts $1.097$ or $10.97$).",
+   "**Round the right way (this is the last A1)**\n\nShe needs the probability to be *at least* $90\\%$, so she must wait at least $10.96$ minutes. $10$ minutes is too short, and the nearest whole minute above is $11$.\n\nCheck $11$ minutes: $\\lambda = 2.1 \\times 1.1 = 2.31$ and $1 - \\text{e}^{-2.31} = 0.9007\\ldots \\geqslant 0.9$. Good.\n\nCheck $10$ minutes: $\\lambda = 2.1$ and $1 - \\text{e}^{-2.1} = 0.8775\\ldots < 0.9$. Not enough.",
+   "**Final answer**\n\nShe must wait at least $11$ minutes (the exact threshold is $10.96$ minutes)."
+  ]
+ }
+}
