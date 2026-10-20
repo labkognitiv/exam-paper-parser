@@ -1,0 +1,45 @@
+{
+ "9709_m18_72_q6_i": {
+  "hints": [
+   "'Does not lie between $0.3$ and $0.7$' is the complement of 'lies between $0.3$ and $0.7$'. Write $1 - \\int_{0.3}^{0.7} \\text{f}(x)\\,\\text{d}x$ with $\\text{f}(x) = 6x(1-x) = 6(x - x^2)$.",
+   "Integrate term by term, raising each power by one: $x \\to \\dfrac{x^2}{2}$ and $x^2 \\to \\dfrac{x^3}{3}$. Keep the factor of 6 and the limits $0.3$ and $0.7$.",
+   "Substitute the upper limit $0.7$ and then subtract what you get with the lower limit $0.3$, inside $6\\left[\\dfrac{x^2}{2} - \\dfrac{x^3}{3}\\right]$.",
+   "Subtract that probability from 1 to get the probability of being outside the interval."
+  ],
+  "walkthrough": [
+   "**What the question is asking**\n\nFor a continuous random variable, probabilities are **areas under the pdf**, found by integrating. We want the probability that $X$ is **not** between $0.3$ and $0.7$. That means $X$ is below $0.3$ or above $0.7$.\n\nIt is easier to find the probability of being **between** $0.3$ and $0.7$ and subtract it from 1, since all probabilities add to 1:\n\n$$\\text{P}(\\text{not between}) = 1 - \\int_{0.3}^{0.7} \\text{f}(x)\\,\\text{d}x$$",
+   "**Expand the function (earns the first M1)**\n\nInside the range $0 \\leqslant x \\leqslant 1$, $\\text{f}(x) = 6x(1-x)$. Multiply out the bracket so that it can be integrated term by term:\n\n$$6x(1-x) = 6(x - x^2)$$\n\n$$\\text{P}(\\text{not between}) = 1 - 6\\int_{0.3}^{0.7}(x - x^2)\\,\\text{d}x$$",
+   "**Integrate (earns the A1)**\n\nUse the rule: add 1 to the power and divide by the new power. $x = x^1$ becomes $\\dfrac{x^2}{2}$ and $x^2$ becomes $\\dfrac{x^3}{3}$.\n\n$$1 - \\left[6\\left(\\frac{x^2}{2} - \\frac{x^3}{3}\\right)\\right]_{0.3}^{0.7}$$",
+   "**Substitute the limits (earns the second M1)**\n\nPut in the top limit, then subtract the result of the bottom limit:\n\n$$1 - 6\\left[\\frac{0.7^2}{2} - \\frac{0.7^3}{3} - \\frac{0.3^2}{2} + \\frac{0.3^3}{3}\\right]$$\n\nTake each piece in turn:\n\n$$\\frac{0.7^2}{2} = \\frac{0.49}{2} = 0.245, \\qquad \\frac{0.7^3}{3} = \\frac{0.343}{3} = 0.114333\\ldots$$\n\n$$\\frac{0.3^2}{2} = \\frac{0.09}{2} = 0.045, \\qquad \\frac{0.3^3}{3} = \\frac{0.027}{3} = 0.009$$\n\nThe upper limit gives $0.245 - 0.114333 = 0.130667$. The lower limit gives $0.045 - 0.009 = 0.036$. Subtract:\n\n$$0.130667 - 0.036 = 0.094667$$",
+   "**Finish (earns the last A1)**\n\nMultiply by 6, then subtract from 1:\n\n$$6 \\times 0.094667 = 0.568$$\n\nThis $0.568$ is the probability of being **between** $0.3$ and $0.7$. If you stopped here, you would get only the 'omission of $1-$' special-case marks. The question wants the outside, so subtract:\n\n$$1 - 0.568 = 0.432$$\n\nQuick check: the pdf is highest in the middle, so most of the probability is between $0.3$ and $0.7$ and less than half is outside. $0.432$ fits.",
+   "**Final answer**\n\n$$\\text{P}(X \\text{ not between } 0.3 \\text{ and } 0.7) = 0.432 \\ \\left(\\text{or } \\tfrac{54}{125}\\right)$$"
+  ]
+ },
+ "9709_m18_72_q6_ii": {
+  "hints": [
+   "$\\text{f}(x) = 6x(1-x)$ is a quadratic with a negative $x^2$ coefficient, so it is an upside-down parabola. Find where it meets the $x$-axis by solving $6x(1-x) = 0$, and sketch it only between those values.",
+   "Look at your sketch: is it symmetrical? If so, the mean (the balance point of the distribution) is in the middle of the range of $x$."
+  ],
+  "walkthrough": [
+   "**Find where the graph touches the axis**\n\n$\\text{f}(x) = 6x(1-x) = 6x - 6x^2$ is a quadratic. The coefficient of $x^2$ is negative ($-6$), so the graph is an upside-down U shape (a 'cap').\n\nIt crosses the $x$-axis where $\\text{f}(x) = 0$:\n\n$$6x(1-x) = 0 \\quad\\Rightarrow\\quad x = 0 \\ \\text{ or } \\ x = 1$$",
+   "**Find the highest point**\n\nA parabola is symmetrical, so its highest point is halfway between the two roots, at $x = 0.5$:\n\n$$\\text{f}(0.5) = 6 \\times 0.5 \\times (1 - 0.5) = 6 \\times 0.5 \\times 0.5 = 1.5$$",
+   "**Draw the sketch (earns the first B1)**\n\nDraw a smooth arch that starts at $(0, 0)$, rises to a peak at $(0.5, 1.5)$, and falls back to $(1, 0)$. Draw it **only** between $x = 0$ and $x = 1$. The pdf is $0$ everywhere else, so do not draw a curve outside this range.",
+   "**State the mean (earns the second B1)**\n\nThe mean $\\text{E}(X)$ is the 'balance point' of the distribution. The graph is symmetrical about $x = 0.5$, so the mean is on the line of symmetry. That is why the question says 'hence': read it from the sketch, no integration needed.\n\n$$\\text{E}(X) = 0.5$$",
+   "**Final answer**\n\nSketch: an arch from $(0,0)$ through the maximum $(0.5, 1.5)$ to $(1, 0)$, with no curve outside $0 \\leqslant x \\leqslant 1$.\n\n$$\\text{E}(X) = 0.5$$"
+  ]
+ },
+ "9709_m18_72_q6_iii": {
+  "hints": [
+   "The variance is $\\text{Var}(X) = \\text{E}(X^2) - [\\text{E}(X)]^2$. To get $\\text{E}(X^2)$, integrate $x^2\\,\\text{f}(x)$ over $0$ to $1$. Multiply out $x^2 \\times 6x(1-x)$ first.",
+   "Integrate each term of your expansion, $x^3$ and $x^4$, then substitute the limits $0$ and $1$.",
+   "Subtract the square of the mean from part (ii) from your $\\text{E}(X^2)$."
+  ],
+  "walkthrough": [
+   "**The formula for variance**\n\nFor a continuous variable, $\\text{Var}(X) = \\text{E}(X^2) - [\\text{E}(X)]^2$, where $\\text{E}(X^2)$ is found by integrating $x^2$ times the pdf. We already have $\\text{E}(X) = 0.5$ from part (ii).",
+   "**Set up $\\text{E}(X^2)$ (earns the first M1)**\n\n$$\\text{E}(X^2) = \\int_0^1 x^2 \\,\\text{f}(x)\\,\\text{d}x = \\int_0^1 x^2 \\times 6x(1-x)\\,\\text{d}x$$\n\nMultiply out: $x^2 \\times 6x(1-x) = 6x^3(1-x) = 6(x^3 - x^4)$.\n\n$$\\text{E}(X^2) = 6\\int_0^1 (x^3 - x^4)\\,\\text{d}x = \\left[6\\left(\\frac{x^4}{4} - \\frac{x^5}{5}\\right)\\right]_0^1$$",
+   "**Substitute the limits (earns the second M1)**\n\nAt the lower limit $x = 0$, both terms are $0$. At the upper limit $x = 1$, every power of 1 is 1:\n\n$$6\\left[\\frac{1^4}{4} - \\frac{1^5}{5}\\right] = 6\\left[\\frac{1}{4} - \\frac{1}{5}\\right] = 6 \\times \\frac{5 - 4}{20} = 6 \\times \\frac{1}{20} = 0.3$$",
+   "**Variance (earns the A1)**\n\n$$\\text{Var}(X) = \\text{E}(X^2) - [\\text{E}(X)]^2 = 0.3 - 0.5^2 = 0.3 - 0.25 = 0.05$$\n\nQuick check: a variance can never be negative. If you got a negative number, recheck $\\text{E}(X^2)$. The scheme follows through your mean from part (ii) as long as your variance is positive.",
+   "**Final answer**\n\n$$\\text{Var}(X) = 0.3 - 0.5^2 = 0.05$$"
+  ]
+ }
+}

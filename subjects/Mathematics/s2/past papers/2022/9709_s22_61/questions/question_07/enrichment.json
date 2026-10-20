@@ -1,0 +1,37 @@
+{
+  "9709_s22_61_q7_a": {
+    "hints": [
+      "The null hypothesis says nothing has changed: the population mean $\\mu$ still equals the old value. Jenny wants to know if the mean has been *reduced*, so decide which tail the alternative uses."
+    ],
+    "walkthrough": [
+      "**Choosing the hypotheses**\n\nLet $\\mu$ be the **population mean time** of Jenny's morning run after the training.\n\nThe null hypothesis $\\text{H}_0$ is the 'no change' position: her mean time is still the old $28.2$ minutes.\n\nJenny wants to test whether her mean time has been **reduced** (made smaller). That makes the alternative hypothesis $\\text{H}_1$ one-tailed with a $<$ sign.\n\n$$\\text{H}_0: \\mu = 28.2$$\n\n$$\\text{H}_1: \\mu < 28.2$$\n\nSay in words, as the scheme wants, that $\\mu$ is the population mean run time (not 'journey time').",
+      "**Final answer**\n\n$\\text{H}_0$: population mean run time $= 28.2$ minutes. $\\text{H}_1$: population mean run time $< 28.2$ minutes."
+    ]
+  },
+  "9709_s22_61_q7_b": {
+    "hints": [
+      "A Type I error means rejecting $\\text{H}_0$ when it is actually true. So assume $\\mu = 28.2$ and ask how likely the sample mean is to fall below her cut-off of $27$.",
+      "Under $\\text{H}_0$ the mean of 40 runs is normal with standard deviation $\\dfrac{4.0}{\\sqrt{40}}$ (note the $\\sqrt{40}$). Standardise: $z = \\dfrac{27 - 28.2}{4.0/\\sqrt{40}}$.",
+      "She rejects when the sample mean is *below* 27, so you want the lower tail $\\text{P}(Z < z)$. With a negative $z$ write it as $1 - \\Phi$ of the positive version, or use normal cdf on the calculator, then round to 3 significant figures."
+    ],
+    "walkthrough": [
+      "**What a Type I error is**\n\nA Type I error means rejecting $\\text{H}_0$ when $\\text{H}_0$ is actually true. Jenny rejects $\\text{H}_0$ if the sample mean $\\bar{X}$ is less than $27$. So we need the probability that $\\bar{X} < 27$ **assuming** $\\text{H}_0$ is true, that is $\\mu = 28.2$.",
+      "**Distribution of the sample mean (setup for the first M1)**\n\nEach run time has standard deviation $\\sigma = 4.0$. The mean of a sample of $n = 40$ runs has standard deviation $\\dfrac{\\sigma}{\\sqrt{n}} = \\dfrac{4.0}{\\sqrt{40}}$, because averages vary less than single values.\n\n$$\\frac{4.0}{\\sqrt{40}} = \\frac{4.0}{6.3245\\ldots} = 0.6324\\ldots$$\n\nWith 40 observations the central limit theorem tells us the sample mean is approximately normal. Under $\\text{H}_0$: $\\bar{X} \\sim \\text{N}\\left(28.2, \\left(\\frac{4.0}{\\sqrt{40}}\\right)^2\\right)$.",
+      "**Standardise (first M1)**\n\nConvert the boundary $27$ to a $z$-value using $z = \\dfrac{\\text{value} - \\text{mean}}{\\text{standard deviation}}$. The $\\sqrt{40}$ must be there for the mark.\n\n$$z = \\frac{27 - 28.2}{4.0/\\sqrt{40}} = \\frac{-1.2}{0.6324\\ldots} = -1.897\\ldots$$",
+      "**Choose the area (second M1)**\n\nThe rejection condition is $\\bar{X} < 27$, the lower tail, so we want the area to the left of $z = -1.897$. Tables usually give only positive $z$. By symmetry, the area to the left of $-1.897$ equals the area to the right of $+1.897$:\n\n$$\\text{P}(Z < -1.897) = 1 - \\Phi(1.897)$$",
+      "**Calculate (A1)**\n\n$\\Phi(1.897) = 0.9711$, so\n\n$$1 - 0.9711 = 0.0289$$\n\nCalculator check: normal cdf with lower $-10^{99}$ and upper $-1.897$ (mean 0, standard deviation 1) shows $0.0289$.",
+      "**Final answer**\n\nThe probability that Jenny makes a Type I error is **0.0289** (3 s.f.)."
+    ]
+  },
+  "9709_s22_61_q7_c": {
+    "hints": [
+      "Compare the sample mean $27.2$ with Jenny's rule (conclude the training worked only if the mean is less than $27$). Does she reject $\\text{H}_0$ or not?",
+      "A Type I error can only happen if you reject $\\text{H}_0$; a Type II error can only happen if you do not reject $\\text{H}_0$. Which one is possible for her result?"
+    ],
+    "walkthrough": [
+      "**What was her decision? (M1)**\n\nHer rule is: conclude the training has been effective (reject $\\text{H}_0$) only if the sample mean is **less than 27**. Her sample mean was $27.2$.\n\n$$27.2 > 27$$\n\nSo $27.2$ is not less than $27$ and she does **not** reject $\\text{H}_0$.",
+      "**Which error can be made? (A1)**\n\nA Type I error means rejecting $\\text{H}_0$ when it is true. Since she did not reject $\\text{H}_0$, a Type I error cannot have been made.\n\nA Type II error means *not* rejecting $\\text{H}_0$ when it is actually false (her mean really has dropped but the sample did not show it). She did not reject $\\text{H}_0$, so this error could have been made, if $\\text{H}_0$ is in fact false.\n\nBoth statements are needed for the mark.",
+      "**Final answer**\n\nBecause $\\text{H}_0$ is not rejected, **only a Type II error** could be made. A Type I error cannot be made."
+    ]
+  }
+}

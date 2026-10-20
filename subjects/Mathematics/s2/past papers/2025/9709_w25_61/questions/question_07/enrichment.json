@@ -1,0 +1,41 @@
+{
+ "9709_w25_61_q7_a": {
+  "hints": [
+   "$\\text{f}(x)=0$ for $x>5$, so $\\text{P}(X>4.5)=\\displaystyle\\int_{4.5}^{5}\\text{f}(x)\\,\\text{d}x$. Expand $(x-3)(x-5)$ so you can integrate term by term, keeping the factor $-\\dfrac{3}{4}$ in front.",
+   "Integrate each term with $\\displaystyle\\int x^n\\,\\text{d}x=\\dfrac{x^{n+1}}{n+1}$ and write the result in square brackets with limits $4.5$ and $5$, with $-\\dfrac{3}{4}$ in front.",
+   "Substitute $x=5$ and $x=4.5$ into the bracket separately, each on its own line, taking care with the powers and fractions.",
+   "Subtract the lower-limit value from the upper-limit value, then multiply by $-\\dfrac{3}{4}$."
+  ],
+  "walkthrough": [
+   "**Turn the question into an area**\n\nFor a continuous random variable, a probability is the area under the pdf. 'Longer than $4.5$ minutes' means $X>4.5$. The pdf is $0$ beyond $x=5$, so the area we want is from $4.5$ to $5$:\n\n$$\\text{P}(X>4.5)=\\int_{4.5}^{5}\\text{f}(x)\\,\\text{d}x$$",
+   "**Expand f(x) so it can be integrated**\n\nWe have $\\text{f}(x)=-\\dfrac{3}{4}(x-3)(x-5)$. Expand the brackets first:\n\n$$(x-3)(x-5)=x\\cdot x-5x-3x+15=x^2-8x+15$$\n\n$$\\text{f}(x)=-\\frac{3}{4}\\left(x^2-8x+15\\right)$$\n\nSet up the integral (this earns the M1):\n\n$$\\text{P}(X>4.5)=-\\frac{3}{4}\\int_{4.5}^{5}\\left(x^2-8x+15\\right)\\text{d}x$$",
+   "**Integrate (this earns the A1)**\n\nRule: $\\int x^n\\,\\text{d}x=\\dfrac{x^{n+1}}{n+1}$. Apply it to each term:\n\n$\\int x^2\\,\\text{d}x=\\dfrac{x^3}{3}$; $\\int -8x\\,\\text{d}x=-\\dfrac{8x^2}{2}=-4x^2$; $\\int15\\,\\text{d}x=15x$.\n\n$$\\text{P}(X>4.5)=-\\frac{3}{4}\\left[\\frac{x^3}{3}-4x^2+15x\\right]_{4.5}^{5}$$\n\nThe small $4.5$ and $5$ are the limits: we will put the top limit in, then the bottom limit, and subtract.",
+   "**Substitute the upper limit x = 5 (first part of the second M1)**\n\n$$\\frac{5^3}{3}-4\\times5^2+15\\times5=\\frac{125}{3}-100+75$$\n\n$-100+75=-25$, and $-25=-\\dfrac{75}{3}$, so $\\dfrac{125}{3}-\\dfrac{75}{3}=\\dfrac{50}{3}\\ (=16.6667)$.",
+   "**Substitute the lower limit x = 4.5**\n\n$$\\frac{4.5^3}{3}-4\\times4.5^2+15\\times4.5$$\n\n$4.5^2=20.25$ and $4.5^3=20.25\\times4.5=91.125$.\n\n$\\dfrac{91.125}{3}=30.375$; $4\\times20.25=81$; $15\\times4.5=67.5$.\n\n$$30.375-81+67.5=16.875$$",
+   "**Subtract and multiply by -3/4 (this earns the second M1 and the A1)**\n\nUpper minus lower: $\\dfrac{50}{3}-16.875=\\dfrac{400}{24}-\\dfrac{405}{24}=-\\dfrac{5}{24}$. (Check: $\\frac{50}{3}=16.6667$ and $16.6667-16.875=-0.2083$.)\n\nNow multiply by the factor outside, $-\\dfrac{3}{4}$. A negative times a negative is positive:\n\n$$-\\frac{3}{4}\\times\\left(-\\frac{5}{24}\\right)=\\frac{15}{96}=\\frac{5}{32}$$\n\nAs a decimal, $5\\div32=0.15625$. The factor $-\\frac34$ is needed for this M1, so do not forget it.\n\nSense check: a probability must lie between $0$ and $1$, and we should get something small because $4.5$ is near the end of the range, where the curve is low. $0.156$ is fine.",
+   "**Final answer**\n\n$$\\text{P}(X>4.5)=\\frac{5}{32}=0.15625\\ (=0.156\\text{ to 3 s.f.})$$"
+  ]
+ },
+ "9709_w25_61_q7_b": {
+  "hints": [
+   "Sketch the pdf: where does the parabola cross the $x$-axis, and what is its line of symmetry? Think about how a symmetric pdf splits its total area of $1$ on either side of that line."
+  ],
+  "walkthrough": [
+   "**Use the symmetry of the graph**\n\n$\\text{f}(x)=-\\frac{3}{4}(x-3)(x-5)$ is zero at $x=3$ and $x=5$, and the coefficient $-\\frac34$ makes it a downward-opening parabola (a hill shape) between $3$ and $5$.\n\nA parabola is symmetrical about the vertical line through the middle of its two roots:\n\n$$\\frac{3+5}{2}=4$$\n\nThe area under the hill is $1$ in total, and the line $x=4$ splits the hill into two mirror-image halves, each of area $\\frac12$. The median is the $x$ value that has half the area to its left, so the median is on the line of symmetry.",
+   "**Quick check by integrating**\n\nUsing the antiderivative from part (a): at $x=4$, $\\frac{64}{3}-64+60=\\frac{52}{3}$; at $x=3$, $\\frac{27}{3}-36+45=18$. The difference is $\\frac{52}{3}-18=-\\frac{2}{3}$.\n\n$$-\\frac{3}{4}\\times\\left(-\\frac{2}{3}\\right)=\\frac12$$\n\nSo exactly half the probability lies between $3$ and $4$, which confirms it. (The question only needs you to write down the answer.)",
+   "**Final answer**\n\n$$\\text{Median}=4$$"
+  ]
+ },
+ "9709_w25_61_q7_c": {
+  "hints": [
+   "Use part (a): $3.5$ and $4.5$ are the same distance either side of the median, so the tail below $3.5$ has the same probability as the tail above $4.5$. Write $\\text{P}(3.5<X<4.5)$ as $1$ minus both tails.",
+   "Replace each tail by your answer to part (a) and work out $1-2\\times(\\text{your answer})$."
+  ],
+  "walkthrough": [
+   "**Picture the areas**\n\nThe whole curve has total area $1$ and runs from $3$ to $5$. Cut it at $3.5$ and $4.5$ into three pieces:\n\nleft tail $\\text{P}(X<3.5)$, middle piece $\\text{P}(3.5<X<4.5)$, right tail $\\text{P}(X>4.5)$.\n\nThe three add to $1$, so the middle is\n\n$$\\text{P}(3.5<X<4.5)=1-\\text{P}(X<3.5)-\\text{P}(X>4.5)$$",
+   "**Use symmetry to avoid a new integral (this earns the M1)**\n\nThe curve is symmetrical about $x=4$ (from part (b)). The point $3.5$ is $0.5$ to the left of $4$ and $4.5$ is $0.5$ to the right, so the two tails are mirror images and have equal area:\n\n$$\\text{P}(X<3.5)=\\text{P}(X>4.5)=\\frac{5}{32}$$\n\nThe value $\\frac{5}{32}$ comes from part (a). Substitute:\n\n$$\\text{P}(3.5<X<4.5)=1-2\\times\\frac{5}{32}$$",
+   "**Calculate (this earns the A1FT)**\n\n$2\\times\\dfrac{5}{32}=\\dfrac{10}{32}$ and $1=\\dfrac{32}{32}$, so\n\n$$\\frac{32}{32}-\\frac{10}{32}=\\frac{22}{32}=\\frac{11}{16}$$\n\nAs a decimal $11\\div16=0.6875$. To 3 significant figures this is $0.688$ (the scheme also accepts $0.687$).\n\nIf you integrate directly from $3.5$ to $4.5$ instead, the question says you earn only $1$ mark, because you must use part (a).",
+   "**Final answer**\n\n$$\\text{P}(3.5<X<4.5)=\\frac{11}{16}=0.6875\\ (0.688\\text{ to 3 s.f.; }0.687\\text{ also accepted})$$"
+  ]
+ }
+}

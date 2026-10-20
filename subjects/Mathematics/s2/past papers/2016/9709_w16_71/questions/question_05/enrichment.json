@@ -1,0 +1,44 @@
+{
+ "9709_w16_71_q5_a": {
+  "hints": [
+   "The confidence interval for a mean with known $\\sigma$ has the form $\\bar{x} \\pm z\\dfrac{\\sigma}{\\sqrt{n}}$. Here $\\bar{x} = 63$, $\\sigma = 9$ and $n = 100$.",
+   "For a 90% interval, 90% sits in the middle, so $5\\%$ is left in each tail. Find $z$ such that $\\Phi(z) = 0.95$ (use the percentage-points table or the calculator's inverse normal).",
+   "Work out the half-width $z \\times \\dfrac{9}{\\sqrt{100}}$, then add it to and subtract it from $63$. Give the answer as an interval 'lower to upper' to 3 s.f."
+  ],
+  "walkthrough": [
+   "**What a confidence interval is**\n\nWe took one sample of 100 tomatoes. The sample mean $\\bar{x} = 63$ is our best single guess for the population mean $\\mu$, but another sample would give a slightly different mean. A **90% confidence interval** is a range around $\\bar{x}$ built so that 90% of such intervals (from different samples) would contain the true $\\mu$.",
+   "**The formula (M1)**\n\nThe population standard deviation $\\sigma = 9$ is **known**, and the masses are normal, so the sample mean of $n = 100$ tomatoes is normal with standard deviation $\\dfrac{\\sigma}{\\sqrt{n}}$. This is smaller than $\\sigma$ because a mean of 100 values varies less than a single value. The interval is\n\n$$\\bar{x} \\pm z \\times \\frac{\\sigma}{\\sqrt{n}} = 63 \\pm z \\times \\frac{9}{\\sqrt{100}}$$\n\nThis form, with any $z$, earns the M1.",
+   "**Find $z$ for 90% (B1)**\n\nA 90% interval leaves $100\\% - 90\\% = 10\\%$ outside, split equally between the two tails: $5\\%$ in each. So the area to the **left** of the upper end is $90\\% + 5\\% = 95\\%$:\n\n$$\\Phi(z) = 0.95 \\quad\\Rightarrow\\quad z = 1.645$$\n\nOn a calculator use inverse normal with area $0.95$. This value is also in the percentage-points table at 95%.\n\nCommon slip: using $z = 1.282$ (that is $\\Phi(z) = 0.90$), which forgets that there are two tails.",
+   "**Calculate the half-width**\n\n$$\\frac{9}{\\sqrt{100}} = \\frac{9}{10} = 0.9$$\n\n$$1.645 \\times 0.9 = 1.4805$$",
+   "**Write the interval (A1)**\n\n$$\\text{lower} = 63 - 1.4805 = 61.5195 \\qquad \\text{upper} = 63 + 1.4805 = 64.4805$$\n\nTo 3 significant figures: $61.5$ and $64.5$. The A1 needs an **interval** (both ends), not just the half-width.",
+   "**Final answer**\n\nA 90% confidence interval for the population mean mass is $61.5$ to $64.5$ grams (3 s.f.)."
+  ]
+ },
+ "9709_w16_71_q5_b_i": {
+  "hints": [
+   "The width of the interval is $2z\\dfrac{\\sigma}{\\sqrt{n}}$. The sample size $n = 50$ and the population standard deviation $\\sigma$ are the **same** in both intervals, so the width depends only on $z$: halving the width from 8 to 4 halves $z$. The 95% interval used $z = 1.96$, so the new $z$ is $\\dfrac{1.96}{2}$.",
+   "An $\\alpha$% interval is the central area between $-z$ and $z$, so the confidence level is $\\Phi(z) - \\Phi(-z)$. Use $\\Phi(-z) = 1 - \\Phi(z)$ to write this as $\\Phi(z) - (1 - \\Phi(z))$, and find $\\Phi(z)$ for your new $z$ from a table or calculator.",
+   "Finish by turning the central area into a percentage ($\\times 100$) and give $\\alpha$ to 3 s.f."
+  ],
+  "walkthrough": [
+   "**What changes and what stays the same**\n\nThe width of a confidence interval is $2z\\dfrac{\\sigma}{\\sqrt{n}}$ (it goes from $\\bar{x} - z\\frac{\\sigma}{\\sqrt{n}}$ up to $\\bar{x} + z\\frac{\\sigma}{\\sqrt{n}}$). In this question $\\sigma$ and $n = 50$ do not change. Only $z$ changes, and the width is **proportional** to $z$.",
+   "**Find the new $z$ (first M1)**\n\nThe first interval was a 95% interval, and for 95% the value is $z = 1.96$. Its width was 8 grams. The new width is 4, which is *half* of 8, so the new $z$ is half of $1.96$:\n\n$$z = \\frac{1.96}{2} = 0.98$$",
+   "**Find the area to the left of $z = 0.98$**\n\nNormal table or calculator normal cdf:\n\n$$\\Phi(0.98) = 0.8365$$",
+   "**Turn it into the central area (second M1)**\n\nThe confidence level is the area *between* $-0.98$ and $+0.98$. The area below $-0.98$ is the same as the area above $+0.98$, which is $1 - 0.8365 = 0.1635$. Remove both tails from the whole:\n\n$$\\text{central area} = 0.8365 - (1 - 0.8365) = 0.8365 - 0.1635 = 0.673$$\n\nThis is the same as $2 \\times 0.8365 - 1 = 0.673$.",
+   "**Convert to a percentage (A1)**\n\n$$\\alpha = 0.673 \\times 100 = 67.3$$\n\nSense check: a narrower interval is *less* confident, so $\\alpha$ must be smaller than 95. It is. The mark scheme also allows $67$ if the working is correct.",
+   "**Final answer**\n\n$\\alpha = 67.3$ (3 s.f.)."
+  ]
+ },
+ "9709_w16_71_q5_b_ii": {
+  "hints": [
+   "The population standard deviation $\\sigma$ is not given, but it is the same each time. Use the first interval ($n = 50$, 95% so $z = 1.96$, width 8) in $\\text{width} = 2z\\dfrac{\\sigma}{\\sqrt{n}}$ to find $\\sigma$ first.",
+   "Now use the same formula with width $4$, $z = 1.96$ and your $\\sigma$: $4 = 2 \\times 1.96 \\times \\dfrac{\\sigma}{\\sqrt{n}}$. Solve for $\\sqrt{n}$ first, then square it to get $n$."
+  ],
+  "walkthrough": [
+   "**Find $\\sigma$ from the first interval**\n\nThe question never gives $\\sigma$, but we know it is the same for every sample of potatoes. The first interval had $n = 50$, $z = 1.96$ (95%) and width 8:\n\n$$8 = 2 \\times 1.96 \\times \\frac{\\sigma}{\\sqrt{50}}$$\n\nMultiply both sides by $\\sqrt{50}$ and divide by $2 \\times 1.96 = 3.92$:\n\n$$\\sigma = \\frac{8 \\times \\sqrt{50}}{3.92} = \\frac{8 \\times 7.0711}{3.92} = 14.43$$\n\n(Keep the full calculator value in the next step, not just $14.43$.)",
+   "**Set up the equation for the new sample (M1)**\n\nNow the interval is still 95%, so $z = 1.96$ again, but the width is $4$ and the sample size $n$ is unknown:\n\n$$4 = 2 \\times 1.96 \\times \\frac{\\sigma}{\\sqrt{n}}$$\n\nThis equation of the correct form earns the M1.",
+   "**Solve for $n$ (A1)**\n\nRearrange to get $\\sqrt{n}$ on its own:\n\n$$\\sqrt{n} = \\frac{2 \\times 1.96 \\times \\sigma}{4} = \\frac{3.92 \\times 14.4308}{4} = 14.142\\ldots$$\n\nSquare to remove the square root:\n\n$$n = 14.142\\ldots^2 = 200$$\n\nQuick check without $\\sigma$: the width is proportional to $\\dfrac{1}{\\sqrt{n}}$. Halving the width (8 to 4) needs $\\sqrt{n}$ to double, so $n$ must be $2^2 = 4$ times as big: $4 \\times 50 = 200$. Same answer.\n\nCommon slip: doubling $n$ to 100 (the mark scheme gives a special B1 for that, but it is not the correct answer).",
+   "**Final answer**\n\n$n = 200$."
+  ]
+ }
+}

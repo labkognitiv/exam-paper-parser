@@ -1,0 +1,30 @@
+{
+  "9702_w20_43_q10_a": {
+    "hints": [
+      "Start by thinking about what radiation is used for imaging inside the body and why a thin slice or section is considered at a time rather than the whole body at once.",
+      "Think about why a single X-ray image is not enough and how moving the source and detector around the patient helps to build up depth information.",
+      "Recall what each single view produces - is it a 2D or 3D picture of that slice, and how many such views are taken?",
+      "Consider what a computer must do with all those different angled views of the same slice to find the detail inside it.",
+      "Finally, think about how you go from many slices to the whole organ - what happens when all the slice images are put together?"
+    ],
+    "walkthrough": [
+      "**Start With X-rays And Slices**\nThink of CT as a smarter X-ray. A collimated X-ray beam is used because different tissues attenuate it by different amounts. Instead of imaging the whole body at once, only one thin cross-sectional slice is scanned at a time. This lets you locate structures within that slice.",
+      "**Scan From Many Angles**\nThe X-ray tube and detectors rotate around the patient. For one slice, images are taken at many different angles, effectively viewing the same slice from all around. Each single view gives only a 2-dimensional projection of that slice.",
+      "**Combine To Build 3D**\nA computer processes all the angled 2D data for one slice to work out the attenuation of each small voxel inside it. This is repeated for many adjacent slices. The slice images are then combined to build up a full 3-dimensional image of the whole structure that can be rotated and viewed from any direction.",
+      "Final answer: X-rays are used. A narrow section/slice of the object is scanned. Scans are taken at many different angles around the section to give 2D images. Images of many sections are combined by computer to form a 3D image of the whole structure."
+    ]
+  },
+  "9702_w20_43_q10_b": {
+    "hints": [
+      "Look carefully at Fig. 10.1 and count for one voxel, for example K, how many of the four beam directions D1, D2, D3, D4 actually pass through it.",
+      "The numbers in Fig. 10.2 are summed detector readings that still include the background reading of 24, so think about what subtraction you must do first to leave only the signal due to the voxels.",
+      "After removing background, the remainder is the sum of equal contributions from that single voxel in each beam that hits it, so think about what division gives the pixel number itself."
+    ],
+    "walkthrough": [
+      "**Count How Many Beams Hit Each Voxel**\nLook at the geometry. D1 views in rows and D3 views in columns, so every voxel is hit once from the side and once from the top. In addition, the diagonal D2 passes through K and M only, while the diagonal D4 passes through L and N only. So each voxel is viewed in exactly 3 beams.",
+      "**Remove The Background**\nThe summed values in Fig. 10.2 include one background count of $24$. Subtract it to leave the signal from the voxels alone: $$42-24 = 18 \\text{ for K position}$$ $$45-24 = 21 \\text{ for L position}$$ $$51-24 = 27 \\text{ for N position}$$ $$30-24 = 6 \\text{ for M position}$$",
+      "**Divide By 3 Views To Get Pixel Numbers**\nBecause 3 beams contributed to each sum, divide each remainder by 3: $$K = 18/3 = 6$$ $$L = 21/3 = 7$$ $$N = 27/3 = 9$$ $$M = 6/3 = 2$$ This matches the layout in Fig. 10.1 with K top-left, L top-right, N bottom-left and M bottom-right.",
+      "Final answer: $K = 6$, $L = 7$, $M = 2$, $N = 9$. From $(\\text{Fig. 10.2 value} - 24)/3$."
+    ]
+  }
+}

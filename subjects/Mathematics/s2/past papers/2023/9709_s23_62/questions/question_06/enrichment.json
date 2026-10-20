@@ -1,0 +1,28 @@
+{
+  "9709_s23_62_q6_a": {
+    "hints": [
+      "A Type I error means rejecting $\\text{H}_0$ when $\\text{H}_0$ is true. So assume the true probability of a medal is $\\frac{1}{3}$ and ask for the probability of the event that makes Asha reject: no medals in $10$ attempts.",
+      "Number of medals $\\sim \\text{B}(10, \\frac{1}{3})$. The probability of zero successes is $(1 - p)^n$ with $p = \\frac{1}{3}$ and $n = 10$. Evaluate it and give 3 s.f."
+    ],
+    "walkthrough": [
+      "**What a Type I error is**\n\nA Type I error means we **reject** $\\text{H}_0$ even though $\\text{H}_0$ is **true**. Here $\\text{H}_0$ is that the probability of a medal is $\\frac{1}{3}$. Asha rejects it (concludes the probability is less) if she gets no medals in $10$ Mathlits.\n\nSo the probability of a Type I error is the probability of getting no medals **assuming** the true probability is $\\frac{1}{3}$.",
+      "**Use the binomial (this is the M1)**\n\nLet $M$ be the number of medals in $10$ Mathlits. Then $M \\sim \\text{B}(10, \\frac{1}{3})$.\n\n'No medals' means $M = 0$. The probability of failing ten times in a row is the probability of failure ($1 - \\frac{1}{3} = \\frac{2}{3}$) multiplied by itself $10$ times:\n\n$$\\text{P}(M = 0) = \\left(1 - \\frac{1}{3}\\right)^{10} = \\left(\\frac{2}{3}\\right)^{10}$$",
+      "**Calculate (this is the A1)**\n\n$$\\left(\\frac{2}{3}\\right)^{10} = \\frac{1024}{59\\,049} = 0.017341\\ldots$$\n\nTo 3 s.f. this is $0.0173$.",
+      "**Final answer**\n\nThe probability of a Type I error is $0.0173$ (3 s.f.)."
+    ]
+  },
+  "9709_s23_62_q6_b": {
+    "hints": [
+      "A Type II error means *failing to reject* $\\text{H}_0$ when it is false, when the true probability is $p$. Asha rejects only if she gets no medals, so she fails to reject if she gets at least one medal. Write that probability using $1 - \\text{P}(\\text{no medals})$ with the binomial $\\text{B}(10, p)$.",
+      "Put your expression equal to the given $0.8926$ and rearrange for the term $(1 - p)^{10}$.",
+      "Take the tenth root of both sides to find $1 - p$, then rearrange for $p$. Give the answer to 3 s.f."
+    ],
+    "walkthrough": [
+      "**What a Type II error is**\n\nA Type II error means we **fail to reject** $\\text{H}_0$ even though it is **false**. Now the true probability of a medal is $p$ (not $\\frac{1}{3}$).\n\nAsha rejects only when she gets no medals. So she fails to reject when she gets **at least one** medal.",
+      "**Write the probability of a Type II error (this is the first M1)**\n\nWith $M \\sim \\text{B}(10, p)$:\n\n$$\\text{P}(\\text{at least one medal}) = 1 - \\text{P}(\\text{no medals}) = 1 - (1 - p)^{10}$$\n\nWe are told this equals $0.8926$:\n\n$$1 - (1 - p)^{10} = 0.8926$$\n\nThe equation must be in $p$ (or in $q = 1 - p$), not a mixture of both.",
+      "**Solve for $1 - p$ (this is the second M1)**\n\nRearrange to get the power on its own:\n\n$$(1 - p)^{10} = 1 - 0.8926 = 0.1074$$\n\nTo undo the power of $10$, take the tenth root (the same as raising to the power $\\frac{1}{10} = 0.1$). On a calculator type $0.1074^{0.1}$:\n\n$$1 - p = 0.1074^{0.1} = 0.80001\\ldots \\approx 0.800$$",
+      "**Find $p$ (this is the A1)**\n\n$$p = 1 - 0.8000 = 0.1999\\ldots$$\n\nTo 3 s.f. this is $0.200$ (the scheme also accepts $0.2$).\n\nQuick check: with $p = 0.2$, $(1 - 0.2)^{10} = 0.8^{10} = 0.1074$, which matches.",
+      "**Final answer**\n\n$p = 0.200$ (3 s.f.)."
+    ]
+  }
+}

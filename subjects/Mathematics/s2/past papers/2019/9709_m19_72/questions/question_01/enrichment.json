@@ -1,0 +1,27 @@
+{
+ "9709_m19_72_q1_i": {
+  "hints": [
+   "A 98% interval leaves 1% in each tail, so you want the $z$ with $\\Phi(z) = 0.99$ (upper-tail area 1%). Find it with the inverse normal on your calculator or the percentage-points table.",
+   "Use $\\bar{x} \\pm z \\times \\dfrac{\\sigma}{\\sqrt{n}}$ with $\\bar{x} = 62.3$, $\\sigma = 13.2$ and $n = 200$. Write it as $62.3 \\pm z \\times \\dfrac{13.2}{\\sqrt{200}}$.",
+   "Work out the margin $z \\times \\dfrac{13.2}{\\sqrt{200}}$ once, then subtract it from $62.3$ for the lower end and add it for the upper end. Give both ends to 3 significant figures, written as an interval."
+  ],
+  "walkthrough": [
+   "**What we are finding**\n\nA **confidence interval** is a range of values in which we are fairly sure the true population mean lies. Here the population is *all* plums of this variety, and the population mean $\\mu$ is the average mass of all of them.\n\nWe only weighed 200 plums, so we use their mean ($\\bar{x} = 62.3$ g) as our best guess, and then add and take away a margin to allow for sampling error.\n\nThe population standard deviation is known: $\\sigma = 13.2$ g. Because $\\sigma$ is known we use the normal ($z$) distribution.",
+   "**Find the $z$ value for 98% (this earns the B1)**\n\n98% in the middle leaves $100\\% - 98\\% = 2\\%$ in the two tails together, so $1\\%$ in each tail. The area up to the upper end is therefore $100\\% - 1\\% = 99\\%$.\n\n$$\\Phi(z) = 0.99$$\n\nOn your calculator use inverse normal with area $0.99$, mean $0$, standard deviation $1$. It shows $2.3263\\ldots$, so\n\n$$z = 2.326$$",
+   "**Write the interval formula (this earns the M1)**\n\nFor a population with known standard deviation $\\sigma$ and a sample of size $n$, the confidence interval for the mean is\n\n$$\\bar{x} \\pm z \\times \\frac{\\sigma}{\\sqrt{n}}$$\n\nHere $\\bar{x}$ means the sample mean, $\\sigma$ the population standard deviation and $n$ the sample size. Substitute $\\bar{x} = 62.3$, $\\sigma = 13.2$, $n = 200$ and $z = 2.326$:\n\n$$62.3 \\pm 2.326 \\times \\frac{13.2}{\\sqrt{200}}$$\n\nNotice the $\\sqrt{200}$: we are dealing with the mean of 200 plums, which varies less than a single plum.",
+   "**Work out the margin**\n\nFirst the square root: $\\sqrt{200} = 14.1421\\ldots$\n\nNext the standard error: $\\dfrac{13.2}{14.1421} = 0.93338\\ldots$\n\nThen multiply by $z$:\n\n$$2.326 \\times 0.93338 = 2.1710\\ldots$$\n\nSo the margin is about $2.171$ g.",
+   "**Lower and upper ends (this earns the A1)**\n\n$$\\text{Lower end} = 62.3 - 2.171 = 60.129$$\n\n$$\\text{Upper end} = 62.3 + 2.171 = 64.471$$\n\nRound each to 3 significant figures: $60.129 \\to 60.1$ and $64.471 \\to 64.5$.\n\nCommon slip: giving only one value or a single number with $\\pm$ that is not worked out. The answer must be an **interval**, lower value to upper value.",
+   "**Final answer**\n\n98% confidence interval for the population mean mass: **60.1 g to 64.5 g**"
+  ]
+ },
+ "9709_m19_72_q1_ii": {
+  "hints": [
+   "The Central Limit theorem is needed only when the population is not known to be normal, so that you can still treat the sample mean as normal. Reread the first sentence of the question: does it say how the plum masses are distributed?"
+  ],
+  "walkthrough": [
+   "**What the Central Limit theorem does**\n\nFor a **large** sample, the Central Limit theorem says the sample mean $\\bar{X}$ is approximately normally distributed, **whatever the shape of the population**.\n\nWe need it when the population is *not* normal (or we do not know its shape) but we still want to use a normal $z$ interval for the mean.\n\nIf the population were stated to be normal, the sample mean would already be exactly normal, and we would not need the theorem.",
+   "**Check the question**\n\nThe first sentence only tells us the standard deviation, $13.2$ g. It does **not** say the masses are normally distributed. So we do not know the shape of the population (this earns the B1).",
+   "**Final answer**\n\n**Yes**, it was necessary, because the population distribution of plum masses is not stated to be normal (it is unknown), so the Central Limit theorem was needed to treat the sample mean as normal."
+  ]
+ }
+}

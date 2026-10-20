@@ -1,0 +1,44 @@
+{
+ "9709_s20_63_q6_a": {
+  "hints": [
+   "Sketch $\\text{f}(x)$: the factor $(10 - x)(x - 5)$ is an upside-down parabola that is zero at $x = 5$ and $x = 10$. Where is its line of symmetry? The mean of a symmetric distribution sits on it."
+  ],
+  "walkthrough": [
+   "**Look at the shape of the pdf**\n\n$\\text{f}(x) = \\frac{6}{125}(10 - x)(x - 5)$ for $5 \\leqslant x \\leqslant 10$. The bracket $(10 - x)(x - 5)$ multiplies out to a quadratic with a negative $x^2$ term, so its graph is an upside-down parabola ('hill'). It equals $0$ at $x = 5$ and $x = 10$ (where one of the brackets is zero) and is highest exactly halfway between them.",
+   "**Use symmetry**\n\nA parabola is symmetric about its highest point. So the pdf is symmetric about the midpoint of $5$ and $10$:\n\n$$\\frac{5 + 10}{2} = 7.5$$\n\nFor a symmetric distribution the mean is at the centre of symmetry, so no integration is needed.",
+   "**Final answer**\n\n$\\text{E}(X) = 7.5$"
+  ]
+ },
+ "9709_s20_63_q6_b": {
+  "hints": [
+   "Use $\\text{Var}(X) = \\text{E}(X^2) - [\\text{E}(X)]^2$ with $\\text{E}(X^2) = \\displaystyle\\int x^2\\,\\text{f}(x)\\,\\text{d}x$ over $5 \\leqslant x \\leqslant 10$. First multiply out $(10 - x)(x - 5)$, then multiply by $x^2$.",
+   "Integrate each power of $x$ by raising the power by one and dividing by the new power, then substitute the limits $10$ and $5$ and multiply by $\\frac{6}{125}$.",
+   "Subtract $[\\text{E}(X)]^2$, using your value of $\\text{E}(X)$ from part **(a)**, and give your answer to 3 significant figures."
+  ],
+  "walkthrough": [
+   "**The formula and why we need $\\text{E}(X^2)$**\n\nThe variance of a continuous random variable is\n\n$$\\text{Var}(X) = \\text{E}(X^2) - [\\text{E}(X)]^2$$\n\nWe know $\\text{E}(X) = 7.5$ from part **(a)**. We still need $\\text{E}(X^2)$, the 'mean of the squares', which for a pdf is\n\n$$\\text{E}(X^2) = \\int_5^{10} x^2\\,\\text{f}(x)\\,\\text{d}x$$",
+   "**Multiply out the brackets**\n\nFirst expand $(10 - x)(x - 5)$:\n\n$$(10 - x)(x - 5) = 10x - 50 - x^2 + 5x = -x^2 + 15x - 50$$\n\nNow multiply by $x^2$:\n\n$$x^2(-x^2 + 15x - 50) = -x^4 + 15x^3 - 50x^2$$\n\nSo (this is the first M1)\n\n$$\\text{E}(X^2) = \\frac{6}{125}\\int_5^{10}\\left(-x^4 + 15x^3 - 50x^2\\right)\\text{d}x$$",
+   "**Integrate (the second M1 begins)**\n\nRaise each power by 1 and divide by the new power:\n\n$$\\int \\left(-x^4 + 15x^3 - 50x^2\\right)\\text{d}x = -\\frac{x^5}{5} + 15 \\times \\frac{x^4}{4} - 50 \\times \\frac{x^3}{3}$$\n\nSo\n\n$$\\text{E}(X^2) = \\frac{6}{125}\\left[-\\frac{x^5}{5} + \\frac{15x^4}{4} - \\frac{50x^3}{3}\\right]_5^{10}$$",
+   "**Substitute the limits**\n\nTop limit $x = 10$:\n\n$$-\\frac{10^5}{5} + \\frac{15 \\times 10^4}{4} - \\frac{50 \\times 10^3}{3} = -20\\,000 + 37\\,500 - 16\\,666.67 = 833.33\\ldots$$\n\nBottom limit $x = 5$:\n\n$$-\\frac{5^5}{5} + \\frac{15 \\times 5^4}{4} - \\frac{50 \\times 5^3}{3} = -625 + 2343.75 - 2083.33 = -364.58\\ldots$$\n\nTop minus bottom:\n\n$$833.33\\ldots - (-364.58\\ldots) = 1197.91\\ldots$$\n\nMultiply by $\\frac{6}{125} = 0.048$:\n\n$$\\text{E}(X^2) = 0.048 \\times 1197.91\\ldots = 57.5$$\n\n(Your calculator's integral function is a good way to check this.)",
+   "**Subtract the mean squared**\n\n$$\\text{Var}(X) = \\text{E}(X^2) - [\\text{E}(X)]^2 = 57.5 - 7.5^2 = 57.5 - 56.25 = 1.25$$\n\nQuick check: all the lengths lie between $5$ and $10$, so the variance must be small and positive. $1.25$ is.",
+   "**Final answer**\n\n$\\text{Var}(X) = 1.25$ (3 s.f.)"
+  ]
+ },
+ "9709_s20_63_q6_c": {
+  "hints": [
+   "First find $p = \\text{P}(X < 6)$: the area under the pdf from the lowest possible value $5$ up to $6$, $\\displaystyle\\int_5^6 \\text{f}(x)\\,\\text{d}x$. Expand $(10 - x)(x - 5)$ before integrating.",
+   "Integrate term by term, then substitute the limits $6$ and $5$ and multiply by $\\frac{6}{125}$.",
+   "Evaluate, and check with your calculator's definite integral. This is the probability that one worm is shorter than $6$ cm. Call it $p$.",
+   "Two worms are independent. 'Exactly one is shorter than $6$ cm' can happen in two ways (first short and second not, or the other way round). Each way has probability $p(1 - p)$.",
+   "Add up the two ways, substitute your value of $p$ and give 3 significant figures."
+  ],
+  "walkthrough": [
+   "**Step one: the chance that one worm is shorter than 6 cm**\n\nThe pdf is $0$ below $x = 5$, so 'shorter than $6$' means 'between $5$ and $6$':\n\n$$\\text{P}(X < 6) = \\int_5^6 \\text{f}(x)\\,\\text{d}x = \\frac{6}{125}\\int_5^6 (10 - x)(x - 5)\\,\\text{d}x$$\n\nExpand the brackets as in part **(b)**: $(10 - x)(x - 5) = -x^2 + 15x - 50$. So (this is the first M1)\n\n$$\\text{P}(X < 6) = \\frac{6}{125}\\int_5^6\\left(-x^2 + 15x - 50\\right)\\text{d}x$$",
+   "**Integrate and substitute**\n\n$$\\frac{6}{125}\\left[-\\frac{x^3}{3} + \\frac{15x^2}{2} - 50x\\right]_5^6$$\n\nAt $x = 6$:\n\n$$-\\frac{216}{3} + \\frac{15 \\times 36}{2} - 300 = -72 + 270 - 300 = -102$$\n\nAt $x = 5$:\n\n$$-\\frac{125}{3} + \\frac{15 \\times 25}{2} - 250 = -41.666\\ldots + 187.5 - 250 = -104.166\\ldots = -\\frac{625}{6}$$\n\nTop minus bottom:\n\n$$-102 - \\left(-\\frac{625}{6}\\right) = -102 + \\frac{625}{6} = \\frac{13}{6}$$\n\nThis is the second M1.",
+   "**Finish the probability (the A1)**\n\n$$\\text{P}(X < 6) = \\frac{6}{125} \\times \\frac{13}{6} = \\frac{13}{125} = 0.104$$\n\nCall this $p = 0.104$. Quick check: $6$ is close to the bottom end of the range $5$ to $10$, where the pdf is small, so a small probability is sensible.",
+   "**Step two: exactly one of the two worms (the third M1)**\n\nEach worm is 'short' (under $6$ cm) with probability $p = 0.104$ and 'not short' with probability $1 - 0.104 = 0.896$. The two worms are chosen independently. There are two ways to get exactly one short worm:\n\n- first short, second not short: $0.104 \\times 0.896$\n\n- first not short, second short: $0.896 \\times 0.104$\n\nBoth ways have the same probability, so we double it:\n\n$$2 \\times p \\times (1 - p) = 2 \\times 0.104 \\times 0.896$$\n\n(This is the same as the binomial $\\text{B}(2, 0.104)$ with $r = 1$.)",
+   "**Calculate (the A1ft)**\n\n$$0.104 \\times 0.896 = 0.093184$$\n\n$$2 \\times 0.093184 = 0.186368$$\n\nRounded to 3 significant figures this is $0.186$. ('ft' means the mark follows through from your own value of $p$ if it was slightly different.)",
+   "**Final answer**\n\nThe probability that exactly one of the two worms has length less than 6 cm is $0.186$ (3 s.f.)"
+  ]
+ }
+}

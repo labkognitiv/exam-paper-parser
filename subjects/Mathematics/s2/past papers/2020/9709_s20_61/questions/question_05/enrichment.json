@@ -1,0 +1,52 @@
+{
+ "9709_s20_61_q5_a_i": {
+  "hints": [
+   "Home and away goals are independent Poisson counts, so the total for the week is Poisson too. Its rate is the **sum** of the two rates. Write $\\text{P}(X = 4) = \\text{e}^{-\\lambda}\\dfrac{\\lambda^4}{4!}$ with that combined $\\lambda$.",
+   "Enter your combined $\\lambda$ into $\\text{e}^{-\\lambda}\\dfrac{\\lambda^4}{4!}$ (or use Poisson pdf on your calculator with $r = 4$) and give the result to 3 s.f."
+  ],
+  "walkthrough": [
+   "**Why the total is Poisson**\n\nHome goals follow $\\text{Po}(2.1)$ and away goals follow $\\text{Po}(0.8)$, and the two are independent. The sum of two independent Poisson variables is again Poisson, and its mean is the sum of the means:\n\n$$\\lambda = 2.1 + 0.8 = 2.9$$\n\nSo the total $W \\sim \\text{Po}(2.9)$.",
+   "**Poisson formula (earns the M1)**\n\nFor $\\text{Po}(\\lambda)$, $\\text{P}(W = r) = \\text{e}^{-\\lambda}\\dfrac{\\lambda^r}{r!}$. With $\\lambda = 2.9$ and $r = 4$:\n\n$$\\text{P}(W = 4) = \\text{e}^{-2.9} \\times \\frac{2.9^4}{4!}$$\n\nPieces: $\\text{e}^{-2.9} = 0.055023\\ldots$, $2.9^4 = 70.7281$, $4! = 4 \\times 3 \\times 2 \\times 1 = 24$.\n\n$$\\frac{70.7281}{24} = 2.947004\\ldots$$\n\n$$0.055023 \\times 2.947004 = 0.16215\\ldots$$",
+   "**Final answer**\n\nThe probability of exactly 4 goals in the two matches is $0.162$ (3 s.f.)."
+  ]
+ },
+ "9709_s20_61_q5_a_ii": {
+  "hints": [
+   "Let $H$ be home goals ($\\text{Po}(2.1)$) and $A$ away goals ($\\text{Po}(0.8)$). They are independent, so for a split such as $(h, a)$ multiply $\\text{P}(H = h)$ by $\\text{P}(A = a)$.",
+   "List every pair $(h, a)$ with $h + a = 4$ **and** $h > a$ (home more than away), and add up the products for these pairs.",
+   "Work out each product with $\\text{e}^{-\\lambda}\\dfrac{\\lambda^r}{r!}$ for each factor, add them, and give 3 s.f."
+  ],
+  "walkthrough": [
+   "**What we are counting**\n\nLet $H \\sim \\text{Po}(2.1)$ be the home goals and $A \\sim \\text{Po}(0.8)$ the away goals, independent. We need the total to be $4$ **and** $H > A$.\n\nWrite each possible split as $(H, A)$ so that $H + A = 4$ and $H > A$:\n\n$$(4, 0) \\quad \\text{and} \\quad (3, 1)$$\n\n$(2, 2)$ is excluded because the home goals are not **more** than the away goals; $(1, 3)$ and $(0, 4)$ have more away goals.",
+   "**The first split, $(4, 0)$ (earns the B1)**\n\nIndependent, so multiply:\n\n$$\\text{P}(H = 4)\\,\\text{P}(A = 0) = \\text{e}^{-2.1}\\frac{2.1^4}{4!} \\times \\text{e}^{-0.8}$$\n\n$\\text{e}^{-2.1} = 0.122456$, $2.1^4 = 19.4481$, $\\dfrac{19.4481}{24} = 0.810338$, so $\\text{P}(H = 4) = 0.099231$. And $\\text{P}(A = 0) = \\text{e}^{-0.8} = 0.449329$.\n\n$$0.099231 \\times 0.449329 = 0.044587\\ldots$$",
+   "**The second split, $(3, 1)$**\n\n$$\\text{P}(H = 3)\\,\\text{P}(A = 1) = \\text{e}^{-2.1}\\frac{2.1^3}{3!} \\times \\text{e}^{-0.8} \\times 0.8$$\n\n$2.1^3 = 9.261$, $3! = 6$, so $\\dfrac{9.261}{6} = 1.5435$ and $\\text{P}(H = 3) = 0.122456 \\times 1.5435 = 0.189011$. Also $\\text{P}(A = 1) = 0.8 \\times 0.449329 = 0.359463$.\n\n$$0.189011 \\times 0.359463 = 0.067943\\ldots$$",
+   "**Add the two cases (earns the M1)**\n\nThe two splits cannot happen together, so add:\n\n$$\\text{P}(4, 0) + \\text{P}(3, 1) = 0.044587 + 0.067943 = 0.112530\\ldots$$",
+   "**Final answer**\n\nThe probability of 4 goals in total with more home goals than away goals is $0.113$ (3 s.f.)."
+  ]
+ },
+ "9709_s20_61_q5_b": {
+  "hints": [
+   "First find the distribution of the total goals in 10 weeks: each week has a combined rate (home plus away), and for 10 weeks you multiply that rate by 10, giving a Poisson. A Poisson with a large mean is approximately normal with **mean = variance = that mean**.",
+   "'Fewer than 25' for a discrete count means $X \\leqslant 24$. When replacing a discrete variable by a continuous normal, apply a continuity correction: use the boundary halfway between $24$ and $25$. Standardise: $z = \\dfrac{\\text{boundary} - \\text{mean}}{\\sqrt{\\text{variance}}}$.",
+   "Your $z$ is negative. Use symmetry to write the answer in terms of a positive $z$: $\\Phi(-z) = 1 - \\Phi(z)$.",
+   "Evaluate with the table or normal cdf on your calculator and give 3 s.f."
+  ],
+  "walkthrough": [
+   "**Find the distribution of the total over 10 weeks**\n\nOne week has home rate $2.1$ and away rate $0.8$, so $2.1 + 0.8 = 2.9$ goals per week. Over 10 weeks the rate is $10 \\times 2.9 = 29$. Let $Y$ be the total goals in 10 weeks:\n\n$$Y \\sim \\text{Po}(29)$$",
+   "**Approximate by a normal (earns the first M1)**\n\nCalculating $\\text{P}(Y \\leqslant 24)$ exactly would need 25 Poisson terms. Instead we use that a Poisson with a **large** mean is approximately normal with the same mean and variance. For a Poisson the variance equals the mean, so:\n\n$$Y \\approx \\text{N}(29,\\ 29)$$",
+   "**Continuity correction and standardising (earns the second M1)**\n\n$Y$ takes whole-number values only. 'Fewer than 25' means $Y \\leqslant 24$. On a continuous scale, the whole number 24 occupies the interval from $23.5$ to $24.5$, so 'up to and including 24' goes up to $24.5$. This adjustment is the **continuity correction**:\n\n$$\\text{P}(Y < 25) = \\text{P}(Y \\leqslant 24) \\approx \\text{P}(Y_{\\text{normal}} < 24.5)$$\n\nStandardise with standard deviation $\\sqrt{29} = 5.385165\\ldots$:\n\n$$z = \\frac{24.5 - 29}{\\sqrt{29}} = \\frac{-4.5}{5.385165} = -0.83563\\ldots \\approx -0.836$$",
+   "**Choose the correct area (earns the third M1)**\n\nWe want the area **below** $z = -0.836$. By symmetry this equals the area above $+0.836$:\n\n$$\\text{P}(Z < -0.836) = 1 - \\Phi(0.836)$$\n\n$\\Phi(0.836) \\approx 0.7983$, so $1 - 0.7983 = 0.2017$.",
+   "**Final answer**\n\nThe probability of fewer than 25 goals in 10 weeks is $0.202$ (3 s.f.)."
+  ]
+ },
+ "9709_s20_61_q5_c": {
+  "hints": [
+   "The normal approximation to a Poisson works well when the mean is large. Look at the mean of the Poisson distribution you approximated: is it large enough?"
+  ],
+  "walkthrough": [
+   "**Why the approximation is allowed**\n\nA Poisson distribution $\\text{Po}(\\lambda)$ is well approximated by a normal distribution when $\\lambda$ is large; the usual rule is $\\lambda > 15$. The shape then becomes a symmetrical bell shape instead of being skewed.",
+   "**Check our case (earns the B1)**\n\nWe approximated $\\text{Po}(29)$, so $\\lambda = 29$, which is larger than $15$.",
+   "**Final answer**\n\nThe mean $29$ is large ($29 > 15$), so the normal approximation to the Poisson is suitable."
+  ]
+ }
+}

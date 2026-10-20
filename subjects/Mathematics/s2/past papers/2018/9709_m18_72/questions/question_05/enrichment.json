@@ -1,0 +1,51 @@
+{
+ "9709_m18_72_q5_i": {
+  "hints": [
+   "The parameter is the proportion $p$ of orange sweets. $\\text{H}_0$ is the manufacturer's claim, written with '$=$' and the 17% as a decimal. $\\text{H}_1$ is Angela's suspicion, written with '$<$'."
+  ],
+  "walkthrough": [
+   "**What a hypothesis is**\n\nA hypothesis is a statement about a population parameter. Here the parameter is $p$, the probability that a sweet chosen at random from Frugums is orange flavoured. The manufacturer says 17% of sweets are orange, so $p = 0.17$ (17% as a decimal).\n\n$\\text{H}_0$ is always the claim being tested, the 'nothing different' statement, and it uses '$=$'. $\\text{H}_1$ is what Angela suspects. She thinks the average is **less than** 17%, so it uses '$<$'.",
+   "**Final answer**\n\n$$\\text{H}_0: p = 0.17$$\n\n$$\\text{H}_1: p < 0.17$$\n\nwhere $p$ is the probability that a sweet is orange flavoured (equally, $\\text{P}(\\text{Orange})$)."
+  ]
+ },
+ "9709_m18_72_q5_ii": {
+  "hints": [
+   "A Type I error is rejecting $\\text{H}_0$ when it is actually true. Say in words what 'rejecting $\\text{H}_0$' means for Angela, and what 'true' means for the manufacturer's claim."
+  ],
+  "walkthrough": [
+   "**What a Type I error is**\n\nThere are two ways a test can go wrong. A **Type I error** is when you reject $\\text{H}_0$ even though $\\text{H}_0$ is true.\n\nNow put it in context. Angela rejects the claim when she finds fewer than 3 orange sweets in the packet. $\\text{H}_0$ is true when the real average really is 17%.",
+   "**Final answer**\n\nA Type I error means Angela wrongly concludes that the percentage of orange sweets is less than 17%, when the percentage really is 17%. In other words, she finds fewer than 3 orange sweets in her packet by chance, even though the manufacturer's claim is correct."
+  ]
+ },
+ "9709_m18_72_q5_iii": {
+  "hints": [
+   "The packet has 30 sweets, each independently orange or not with the same probability, so the number of orange sweets is binomial. Name it with $n = 30$ and $p$ from $\\text{H}_0$, written as a decimal.",
+   "A Type I error happens when $\\text{H}_0$ is true and Angela still rejects it, that is, when $X < 3$. For a whole number, that is $X = 0, 1, 2$. Write $\\text{P}(X \\leqslant 2) = \\text{P}(0) + \\text{P}(1) + \\text{P}(2)$ with $\\text{P}(r) = {}^{30}C_r\\, p^r (1-p)^{30-r}$.",
+   "Evaluate the three terms and add them. Give your answer to 3 significant figures."
+  ],
+  "walkthrough": [
+   "**Which situation is a Type I error**\n\nFrom part (ii), a Type I error is rejecting $\\text{H}_0$ when it is true. Angela rejects when there are fewer than 3 orange sweets. So we need the probability of 'fewer than 3 orange' **assuming $p = 0.17$ is true**.",
+   "**Choose the distribution (earns the first M1)**\n\nLet $X$ be the number of orange sweets in the packet. There are a fixed number of sweets, $n = 30$, each is orange or not, with the same probability, and we assume they are independent. That is a binomial distribution.\n\n$$X \\sim \\text{B}(30, 0.17)$$",
+   "**Which values of $X$**\n\n'Fewer than 3' means $X = 0, 1$ or $2$.\n\n$$\\text{P}(\\text{Type I error}) = \\text{P}(X \\leqslant 2) = \\text{P}(X = 0) + \\text{P}(X = 1) + \\text{P}(X = 2)$$",
+   "**Write out the three terms (earns the second M1)**\n\nThe binomial formula is $\\text{P}(X = r) = {}^{30}C_r\\, 0.17^r\\, 0.83^{30-r}$, since $1 - 0.17 = 0.83$.\n\n$$\\text{P}(X \\leqslant 2) = 0.83^{30} + 30 \\times 0.83^{29} \\times 0.17 + {}^{30}C_2 \\times 0.83^{28} \\times 0.17^2$$\n\nThe number of ways to choose 2 from 30 is ${}^{30}C_2 = \\dfrac{30 \\times 29}{2} = 435$. (Check it on your calculator's $nCr$ button: $30\\ nCr\\ 2$.)",
+   "**Calculate each term**\n\n$$0.83^{30} = 0.0037354\\ldots$$\n\n$$30 \\times 0.83^{29} \\times 0.17 = 30 \\times 0.0045005 \\times 0.17 = 0.022953\\ldots$$\n\n$$435 \\times 0.83^{28} \\times 0.17^2 = 435 \\times 0.0054223 \\times 0.0289 = 0.068167\\ldots$$",
+   "**Add them (earns the A1)**\n\n$$0.0037354 + 0.022953 + 0.068167 = 0.094855\\ldots \\approx 0.0949$$\n\nQuick check: the expected number of orange sweets is $30 \\times 0.17 = 5.1$, so having 2 or fewer is fairly unlikely, but not very rare. A probability near $0.09$ fits that.",
+   "**Final answer**\n\n$$\\text{P}(\\text{Type I error}) = 0.0949$$"
+  ]
+ },
+ "9709_m18_72_q5_iv": {
+  "hints": [
+   "A Type II error is accepting (not rejecting) $\\text{H}_0$ when it is false. Angela does not reject when she finds 3 or more orange sweets. Write that as $\\text{P}(X \\geqslant 3)$ using the true percentage, given as 5%, as a decimal $p$.",
+   "The probability of $X \\geqslant 3$ is easiest through the complement: $1 - \\text{P}(X \\leqslant 2)$ with $X \\sim \\text{B}(30, p)$, where $p$ is the true value.",
+   "Write the bracket as $p$-terms for $r = 0, 1, 2$: $(1-p)^{30} + 30(1-p)^{29}p + {}^{30}C_2(1-p)^{28}p^2$. Evaluate, subtract from 1 and give 3 significant figures."
+  ],
+  "walkthrough": [
+   "**What a Type II error is here**\n\nA **Type II error** is not rejecting $\\text{H}_0$ when $\\text{H}_0$ is actually false. Angela does not reject the claim if she finds **3 or more** orange sweets. $\\text{H}_0$ is false here because the true percentage is $5\\%$, not $17\\%$. So we want $\\text{P}(X \\geqslant 3)$ when the true $p = 0.05$ (earns the first M1).",
+   "**The distribution with the true value**\n\nThis time, use the true probability, $p = 0.05$ (5% as a decimal), and not $0.17$:\n\n$$X \\sim \\text{B}(30, 0.05)$$\n\n$$\\text{P}(\\text{Type II error}) = \\text{P}(X \\geqslant 3)$$",
+   "**Use the complement (earns the second M1)**\n\n$X \\geqslant 3$ means $3, 4, 5, \\ldots, 30$, far too many terms to add. Instead use the fact that all probabilities add to 1:\n\n$$\\text{P}(X \\geqslant 3) = 1 - \\text{P}(X \\leqslant 2) = 1 - [\\text{P}(0) + \\text{P}(1) + \\text{P}(2)]$$\n\n$$= 1 - \\left[0.95^{30} + 30 \\times 0.95^{29} \\times 0.05 + {}^{30}C_2 \\times 0.95^{28} \\times 0.05^2\\right]$$\n\nwith $1 - 0.05 = 0.95$ and ${}^{30}C_2 = 435$.",
+   "**Calculate each term**\n\n$$0.95^{30} = 0.214639\\ldots$$\n\n$$30 \\times 0.95^{29} \\times 0.05 = 30 \\times 0.225936 \\times 0.05 = 0.338903\\ldots$$\n\n$$435 \\times 0.95^{28} \\times 0.05^2 = 435 \\times 0.237827 \\times 0.0025 = 0.258637\\ldots$$\n\nAdd: $0.214639 + 0.338903 + 0.258637 = 0.812179\\ldots$ (this is $\\text{P}(X \\leqslant 2)$).",
+   "**Subtract from 1 (earns the A1)**\n\n$$1 - 0.812179 = 0.187821\\ldots \\approx 0.188$$\n\nQuick check: the true expected number of orange sweets is only $30 \\times 0.05 = 1.5$, so most of the time Angela finds 2 or fewer and correctly rejects the claim. Failing to reject, with 3 or more orange sweets, should be a minority of the time. $0.188$ fits.",
+   "**Final answer**\n\n$$\\text{P}(\\text{Type II error}) = 0.188$$"
+  ]
+ }
+}

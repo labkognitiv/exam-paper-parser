@@ -1,0 +1,21 @@
+{
+ "9709_s21_61_q6": {
+  "hints": [
+   "Look at the shape of $6x - x^2 = x(6 - x)$ between its zeros at $0$ and $6$: it is symmetrical, so the mean sits on the line of symmetry.",
+   "To find $k$, use the fact that the total area under a pdf is $1$: write $\\displaystyle\\int_0^6 k(6x - x^2)\\,\\text{d}x = 1$ and integrate the bracket term by term.",
+   "Substitute the limits $6$ and $0$ into $\\left[3x^2 - \\dfrac{x^3}{3}\\right]$, set the result times $k$ equal to $1$, and solve for $k$.",
+   "For the variance you first need $\\text{E}(X^2) = \\displaystyle\\int_0^6 x^2 \\,\\text{f}(x)\\,\\text{d}x$. Multiply out $x^2(6x - x^2)$ and integrate with your value of $k$ in front.",
+   "Variance is $\\text{E}(X^2) - \\left[\\text{E}(X)\\right]^2$: subtract the square of the mean you stated at the start.",
+   "Since this is a \"show that\" question, finish by writing your result clearly as $\\dfrac{9}{5}$, showing it follows from your two numbers."
+  ],
+  "walkthrough": [
+   "**State E(X) using symmetry (B1)**\n\nThe pdf is $k(6x - x^2) = kx(6 - x)$. This is a quadratic that equals zero at $x = 0$ and $x = 6$, and a quadratic is symmetrical about the line halfway between its zeros, which is $x = \\dfrac{0 + 6}{2} = 3$.\n\nIf a distribution is symmetrical, its mean is the centre of the symmetry. So\n\n$$\\text{E}(X) = 3$$\n\nWe will check this by integration at the end.",
+   "**Use total area = 1 to set up the equation for $k$ (M1)**\n\nFor any pdf the total area under the curve must be $1$. The function is only non-zero from $0$ to $6$, so\n\n$$\\int_0^6 k(6x - x^2)\\,\\text{d}x = 1$$\n\nIntegrate each term ($\\int 6x\\,\\text{d}x = 3x^2$ and $\\int x^2\\,\\text{d}x = \\frac{x^3}{3}$):\n\n$$k\\left[3x^2 - \\frac{x^3}{3}\\right]_0^6 = 1$$",
+   "**Substitute the limits and solve for $k$ (A1)**\n\nSubstitute $x = 6$, then subtract the value at $x = 0$ (which is $0$):\n\n$$3 \\times 6^2 = 3 \\times 36 = 108, \\qquad \\frac{6^3}{3} = \\frac{216}{3} = 72$$\n\n$$k\\,(108 - 72) = 1 \\quad \\Rightarrow \\quad 36k = 1 \\quad \\Rightarrow \\quad k = \\frac{1}{36}$$\n\n(The scheme also writes this as $\\frac{3}{108}$, which is the same number.)",
+   "**Check E(X) by integration (not a mark, but a good habit)**\n\n$$\\text{E}(X) = \\int_0^6 x \\cdot k(6x - x^2)\\,\\text{d}x = k\\int_0^6 (6x^2 - x^3)\\,\\text{d}x = k\\left[2x^3 - \\frac{x^4}{4}\\right]_0^6$$\n\n$$2 \\times 216 = 432, \\qquad \\frac{1296}{4} = 324, \\qquad 432 - 324 = 108$$\n\n$$\\text{E}(X) = 108k = \\frac{108}{36} = 3 \\ \\checkmark$$",
+   "**Find E(X$^2$) (M1)**\n\nFor the variance we need the mean of $X^2$, which is found by integrating $x^2$ times the pdf:\n\n$$\\text{E}(X^2) = \\int_0^6 x^2 \\cdot k(6x - x^2)\\,\\text{d}x = k\\int_0^6 (6x^3 - x^4)\\,\\text{d}x$$\n\nIntegrate each term ($\\int 6x^3\\,\\text{d}x = \\frac{6x^4}{4} = \\frac{3x^4}{2}$, and $\\int x^4\\,\\text{d}x = \\frac{x^5}{5}$):\n\n$$\\text{E}(X^2) = \\frac{1}{36}\\left[\\frac{3x^4}{2} - \\frac{x^5}{5}\\right]_0^6$$\n\nSubstitute $x = 6$: $6^4 = 1296$ and $6^5 = 7776$.\n\n$$\\frac{3 \\times 1296}{2} = 1944, \\qquad \\frac{7776}{5} = 1555.2$$\n\n$$\\left[\\ \\right]_0^6 = 1944 - 1555.2 = 388.8$$\n\n$$\\text{E}(X^2) = \\frac{388.8}{36} = 10.8$$",
+   "**Variance (DM1)**\n\nThe variance is the mean of the squares minus the square of the mean:\n\n$$\\text{Var}(X) = \\text{E}(X^2) - \\left[\\text{E}(X)\\right]^2 = 10.8 - 3^2 = 10.8 - 9$$\n\n$$\\text{Var}(X) = 1.8 = \\frac{18}{10} = \\frac{9}{5}$$\n\nThis final line, ending with exactly the printed value, earns the last A1. Because the question says \"show that\", we must reach $\\frac{9}{5}$ from our own working, not just quote it.",
+   "**Final answer**\n\n$\\text{E}(X) = \\mathbf{3}$ and $\\text{Var}(X) = \\mathbf{\\dfrac{9}{5}}$ (which is $1.8$), as required, with $k = \\dfrac{1}{36}$."
+  ]
+ }
+}

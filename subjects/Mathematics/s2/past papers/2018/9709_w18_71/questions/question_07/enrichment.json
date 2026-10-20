@@ -1,0 +1,43 @@
+{
+ "9709_w18_71_q7_i": {
+  "hints": [
+   "$\\text{H}_0$ is the owner's claim about the population mean $\\mu$. $\\text{H}_1$ is the officer's suspicion, which is one-sided: the mean is *less* than 51.",
+   "The sample mean is $\\bar{x} = \\dfrac{\\sum x}{n}$ with $\\sum x = 7480$ and $n = 150$.",
+   "The population variance is unknown, so use the unbiased estimate $s^2 = \\dfrac{1}{n-1}\\left(\\sum x^2 - \\dfrac{(\\sum x)^2}{n}\\right)$ with $\\sum x^2 = 380\\,000$. Divide by $n-1$, not by $n$.",
+   "$n$ is large, so $\\bar{X}$ is approximately normal, with mean 51 under $\\text{H}_0$ and variance $\\dfrac{s^2}{150}$. Standardise: $z = \\dfrac{\\bar{x} - 51}{\\sqrt{s^2/150}}$.",
+   "Calculate $z$ from your $\\bar{x}$ and $s^2$, keeping all the figures on your calculator. It should come out negative, since $\\bar{x}$ is below 51.",
+   "For a one-tailed test at 2.5% the critical value is a standard value from the percentage-points table. Compare your $z$ with $-1.96$.",
+   "Say whether your $z$ lies in the rejection region, i.e. beyond $-1.96$, then write the conclusion about $\\mu$ in context, using 'there is evidence' or 'there is not enough evidence', not a definite statement."
+  ],
+  "walkthrough": [
+   "**Setting up the test**\n\nA hypothesis test starts by assuming the owner's claim is right ($\\text{H}_0$), and asks whether the sample is so unlikely under that claim that we should doubt it.\n\nThe parameter is $\\mu$, the population mean mass (in kg) of sacks of flour from this mill. The officer suspects it is **less** than 51, so the test is one-tailed with the 2.5% in the lower tail.",
+   "**The hypotheses**\n\n$$\\text{H}_0: \\mu = 51$$\n\n$$\\text{H}_1: \\mu < 51$$\n\nThis earns the first **B1**.",
+   "**The sample mean**\n\n$\\bar{x}$ means the sample mean. It is the total mass divided by the number of sacks:\n\n$$\\bar{x} = \\frac{\\sum x}{n} = \\frac{7480}{150} = 49.8666\\ldots \\approx 49.9$$\n\nThis earns the second **B1**.",
+   "**Estimating the variance**\n\nWe do not know the true spread of masses, so we estimate it from the sample. Use the *unbiased* estimate, which divides by $n - 1 = 149$ and not by 150. (Using the biased version scores M0 and the best you can then get is 5 out of 7.)\n\n$$s^2 = \\frac{1}{n-1}\\left(\\sum x^2 - \\frac{(\\sum x)^2}{n}\\right) = \\frac{1}{149}\\left(380\\,000 - \\frac{7480^2}{150}\\right)$$\n\nCalculate the pieces: $7480^2 = 55\\,950\\,400$, and $\\dfrac{55\\,950\\,400}{150} = 373\\,002.67$. Then\n\n$$380\\,000 - 373\\,002.67 = 6997.33$$\n\n$$s^2 = \\frac{6997.33}{149} = 46.962\\ldots \\approx 47.0$$\n\n(The scheme writes this as $\\frac{150}{149}\\left(\\frac{380000}{150} - \\bar{x}^2\\right)$, which gives the same result.) So $s = \\sqrt{46.962} = 6.85$. This earns the first **M1**.",
+   "**Distribution of the sample mean under H₀**\n\nThe sample is large ($n = 150$), so by the Central Limit Theorem $\\bar{X}$ is approximately normal. If $\\text{H}_0$ is true, its mean is 51, and its variance is $\\dfrac{s^2}{n} = \\dfrac{46.962}{150}$.\n\nTake the square root to get the standard error:\n\n$$\\frac{46.962}{150} = 0.31308, \\qquad \\sqrt{0.31308} = 0.5595\\ldots$$",
+   "**The test statistic**\n\nStandardise by subtracting the mean under $\\text{H}_0$ and dividing by the standard error. The $\\sqrt{150}$ must be there since this is a mean:\n\n$$z = \\frac{\\bar{x} - 51}{\\sqrt{s^2/150}} = \\frac{49.8667 - 51}{\\sqrt{46.962/150}} = \\frac{-1.1333}{0.5595}$$\n\nThis is the second **M1**. Calculating:\n\n$$z = -2.025\\ldots$$\n\nThis earns the **A1**. (Using the rounded values 49.9 and 47.0 instead gives $-1.965$, which the scheme also accepts.)",
+   "**Comparing with the critical value**\n\nAt the 2.5% level, one-tailed, the lower tail critical value is found from $\\Phi(z) = 0.025$, that is $z = -1.96$. We reject $\\text{H}_0$ if our $z$ is below $-1.96$.\n\n$$-2.025 < -1.96$$\n\nOur $z$ is in the rejection region. (Equivalently, $\\Phi(-2.025) = 0.0214$, which is less than $0.025$.) This earns the third **M1**.",
+   "**Conclusion**\n\nWe reject $\\text{H}_0$. Say what this means for the situation, without claiming certainty: there is evidence, at the 2.5% significance level, that the mean mass of sacks of flour from the mill is less than 51 kg. This earns the final **A1**.",
+   "**Final answer**\n\n$z = -2.025$ is less than $-1.96$, so reject $\\text{H}_0$. There is evidence that the mean mass of sacks of flour is less than 51 kg."
+  ]
+ },
+ "9709_w18_71_q7_ii": {
+  "hints": [
+   "A Type II error means accepting $\\text{H}_0$ when it is actually false. First find the edge of the rejection region: set $\\dfrac{\\bar{x} - 51}{6.856/\\sqrt{150}}$ equal to the critical $z$ value for the lower 2.5% tail.",
+   "Rearrange for $\\bar{x}$ to get the critical value, $\\bar{x} = 51 - 1.96 \\times \\dfrac{6.856}{\\sqrt{150}}$, and evaluate it (you may have it from part (i)). You reject if $\\bar{x}$ is below it.",
+   "Now suppose the true mean is 49. Standardise the critical value with this mean: $z = \\dfrac{\\text{critical value} - 49}{6.856/\\sqrt{150}}$.",
+   "A Type II error happens when $\\bar{x}$ is in the *acceptance* region, i.e. above the critical value. So the probability is the area to the right of your $z$: $1 - \\Phi(z)$.",
+   "Find $\\Phi$ of your $z$ with the table or calculator, subtract from 1, and give 3 s.f. It is a small probability, since the true mean 49 is well below 51."
+  ],
+  "walkthrough": [
+   "**What a Type II error is**\n\nA Type II error is when we **fail to reject** $\\text{H}_0$ although $\\text{H}_0$ is false. Here the true mean is 49, not 51, so we make a Type II error if the sample mean is *not* low enough to be in the rejection region.\n\nTo find that probability we need two things: (1) where the rejection region starts, calculated using $\\text{H}_0$; (2) the chance of landing outside it when the true mean is 49.",
+   "**Finding the edge of the rejection region**\n\nUnder $\\text{H}_0$, $\\bar{X} \\sim \\text{N}\\!\\left(51, \\dfrac{6.856^2}{150}\\right)$. We reject when $z$ is below $-1.96$, so the edge is where\n\n$$\\frac{\\bar{x} - 51}{6.856/\\sqrt{150}} = -1.96$$\n\nThis earns the first **M1** (51, $\\sqrt{150}$ and the correct form are all needed).",
+   "**Solving for the critical value**\n\nWork out the standard error: $\\sqrt{150} = 12.2474\\ldots$ and $\\dfrac{6.856}{12.2474\\ldots} = 0.55979\\ldots$\n\nMultiply both sides of the equation by $0.55979\\ldots$ and add 51:\n\n$$\\bar{x} = 51 - 1.96 \\times 0.55979\\ldots = 51 - 1.0972\\ldots = 49.9028\\ldots \\approx 49.9$$\n\nSo the rejection region is $\\bar{x} < 49.9$. This earns the first **A1**.",
+   "**The distribution when the true mean is 49**\n\nIf $\\mu = 49$, then $\\bar{X} \\sim \\text{N}\\!\\left(49, \\dfrac{6.856^2}{150}\\right)$, with the same standard error $0.55979\\ldots$\n\nA Type II error occurs when $\\bar{x}$ is above the critical value (not in the rejection region): $\\text{P}(\\bar{X} > 49.9 \\mid \\mu = 49)$.",
+   "**Standardising**\n\nStandardise the critical value 49.9 using the *true* mean 49:\n\n$$z = \\frac{49.9 - 49}{6.856/\\sqrt{150}} = \\frac{0.9}{0.55979\\ldots} = 1.6077\\ldots \\approx 1.608$$\n\nThis earns the second **M1**. (The scheme accepts 1.608 to 1.614, depending on how much rounding you use.)",
+   "**Choosing the area**\n\nWe want the area to the **right** of $z$, because a Type II error means $\\bar{x}$ is above the critical value:\n\n$$\\text{P}(\\bar{X} > 49.9 \\mid \\mu = 49) = 1 - \\Phi(1.608)$$\n\nThis earns the third **M1**.",
+   "**Reading the value**\n\n$\\Phi(1.608)$: use the normal table or your calculator's normal cdf. It shows $0.9461\\ldots$\n\n$$1 - 0.9461 = 0.0539$$\n\nNote: if you keep the unrounded critical value $49.9028\\ldots$ you get $z = 1.6128$ and $0.0534$. The scheme allows anything from 0.0533 to 0.0539, so both are accepted. We give 0.0539 to match the mark scheme's working with 49.9.\n\nQuick check: the true mean 49 is well below 51, so the test will almost always reject $\\text{H}_0$ and the Type II error should be small. It is.",
+   "**Final answer**\n\n$$\\text{P}(\\text{Type II error}) = 0.0539$$\n\nThis earns the final **A1**."
+  ]
+ }
+}

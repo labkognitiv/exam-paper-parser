@@ -1,0 +1,46 @@
+{
+  "9709_s17_73_q7_i": {
+    "hints": [
+      "Write hypotheses about the population mean number of accidents (say in words what $\\lambda$ or $\\mu$ stands for). The government wants to know whether it has **decreased**, which tells you which tail to use.",
+      "The data cover 12 months, so scale the monthly mean: under $\\text{H}_0$ the number of accidents in 12 months is Poisson with mean $12 \\times 0.47$.",
+      "The total was 2 and you are looking for a decrease, so find the lower tail: $\\text{P}(X \\leqslant 2) = \\text{P}(0) + \\text{P}(1) + \\text{P}(2)$, each term $\\text{e}^{-\\lambda}\\dfrac{\\lambda^r}{r!}$.",
+      "Substitute your 12-month mean for $\\lambda$ into $\\text{e}^{-\\lambda}\\left(1 + \\lambda + \\dfrac{\\lambda^2}{2}\\right)$ and evaluate it (or use the Poisson cdf).",
+      "Compare your probability with the significance level, 5%, which is the size of the lower tail we are testing.",
+      "Decide whether to reject $\\text{H}_0$, then write a conclusion in context about whether the mean number of accidents has decreased, using 'evidence' wording and not definite wording."
+    ],
+    "walkthrough": [
+      "**Set up the hypotheses (first B1)**\n\nBefore the speed restrictions the mean was $0.47$ accidents per month. The government wants to know whether the mean has **decreased**, so this is a one-tailed test (lower tail).\n\n$$\\text{H}_0: \\lambda = 0.47 \\text{ per month (the population mean number of accidents is unchanged)}$$\n\n$$\\text{H}_1: \\lambda < 0.47 \\text{ per month (the population mean number of accidents has decreased)}$$\n\nSay in words that $\\lambda$ is the population mean number of accidents per month. The scheme writes the same thing as a mean of $5.64$ over 12 months. Either form earns the first **B1**.",
+      "**Scale to 12 months (second B1)**\n\nOur data is the total over 12 months, so we need the mean number of accidents in 12 months. Poisson means scale with time:\n\n$$12 \\times 0.47 = 5.64$$\n\nSo, if $\\text{H}_0$ is true, $X$ = number of accidents in 12 months satisfies\n\n$$X \\sim \\text{Po}(5.64)$$\n\nUsing $\\lambda = 5.64$ in a Poisson calculation earns the second **B1**.",
+      "**Write the probability we need (M1)**\n\nWe saw 2 accidents. We want to know how likely it is to get **2 or fewer** if the mean really is $5.64$. This lower-tail probability is the probability of a result as extreme as ours or more:\n\n$$\\text{P}(X \\leqslant 2) = \\text{P}(0) + \\text{P}(1) + \\text{P}(2) = \\text{e}^{-5.64}\\left(1 + 5.64 + \\frac{5.64^2}{2}\\right)$$\n\nThis earns the **M1**.",
+      "**Calculate (A1)**\n\n$$\\text{e}^{-5.64} = 0.0035529\\ldots$$\n\n$$5.64^2 = 31.8096, \\quad \\frac{31.8096}{2} = 15.9048$$\n\n$$1 + 5.64 + 15.9048 = 22.5448$$\n\n$$0.0035529 \\times 22.5448 = 0.0801\\ldots$$\n\nSo $\\text{P}(X \\leqslant 2) = 0.080$ (to 3 decimal places; the mark scheme writes $0.08(0)$). This earns the **A1**. (Calculator check: Poisson cdf with $\\lambda = 5.64$ and $x = 2$.)",
+      "**Compare with the significance level (M1)**\n\nThe significance level is $5\\% = 0.05$. We reject $\\text{H}_0$ only if our probability is smaller than $0.05$.\n\n$$0.080 > 0.05$$\n\nSo the probability is **not** small enough. This comparison, with no contradictions, earns the **M1**. (Remember: the comparison must be of Poisson probabilities. Using a normal approximation scores M0 M0.)",
+      "**Conclusion in context (A1 FT)**\n\nWe do not reject $\\text{H}_0$. In context: there is **not enough evidence** at the 5% level that the mean number of accidents per month has decreased.",
+      "**Final answer**\n\n$\\text{P}(X \\leqslant 2) = 0.080 > 0.05$, so we accept $\\text{H}_0$: there is no evidence that the mean number of accidents has decreased since the speed restrictions."
+    ]
+  },
+  "9709_s17_73_q7_ii": {
+    "hints": [
+      "A Type II error means accepting $\\text{H}_0$ when $\\text{H}_1$ is actually true. Say in words what is really happening to the accidents, and what you wrongly conclude."
+    ],
+    "walkthrough": [
+      "**What a Type II error is**\n\nThere are two ways a test can go wrong.\n\n- Type I: you reject $\\text{H}_0$ when it is true.\n\n- **Type II: you accept $\\text{H}_0$ when it is false** (when $\\text{H}_1$ is true).\n\nNow put the words of this question in. $\\text{H}_0$ says the mean number of accidents is unchanged at $0.47$ per month. $\\text{H}_1$ says the mean has decreased.",
+      "**Final answer**\n\nA Type II error means that the mean number of accidents per month **has** decreased (it is now below $0.47$), but the test results lead us to conclude that it has **not** decreased."
+    ]
+  },
+  "9709_s17_73_q7_iii": {
+    "hints": [
+      "A Type II error needs the rejection region of the test. It is the set of values of $X$ at the low end whose cumulative probability under $\\text{H}_0$, that is $\\text{Po}(12 \\times 0.47)$, is below 0.05. You already found $\\text{P}(X \\leqslant 2)$ in part (i), so work out $\\text{P}(X \\leqslant 1)$ too.",
+      "Compare each cumulative probability with 0.05: the rejection region is the largest set of values $X \\leqslant c$ whose probability stays below 0.05.",
+      "A Type II error happens when $X$ falls **outside** the rejection region although the mean is actually $0.05$ per month. For 12 months the mean is $12 \\times 0.05$, so use $X \\sim \\text{Po}(12 \\times 0.05)$ and write $1 - \\text{P}(X \\leqslant c)$ using your $c$.",
+      "Write $\\text{P}(X \\leqslant c) = \\text{e}^{-\\lambda}\\left(1 + \\lambda + \\cdots\\right)$ with terms up to $r = c$, put in your $\\lambda$, subtract from 1 and give 3 significant figures."
+    ],
+    "walkthrough": [
+      "**What we need to find first: the rejection region**\n\nTo find the chance of a Type II error we must know exactly which results make us reject $\\text{H}_0$. This is the **rejection region** (critical region).\n\nUnder $\\text{H}_0$, $X \\sim \\text{Po}(5.64)$ over 12 months. We want the biggest value $c$ so that $\\text{P}(X \\leqslant c) < 0.05$.",
+      "**Check the cumulative probabilities (first B1)**\n\n$$\\text{P}(X \\leqslant 1) = \\text{e}^{-5.64}(1 + 5.64) = 0.0035529 \\times 6.64 = 0.0236\\ldots \\approx 0.024$$\n\n$$\\text{P}(X \\leqslant 2) = 0.080 \\quad \\text{(from part (i))}$$\n\n$0.024 < 0.05$, but $0.080 > 0.05$. This earns the first **B1**.",
+      "**State the rejection region (second B1)**\n\nSo $X \\leqslant 1$ is small enough to reject $\\text{H}_0$, but $X \\leqslant 2$ is not. The rejection region is\n\n$$X \\leqslant 1$$\n\nThis earns the second **B1** (it can be implied).",
+      "**Find the Type II error probability (M1)**\n\nA Type II error is accepting $\\text{H}_0$ when it is false. Here the true mean is $0.05$ per month, so over 12 months\n\n$$\\lambda = 12 \\times 0.05 = 0.6, \\qquad X \\sim \\text{Po}(0.6)$$\n\nWe accept $\\text{H}_0$ whenever $X$ is **not** in the rejection region, so we need $X \\geqslant 2$:\n\n$$\\text{P}(\\text{Type II error}) = \\text{P}(X \\geqslant 2) = 1 - \\text{P}(X \\leqslant 1) = 1 - \\text{e}^{-0.6}(1 + 0.6)$$\n\nThis earns the **M1**.",
+      "**Calculate (A1)**\n\n$$\\text{e}^{-0.6} = 0.54881\\ldots$$\n\n$$1 + 0.6 = 1.6$$\n\n$$0.54881 \\times 1.6 = 0.87810\\ldots$$\n\n$$1 - 0.87810 = 0.12190\\ldots$$",
+      "**Final answer**\n\n$$\\text{P}(\\text{Type II error}) = 0.122 \\quad (3 \\text{ sf})$$\n\n(The scheme gives zero for the final mark if you use a normal distribution.)"
+    ]
+  }
+}

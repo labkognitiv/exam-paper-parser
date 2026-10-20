@@ -1,0 +1,49 @@
+{
+ "9709_s21_63_q5_a": {
+  "hints": [
+   "Lucky plants are rare ($1$ in $10\\,000$) and the sample is very big, so the exact distribution (binomial) can be approximated by a Poisson distribution. Its mean is $np$, using $n$ and $p$ from the question.",
+   "Justify the choice by quoting the conditions with this question's numbers: $n$ is large (greater than 50) and $np$ is small (less than 5). Show the values of $n$ and $np$, not just the conditions."
+  ],
+  "walkthrough": [
+   "**Find the exact distribution first**\n\nEach plant is lucky or not lucky, with the same probability each time and independently. So the exact distribution of $X$ is binomial with $n = 25\\,000$ and $p = \\dfrac{1}{10\\,000}$.\n\n$$X \\sim \\text{B}\\left(25\\,000,\\ \\tfrac{1}{10\\,000}\\right)$$\n\nThat is awkward to calculate with, so we approximate.",
+   "**Choose the approximation and its parameter (B1)**\n\nWhen $n$ is large and $p$ is small, a binomial is well approximated by a Poisson distribution with the same mean. The mean is $np$:\n\n$$\\lambda = np = 25\\,000 \\times \\frac{1}{10\\,000} = 2.5$$\n\n$$X \\approx \\text{Po}(2.5)$$",
+   "**Justify it (B1)**\n\nGive the conditions and show the numbers that satisfy them.\n\n$$n = 25\\,000 > 50 \\quad\\text{and}\\quad np = 2.5 < 5$$\n\n(Or $n = 25\\,000 > 50$ and $p = 0.0001 < 0.1$.) Writing only 'n > 50 and np < 5' without the actual values does not score the mark.",
+   "**Final answer**\n\n$X$ is approximately $\\text{Po}(2.5)$, because $n = 25\\,000 > 50$ and $np = 2.5 < 5$ (or, equivalently, $n = 25\\,000 > 50$ and $p = 0.0001 < 0.1$)."
+  ]
+ },
+ "9709_s21_63_q5_b": {
+  "hints": [
+   "'At most 3' means 0, 1, 2 or 3. So $\\text{P}(X \\leqslant 3) = \\text{P}(0) + \\text{P}(1) + \\text{P}(2) + \\text{P}(3)$, where each $\\text{P}(r) = \\text{e}^{-\\lambda}\\dfrac{\\lambda^r}{r!}$ and $\\lambda$ is the mean from part (a).",
+   "Add the four terms, or use the Poisson cdf on your calculator with mean $\\lambda$ and upper value 3. Give the answer to 3 significant figures."
+  ],
+  "walkthrough": [
+   "**Which values are included?**\n\n$X \\approx \\text{Po}(2.5)$. 'At most 3' means $X = 0, 1, 2$ or $3$, so we add four probabilities. The Poisson formula is $\\text{P}(X = r) = \\text{e}^{-2.5}\\dfrac{2.5^r}{r!}$.\n\n$$\\text{P}(X \\leqslant 3) = \\text{e}^{-2.5}\\left(1 + 2.5 + \\frac{2.5^2}{2} + \\frac{2.5^3}{3!}\\right)$$\n\nThis line earns the M1.",
+   "**Calculate (A1)**\n\nTerms in the bracket: $1$; $2.5$; $\\dfrac{6.25}{2} = 3.125$; $\\dfrac{15.625}{6} = 2.6042$.\n\nAdd: $1 + 2.5 + 3.125 + 2.6042 = 9.2292$.\n\nOn the calculator $\\text{e}^{-2.5} = 0.082085$.\n\n$$0.082085 \\times 9.2292 = 0.7576$$\n\n(Shortcut: Poisson cdf with mean 2.5 and upper value 3 gives the same.)\n\nAn answer of 0.758 with no working scores only B1, so show the working.",
+   "**Final answer**\n\n$\\text{P}(X \\leqslant 3) = 0.758$ (3 s.f.)"
+  ]
+ },
+ "9709_s21_63_q5_c": {
+  "hints": [
+   "Write each side with the Poisson formula: $\\text{P}(X = k) = \\text{e}^{-\\lambda}\\dfrac{\\lambda^k}{k!}$ and $\\text{P}(X = k+1) = \\text{e}^{-\\lambda}\\dfrac{\\lambda^{k+1}}{(k+1)!}$, using your $\\lambda$. Put them in $\\text{P}(X = k) = 2\\text{P}(X = k+1)$.",
+   "Cancel $\\text{e}^{-\\lambda}$ and $\\lambda^k$ from both sides, using $\\lambda^{k+1} = \\lambda \\times \\lambda^k$ and $(k+1)! = (k+1) \\times k!$. What is left is a simple equation in $k$."
+  ],
+  "walkthrough": [
+   "**Write both probabilities (M1)**\n\nWith $X \\approx \\text{Po}(2.5)$:\n\n$$\\text{P}(X = k) = \\text{e}^{-2.5}\\frac{2.5^k}{k!} \\qquad \\text{P}(X = k+1) = \\text{e}^{-2.5}\\frac{2.5^{k+1}}{(k+1)!}$$\n\nThe condition $\\text{P}(X = k) = 2\\text{P}(X = k+1)$ becomes\n\n$$\\text{e}^{-2.5} \\times \\frac{2.5^k}{k!} = 2\\text{e}^{-2.5} \\times \\frac{2.5^{k+1}}{(k+1)!}$$",
+   "**Cancel and solve (A1)**\n\nDivide both sides by $\\text{e}^{-2.5}$ and by $2.5^k$. Use $2.5^{k+1} = 2.5 \\times 2.5^k$, so the left side keeps $\\dfrac{1}{k!}$ and the right becomes $\\dfrac{2 \\times 2.5}{(k+1)!}$.\n\n$$\\frac{1}{k!} = \\frac{2 \\times 2.5}{(k+1)!}$$\n\nNow $(k+1)! = (k+1) \\times k!$, so divide both sides by $\\dfrac{1}{k!}$:\n\n$$1 = \\frac{5}{k+1}$$\n\n$$k + 1 = 5 \\quad\\Rightarrow\\quad k = 4$$\n\nQuick check: $\\text{P}(X=4) = \\text{e}^{-2.5}\\dfrac{2.5^4}{4!} = 0.1336$ and $\\text{P}(X=5) = \\text{e}^{-2.5}\\dfrac{2.5^5}{5!} = 0.0668$. The first is twice the second.",
+   "**Final answer**\n\n$k = 4$"
+  ]
+ },
+ "9709_s21_63_q5_d": {
+  "hints": [
+   "Use a Poisson approximation again, $Y \\approx \\text{Po}(\\lambda)$, but now $\\lambda$ is unknown. 'At least 1' is the complement of 'none': write $\\text{P}(Y \\geqslant 1) = 1 - \\text{P}(Y = 0)$ with $\\text{P}(Y = 0) = \\text{e}^{-\\lambda}$, and set it equal to $0.963$.",
+   "Rearrange to get $\\text{e}^{-\\lambda}$ on its own, then take natural logs of both sides to find $\\lambda$. Remember that $\\ln$ of a number less than 1 is negative.",
+   "The mean is $\\lambda = np$ where $p$ is the proportion of lucky plants given in the question. Rearrange for $n$, and since the answer is wanted to 3 significant figures, round at the end."
+  ],
+  "walkthrough": [
+   "**Set up the equation (M1)**\n\nFor a large $n$ and a small $p$ we use the Poisson approximation again: $Y \\approx \\text{Po}(\\lambda)$, where $\\lambda = np$ (we do not know $n$ yet).\n\n'At least one lucky plant' is the opposite of 'no lucky plant'. For a Poisson, $\\text{P}(Y = 0) = \\text{e}^{-\\lambda}\\dfrac{\\lambda^0}{0!} = \\text{e}^{-\\lambda}$, because $\\lambda^0 = 1$ and $0! = 1$.\n\n$$\\text{P}(Y \\geqslant 1) = 1 - \\text{e}^{-\\lambda} = 0.963$$",
+   "**Solve for $\\lambda$ (M1)**\n\nSubtract from 1 to isolate the exponential: $\\text{e}^{-\\lambda} = 1 - 0.963 = 0.037$.\n\nTake natural logs of both sides. $\\ln(\\text{e}^{-\\lambda}) = -\\lambda$, so\n\n$$-\\lambda = \\ln 0.037 \\quad\\Rightarrow\\quad \\lambda = -\\ln 0.037$$\n\nOn your calculator, $\\ln 0.037 = -3.2968$, so $\\lambda = 3.2968$ (the scheme accepts $3.30$ or $3.3$).",
+   "**Find $n$ (A1)**\n\nThe probability that a plant is lucky is $p = \\dfrac{1}{10\\,000}$, and $\\lambda = np$, so\n\n$$n = \\lambda \\div p = 3.2968 \\times 10\\,000 = 32\\,968$$\n\nThe question says the probability 0.963 is correct to 3 significant figures, so the value of $n$ is only meaningful to 3 significant figures too: $32\\,968 \\to 33\\,000$.\n\nQuick check: $1 - \\text{e}^{-3.3} = 0.9631$, which is $0.963$ to 3 s.f., so $n = 33\\,000$ is consistent.\n\n(Special case in the scheme: using the exact binomial, $0.9999^n = 0.037$, gives $n = 32\\,967$, which also rounds to $33\\,000$.)",
+   "**Final answer**\n\n$n = 33\\,000$ (3 s.f.)"
+  ]
+ }
+}

@@ -1,0 +1,43 @@
+{
+ "9709_w20_62_q6_a": {
+  "hints": [
+   "Let $p$ be the probability that a packet contains the offer. $\\text{H}_0$ uses the manufacturer's claim of $\\frac{1}{3}$. Gerry suspects the proportion is 'less than' that, so decide which direction $\\text{H}_1$ takes (one-tailed or two-tailed).",
+   "Under $\\text{H}_0$, the number of packets with the offer out of 20 follows $\\text{B}\\left(20, \\frac{1}{3}\\right)$. Gerry found 2 and $\\text{H}_1$ says 'less', so you need the probability of 2 or fewer: $\\text{P}(X = 0) + \\text{P}(X = 1) + \\text{P}(X = 2)$, each term ${}^{20}\\text{C}_r\\, p^r q^{20 - r}$.",
+   "Evaluate the sum (or use binomial cumulative probability with $n = 20$, $p = \\frac{1}{3}$, $x = 2$) and round to 3 significant figures.",
+   "Compare your probability with the 10% significance level (as a decimal). Which is larger, and does this put the result in the rejection region?",
+   "Say whether $\\text{H}_0$ is rejected, then interpret what that says about the manufacturer's claim, in context and not definitely (use words like 'evidence')."
+  ],
+  "walkthrough": [
+   "**Set up the test**\n\nLet $p$ be the probability that a randomly chosen packet contains a prize offer. The manufacturer claims $p = \\frac{1}{3}$. Gerry suspects it is **less** than $\\frac{1}{3}$, so the alternative hypothesis points in one direction only: a one-tailed test.\n\n$$\\text{H}_0: p = \\frac{1}{3}$$\n\n$$\\text{H}_1: p < \\frac{1}{3}$$\n\n(Writing $p$ or $\\text{P}(\\text{contains offer})$ is fine, but 'proportion' on its own is not.) This earns the B1.",
+   "**Distribution under $\\text{H}_0$**\n\nLet $X$ be the number of packets, out of 20, with a prize offer. Each packet either has an offer or not, independently, so if $\\text{H}_0$ is true then $X \\sim \\text{B}\\left(20, \\frac{1}{3}\\right)$.",
+   "**Which probability do we need?**\n\nGerry saw exactly 2. Because $\\text{H}_1$ says the proportion is **smaller**, we ask: if $\\text{H}_0$ were true, how likely is a result **as small as 2 or smaller**?\n\n$$\\text{P}(X \\leqslant 2) = \\text{P}(X=0) + \\text{P}(X=1) + \\text{P}(X=2)$$\n\n$$= \\left(\\frac{2}{3}\\right)^{20} + 20\\left(\\frac{2}{3}\\right)^{19}\\left(\\frac{1}{3}\\right) + {}^{20}\\text{C}_2\\left(\\frac{2}{3}\\right)^{18}\\left(\\frac{1}{3}\\right)^2$$\n\nThis earns the M1.",
+   "**Calculate the three terms**\n\n$$\\text{P}(X=0) = \\left(\\frac{2}{3}\\right)^{20} = 0.000300729$$\n\n$$\\text{P}(X=1) = 20 \\times \\left(\\frac{2}{3}\\right)^{19} \\times \\frac{1}{3} = 20 \\times 0.000451093 \\times 0.333333 = 0.00300729$$\n\n$${}^{20}\\text{C}_2 = \\frac{20 \\times 19}{2} = 190$$\n\n$$\\text{P}(X=2) = 190 \\times \\left(\\frac{2}{3}\\right)^{18} \\times \\left(\\frac{1}{3}\\right)^2 = 190 \\times 0.000676639 \\times 0.111111 = 0.0142846$$\n\n$$\\text{P}(X \\leqslant 2) = 0.000300729 + 0.00300729 + 0.0142846 = 0.0175926$$\n\nSo $\\text{P}(X \\leqslant 2) = 0.0176$ (3 s.f.). Check on the calculator: binomial cumulative distribution, $n = 20$, $p = \\frac{1}{3}$, $x = 2$. This earns the A1.",
+   "**Compare with the significance level**\n\nThe significance level is 10%, which is $0.1$. Our probability is $0.0176$:\n\n$$0.0176 < 0.1$$\n\nThe result is less likely than 10% if $\\text{H}_0$ were true, so it is in the rejection region. This is the valid comparison that earns the second M1. (Critical region method also works: $\\text{P}(X \\leqslant 3) = 0.0604 < 0.1$ but $\\text{P}(X \\leqslant 4)$ is bigger than $0.1$, so the critical region is $X \\leqslant 3$ and 2 is in it.)",
+   "**Conclusion in context**\n\nWe reject $\\text{H}_0$. There is evidence, at the 10% level, that the proportion of packets with a prize offer is less than $\\frac{1}{3}$. So there is **no** evidence to support the manufacturer's claim. Keep the wording non-definite, and refer to the packets or the claim (context). This earns the A1 FT.",
+   "**Final answer**\n\n$\\text{P}(X \\leqslant 2) = 0.0176 < 0.1$, so reject $\\text{H}_0$: at the 10% level there is no evidence to support the manufacturer's claim that 1 in 3 packets contain a prize offer."
+  ]
+ },
+ "9709_w20_62_q6_b": {
+  "hints": [
+   "A Type II error means Maria does **not** reject $\\text{H}_0$ even though it is false. Here the true proportion is $\\frac{1}{7}$ and she rejects only when she sees 3 or fewer, so work under $\\text{B}\\left(20, \\frac{1}{7}\\right)$ and find the probability of landing outside that rejection region.",
+   "Not rejecting means seeing 4 or more, so $\\text{P}(X \\geqslant 4) = 1 - \\text{P}(X \\leqslant 3) = 1 - [\\text{P}(0) + \\text{P}(1) + \\text{P}(2) + \\text{P}(3)]$ with $p = \\frac{1}{7}$, $q = \\frac{6}{7}$.",
+   "Evaluate the four terms ${}^{20}\\text{C}_r\\left(\\frac{1}{7}\\right)^r\\left(\\frac{6}{7}\\right)^{20 - r}$ (or use binomial cumulative on the calculator with $x = 3$), add, subtract from 1 and round to 3 significant figures."
+  ],
+  "walkthrough": [
+   "**What a Type II error needs**\n\nA Type II error means we **fail to reject** $\\text{H}_0$ when $\\text{H}_0$ is actually false. Maria's rule: reject $\\text{H}_0$ if she finds 3 or fewer packets with the offer. So she does **not** reject if she finds 4 or more.\n\nThe question says the true proportion is $\\frac{1}{7}$, so now $X \\sim \\text{B}\\left(20, \\frac{1}{7}\\right)$.",
+   "**Write the probability**\n\n$$\\text{P}(\\text{Type II error}) = \\text{P}(X \\geqslant 4) = 1 - \\text{P}(X \\leqslant 3)$$\n\nUsing the complement means 4 terms instead of 17. This earns the M1.",
+   "**Write out the terms**\n\n$$1 - \\left[\\left(\\frac{6}{7}\\right)^{20} + 20\\left(\\frac{6}{7}\\right)^{19}\\left(\\frac{1}{7}\\right) + {}^{20}\\text{C}_2\\left(\\frac{6}{7}\\right)^{18}\\left(\\frac{1}{7}\\right)^2 + {}^{20}\\text{C}_3\\left(\\frac{6}{7}\\right)^{17}\\left(\\frac{1}{7}\\right)^3\\right]$$\n\nAll four terms must be correct to earn the first A1.",
+   "**Calculate**\n\n$${}^{20}\\text{C}_2 = 190, \\qquad {}^{20}\\text{C}_3 = \\frac{20 \\times 19 \\times 18}{3 \\times 2 \\times 1} = 1140$$\n\n$$\\text{P}(X=0) = \\left(\\frac{6}{7}\\right)^{20} = 0.045821$$\n\n$$\\text{P}(X=1) = 20 \\times \\left(\\frac{6}{7}\\right)^{19} \\times \\frac{1}{7} = 0.152737$$\n\n$$\\text{P}(X=2) = 190 \\times \\left(\\frac{6}{7}\\right)^{18} \\times \\left(\\frac{1}{7}\\right)^2 = 0.241833$$\n\n$$\\text{P}(X=3) = 1140 \\times \\left(\\frac{6}{7}\\right)^{17} \\times \\left(\\frac{1}{7}\\right)^3 = 0.241833$$\n\n$$\\text{P}(X \\leqslant 3) = 0.045821 + 0.152737 + 0.241833 + 0.241833 = 0.682223$$\n\n$$1 - 0.682223 = 0.317777$$\n\nCheck: binomial cumulative, $n = 20$, $p = \\frac{1}{7}$, $x = 3$, gives $0.6822$.",
+   "**Final answer**\n\nThe probability of a Type II error is $0.318$ (3 s.f.)."
+  ]
+ },
+ "9709_w20_62_q6_c": {
+  "hints": [
+   "A Type II error is failing to reject $\\text{H}_0$ when $\\text{H}_0$ is false. Say what $\\text{H}_0$ claims here, what is actually true, and write both in terms of the packets with the prize offer."
+  ],
+  "walkthrough": [
+   "**The meaning of Type II**\n\nThere are two possible mistakes in a hypothesis test. A Type I error rejects $\\text{H}_0$ when it is true. A **Type II error** accepts (does not reject) $\\text{H}_0$ when it is actually false.\n\nIn this question, $\\text{H}_0$ is 'the proportion of packets with a prize offer is $\\frac{1}{3}$'. In part (b) the truth is that the proportion is less than $\\frac{1}{3}$ (it is $\\frac{1}{7}$). So a Type II error happens when the test fails to detect that.",
+   "**Final answer**\n\nA Type II error is concluding that the proportion of packets containing the prize offer is $\\frac{1}{3}$ (not rejecting the manufacturer's claim) when the proportion is actually less than $\\frac{1}{3}$ (for example $\\frac{1}{7}$)."
+  ]
+ }
+}

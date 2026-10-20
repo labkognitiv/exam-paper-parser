@@ -1,0 +1,38 @@
+{
+ "9709_s21_63_q2_a": {
+  "hints": [
+   "A Type II error is a 'miss'. Ask yourself: what is really true (is $\\text{H}_1$ true or $\\text{H}_0$?), and what does the test wrongly tell you? Say it in terms of the journey time."
+  ],
+  "walkthrough": [
+   "**What a Type II error is**\n\nEvery hypothesis test can go wrong in two ways.\n\nA **Type I error** is rejecting $\\text{H}_0$ when $\\text{H}_0$ is actually true.\n\nA **Type II error** is *not* rejecting $\\text{H}_0$ when $\\text{H}_0$ is actually false (so $\\text{H}_1$ is true).\n\n**Put it in this context**\n\nHere $\\text{H}_0$ says the mean journey time is still 1.40 hours and $\\text{H}_1$ says it has decreased. So a Type II error means the test fails to show a decrease, although the new signals really have made the mean journey time shorter.",
+   "**Final answer**\n\nA Type II error is concluding that the mean journey time has not decreased when, in fact, it has."
+  ]
+ },
+ "9709_s21_63_q2_b": {
+  "hints": [
+   "The parameter is the population mean journey time $\\mu$. The old mean was 1.40, so that is the value in $\\text{H}_0$. The question asks whether it has *decreased*, which tells you whether $\\text{H}_1$ uses $<$, $>$ or $\\neq$.",
+   "You are testing a sample mean of 50 journeys, so standardise it: $z = \\dfrac{1.36 - 1.40}{0.12/\\sqrt{50}}$. Note the $\\sqrt{50}$, because it is a mean of 50 journeys.",
+   "Work the expression out on your calculator, keeping the sign, then compare with the critical value. This is a one-tailed test at 2.5%, so the critical value comes from the lower tail of the normal distribution.",
+   "For a lower-tail test at 2.5% the critical $z$-value is $-1.96$. Is your $z$ below it (in the rejection region) or above it? Equivalently, compare $\\text{P}(Z <$ your $z)$ with $0.025$.",
+   "If your $z$ is in the rejection region you reject $\\text{H}_0$; otherwise you do not. Then write the conclusion in context, in the form 'there is evidence that…' or 'there is insufficient evidence that…' about the mean journey time. Do not say 'it is definitely…'."
+  ],
+  "walkthrough": [
+   "**State the hypotheses (B1)**\n\nLet $\\mu$ be the population mean journey time in hours after the new signals. The old mean was 1.40, so the null hypothesis says nothing has changed. We want to know whether the mean has *decreased*, so the alternative hypothesis uses 'less than'. That makes this a one-tailed test (lower tail).\n\n$$\\text{H}_0: \\mu = 1.4 \\qquad \\text{H}_1: \\mu < 1.4$$",
+   "**Say what the sample mean looks like if $\\text{H}_0$ is true**\n\nThe standard deviation of one journey is 0.12 hours, and the sample has $n = 50$ journeys. The sample mean $\\bar{X}$ ($\\bar{X}$ means the mean of the 50 times) is much less spread out than a single journey. Its standard deviation is $\\dfrac{0.12}{\\sqrt{50}}$. Because $n = 50$ is large, the Central Limit theorem says $\\bar{X}$ is approximately normal.\n\n$$\\bar{X} \\sim \\text{N}\\left(1.4,\\ \\frac{0.12^2}{50}\\right)$$",
+   "**Standardise (M1 for the expression, A1 for the value)**\n\nTo compare with the normal table we turn the sample mean $1.36$ into a $z$-value: take away the mean under $\\text{H}_0$, then divide by the standard deviation of $\\bar{X}$.\n\n$$z = \\frac{1.36 - 1.4}{\\dfrac{0.12}{\\sqrt{50}}}$$\n\nDo the bottom first. $\\sqrt{50} = 7.0711$ and $\\dfrac{0.12}{7.0711} = 0.016971$. The top is $1.36 - 1.4 = -0.04$.\n\n$$z = \\frac{-0.04}{0.016971} = -2.357$$\n\nThe minus sign is right: 1.36 is *below* 1.4. (The mark scheme also accepts the 'totals' method, $\\dfrac{68 - 70}{\\sqrt{50} \\times 0.12}$, which gives the same $z$. Do not mix the two methods.)",
+   "**Compare with the critical value (M1)**\n\nThe test is at the 2.5% significance level and one-tailed (lower tail), so the whole 2.5% sits in the lower tail. From the normal table or your calculator's inverse normal, the point with 2.5% below it is $-1.96$. We reject $\\text{H}_0$ if our $z$ is *below* $-1.96$.\n\n$$-2.357 < -1.96$$\n\nYou can check this in a second way, with the probability. Using your calculator's normal cdf (or the table) with $z = -2.357$:\n\n$$\\text{P}(Z < -2.357) = 0.0092$$\n\n$$0.0092 < 0.025$$\n\nThe probability is smaller than the significance level, so it points to the same decision. Another valid comparison is the critical value for the sample mean: $1.4 - 1.96 \\times 0.016971 = 1.367$, and $1.36 < 1.367$.",
+   "**Conclusion in context (A1)**\n\nOur $z$ is inside the rejection region, so we reject $\\text{H}_0$. Write the conclusion in words about journey times, and not as a certainty.\n\nCommon slip: using a two-tailed test (critical value $\\pm 2.241$). The question asks whether the mean *decreased*, so it is one-tailed, and a two-tailed test would lose marks.",
+   "**Final answer**\n\n$z = -2.357$ (or $-2.36$), and $-2.357 < -1.96$ (equivalently $0.0092 < 0.025$), so reject $\\text{H}_0$.\n\nThere is evidence, at the 2.5% significance level, that the mean journey time has decreased."
+  ]
+ },
+ "9709_s21_63_q2_c": {
+  "hints": [
+   "Look back at the decision you made in part (b): did you reject $\\text{H}_0$ or not reject it?",
+   "A Type I error is rejecting $\\text{H}_0$ when it is true. A Type II error is not rejecting $\\text{H}_0$ when it is false. Only one of these can happen, depending on your decision in (b). Name it and give that reason."
+  ],
+  "walkthrough": [
+   "**Link the error to the decision**\n\nA Type I error can only happen when the test *rejects* $\\text{H}_0$. A Type II error can only happen when the test *does not reject* $\\text{H}_0$. So which error could have been made depends on what we decided in part (b).\n\nIn part (b) we rejected $\\text{H}_0$. This earns the first mark: '$\\text{H}_0$ was rejected'.\n\nIf $\\text{H}_0$ was rejected, the only mistake that could have happened is rejecting an $\\text{H}_0$ that was in fact true. That is a Type I error.",
+   "**Final answer**\n\n$\\text{H}_0$ was rejected in part (b), so the error that might have been made is a Type I error."
+  ]
+ }
+}

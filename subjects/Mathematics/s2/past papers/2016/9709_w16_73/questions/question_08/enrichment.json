@@ -1,0 +1,49 @@
+{
+ "9709_w16_73_q8_i": {
+  "hints": [
+   "All four graphs are symmetric about 0, so the standard deviation tells you how far from 0 the values typically are. A bigger standard deviation means more area far from 0.",
+   "Rank the extremes first: which graph has most of its area near the ends $\\pm 3$, and which has most of its area close to 0? Then decide the middle two by comparing how much weight each puts toward the ends."
+  ],
+  "walkthrough": [
+   "**What the standard deviation means for a graph**\n\nThe standard deviation measures how spread out the values are around the mean. All four graphs are symmetric about $0$, so the mean is $0$ in each case. The more the area sits far from $0$, the larger the standard deviation.",
+   "**Compare the four graphs**\n\n$X$: the curve is lowest at $0$ and rises steeply towards $\\pm 3$. Most of the area is out at the ends, so $X$ is the most spread out.\n\n$Z$: also lowest at $0$ and highest at $\\pm 3$, but the rise is a straight line, so it has more weight nearer the middle than $X$. Next most spread out.\n\n$Y$: a triangle, highest at $0$ and falling to $0$ at $\\pm 3$. More weight in the middle than $Z$.\n\n$W$: a bell shape with nearly all its area close to $0$. Least spread out.",
+   "**Final answer**\n\n$$\\sigma_X,\\ \\sigma_Z,\\ \\sigma_Y,\\ \\sigma_W$$"
+  ]
+ },
+ "9709_w16_73_q8_ii_a": {
+  "hints": [
+   "$\\text{Var}(X) = \\text{E}(X^2) - [\\text{E}(X)]^2$. The graph of $\\text{f}(x) = \\frac{1}{18}x^2$ on $-3 \\leqslant x \\leqslant 3$ is symmetric about $x = 0$, so what must $\\text{E}(X)$ be?",
+   "$\\text{E}(X^2) = \\displaystyle\\int_{-3}^{3} x^2\\,\\text{f}(x)\\,\\text{d}x = \\frac{1}{18}\\int_{-3}^{3} x^4\\,\\text{d}x$. Integrate $x^4$.",
+   "Substitute the limits $3$ and $-3$ into your integral, then take the square root of the variance. Check that it rounds to 2.32."
+  ],
+  "walkthrough": [
+   "**Plan**\n\nThe standard deviation is the square root of the variance, and $\\text{Var}(X) = \\text{E}(X^2) - [\\text{E}(X)]^2$. So we need $\\text{E}(X)$ and $\\text{E}(X^2)$.",
+   "**The mean (B1)**\n\n$\\text{f}(x) = \\frac{1}{18}x^2$ is symmetric about $x = 0$ (because $(-x)^2 = x^2$), so the mean is $0$. You can also check it by integrating:\n\n$$\\text{E}(X) = \\int_{-3}^{3} x \\cdot \\frac{1}{18}x^2\\,\\text{d}x = \\frac{1}{18}\\left[\\frac{x^4}{4}\\right]_{-3}^{3} = \\frac{1}{18}\\left(\\frac{81}{4} - \\frac{81}{4}\\right) = 0$$",
+   "**$\\text{E}(X^2)$ (M1)**\n\n$$\\text{E}(X^2) = \\int_{-3}^{3} x^2 \\cdot \\frac{1}{18}x^2\\,\\text{d}x = \\frac{1}{18}\\int_{-3}^{3} x^4\\,\\text{d}x$$\n\nIntegrate $x^4$ to get $\\dfrac{x^5}{5}$:\n\n$$= \\frac{1}{18}\\left[\\frac{x^5}{5}\\right]_{-3}^{3}$$\n\nSubstitute the limits: $3^5 = 243$, and $(-3)^5 = -243$, so subtracting gives\n\n$$= \\frac{1}{18}\\left[\\frac{243}{5} + \\frac{243}{5}\\right] = \\frac{1}{18} \\times \\frac{486}{5} = \\frac{1}{18} \\times 97.2 = 5.4$$",
+   "**Variance and standard deviation (A1)**\n\n$$\\text{Var}(X) = 5.4 - 0^2 = 5.4$$\n\n$$\\sigma_X = \\sqrt{5.4} = 2.3238\\ldots$$\n\nTo 3 significant figures this is $2.32$, as required. Note: the scheme needs the $\\sqrt{5.4}$ or $2.324$ to be seen before you give $2.32$.",
+   "**Final answer**\n\n$$\\sigma_X = \\sqrt{5.4} = 2.324\\ldots = 2.32 \\text{ (3 s.f.)}$$"
+  ]
+ },
+ "9709_w16_73_q8_ii_b": {
+  "hints": [
+   "$\\text{P}(X > \\sigma_X)$ is the area under $\\text{f}(x)$ from $\\sigma_X$ up to the top of the range, 3. Set up the integral $\\displaystyle\\frac{1}{18}\\int x^2\\,\\text{d}x$ between those limits, using $\\sigma_X$ from part (a) unrounded.",
+   "Integrate $x^2$ to $\\dfrac{x^3}{3}$, then substitute the upper limit 3 and the lower limit $\\sigma_X$, and subtract.",
+   "Work out the bracket on your calculator with the full value of $\\sigma_X$, divide by 18, and give 3 significant figures."
+  ],
+  "walkthrough": [
+   "**Set up the area (M1)**\n\nFor a continuous variable, a probability is the area under the pdf. $X$ only goes up to $3$, so $\\text{P}(X > \\sigma_X)$ is the area from $\\sigma_X = 2.3238$ to $3$:\n\n$$\\text{P}(X > \\sigma_X) = \\frac{1}{18}\\int_{2.3238}^{3} x^2\\,\\text{d}x$$",
+   "**Integrate and substitute (A1)**\n\n$$= \\frac{1}{18}\\left[\\frac{x^3}{3}\\right]_{2.3238}^{3} = \\frac{1}{18}\\left[\\frac{3^3}{3} - \\frac{2.3238^3}{3}\\right]$$\n\n$3^3 = 27$, and $27 \\div 3 = 9$. $2.3238^3 = 12.5485$, and $12.5485 \\div 3 = 4.1828$.",
+   "**Calculate (A1)**\n\n$$= \\frac{1}{18}(9 - 4.1828) = \\frac{4.8172}{18} = 0.26762$$\n\nRounded to 3 s.f.: $0.268$.\n\nIf you use the rounded $2.32$ instead you get $0.269$, which the scheme also allows.",
+   "**Final answer**\n\n$$\\text{P}(X > \\sigma_X) = 0.268 \\text{ (3 s.f.)}$$"
+  ]
+ },
+ "9709_w16_73_q8_ii_c": {
+  "hints": [
+   "Double $\\sigma_X$ and compare it with the largest value $X$ can take (the upper end of its range, 3)."
+  ],
+  "walkthrough": [
+   "**Compare $2\\sigma_X$ with the range of $X$**\n\n$$2\\sigma_X = 2 \\times 2.3238 = 4.6476$$\n\n$X$ only takes values between $-3$ and $3$, and $4.65$ is bigger than $3$. So $X$ can never be greater than $2\\sigma_X$.",
+   "**Final answer**\n\n$$\\text{P}(X > 2\\sigma_X) = 0$$"
+  ]
+ }
+}

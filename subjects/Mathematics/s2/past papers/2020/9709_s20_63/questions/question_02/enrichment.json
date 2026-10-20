@@ -1,0 +1,20 @@
+{
+ "9709_s20_63_q2": {
+  "hints": [
+   "'$Y$ is less than the total of $W$ and $X$' means $Y < W + X$, which is the same as $Y - W - X < 0$. Define one new variable $T = Y - W - X$: a combination of independent normal variables is itself normal, so $T \\sim \\text{N}(\\ldots, \\ldots)$.",
+   "For the mean of $T$, combine the means with the same signs as in $T$: $\\text{E}(T) = 3860 - 1520 - 2250$.",
+   "For the variance of $T$, remember that variances of independent variables **add**, even when the variables are subtracted: $\\text{Var}(T) = 1050 + 450 + 720$ (each variance is the second number in the brackets).",
+   "Standardise at the boundary $0$: $z = \\dfrac{0 - \\text{mean of } T}{\\sqrt{\\text{variance of } T}}$. Take the square root of the variance, not the variance itself.",
+   "Your $z$ will be negative. The tables only list positive $z$, so use symmetry: $\\Phi(-a) = 1 - \\Phi(a)$, then read $\\Phi(a)$ from the tables or your calculator."
+  ],
+  "walkthrough": [
+   "**Turn the sentence into one inequality**\n\nThe question says 'on a particular day, $Y$ is less than the total of $W$ and $X$'. In symbols:\n\n$$Y < W + X$$\n\nIt is easier to compare one quantity with $0$ than to compare two quantities with each other, so move everything to the left:\n\n$$Y - W - X < 0$$\n\nSo we need $\\text{P}(Y - W - X < 0)$. Let $T = Y - W - X$.",
+   "**Why $T$ is normal**\n\n$W$, $X$ and $Y$ are each normally distributed and they are independent. Adding or subtracting independent normal variables always gives another normal variable. So $T$ is normal, and we only need its mean and variance.\n\nThe notation $\\text{N}(1520, 450)$ means mean $1520$ and **variance** $450$ (not standard deviation). Writing the three out:\n\n- $W$: mean $1520$, variance $450$\n\n- $X$: mean $2250$, variance $720$\n\n- $Y$: mean $3860$, variance $1050$",
+   "**Mean of $T$ (this earns the first B1)**\n\nMeans combine with the same plus and minus signs as in $T$:\n\n$$\\text{E}(T) = \\text{E}(Y) - \\text{E}(W) - \\text{E}(X) = 3860 - 1520 - 2250$$\n\n$$3860 - 1520 = 2340 \\qquad 2340 - 2250 = 90$$\n\nSo $\\text{E}(T) = 90$ and $T \\sim \\text{N}(90, \\ldots)$.",
+   "**Variance of $T$ (this earns the second B1)**\n\nFor independent variables, variances **always add**, even when the variables themselves are being subtracted. (Think of it this way: subtracting a wobbly quantity makes the result *more* uncertain, not less.) Formally, $\\text{Var}(-W) = (-1)^2\\,\\text{Var}(W) = \\text{Var}(W)$.\n\n$$\\text{Var}(T) = \\text{Var}(Y) + \\text{Var}(W) + \\text{Var}(X) = 1050 + 450 + 720 = 2220$$\n\n*Slip to avoid:* writing $1050 - 450 - 720$. That would give a variance of $-120$, which is impossible. A variance can never be negative, so that is a quick check.\n\nSo $T \\sim \\text{N}(90, 2220)$.",
+   "**Standardise (the first M1)**\n\nTo use the normal tables we convert to the standard normal $Z$ using $z = \\dfrac{x - \\mu}{\\sigma}$. Here $x = 0$ is the boundary, $\\mu = 90$, and $\\sigma$ is the **standard deviation**, which is the square root of the variance:\n\n$$\\sigma = \\sqrt{2220} = 47.1168\\ldots$$\n\n$$z = \\frac{0 - 90}{\\sqrt{2220}} = \\frac{-90}{47.1168\\ldots} = -1.9101\\ldots$$\n\nSo we need $\\text{P}(Z < -1.910)$.",
+   "**Deal with the negative $z$ (the second M1)**\n\nTables only give $\\Phi(z)$ for positive $z$. The normal curve is symmetric, so the area to the left of $-1.910$ equals the area to the right of $+1.910$:\n\n$$\\text{P}(Z < -1.910) = 1 - \\Phi(1.910)$$\n\nNow read $\\Phi(1.910)$ from the normal table (row $1.9$, column $0.01$), or use your calculator's normal cdf: it gives $0.9719\\ldots$\n\n$$1 - 0.9719\\ldots = 0.0281\\ldots$$\n\nQuick check: $-1.91$ is far out in the lower tail, so a small probability like $0.03$ is sensible.",
+   "**Final answer**\n\nThe probability that $Y$ is less than the total of $W$ and $X$ is $0.0281$ (3 s.f.)."
+  ]
+ }
+}

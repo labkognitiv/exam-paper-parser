@@ -1,0 +1,39 @@
+{
+ "9709_m20_62_q7_a": {
+  "hints": [
+   "Let $X$ be the number of the 20 students who use social media. Under $\\text{H}_0$, $p = 0.95$, so $X \\sim \\text{B}(20, 0.95)$. Arvin suspects the percentage is **less**, so the rejection region is a lower tail: $X \\leqslant c$ for some $c$.",
+   "The significance level is 2%. You want the largest $c$ such that $\\text{P}(X \\leqslant c) \\leqslant 0.02$, found by working out $\\text{P}(X \\leqslant c)$ for values of $c$ using $\\text{B}(20, 0.95)$.",
+   "Test two neighbouring values: $\\text{P}(X \\leqslant 17)$ and $\\text{P}(X \\leqslant 16)$. Use the binomial cdf on your calculator, or $1 - \\text{P}(X \\geqslant c + 1)$.",
+   "Compare each with 0.02: the region includes $c$ only if its probability is at most 2%. Write the rejection region as $X \\leqslant c$ using the largest $c$ that passes."
+  ],
+  "walkthrough": [
+   "**Set up the test**\n\nLet $p$ be the probability that a year 12 student at Arvin's college uses social media. The national value is 95%, and Arvin suspects his college is *lower*:\n\n$$\\text{H}_0: p = 0.95 \\qquad \\text{H}_1: p < 0.95$$\n\nThere are 20 students, each either uses social media or does not, independently, with the same probability. So if $\\text{H}_0$ is true, the number $X$ who use it is $X \\sim \\text{B}(20, 0.95)$.\n\nBecause $\\text{H}_1$ says *less*, a small value of $X$ is evidence against $\\text{H}_0$. So the rejection region is of the form $X \\leqslant c$.",
+   "**The principle for finding $c$ (this earns the first M1)**\n\nThe significance level is 2%. We want the rejection region to be as large as possible without its total probability (under $\\text{H}_0$) going above 2%. So we work out cumulative probabilities $\\text{P}(X \\leqslant n)$ using $\\text{B}(20, 0.95)$ and compare each with $0.02$.",
+   "**Calculate $\\text{P}(X \\leqslant 17)$ and $\\text{P}(X \\leqslant 16)$ (this earns the second M1 and the first A1)**\n\nOn a calculator use binomial cdf with $n = 20$, $p = 0.95$. Without that, work from the top end, where the probabilities are easiest, using $\\text{P}(X = r) = \\binom{20}{r}\\,0.95^r\\,0.05^{20-r}$:\n\n$$\\text{P}(X = 20) = 0.95^{20} = 0.35849$$\n\n$$\\text{P}(X = 19) = 20 \\times 0.95^{19} \\times 0.05 = 0.37735$$\n\n$$\\text{P}(X = 18) = 190 \\times 0.95^{18} \\times 0.05^2 = 0.18868$$\n\nAdd them: $\\text{P}(X \\geqslant 18) = 0.92452$, so\n\n$$\\text{P}(X \\leqslant 17) = 1 - 0.92452 = 0.0755$$\n\nNext, $\\text{P}(X = 17) = 1140 \\times 0.95^{17} \\times 0.05^3 = 0.05958$, so\n\n$$\\text{P}(X \\leqslant 16) = 0.07548 - 0.05958 = 0.0159$$\n\nThe scheme also accepts the equivalent complements: $\\text{P}(X \\geqslant 18) = 0.925$ and $\\text{P}(X \\geqslant 17) = 0.984$.",
+   "**Compare with 2% (this earns the last A1)**\n\n$\\text{P}(X \\leqslant 17) = 0.0755$, and $0.0755 > 0.02$, so 17 is **not** in the rejection region.\n\n$\\text{P}(X \\leqslant 16) = 0.0159$, and $0.0159 < 0.02$, so 16 **is** in the rejection region.\n\nSo the largest value that fits is 16. The scheme withholds the last A1 unless both probabilities are shown, so write them both.",
+   "**Final answer**\n\n$$\\text{Rejection region: } X \\leqslant 16 \\quad (\\text{or } X < 17)$$"
+  ]
+ },
+ "9709_m20_62_q7_b": {
+  "hints": [
+   "A Type I error is rejecting $\\text{H}_0$ when $\\text{H}_0$ is actually true. So it is the probability of landing in your rejection region from (a) while $p = 0.95$."
+  ],
+  "walkthrough": [
+   "**What a Type I error is**\n\nA Type I error happens when we reject $\\text{H}_0$ even though $\\text{H}_0$ is true. Here $\\text{H}_0$ says $p = 0.95$. If it is true, $X \\sim \\text{B}(20, 0.95)$, and we wrongly reject if $X$ falls in the rejection region $X \\leqslant 16$.\n\n$$\\text{P}(\\text{Type I error}) = \\text{P}(X \\leqslant 16 \\mid p = 0.95)$$\n\nWe already found this in part (a):\n\n$$\\text{P}(X \\leqslant 16) = 0.0159$$\n\nQuick check: it is a bit below the 2% level we were given. That is expected, because $X$ is discrete, so we cannot hit 2% exactly.",
+   "**Final answer**\n\n$$\\text{P}(\\text{Type I error}) = 0.0159$$"
+  ]
+ },
+ "9709_m20_62_q7_c": {
+  "hints": [
+   "A Type II error is not rejecting $\\text{H}_0$ when it is actually false. Jimmy says the true $p$ is 0.7, so now $X \\sim \\text{B}(20, 0.7)$.",
+   "You fail to reject when $X$ is **outside** the rejection region from (a), i.e. $X > 16$. Write $\\text{P}(X > 16)$ for $\\text{B}(20, 0.7)$.",
+   "Either use $1 - \\text{P}(X \\leqslant 16)$ on the calculator, or add the probabilities for $X = 17, 18, 19, 20$ with $p = 0.7$. Give 3 significant figures."
+  ],
+  "walkthrough": [
+   "**What a Type II error is (this earns the first M1)**\n\nA Type II error happens when $\\text{H}_0$ is false but we do not reject it. Assume Jimmy is right and the true value is $p = 0.7$. Then the number of students using social media is\n\n$$X \\sim \\text{B}(20, 0.7)$$",
+   "**Write the probability (this earns the second M1)**\n\nWe do **not** reject $\\text{H}_0$ when $X$ is outside the rejection region $X \\leqslant 16$. That means $X \\geqslant 17$, which is $X > 16$:\n\n$$\\text{P}(\\text{Type II error}) = \\text{P}(X > 16 \\mid p = 0.7) = \\text{P}(X \\geqslant 17)$$",
+   "**Calculate (this earns the A1)**\n\nAdd the four probabilities, using $\\text{P}(X = r) = \\binom{20}{r}\\,0.7^r\\,0.3^{20-r}$:\n\n$$\\text{P}(X = 17) = 1140 \\times 0.7^{17} \\times 0.3^3 = 0.0716$$\n\n$$\\text{P}(X = 18) = 190 \\times 0.7^{18} \\times 0.3^2 = 0.02785$$\n\n$$\\text{P}(X = 19) = 20 \\times 0.7^{19} \\times 0.3 = 0.00684$$\n\n$$\\text{P}(X = 20) = 0.7^{20} = 0.00080$$\n\n$$0.0716 + 0.02785 + 0.00684 + 0.00080 = 0.10709$$\n\nOn a calculator, $1 - \\text{P}(X \\leqslant 16) = 1 - 0.8929 = 0.1071$ gives the same.",
+   "**Final answer**\n\n$$\\text{P}(\\text{Type II error}) = 0.107 \\text{ (3 s.f.)}$$"
+  ]
+ }
+}

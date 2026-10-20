@@ -1,0 +1,31 @@
+{
+ "9709_s22_62_q3_a": {
+  "hints": [
+   "The exact model is binomial, with $n = 200$ large and $p = 0.018$ small. Which distribution is used to approximate a binomial in that situation?",
+   "For this approximating distribution the mean is $np$. Put in $n = 200$ and $p = 0.018$.",
+   "\"Fewer than $3$\" means $0$, $1$ or $2$. Write $\\text{P}(X \\leqslant 2)$ as the sum of three terms, each of the form $\\text{e}^{-\\lambda}\\dfrac{\\lambda^r}{r!}$.",
+   "Add the three terms (or use the Poisson cumulative distribution on your calculator at $2$). Check you stopped at $2$, not $3$, then give $3$ significant figures."
+  ],
+  "walkthrough": [
+   "**Why the exact model is awkward**\n\nLet $X$ be the number of unvaccinated children in the sample of $200$. Exactly, $X \\sim \\text{B}(200, 0.018)$, since each child either is or is not unvaccinated. Working with $0.982^{200}$ and the like is heavy, so we use a simpler distribution that behaves almost the same.",
+   "**Choose the approximation**\n\nWhen $n$ is large and $p$ is small, a binomial is very close to a **Poisson** distribution. The question says \"suitable approximating distribution\", so we say:\n\n$$X \\approx \\text{Po}(\\lambda)$$\n\nThis earns the first **B1**.",
+   "**Find the mean of the Poisson**\n\nThe Poisson mean is matched to the binomial mean $np$:\n\n$$\\lambda = np = 200 \\times 0.018 = 3.6$$\n\nSo $X \\sim \\text{Po}(3.6)$. This earns the second **B1**.\n\n*Quick check:* a Poisson variable has mean and variance equal, so the variance is $3.6$ too, close to the binomial variance $200 \\times 0.018 \\times 0.982 = 3.5352$.",
+   "**Turn the words into a probability**\n\n\"Fewer than $3$\" means $0$, $1$ or $2$ children. It does **not** include $3$. So we want\n\n$$\\text{P}(X < 3) = \\text{P}(X \\leqslant 2) = \\text{P}(X = 0) + \\text{P}(X = 1) + \\text{P}(X = 2)$$",
+   "**Use the Poisson formula**\n\nThe formula is $\\text{P}(X = r) = \\text{e}^{-\\lambda}\\dfrac{\\lambda^r}{r!}$. With $\\lambda = 3.6$:\n\n$$\\text{P}(X \\leqslant 2) = \\text{e}^{-3.6}\\left(1 + 3.6 + \\frac{3.6^2}{2}\\right)$$\n\nWe factor out $\\text{e}^{-3.6}$ because every term has it. The terms inside are $\\dfrac{3.6^0}{0!} = 1$, $\\dfrac{3.6^1}{1!} = 3.6$ and $\\dfrac{3.6^2}{2!} = \\dfrac{12.96}{2} = 6.48$. This earns the **M1**.",
+   "**Calculate**\n\nFirst the bracket: $1 + 3.6 + 6.48 = 11.08$.\n\nThen $\\text{e}^{-3.6} = 0.0273237\\ldots$ (on the calculator: `e^(-3.6)`).\n\n$$0.0273237 \\times 11.08 = 0.30275\\ldots$$\n\nAs a check, `Poisson cdf` with $\\lambda = 3.6$ and upper bound $2$ also shows $0.30275$. To 3 significant figures this is $0.303$, earning the **A1**.",
+   "**Final answer**\n\n$$\\text{P}(\\text{fewer than } 3 \\text{ unvaccinated}) = 0.303 \\text{ (3 s.f.)}$$"
+  ]
+ },
+ "9709_s22_62_q3_b": {
+  "hints": [
+   "A binomial can be approximated by a Poisson only if the number of trials is large. Compare $n = 200$ with the usual lower limit for \"large\".",
+   "The second condition is that the chance is small. Compare $np$ (from $200$ and $0.018$) with $5$."
+  ],
+  "walkthrough": [
+   "**What we need to show**\n\n\"Justify\" means: show that the conditions for using a Poisson approximation to a binomial $\\text{B}(n, p)$ are met. There are two conditions, and we check each with this question's numbers.",
+   "**Condition 1: n is large**\n\nThe usual rule is $n > 50$. Here $n = 200$:\n\n$$200 > 50$$\n\nThis earns the first **B1**.",
+   "**Condition 2: the success probability is small**\n\nThe usual rule is $np < 5$ (or $p < 0.1$). Here:\n\n$$np = 200 \\times 0.018 = 3.6 < 5$$\n\nor\n\n$$p = 0.018 < 0.1$$\n\nEither one is accepted. This earns the second **B1**.",
+   "**Final answer**\n\nThe binomial $\\text{B}(200, 0.018)$ can be approximated by a Poisson distribution because $n = 200 > 50$ is large and $np = 3.6 < 5$ (also $p = 0.018 < 0.1$ is small)."
+  ]
+ }
+}

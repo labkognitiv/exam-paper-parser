@@ -1,0 +1,52 @@
+{
+ "9709_w16_72_q6_i": {
+  "hints": [
+   "The median $m$ splits the total area under the curve (which is 1) into two halves. So it sits where half the area is on its left. Decide for each graph whether the bulk of the area is towards 0 or towards 3 (compare with the midpoint of the range, $1.5$).",
+   "$X$ and $Y$ both slope upwards and $W$ and $Z$ both slope downwards, so the medians of $X$, $Y$ are in the right half and $W$, $Z$ in the left. Within each pair, ask which graph packs more of its area into the end it favours: curve or straight line?"
+  ],
+  "walkthrough": [
+   "**What the median means on a graph**\n\nFor a continuous variable the area under the pdf is 1. The **median** $m$ is the value that cuts the area into two equal halves: $0.5$ of the area to the left of $m$ and $0.5$ to the right. All four variables take values only between 0 and 3. If a graph has most of its area in the *left* half of the range, its median is small; if most of its area is on the *right*, the median is large.",
+   "**Sort the graphs into two groups (first B1 idea)**\n\nLook at the shape of each picture:\n\n- $X$ and $Y$ **rise** from left to right. Most of their area is on the right, so $m_X$ and $m_Y$ are both bigger than $1.5$.\n\n- $W$ and $Z$ **fall** from left to right. Most of their area is on the left, so $m_W$ and $m_Z$ are both smaller than $1.5$.\n\nSo the two largest medians belong to $X$ and $Y$, and the two smallest to $W$ and $Z$.",
+   "**Order within each group (second B1 idea)**\n\n$X$ against $Y$: the graph of $X$ is flat near 0 and gets very steep near 3, so its area is squeezed even more towards the right end than the straight line of $Y$. $X$ has the larger median: $m_X > m_Y$.\n\n$W$ against $Z$: the graph of $W$ is tall at 0, falls steeply and is almost zero by about 2.5. The straight line of $Z$ stays above zero all the way to 3. So $W$ has even more of its area close to 0, and $W$ has the smaller median: $m_Z > m_W$.\n\nQuick check using lines you can integrate: for $X$ in part (ii), the median satisfies $\\left(\\frac{m}{3}\\right)^4 = \\frac{1}{2}$, giving about $2.52$, which is well to the right of $1.5$, as expected for $X$.",
+   "**Final answer**\n\nLargest to smallest: $m_X,\\ m_Y,\\ m_Z,\\ m_W$ (that is, $X, Y, Z, W$)."
+  ]
+ },
+ "9709_w16_72_q6_ii_a": {
+  "hints": [
+   "For a continuous variable, $\\text{E}(X) = \\int x\\,\\text{f}(x)\\,\\text{d}x$ over the range where $\\text{f}$ is not zero, here 0 to 3. Multiply $x$ by $\\dfrac{4}{81}x^3$ before integrating.",
+   "The constant $\\dfrac{4}{81}$ stays outside. Integrate the power of $x$ (add 1 to the power, divide by the new power), then write the result in square brackets with limits 0 and 3.",
+   "Substitute the upper limit 3 (the lower limit 0 gives 0), then cancel the factor 81 against $3^5$ and simplify until you reach the printed $\\dfrac{12}{5}$."
+  ],
+  "walkthrough": [
+   "**The formula for the mean (M1)**\n\nFor a continuous random variable with pdf $\\text{f}(x)$, the mean is found by multiplying each value $x$ by its density and integrating over the whole range. Here the density is non-zero only for $0 \\leqslant x \\leqslant 3$:\n\n$$\\text{E}(X) = \\int_0^3 x\\,\\text{f}(x)\\,\\text{d}x = \\int_0^3 x \\times \\frac{4}{81}x^3\\,\\text{d}x$$\n\nMultiply the powers: $x \\times x^3 = x^4$.\n\n$$\\text{E}(X) = \\int_0^3 \\frac{4}{81}x^4\\,\\text{d}x$$",
+   "**Integrate (A1)**\n\n$\\frac{4}{81}$ is a constant so it waits outside. For $x^4$ add 1 to the power and divide by the new power:\n\n$$\\int x^4\\,\\text{d}x = \\frac{x^5}{5}$$\n\n$$\\text{E}(X) = \\left[\\frac{4}{81} \\times \\frac{x^5}{5}\\right]_0^3$$\n\nThis correct integration with the limits earns the first A1.",
+   "**Substitute the limits**\n\nPut in $x = 3$, then take away the value at $x = 0$. At $x = 0$ the expression is $0$, so only the upper limit matters:\n\n$$\\text{E}(X) = \\frac{4}{81} \\times \\frac{3^5}{5} - 0$$\n\nNow $3^5 = 3 \\times 3 \\times 3 \\times 3 \\times 3 = 243$:\n\n$$\\text{E}(X) = \\frac{4}{81} \\times \\frac{243}{5}$$\n\nThe scheme needs you to write this expression *before* the final value.",
+   "**Simplify to the printed answer (A1)**\n\nSince $243 = 81 \\times 3$, we can cancel the 81:\n\n$$\\frac{4}{81} \\times \\frac{243}{5} = \\frac{4 \\times 3}{5} = \\frac{12}{5}$$\n\nSo $\\text{E}(X) = \\frac{12}{5} = 2.4$, which is what we were asked to show.",
+   "**Final answer**\n\n$\\text{E}(X) = \\dfrac{4}{81} \\times \\dfrac{243}{5} = \\dfrac{12}{5}$ (or $2.4$), as required."
+  ]
+ },
+ "9709_w16_72_q6_ii_b": {
+  "hints": [
+   "Use the result of part (a): $\\text{E}(X) = \\dfrac{12}{5}$. The probability $\\text{P}(X > \\tfrac{12}{5})$ is the area under $\\text{f}(x)$ from $\\dfrac{12}{5}$ up to the end of the range at 3: set up $\\int \\text{f}(x)\\,\\text{d}x$ with those limits. (Alternatively $1 - $ the area from 0 to $\\dfrac{12}{5}$.)",
+   "Integrate $\\dfrac{4}{81}x^3$ (add 1 to the power, divide by the new power; the constants $\\dfrac{4}{81}$ and the new $4$ can be combined) and put the limits in square brackets.",
+   "Substitute the limits $3$ and $\\dfrac{12}{5}$ into $x^4$, subtract the lower from the upper, multiply by the constant and evaluate, giving the answer to 3 s.f. Check it lies between 0 and 1."
+  ],
+  "walkthrough": [
+   "**What the probability is (M1)**\n\nFrom part (a), $\\text{E}(X) = \\frac{12}{5} = 2.4$. The probability that $X$ is bigger than this is the **area under the pdf** to the right of $2.4$, up to $3$ (the pdf is zero beyond $3$):\n\n$$\\text{P}(X > 2.4) = \\int_{2.4}^{3} \\frac{4}{81}x^3\\,\\text{d}x$$\n\nYou could equally use $1 - \\int_0^{2.4} \\frac{4}{81}x^3\\,\\text{d}x$, because the total area is 1. We use the first.",
+   "**Integrate (A1)**\n\nAdd 1 to the power and divide by the new power:\n\n$$\\int x^3\\,\\text{d}x = \\frac{x^4}{4}$$\n\n$$\\text{P}(X > 2.4) = \\left[\\frac{4}{81} \\times \\frac{x^4}{4}\\right]_{2.4}^{3}$$\n\nThe $4$ on top and bottom cancel: the bracket is $\\left[\\frac{x^4}{81}\\right]_{2.4}^3$.",
+   "**Substitute the limits**\n\nUpper limit minus lower limit:\n\n$$\\frac{3^4}{81} - \\frac{2.4^4}{81}$$\n\nThe values: $3^4 = 81$, so the first term is $\\frac{81}{81} = 1$. And $2.4^4 = 2.4 \\times 2.4 \\times 2.4 \\times 2.4 = 33.1776$, so\n\n$$1 - \\frac{33.1776}{81} = 1 - 0.4096$$",
+   "**Evaluate (A1)**\n\n$$1 - 0.4096 = 0.5904$$\n\nThis is $\\frac{369}{625}$ exactly. To 3 significant figures, $0.590$.\n\nSense check: $\\text{E}(X) = 2.4$ is close to the top of the range and the pdf is largest there, so a probability a little over a half for being above the mean is believable.",
+   "**Final answer**\n\n$\\text{P}(X > \\text{E}(X)) = \\dfrac{369}{625} = 0.590$ (3 s.f.)."
+  ]
+ },
+ "9709_w16_72_q6_ii_c": {
+  "hints": [
+   "Double the mean from part (a) and compare it with the largest value $X$ can take (the pdf is zero beyond $x = 3$). What does that say about the event $X < 2\\text{E}(X)$?"
+  ],
+  "walkthrough": [
+   "**Find $2\\text{E}(X)$**\n\n$$2\\text{E}(X) = 2 \\times \\frac{12}{5} = \\frac{24}{5} = 4.8$$",
+   "**Compare with the range of $X$**\n\nThe pdf is $0$ for $x > 3$, so $X$ can never be bigger than $3$. Since $3 < 4.8$, **every** possible value of $X$ is less than $4.8$. So the event $X < 4.8$ is certain to happen. No integration is needed (it would give the total area $= 1$).",
+   "**Final answer**\n\n$\\text{P}(X < 2\\text{E}(X)) = 1$."
+  ]
+ }
+}

@@ -1,0 +1,33 @@
+{
+  "9709_w16_73_q7_i": {
+    "hints": [
+      "Scale the men's rate (0.2 per minute) to a 5-minute period to get the mean $\\lambda$. \"At least 2\" is $1 - \\text{P}(X \\leqslant 1)$: write that with your $\\lambda$.",
+      "Do the same for women: scale 0.3 per minute to 5 minutes. \"At least 3\" is $1 - \\text{P}(X \\leqslant 2)$: write that with your $\\lambda$.",
+      "Men and women arrive independently, so \"both happen\" means you **multiply** the two probabilities.",
+      "Work out each of the two probabilities, multiply them, and round to 3 significant figures."
+    ],
+    "walkthrough": [
+      "**Set up the two Poisson variables**\n\nArrivals happening independently, at random, at a constant rate: that is a Poisson situation. For a 5-minute period the mean is rate $\\times$ time:\n\nMen: $\\lambda = 0.2 \\times 5 = 1$, so $M \\sim \\text{Po}(1)$.\n\nWomen: $\\lambda = 0.3 \\times 5 = 1.5$, so $W \\sim \\text{Po}(1.5)$.",
+      "**Men: at least 2 (first B1)**\n\nThe opposite of \"at least 2\" is \"0 or 1\", so\n\n$$\\text{P}(M \\geqslant 2) = 1 - \\text{P}(M \\leqslant 1) = 1 - \\text{e}^{-1}(1 + 1)$$\n\n$\\text{e}^{-1} = 0.36788$, so $0.36788 \\times 2 = 0.73576$:\n\n$$1 - 0.73576 = 0.26424$$",
+      "**Women: at least 3 (second B1)**\n\nThe opposite of \"at least 3\" is \"0, 1 or 2\":\n\n$$\\text{P}(W \\geqslant 3) = 1 - \\text{e}^{-1.5}\\left(1 + 1.5 + \\frac{1.5^2}{2!}\\right)$$\n\n$\\dfrac{1.5^2}{2!} = \\dfrac{2.25}{2} = 1.125$, so the bracket is $1 + 1.5 + 1.125 = 3.625$. $\\text{e}^{-1.5} = 0.22313$:\n\n$$0.22313 \\times 3.625 = 0.80885 \\qquad 1 - 0.80885 = 0.19115$$",
+      "**Combine (M1)**\n\nThe men and women arrive independently, so the probability that both things happen is the product:\n\n$$0.26424 \\times 0.19115 = 0.050511$$",
+      "**Final answer**\n\n$$0.0505 \\text{ (3 s.f.)}$$\n\nThe scheme also accepts $0.0504$, which comes from using the rounded values $0.264 \\times 0.191$."
+    ]
+  },
+  "9709_w16_73_q7_ii": {
+    "hints": [
+      "Men and women arrive independently, so the total is also Poisson, with the rates added. Add 0.2 and 0.3, then scale from per minute to one hour (60 minutes).",
+      "When $\\lambda$ is large, a Poisson variable is approximately normal with mean and variance both equal to $\\lambda$. Write $\\text{N}(\\ldots, \\ldots)$ with your $\\lambda$.",
+      "\"Fewer than 36\" for a whole-number variable means 35 or fewer. Apply the continuity correction: use the boundary halfway between 35 and 36, and standardise $z = \\dfrac{\\text{boundary} - \\lambda}{\\sqrt{\\lambda}}$.",
+      "You want the area below your $z$, so you need $\\Phi(z)$. Find it in the table or on your calculator.",
+      "Read off $\\Phi(z)$ for your $z$ and give it to 3 significant figures."
+    ],
+    "walkthrough": [
+      "**Total arrivals (first B1)**\n\nAdding two independent Poisson variables gives another Poisson. The combined rate is $0.2 + 0.3 = 0.5$ per minute. For 1 hour $= 60$ minutes:\n\n$$\\lambda = 0.5 \\times 60 = 30$$\n\nSo the total number $T \\sim \\text{Po}(30)$. (Check: men $0.2 \\times 60 = 12$, women $0.3 \\times 60 = 18$, and $12 + 18 = 30$.)",
+      "**Normal approximation (second B1)**\n\nCalculating Poisson terms up to 35 is long. Because $\\lambda = 30$ is large, a Poisson distribution is approximately normal. For a Poisson variable, the mean and variance are equal, so\n\n$$T \\approx \\text{N}(30, 30)$$\n\n(variance $30$, so standard deviation $\\sqrt{30} = 5.4772$).",
+      "**Continuity correction and standardise (first M1)**\n\n$T$ counts people, so it is whole numbers, but the normal is continuous. \"Fewer than 36\" means $T \\leqslant 35$, and in the continuous model the value 35 stretches up to $35.5$. So we want $\\text{P}(T < 35.5)$.\n\n$$z = \\frac{35.5 - 30}{\\sqrt{30}} = \\frac{5.5}{5.4772} = 1.004$$",
+      "**Find the probability (second M1, A1)**\n\n$$\\text{P}(T < 35.5) = \\Phi(1.004)$$\n\nFrom the normal table (or normal cdf on your calculator) $\\Phi(1.004) = 0.8423$, so $0.842$ to 3 s.f.\n\nQuick check: $35.5$ is above the mean $30$, so the answer should be above $0.5$. It is.",
+      "**Final answer**\n\n$$\\text{P}(\\text{fewer than 36 people}) = 0.842 \\text{ (3 s.f.)}$$"
+    ]
+  }
+}

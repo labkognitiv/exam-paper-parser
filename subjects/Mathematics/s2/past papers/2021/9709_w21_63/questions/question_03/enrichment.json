@@ -1,0 +1,20 @@
+{
+ "9709_w21_63_q3": {
+  "hints": [
+   "A confidence interval for a proportion is built around the sample proportion. Write it as $\\hat{p} = \\dfrac{15}{75}$ ($\\hat{p}$ is the estimate of $p$ from the sample).",
+   "The interval is $\\hat{p} \\pm z\\sqrt{\\dfrac{\\hat{p}(1 - \\hat{p})}{n}}$ with $n = 75$. Its **width** is twice the part after the $\\pm$, so write $2 \\times z \\times \\sqrt{\\dfrac{\\hat{p}(1-\\hat{p})}{75}} = 0.162$.",
+   "Rearrange the equation to get $z$ on its own: halve $0.162$ and divide by $\\sqrt{\\dfrac{\\hat{p}(1-\\hat{p})}{75}}$. Keep the full calculator value.",
+   "An $\\alpha$% interval puts a central area of $\\dfrac{\\alpha}{100}$ between $-z$ and $z$ on the standard normal curve. That central area is $\\Phi(z) - \\Phi(-z) = 2\\Phi(z) - 1$, so you need $\\Phi(z)$ for your $z$.",
+   "Put your $\\Phi(z)$ into $2\\Phi(z) - 1$ to get the central area as a decimal, then convert it to a percentage. Give $\\alpha$ to 2 s.f."
+  ],
+  "walkthrough": [
+   "**What is going on**\n\nA confidence interval is a range of values for the true proportion $p$ of all students who own a car. The 'confidence level' $\\alpha$% tells us how sure we are the interval catches $p$. Usually we are given $\\alpha$ and find the interval. Here the interval width is given, and we work backwards to find $\\alpha$.",
+   "**Estimate $p$ (B1)**\n\nThe best estimate of the true proportion is the sample proportion: the number who own a car divided by the sample size.\n\n$$\\hat{p} = \\frac{15}{75} = 0.2$$\n\n$\\hat{p}$ is read 'p hat'. The proportion who do not own a car is $1 - \\hat{p} = 0.8$.",
+   "**Write the width equation (M1)**\n\nAn approximate confidence interval for a proportion is\n\n$$\\hat{p} \\pm z\\sqrt{\\frac{\\hat{p}(1-\\hat{p})}{n}}$$\n\nThe upper end minus the lower end is two times the part after the $\\pm$. That is the width, which is $0.162$.\n\n$$2 \\times z \\times \\sqrt{\\frac{0.2 \\times 0.8}{75}} = 0.162$$",
+   "**Solve for $z$ (A1)**\n\nFirst the number under the square root, step by step.\n\n$$0.2 \\times 0.8 = 0.16 \\qquad \\frac{0.16}{75} = 0.0021333\\ldots \\qquad \\sqrt{0.0021333\\ldots} = 0.046188$$\n\nNow the equation becomes $2 \\times z \\times 0.046188 = 0.162$. Divide both sides by 2:\n\n$$z \\times 0.046188 = 0.081$$$$z = \\frac{0.081}{0.046188} = 1.7537\\ldots \\approx 1.754$$",
+   "**Turn $z$ into a central area (M1)**\n\nA confidence interval with confidence level $\\alpha$% covers the central $\\alpha$% of the standard normal curve, between $-z$ and $z$. The tails each hold what is left over.\n\n$$\\text{central area} = \\Phi(z) - \\Phi(-z) = \\Phi(z) - \\big(1 - \\Phi(z)\\big) = 2\\Phi(z) - 1$$\n\n$\\Phi(1.754)$: normal table or calculator normal cdf $\\to 0.9603$ (the scheme uses $0.96$).\n\n$$2 \\times 0.9603 - 1 = 1.9206 - 1 = 0.9206$$",
+   "**Convert to a percentage (A1)**\n\nThe central area is about $0.92$, which is $92\\%$.\n\n$$\\alpha = 0.92 \\times 100 = 92$$\n\nQuick check: $z \\approx 1.75$ is a little bigger than $1.645$ (90%) and a little smaller than $1.96$ (95%), so a value between 90 and 95 is sensible.",
+   "**Final answer**\n\n$$\\alpha = 92 \\text{ (2 s.f.)}$$"
+  ]
+ }
+}

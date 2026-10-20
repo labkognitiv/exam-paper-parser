@@ -1,0 +1,55 @@
+{
+  "9702_s18_41_q08_a_i": {
+    "hints": [
+      "Think about the word feedback itself - where in the circuit is the signal taken from, and where is it sent back to?",
+      "For it to be negative, does the fed-back signal add to the input to make it bigger, or oppose the input to control it?"
+    ],
+    "walkthrough": [
+      "**Picture What Feedback Means**\nImagine the op-amp working. A tiny input produces a huge output. If you take a little sample of that output and send it back to the input side, you are feeding back.",
+      "**Why It Is Called Negative**\nIn the inverting amplifier you feed that sample back to the inverting (-) input. That means it works against the original input, it is subtracted from it. This tames the huge open-loop gain and gives a stable, controlled closed-loop gain.",
+      "Final answer: A fraction of the output voltage is fed back to the input and is subtracted from the input signal."
+    ]
+  },
+  "9702_s18_41_q08_a_ii": {
+    "hints": [
+      "Start by recalling what negative feedback does to that enormous open-loop gain of about 10^5 - does the useful closed-loop gain get larger or smaller?",
+      "Now think about the trade-off - if you sacrifice gain, what useful frequency property do you gain in return, keeping their product the same?"
+    ],
+    "walkthrough": [
+      "**Gain Goes Down**\nAn ideal op-amp on its own has enormous gain. Negative feedback deliberately throws most of that gain away. You get a much smaller but very stable and predictable gain set by the resistors.",
+      "**Bandwidth Goes Up**\nThe payoff is a much wider range of frequencies that are amplified equally. The product of gain and bandwidth stays constant, so smaller gain means greater bandwidth.",
+      "Final answer: 1. The voltage gain is reduced. 2. The bandwidth is increased so that gain x bandwidth remains constant."
+    ]
+  },
+  "9702_s18_41_q08_b_i": {
+    "hints": [
+      "Look carefully at Fig. 8.1 - which input is the signal applied to and where is it earthed? This tells you if it is inverting or non-inverting.",
+      "Check which resistor is the input resistor from VIN to the - terminal and which is the feedback resistor from output back to the - terminal, then form their ratio with the correct sign."
+    ],
+    "walkthrough": [
+      "**Spot The Inverting Amplifier**\nThe + terminal is earthed at $0\\text{ V}$ and the signal $V_{IN}$ goes through the $800\\,\\Omega$ resistor to the - terminal. That is the classic inverting amplifier, so the gain is negative.",
+      "**Apply The Gain Formula**\nFor an inverting amplifier: $$G = -\\frac{R_f}{R_{in}}$$ Here $R_{in} = 800\\,\\Omega$ and $R_f = 9600\\,\\Omega$. So: $$G = -\\frac{9600}{800} = -12$$ The minus sign shows a $180^{\\circ}$ phase shift between input and output.",
+      "Final answer: $G = -12$"
+    ]
+  },
+  "9702_s18_41_q08_b_ii": {
+    "hints": [
+      "Recall the simple link between output, gain and input you just found, and work out what the ideal output would be for each VIN value.",
+      "Compare each ideal result with the supply voltages of +6 V and -6 V shown on the op-amp - what happens if the calculation tries to go beyond those rails?"
+    ],
+    "walkthrough": [
+      "**Use Vout = G x Vin**\nWith $G = -12$: For $V_{IN} = -0.10\\text{ V}$: $$V_{OUT} = -12 \\times (-0.10) = +1.2\\text{ V}$$ This is inside the $\\pm 6\\text{ V}$ supplies, so the op-amp behaves linearly and the output is $1.2\\text{ V}$.",
+      "**Spot Saturation**\nFor $V_{IN} = +1.3\\text{ V}$: $$V_{OUT(ideal)} = -12 \\times 1.3 = -15.6\\text{ V}$$ An ideal op-amp cannot output more than its supply. It saturates at approximately the negative rail, so: $$V_{OUT} = -6\\text{ V}$$",
+      "Final answer: 1. $V_{OUT} = 1.2\\text{ V}$. 2. $V_{OUT} = -6\\text{ V}$ (saturated)."
+    ]
+  },
+  "9702_s18_41_q08_b_iii": {
+    "hints": [
+      "Since gain magnitude is Rf/Rin, which resistor must become light-sensitive so that brighter light makes its resistance fall and the gain fall with it?"
+    ],
+    "walkthrough": [
+      "**Make Gain Follow Light**\nMagnitude of gain is: $$|G| = \\frac{R_f}{R_{in}}$$ An LDR has high resistance in the dark and low resistance in bright light. Put the LDR in place of the $9600\\,\\Omega$ feedback resistor $R_f$. As light intensity increases, $R_f$ falls, so $|G|$ decreases as required.",
+      "Final answer: Replace the $9600\\,\\Omega$ feedback resistor with an LDR."
+    ]
+  }
+}

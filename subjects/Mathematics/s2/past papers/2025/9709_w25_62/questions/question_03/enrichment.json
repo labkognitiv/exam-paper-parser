@@ -1,0 +1,40 @@
+{
+  "9709_w25_62_q3_a": {
+    "hints": [
+      "A confidence interval sits symmetrically around the sample mean. Look at the two end points: how can you get the sample mean from them, or the width of the interval?",
+      "The interval is $\\bar{x} \\pm 1.96\\dfrac{\\sigma}{\\sqrt{100}}$. Make an equation with one end point, or use: width $= 2 \\times 1.96 \\times \\dfrac{\\sigma}{\\sqrt{100}}$.",
+      "Rearrange your equation for $\\sigma$: multiply by $\\sqrt{100}$ and divide by 1.96, then round to 3 significant figures."
+    ],
+    "walkthrough": [
+      "**Find the sample mean (this earns the B1)**\n\nA confidence interval has the form $\\bar{x} \\pm (\\text{margin})$, where $\\bar{x}$ means the sample mean. So $\\bar{x}$ is exactly in the middle of the two end points: add them and halve.\n\n$$\\bar{x} = \\frac{31.02 + 33.98}{2} = \\frac{65}{2} = 32.5$$\n\nAlternatively you can use the width of the interval: $33.98 - 31.02 = 2.96$. This is two margins, one each side of the mean.",
+      "**Write the equation for $\\sigma$ (this earns the M1)**\n\nFor a 95% confidence interval for a mean with known $\\sigma$ and sample size $n = 100$, the interval is $\\bar{x} \\pm 1.96 \\times \\dfrac{\\sigma}{\\sqrt{n}}$. Here 1.96 is the $z$-value that leaves 2.5% in each tail of the normal distribution. The upper end point is 33.98, so\n\n$$32.5 + 1.96 \\times \\frac{\\sigma}{\\sqrt{100}} = 33.98$$\n\nor, with the width: $2.96 = 2 \\times 1.96 \\times \\dfrac{\\sigma}{\\sqrt{100}}$. Both are the same equation. (If you forget the factor 2 in the width version you still get this M1.)",
+      "**Solve for $\\sigma$ (this earns the A1)**\n\nUse $\\sqrt{100} = 10$ and subtract 32.5 from both sides:\n\n$$1.96 \\times \\frac{\\sigma}{10} = 33.98 - 32.5 = 1.48$$\n\nMultiply both sides by 10, then divide by 1.96:\n\n$$\\sigma = \\frac{1.48 \\times 10}{1.96} = \\frac{14.8}{1.96} = 7.551\\ldots$$\n\nQuick check: using the width, $\\sigma = \\dfrac{2.96 \\times 10}{2 \\times 1.96} = 7.551$, the same. If you forgot the 2 you would get 15.1, which loses a mark.",
+      "**Final answer**\n\n$$\\sigma = 7.55 \\text{ (3 s.f.)}$$"
+    ]
+  },
+  "9709_w25_62_q3_b": {
+    "hints": [
+      "The question does not say the times are normally distributed. The Central Limit theorem says the sample mean is approximately normal whatever the population looks like, provided something is true of the **sample**. What is it, given that 100 students were sampled?"
+    ],
+    "walkthrough": [
+      "**What the Central Limit theorem says**\n\nIf you take many random samples and work out the mean of each one, those sample means follow a distribution that is approximately **normal**, even when the original data (here, the test times) is not normal. This works well when the sample is large enough, commonly 30 or more.\n\nWe were never told the times are normally distributed, so we need the Central Limit theorem to justify using the normal distribution (the 1.96) in the confidence interval.",
+      "**Why it is valid here**\n\nThe sample has 100 students, which is large. The scheme wants the word \"sample\" (or the figure 100): saying only \"the number of students is large\" would score nothing.",
+      "**Final answer**\n\nIt is valid because the sample size (100) is large."
+    ]
+  },
+  "9709_w25_62_q3_c": {
+    "hints": [
+      "Each 95% interval contains $\\mu$ with probability 0.95, and the intervals are independent. What is the probability that **all** $r$ of them contain $\\mu$?",
+      "Write the inequality \"your probability $> 0.5$\", then take logs of both sides and use the power rule $\\ln a^r = r\\ln a$.",
+      "$\\ln 0.95$ is a **negative** number. When you divide both sides of an inequality by a negative number, what happens to the inequality sign?",
+      "$r$ has to be a whole number. Take the largest whole number that satisfies your inequality, and check it (and the next one) in $0.95^r$."
+    ],
+    "walkthrough": [
+      "**Write the probability that all $r$ intervals contain $\\mu$ (this earns the M1)**\n\nEach 95% confidence interval contains the true $\\mu$ with probability 0.95. The intervals are independent, so to get the probability that **all** of them contain $\\mu$ we multiply: $r$ lots of 0.95 is $0.95^r$. We want this to be greater than 0.5.\n\n$$0.95^r > 0.5$$",
+      "**Take logs (this earns the first A1)**\n\nThe unknown $r$ is in the power, so take natural logs of both sides. The power rule moves $r$ down: $\\ln(0.95^r) = r\\ln 0.95$.\n\n$$r\\ln 0.95 > \\ln 0.5$$",
+      "**Divide, watching the inequality sign (this earns the second A1)**\n\nFind the two logs on the calculator: $\\ln 0.95 = -0.05129\\ldots$ and $\\ln 0.5 = -0.69315\\ldots$. Both are **negative**.\n\nWhen you divide both sides of an inequality by a negative number, the inequality sign **flips**. So\n\n$$r < \\frac{\\ln 0.5}{\\ln 0.95} = \\frac{-0.69315}{-0.05129} = 13.51\\ldots$$\n\nQuick check in words: the more intervals you take, the less likely they all work, so $r$ should have an upper limit. A \"less than\" sign makes sense.",
+      "**Choose the whole number (this earns the last A1)**\n\n$r$ counts intervals, so it must be a whole number. Less than 13.51 means the largest possible value is 13. We can check on the calculator:\n\n$$0.95^{13} = 0.5133 > 0.5 \\qquad 0.95^{14} = 0.4877 < 0.5$$\n\nSo 13 intervals still give a probability above 0.5, and 14 do not.",
+      "**Final answer**\n\nThe largest value of $r$ is 13."
+    ]
+  }
+}

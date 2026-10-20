@@ -1,0 +1,33 @@
+{
+ "9709_s21_62_q3_a": {
+  "hints": [
+   "For any probability density function the total area under the graph is 1. Here the graph is a triangle: read the base along the $x$-axis (from 1 to $p$) and the height at $x = p$ from the diagram.",
+   "Write area $= \\frac{1}{2} \\times \\text{base} \\times \\text{height} = 1$ with base $p - 1$ and height $p$, rearrange to a quadratic equal to zero, and factorise; use the fact that $p > 1$ to choose the root."
+  ],
+  "walkthrough": [
+   "**What the diagram shows**\n\nThe graph is zero up to $x = 1$, then a straight line rises from $(1, 0)$ to the point at $x = p$ where the height is $p$ (the dashed line at the left is marked $p$ on the $f(x)$ axis). Then it drops straight to zero at $x = p$.\n\nSo the shape is a **right-angled triangle** with base from $x = 1$ to $x = p$ and height $p$.",
+   "**Use total probability = 1 (M1)**\n\nFor a probability density function, the total area under the curve must be 1 (that is, total probability is 1).\n\nThe base of the triangle is $p - 1$ and its height is $p$. Area of a triangle is $\\frac{1}{2} \\times \\text{base} \\times \\text{height}$:\n\n$$\\frac{1}{2}\\,p\\,(p - 1) = 1$$",
+   "**Rearrange to a quadratic**\n\nMultiply both sides by 2:\n\n$$p(p - 1) = 2$$\n\nExpand the bracket:\n\n$$p^2 - p = 2$$\n\nMove everything to one side so that it equals zero:\n\n$$p^2 - p - 2 = 0$$",
+   "**Solve and pick the right root (A1)**\n\nFactorise: we need two numbers that multiply to $-2$ and add to $-1$. These are $-2$ and $+1$.\n\n$$(p - 2)(p + 1) = 0$$\n\n$$p = 2 \\quad \\text{or} \\quad p = -1$$\n\nThe range of $X$ is $1 \\leqslant x \\leqslant p$, so $p$ must be bigger than 1. So we reject $p = -1$, and $p = 2$.\n\nCheck: base $= 2 - 1 = 1$, height $= 2$, area $= \\frac{1}{2} \\times 1 \\times 2 = 1$. This agrees with what was required.",
+   "**Final answer**\n\n$p = 2$, as required."
+  ]
+ },
+ "9709_s21_62_q3_b": {
+  "hints": [
+   "Between $x = 1$ and $x = p$ the graph is a straight line through $(1, 0)$ and $(p, p)$. Use $p = 2$ from part (a) and find the gradient from these two points.",
+   "Write the line as $y = mx + c$ with your gradient, use the point $(1, 0)$ to find $c$, and state $\\text{f}(x)$ for $1 \\leqslant x \\leqslant 2$.",
+   "$\\text{E}(X) = \\int x\\,\\text{f}(x)\\,\\text{d}x$ over the range of $X$: multiply your $\\text{f}(x)$ by $x$ and tidy the expression before integrating.",
+   "Integrate term by term with the power rule (raise the power by 1, divide by the new power), keep any constant factor outside, and write the limits 1 and 2.",
+   "Substitute the upper limit 2, then the lower limit 1, and subtract. Take care with the fractions, then multiply by the constant factor."
+  ],
+  "walkthrough": [
+   "**Find the equation of the line (M1)**\n\nOn $1 \\leqslant x \\leqslant 2$ the pdf is a straight line. We know two points on it: $(1, 0)$, where it leaves the axis, and $(2, 2)$, because $p = 2$ so the height at $x = p$ is also 2.\n\nGradient $= \\dfrac{\\text{change in } y}{\\text{change in } x}$:\n\n$$m = \\frac{2 - 0}{2 - 1} = 2$$\n\nSo the line is $y = 2x + c$. It passes through $(1, 0)$, so substitute $x = 1$, $y = 0$:\n\n$$0 = 2(1) + c \\quad \\Rightarrow \\quad c = -2$$",
+   "**State the pdf (A1)**\n\n$$\\text{f}(x) = 2x - 2 \\qquad 1 \\leqslant x \\leqslant 2$$\n\nand $\\text{f}(x) = 0$ otherwise.\n\nQuick check 1: at $x = 2$, $2(2) - 2 = 2$, which matches the height $p = 2$ in the diagram.\n\nQuick check 2: the area should be 1. $\\int_1^2 (2x - 2)\\,\\text{d}x = \\left[x^2 - 2x\\right]_1^2 = (4 - 4) - (1 - 2) = 1$.",
+   "**Choose the formula for E(X) (M1)**\n\nFor a continuous random variable, the mean is found by multiplying each value $x$ by its density, then integrating over the whole range:\n\n$$\\text{E}(X) = \\int_1^2 x\\,\\text{f}(x)\\,\\text{d}x$$\n\nSubstitute $\\text{f}(x) = 2x - 2$ and multiply out the bracket:\n\n$$x(2x - 2) = 2x^2 - 2x = 2(x^2 - x)$$\n\n$$\\text{E}(X) = 2\\int_1^2 (x^2 - x)\\,\\text{d}x$$",
+   "**Integrate (A1 FT)**\n\nPower rule: $\\int x^n\\,\\text{d}x = \\dfrac{x^{n+1}}{n+1}$. So $\\int x^2\\,\\text{d}x = \\dfrac{x^3}{3}$ and $\\int x\\,\\text{d}x = \\dfrac{x^2}{2}$.\n\n$$\\text{E}(X) = 2\\left[\\frac{x^3}{3} - \\frac{x^2}{2}\\right]_1^2$$",
+   "**Substitute the limits**\n\nUpper limit $x = 2$:\n\n$$\\frac{2^3}{3} - \\frac{2^2}{2} = \\frac{8}{3} - 2 = \\frac{8}{3} - \\frac{6}{3} = \\frac{2}{3}$$\n\nLower limit $x = 1$:\n\n$$\\frac{1^3}{3} - \\frac{1^2}{2} = \\frac{1}{3} - \\frac{1}{2} = \\frac{2}{6} - \\frac{3}{6} = -\\frac{1}{6}$$\n\nUpper minus lower:\n\n$$\\frac{2}{3} - \\left(-\\frac{1}{6}\\right) = \\frac{4}{6} + \\frac{1}{6} = \\frac{5}{6}$$",
+   "**Multiply by the constant (A1)**\n\n$$\\text{E}(X) = 2 \\times \\frac{5}{6} = \\frac{5}{3} = 1.67 \\text{ (3 s.f.)}$$\n\nSense check: all values of $X$ lie between 1 and 2, and the density is larger near 2, so a mean above 1.5 is sensible.",
+   "**Final answer**\n\n$\\text{E}(X) = \\dfrac{5}{3}$ (or $1.67$ to 3 s.f.)"
+  ]
+ }
+}

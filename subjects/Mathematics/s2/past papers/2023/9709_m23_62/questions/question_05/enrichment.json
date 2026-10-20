@@ -1,0 +1,40 @@
+{
+ "9709_m23_62_q5_a": {
+  "hints": [
+   "\"More than double\" means $L > 2S$, which is $L - 2S > 0$. Define $D = L - 2S$ and find $\\text{E}(D)$ from the means 410.0 and 206.0, remembering $\\text{E}(2S) = 2\\text{E}(S)$.",
+   "The packets are independent, so variances add even when you subtract, and the 2 gets squared: $\\text{Var}(D) = \\text{Var}(L) + 2^2\\,\\text{Var}(S)$, where $\\text{Var} = \\sigma^2$, i.e. $3.6^2$ and $3.7^2$.",
+   "$D$ is normal. Standardise the boundary 0: $z = \\dfrac{0 - \\text{E}(D)}{\\sqrt{\\text{Var}(D)}}$. Remember the square root.",
+   "You want $\\text{P}(D > 0)$, the upper tail, so use $1 - \\Phi(z)$.",
+   "Find $\\Phi(z)$ for your $z$ with the table or calculator, subtract from 1, and give 3 s.f."
+  ],
+  "walkthrough": [
+   "**Turn the words into a statement about one variable**\n\nLet $L$ be the mass of a large packet, $L \\sim \\text{N}(410.0, 3.6^2)$, and $S$ the mass of a small packet, $S \\sim \\text{N}(206.0, 3.7^2)$. \"More than double\" means $L > 2S$. Move everything to one side:\n\n$$L > 2S \\iff L - 2S > 0$$\n\nSo define $D = L - 2S$ and find $\\text{P}(D > 0)$. A combination of independent normal variables is itself normal, so $D$ is normal.",
+   "**The mean of $D$ (B1)**\n\nMeans combine just like the formula: $\\text{E}(L - 2S) = \\text{E}(L) - 2\\,\\text{E}(S)$.\n\n$$\\text{E}(D) = 410 - 2 \\times 206 = 410 - 412 = -2$$\n\nThe negative mean makes sense: double a small packet is usually heavier than a large packet, so $D$ is usually below 0.",
+   "**The variance of $D$ (B1)**\n\nFor independent variables, $\\text{Var}(aX \\pm bY) = a^2\\text{Var}(X) + b^2\\text{Var}(Y)$. Variances **add** even for a subtraction, and the multiplier 2 is **squared**. The normal notation $\\text{N}(\\mu, \\sigma^2)$ already holds the variances: $3.6^2$ and $3.7^2$.\n\n$$\\text{Var}(D) = 3.6^2 + 2^2 \\times 3.7^2$$\n\n$$3.6^2 = 12.96 \\qquad 3.7^2 = 13.69 \\qquad 4 \\times 13.69 = 54.76$$\n\n$$\\text{Var}(D) = 12.96 + 54.76 = 67.72$$\n\nSo $D \\sim \\text{N}(-2, 67.72)$.",
+   "**Standardise (M1)**\n\nWe want $\\text{P}(D > 0)$. Subtract the mean and divide by the standard deviation, which is the **square root** of the variance:\n\n$$z = \\frac{0 - (-2)}{\\sqrt{67.72}} = \\frac{2}{8.2292\\ldots} = 0.2430\\ldots$$",
+   "**Pick the correct tail (M1)**\n\n$\\Phi(z)$ is the area to the left of $z$. We want the area to the right (D greater than 0):\n\n$$\\text{P}(Z > 0.243) = 1 - \\Phi(0.243)$$\n\nCalculator or table: $\\Phi(0.243) = 0.5960\\ldots$",
+   "**Subtract (A1)**\n\n$$1 - 0.5960\\ldots = 0.4040\\ldots$$\n\nQuick check: the mean of $D$ is only just below 0 compared with its spread of about 8.2, so a probability a bit under 0.5 is sensible.",
+   "**Final answer**\n\nThe probability that a large packet is more than double the mass of a small packet is $0.404$ (3 s.f.)."
+  ]
+ },
+ "9709_m23_62_q5_b": {
+  "hints": [
+   "Find the total mass of 10 large packets: the means add (10 times 410.0) and the variances add (10 times $3.6^2$, not $10^2$). Do the same for 20 small packets using 206.0 and $3.7^2$.",
+   "Standardise 4080 separately for each box type: $z = \\dfrac{4080 - \\mu}{\\sqrt{\\sigma^2}}$, using that type's total mean and total variance.",
+   "\"More than 4080\" is the upper tail: $1 - \\Phi(z)$. When $z$ is negative this equals $\\Phi$ of the positive value.",
+   "Find both probabilities from the table or calculator and keep at least 4 decimal places, because you use them in the next step.",
+   "60% of boxes are the large-packet type and 40% the small-packet type. Weight each probability by its chance (law of total probability).",
+   "Convert 60% and 40% to decimals, multiply each by its box type's probability, add the two products, and give 3 s.f."
+  ],
+  "walkthrough": [
+   "**Two types of box, so two calculations**\n\nA box is one of two types: 60% are 10 large packets, 40% are 20 small packets. We find the probability that the total mass exceeds 4080 g separately for each type, then combine them using the percentages.",
+   "**Total mass of 10 large packets (B1)**\n\nLet $T_{\\text{L}}$ be the total of 10 independent large packets $L_1 + L_2 + \\dots + L_{10}$. Means add, and variances add:\n\n$$\\text{E}(T_{\\text{L}}) = 10 \\times 410 = 4100$$\n\n$$\\text{Var}(T_{\\text{L}}) = 10 \\times 3.6^2 = 10 \\times 12.96 = 129.6$$\n\n$$T_{\\text{L}} \\sim \\text{N}(4100, 129.6)$$\n\nBe careful: this is a sum of 10 different packets, so the variance is $10\\sigma^2$, not $10^2\\sigma^2$ (that would be for 10 times one packet).",
+   "**Total mass of 20 small packets (B1)**\n\nIn the same way for $T_{\\text{S}}$, the total of 20 small packets:\n\n$$\\text{E}(T_{\\text{S}}) = 20 \\times 206 = 4120$$\n\n$$\\text{Var}(T_{\\text{S}}) = 20 \\times 3.7^2 = 20 \\times 13.69 = 273.8$$\n\n$$T_{\\text{S}} \\sim \\text{N}(4120, 273.8)$$\n\nUsing either of these correctly in a standardising equation earns the **B1**.",
+   "**Standardise each total (M1)**\n\nSubtract the mean and divide by the standard deviation (the square root of the variance).\n\nLarge-packet box:\n\n$$z = \\frac{4080 - 4100}{\\sqrt{129.6}} = \\frac{-20}{11.3842\\ldots} = -1.7568\\ldots$$\n\nSmall-packet box:\n\n$$z = \\frac{4080 - 4120}{\\sqrt{273.8}} = \\frac{-40}{16.5469\\ldots} = -2.4173\\ldots$$",
+   "**Choose the tail (M1)**\n\nWe want the total to be **more than** 4080, which is the area to the right of $z$. By the symmetry of the normal curve, the area to the right of a negative $z$ equals $\\Phi$ of the positive value:\n\n$$\\text{P}(T_{\\text{L}} > 4080) = 1 - \\Phi(-1.757) = \\Phi(1.757)$$\n\n$$\\text{P}(T_{\\text{S}} > 4080) = 1 - \\Phi(-2.417) = \\Phi(2.417)$$",
+   "**Read off both probabilities (A1)**\n\nCalculator or table:\n\n$$\\Phi(1.757) = 0.9605 \\qquad \\Phi(2.417) = 0.9922$$\n\n(The scheme accepts 0.9605 or 0.961 for the first, and 0.9921, 0.9922 or 0.992 for the second.) Both must be right for the **A1**. Large-packet boxes: about 96%. Small-packet boxes: about 99%. Both high, since 4080 is below the usual total in each case.",
+   "**Combine using the percentages (M1)**\n\nA randomly chosen box is a large-packet box with probability 0.6 and a small-packet box with probability 0.4. The probability of exceeding 4080 is each case's probability times its chance of occurring, added together:\n\n$$0.6 \\times 0.9605 + 0.4 \\times 0.9922$$\n\n$$0.6 \\times 0.9605 = 0.5763 \\qquad 0.4 \\times 0.9922 = 0.39688$$\n\n$$0.5763 + 0.39688 = 0.97318$$\n\nCheck: the answer must lie between the two probabilities (0.9605 and 0.9922), nearer the first because 60% of boxes are that type. It does.",
+   "**Final answer**\n\nThe probability that a randomly chosen box has total mass of more than 4080 g is $0.973$ (3 s.f.)."
+  ]
+ }
+}

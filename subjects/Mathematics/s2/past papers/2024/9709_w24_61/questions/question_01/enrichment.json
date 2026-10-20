@@ -1,0 +1,27 @@
+{
+ "9709_w24_61_q1_a": {
+  "hints": [
+   "A 96% interval leaves the remaining percentage split equally between the two tails. Work out the area to the left of the upper end, then find the $z$ with that area (inverse normal on your calculator, or the tables).",
+   "The interval for $\\mu$ has the form $\\bar{x} \\pm z \\times \\dfrac{\\sigma}{\\sqrt{n}}$. Write it with $\\bar{x} = 1.42$, $\\sigma = 0.35$ and $n = 150$.",
+   "Work out $\\dfrac{0.35}{\\sqrt{150}}$, multiply by your $z$, then subtract it from and add it to $1.42$. Give both ends of the interval to 3 s.f."
+  ],
+  "walkthrough": [
+   "**Why this formula**\n\nWe know the population standard deviation, $\\sigma = 0.35$ m, and we have a random sample of $n = 150$ deer with sample mean $\\bar{x} = 1.42$ m ($\\bar{x}$ means 'the mean of the sample').\n\nThe mean of 150 heights varies less than a single height does, so its standard deviation is $\\dfrac{\\sigma}{\\sqrt{n}}$, not $\\sigma$. A confidence interval for the population mean $\\mu$ goes a number of these standard deviations either side of $\\bar{x}$:\n\n$$\\bar{x} \\pm z \\times \\frac{\\sigma}{\\sqrt{n}}$$",
+   "**Find $z$ (this is the B1)**\n\nA 96% confidence interval is the middle $96\\%$ of the normal curve. That leaves $100\\% - 96\\% = 4\\%$ outside, shared between the two tails: $2\\%$ in each tail.\n\nSo the area to the left of the upper end is $1 - 0.02 = 0.98$. We need the $z$ with $\\Phi(z) = 0.98$.\n\nOn your calculator use inverse normal with area $0.98$, mean $0$, standard deviation $1$. It shows $2.0537\\ldots$ (the tables give about $2.054$).\n\n$$z = 2.054$$\n\nThe scheme accepts $2.054$ or $2.055$, and also 3 s.f. ($2.05$ or $2.06$) if nothing better is seen.",
+   "**Write the interval with our numbers (this is the M1)**\n\nSubstitute $\\bar{x} = 1.42$, $\\sigma = 0.35$, $n = 150$ and the $z$ we just found:\n\n$$1.42 \\pm 2.054 \\times \\frac{0.35}{\\sqrt{150}}$$\n\nThe scheme says this must use a $z$ value, not a $t$ value or a probability.",
+   "**Work out the margin**\n\n$$\\sqrt{150} = 12.2474\\ldots$$\n\n$$\\frac{0.35}{12.2474\\ldots} = 0.028577\\ldots$$\n\n$$2.054 \\times 0.028577\\ldots = 0.0587\\ldots$$\n\nThis is how far each end of the interval is from $1.42$.",
+   "**Find both ends (this is the A1)**\n\nLower end:\n\n$$1.42 - 0.0587\\ldots = 1.3613\\ldots$$\n\nUpper end:\n\n$$1.42 + 0.0587\\ldots = 1.4787\\ldots$$\n\nRound each end to 3 significant figures and write the answer as an interval. The scheme wants an interval, not just one number.",
+   "**Final answer**\n\nThe 96% confidence interval for the population mean height is $1.36$ to $1.48$ metres (3 s.f.)."
+  ]
+ },
+ "9709_w24_61_q1_b": {
+  "hints": [
+   "Think about what the interval is built from and what it estimates. Does it make a claim about individual deer heights?"
+  ],
+  "walkthrough": [
+   "**What the interval is about**\n\nThe confidence interval we found in part (a) is built from the **sample mean**. It is an interval for one single number: the population mean height $\\mu$. The '96%' says how often a method like this captures $\\mu$ in the long run.\n\nIt says nothing about how many individual deer fall inside it.",
+   "**Why Bubay is wrong**\n\nIndividual deer vary a lot more than their average does. The standard deviation of a single height is $0.35$ m, which is far larger than the width of our interval (about $0.12$ m in total). So many deer will be taller or shorter than the interval, and well fewer than 96% of them will lie inside it.\n\nThe mark scheme needs both parts of the answer: the 'No', and the reason that the interval is about the mean, not about individual values.",
+   "**Final answer**\n\nNo, Bubay is not correct. The confidence interval is for the population mean, not for the heights of individual deer, so it does not contain 96% of the deer."
+  ]
+ }
+}

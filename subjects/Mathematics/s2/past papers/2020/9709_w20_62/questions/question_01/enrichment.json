@@ -1,0 +1,17 @@
+{
+ "9709_w20_62_q1": {
+  "hints": [
+   "The exact model is binomial, but $n = 150\\,000$ is huge and $p = \\dfrac{1}{50\\,000}$ is tiny, so approximate it with a Poisson distribution whose mean is $\\lambda = np$.",
+   "'More than 2' is an open-ended list ($3, 4, 5, \\dots$), so use the complement: $\\text{P}(X > 2) = 1 - \\text{P}(X \\leqslant 2) = 1 - [\\text{P}(0) + \\text{P}(1) + \\text{P}(2)]$.",
+   "Each term is $\\text{e}^{-\\lambda}\\dfrac{\\lambda^r}{r!}$. Write the three terms with your $\\lambda$ and $r = 0, 1, 2$, add them, subtract from 1 and round to 3 significant figures."
+  ],
+  "walkthrough": [
+   "**Why a Poisson distribution?**\n\nLet $X$ be the number of people in the sample of $150\\,000$ who have the gene. Strictly, $X$ is binomial, $\\text{B}\\left(150\\,000, \\frac{1}{50\\,000}\\right)$. But with $n$ so large, the binomial terms are far too big to work with by hand.\n\nWhen $n$ is large and $p$ is small, a binomial is very close to a Poisson distribution with the **same mean**. That is the 'suitable approximating distribution' the question asks for. Choosing the Poisson earns the first M1.",
+   "**Find the mean**\n\nThe mean of a binomial is $np$, so the Poisson mean $\\lambda$ is:\n\n$$\\lambda = np = 150\\,000 \\times \\frac{1}{50\\,000} = \\frac{150\\,000}{50\\,000} = 3$$\n\nSo $X \\sim \\text{Po}(3)$.",
+   "**Turn 'more than 2' into something we can calculate**\n\n'More than 2' means $X = 3, 4, 5, \\dots$ with no end, so we cannot add those up. Instead we use the fact that all probabilities add to 1:\n\n$$\\text{P}(X > 2) = 1 - \\text{P}(X \\leqslant 2) = 1 - [\\text{P}(X=0) + \\text{P}(X=1) + \\text{P}(X=2)]$$\n\nQuick check: 'at most 2' means 0, 1 or 2 people, so exactly three terms. (The scheme allows one end error here, but let's get it exactly right.) This line earns the second M1.",
+   "**Calculate each term**\n\nThe Poisson formula is $\\text{P}(X = r) = \\text{e}^{-\\lambda}\\dfrac{\\lambda^r}{r!}$. With $\\lambda = 3$, first $\\text{e}^{-3} = 0.049787\\ldots$ (on a calculator: press $\\text{e}^x$, type $-3$).\n\n$$\\text{P}(X=0) = \\text{e}^{-3} \\times \\frac{3^0}{0!} = 0.049787 \\times 1 = 0.049787$$\n\n$$\\text{P}(X=1) = \\text{e}^{-3} \\times \\frac{3^1}{1!} = 0.049787 \\times 3 = 0.149361$$\n\n$$\\text{P}(X=2) = \\text{e}^{-3} \\times \\frac{3^2}{2!} = 0.049787 \\times \\frac{9}{2} = 0.049787 \\times 4.5 = 0.224042$$\n\nRemember $0! = 1$ and $3^0 = 1$, which is why the first term is just $\\text{e}^{-3}$.",
+   "**Add and subtract from 1**\n\n$$\\text{P}(X \\leqslant 2) = 0.049787 + 0.149361 + 0.224042 = 0.423190$$\n\n$$\\text{P}(X > 2) = 1 - 0.423190 = 0.576810$$\n\nCheck on a calculator: Poisson cumulative distribution with mean 3 and $x = 2$ gives $0.4232$, and $1 - 0.4232 = 0.5768$. Rounding to 3 significant figures earns the A1. Do not use the binomial or give an unsupported answer: the scheme gives only B1 for that.",
+   "**Final answer**\n\nThe probability that more than 2 people in the sample have the gene is $0.577$ (3 s.f.)."
+  ]
+ }
+}

@@ -1,0 +1,23 @@
+{
+  "9709_s19_72_q4": {
+    "hints": [
+      "Call the heights $X_1$ and $X_2$ (independent, each $\\text{N}(110, 1050)$). 'At least 1.5 times the other' is a statement about one plant against the other: turn it into a single combination such as $1.5X_1 - X_2$ and ask when that is on one side of $0$.",
+      "Find the mean of your combination using $\\text{E}(aX_1 + bX_2) = a\\,\\text{E}(X_1) + b\\,\\text{E}(X_2)$ with the mean 110 and the coefficient 1.5.",
+      "For independent variables the variances add: $\\text{Var}(aX_1 + bX_2) = a^2\\,\\text{Var}(X_1) + b^2\\,\\text{Var}(X_2)$. The $1050$ is a *variance*, so it is not squared again, but the coefficients are, and a minus sign becomes $+$.",
+      "Standardise the boundary value $0$: $z = \\dfrac{0 - \\text{mean}}{\\sqrt{\\text{variance}}}$, using your mean and variance of the combination. Take the square root of the variance.",
+      "Your combination is less than $0$ (or greater, depending on your choice): decide which tail you need and write it with $\\Phi$, for example $1 - \\Phi(z)$ for a positive $z$ value.",
+      "Evaluate $\\Phi(z)$ on a normal table or your calculator and subtract from 1. This is the probability of **one** of the two cases.",
+      "The plants could be the other way round too ($X_2$ at least 1.5 times $X_1$). The two cases cannot happen together and are equally likely: combine them."
+    ],
+    "walkthrough": [
+      "**Understand the question**\n\nTake two plants with heights $X_1$ and $X_2$ cm. Each is $\\text{N}(110, 1050)$ and they are chosen independently. We want the probability that one plant is at least 1.5 times as tall as the other. That can happen two ways: plant 2 is at least 1.5 times plant 1, **or** plant 1 is at least 1.5 times plant 2.",
+      "**Turn it into one variable**\n\n'$X_2$ is at least $1.5X_1$' means $X_2 \\geqslant 1.5X_1$, i.e. $1.5X_1 - X_2 \\leqslant 0$. So define\n\n$$Y = 1.5X_1 - X_2$$\n\nand look for $\\text{P}(Y \\leqslant 0)$. A combination of independent normal variables is itself normal, so $Y$ is normal. This earns the first **B1**. (You may use $X_1 - 1.5X_2$ instead; the working is the same with mean $-55$.)",
+      "**The mean of Y**\n\n$$\\text{E}(Y) = 1.5\\,\\text{E}(X_1) - \\text{E}(X_2) = 1.5 \\times 110 - 110 = 165 - 110 = 55$$\n\nThis is the second **B1**.",
+      "**The variance of Y**\n\nFor independent variables, $\\text{Var}(aX_1 + bX_2) = a^2\\,\\text{Var}(X_1) + b^2\\,\\text{Var}(X_2)$. Here $a = 1.5$ and $b = -1$. Squaring makes $b^2 = (-1)^2 = +1$, so the variances are **added**, not subtracted:\n\n$$\\text{Var}(Y) = 1.5^2 \\times 1050 + (-1)^2 \\times 1050$$\n\n$1.5^2 = 2.25$ and $2.25 \\times 1050 = 2362.5$, so\n\n$$\\text{Var}(Y) = 2362.5 + 1050 = 3412.5$$\n\nThis is the first **M1**. The question gives a variance (1050 cm$^2$), so do not square it again.",
+      "**Standardise**\n\n$$Y \\sim \\text{N}(55,\\ 3412.5)$$\n\nThe standard deviation is $\\sqrt{3412.5} = 58.4166\\ldots$. We want $\\text{P}(Y \\leqslant 0)$, so\n\n$$z = \\frac{0 - 55}{\\sqrt{3412.5}} = \\frac{-55}{58.4166\\ldots} = -0.9415\\ldots \\approx -0.942$$\n\nThis is the second **M1**.",
+      "**Find the probability for one case**\n\n$\\text{P}(Y \\leqslant 0) = \\text{P}(Z \\leqslant -0.942)$. The normal curve is symmetrical, so the area below $-0.942$ equals the area above $+0.942$:\n\n$$\\text{P}(Z \\leqslant -0.942) = 1 - \\Phi(0.942)$$\n\nThis is the third **M1**. On a calculator, $\\Phi(0.9415) \\approx 0.8268$, so\n\n$$1 - 0.8268 = 0.1732 \\approx 0.173$$\n\nThis is the **A1**.",
+      "**Include both cases**\n\nThe probability that plant 2 is at least 1.5 times plant 1 is $0.173$. By symmetry the probability that plant 1 is at least 1.5 times plant 2 is also $0.173$. These two cases cannot both happen (if one plant is at least 1.5 times the other, the other is not), so we add:\n\n$$2 \\times 0.173 = 0.346$$\n\nThis is the last **B1**. Forgetting this doubling is the commonest slip: the answer $0.173$ is only half the question.",
+      "**Final answer**\n\n$$\\text{P}(\\text{one plant is at least 1.5 times the other}) = 0.346 \\text{ (3 s.f.)}$$"
+    ]
+  }
+}

@@ -1,0 +1,55 @@
+{
+ "9709_s19_71_q5_a_i": {
+  "hints": [
+   "$2 \\leqslant X \\leqslant 4$ means $X = 2, 3$ or $4$. Use $\\text{P}(X = r) = \\text{e}^{-2.3}\\dfrac{2.3^r}{r!}$ for each of these three values.",
+   "Add the three probabilities. On a calculator you can instead use $\\text{P}(X \\leqslant 4) - \\text{P}(X \\leqslant 1)$ with Poisson cumulative probability: be careful which value you subtract."
+  ],
+  "walkthrough": [
+   "**What we need**\n\n$X \\sim \\text{Po}(2.3)$ takes whole-number values $0, 1, 2, \\ldots$ The event $2 \\leqslant X \\leqslant 4$ means $X$ is 2, 3 or 4. The Poisson formula is\n\n$$\\text{P}(X = r) = \\text{e}^{-\\lambda}\\frac{\\lambda^r}{r!}$$\n\nwith $\\lambda = 2.3$.",
+   "**Write the sum (this earns the M1)**\n\n$$\\text{P}(2 \\leqslant X \\leqslant 4) = \\text{e}^{-2.3}\\left(\\frac{2.3^2}{2!} + \\frac{2.3^3}{3!} + \\frac{2.3^4}{4!}\\right)$$\n\nHere $2! = 2$, $3! = 6$, $4! = 24$.",
+   "**Calculate (this earns the A1)**\n\n$\\text{e}^{-2.3} = 0.100259\\ldots$\n\n$\\text{P}(X=2) = 0.100259 \\times \\dfrac{5.29}{2} = 0.100259 \\times 2.645 = 0.26518\\ldots$\n\n$\\text{P}(X=3) = 0.100259 \\times \\dfrac{12.167}{6} = 0.100259 \\times 2.02783 = 0.20331\\ldots$\n\n$\\text{P}(X=4) = 0.100259 \\times \\dfrac{27.9841}{24} = 0.100259 \\times 1.16600 = 0.11690\\ldots$\n\nAdd:\n\n$$0.26518 + 0.20331 + 0.11690 = 0.58540\\ldots = 0.585 \\text{ (3 s.f.)}$$\n\nSlip to avoid: using $\\text{P}(X \\leqslant 4) - \\text{P}(X \\leqslant 2)$ leaves out $X = 2$. You must subtract $\\text{P}(X \\leqslant 1)$.",
+   "**Final answer**\n\n$\\text{P}(2 \\leqslant X \\leqslant 4) = 0.585$ (3 s.f.)."
+  ]
+ },
+ "9709_s19_71_q5_a_ii": {
+  "hints": [
+   "When you add two independent Poisson variables, the means add. Two independent values of $X$ have a sum with Poisson mean $2.3 + 2.3$.",
+   "'Greater than 2' means 3 or more. Use the complement: $1 - \\left[\\text{P}(0) + \\text{P}(1) + \\text{P}(2)\\right]$ with the new mean, using $\\text{e}^{-\\lambda}\\dfrac{\\lambda^r}{r!}$.",
+   "Evaluate $\\text{P}(0)$, $\\text{P}(1)$ and $\\text{P}(2)$ with your $\\lambda$ (or use Poisson cumulative probability at 2), then subtract the total from 1."
+  ],
+  "walkthrough": [
+   "**The sum of two Poisson variables**\n\nLet $X_1$ and $X_2$ be two independent values of $X$, each $\\text{Po}(2.3)$. The sum $X_1 + X_2$ is also Poisson, and its mean is the total of the two means (events happen at rate 2.3 each time, so two 'periods' give twice the expected count).\n\n$$X_1 + X_2 \\sim \\text{Po}(2.3 + 2.3) = \\text{Po}(4.6)$$\n\nThis is the B1.",
+   "**Set up the probability (this earns the M1)**\n\nWe want $\\text{P}(X_1 + X_2 > 2)$. 'Greater than 2' means 3, 4, 5, $\\ldots$ which goes on forever, so use the complement:\n\n$$\\text{P}(> 2) = 1 - \\text{P}(\\leqslant 2) = 1 - \\left[\\text{P}(0) + \\text{P}(1) + \\text{P}(2)\\right]$$\n\nWith $\\lambda = 4.6$:\n\n$$= 1 - \\text{e}^{-4.6}\\left(1 + 4.6 + \\frac{4.6^2}{2}\\right)$$",
+   "**Calculate (this earns the A1)**\n\n$\\text{e}^{-4.6} = 0.010052\\ldots$\n\n$\\text{P}(0) = 0.010052$\n\n$\\text{P}(1) = 0.010052 \\times 4.6 = 0.046238\\ldots$\n\n$\\text{P}(2) = 0.010052 \\times \\dfrac{21.16}{2} = 0.010052 \\times 10.58 = 0.10635\\ldots$\n\nAdd: $0.010052 + 0.046238 + 0.10635 = 0.16264\\ldots$\n\n$$1 - 0.16264 = 0.83736\\ldots = 0.837 \\text{ (3 s.f.)}$$\n\nQuick check: the mean is 4.6, so getting 3 or more should be quite likely. $0.837$ fits.",
+   "**Final answer**\n\n$\\text{P}(\\text{sum} > 2) = 0.837$ (3 s.f.)."
+  ]
+ },
+ "9709_s19_71_q5_a_iii": {
+  "hints": [
+   "A sum of 50 independent $\\text{Po}(2.3)$ values is Poisson with mean $50 \\times 2.3$. That mean is large, so approximate with a normal distribution whose mean *and* variance both equal that Poisson mean.",
+   "$S$ takes whole numbers and the normal is continuous, so use a continuity correction: $\\text{P}(S \\leqslant 110)$ becomes the normal probability up to the upper edge of 110, which is halfway to 111. Standardise with $z = \\dfrac{x - \\mu}{\\sigma}$, where $\\sigma$ is the square root of the variance.",
+   "Your $z$ will be negative. Use the symmetry of the normal curve: $\\text{P}(Z < -z) = 1 - \\Phi(z)$, where $z$ is now the positive value.",
+   "Look up $\\Phi$ of your positive $z$ in the table (or use normal cdf on the calculator) and subtract from 1. Sense check: 110 is below the mean, so the answer should be less than 0.5."
+  ],
+  "walkthrough": [
+   "**Why a normal approximation**\n\n$S$ is the sum of 50 independent $\\text{Po}(2.3)$ values, so $S$ is Poisson with mean $50 \\times 2.3 = 115$. Calculating $\\text{P}(S \\leqslant 110)$ exactly would need 111 terms. When the Poisson mean is large (roughly over 15), the distribution is close to a normal one, so we approximate.\n\nFor a Poisson distribution the variance equals the mean, so the normal has mean 115 and variance 115:\n\n$$S \\approx \\text{N}(115, 115)$$\n\nThis is the B1.",
+   "**Continuity correction (this earns the first M1)**\n\n$S$ is discrete (whole numbers only), but the normal is continuous. A discrete value 110 occupies the interval from $109.5$ to $110.5$ on the continuous scale. 'At most 110' includes all of that, so we use the upper edge:\n\n$$\\text{P}(S \\leqslant 110) \\to \\text{P}(S < 110.5)$$\n\nStandardise: subtract the mean, divide by the standard deviation. The standard deviation is the square root of the variance, so $\\sigma = \\sqrt{115}$:\n\n$$z = \\frac{110.5 - 115}{\\sqrt{115}}$$\n\n$\\sqrt{115} = 10.7238\\ldots$ and $110.5 - 115 = -4.5$, so\n\n$$z = \\frac{-4.5}{10.7238} = -0.4196\\ldots \\approx -0.420$$\n\nSlip to avoid: dividing by 115 instead of $\\sqrt{115}$.",
+   "**Find the probability (this earns the second M1)**\n\nWe need the area to the left of $z = -0.420$. Tables give areas to the *left* of positive $z$ only, so use symmetry: the area to the left of $-0.420$ equals the area to the *right* of $+0.420$.\n\n$$\\text{P}(Z < -0.420) = 1 - \\Phi(0.420)$$\n\nFrom the table $\\Phi(0.420) = 0.663$:\n\n$$1 - 0.663 = 0.337$$",
+   "**Check and finish (this earns the A1)**\n\nSense check: 110 is below the mean 115, so the probability should be less than 0.5. $0.337$ fits.\n\n$$\\text{P}(S \\leqslant 110) = 0.337 \\text{ (3 s.f.)}$$\n\n(Using $\\text{N}(2.3, 2.3)$ for a single $X$ is another accepted route, but do not mix the two methods.)",
+   "**Final answer**\n\n$\\text{P}(S \\leqslant 110) = 0.337$ (3 s.f.)."
+  ]
+ },
+ "9709_s19_71_q5_b": {
+  "hints": [
+   "Write $\\text{P}(Y = 3)$ and $\\text{P}(Y = 5)$ with the Poisson formula $\\text{e}^{-\\lambda}\\dfrac{\\lambda^r}{r!}$ and set the two expressions equal.",
+   "Cancel $\\text{e}^{-\\lambda}$ from both sides, then work out $3!$ and $5!$ and multiply through to clear the fractions. Gather the powers of $\\lambda$: divide both sides by $\\lambda^3$ (valid as $\\lambda > 0$).",
+   "You are left with $\\lambda^2$ equal to a whole number. Take the positive square root only (a Poisson parameter must be positive) and give 3 significant figures."
+  ],
+  "walkthrough": [
+   "**Write both probabilities (this earns the M1)**\n\nFor $Y \\sim \\text{Po}(\\lambda)$, $\\text{P}(Y = r) = \\text{e}^{-\\lambda}\\dfrac{\\lambda^r}{r!}$. So\n\n$$\\text{P}(Y = 3) = \\text{e}^{-\\lambda}\\frac{\\lambda^3}{3!} \\qquad \\text{P}(Y = 5) = \\text{e}^{-\\lambda}\\frac{\\lambda^5}{5!}$$\n\nSet them equal:\n\n$$\\text{e}^{-\\lambda}\\frac{\\lambda^3}{3!} = \\text{e}^{-\\lambda}\\frac{\\lambda^5}{5!}$$",
+   "**Simplify (this earns the first A1)**\n\n$\\text{e}^{-\\lambda}$ is never zero, so divide both sides by it:\n\n$$\\frac{\\lambda^3}{3!} = \\frac{\\lambda^5}{5!}$$\n\n$3! = 6$ and $5! = 120$:\n\n$$\\frac{\\lambda^3}{6} = \\frac{\\lambda^5}{120}$$\n\nMultiply both sides by 120 (note $120 \\div 6 = 20$):\n\n$$20\\lambda^3 = \\lambda^5$$\n\nDivide both sides by $\\lambda^3$. We may do this because $\\lambda > 0$ (a Poisson mean cannot be 0 or negative):\n\n$$\\lambda^2 = 20$$\n\n(The scheme accepts any correct form such as $\\lambda^3 = \\dfrac{\\lambda^5}{4 \\times 5}$ or $\\lambda^2 = 20$.)",
+   "**Solve (this earns the second A1)**\n\n$$\\lambda = \\sqrt{20} = 2\\sqrt{5} = 4.4721\\ldots$$\n\nWe reject $-\\sqrt{20}$ because $\\lambda$ must be positive.\n\nCheck: $\\lambda^2 = 4.4721^2 = 20.0$, which matches.",
+   "**Final answer**\n\n$\\lambda = \\sqrt{20}$ (or $2\\sqrt{5}$) $= 4.47$ (3 s.f.)."
+  ]
+ }
+}

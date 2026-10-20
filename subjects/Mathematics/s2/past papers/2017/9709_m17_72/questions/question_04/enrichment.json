@@ -1,0 +1,40 @@
+{
+ "9709_m17_72_q4_i": {
+  "hints": [
+   "The mean is 0.9 per day and the test uses a 5-day period. Scale the mean for 5 days; this is the value of $\\lambda$ when $\\text{H}_0$ is true.",
+   "A Type I error means rejecting $\\text{H}_0$ when it is true. She rejects when there are fewer than 3, so you need $\\text{P}(X \\leqslant 2)$, which is $\\text{P}(0) + \\text{P}(1) + \\text{P}(2)$.",
+   "Use $\\text{P}(X = r) = \\text{e}^{-\\lambda}\\dfrac{\\lambda^r}{r!}$ for $r = 0, 1, 2$ with your $\\lambda$, add the three values and give 3 significant figures."
+  ],
+  "walkthrough": [
+   "**What is a Type I error?**\n\nA Type I error means rejecting the null hypothesis $\\text{H}_0$ when $\\text{H}_0$ is actually true. So we must find the probability of the manager's *rejection* outcome, calculated *assuming $\\text{H}_0$ is true*.\n\n$\\text{H}_0$: the mean is still 0.9 missed appointments per day.",
+   "**Find $\\lambda$ for a 5-day period (this earns the B1)**\n\nThe Poisson mean grows in proportion to the length of time. For 5 days:\n\n$$\\lambda = 0.9 \\times 5 = 4.5$$\n\nSo under $\\text{H}_0$, the number of missed appointments in 5 days is $X \\sim \\text{Po}(4.5)$.",
+   "**Write the probability (this earns the M1)**\n\nShe concludes the mean has decreased if there are *fewer than 3* missed appointments. Whole numbers fewer than 3 are 0, 1 and 2, so\n\n$$\\text{P}(\\text{Type I error}) = \\text{P}(X \\leqslant 2) = \\text{P}(X=0) + \\text{P}(X=1) + \\text{P}(X=2)$$\n\nUsing $\\text{P}(X = r) = \\text{e}^{-\\lambda}\\dfrac{\\lambda^r}{r!}$:\n\n$$\\text{e}^{-4.5}\\left(1 + 4.5 + \\frac{4.5^2}{2!}\\right)$$\n\nSlip to avoid: \"fewer than 3\" does not include 3. Stopping at $r = 1$ or going up to $r = 3$ loses the mark.",
+   "**Calculate (this earns the A1)**\n\n$$\\text{e}^{-4.5} = 0.011109\\ldots$$\n\n$$\\frac{4.5^2}{2!} = \\frac{20.25}{2} = 10.125$$\n\n$$1 + 4.5 + 10.125 = 15.625$$\n\n$$0.011109 \\times 15.625 = 0.17358\\ldots$$\n\nTo 3 significant figures: $0.174$. (Your calculator's Poisson cdf with $\\lambda = 4.5$ and $x = 2$ gives the same.)",
+   "**Final answer**\n\n$$\\text{P}(\\text{Type I error}) = 0.174$$"
+  ]
+ },
+ "9709_m17_72_q4_ii": {
+  "hints": [
+   "A Type I error is rejecting $\\text{H}_0$ when $\\text{H}_0$ is true. Here, what is $\\text{H}_0$ about the mean, and what would the manager conclude wrongly? Answer in terms of missed appointments."
+  ],
+  "walkthrough": [
+   "**Say it in context**\n\nA Type I error is: reject $\\text{H}_0$ when $\\text{H}_0$ is true.\n\nHere $\\text{H}_0$ is that the mean number of missed appointments is still 0.9 per day. The manager rejects it if she sees fewer than 3 missed appointments in 5 days. So a Type I error is: the manager concludes that the mean has decreased, when in fact it has not (it is still 0.9 per day).",
+   "**Final answer**\n\nA Type I error is concluding that the mean number of missed appointments has decreased (because fewer than 3 occurred in the 5 days) when the mean is in fact still 0.9 per day."
+  ]
+ },
+ "9709_m17_72_q4_iii": {
+  "hints": [
+   "A Type II error is *not* rejecting $\\text{H}_0$ when it is false. She fails to reject when there are 3 or more missed appointments, so you need $\\text{P}(X \\geqslant 3)$ for the true mean.",
+   "The true mean is 0.2 per day, so scale it to the 5-day period to get the new $\\lambda$. Then use $\\text{P}(X \\geqslant 3) = 1 - \\text{P}(X \\leqslant 2)$.",
+   "Write $1 - \\text{e}^{-\\lambda}\\left(1 + \\lambda + \\dfrac{\\lambda^2}{2!}\\right)$ with your $\\lambda$ and evaluate it to 3 significant figures."
+  ],
+  "walkthrough": [
+   "**What is a Type II error here?**\n\nA Type II error means *not* rejecting $\\text{H}_0$ when it is actually false. The manager does not conclude that the mean has decreased if she sees 3 or more missed appointments in the 5 days.\n\nWe now assume the *true* mean is 0.2 per day, and ask how likely it is that she still sees 3 or more (so she fails to notice the drop).",
+   "**Write the probability (this earns the first M1)**\n\n$$\\text{P}(\\text{Type II error}) = \\text{P}(X \\geqslant 3)$$",
+   "**Find the new $\\lambda$**\n\nFor 5 days with a true mean of 0.2 per day:\n\n$$\\lambda = 0.2 \\times 5 = 1$$\n\nSo $X \\sim \\text{Po}(1)$. Slip to avoid: using 4.5 or 0.9 here. The mark scheme does not allow those, because they belong to $\\text{H}_0$.",
+   "**Turn \"3 or more\" into something we can calculate (this earns the second M1)**\n\nThe Poisson distribution has no upper limit, so we cannot add up \"3, 4, 5, …\". Use the complement: the probabilities of all outcomes add to 1, so\n\n$$\\text{P}(X \\geqslant 3) = 1 - \\text{P}(X \\leqslant 2) = 1 - \\text{e}^{-1}\\left(1 + 1 + \\frac{1^2}{2!}\\right)$$",
+   "**Calculate (this earns the A1)**\n\n$$1 + 1 + \\frac{1}{2} = 2.5$$\n\n$$\\text{e}^{-1} = 0.36788\\ldots$$\n\n$$0.36788 \\times 2.5 = 0.91970\\ldots$$\n\n$$1 - 0.91970 = 0.08030\\ldots$$\n\nTo 3 significant figures: $0.0803$.",
+   "**Final answer**\n\n$$\\text{P}(\\text{Type II error}) = 0.0803$$"
+  ]
+ }
+}

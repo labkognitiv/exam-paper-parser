@@ -1,0 +1,32 @@
+{
+ "9709_m19_72_q4_i": {
+  "hints": [
+   "The unbiased estimate of the population mean is the sample mean: $\\bar{x} = \\dfrac{\\sum x}{n}$ with $\\sum x = 420$ and $n = 50$.",
+   "The unbiased estimate of the variance is $s^2 = \\dfrac{1}{n - 1}\\left(\\sum x^2 - \\dfrac{(\\sum x)^2}{n}\\right)$ with $\\sum x^2 = 27\\,530$, $\\sum x = 420$ and $n = 50$, so $n - 1 = 49$.",
+   "For a 'show that', calculate the value to at least 4 significant figures before rounding, so the examiner sees you really get 490 to 3 significant figures."
+  ],
+  "walkthrough": [
+   "**Estimate of the population mean (this earns the B1)**\n\nThe **sample mean** $\\bar{x}$ is the unbiased estimate of the population mean. It is the total divided by the number of batteries:\n\n$$\\bar{x} = \\frac{\\sum x}{n} = \\frac{420}{50} = 8.4$$\n\nSo an unbiased estimate of the population mean is $8.4$ hours.",
+   "**Why not the ordinary variance?**\n\nThe ordinary variance of the sample divides by $n$. That tends to come out a little too small for the whole population. To fix this (to make it **unbiased**) we divide by $n - 1$ instead. Here $n - 1 = 49$.",
+   "**Substitute into the formula (this earns the M1)**\n\n$$s^2 = \\frac{1}{n - 1}\\left(\\sum x^2 - \\frac{(\\sum x)^2}{n}\\right) = \\frac{1}{49}\\left(27\\,530 - \\frac{420^2}{50}\\right)$$\n\nSquare first: $420^2 = 176\\,400$. Then divide by 50: $\\dfrac{176\\,400}{50} = 3528$.\n\nSubtract: $27\\,530 - 3528 = 24\\,002$.\n\n$$s^2 = \\frac{24\\,002}{49}$$\n\n(The other form in the scheme gives the same result: $\\dfrac{50}{49}\\left(\\dfrac{27\\,530}{50} - 8.4^2\\right) = \\dfrac{50}{49}(550.6 - 70.56) = \\dfrac{50}{49} \\times 480.04$.)",
+   "**Calculate and round (this earns the A1)**\n\n$$\\frac{24\\,002}{49} = 489.8367\\ldots$$\n\nWriting at least 4 significant figures ($489.8$) is needed in a 'show that' question. Now round to 3 significant figures: the digits are $4, 8, 9$ and the next digit is $8$, which rounds the $9$ up to $10$, giving $490$.\n\nQuick check: $489.8$ is very close to $490$, so it matches the value in the question.",
+   "**Final answer**\n\nEstimate of the mean: $8.4$ hours.\n\n$$s^2 = 489.8367\\ldots = 490 \\text{ (3 s.f.)}$$"
+  ]
+ },
+ "9709_m19_72_q4_ii": {
+  "hints": [
+   "The probability $0.9377$ is bigger than one half, so the value 5 lies *below* the mean of $\\bar{X}$. First find the $z$ with $\\Phi(z) = 0.9377$ using the inverse normal.",
+   "By the Central Limit theorem $\\bar{X} \\sim \\text{N}\\left(\\mu,\\ \\dfrac{\\sigma^2}{n}\\right)$ using your estimates from part (i) for $\\mu$ and $\\sigma^2 = 490$. Standardise 5 and set it equal to $-z$ (negative, because 5 is below the mean): $\\dfrac{5 - \\bar{x}}{\\sqrt{490/n}} = -z$.",
+   "Rearrange so that $\\sqrt{490/n}$ (or $\\sqrt{n}$) is on its own, then square both sides to get $n$.",
+   "$n$ is a count of batteries, so it must be a whole number. Check that your result is a whole number (or very close to one) and give it as such."
+  ],
+  "walkthrough": [
+   "**What distribution does $\\bar{X}$ have?**\n\n$\\bar{X}$ is the mean of $n$ batteries. For a large sample the Central Limit theorem says $\\bar{X}$ is approximately normal, with\n\n$$\\text{mean} = \\mu \\qquad \\text{variance} = \\frac{\\sigma^2}{n}$$\n\nWe use our estimates from part (i): $\\mu \\approx 8.4$ and $\\sigma^2 \\approx 490$. So\n\n$$\\bar{X} \\sim \\text{N}\\left(8.4,\\ \\frac{490}{n}\\right)$$",
+   "**Find the $z$ value (this earns the B1)**\n\nWe are told $\\text{P}(\\bar{X} > 5) = 0.9377$. In terms of $Z$ this is the area to the right of some value, and the area to the **left** of it is $1 - 0.9377 = 0.0623$. So that value is negative (below the mean), and by symmetry its size is the $z$ with area $0.9377$ to the left.\n\nCalculator: inverse normal, area $0.9377$, mean $0$, standard deviation $1$: it shows $1.5357\\ldots$\n\n$$\\Phi^{-1}(0.9377) = 1.536$$",
+   "**Set up the equation (this earns the first M1)**\n\nStandardise the value $5$: $z = \\dfrac{5 - \\text{mean}}{\\text{standard deviation}}$. The standard deviation of $\\bar{X}$ is $\\sqrt{\\dfrac{490}{n}}$.\n\nThe value $5$ is below the mean $8.4$ and has area $0.9377$ **to its right**, so its $z$ value is the **negative** of $1.536$:\n\n$$\\frac{5 - 8.4}{\\sqrt{\\dfrac{490}{n}}} = -1.536$$\n\nNumerator: $5 - 8.4 = -3.4$.",
+   "**Solve for $n$ (this earns the second M1)**\n\n$$\\frac{-3.4}{\\sqrt{\\dfrac{490}{n}}} = -1.536$$\n\nMultiply both sides by $\\sqrt{\\dfrac{490}{n}}$ and divide by $-1.536$ (the minus signs cancel):\n\n$$\\sqrt{\\frac{490}{n}} = \\frac{3.4}{1.536}$$\n\nSquare both sides:\n\n$$\\frac{490}{n} = \\left(\\frac{3.4}{1.536}\\right)^2 \\quad\\Rightarrow\\quad n = 490 \\times \\left(\\frac{1.536}{3.4}\\right)^2$$\n\nStep by step: $\\dfrac{1.536}{3.4} = 0.451764\\ldots$; squared this is $0.204091\\ldots$; then $0.204091 \\times 490 = 100.0048\\ldots$",
+   "**Give a whole number (this earns the A1)**\n\n$n$ is a number of batteries, so it must be a whole number. $100.0048$ is essentially $100$ (the tiny difference comes from rounding $z$ to 4 significant figures).\n\nQuick check: with $n = 100$ the standard deviation of $\\bar{X}$ is $\\sqrt{4.9} = 2.2136$, so $z = \\dfrac{-3.4}{2.2136} = -1.536$. This matches.",
+   "**Final answer**\n\n$$n = 100$$"
+  ]
+ }
+}

@@ -1,0 +1,46 @@
+{
+ "9709_m24_62_q6_a": {
+  "hints": [
+   "The graph is symmetrical about $x = 2$, so half the total probability ($\\tfrac{1}{2}$) lies above $2$. Use $\\text{P}(2 < X < 5) = \\dfrac{117}{256}$ to find $\\text{P}(X > 5)$.",
+   "$-1$ and $5$ are the same distance from $2$ (one on each side), so by symmetry $\\text{P}(X < -1) = \\text{P}(X > 5)$. Then $\\text{P}(X > -1) = 1 - \\text{P}(X < -1)$."
+  ],
+  "walkthrough": [
+   "**Use the symmetry**\n\nThe graph is symmetrical about $x = 2$, so the total area of $1$ is split equally: $\\text{P}(X > 2) = \\dfrac{1}{2}$.\n\nThe part of $X > 2$ that is **not** between $2$ and $5$ is $X > 5$:\n\n$$\\text{P}(X > 5) = \\frac{1}{2} - \\frac{117}{256}$$\n\nWrite $\\dfrac{1}{2}$ as $\\dfrac{128}{256}$ so the fractions have the same denominator:\n\n$$\\frac{128}{256} - \\frac{117}{256} = \\frac{11}{256}$$\n\nThis earns the M1.",
+   "**Mirror image across $x = 2$**\n\n$5$ is $3$ above $2$, and $-1$ is $3$ below $2$. By symmetry the area to the left of $-1$ equals the area to the right of $5$:\n\n$$\\text{P}(X < -1) = \\text{P}(X > 5) = \\frac{11}{256}$$",
+   "**Finish (earns the A1)**\n\nTotal probability is $1$, so\n\n$$\\text{P}(X > -1) = 1 - \\frac{11}{256} = \\frac{256}{256} - \\frac{11}{256} = \\frac{245}{256}$$\n\nThis is the printed result.",
+   "**Final answer**\n\n$\\text{P}(X > -1) = \\dfrac{245}{256}$, as required."
+  ]
+ },
+ "9709_m24_62_q6_b": {
+  "hints": [
+   "A pdf is integrated to get probabilities. Integrate $k(12 + 4x - x^2)$ term by term; the power rule gives $12x + \\ldots$",
+   "You know a probability for this pdf: $\\text{P}(2 < X < 5) = \\dfrac{117}{256}$. Substitute the limits $2$ and $5$ into your integral and set it equal to $\\dfrac{117}{256}$.",
+   "Your definite integral will be a number times $k$. Divide both sides by that number to find $k$."
+  ],
+  "walkthrough": [
+   "**Plan**\n\nFor a probability density function, the area under the curve between two values is a probability. From the question we already know $\\text{P}(2 < X < 5) = \\dfrac{117}{256}$, so we can set up an equation for $k$.",
+   "**Integrate (earns the first M1)**\n\nRaise each power by one and divide by the new power:\n\n$$\\int (12 + 4x - x^2)\\,\\text{d}x = 12x + 2x^2 - \\frac{x^3}{3}$$\n\nCheck: $4x$ gives $\\dfrac{4x^2}{2} = 2x^2$, and $x^2$ gives $\\dfrac{x^3}{3}$.",
+   "**Use the limits 2 and 5**\n\nUpper limit $x = 5$: $$12(5) + 2(5)^2 - \\frac{5^3}{3} = 60 + 50 - \\frac{125}{3} = \\frac{205}{3}$$\n\nLower limit $x = 2$: $$12(2) + 2(2)^2 - \\frac{2^3}{3} = 24 + 8 - \\frac{8}{3} = \\frac{88}{3}$$\n\nSubtract: $$\\frac{205}{3} - \\frac{88}{3} = \\frac{117}{3} = 39$$",
+   "**Form and solve the equation (earns the second M1)**\n\nThe integral of the pdf from $2$ to $5$ is $k \\times 39$, and that must equal $\\dfrac{117}{256}$:\n\n$$39k = \\frac{117}{256}$$\n\nDivide both sides by $39$. Since $117 \\div 39 = 3$:\n\n$$k = \\frac{117}{256 \\times 39} = \\frac{3}{256}$$\n\nAs a decimal, $3 \\div 256 = 0.01171875$, which is $0.0117$ to 3 s.f.",
+   "**Final answer**\n\n$k = \\dfrac{3}{256}$ (or $0.0117$)."
+  ]
+ },
+ "9709_m24_62_q6_c": {
+  "hints": [
+   "The domain is where $\\text{g}(x) \\geqslant 0$. Start by solving $2 + x - x^2 = 0$ (rearrange to $x^2 - x - 2 = 0$ and factorise) to find the ends of the domain.",
+   "Now the mean. $\\text{g}$ is a quadratic, so its graph is symmetrical about the mid-point of the two roots. (Or integrate $x\\,\\text{g}(x)$ over the domain to check.)",
+   "For the variance you need $\\text{E}(X^2) = \\int x^2\\,\\text{g}(x)\\,\\text{d}x$ over the domain. Multiply $x^2$ into $(2 + x - x^2)$ first, keep the factor $\\dfrac{2}{9}$, then integrate term by term.",
+   "Use $\\text{Var}(X) = \\text{E}(X^2) - \\left[\\text{E}(X)\\right]^2$, with the mean you found.",
+   "Substitute the upper limit and the lower limit into your integral and subtract. Be careful with the minus signs from the lower limit $-1$ (odd powers stay negative), then finish the subtraction for the variance."
+  ],
+  "walkthrough": [
+   "**Find the domain (earns the first B1)**\n\nThe domain is every $x$ where $\\text{g}(x) \\geqslant 0$. The curve $2 + x - x^2$ is an upside-down parabola (the $x^2$ has a minus sign), so it is above zero **between** its two roots. Find the roots:\n\n$$2 + x - x^2 = 0 \\quad\\Longrightarrow\\quad x^2 - x - 2 = 0 \\quad\\Longrightarrow\\quad (x - 2)(x + 1) = 0$$\n\nSo $x = -1$ and $x = 2$, and the domain is $-1 \\leqslant x \\leqslant 2$.",
+   "**Quick check that this is a valid pdf**\n\nThe total area should be $1$:\n\n$$\\frac{2}{9}\\left[2x + \\frac{x^2}{2} - \\frac{x^3}{3}\\right]_{-1}^{2}$$\n\nAt $x = 2$: $4 + 2 - \\dfrac{8}{3} = \\dfrac{10}{3}$. At $x = -1$: $-2 + \\dfrac{1}{2} + \\dfrac{1}{3} = -\\dfrac{7}{6}$.\n\nDifference: $\\dfrac{10}{3} + \\dfrac{7}{6} = \\dfrac{27}{6} = \\dfrac{9}{2}$, and $\\dfrac{2}{9} \\times \\dfrac{9}{2} = 1$. Good.",
+   "**The mean (earns the second B1)**\n\nA quadratic graph is symmetrical about the mid-point of its roots, so the mean is halfway between $-1$ and $2$:\n\n$$\\text{E}(X) = \\frac{-1 + 2}{2} = 0.5$$\n\nIf you prefer to integrate: $\\text{E}(X) = \\dfrac{2}{9}\\displaystyle\\int_{-1}^{2}(2x + x^2 - x^3)\\,\\text{d}x = \\dfrac{2}{9}\\left[x^2 + \\dfrac{x^3}{3} - \\dfrac{x^4}{4}\\right]_{-1}^{2} = \\dfrac{2}{9} \\times \\dfrac{9}{4} = 0.5$. Same answer.",
+   "**Set up $\\text{E}(X^2)$ (earns the *M1)**\n\nThe variance is $\\text{E}(X^2) - [\\text{E}(X)]^2$. For $\\text{E}(X^2)$ we integrate $x^2\\,\\text{g}(x)$. First multiply out:\n\n$$x^2 \\times \\frac{2}{9}(2 + x - x^2) = \\frac{2}{9}(2x^2 + x^3 - x^4)$$\n\nIntegrate each term (raise the power by 1, divide by the new power):\n\n$$\\text{E}(X^2) = \\frac{2}{9}\\left[\\frac{2x^3}{3} + \\frac{x^4}{4} - \\frac{x^5}{5}\\right]_{-1}^{2}$$",
+   "**Substitute the limits**\n\nUpper limit $x = 2$: $$\\frac{2(8)}{3} + \\frac{16}{4} - \\frac{32}{5} = \\frac{16}{3} + 4 - \\frac{32}{5} = \\frac{44}{15}$$\n\nLower limit $x = -1$: $$\\frac{2(-1)}{3} + \\frac{1}{4} - \\frac{-1}{5} = -\\frac{2}{3} + \\frac{1}{4} + \\frac{1}{5} = -\\frac{13}{60}$$ (careful: $(-1)^3 = -1$, $(-1)^4 = 1$, $(-1)^5 = -1$).\n\nSubtract (upper minus lower): $$\\frac{44}{15} + \\frac{13}{60} = \\frac{176}{60} + \\frac{13}{60} = \\frac{189}{60} = \\frac{63}{20}$$\n\nMultiply by $\\dfrac{2}{9}$: $$\\text{E}(X^2) = \\frac{2}{9} \\times \\frac{63}{20} = \\frac{126}{180} = 0.7$$",
+   "**The variance (earns the DM1)**\n\n$$\\text{Var}(X) = \\text{E}(X^2) - \\left[\\text{E}(X)\\right]^2 = 0.7 - 0.5^2 = 0.7 - 0.25$$\n\nCommon slip: forgetting to square the mean.",
+   "**Final answer**\n\n$\\text{Var}(X) = 0.45$ (which is $\\dfrac{9}{20}$)."
+  ]
+ }
+}

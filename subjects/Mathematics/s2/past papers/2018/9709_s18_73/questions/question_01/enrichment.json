@@ -1,0 +1,27 @@
+{
+ "9709_s18_73_q1_i": {
+  "hints": [
+   "$X$ is binomial with a large $n = 75$ and a small $p = 0.03$, so approximate it by a Poisson variable whose mean is $\\lambda = np$. Write down $\\text{Po}(\\lambda)$ using these two numbers.",
+   "$\\text{P}(X < 3)$ means $X$ is 0, 1 or 2 (not 3). Write $\\text{P}(X = 0) + \\text{P}(X = 1) + \\text{P}(X = 2)$, using $\\text{P}(X = r) = \\text{e}^{-\\lambda}\\dfrac{\\lambda^r}{r!}$.",
+   "Take $\\text{e}^{-\\lambda}$ out as a common factor: $\\text{e}^{-\\lambda}\\left(1 + \\lambda + \\dfrac{\\lambda^2}{2!}\\right)$. Put your $\\lambda$ in, evaluate on the calculator and give 3 significant figures."
+  ],
+  "walkthrough": [
+   "**Why a Poisson approximation?**\n\nWe are asked for a probability for $X \\sim \\text{B}(75, 0.03)$, but we are told to use a Poisson distribution instead. A Poisson distribution is a good stand-in for a binomial one when there are many trials ($n$ large) and each has a small chance of success ($p$ small). Here $n = 75$ and $p = 0.03$, so it fits.",
+   "**Find the Poisson mean**\n\nA binomial $\\text{B}(n, p)$ has mean $np$. The approximating Poisson distribution is given the same mean:\n\n$$\\lambda = np = 75 \\times 0.03 = 2.25$$\n\nSo we use $X \\approx \\text{Po}(2.25)$. Stating this earns the **B1**.",
+   "**What does $X < 3$ include?**\n\n$X$ can only be a whole number 0, 1, 2, 3, … The values below 3 are 0, 1 and 2. Be careful: 3 itself is **not** included, because the sign is $<$ and not $\\leqslant$.\n\n$$\\text{P}(X < 3) = \\text{P}(X = 0) + \\text{P}(X = 1) + \\text{P}(X = 2)$$",
+   "**Write each probability**\n\nFor a Poisson variable with mean $\\lambda$, $\\text{P}(X = r) = \\text{e}^{-\\lambda}\\dfrac{\\lambda^r}{r!}$. With $\\lambda = 2.25$:\n\n$$\\text{P}(X = 0) = \\text{e}^{-2.25}\\times\\frac{2.25^0}{0!} = \\text{e}^{-2.25}$$\n\n$$\\text{P}(X = 1) = \\text{e}^{-2.25}\\times 2.25$$\n\n$$\\text{P}(X = 2) = \\text{e}^{-2.25}\\times\\frac{2.25^2}{2!}$$\n\nEvery term has $\\text{e}^{-2.25}$, so take it out as a common factor:\n\n$$\\text{P}(X < 3) = \\text{e}^{-2.25}\\left(1 + 2.25 + \\frac{2.25^2}{2}\\right)$$\n\nThis line earns the **M1**.",
+   "**Calculate**\n\nWork inside the bracket first. $2.25^2 = 5.0625$, and $5.0625 \\div 2 = 2.53125$.\n\n$$1 + 2.25 + 2.53125 = 5.78125$$\n\nOn the calculator, $\\text{e}^{-2.25} = 0.105399\\ldots$ (keep the full number on screen).\n\n$$0.105399 \\times 5.78125 = 0.60934$$\n\nQuick check: a probability must be between 0 and 1. It is.",
+   "**Final answer**\n\n$\\text{P}(X < 3) = \\mathbf{0.609}$ (3 significant figures). This earns the **A1**.\n\nNote: if you used the exact binomial distribution $\\text{B}(75, 0.03)$ you would get $0.608$. The scheme gives only a special-case B1 for that, because the question told you to use the Poisson approximation."
+  ]
+ },
+ "9709_s18_73_q1_ii": {
+  "hints": [
+   "For the Poisson approximation to be good you need two things: $n$ large and the mean $np$ (or $p$ itself) small. Check both for $n = 75$ and $p = 0.03$."
+  ],
+  "walkthrough": [
+   "**What makes the approximation reasonable?**\n\nThe approximation works well when the binomial has many trials and a small chance of success. In practice the textbook conditions are $n$ large together with either $np < 5$ or $p < 0.1$ (the scheme accepts $n > 50$ for 'large').",
+   "**Check them with our numbers**\n\nHere $n = 75$, which is large. The mean is $np = 75 \\times 0.03 = 2.25$, which is less than 5 (and $p = 0.03$ is less than 0.1).\n\nWrite the check in a sentence so the marker sees both conditions.",
+   "**Final answer**\n\nThe mean $\\mu = np = 2.25$, which is less than 5, and $n = 75$ is large, so the Poisson approximation is justified. This earns the **B1**. Say both parts: just 'n is large' or just 'np is small' is not enough."
+  ]
+ }
+}

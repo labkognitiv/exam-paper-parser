@@ -1,0 +1,37 @@
+{
+ "9709_w23_62_q4_a": {
+  "hints": [
+   "The test is about the **population** mean of $H$ and the claim is that it is greater than $4.23$. Put the 'no change' value in $\\text{H}_0$ and the one-sided claim in $\\text{H}_1$, using $\\mu$ (not $\\bar{h}$)."
+  ],
+  "walkthrough": [
+   "**How hypotheses are set up**\n\nHypotheses are always statements about a **population** parameter, here the population mean height of this variety of tree, which we call $\\mu$. They are never about the sample mean $\\bar{h}$, because we know the sample mean once we have measured the trees.\n\nThe null hypothesis $\\text{H}_0$ is the 'nothing special' position: the mean is exactly $4.23$. The alternative $\\text{H}_1$ is what we are testing for: the mean is **greater than** $4.23$. Greater than (not just 'different') makes it a one-tailed test.",
+   "**Final answer**\n\n$$\\text{H}_0: \\mu = 4.23$$\n\n$$\\text{H}_1: \\mu > 4.23$$\n\nwhere $\\mu$ is the population mean height of the trees, in metres."
+  ]
+ },
+ "9709_w23_62_q4_b": {
+  "hints": [
+   "Under $\\text{H}_0$ the sample mean is $\\overline{H} \\sim \\text{N}\\!\\left(4.23, \\dfrac{0.67^2}{200}\\right)$. Standardise: $z = \\dfrac{\\bar{h} - 4.23}{0.67/\\sqrt{200}}$. The $\\sqrt{200}$ is there because it is a mean of $200$ trees.",
+   "The test is one-tailed at 5%, so the critical value is $z = 1.645$ (from $\\Phi(z) = 0.95$). Set up the boundary equation $\\dfrac{\\bar{h} - 4.23}{0.67/\\sqrt{200}} = 1.645$ and solve it for $\\bar{h}$.",
+   "We reject $\\text{H}_0$ when the sample mean is far into the upper tail. Decide whether $\\bar{h}$ must be above or below your boundary, and write the set of values to 3 significant figures."
+  ],
+  "walkthrough": [
+   "**What the question asks**\n\nWe do not have a sample mean yet. Instead we are asked: which sample means $\\bar{h}$ would lead us to **reject** $\\text{H}_0$ at the 5% level? That is the rejection region, written in terms of $\\bar{h}$.",
+   "**Distribution of the sample mean**\n\n$H$ is normal with standard deviation $0.67$. The mean $\\overline{H}$ of $n = 200$ trees is also normal, with the same mean as the population and standard deviation $\\dfrac{0.67}{\\sqrt{200}}$ (a mean varies less than a single tree).\n\nIf $\\text{H}_0$ is true, the mean is $4.23$:\n\n$$\\overline{H} \\sim \\text{N}\\!\\left(4.23, \\frac{0.67^2}{200}\\right)$$\n\nFirst, $\\sqrt{200} = 14.1421\\ldots$ and so the standard deviation of the sample mean is\n\n$$\\frac{0.67}{\\sqrt{200}} = \\frac{0.67}{14.1421\\ldots} = 0.047376\\ldots$$",
+   "**Critical $z$ value**\n\nThe test is one-tailed (upper), at 5%. We reject $\\text{H}_0$ when the sample mean is so high that the probability of being this high or higher is at most $5\\%$. We need the $z$ with $\\Phi(z) = 0.95$:\n\n$$z = 1.645$$",
+   "**Form the boundary equation (M1)**\n\nAt the boundary the standardised sample mean equals $1.645$:\n\n$$\\frac{\\bar{h} - 4.23}{\\dfrac{0.67}{\\sqrt{200}}} = 1.645$$\n\nThis earns the M1. It must contain $\\sqrt{200}$. Leaving it out is the common slip.",
+   "**Solve for the boundary (first A1)**\n\nMultiply both sides by $\\dfrac{0.67}{\\sqrt{200}} = 0.047376\\ldots$:\n\n$$\\bar{h} - 4.23 = 1.645 \\times 0.047376\\ldots = 0.07793\\ldots$$\n\nAdd $4.23$ to both sides:\n\n$$\\bar{h} = 4.23 + 0.07793\\ldots = 4.30793\\ldots \\approx 4.31$$",
+   "**Choose the correct side (second A1)**\n\nWe reject for **large** values (the alternative is $\\mu > 4.23$). So the rejection region is the values above the boundary:\n\n$$\\bar{h} > 4.31$$\n\nQuick check: $4.31$ is a bit above $4.23$, so a sample mean of $4.4$ would reject and $4.2$ would not. That makes sense.",
+   "**Final answer**\n\n$$\\bar{h} > 4.31 \\text{ (3 s.f.)}$$"
+  ]
+ },
+ "9709_w23_62_q4_c": {
+  "hints": [
+   "The Central Limit Theorem is needed to get a normal sample mean when the population is **not** known to be normal. What does the question say about the distribution of $H$ itself?"
+  ],
+  "walkthrough": [
+   "**When the Central Limit Theorem is needed**\n\nThe Central Limit Theorem says that for a large sample, the sample mean is approximately normal **even if the population is not normal**. We need it only when we do not know the population is normal.",
+   "**Apply it here**\n\nThe question tells us that $H$ is **normally distributed**. If the population is normal, then the mean of any size of sample is exactly normal. So we did not need the Central Limit Theorem, even though $n = 200$ is large.",
+   "**Final answer**\n\nDisagree. The population of heights $H$ is given as normally distributed, so $\\overline{H}$ is normal automatically and the Central Limit Theorem was not needed."
+  ]
+ }
+}

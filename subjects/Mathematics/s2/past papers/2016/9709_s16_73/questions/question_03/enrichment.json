@@ -1,0 +1,30 @@
+{
+ "9709_s16_73_q3_i": {
+  "hints": [
+   "There are 240 adults, each with a small chance of 0.01. For a binomial with large $n$ and small $p$, which standard distribution is a good approximation?",
+   "That distribution has a single parameter: use $\\lambda = np$, with $n = 240$ and $p = 0.01$.",
+   "\"More than 2\" means 3 or more, so write $\\text{P}(X > 2) = 1 - \\text{P}(X \\leqslant 2)$. The probability $\\text{P}(X \\leqslant 2)$ has three terms of the form $\\text{e}^{-\\lambda}\\dfrac{\\lambda^r}{r!}$, for $r = 0, 1, 2$.",
+   "Work out the three terms, add them, then subtract from 1. Give 3 significant figures."
+  ],
+  "walkthrough": [
+   "**Which distribution, and why?**\n\nEach of the 240 adults either owns a yellow car (probability $0.01$) or not. So exactly, the number $X$ owning one is binomial: $X \\sim \\text{B}(240, 0.01)$.\n\nBinomial calculations with $n = 240$ are heavy to do by hand. When $n$ is large and $p$ is small, the binomial is very well approximated by a **Poisson** distribution with the same mean. This earns the first **B1**.",
+   "**Find the Poisson mean**\n\nThe mean of a binomial is $np$:\n\n$$\\lambda = np = 240 \\times 0.01 = 2.4$$\n\nSo $X \\approx \\text{Po}(2.4)$. This earns the second **B1**.",
+   "**Turn \"more than 2\" into a calculation**\n\n\"More than 2\" means $X = 3, 4, 5, \\dots$ forever. That is a long list, so use the complement (everything except the values 0, 1, 2):\n\n$$\\text{P}(X > 2) = 1 - \\text{P}(X \\leqslant 2) = 1 - \\left[\\text{P}(0) + \\text{P}(1) + \\text{P}(2)\\right]$$\n\nQuick check on the wording: \"more than 2\" does NOT include 2, so we subtract up to and including 2 (not up to 3, and not up to 1).",
+   "**Write each term**\n\nThe Poisson formula is $\\text{P}(X = r) = \\text{e}^{-\\lambda}\\dfrac{\\lambda^r}{r!}$. With $\\lambda = 2.4$:\n\n$$\\text{P}(X \\leqslant 2) = \\text{e}^{-2.4}\\left(1 + 2.4 + \\frac{2.4^2}{2}\\right)$$\n\nThe three terms inside the bracket are $\\dfrac{2.4^0}{0!} = 1$, $\\dfrac{2.4^1}{1!} = 2.4$ and $\\dfrac{2.4^2}{2!} = \\dfrac{5.76}{2} = 2.88$.\n\nSo the expression for the answer is $1 - \\text{e}^{-2.4}(1 + 2.4 + 2.88)$. This earns the **M1** (the scheme allows one slip at one end).",
+   "**Calculate**\n\nFirst, $\\text{e}^{-2.4} = 0.090718$ (calculator).\n\n$$1 + 2.4 + 2.88 = 6.28$$\n\n$$\\text{P}(X \\leqslant 2) = 0.090718 \\times 6.28 = 0.569709$$\n\n$$\\text{P}(X > 2) = 1 - 0.569709 = 0.430291$$\n\nAs a check, you can instead use your calculator's Poisson cumulative function with $\\lambda = 2.4$ and upper limit 2, then do $1 -$ that.",
+   "**Final answer**\n\n$\\text{P}(X > 2) = $ **0.430** (3 significant figures, i.e. 0.43). This earns the **A1**.\n\nNote: if you used the exact binomial $\\text{B}(240, 0.01)$ you would get $0.431$. The question asks you to *approximate*, so give the Poisson answer $0.430$."
+  ]
+ },
+ "9709_s16_73_q3_ii": {
+  "hints": [
+   "A Poisson approximation to a binomial needs a condition on $n$: compare $n = 240$ with the usual size that counts as \"large\".",
+   "There is also a condition that shows the event is rare: compare $np$ (240 times the 1% chance from the stem), or $p$ itself, with the usual limit for \"small\"."
+  ],
+  "walkthrough": [
+   "**What does \"justify\" mean here?**\n\nWe must show that the conditions for using a Poisson approximation to a binomial are met. There are two, and each earns one mark. For each one, state the condition and compare it with our numbers.",
+   "**Condition 1: $n$ is large**\n\nThe binomial $\\text{B}(n, p)$ is approximated by Poisson when $n$ is large, usually meaning $n > 50$. Here $n = 240$:\n\n$$240 > 50$$\n\nSo the sample is big enough. This earns the first **B1**.",
+   "**Condition 2: the mean (or $p$) is small**\n\nThe second condition is that $np$ is small, usually $np < 5$ (or equivalently $p < 0.1$). Here:\n\n$$np = 240 \\times 0.01 = 2.4 < 5$$\n\nAlso $p = 0.01 < 0.1$. So the events are rare enough. This earns the second **B1**. (The scheme also gives one mark for simply writing \"$n$ large, $p$ small\".)",
+   "**Final answer**\n\nThe approximation is justified because $n = 240 > 50$ (large) and $np = 240 \\times 0.01 = 2.4 < 5$ (small), also $p = 0.01 < 0.1$."
+  ]
+ }
+}

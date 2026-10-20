@@ -1,0 +1,45 @@
+{
+ "9709_s24_62_q7_a": {
+  "hints": [
+   "For any probability density function the total area under the curve is $1$. The function is non-zero only for $0 \\leqslant x \\leqslant \\pi$, so write $\\displaystyle\\int_0^{\\pi} k(1 + \\cos x)\\,\\text{d}x = 1$.",
+   "Take the constant $k$ outside and integrate term by term: the integral of $1$ with respect to $x$ and the integral of $\\cos x$. Put the answer in square brackets with the limits $0$ and $\\pi$.",
+   "Substitute the upper limit $\\pi$ and the lower limit $0$ (remember the values of $\\sin \\pi$ and $\\sin 0$), show at least one interim line, then rearrange to get $k$."
+  ],
+  "walkthrough": [
+   "**Use the fact that the total probability is 1 (M1)**\n\nA probability density function describes how the probability is spread along the $x$-axis. The total probability that $X$ takes *some* value is $1$, which is the total area under the curve. The curve is zero outside $0 \\leqslant x \\leqslant \\pi$, so we only integrate over that interval:\n\n$$\\int_0^{\\pi} k(1 + \\cos x)\\,\\text{d}x = 1$$\n\nThe constant $k$ can be taken outside the integral:\n\n$$k\\int_0^{\\pi} (1 + \\cos x)\\,\\text{d}x = 1$$\n\nThis equation earns the **M1**.",
+   "**Integrate (A1)**\n\nIntegrate each term separately:\n\n$$\\int 1\\,\\text{d}x = x \\qquad \\text{and} \\qquad \\int \\cos x\\,\\text{d}x = \\sin x$$\n\n(Quick check: differentiating $\\sin x$ gives $\\cos x$.) So\n\n$$k\\left[x + \\sin x\\right]_0^{\\pi} = 1$$\n\nThis earns the **A1**.",
+   "**Substitute the limits (A1)**\n\nPut in the top limit $\\pi$, then subtract what you get from the bottom limit $0$:\n\n$$k\\Big((\\pi + \\sin \\pi) - (0 + \\sin 0)\\Big) = 1$$\n\nNow $\\sin \\pi = 0$ and $\\sin 0 = 0$, so\n\n$$k(\\pi + 0 - 0) = 1$$\n\n$$k\\pi = 1$$\n\nDivide both sides by $\\pi$:\n\n$$k = \\frac{1}{\\pi}$$\n\nThis is a 'show that' question, so the interim line $k\\pi = 1$ matters: the last **A1** needs at least one clear step of substituting the limits.",
+   "**Final answer**\n\n$$k = \\frac{1}{\\pi}$$ as required."
+  ]
+ },
+ "9709_s24_62_q7_b": {
+  "hints": [
+   "The median $m$ is the value with $\\text{P}(X \\leqslant m) = 0.5$. With $k = \\dfrac{1}{\\pi}$ the area up to $m$ is $\\dfrac{1}{\\pi}\\left[x + \\sin x\\right]_0^{m}$, so substitute $m = 0.83$ and $m = 0.84$ into it.",
+   "Evaluate $\\dfrac{1}{\\pi}(0.83 + \\sin 0.83)$ and $\\dfrac{1}{\\pi}(0.84 + \\sin 0.84)$ with your calculator in **radian** mode, to 3 significant figures.",
+   "Compare each value with $0.5$. The area up to $m$ gets bigger as $m$ increases, so if $0.5$ sits between your two values the median lies between $0.83$ and $0.84$. Write both inequalities."
+  ],
+  "walkthrough": [
+   "**What we need to show**\n\nThe **median** $m$ is the point that splits the probability in half: $\\text{P}(X \\leqslant m) = 0.5$, i.e. the area under the curve from $0$ to $m$ is $0.5$.\n\nWe do not need to solve for $m$. We just *verify* that it is between $0.83$ and $0.84$. Idea: the area up to $x$ keeps growing as $x$ grows. If the area up to $0.83$ is **below** $0.5$ and the area up to $0.84$ is **above** $0.5$, then the area must hit exactly $0.5$ somewhere in between.",
+   "**The area up to a general point m (M1)**\n\nFrom part (a), $k = \\dfrac{1}{\\pi}$, and we found the antiderivative $x + \\sin x$. The area from $0$ to $m$ is\n\n$$\\text{P}(X \\leqslant m) = \\frac{1}{\\pi}\\left[x + \\sin x\\right]_0^{m} = \\frac{1}{\\pi}(m + \\sin m)$$\n\n(The lower limit contributes $0 + \\sin 0 = 0$.) Substitute the two values:\n\n$$\\frac{1}{\\pi}\\left[x + \\sin x\\right]_0^{0.83} = \\frac{1}{\\pi}(0.83 + \\sin 0.83)$$\n\n$$\\frac{1}{\\pi}\\left[x + \\sin x\\right]_0^{0.84} = \\frac{1}{\\pi}(0.84 + \\sin 0.84)$$\n\nSubstituting both limits earns the **M1**.",
+   "**Evaluate both (A1)**\n\nSet your calculator to **radians** (not degrees), because $x$ here is an angle in radians.\n\nFor $0.83$:\n\n$$\\sin 0.83 = 0.73793\\ldots$$\n\n$$0.83 + 0.73793 = 1.56793$$\n\n$$\\frac{1.56793}{\\pi} = 0.49909\\ldots \\approx 0.499$$\n\nFor $0.84$:\n\n$$\\sin 0.84 = 0.74464\\ldots$$\n\n$$0.84 + 0.74464 = 1.58464$$\n\n$$\\frac{1.58464}{\\pi} = 0.50441\\ldots \\approx 0.504$$\n\nBoth values correct earns the **A1**.",
+   "**Compare with 0.5 and conclude (A1 FT)**\n\n$$0.499 < 0.5 < 0.504$$\n\nThe area up to $0.83$ is less than one half, and the area up to $0.84$ is more than one half. The median is where the area equals $0.5$, so\n\n$$0.83 < \\text{median} < 0.84$$\n\nYou need both statements (one value below $0.5$ and one above) to earn the last mark.",
+   "**Final answer**\n\nArea up to $0.83$ is $0.499 < 0.5$ and area up to $0.84$ is $0.504 > 0.5$, so the median lies between $0.83$ and $0.84$, as required.\n\nEquivalent check: area up to $0.83$ minus $0.5$ is $-0.000912$ and area up to $0.84$ minus $0.5$ is $0.00441$, so $-0.000912 < 0 < 0.00441$."
+  ]
+ },
+ "9709_s24_62_q7_c": {
+  "hints": [
+   "The mean of a continuous variable is $\\text{E}(X) = \\displaystyle\\int x\\,\\text{f}(x)\\,\\text{d}x$ over the range where $\\text{f}$ is non-zero. Use $k = \\dfrac{1}{\\pi}$ and expand the bracket: $\\dfrac{1}{\\pi}\\displaystyle\\int_0^{\\pi}(x + x\\cos x)\\,\\text{d}x$.",
+   "The $x$ term integrates directly. For $x\\cos x$ use integration by parts, $\\int u\\,\\dfrac{\\text{d}v}{\\text{d}x}\\,\\text{d}x = uv - \\int v\\,\\dfrac{\\text{d}u}{\\text{d}x}\\,\\text{d}x$, with $u = x$ and $\\dfrac{\\text{d}v}{\\text{d}x} = \\cos x$.",
+   "Finish the last integral (watch the sign when you integrate $\\sin x$) and write out the whole antiderivative, including the $x^2$ term.",
+   "Substitute the limits $\\pi$ and $0$ (you need $\\sin$ and $\\cos$ at both), then leave the answer exact, in terms of $\\pi$, not as a decimal."
+  ],
+  "walkthrough": [
+   "**Write down E(X) (M1)**\n\nFor a continuous random variable the mean is found by multiplying each value $x$ by its density and integrating:\n\n$$\\text{E}(X) = \\int x\\,\\text{f}(x)\\,\\text{d}x$$\n\nHere $\\text{f}(x) = \\dfrac{1}{\\pi}(1 + \\cos x)$ on $0 \\leqslant x \\leqslant \\pi$. Multiply by $x$ and expand the bracket:\n\n$$x\\,\\text{f}(x) = \\frac{1}{\\pi}\\,x(1 + \\cos x) = \\frac{1}{\\pi}(x + x\\cos x)$$\n\n$$\\text{E}(X) = \\frac{1}{\\pi}\\int_0^{\\pi}(x + x\\cos x)\\,\\text{d}x$$\n\nThis earns the first **M1**.",
+   "**Split into two integrals**\n\n$$\\int_0^{\\pi}(x + x\\cos x)\\,\\text{d}x = \\int_0^{\\pi} x\\,\\text{d}x + \\int_0^{\\pi} x\\cos x\\,\\text{d}x$$\n\nThe first is easy. For the second, $x\\cos x$ is a product of two different kinds of function, so we need **integration by parts**.",
+   "**Integration by parts (DM1)**\n\nThe rule is $\\displaystyle\\int u\\,\\frac{\\text{d}v}{\\text{d}x}\\,\\text{d}x = uv - \\int v\\,\\frac{\\text{d}u}{\\text{d}x}\\,\\text{d}x$. Choose $u = x$ (it becomes simpler when differentiated) and $\\dfrac{\\text{d}v}{\\text{d}x} = \\cos x$:\n\n$$u = x \\ \\Rightarrow\\ \\frac{\\text{d}u}{\\text{d}x} = 1, \\qquad \\frac{\\text{d}v}{\\text{d}x} = \\cos x \\ \\Rightarrow\\ v = \\sin x$$\n\nSo\n\n$$\\int x\\cos x\\,\\text{d}x = x\\sin x - \\int \\sin x\\,\\text{d}x$$\n\nPutting everything together with the limits:\n\n$$\\text{E}(X) = \\frac{1}{\\pi}\\left(\\left[\\frac{x^2}{2}\\right]_0^{\\pi} + \\left[x\\sin x\\right]_0^{\\pi} - \\int_0^{\\pi}\\sin x\\,\\text{d}x\\right)$$\n\nThis is the **DM1**: a correct use of parts, giving the shape $ax^2 + uv - \\int v\\,\\text{d}u$.",
+   "**Finish the integration (A1)**\n\n$$\\int \\sin x\\,\\text{d}x = -\\cos x$$\n\nso $-\\displaystyle\\int \\sin x\\,\\text{d}x = +\\cos x$. (The two minus signs make a plus.) The full antiderivative is\n\n$$\\text{E}(X) = \\frac{1}{\\pi}\\left[\\frac{x^2}{2} + x\\sin x + \\cos x\\right]_0^{\\pi}$$\n\nQuick check by differentiating: $\\dfrac{\\text{d}}{\\text{d}x}\\left(\\dfrac{x^2}{2} + x\\sin x + \\cos x\\right) = x + (\\sin x + x\\cos x) - \\sin x = x + x\\cos x$. Correct. This earns the **A1**.",
+   "**Substitute the limits (A1)**\n\nTop limit $x = \\pi$ (using $\\sin \\pi = 0$ and $\\cos \\pi = -1$):\n\n$$\\frac{\\pi^2}{2} + \\pi \\times 0 + (-1) = \\frac{\\pi^2}{2} - 1$$\n\nBottom limit $x = 0$ (using $\\sin 0 = 0$, $\\cos 0 = 1$):\n\n$$0 + 0 \\times 0 + 1 = 1$$\n\nSubtract bottom from top:\n\n$$\\left(\\frac{\\pi^2}{2} - 1\\right) - 1 = \\frac{\\pi^2}{2} - 2$$\n\nNow multiply by the $\\dfrac{1}{\\pi}$ outside:\n\n$$\\text{E}(X) = \\frac{1}{\\pi}\\left(\\frac{\\pi^2}{2} - 2\\right) = \\frac{\\pi}{2} - \\frac{2}{\\pi}$$\n\nThe question asks for the **exact** value, so leave it in terms of $\\pi$. Quick check with a decimal: $\\frac{\\pi}{2} - \\frac{2}{\\pi} = 1.5708 - 0.6366 = 0.934$, which lies in $[0, \\pi]$ and is a little above the median $\\approx 0.83$, sensible for a density that is bigger near $0$ but has a tail up to $\\pi$. This earns the final **A1**.",
+   "**Final answer**\n\n$$\\text{E}(X) = \\frac{\\pi}{2} - \\frac{2}{\\pi}$$ (which is $0.934$ to 3 s.f.)"
+  ]
+ }
+}

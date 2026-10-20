@@ -1,0 +1,31 @@
+{
+ "9709_s20_61_q2_a": {
+  "hints": [
+   "The test uses the past standard deviation of $0.08$ as if it were still the true value. What must you assume about the spread of yields after the new fertilizer?",
+   "The mean is found from only a small sample of 10 years. For the sample mean to follow a normal distribution here, what must be true of the yields themselves?"
+  ],
+  "walkthrough": [
+   "**Why we need assumptions**\n\nThe test will treat the sample mean $\\bar{X}$ of 10 years as normally distributed with a known standard deviation $\\dfrac{0.08}{\\sqrt{10}}$. Two things must hold for that to be fair. Each one is worth a mark.",
+   "**Assumption 1 (earns a B1)**\n\nWe are using $\\sigma = 0.08$, the value from the **past**. The fertilizer might change the spread of yields as well as the mean, so we must assume it did not:\n\n$$\\text{The standard deviation of the yield is still } 0.08 \\text{ tonnes per hectare.}$$",
+   "**Assumption 2 (earns a B1)**\n\nWith only 10 yearly yields, the Central Limit Theorem (which makes a sample mean roughly normal) does not apply because the sample is small. So we must assume the yields themselves are normally distributed. Then the mean of 10 of them is exactly normal:\n\n$$\\text{The yield (per year) is normally distributed.}$$",
+   "**Final answer**\n\nTwo assumptions: (1) the standard deviation of the yield is unchanged at $0.08$; (2) the yields are normally distributed."
+  ]
+ },
+ "9709_s20_61_q2_b": {
+  "hints": [
+   "Write $\\text{H}_0$ and $\\text{H}_1$ in terms of the population mean yield $\\mu$. The farmer wants to know whether the mean has **increased** from $0.56$, so $\\text{H}_1$ is one-tailed.",
+   "Under $\\text{H}_0$ the sample mean of $10$ years has mean $0.56$ and standard deviation $\\dfrac{0.08}{\\sqrt{10}}$. Standardise: $z = \\dfrac{0.61 - 0.56}{0.08/\\sqrt{10}}$. Note the $\\sqrt{10}$, because $0.61$ is a mean of 10 years.",
+   "Type the whole fraction into your calculator in one go (use brackets round $0.08 \\div \\sqrt{10}$) so you do not round part-way, and keep at least 3 decimal places.",
+   "This is a one-tailed test at $2.5\\%$, so the critical value is the $z$ with $0.975$ below it, which is $1.96$. Compare your $z$ with $1.96$.",
+   "Decide whether your $z$ is above or below $1.96$, so whether to reject $\\text{H}_0$. Then state a conclusion in the context of the mean yield, using 'evidence' (not 'proved')."
+  ],
+  "walkthrough": [
+   "**Set up the hypotheses (earns the B1)**\n\nLet $\\mu$ be the **population mean yield** (tonnes per hectare) after the new fertilizer. 'No change' is the null hypothesis $\\text{H}_0$. The farmer asks whether the mean has **increased**, so the alternative $\\text{H}_1$ points upwards (a one-tailed test):\n\n$$\\text{H}_0: \\mu = 0.56$$\n\n$$\\text{H}_1: \\mu > 0.56$$\n\nSignificance level: $2.5\\%$.",
+   "**What distribution do we use?**\n\nFrom part (a) we assume yields are normal with $\\sigma = 0.08$. So if $\\text{H}_0$ is true, the mean $\\bar{X}$ of $n = 10$ yearly yields is normal:\n\n$$\\bar{X} \\sim \\text{N}\\left(0.56,\\ \\frac{0.08^2}{10}\\right)$$\n\nThe standard deviation of $\\bar{X}$ is $\\dfrac{0.08}{\\sqrt{10}}$ (not $0.08$), because averaging 10 years makes the result less variable.",
+   "**Calculate the test statistic (earns the M1 and the A1)**\n\nThe observed sample mean is $\\bar{x} = 0.61$. Standardise it:\n\n$$z = \\frac{\\bar{x} - \\mu}{\\sigma/\\sqrt{n}} = \\frac{0.61 - 0.56}{\\dfrac{0.08}{\\sqrt{10}}}$$\n\nTop: $0.61 - 0.56 = 0.05$. Bottom: $\\sqrt{10} = 3.162278$, and $0.08 \\div 3.162278 = 0.025298$.\n\n$$z = \\frac{0.05}{0.025298} = 1.976\\ldots \\approx 1.976$$",
+   "**Compare with the critical value (earns the M1)**\n\nThe test is one-tailed at $2.5\\%$. We reject $\\text{H}_0$ if $z$ is in the top $2.5\\%$ of the standard normal. The $z$ value with $\\Phi(z) = 1 - 0.025 = 0.975$ is\n\n$$z_{\\text{crit}} = 1.96$$\n\nCompare: $1.976 > 1.96$, so our $z$ is in the rejection region.\n\n(Equivalent method: $\\text{P}(Z > 1.976) = 0.024 < 0.025$.)",
+   "**Conclusion in context (earns the A1)**\n\nSince $1.976 > 1.96$, we reject $\\text{H}_0$. We say 'there is evidence' (we cannot prove it, because a test only weighs evidence), and we state it in words about the crop: the sample mean of $0.61$ is high enough that the mean yield has probably increased.",
+   "**Final answer**\n\n$z = 1.976 > 1.96$, so reject $\\text{H}_0$: there is evidence, at the $2.5\\%$ significance level, that the mean yield has increased."
+  ]
+ }
+}

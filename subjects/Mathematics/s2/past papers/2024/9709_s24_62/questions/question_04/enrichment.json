@@ -1,0 +1,28 @@
+{
+ "9709_s24_62_q4_a": {
+  "hints": [
+   "$X_1$ and $X_2$ are independent and have exactly the same distribution, so neither is more likely to be the larger. What does that say about $\\text{P}(X_1 > X_2)$ and $\\text{P}(X_1 < X_2)$?"
+  ],
+  "walkthrough": [
+   "**Use symmetry**\n\n$X_1$ and $X_2$ are two independent values from the same distribution $\\text{N}(10, 12)$. There is no reason for one to be bigger than the other, so\n\n$$\\text{P}(X_1 > X_2) = \\text{P}(X_1 < X_2)$$\n\nThe probability that they are exactly equal is $0$ for a continuous variable, so these two probabilities add up to $1$. Each is therefore half.\n\n(Another way: $X_1 - X_2$ is normal with mean $10 - 10 = 0$, and a normal distribution centred on $0$ is above $0$ half the time.)",
+   "**Final answer**\n\n$$\\text{P}(X_1 > X_2) = 0.5$$"
+  ]
+ },
+ "9709_s24_62_q4_b": {
+  "hints": [
+   "Rearrange the inequality so one side is $0$: $X_1 > 2X_2 - 3$ is the same as $X_1 - 2X_2 + 3 > 0$. Let $D = X_1 - 2X_2 + 3$ and find the mean of $D$ using $\\text{E}(aX + bY) = a\\,\\text{E}(X) + b\\,\\text{E}(Y)$ with $\\text{E}(X) = 10$.",
+   "For the variance, $\\text{Var}(X_1 - 2X_2 + 3) = \\text{Var}(X_1) + 2^2\\,\\text{Var}(X_2)$ with $\\text{Var}(X) = 12$. The coefficient is squared, the minus sign becomes a plus (variances always add for independent variables), and the $+3$ adds nothing.",
+   "$D$ is normal. Standardise the value $0$: $z = \\dfrac{0 - \\text{mean of } D}{\\text{sd of } D}$, where the sd is the square root of the variance of $D$.",
+   "You want $\\text{P}(D > 0)$, which is the area to the right of your $z$, so write it as $1 - \\Phi(z)$.",
+   "Evaluate $1 - \\Phi(z)$ with your calculator's normal cdf (or table) and give 3 significant figures."
+  ],
+  "walkthrough": [
+   "**Turn the inequality into one variable**\n\nWe want $\\text{P}(X_1 > 2X_2 - 3)$. Put everything on the left so that we compare with $0$:\n\n$$X_1 > 2X_2 - 3 \\iff X_1 - 2X_2 + 3 > 0$$\n\nLet $D = X_1 - 2X_2 + 3$. A combination of independent normal variables is also normal, so $D$ is normal, and we need its mean and variance. The question is now $\\text{P}(D > 0)$.",
+   "**Mean of D (first B1)**\n\nMeans can be combined directly, using the number in front of each variable. Each of $X_1$, $X_2$ has mean $10$:\n\n$$\\text{E}(D) = \\text{E}(X_1) - 2\\,\\text{E}(X_2) + 3$$\n\n$$\\text{E}(D) = 10 - 2 \\times 10 + 3 = 10 - 20 + 3 = -7$$\n\nThis earns the first **B1**. (The scheme also accepts the reverse, $2X_2 - X_1 - 3$, with mean $+7$. Both lead to the same answer.)",
+   "**Variance of D (second B1)**\n\nVariances behave differently from means. Two rules:\n\n- A number multiplying a variable is *squared*: $\\text{Var}(aX) = a^2\\,\\text{Var}(X)$. So $-2X_2$ contributes $(-2)^2 = 4$ times $\\text{Var}(X_2)$.\n\n- Variances of independent variables *add*, even when the variables are subtracted. Subtracting never reduces the spread.\n\n- Adding the constant $3$ only shifts the distribution, so contributes $0$.\n\n$$\\text{Var}(D) = \\text{Var}(X_1) + 2^2\\,\\text{Var}(X_2) + 0$$\n\n$$\\text{Var}(D) = 12 + 4 \\times 12 = 12 + 48 = 60$$\n\nThis earns the second **B1**.\n\nSo $D \\sim \\text{N}(-7, 60)$. Slip to avoid: $12 - 4 \\times 12$ (subtracting variances) would give a negative variance, which is impossible.",
+   "**Standardise (first M1)**\n\nWe want $\\text{P}(D > 0)$. Standardise the value $0$:\n\n$$z = \\frac{0 - (-7)}{\\sqrt{60}} = \\frac{7}{\\sqrt{60}}$$\n\n$$\\sqrt{60} = 7.7459\\ldots$$\n\n$$z = \\frac{7}{7.7459} = 0.9037\\ldots \\approx 0.904$$\n\nThis is the first **M1**. The top of the fraction must be $7$ (or $-7$): the scheme warns against writing $-3 - 10$ or similar.",
+   "**Find the probability (second M1, A1)**\n\n$D > 0$ is the part of the curve to the *right* of $z = 0.904$. Tables and calculators give the area to the *left*, $\\Phi(0.904)$, so subtract from $1$:\n\n$$\\text{P}(D > 0) = 1 - \\Phi(0.904)$$\n\nCalculator: normal cdf with lower bound $0.904$, upper bound $99$ (or use $\\Phi(0.904) = 0.8170$):\n\n$$1 - 0.8170 = 0.1830\\ldots \\approx 0.183$$\n\nThis is the second **M1** (area consistent with working) and the **A1**.",
+   "**Final answer**\n\n$$\\text{P}(X_1 > 2X_2 - 3) = 0.183 \\text{ (3 s.f.)}$$"
+  ]
+ }
+}

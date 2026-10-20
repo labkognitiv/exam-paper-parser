@@ -1,0 +1,56 @@
+{
+ "9709_s21_63_q6_a": {
+  "hints": [
+   "For a continuous variable, a probability is the area under $\\text{f}(x)$. 'More than 10 minutes late' means $x$ from 10 to 20 (the largest value of $x$), so set up $\\int_{10}^{20} \\frac{3}{8000}(x - 20)^2 \\, \\text{d}x$.",
+   "Integrate $(x - 20)^2$. The reverse of the chain rule gives $\\dfrac{(x-20)^3}{3}$. (You may expand the bracket first instead.) Keep the constant $\\dfrac{3}{8000}$ outside.",
+   "Substitute the upper limit $20$ and subtract the value at the lower limit $10$. Be careful with the sign when you cube $(10 - 20)$.",
+   "The two days are independent, so the probability of 'more than 10 minutes late on both days' is the product of the two separate probabilities: square your answer."
+  ],
+  "walkthrough": [
+   "**Set up the integral (M1)**\n\nThe area under $\\text{f}(x)$ between two values is the probability that $X$ is between them. The train is more than 10 minutes late when $10 < X \\leqslant 20$ (the density is 0 beyond 20).\n\n$$\\text{P}(X > 10) = \\int_{10}^{20} \\frac{3}{8000}(x - 20)^2 \\, \\text{d}x$$",
+   "**Integrate and put in the limits (M1)**\n\nThe factor $\\dfrac{3}{8000}$ is a constant. The integral of $(x - 20)^2$ is $\\dfrac{(x-20)^3}{3}$, because the derivative of $\\dfrac{(x-20)^3}{3}$ is $(x-20)^2$.\n\n$$\\text{P}(X > 10) = \\left[\\frac{3}{8000} \\times \\frac{(x - 20)^3}{3}\\right]_{10}^{20} = \\left[\\frac{(x - 20)^3}{8000}\\right]_{10}^{20}$$\n\nPut in the upper limit then subtract the value at the lower limit:\n\n$$= \\frac{(20 - 20)^3}{8000} - \\frac{(10 - 20)^3}{8000} = \\frac{0}{8000} - \\frac{(-10)^3}{8000}$$\n\n$(-10)^3 = -1000$, so subtracting a negative gives a plus:\n\n$$= 0 + \\frac{1000}{8000}$$",
+   "**Simplify (A1)**\n\n$$\\frac{1000}{8000} = \\frac{1}{8} = 0.125$$\n\nSo on any one day the probability of being more than 10 minutes late is $\\frac{1}{8}$.",
+   "**Two days in a row (B1 FT)**\n\nThe days are independent, so we multiply the probabilities:\n\n$$\\left(\\frac{1}{8}\\right)^2 = \\frac{1}{8} \\times \\frac{1}{8} = \\frac{1}{64} = 0.0156 \\text{ (3 s.f.)}$$\n\nCommon slip: stopping at $\\frac{1}{8}$. The question asks about *both* days.",
+   "**Final answer**\n\n$\\text{P}(X > 10) = \\frac{1}{8}$, so the probability that the train is more than 10 minutes late on both days is $\\dfrac{1}{64}$ ($= 0.0156$ to 3 s.f.)"
+  ]
+ },
+ "9709_s21_63_q6_b": {
+  "hints": [
+   "The expectation of a continuous variable is $\\text{E}(X) = \\int x\\,\\text{f}(x)\\,\\text{d}x$ over all values of $x$ where $\\text{f}$ is not zero. Write it with this $\\text{f}$: $\\int_0^{20} x \\cdot \\frac{3}{8000}(x - 20)^2 \\, \\text{d}x$.",
+   "Expand $x(x - 20)^2$ into powers of $x$ (first square the bracket, then multiply by $x$) and integrate each term. The result is a polynomial of degree 4.",
+   "Substitute the limits $20$ and $0$ into your integral. Write each term using the numbers in the question, like $20^4$, $20^3$ and $20^2$, and keep $\\frac{3}{8000}$ outside the bracket.",
+   "Work out the value of each term in the bracket, add them carefully (watch the minus sign), then multiply by $\\frac{3}{8000}$. A quick check: the answer must lie between $0$ and $20$."
+  ],
+  "walkthrough": [
+   "**Write the integral (M1)**\n\nFor a continuous random variable, $\\text{E}(X) = \\int x\\,\\text{f}(x)\\,\\text{d}x$ (multiply each value by its density and 'add up' by integrating). The density is non-zero only between 0 and 20.\n\n$$\\text{E}(X) = \\int_0^{20} x \\times \\frac{3}{8000}(x - 20)^2 \\, \\text{d}x$$\n\nExpand the bracket: $(x - 20)^2 = x^2 - 40x + 400$. Multiply by $x$: $x(x^2 - 40x + 400) = x^3 - 40x^2 + 400x$.\n\n$$\\text{E}(X) = \\frac{3}{8000}\\int_0^{20} (x^3 - 40x^2 + 400x)\\,\\text{d}x$$",
+   "**Integrate each term (A1)**\n\nRaise each power by 1 and divide by the new power: $x^3 \\to \\dfrac{x^4}{4}$; $40x^2 \\to \\dfrac{40x^3}{3}$; $400x \\to \\dfrac{400x^2}{2}$.\n\n$$\\text{E}(X) = \\frac{3}{8000}\\left[\\frac{x^4}{4} - \\frac{40x^3}{3} + \\frac{400x^2}{2}\\right]_0^{20}$$",
+   "**Substitute the limits (M1)**\n\nAt $x = 0$ every term is $0$, so we only need $x = 20$.\n\n$20^4 = 160\\,000$, so $\\dfrac{20^4}{4} = \\dfrac{160\\,000}{4} = 40\\,000$.\n\n$20^3 = 8000$, so $\\dfrac{40 \\times 8000}{3} = \\dfrac{320\\,000}{3}$.\n\n$\\dfrac{400 \\times 20^2}{2} = 200 \\times 400 = 80\\,000$.\n\n$$\\text{E}(X) = \\frac{3}{8000}\\left[\\frac{160\\,000}{4} - \\frac{40 \\times 8000}{3} + 200 \\times 400\\right]$$",
+   "**Evaluate (A1)**\n\n$\\dfrac{320\\,000}{3} = 106\\,666.67$ on the calculator. The bracket is\n\n$$40\\,000 - 106\\,666.67 + 80\\,000 = 13\\,333.33$$\n\n$$\\text{E}(X) = \\frac{3}{8000} \\times 13\\,333.33 = 5$$\n\nQuick check: 5 minutes lies between 0 and 20. The density is highest near 0 (it is biggest where $(x-20)^2$ is biggest) so the mean should be well below the middle, 10. It is.",
+   "**Final answer**\n\n$\\text{E}(X) = 5$ minutes."
+  ]
+ },
+ "9709_s21_63_q6_c": {
+  "hints": [
+   "The median $m$ splits the probability in half: the area under $\\text{f}(x)$ from the bottom of the range up to $m$ equals one half. Write $\\int_0^m \\frac{3}{8000}(x - 20)^2 \\, \\text{d}x = 0.5$.",
+   "Integrate as in part (a): $\\dfrac{3}{8000} \\times \\dfrac{(x-20)^3}{3}$. Substitute the limits $m$ and $0$ and subtract.",
+   "Multiply both sides by $8000$ and use $(0 - 20)^3$ for the lower limit. Move the constant across to leave $(m - 20)^3$ on its own, ending with the printed equation.",
+   "Take the cube root of both sides. A calculator can cube-root a negative number. Then add $20$ to find $m$, and round to 3 significant figures."
+  ],
+  "walkthrough": [
+   "**Median means half the area (M1)**\n\nThe median $m$ is the value with probability $0.5$ of being below it. For a continuous variable that means the area under $\\text{f}(x)$ from 0 up to $m$ is $0.5$.\n\n$$\\int_0^m \\frac{3}{8000}(x - 20)^2 \\, \\text{d}x = 0.5$$",
+   "**Integrate and substitute (M1)**\n\nAs in part (a), $\\dfrac{3}{8000} \\times \\dfrac{(x-20)^3}{3} = \\dfrac{(x-20)^3}{8000}$.\n\n$$\\left[\\frac{(x - 20)^3}{8000}\\right]_0^m = 0.5$$\n\nPut in the top limit $m$ and subtract the value at $0$:\n\n$$\\frac{(m - 20)^3}{8000} - \\frac{(0 - 20)^3}{8000} = 0.5$$\n\n$(0 - 20)^3 = (-20)^3 = -8000$, so we are subtracting $\\dfrac{-8000}{8000} = -1$. Subtracting $-1$ means adding 1:\n\n$$\\frac{(m - 20)^3}{8000} + 1 = 0.5$$",
+   "**Get the printed equation (A1)**\n\nSubtract 1 from both sides: $\\dfrac{(m - 20)^3}{8000} = 0.5 - 1 = -0.5$.\n\nMultiply both sides by 8000: $(m - 20)^3 = -0.5 \\times 8000$.\n\n$$(m - 20)^3 = -4000$$\n\nThis is the result we were asked to show.",
+   "**Solve for $m$ (B1)**\n\nTake the cube root of both sides. The cube root of a negative number is negative: $\\sqrt[3]{-4000} = -15.874$ on the calculator.\n\n$$m - 20 = -15.874 \\quad\\Rightarrow\\quad m = 20 - 15.874 = 4.126$$\n\nTo 3 significant figures, $m = 4.13$.\n\nQuick check: the median (4.13) is smaller than the mean (5) from part (b). That fits: the density is biggest near 0, so the distribution has a long tail to the right.",
+   "**Final answer**\n\n$(m - 20)^3 = -4000$ has been shown, and $m = 4.13$ minutes (3 s.f.)"
+  ]
+ },
+ "9709_s21_63_q6_d": {
+  "hints": [
+   "Look at the range of $x$ in the model ($0 \\leqslant x \\leqslant 20$, zero elsewhere). What can the model not describe? Also think about whether one density can suit every day."
+  ],
+  "walkthrough": [
+   "**Spot the limitation**\n\nThe model says the delay is between 0 and 20 minutes, and nothing outside that. In real life a train could be more than 20 minutes late, or could arrive early (a negative delay), and the model gives both a probability of zero. Also, the same model is used for every day, but delays may differ on different days of the week.",
+   "**Final answer**\n\nThe model does not allow for a train being more than 20 minutes late, or for a train arriving early (any one relevant comment is accepted)."
+  ]
+ }
+}

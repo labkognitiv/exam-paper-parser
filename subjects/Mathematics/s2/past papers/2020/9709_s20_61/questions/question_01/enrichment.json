@@ -1,0 +1,31 @@
+{
+ "9709_s20_61_q1_a": {
+  "hints": [
+   "The unbiased estimate of the population mean is just the sample mean: add the 7 lengths and divide by 7.",
+   "For the unbiased estimate of the variance use $s^2 = \\dfrac{1}{n-1}\\left(\\Sigma x^2 - n\\bar{x}^2\\right)$, or equivalently $\\dfrac{n}{n-1}\\left(\\dfrac{\\Sigma x^2}{n} - \\bar{x}^2\\right)$. Square each of the 7 lengths and add them to get $\\Sigma x^2$.",
+   "Put $n = 7$, your $\\Sigma x^2$ and your mean into the formula. Divide by $n - 1$ (not $n$) and keep the unrounded mean in your calculator until the end."
+  ],
+  "walkthrough": [
+   "**What we are asked**\n\nWe have a **sample** of 7 leaves. We want to use it to estimate two things about **all** leaves of this tree: the population mean $\\mu$ and the population variance $\\sigma^2$.\n\nAn **unbiased estimate** is one that is right 'on average'. For the mean it is the sample mean $\\bar{x}$. For the variance it is $s^2$, which divides by $n - 1$ instead of $n$ (a sample is a little less spread out than the whole population, and dividing by $n-1$ corrects for that).",
+   "**Estimate of the mean (earns the B1)**\n\nAdd up the 7 lengths:\n\n$$\\Sigma x = 5.2 + 4.8 + 5.5 + 6.1 + 4.8 + 3.9 + 4.4$$\n\nAdding one at a time: $5.2 + 4.8 = 10.0$, then $10.0 + 5.5 = 15.5$, then $15.5 + 6.1 = 21.6$, then $21.6 + 4.8 = 26.4$, then $26.4 + 3.9 = 30.3$, then $30.3 + 4.4 = 34.7$.\n\n$$\\Sigma x = 34.7$$\n\nDivide by the number of leaves, $n = 7$:\n\n$$\\bar{x} = \\frac{34.7}{7} = 4.957142\\ldots \\approx 4.96 \\text{ (3 s.f.)}$$\n\nKeep the unrounded value $4.957142\\ldots$ on your calculator for the next step. A rounded $4.96$ can shift the last digit of the variance.",
+   "**Square each length to find $\\Sigma x^2$**\n\nFor the variance we also need $\\Sigma x^2$, the sum of the **squares** of the lengths. Square each one:\n\n$$5.2^2 = 27.04,\\quad 4.8^2 = 23.04,\\quad 5.5^2 = 30.25,\\quad 6.1^2 = 37.21,\\quad 4.8^2 = 23.04,\\quad 3.9^2 = 15.21,\\quad 4.4^2 = 19.36$$\n\nAdd them: $27.04 + 23.04 = 50.08$; $+30.25 = 80.33$; $+37.21 = 117.54$; $+23.04 = 140.58$; $+15.21 = 155.79$; $+19.36 = 175.15$.\n\n$$\\Sigma x^2 = 175.15$$\n\nQuick check: your calculator's statistics mode will also give $\\Sigma x^2$. It should show $175.15$.",
+   "**Estimate of the variance (earns the M1)**\n\nUse the formula with $n = 7$, so $n - 1 = 6$:\n\n$$s^2 = \\frac{7}{6}\\left(\\frac{\\Sigma x^2}{7} - \\bar{x}^2\\right) = \\frac{7}{6}\\left(\\frac{175.15}{7} - 4.957142\\ldots^2\\right)$$\n\nWork out each piece separately. $\\dfrac{175.15}{7} = 25.021428\\ldots$ and $4.957142\\ldots^2 = 24.573265\\ldots$\n\nSubtract: $25.021428 - 24.573265 = 0.448163\\ldots$\n\nMultiply by $\\dfrac{7}{6}$: $0.448163 \\times \\dfrac{7}{6} = 0.522857\\ldots$\n\n$$s^2 = 0.522857\\ldots \\approx 0.523 \\text{ (3 s.f.)}$$\n\nQuick check, using the other form of the formula: $s^2 = \\dfrac{1}{6}\\left(175.15 - \\dfrac{34.7^2}{7}\\right) = \\dfrac{1}{6}(175.15 - 172.0129) = \\dfrac{3.1371}{6} = 0.5229$. The same.",
+   "**Final answer**\n\nUnbiased estimate of the population mean: $\\bar{x} = 4.96$ (3 s.f.), i.e. $\\dfrac{34.7}{7} = 4.957\\ldots$\n\nUnbiased estimate of the population variance: $s^2 = 0.523$ (3 s.f.)."
+  ]
+ },
+ "9709_s20_61_q1_b": {
+  "hints": [
+   "The population variance is now known, so use the normal confidence interval $\\bar{x} \\pm z \\times \\dfrac{\\sigma}{\\sqrt{n}}$ with $\\sigma^2 = 0.55$ and $n = 7$ (the sample mean from part (a) is the centre). Take care: use the variance you are told, not the estimate from part (a).",
+   "For a 95% confidence interval there is 2.5% in each tail, so use the $z$ value that leaves $0.975$ below it: $z = 1.96$.",
+   "Work out the width $1.96 \\times \\dfrac{\\sigma}{\\sqrt{n}}$, then subtract it from and add it to the sample mean to get the two ends. Give both to 3 s.f."
+  ],
+  "walkthrough": [
+   "**Why a normal interval**\n\nThe question tells us $X$ is normally distributed and that the true (population) variance is $\\sigma^2 = 0.55$. Because $\\sigma$ is known, the sample mean $\\bar{X}$ of $n = 7$ leaves is normal with mean $\\mu$ and variance $\\dfrac{\\sigma^2}{n}$. That is why we use a $z$ value from the normal table, not a $t$ value.\n\nA 95% confidence interval for $\\mu$ is\n\n$$\\bar{x} \\pm z \\times \\frac{\\sigma}{\\sqrt{n}}$$",
+   "**A note on the mark scheme**\n\nThe printed mark scheme works with $\\dfrac{0.523}{7}$ (the sample estimate from part (a)). But this part says the true variance is $0.55$, so the correct working uses $\\sigma^2 = 0.55$. I follow the question here. The printed scheme's interval is quoted at the end so you can compare.",
+   "**Write down the formula with the numbers (earns the M1)**\n\nFrom part (a), $\\bar{x} = 4.957142\\ldots$ (about $4.96$). Using $\\sigma^2 = 0.55$ and $n = 7$:\n\n$$\\bar{x} \\pm z \\times \\sqrt{\\frac{0.55}{7}}$$\n\nThe standard deviation of the sample mean is $\\sqrt{\\dfrac{0.55}{7}}$. Here $\\dfrac{0.55}{7} = 0.078571\\ldots$ and $\\sqrt{0.078571} = 0.280306\\ldots$",
+   "**Find the $z$ value (earns the B1)**\n\nA 95% interval leaves $5\\%$ outside, so $2.5\\%$ in each tail. We need the $z$ with $\\Phi(z) = 1 - 0.025 = 0.975$.\n\nLook in the normal table for $0.975$ (or use inverse normal on your calculator with area $0.975$):\n\n$$z = 1.96$$",
+   "**Work out the interval (earns the A1)**\n\nWidth either side: $1.96 \\times 0.280306 = 0.549400\\ldots$\n\nLower end: $4.957142 - 0.549400 = 4.407742\\ldots \\approx 4.41$\n\nUpper end: $4.957142 + 0.549400 = 5.506542\\ldots \\approx 5.51$\n\nQuick check: the interval should be centred on the sample mean $4.96$, and $4.41$ and $5.51$ are the same distance either side. They are.",
+   "**Final answer**\n\nA 95% confidence interval for the population mean is $4.41$ to $5.51$ (3 s.f.).\n\nThe printed mark scheme gives $4.42$ to $5.49$, which comes from using $0.523$ instead of the given variance $0.55$. If you used the given $0.55$ (as the question says), your answer is $4.41$ to $5.51$."
+  ]
+ }
+}

@@ -1,0 +1,35 @@
+{
+ "9709_m20_62_q6_a": {
+  "hints": [
+   "For independent normal variables, means add and variances add. Let $L$ be a large cup and $S$ a small cup, and combine $\\text{N}(200, 30)$ and $\\text{N}(110, 20)$ for $L + S$.",
+   "Standardise: $z = \\dfrac{300 - \\mu}{\\sqrt{\\sigma^2}}$ with the mean and variance of $L + S$. Remember to take the square root of the variance.",
+   "You want $\\text{P}(L + S < 300)$, the lower tail. Your $z$ is negative: use $\\Phi(z)$ for a negative $z$, which equals $1 - \\Phi(-z)$ by symmetry.",
+   "Find $\\Phi$ of the positive version of your $z$ in the table or calculator, take it away from 1, and give the answer to 3 significant figures."
+  ],
+  "walkthrough": [
+   "**Combine the two cups (this earns the B1)**\n\nLet $L$ be the volume of a large cup, $L \\sim \\text{N}(200, 30)$, and $S$ the volume of a small cup, $S \\sim \\text{N}(110, 20)$. In $\\text{N}(\\mu, \\sigma^2)$ the second number is the **variance**, so here the variances are 30 and 20.\n\nThe cups are chosen randomly, so we treat them as independent. For independent normals, the sum is normal. The means add, and the variances add:\n\n$$\\text{E}(L + S) = 200 + 110 = 310$$\n\n$$\\text{Var}(L + S) = 30 + 20 = 50$$\n\n$$L + S \\sim \\text{N}(310, 50)$$",
+   "**Standardise (this earns the first M1)**\n\nWe want $\\text{P}(L + S < 300)$. Standardise with $z = \\dfrac{x - \\mu}{\\sigma}$. The standard deviation is the square root of the variance, $\\sqrt{50}$:\n\n$$z = \\frac{300 - 310}{\\sqrt{50}} = \\frac{-10}{7.0711} = -1.414$$",
+   "**Find the probability (this earns the second M1)**\n\n$$\\text{P}(L + S < 300) = \\text{P}(Z < -1.414) = \\Phi(-1.414)$$\n\nTables only give positive $z$, so use symmetry: the area below $-1.414$ equals the area above $+1.414$, which is $1 - \\Phi(1.414)$:\n\n$$\\Phi(-1.414) = 1 - \\Phi(1.414) = 1 - 0.9213 = 0.0787$$\n\nQuick check: 300 is below the mean of 310 by about 1.4 standard deviations, so a small lower-tail probability is expected.",
+   "**Final answer**\n\n$$\\text{P}(\\text{total} < 300) = 0.0786 \\text{ or } 0.0787 \\text{ (3 s.f.)}$$\n\nThe two answers differ only because of rounding $z$. Using the unrounded $z = -1.41421\\ldots$ gives $0.07865$, which rounds to 0.0786, and the rounded $z = -1.414$ gives 0.0787. Both are accepted."
+  ]
+ },
+ "9709_m20_62_q6_b": {
+  "hints": [
+   "'Large is more than twice small' means $L > 2S$. Rearrange so that one side is 0: you need $\\text{P}(L - 2S > 0)$.",
+   "Mean of a combination: $\\text{E}(L - 2S) = \\text{E}(L) - 2\\,\\text{E}(S)$, using $200$ and $110$.",
+   "Variance of a combination: $\\text{Var}(L - 2S) = \\text{Var}(L) + 2^2\\,\\text{Var}(S)$. Variances always add, and the multiplier is squared.",
+   "So $L - 2S \\sim \\text{N}(\\text{mean}, \\text{variance})$. Standardise the value 0: $z = \\dfrac{0 - \\text{mean}}{\\sqrt{\\text{variance}}}$, being careful with the sign of the mean.",
+   "You want the **upper** tail $\\text{P}(Z > z)$, which is $1 - \\Phi(z)$. Look $\\Phi(z)$ up in the table or calculator.",
+   "Subtract your $\\Phi(z)$ from 1 and give the result to 3 significant figures."
+  ],
+  "walkthrough": [
+   "**Turn the sentence into a probability (this earns the M1)**\n\n'The volume of a large cup is more than twice the volume of a small cup' means $L > 2S$. Subtract $2S$ from both sides so that one side is 0:\n\n$$\\text{P}(L > 2S) = \\text{P}(L - 2S > 0)$$\n\nLet $D = L - 2S$. The small cup's volume is doubled, so it is $2S$ (one small cup counted twice), not $S_1 + S_2$ (two different small cups).",
+   "**Mean of $D$ (this earns the first B1)**\n\nMeans combine in the same way as the expression:\n\n$$\\text{E}(D) = \\text{E}(L) - 2\\,\\text{E}(S) = 200 - 2 \\times 110 = 200 - 220 = -20$$",
+   "**Variance of $D$ (this earns the second B1)**\n\nFor independent variables, $\\text{Var}(aX + bY) = a^2\\,\\text{Var}(X) + b^2\\,\\text{Var}(Y)$. Two things to notice: the multiplier is **squared**, so $-2$ becomes $(-2)^2 = 4$, and the minus sign disappears, so variances **add** (they never subtract):\n\n$$\\text{Var}(D) = \\text{Var}(L) + 2^2\\,\\text{Var}(S) = 30 + 4 \\times 20 = 30 + 80 = 110$$\n\nSo $D \\sim \\text{N}(-20, 110)$.",
+   "**Standardise (this earns the second M1)**\n\nWe want $\\text{P}(D > 0)$. Standardise, using the standard deviation $\\sqrt{110}$:\n\n$$z = \\frac{0 - (-20)}{\\sqrt{110}} = \\frac{20}{10.488} = 1.907$$\n\nSubtracting a negative gives a positive: $0 - (-20) = +20$. A positive $z$ makes sense: 0 is above the mean of $-20$.",
+   "**Choose the correct tail (this earns the third M1)**\n\nWe want the probability that $D$ is **more than** 0, which is the upper tail:\n\n$$\\text{P}(D > 0) = \\text{P}(Z > 1.907) = 1 - \\Phi(1.907)$$\n\nFrom the table or calculator, $\\Phi(1.907) = 0.97174$.",
+   "**Calculate (this earns the A1)**\n\n$$1 - 0.97174 = 0.02826$$\n\nQuick check: the typical difference $L - 2S$ is around $-20$, so $L$ being more than $2S$ should be quite unlikely, and 0.028 fits.",
+   "**Final answer**\n\n$$\\text{P}(L > 2S) = 0.0283 \\text{ (3 s.f.)}$$"
+  ]
+ }
+}

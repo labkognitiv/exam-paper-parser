@@ -1,0 +1,44 @@
+{
+ "9709_s25_62_q8_a": {
+  "hints": [
+   "State the null hypothesis as the dice being fair, $p = \\dfrac{1}{6}$. Birgitte suspects a six is *less* likely, so choose the alternative to match that direction. Say what $p$ stands for.",
+   "Let $X$ be the number of sixes in the 30 throws. Under $\\text{H}_0$, $X \\sim \\text{B}(30, \\frac{1}{6})$. She got 2 sixes and the alternative is 'less than', so the evidence is $\\text{P}(X \\leqslant 2) = \\text{P}(0) + \\text{P}(1) + \\text{P}(2)$.",
+   "Work out the three binomial terms with $\\text{P}(r) = {}^{30}\\text{C}_r\\left(\\frac{5}{6}\\right)^{30-r}\\left(\\frac{1}{6}\\right)^r$, or use the binomial cdf on your calculator. Round to 3 significant figures.",
+   "Compare your probability with the significance level $5\\%$ (that is $0.05$). It is a lower-tail test, so you compare the tail probability directly.",
+   "If the tail probability is above the significance level, do not reject $\\text{H}_0$. Write the conclusion in the context of the dice and the suspicion about sixes, with non-definite wording such as 'insufficient evidence' or 'sufficient evidence'."
+  ],
+  "walkthrough": [
+   "**Hypotheses (B1)**\n\nLet $p$ be the probability that the dice shows a six on one throw. If the dice is fair then $p = \\frac{1}{6}$, so that is the null hypothesis. Birgitte suspects the six is **less** likely, so the alternative is one-tailed with 'less than':\n\n$$\\text{H}_0: p = \\frac{1}{6} \\qquad \\text{H}_1: p < \\frac{1}{6}$$",
+   "**The distribution under $\\text{H}_0$**\n\nLet $X$ be the number of sixes in 30 throws. There are a fixed number of throws ($30$), two outcomes (six or not six), independent throws and the same probability each time, so a binomial distribution is suitable. If $\\text{H}_0$ is true:\n\n$$X \\sim \\text{B}\\left(30, \\frac{1}{6}\\right)$$\n\nShe saw 2 sixes. Because $\\text{H}_1$ says 'fewer sixes', the question to ask is: if the dice is fair, how likely is a result **as low as 2 or lower**? That is $\\text{P}(X \\leqslant 2)$, not just $\\text{P}(X = 2)$.",
+   "**Write the probability as a sum (M1)**\n\n$$\\text{P}(X \\leqslant 2) = \\text{P}(X=0) + \\text{P}(X=1) + \\text{P}(X=2)$$\n\nThe binomial formula is $\\text{P}(X = r) = {}^{30}\\text{C}_r\\left(\\frac{5}{6}\\right)^{30-r}\\left(\\frac{1}{6}\\right)^r$, so\n\n$$\\left(\\frac{5}{6}\\right)^{30} + 30\\left(\\frac{5}{6}\\right)^{29}\\left(\\frac{1}{6}\\right) + {}^{30}\\text{C}_2\\left(\\frac{5}{6}\\right)^{28}\\left(\\frac{1}{6}\\right)^2$$\n\nwhere ${}^{30}\\text{C}_2 = \\dfrac{30 \\times 29}{2} = 435$ (on a calculator, nCr). Showing the expression or its terms, with no end errors, earns the M1.",
+   "**Calculate each term (A1)**\n\n$$\\text{P}(X=0) = \\left(\\frac{5}{6}\\right)^{30} = 0.004213$$\n\n$$\\text{P}(X=1) = 30 \\times \\left(\\frac{5}{6}\\right)^{29} \\times \\frac{1}{6} = 0.025276$$\n\n$$\\text{P}(X=2) = 435 \\times \\left(\\frac{5}{6}\\right)^{28} \\times \\left(\\frac{1}{6}\\right)^2 = 0.073301$$\n\nAdd:\n\n$$0.004213 + 0.025276 + 0.073301 = 0.102790 \\approx 0.103$$\n\nCheck on a calculator: binomial cdf with $n = 30$, $p = \\frac{1}{6}$, upper value $2$ gives the same.",
+   "**Compare (second M1)**\n\nThe significance level is $5\\% = 0.05$. This is a lower-tail test, so we compare the tail probability directly with $0.05$:\n\n$$0.103 > 0.05$$\n\nThe probability of getting $2$ or fewer sixes with a fair dice is bigger than $5\\%$, so such a result is not unusual enough to count as evidence.",
+   "**Conclusion in context (A1 follow-through)**\n\nSince $0.103 > 0.05$, we do **not** reject $\\text{H}_0$. In context, and not definite:\n\nThere is insufficient evidence at the 5% level to suggest that the probability of throwing a six is less than $\\frac{1}{6}$ (that is, insufficient evidence to support Birgitte's suspicion).\n\nSlip to avoid: 'the dice is fair' or 'Birgitte is wrong' are definite statements. We have only failed to find enough evidence.",
+   "**Final answer**\n\n$\\text{H}_0: p = \\frac{1}{6}$, $\\text{H}_1: p < \\frac{1}{6}$. $\\text{P}(X \\leqslant 2) = 0.103$ (3 s.f.), which is greater than $0.05$, so do not reject $\\text{H}_0$. There is insufficient evidence to suggest that the probability of a six is less than $\\frac{1}{6}$."
+  ]
+ },
+ "9709_s25_62_q8_b": {
+  "hints": [
+   "A Type I error means rejecting $\\text{H}_0$ when it is actually true. Its probability is the probability, under $\\text{B}(30, \\frac{1}{6})$, of landing in the critical region. In part (a) the probability for $X \\leqslant 2$ was above $5\\%$, so $2$ is not in the critical region. Try the next smaller value.",
+   "Write the probability of the critical region as a sum of binomial terms $\\text{P}(0) + \\text{P}(1)$ with $n = 30$, $p = \\frac{1}{6}$, then evaluate it and round to 3 significant figures."
+  ],
+  "walkthrough": [
+   "**Find the critical region (M1)**\n\nA **Type I error** means rejecting $\\text{H}_0$ when $\\text{H}_0$ is true (here, deciding the dice is biased towards fewer sixes when it is fair). Its probability is the chance that $X$ falls in the critical region while $X \\sim \\text{B}(30, \\frac{1}{6})$.\n\nThe critical region is the set of low values of $X$ whose probability is at most $5\\%$. From part (a): $\\text{P}(X \\leqslant 2)$ is above $0.05$, so $X \\leqslant 2$ is **not** in the critical region. Try one value lower: $\\text{P}(X \\leqslant 1) = \\text{P}(0) + \\text{P}(1)$ (the two terms found in part (a)).\n\n$$\\text{P}(X \\leqslant 1) = \\left(\\frac{5}{6}\\right)^{30} + 30\\left(\\frac{5}{6}\\right)^{29}\\left(\\frac{1}{6}\\right) = 0.004213 + 0.025276 = 0.029489$$\n\nThis is below $0.05$, so the critical region is $X \\leqslant 1$. Writing $\\text{P}(X \\leqslant 1)$ with the binomial earns the M1.",
+   "**Give the probability (A1)**\n\nThe probability of a Type I error is the probability of the critical region when $\\text{H}_0$ is true:\n\n$$\\text{P}(\\text{Type I error}) = 0.029489\\ldots \\approx 0.0295 \\text{ (3 s.f.)}$$\n\nIt is smaller than the $5\\%$ significance level because $X$ is discrete: $X \\leqslant 2$ would be too big, so we cannot use up all $5\\%$.",
+   "**Final answer**\n\n$\\text{P}(\\text{Type I error}) = 0.0295$ (3 s.f.)"
+  ]
+ },
+ "9709_s25_62_q8_c": {
+  "hints": [
+   "A Type II error means not rejecting $\\text{H}_0$ when it is false. With the critical region found in part (b), that means $X$ is **not** in the critical region, under the real value $p = 0.02$. Write it as $1 - \\text{P}(X \\leqslant 1)$ using $\\text{B}(30, 0.02)$.",
+   "Write $\\text{P}(X \\leqslant 1) = \\text{P}(0) + \\text{P}(1)$ with $n = 30$, success probability $0.02$ and failure probability equal to $1$ minus that. Take care with the factor $30$ in the second term.",
+   "Work out the two terms, add them, subtract the total from $1$ and round to 3 significant figures."
+  ],
+  "walkthrough": [
+   "**What a Type II error is (M1)**\n\nA **Type II error** means failing to reject $\\text{H}_0$ when $\\text{H}_0$ is actually false. Here the true value is $p = 0.02$, so the number of sixes is really $X \\sim \\text{B}(30, 0.02)$.\n\nFrom part (b) we reject $\\text{H}_0$ when $X \\leqslant 1$. We fail to reject when $X$ is **not** in that region, that is $X \\geqslant 2$:\n\n$$\\text{P}(\\text{Type II error}) = \\text{P}(X \\geqslant 2 \\mid p = 0.02) = 1 - \\text{P}(X \\leqslant 1 \\mid p = 0.02)$$\n\nThe bar $\\mid$ means 'given that'. This line earns the first M1.",
+   "**Write out the binomial terms (second M1)**\n\nUsing $\\text{P}(X = r) = {}^{30}\\text{C}_r(0.98)^{30-r}(0.02)^r$:\n\n$$1 - \\left(0.98^{30} + 30 \\times 0.98^{29} \\times 0.02\\right)$$\n\nWork each term out on the calculator:\n\n$$0.98^{30} = 0.545484$$\n\n$$30 \\times 0.98^{29} \\times 0.02 = 30 \\times 0.556616 \\times 0.02 = 0.333970$$\n\n$$1 - (0.545484 + 0.333970) = 1 - 0.879454$$",
+   "**Evaluate (A1)**\n\n$$1 - 0.879454 = 0.120546 \\approx 0.121 \\text{ (3 s.f.)}$$\n\nQuick check: $np = 30 \\times 0.02 = 0.6$ is a small mean, so most of the time we get $0$ or $1$ sixes and the probability of failing to notice the bias should be fairly small, but not tiny. ✓",
+   "**Final answer**\n\n$\\text{P}(\\text{Type II error}) = 0.121$ (3 s.f.)"
+  ]
+ }
+}

@@ -1,0 +1,32 @@
+{
+ "9709_w22_63_q3_a": {
+  "hints": [
+   "The rate is $5.2$ per minute but the period is 30 seconds, which is half a minute: scale the mean to the new period. Drops fall randomly at a constant average rate, so the count is Poisson.",
+   "With $X \\sim \\text{Po}(\\lambda)$, \"at least 3\" is the opposite of \"2 or fewer\": $\\text{P}(X \\geqslant 3) = 1 - \\text{P}(X \\leqslant 2) = 1 - \\text{e}^{-\\lambda}\\left(1 + \\lambda + \\dfrac{\\lambda^2}{2}\\right)$. Use your $\\lambda$.",
+   "Work out the three terms $\\text{P}(X=0)$, $\\text{P}(X=1)$, $\\text{P}(X=2)$ (or use your calculator's Poisson cumulative distribution up to $2$), add them and subtract from $1$. Give 3 significant figures."
+  ],
+  "walkthrough": [
+   "**Why a Poisson distribution**\n\nDrops fall **randomly** and **independently** at a **constant average rate**. That is the classic situation for a **Poisson** distribution. The Poisson distribution is written $\\text{Po}(\\lambda)$, where $\\lambda$ is the average number of events in the period we are looking at.",
+   "**Scale the rate to 30 seconds (B1)**\n\nThe rate is $5.2$ drops per **minute**, but the period is 30 **seconds**, which is half a minute. So the average in the period is half as big:\n\n$$\\lambda = 5.2 \\div 2 = 2.6$$\n\nLet $X$ be the number of drops in 30 seconds. Then $X \\sim \\text{Po}(2.6)$. This earns the B1.",
+   "**Turn at least 3 into something we can calculate (M1)**\n\nWe want $\\text{P}(X \\geqslant 3)$: 3, 4, 5, ... drops, which never stops. It is easier to use the opposite. Either $X$ is 0, 1 or 2, or it is 3 or more, and the probabilities add to 1:\n\n$$\\text{P}(X \\geqslant 3) = 1 - \\text{P}(X \\leqslant 2) = 1 - \\left[\\text{P}(X=0) + \\text{P}(X=1) + \\text{P}(X=2)\\right]$$\n\nThe Poisson formula is $\\text{P}(X = r) = \\text{e}^{-\\lambda}\\dfrac{\\lambda^r}{r!}$. Putting in $\\lambda = 2.6$ and factoring out $\\text{e}^{-2.6}$:\n\n$$1 - \\text{e}^{-2.6}\\left(1 + 2.6 + \\frac{2.6^2}{2}\\right)$$\n\n(For $r = 0$: $\\frac{2.6^0}{0!} = 1$. For $r = 1$: $\\frac{2.6^1}{1!} = 2.6$. For $r = 2$: $\\frac{2.6^2}{2!}$.) Seeing this expression earns the M1. Common slip: using $1 - \\text{P}(X \\leqslant 3)$, which would be \"more than 3\".",
+   "**Calculate (B1)**\n\n$2.6^2 = 6.76$, and $\\dfrac{6.76}{2} = 3.38$.\n\nAdd inside the bracket: $1 + 2.6 + 3.38 = 6.98$.\n\n$\\text{e}^{-2.6} = 0.074274$ (calculator: $e^x$ with $-2.6$).\n\nMultiply: $6.98 \\times 0.074274 = 0.51843$.\n\n$$\\text{P}(X \\geqslant 3) = 1 - 0.51843 = 0.48157 = 0.482 \\text{ (3 s.f.)}$$\n\nQuick check with the individual terms: $0.07427 + 0.1931 + 0.2510 = 0.5184$, the same. This earns the final B1.",
+   "**Final answer**\n\nThe probability that at least 3 drops fall in 30 seconds is $0.482$ (3 s.f.)."
+  ]
+ },
+ "9709_w22_63_q3_b": {
+  "hints": [
+   "2 hours is 120 minutes, so scale the average from $5.2$ per minute to the 2-hour period. The mean is large, so approximate the Poisson by a normal distribution whose mean **and** variance both equal that Poisson mean: $\\text{N}(120 \\times 5.2,\\ 120 \\times 5.2)$.",
+   "Poisson is discrete and normal is continuous, so use a continuity correction: \"at least 650\" means the boundary sits half a unit below $650$. Standardise with $z = \\dfrac{x - \\mu}{\\sigma}$, where $\\sigma$ is the **square root** of the variance.",
+   "You want \"at least\", so the area is to the **right** of your $z$: $1 - \\Phi(z)$.",
+   "Find $\\Phi(z)$ with your calculator's normal cdf (or table), subtract from $1$ and give 3 significant figures."
+  ],
+  "walkthrough": [
+   "**Scale the mean to 2 hours**\n\nThe rate is $5.2$ per **minute**. 2 hours is $2 \\times 60 = 120$ minutes. So the average number of drops in the period is:\n\n$$120 \\times 5.2 = 624$$\n\nLet $Y$ be the number of drops in 2 hours. Then $Y \\sim \\text{Po}(624)$ exactly. But calculating $\\text{P}(Y \\geqslant 650)$ from a Poisson with a mean of $624$ would need a huge sum, so the question asks for an approximating distribution.",
+   "**Use a normal approximation (B1)**\n\nWhen the Poisson mean is large (a common rule is bigger than about 15), the distribution looks like a symmetrical bell shape, so a **normal** distribution fits well. A Poisson has its mean and its variance equal, so we give the normal the same mean **and** the same variance:\n\n$$Y \\approx \\text{N}(624,\\ 624)$$\n\nThat is mean $\\mu = 624$, variance $\\sigma^2 = 624$. This earns the B1. Quick check: the standard deviation is $\\sigma = \\sqrt{624} = 24.98$, **not** $624$.",
+   "**Continuity correction (M1)**\n\n$Y$ takes whole numbers only, but the normal is smooth. \"At least 650\" means $Y = 650, 651, \\ldots$ In a smooth picture the whole number $650$ occupies the space from $649.5$ to $650.5$, so \"$650$ or more\" starts at $649.5$:\n\n$$\\text{P}(Y \\geqslant 650) \\approx \\text{P}(Y > 649.5)$$\n\nStandardise ($z = \\frac{x - \\mu}{\\sigma}$, which says how many standard deviations $x$ is above the mean):\n\n$$z = \\frac{649.5 - 624}{\\sqrt{624}} = \\frac{25.5}{24.980} = 1.021$$\n\nThis earns the M1 (the scheme allows a missing or wrong continuity correction for this mark, but then the answer is wrong).",
+   "**Choose the correct area (M1)**\n\nWe want the probability of being **above** $649.5$, so the area to the **right** of $z = 1.021$ under the standard normal curve. Tables and calculators give the area to the **left**, $\\Phi(z)$, so we take it away from $1$:\n\n$$\\text{P}(Z > 1.021) = 1 - \\Phi(1.021)$$\n\nThis earns the second M1.",
+   "**Calculate (A1)**\n\n$\\Phi(1.021)$: use the normal table or the calculator's normal cdf $\\rightarrow 0.8464$.\n\n$$1 - 0.8464 = 0.1536\\ldots$$\n\nMore precisely (using the unrounded $z = 1.0208$) it is $0.15367$, so\n\n$$\\text{P}(Y \\geqslant 650) = 0.154 \\text{ (3 s.f.)}$$",
+   "**Final answer**\n\nThe probability that at least 650 drops fall in a 2-hour period is $0.154$ (3 s.f.), using $\\text{N}(624, 624)$ with a continuity correction."
+  ]
+ }
+}

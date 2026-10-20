@@ -1,0 +1,47 @@
+{
+ "9709_w18_72_q7_i": {
+  "hints": [
+   "The sum of two independent Poisson variables is also Poisson. Its mean is found by adding the two means $2.1$ and $3.5$.",
+   "For $W = X + Y$ with your mean $\\lambda$, use $\\text{P}(W = 3) = \\text{e}^{-\\lambda}\\dfrac{\\lambda^3}{3!}$. Evaluate on your calculator and give 3 significant figures."
+  ],
+  "walkthrough": [
+   "**Combine the two variables**\n\n$X \\sim \\text{Po}(2.1)$ and $Y \\sim \\text{Po}(3.5)$ are independent. For independent Poisson variables, the sum is also Poisson, with the means added:\n\n$$X + Y \\sim \\text{Po}(2.1 + 3.5) = \\text{Po}(5.6)$$",
+   "**Use the Poisson formula (this earns the M1)**\n\n$$\\text{P}(X + Y = 3) = \\text{e}^{-5.6}\\,\\frac{5.6^3}{3!}$$\n\nwith $3! = 3 \\times 2 \\times 1 = 6$.",
+   "**Calculate (this earns the A1)**\n\n$$5.6^3 = 175.616$$\n\n$$\\frac{175.616}{6} = 29.269333\\ldots$$\n\n$$\\text{e}^{-5.6} = 0.0036979\\ldots$$\n\n$$0.0036979 \\times 29.269333 = 0.108234\\ldots \\approx 0.108$$",
+   "**Final answer**\n\n$$\\text{P}(X + Y = 3) = 0.108$$"
+  ]
+ },
+ "9709_w18_72_q7_ii": {
+  "hints": [
+   "This is a conditional probability: $\\text{P}(X = 2 \\mid X + Y = 3) = \\dfrac{\\text{P}(X = 2 \\text{ and } X + Y = 3)}{\\text{P}(X + Y = 3)}$. If $X = 2$ and the total is $3$, what must $Y$ be?",
+   "Because $X$ and $Y$ are independent, $\\text{P}(X = 2 \\text{ and } Y = \\ldots) = \\text{P}(X = 2) \\times \\text{P}(Y = \\ldots)$. Work out each factor with its own Poisson formula: $\\text{Po}(2.1)$ for $X$ and $\\text{Po}(3.5)$ for $Y$.",
+   "Divide your numerator by the denominator you already found in part (i). Use the unrounded numbers on your calculator and round to 3 significant figures at the end."
+  ],
+  "walkthrough": [
+   "**Set up the conditional probability**\n\n'Given that $X + Y = 3$' means we only look at the cases where the total is $3$. The probability is\n\n$$\\text{P}(X = 2 \\mid X + Y = 3) = \\frac{\\text{P}(X = 2 \\text{ and } X + Y = 3)}{\\text{P}(X + Y = 3)}$$\n\nIf $X = 2$ and $X + Y = 3$, then $Y = 3 - 2 = 1$. So the numerator is $\\text{P}(X = 2 \\text{ and } Y = 1)$.",
+   "**The numerator (this earns the first M1)**\n\n$X$ and $Y$ are independent, so multiply the two probabilities. Each uses its own mean:\n\n$$\\text{P}(X = 2) = \\text{e}^{-2.1}\\frac{2.1^2}{2!} = 0.122456 \\times 2.205 = 0.270016\\ldots$$\n\n$$\\text{P}(Y = 1) = \\text{e}^{-3.5}\\frac{3.5^1}{1!} = 0.030197 \\times 3.5 = 0.105691\\ldots$$\n\n$$\\text{P}(X = 2 \\text{ and } Y = 1) = 0.270016 \\times 0.105691 = 0.028538\\ldots$$",
+   "**Divide by $\\text{P}(X + Y = 3)$ (this earns the second M1)**\n\nThe denominator is the answer to part (i), $0.108234\\ldots$ (use the unrounded value):\n\n$$\\frac{0.028538}{0.108234} = 0.263671\\ldots$$\n\nAnother way: the exponentials cancel, leaving $\\dfrac{2.1^2/2 \\times 3.5}{5.6^3/6} = 0.263671\\ldots$, which is the same.",
+   "**Round (this earns the A1)**\n\n$0.263671\\ldots$ to 3 significant figures is $0.264$.",
+   "**Final answer**\n\n$$\\text{P}(X = 2 \\mid X + Y = 3) = 0.264$$"
+  ]
+ },
+ "9709_w18_72_q7_iii": {
+  "hints": [
+   "For a Poisson distribution the variance equals the mean. $X \\sim \\text{Po}(2.1)$, so write down $\\text{Var}(X)$.",
+   "The sample is large ($n = 100$), so by the Central Limit theorem the sample mean $\\bar{X}$ is approximately normal. Its mean is the same as the mean of $X$: write $\\bar{X} \\sim \\text{N}(2.1, \\ldots)$.",
+   "The variance of a sample mean is the variance of $X$ divided by the sample size: $\\dfrac{\\text{Var}(X)}{n}$. Put your $\\text{Var}(X)$ and $n = 100$ into the second slot of $\\text{N}(2.1, \\ldots)$.",
+   "Standardise: $z = \\dfrac{2.2 - 2.1}{\\sqrt{\\text{variance of } \\bar{X}}}$. Use the square root of the variance, and do not mix this with a continuity correction on only one part.",
+   "The question asks for the sample mean **more than** $2.2$, so you need the upper tail: $\\text{P}(\\bar{X} > 2.2) = \\text{P}(Z > z) = 1 - \\Phi(z)$.",
+   "Find $\\Phi(z)$ with your calculator's normal cdf or the table, subtract it from $1$, and give your answer to 3 significant figures."
+  ],
+  "walkthrough": [
+   "**What the question is asking**\n\nWe take $100$ values of $X \\sim \\text{Po}(2.1)$ and find their average, the **sample mean** $\\bar{X}$. We want $\\text{P}(\\bar{X} > 2.2)$.",
+   "**Variance of $X$ (this earns the first B1)**\n\nA Poisson variable has its variance equal to its mean:\n\n$$\\text{Var}(X) = 2.1$$",
+   "**Distribution of the sample mean (this earns the second B1)**\n\nThe sample size $100$ is large, so by the **Central Limit theorem** $\\bar{X}$ is approximately normally distributed, even though $X$ itself is Poisson (not normal).\n\nThe mean of $\\bar{X}$ is the same as the mean of $X$:\n\n$$\\text{E}(\\bar{X}) = 2.1$$",
+   "**Variance of the sample mean (this earns the third B1)**\n\nAveraging $100$ values makes the result less spread out. The variance of the sample mean is the variance of $X$ divided by $n$:\n\n$$\\text{Var}(\\bar{X}) = \\frac{2.1}{100} = 0.021$$\n\nSo\n\n$$\\bar{X} \\approx \\text{N}\\left(2.1, \\frac{2.1}{100}\\right)$$\n\n(Equivalently, the total of $100$ values is $\\text{N}(210, 210)$.)",
+   "**Standardise (this earns the first M1)**\n\nSubtract the mean and divide by the standard deviation, which is the square root of the variance:\n\n$$\\sqrt{0.021} = 0.144914\\ldots$$\n\n$$z = \\frac{2.2 - 2.1}{0.144914} = \\frac{0.1}{0.144914} = 0.690066\\ldots \\approx 0.690$$\n\nNo continuity correction is used in the scheme's main method. Whichever method you choose, use it all the way through and do not mix methods.",
+   "**Choose the correct tail and calculate (this earns the second M1 and the A1)**\n\nWe want $\\bar{X}$ **more than** $2.2$, the area to the **right** of $z = 0.690$. Tables and calculators give the area to the left, so subtract from $1$:\n\n$$\\text{P}(\\bar{X} > 2.2) = 1 - \\Phi(0.690)$$\n\n$\\Phi(0.690)$: use the normal table or your calculator's normal cdf $\\to 0.7549$.\n\n$$1 - 0.7549 = 0.2451 \\approx 0.245$$\n\nSketch check: $2.2$ is above the mean $2.1$, so the answer must be below $0.5$. It is.",
+   "**Final answer**\n\n$$\\text{P}(\\bar{X} > 2.2) = 0.245$$\n\n(With a continuity correction, $z = 0.725$ and the answer is $0.234$, which the scheme also accepts.)"
+  ]
+ }
+}

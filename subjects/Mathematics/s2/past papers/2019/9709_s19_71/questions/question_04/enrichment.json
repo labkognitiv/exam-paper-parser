@@ -1,0 +1,51 @@
+{
+ "9709_s19_71_q4_a_i": {
+  "hints": [
+   "The total area under a probability density function is 1. The rectangle runs from $0$ to $a$, so its width is $a$. Use this to find its height in terms of $a$.",
+   "$\\text{P}(X < 0.5)$ is the area of the part of the rectangle between $x = 0$ and $x = 0.5$: width $\\times$ height. (This works because $a > 0.5$.)"
+  ],
+  "walkthrough": [
+   "**Find the height of the rectangle**\n\nFor any probability density function the total area under the graph is 1. The graph is a rectangle from $x = 0$ to $x = a$, so\n\n$$\\text{width} \\times \\text{height} = 1$$\n\n$$a \\times \\text{f}(x) = 1$$\n\n$$\\text{f}(x) = \\frac{1}{a} \\quad (0 \\leqslant x \\leqslant a)$$",
+   "**The area from 0 to 0.5 (this earns the M1)**\n\nA probability is an area under the graph. $\\text{P}(X < 0.5)$ is the area of a smaller rectangle from $x = 0$ to $x = 0.5$. Its width is $0.5$ and its height is $\\tfrac{1}{a}$. The value 0.5 lies inside $0 \\leqslant x \\leqslant a$ because we are told $a > 0.5$.\n\n$$\\text{P}(X < 0.5) = 0.5 \\times \\frac{1}{a}$$\n\n(Equivalent: $\\displaystyle\\int_0^{0.5} \\frac{1}{a}\\,\\text{d}x = \\left[\\frac{x}{a}\\right]_0^{0.5} = \\frac{0.5}{a}$.)",
+   "**Tidy (this earns the A1)**\n\n$$\\frac{0.5}{a} = \\frac{1}{2a}$$",
+   "**Final answer**\n\n$\\text{P}(X < 0.5) = \\dfrac{1}{2a}$ (or $\\dfrac{0.5}{a}$)."
+  ]
+ },
+ "9709_s19_71_q4_a_ii": {
+  "hints": [
+   "Use $\\text{E}(X) = \\displaystyle\\int_0^a x\\,\\text{f}(x)\\,\\text{d}x$ with $\\text{f}(x) = \\dfrac{1}{a}$. (Or use the symmetry of the graph about its centre.)"
+  ],
+  "walkthrough": [
+   "**The formula**\n\nFor a continuous random variable, $\\text{E}(X) = \\displaystyle\\int x\\,\\text{f}(x)\\,\\text{d}x$ over the values where $\\text{f}$ is not zero. Here that is from 0 to $a$, with $\\text{f}(x) = \\tfrac{1}{a}$ from part (i).",
+   "**Integrate (this earns the B1)**\n\n$$\\text{E}(X) = \\int_0^a x \\times \\frac{1}{a}\\,\\text{d}x = \\frac{1}{a}\\int_0^a x\\,\\text{d}x$$\n\nThe integral of $x$ is $\\tfrac{x^2}{2}$:\n\n$$= \\frac{1}{a}\\left[\\frac{x^2}{2}\\right]_0^a = \\frac{1}{a} \\times \\frac{a^2}{2} = \\frac{a}{2}$$\n\nQuick check: the graph is a rectangle from 0 to $a$, so it is symmetrical about the midpoint, and the mean is halfway between 0 and $a$, which is $\\tfrac{a}{2}$.",
+   "**Final answer**\n\n$\\text{E}(X) = \\dfrac{a}{2}$."
+  ]
+ },
+ "9709_s19_71_q4_a_iii": {
+  "hints": [
+   "Use $\\text{Var}(X) = \\displaystyle\\int_0^a x^2\\,\\text{f}(x)\\,\\text{d}x - \\left[\\text{E}(X)\\right]^2$. Set it up with $\\text{f}(x) = \\dfrac{1}{a}$ and your mean from part (ii), squared.",
+   "Integrate $\\dfrac{x^2}{a}$ (raise the power of $x$ by one and divide by the new power), substitute the limits 0 and $a$, subtract the squared mean, then put the two fractions over a common denominator to reach $\\tfrac{1}{12}a^2$."
+  ],
+  "walkthrough": [
+   "**The formula for the variance**\n\n$$\\text{Var}(X) = \\text{E}(X^2) - \\left[\\text{E}(X)\\right]^2$$\n\nWe already know $\\text{E}(X) = \\tfrac{a}{2}$ from part (ii). We still need $\\text{E}(X^2)$, which for a continuous variable is $\\displaystyle\\int x^2\\,\\text{f}(x)\\,\\text{d}x$.",
+   "**Find $\\text{E}(X^2)$ (this earns the M1)**\n\n$$\\text{E}(X^2) = \\int_0^a x^2 \\times \\frac{1}{a}\\,\\text{d}x = \\frac{1}{a}\\int_0^a x^2\\,\\text{d}x$$\n\nThe integral of $x^2$ is $\\tfrac{x^3}{3}$:\n\n$$= \\frac{1}{a}\\left[\\frac{x^3}{3}\\right]_0^a = \\frac{1}{a} \\times \\frac{a^3}{3} = \\frac{a^2}{3}$$\n\nThen subtract the squared mean:\n\n$$\\text{Var}(X) = \\frac{a^2}{3} - \\left(\\frac{a}{2}\\right)^2$$",
+   "**Simplify to the printed result (this earns the A1)**\n\n$$\\left(\\frac{a}{2}\\right)^2 = \\frac{a^2}{4}$$\n\n$$\\text{Var}(X) = \\frac{a^2}{3} - \\frac{a^2}{4}$$\n\nCommon denominator 12: $\\tfrac{a^2}{3} = \\tfrac{4a^2}{12}$ and $\\tfrac{a^2}{4} = \\tfrac{3a^2}{12}$.\n\n$$\\text{Var}(X) = \\frac{4a^2}{12} - \\frac{3a^2}{12} = \\frac{a^2}{12}$$\n\nThe marker must see the line $\\tfrac{a^2}{3} - \\tfrac{a^2}{4}$ before the result.",
+   "**Final answer**\n\n$\\text{Var}(X) = \\dfrac{a^2}{3} - \\dfrac{a^2}{4} = \\dfrac{1}{12}a^2$, as required."
+  ]
+ },
+ "9709_s19_71_q4_b": {
+  "hints": [
+   "$\\text{P}(T \\leqslant b)$ is the area under $\\text{g}(t)$ from the lowest possible value, $2$, up to $b$. Write it as $\\displaystyle\\int_2^b \\dfrac{3}{2(t-1)^2}\\,\\text{d}t$.",
+   "Rewrite $\\dfrac{3}{2(t-1)^2}$ as $\\tfrac{3}{2}(t-1)^{-2}$ and integrate: raise the power by one and divide by the new power. The inner $(t-1)$ has derivative 1, so no extra factor is needed. The result contains $(t-1)^{-1}$.",
+   "Substitute the upper limit $b$ and the lower limit $2$ into your integral (upper minus lower) and put the result equal to $\\tfrac{3}{4}$.",
+   "Divide both sides to isolate $\\dfrac{1}{b-1}$, take reciprocals to get $b - 1$, then solve for $b$. Check that your $b$ lies between 2 and 4."
+  ],
+  "walkthrough": [
+   "**What the equation means**\n\n$\\text{P}(T \\leqslant b)$ is the area under the graph of $\\text{g}$ up to the value $b$. The pdf is zero below $t = 2$, so the area starts at 2:\n\n$$\\text{P}(T \\leqslant b) = \\int_2^b \\frac{3}{2(t-1)^2}\\,\\text{d}t$$\n\nThis is the M1 for attempting to integrate $\\text{g}(t)$.",
+   "**Integrate (this earns the A1)**\n\nRewrite with a negative power:\n\n$$\\frac{3}{2(t-1)^2} = \\frac{3}{2}(t-1)^{-2}$$\n\nAdd 1 to the power ($-2 + 1 = -1$) and divide by the new power ($-1$):\n\n$$\\int \\frac{3}{2}(t-1)^{-2}\\,\\text{d}t = \\frac{3}{2} \\times \\frac{(t-1)^{-1}}{-1} = -\\frac{3}{2(t-1)}$$\n\nCheck by differentiating: the derivative of $-\\tfrac{3}{2}(t-1)^{-1}$ is $\\tfrac{3}{2}(t-1)^{-2}$, which is what we started with.",
+   "**Substitute the limits (this earns the second M1)**\n\n$$\\left[-\\frac{3}{2(t-1)}\\right]_2^b = -\\frac{3}{2(b-1)} - \\left(-\\frac{3}{2(2-1)}\\right)$$\n\nAt $t = 2$: $2 - 1 = 1$, so that part is $-\\tfrac{3}{2}$, and subtracting it gives $+\\tfrac{3}{2}$:\n\n$$= \\frac{3}{2} - \\frac{3}{2(b-1)} = \\frac{3}{2}\\left(1 - \\frac{1}{b-1}\\right)$$\n\nNow set this equal to $\\tfrac{3}{4}$ (the given probability):\n\n$$\\frac{3}{2}\\left(1 - \\frac{1}{b-1}\\right) = \\frac{3}{4}$$",
+   "**Solve for $b$ (this earns the final A1)**\n\nDivide both sides by $\\tfrac{3}{2}$ (that is, multiply by $\\tfrac{2}{3}$):\n\n$$1 - \\frac{1}{b-1} = \\frac{3}{4} \\times \\frac{2}{3} = \\frac{1}{2}$$\n\nSubtract from 1:\n\n$$\\frac{1}{b-1} = 1 - \\frac{1}{2} = \\frac{1}{2}$$\n\nTake reciprocals:\n\n$$b - 1 = 2$$\n\n$$b = 3$$\n\nCheck: $3$ lies between 2 and 4, as it must. And $\\text{P}(T \\leqslant 3) = \\tfrac{3}{2}\\left(1 - \\tfrac{1}{2}\\right) = \\tfrac{3}{4}$, as required.",
+   "**Final answer**\n\n$b = 3$."
+  ]
+ }
+}

@@ -1,0 +1,42 @@
+{
+ "9709_s21_62_q4_a": {
+  "hints": [
+   "The three times are independent, so the mean of the total is the sum of the three means: add 15.0, 32.0 and 8.6.",
+   "For independent variables, **variances** add (not standard deviations): the distributions are written $\\text{N}(\\mu, \\sigma^2)$, so square-and-add $1.1$, $3.5$ and $1.2$."
+  ],
+  "walkthrough": [
+   "**Set up the total**\n\nLet $T$ be the total time of the journey: $T = T_1 + T_2 + T_3$, where $T_1 \\sim \\text{N}(15.0, 1.1^2)$, $T_2 \\sim \\text{N}(32.0, 3.5^2)$ and $T_3 \\sim \\text{N}(8.6, 1.2^2)$. Remember $\\text{N}(\\mu, \\sigma^2)$: the second number is the variance, so the standard deviations are 1.1, 3.5 and 1.2.",
+   "**The mean (B1)**\n\nThe mean of a sum is the sum of the means:\n\n$$\\text{E}(T) = 15.0 + 32.0 + 8.6 = 55.6$$",
+   "**The variance (B1)**\n\nBecause the three times are independent, the **variances** add. (Standard deviations never add.)\n\n$$\\text{Var}(T) = 1.1^2 + 3.5^2 + 1.2^2$$\n\n$$1.1^2 = 1.21 \\qquad 3.5^2 = 12.25 \\qquad 1.2^2 = 1.44$$\n\n$$1.21 + 12.25 + 1.44 = 14.9$$\n\nSince a sum of independent normal variables is also normal, $T \\sim \\text{N}(55.6, 14.9)$. We will use this in parts (b) and (c).",
+   "**Final answer**\n\nMean $= 55.6$ minutes; variance $= 14.9$."
+  ]
+ },
+ "9709_s21_62_q4_b": {
+  "hints": [
+   "The total $T$ is normally distributed with the mean and variance from (a). Standardise 60: $z = \\dfrac{60 - \\text{mean}}{\\sqrt{\\text{variance}}}$, using the square root of the variance, not the variance itself.",
+   "Wendy is late when $T > 60$, the upper tail, so the probability is $1 - \\Phi(z)$.",
+   "Find $\\Phi(z)$ from the normal table or the calculator's normal cdf, subtract from 1, and give the answer to 3 significant figures."
+  ],
+  "walkthrough": [
+   "**Which probability do we want?**\n\nFrom (a), $T \\sim \\text{N}(55.6, 14.9)$. Wendy is late when her journey takes **more than** 60 minutes, so we want $\\text{P}(T > 60)$. There is no continuity correction, because $T$ is already a continuous time.",
+   "**Standardise (M1)**\n\nTo use the normal table we change to the standard normal $Z$, with $z = \\dfrac{x - \\mu}{\\sigma}$. The standard deviation $\\sigma$ is the square root of the variance 14.9.\n\n$$z = \\frac{60 - 55.6}{\\sqrt{14.9}}$$\n\n$$60 - 55.6 = 4.4 \\qquad \\sqrt{14.9} = 3.8601\\ldots$$\n\n$$z = \\frac{4.4}{3.8601\\ldots} = 1.140$$",
+   "**Pick the correct tail (M1)**\n\nThe normal table gives the area to the **left** of $z$, that is $\\Phi(z)$. We want the area to the right (more than 60), so subtract from 1:\n\n$$\\text{P}(T > 60) = 1 - \\Phi(1.140)$$",
+   "**Calculate (A1)**\n\nLook up $\\Phi(1.140)$ in the table, or use the calculator's normal cdf: $\\Phi(1.140) = 0.8729$.\n\n$$1 - 0.8729 = 0.1271$$\n\nTo 3 significant figures, $0.127$. Sense check: 60 is a little over one standard deviation above the mean 55.6, and about 16% lies above one sd, so about 13% is sensible.",
+   "**Final answer**\n\n$\\text{P}(\\text{late}) = 0.127$ (3 s.f.)"
+  ]
+ },
+ "9709_s21_62_q4_c": {
+  "hints": [
+   "For the mean $\\bar{T}$ of 15 independent days, $\\bar{T} \\sim \\text{N}\\left(\\mu, \\dfrac{\\sigma^2}{n}\\right)$: same mean as before but the variance from (a) is divided by 15.",
+   "Standardise 54.5 using your new mean and the square root of your new variance: $z = \\dfrac{54.5 - \\text{mean}}{\\sqrt{\\text{variance}/15}}$.",
+   "You want 'less than', the lower tail. Your $z$ is negative, so $\\text{P}(Z < z) = 1 - \\Phi(\\text{positive value})$. Find it on the calculator and give 3 significant figures."
+  ],
+  "walkthrough": [
+   "**Distribution of the mean of 15 days**\n\nAveraging over 15 days smooths out the ups and downs, so the average varies **less** than a single day. If a single journey time is $\\text{N}(\\mu, \\sigma^2)$ then the mean of $n$ of them is $\\text{N}\\left(\\mu, \\dfrac{\\sigma^2}{n}\\right)$. Here:\n\n$$\\bar{T} \\sim \\text{N}\\left(55.6, \\frac{14.9}{15}\\right)$$\n\n$$\\frac{14.9}{15} = 0.99333\\ldots \\qquad \\sqrt{0.99333\\ldots} = 0.99666\\ldots$$\n\nBecause the journey times are themselves normal, $\\bar{T}$ is exactly normal.",
+   "**Standardise (M1)**\n\nWe want $\\text{P}(\\bar{T} < 54.5)$.\n\n$$z = \\frac{54.5 - 55.6}{\\sqrt{\\frac{14.9}{15}}} = \\frac{-1.1}{0.99666\\ldots} = -1.104$$\n\nNo mixing of methods: the scheme's alternative is the total of 15 days, $\\frac{817.5 - 834}{\\sqrt{223.5}}$, which gives the same $z$. You must stay with one method (do not use 54.5 with a total's variance, or the mean with a single day's variance).",
+   "**Use symmetry for the negative $z$ (M1)**\n\nTables only list positive $z$. By symmetry of the normal curve, the area to the left of $-1.104$ equals the area to the right of $+1.104$:\n\n$$\\text{P}(\\bar{T} < 54.5) = \\Phi(-1.104) = 1 - \\Phi(1.104)$$",
+   "**Calculate (A1)**\n\n$\\Phi(1.104) = 0.8652$ (from the calculator's normal cdf).\n\n$$1 - 0.8652 = 0.1348$$\n\nTo 3 significant figures this is $0.135$.",
+   "**Final answer**\n\n$\\text{P}(\\bar{T} < 54.5) = 0.135$ (3 s.f.)"
+  ]
+ }
+}

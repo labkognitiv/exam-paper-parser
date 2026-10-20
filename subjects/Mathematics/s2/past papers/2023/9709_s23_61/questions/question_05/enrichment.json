@@ -1,0 +1,32 @@
+{
+  "9709_s23_61_q5_a": {
+    "hints": [
+      "A full carton is an empty carton plus $20$ packets, all independent, so their variances add. Work with variances $\\sigma^2$, not standard deviations.",
+      "The $20$ packets are $20$ separate packets, not one packet counted $20$ times, so add $20$ copies of the packet variance (do not multiply by $20^2$). Square the standard deviations $2.0$ and $3.4$ first."
+    ],
+    "walkthrough": [
+      "**What a full carton is**\n\nLet $C$ be the mass of a full carton. It is made of one empty carton plus $20$ packets:\n\n$$C = (\\text{empty carton}) + P_1 + P_2 + \\cdots + P_{20}$$\n\nAll these masses are independent, so **their variances add**. (Standard deviations do not add, so we always work with variances.)",
+      "**Add the variances (this earns the M1)**\n\nEmpty carton: standard deviation $2.0$, so variance $2.0^2 = 4$.\n\nEach packet: standard deviation $3.4$, so variance $3.4^2 = 11.56$. There are $20$ different packets, so we add $20$ of these.\n\n$$\\text{Var}(C) = 2.0^2 + 20 \\times 3.4^2$$\n\nA slip to avoid: $20 \\times (\\text{one packet})$ would give variance $20^2 \\times 11.56$, but these are $20$ *different* packets, so it is $20 \\times 11.56$.",
+      "**Calculate (this earns the A1)**\n\n$$20 \\times 11.56 = 231.2$$\n\n$$\\text{Var}(C) = 4 + 231.2 = 235.2$$",
+      "**Final answer**\n\n$$\\text{Var}(C) = 235.2$$"
+    ]
+  },
+  "9709_s23_61_q5_b": {
+    "hints": [
+      "Let $C$ be a full carton and $B$ a full box. 'The carton is more than three times the box' means $\\text{P}(C > 3B)$, which is $\\text{P}(C - 3B > 0)$. Find $\\text{E}(C - 3B)$: the mean of $C$ is $50 + 20 \\times 1010$, and you take away $3 \\times 6730$.",
+      "For the variance, independent variances add even when you subtract, and the multiplier is squared: $\\text{Var}(C) + 3^2\\,\\text{Var}(B)$. Use your answer to part **(a)** for $\\text{Var}(C)$ and square $15.0$ for $B$.",
+      "$C - 3B$ is normal, so standardise the boundary $0$: $z = \\dfrac{0 - \\text{mean}}{\\sqrt{\\text{variance}}}$, with your mean and variance.",
+      "You want $C - 3B > 0$, the upper tail. Write the probability as $\\text{P}(Z > z)$, with your $z$, then as $1 - \\Phi(z)$.",
+      "Evaluate this on your calculator using the unrounded $z$, and give 3 significant figures. If your $z$ is negative, expect an answer bigger than $0.5$."
+    ],
+    "walkthrough": [
+      "**Turn the question into a single variable**\n\nLet $C$ be the mass of a full carton and $B$ the mass of a full box. The carton is more than three times the box when $C > 3B$, which is the same as $C - 3B > 0$. So we want\n\n$$\\text{P}(C - 3B > 0)$$\n\nDefine $D = C - 3B$. A combination of independent normal variables is also normal, so $D$ is normal. We need its mean and variance.",
+      "**The mean of D (this earns the B1)**\n\nA full carton has mean $50 + 20 \\times 1010$ (an empty carton plus $20$ packets). A full box has mean $6730$.\n\n$$\\text{E}(C) = 50 + 20 \\times 1010 = 50 + 20\\,200 = 20\\,250$$\n\n$$\\text{E}(D) = \\text{E}(C) - 3\\,\\text{E}(B) = 20\\,250 - 3 \\times 6730 = 20\\,250 - 20\\,190 = 60$$",
+      "**The variance of D (this earns the first M1)**\n\nFor independent variables, $\\text{Var}(C - 3B) = \\text{Var}(C) + 3^2\\,\\text{Var}(B)$.\n\nTwo things to remember. First, the variances **add** even though we subtract: a spread never reduces. Second, the $3$ is squared, because $\\text{Var}(aX) = a^2\\,\\text{Var}(X)$.\n\nFrom part **(a)**, $\\text{Var}(C) = 235.2$. For the box, the standard deviation is $15.0$, so the variance is $15.0^2 = 225$.\n\n$$\\text{Var}(D) = 235.2 + 9 \\times 225 = 235.2 + 2025 = 2260.2$$\n\n$$D \\sim \\text{N}(60,\\ 2260.2)$$",
+      "**Standardise (this earns the second M1)**\n\nWe want the probability that $D$ is greater than $0$. Standardise: subtract the mean, divide by the standard deviation $\\sqrt{2260.2}$.\n\n$$\\sqrt{2260.2} = 47.5416$$\n\n$$z = \\frac{0 - 60}{\\sqrt{2260.2}} = \\frac{-60}{47.5416} = -1.262$$",
+      "**Choose the correct area (this earns the third M1)**\n\nWe want $D > 0$, the area to the **right** of $z = -1.262$. Tables give areas to the left, so\n\n$$\\text{P}(D > 0) = 1 - \\Phi(-1.262)$$\n\nBy the symmetry of the normal curve, $1 - \\Phi(-1.262) = \\Phi(1.262)$.\n\nQuick check: the mean of $D$ is positive ($60$), so the value $0$ lies below the mean, and the probability of being above $0$ should be more than $0.5$.",
+      "**Evaluate (this earns the A1)**\n\n$\\Phi(1.262)$: use the normal table or your calculator's normal cdf. With $z = 1.262$ the value is $0.8965$ (the unrounded $z$ gives $0.89654$).\n\n$$\\text{P}(C > 3B) = 0.8965\\ldots = 0.897 \\text{ (3 s.f.)}$$",
+      "**Final answer**\n\n$$\\text{P}(C > 3B) = 0.897$$"
+    ]
+  }
+}

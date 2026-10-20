@@ -1,0 +1,34 @@
+{
+ "9709_w19_72_q5_i": {
+  "hints": [
+   "Let $T$ be the total of 10 large boxes. For a sum of independent normal variables, add the means and add the variances: so the mean is $10 \\times 325$ and the variance is $10 \\times 6.1$ (not $10^2 \\times 6.1$). The second number in $\\text{N}(325, 6.1)$ is already the variance.",
+   "Standardise: $z = \\dfrac{3240 - \\text{mean of } T}{\\sqrt{\\text{variance of } T}}$. Note the square root: you divide by the standard deviation, not by the variance.",
+   "You want $\\text{P}(T < 3240)$, which is $\\Phi(z)$. If your $z$ is negative, use symmetry: $\\Phi(-z) = 1 - \\Phi(z)$.",
+   "Evaluate $\\Phi$ of your positive $z$ using the normal table or your calculator, subtract it from 1, and give the answer to 3 significant figures."
+  ],
+  "walkthrough": [
+   "**Notation**\n\n$\\text{N}(325, 6.1)$ means a normal distribution with mean $325$ and **variance** $6.1$ (the second number is always the variance in this syllabus). Let $T$ be the total mass of the 10 large boxes.",
+   "**Mean and variance of the total**\n\n$T = L_1 + L_2 + \\cdots + L_{10}$ where each $L_i \\sim \\text{N}(325, 6.1)$ and the boxes are independent. For a sum of independent normal variables, both the means and the variances **add**:\n\n$$\\text{E}(T) = 10 \\times 325 = 3250$$\n\n$$\\text{Var}(T) = 10 \\times 6.1 = 61$$\n\nSo $T \\sim \\text{N}(3250, 61)$. Be careful: it is 10 separate boxes, so the variance is multiplied by $10$, **not** by $10^2$ (that would be for ten times the mass of a single box). This earns the B1.",
+   "**Standardise**\n\nTo use the normal tables, convert to the standard normal $Z$ using $z = \\dfrac{x - \\mu}{\\sigma}$, where $\\sigma$ is the standard deviation, the square root of the variance:\n\n$$z = \\frac{3240 - 3250}{\\sqrt{61}} = \\frac{-10}{7.8102} = -1.2804$$\n\n(Type 61, press the square root key, to get $7.8102$.) Rounded: $z = -1.280$. This earns the first M1.",
+   "**Find the probability**\n\nWe need $\\text{P}(T < 3240) = \\text{P}(Z < -1.280) = \\Phi(-1.280)$.\n\nTables only give positive values, so use symmetry of the bell curve: the area below $-1.280$ equals the area above $+1.280$:\n\n$$\\Phi(-1.280) = 1 - \\Phi(1.280)$$\n\nFrom tables, $\\Phi(1.280) = 0.8997$, so $1 - 0.8997 = 0.1003$. (Calculator normal cdf with lower bound $-1000$ and upper bound $3240$, mean $3250$, standard deviation $\\sqrt{61}$, gives $0.1002$.) This earns the second M1 and the A1.",
+   "**Final answer**\n\n$$\\text{P}(\\text{total mass} < 3240\\text{ g}) = 0.100 \\quad(3\\text{ sf})$$"
+  ]
+ },
+ "9709_w19_72_q5_ii": {
+  "hints": [
+   "Let $L$ be the mass of a large box and $S$ the mass of a small box. “$L$ is more than twice $S$” means $L > 2S$, so define $D = L - 2S$ and ask for $\\text{P}(D > 0)$. Find $\\text{E}(D)$ from $325 - 2 \\times 167$.",
+   "For the variance, variances **add** even though you subtract the variables, and the coefficient is squared: $\\text{Var}(D) = \\text{Var}(L) + 2^2\\,\\text{Var}(S)$ with $6.1$ and $5.6$.",
+   "$D$ is normal. Standardise with $z = \\dfrac{0 - \\text{E}(D)}{\\sqrt{\\text{Var}(D)}}$, using the mean and variance you just found (square root in the denominator).",
+   "You want the **upper** tail, $\\text{P}(D > 0) = \\text{P}(Z > z)$. Write this as $1 - \\Phi(z)$.",
+   "Evaluate $\\Phi(z)$ with a table or calculator, subtract from 1 and round to 3 significant figures."
+  ],
+  "walkthrough": [
+   "**Turn the sentence into an inequality**\n\nLet $L$ be the mass of a large box, $L \\sim \\text{N}(325, 6.1)$, and $S$ the mass of a small box, $S \\sim \\text{N}(167, 5.6)$. They are independent.\n\n“The large box is more than twice the small box” means $L > 2S$. Move everything to one side: $L - 2S > 0$. So define\n\n$$D = L - 2S \\qquad\\text{and find}\\qquad \\text{P}(D > 0)$$",
+   "**Mean of $D$**\n\nMeans combine just like the expression itself:\n\n$$\\text{E}(D) = \\text{E}(L) - 2\\,\\text{E}(S) = 325 - 2 \\times 167 = 325 - 334 = -9$$\n\nThis earns the first B1.",
+   "**Variance of $D$**\n\nTwo rules for independent variables: a coefficient is **squared** when it comes out of a variance, and variances **always add**, even when the variables are subtracted (spread can only grow when you combine two uncertain quantities).\n\n$$\\text{Var}(D) = \\text{Var}(L) + 2^2\\,\\text{Var}(S) = 6.1 + 4 \\times 5.6 = 6.1 + 22.4 = 28.5$$\n\nA very common slip is to write $6.1 - 22.4$, or to use $2$ instead of $2^2$. This earns the second B1.\n\nSo $D \\sim \\text{N}(-9, 28.5)$.",
+   "**Standardise**\n\n$$z = \\frac{0 - (-9)}{\\sqrt{28.5}} = \\frac{9}{5.3385} = 1.6859$$\n\n($\\sqrt{28.5} = 5.3385$ on a calculator.) So $z = 1.686$ to 3 d.p. This earns the first M1.",
+   "**Find the probability**\n\nWe want $\\text{P}(D > 0) = \\text{P}(Z > 1.686)$, the area **above** $1.686$. Tables give the area below, so subtract from 1:\n\n$$\\text{P}(Z > 1.686) = 1 - \\Phi(1.686) = 1 - 0.9541 = 0.0459$$\n\nThis earns the second M1 and the A1.",
+   "**Final answer**\n\n$$\\text{P}(L > 2S) = 0.0459\\quad(3\\text{ sf})$$"
+  ]
+ }
+}

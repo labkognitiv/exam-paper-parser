@@ -1,0 +1,32 @@
+{
+  "9709_w16_73_q6_i": {
+    "hints": [
+      "The best estimate of the population mean is the sample mean: use $\\sum x$ and $n$ from the question.",
+      "You need an unbiased estimate of the population variance, using $n - 1$: $s^2 = \\dfrac{1}{99}\\left(1356 - \\dfrac{340^2}{100}\\right)$ (or $\\dfrac{100}{99}$ times the biased variance).",
+      "Work out that bracket and the division on your calculator. Keep the value as a fraction or with many decimal places, so you do not round too early.",
+      "For a 95% confidence interval, 2.5% is left in each tail. Find $z$ such that $\\Phi(z) = 0.975$.",
+      "The interval is $\\bar{x} \\pm z\\sqrt{\\dfrac{s^2}{n}}$. Substitute your mean, your $s^2$, your $z$ and $n = 100$.",
+      "Work out the lower and upper ends separately, and give each to 3 significant figures."
+    ],
+    "walkthrough": [
+      "**Why a confidence interval like this**\n\nWe have a sample of $n = 100$ values and want a range that probably contains the true (population) mean $\\mu$. Because $n$ is large, the sample mean is approximately normal (central limit theorem), and since we do not know the population variance, we estimate it from the sample.",
+      "**Estimate the mean (B1)**\n\nThe sample mean $\\bar{x}$ (\"x bar\") is the total divided by the number of values:\n\n$$\\bar{x} = \\frac{\\sum x}{n} = \\frac{340}{100} = 3.4$$\n\nThis is our estimate of the population mean $\\mu$.",
+      "**Estimate the variance (M1, A1)**\n\nTo estimate the population variance $\\sigma^2$ we use the **unbiased** estimate $s^2$, which divides by $n - 1 = 99$ and not by $100$:\n\n$$s^2 = \\frac{1}{99}\\left(\\sum x^2 - \\frac{(\\sum x)^2}{n}\\right) = \\frac{1}{99}\\left(1356 - \\frac{340^2}{100}\\right)$$\n\n$340^2 = 115600$, and $115600 \\div 100 = 1156$:\n\n$$s^2 = \\frac{1}{99}(1356 - 1156) = \\frac{200}{99} = 2.020202\\ldots$$\n\nCheck with the other form: $\\dfrac{100}{99}\\left(\\dfrac{1356}{100} - 3.4^2\\right) = \\dfrac{100}{99}(13.56 - 11.56) = \\dfrac{100}{99} \\times 2 = 2.0202$. Same.",
+      "**Choose $z$ (B1)**\n\nA 95% interval leaves $5\\%$ in the tails, so $2.5\\%$ in each. So we need $z$ with $\\Phi(z) = 0.975$. From the table (or inverse normal on your calculator):\n\n$$z = 1.96$$",
+      "**Build the interval (M1)**\n\nThe standard deviation of the sample mean is $\\sqrt{s^2/n}$:\n\n$$\\sqrt{\\frac{2.020202}{100}} = \\sqrt{0.02020202} = 0.14213$$\n\nThe margin of error is $z \\times 0.14213 = 1.96 \\times 0.14213 = 0.27858$. So the interval is\n\n$$3.4 \\pm 1.96\\sqrt{\\frac{2.020202}{100}} = 3.4 \\pm 0.27858$$",
+      "**Write the two ends (A1)**\n\nLower end: $3.4 - 0.27858 = 3.12142 \\to 3.12$.\n\nUpper end: $3.4 + 0.27858 = 3.67858 \\to 3.68$.\n\nThe scheme also accepts the biased variance (dividing by $100$), which gives $3.12$ to $3.68$ as well.",
+      "**Final answer**\n\n$$3.12 \\text{ to } 3.68 \\text{ (3 s.f.)}$$"
+    ]
+  },
+  "9709_w16_73_q6_ii": {
+    "hints": [
+      "If each of the values 1, 2, 3, 4, 5 is equally likely, what is the true population mean? Work it out.",
+      "Is that fair-machine mean inside the confidence interval from part (i)? What does the answer suggest about the machine?"
+    ],
+    "walkthrough": [
+      "**What a working machine would give (B1)**\n\nIf the machine is working properly, all five values are equally likely, so the population mean should be the average of $1, 2, 3, 4, 5$:\n\n$$\\frac{1 + 2 + 3 + 4 + 5}{5} = \\frac{15}{5} = 3$$",
+      "**Compare with the interval (second mark)**\n\nThe 95% confidence interval from (i) is $3.12$ to $3.68$. The value $3$ is **below** $3.12$, so it is **not** in the interval.\n\nThat means $3$ is not a believable value for the true mean, at the 95% level.",
+      "**Final answer**\n\nA fair machine should have mean $3$, but $3$ is not in the confidence interval $3.12$ to $3.68$, so the machine is probably not working properly (there is evidence that it is not)."
+    ]
+  }
+}

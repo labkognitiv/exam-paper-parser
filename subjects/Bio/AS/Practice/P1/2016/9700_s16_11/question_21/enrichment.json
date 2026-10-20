@@ -1,0 +1,19 @@
+{
+  "9700_s16_11_q21": {
+    "hints": [
+      "Count the DNA bases. You have 12 bases, so that will make 4 triplets and 4 amino acids. Split CGCCGCACGCGC into four groups of three first.",
+      "Remember you cannot read DNA codons directly from the table. You must first make complementary mRNA, pairing C with G, G with C, A with U, and T with A."
+    ],
+    "walkthrough": [
+      "**Spot that this is the template strand**\n\nThis DNA sequence is transcribed, so it is the template used to make mRNA. That means we must convert it to mRNA first, not read it directly from the table.\n\nSplit it into triplets:\n$$CGC \\; CGC \\; ACG \\; CGC$$",
+      "**Transcribe DNA to mRNA**\n\nUse complementary base pairing. In RNA, there is no T, so A pairs with U.\n\nC pairs with G, G pairs with C, A pairs with U.\n$$CGC \\rightarrow GCG$$\n$$CGC \\rightarrow GCG$$\n$$ACG \\rightarrow UGC$$\n$$CGC \\rightarrow GCG$$\n\nSo mRNA is: GCG-GCG-UGC-GCG",
+      "**Translate mRNA to amino acids**\n\nNow use the table to read each mRNA codon:\n\nGCG = Ala, GCG = Ala, UGC = Cys, GCG = Ala.\n\nThat gives Ala-Ala-Cys-Ala, which is option A."
+    ],
+    "options": {
+      "A": "Correct. GCG codes for Ala, and UGC codes for Cys, so GCG-GCG-UGC-GCG gives Ala-Ala-Cys-Ala.",
+      "B": "Incorrect. This mixes up transcription and translation and does not match the correct complementary mRNA codons.",
+      "C": "Incorrect. This reads the DNA triplets partly as if they were mRNA, for example reading CGC as Arg instead of converting it to GCG for Ala.",
+      "D": "Incorrect. This is the common trap of reading the DNA sequence directly as mRNA codons (CGC, CGC, ACG, CGC gives Arg-Arg-Thr-Arg) without doing transcription."
+    }
+  }
+}

@@ -1,0 +1,64 @@
+{
+ "9709_w20_61_q5_a": {
+  "hints": [
+   "For a Poisson distribution the mean and the variance are the same number. The standard deviation is the square root of the variance."
+  ],
+  "walkthrough": [
+   "**Use the Poisson property**\n\nFor $X \\sim \\text{Po}(\\lambda)$, the mean $=$ the variance $= \\lambda$. Here $\\lambda = 2.1$, so $\\text{Var}(X) = 2.1$.\n\nThe standard deviation is the square root of the variance:\n\n$$\\sqrt{2.1} = 1.4491\\ldots$$\n\nQuick check: $1.45^2 = 2.1025$, close to 2.1, so the square root is sensible.",
+   "**Final answer**\n\n$$\\text{standard deviation} = \\sqrt{2.1} = 1.45 \\text{ (3 s.f.)}$$"
+  ]
+ },
+ "9709_w20_61_q5_b": {
+  "hints": [
+   "The rate is $2.1$ per week and the period is 2 weeks: scale the mean, as the Poisson mean is proportional to the length of time.",
+   "'At least 2' means $X \\geqslant 2$. Use the complement, $1 - \\text{P}(X \\leqslant 1)$, and write $\\text{P}(X = 0)$ and $\\text{P}(X = 1)$ using $\\text{e}^{-\\lambda}\\dfrac{\\lambda^r}{r!}$ with your new $\\lambda$.",
+   "Calculate $\\text{e}^{-\\lambda}(1 + \\lambda)$ for your $\\lambda$, subtract from 1, and round to 3 significant figures."
+  ],
+  "walkthrough": [
+   "**The mean for 2 weeks**\n\nAbsences per week follow $\\text{Po}(2.1)$. Over 2 weeks we expect twice as many (assuming weeks are independent), so the mean doubles:\n\n$$\\lambda = 2 \\times 2.1 = 4.2$$\n\nLet $Y$ be the number of absences in 2 weeks, so $Y \\sim \\text{Po}(4.2)$. This is the **B1**.",
+   "**Turn 'at least 2' into an easy calculation**\n\n'At least 2' means $Y = 2, 3, 4, \\ldots$ with no end. Use the opposite event instead:\n\n$$\\text{P}(Y \\geqslant 2) = 1 - \\text{P}(Y \\leqslant 1) = 1 - \\left[\\text{P}(Y = 0) + \\text{P}(Y = 1)\\right]$$\n\nWith $\\text{P}(Y = r) = \\text{e}^{-4.2}\\dfrac{4.2^r}{r!}$ and taking out the common factor:\n\n$$1 - \\text{e}^{-4.2}\\left(1 + 4.2\\right)$$\n\nThis is the **M1**.",
+   "**Calculate**\n\n$\\text{e}^{-4.2} = 0.014996$ on the calculator.\n\n$$\\text{P}(Y = 0) = 0.014996$$\n\n$$\\text{P}(Y = 1) = 0.014996 \\times 4.2 = 0.062981$$\n\n$$\\text{P}(Y \\leqslant 1) = 0.014996 + 0.062981 = 0.077977$$\n\n$$\\text{P}(Y \\geqslant 2) = 1 - 0.077977 = 0.922023$$",
+   "**Final answer**\n\n$$\\text{P}(\\text{at least 2 absences in 2 weeks}) = 0.922 \\text{ (3 s.f.)}$$\n\nThis is the **A1**."
+  ]
+ },
+ "9709_w20_61_q5_c": {
+  "hints": [
+   "For 3 weeks the mean is 3 times the weekly rate of $2.1$. 'More than 4 and less than 8' means exactly the whole numbers $5$, $6$ and $7$: write $\\text{P}(X = 5) + \\text{P}(X = 6) + \\text{P}(X = 7)$ using $\\text{e}^{-\\lambda}\\dfrac{\\lambda^r}{r!}$.",
+   "Work out each of the three probabilities with your calculator, using your own $\\lambda$, add them, and round to 3 significant figures."
+  ],
+  "walkthrough": [
+   "**The mean for 3 weeks**\n\nThree weeks means three times the weekly mean:\n\n$$\\lambda = 3 \\times 2.1 = 6.3$$\n\nLet $W$ be the number of absences in 3 weeks, so $W \\sim \\text{Po}(6.3)$.",
+   "**Which values are wanted**\n\n'More than 4' means 5 or more (4 is **not** included). 'Less than 8' means 7 or fewer (8 is **not** included). So the values are $5, 6, 7$.\n\n$$\\text{P}(4 < W < 8) = \\text{P}(W = 5) + \\text{P}(W = 6) + \\text{P}(W = 7)$$\n\n$$= \\text{e}^{-6.3}\\left(\\frac{6.3^5}{5!} + \\frac{6.3^6}{6!} + \\frac{6.3^7}{7!}\\right)$$\n\nWriting this earns the **M1**.",
+   "**Calculate each term**\n\n$\\text{e}^{-6.3} = 0.0018363$. Then\n\n$$\\text{P}(W = 5) = 0.0018363 \\times \\frac{9924.365}{120} = 0.0018363 \\times 82.7030 = 0.151868$$\n\n$$\\text{P}(W = 6) = 0.0018363 \\times \\frac{62523.50}{720} = 0.0018363 \\times 86.8382 = 0.159461$$\n\n$$\\text{P}(W = 7) = 0.0018363 \\times \\frac{393898.06}{5040} = 0.0018363 \\times 78.1544 = 0.143515$$\n\n$$\\text{Sum} = 0.151868 + 0.159461 + 0.143515 = 0.454844 \\ldots$$\n\n(Without rounding the middle steps the sum is $0.454845$.)",
+   "**Final answer**\n\n$$\\text{P}(4 < W < 8) = 0.455 \\text{ (3 s.f.)}$$\n\nThis is the **A1**."
+  ]
+ },
+ "9709_w20_61_q5_d": {
+  "hints": [
+   "The management suspect the mean has **decreased**, so the alternative hypothesis is one-sided (less than). State the null and alternative in terms of the Poisson mean $\\lambda$ for a 3-week period, using the mean you found in part (c).",
+   "Under $\\text{H}_0$ the number of absences in 3 weeks is Poisson with your $\\lambda$. For a decrease, you want the probability of a result as low as, or lower than, the one observed: $\\text{P}(X \\leqslant 2)$, using $\\text{e}^{-\\lambda}\\dfrac{\\lambda^r}{r!}$ for $r = 0, 1, 2$.",
+   "Calculate $\\text{e}^{-\\lambda}\\left(1 + \\lambda + \\dfrac{\\lambda^2}{2!}\\right)$ with your own $\\lambda$ and give it to 3 significant figures.",
+   "Compare your probability with the significance level, $10\\% = 0.1$, which is all in one tail (a one-tailed test).",
+   "Say whether you reject $\\text{H}_0$, then write the conclusion in context, starting 'There is evidence that…' or 'There is not enough evidence that…' (never a definite statement)."
+  ],
+  "walkthrough": [
+   "**Hypotheses**\n\nA hypothesis test starts from a belief, called the null hypothesis $\\text{H}_0$ (nothing has changed). The alternative $\\text{H}_1$ says what we suspect: here, that absences have **decreased**.\n\nUse $\\lambda$ for the mean number of absences in a **3-week** period (this is the period in the test). Before the change this was $3 \\times 2.1 = 6.3$.\n\n$$\\text{H}_0: \\lambda = 6.3$$\n\n$$\\text{H}_1: \\lambda < 6.3$$\n\n$\\text{H}_1$ has only a '$<$' sign because only a decrease matters: this is a **one-tailed** test. This is the **B1**.",
+   "**Distribution under $\\text{H}_0$**\n\nIf $\\text{H}_0$ is true, the number of absences $X$ in 3 weeks is $\\text{Po}(6.3)$. We observed exactly $2$ absences.",
+   "**The probability of this result or lower**\n\nWe ask: if the mean really is 6.3, how likely is a result as low as 2 or lower? Because $\\text{H}_1$ is about a decrease, we need the lower tail:\n\n$$\\text{P}(X \\leqslant 2) = \\text{P}(X = 0) + \\text{P}(X = 1) + \\text{P}(X = 2)$$\n\n$$= \\text{e}^{-6.3}\\left(1 + 6.3 + \\frac{6.3^2}{2!}\\right)$$\n\nThis is the **M1**.",
+   "**Calculate**\n\n$6.3^2 = 39.69$, and $\\dfrac{39.69}{2} = 19.845$.\n\n$$1 + 6.3 + 19.845 = 27.145$$\n\n$$\\text{P}(X \\leqslant 2) = 0.0018363 \\times 27.145 = 0.049846 \\approx 0.0498$$\n\n(The scheme also accepts $0.0499$.) This earns the **A1**.",
+   "**Compare with the significance level**\n\nThe significance level is 10%, that is $0.1$. Because the test is one-tailed, we compare directly with 0.1 (not 0.05).\n\n$$0.0498 < 0.1$$\n\nThe probability of getting a result this low is smaller than the level, so the result is unusually low if $\\text{H}_0$ were true. **Reject $\\text{H}_0$**. This is the **M1** (a valid comparison).",
+   "**Final answer**\n\nThere is evidence, at the 10% level, that the mean number of absences has decreased.\n\nWrite it in context and not as a certainty: 'Absences have decreased' is too definite, because the test can be wrong. This is the **A1**."
+  ]
+ },
+ "9709_w20_61_q5_e": {
+  "hints": [
+   "Recall what the errors mean: a Type I error is rejecting $\\text{H}_0$ when it is actually true; a Type II error is accepting $\\text{H}_0$ when it is actually false. Which decision did your test in part (d) make?",
+   "State what you decided about $\\text{H}_0$, and then pick the error that can only happen after that decision, giving the reason in the same sentence."
+  ],
+  "walkthrough": [
+   "**The two types of error**\n\n- **Type I error**: rejecting $\\text{H}_0$ when $\\text{H}_0$ is actually true.\n\n- **Type II error**: accepting (not rejecting) $\\text{H}_0$ when $\\text{H}_0$ is actually false.\n\nAn error can only happen when the decision is wrong, and the type depends on what decision we made.",
+   "**Use our decision from part (d)**\n\nIn part (d) we **rejected** $\\text{H}_0$ (because $0.0498 < 0.1$). The error that goes with rejecting $\\text{H}_0$ is the Type I error: it may be that $\\text{H}_0$ was really true and the low count of 2 absences was just chance. A Type II error needs $\\text{H}_0$ to have been **accepted**, which did not happen.\n\n(If your conclusion in (d) had been to accept $\\text{H}_0$, then the answer would be Type II. The marks follow your own conclusion.)",
+   "**Final answer**\n\nA **Type I** error might have been made, because $\\text{H}_0$ was rejected in part (d)."
+  ]
+ }
+}

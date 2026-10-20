@@ -1,0 +1,33 @@
+{
+ "9709_s19_71_q2_i": {
+  "hints": [
+   "Last year's standard deviation of 4.8 is only usable for this year if it has not changed. State that as your assumption (or say the 150 journeys are a random sample).",
+   "Let $\\mu$ be the true mean journey time this year. $\\text{H}_0$ says nothing has changed: $\\mu = 26.5$. The question asks whether it has *increased*, so $\\text{H}_1$ is one-sided in that direction.",
+   "The sample mean of 150 journeys has standard deviation $\\dfrac{4.8}{\\sqrt{150}}$. Standardise: $z = \\dfrac{27.5 - 26.5}{4.8/\\sqrt{150}}$. Note the $\\sqrt{150}$.",
+   "Evaluate the fraction with your calculator, in the order $1 \\div (4.8 \\div \\sqrt{150})$, and keep 4 significant figures.",
+   "For a one-tailed test at 1%, the critical value is the $z$ with $\\Phi(z) = 0.99$, which is $2.326$. Compare your calculated $z$ with $2.326$ (or find $1 - \\Phi(\\text{your } z)$ and compare with 0.01).",
+   "Decide whether your $z$ lies in the rejection region. Then write the conclusion about the mean journey time in the context of the question, in non-definite wording ('there is evidence that…' or 'there is not enough evidence that…')."
+  ],
+  "walkthrough": [
+   "**What we are testing**\n\nLast year John's journey time was normal with mean 26.5 and standard deviation 4.8 minutes. This year he takes a new route. For his first 150 journeys the sample mean is 27.5 minutes. The question: is that higher than 26.5 by more than ordinary chance would explain? We use a hypothesis test at the 1% significance level.",
+   "**The assumption (this earns the first B1)**\n\nWe want to use the standard deviation 4.8 from last year. That is only sensible if the spread of his journey times has not changed with the new route. So we **assume the standard deviation is still 4.8**.\n\n(The scheme also accepts: assume the 150 journeys can be treated as a random sample, i.e. they are independent of each other.)",
+   "**Hypotheses (this earns the second B1)**\n\n$\\mu$ means the true mean journey time (in minutes) for John's new route.\n\n$$\\text{H}_0: \\mu = 26.5$$\n\n$$\\text{H}_1: \\mu > 26.5$$\n\n$\\text{H}_0$ says nothing has changed. $\\text{H}_1$ uses '$>$' because we are asked whether the time has *increased*. This is a **one-tailed** test. Write $\\mu$ (or 'population mean'), not just 'mean'.",
+   "**Distribution of the sample mean**\n\nThe journey times are normally distributed, so the mean $\\bar{X}$ of a sample of $n$ journeys is also normal. Its mean is the population mean, and its standard deviation is $\\dfrac{\\sigma}{\\sqrt{n}}$, which is smaller than $\\sigma$ because averaging 150 journeys smooths out the ups and downs.\n\nIf $\\text{H}_0$ is true:\n\n$$\\bar{X} \\sim \\text{N}\\left(26.5, \\frac{4.8^2}{150}\\right)$$",
+   "**Standardise (this earns the M1)**\n\nTo turn a value from a normal distribution into a $z$-value, subtract the mean and divide by the standard deviation:\n\n$$z = \\frac{27.5 - 26.5}{\\dfrac{4.8}{\\sqrt{150}}}$$\n\nThe $\\sqrt{150}$ is there because we are working with a mean of 150 journeys.",
+   "**Calculate $z$ (this earns the A1)**\n\nStep by step:\n\n$\\sqrt{150} = 12.2474\\ldots$\n\n$\\dfrac{4.8}{12.2474} = 0.39192\\ldots$\n\n$$z = \\frac{27.5 - 26.5}{0.39192} = \\frac{1}{0.39192} = 2.5515\\ldots$$\n\nOn the calculator: $1 \\div (4.8 \\div \\sqrt{150})$ shows $2.5515\\ldots$, so $z = 2.552$ (4 s.f.).",
+   "**Compare with the critical value (this earns the second M1)**\n\nThe test is at the 1% level and one-tailed, so all 1% sits in the upper tail. The critical value is the $z$ with $\\Phi(z) = 0.99$. From the normal tables (or the inverse normal on your calculator):\n\n$$z_{\\text{crit}} = 2.326$$\n\nOur calculated value is $2.552$, and $2.552 > 2.326$, so it lies in the rejection region.\n\nAlternative way (also earns the M1): find the probability of a result at least this high. $1 - \\Phi(2.552) = 1 - 0.9946 = 0.0054$, and $0.0054 < 0.01$, which gives the same decision.",
+   "**Conclusion (this earns the A1ft)**\n\nBecause $2.552 > 2.326$ we reject $\\text{H}_0$. In context: there is evidence, at the 1% significance level, that the mean time for John's journey to work has increased.\n\nWe say 'there is evidence' rather than 'it has definitely increased', because a test can never prove it.\n\nSlip to avoid: using a two-tailed critical value $2.576$. The question says 'increased', so the test is one-tailed.",
+   "**Final answer**\n\nAssumption: the standard deviation is still 4.8 (or the 150 journeys are a random sample). $z = 2.552 > 2.326$, so reject $\\text{H}_0$: there is evidence at the 1% level that the mean journey time has increased."
+  ]
+ },
+ "9709_s19_71_q2_ii": {
+  "hints": [
+   "Look at what the question says about the distribution of the journey times themselves. If the population is already normal, what is the distribution of the sample mean for any sample size?"
+  ],
+  "walkthrough": [
+   "**What the Central Limit Theorem is for**\n\nThe Central Limit Theorem says that the mean of a large sample is approximately normal *even when the population is not normal*. We would need it only if the individual journey times were not normal (or their distribution were unknown).",
+   "**Apply it here (this earns the B1)**\n\nThe question states that the journey times **do** have a normal distribution. When a population is normal, the sample mean $\\bar{X}$ is exactly normal for any sample size (even a sample of 2). So we did not need the Central Limit Theorem, even though 150 is large.",
+   "**Final answer**\n\nNo, it was not necessary, because the population (journey times) is normal, so the distribution of $\\bar{X}$ is normal anyway."
+  ]
+ }
+}

@@ -1,0 +1,47 @@
+{
+ "9709_w22_62_q4_a": {
+  "hints": [
+   "Write both hypotheses about the population mean number of faults $\\lambda$, using the value $2.4$ per $10$ m$^2$ (or scale it to the $30$ m$^2$ you will test). The test asks whether the mean has *decreased*, so $\\text{H}_1$ uses \"$<$\"."
+  ],
+  "walkthrough": [
+   "**Hypotheses (B1)**\n\nLet $\\lambda$ be the population mean number of faults. Before the adjustment it is $2.4$ per $10$ m$^2$. Over the $30$ m$^2$ we will check, that is three times as much: $3 \\times 2.4 = 7.2$.\n\nThe question asks whether the mean has *decreased*, so the alternative is \"less than\" (a one-tailed test):\n\n$$\\text{H}_0\\text{: } \\lambda = 2.4 \\text{ per } 10 \\text{ m}^2 \\qquad \\text{H}_1\\text{: } \\lambda < 2.4 \\text{ per } 10 \\text{ m}^2$$\n\nor, per $30$ m$^2$, $\\text{H}_0\\text{: } \\lambda = 7.2$ and $\\text{H}_1\\text{: } \\lambda < 7.2$. You must say what the symbol means (\"population mean\" or $\\lambda$ or $\\mu$); the word \"mean\" alone is not enough.",
+   "**Final answer**\n\n$\\text{H}_0$: population mean number of faults $= 2.4$ per $10$ m$^2$ (that is $7.2$ per $30$ m$^2$).\n\n$\\text{H}_1$: population mean number of faults $< 2.4$ per $10$ m$^2$ (that is $< 7.2$ per $30$ m$^2$)."
+  ]
+ },
+ "9709_w22_62_q4_b": {
+  "hints": [
+   "A Type I error means rejecting $\\text{H}_0$ when it is true. So work with the Poisson distribution under $\\text{H}_0$, and scale the mean from $10$ m$^2$ to the $30$ m$^2$ being checked: $3 \\times 2.4$.",
+   "Find the critical region: try $\\text{P}(X \\leqslant 0)$, $\\text{P}(X \\leqslant 1)$, $\\ldots$ using $\\text{e}^{-\\lambda}\\dfrac{\\lambda^r}{r!}$ (add each new term to the running total) until you find the largest value that has cumulative probability below $0.05$ and the next one that goes above $0.05$.",
+   "The probability of a Type I error is the *actual* probability of landing in your critical region, $\\text{P}(X \\leqslant c)$ for your largest $c$ below $5\\%$. It is not $0.05$ itself. Give it to $3$ s.f."
+  ],
+  "walkthrough": [
+   "**What a Type I error is**\n\nA Type I error means we **reject** $\\text{H}_0$ even though $\\text{H}_0$ is **true**. So we must find the critical region (the values of $X$ that make us reject) and then the probability of landing in it when $\\text{H}_0$ is true.",
+   "**The distribution under $\\text{H}_0$ (B1)**\n\nThe mean is $2.4$ per $10$ m$^2$. For $30$ m$^2$ the mean is three times as big:\n\n$$\\lambda = 3 \\times 2.4 = 7.2$$\n\nSo, if $\\text{H}_0$ is true, $X \\sim \\text{Po}(7.2)$. This earns the B1.",
+   "**Find the critical region (M1)**\n\nThe test is at $5\\%$ and one-tailed (lower tail). The critical region is the biggest set $X \\leqslant c$ with $\\text{P}(X \\leqslant c) < 0.05$. We use $\\text{P}(X = r) = \\text{e}^{-7.2}\\dfrac{7.2^r}{r!}$ and build up:\n\n$\\text{e}^{-7.2} = 0.00074658\\ldots$\n\n$\\text{P}(X = 0) = 0.00074658\\ldots$\n\n$\\text{P}(X = 1) = 0.00074658\\ldots \\times 7.2 = 0.0053754\\ldots$\n\n$\\text{P}(X = 2) = 0.00074658\\ldots \\times \\frac{7.2^2}{2} = 0.00074658\\ldots \\times 25.92 = 0.019351\\ldots$\n\nAdd up:\n\n$$\\text{P}(X \\leqslant 2) = \\text{e}^{-7.2}(1 + 7.2 + 25.92) = 0.00074658\\ldots \\times 34.12 = 0.025473\\ldots$$\n\nThis is below $0.05$. Now one more term, to see that it goes over:\n\n$$\\text{P}(X = 3) = 0.00074658\\ldots \\times \\frac{7.2^3}{3!} = 0.00074658\\ldots \\times 62.208 = 0.046443\\ldots$$\n\n$$\\text{P}(X \\leqslant 3) = 0.025473\\ldots + 0.046443\\ldots = 0.071917\\ldots$$\n\nThis is above $0.05$. So the critical region is $X \\leqslant 2$. The scheme's M1 needs both expressions: the $\\text{P}(X \\leqslant 2)$ one and the $\\text{P}(X \\leqslant 3)$ one.",
+   "**The probability of a Type I error (B1)**\n\nIf $\\text{H}_0$ is true and we use the critical region $X \\leqslant 2$, the chance of wrongly rejecting is\n\n$$\\text{P}(\\text{Type I error}) = \\text{P}(X \\leqslant 2) = 0.025473\\ldots = 0.0255 \\text{ (3 s.f.)}$$\n\nNote it is $0.0255$, not $0.05$: the test is at the $5\\%$ level, but because $X$ is discrete the actual chance of a Type I error is smaller than the significance level.",
+   "**Final answer**\n\n$\\text{P}(\\text{Type I error}) = 0.0255$ (3 s.f.), that is $0.02547$."
+  ]
+ },
+ "9709_w22_62_q4_c": {
+  "hints": [
+   "Compare the observed number of faults, $3$, with the critical region you found in (b). (Equivalently, compare $\\text{P}(X \\leqslant 3)$ with $0.05$.)",
+   "Is $3$ inside the critical region? If not, you do not reject $\\text{H}_0$. State the conclusion in context, about the mean number of faults in the cloth, using cautious words such as \"there is (no) evidence that\"."
+  ],
+  "walkthrough": [
+   "**Compare with the critical region (M1)**\n\nFrom (b), the critical region is $X \\leqslant 2$, so we reject $\\text{H}_0$ only if we see $2$ or fewer faults. We saw exactly $3$ faults:\n\n$$3 > 2$$\n\nso $3$ is *outside* the critical region.\n\nEquivalent check: $\\text{P}(X \\leqslant 3) = 0.0719\\ldots$, and $0.0719\\ldots > 0.05$, so the result is not unusual enough to reject $\\text{H}_0$. Either comparison earns the M1.",
+   "**Conclusion (A1)**\n\nWe do **not** reject $\\text{H}_0$. In context, and not definite:\n\nThere is no evidence, at the $5\\%$ significance level, that the mean number of faults in the cloth has decreased.\n\nAvoid wording like \"the machine has definitely not improved\": a test cannot prove that.",
+   "**Final answer**\n\n$3 > 2$ (it is outside the critical region, or $0.0719 > 0.05$). Do not reject $\\text{H}_0$: there is no evidence that the mean number of faults has decreased."
+  ]
+ },
+ "9709_w22_62_q4_d": {
+  "hints": [
+   "A Type II error means *not* rejecting $\\text{H}_0$ when it is false. The true mean is $0.5$ per $10$ m$^2$, so scale it to the $30$ m$^2$ checked ($\\times 3$) to get the Poisson parameter. Then you want the probability of landing *outside* the critical region from (b).",
+   "Outside the critical region means $X$ is larger than the largest value in the critical region. Write it using the complement, $1 - \\text{P}(X \\leqslant c)$, with each term $\\text{e}^{-\\lambda}\\dfrac{\\lambda^r}{r!}$ for $r = 0, 1, \\ldots$ up to $c$. Give the answer to $3$ s.f."
+  ],
+  "walkthrough": [
+   "**What a Type II error is**\n\nA Type II error means we do **not reject** $\\text{H}_0$ even though it is **false**. The question tells us what is really true: the mean is $0.5$ per $10$ m$^2$. For $30$ m$^2$ that is\n\n$$\\lambda = 3 \\times 0.5 = 1.5$$\n\nSo now $X \\sim \\text{Po}(1.5)$.\n\nWe do not reject $\\text{H}_0$ when $X$ falls *outside* the critical region $X \\leqslant 2$ from (b), so when $X \\geqslant 3$.",
+   "**The probability (M1, A1)**\n\n$$\\text{P}(\\text{Type II error}) = \\text{P}(X \\geqslant 3) = 1 - \\text{P}(X \\leqslant 2) = 1 - \\text{e}^{-1.5}\\left(1 + 1.5 + \\frac{1.5^2}{2}\\right)$$\n\nThis expression earns the M1.\n\nInside the bracket: $\\frac{1.5^2}{2} = \\frac{2.25}{2} = 1.125$, so\n\n$$1 + 1.5 + 1.125 = 3.625$$\n\n$\\text{e}^{-1.5} = 0.22313\\ldots$. Multiply:\n\n$$0.22313\\ldots \\times 3.625 = 0.80885\\ldots$$\n\n(Check: $0.2231 + 0.3347 + 0.2510 = 0.8088$.) Subtract from $1$:\n\n$$1 - 0.80885\\ldots = 0.19115\\ldots = 0.191 \\text{ (3 s.f.)}$$\n\nThis earns the A1.",
+   "**Final answer**\n\n$\\text{P}(\\text{Type II error}) = 0.191$ (3 s.f.)."
+  ]
+ }
+}

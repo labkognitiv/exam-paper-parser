@@ -1,0 +1,38 @@
+{
+ "9709_w16_72_q2_i": {
+  "hints": [
+   "Let $p$ be the probability of a six on one throw. $\\text{H}_0$ says the die is fair, so $p$ equals the fair-die value $\\dfrac{1}{6}$. Manjit suspects **fewer** sixes than a fair die, so decide which way the inequality in $\\text{H}_1$ points (one-tailed)."
+  ],
+  "walkthrough": [
+   "**What a hypothesis test needs**\n\nA hypothesis test starts with two statements about a parameter. The **null hypothesis** $\\text{H}_0$ is the 'nothing special is happening' statement. The **alternative hypothesis** $\\text{H}_1$ is what we suspect. Here the parameter is $p$, the probability of throwing a six with this die.",
+   "**Write $\\text{H}_0$**\n\nIf the die is fair, each of the six faces is equally likely, so $p = \\frac{1}{6}$.",
+   "**Write $\\text{H}_1$ (one-tailed)**\n\nManjit suspects the die shows a six on **fewer** throws than a fair die would. 'Fewer' means $p$ is *smaller* than $\\frac{1}{6}$. She is not interested in the die being biased the other way, so this is a one-tailed test with a 'less than' sign.\n\n$$\\text{H}_0: p = \\frac{1}{6}$$\n\n$$\\text{H}_1: p < \\frac{1}{6}$$",
+   "**Final answer**\n\n$\\text{H}_0: \\text{P}(6) = \\frac{1}{6}$ and $\\text{H}_1: \\text{P}(6) < \\frac{1}{6}$ (writing $p$ for $\\text{P}(6)$ is also accepted)."
+  ]
+ },
+ "9709_w16_72_q2_ii": {
+  "hints": [
+   "Assume $\\text{H}_0$ is true. Getting no sixes in 15 throws means every one of the 15 throws is a non-six, and each non-six has probability $\\dfrac{5}{6}$ (the throws are independent). Write this as a single power.",
+   "This is the probability of a result as extreme as 'no sixes' (nothing is less than zero). Evaluate it and compare it with the significance level $0.05$: a result is significant only if the probability is at most that."
+  ],
+  "walkthrough": [
+   "**What 'significant' means**\n\nWe assume $\\text{H}_0$ is true (the die is fair). We then ask: how likely is a result *at least as extreme* as the one we saw? If that probability is $5\\%$ or less ($0.05$), the result is **significant**, and we would reject $\\text{H}_0$. If it is bigger than $0.05$, it is not significant.",
+   "**Find the probability of no sixes (M1)**\n\nOn each throw of a fair die, $\\text{P}(\\text{not a six}) = 1 - \\frac{1}{6} = \\frac{5}{6}$. The throws are independent, so for 15 throws in a row we multiply 15 lots of $\\frac{5}{6}$:\n\n$$\\text{P}(\\text{no sixes in 15 throws}) = \\left(\\frac{5}{6}\\right)^{15}$$\n\nThere is nothing 'more extreme' than zero sixes (you cannot have fewer), so this single probability is the one to compare. This earns the M1.\n\nThe same answer comes from the binomial distribution $\\text{B}\\left(15, \\frac{1}{6}\\right)$: $\\text{P}(X = 0) = \\left(\\frac{5}{6}\\right)^{15}$.",
+   "**Evaluate and compare (A1)**\n\nOn a calculator type $(5 \\div 6)^{15}$ (or $(5/6)\\ ^{\\wedge}\\ 15$):\n\n$$\\left(\\frac{5}{6}\\right)^{15} = 0.0649\\ldots = 0.065 \\text{ (3 d.p.)}$$\n\nNow compare with the significance level:\n\n$$0.065 > 0.05$$\n\nThe probability is bigger than $0.05$, so the result is **not** in the rejection region. For the A1 you must show both the value and the comparison.",
+   "**Final answer**\n\n$\\left(\\frac{5}{6}\\right)^{15} = 0.065 > 0.05$, so the result is not significant at the 5% level (there is not enough evidence to say the die shows fewer sixes than a fair one)."
+  ]
+ },
+ "9709_w16_72_q2_iii": {
+  "hints": [
+   "If there are no sixes in the first $n$ throws, the probability is $\\left(\\dfrac{5}{6}\\right)^{n}$. The result is significant when this is below $0.05$. Try values of $n$ above 15 in turn, or set up the inequality $\\left(\\dfrac{5}{6}\\right)^{n} < 0.05$ and use logarithms.",
+   "With logarithms: $n\\ln\\left(\\dfrac{5}{6}\\right) < \\ln 0.05$. Careful: $\\ln\\left(\\dfrac{5}{6}\\right)$ is **negative**, so the inequality sign flips when you divide by it. Since $n$ must be a whole number, think about which way to round."
+  ],
+  "walkthrough": [
+   "**Set up what we need**\n\nFrom part (ii), the probability of no sixes in $n$ throws, if the die is fair, is $\\left(\\frac{5}{6}\\right)^{n}$. The result is significant at the 5% level when this probability is **less than** $0.05$. We want the smallest whole number $n$ that does this.",
+   "**Method 1: try values (M1)**\n\nThe probability gets smaller as $n$ grows, and at $n = 15$ it was $0.065$, still too big. So try $n = 16$ and $n = 17$ on the calculator:\n\n$$\\left(\\frac{5}{6}\\right)^{16} = 0.0541 > 0.05 \\quad \\text{(not significant)}$$\n\n$$\\left(\\frac{5}{6}\\right)^{17} = 0.0451 < 0.05 \\quad \\text{(significant)}$$\n\nShowing both values earns the M1: it proves that 16 is too small and 17 works.",
+   "**Method 2: logarithms (the OR route in the scheme)**\n\nWrite the inequality and take natural logs of both sides:\n\n$$\\left(\\frac{5}{6}\\right)^{n} < 0.05 \\quad\\Rightarrow\\quad n\\ln\\left(\\frac{5}{6}\\right) < \\ln 0.05$$\n\nNow divide by $\\ln\\left(\\frac{5}{6}\\right)$. This number is negative ($\\frac{5}{6}$ is less than 1), and dividing an inequality by a negative number **reverses** the sign:\n\n$$n > \\frac{\\ln 0.05}{\\ln\\left(\\frac{5}{6}\\right)} = \\frac{-2.9957}{-0.18232} = 16.43\\ldots$$",
+   "**Choose the whole number (A1)**\n\n$n$ must be a whole number bigger than $16.43\\ldots$, so the smallest possible value is $17$. This agrees with Method 1: $n = 16$ failed and $n = 17$ worked.",
+   "**Final answer**\n\nThe smallest value of $n$ is $17$."
+  ]
+ }
+}

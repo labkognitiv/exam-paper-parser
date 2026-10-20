@@ -1,0 +1,78 @@
+{
+  "9702_s25_43_q06_a_i": {
+    "hints": [
+      "Think about what goes into the box in Fig. 6.1 and what comes out - compare the nature of $V_{IN}$ which alternates in direction with the one-directional $V_{OUT}$ needed for d.c. devices."
+    ],
+    "walkthrough": [
+      "**What a.c. and d.c. mean**\nThink of a.c. as current that repeatedly reverses direction as the voltage swings positive then negative. Direct current flows in one direction only. A rectifier lets you power d.c. circuits from the a.c. mains.",
+      "**Link to Fig. 6.1**\n$V_{IN}$ is alternating, $V_{OUT}$ across R is kept in one direction by the rectification circuit. So you can state it simply as conversion from a.c. to d.c.",
+      "Final answer: Rectification is the conversion of alternating current (a.c.) to direct current (d.c.)."
+    ]
+  },
+  "9702_s25_43_q06_a_ii": {
+    "hints": [
+      "Look at where C is connected in Fig. 6.1 - in parallel with R - and recall what a capacitor does when the rectified voltage tries to fall toward zero."
+    ],
+    "walkthrough": [
+      "**Role of a parallel capacitor**\nA capacitor charges up to the peak voltage then discharges slowly through R when the rectified supply falls. It stores charge at the peaks and releases it in the troughs.",
+      "**Why it matters**\nWithout C the output would fall to zero every half-cycle. With C it stays high, so the variation or ripple is much smaller. That is called smoothing.",
+      "Final answer: To smooth the rectified output, reducing ripple to give a steadier d.c. voltage."
+    ]
+  },
+  "9702_s25_43_q06_b_i": {
+    "hints": [
+      "Focus on the dashed $V_{IN}$ curve in Fig. 6.2 - read its maximum value at $t = 0$ for $A$, and measure the time for one full cosine cycle to get the period $T$.",
+      "Recall how angular frequency links to period for a cosine wave, $$B = \\omega = \\frac{2\\pi}{T}$$, and check that $T$ is converted from ms to s before calculating."
+    ],
+    "walkthrough": [
+      "**Find A from the amplitude**\n$V_{IN} = A \\cos Bt$ has maximum $A$ at $t=0$ because $\\cos 0 = 1$. From Fig. 6.2 the dashed curve starts at $$V_{IN} = 12\\text{ V}$$ so $$A = 12\\text{ V}$$",
+      "**Find T then B**\nThe dashed $V_{IN}$ completes one full cycle from $0$ to $20\\text{ ms}$. So $$T = 20 \\times 10^{-3}\\text{ s}$$ Angular frequency is $$B = \\frac{2\\pi}{T} = \\frac{2\\pi}{20 \\times 10^{-3}} \\approx 3.1 \\times 10^{2}\\text{ rad s}^{-1}$$",
+      "Final answer: $A = 12\\text{ V}$, $B = 310\\text{ rad s}^{-1}$."
+    ]
+  },
+  "9702_s25_43_q06_b_ii": {
+    "hints": [
+      "Compare how often $V_{OUT}$ reaches a peak with how often $V_{IN}$ reaches a positive peak - count the $V_{OUT}$ humps between 0 and 20 ms."
+    ],
+    "walkthrough": [
+      "**Spot the frequency doubling**\n$V_{IN}$ has period $20\\text{ ms}$, but $V_{OUT}$ peaks at $0, 10, 20, 30\\text{ ms}$. That is a peak every $10\\text{ ms}$, twice as often as the input.",
+      "**Interpret the meaning**\nBoth the positive and negative half-cycles of input are turned into positive output pulses. That only happens with full-wave rectification. Half-wave would give one pulse per $20\\text{ ms}$.",
+      "Final answer: Full-wave rectification."
+    ]
+  },
+  "9702_s25_43_q06_b_iii": {
+    "hints": [
+      "Recall how many diodes are needed for full-wave operation with a single a.c. input - think of the diamond bridge with W and X at opposite corners and Y and Z at the other two corners.",
+      "Think about current direction - diodes must all point so that conventional current entering either W or X is always steered to leave via the same output terminal Y, and return via Z."
+    ],
+    "walkthrough": [
+      "**Draw the diamond**\nJoin W to Y and to Z with a diode in each branch, and X to Y and to Z with a diode in each branch. That makes four diodes forming a bridge.",
+      "**Get the directions right**\nArrange them so Y is always positive relative to Z. For example, diodes point toward Y from W and X, and point away from Z toward W and X. Then whichever way $V_{IN}$ pushes current in at W or X, it flows out at Y, through the external circuit, and back in at Z. Use proper diode triangle-and-bar symbols.",
+      "Final answer: Four diodes connected as a bridge rectifier between W, X and Y, Z with correct forward directions to give one-directional output."
+    ]
+  },
+  "9702_s25_43_q06_b_iv": {
+    "hints": [
+      "Identify the discharge section on the solid $V_{OUT}$ curve - from a 12 V peak where the capacitor starts to discharge through R until the next rectified pulse recharges it.",
+      "Pick two clear readings from that decay, e.g. $V_0 = 12\\text{ V}$ at the peak and $V \\approx 8.0\\text{ V}$ after a time $t \\approx 7.3\\text{ ms}$, to use in the exponential law.",
+      "Set up $$V = V_0 e^{-t/\\tau}$$ with your $V$, $V_0$ and $t$ values and solve for $\\tau$ by taking natural logs."
+    ],
+    "walkthrough": [
+      "**Write the discharge law**\nBetween pulses the capacitor discharges through R, so $$V = V_0 e^{-t/\\tau}$$ where $\\tau = RC$ is the time constant, $V_0$ is the voltage at the start of decay and $t$ is time since then.",
+      "**Read V0, V and t from Fig. 6.2**\nTake $V_0 = 12\\text{ V}$ at a peak, e.g. $t = 0$. The curve falls to about $$V = 8.0\\text{ V}$$ just before the next rise, after $$t \\approx 7.3 \\times 10^{-3}\\text{ s}$$ So $$8.0 = 12 \\exp\\left(\\frac{-7.3 \\times 10^{-3}}{\\tau}\\right)$$",
+      "**Solve for tau**\nRearrange: $$\\frac{8.0}{12} = e^{-t/\\tau}$$ $$\\ln\\left(\\frac{8}{12}\\right) = \\frac{-t}{\\tau}$$ $$\\tau = \\frac{-7.3 \\times 10^{-3}}{\\ln(0.667)} \\approx 1.8 \\times 10^{-2}\\text{ s}$$ That is about $0.018\\text{ s}$.",
+      "Final answer: $\\tau \\approx 1.8 \\times 10^{-2}\\text{ s}$ (about $0.018\\text{ s}$)."
+    ]
+  },
+  "9702_s25_43_q06_c": {
+    "hints": [
+      "Recall the simple link between time constant $\\tau$, resistance $R$ and capacitance $C$ for a resistor-capacitor discharge.",
+      "Convert the $570\\text{ }\\mu\\text{F}$ capacitance to farads ($\\times 10^{-6}$) and rearrange to find $R$ from your $\\tau$ value in (b)(iv)."
+    ],
+    "walkthrough": [
+      "**Use tau = RC**\nFor discharge through R, $$\\tau = RC$$ so $$R = \\frac{\\tau}{C}$$",
+      "**Insert numbers**\nWith $\\tau \\approx 0.018\\text{ s}$ and $$C = 570\\text{ }\\mu\\text{F} = 570 \\times 10^{-6}\\text{ F}$$ $$R = \\frac{0.018}{570 \\times 10^{-6}} \\approx 32\\text{ }\\Omega$$",
+      "Final answer: $R \\approx 32\\text{ }\\Omega$."
+    ]
+  }
+}

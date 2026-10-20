@@ -1,0 +1,16 @@
+{
+ "9709_s22_63_q1": {
+  "hints": [
+   "The company's emails are $\\text{N}(1250, 480^2)$, so the mean of 100 emails is also normal with the same mean but a smaller spread. Standardise the sample mean: $z = \\dfrac{1300 - 1250}{480/\\sqrt{100}}$ — note the $\\sqrt{100}$, because it is a mean of 100 emails.",
+   "You want the probability that the mean is *more than* 1300, which is the upper tail. Write it as $1 - \\Phi(z)$ using the positive $z$ you found.",
+   "Put $z$ into your calculator's normal cdf (or the table) and subtract from 1. Quick sense-check: 1300 is above 1250, so the answer should be a small probability, well under 0.5."
+  ],
+  "walkthrough": [
+   "**Which distribution do we need?**\n\nOne email has a number of characters $X \\sim \\text{N}(1250, 480^2)$. Here $1250$ is the mean and $480^2$ is the **variance** (so the standard deviation is $480$).\n\nWe are not asked about one email. We are asked about the **mean of 100 emails**, written $\\bar{X}$ (say \"X bar\", the sample mean). When the original values are normal, the mean of a sample is also normal, with\n\n- the same mean: $\\text{E}(\\bar{X}) = 1250$\n\n- the variance divided by the sample size: $\\text{Var}(\\bar{X}) = \\dfrac{480^2}{100}$\n\nAverages vary less than single values, which is why we divide by $100$.",
+   "**Find the standard deviation of the sample mean**\n\nThe standard deviation is the square root of the variance, so\n\n$$\\text{sd}(\\bar{X}) = \\frac{480}{\\sqrt{100}} = \\frac{480}{10} = 48$$\n\nSo $\\bar{X} \\sim \\text{N}(1250, 48^2)$.",
+   "**Standardise (this earns the first M1)**\n\nTo use the normal table or calculator we convert 1300 into a $z$-value: how many standard deviations 1300 is above the mean.\n\n$$z = \\frac{1300 - 1250}{48} = \\frac{50}{48} = 1.0416\\ldots \\approx 1.042$$\n\nCommon slip: forgetting the $10 = \\sqrt{100}$, i.e. dividing by $480$ instead of $48$. The scheme says you must have the $10$.\n\n(The scheme also allows a continuity correction here, but because the emails are modelled as normal already, it is not needed.)",
+   "**Choose the correct tail (second M1)**\n\nWe want $\\text{P}(\\bar{X} > 1300)$, the area to the **right** of $z = 1.042$. The tables and calculator give the area to the **left**, $\\Phi(1.042)$. So we take the whole area, $1$, and subtract:\n\n$$\\text{P}(\\bar{X} > 1300) = 1 - \\Phi(1.042)$$\n\nOn your calculator use normal cdf with lower bound $1.042$, upper bound a big number such as $10^{99}$, or find $\\Phi(1.042) = 0.8513$ and subtract.\n\n$$1 - 0.8513 = 0.1487 \\ldots$$\n\nQuick check: 1300 is only a little above the mean, so a probability of about $0.15$ (less than half) makes sense.",
+   "**Final answer**\n\n$\\text{P}(\\bar{X} > 1300) = 0.149$ (3 s.f.)"
+  ]
+ }
+}

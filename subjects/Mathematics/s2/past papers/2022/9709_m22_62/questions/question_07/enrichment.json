@@ -1,0 +1,46 @@
+{
+  "9709_m22_62_q7_a_i": {
+    "hints": [
+      "Each pond's carp count is binomial with large $n$ and small $p$, so approximate by a Poisson distribution with mean $np$. Find one mean for pond $A$ ($2.4\\%$ of $50$) and one for pond $B$ ($1.8\\%$ of $60$).",
+      "For each pond, \"at least 2\" is $1 - \\text{P}(0) - \\text{P}(1)$, and $\\text{P}(r) = \\text{e}^{-\\lambda}\\dfrac{\\lambda^r}{r!}$. The ponds are independent, so multiply the two probabilities.",
+      "Work out both probabilities with your calculator, multiply them, and give the answer to 3 significant figures."
+    ],
+    "walkthrough": [
+      "**Why Poisson**\n\nThe number of carp in each sample is really binomial. But each sample is fairly large ($50$ and $60$ fish) and the chance of a carp is small, so the question tells us to use a Poisson approximation. A Poisson distribution is fixed by its mean, which for an approximation to a binomial is $np$.",
+      "**The two means (B1)**\n\nPond $A$: $n = 50$, $p = 0.024$, so\n\n$$\\lambda = 0.024 \\times 50 = 1.2$$\n\nPond $B$: $n = 60$, $p = 0.018$, so\n\n$$\\mu = 0.018 \\times 60 = 1.08$$\n\nLet $A \\sim \\text{Po}(1.2)$ be the carp from pond $A$ and $B \\sim \\text{Po}(1.08)$ the carp from pond $B$. This earns the B1.",
+      "**Pond $A$: at least 2 carp (M1)**\n\n\"At least 2\" is everything except $0$ and $1$:\n\n$$\\text{P}(A \\geqslant 2) = 1 - \\text{P}(A = 0) - \\text{P}(A = 1) = 1 - \\text{e}^{-1.2}(1 + 1.2)$$\n\n$$\\text{e}^{-1.2} = 0.30119\\ldots$$\n\n$$1 + 1.2 = 2.2$$\n\n$$0.30119\\ldots \\times 2.2 = 0.66263\\ldots$$\n\n$$\\text{P}(A \\geqslant 2) = 1 - 0.66263\\ldots = 0.33737\\ldots$$",
+      "**Pond $B$: at least 2 carp**\n\nSame method with mean $1.08$:\n\n$$\\text{P}(B \\geqslant 2) = 1 - \\text{e}^{-1.08}(1 + 1.08)$$\n\n$$\\text{e}^{-1.08} = 0.33959\\ldots$$\n\n$$1 + 1.08 = 2.08$$\n\n$$0.33959\\ldots \\times 2.08 = 0.70635\\ldots$$\n\n$$\\text{P}(B \\geqslant 2) = 1 - 0.70635\\ldots = 0.29364\\ldots$$",
+      "**Combine the two ponds (M1 completed, A1)**\n\nThe samples come from different ponds and are independent, so for \"both at least $2$\" we multiply:\n\n$$\\left(1 - \\text{e}^{-1.2}(1 + 1.2)\\right) \\times \\left(1 - \\text{e}^{-1.08}(1 + 1.08)\\right) = 0.33737\\ldots \\times 0.29364\\ldots = 0.09907\\ldots$$\n\nTo 3 significant figures this is $0.0991$ (the A1).\n\nCheck: the exact binomial would give $0.0994$, close, but the question asks for the Poisson approximation so $0.0994$ would not earn the answer mark.",
+      "**Final answer**\n\nThe probability of at least $2$ carp from each pond is $0.0991$ (3 s.f.)."
+    ]
+  },
+  "9709_m22_62_q7_a_ii": {
+    "hints": [
+      "Carp from the two ponds are independent Poisson counts, so the total number of carp is also Poisson. Its mean is $2.4\\% \\times 50$ plus $1.8\\% \\times 60$. Do not add the percentages.",
+      "For a total \"at least $4$\" use $1 - \\text{P}(\\text{total} \\leqslant 3)$, which is $1$ minus the four terms for $0, 1, 2, 3$ carp, each of the form $\\text{e}^{-\\lambda}\\dfrac{\\lambda^r}{r!}$.",
+      "Calculate $\\text{e}^{-\\lambda}$ and the four terms with your calculator, subtract their sum from $1$, and give 3 significant figures."
+    ],
+    "walkthrough": [
+      "**Combine the two Poisson counts (M1)**\n\nThe number of carp in the whole sample of $110$ fish is $A + B$. The sum of independent Poisson variables is Poisson, with the means added:\n\n$$\\lambda = 0.024 \\times 50 + 0.018 \\times 60 = 1.2 + 1.08 = 2.28$$\n\nSo the total $T \\sim \\text{Po}(2.28)$.\n\nSlip to avoid: adding the percentages ($0.024 + 0.018$). That ignores the different sample sizes and scores no marks.",
+      "**Set up \"at least 4\" (M1)**\n\n$\\text{P}(T \\geqslant 4)$ would need infinitely many terms, so use the complement:\n\n$$\\text{P}(T \\geqslant 4) = 1 - \\text{P}(T \\leqslant 3) = 1 - \\left(\\text{P}(0) + \\text{P}(1) + \\text{P}(2) + \\text{P}(3)\\right)$$\n\nUsing $\\text{P}(r) = \\text{e}^{-2.28}\\dfrac{2.28^r}{r!}$:\n\n$$1 - \\text{e}^{-2.28}\\left(1 + 2.28 + \\frac{2.28^2}{2!} + \\frac{2.28^3}{3!}\\right)$$\n\nTake care to stop at $r = 3$ (the scheme allows one end error, but not more).",
+      "**Evaluate the terms (A1)**\n\n$$\\text{e}^{-2.28} = 0.10228\\ldots$$\n\n$$2.28^2 = 5.1984, \\quad \\frac{5.1984}{2} = 2.5992$$\n\n$$2.28^3 = 11.852352, \\quad \\frac{11.852352}{6} = 1.975392$$\n\nBracket total:\n\n$$1 + 2.28 + 2.5992 + 1.975392 = 7.854592$$\n\nMultiply:\n\n$$0.10228\\ldots \\times 7.854592 = 0.80340\\ldots$$\n\n$$1 - 0.80340\\ldots = 0.19660\\ldots = 0.197 \\text{ (3 s.f.)}$$",
+      "**Final answer**\n\nThe probability of at least $4$ carp altogether is $0.197$ (3 s.f.)."
+    ]
+  },
+  "9709_m22_62_q7_b": {
+    "hints": [
+      "Write $\\text{P}(X = 0)$ and $\\text{P}(Y = 0)$ with the Poisson formula $\\text{e}^{-\\lambda}\\dfrac{\\lambda^r}{r!}$ and put them in the first condition. What does that say about how $\\lambda$ and $\\mu$ are related?",
+      "Write $\\text{P}(X = 2)$ and $\\text{P}(Y = 1)$ with the same formula, and put them into the second condition, $\\text{P}(X = 2) = k[\\text{P}(Y = 1)]^2$.",
+      "Replace $\\lambda$ in your equation by its expression in terms of $\\mu$ from the first condition, so only $\\mu$ and $k$ remain.",
+      "Both sides now share common factors (an exponential and a power of $\\mu$). Cancel them and read off $k$."
+    ],
+    "walkthrough": [
+      "**First condition (M1)**\n\nThe Poisson probability formula is $\\text{P}(X = r) = \\text{e}^{-\\lambda}\\dfrac{\\lambda^r}{r!}$. For $r = 0$ the power and factorial are both $1$ (since $\\lambda^0 = 1$ and $0! = 1$), so\n\n$$\\text{P}(X = 0) = \\text{e}^{-\\lambda} \\qquad \\text{P}(Y = 0) = \\text{e}^{-\\mu}$$\n\nThe condition $\\text{P}(X = 0) = [\\text{P}(Y = 0)]^2$ becomes\n\n$$\\text{e}^{-\\lambda} = \\left(\\text{e}^{-\\mu}\\right)^2 = \\text{e}^{-2\\mu}$$\n\nThis earns the first M1.",
+      "**Link $\\lambda$ and $\\mu$**\n\nPowers of $\\text{e}$ are equal only when the powers are equal, so\n\n$$-\\lambda = -2\\mu \\quad\\Rightarrow\\quad \\lambda = 2\\mu$$",
+      "**Second condition (M1)**\n\nUse the formula with $r = 2$ for $X$ and $r = 1$ for $Y$:\n\n$$\\text{P}(X = 2) = \\text{e}^{-\\lambda}\\frac{\\lambda^2}{2!} = \\text{e}^{-\\lambda}\\frac{\\lambda^2}{2}$$\n\n$$\\text{P}(Y = 1) = \\text{e}^{-\\mu}\\frac{\\mu^1}{1!} = \\mu\\,\\text{e}^{-\\mu}$$\n\nPut these into $\\text{P}(X = 2) = k[\\text{P}(Y = 1)]^2$:\n\n$$\\text{e}^{-\\lambda}\\frac{\\lambda^2}{2} = k\\left[\\text{e}^{-\\mu}\\mu\\right]^2$$\n\nThis earns the second M1.",
+      "**Substitute $\\lambda = 2\\mu$ (M1)**\n\nLeft side:\n\n$$\\text{e}^{-2\\mu} \\times \\frac{(2\\mu)^2}{2} = \\text{e}^{-2\\mu} \\times \\frac{4\\mu^2}{2} = \\text{e}^{-2\\mu} \\times 2\\mu^2$$\n\nRight side:\n\n$$k\\left[\\text{e}^{-\\mu}\\mu\\right]^2 = k\\,\\text{e}^{-2\\mu}\\mu^2$$\n\nSo the equation is\n\n$$\\text{e}^{-2\\mu} \\times 2\\mu^2 = k \\times \\text{e}^{-2\\mu} \\times \\mu^2$$\n\nNow only $\\mu$ and $k$ are left. This earns the third M1.",
+      "**Solve for $k$ (A1)**\n\nBoth sides contain $\\text{e}^{-2\\mu}\\mu^2$, which is not zero ($\\mu$ is the mean of a Poisson distribution, so $\\mu > 0$). Divide both sides by it:\n\n$$2 = k$$",
+      "**Final answer**\n\n$k = 2$."
+    ]
+  }
+}

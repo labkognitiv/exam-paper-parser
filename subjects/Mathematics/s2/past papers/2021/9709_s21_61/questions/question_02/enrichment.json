@@ -1,0 +1,25 @@
+{
+ "9709_s21_61_q2_a": {
+  "hints": [
+   "The individual times are $\\text{N}(125, 36)$, so the sample mean of 40 students is also normal with the same mean. Standardise $\\bar{X}$: $z = \\dfrac{123 - 125}{\\sigma/\\sqrt{40}}$, but check what the $36$ in $\\text{N}(125, 36)$ stands for before you choose $\\sigma$.",
+   "You want $\\text{P}(\\bar{X} < 123)$, which is $\\text{P}(Z < z)$ with the negative $z$ you have found. Rewrite it using the symmetry of the normal curve: $\\text{P}(Z < -a) = 1 - \\Phi(a)$.",
+   "Look up $\\Phi(a)$ in the normal table or with your calculator's normal cdf, subtract it from $1$, and give 3 significant figures."
+  ],
+  "walkthrough": [
+   "**Read the distribution carefully**\n\nThe notation $\\text{N}(125, 36)$ always means $\\text{N}(\\mu, \\sigma^2)$: the **second** number is the **variance**, not the standard deviation. So:\n\n$$\\mu = 125, \\qquad \\sigma^2 = 36, \\qquad \\sigma = \\sqrt{36} = 6$$\n\nThis is a classic slip: mixing up the standard deviation and the variance is penalised in the mark scheme.",
+   "**Distribution of the sample mean**\n\n$\\bar{X}$ means the mean time of a random sample of 40 students. Because the individual times are normally distributed, the sample mean is normal too, with the same mean but a smaller spread:\n\n$$\\bar{X} \\sim \\text{N}\\left(125, \\frac{6^2}{40}\\right)$$\n\nThe standard deviation of $\\bar{X}$ (called the standard error) is $\\dfrac{\\sigma}{\\sqrt{n}} = \\dfrac{6}{\\sqrt{40}}$. The $\\sqrt{40}$ is vital, because we are dealing with a mean of 40 students, not one student.",
+   "**Standardise (first M1)**\n\nTo use the standard normal table we convert $123$ into a $z$-value: subtract the mean and divide by the standard deviation of $\\bar{X}$.\n\n$$z = \\frac{123 - 125}{\\frac{6}{\\sqrt{40}}}$$\n\nWork out the pieces: $\\sqrt{40} = 6.3246$, so $\\dfrac{6}{6.3246} = 0.94868$. Then\n\n$$z = \\frac{-2}{0.94868} = -2.108$$\n\nNo continuity correction is needed, because time is a continuous variable already.",
+   "**Find the probability (second M1)**\n\nWe want the area **below** $z = -2.108$. Tables only list areas to the left of positive $z$, so use the symmetry of the normal curve: the area below $-2.108$ equals the area above $+2.108$.\n\n$$\\text{P}(Z < -2.108) = 1 - \\Phi(2.108)$$\n\nUsing a table or the calculator's normal cdf, $\\Phi(2.108) = 0.9825$. So\n\n$$1 - 0.9825 = 0.0175$$\n\n(Using the exact $z$ on a calculator gives $0.017507$; the scheme accepts $0.0175$ or $0.0176$ because of table rounding.)",
+   "**Final answer**\n\nThe probability that the mean time for 40 students is less than 123 minutes is $\\mathbf{0.0175}$ (3 s.f.); the mark scheme also accepts $0.0176$, which comes from table rounding."
+  ]
+ },
+ "9709_s21_61_q2_b": {
+  "hints": [
+   "The Central Limit theorem is needed only when the original population is **not** normal. Look at the first sentence of the question: what distribution do the individual times follow, and what does that tell you about the distribution of the sample mean?"
+  ],
+  "walkthrough": [
+   "**Why the Central Limit theorem was not needed**\n\nThe Central Limit theorem says that for a large sample, the sample mean is approximately normal **even if the population is not normal**. We need it only when we do not know that the population is normal.\n\nHere the question tells us the times follow $\\text{N}(125, 36)$, so the population is already normal. When the population is normal, the mean of a sample of **any** size is exactly normal, so we have nothing to approximate.\n\nThe mark scheme wants both parts of the idea: the answer \"No\", and the reason \"the population is normal\".",
+   "**Final answer**\n\nNo, it was not necessary, because the population (the individual times) is normally distributed, so the sample mean is normally distributed without using the Central Limit theorem."
+  ]
+ }
+}

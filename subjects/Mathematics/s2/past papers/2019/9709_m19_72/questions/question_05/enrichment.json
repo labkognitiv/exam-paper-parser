@@ -1,0 +1,43 @@
+{
+ "9709_m19_72_q5_i": {
+  "hints": [
+   "'At least 2' has no upper end, so use the complement: $\\text{P}(X \\geqslant 2) = 1 - \\text{P}(X \\leqslant 1)$, where $X \\sim \\text{Po}(1.8)$.",
+   "Find $\\text{P}(X = 0)$ and $\\text{P}(X = 1)$ from $\\text{P}(X = r) = \\text{e}^{-\\lambda}\\dfrac{\\lambda^r}{r!}$ with $\\lambda = 1.8$, add them and subtract the total from 1."
+  ],
+  "walkthrough": [
+   "**Which distribution?**\n\nLet $X$ be the number of eagles seen in one hour. We are told $X \\sim \\text{Po}(1.8)$, so the mean number per hour is $1.8$.\n\nFor a Poisson variable, the probability of exactly $r$ events is\n\n$$\\text{P}(X = r) = \\text{e}^{-1.8}\\,\\frac{1.8^r}{r!}$$",
+   "**Turn 'at least 2' into something short (this earns the M1)**\n\n'At least 2' means $2, 3, 4, 5, \\ldots$ with no end. That is far too many terms. Instead use the fact that all probabilities add to 1:\n\n$$\\text{P}(X \\geqslant 2) = 1 - \\text{P}(X \\leqslant 1) = 1 - \\left[\\text{P}(X = 0) + \\text{P}(X = 1)\\right]$$\n\nIn one line: $1 - \\text{e}^{-1.8}(1 + 1.8)$.",
+   "**Calculate**\n\nType $\\text{e}^{-1.8}$ into the calculator (the $e^x$ button, then $-1.8$): it shows $0.165299\\ldots$\n\n$$\\text{P}(X = 0) = 0.165299 \\times 1 = 0.165299$$\n\n$$\\text{P}(X = 1) = 0.165299 \\times 1.8 = 0.297538$$\n\nAdd them: $0.165299 + 0.297538 = 0.462837$ (this is the same as $\\text{e}^{-1.8} \\times 2.8$).\n\nSubtract from 1: $1 - 0.462837 = 0.537163$.\n\nCommon slip: using $1 - \\text{P}(X \\leqslant 2)$, which would leave out $X = 2$ (that is 'more than 2', not 'at least 2').",
+   "**Final answer**\n\nThis earns the A1. Round to 3 significant figures: $0.537163 \\to 0.537$.\n\n$$\\text{P}(\\text{at least 2 eagles}) = 0.537$$"
+  ]
+ },
+ "9709_m19_72_q5_ii": {
+  "hints": [
+   "Eagles and vultures are independent Poisson variables, so the total is also Poisson with the two means added. Work out the rate per hour first, then adjust it for a half-hour period.",
+   "'Less than 5' means $0, 1, 2, 3, 4$. Write $\\text{P}(T \\leqslant 4) = \\text{e}^{-\\lambda}\\left(1 + \\lambda + \\dfrac{\\lambda^2}{2!} + \\dfrac{\\lambda^3}{3!} + \\dfrac{\\lambda^4}{4!}\\right)$ with your value of $\\lambda$.",
+   "Substitute your $\\lambda$, evaluate (or use the Poisson cumulative function with upper value 4) and round to 3 significant figures."
+  ],
+  "walkthrough": [
+   "**The mean for the total in one hour**\n\nFor independent Poisson variables, the sum is also Poisson and the means add. In one hour:\n\n$$1.8 + 2.6 = 4.4$$\n\nSo in one hour the total number of birds seen has mean $4.4$.",
+   "**Adjust for half an hour (this earns the B1)**\n\nHalf an hour is half as long, so we see half as many on average:\n\n$$\\lambda = 4.4 \\times \\frac{1}{2} = 2.2$$\n\nLet $T$ be the total number of eagles and vultures seen in half an hour. Then $T \\sim \\text{Po}(2.2)$.\n\n(You get the same answer by halving each rate first: $0.9 + 1.3 = 2.2$.)",
+   "**Write the sum (this earns the M1)**\n\n'Less than 5' means $T$ can be $0, 1, 2, 3$ or $4$ (not 5). So we want $\\text{P}(T \\leqslant 4)$:\n\n$$\\text{P}(T \\leqslant 4) = \\text{e}^{-2.2}\\left(1 + 2.2 + \\frac{2.2^2}{2!} + \\frac{2.2^3}{3!} + \\frac{2.2^4}{4!}\\right)$$",
+   "**Calculate each term**\n\n$\\text{e}^{-2.2} = 0.110803\\ldots$\n\n$$\\text{P}(0) = 0.110803 \\times 1 = 0.110803$$\n\n$$\\text{P}(1) = 0.110803 \\times 2.2 = 0.243767$$\n\n$$\\text{P}(2) = 0.110803 \\times \\frac{2.2^2}{2} = 0.110803 \\times 2.42 = 0.268144$$\n\n$$\\text{P}(3) = 0.110803 \\times \\frac{2.2^3}{6} = 0.110803 \\times 1.774667 = 0.196639$$\n\n$$\\text{P}(4) = 0.110803 \\times \\frac{2.2^4}{24} = 0.110803 \\times 0.976067 = 0.108151$$\n\nCheck: with a mean of $2.2$, the most likely values are $2$ (and $1$), and the terms above are biggest there.",
+   "**Add the five probabilities**\n\n$$0.110803 + 0.243767 + 0.268144 + 0.196639 + 0.108151 = 0.927504$$\n\nYou can check this with your calculator's Poisson cumulative distribution: mean $2.2$, upper value $4$.\n\nRound to 3 significant figures: $0.9275 \\to 0.928$.",
+   "**Final answer**\n\nThis earns the A1. The total is $0.9275037\\ldots$, which rounds to $0.928$ (the mark scheme also accepts $0.927$, from rounding the intermediate values).\n\n$$\\text{P}(\\text{total} < 5) = 0.928$$"
+  ]
+ },
+ "9709_m19_72_q5_iii": {
+  "hints": [
+   "If Alex watches for $t$ hours, the number of eagles is Poisson with mean $1.8t$. 'At least 1' is the complement of 'none': write $\\text{P}(\\text{at least 1}) = 1 - \\text{P}(0)$ in terms of $t$ and make it at least 99%.",
+   "Rearrange your inequality until $\\text{e}^{-1.8t}$ is on its own on one side, then take natural logs of both sides, using $\\ln\\text{e}^{x} = x$.",
+   "Divide by $-1.8$ and remember that dividing an inequality by a negative number reverses the sign. The answer is a minimum time, so give it with units."
+  ],
+  "walkthrough": [
+   "**The Poisson mean depends on the time**\n\nThe rate is $1.8$ eagles per hour. If Alex watches for $t$ hours, the expected number is $1.8t$. Let $X$ be the number of eagles she sees. Then $X \\sim \\text{Po}(1.8t)$.\n\nThe chance of seeing none is $\\text{P}(X = 0) = \\text{e}^{-1.8t}\\dfrac{(1.8t)^0}{0!} = \\text{e}^{-1.8t}$, because $(1.8t)^0 = 1$ and $0! = 1$.",
+   "**Write the condition (this earns the first M1)**\n\nShe wants to be at least 99% certain of seeing at least 1 eagle:\n\n$$\\text{P}(X \\geqslant 1) \\geqslant 0.99$$\n\n'At least 1' is everything except 'none', so $\\text{P}(X \\geqslant 1) = 1 - \\text{P}(X = 0)$:\n\n$$1 - \\text{e}^{-1.8t} \\geqslant 0.99$$",
+   "**Rearrange and take logs (this earns the second M1)**\n\nMove $\\text{e}^{-1.8t}$ to the right and $0.99$ to the left:\n\n$$1 - 0.99 \\geqslant \\text{e}^{-1.8t} \\quad\\Rightarrow\\quad \\text{e}^{-1.8t} \\leqslant 0.01$$\n\nTake natural logs of both sides. $\\ln$ keeps the direction of the inequality (it is an increasing function), and $\\ln \\text{e}^{x} = x$:\n\n$$-1.8t \\leqslant \\ln 0.01$$\n\nOn your calculator, $\\ln 0.01 = -4.60517\\ldots$, so\n\n$$-1.8t \\leqslant -4.60517$$",
+   "**Solve for $t$ (this earns the A1)**\n\nDivide both sides by $-1.8$. Dividing by a **negative** number reverses the inequality sign:\n\n$$t \\geqslant \\frac{-4.60517}{-1.8} = 2.5584\\ldots$$\n\nRound to 3 significant figures: $2.56$. (This rounds up, which is safe because we need *at least* this time.)\n\nQuick check: for $t = 2.56$, $1 - \\text{e}^{-1.8 \\times 2.56} = 1 - \\text{e}^{-4.608} = 1 - 0.00997 = 0.99003$, which is just above $0.99$. Good.\n\nIn hours and minutes, $0.5584 \\times 60 = 33.5$ minutes, so about 2 hours 34 minutes.",
+   "**Final answer**\n\nAlex must watch for at least **2.56 hours** (about 2 hours 34 minutes)."
+  ]
+ }
+}

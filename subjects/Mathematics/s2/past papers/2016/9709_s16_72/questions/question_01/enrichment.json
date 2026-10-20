@@ -1,0 +1,18 @@
+{
+ "9709_s16_72_q1": {
+  "hints": [
+   "You have a sample of 50 people, so you need the spread of the sample mean, not of one person: the standard deviation of $\\bar{X}$ is $\\dfrac{\\sigma}{\\sqrt{n}}$ with $\\sigma = 6.2$ and $n = 50$.",
+   "Standardise the sample mean: $z = \\dfrac{51 - 53.0}{\\text{(your standard deviation of } \\bar{X})}$. Use the mean of $\\bar{X}$, which is the same as the population mean.",
+   "You want $\\text{P}(\\bar{X} > 51)$, so you need the area to the right of your $z$. Your $z$ is negative, so use the symmetry of the normal curve: $\\text{P}(Z > -a) = \\text{P}(Z < a) = \\Phi(a)$.",
+   "Find $\\Phi(a)$ from the normal table or your calculator's normal cdf. Quick check: 51 is below the mean of 53, so most sample means are above 51 and your probability should be well over 0.5. Give 3 s.f."
+  ],
+  "walkthrough": [
+   "**What the question is asking**\n\nPeople take different amounts of time to do the task. For one person the time has mean $\\mu = 53.0$ minutes and standard deviation $\\sigma = 6.2$ minutes.\n\nWe pick **50 people** at random and work out the **average** of their 50 times. Call that sample mean $\\bar{X}$. We want the probability that this average is more than 51 minutes, so $\\text{P}(\\bar{X} > 51)$.",
+   "**Why we can use a normal distribution**\n\nWe are not told the times are normal. But the sample is large ($n = 50$), so by the Central Limit Theorem the sample mean $\\bar{X}$ is approximately normally distributed. That lets us use the normal table.\n\nThe sample mean has the same mean as one person, but it is less spread out, because the high and low times in a sample of 50 tend to cancel:\n\n$$\\text{E}(\\bar{X}) = \\mu = 53.0 \\qquad \\text{standard deviation of } \\bar{X} = \\frac{\\sigma}{\\sqrt{n}}$$",
+   "**Find the standard deviation of the sample mean (B1)**\n\nPut in $\\sigma = 6.2$ and $n = 50$. This is the B1 mark. The mark scheme also accepts the variance form $\\dfrac{6.2^2}{50}$.\n\n$$\\sqrt{50} = 7.0711 \\quad (\\text{calculator})$$\n\n$$\\frac{6.2}{\\sqrt{50}} = \\frac{6.2}{7.0711} = 0.8768$$\n\nCheck using the variance: $6.2^2 = 38.44$, then $\\dfrac{38.44}{50} = 0.7688$, and $\\sqrt{0.7688} = 0.8768$. Same answer.\n\nSo $\\bar{X} \\sim \\text{N}(53.0,\\ 0.7688)$, with standard deviation $0.8768$.",
+   "**Standardise (M1)**\n\nTo use the table we turn 51 into a $z$-value: how many standard deviations it is from the mean. The formula is $z = \\dfrac{\\text{value} - \\text{mean}}{\\text{standard deviation}}$.\n\n$$z = \\frac{51 - 53}{0.8768} = \\frac{-2}{0.8768} = -2.281$$\n\nThis line earns the first M1. Common slip: dividing by $6.2$ instead of $\\dfrac{6.2}{\\sqrt{50}}$. This is a mean of 50 people, so the $\\sqrt{50}$ must be there.",
+   "**Find the correct area (M1)**\n\nWe want the probability that $\\bar{X}$ is **more than** 51, which is the area to the **right** of $z = -2.281$.\n\nTables and calculators usually give the area to the **left**. The normal curve is symmetrical, so the area to the right of $-2.281$ equals the area to the left of $+2.281$:\n\n$$\\text{P}(Z > -2.281) = \\Phi(2.281)$$\n\nCalculator: normal cdf with lower bound $-2.281$ and upper bound a very large number (such as $10^{99}$), mean 0, standard deviation 1. It shows $0.98873$.\n\nQuick check: 51 is below the mean of 53, so a sample mean above 51 is very likely. An answer close to 1 makes sense.",
+   "**Final answer**\n\n$$\\text{P}(\\bar{X} > 51) = 0.98873\\ldots = 0.989 \\text{ (3 s.f.)}$$"
+  ]
+ }
+}

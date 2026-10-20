@@ -1,0 +1,48 @@
+{
+ "9709_s25_61_q5_a_i": {
+  "hints": [
+   "$W$ and $X$ are independent Poisson variables, so $W + X$ is also Poisson: add the two means given in the question.",
+   "$3 \\leqslant W + X \\leqslant 5$ means the values $3, 4, 5$. Write $\\text{P}(W+X=r) = \\text{e}^{-\\lambda}\\dfrac{\\lambda^r}{r!}$ for those three values and add them."
+  ],
+  "walkthrough": [
+   "**Combine the two Poisson variables**\n\nWhen two independent Poisson variables are added, the result is also Poisson, and its mean is the sum of the means. So $W + X \\sim \\text{Po}(1.2 + 2.3)$, i.e. $\\text{Po}(3.5)$. Call this mean $\\lambda = 3.5$.",
+   "**Write the probability as a sum (this earns the M1)**\n\n$3 \\leqslant W + X \\leqslant 5$ includes the values $3$, $4$ and $5$ (both ends are included because of the \"$\\leqslant$\").\n\n$$\\text{P}(3 \\leqslant W+X \\leqslant 5) = \\text{e}^{-3.5}\\left(\\frac{3.5^3}{3!} + \\frac{3.5^4}{4!} + \\frac{3.5^5}{5!}\\right)$$\n\nThe scheme allows one end error (for instance using $2$ to $5$), but the expression or terms must be visible.",
+   "**Work out each term**\n\n$$\\frac{3.5^3}{3!} = \\frac{42.875}{6} = 7.1458 \\qquad \\frac{3.5^4}{4!} = \\frac{150.0625}{24} = 6.2526 \\qquad \\frac{3.5^5}{5!} = \\frac{525.21875}{120} = 4.3768$$\n\n$\\text{e}^{-3.5} = 0.030197$ (type it into your calculator). Multiply:\n\n$$0.030197 \\times 7.1458 = 0.21579 \\qquad 0.030197 \\times 6.2526 = 0.18881 \\qquad 0.030197 \\times 4.3768 = 0.13217$$",
+   "**Add them (this earns the A1)**\n\n$$0.21579 + 0.18881 + 0.13217 = 0.53677$$\n\nCalculator check: Poisson cdf with mean $3.5$ at $5$ minus the cdf at $2$ gives the same number.",
+   "**Final answer**\n\n$$\\text{P}(3 \\leqslant W+X \\leqslant 5) = 0.537 \\text{ (3 s.f.)}$$"
+  ]
+ },
+ "9709_s25_61_q5_a_ii": {
+  "hints": [
+   "$S$ is a sum of independent Poisson values, so it is Poisson, with mean $1.2 \\times 100 + 2.3 \\times 200$. That mean is large, so approximate with a Normal distribution that has the same mean.",
+   "For a Poisson variable the variance equals the mean. Use that for $S$, so the Normal's variance is the same expression as the mean.",
+   "$S$ takes whole-number values only, so use a continuity correction: $S > 600$ means $S \\geqslant 601$, so decide which boundary between $600$ and $601$ to use. Then standardise: $z = \\dfrac{\\text{boundary} - \\text{mean}}{\\sqrt{\\text{variance}}}$.",
+   "Work out the fraction on your calculator. The boundary is above the mean, so $z$ will be positive.",
+   "$\\text{P}(S > 600)$ is an upper-tail probability, so write it as $1 - \\Phi(z)$ with your $z$.",
+   "Find $\\Phi(z)$ from the table or calculator, subtract it from 1 and round to 3 s.f."
+  ],
+  "walkthrough": [
+   "**Find the distribution of $S$**\n\n$S$ adds 100 independent values of $W \\sim \\text{Po}(1.2)$ and 200 independent values of $X \\sim \\text{Po}(2.3)$. Adding independent Poisson variables gives a Poisson variable with the means added. 100 values of $W$ give mean $1.2 \\times 100 = 120$; 200 values of $X$ give mean $2.3 \\times 200 = 460$.\n\n$$S \\sim \\text{Po}(120 + 460) = \\text{Po}(580)$$",
+   "**Why we approximate with a Normal (this earns the B1)**\n\nPoisson probabilities for $\\text{P}(S > 600)$ would need dozens of terms with huge numbers. When the Poisson mean is large (say above 15), it is very close to a Normal distribution with the **same mean**. And for a Poisson, the variance equals the mean (this earns the first M1):\n\n$$S \\approx \\text{N}(580, 580)$$\n\nHere the first 580 is the mean and the second is the **variance** (not the standard deviation).",
+   "**Continuity correction**\n\n$S$ is discrete (whole numbers) but the Normal is continuous. $S > 600$ means $S$ could be $601, 602, \\dots$, so the first value included is $601$. On the continuous scale, $601$ starts halfway between $600$ and $601$, at $600.5$. So $\\text{P}(S > 600)$ becomes $\\text{P}(S_{\\text{Normal}} > 600.5)$. The scheme allows this step to be missed or wrong without losing the M1.",
+   "**Standardise (this earns the second M1 and the A1)**\n\n$$z = \\frac{600.5 - 580}{\\sqrt{580}}$$\n\nTop line: $600.5 - 580 = 20.5$. Bottom line: $\\sqrt{580} = 24.083$ (this is the standard deviation, the square root of the variance).\n\n$$z = \\frac{20.5}{24.083} = 0.851$$\n\nQuick check: the boundary is above the mean, so $z$ must be positive, which it is.",
+   "**Use the correct tail (this earns the third M1)**\n\nWe want the area **above** $z = 0.851$. Tables and calculators give the area **below**, so subtract from 1:\n\n$$\\text{P}(S > 600) = 1 - \\Phi(0.851)$$\n\nNote: the printed scheme writes $\\Phi(\\text{‘}0.581\\text{’})$ here, which is a misprint of the digits; the value on the line above, $0.851$, is the right one.",
+   "**Read off the answer**\n\n$\\Phi(0.851)$: use the normal table or your calculator's normal cdf. It shows $0.8026$.\n\n$$1 - 0.8026 = 0.1974$$\n\nThis is the final A1. Quick check: $600$ is only about $0.8$ standard deviations above the mean, so an upper-tail probability of about one in five is believable.",
+   "**Final answer**\n\n$$\\text{P}(S > 600) = 0.197 \\text{ (3 s.f.)}$$"
+  ]
+ },
+ "9709_s25_61_q5_b": {
+  "hints": [
+   "Write each probability with $\\text{P}(Y = r) = \\text{e}^{-\\lambda}\\dfrac{\\lambda^r}{r!}$ for $r = 3, 4, 5$ and put them into the given equation.",
+   "Every term has the factor $\\text{e}^{-\\lambda}\\lambda^3$. Cancel it, then multiply through to clear the fractions, which leaves a quadratic equation in $\\lambda$.",
+   "Solve the quadratic by factorising or the formula. The question says $\\lambda > 0$, so one of the roots must be rejected."
+  ],
+  "walkthrough": [
+   "**Write each probability (this earns the B1)**\n\nFor a Poisson variable $\\text{P}(Y = r) = \\text{e}^{-\\lambda}\\dfrac{\\lambda^r}{r!}$. Put $r = 3, 4, 5$ into $\\dfrac52\\text{P}(Y=3) + \\text{P}(Y=4) = \\text{P}(Y=5)$:\n\n$$\\frac52 \\times \\text{e}^{-\\lambda}\\frac{\\lambda^3}{3!} + \\text{e}^{-\\lambda}\\frac{\\lambda^4}{4!} = \\text{e}^{-\\lambda}\\frac{\\lambda^5}{5!}$$\n\n$\\text{e}^{-\\lambda}$ is in every term, so it can be dropped (the scheme accepts the equation with or without it):\n\n$$\\frac52 \\times \\frac{\\lambda^3}{3!} + \\frac{\\lambda^4}{4!} = \\frac{\\lambda^5}{5!}$$",
+   "**Simplify to a quadratic (this earns the M1)**\n\nFirst the factorials: $3! = 6$, $4! = 24$, $5! = 120$.\n\n$$\\frac52 \\times \\frac{\\lambda^3}{6} + \\frac{\\lambda^4}{24} = \\frac{\\lambda^5}{120}$$\n\nSince $\\lambda > 0$, we may divide every term by $\\lambda^3$ (this does not lose any solution we want):\n\n$$\\frac{5}{12} + \\frac{\\lambda}{24} = \\frac{\\lambda^2}{120}$$\n\nTo clear all the fractions multiply every term by $120$ (the smallest number that $12$, $24$ and $120$ all divide into):\n\n$$\\frac{5}{12} \\times 120 = 50 \\qquad \\frac{\\lambda}{24} \\times 120 = 5\\lambda \\qquad \\frac{\\lambda^2}{120} \\times 120 = \\lambda^2$$\n\n$$50 + 5\\lambda = \\lambda^2 \\quad\\Longrightarrow\\quad \\lambda^2 - 5\\lambda - 50 = 0$$",
+   "**Solve (this earns the A1)**\n\nLook for two numbers that multiply to $-50$ and add to $-5$: those are $-10$ and $+5$.\n\n$$(\\lambda - 10)(\\lambda + 5) = 0 \\quad\\Longrightarrow\\quad \\lambda = 10 \\text{ or } \\lambda = -5$$\n\n(With the formula: $\\lambda = \\dfrac{5 \\pm \\sqrt{25 + 4 \\times 50}}{2} = \\dfrac{5 \\pm 15}{2}$.)\n\nThe question says $\\lambda > 0$, so we reject $\\lambda = -5$ (a Poisson mean cannot be negative).",
+   "**Check**\n\nWith $\\lambda = 10$: $\\text{P}(Y=3) = 0.007567$, $\\text{P}(Y=4) = 0.018917$, $\\text{P}(Y=5) = 0.037833$. Then $\\dfrac52 \\times 0.007567 + 0.018917 = 0.018917 + 0.018917 = 0.037833$. It matches.",
+   "**Final answer**\n\n$$\\lambda = 10$$"
+  ]
+ }
+}

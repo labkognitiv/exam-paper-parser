@@ -1,0 +1,33 @@
+{
+ "9709_s25_61_q3_a": {
+  "hints": [
+   "The unbiased estimate of the population mean is the sample mean, $\\dfrac{\\sum t}{n}$, using $\\sum t = 2750$ and $n = 60$.",
+   "For the unbiased estimate of the variance use $s^2 = \\dfrac{1}{n-1}\\left(\\sum t^2 - \\dfrac{(\\sum t)^2}{n}\\right)$, which divides by $n - 1$, not $n$. You have $\\sum t^2 = 127000$.",
+   "Put $n = 60$, $\\sum t = 2750$, $\\sum t^2 = 127000$ into that formula and divide by $59$. Keep the answer unrounded in your calculator; you will need it in (b)."
+  ],
+  "walkthrough": [
+   "**What \"unbiased estimate\" means**\n\nWe only have a sample of 60 days, not every day. An **unbiased estimate** is a value calculated from the sample that, on average, hits the true population value. The best one for the mean $\\mu$ is the sample mean $\\bar{t}$. For the variance $\\sigma^2$ it is $s^2$, which divides by $n - 1$ rather than $n$ (dividing by $n$ would give a value that is too small on average).",
+   "**Estimate of the mean (this earns the B1)**\n\n$$\\bar{t} = \\frac{\\sum t}{n} = \\frac{2750}{60}$$\n\n$2750 \\div 60 = 45.8333\\ldots$, which is $\\dfrac{275}{6}$ as a fraction. So the estimate of $\\mu$ is $45.8$ minutes (3 s.f.).",
+   "**Set up the variance estimate (this earns the M1)**\n\nThe formula is:\n\n$$s^2 = \\frac{1}{n-1}\\left(\\sum t^2 - \\frac{(\\sum t)^2}{n}\\right) = \\frac{1}{59}\\left(127000 - \\frac{2750^2}{60}\\right)$$\n\nThe scheme also accepts the equivalent form $\\dfrac{60}{59}\\left(\\dfrac{127000}{60} - \\left(\\dfrac{275}{6}\\right)^2\\right)$. If you divide by $60$ instead of $59$ you get the biased value $15.97$, which scores M0.",
+   "**Evaluate it, one piece at a time**\n\n$$2750^2 = 7\\,562\\,500 \\qquad \\frac{7\\,562\\,500}{60} = 126\\,041.667$$\n\n$$127000 - 126\\,041.667 = 958.333$$\n\n$$s^2 = \\frac{958.333}{59} = 16.2429$$\n\nQuick check: $s = \\sqrt{16.24} = 4.03$ minutes. A typical spread of about 4 minutes around a mean of about 46 is believable.",
+   "**Final answer**\n\nUnbiased estimate of the population mean: $\\dfrac{275}{6} = 45.8$ minutes (3 s.f.).\n\nUnbiased estimate of the population variance: $16.2$ (3 s.f.), or exactly $\\dfrac{2875}{177}$."
+  ]
+ },
+ "9709_s25_61_q3_b": {
+  "hints": [
+   "The passenger believes the mean is **greater** than 45. Write $\\text{H}_0$ and $\\text{H}_1$ in terms of the population mean $\\mu$, with a one-tailed $\\text{H}_1$.",
+   "The sample mean of 60 days is Normal with variance $\\sigma^2/60$. Use $z = \\dfrac{\\bar{t} - 45}{\\sqrt{s^2/60}}$ with your two estimates from (a).",
+   "Use the unrounded estimates from (a). The numerator is your sample mean minus 45; the denominator is the square root of your variance estimate divided by 60.",
+   "For a one-tailed test at 5% the critical $z$-value is $1.645$. Compare your $z$ with it (or compare $1 - \\Phi(z)$ with $0.05$).",
+   "Say whether your $z$ is in the rejection region, say what happens to $\\text{H}_0$, and then word the conclusion in context and not definitely (\"there is evidence that...\" or \"there is insufficient evidence that...\")."
+  ],
+  "walkthrough": [
+   "**Set up the hypotheses (this earns the B1)**\n\nA hypothesis test starts by assuming the claim is true (the null hypothesis, $\\text{H}_0$) and checks whether the sample gives enough evidence against it. Let $\\mu$ be the population mean journey time in minutes.\n\n$$\\text{H}_0: \\mu = 45 \\qquad \\text{H}_1: \\mu > 45$$\n\n$\\text{H}_1$ has \"$>$\" because the passenger believes the mean is **greater** than 45. That makes it a one-tailed test, with the rejection region in the upper tail. Write $\\mu$ or \"population mean\", not just \"mean\".",
+   "**What distribution do we use?**\n\nThe journey time $T$ is Normally distributed, so the mean of a sample of 60 days is also Normal. If $\\text{H}_0$ is true, the sample mean $\\bar{T}$ has mean $45$ and variance $\\dfrac{\\sigma^2}{60}$. We do not know $\\sigma^2$, but the sample is fairly large, so we use our unbiased estimate $s^2$ from (a):\n\n$$\\bar{T} \\sim \\text{N}\\left(45, \\frac{s^2}{60}\\right)$$",
+   "**Calculate the test statistic (this earns the M1 and the A1)**\n\nStandardise: subtract the mean and divide by the standard deviation of $\\bar{T}$. The scheme requires $\\sqrt{60}$ to be in the working (i.e. $\\sqrt{\\tfrac{s^2}{60}}$), because this is a mean of 60 days.\n\n$$z = \\frac{\\frac{275}{6} - 45}{\\sqrt{\\frac{16.24294}{60}}}$$\n\nTop line: $45.8333 - 45 = 0.8333$.\n\nBottom line: $\\dfrac{16.24294}{60} = 0.270716$ and $\\sqrt{0.270716} = 0.52030$.\n\n$$z = \\frac{0.8333}{0.52030} = 1.602$$\n\nIf you used the biased variance $15.97$ you would get about $1.61$; the scheme only allows that as follow-through from a wrong (a).",
+   "**Compare with the critical value (this earns the second M1)**\n\nFor a one-tailed 5% test the critical value is the $z$ with 5% above it: $\\Phi^{-1}(0.95) = 1.645$ (use your calculator's inverse normal, or the table). We would reject $\\text{H}_0$ only if $z > 1.645$.\n\n$$1.602 < 1.645$$\n\nSo $z$ is **not** in the rejection region.\n\nEquivalent check: the probability of a $z$ this large or larger is $1 - \\Phi(1.602) = 0.0546$, and $0.0546 > 0.05$. Both ways give the same decision.",
+   "**Make the decision and conclude in context (this earns the A1 FT)**\n\n$z$ is not in the rejection region, so we accept $\\text{H}_0$ (do not reject it). Wording matters: we cannot say we have **proved** the mean is 45, only that the sample does not give enough evidence against it. And we must not be definite, so avoid \"the mean time is more than 45 minutes\".\n\nAnother accepted route is the critical value of the sample mean, $45.856$: our sample mean $45.83$ is below it.",
+   "**Final answer**\n\n$z = 1.602 < 1.645$, so accept $\\text{H}_0$.\n\nThere is insufficient evidence, at the 5% significance level, to reject the bus company's claim (or: insufficient evidence that the mean journey time is more than 45 minutes)."
+  ]
+ }
+}

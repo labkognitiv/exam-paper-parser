@@ -1,0 +1,57 @@
+{
+ "9709_s20_62_q4_a": {
+  "hints": [
+   "$\\text{E}(X) = \\sum x\\,\\text{P}(X = x)$: multiply each score in the table by its probability and add (the score 0 contributes nothing).",
+   "Use $\\text{Var}(X) = \\text{E}(X^2) - [\\text{E}(X)]^2$, where $\\text{E}(X^2) = \\sum x^2\\,\\text{P}(X = x)$. Square each score before multiplying by its probability, then subtract the square of the mean you just found. Check you reach the printed value."
+  ],
+  "walkthrough": [
+   "**The mean**\n\nThe mean is each score multiplied by its probability, added up:\n\n$$\\text{E}(X) = 0(0.1) + 1(0.2) + 2(0.4) + 3(0.2) + 4(0.1) = 0 + 0.2 + 0.8 + 0.6 + 0.4 = 2$$\n\nThis earns the first **B1**.",
+   "**The mean of the squares**\n\nNow square each score first, then multiply by its probability:\n\n$$\\text{E}(X^2) = 0^2(0.1) + 1^2(0.2) + 2^2(0.4) + 3^2(0.2) + 4^2(0.1)$$\n\n$$= 0 + 0.2 + 1.6 + 1.8 + 1.6 = 5.2$$",
+   "**The variance**\n\nThe variance is the mean of the squares minus the square of the mean:\n\n$$\\text{Var}(X) = \\text{E}(X^2) - [\\text{E}(X)]^2 = 5.2 - 2^2 = 5.2 - 4 = 1.2$$\n\nThis is the printed result, and this line earns the second **B1**. (The mark scheme writes $0.2 \\times 1$ for the first term, which equals $0.2 \\times 1^2$.)",
+   "**Final answer**\n\n$\\text{Var}(X) = 1.2$, as required (shown). (B1 B1)"
+  ]
+ },
+ "9709_s20_62_q4_b": {
+  "hints": [
+   "For 200 spins, the Central Limit theorem says $\\bar{X}$ is approximately normal, with mean equal to $\\text{E}(X)$ and variance $\\dfrac{\\text{Var}(X)}{200}$, using your values from part (a). Standardise: $\\dfrac{a - \\text{mean}}{\\sqrt{1.2/200}}$.",
+   "$\\text{P}(\\bar{X} > a) = 0.1$ is an upper-tail probability, so the area to the **left** of $a$ is $1 - 0.1$. Find the $z$-value with that area to its left using the inverse normal (the right-hand side of your equation).",
+   "Set the standardised expression equal to that $z$-value, then rearrange for $a$: $a = \\text{mean} + z \\times \\text{standard error}$.",
+   "Substitute your values into $a = \\text{mean} + z \\times \\sqrt{1.2/200}$, evaluate on your calculator and give 3 significant figures."
+  ],
+  "walkthrough": [
+   "**The distribution of the sample mean**\n\n$\\bar{X}$ is the mean of 200 spins. 200 is large, so by the Central Limit theorem $\\bar{X}$ is approximately normal. From part (a), one spin has mean $2$ and variance $1.2$. For the mean of $n = 200$ spins:\n\n- mean of $\\bar{X}$ = $2$ (the same as one spin)\n\n- variance of $\\bar{X}$ = $\\dfrac{1.2}{200}$\n\n$$\\bar{X} \\approx \\text{N}\\left(2, \\frac{1.2}{200}\\right)$$\n\nCalculate the pieces: $\\frac{1.2}{200} = 0.006$, and the standard deviation is $\\sqrt{0.006} = 0.07746\\ldots$",
+   "**Standardise**\n\nFor the value $a$, the $z$-value is\n\n$$z = \\frac{a - 2}{\\sqrt{1.2 \\div 200}} = \\frac{a - 2}{0.07746\\ldots}$$\n\nThis is the 'LHS' mark (**M1**).",
+   "**Find the $z$ that goes with the probability**\n\nWe are told $\\text{P}(\\bar{X} > a) = 0.1$. Normal tables and calculators give the area to the **left**, so\n\n$$\\text{P}(\\bar{X} < a) = 1 - 0.1 = 0.9$$\n\nWe need $z$ with $\\Phi(z) = 0.9$. Use inverse normal on your calculator (or look 0.9 up inside the table):\n\n$$z = \\Phi^{-1}(0.9) = 1.2816\\ldots \\approx 1.282$$\n\nThis is the 'RHS' mark (**M1**). It is positive, because $a$ is above the mean.",
+   "**Form the equation**\n\nSet the standardised value equal to this $z$:\n\n$$\\frac{a - 2}{0.07746\\ldots} = 1.282$$\n\nMultiply both sides by $0.07746\\ldots$ and add 2:\n\n$$a = 2 + 0.07746\\ldots \\times 1.282$$\n\nThis is the next **M1**.",
+   "**Calculate**\n\n$$0.07746\\ldots \\times 1.282 = 0.09930\\ldots$$\n\n$$a = 2 + 0.09930\\ldots = 2.0993\\ldots$$\n\nQuick check: it makes sense that $a$ is only slightly above the mean 2, because the mean of 200 spins varies very little.",
+   "**Final answer**\n\n$a = \\mathbf{2.10}$ (3 s.f.). (A1)"
+  ]
+ },
+ "9709_s20_62_q4_c": {
+  "hints": [
+   "Look at the table. Is $X$ itself normally distributed, or is it discrete with only five possible values? Decide whether you had to rely on the Central Limit theorem to treat $\\bar{X}$ as normal."
+  ],
+  "walkthrough": [
+   "**What the Central Limit theorem does**\n\nThe Central Limit theorem says that the mean of a large sample is approximately normal **even if the original variable is not normal**. We only need it when $X$ itself is not normal. (If $X$ were normal, $\\bar{X}$ would be exactly normal and no theorem would be needed.)",
+   "**Is $X$ normal?**\n\n$X$ is the score on one spin: it can only take the five values $0, 1, 2, 3, 4$. A normal variable is continuous and can take any value. So $X$ is not normally distributed, even though its table looks symmetrical.",
+   "**Final answer**\n\nYes, it was necessary, because $X$ is not normally distributed (it is discrete), so we needed the Central Limit theorem to say that $\\bar{X}$ is approximately normal. (B1)"
+  ]
+ },
+ "9709_s20_62_q4_d": {
+  "hints": [
+   "Let $\\mu$ be the population mean score of Johann's spinner. $\\text{H}_0$: $\\mu = 2$. His suspicion is that the mean is **less than** 2, so decide what $\\text{H}_1$ is (a one-tailed test).",
+   "Under $\\text{H}_0$, with 200 spins, $\\bar{X}$ is approximately $\\text{N}\\left(2, \\dfrac{1.2}{200}\\right)$. Standardise Johann's sample mean: $z = \\dfrac{1.86 - 2}{\\sqrt{1.2/200}}$.",
+   "Evaluate that $z$ on your calculator, taking care over the sign: the sample mean is smaller than the hypothesised mean.",
+   "Find the critical value for a 5% test with the rejection region in the **lower** tail: it is $\\Phi^{-1}(0.05)$, which is $-1.645$.",
+   "Compare your $z$ with the critical value: is it inside the rejection region (below it)? Decide whether to reject $\\text{H}_0$, then write the conclusion in the context of Johann's spinner, in non-definite words such as 'there is evidence that…' or 'there is insufficient evidence that…'."
+  ],
+  "walkthrough": [
+   "**Hypotheses**\n\nLet $\\mu$ be the population mean score of Johann's spinner (the long-run average score per spin).\n\n$$\\text{H}_0: \\mu = 2$$\n\n$$\\text{H}_1: \\mu < 2$$\n\nWe use $\\mu = 2$ because that is the mean of a fair spinner like the first one, and $<$ because Johann suspects the mean is **less than** 2 (one-tailed). This earns the **B1**.",
+   "**Distribution under $\\text{H}_0$**\n\nThe variance of one spin is given as $1.2$. With 200 spins, the sample mean $\\bar{X}$ is approximately normal (Central Limit theorem), assuming $\\text{H}_0$ is true:\n\n$$\\bar{X} \\approx \\text{N}\\left(2, \\frac{1.2}{200}\\right)$$\n\nThe standard deviation of $\\bar{X}$ is $\\sqrt{1.2 \\div 200} = \\sqrt{0.006} = 0.07746\\ldots$",
+   "**Test statistic**\n\nJohann's sample mean is $1.86$. Standardise it: subtract the hypothesised mean, then divide by the standard deviation of $\\bar{X}$:\n\n$$z = \\frac{1.86 - 2}{\\sqrt{1.2 \\div 200}} = \\frac{-0.14}{0.07746\\ldots}$$\n\nThis line earns the **M1**. On the calculator:\n\n$$z = -1.8073\\ldots \\approx -1.807$$\n\nThis earns the first **A1**. The sign is negative because $1.86$ is below $2$. Keep the minus sign: it matters when comparing.",
+   "**Critical value**\n\nThe test is at the 5% level and the alternative is 'less than', so the whole 5% sits in the lower tail. The critical $z$-value is the one with area $0.05$ to its left:\n\n$$\\Phi^{-1}(0.05) = -1.645$$\n\nThe rejection region is $z < -1.645$. This earns the second **M1** (comparison with $1.645$).",
+   "**Compare**\n\n$$-1.807 < -1.645$$\n\nSo our $z$ is further into the lower tail than the critical value: it lies **inside** the rejection region.\n\n(Equivalent check: $\\text{P}(Z < -1.807) = 0.0354$, and $0.0354 < 0.05$.)\n\nSo we reject $\\text{H}_0$.",
+   "**Final answer**\n\n$z = -1.807$, which is less than $-1.645$, so reject $\\text{H}_0$. There is evidence, at the 5% significance level, that Johann's spinner is biased so that its mean score is less than 2. (A1)"
+  ]
+ }
+}

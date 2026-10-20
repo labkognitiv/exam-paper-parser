@@ -1,0 +1,54 @@
+{
+ "9709_s23_63_q8_a": {
+  "hints": [
+   "The councillor wants to know whether the mean has **increased**, so it is a one-tailed test. Write $\\text{H}_0$ and $\\text{H}_1$ in terms of the population mean number of people (say $\\lambda$) per 20 minutes, starting from $1.01$.",
+   "You counted over 3 periods of 20 minutes, so scale the mean: multiply $1.01$ by $3$. Under $\\text{H}_0$ the total $N$ has a Poisson distribution with that mean.",
+   "An increase is shown by a large count. Since $n = 6$, you need $\\text{P}(N \\geqslant 6) = 1 - \\text{P}(N \\leqslant 5)$. Write $\\text{P}(N \\leqslant 5)$ as the sum of $\\text{e}^{-\\lambda}\\dfrac{\\lambda^r}{r!}$ for $r = 0$ to $5$.",
+   "Take out the common factor $\\text{e}^{-\\lambda}$, work out each of the six terms in the bracket, add them, multiply and take the result away from $1$. (Or use the Poisson cdf on your calculator.)",
+   "Compare your probability with the significance level, $0.05$. For a valid comparison, say which one is bigger.",
+   "Decide whether to reject $\\text{H}_0$, then write the conclusion in context, about the mean number of people using the path. Don't write it as a definite statement."
+  ],
+  "walkthrough": [
+   "**What the test is**\n\nWe want to know if the number of people using the path has **increased**. That makes it a one-tailed test (only high counts count as evidence). The significance level is $5\\%$.\n\nThe number of people arriving in a fixed time period, at random, is modelled with a Poisson distribution.",
+   "**Hypotheses (this earns the B1)**\n\nLet $\\lambda$ be the population mean number of people using the path in a 20-minute period in the evening.\n\n$$\\text{H}_0: \\lambda = 1.01 \\qquad \\text{H}_1: \\lambda > 1.01$$\n\nWe always state the hypotheses in terms of the mean in words, not just 'mean'. (Writing the mean for 3 periods as $3.03$ is also accepted.)",
+   "**The distribution under $\\text{H}_0$ (this earns the first M1)**\n\nThe count $N$ was over $3$ periods of $20$ minutes. For a Poisson variable the mean scales with the time, so the mean over $3$ periods is $3 \\times 1.01 = 3.03$:\n\n$$N \\sim \\text{Po}(3.03)$$",
+   "**Find the probability of a result at least this extreme (this earns the second M1)**\n\nWe observed $n = 6$. The evidence for an increase is a count of $6$ or **more**, so we find $\\text{P}(N \\geqslant 6)$. For a Poisson distribution it is easier to work out the opposite and subtract from $1$:\n\n$$\\text{P}(N \\geqslant 6) = 1 - \\text{P}(N \\leqslant 5) = 1 - \\text{e}^{-3.03}\\left(1 + 3.03 + \\frac{3.03^2}{2!} + \\frac{3.03^3}{3!} + \\frac{3.03^4}{4!} + \\frac{3.03^5}{5!}\\right)$$\n\nNote: using only $\\text{P}(N = 6)$ (one term) is not a valid test and scores at most $2$ out of $6$.",
+   "**Evaluate (this earns the A1)**\n\nThe six terms in the bracket: $1$; $3.03$; $\\dfrac{3.03^2}{2} = 4.5905$; $\\dfrac{3.03^3}{6} = 4.6364$; $\\dfrac{3.03^4}{24} = 3.5120$; $\\dfrac{3.03^5}{120} = 2.1283$.\n\nAdd them: $1 + 3.03 + 4.5905 + 4.6364 + 3.5120 + 2.1283 = 18.8972$.\n\n$\\text{e}^{-3.03} = 0.048316$. Multiply: $0.048316 \\times 18.8972 = 0.91303$.\n\n$$\\text{P}(N \\geqslant 6) = 1 - 0.91303 = 0.0870 \\text{ (3 s.f.)}$$\n\nCalculator shortcut: $1 - $ Poisson cdf with $\\lambda = 3.03$ and upper value $5$.",
+   "**Compare (this earns the third M1)**\n\nThe significance level is $5\\% = 0.05$. Our probability is $0.0870$.\n\n$$0.0870 > 0.05$$\n\nA result as extreme as this happens by chance more than $5\\%$ of the time when $\\text{H}_0$ is true. It is not unusual enough.",
+   "**Conclusion (this earns the last A1)**\n\nThe probability is larger than the significance level, so we do **not** reject $\\text{H}_0$. In context, and not definite: there is insufficient evidence that the mean number of people using the path has increased. (Saying 'the mean has not increased' is too definite.)",
+   "**Final answer**\n\n$\\text{P}(N \\geqslant 6) = 0.0870$ (3 s.f.) $> 0.05$, so do not reject $\\text{H}_0$. There is insufficient evidence, at the $5\\%$ level, that the mean number of people using the path per 20 minutes has increased."
+  ]
+ },
+ "9709_s23_63_q8_b": {
+  "hints": [
+   "A Type I error means rejecting $\\text{H}_0$ when it is true, so its probability is $\\text{P}(N \\text{ is in the critical region})$ under $\\text{Po}(\\ldots)$ with the same mean as in (a). From your answer to (a), is a count of $6$ in the critical region? Which counts must the critical region start from, so that its probability is at most $0.05$?",
+   "The critical region starts at the first count whose '$\\geqslant$' probability is at most $0.05$. For the next count up, use $\\text{P}(N \\geqslant 7) = \\text{P}(N \\geqslant 6) - \\text{P}(N = 6)$, with $\\text{P}(N = 6) = \\text{e}^{-\\lambda}\\dfrac{\\lambda^6}{6!}$. Work out $\\text{P}(N = 6)$ and subtract it from your value in (a)."
+  ],
+  "walkthrough": [
+   "**What a Type I error probability is**\n\nThe probability of a Type I error is the probability of rejecting $\\text{H}_0$ when $\\text{H}_0$ is actually true. So it is the probability of landing in the **critical region** (the set of counts that make you reject), calculated under $\\text{Po}(3.03)$.",
+   "**Find the critical region**\n\nWe reject if $\\text{P}(N \\geqslant c) \\leqslant 0.05$. From (a), $\\text{P}(N \\geqslant 6) = 0.0870$, which is more than $0.05$, so a count of $6$ is **not** in the critical region. That is why we did not reject.\n\nTry $7$: $\\text{P}(N \\geqslant 7) = \\text{P}(N \\geqslant 6) - \\text{P}(N = 6)$, because 'at least 7' is 'at least 6' without the case of exactly 6.",
+   "**Work out $\\text{P}(N = 6)$ and subtract (this earns the M1)**\n\n$$\\text{P}(N = 6) = \\text{e}^{-3.03} \\times \\frac{3.03^6}{6!} = 0.048316 \\times \\frac{773.9}{720} = 0.048316 \\times 1.0748 = 0.05193$$\n\n$$\\text{P}(N \\geqslant 7) = 0.086973 - 0.05193 = 0.0350$$\n\nThis is less than $0.05$, so the critical region is $N \\geqslant 7$. (Another route: $1 - \\text{e}^{-3.03}\\left(1 + 3.03 + \\dots + \\dfrac{3.03^6}{6!}\\right)$.)\n\nNote: the mark scheme prints '$0.869727$' in one of its lines. This is a misprint for $0.0869727$ (our value from (a)); the final value is unaffected.",
+   "**Final answer**\n\nThe probability of a Type I error is $0.0350$ (3 s.f.). The mark scheme also accepts $0.0351$."
+  ]
+ },
+ "9709_s23_63_q8_c": {
+  "hints": [
+   "A Type I error is rejecting $\\text{H}_0$ when $\\text{H}_0$ is actually true. Say what $\\text{H}_0$ and your conclusion would be here, in terms of the people using the path."
+  ],
+  "walkthrough": [
+   "**What a Type I error is**\n\nA Type I error happens when we reject $\\text{H}_0$ even though it is true. Here $\\text{H}_0$ says the mean number of people has not changed.",
+   "**Final answer**\n\nA Type I error is concluding that the mean number of people using the path (per 20 minutes in the evening) has increased, when in fact it has not."
+  ]
+ },
+ "9709_s23_63_q8_d": {
+  "hints": [
+   "A Type II error is not rejecting $\\text{H}_0$ when it is false. Its probability is $\\text{P}(N \\text{ is not in the critical region})$ calculated for the **actual** distribution of $N$, not the one in $\\text{H}_0$. What do you need to know about that actual distribution?",
+   "Say it in context: what is the quantity, and how is it measured (per how long, where, when)?"
+  ],
+  "walkthrough": [
+   "**What a Type II error is**\n\nA Type II error is failing to reject $\\text{H}_0$ when $\\text{H}_0$ is false. To find its probability we would calculate the chance that the count falls outside the critical region ($N \\leqslant 6$), but using the **true** distribution of $N$, not the one assumed in $\\text{H}_0$.",
+   "**What is missing**\n\nWe do not know the true distribution. For a Poisson distribution that means we need the value of its mean. Here, that is the true mean number of people using the path (per 20-minute period in the evening) after the light was installed. Then the count over $3$ periods would be Poisson with $3$ times that mean.",
+   "**Final answer**\n\nWe would need a value for the true mean number of people using the path per 20 minutes in the evening (after the light was installed)."
+  ]
+ }
+}

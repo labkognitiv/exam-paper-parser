@@ -1,0 +1,18 @@
+{
+  "9709_s23_62_q1": {
+    "hints": [
+      "For a proportion, the approximate confidence interval is $\\hat{p} \\pm z\\sqrt{\\dfrac{\\hat{p}(1-\\hat{p})}{n}}$. Write it with $\\hat{p} = 0.23$ (23% as a decimal) and $n = 200$.",
+      "A 93% interval leaves $7\\%$ to share between the two tails. Work out how much is in each tail, then find the $z$ whose normal cdf $\\Phi(z)$ equals the area to the left of the upper end (inverse normal on your calculator or the tables).",
+      "Evaluate the square root $\\sqrt{\\dfrac{0.23 \\times (1-0.23)}{200}}$, multiply it by your $z$, then add it to and subtract it from $0.23$. Give both ends of the interval to 3 s.f."
+    ],
+    "walkthrough": [
+      "**Why this formula**\n\nWe know the proportion in the sample, not in the whole college. In the sample, $23\\% = 0.23$ owned a car. We write $\\hat{p}$ (said 'p-hat') for this sample proportion, so $\\hat{p} = 0.23$. The sample size is $n = 200$.\n\nBecause $n$ is large, the sample proportion is approximately normal, with standard deviation $\\sqrt{\\dfrac{\\hat{p}(1-\\hat{p})}{n}}$ (we use $\\hat{p}$ because we do not know the true proportion). An approximate confidence interval goes $z$ of these standard deviations either side of $\\hat{p}$:\n\n$$\\hat{p} \\pm z\\sqrt{\\frac{\\hat{p}(1-\\hat{p})}{n}}$$",
+      "**Write the interval with our numbers (this is the M1)**\n\n$$0.23 \\pm z \\times \\sqrt{\\frac{0.23 \\times (1 - 0.23)}{200}}$$\n\nThis line, with any value of $z$, earns the M1. Be careful: if you use $z = 0.8328$ the scheme gives B0M0.",
+      "**Find $z$ (this is the B1)**\n\nA 93% interval sits in the middle of the normal curve. That leaves $100\\% - 93\\% = 7\\%$ in the two tails, so $3.5\\%$ in each tail.\n\nThe area to the left of the upper end is $1 - 0.035 = 0.965$. So we need the $z$ with $\\Phi(z) = 0.965$.\n\nOn your calculator use inverse normal (area $0.965$, mean $0$, standard deviation $1$):\n\n$$z = 1.8119\\ldots \\approx 1.812$$\n\nCommon slip: typing $0.93$ into the inverse normal. That would give $z = 1.476$, which is the value for a different (86%) interval.",
+      "**Work out the standard deviation part**\n\nFirst $1 - 0.23 = 0.77$. Then:\n\n$$0.23 \\times 0.77 = 0.1771$$\n\n$$\\frac{0.1771}{200} = 0.0008855$$\n\n$$\\sqrt{0.0008855} = 0.029757\\ldots$$",
+      "**Work out the margin either side of 0.23**\n\n$$1.812 \\times 0.029757 = 0.053920\\ldots$$",
+      "**Find both ends (this is the A1)**\n\nLower end:\n\n$$0.23 - 0.05392 = 0.17608\\ldots$$\n\nUpper end:\n\n$$0.23 + 0.05392 = 0.28392\\ldots$$\n\nThe scheme says the answer **must be an interval**, so write both ends, each to 3 significant figures.",
+      "**Final answer**\n\nThe approximate 93% confidence interval for the proportion is $0.176$ to $0.284$ (3 s.f.)."
+    ]
+  }
+}

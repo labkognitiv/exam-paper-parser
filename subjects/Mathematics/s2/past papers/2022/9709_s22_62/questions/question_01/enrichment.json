@@ -1,0 +1,28 @@
+{
+  "9709_s22_62_q1_a": {
+    "hints": [
+      "A confidence interval for a mean has the form $\\bar{x} \\pm z \\times \\dfrac{\\sigma}{\\sqrt{n}}$. Use $\\bar{x} = 72.3$ and $n = 50$, and let the unbiased estimate $64.3$ stand in for $\\sigma^2$.",
+      "A 92% interval leaves 8% outside it. Split that equally between the two tails, then use the inverse normal on the area that lies below the upper end of the interval to get $z$.",
+      "Work out $\\sqrt{\\dfrac{64.3}{50}}$, multiply it by your $z$, then add and subtract the result from $72.3$ to get the two ends. Give them to 3 significant figures."
+    ],
+    "walkthrough": [
+      "**What we are building and why**\n\nA **confidence interval** is a range of values in which we are fairly sure the true population mean lies. Here the population is *all* throws by this athlete, and we only saw $50$ of them.\n\nThe sample is large ($n = 50$), so the sample mean $\\bar{x}$ is approximately normally distributed (central limit theorem), with mean $\\mu$ and variance $\\dfrac{\\sigma^2}{n}$. That is why a $z$ value is used.\n\nThe formula is\n\n$$\\bar{x} \\pm z \\times \\sqrt{\\frac{\\sigma^2}{n}}$$\n\nHere $\\bar{x}$ means the sample mean, $n$ is the sample size, and $\\sigma^2$ is the population variance.",
+      "**Write down what the question gives us**\n\n$\\bar{x} = 72.3$, $n = 50$. We do not know $\\sigma^2$, but we are given an unbiased estimate of it, $64.3$. With a large sample we use that estimate in place of $\\sigma^2$.\n\nPutting these into the formula gives the expression below. This line earns the **M1**, because it is the correct form with a $z$ value.\n\n$$72.3 \\pm z \\sqrt{\\frac{64.3}{50}}$$",
+      "**Find the z value for 92%**\n\nA 92% interval means $92\\%$ of the probability is in the middle and $100\\% - 92\\% = 8\\%$ is left over for the two tails.\n\nSplit the $8\\%$ equally: $4\\%$ in each tail. So the area *below* the upper end of the interval is $100\\% - 4\\% = 96\\%$, that is $0.96$.\n\nWe need the $z$ with $\\Phi(z) = 0.96$. On your calculator choose inverse normal (InvNorm) with area $0.96$, mean $0$, standard deviation $1$. It shows $1.7506\\ldots$, so\n\n$$z = 1.751 \\text{ (3 d.p.)}$$\n\nThis earns the **B1**. (The scheme also accepts $1.75$.)",
+      "**Work out the standard error**\n\nThe part $\\sqrt{\\dfrac{64.3}{50}}$ measures how much sample means vary. Do the division first, then the square root.\n\n$$\\frac{64.3}{50} = 1.286$$\n\n$$\\sqrt{1.286} = 1.13402\\ldots$$",
+      "**Work out the margin of error**\n\nMultiply $z$ by the standard error:\n\n$$1.751 \\times 1.13402 = 1.98567\\ldots$$\n\nThis is how far each end of the interval sits from the mean.",
+      "**Find the two ends of the interval**\n\nSubtract for the lower end and add for the upper end:\n\n$$72.3 - 1.98567 = 70.31433\\ldots$$\n\n$$72.3 + 1.98567 = 74.28567\\ldots$$\n\nRounded to 3 significant figures these are $70.3$ and $74.3$. Remember to write it as an *interval* (two numbers), not one number. This earns the **A1**.",
+      "**Final answer**\n\nThe 92% confidence interval for the population mean length of throws is\n\n$$70.3 \\text{ m to } 74.3 \\text{ m}$$"
+    ]
+  },
+  "9709_s22_62_q1_b": {
+    "hints": [
+      "A confidence interval of this kind only works if the $50$ throws behave like a *random* sample of all his throws. Ask whether the first $50$ throws in one week would be typical of every throw he makes."
+    ],
+    "walkthrough": [
+      "**What the interval assumes**\n\nThe formula from part **(a)** assumes the sample is **random**: every throw he could ever make has an equal chance of being picked, so the sample represents all his throws.\n\nThe discus thrower used his *first 50 throws in one week*. That is a convenient batch, not a random choice.",
+      "**Why that is a problem**\n\nThrows from one week may be unusual. For example, he may be tired, injured or in a particular training phase, and early throws may be warm-ups. His other weeks could look quite different.\n\nSo the sample could be biased and not representative, and the interval would not be trustworthy for his overall mean.",
+      "**Final answer**\n\nThe sample is **not random** (it is the first 50 throws in one week, so it may not be representative of all his throws). A random sample, for example 50 throws chosen at random over a long period, should be used. This earns the **B1**."
+    ]
+  }
+}

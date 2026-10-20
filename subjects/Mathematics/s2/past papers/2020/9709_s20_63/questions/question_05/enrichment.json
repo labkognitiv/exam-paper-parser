@@ -1,0 +1,46 @@
+{
+ "9709_s20_63_q5_a": {
+  "hints": [
+   "Estimate $p$ using the sample proportion: the number of sixes divided by the number of throws, $\\hat{p} = \\dfrac{70}{500}$.",
+   "For a 99% interval, 1% is split between the two tails, so each tail has $0.5\\%$. You need the $z$ with $\\Phi(z) = 0.995$, a standard value from the tables.",
+   "Use $\\hat{p} \\pm z\\sqrt{\\dfrac{\\hat{p}(1 - \\hat{p})}{n}}$ with your $\\hat{p}$, your $z$ and $n = 500$.",
+   "Work out the lower limit (use $-$) and the upper limit (use $+$) separately, and give each to 3 decimal places."
+  ],
+  "walkthrough": [
+   "**What we are doing**\n\nSunita threw the die $n = 500$ times and got a six $70$ times. We do not know the true probability $p$ of throwing a six, so we use the sample to estimate it and then build an interval that should contain $p$ with 99% confidence.",
+   "**Estimate of $p$ (the first B1)**\n\n$\\hat{p}$ (read 'p hat') is the proportion of sixes in the sample:\n\n$$\\hat{p} = \\frac{70}{500} = 0.14$$",
+   "**The $z$ value for 99% (the second B1)**\n\nA 99% confidence interval leaves $100\\% - 99\\% = 1\\%$ outside. Half of that, $0.5\\%$, is in each tail. So we need the $z$ below which $1 - 0.005 = 0.995$ of the normal distribution lies, i.e. $\\Phi(z) = 0.995$.\n\nFrom the tables, or your calculator's inverse normal with area $0.995$:\n\n$$z = 2.576$$",
+   "**The formula (the M1)**\n\nThe approximate confidence interval for a proportion is\n\n$$\\hat{p} \\pm z\\sqrt{\\frac{\\hat{p}(1 - \\hat{p})}{n}}$$\n\nThe square root part is the standard error: it measures how much $\\hat{p}$ typically varies from sample to sample. Substituting:\n\n$$0.14 \\pm 2.576\\sqrt{\\frac{0.14 \\times (1 - 0.14)}{500}}$$",
+   "**Work out the standard error**\n\nDo the inside first, one piece at a time:\n\n$$1 - 0.14 = 0.86$$\n\n$$0.14 \\times 0.86 = 0.1204$$\n\n$$\\frac{0.1204}{500} = 0.0002408$$\n\n$$\\sqrt{0.0002408} = 0.015517\\ldots$$",
+   "**Multiply by $z$ and build the interval (the A1)**\n\nThe margin of error is\n\n$$2.576 \\times 0.015517\\ldots = 0.03997\\ldots$$\n\nLower limit:\n\n$$0.14 - 0.03997\\ldots = 0.10002\\ldots \\approx 0.100$$\n\nUpper limit:\n\n$$0.14 + 0.03997\\ldots = 0.17997\\ldots \\approx 0.180$$",
+   "**Final answer**\n\nThe approximate 99% confidence interval for $p$ is $0.100$ to $0.180$ (3 d.p.)."
+  ]
+ },
+ "9709_s20_63_q5_b": {
+  "hints": [
+   "A fair die has $p = \\dfrac{1}{6}$ for a six. Check whether $\\dfrac{1}{6}$ lies inside your interval from **(a)**, then say what that means for Sunita's belief."
+  ],
+  "walkthrough": [
+   "**What 'fair' means**\n\nIf the die is fair, each of the six faces is equally likely, so the probability of a six is\n\n$$p = \\frac{1}{6} = 0.1666\\ldots$$",
+   "**Compare with the interval**\n\nThe 99% confidence interval is $0.100$ to $0.180$. Is $0.1666\\ldots$ between $0.100$ and $0.180$? Yes: $0.100 < 0.1666\\ldots < 0.180$.\n\nSo the value for a fair die is a plausible value of $p$.",
+   "**Final answer**\n\n$\\frac{1}{6} = 0.1666\\ldots$ lies within the confidence interval $0.100$ to $0.180$, so the data support (do not contradict) Sunita's belief that the die is fair. (This does not *prove* the die is fair.)"
+  ]
+ },
+ "9709_s20_63_q5_c": {
+  "hints": [
+   "The width of the interval is twice the margin of error, so the margin of error is half of $0.04$. Write $z\\sqrt{\\dfrac{\\hat{p}(1 - \\hat{p})}{n}} = \\text{half-width}$, using the same $\\hat{p}$ and $n = 500$.",
+   "Rearrange to find $z$: divide the half-width by the standard error $\\sqrt{\\dfrac{\\hat{p}(1 - \\hat{p})}{500}}$ that you used in part **(a)**.",
+   "Find $\\Phi(z)$ for your $z$: the area under the normal curve to the left of it. Use the table or your calculator's normal cdf.",
+   "The confidence level is the area between $-z$ and $z$. That is the area to the left of $z$ minus the area to the left of $-z$, which equals $\\Phi(z) - (1 - \\Phi(z))$.",
+   "Evaluate this as a decimal, then convert it to a percentage and round to 3 significant figures."
+  ],
+  "walkthrough": [
+   "**Use the width to get an equation (the first M1)**\n\nThe interval is $\\hat{p} \\pm \\text{margin of error}$. The part after $\\pm$ is added once to the top and taken away once from the bottom, so the total **width** is twice the margin of error:\n\n$$\\text{margin of error} = \\frac{0.04}{2} = 0.02$$\n\nUsing the same $\\hat{p} = 0.14$ and $n = 500$, but a new unknown $z$:\n\n$$z\\sqrt{\\frac{0.14 \\times (1 - 0.14)}{500}} = 0.02$$",
+   "**Solve for $z$ (the first A1)**\n\nFrom part **(a)** the standard error is $\\sqrt{\\dfrac{0.14 \\times 0.86}{500}} = 0.015517\\ldots$ So\n\n$$z \\times 0.015517\\ldots = 0.02$$\n\nDivide both sides by $0.015517\\ldots$:\n\n$$z = \\frac{0.02}{0.015517\\ldots} = 1.2888\\ldots = 1.289$$",
+   "**Find the area to the left of $z$ (the second M1)**\n\nLook up $\\Phi(1.289)$: the proportion of the normal distribution below $z = 1.289$. On the calculator use normal cdf with lower limit $-1000$ (or a very large negative number), upper limit $1.289$, mean $0$, standard deviation $1$:\n\n$$\\Phi(1.289) = 0.9013$$",
+   "**Turn that into a confidence level (the third M1)**\n\nA confidence interval covers the **middle** of the normal curve, between $-z$ and $+z$. The two tails left over are equal in size.\n\n- Area to the left of $z$: $0.9013$\n\n- Area in the upper tail: $1 - 0.9013 = 0.0987$\n\n- By symmetry the lower tail is also $0.0987$\n\nThe middle area is everything minus the two tails, which can be written as the area to the left of $z$ minus the lower tail:\n\n$$0.9013 - (1 - 0.9013) = 0.9013 - 0.0987 = 0.8026$$",
+   "**Convert to a percentage (the final A1)**\n\n$\\alpha$ is a percentage, so multiply by $100$:\n\n$$\\alpha = 0.8026 \\times 100 \\approx 80.3$$\n\nThe scheme gives $80.3\\%$ (3 s.f.). The unrounded working gives $80.25\\ldots\\%$, which also rounds to $80.3$.",
+   "**Final answer**\n\n$\\alpha = 80.3$ (3 s.f.), i.e. an $80.3\\%$ confidence interval."
+  ]
+ }
+}

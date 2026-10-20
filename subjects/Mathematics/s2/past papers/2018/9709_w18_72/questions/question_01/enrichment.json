@@ -1,0 +1,17 @@
+{
+ "9709_w18_72_q1": {
+  "hints": [
+   "$X \\sim \\text{Po}(2.3)$ takes whole-number values. Read the inequality $2 \\leqslant X < 5$ carefully and list exactly which values of $X$ it allows: the lower end is included, the upper end is not.",
+   "For each allowed value $r$ use $\\text{P}(X = r) = \\text{e}^{-2.3}\\dfrac{2.3^r}{r!}$. Set this up as one term for each allowed value.",
+   "Add the probabilities of the allowed values together (you can take $\\text{e}^{-2.3}$ out as a common factor), then round to 3 significant figures."
+  ],
+  "walkthrough": [
+   "**What the question is asking**\n\n$X$ is a **Poisson** random variable with mean $2.3$. We write this $X \\sim \\text{Po}(2.3)$. A Poisson variable counts how many times something happens, so it can only be $0, 1, 2, 3, \\ldots$ (whole numbers).\n\nWe want $\\text{P}(2 \\leqslant X < 5)$, the probability that $X$ lies between $2$ and $5$.",
+   "**Which values of $X$ are allowed?**\n\nRead the two inequality signs separately:\n\n\n- $2 \\leqslant X$ means $X$ can be $2$ or bigger, so $2$ **is** included.\n\n- $X < 5$ means $X$ is smaller than $5$, so $5$ is **not** included.\n\nSo the allowed values are $X = 2, 3, 4$.\n\n$$\\text{P}(2 \\leqslant X < 5) = \\text{P}(X = 2) + \\text{P}(X = 3) + \\text{P}(X = 4)$$\n\nQuick check: a common slip is to include $5$ (or leave out $2$). Here the $<$ sign has no line under it, so $5$ is out.",
+   "**The Poisson formula (this earns the first M mark)**\n\nFor a Poisson variable with mean $\\lambda$, the probability of exactly $r$ events is\n\n$$\\text{P}(X = r) = \\text{e}^{-\\lambda}\\,\\frac{\\lambda^r}{r!}$$\n\nHere $\\lambda = 2.3$. Writing the three terms with $\\text{e}^{-2.3}$ taken out as a common factor:\n\n$$\\text{P}(2 \\leqslant X < 5) = \\text{e}^{-2.3}\\left(\\frac{2.3^2}{2!} + \\frac{2.3^3}{3!} + \\frac{2.3^4}{4!}\\right)$$\n\nRemember $2! = 2 \\times 1 = 2$, $3! = 3 \\times 2 \\times 1 = 6$ and $4! = 4 \\times 3 \\times 2 \\times 1 = 24$.\n\nThis line earns the first M1. The scheme gives M2 for the fully correct expression, and M1 if one term is wrong.",
+   "**Work out each term inside the bracket**\n\nType each one into your calculator:\n\n$$\\frac{2.3^2}{2} = \\frac{5.29}{2} = 2.645$$\n\n$$\\frac{2.3^3}{6} = \\frac{12.167}{6} = 2.027833\\ldots$$\n\n$$\\frac{2.3^4}{24} = \\frac{27.9841}{24} = 1.166004\\ldots$$\n\nAdd them:\n\n$$2.645 + 2.027833 + 1.166004 = 5.838838\\ldots$$",
+   "**Multiply by $\\text{e}^{-2.3}$ (this earns the second M mark and the A1)**\n\nOn your calculator, $\\text{e}^{-2.3}$ is the $\\text{e}^x$ button with $-2.3$ typed in:\n\n$$\\text{e}^{-2.3} = 0.100259\\ldots$$\n\n$$\\text{P}(2 \\leqslant X < 5) = 0.100259 \\times 5.838838 = 0.585395\\ldots$$\n\nQuick check: the three separate probabilities are about $0.2652$, $0.2033$ and $0.1169$, and they add to $0.5854$. Same answer.\n\nRounding to 3 significant figures gives $0.585$.",
+   "**Final answer**\n\n$$\\text{P}(2 \\leqslant X < 5) = 0.585$$"
+  ]
+ }
+}

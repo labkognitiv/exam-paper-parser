@@ -1,0 +1,20 @@
+{
+ "9709_s16_73_q2": {
+  "hints": [
+   "Let $\\mu$ be the population mean yield. $\\text{H}_0$ is that nothing has changed from 8.2. The question asks whether the mean has *increased*, so $\\text{H}_1$ is a one-tailed statement.",
+   "If $\\text{H}_0$ is true, the mean of 16 yields is normal with mean 8.2 and standard deviation $\\dfrac{1.2}{\\sqrt{16}}$ (note the $\\sqrt{16}$, since this is a mean of 16 values). Standardise $8.7$ using that.",
+   "Calculate the denominator $1.2 \\div \\sqrt{16}$ first, then divide $8.7 - 8.2$ by it.",
+   "This is an upper-tail test at the 5% level. Compare your $z$ with the critical value that has $\\Phi = 0.95$ (from the table), or compare $1 - \\Phi(z)$ with the 5% significance level.",
+   "Is your $z$ beyond the critical value? Decide what happens to $\\text{H}_0$, then write the conclusion in the words of the question (yield, fertiliser), not as a certainty."
+  ],
+  "walkthrough": [
+   "**What are we testing?**\n\nThe old mean yield was $8.2$ tonnes. After 16 years with the new fertiliser the sample mean is $\\bar{x} = 8.7$ tonnes. A sample mean will always wobble a little, so the question is: is $8.7$ high enough that it is unlikely to be just chance? That is what a hypothesis test decides.\n\nWe use a $z$-test for a mean because the yields are normally distributed and the population standard deviation $\\sigma = 1.2$ is known.",
+   "**State the hypotheses**\n\n$\\mu$ means the population mean yield (the long-run mean yield of this field with the new fertiliser). The null hypothesis says nothing has changed; the alternative says it has gone up:\n\n$$\\text{H}_0: \\mu = 8.2$$\n\n$$\\text{H}_1: \\mu > 8.2$$\n\nWe use $>$ (one-tailed) because the question asks whether the mean has *increased*, not just *changed*. This earns the **B1**. Writing just \"mean\" without $\\mu$ or \"population\" would lose it.",
+   "**The distribution of the sample mean under $\\text{H}_0$**\n\nIf $\\text{H}_0$ is true, one year's yield is $\\text{N}(8.2, 1.2^2)$. The mean of $n = 16$ years has the same centre but is less spread out:\n\n$$\\bar{X} \\sim \\text{N}\\left(8.2, \\frac{1.2^2}{16}\\right)$$\n\nso its standard deviation is $\\dfrac{1.2}{\\sqrt{16}}$.",
+   "**Standardise**\n\nStandardising turns $\\bar{x} = 8.7$ into a $z$-value, i.e. how many standard deviations it is above the mean:\n\n$$z = \\frac{8.7 - 8.2}{1.2/\\sqrt{16}}$$\n\nThis earns the **M1**. Now each piece:\n\n$$\\sqrt{16} = 4, \\qquad \\frac{1.2}{4} = 0.3$$\n\n$$8.7 - 8.2 = 0.5$$\n\n$$z = \\frac{0.5}{0.3} = 1.667$$\n\nThis earns the **A1**.",
+   "**Compare with the critical value**\n\nThe test is at the 5% level, one-tailed (upper). The critical value is the $z$ with $\\Phi(z) = 0.95$. On the calculator, inverse normal with area $0.95$ gives $1.645$.\n\nCompare:\n\n$$1.667 > 1.645$$\n\nSo our $z$ lies in the rejection region. (Equivalent method: $1 - \\Phi(1.667) = 0.0478$, and $0.0478 < 0.05$.) This comparison earns the second **M1**.",
+   "**Conclude**\n\nBecause $z = 1.667$ is bigger than $1.645$, we **reject** $\\text{H}_0$. Say it in context and without certainty: there is evidence, at the 5% level, that the mean yield has increased. This earns the final **A1 ft**. (A slip to avoid: using a two-tailed test, which the scheme does not allow to follow through.)",
+   "**Final answer**\n\n$z = 1.667 > 1.645$, so reject $\\text{H}_0$: there is evidence at the 5% significance level that the mean annual yield has increased."
+  ]
+ }
+}

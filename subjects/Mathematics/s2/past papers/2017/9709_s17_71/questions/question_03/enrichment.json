@@ -1,0 +1,40 @@
+{
+  "9709_s17_71_q3_a": {
+    "hints": [
+      "A confidence interval for a mean has the form $\\bar{x} \\pm z \\times \\dfrac{\\sigma}{\\sqrt{n}}$. Careful: 2.6 is the **variance**, so the standard deviation is its square root. Write $7.1 \\pm z \\times \\sqrt{\\dfrac{2.6}{75}}$.",
+      "A 92% interval is central, so the 8% outside is split equally into two tails. Find $z$ with $\\Phi(z) = $ the area to the left of the upper end (inverse normal on your calculator).",
+      "Put your $z$ into both the minus and the plus version of the formula, work out the two ends, and quote them to 3 significant figures as an interval \"… to …\"."
+    ],
+    "walkthrough": [
+      "**What a confidence interval is**\n\nWe have one sample of 75 people with mean waiting time $\\bar{x} = 7.1$ minutes. The true mean waiting time $\\mu$ of everyone is unknown. A 92% confidence interval is a range around 7.1 built so that 92% of intervals made this way would contain $\\mu$.\n\nThe general form is $\\bar{x} \\pm z \\times \\dfrac{\\sigma}{\\sqrt{n}}$, where $\\sigma$ is the population standard deviation and $n$ is the sample size.",
+      "**Write the formula with our numbers (this earns the M1)**\n\nCareful with the wording: the question gives the **variance** $\\sigma^2 = 2.6$ (units minutes$^2$), not the standard deviation. The formula needs $\\sigma$, so we use $\\sqrt{\\sigma^2/n}$ directly:\n\n$$7.1 \\pm z \\times \\sqrt{\\dfrac{2.6}{75}}$$\n\nUsing 2.6 as if it were the standard deviation (and squaring it) is the slip the mark scheme mentions.",
+      "**Find $z$ for 92% (this earns the B1)**\n\nThe interval is in the middle of the normal curve. The 92% is in the middle, so 8% is left over, shared equally between the two tails: 4% in each tail.\n\nThe area to the left of the upper end is therefore $100\\% - 4\\% = 96\\%$:\n\n$$\\Phi(z) = 0.96$$\n\nOn your calculator use the inverse normal (InvNorm) with area $0.96$, mean $0$ and standard deviation $1$ → it shows $1.7506\\ldots$. To 3 decimal places:\n\n$$z = 1.751$$",
+      "**Calculate the standard error**\n\nThe standard deviation of the sample mean is $\\sqrt{\\dfrac{2.6}{75}}$. Divide first:\n\n$$\\dfrac{2.6}{75} = 0.034667\\ldots$$\n\nThen square root:\n\n$$\\sqrt{0.034667} = 0.18619\\ldots$$",
+      "**Find how far each end is from 7.1**\n\n$$z \\times \\sqrt{\\dfrac{2.6}{75}} = 1.751 \\times 0.18619 = 0.32602\\ldots$$\n\nThis amount is added to give the upper end and subtracted to give the lower end.",
+      "**Work out the two ends (this earns the A1)**\n\nLower end: $7.1 - 0.32602 = 6.77398\\ldots$, which is $6.77$ to 3 significant figures.\n\nUpper end: $7.1 + 0.32602 = 7.42602\\ldots$, which is $7.43$ to 3 significant figures.\n\nThe answer must be written as an interval, not as a single number.",
+      "**Final answer**\n\nThe 92% confidence interval for the population mean waiting time is $$6.77 \\text{ to } 7.43 \\text{ minutes (3 s.f.)}$$"
+    ]
+  },
+  "9709_s17_71_q3_b": {
+    "hints": [
+      "A 92% interval misses the true mean 8% of the time. That 8% is split between intervals that lie wholly above $\\mu$ and intervals that lie wholly below $\\mu$. Decide what share belongs to \"wholly above\".",
+      "The three intervals come from independent samples, so the probability that all three do this is the product of three equal probabilities: raise your single-interval probability to the power 3 and quote the result."
+    ],
+    "walkthrough": [
+      "**Understand when an interval lies wholly above the true mean**\n\nA 92% confidence interval contains the true mean $\\mu$ with probability 0.92. So the probability that it does **not** contain $\\mu$ is $1 - 0.92 = 0.08$.\n\nWhen an interval misses $\\mu$, there are two ways: it can lie entirely **above** $\\mu$ (the sample mean was unusually high), or entirely **below** $\\mu$ (unusually low). By the symmetry of the normal distribution these two are equally likely.",
+      "**Probability for one interval (this earns the M1 when cubed)**\n\n$$\\text{P}(\\text{one interval entirely above } \\mu) = \\dfrac{0.08}{2} = 0.04$$\n\nThis is the same 4% tail we used to find $z$ in part (a).",
+      "**Three independent intervals**\n\nThe three samples are independent, so we multiply the three probabilities. Each is 0.04:\n\n$$0.04^3 = 0.04 \\times 0.04 \\times 0.04$$\n\n$$0.04 \\times 0.04 = 0.0016$$\n\n$$0.0016 \\times 0.04 = 0.000064$$\n\n(Using $0.08^3$ instead — forgetting to halve — earns the M1 only, not the A1.)",
+      "**Final answer**\n\n$$\\text{P}(\\text{all 3 intervals entirely above } \\mu) = 0.000064$$"
+    ]
+  },
+  "9709_s17_71_q3_c": {
+    "hints": [
+      "A sample for a confidence interval must represent all people who wait at the bus stop. Think about what is special about taking the first 75 people on one Monday morning."
+    ],
+    "walkthrough": [
+      "**What a suitable sample must be**\n\nConfidence-interval formulas assume the sample is **random** and representative of the whole population: every person who waits at the bus stop should have had an equal chance of being chosen, at any time and on any day.",
+      "**Why this sample fails**\n\nThe first 75 people on a Monday morning are all from one particular day and time of day. Waiting times at rush hour on a Monday could be quite different from the waiting times in the afternoon, at weekends or on other days. So the sample is not random and not representative.",
+      "**Final answer**\n\nThe sample is unsuitable because it is taken at one particular day and time of day (it is not a random sample of all people who wait at the bus stop)."
+    ]
+  }
+}

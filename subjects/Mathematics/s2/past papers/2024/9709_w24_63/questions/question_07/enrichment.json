@@ -1,0 +1,60 @@
+{
+ "9709_w24_63_q7_a": {
+  "hints": [
+   "$X$ counts accidents in **two** years. The rate is $3.3$ per year, so under $\\text{H}_0$ scale it for two years to get the $\\lambda$ in $X \\sim \\text{Po}(\\lambda)$.",
+   "A Type I error means rejecting $\\text{H}_0$ when it is true. The test is for a decrease, so the rejection region is a lower tail, $X \\leqslant c$. Work up through values of $c$ and write $\\text{P}(X \\leqslant 2) = \\text{e}^{-\\lambda}\\left(1 + \\lambda + \\dfrac{\\lambda^2}{2!}\\right)$ with your $\\lambda$, to compare with $0.05$.",
+   "Check the next value as well: write $\\text{P}(X \\leqslant 3)$ the same way. If it is more than $0.05$, then $X = 3$ is not allowed in the rejection region.",
+   "The probability of a Type I error is the probability of landing in the rejection region when $\\text{H}_0$ is true. State it as the value you found for the largest $c$ that kept the probability under $0.05$, to 3 s.f."
+  ],
+  "walkthrough": [
+   "**What a Type I error is**\n\nA Type I error means we **reject** $\\text{H}_0$ even though $\\text{H}_0$ is actually true. Its probability is the probability that $X$ lands in the rejection region when $\\text{H}_0$ is true.\n\nSo first we must find the rejection region for this test at the 5% level.",
+   "**The distribution under $\\text{H}_0$ (this is the B1)**\n\nIn the past, the rate was $3.3$ accidents per year. $X$ counts accidents in **two** years, so double the mean:\n\n$$\\lambda = 2 \\times 3.3 = 6.6$$\n\nUnder $\\text{H}_0$, $X \\sim \\text{Po}(6.6)$. The council tests whether accidents have decreased, so the rejection region is the lower tail: small values of $X$.",
+   "**Test $X \\leqslant 2$ (this is the M1)**\n\nWe look for the largest $c$ with $\\text{P}(X \\leqslant c) < 0.05$. Use $\\text{P}(X = r) = \\text{e}^{-\\lambda}\\dfrac{\\lambda^r}{r!}$ and add the terms:\n\n$$\\text{P}(X \\leqslant 2) = \\text{e}^{-6.6}\\left(1 + 6.6 + \\frac{6.6^2}{2}\\right)$$\n\nEach term separately:\n\n$$\\text{P}(0) = 0.001360\\ldots, \\quad \\text{P}(1) = 0.008978\\ldots, \\quad \\text{P}(2) = 0.029628\\ldots$$\n\n$$\\text{P}(X \\leqslant 2) = 0.001360\\ldots + 0.008978\\ldots + 0.029628\\ldots = 0.03996\\ldots$$\n\nThis is below $0.05$, so $X \\leqslant 2$ is allowed in the rejection region.",
+   "**Test $X \\leqslant 3$ (this is the second B1)**\n\n$$\\text{P}(3) = \\text{e}^{-6.6} \\times \\frac{6.6^3}{3!} = 0.06518\\ldots$$\n\n$$\\text{P}(X \\leqslant 3) = 0.03996\\ldots + 0.06518\\ldots = 0.1051\\ldots$$\n\nThis is more than $0.05$, so $X = 3$ is **not** in the rejection region. Therefore the rejection region is $X \\leqslant 2$.",
+   "**The probability of a Type I error (this is the A1)**\n\nThe probability of a Type I error is the chance of being in the rejection region when $\\text{H}_0$ is true:\n\n$$\\text{P}(\\text{Type I error}) = \\text{P}(X \\leqslant 2) = 0.03996\\ldots = 0.0400$$\n\nIt is below the 5% significance level, as it must be. (The actual size of the test is usually a little less than the nominal 5% for a discrete variable.)",
+   "**Final answer**\n\n$\\text{P}(\\text{Type I error}) = 0.0400$ (3 s.f.). The scheme also accepts $0.040$ or $0.04$."
+  ]
+ },
+ "9709_w24_63_q7_b": {
+  "hints": [
+   "Define $\\lambda$ as the mean number of accidents in two years. $\\text{H}_0$ is the old rate scaled to two years. $\\text{H}_1$ goes in the direction the council is testing for (a decrease).",
+   "Given $X = 2$, find the probability of a result as extreme as this or more extreme, $\\text{P}(X \\leqslant 2)$. You calculated this under $\\text{H}_0$ in part (a). Compare it with $0.05$.",
+   "If your probability is smaller than the significance level, reject $\\text{H}_0$; otherwise do not. Write the conclusion about the mean number of accidents, with 'evidence' wording and not a definite statement."
+  ],
+  "walkthrough": [
+   "**Hypotheses (this is the B1)**\n\nLet $\\lambda$ be the mean number of accidents in two years (so $\\lambda$ is the Poisson parameter of $X$). $\\text{H}_0$ says nothing has changed from the old rate of $3.3$ per year, which is $6.6$ per two years. $\\text{H}_1$ says it has decreased.\n\n$$\\text{H}_0: \\lambda = 6.6$$\n\n$$\\text{H}_1: \\lambda < 6.6$$\n\nThe scheme also accepts $\\mu$ for the parameter and the yearly values $3.3$.",
+   "**The probability for the observed value (this is the M1)**\n\nThe data say $X = 2$. Because the test is for a decrease, the evidence against $\\text{H}_0$ is 'as few as, or fewer than, $2$ accidents'. Assuming $\\text{H}_0$ is true, $X \\sim \\text{Po}(6.6)$, and from part (a):\n\n$$\\text{P}(X \\leqslant 2) = 0.0400$$\n\nCompare this with the significance level:\n\n$$0.0400 < 0.05$$",
+   "**Conclusion (this is the A1)**\n\nThe probability is smaller than $5\\%$, so the result is unlikely enough to reject $\\text{H}_0$. The scheme wants the conclusion in context and not definite (we cannot be certain), so say 'evidence'.\n\nWe **reject** $\\text{H}_0$.",
+   "**Final answer**\n\nSince $0.0400 < 0.05$, reject $\\text{H}_0$. There is evidence at the 5% level that the mean number of accidents has decreased."
+  ]
+ },
+ "9709_w24_63_q7_c": {
+  "hints": [
+   "A Type II error means *not* rejecting $\\text{H}_0$ when it is actually false. In part (a) you found that the rejection region is $X \\leqslant 2$, so the event here is $\\text{P}(X > 2) = 1 - \\text{P}(X \\leqslant 2)$.",
+   "This time the true yearly rate is $0.6$, so for two years the Poisson parameter is $\\lambda = 2 \\times 0.6$. Write $1 - \\text{e}^{-\\lambda}\\left(1 + \\lambda + \\dfrac{\\lambda^2}{2!}\\right)$ with that $\\lambda$. Do not use the old rate from $\\text{H}_0$.",
+   "Calculate each of the three terms, add them, subtract from $1$ and give the answer to 3 s.f."
+  ],
+  "walkthrough": [
+   "**What a Type II error is (this is the first M1)**\n\nA Type II error means we do **not** reject $\\text{H}_0$ even though $\\text{H}_0$ is false (the true value is different, $0.6$ per year).\n\nFrom part (a), we reject $\\text{H}_0$ when $X \\leqslant 2$. So we fail to reject when $X$ is outside that region:\n\n$$\\text{P}(\\text{Type II error}) = \\text{P}(X > 2)$$\n\nThe scheme gives this mark for $\\text{P}(X > 2)$ with any $\\lambda$.",
+   "**Use the true $\\lambda$ (this is the second M1)**\n\nTo find the chance of landing outside the rejection region we must use the **true** distribution, not the one under $\\text{H}_0$. The true rate is $0.6$ per year, so for two years:\n\n$$\\lambda = 2 \\times 0.6 = 1.2$$\n\nSo $X \\sim \\text{Po}(1.2)$. 'Greater than $2$' is the complement of 'at most $2$':\n\n$$\\text{P}(X > 2) = 1 - \\text{e}^{-1.2}\\left(1 + 1.2 + \\frac{1.2^2}{2}\\right)$$\n\n$$= 1 - \\text{e}^{-1.2}(1 + 1.2 + 0.72)$$",
+   "**Calculate (this is the A1)**\n\n$$\\text{e}^{-1.2} = 0.30119\\ldots$$\n\n$$1 + 1.2 + 0.72 = 2.92$$\n\n$$0.30119\\ldots \\times 2.92 = 0.87948\\ldots$$\n\n$$1 - 0.87948\\ldots = 0.12051\\ldots$$\n\n(Adding the rounded terms $0.3012 + 0.3614 + 0.2169$ gives $0.8795$, and $1 - 0.8795 = 0.1205$, which is why the scheme also accepts $0.120$.)",
+   "**Final answer**\n\n$\\text{P}(\\text{Type II error}) = 0.121$ (3 s.f.). The scheme also allows $0.120$."
+  ]
+ },
+ "9709_w24_63_q7_d": {
+  "hints": [
+   "Scale $\\lambda = 0.6$ per year to $30$ years. When a Poisson mean is large, $X$ is well approximated by a normal with mean and variance both equal to that $\\lambda$.",
+   "$X$ is discrete, so 'more than $10$' means $X \\geqslant 11$. For the continuity correction, put the boundary half a unit above $10$. Standardise: $z = \\dfrac{\\text{boundary} - \\text{mean}}{\\sqrt{\\text{variance}}}$ with your mean and variance.",
+   "Your $z$ is negative because the boundary is below the mean. You want the area *above* it, which by symmetry is the same as the area below $-z$, that is $\\Phi$ of the positive value $|z|$.",
+   "Find $\\Phi(|z|)$ with the normal tables or calculator normal cdf, and give the probability to 3 s.f."
+  ],
+  "walkthrough": [
+   "**Choose the approximation (this is the B1)**\n\nOver $30$ years the Poisson mean is:\n\n$$\\lambda = 0.6 \\times 30 = 18$$\n\nSo $X \\sim \\text{Po}(18)$. When $\\lambda$ is large (above about $15$), the Poisson distribution is nearly symmetric and bell-shaped, so we can approximate it by a normal distribution with the same mean and the same variance (for a Poisson, mean = variance):\n\n$$X \\approx \\text{N}(18, 18)$$",
+   "**Continuity correction**\n\nAccidents come in whole numbers, but a normal distribution is continuous. 'More than $10$' for a whole number means $11, 12, 13, \\ldots$. On the continuous scale the value $11$ covers $10.5$ to $11.5$, so the boundary is at $10.5$:\n\n$$\\text{P}(X > 10) = \\text{P}(X \\geqslant 11) \\approx \\text{P}(X_{\\text{normal}} > 10.5)$$\n\n(The scheme allows the mark for standardising even without the continuity correction, but the final answer is only fully right with it.)",
+   "**Standardise (this is the first M1)**\n\nStandard deviation $= \\sqrt{18} = 4.2426\\ldots$ (the square root of the *variance*, $18$).\n\n$$z = \\frac{10.5 - 18}{\\sqrt{18}} = \\frac{-7.5}{4.2426\\ldots} = -1.7677\\ldots$$",
+   "**Use the right tail (this is the second M1)**\n\nWe want the area *above* $z = -1.768$. The tables give the area to the left, so use $1 - \\Phi(-1.768)$. By symmetry of the normal curve, $1 - \\Phi(-1.768) = \\Phi(1.768)$:\n\n$$\\text{P}(Z > -1.768) = \\Phi(1.768)$$\n\nNormal cdf on your calculator (or the table, using $1.77$): $\\Phi(1.768) = 0.9614\\ldots$",
+   "**Round (this is the A1)**\n\n$$0.9614\\ldots = 0.961$$\n\nIf you round $z$ to $1.77$ before using the tables, you get $0.9616\\ldots$, which is why the scheme also accepts $0.962$.\n\nQuick check: $10.5$ is below the mean of $18$, so most of the distribution is above it. A probability near $1$ makes sense.",
+   "**Final answer**\n\n$\\text{P}(\\text{more than 10 accidents in 30 years}) = 0.961$ (3 s.f.), using $X \\approx \\text{N}(18, 18)$. The scheme also accepts $0.962$."
+  ]
+ }
+}

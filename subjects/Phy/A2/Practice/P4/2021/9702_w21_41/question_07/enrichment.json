@@ -1,0 +1,63 @@
+{
+  "9702_w21_41_q07_a": {
+    "hints": [
+      "Think about what ideal means for an amplifier - it should amplify perfectly without affecting the circuit connected to its inputs and without any loss at its output.",
+      "Recall the extreme limiting values used in the ideal model for voltage gain, for how much current enters the inputs, and for output resistance."
+    ],
+    "walkthrough": [
+      "**What ideal means**\nThink of a perfect voltage amplifier sitting between its inputs and its output. It should respond to even the tiniest input difference with a huge output, it should draw no current from the sensors connected to it, and it should deliver its output voltage without any drop inside itself.",
+      "**Pick two defining extremes**\nIn the ideal model this becomes $$A_{OL} \\to \\infty$$ for the open-loop gain, and $$R_{IN} \\to \\infty$$ so that no current flows into the $+$ and $-$ inputs. Equally correct is $$R_{OUT} = 0$$ so the full output voltage appears across the load, or infinite bandwidth and infinite slew rate.",
+      "Final answer: Infinite open-loop gain and infinite input impedance (any two from: infinite open-loop gain, infinite input impedance, zero output impedance, infinite bandwidth, infinite slew rate)."
+    ]
+  },
+  "9702_w21_41_q07_b": {
+    "hints": [
+      "Look closely at the symbols - X is a resistor whose resistance changes with its surroundings, and Y is the dashed box where a small coil current closes a separate switch for the lamp."
+    ],
+    "walkthrough": [
+      "**Reading the two symbols**\nOn the left, X has the resistor box with a diagonal arrow showing its resistance depends on temperature. That is the standard symbol for a thermistor. On the right, the dashed box Y contains a coil that magnetically closes the switch in series with lamp L when energised. That combination is a relay, allowing the tiny op-amp output current to switch the larger lamp current.",
+      "Final answer: X is a thermistor (NTC thermistor) and Y is a relay."
+    ]
+  },
+  "9702_w21_41_q07_c_i": {
+    "hints": [
+      "Check for a feedback connection between output and the inverting input - there is no resistor feeding the output back, so think about what the very large open-loop gain will do to even a tiny input difference.",
+      "Consider the two cases $V^+ > V^-$ and $V^- > V^+$ separately and remember the output cannot exceed the supply rails."
+    ],
+    "walkthrough": [
+      "**No feedback means huge multiplication**\nThe output is $$V_{OUT} = A_{OL}(V^+ - V^-)$$ with $$A_{OL}$$ enormous for an ideal op-amp. Because there is no feedback path in Fig. 7.1, even a fraction of a millivolt difference at the inputs tries to give thousands of volts at the output.",
+      "**Why only two levels**\nThe output cannot go beyond the power supplies, so it clips or saturates. If $$V^+ > V^-$$ the output is driven hard positive to about the +5 V rail. If $$V^- > V^+$$ it is driven hard negative to about the -5 V rail. Those two saturated states are the only stable outputs.",
+      "Final answer: There is no (negative) feedback so the op-amp is open-loop. Any difference between $V^+$ and $V^-$ is multiplied by the very large open-loop gain and drives the output into saturation. It saturates positively near +5 V if $V^+ > V^-$ and negatively near -5 V if $V^- > V^+$."
+    ]
+  },
+  "9702_w21_41_q07_c_ii": {
+    "hints": [
+      "Think of the name given to an open-loop op-amp circuit whose job is simply to compare the two input voltages and switch high or low."
+    ],
+    "walkthrough": [
+      "**Comparing two voltages**\nHere the op-amp is just deciding which input is larger, $V^+$ or $V^-$, and switching its output high or low accordingly. A circuit used in this open-loop switching mode is called a comparator.",
+      "Final answer: Comparator."
+    ]
+  },
+  "9702_w21_41_q07_c_iii": {
+    "hints": [
+      "Start with the fixed reference - the two identical resistors R form a divider between +5 V and -5 V, so work out the steady voltage at the non-inverting input.",
+      "Now follow what happens to the inverting input when temperature rises and the NTC thermistor resistance falls, and link a positive op-amp output through the diode to the relay and lamp."
+    ],
+    "walkthrough": [
+      "**Reference at the + input**\nThe two resistors R are identical between +5 V and -5 V, so the potential at $V^+$ is midway: $$V^+ = 0\\text{ V}$$ This is the fixed level to beat.",
+      "**Sensing divider at the - input**\n$V^-$ is the junction of variable resistor V and thermistor X between +5 V and -5 V. For an NTC thermistor, higher temperature means lower resistance of X, so more of the 10 V total drops across V and $V^-$ moves down toward -5 V.",
+      "**Switching the lamp on**\nWhen it is hot enough that $$V^- < V^+ = 0\\text{ V}$$ the comparator saturates positively near +5 V. That forward-biases the diode, current flows in coil Y, the relay closes, and lamp L connects between +5 V and -5 V and lights. So L lights when temperature is above the set threshold.",
+      "Final answer: The lamp lights when the temperature is above a particular threshold value. Then $V^- < V^+$, output saturates positive, diode conducts, relay Y is energised and closes the switch for lamp L."
+    ]
+  },
+  "9702_w21_41_q07_c_iv": {
+    "hints": [
+      "Think about what changing V does to the divider voltage at $V^-$ for a given thermistor resistance, and therefore to the temperature needed to make $V^-$ cross $V^+$."
+    ],
+    "walkthrough": [
+      "**Setting the trip point**\nChanging V changes the share of voltage dropped across the sensing divider, so it changes the value of $V^-$ at any given temperature. That means the temperature at which $V^-$ just falls below $V^+$ and the output flips positive can be moved up or down. V is the sensitivity or threshold control.",
+      "Final answer: To adjust or set the temperature at which the lamp switches on."
+    ]
+  }
+}

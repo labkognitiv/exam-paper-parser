@@ -1,0 +1,56 @@
+{
+  "9709_s19_72_q7_i": {
+    "hints": [
+      "In $\\text{B}(n, p)$ the $n$ counts the number of trials. Here every trial is one passenger and the outcome is 'fails to arrive'. Who are the 320 passengers, given that all seats are always sold?"
+    ],
+    "walkthrough": [
+      "**What n means in a binomial**\n\nIn $\\text{B}(n, p)$, $n$ is the number of independent trials. Here each trial is one passenger who has bought a seat: either they fail to arrive (probability $0.005$) or they arrive.",
+      "**Final answer**\n\n320 is the number of passengers who have bought seats for the flight. All seats are always sold, so it is the maximum number of passengers the plane can take."
+    ]
+  },
+  "9709_s19_72_q7_ii": {
+    "hints": [
+      "Over $2$ days the total of two independent $\\text{B}(320, 0.005)$ counts is again binomial: $n$ adds, $p$ stays. Because $n$ is large and $p$ small, approximate by a Poisson with mean $np$ — work out the mean for the 2-day total.",
+      "$2 < X < 6$ with $X$ a whole number means $X = 3, 4, 5$ (not $2$, not $6$). Write $\\text{P}(X=3) + \\text{P}(X=4) + \\text{P}(X=5)$ with the Poisson formula and your mean.",
+      "Evaluate the three terms with your calculator's Poisson pdf (or use the cdf and subtract), add, and give 3 s.f."
+    ],
+    "walkthrough": [
+      "**The distribution of X**\n\nOn each day the number of no-shows is $\\text{B}(320, 0.005)$. Over two days, we add two independent counts, so the total is also binomial with the number of trials added up and the same $p$:\n\n$$X \\sim \\text{B}(640,\\ 0.005)$$\n\nCalculating binomial probabilities for a number as large as 640 is awkward, and the question asks for an approximating distribution.",
+      "**Choose the Poisson approximation**\n\nWhen $n$ is large and $p$ is small, $\\text{B}(n, p)$ is approximated by $\\text{Po}(np)$. The mean is\n\n$$\\lambda = np = 640 \\times 0.005 = 3.2$$\n\n$$X \\approx \\text{Po}(3.2)$$\n\nThis is the **B1**.",
+      "**Which values of X?**\n\n$X$ takes whole-number values. $2 < X < 6$ means more than 2 and fewer than 6, so $X = 3, 4, 5$:\n\n$$\\text{P}(2 < X < 6) = \\text{P}(X=3) + \\text{P}(X=4) + \\text{P}(X=5)$$\n\nCommon slip: including 2 or 6 (the scheme allows one end error for the M1 only).",
+      "**Apply the Poisson formula**\n\n$$\\text{P}(2 < X < 6) = \\text{e}^{-3.2}\\left(\\frac{3.2^3}{3!} + \\frac{3.2^4}{4!} + \\frac{3.2^5}{5!}\\right)$$\n\nThis is the **M1**.",
+      "**Calculate**\n\n$\\text{e}^{-3.2} = 0.040762$\n\n$\\dfrac{3.2^3}{3!} = \\dfrac{32.768}{6} = 5.46133$\n\n$\\dfrac{3.2^4}{4!} = \\dfrac{104.8576}{24} = 4.36907$\n\n$\\dfrac{3.2^5}{5!} = \\dfrac{335.54432}{120} = 2.79620$\n\nSum of the bracket: $5.46133 + 4.36907 + 2.79620 = 12.62660$\n\n$$0.040762 \\times 12.62660 = 0.5147$$\n\nCheck with your calculator's Poisson pdf at $x = 3, 4, 5$ for mean 3.2: the three values are about $0.2226$, $0.1781$ and $0.1140$, and they add up to the same total.",
+      "**Final answer**\n\n$$\\text{P}(2 < X < 6) = 0.515 \\text{ (3 s.f.)}$$\n\n(The scheme prints $0.5146$ before rounding, a truncation of $0.51469\\ldots$; both round to $0.515$.) Note: using $\\text{B}(640, 0.005)$ directly gives $0.516$, which scores only the B1."
+    ]
+  },
+  "9709_s19_72_q7_iii": {
+    "hints": [
+      "The Poisson approximation to a binomial needs two conditions, one on $n$ and one on $p$ (or $np$). First: is $n$ large enough? Compare $n$ with the usual threshold from the syllabus.",
+      "Second condition: the mean $np$ must be small (compare with the usual limit) or $p$ must be small. Multiply $n$ by $p$ using the question's numbers and compare."
+    ],
+    "walkthrough": [
+      "**When is the Poisson approximation valid?**\n\n$\\text{B}(n, p)$ can be approximated by $\\text{Po}(np)$ when **$n$ is large** (greater than 50) and **$p$ is small** (equivalently, $np$ is small: less than 5, or $p < 0.1$). Both conditions have to be checked.",
+      "**Check n**\n\nHere $n = 320$ (or $640$ for the two days). This is much larger than $50$, so $n$ is large. That is the first **B1**.",
+      "**Check p or np**\n\n$p = 0.005$, which is less than $0.1$, so $p$ is small. Or, for one day: $np = 320 \\times 0.005 = 1.6 < 5$. (For the two-day total, $np = 3.2 < 5$ is also accepted.) That is the second **B1**.",
+      "**Final answer**\n\n$n$ is large (greater than 50) and $np$ is small ($np = 1.6 < 5$, or $p = 0.005 < 0.1$), so the Poisson approximation is justified."
+    ]
+  },
+  "9709_s19_72_q7_iv": {
+    "hints": [
+      "Let $\\lambda$ be the population mean number of no-shows. Under $\\text{H}_0$ nothing has changed: the one-day mean comes from the original model $\\text{B}(320, 0.005)$ and the test covers $5$ days, so scale it up. The airline thinks it has *decreased*, so $\\text{H}_1$ uses '$<$'.",
+      "Under $\\text{H}_0$ the 5-day total is Poisson with your 5-day mean. Because we want evidence of a decrease and 2 is a low value, find $\\text{P}(X \\leqslant 2)$: that is $\\text{P}(0) + \\text{P}(1) + \\text{P}(2)$.",
+      "Write the sum as $\\text{e}^{-\\lambda}\\left(1 + \\lambda + \\dfrac{\\lambda^2}{2!}\\right)$ with your $\\lambda$, evaluate it and give 3 s.f.",
+      "Compare your probability with the significance level $2.5\\% = 0.025$. If the probability is smaller than that, the result is in the rejection region.",
+      "State whether you reject $\\text{H}_0$, then give a conclusion in context about the mean number of passengers failing to arrive: 'there is evidence that...' (or not), not a definite statement."
+    ],
+    "walkthrough": [
+      "**Hypotheses**\n\nFirst the one-day mean. From the original model $\\text{B}(320, 0.005)$, the mean is $320 \\times 0.005 = 1.6$ per day, so for 5 days it is $5 \\times 1.6 = 8$. Let $\\lambda$ be the population mean number of passengers who fail to arrive in 5 days. The airline wants to test whether it has *decreased*:\n\n$$\\text{H}_0:\\ \\lambda = 8 \\qquad\\qquad \\text{H}_1:\\ \\lambda < 8$$\n\nThis earns the **B1**. (Equivalent: one-day mean $= 1.6$ against one-day mean $< 1.6$.) Use $\\lambda$ or $\\mu$, not just 'mean'.",
+      "**Distribution under H0**\n\nOn each day the number of no-shows is approximately Poisson (the conditions were justified in part **(iii)**). The sum of independent Poisson variables is Poisson with the means added, so under $\\text{H}_0$ the total $X$ over 5 days is\n\n$$X \\sim \\text{Po}(8)$$",
+      "**Which probability?**\n\nWe saw a total of $2$. We look for evidence of a *decrease*, so we need the probability of getting a result as low as this or lower, if $\\text{H}_0$ is true:\n\n$$\\text{P}(X \\leqslant 2) = \\text{P}(0) + \\text{P}(1) + \\text{P}(2)$$",
+      "**Calculate it**\n\nUsing $\\text{P}(X = r) = \\text{e}^{-8}\\dfrac{8^r}{r!}$:\n\n$$\\text{P}(X \\leqslant 2) = \\text{e}^{-8}\\left(1 + 8 + \\frac{8^2}{2!}\\right)$$\n\nThis is the **M1** (all three terms; no end errors).\n\n$\\dfrac{8^2}{2!} = \\dfrac{64}{2} = 32$, so the bracket is $1 + 8 + 32 = 41$.\n\n$\\text{e}^{-8} = 0.00033546$.\n\n$$0.00033546 \\times 41 = 0.013754\\ldots \\approx 0.0138$$\n\nThis is the **A1**. (The scheme accepts a binomial calculation, $\\text{B}(1600, 0.005)$, which gives $0.0136$.) Quick check: your calculator's Poisson cdf with mean 8 at $x = 2$ gives the same.",
+      "**Compare with the significance level**\n\nThe test is at $2.5\\%$, i.e. $0.025$. Our probability is $0.0138$, and $0.0138 < 0.025$. The result is unlikely enough under $\\text{H}_0$ that we reject $\\text{H}_0$. This is the **M1**.",
+      "**Conclusion in context**\n\nWe reject $\\text{H}_0$. In context: the sample provides evidence that the mean number of passengers who fail to arrive has decreased. This is the final **A1**. Say 'evidence', not 'proved'.",
+      "**Final answer**\n\n$\\text{P}(X \\leqslant 2) = 0.0138 < 0.025$, so reject $\\text{H}_0$: there is evidence at the 2.5% level that the mean number of passengers failing to arrive has decreased."
+    ]
+  }
+}

@@ -1,0 +1,53 @@
+{
+ "9709_s24_63_q6_a": {
+  "hints": [
+   "The unbiased estimate of the population mean is the sample mean, $\\bar{x} = \\dfrac{\\sum xf}{\\sum f}$. Multiply each number of green sweets by its number of packets, add, and divide by $200$.",
+   "For the variance you also need $\\sum x^2 f$: square each number of sweets, multiply by its frequency and add. Then use $s^2 = \\dfrac{1}{n-1}\\left(\\sum x^2 f - \\dfrac{(\\sum xf)^2}{n}\\right)$ with $n = 200$.",
+   "Substitute your two sums into the formula and evaluate on the calculator. Check that, to 3 significant figures, it agrees with the printed $0.783$."
+  ],
+  "walkthrough": [
+   "**What the question asks**\n\nWe have grouped data: $x$ is the number of green sweets in a packet and $f$ is how many packets had that number. We need two **unbiased estimates**: one for the population mean and one for the population variance. 'Unbiased' means that on average the estimate hits the true value. For the variance this means dividing by $n - 1$, not $n$.",
+   "**Estimate of the mean (the B1 mark)**\n\nThe sample mean is an unbiased estimate of the population mean. Multiply each $x$ by its frequency $f$ and add:\n\n$$\\sum xf = 0\\times 32 + 1\\times 50 + 2\\times 97 + 3\\times 21 = 0 + 50 + 194 + 63 = 307$$\n\nDivide by the number of packets, $n = 200$ (check: $32 + 50 + 97 + 21 = 200$):\n\n$$\\hat{\\mu} = \\bar{x} = \\frac{307}{200} = 1.535$$",
+   "**Sum of squares (needed for the variance)**\n\nSquare each $x$ first, then multiply by $f$:\n\n$$\\sum x^2 f = 0^2\\times 32 + 1^2\\times 50 + 2^2\\times 97 + 3^2\\times 21$$\n\n$$= 0 + 50 + 388 + 189 = 627$$",
+   "**Unbiased variance estimate (the M1 mark)**\n\nThe formula is $s^2 = \\dfrac{1}{n-1}\\left(\\sum x^2 f - \\dfrac{(\\sum xf)^2}{n}\\right)$, here with $n = 200$ so $n - 1 = 199$. First the pieces:\n\n$$\\frac{(\\sum xf)^2}{n} = \\frac{307^2}{200} = \\frac{94249}{200} = 471.245$$\n\n$$627 - 471.245 = 155.755$$\n\n$$s^2 = \\frac{155.755}{199} = 0.78269\\ldots$$\n\nThe other form gives the same: $\\dfrac{200}{199}\\left(\\dfrac{627}{200} - 1.535^2\\right) = \\dfrac{200}{199}(3.135 - 2.356225) = \\dfrac{200}{199}\\times 0.778775 = 0.78269\\ldots$",
+   "**Reach the printed value (the A1 mark)**\n\nRounding $0.78269\\ldots$ to 3 significant figures gives $0.783$, the value we were asked to show. For an 'AG' mark you must show the working clearly with no errors.",
+   "**Final answer**\n\n$$\\hat{\\mu} = 1.535 \\qquad \\hat{\\sigma}^2 = 0.783 \\text{ (3 s.f.)}$$"
+  ]
+ },
+ "9709_s24_63_q6_b": {
+  "hints": [
+   "$\\text{H}_0$ is the manufacturers' claim written in terms of the population mean $\\mu$ and the value $1.65$. Anji believes $\\mu$ is *less than* $1.65$, so that belief is $\\text{H}_1$ (one-tailed). Use the symbol $\\mu$ and say it is the population mean."
+  ],
+  "walkthrough": [
+   "**How to choose hypotheses**\n\nThe **null hypothesis** $\\text{H}_0$ is the claim we test (assume true until the data disagree). The **alternative hypothesis** $\\text{H}_1$ is what we suspect instead. The parameter is the population mean, $\\mu$.",
+   "**Write them**\n\nThe manufacturers claim the mean is $1.65$, so $\\text{H}_0: \\mu = 1.65$. Anji believes it is *less than* $1.65$, so $\\text{H}_1: \\mu < 1.65$. This makes the test one-tailed, with the critical region in the lower tail.\n\nSay that $\\mu$ is the population mean number of green sweets in a packet (the scheme does not accept 'mean' alone).",
+   "**Final answer**\n\n$$\\text{H}_0: \\mu = 1.65 \\qquad \\text{H}_1: \\mu < 1.65$$\n\nwhere $\\mu$ is the population mean number of green sweets in a packet."
+  ]
+ },
+ "9709_s24_63_q6_c": {
+  "hints": [
+   "With $n = 200$ the Central Limit theorem says $\\bar{X}$ is approximately normal. Under $\\text{H}_0$ it has mean $1.65$ and variance $\\dfrac{0.783}{200}$. Standardise: $z = \\dfrac{\\bar{x} - 1.65}{\\sqrt{0.783 \\div 200}}$ with the sample mean from part **(a)**.",
+   "Type it into the calculator, taking the square root of the *whole* of $0.783 \\div 200$. Write $z$ to 3 decimal places and keep the minus sign.",
+   "Find the two lower-tail critical $z$-values: the one with $\\Phi(z) = 0.05$ (the 5% level) and the one with $\\Phi(z) = 0.01$ (the 1% level). Both are negative.",
+   "Compare your $z$ with each critical value: is it more negative than the $5\\%$ one? Is it more negative than the $1\\%$ one? Write both statements, then the conclusion."
+  ],
+  "walkthrough": [
+   "**Plan**\n\nWe test $\\text{H}_0: \\mu = 1.65$ against $\\text{H}_1: \\mu < 1.65$. 'Significant at the $5\\%$ level' means that the data are so unlikely under $\\text{H}_0$ that we would reject $\\text{H}_0$ at $5\\%$. The statement we must show says that this happens at $5\\%$ but not at $1\\%$.\n\nThe sample is large ($n = 200$), so by the Central Limit theorem the sample mean $\\bar{X}$ is approximately normal. We use the variance estimate from **(a)** because the population variance is unknown.",
+   "**Distribution of the sample mean under $\\text{H}_0$**\n\n$$\\bar{X} \\sim \\text{N}\\left(1.65,\\ \\frac{0.783}{200}\\right)$$\n\nThe variance is the population variance divided by the sample size: $\\dfrac{0.783}{200} = 0.003915$, so the standard deviation is $\\sqrt{0.003915} = 0.06257$.",
+   "**Standardise (the M1 mark)**\n\nThe observed sample mean is $\\bar{x} = 1.535$. Standardising:\n\n$$z = \\frac{1.535 - 1.65}{\\sqrt{0.783 \\div 200}} = \\frac{-0.115}{0.06257}$$\n\n$$z = -1.838$$\n\nThis earns the A1 mark. Quick check: it is negative because $1.535$ is below $1.65$.",
+   "**Critical values (the second M1 mark)**\n\nFor a lower-tail test we need the $z$ that has area $0.05$ below it, and the one with area $0.01$ below it. (The scheme writes this as $\\Phi(0.05)$ and $\\Phi(0.01)$, meaning the inverse normal.) Using the table or inverse normal on the calculator:\n\n$$z_{5\\%} = -1.645 \\qquad z_{1\\%} = -2.326$$",
+   "**Compare (the DA1 mark)**\n\nOur value is $z = -1.838$. We reject $\\text{H}_0$ at a level if $z$ is **below** (more negative than) the critical value.\n\n$$-1.838 < -1.645 \\ \\text{so significant at } 5\\%$$\n\n$$-1.838 > -2.326 \\ \\text{so not significant at } 1\\%$$\n\nThe two together:\n\n$$-1.645 > -1.838 > -2.326$$\n\nAnother way: the $p$-value is $\\Phi(-1.838) = 0.033$ and $0.05 > 0.033 > 0.01$.",
+   "**Final answer**\n\n$$-1.645 > -1.838 > -2.326$$\n\n(Your $z$ may also be written as $-1.84$ to 3 significant figures.)\n\nSo the result is significant at the $5\\%$ level but not at the $1\\%$ level."
+  ]
+ },
+ "9709_s24_63_q6_d": {
+  "hints": [
+   "A Type I error means rejecting $\\text{H}_0$ when it is actually true. Use your result from part **(c)** at the $1\\%$ level: could a Type I error have happened if the test at that level did not reject $\\text{H}_0$?"
+  ],
+  "walkthrough": [
+   "**What a Type I error is**\n\nA Type I error is **rejecting $\\text{H}_0$ when $\\text{H}_0$ is actually true**. So a Type I error can only happen if the test led to rejecting $\\text{H}_0$.",
+   "**Link to part (c)**\n\nAt the $1\\%$ level, Anji's result was not significant, so $\\text{H}_0$ would **not** have been rejected. With no rejection there is no Type I error. Since we are told she did make a Type I error, she must have rejected $\\text{H}_0$, which can only be at a larger level such as $5\\%$.",
+   "**Final answer**\n\nAt the $1\\%$ level $\\text{H}_0$ is not rejected, and a Type I error can only occur when $\\text{H}_0$ is rejected. So her level was not $1\\%$."
+  ]
+ }
+}

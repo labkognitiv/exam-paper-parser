@@ -1,0 +1,42 @@
+{
+ "9709_m20_62_q5_a": {
+  "hints": [
+   "More than 305 ml means $300 + X > 305$, so $X > 5$. Since $\\text{f}(x) = 0$ above 10, this is $\\int_5^{10} \\text{f}(x)\\,\\text{d}x$.",
+   "Integrate $100 - x^2$ term by term to get $100x - \\dfrac{x^3}{3}$, keep the $\\dfrac{3}{4000}$ outside, then substitute the limits 10 and 5 (upper minus lower).",
+   "Work out the bracket as one fraction, then multiply by $\\dfrac{3}{4000}$. Give the answer as a fraction or to 3 significant figures."
+  ],
+  "walkthrough": [
+   "**Turn the volume into a statement about $X$**\n\nThe volume is $300 + X$. Volume more than 305 means $300 + X > 305$, so $X > 5$.\n\nFor a continuous random variable, probability is area under the pdf. The pdf is zero above $x = 10$, so we only need the area from 5 to 10:\n\n$$\\text{P}(X > 5) = \\int_5^{10} \\frac{3}{4000}(100 - x^2)\\,\\text{d}x$$",
+   "**Integrate (this earns the first M1)**\n\nThe constant $\\frac{3}{4000}$ can stay outside. To integrate, raise each power by one and divide by the new power: $100$ becomes $100x$, and $x^2$ becomes $\\frac{x^3}{3}$.\n\n$$\\frac{3}{4000}\\int_5^{10}(100 - x^2)\\,\\text{d}x = \\frac{3}{4000}\\left[100x - \\frac{x^3}{3}\\right]_5^{10}$$",
+   "**Substitute the limits (this earns the second M1)**\n\nPut in the top limit 10, then subtract what you get from the bottom limit 5.\n\nAt $x = 10$: $100 \\times 10 - \\frac{10^3}{3} = 1000 - \\frac{1000}{3}$.\n\nAt $x = 5$: $100 \\times 5 - \\frac{5^3}{3} = 500 - \\frac{125}{3}$.\n\n$$\\frac{3}{4000}\\left(1000 - \\frac{1000}{3} - 500 + \\frac{125}{3}\\right)$$\n\nShow this substitution line in your answer. The scheme needs to see it for the A1.",
+   "**Evaluate (this earns the A1)**\n\nWhole numbers first: $1000 - 500 = 500$. Thirds next: $-\\frac{1000}{3} + \\frac{125}{3} = -\\frac{875}{3}$.\n\n$$500 - \\frac{875}{3} = \\frac{1500}{3} - \\frac{875}{3} = \\frac{625}{3}$$\n\nNow multiply by $\\frac{3}{4000}$. The 3s cancel:\n\n$$\\frac{3}{4000} \\times \\frac{625}{3} = \\frac{625}{4000} = \\frac{5}{32} = 0.15625$$\n\nDivide top and bottom by 125 to get $\\frac{5}{32}$. Quick check: the pdf is tallest at $x = 0$ and shrinks towards 10, so only a small share of the probability lies above 5. A value around 0.16 is sensible.",
+   "**Final answer**\n\n$$\\text{P}(\\text{more than 305 ml}) = 0.156 \\text{ (3 s.f.)} = \\frac{5}{32}$$"
+  ]
+ },
+ "9709_m20_62_q5_b": {
+  "hints": [
+   "'More than $300 + p$ ml' means $X > p$. The probability is $25\\% = \\dfrac{1}{4}$, so set up $\\int_p^{10} \\text{f}(x)\\,\\text{d}x = \\dfrac{1}{4}$.",
+   "Integrate to get $\\dfrac{3}{4000}\\left[100x - \\dfrac{x^3}{3}\\right]_p^{10} = \\dfrac{1}{4}$, keeping the limits $p$ and 10.",
+   "Substitute: the top limit 10 gives $1000 - \\dfrac{1000}{3}$, and the bottom limit $p$ gives $100p - \\dfrac{p^3}{3}$. Subtract the bottom from the top and show the substitution.",
+   "Clear the fractions: multiply both sides by $\\dfrac{4000}{3}$, then by 3, and collect everything on one side to reach the printed result."
+  ],
+  "walkthrough": [
+   "**Set up the equation (this earns the first M1)**\n\n'More than $(300 + p)$ ml' means $300 + X > 300 + p$, that is $X > p$. We are told this has probability 25%, which is $\\frac{1}{4}$. The pdf is zero above 10, so the area is from $p$ to 10:\n\n$$\\frac{3}{4000}\\int_p^{10}(100 - x^2)\\,\\text{d}x = \\frac{1}{4}$$",
+   "**Integrate (this earns the first A1)**\n\nRaise each power by one and divide by the new power:\n\n$$\\frac{3}{4000}\\left[100x - \\frac{x^3}{3}\\right]_p^{10} = \\frac{1}{4}$$",
+   "**Substitute the limits (this earns the second M1)**\n\nTop limit 10 gives $1000 - \\frac{1000}{3}$. Bottom limit $p$ gives $100p - \\frac{p^3}{3}$. Take top minus bottom. The minus sign in front of the bottom bracket changes both signs inside it:\n\n$$\\frac{3}{4000}\\left(1000 - \\frac{1000}{3} - 100p + \\frac{p^3}{3}\\right) = \\frac{1}{4}$$",
+   "**Tidy up to the printed equation (this earns the last A1)**\n\nMultiply both sides by $\\frac{4000}{3}$ to remove the factor in front. The right side becomes $\\frac{1}{4} \\times \\frac{4000}{3} = \\frac{1000}{3}$:\n\n$$1000 - \\frac{1000}{3} - 100p + \\frac{p^3}{3} = \\frac{1000}{3}$$\n\nCombine $1000 - \\frac{1000}{3} = \\frac{3000}{3} - \\frac{1000}{3} = \\frac{2000}{3}$:\n\n$$\\frac{2000}{3} - 100p + \\frac{p^3}{3} = \\frac{1000}{3}$$\n\nMultiply everything by 3 to clear the thirds:\n\n$$2000 - 300p + p^3 = 1000$$\n\nSubtract 1000 from both sides:\n\n$$p^3 - 300p + 1000 = 0$$\n\nThis is the result we were asked to show.",
+   "**Final answer**\n\nStarting from $\\text{P}(X > p) = \\frac{1}{4}$ we reached $\\frac{2000}{3} - 100p + \\frac{p^3}{3} = \\frac{1000}{3}$, and so\n\n$$p^3 - 300p + 1000 = 0$$"
+  ]
+ },
+ "9709_m20_62_q5_c": {
+  "hints": [
+   "Look at $\\text{f}(x) = \\frac{3}{4000}(100 - x^2)$: only $x^2$ appears. What does that say about the graph on either side of $x = 0$? Use it to compare $\\text{P}(X > p)$ with $\\text{P}(X < -p)$.",
+   "Write the 50% as the probability that $X$ lies between $-q$ and $q$. If the two tails beyond $\\pm p$ are each 25%, what is left in the middle, and so what must $q$ equal?"
+  ],
+  "walkthrough": [
+   "**Use the symmetry of the pdf (this earns the first B1)**\n\nBottles contain between $(300 - q)$ and $(300 + q)$ ml when $X$ is between $-q$ and $q$.\n\nThe pdf $\\text{f}(x) = \\frac{3}{4000}(100 - x^2)$ depends only on $x^2$, so $\\text{f}(-x) = \\text{f}(x)$. Its graph is an upside-down parabola with its peak at $x = 0$, so it is **symmetrical about $x = 0$**.\n\nFrom (b), $\\text{P}(X > p) = \\frac{1}{4}$. By symmetry, $\\text{P}(X < -p) = \\frac{1}{4}$ as well. So the two tails together take $\\frac{1}{2}$, and the middle takes the rest:\n\n$$\\text{P}(-p < X < p) = 1 - \\frac{1}{4} - \\frac{1}{4} = \\frac{1}{2}$$",
+   "**Read off $q$ (this earns the second B1)**\n\nThe middle 50% is exactly the interval from $-p$ to $p$, which is the interval from $-q$ to $q$ in the question. So $q = p$:\n\n$$q = 3.47$$\n\nCheck by integrating: $\\text{P}(-q < X < q) = 2 \\times \\frac{3}{4000}\\left[100x - \\frac{x^3}{3}\\right]_0^{q}$. With $q = 3.47$ this is $\\frac{3}{2000}(347 - 13.927) = 0.4996 \\approx 0.5$, as expected. Equivalently, setting this equal to 0.5 gives the same cubic as in (b).",
+   "**Final answer**\n\n$$q = 3.47$$\n\nJustification: the pdf is symmetrical about $x = 0$, so the middle 50% lies between $-p$ and $p$, so $q = p = 3.47$."
+  ]
+ }
+}

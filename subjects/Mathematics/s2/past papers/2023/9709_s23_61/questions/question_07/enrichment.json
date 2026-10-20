@@ -1,0 +1,69 @@
+{
+  "9709_s23_61_q7_a": {
+    "hints": [
+      "Define the parameter as the population mean number of accidents. $\\text{H}_0$ says nothing has changed from $1.9$ per week; $\\text{H}_1$ says it has been reduced, which is one-tailed. You may state them per week, or for the whole $4$-week period by multiplying the mean by $4$."
+    ],
+    "walkthrough": [
+      "**What the hypotheses must say**\n\nThe null hypothesis $\\text{H}_0$ is the 'nothing has changed' claim. The alternative $\\text{H}_1$ is what the manager hopes to show. He wants to know whether the mean number of accidents has been **reduced**, so $\\text{H}_1$ is one-tailed (a 'less than').",
+      "**Choose what the mean refers to**\n\nThe sample is $4$ weeks long, so it is convenient to give the mean for $4$ weeks: $4 \\times 1.9 = 7.6$. Let $\\lambda$ be the population mean number of accidents in $4$ weeks.\n\n$$\\text{H}_0: \\lambda = 7.6 \\qquad \\text{H}_1: \\lambda < 7.6$$\n\nEqually acceptable, using the weekly mean: $\\text{H}_0: \\lambda = 1.9$, $\\text{H}_1: \\lambda < 1.9$. Always say it is the *population* mean (or use $\\lambda$ or $\\mu$), not just 'the mean'.",
+      "**Final answer**\n\n$\\text{H}_0: \\lambda = 7.6$, $\\text{H}_1: \\lambda < 7.6$ (where $\\lambda$ is the population mean number of accidents in $4$ weeks)."
+    ]
+  },
+  "9709_s23_61_q7_b": {
+    "hints": [
+      "The sample covers $4$ weeks, so scale the weekly mean $1.9$ to the mean for the sample. Under $\\text{H}_0$ the number of accidents in $4$ weeks is Poisson with that mean.",
+      "You need the largest $c$ for which $\\text{P}(X \\leqslant c) \\leqslant 0.05$. Work up through $c = 0, 1, 2, \\ldots$ with your calculator's Poisson cdf, and write one calculation as $\\text{e}^{-\\lambda}\\left(1 + \\lambda + \\dfrac{\\lambda^2}{2!} + \\cdots\\right)$ with your mean.",
+      "Also find the next cumulative probability after the one you think is the boundary. You need to show that it is more than $0.05$, so that the critical region cannot be any bigger.",
+      "Write both probabilities, one either side of $0.05$, to 3 significant figures.",
+      "State the critical region as an inequality $X \\leqslant c$, using the largest $c$ whose cumulative probability is below $0.05$.",
+      "A Type I error means rejecting $\\text{H}_0$ when it is true. Its probability is the probability of landing in the critical region you found: give that actual value (not $0.05$), to 3 significant figures."
+    ],
+    "walkthrough": [
+      "**The distribution under H₀ (this earns the first B1)**\n\nIf nothing has changed, accidents happen at $1.9$ per week. For $4$ weeks multiply: $4 \\times 1.9 = 7.6$. Accidents are random events at a constant rate, so\n\n$$X \\sim \\text{Po}(7.6)$$\n\nwhere $X$ is the number of accidents in $4$ weeks.",
+      "**What a critical region is here**\n\nThe test is one-tailed with $\\text{H}_1: \\lambda < 7.6$, so we reject $\\text{H}_0$ when $X$ is **small**. The critical region is $X \\leqslant c$, where $c$ is as large as it can be while $\\text{P}(X \\leqslant c)$ stays at or below $5\\%$ (that is, $0.05$).\n\nWe test values of $c$ one at a time.",
+      "**Try c = 2 (this earns the first M1)**\n\n$$\\text{P}(X \\leqslant 2) = \\text{e}^{-7.6}\\left(1 + 7.6 + \\frac{7.6^2}{2!}\\right)$$\n\n$\\text{e}^{-7.6} = 0.00050045$ and $\\dfrac{7.6^2}{2} = \\dfrac{57.76}{2} = 28.88$. Add the terms in the bracket: $1 + 7.6 + 28.88 = 37.48$.\n\n$$\\text{P}(X \\leqslant 2) = 0.00050045 \\times 37.48 = 0.018757 = 0.0188$$\n\nThis is less than $0.05$, so $2$ could be in the critical region.",
+      "**Try c = 3 (this earns the second M1)**\n\nAdd one more term, $\\dfrac{7.6^3}{3!} = \\dfrac{438.976}{6} = 73.163$, to the bracket:\n\n$$\\text{P}(X \\leqslant 3) = \\text{e}^{-7.6}\\left(1 + 7.6 + \\frac{7.6^2}{2!} + \\frac{7.6^3}{3!}\\right) = 0.00050045 \\times 110.643 = 0.055371 = 0.0554$$\n\nThis is **more** than $0.05$, so $3$ is too big to be in the critical region.",
+      "**The two values (this earns the first A1)**\n\n$$\\text{P}(X \\leqslant 2) = 0.0188 \\quad(< 0.05) \\qquad \\text{P}(X \\leqslant 3) = 0.0554 \\quad(> 0.05)$$\n\n(The scheme also accepts $0.0187$ and $0.0553$, which come from using a rounded $\\text{e}^{-7.6}$.)",
+      "**The critical region (this earns the second A1)**\n\nThe largest $c$ with probability under $0.05$ is $c = 2$, so the critical region is\n\n$$X \\leqslant 2$$\n\nIf the manager sees $0$, $1$ or $2$ accidents in $4$ weeks, he rejects $\\text{H}_0$.",
+      "**The probability of a Type I error (this earns the final B1 ft)**\n\nA Type I error is rejecting $\\text{H}_0$ when it is actually true. That happens exactly when $X$ falls in the critical region even though the mean is still $7.6$. So its probability is the probability of the critical region:\n\n$$\\text{P}(\\text{Type I error}) = \\text{P}(X \\leqslant 2) = 0.0188$$\n\nIt is not $0.05$: because $X$ is a whole number the real probability is below $5\\%$.",
+      "**Final answer**\n\nThe critical region is $X \\leqslant 2$, and $\\text{P}(\\text{Type I error}) = 0.0188$ (3 s.f.; the scheme also accepts $0.0187$)."
+    ]
+  },
+  "9709_s23_61_q7_c": {
+    "hints": [
+      "A Type I error means rejecting $\\text{H}_0$ when $\\text{H}_0$ is actually true. Say what the manager would wrongly conclude about the booklet and the number of accidents."
+    ],
+    "walkthrough": [
+      "**The general idea**\n\nA **Type I error** is rejecting $\\text{H}_0$ when $\\text{H}_0$ is true. Here $\\text{H}_0$ says the mean number of accidents is unchanged, so rejecting it means concluding the mean has gone down.",
+      "**In the context of the factory**\n\nThe error happens when the manager concludes that the mean number of accidents has been reduced (the booklet has helped) when in fact the mean has not changed. In words: he believes the safety booklet works, but it did not, and the low count was just chance.",
+      "**Final answer**\n\nConcluding that the mean number of accidents has been reduced when in fact it has not."
+    ]
+  },
+  "9709_s23_61_q7_d": {
+    "hints": [
+      "Compare the observed total $3$ with your critical region from part **(b)**: is $3$ inside it? (Or compare $\\text{P}(X \\leqslant 3)$ with $0.05$.)",
+      "Decide whether to reject $\\text{H}_0$, then state the conclusion about the mean number of accidents in context, using non-definite wording such as 'there is (no) evidence that...'."
+    ],
+    "walkthrough": [
+      "**Compare with the critical region (this earns the M1)**\n\nThe manager observed $3$ accidents in the $4$ weeks. The critical region from part **(b)** is $X \\leqslant 2$. Since $3$ is bigger than $2$:\n\n$$3 \\text{ is not in the critical region}$$\n\n(Or by probability: $\\text{P}(X \\leqslant 3) = 0.0554$, which is greater than $0.05$, so we cannot reject $\\text{H}_0$.)",
+      "**Conclusion (this earns the A1 ft)**\n\nWe do not reject $\\text{H}_0$. In the context of the factory: **there is no evidence that the mean number of accidents has decreased.**\n\nBe careful: do not say 'the mean number of accidents has not decreased'. That is a definite statement, and the scheme does not allow it. A test cannot prove $\\text{H}_0$; it only shows we lack evidence to reject it.",
+      "**Final answer**\n\n$3$ is not in the critical region ($0.0554 > 0.05$), so the manager should not reject $\\text{H}_0$: there is no evidence that the mean number of accidents has decreased."
+    ]
+  },
+  "9709_s23_61_q7_e": {
+    "hints": [
+      "For $52$ weeks the mean number of accidents is $52 \\times 1.9$. When a Poisson mean is large, approximate with a normal distribution having the same mean and a variance equal to that mean.",
+      "'More than 100' for a whole number means $X \\geqslant 101$. Apply a continuity correction: the boundary lies halfway between $100$ and $101$. Standardise it with $z = \\dfrac{\\text{boundary} - \\mu}{\\sigma}$ and $\\sigma = \\sqrt{\\text{variance}}$.",
+      "You want the upper tail $\\text{P}(Z > z)$, so write it as $1 - \\Phi(z)$ with your $z$.",
+      "Evaluate on your calculator with the unrounded $z$, and give 3 significant figures."
+    ],
+    "walkthrough": [
+      "**The distribution of accidents in 52 weeks (this earns the B1)**\n\nLet $X$ be the number of accidents in $52$ weeks. The mean is $52 \\times 1.9 = 98.8$, so $X \\sim \\text{Po}(98.8)$.\n\nAdding up $\\text{P}(X = 101) + \\text{P}(X = 102) + \\cdots$ is impossible by hand, so we use a **normal approximation**. A Poisson distribution with a large mean (above $15$) is close to a normal one. In a Poisson distribution the variance equals the mean, so the normal has mean $98.8$ and variance $98.8$:\n\n$$X \\approx \\text{N}(98.8,\\ 98.8)$$",
+      "**Continuity correction**\n\nThe Poisson distribution is discrete (whole numbers) and the normal is continuous, so we must adjust. 'More than $100$' means $X = 101, 102, 103, \\ldots$ ($100$ itself is not included). On a continuous scale, the value $101$ covers the interval from $100.5$ to $101.5$, so the boundary is $100.5$:\n\n$$\\text{P}(X > 100) \\to \\text{P}(X_{\\text{normal}} > 100.5)$$",
+      "**Standardise (this earns the first M1)**\n\nThe standard deviation is $\\sqrt{98.8} = 9.9398$. Subtract the mean and divide:\n\n$$z = \\frac{100.5 - 98.8}{\\sqrt{98.8}} = \\frac{1.7}{9.9398} = 0.17103$$\n\nQuick check: $100.5$ is only a little above the mean $98.8$, so $z$ should be small and positive. It is.",
+      "**Choose the area (this earns the second M1)**\n\nWe want the area to the **right** of $z$ (more than $100$), and tables give the area to the left:\n\n$$\\text{P}(Z > 0.171) = 1 - \\Phi(0.171)$$",
+      "**Evaluate (this earns the A1)**\n\n$\\Phi(0.171)$: use the normal table or your calculator's normal cdf, which gives $0.5679$.\n\n$$1 - 0.5679 = 0.4321 = 0.432 \\text{ (3 s.f.)}$$\n\nQuick check: the boundary is just above the mean, so slightly less than half of the distribution is above it. $0.432$ fits.",
+      "**Final answer**\n\n$$\\text{P}(X > 100) = 0.432$$"
+    ]
+  }
+}

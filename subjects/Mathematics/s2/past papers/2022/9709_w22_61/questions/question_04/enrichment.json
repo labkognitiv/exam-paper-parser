@@ -1,0 +1,34 @@
+{
+ "9709_w22_61_q4_a": {
+  "hints": [
+   "The total for one month is $X + Y$, and $\\text{E}(X + Y) = \\text{E}(X) + \\text{E}(Y)$. Over 3 months, add 3 monthly totals: three times the mean of one month.",
+   "For independent variables, variances add: $\\text{Var}(X + Y) = \\text{Var}(X) + \\text{Var}(Y)$, using $120^2$ and $130^2$ (the squares of the standard deviations). Three separate months are three independent copies, so the variance is $3 \\times$ the monthly variance, not $3^2 \\times$.",
+   "The question asks for the **standard deviation**, so take the square root of your variance $3\\left(120^2 + 130^2\\right)$ and give 3 significant figures."
+  ],
+  "walkthrough": [
+   "**Set up: the total over 3 months**\n\nIn one month the company sells $X$ kg of brown sugar and $Y$ kg of white sugar, so the total sugar in one month is $X + Y$.\n\nOver 3 randomly chosen months the total is **three** monthly totals added together. Call the total $T$. $\\text{N}(2500, 120^2)$ means mean $2500$ and variance $120^2$ (so standard deviation $120$); similarly for $Y$ with mean $3700$ and variance $130^2$.",
+   "**The mean (B1)**\n\nMeans add (whether or not the variables are independent). The mean for one month is $2500 + 3700 = 6200$ kg. For 3 months:\n\n$$\\text{E}(T) = 3 \\times (2500 + 3700) = 3 \\times 6200 = 18\\,600 \\text{ kg}$$\n\nThis earns the B1.",
+   "**The variance (M1)**\n\nFor **independent** variables, **variances** add (not standard deviations). Remember variance is the standard deviation squared:\n\n$$\\text{Var}(X) = 120^2 = 14\\,400, \\qquad \\text{Var}(Y) = 130^2 = 16\\,900$$\n\nOne month: $\\text{Var}(X + Y) = 14\\,400 + 16\\,900 = 31\\,300$.\n\nThree different months are three independent copies of $X + Y$, so we add three variances (we do **not** multiply the single month by $3^2$; that is for $3 \\times$ one month's amount, which is a different thing):\n\n$$\\text{Var}(T) = 3\\left(120^2 + 130^2\\right) = 3 \\times 31\\,300 = 93\\,900$$\n\nThis earns the M1.",
+   "**The standard deviation (A1)**\n\nThe question asks for the **standard deviation**, which is the square root of the variance:\n\n$$\\text{sd} = \\sqrt{93\\,900} = 306.43\\ldots = 306 \\text{ kg (3 s.f.)}$$\n\nQuick check: $306^2 = 93\\,636$, close to $93\\,900$. The scheme's wording says \"Total profit\" on the variance line, but it is the total sugar (a small label slip in the print; the numbers are right).",
+   "**Final answer**\n\nMean $= 18\\,600$ kg and standard deviation $= 306$ kg (3 s.f.)."
+  ]
+ },
+ "9709_w22_61_q4_b": {
+  "hints": [
+   "Profit per month is $1.50X$ from brown sugar minus $0.20Y$ from white (it is a loss). Use $\\text{E}(aX + bY) = a\\text{E}(X) + b\\text{E}(Y)$ with $a = 1.50$ and $b = -0.20$.",
+   "For independent variables $\\text{Var}(aX + bY) = a^2\\text{Var}(X) + b^2\\text{Var}(Y)$, and the variances **add** even when $b$ is negative: $1.50^2 \\times 120^2 + 0.20^2 \\times 130^2$. Work that out.",
+   "A combination of independent normals is normal. Standardise the target profit: $z = \\dfrac{3000 - \\text{mean}}{\\text{sd}}$, where sd is the square root of your variance (not the variance itself).",
+   "You want the profit **less than** $3000$, so the area is to the **left** of $z$: $\\Phi(z)$. If $z$ is negative, $\\Phi(z) = 1 - \\Phi(-z)$.",
+   "Use your calculator's normal cdf (or table) for the area and give 3 significant figures. Sense-check: if $z$ is close to $0$ the probability should be close to $0.5$."
+  ],
+  "walkthrough": [
+   "**Write the profit as a combination**\n\nLet $P$ be the profit in a month, in dollars. Brown sugar earns $\\$1.50$ per kg, so $X$ kg earns $1.5X$. White sugar makes a **loss** of $\\$0.20$ per kg, so it takes away $0.2Y$:\n\n$$P = 1.5X - 0.2Y$$\n\nSince $X$ and $Y$ are independent normal variables, $P$ is also normally distributed, so we only need its mean and variance.",
+   "**The mean of the profit (B1)**\n\n$$\\text{E}(P) = 1.5\\,\\text{E}(X) - 0.2\\,\\text{E}(Y) = 1.5 \\times 2500 - 0.2 \\times 3700$$\n\n$$1.5 \\times 2500 = 3750, \\qquad 0.2 \\times 3700 = 740$$\n\n$$\\text{E}(P) = 3750 - 740 = 3010$$\n\nThis earns the B1.",
+   "**The variance of the profit (B1)**\n\nFor independent variables, $\\text{Var}(aX + bY) = a^2\\text{Var}(X) + b^2\\text{Var}(Y)$. The constants get **squared**, so the minus sign in $-0.2$ disappears and the variances **add**:\n\n$$\\text{Var}(P) = 1.5^2 \\times 120^2 + 0.2^2 \\times 130^2$$\n\n$1.5^2 = 2.25$ and $120^2 = 14\\,400$, so $2.25 \\times 14\\,400 = 32\\,400$.\n\n$0.2^2 = 0.04$ and $130^2 = 16\\,900$, so $0.04 \\times 16\\,900 = 676$.\n\n$$\\text{Var}(P) = 32\\,400 + 676 = 33\\,076$$\n\nThe standard deviation is $\\sqrt{33\\,076} = 181.87$ (the scheme accepts either the variance expression or $\\text{sd} = 182$). So\n\n$$P \\sim \\text{N}(3010,\\ 33\\,076)$$\n\nCommon slip: subtracting the variances (that would give $32\\,400 - 676$). This earns the second B1.",
+   "**Standardise (M1)**\n\nWe want $\\text{P}(P < 3000)$. Standardise ($z = \\frac{x - \\mu}{\\sigma}$, where $\\sigma$ is the standard deviation, the **square root** of the variance):\n\n$$z = \\frac{3000 - 3010}{\\sqrt{33\\,076}} = \\frac{-10}{181.87} = -0.055$$\n\n(Calculator: $-10 \\div 181.87 = -0.05498$.) This earns the M1. The profit target is only a little below the mean, so $z$ is close to $0$.",
+   "**Find the area (M1)**\n\nBecause the question says less than, we want the area to the **left** of $z = -0.055$, which is $\\Phi(-0.055)$. Tables only list positive $z$, so use symmetry of the bell curve:\n\n$$\\Phi(-0.055) = 1 - \\Phi(0.055)$$\n\nThis earns the second M1.",
+   "**Calculate (A1)**\n\n$\\Phi(0.055)$: use the normal table or the calculator's normal cdf $\\rightarrow 0.52193$.\n\n$$1 - 0.52193 = 0.47807$$\n\n$$\\text{P}(P < 3000) = 0.478 \\text{ (3 s.f.)}$$\n\nSense-check: just under $0.5$, as expected since $3000$ is just under the mean profit of $3010$.",
+   "**Final answer**\n\nThe probability that the monthly profit is less than $\\$3000$ is $0.478$ (3 s.f.)."
+  ]
+ }
+}

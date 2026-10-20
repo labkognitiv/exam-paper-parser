@@ -1,0 +1,44 @@
+{
+ "9709_m25_62_q2_a": {
+  "hints": [
+   "The sample mean is the unbiased estimate of $\\text{E}(T)$: divide $\\Sigma t = 3678$ by $n = 60$.",
+   "For an unbiased estimate of the variance, divide by $n - 1$: $s^2 = \\dfrac{1}{59}\\left(\\Sigma t^2 - \\dfrac{(\\Sigma t)^2}{60}\\right)$, or equivalently $\\dfrac{60}{59}\\left(\\dfrac{\\Sigma t^2}{60} - \\bar{t}^2\\right)$.",
+   "Work out the bracket first with $\\Sigma t^2 = 226\\,313.36$ and $\\Sigma t = 3678$. Then divide by $59$ and check you reach the printed $14.44$."
+  ],
+  "walkthrough": [
+   "**What we are asked**\n\n$T$ is the time to complete the questionnaire. We only have a **sample** of 60 adults, so we cannot know the true (population) mean and variance. We use the sample to build **unbiased estimates**: estimates that are right on average.\n\n$n = 60$ is the number of adults, $\\Sigma t$ means the sum of all the times, and $\\Sigma t^2$ means the sum of each time squared.",
+   "**The estimate of $\\text{E}(T)$ (B1)**\n\nThe best estimate of the population mean is the sample mean $\\bar{t}$, the total divided by the number of adults:\n\n$$\\bar{t} = \\frac{\\Sigma t}{n} = \\frac{3678}{60}$$\n\nCheck: $60 \\times 61 = 3660$, leaving $3678 - 3660 = 18$, and $18 \\div 60 = 0.3$. So\n\n$$\\bar{t} = 61.3$$",
+   "**Choose the right variance formula (M1)**\n\nA sample is usually a little less spread out than the whole population, so dividing by $n$ would give an estimate that is slightly too small. We fix this by dividing by $n - 1 = 59$. This gives the **unbiased estimate** $s^2$:\n\n$$s^2 = \\frac{1}{n - 1}\\left(\\Sigma t^2 - \\frac{(\\Sigma t)^2}{n}\\right) = \\frac{1}{59}\\left(226\\,313.36 - \\frac{3678^2}{60}\\right)$$\n\nWriting this expression with the question's numbers earns the M1.",
+   "**Calculate it, one piece at a time (A1)**\n\nFirst the square: $3678^2 = 13\\,527\\,684$.\n\nDivide by $60$: $\\dfrac{13\\,527\\,684}{60} = 225\\,461.4$.\n\nSubtract from $\\Sigma t^2$: $226\\,313.36 - 225\\,461.4 = 851.96$.\n\nDivide by $59$: $\\dfrac{851.96}{59} = 14.44$.\n\n$$s^2 = \\frac{851.96}{59} = 14.44$$\n\nThis is the printed value, so the result is shown. You must show the correct expression and then $14.44$ for the A1.",
+   "**Final answer**\n\nUnbiased estimate of $\\text{E}(T)$ is $61.3$ seconds, and the unbiased estimate of $\\text{Var}(T)$ is $14.44$ (shown above)."
+  ]
+ },
+ "9709_m25_62_q2_b": {
+  "hints": [
+   "State the hypotheses using $\\mu$ for the population mean time this year: $\\text{H}_0$ says $\\mu$ equals $62.4$, and $\\text{H}_1$ says it is less, so the test is one-tailed.",
+   "With $n = 60$ the sample mean is approximately normal, so standardise it: $z = \\dfrac{\\bar{t} - 62.4}{\\sqrt{14.44}\\,/\\,\\sqrt{60}}$, using your sample mean from (a). Note the $\\sqrt{60}$.",
+   "Work out the standard error $\\dfrac{\\sqrt{14.44}}{\\sqrt{60}}$ first, then divide the difference between the sample mean and $62.4$ by it to get $z$.",
+   "The test is one-tailed at 2%, so all $2\\%$ is in the lower tail. Find the critical value from $\\Phi^{-1}(0.98)$ and compare it (as a negative number) with your $z$.",
+   "Say whether $z$ is in the rejection region, then write the conclusion about the mean time in context, in a non-definite way ('there is sufficient evidence that...')."
+  ],
+  "walkthrough": [
+   "**Plan**\n\nWe test a claim about a population mean using a sample of $60$. The steps are: hypotheses, find the test statistic $z$, compare it with a critical value, conclude in context.\n\nThe question asks whether this year's mean is **less than** $62.4$, so the alternative hypothesis has a '$<$' sign. This is a **one-tailed** test.",
+   "**Hypotheses (B1)**\n\n$\\mu$ means the population mean time (in seconds) this year.\n\n$$\\text{H}_0: \\mu = 62.4 \\qquad \\text{H}_1: \\mu < 62.4$$\n\nWrite $\\mu$ (or the words 'population mean'). Just writing 'mean' on its own does not earn the mark.",
+   "**Why the sample mean is normal, and its spread**\n\nThe sample mean is written $\\bar{T}$. Because $n = 60$ is large, the Central Limit Theorem says $\\bar{T}$ is approximately normal. If $\\text{H}_0$ is true:\n\n$$\\bar{T} \\sim \\text{N}\\left(62.4, \\frac{14.44}{60}\\right)$$\n\nThe variance of a mean is the population variance divided by $n$. We use our estimate $14.44$ from (a) in place of the unknown population variance.",
+   "**Standardise (M1)**\n\nWe convert the observed sample mean $61.3$ to a $z$-value: how many standard errors it lies from $62.4$.\n\n$$z = \\frac{61.3 - 62.4}{\\sqrt{14.44}\\,/\\,\\sqrt{60}}$$\n\nThe $\\sqrt{60}$ must be there: this is the mean of $60$ adults, not a single adult. That is what the M1 checks.",
+   "**Calculate $z$ (A1)**\n\nTop: $61.3 - 62.4 = -1.1$.\n\n$\\sqrt{14.44} = 3.8$ (because $3.8 \\times 3.8 = 14.44$).\n\n$\\sqrt{60} = 7.7460$ (calculator).\n\nBottom: $\\dfrac{3.8}{7.7460} = 0.49058$.\n\n$$z = \\frac{-1.1}{0.49058} = -2.242$$",
+   "**Compare with the critical value (second M1)**\n\nThe significance level is $2\\%$, one-tailed, and the rejection region is in the lower tail. We need the $z$ with $2\\%$ of the area below it. Use the inverse normal on the calculator: $\\Phi^{-1}(0.98) = 2.054$, so the lower critical value is $-2.054$.\n\nOur $z = -2.242$ is further from zero than $-2.054$:\n\n$$-2.242 < -2.054$$\n\nSo the test statistic lies in the rejection region.\n\nAlternative way: $\\text{P}(Z < -2.242) = 1 - \\Phi(2.242) = 1 - 0.9875 = 0.0125$, which is less than $0.02$. It gives the same decision.",
+   "**Conclusion in context (final A1)**\n\nWe reject $\\text{H}_0$. Be careful with the wording: a test cannot prove anything, so say there is **evidence**, not that it is definitely so.\n\nThere is sufficient evidence, at the $2\\%$ significance level, that the population mean time to complete the questionnaire this year is less than $62.4$ seconds.",
+   "**Final answer**\n\n$z = -2.242$, which is less than the critical value $-2.054$, so reject $\\text{H}_0$. There is sufficient evidence at the 2% level that the mean time has decreased below $62.4$ seconds."
+  ]
+ },
+ "9709_m25_62_q2_c": {
+  "hints": [
+   "The CLT is needed when you cannot assume the original population is normal. Does the question tell you the distribution of $T$?"
+  ],
+  "walkthrough": [
+   "**What the Central Limit Theorem does**\n\nThe CLT says that for a large sample (here $n = 60$), the sample mean is approximately normally distributed, **whatever** the shape of the population.\n\nWe needed the sample mean to be approximately normal in part (b) in order to use $z$ and the normal table. That is only guaranteed if either the population is normal, or the CLT applies.\n\nLook back at the question: the times $T$ are never said to be normally distributed. So we did not know that the population was normal, and the CLT was what justified the normal calculation.",
+   "**Final answer**\n\nYes, it was necessary, because the distribution of the population of times $T$ is unknown (not stated to be normal)."
+  ]
+ }
+}

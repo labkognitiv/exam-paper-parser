@@ -1,0 +1,21 @@
+{
+ "9709_s16_72_q4": {
+  "hints": [
+   "The question asks whether the rate has **changed**, so the alternative is two-sided ($\\neq$). The old rate is 2.1 per week, and you counted faults over 20 weeks: scale the rate to 20 weeks to state $\\text{H}_0$ for $\\lambda$.",
+   "The mean for 20 weeks is large, so a Poisson distribution can be approximated by a normal one. For $\\text{Po}(\\lambda)$, the normal approximation is $\\text{N}(\\lambda, \\lambda)$: the mean and variance are both equal to $\\lambda$.",
+   "You observed 54 faults, which is above what $\\text{H}_0$ expects, so look at the upper tail, $\\text{P}(X \\geqslant 54)$. Applying the continuity correction, the boundary is half a unit below 54. Standardise: $z = \\dfrac{\\text{boundary} - \\text{mean}}{\\sqrt{\\text{variance}}}$.",
+   "Do the arithmetic for $z$: subtract the mean, then divide by the square root of the variance. Keep at least 3 decimal places.",
+   "The test is two-tailed at 5%, so each tail holds half of the significance level. Compare your $z$ with the critical value for a two-tailed 5% test (the table value 1.96).",
+   "Decide whether your $z$ is beyond the critical value, so in the rejection region or not. Then write the conclusion in the context of computer faults, using 'evidence' wording and not a definite statement."
+  ],
+  "walkthrough": [
+   "**Set up the hypotheses (first B1)**\n\nBefore the update the mean rate was 2.1 faults per week. We tested over 20 weeks, so we scale the rate to 20 weeks:\n\n$$2.1 \\times 20 = 42 \\text{ faults in 20 weeks}$$\n\nLet $\\lambda$ be the population mean number of faults in 20 weeks. The management want to know if the rate has **changed**, which could mean up or down, so the alternative is two-sided:\n\n$$\\text{H}_0:\\ \\lambda = 42 \\qquad \\text{H}_1:\\ \\lambda \\neq 42$$\n\n(Writing $\\text{H}_0$ as 'the population mean weekly rate is 2.1' also earns the credit. Check that the symbols are defined.)",
+   "**Why we use a normal approximation (B1 ft)**\n\nIf $\\text{H}_0$ is true, the number of faults in 20 weeks follows a Poisson distribution, $X \\sim \\text{Po}(42)$. The question tells us to use an approximation. When $\\lambda$ is large (over about 10) a Poisson distribution is close to a normal distribution with the same mean and variance. For a Poisson, the mean and variance are both $\\lambda$:\n\n$$X \\sim \\text{Po}(42) \\approx \\text{N}(42,\\ 42)$$\n\nQuick check: the variance is 42, so the standard deviation is $\\sqrt{42} = 6.4807$.",
+   "**Continuity correction (M1)**\n\nFaults are whole numbers (discrete) but the normal is continuous. So each whole number $54$ is treated as the range from $53.5$ to $54.5$.\n\nWe saw 54 faults, which is **more** than the 42 expected under $\\text{H}_0$. So we look at the upper tail: the probability of getting 54 **or more**.\n\n$$\\text{P}(X \\geqslant 54) \\to \\text{P}(X > 53.5)$$\n\nWe use $53.5$ because it is the lower edge of 54 and includes it. Now standardise:\n\n$$z = \\frac{53.5 - 42}{\\sqrt{42}}$$\n\nThis line earns the M1.",
+   "**Calculate $z$ (A1)**\n\n$$53.5 - 42 = 11.5$$\n\n$$\\frac{11.5}{6.4807} = 1.774$$\n\nSo $z = 1.774$ (the scheme accepts $1.77$ too, and accepts the answer without the continuity correction). If you compare areas instead: $\\text{P}(Z > 1.774) = 1 - \\Phi(1.774) = 0.038$.",
+   "**Compare with the critical value (M1)**\n\nThis is a two-tailed test at the 5% level. So 2.5% is in each tail, and the critical value is $1.96$. We reject $\\text{H}_0$ only if $z$ is above $1.96$ (or below $-1.96$).\n\n$$1.774 < 1.96$$\n\nArea method: $0.038 > 0.025$ (half of 5%), which gives the same result.",
+   "**Conclusion in context (A1 ft)**\n\nOur $z$ is not in the rejection region. So we do **not** reject $\\text{H}_0$. There is not enough evidence at the 5% level to say the rate has changed.\n\nUse wording such as 'no evidence', not 'the rate has not changed'. A test cannot prove $\\text{H}_0$ is true. Also, do not contradict yourself: if you wrote 'accept $\\text{H}_0$', you cannot also say 'the rate has changed'.",
+   "**Final answer**\n\n$z = 1.774 < 1.96$ (or $0.038 > 0.025$), so $\\text{H}_0$ is not rejected. There is no evidence, at the 5% significance level, that the mean rate of computer faults has changed."
+  ]
+ }
+}

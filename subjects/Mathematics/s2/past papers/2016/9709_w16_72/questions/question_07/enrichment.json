@@ -1,0 +1,48 @@
+{
+ "9709_w16_72_q7_i": {
+  "hints": [
+   "Let $\\mu$ be the population mean journey time now. $\\text{H}_0$: it has not changed from the past value of 20.5 minutes. For $\\text{H}_1$, the question asks whether the mean has **decreased**: which inequality is that, and is the test one-tailed or two-tailed?",
+   "If $\\text{H}_0$ is true, the mean of a sample of 100 times is normal with mean 20.5 and standard deviation $\\dfrac{1.2}{\\sqrt{100}}$ (it is a mean of 100 values). Standardise: $z = \\dfrac{20.3 - 20.5}{1.2/\\sqrt{100}}$.",
+   "Work out the denominator first ($1.2$ divided by $\\sqrt{100}$), then divide the top by it. Notice that 20.3 is below 20.5, so your $z$ should be negative.",
+   "This is a 4% one-tailed test in the lower tail: find the critical $z$ with $\\Phi(z) = 0.96$ (use inverse normal) and put a minus sign on it. Compare your $z$ with it. Alternatively compare $\\Phi(z)$ with $0.04$.",
+   "If your $z$ is beyond the critical value (further into the tail) you reject $\\text{H}_0$; if not, you do not. Write the conclusion in the context of rail journey times, and not as a certainty ('there is evidence that...' or 'there is no evidence that...')."
+  ],
+  "walkthrough": [
+   "**Define $\\mu$ and set up the hypotheses (B1)**\n\nLet $\\mu$ be the **population mean** journey time (in minutes) since the new signals were installed. The old mean was $20.5$. We test whether the mean has **decreased**, so the alternative has a 'less than' sign, in a **one-tailed** test. Mark scheme: you must say 'population mean' (or use $\\mu$), not just 'mean'.\n\n$$\\text{H}_0: \\mu = 20.5$$\n\n$$\\text{H}_1: \\mu < 20.5$$",
+   "**The distribution of the sample mean under $\\text{H}_0$**\n\nWe assume $\\text{H}_0$ is true. Single times have standard deviation $1.2$ (given unchanged). We test using the **mean of 100 times**, $\\bar{X}$. A mean of 100 values varies less than one value, so its standard deviation is smaller:\n\n$$\\text{sd of } \\bar{X} = \\frac{1.2}{\\sqrt{100}} = \\frac{1.2}{10} = 0.12$$\n\nBecause $n = 100$ is large, $\\bar{X}$ is approximately normal by the central limit theorem (so we do not need to know the shape of single journey times).\n\n$$\\bar{X} \\sim \\text{N}\\left(20.5, 0.12^2\\right) \\text{ approximately}$$",
+   "**Standardise the sample mean (M1)**\n\nThe sample mean was $20.3$. Convert it to a $z$-value: sample mean minus the $\\text{H}_0$ mean, divided by the standard deviation of the sample mean.\n\n$$z = \\frac{20.3 - 20.5}{1.2 \\div \\sqrt{100}} = \\frac{-0.2}{0.12}$$\n\nThe M1 is for this expression. Common slip: dividing by $1.2$ and forgetting the $\\sqrt{100}$.",
+   "**Calculate $z$ (A1)**\n\n$$z = \\frac{-0.2}{0.12} = -1.667$$\n\nThe negative sign tells us the sample mean is *below* the old mean, which is the direction $\\text{H}_1$ expects. (If you compare areas instead, $\\Phi(-1.667) = 0.0478$.)",
+   "**The critical value (second M1)**\n\nThe test is at the 4% level, one-tailed, with the whole 4% in the **lower** tail. The critical value $z_c$ satisfies $\\Phi(z_c) = 0.04$. Equivalently, by symmetry, its magnitude satisfies $\\Phi(z) = 0.96$. Use the calculator's inverse normal with area $0.96$, which gives $1.751$ (the scheme also accepts $1.75$). So the critical value is $-1.751$.\n\nThe rejection region is $z < -1.751$.\n\nCompare: $-1.667$ is **not** below $-1.751$. Equivalently $1.667 < 1.751$.\n\nComparing areas gives the same decision: $0.0478 > 0.04$.",
+   "**Decision and conclusion in context (A1ft)**\n\nOur $z = -1.667$ is not in the rejection region, so we **do not reject $\\text{H}_0$**. The sample mean of 20.3 is lower than 20.5, but not low enough, at the 4% level, to be convincing: such a result could easily happen by chance if nothing had changed.\n\nConclusion in context, not definite: there is **no evidence** at the 4% level that the population mean journey time has decreased.",
+   "**Final answer**\n\n$z = -1.667$, which is greater than the critical value $-1.751$ ($0.0478 > 0.04$), so $\\text{H}_0$ is not rejected: there is no evidence that the (population) mean journey time has decreased."
+  ]
+ },
+ "9709_w16_72_q7_ii": {
+  "hints": [
+   "A Type II error means $\\text{H}_0$ is **not rejected** although the true mean is 20.1. So first find the boundary of the rejection region for the sample mean, called the critical value $cv$: set $\\dfrac{cv - 20.5}{1.2/\\sqrt{100}}$ equal to the lower-tail critical $z$ from part (i).",
+   "Solve that equation for $cv$ (multiply by the denominator, then add 20.5). This is the sample mean below which the test rejects $\\text{H}_0$.",
+   "Now suppose the true mean is $20.1$. Then the sample mean is normal with mean $20.1$ (and the same standard deviation $\\dfrac{1.2}{\\sqrt{100}}$). Standardise your $cv$: $z = \\dfrac{cv - 20.1}{1.2/\\sqrt{100}}$.",
+   "The test does **not** reject $\\text{H}_0$ when the sample mean is **above** $cv$, so you need the upper-tail area: $\\text{P}(Z > z) = 1 - \\Phi(z)$.",
+   "Find $\\Phi(z)$ with a normal table or the calculator's normal cdf, subtract from 1 and round to 3 s.f."
+  ],
+  "walkthrough": [
+   "**What a Type II error needs**\n\nA **Type II error** is *not rejecting* $\\text{H}_0$ when $\\text{H}_0$ is actually false. Here, the true mean is now $20.1$ (not 20.5), so $\\text{H}_0$ is false. We need the probability that the test still fails to reject $\\text{H}_0$.\n\nTwo stages: (1) find which sample means *do* lead to rejecting $\\text{H}_0$; (2) find the probability of **not** getting such a sample mean when the true mean is $20.1$.",
+   "**Find the critical value of the sample mean (M1*)**\n\nUsing the test from part (i), at the 4% level the critical $z$ is $-1.751$ (the value with $\\Phi(z) = 0.04$). Under $\\text{H}_0$ the sample mean has mean $20.5$ and standard deviation $\\frac{1.2}{\\sqrt{100}} = 0.12$. So the critical sample mean $cv$ satisfies\n\n$$\\frac{cv - 20.5}{1.2 \\div \\sqrt{100}} = -1.751$$",
+   "**Solve for $cv$ (A1)**\n\nMultiply both sides by $0.12$:\n\n$$cv - 20.5 = -1.751 \\times 0.12 = -0.21012$$\n\nAdd 20.5:\n\n$$cv = 20.5 - 0.21012 = 20.29\\ldots$$\n\nSo $\\text{H}_0$ is rejected when the sample mean is **below** about $20.29$ (the mark scheme accepts $20.3$). The A1 is for $20.29$ or $20.3$.",
+   "**Standardise using the true mean, 20.1 (DM1)**\n\nNow suppose the true mean is $20.1$. The standard deviation of the sample mean is still $0.12$, but its centre is now $20.1$. The sample mean is no longer centred on $20.5$.\n\n$$z = \\frac{20.29 - 20.1}{1.2 \\div \\sqrt{100}} = \\frac{0.19}{0.12} = 1.583$$\n\nThe scheme allows $20.3$ in place of $20.29$ here: $\\frac{20.3 - 20.1}{0.12} = 1.667$.",
+   "**Choose the correct area (M1)**\n\nThe test does **not** reject $\\text{H}_0$ when the sample mean is **above** $cv$. That is the area to the **right** of $z = 1.583$:\n\n$$\\text{P}(\\text{Type II error}) = \\text{P}(Z > 1.583) = 1 - \\Phi(1.583)$$\n\nCommon slip: using $\\Phi(1.583)$, the area to the *left*, which is the probability of *rejecting* $\\text{H}_0$ (the power), not of a Type II error.",
+   "**Evaluate (A1)**\n\nNormal table or calculator: $\\Phi(1.583) = 0.9433$.\n\n$$1 - 0.9433 = 0.0567$$\n\nThe mark scheme gives a range, $0.0567$ to $0.0569$, because of the rounding of $cv$. With the $20.3$ shortcut the answer is $1 - \\Phi(1.667) = 0.0478$, which is also credited.",
+   "**Final answer**\n\n$\\text{P}(\\text{Type II error}) = 0.0567$ (3 s.f.), anywhere in $0.0567$ to $0.0569$ is accepted."
+  ]
+ },
+ "9709_w16_72_q7_iii": {
+  "hints": [
+   "A Type II error means you do not reject $\\text{H}_0$ when it is false. Say what $\\text{H}_0$ claimed about the rail journey time, what is really true, and what the test wrongly concluded, in those terms."
+  ],
+  "walkthrough": [
+   "**What a Type II error is**\n\nA Type II error is **not rejecting** $\\text{H}_0$ when $\\text{H}_1$ is actually true. Compare with Type I: rejecting $\\text{H}_0$ when it is true.",
+   "**Put it into this context**\n\nHere $\\text{H}_0$ says the mean journey time has stayed the same, and $\\text{H}_1$ says it has decreased. Not rejecting $\\text{H}_0$ means concluding that the mean time has **not** decreased. The error is that this conclusion is wrong, because the mean time really **has** decreased. The mark scheme needs the answer in context.",
+   "**Final answer**\n\nA Type II error is concluding that the (population) mean journey time has not decreased when, in fact, it has decreased."
+  ]
+ }
+}

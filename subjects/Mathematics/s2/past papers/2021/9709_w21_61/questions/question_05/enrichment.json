@@ -1,0 +1,44 @@
+{
+ "9709_w21_61_q5_a_i": {
+  "hints": [
+   "The condition is very rare: $X$ is binomial with $n = 2500$ and a tiny $p = \\dfrac{1}{100\\,000}$. When $n$ is large and $p$ is small, a binomial is approximated by a Poisson distribution with mean $np$. Work out $np$ for the parameter.",
+   "The justification must quote the conditions with this question's numbers: $n = 2500$ is large (greater than $50$) and $np$ is small (less than $5$), or alternatively $p$ itself is small. Show the values."
+  ],
+  "walkthrough": [
+   "**Which distribution does $X$ really have**\n\nEach of the 2500 people either has the condition or does not, independently, with the same chance $p = \\dfrac{1}{100\\,000}$. So exactly, $X \\sim \\text{B}\\!\\left(2500,\\ \\dfrac{1}{100\\,000}\\right)$. Binomial probabilities with $n = 2500$ are heavy to work with, so we look for a simpler approximation.",
+   "**Pick the approximation and find its mean (first B1)**\n\nBecause $p$ is tiny and $n$ is large, the number of cases behaves like a count of rare events, which is Poisson. The Poisson mean equals the binomial mean $np$.\n\n$$np = 2500 \\times \\frac{1}{100\\,000} = \\frac{2500}{100\\,000} = 0.025$$$$X \\approx \\text{Po}(0.025)$$",
+   "**Justify it (second B1)**\n\nWe must show the conditions hold, with numbers. For a Poisson approximation to a binomial: $n$ is large ($n > 50$) and $np$ is small ($np < 5$).\n\n$$n = 2500 > 50 \\qquad np = 0.025 < 5$$\n\nBoth are true, so the Poisson approximation is suitable. Accepted alternative: $p = \\dfrac{1}{100\\,000} < 0.1$ in place of $np < 5$. You must actually show the values $2500$ and $0.025$.",
+   "**Final answer**\n\n$$X \\approx \\text{Po}(0.025)$$\n\nJustification: $n = 2500 > 50$ and $np = 0.025 < 5$."
+  ]
+ },
+ "9709_w21_61_q5_a_ii": {
+  "hints": [
+   "'More than 0' means at least one person has the condition, which is the complement of nobody having it: $\\text{P}(X > 0) = 1 - \\text{P}(X = 0)$.",
+   "For a Poisson with mean $\\lambda$ the probability of zero is $\\text{e}^{-\\lambda}$, using $\\lambda$ from part (i). Use your calculator for $\\text{e}^{-\\lambda}$, subtract from 1 and give 3 s.f."
+  ],
+  "walkthrough": [
+   "**Use the complement (M1)**\n\n$X > 0$ means $X = 1, 2, 3, \\ldots$, an endless list. It is much easier to use the opposite event, $X = 0$: either nobody has the condition or at least one person does, so the probabilities add to 1.\n\n$$\\text{P}(X > 0) = 1 - \\text{P}(X = 0)$$",
+   "**The Poisson formula for zero**\n\nFor $X \\sim \\text{Po}(\\lambda)$: $\\text{P}(X = r) = \\dfrac{\\text{e}^{-\\lambda}\\lambda^r}{r!}$. With $r = 0$ we have $\\lambda^0 = 1$ and $0! = 1$, so $\\text{P}(X = 0) = \\text{e}^{-\\lambda}$. From part (i), $\\lambda = 0.025$.\n\n$$\\text{P}(X > 0) = 1 - \\text{e}^{-0.025}$$",
+   "**Calculate (A1)**\n\nOn the calculator, type $\\text{e}^{-0.025}$ (the $\\text{e}^x$ key with $-0.025$) $\\to 0.97531$.\n\n$$1 - 0.97531 = 0.02469$$\n\nRounded to 3 s.f. this is $0.0247$.\n\nQuick check: the chance of any one person having it is tiny, and $2500 \\times 0.00001 = 0.025$, so a probability near $0.025$ is sensible.",
+   "**Final answer**\n\n$$\\text{P}(X > 0) = 0.0247 \\text{ (3 s.f.)}$$"
+  ]
+ },
+ "9709_w21_61_q5_b": {
+  "hints": [
+   "Define the parameter first: $p$ is the true proportion with the condition. The researcher suspects it is **less than** $30\\%$, so the null hypothesis is $p = 0.3$ and the alternative is one-sided.",
+   "Under $\\text{H}_0$ the number of people with the condition is $X \\sim \\text{B}(28, 0.3)$. Because the evidence is on the low side, you want the probability of getting $4$ **or fewer**: add the terms from $0$ up to $4$, each of the form $\\binom{28}{r}\\,0.3^r\\,0.7^{28-r}$.",
+   "Find $\\text{P}(X \\leqslant 4)$ either by adding those five terms or with the calculator's binomial cdf ($n = 28$, $p = 0.3$, upper value $4$).",
+   "Compare your probability with the significance level $0.02$. Smaller than $0.02$ means reject $\\text{H}_0$; larger means do not reject.",
+   "Write the conclusion in context and not definitely: use words like 'there is (no) evidence that', and mention the researcher's suspicion about the proportion of people with this condition."
+  ],
+  "walkthrough": [
+   "**Hypotheses (B1)**\n\nLet $p$ be the true proportion of people who have this medical condition. We assume the claim of $30\\%$ is true unless the evidence is strong against it. The researcher suspects it is lower, so this is a **one-tailed** test.\n\n$$\\text{H}_0: p = 0.3$$$$\\text{H}_1: p < 0.3$$",
+   "**The distribution if $\\text{H}_0$ is true**\n\nEach of the 28 people either has the condition or not, independently, with the same probability. If $p = 0.3$ then the number with the condition is binomial:\n\n$$X \\sim \\text{B}(28,\\ 0.3)$$\n\nWe observed $4$ people. Evidence in favour of $\\text{H}_1$ would be a small number, so we find the chance of getting $4$ **or fewer** if $\\text{H}_0$ is true.",
+   "**Write the probability as a sum (M1)**\n\n$\\text{P}(X \\leqslant 4) = \\text{P}(X = 0) + \\text{P}(X = 1) + \\text{P}(X = 2) + \\text{P}(X = 3) + \\text{P}(X = 4)$, and each term is $\\binom{28}{r}\\,0.3^r\\,0.7^{28-r}$:\n\n$$0.7^{28} + 28 \\times 0.7^{27} \\times 0.3 + {}^{28}\\text{C}_2 \\times 0.7^{26} \\times 0.3^2 + {}^{28}\\text{C}_3 \\times 0.7^{25} \\times 0.3^3 + {}^{28}\\text{C}_4 \\times 0.7^{24} \\times 0.3^4$$",
+   "**Evaluate (A1)**\n\nThe binomial coefficients are $^{28}\\text{C}_2 = 378$, $^{28}\\text{C}_3 = 3276$ and $^{28}\\text{C}_4 = 20475$. The five terms are, in order,\n\n$$0.0000460 + 0.000552 + 0.003194 + 0.01186 + 0.03177$$\n\nAdding them gives $0.04743$. On the calculator you get the same by using binomial cdf with $n = 28$, $p = 0.3$ and upper value $4$.\n\n$$\\text{P}(X \\leqslant 4) = 0.0474 \\text{ (3 s.f.)}$$",
+   "**Compare with the significance level (second M1)**\n\nThe significance level is $2\\% = 0.02$. We reject $\\text{H}_0$ only if our probability is **smaller** than this.\n\n$$0.0474 > 0.02$$\n\nSo the result is not unusual enough: we do **not** reject $\\text{H}_0$.",
+   "**Conclusion in context (final A1 ft)**\n\nWe never say a hypothesis is proved. We say what the evidence shows, in the words of the question.\n\nAt the $2\\%$ level, there is no evidence that the proportion of people with this condition is less than $30\\%$, so no evidence that the researcher's suspicion is true.\n\nSlips to avoid: 'the suspicion is not true' is too definite and loses the mark.",
+   "**Final answer**\n\n$$\\text{P}(X \\leqslant 4) = 0.0474 > 0.02$$\n\nDo not reject $\\text{H}_0$: there is no evidence that the suspicion is true (that the percentage is less than $30\\%$)."
+  ]
+ }
+}

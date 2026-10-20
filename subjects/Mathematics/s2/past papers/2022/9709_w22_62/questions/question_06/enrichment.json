@@ -1,0 +1,36 @@
+{
+ "9709_w22_62_q6_a": {
+  "hints": [
+   "Let $T$ be the total mass: it is a sum of $4$ separate small bags and $2$ separate large bags. For a sum, add the means: $\\text{E}(T) = 4 \\times 510 + 2 \\times 1015$.",
+   "For independent bags, variances also add: $\\text{Var}(T) = 4 \\times 100 + 2 \\times 324$. These are four *different* small bags, so it is $4 \\times 100$, not $4^2 \\times 100$. The second number in $\\text{N}(510, 100)$ is already the variance.",
+   "$T$ is normal (a sum of independent normals). Standardise: $z = \\dfrac{4130 - \\text{E}(T)}{\\sqrt{\\text{Var}(T)}}$.",
+   "You want $\\text{P}(T < 4130) = \\text{P}(Z < z) = \\Phi(z)$. Since $4130$ is above the mean, $z$ is positive and the answer is above $0.5$.",
+   "Find $\\Phi(z)$ from the table or by calculator normal cdf, and give it to $3$ s.f."
+  ],
+  "walkthrough": [
+   "**Set up the total**\n\nLet $S_1, S_2, S_3, S_4$ be the masses of the four small bags, each $\\text{N}(510, 100)$, and $L_1, L_2$ the masses of the two large bags, each $\\text{N}(1015, 324)$. The total mass is\n\n$$T = S_1 + S_2 + S_3 + S_4 + L_1 + L_2$$\n\nA sum of independent normal variables is itself normal, so we only need its mean and variance. In $\\text{N}(\\mu, \\sigma^2)$ the second number is the **variance** (so the small bags have standard deviation $10$, the large ones $18$).",
+   "**Mean of the total (B1)**\n\nMeans add:\n\n$$\\text{E}(T) = 4 \\times 510 + 2 \\times 1015 = 2040 + 2030 = 4070$$\n\nThis earns the B1.",
+   "**Variance of the total (B1)**\n\nFor independent variables, variances add:\n\n$$\\text{Var}(T) = 4 \\times 100 + 2 \\times 324 = 400 + 648 = 1048$$\n\nThis earns the B1. Careful: it is $4 \\times 100$ because there are four *separate* bags. $4S$ (one bag counted four times) would give $16 \\times 100$ — a different thing.\n\nSo $T \\sim \\text{N}(4070, 1048)$.",
+   "**Standardise (M1)**\n\nWe want $\\text{P}(T < 4130)$. Standardise by subtracting the mean and dividing by the standard deviation $\\sqrt{1048} = 32.37\\ldots$:\n\n$$z = \\frac{4130 - 4070}{\\sqrt{1048}} = \\frac{60}{32.372\\ldots} = 1.8534\\ldots \\approx 1.853$$\n\nThis earns the first M1. Quick check: $4130$ is $60$ above the mean and the standard deviation is about $32$, so $z$ is close to $2$. Good.",
+   "**Find the area (M1, A1)**\n\n\"Less than\" means the area to the left of $z$:\n\n$$\\text{P}(T < 4130) = \\Phi(1.853)$$\n\nThis earns the second M1. Table or calculator normal cdf (lower bound $-\\infty$, upper bound $1.853$): $\\Phi(1.853) = 0.9680\\ldots$\n\n$$\\text{P}(T < 4130) = 0.968 \\text{ (3 s.f.)}$$\n\nThis earns the A1.",
+   "**Final answer**\n\n$\\text{P}(\\text{total mass} < 4130 \\text{ g}) = 0.968$ (3 s.f.)."
+  ]
+ },
+ "9709_w22_62_q6_b": {
+  "hints": [
+   "Let $D$ be (total of the $4$ small bags) $-$ (total of the $2$ large bags). You want $\\text{P}(D > 0)$. For a difference, means *subtract*: $\\text{E}(D) = 4 \\times 510 - 2 \\times 1015$.",
+   "For a difference of independent variables the variances still **add**: $\\text{Var}(D) = 4 \\times 100 + 2 \\times 324$. Spread does not cancel when you subtract.",
+   "Standardise the value $0$: $z = \\dfrac{0 - \\text{E}(D)}{\\sqrt{\\text{Var}(D)}}$. The sign of $\\text{E}(D)$ decides the sign of $z$.",
+   "\"More than\" is the upper tail: $\\text{P}(D > 0) = \\text{P}(Z > z) = 1 - \\Phi(z)$. With a negative $z$, use symmetry to write this as $\\Phi$ of the positive value.",
+   "Look up $\\Phi$ of the positive value (table or calculator) and give the answer to $3$ s.f."
+  ],
+  "walkthrough": [
+   "**Set up the difference**\n\nThe four small bags together are $S_1 + S_2 + S_3 + S_4$, and the two large bags together are $L_1 + L_2$. \"The small total is more than the large total\" means the **difference** is positive. Define\n\n$$D = (S_1 + S_2 + S_3 + S_4) - (L_1 + L_2)$$\n\nWe want $\\text{P}(D > 0)$. $D$ is a combination of independent normals, so it is normal.",
+   "**Mean of $D$ (B1)**\n\nThe mean of the small total is $4 \\times 510 = 2040$ and of the large total is $2 \\times 1015 = 2030$. Subtract:\n\n$$\\text{E}(D) = 4 \\times 510 - 2 \\times 1015 = 2040 - 2030 = 10$$\n\nThis earns the B1.",
+   "**Variance of $D$ (B1)**\n\nQuick check first: variances **always add**, even when the means are subtracted. A difference is just as uncertain as a sum, because the errors do not cancel out:\n\n$$\\text{Var}(D) = 4 \\times 100 + 2 \\times 324 = 400 + 648 = 1048$$\n\nThis earns the B1. A frequent slip is to write $400 - 648$, which gives a negative variance (impossible).\n\nSo $D \\sim \\text{N}(10, 1048)$.",
+   "**Standardise (M1)**\n\nWe want $D > 0$, so standardise $0$:\n\n$$z = \\frac{0 - 10}{\\sqrt{1048}} = \\frac{-10}{32.372\\ldots} = -0.3089\\ldots \\approx -0.309$$\n\nThis earns the first M1. Quick check: $0$ is a little below the mean of $10$, so $z$ is slightly negative.",
+   "**Find the area (M1, A1)**\n\n\"More than\" means the area to the right of $z$:\n\n$$\\text{P}(D > 0) = \\text{P}(Z > -0.309) = 1 - \\Phi(-0.309)$$\n\nBy symmetry $1 - \\Phi(-0.309) = \\Phi(0.309)$. This earns the second M1. Table or calculator: $\\Phi(0.309) = 0.6213\\ldots$\n\n$$\\text{P}(D > 0) = 0.621 \\text{ (3 s.f.)}$$\n\nThis earns the A1. Sense check: the means are almost equal ($2040$ against $2030$) with the small total slightly bigger, so a probability a little above $0.5$ makes sense.",
+   "**Final answer**\n\n$\\text{P}(\\text{total of 4 small bags} > \\text{total of 2 large bags}) = 0.621$ (3 s.f.)."
+  ]
+ }
+}

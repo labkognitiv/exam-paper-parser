@@ -1,0 +1,20 @@
+{
+  "9709_s22_61_q3": {
+    "hints": [
+      "Three type $B$ insects are three separate, independent variables $Y_1 + Y_2 + Y_3$, not $3Y$. Define $D = X - (Y_1 + Y_2 + Y_3)$, so you want $\\text{P}(D > 0)$. Find $\\text{E}(D)$ from the means $6.2$ and $2.4$.",
+      "The variances **add** even though we subtract: $\\text{Var}(D) = \\text{Var}(X) + \\text{Var}(Y_1) + \\text{Var}(Y_2) + \\text{Var}(Y_3)$. In $\\text{N}(6.2, 0.36)$ and $\\text{N}(2.4, 0.25)$ the second number is the variance.",
+      "$D$ is normal. Standardise at $0$: $z = \\dfrac{0 - \\text{E}(D)}{\\sqrt{\\text{Var}(D)}}$. Use the square root of the variance, not the variance itself.",
+      "You want $D$ *greater than* 0, the upper tail, so the probability is $1 - \\Phi(z)$.",
+      "Find $\\Phi(z)$ with the table or your calculator, subtract from 1 and round to 3 significant figures."
+    ],
+    "walkthrough": [
+      "**Set up the combined variable (first B1)**\n\nWe want the probability that one type $A$ insect is longer than the **sum** of 3 type $B$ insects. The three type $B$ insects are three separate random variables $Y_1, Y_2, Y_3$, each with the distribution of $Y$. (This is not the same as $3Y$, which would mean one insect tripled.)\n\nDefine the difference\n\n$$D = X - (Y_1 + Y_2 + Y_3)$$\n\nThen 'type $A$ longer than the sum of the three' is the same as $D > 0$, so we need $\\text{P}(D > 0)$.",
+      "**The mean of $D$ (first B1 continued)**\n\nMeans add and subtract exactly as the signs say:\n\n$$\\text{E}(D) = \\text{E}(X) - \\text{E}(Y_1) - \\text{E}(Y_2) - \\text{E}(Y_3) = 6.2 - 3 \\times 2.4$$\n\n$$3 \\times 2.4 = 7.2 \\qquad 6.2 - 7.2 = -1$$\n\n$$\\text{E}(D) = -1$$",
+      "**The variance of $D$ (second B1)**\n\nHere is the key rule: for independent variables, **variances add, even when the variables are subtracted**. (Subtracting a quantity does not make the spread smaller.) In $\\text{N}(\\mu, \\sigma^2)$ the second number is the variance $\\sigma^2$, so $\\text{Var}(X) = 0.36$ and $\\text{Var}(Y) = 0.25$.\n\n$$\\text{Var}(D) = \\text{Var}(X) + \\text{Var}(Y_1) + \\text{Var}(Y_2) + \\text{Var}(Y_3) = 0.36 + 3 \\times 0.25$$\n\n$$3 \\times 0.25 = 0.75 \\qquad 0.36 + 0.75 = 1.11$$\n\n$$\\text{Var}(D) = 1.11$$\n\nBecause sums of independent normal variables are normal, $D \\sim \\text{N}(-1, 1.11)$.",
+      "**Standardise (first M1)**\n\nTo use the normal tables we convert to the standard normal $Z$ using $z = \\dfrac{\\text{value} - \\text{mean}}{\\text{standard deviation}}$. The value is $0$ and the standard deviation is $\\sqrt{1.11}$, not $1.11$. (Do not mix up variance and standard deviation: this is where the scheme says marks are lost.)\n\n$$z = \\frac{0 - (-1)}{\\sqrt{1.11}} = \\frac{1}{\\sqrt{1.11}}$$\n\n$$\\sqrt{1.11} = 1.0535\\ldots \\qquad z = \\frac{1}{1.0535\\ldots} = 0.949\\ldots$$",
+      "**Choose the correct area (second M1)**\n\nWe want $\\text{P}(D > 0)$, which is the area to the *right* of $z = 0.949$. The table gives the area to the *left*, so subtract it from 1:\n\n$$\\text{P}(D > 0) = \\text{P}(Z > 0.949) = 1 - \\Phi(0.949)$$",
+      "**Calculate (A1)**\n\nFrom the table or calculator, $\\Phi(0.949) = 0.8287$. Then\n\n$$1 - 0.8287 = 0.1713$$\n\nRounded to 3 significant figures this is $0.171$.",
+      "**Final answer**\n\nThe probability that a type $A$ insect is longer than the sum of the lengths of 3 type $B$ insects is **0.171**."
+    ]
+  }
+}

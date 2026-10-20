@@ -1,0 +1,36 @@
+{
+ "9709_w20_62_q7_a": {
+  "hints": [
+   "Let $S$ be the number of minor errors and $L$ the number of major errors. 'Minor is at least 200 more than major' means $S - L > 200$ (equivalently $S - L - 200 > 0$). Find $\\text{E}(S - L)$ from the two means $380$ and $210$.",
+   "The two distributions are independent, so for $S - L$ the variances **add**, even though you subtract the variables: $\\text{Var}(S - L) = \\text{Var}(S) + \\text{Var}(L)$. The second number in $\\text{N}(380, 140)$ is the variance, not the standard deviation.",
+   "Standardise: $z = \\dfrac{200 - \\text{mean of } (S - L)}{\\sqrt{\\text{variance of } (S - L)}}$. Evaluate it with your values.",
+   "The probability you want is the upper tail, $\\text{P}(S - L > 200) = \\text{P}(Z > z)$, which equals $1 - \\Phi(z)$.",
+   "Find $\\Phi(z)$ with your calculator's normal cdf (or tables), subtract from 1 and round to 3 significant figures. The question says no continuity correction is needed."
+  ],
+  "walkthrough": [
+   "**Set up the variables**\n\nLet $S$ be the number of minor errors, $S \\sim \\text{N}(380, 140)$, and $L$ the number of major errors, $L \\sim \\text{N}(210, 80)$. The second number in each is the **variance**.\n\nWe want the probability that minor errors are at least 200 more than major errors: $S \\geqslant L + 200$. Rearranged:\n\n$$\\text{P}(S > L + 200) = \\text{P}(S - L > 200)$$\n\n(For a continuous normal model, 'greater than' and 'at least' give the same probability.)",
+   "**Why $S - L$ is normal, and its mean**\n\nIf $S$ and $L$ are independent and normal, then $S - L$ is also normal. Its mean is the difference of the means:\n\n$$\\text{E}(S - L) = 380 - 210 = 170$$\n\nThis earns the first B1.",
+   "**The variance: add, never subtract**\n\nEach of $S$ and $L$ is uncertain. Subtracting one from the other does not cancel that uncertainty, it combines it. So the variances **add**:\n\n$$\\text{Var}(S - L) = 140 + 80 = 220$$\n\nSo $S - L \\sim \\text{N}(170, 220)$. A very common slip is $140 - 80$, which is wrong. This earns the second B1.",
+   "**Standardise**\n\nTo use the normal tables we convert to the standard normal $Z$: subtract the mean and divide by the standard deviation, $\\sqrt{220}$.\n\n$$z = \\frac{200 - 170}{\\sqrt{220}} = \\frac{30}{14.8324} = 2.0226\\ldots$$\n\n(Calculator: $\\sqrt{220} = 14.8324$, then $30 \\div 14.8324$. The scheme writes $2.023$.) This earns the first M1.",
+   "**Find the probability**\n\nWe want the upper tail, $\\text{P}(Z > 2.023)$, which is everything above $z$:\n\n$$\\text{P}(Z > 2.023) = 1 - \\Phi(2.023)$$\n\nFrom the calculator, $\\Phi(2.023) = 0.97844$, so:\n\n$$1 - 0.97844 = 0.02156$$\n\nThis earns the second M1 (area consistent with your $z$) and the A1. Note: tables to 2 decimal places can give $0.0217$, which is why the calculator answer is better. The scheme answer is $0.0216$ (3 s.f.).",
+   "**Final answer**\n\nThe probability that the number of minor errors is at least 200 more than the number of major errors is $0.0216$ (3 s.f.)."
+  ]
+ },
+ "9709_w20_62_q7_b": {
+  "hints": [
+   "Let $T$ be the total cost. Costs are in cents, so choose one unit and stick to it: $T = 20S + 50L$ in cents, and 190 dollars is 19 000 cents. Find $\\text{E}(T)$ by multiplying each mean ($380$ and $210$) by its cost.",
+   "For independent variables, $\\text{Var}(aS + bL) = a^2\\,\\text{Var}(S) + b^2\\,\\text{Var}(L)$. Square the multipliers $20$ and $50$ before multiplying by $140$ and $80$.",
+   "Standardise the cost limit: $z = \\dfrac{19\\,000 - \\text{E}(T)}{\\sqrt{\\text{Var}(T)}}$ with your values, all in cents.",
+   "'Less than 190 dollars' is the lower tail, so $\\text{P}(T < 19\\,000) = \\text{P}(Z < z) = \\Phi(z)$.",
+   "Evaluate $\\Phi(z)$ with your calculator's normal cdf (no continuity correction) and round to 3 significant figures."
+  ],
+  "walkthrough": [
+   "**Set up the total cost**\n\nLet $T$ be the total cost in cents. Each minor error costs 20 cents and each major error costs 50 cents, so\n\n$$T = 20S + 50L$$\n\nWe want $\\text{P}(T < 190 \\text{ dollars})$. Since 1 dollar = 100 cents, 190 dollars $= 19\\,000$ cents. Using one unit all the way through avoids mistakes.",
+   "**The mean of $T$**\n\n$$\\text{E}(T) = 20 \\times \\text{E}(S) + 50 \\times \\text{E}(L) = 20 \\times 380 + 50 \\times 210$$\n\n$$20 \\times 380 = 7600, \\qquad 50 \\times 210 = 10\\,500$$\n\n$$\\text{E}(T) = 7600 + 10\\,500 = 18\\,100 \\text{ cents}$$\n\n(That is 181 dollars, which the scheme also accepts.) This earns the first B1.",
+   "**The variance of $T$**\n\nWhen a variable is multiplied by a number $a$, its variance is multiplied by $a^2$. So the multipliers get **squared**:\n\n$$\\text{Var}(T) = 20^2 \\times \\text{Var}(S) + 50^2 \\times \\text{Var}(L) = 400 \\times 140 + 2500 \\times 80$$\n\n$$400 \\times 140 = 56\\,000, \\qquad 2500 \\times 80 = 200\\,000$$\n\n$$\\text{Var}(T) = 56\\,000 + 200\\,000 = 256\\,000$$\n\nBoth terms are added (independent variables). This earns the second B1. So $T \\sim \\text{N}(18\\,100,\\ 256\\,000)$.",
+   "**Standardise**\n\nThe standard deviation is $\\sqrt{256\\,000} = 505.964$.\n\n$$z = \\frac{19\\,000 - 18\\,100}{\\sqrt{256\\,000}} = \\frac{900}{505.964} = 1.7788\\ldots$$\n\nThis earns the first M1. Do not mix units: if you use dollars, you must use 190, 181 and $25.6$ throughout.",
+   "**Find the probability**\n\nWe want 'less than', which is the lower tail:\n\n$$\\text{P}(T < 19\\,000) = \\text{P}(Z < 1.778) = \\Phi(1.778)$$\n\nCalculator (normal cdf, lower $-\\infty$, upper $1.7788$, mean 0, SD 1): $0.96236$. So the probability is $0.962$ (3 s.f.). This earns the second M1 and the A1. (Reading tables with $z = 1.78$ gives $0.9625$, which is why the scheme also accepts $0.963$.)",
+   "**Final answer**\n\nThe probability that the total cost of correcting the errors is less than 190 dollars is $0.962$ (3 s.f.). The scheme also accepts $0.963$."
+  ]
+ }
+}

@@ -1,0 +1,33 @@
+{
+ "9709_w23_63_q4_a": {
+  "hints": [
+   "Income from $A$ is $2.50X$. For a mean, $\\text{E}(kX) = k\\,\\text{E}(X)$: multiply the mean of $X$ by $2.50$.",
+   "For a variance, $\\text{Var}(kX) = k^2\\,\\text{Var}(X)$. The multiplier is squared: use $2.50^2 \\times 5.76$, not $2.50 \\times 5.76$."
+  ],
+  "walkthrough": [
+   "**Write income in terms of X**\n\nChemical $A$ earns \\$2.50 per kilogram. If $X$ kilograms are produced, the income is $2.50X$. We want the mean and variance of $2.50X$.",
+   "**The mean (first B1)**\n\nMultiplying a variable by a number multiplies its mean by the same number: $\\text{E}(kX) = k\\,\\text{E}(X)$. The mean of $X$ is $10.3$, so\n\n$$\\text{E}(A\\text{ income}) = 2.50 \\times 10.3 = 25.75$$\n\nThe mean income is \\$25.75 (the scheme also accepts 3 significant figures).",
+   "**The variance (second B1)**\n\nFor the variance, the multiplier is **squared**: $\\text{Var}(kX) = k^2\\,\\text{Var}(X)$. This is because variance is measured in squared units (here dollars squared). The variance of $X$ is $5.76$:\n\n$$\\text{Var}(A\\text{ income}) = 2.50^2 \\times 5.76$$\n\n$$2.50^2 = 6.25$$\n\n$$6.25 \\times 5.76 = 36$$\n\nCommon slip: using $2.50 \\times 5.76 = 14.4$ forgets to square the multiplier.",
+   "**Final answer**\n\nMean income from $A$ = \\$25.75. Variance of income from $A$ = 36 (dollars squared)."
+  ]
+ },
+ "9709_w23_63_q4_b": {
+  "hints": [
+   "Income from $B$ is $3.25Y$. Find its mean and variance the same way as in part (a): mean $3.25 \\times 11.4$, variance $3.25^2 \\times 9.61$.",
+   "You want $\\text{P}(A\\text{ income} > B\\text{ income})$, which is the same as $\\text{P}(A\\text{ income} - B\\text{ income} > 0)$. Let $D = A\\text{ income} - B\\text{ income}$. Means subtract, but variances **add**.",
+   "Work out the mean of $D$ (mean of $A$ income minus mean of $B$ income) and the variance of $D$ (variance of $A$ income plus variance of $B$ income), and write $D \\sim \\text{N}(\\ldots, \\ldots)$.",
+   "Standardise the value 0: $z = \\dfrac{0 - \\text{mean of } D}{\\sqrt{\\text{variance of } D}}$. Use the standard deviation (square root of the variance) and keep the sign of the mean.",
+   "You need $\\text{P}(D > 0)$, the area above 0. After standardising, that is the area above $z$, so write it as $1 - \\Phi(z)$.",
+   "Find $\\Phi(z)$ with the table or your calculator, subtract it from 1 and give 3 significant figures."
+  ],
+  "walkthrough": [
+   "**Plan**\n\nWe want the probability that the income from $A$ is greater than the income from $B$. The trick is to make **one** variable from the two: $D = A\\text{ income} - B\\text{ income}$. Then 'A income is greater than B income' just means $D > 0$.\n\nSums and differences of independent normal variables are also normal, so $D$ is normal. We need its mean and variance.",
+   "**Income from B (first B1)**\n\nChemical $B$ earns \\$3.25 per kilogram, so its income is $3.25Y$. Use the same rules as in part (a): the mean is multiplied by $3.25$, the variance by $3.25^2$.\n\n$$\\text{E}(B\\text{ income}) = 3.25 \\times 11.4 = 37.05$$\n\n$$\\text{Var}(B\\text{ income}) = 3.25^2 \\times 9.61 = 10.5625 \\times 9.61 = 101.505625$$\n\nSo $B$ income $\\sim \\text{N}(37.05, 101.506)$. This earns the first B1 (the scheme accepts rounding to $\\text{N}(37.1, 102)$).",
+   "**The difference D (M1 and A1)**\n\nFor the difference of two independent variables, the **means subtract** but the **variances add**. Variances add because uncertainty in either one makes the difference less certain, whichever way you subtract.\n\n$$D \\sim \\text{N}\\left(25.75 - 37.05,\\ 36 + 101.505625\\right)$$\n\nThis line earns the M1. Now work out each part:\n\n$$25.75 - 37.05 = -11.3$$\n\n$$36 + 101.505625 = 137.505625$$\n\n$$D \\sim \\text{N}(-11.3,\\ 137.506)$$\n\nThis earns the A1 (3 significant figures are accepted). Quick check: the mean is negative because on average $B$ makes more money than $A$.",
+   "**Standardise (second M1)**\n\nWe want $\\text{P}(D > 0)$. Standardise the value 0 using the mean $-11.3$ and the **standard deviation**, which is the square root of the variance:\n\n$$\\sqrt{137.505625} = 11.726$$\n\n$$z = \\frac{0 - (-11.3)}{\\sqrt{137.505625}} = \\frac{11.3}{11.726} = 0.964$$\n\nThis earns the second M1. Watch the sign: subtracting a negative mean makes $z$ positive.",
+   "**Choose the correct area (third M1)**\n\nWe want the probability that $D$ is **greater** than 0, which is the area to the **right** of $z = 0.964$. Tables give the area to the left, so\n\n$$\\text{P}(D > 0) = 1 - \\Phi(0.964)$$\n\nThis earns the third M1.",
+   "**Evaluate (last A1)**\n\nFrom the table or your calculator, $\\Phi(0.964) = 0.83248$. Then\n\n$$1 - 0.83248 = 0.16752$$\n\nThis is $0.168$ to 3 significant figures. If you keep $z$ unrounded on your calculator ($0.96365$), you get $0.1676$, which is also $0.168$. Rounding $z$ to 2 decimal places in a table can give $0.167$, and the scheme accepts either $0.168$ or $0.167$.",
+   "**Final answer**\n\n$\\text{P}(A\\text{ income} > B\\text{ income}) = 0.168$ (3 significant figures; $0.167$ is also accepted)."
+  ]
+ }
+}

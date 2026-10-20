@@ -1,0 +1,31 @@
+{
+  "9709_s22_61_q1_a": {
+    "hints": [
+      "The best single estimate of the population mean $\\mu$ is the sample mean: $\\bar{x} = \\dfrac{\\sum x}{n}$ with $\\sum x = 2520$ and $n = 200$.",
+      "You are not given the population variance, so estimate it from the sample with the unbiased formula $s^2 = \\dfrac{1}{n-1}\\left(\\sum x^2 - \\dfrac{(\\sum x)^2}{n}\\right)$. Note the $n-1$, not $n$.",
+      "Work inside the bracket first: $\\sum x^2 = 31\\,852$ minus $\\dfrac{2520^2}{200}$, then divide. Keep the exact fraction (or at least 4 significant figures) for the next step.",
+      "A 95% interval leaves 2.5% in each tail, so you need the $z$-value with $\\Phi(z) = 0.975$. Read it from the table or use inverse normal on your calculator.",
+      "Build the interval from the standard error: $\\bar{x} \\pm z \\times \\sqrt{\\dfrac{s^2}{n}}$ with $n = 200$. Divide the variance estimate by $n$ **before** taking the square root.",
+      "Work out the lower end ($-$) and the upper end ($+$) separately, then give both rounded to 3 significant figures, written as an interval."
+    ],
+    "walkthrough": [
+      "**What the question wants**\n\nA **95% confidence interval** is a range of values, built from the sample, that we are 95% confident contains the true population mean $\\mu$. It has the form\n\n$$\\bar{x} \\pm z \\times \\text{(standard error)}$$\n\nSo we need three things: the sample mean $\\bar{x}$, an estimate of the variance (to get the standard error) and the correct $z$-value. We do them in that order.",
+      "**the sample mean (earns the first B1)**\n\n$\\bar{x}$ means the sample mean. We add up all 200 diameters ($\\sum x = 2520$) and divide by how many there are ($n = 200$).\n\n$$\\bar{x} = \\frac{\\sum x}{n} = \\frac{2520}{200} = 12.6$$",
+      "**Estimate the population variance (M1 and A1)**\n\nWe are not told the population variance, so we estimate it from the sample. For an estimate we use the **unbiased** formula, which divides by $n - 1 = 199$ instead of $n$ (dividing by $n$ would tend to underestimate the spread).\n\n$$s^2 = \\frac{1}{n-1}\\left(\\sum x^2 - \\frac{(\\sum x)^2}{n}\\right) = \\frac{1}{199}\\left(31\\,852 - \\frac{2520^2}{200}\\right)$$\n\nDo the bracket one piece at a time. First square 2520:\n\n$$2520^2 = 6\\,350\\,400$$\n\nDivide by 200:\n\n$$\\frac{6\\,350\\,400}{200} = 31\\,752$$\n\nSubtract from $\\sum x^2$:\n\n$$31\\,852 - 31\\,752 = 100$$\n\nNow divide by 199. This is the M1 (method for the unbiased estimate) and then the A1 for the value:\n\n$$s^2 = \\frac{100}{199} = 0.5025\\ldots$$\n\nQuick check with the scheme's other form: $\\frac{200}{199}\\left(\\frac{31\\,852}{200} - 12.6^2\\right) = \\frac{200}{199}(159.26 - 158.76) = \\frac{200}{199} \\times 0.5 = \\frac{100}{199}$. Same answer.\n\nNote: the printed mark scheme shows $\\frac{31582}{200}$ in this line, which is a typing slip. The question gives $\\sum x^2 = 31\\,852$, and 31 852 is what gives $\\frac{100}{199}$, so that is what we used.\n\nCommon slip: using $\\frac{1}{200}$ instead of $\\frac{1}{199}$ gives $0.5$, the biased value. The scheme caps this at 4 of the 6 marks, so take care with $n-1$.",
+      "**The $z$-value for 95% (B1)**\n\nA 95% interval leaves $100\\% - 95\\% = 5\\%$ outside, split equally: 2.5% in each tail. So the area to the left of the upper end is $0.95 + 0.025 = 0.975$.\n\nWe need $z$ with $\\Phi(z) = 0.975$. Use the normal table, or on your calculator inverse normal with area $0.975$, mean 0, standard deviation 1.\n\n$$z = 1.96$$",
+      "**The standard error (M1)**\n\nThe standard error is the standard deviation of the sample mean. It is $\\sqrt{\\dfrac{s^2}{n}}$. Be careful: divide the *variance* by $n$ first, and only then take the square root.\n\n$$\\frac{s^2}{n} = \\frac{0.5025\\ldots}{200} = 0.0025125\\ldots$$\n\n$$\\sqrt{0.0025125\\ldots} = 0.050125\\ldots$$\n\nMultiply by $z$:\n\n$$1.96 \\times 0.050125\\ldots = 0.09824\\ldots$$\n\nSo the interval is $12.6 \\pm 0.09824\\ldots$. That expression, of the correct form with a $z$-value, earns the M1.",
+      "**The two ends of the interval (A1)**\n\nLower end:\n\n$$12.6 - 0.09824\\ldots = 12.5017\\ldots$$\n\nUpper end:\n\n$$12.6 + 0.09824\\ldots = 12.6982\\ldots$$\n\nRound each to 3 significant figures: $12.5017 \\to 12.5$ and $12.6982 \\to 12.7$. The A1 needs the answer written as an interval, not just the two numbers floating about.",
+      "**Final answer**\n\nThe 95% confidence interval for the population mean diameter is\n\n$$12.5 \\text{ to } 12.7 \\text{ mm (3 s.f.)}$$"
+    ]
+  },
+  "9709_s22_61_q1_b": {
+    "hints": [
+      "A 95% confidence interval captures the true mean in 95% of repeated samples. Take 95% of Jean's 40 intervals."
+    ],
+    "walkthrough": [
+      "**What a 95% confidence interval means**\n\nIf you took many random samples and made a 95% confidence interval from each one, about 95 out of every 100 of those intervals would contain the true population mean (and about 5 would miss it). That is what the 95% is telling us.\n\nJean has 40 intervals, so we find 95% of 40.",
+      "**Calculate**\n\n$$0.95 \\times 40 = 38$$\n\nWriting this product is the B1.",
+      "**Final answer**\n\nWe expect **38** of the 40 confidence intervals to include the true population mean diameter."
+    ]
+  }
+}

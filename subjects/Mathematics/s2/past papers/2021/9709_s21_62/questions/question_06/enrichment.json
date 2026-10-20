@@ -1,0 +1,42 @@
+{
+ "9709_s21_62_q6_a": {
+  "hints": [
+   "The unbiased estimate of the population mean is the sample mean: $\\dfrac{\\sum h}{n}$ with $\\sum h = 7570$ and $n = 100$.",
+   "The unbiased estimate of the population variance divides by $n - 1$, not $n$: $s^2 = \\dfrac{1}{n-1}\\left(\\sum h^2 - \\dfrac{(\\sum h)^2}{n}\\right)$, using $n = 100$, $\\sum h = 7570$ and $\\sum h^2 = 588\\,050$.",
+   "Work in this order on your calculator: $\\dfrac{7570^2}{100}$, subtract it from 588 050, then divide by $99$. Give 3 significant figures."
+  ],
+  "walkthrough": [
+   "**Estimate of the mean (B1)**\n\nThe best (unbiased) estimate of the population mean is the sample mean $\\bar{h}$:\n\n$$\\bar{h} = \\frac{\\sum h}{n} = \\frac{7570}{100} = 75.7$$",
+   "**Why $n - 1$ for the variance**\n\nA sample is, on average, slightly less spread out than the whole population. The sample's own variance (dividing by $n$) is therefore a little too small, so it is **biased**. Dividing by $n - 1$ corrects this and gives an **unbiased** estimate $s^2$ of the population variance. The mark scheme gives $0$ for the version dividing by 100.",
+   "**Calculate the variance estimate (M1)**\n\n$$s^2 = \\frac{1}{n - 1}\\left(\\sum h^2 - \\frac{\\left(\\sum h\\right)^2}{n}\\right) = \\frac{1}{99}\\left(588\\,050 - \\frac{7570^2}{100}\\right)$$\n\nStep by step:\n\n$$7570^2 = 57\\,304\\,900$$\n\n$$\\frac{57\\,304\\,900}{100} = 573\\,049$$\n\n$$588\\,050 - 573\\,049 = 15\\,001$$\n\n$$s^2 = \\frac{15\\,001}{99} = 151.525\\ldots$$\n\nThe other form in the scheme gives the same number: $\\dfrac{100}{99}\\left(\\dfrac{588\\,050}{100} - 75.7^2\\right) = \\dfrac{100}{99}(5880.5 - 5730.49) = \\dfrac{100}{99} \\times 150.01 = 151.525\\ldots$. Notice $150.01$ is the biased variance (divides by 100), which is why we multiply by $\\frac{100}{99}$.",
+   "**Round (A1)**\n\n$$151.525\\ldots = 152 \\text{ (3 s.f.)}$$",
+   "**Final answer**\n\nUnbiased estimate of the population mean $= 75.7$; unbiased estimate of the population variance $= 152$ (3 s.f.), that is $\\dfrac{15001}{99}$."
+  ]
+ },
+ "9709_s21_62_q6_b": {
+  "hints": [
+   "The 99% confidence interval for $\\mu$ is $\\bar{x} \\pm z\\sqrt{\\dfrac{s^2}{n}}$, using the mean and the unbiased variance from (a) and $n = 100$. Write it with your values.",
+   "For 99% confidence there is 1% outside the interval, which is $0.5\\%$ in each tail. Find the $z$ with that much in the upper tail ($\\Phi(z)$ equals 99.5%) from the normal table.",
+   "Work out $z \\times \\sqrt{\\dfrac{s^2}{100}}$ first, then add it to and subtract it from the mean. Give both ends to 3 significant figures, written as an interval."
+  ],
+  "walkthrough": [
+   "**The formula (M1)**\n\nA confidence interval for a population mean, from a large sample of $n = 100$, is:\n\n$$\\bar{x} \\pm z\\sqrt{\\frac{s^2}{n}}$$\n\nThe population variance is not known, so we use the unbiased estimate $s^2 = 151.525\\ldots$ from part (a); $n = 100$ is large, so this is acceptable.\n\n$$75.7 \\pm z\\sqrt{\\frac{151.525\\ldots}{100}}$$",
+   "**Find $z$ (B1)**\n\nA 99% interval leaves $100\\% - 99\\% = 1\\%$ outside, split into two tails of $0.5\\%$ each. The upper-tail boundary is therefore at $\\Phi(z) = 0.995$. From the normal table (or the inverse normal on your calculator):\n\n$$z = 2.576$$",
+   "**Work out the width**\n\n$$\\frac{151.525\\ldots}{100} = 1.51525\\ldots \\qquad \\sqrt{1.51525\\ldots} = 1.23095\\ldots$$\n\n$$2.576 \\times 1.23095\\ldots = 3.1709\\ldots$$",
+   "**Write the interval (A1 FT)**\n\nLower end: $75.7 - 3.1709 = 72.529\\ldots$\n\nUpper end: $75.7 + 3.1709 = 78.870\\ldots$\n\nTo 3 significant figures: $72.5$ to $78.9$. The scheme says the answer must be written as an interval (two ends).",
+   "**Final answer**\n\n99% confidence interval: $72.5$ to $78.9$ (cm)."
+  ]
+ },
+ "9709_s21_62_q6_c": {
+  "hints": [
+   "Each 99% confidence interval has a 99% chance of containing the true $\\mu$, so a probability of 0.99, and the four samples are independent, so the probabilities for 'all four' multiply.",
+   "So multiply 0.99 by itself four times, i.e. a power of 0.99; work it out on your calculator and round to 3 significant figures."
+  ],
+  "walkthrough": [
+   "**What 99% confidence means**\n\nA 99% confidence interval is built by a method that captures the true $\\mu$ 99% of the time. So for **each** interval, $\\text{P}(\\text{contains } \\mu) = 0.99$.",
+   "**Four independent samples (B1)**\n\nThe four samples are taken separately, so the results are independent. For independent events, $\\text{P}(A \\text{ and } B) = \\text{P}(A) \\times \\text{P}(B)$. 'All four contain $\\mu$' means the first one does **and** the second **and** the third **and** the fourth:\n\n$$0.99 \\times 0.99 \\times 0.99 \\times 0.99 = 0.99^4$$",
+   "**Calculate (B1)**\n\n$$0.99^2 = 0.9801$$\n\n$$0.99^3 = 0.9801 \\times 0.99 = 0.970299$$\n\n$$0.99^4 = 0.970299 \\times 0.99 = 0.96059601$$\n\nTo 3 significant figures: $0.961$.",
+   "**Final answer**\n\n$0.99^4 = 0.961$ (3 s.f.)"
+  ]
+ }
+}

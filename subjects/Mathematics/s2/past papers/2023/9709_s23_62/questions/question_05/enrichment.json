@@ -1,0 +1,47 @@
+{
+  "9709_s23_62_q5_a": {
+    "hints": [
+      "'The two values differ by more than 2' means $X - Y > 2$ or $Y - X > 2$, i.e. the difference $D = X - Y$ is above $2$ or below $-2$. Find the distribution of $D = X - Y$ first: it is normal because $X$ and $Y$ are independent normals.",
+      "Mean of $D$: subtract the means ($7$ and $6$). Variance of $D$: for independent variables the variances **add** even when the variables are subtracted ($3$ and $2$).",
+      "Standardise both boundaries of the difference: $z = \\dfrac{2 - \\text{E}(D)}{\\sqrt{\\text{Var}(D)}}$ and $z = \\dfrac{-2 - \\text{E}(D)}{\\sqrt{\\text{Var}(D)}}$.",
+      "The upper boundary needs the upper tail, $1 - \\Phi(z)$. The lower boundary needs the lower tail, $\\Phi(z)$ with a negative $z$ (you can use $1 - \\Phi(-z)$ to get the same value from the tables).",
+      "The two tails together make the event. Add the upper-tail probability and the lower-tail probability to finish, and give the answer to 3 s.f."
+    ],
+    "walkthrough": [
+      "**What the question is asking**\n\n'The two values differ by more than $2$' means either $X$ is more than $2$ bigger than $Y$, or $Y$ is more than $2$ bigger than $X$. Define the difference $D = X - Y$. Then we want:\n\n$$\\text{P}(D > 2) + \\text{P}(D < -2)$$\n\nThere are two separate pieces because the difference can be big in either direction.",
+      "**Find the distribution of $D$ (this is the B1)**\n\n$X$ and $Y$ are independent and normal, so $D = X - Y$ is also normal.\n\nFor the mean, subtract the means:\n\n$$\\text{E}(X - Y) = 7 - 6 = 1$$\n\nFor the variance, the rule for independent variables is that variances are **added** (never subtracted), even though we are subtracting the variables:\n\n$$\\text{Var}(X - Y) = \\text{Var}(X) + \\text{Var}(Y) = 3 + 2 = 5$$\n\nSo $D \\sim \\text{N}(1, 5)$. Here the second number is the variance, so the standard deviation is $\\sqrt{5} = 2.2360\\ldots$\n\nQuick check: a common slip is $3 - 2 = 1$ for the variance. Variance measures spread, and combining two uncertain things can only make the spread bigger, so it must be $5$.",
+      "**Standardise both boundaries (this is the first M1)**\n\nStandardising means subtracting the mean and dividing by the standard deviation.\n\nUpper boundary:\n\n$$z_1 = \\frac{2 - 1}{\\sqrt{5}} = \\frac{1}{2.2361} = 0.4472\\ldots$$\n\nLower boundary:\n\n$$z_2 = \\frac{-2 - 1}{\\sqrt{5}} = \\frac{-3}{2.2361} = -1.3416\\ldots$$",
+      "**Choose the correct tail for each (this is the second M1)**\n\n$\\text{P}(D > 2) = \\text{P}(Z > 0.4472)$ is the upper tail. The calculator and the table give the area to the left, so:\n\n$$\\text{P}(D > 2) = 1 - \\Phi(0.4472)$$\n\n$\\text{P}(D < -2) = \\text{P}(Z < -1.3416)$ is the lower tail, and this is already the area to the left:\n\n$$\\text{P}(D < -2) = \\Phi(-1.3416) = 1 - \\Phi(1.3416)$$\n\n(The two forms for the second one are equal, because the normal curve is symmetrical. Use whichever your table allows.)",
+      "**Work out each tail (this is the first A1)**\n\n$$\\Phi(0.4472) = 0.67264 \\quad\\Rightarrow\\quad 1 - 0.67264 = 0.32736$$\n\n$$\\Phi(1.3416) = 0.91014 \\quad\\Rightarrow\\quad 1 - 0.91014 = 0.08986$$\n\nSo $\\text{P}(D > 2) = 0.327$ and $\\text{P}(D < -2) = 0.0899$.",
+      "**Add the two tails (this is the second A1)**\n\n$$0.32736 + 0.08986 = 0.41722$$\n\nTo 3 s.f. this is $0.417$. (The scheme also accepts $0.418$, from rounding the tails earlier.)",
+      "**Final answer**\n\nThe probability that the two values differ by more than $2$ is $0.417$ (3 s.f.). The scheme also accepts $0.418$."
+    ]
+  },
+  "9709_s23_62_q5_b_i": {
+    "hints": [
+      "The overall score is $S = T + 1.5P$. Its mean follows the same rule as the score: $\\text{E}(T + 1.5P) = \\text{E}(T) + 1.5\\,\\text{E}(P)$. Substitute the means of $T$ and $P$ from the question.",
+      "For the variance of independent variables, the multiplier gets **squared**: $\\text{Var}(T + 1.5P) = \\text{Var}(T) + 1.5^2\\,\\text{Var}(P)$. Substitute $158$ and $108$.",
+      "A pass needs a score of at least $90$. Standardise the boundary: $z = \\dfrac{90 - \\text{E}(S)}{\\sqrt{\\text{Var}(S)}}$, using your mean and variance of $S$.",
+      "Your $z$ will be negative, so a score above $90$ is the area to the right of a negative $z$. By symmetry $\\text{P}(Z > -z_0) = \\Phi(z_0)$, so look up $\\Phi$ of the positive version.",
+      "Evaluate $\\Phi$ of the positive $z$ on your calculator or in the tables. Give it to 3 s.f., as a decimal or a percentage."
+    ],
+    "walkthrough": [
+      "**Set up the overall score**\n\nThe overall score is $S = T + 1.5P$. $T$ is the theory mark and $P$ the practical mark. Because $T$ and $P$ are independent and normal, $S$ is also normal. We need its mean and variance, then we can find the probability that $S \\geqslant 90$.",
+      "**Mean of $S$ (this is the first B1)**\n\nThe mean works just like the score: replace each variable with its mean.\n\n$$\\text{E}(S) = \\text{E}(T) + 1.5\\,\\text{E}(P) = 62 + 1.5 \\times 42$$\n\n$$1.5 \\times 42 = 63 \\qquad 62 + 63 = 125$$",
+      "**Variance of $S$ (this is the second B1)**\n\nFor independent variables, $\\text{Var}(aP) = a^2\\,\\text{Var}(P)$: the multiplier is **squared**. And we add the variances.\n\n$$\\text{Var}(S) = \\text{Var}(T) + 1.5^2\\,\\text{Var}(P) = 158 + 1.5^2 \\times 108$$\n\n$$1.5^2 = 2.25 \\qquad 2.25 \\times 108 = 243 \\qquad 158 + 243 = 401$$\n\nSo $S \\sim \\text{N}(125, 401)$.\n\nQuick check: the common slip is to use $1.5 \\times 108$ without squaring, which gives the wrong variance.",
+      "**Standardise the pass mark (this is the first M1)**\n\nThe standard deviation is $\\sqrt{401} = 20.0249\\ldots$\n\n$$z = \\frac{90 - 125}{\\sqrt{401}} = \\frac{-35}{20.0250} = -1.7478\\ldots$$\n\nThe scheme gives $-1.748$. The question says no continuity corrections are needed, so we use $90$ exactly.",
+      "**Choose the right area (this is the second M1)**\n\nWe want $\\text{P}(S \\geqslant 90) = \\text{P}(Z > -1.748)$, the area to the **right** of a negative value. That is most of the curve. By symmetry:\n\n$$\\text{P}(Z > -1.748) = \\Phi(1.748)$$",
+      "**Evaluate (this is the A1)**\n\n$$\\Phi(1.748) = 0.95977\\ldots$$\n\nTo 3 s.f. this is $0.960$, or $96.0\\%$.\n\n(Quick sense check: the mean is $125$, well above the pass mark of $90$, so most candidates should pass. $96\\%$ makes sense.)",
+      "**Final answer**\n\nThe proportion of candidates who pass is $0.960$ (96.0%) (3 s.f.)."
+    ]
+  },
+  "9709_s23_62_q5_b_ii": {
+    "hints": [
+      "Think about the sort of student who scores well in theory. Would you expect them to do well, or badly, or no differently, in the practical test? Say whether $T$ and $P$ being independent is realistic and give a reason."
+    ],
+    "walkthrough": [
+      "**What independent means here**\n\nIf $T$ and $P$ are independent, then knowing a candidate's theory mark tells you nothing about their practical mark. In real life that is not likely. A candidate who knows the subject well tends to do well in both parts, and a candidate who struggles tends to struggle in both.\n\nThe scheme wants **both** parts of the comment: a verdict on the assumption, and a reason.",
+      "**Final answer**\n\nThe assumption is unlikely to be valid (the marks are probably not independent), because a candidate who does well in theory is likely to do well in practical, as both test knowledge of the same syllabus."
+    ]
+  }
+}

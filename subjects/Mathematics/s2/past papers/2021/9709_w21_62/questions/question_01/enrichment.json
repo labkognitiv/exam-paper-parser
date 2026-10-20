@@ -1,0 +1,30 @@
+{
+ "9709_w21_62_q1_a": {
+  "hints": [
+   "The estimate of the population mean is just the sample mean: divide $\\sum m = 20.50$ by the number of blocks, $n = 40$.",
+   "For an unbiased estimate of the variance use $s^2 = \\dfrac{1}{n-1}\\left(\\sum m^2 - \\dfrac{\\left(\\sum m\\right)^2}{n}\\right)$ with $\\sum m^2 = 10.7280$, $\\sum m = 20.50$ and $n = 40$.",
+   "Divide by $n - 1$, not by $n$ (dividing by $n$ gives the biased variance, which scores nothing). Work out the bracket first, then divide, and give the answer to 3 significant figures."
+  ],
+  "walkthrough": [
+   "**What we are asked to find**\n\nWe have a **sample** of 40 blocks, and we want to estimate two things about **all** the blocks the supermarket sells (the population): the mean and the variance of $M$.\n\nAn *unbiased estimate* is one that is right on average, neither too big nor too small. For the mean this is the ordinary sample mean $\\bar{m}$. For the variance it is **not** the ordinary sample variance: we divide by $n - 1$ instead of $n$ (you will see why in the next steps).",
+   "**Estimate of the population mean (the B1 mark)**\n\nThe sample mean is the total of all the masses divided by the number of blocks.\n\n$$\\bar{m} = \\frac{\\sum m}{n} = \\frac{20.50}{40}$$\n\nType $20.50 \\div 40$ into the calculator:\n\n$$\\bar{m} = 0.5125$$\n\nSo our estimate of the population mean mass is $0.5125$ kg. (The scheme also accepts $0.513$.)",
+   "**Why we divide by $n - 1$ for the variance**\n\nA sample is usually a bit less spread out than the whole population, because the sample values sit closer to their own mean than to the true population mean. Dividing by $n$ would therefore underestimate the variance. Dividing by $n - 1$ corrects this.\n\nThe unbiased estimate of the population variance is\n\n$$s^2 = \\frac{n}{n-1}\\left(\\frac{\\sum m^2}{n} - \\bar{m}^2\\right)$$\n\nwhich is the same as $\\dfrac{1}{n-1}\\left(\\sum m^2 - \\dfrac{\\left(\\sum m\\right)^2}{n}\\right)$. Either form earns the M1 mark. We will use the first form because we already have $\\bar{m}$.",
+   "**Substitute the numbers (the M1 mark)**\n\nStart with the two pieces inside the bracket.\n\n$$\\frac{\\sum m^2}{n} = \\frac{10.7280}{40} = 0.2682$$\n\n$$\\bar{m}^2 = 0.5125^2 = 0.26265625$$\n\nSubtract (this is the variance if we had divided by $n$):\n\n$$0.2682 - 0.26265625 = 0.00554375$$\n\nQuick check: this value, $0.005544$, is the **biased** variance. If you stop here you get M0 A0. We still have to multiply by $\\dfrac{n}{n-1}$.",
+   "**Multiply by $\\frac{n}{n-1}$ (the A1 mark)**\n\nHere $n = 40$, so $n - 1 = 39$ and the correction factor is $\\dfrac{40}{39}$.\n\n$$s^2 = \\frac{40}{39} \\times 0.00554375 = \\frac{0.22175}{39}$$\n\n$$s^2 = 0.0056858974\\ldots$$\n\nAlternative route, as a check: $\\dfrac{1}{39}\\left(10.7280 - \\dfrac{20.50^2}{40}\\right) = \\dfrac{1}{39}(10.7280 - 10.50625) = \\dfrac{0.22175}{39}$, the same value.",
+   "**Final answer**\n\nEstimate of the population mean: $0.5125$ kg (or $0.513$ to 3 significant figures).\n\nEstimate of the population variance: $0.0056859$, which is $0.00569$ to 3 significant figures (exactly $\\dfrac{887}{156\\,000}$)."
+  ]
+ },
+ "9709_w21_62_q1_b": {
+  "hints": [
+   "If $P = 11M + 0.50$, the mean of $P$ comes from the same formula applied to the mean of $M$: $\\text{E}(P) = 11\\,\\text{E}(M) + 0.50$. Use your estimate from **(a)**.",
+   "For the variance, the formula is $\\text{Var}(aM + b) = a^2\\,\\text{Var}(M)$. The $+0.50$ does not change the spread, and the multiplier $11$ must be squared.",
+   "Multiply your unrounded variance from **(a)** by $11^2$ (the square of the multiplier, not $11$ itself) and round to 3 significant figures at the very end."
+  ],
+  "walkthrough": [
+   "**The idea**\n\nThe price is a linear change of the mass: multiply the mass by 11, then add 0.50. There are two rules for what this does to the mean and variance of any random variable:\n\n$$\\text{E}(aM + b) = a\\,\\text{E}(M) + b \\qquad \\text{Var}(aM + b) = a^2\\,\\text{Var}(M)$$\n\nWhy are they different? Adding a constant shifts every price up by the same amount, so the average moves but the spread does not. Multiplying by $a$ stretches the spread by $a$, and variance is a squared quantity, so it grows by $a^2$.",
+   "**Estimate of the mean price (the B1 mark)**\n\nHere $a = 11$ and $b = 0.50$. We use our estimate of $\\text{E}(M)$ from part **(a)**, which was $0.5125$.\n\n$$\\text{E}(P) = 11 \\times 0.5125 + 0.50$$\n\nFirst the multiplication: $11 \\times 0.5125 = 5.6375$.\n\nThen add: $5.6375 + 0.50 = 6.1375$.\n\nSo the estimated mean price is $6.1375$ dollars, about $6.14$. (This mark is a follow-through: it is marked from *your* answer to **(a)**.)",
+   "**Estimate of the variance of the price (the M1 mark)**\n\nOnly the multiplier matters, and it is squared. The $+0.50$ is **not** added to the variance (the scheme says 'with nothing added'). Also take care to use the **variance** from **(a)**, not its square root.\n\n$$\\text{Var}(P) = 11^2 \\times 0.0056859$$\n\n$11^2 = 121$, so\n\n$$\\text{Var}(P) = 121 \\times 0.0056859 = 0.68799\\ldots$$\n\n(Using the more exact value $0.0056858974\\ldots$ gives $0.687994$, the same to 3 significant figures.)",
+   "**Final answer**\n\nEstimate of the population mean of $P$: $6.1375$ (or $6.14$ to 3 significant figures).\n\nEstimate of the population variance of $P$: $0.688$ (3 significant figures)."
+  ]
+ }
+}

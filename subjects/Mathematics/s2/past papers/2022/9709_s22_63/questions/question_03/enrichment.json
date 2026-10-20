@@ -1,0 +1,41 @@
+{
+ "9709_s22_63_q3_a": {
+  "hints": [
+   "Think about what testing a battery's mean life actually involves: what condition is each battery in once it has been tested to the end of its life, and what would happen to time and cost if you tested every battery made?"
+  ],
+  "walkthrough": [
+   "**Why not test every battery?**\n\nTo find a battery's life you must run it until it stops working. So a battery that has been tested is used up (it is no longer usable), and there would be none left to sell if every battery were tested.\n\nAlso, testing the **whole population** (every type $B$ battery ever made) would take too long and cost too much.\n\nEither reason earns the mark.",
+   "**Final answer**\n\nTesting the batteries uses them up (they are unusable after testing), so the whole population cannot be tested. (Alternatively: the population is too large, or too costly, or too time-consuming.)"
+  ]
+ },
+ "9709_s22_63_q3_b": {
+  "hints": [
+   "State the hypotheses using the population mean $\\mu$ of type $B$ batteries. The claim is that type $B$ has a *shorter* life than the 150 hours of type $A$, so the alternative is one-tailed.",
+   "Standardise the sample mean: $z = \\dfrac{147 - 150}{\\sqrt{225}/\\sqrt{120}}$ — the unbiased variance estimate is 225, so its square root is the standard deviation, and note the $\\sqrt{120}$ because it is a mean of 120 batteries.",
+   "Work out the numerator and denominator separately on your calculator, then divide. Check the sign: 147 is below 150, so your $z$ must be negative.",
+   "At the 2% level for a one-tailed test with the rejection region in the lower tail, the critical value is $-z$ where $\\Phi(z) = 0.98$ (use the inverse normal or the tables). Compare your $z$ with that critical value (or compare $\\Phi(z)$ with 0.02).",
+   "Decide whether your $z$ lies in the rejection region, hence whether to reject $\\text{H}_0$. Then write the conclusion in the context of battery life, using \"there is evidence that\" rather than a definite statement."
+  ],
+  "walkthrough": [
+   "**State the hypotheses (B1)**\n\nLet $\\mu$ be the **population mean life** of type $B$ batteries, in hours.\n\n$H_0$ is the \"nothing has changed\" claim: type $B$ lasts the same as type $A$.\n\n$H_1$ is what we suspect: type $B$ is **shorter**, so the test is **one-tailed** (we only care about the lower side).\n\n$$\\text{H}_0: \\mu = 150$$\n\n$$\\text{H}_1: \\mu < 150$$\n\nThe scheme wants the word \"population mean\" or $\\mu$ explained; just writing \"mean $= 150$\" is not enough.",
+   "**Choose the distribution for the sample mean**\n\nThe sample has $n = 120$ batteries. That is large, so by the **central limit theorem** the sample mean $\\bar{X}$ is approximately normal, even though we do not know the shape of the original data. If $\\text{H}_0$ is true, it is centred on $150$.\n\nWe are given an **unbiased estimate of the variance**, $s^2 = 225$. The standard deviation estimate is its square root:\n\n$$s = \\sqrt{225} = 15$$\n\nThe standard deviation of the sample mean is $\\dfrac{s}{\\sqrt{n}} = \\dfrac{15}{\\sqrt{120}}$.",
+   "**Calculate the test statistic (M1, A1)**\n\nThe sample mean is $\\bar{x} = 147$. Standardise:\n\n$$z = \\frac{147 - 150}{15 / \\sqrt{120}}$$\n\nDo the bottom first: $\\sqrt{120} = 10.9545$, so $\\dfrac{15}{10.9545} = 1.3693$.\n\nTop: $147 - 150 = -3$.\n\n$$z = \\frac{-3}{1.3693} = -2.1909 \\approx -2.191$$\n\nQuick check: negative, because 147 is below 150. Good.\n\nM1 is earned for the correct formula with $\\sqrt{120}$; A1 for $-2.191$ (the scheme condones $-2.19$).",
+   "**Compare with the critical value (M1)**\n\nThe significance level is 2%, and the test is one-tailed with the rejection region in the lower tail. We need the $z$ with $0.02$ of the area below it. By symmetry, find the $z$ with area $0.98$ below it: use inverse normal on the calculator, or the table:\n\n$$\\Phi^{-1}(0.98) = 2.054$$\n\nSo the critical value is $-2.054$ and we reject $\\text{H}_0$ if $z < -2.054$.\n\n$$-2.191 < -2.054$$\n\nOur value is further out in the tail, so it lies in the rejection region.\n\n(Alternative the scheme allows: the probability $\\text{P}(Z < -2.191) = 0.0142 < 0.02$.)\n\nCommon slip: using a two-tailed critical value ($2.326$) when $\\text{H}_1$ is one-tailed.",
+   "**Conclusion in context (A1 FT)**\n\nBecause $z$ is in the rejection region, we reject $\\text{H}_0$. In words, in the context of the question, and **not definite**:\n\nThere is evidence at the 2% significance level that the mean life of type $B$ batteries is less than that of type $A$ (less than 150 hours).\n\nAvoid \"type $B$ **is** shorter\" or \"proved\". A test only gives evidence.",
+   "**Final answer**\n\n$z = -2.191 < -2.054$, so reject $\\text{H}_0$: there is evidence that the mean life of type $B$ batteries is less than that of type $A$ (less than 150 hours)."
+  ]
+ },
+ "9709_s22_63_q3_c": {
+  "hints": [
+   "A confidence interval for a mean has the form $\\bar{x} \\pm z \\times \\dfrac{s}{\\sqrt{n}}$. Here $\\bar{x} = 147$, $n = 120$, and $s = \\sqrt{225}$ from the unbiased variance estimate.",
+   "For a 94% interval, 6% is left over, split equally into the two tails. Each tail holds 3%, so find the $z$ that has all of the area apart from the upper 3% below it, using the inverse normal.",
+   "Work out the width $z \\times \\dfrac{15}{\\sqrt{120}}$, then subtract it from 147 and add it to 147. Give the answer as an interval, both ends to 3 significant figures."
+  ],
+  "walkthrough": [
+   "**The form of a confidence interval (M1)**\n\nA confidence interval for the population mean $\\mu$ is\n\n$$\\bar{x} \\pm z \\times \\frac{s}{\\sqrt{n}}$$\n\nwhere $\\bar{x} = 147$ (sample mean), $n = 120$ and $s = \\sqrt{225} = 15$ (standard deviation estimate). So\n\n$$147 \\pm z \\times \\frac{15}{\\sqrt{120}}$$\n\nThe M1 is for this form with a $z$ value.",
+   "**Find $z$ for 94% confidence (B1)**\n\n94% in the middle leaves $100\\% - 94\\% = 6\\%$ outside, split equally: $3\\% = 0.03$ in each tail.\n\nSo the value $z$ has area $1 - 0.03 = 0.97$ below it:\n\n$$\\Phi(z) = 0.97 \\quad\\Rightarrow\\quad z = 1.881$$\n\n(Use inverse normal on the calculator, or the table. The scheme also allows $1.882$.)",
+   "**Calculate the interval (A1)**\n\nThe standard error is $\\dfrac{15}{\\sqrt{120}} = \\dfrac{15}{10.9545} = 1.3693$.\n\nThe margin is $1.881 \\times 1.3693 = 2.575$.\n\nLower end: $147 - 2.575 = 144.425$\n\nUpper end: $147 + 2.575 = 149.575$\n\nTo 3 significant figures: $144.425 \\to 144$ and $149.575 \\to 150$.\n\nRemember to give an interval, not a single number.",
+   "**Final answer**\n\nThe 94% confidence interval is $144$ to $150$ hours (3 s.f.)."
+  ]
+ }
+}

@@ -1,0 +1,36 @@
+{
+ "9709_s16_72_q5_i": {
+  "hints": [
+   "The total weight is $T = X + Y + 20$. A sum of independent normal variables is normal, and the mean of $T$ is found by adding the means of $X$ and $Y$ and the 20 g box.",
+   "The variance of $T$: for independent variables, the variances add: $\\text{Var}(X) + \\text{Var}(Y)$. The box weighs exactly 20 g every time, so it adds nothing to the variance. Remember $\\text{N}(400, 50)$ means the variance is 50.",
+   "Standardise using the mean of $T$ and the **square root** of its variance: $z = \\dfrac{530 - \\text{mean}}{\\sqrt{\\text{variance}}}$.",
+   "You want $\\text{P}(T < 530)$, which is the area to the left of your $z$, so it is $\\Phi(z)$. No 'one minus' is needed.",
+   "Find $\\Phi(z)$ from the normal table or your calculator's normal cdf. Quick check: 530 is above the mean of $T$, so your answer should be over 0.5. Give 3 s.f."
+  ],
+  "walkthrough": [
+   "**Define the total weight**\n\nThe weight of flakes is $X$ and the weight of fruit is $Y$. Both are normal and independent. The empty box weighs exactly 20 g. Let $T$ be the total weight:\n\n$$T = X + Y + 20$$\n\nA sum of independent normal variables is also normal, so $T$ is normal. We just need its mean and variance.",
+   "**Mean of $T$ (first B1)**\n\nMeans add: $\\text{E}(X + Y + 20) = \\text{E}(X) + \\text{E}(Y) + 20$.\n\n$$\\text{E}(T) = 400 + 100 + 20 = 520$$",
+   "**Variance of $T$ (B1)**\n\nFor **independent** variables, variances add: $\\text{Var}(X + Y) = \\text{Var}(X) + \\text{Var}(Y)$. The second number in $\\text{N}(400, 50)$ is the **variance**, not the standard deviation, so $\\text{Var}(X) = 50$ and $\\text{Var}(Y) = 20$.\n\nAdding a fixed 20 g moves every box by the same amount, so it does not change the spread. It adds nothing to the variance.\n\n$$\\text{Var}(T) = 50 + 20 = 70$$\n\nSo $T \\sim \\text{N}(520,\\ 70)$. Slip to avoid: adding the standard deviations.",
+   "**Standardise (M1)**\n\nWe want $\\text{P}(T < 530)$. Standardise by subtracting the mean and dividing by the **standard deviation**, $\\sqrt{70}$:\n\n$$\\sqrt{70} = 8.3666$$\n\n$$z = \\frac{530 - 520}{\\sqrt{70}} = \\frac{10}{8.3666} = 1.195$$",
+   "**Find the area (M1)**\n\n'Less than 530' is the area to the **left** of $z = 1.195$, which is what the normal table or the calculator's normal cdf gives:\n\n$$\\text{P}(T < 530) = \\Phi(1.195) = 0.88396$$\n\nQuick check: 530 is above the mean 520, so the probability is more than 0.5.",
+   "**Final answer**\n\n$\\text{P}(\\text{total weight} < 530) = 0.884$ (3 s.f.)"
+  ]
+ },
+ "9709_s16_72_q5_ii": {
+  "hints": [
+   "'Flakes more than 4.1 times the fruit' means $X > 4.1Y$, which is the same as $X - 4.1Y > 0$. Define $T = X - 4.1Y$ and find $\\text{E}(T) = \\text{E}(X) - 4.1\\,\\text{E}(Y)$ using the given means.",
+   "For the variance, $\\text{Var}(aY) = a^2\\,\\text{Var}(Y)$, and variances always add, even when the variables are subtracted: $\\text{Var}(T) = \\text{Var}(X) + 4.1^2\\,\\text{Var}(Y)$, with 50 and 20.",
+   "Standardise the value 0 (the boundary of $T > 0$): $z = \\dfrac{0 - \\text{E}(T)}{\\sqrt{\\text{Var}(T)}}$. Take care with the sign of $\\text{E}(T)$.",
+   "You want $\\text{P}(T > 0)$, which is the area to the **right** of your $z$. So use $1 - \\Phi(z)$.",
+   "Find $\\Phi(z)$ from the table or calculator and subtract from 1. Quick check: $\\text{E}(T)$ is a little below 0, so the probability should be a bit less than 0.5. Give 3 s.f."
+  ],
+  "walkthrough": [
+   "**Turn the words into an inequality**\n\nWe want the weight of flakes to be more than 4.1 times the weight of fruit:\n\n$$X > 4.1Y \\iff X - 4.1Y > 0$$\n\nSo define $T = X - 4.1Y$ and find $\\text{P}(T > 0)$. $T$ is normal because it is made from independent normal variables.",
+   "**Mean of $T$ (first B1)**\n\n$$\\text{E}(T) = \\text{E}(X) - 4.1\\,\\text{E}(Y) = 400 - 4.1 \\times 100$$\n\n$$4.1 \\times 100 = 410$$\n\n$$\\text{E}(T) = 400 - 410 = -10$$",
+   "**Variance of $T$ (second B1)**\n\nTwo rules: (1) for a multiple, $\\text{Var}(aY) = a^2\\,\\text{Var}(Y)$, so the 4.1 gets **squared**; (2) for independent variables the variances **add**, even when we subtract the variables themselves. (Spread never cancels out.)\n\n$$\\text{Var}(T) = \\text{Var}(X) + 4.1^2\\,\\text{Var}(Y) = 50 + 4.1^2 \\times 20$$\n\n$$4.1^2 = 16.81$$\n\n$$16.81 \\times 20 = 336.2$$\n\n$$\\text{Var}(T) = 50 + 336.2 = 386.2$$\n\nSo $T \\sim \\text{N}(-10,\\ 386.2)$.",
+   "**Standardise (M1)**\n\nWe want $\\text{P}(T > 0)$, so the boundary is 0.\n\n$$\\sqrt{386.2} = 19.652$$\n\n$$z = \\frac{0 - (-10)}{\\sqrt{386.2}} = \\frac{10}{19.652} = 0.509$$",
+   "**Find the area (M1)**\n\nWe want $T$ **greater than** 0, the area to the **right** of $z = 0.509$. The table gives the area to the left, so subtract it from 1:\n\n$$\\Phi(0.509) = 0.69462$$\n\n$$\\text{P}(T > 0) = 1 - 0.69462 = 0.30538$$\n\nQuick check: the mean of $T$ is slightly below 0, so the probability that $T$ is above 0 is a little less than 0.5.",
+   "**Final answer**\n\n$\\text{P}(\\text{weight of flakes} > 4.1 \\times \\text{weight of fruit}) = 0.305$ (3 s.f.)"
+  ]
+ }
+}

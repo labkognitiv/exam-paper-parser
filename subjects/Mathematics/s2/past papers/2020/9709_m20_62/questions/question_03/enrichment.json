@@ -1,0 +1,33 @@
+{
+ "9709_m20_62_q3_a": {
+  "hints": [
+   "The best estimate of the population mean is the sample mean: $\\dfrac{\\sum t}{n} = \\dfrac{1504}{40}$.",
+   "For an unbiased estimate of the variance divide by $n - 1$, not $n$: $s^2 = \\dfrac{1}{n-1}\\left[\\sum t^2 - \\dfrac{(\\sum t)^2}{n}\\right]$. Put in $\\sum t^2 = 57\\,760$, $\\sum t = 1504$ and $n = 40$.",
+   "Work out the bracket first, then divide by 39. Give 3 significant figures, or leave it as an exact fraction."
+  ],
+  "walkthrough": [
+   "**Unbiased estimate of the population mean (this earns the B1)**\n\n'Unbiased estimate' means a value that is right on average. For the population mean $\\mu$ it is simply the sample mean $\\bar{t}$ (the total divided by how many there are):\n\n$$\\bar{t} = \\frac{\\sum t}{n} = \\frac{1504}{40} = 37.6$$",
+   "**Why $n - 1$ for the variance**\n\nA sample sits a little closer to its own mean than to the true population mean, so the sample's spread is slightly too small. Dividing by $n - 1$ instead of $n$ corrects this. The unbiased estimate of the population variance is\n\n$$s^2 = \\frac{1}{n-1}\\left[\\sum t^2 - \\frac{(\\sum t)^2}{n}\\right] = \\frac{n}{n-1}\\left[\\frac{\\sum t^2}{n} - \\bar{t}^{\\,2}\\right]$$\n\nBoth forms are the same. We use the second, as in the scheme.",
+   "**Substitute and calculate (this earns the M1)**\n\nTake the bracket in steps. First the mean of the squares:\n\n$$\\frac{\\sum t^2}{n} = \\frac{57\\,760}{40} = 1444$$\n\nNext the square of the mean:\n\n$$\\bar{t}^{\\,2} = 37.6^2 = 1413.76$$\n\nSubtract:\n\n$$1444 - 1413.76 = 30.24$$\n\nNow multiply by $\\frac{n}{n-1} = \\frac{40}{39}$:\n\n$$s^2 = \\frac{40}{39} \\times 30.24 = \\frac{1209.6}{39} = 31.0153846\\ldots$$\n\nAs an exact fraction this is $\\frac{2016}{65}$. Quick check: it is a bit bigger than 30.24, as it should be, because we divided by 39 instead of 40.",
+   "**Final answer**\n\nUnbiased estimate of the population mean: $37.6$ minutes.\n\nUnbiased estimate of the population variance: $31.0$ (3 s.f.), exactly $\\frac{2016}{65} = 31.0154\\ldots$ (the scheme also accepts $31\\frac{1}{65}$)."
+  ]
+ },
+ "9709_m20_62_q3_b": {
+  "hints": [
+   "Define $\\mu$ as the population mean journey time. Freda tests for a **decrease**, so $\\text{H}_1$ is one-tailed: write $\\text{H}_0: \\mu = 39.2$ and $\\text{H}_1: \\mu \\,?\\, 39.2$ with the correct inequality.",
+   "With $n = 40$ the sample mean is approximately normal (central limit theorem). Standardise: $z = \\dfrac{\\bar{t} - 39.2}{s/\\sqrt{40}}$, using your two estimates from (a) and remembering the $\\sqrt{40}$.",
+   "Type it into the calculator carefully, with brackets round $\\dfrac{s}{\\sqrt{40}}$, and keep the sign: it should be negative if the sample mean is below 39.2.",
+   "This is a lower-tail test at the 5% level, so the critical value is $-1.645$. Compare your $z$ with $-1.645$ (or compare the tail area $\\text{P}(Z < z)$ with 5%).",
+   "If your $z$ is beyond the critical value, reject $\\text{H}_0$. State the conclusion in context, in words such as 'there is evidence that', not as a definite fact."
+  ],
+  "walkthrough": [
+   "**State the hypotheses (this earns the B1)**\n\nLet $\\mu$ be the population mean journey time (in minutes) since the one-way system was introduced. The old mean was 39.2, and Freda wants to know whether it has **decreased**, so the test is one-tailed with 'less than':\n\n$$\\text{H}_0: \\mu = 39.2 \\qquad \\text{H}_1: \\mu < 39.2$$\n\nWrite 'population mean' or $\\mu$, not just 'mean'. The scheme requires this.",
+   "**The distribution of the sample mean under $\\text{H}_0$**\n\nWe do not know the shape of the population. But the sample has $n = 40$ journeys, which is large, so by the central limit theorem the sample mean $\\bar{t}$ is approximately normal.\n\nThe population variance is not given, so we use our unbiased estimate $s^2 = 31.0154$ from part (a). If $\\text{H}_0$ is true:\n\n$$\\bar{t} \\sim \\text{N}\\left(39.2, \\frac{31.0154}{40}\\right)$$\n\nThe $\\div 40$ is there because we are dealing with the mean of 40 journeys, not one journey.",
+   "**Calculate the test statistic (this earns the M1)**\n\nStandardise: how many standard errors is the sample mean from 39.2?\n\n$$z = \\frac{\\bar{t} - 39.2}{\\sqrt{31.0154}\\,/\\,\\sqrt{40}} = \\frac{37.6 - 39.2}{\\sqrt{31.0154}\\,/\\,\\sqrt{40}}$$\n\nTop line: $37.6 - 39.2 = -1.6$.\n\nBottom line: $\\frac{31.0154}{40} = 0.775385$, and $\\sqrt{0.775385} = 0.88056$. Do this with brackets on the calculator.\n\nThe scheme also allows the biased variance 30.24 for this M1, but you must keep the $\\sqrt{40}$.",
+   "**Value of $z$ (this earns the A1)**\n\n$$z = \\frac{-1.6}{0.88056} = -1.817$$\n\nThe negative sign says the sample mean is below 39.2, the direction we were testing for.",
+   "**Compare with the critical value (this earns the second M1)**\n\nFor a one-tailed test at the 5% level, with the rejection region in the lower tail, the critical value is $z = -1.645$ (from the normal table: $\\Phi(1.645) = 0.95$).\n\n$$-1.817 < -1.645$$\n\nEquivalently $1.817 > 1.645$. Our $z$ is further out than the critical value, so it lies in the rejection region. (Using areas: $\\text{P}(Z < -1.817) = 0.0346$, which is less than $0.05$.)",
+   "**Conclusion in context (this earns the last A1)**\n\nReject $\\text{H}_0$. Because we are working with a sample, we cannot say anything for certain, so we use careful wording: there is evidence, at the 5% significance level, that the mean journey time has decreased.",
+   "**Final answer**\n\n$z = -1.817$, which is less than $-1.645$, so reject $\\text{H}_0$.\n\nThere is evidence at the 5% level that the population mean journey time has decreased from 39.2 minutes."
+  ]
+ }
+}

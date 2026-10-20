@@ -1,0 +1,36 @@
+{
+  "9709_w17_72_q5_i": {
+    "hints": [
+      "'Paper 1 mark more than paper 2 mark' is $X > Y$, which is $X - Y > 0$. A difference of independent normals is normal. Find the mean of $X - Y$ from the means $56$ and $43$.",
+      "For the variance of $X - Y$: the variances **add** (even though you subtract the variables). Use the variances $6^2$ and $5^2$.",
+      "Standardise $0$: $z = \\dfrac{0 - \\text{mean}}{\\sqrt{\\text{variance}}}$. Use your mean and variance of $X - Y$, and remember to square-root the variance.",
+      "You want $\\text{P}(X - Y > 0)$, which is an upper-tail probability: $1 - \\Phi(z)$. A quick sketch of the curve tells you whether the answer should be bigger or smaller than $0.5$.",
+      "Use the normal table or the calculator's normal cdf for $\\Phi$, then give the probability to 3 s.f."
+    ],
+    "walkthrough": [
+      "**Turn the question into one normal variable**\n\nWe want $\\text{P}(X > Y)$. Move $Y$ to the left: $X > Y$ is the same as $X - Y > 0$. So define\n\n$$D = X - Y$$\n\nand find $\\text{P}(D > 0)$. Since $X$ and $Y$ are independent normal variables, their difference $D$ is also normally distributed. We need its mean and variance.",
+      "**The mean of $D$ (the B1)**\n\nMeans subtract:\n\n$$\\text{E}(D) = \\text{E}(X) - \\text{E}(Y) = 56 - 43 = 13$$",
+      "**The variance of $D$ (first M1)**\n\nFor independent variables, **variances add**, even when we subtract the variables. (Subtracting a spread-out variable does not make things less spread out.)\n\n$$\\text{Var}(D) = \\text{Var}(X) + \\text{Var}(Y) = 6^2 + 5^2 = 36 + 25 = 61$$\n\nSo $D \\sim \\text{N}(13, 61)$.\n\nThe standard deviation is the square root: $\\sqrt{61} = 7.8102$.",
+      "**Standardise (second M1)**\n\nWe need $\\text{P}(D > 0)$. Convert $0$ to a $z$ value:\n\n$$z = \\frac{0 - 13}{\\sqrt{61}} = \\frac{-13}{7.8102} = -1.664$$\n\nKeep the square root of $61$ (not $61$ itself) in the denominator; the commonest slip is to divide by the variance.",
+      "**Find the probability (third M1 and the A1)**\n\n$\\text{P}(D > 0) = \\text{P}(Z > -1.664)$. Because the normal curve is symmetrical, the area above $-1.664$ is the same as the area below $+1.664$:\n\n$$\\text{P}(Z > -1.664) = 1 - \\Phi(-1.664) = \\Phi(1.664)$$\n\nUsing the normal table or your calculator's normal cdf:\n\n$$\\Phi(1.664) = 0.9519\\ldots = 0.952 \\text{ (3 s.f.)}$$\n\nThis is large, which makes sense: the mean mark of $56$ for paper 1 is much higher than $43$ for paper 2, so paper 1 usually beats paper 2.",
+      "**Final answer**\n\n$$\\text{P}(X > Y) = 0.952 \\text{ (3 s.f.)}$$"
+    ]
+  },
+  "9709_w17_72_q5_ii": {
+    "hints": [
+      "The mean of a combination is found by the same combination of means: $\\text{E}(M) = \\text{E}(X) + 1.5\\,\\text{E}(Y)$. Use the means $56$ and $43$.",
+      "For the variance, a constant multiplier gets **squared**: $\\text{Var}(M) = \\text{Var}(X) + 1.5^2\\,\\text{Var}(Y)$. Use the variances $6^2$ and $5^2$.",
+      "Standardise the grade A boundary: $z = \\dfrac{135 - \\text{E}(M)}{\\sqrt{\\text{Var}(M)}}$, using your mean and variance of $M$.",
+      "A grade A needs $M$ to be at least $135$, which is the upper tail: $1 - \\Phi(z)$.",
+      "Find $\\Phi(z)$ from the table or calculator, subtract from $1$, and give 3 s.f. The 'proportion' of students is this probability."
+    ],
+    "walkthrough": [
+      "**The distribution of $M$**\n\n$M = X + 1.5Y$ is a combination of two independent normal variables, so $M$ is also normal. We need its mean and variance.",
+      "**The mean of $M$ (the B1)**\n\nMeans follow the same combination:\n\n$$\\text{E}(M) = \\text{E}(X) + 1.5\\,\\text{E}(Y) = 56 + 1.5\\times 43 = 56 + 64.5 = 120.5$$",
+      "**The variance of $M$ (first M1)**\n\nFor independent variables, $\\text{Var}(aX + bY) = a^2\\,\\text{Var}(X) + b^2\\,\\text{Var}(Y)$. The multiplier is **squared** (a common slip is to forget this and use $1.5$ instead of $1.5^2$):\n\n$$\\text{Var}(M) = \\text{Var}(X) + 1.5^2\\,\\text{Var}(Y) = 6^2 + 1.5^2 \\times 5^2$$\n\n$$= 36 + 2.25 \\times 25 = 36 + 56.25 = 92.25$$\n\nSo $M \\sim \\text{N}(120.5, 92.25)$. Standard deviation $= \\sqrt{92.25} = 9.6047$.",
+      "**Standardise the boundary (second M1)**\n\nGrade A needs $M \\geqslant 135$ (for a continuous variable, $\\geqslant$ and $>$ give the same probability).\n\n$$z = \\frac{135 - 120.5}{\\sqrt{92.25}} = \\frac{14.5}{9.6047} = 1.510$$",
+      "**Find the proportion (third M1 and the A1)**\n\nWe want the area above $z = 1.510$, so subtract the area below from $1$:\n\n$$\\text{P}(M > 135) = 1 - \\Phi(1.510)$$\n\nWith the normal table or calculator, $\\Phi(1.510) = 0.9345$, so\n\n$$1 - 0.9345 = 0.0655$$\n\n(Using the unrounded $z = 1.5097$ gives $0.0656$. The mark scheme accepts $0.0655$ or $0.0656$.)\n\nAs a percentage: about $6.55\\%$ of the students get grade A.",
+      "**Final answer**\n\nThe proportion gaining grade A is $0.0655$ or $0.0656$ (3 s.f.), that is $6.55\\%$ or $6.56\\%$."
+    ]
+  }
+}

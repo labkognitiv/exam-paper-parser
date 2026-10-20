@@ -1,0 +1,47 @@
+{
+ "9709_w19_73_q5_i": {
+  "hints": [
+   "$n = 300$ is large and $p = 0.01$ is small, so approximate the binomial by a Poisson with the same mean: $\\lambda = np$.",
+   "$2 < X < 6$ means the whole numbers 3, 4 and 5 (both ends are excluded). Add $\\text{P}(3) + \\text{P}(4) + \\text{P}(5)$, each equal to $\\text{e}^{-\\lambda}\\dfrac{\\lambda^r}{r!}$.",
+   "Put the three terms into your calculator (or use $\\text{P}(X \\leqslant 5) - \\text{P}(X \\leqslant 2)$ on the Poisson cdf) and round to 3 significant figures."
+  ],
+  "walkthrough": [
+   "**Choose the Poisson approximation (B1)**\n\nA binomial $\\text{B}(n, p)$ with $n$ large and $p$ small can be approximated by a Poisson with the same mean. The mean of $\\text{B}(300, 0.01)$ is $np$:\n\n$$\\lambda = 300 \\times 0.01 = 3$$\n\nSo we use $X \\approx \\text{Po}(3)$. This earns the B1.",
+   "**Which values of X are needed**\n\n$2 < X < 6$ means $X$ is bigger than 2 and smaller than 6. $X$ is a whole number, so $X$ is 3, 4 or 5. (2 and 6 are not allowed.)\n\n$$\\text{P}(2 < X < 6) = \\text{P}(X=3) + \\text{P}(X=4) + \\text{P}(X=5)$$",
+   "**Poisson formula (M1)**\n\n$\\text{P}(X = r) = \\text{e}^{-3}\\dfrac{3^r}{r!}$. Write each term out:\n\n$$\\text{e}^{-3}\\left(\\frac{3^3}{3!} + \\frac{3^4}{4!} + \\frac{3^5}{5!}\\right)$$\n\nThis earns the M1. A common slip is to include 2 or 6; the scheme allows one or two extra terms for the M1, but the A1 would be lost.",
+   "**Work out the numbers (A1)**\n\n$$\\text{e}^{-3} = 0.049787$$\n\n$$\\frac{3^3}{3!} = \\frac{27}{6} = 4.5, \\quad \\frac{3^4}{4!} = \\frac{81}{24} = 3.375, \\quad \\frac{3^5}{5!} = \\frac{243}{120} = 2.025$$\n\n$$4.5 + 3.375 + 2.025 = 9.9$$\n\n$$0.049787 \\times 9.9 = 0.49289$$\n\nRound to 3 significant figures: 0.493. This earns the A1.",
+   "**Final answer**\n\n$\\text{P}(2 < X < 6) \\approx$ **0.493** (3 s.f.)."
+  ]
+ },
+ "9709_w19_73_q5_ii": {
+  "hints": [
+   "Write $\\text{P}(Y = 0)$ and $\\text{P}(Y = 2)$ using $\\text{P}(Y = r) = \\text{e}^{-\\lambda}\\dfrac{\\lambda^r}{r!}$ and set the two equal.",
+   "The factor $\\text{e}^{-\\lambda}$ is on both sides, so divide it away. Use $0! = 1$ and $2! = 2$, which leaves an equation with $\\lambda^2$. Solve it, remembering $\\lambda$ must be positive."
+  ],
+  "walkthrough": [
+   "**Set up the equation (M1)**\n\nFor $Y \\sim \\text{Po}(\\lambda)$, $\\text{P}(Y = r) = \\text{e}^{-\\lambda}\\dfrac{\\lambda^r}{r!}$.\n\n$$\\text{P}(Y = 0) = \\text{e}^{-\\lambda}\\frac{\\lambda^0}{0!} \\qquad \\text{P}(Y = 2) = \\text{e}^{-\\lambda}\\frac{\\lambda^2}{2!}$$\n\nQuick check: $\\lambda^0 = 1$ and $0! = 1$, so the first one is just $\\text{e}^{-\\lambda}$.\n\nSet them equal:\n\n$$\\text{e}^{-\\lambda} = \\text{e}^{-\\lambda}\\frac{\\lambda^2}{2}$$\n\nThis earns the M1 (a correct equation from $\\text{P}(0) = \\text{P}(2)$).",
+   "**Solve (A1)**\n\nDivide both sides by $\\text{e}^{-\\lambda}$. It is never zero, so this is allowed:\n\n$$1 = \\frac{\\lambda^2}{2}$$\n\nMultiply both sides by 2:\n\n$$\\lambda^2 = 2$$\n\n$\\lambda$ is a rate (the mean), so it must be positive. We ignore $-\\sqrt{2}$:\n\n$$\\lambda = \\sqrt{2} = 1.41421...$$\n\nThis earns the A1.",
+   "**Final answer**\n\n$\\lambda = \\sqrt{2}$ (or **1.41** to 3 s.f.)."
+  ]
+ },
+ "9709_w19_73_q5_iii_a": {
+  "hints": [
+   "Write $\\text{P}(Z = r) = \\text{e}^{-5.2}\\dfrac{5.2^r}{r!}$ once with $r = n$ and once with $r = n + 1$, and put '$<$' between them in the order given in the question."
+  ],
+  "walkthrough": [
+   "**Write each probability**\n\n$Z \\sim \\text{Po}(5.2)$, so $\\text{P}(Z = r) = \\text{e}^{-5.2}\\dfrac{5.2^r}{r!}$.\n\nPut $r = n$ for the left side and $r = n + 1$ for the right side:\n\n$$\\text{P}(Z = n) = \\text{e}^{-5.2}\\frac{5.2^n}{n!} \\qquad \\text{P}(Z = n+1) = \\text{e}^{-5.2}\\frac{5.2^{n+1}}{(n+1)!}$$",
+   "**Final answer**\n\nThe inequality is\n\n$$\\text{e}^{-5.2}\\frac{5.2^n}{n!} < \\text{e}^{-5.2}\\frac{5.2^{n+1}}{(n+1)!}$$\n\n(which leads to $\\dfrac{5.2^n}{n!} < \\dfrac{5.2^{n+1}}{(n+1)!}$). This earns the B1."
+  ]
+ },
+ "9709_w19_73_q5_iii_b": {
+  "hints": [
+   "Divide both sides by the common factor $\\text{e}^{-5.2}\\,5.2^n$, and use $(n+1)! = (n+1) \\times n!$ so the factorials and the powers cancel.",
+   "You are left with a simple inequality in $n$ alone. $n$ is a whole number (0, 1, 2, ...) and the inequality is strict, so find the largest whole number that satisfies it."
+  ],
+  "walkthrough": [
+   "**Cancel the common factors (M1)**\n\nStart from the inequality in (a):\n\n$$\\text{e}^{-5.2}\\frac{5.2^n}{n!} < \\text{e}^{-5.2}\\frac{5.2^{n+1}}{(n+1)!}$$\n\nDivide both sides by $\\text{e}^{-5.2}$ (positive, so the direction of $<$ stays):\n\n$$\\frac{5.2^n}{n!} < \\frac{5.2^{n+1}}{(n+1)!}$$\n\nUse $5.2^{n+1} = 5.2^n \\times 5.2$ and $(n+1)! = (n+1) \\times n!$:\n\n$$\\frac{5.2^n}{n!} < \\frac{5.2^n \\times 5.2}{(n+1) \\times n!}$$\n\nNow divide both sides by the positive quantity $\\dfrac{5.2^n}{n!}$:\n\n$$1 < \\frac{5.2}{n+1}$$\n\nMultiply both sides by $n + 1$ (positive):\n\n$$n + 1 < 5.2$$\n\nThis earns the M1: we have reached a stage without exponentials, powers or factorials.",
+   "**Find the largest n (A1)**\n\nSubtract 1 from both sides:\n\n$$n < 4.2$$\n\n$n$ is a whole number and must be **less than** 4.2. The whole numbers allowed are 0, 1, 2, 3 and 4. The largest is 4.\n\nQuick check with $n = 4$: $n + 1 = 5$, and $5 < 5.2$ is true. With $n = 5$: $n + 1 = 6$, and $6 < 5.2$ is false.\n\nThis makes sense: a Poisson with mean 5.2 rises up to the value 5 (probabilities increase from $\\text{P}(4)$ to $\\text{P}(5)$).",
+   "**Final answer**\n\nThe largest possible value of $n$ is **4**."
+  ]
+ }
+}

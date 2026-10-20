@@ -1,0 +1,28 @@
+{
+ "9709_s16_71_q3_i": {
+  "hints": [
+   "A confidence interval for a proportion is centred on the sample proportion, with the same distance either side. So the sample proportion is exactly halfway between $0.5672$ and $0.6528$."
+  ],
+  "walkthrough": [
+   "**Why the midpoint**\n\nA confidence interval for a proportion has the form\n\n$$\\hat{p} - z\\sqrt{\\frac{\\hat{p}(1-\\hat{p})}{n}} < p < \\hat{p} + z\\sqrt{\\frac{\\hat{p}(1-\\hat{p})}{n}}$$\n\nwhere $\\hat{p}$ (said 'p hat') is the sample proportion. The same amount is taken off and added on, so $\\hat{p}$ sits exactly in the middle of the two ends.",
+   "**Calculate the midpoint**\n\nAdd the two ends, then halve:\n\n$$0.5672 + 0.6528 = 1.2200$$\n\n$$\\hat{p} = \\frac{1.22}{2} = 0.61$$\n\nQuick check: $0.61$ is between $0.5672$ and $0.6528$, as it must be.",
+   "**Final answer**\n\nThe proportion of the sample who had travelled abroad is $0.61$."
+  ]
+ },
+ "9709_s16_71_q3_ii": {
+  "hints": [
+   "The upper end of the interval is $\\hat{p} + z \\times (\\text{standard error})$, where the standard error is $\\sqrt{\\dfrac{\\hat{p}(1-\\hat{p})}{n}}$. Put your answer to part (i) in for $\\hat{p}$ and use $n = 700$. Set this equal to $0.6528$, leaving $z$ unknown.",
+   "Rearrange for $z$: the distance from $\\hat{p}$ to $0.6528$ is $z$ times the standard error, so $z = \\dfrac{0.6528 - \\hat{p}}{\\text{standard error}}$. Work out the distance and the standard error separately.",
+   "Evaluate $z$ on your calculator: work out $\\hat{p}(1-\\hat{p})$ first, then the whole fraction under the root, then the root, then multiply.",
+   "The confidence level is the probability between $-z$ and $z$. Use $\\Phi(z)$ for your $z$, then confidence level $= 2\\Phi(z) - 1$. Convert it to a percentage and round to the nearest integer."
+  ],
+  "walkthrough": [
+   "**The plan**\n\nThe interval is $\\hat{p} \\pm z \\times \\text{(standard error)}$. We already know $\\hat{p}$ and the ends of the interval, so we can work backwards to find $z$. Then $z$ tells us how much of the normal curve the interval covers, which is the confidence level.",
+   "**Write the equation for the upper end (M1)**\n\nWith $\\hat{p} = 0.61$ and $n = 700$ (the sample size), the standard error is $\\sqrt{\\frac{0.61 \\times (1 - 0.61)}{700}}$. Setting the upper end equal to $0.6528$:\n\n$$0.61 + z\\sqrt{\\frac{0.61 \\times (1 - 0.61)}{700}} = 0.6528$$\n\n(The first line of the mark scheme prints $350$ under the root. The sample size is $700$, and the scheme's next line uses $700$, so $700$ is the right value.)",
+   "**Rearrange for z (M1)**\n\nSubtract $0.61$ from both sides to get the distance from the centre to the upper end:\n\n$$0.6528 - 0.61 = 0.0428$$\n\nSo $z \\times \\sqrt{\\frac{0.61 \\times 0.39}{700}} = 0.0428$. Divide both sides by the square root:\n\n$$z = \\frac{0.0428}{\\sqrt{\\frac{0.61 \\times 0.39}{700}}} = 0.0428 \\times \\sqrt{\\frac{700}{0.61 \\times 0.39}}$$\n\nDividing by a square root of a fraction is the same as multiplying by the square root of the fraction turned upside down. That is the form in the mark scheme.",
+   "**Calculate z (A1)**\n\nFirst, $0.61 \\times 0.39 = 0.2379$.\n\nThen $\\frac{700}{0.2379} = 2942.41\\ldots$\n\nThen the square root: $\\sqrt{2942.41} = 54.246\\ldots$\n\n$$z = 0.0428 \\times 54.246 = 2.3216\\ldots$$\n\nThe mark scheme prints $2.321$. A calculator gives $2.3216$, and either value leads to the same confidence level below.",
+   "**Find the confidence level (A1 ft)**\n\nThe interval goes from $-z$ to $z$ on the standard normal curve. The area between them is the confidence level. Because the curve is symmetric, the area in each tail is $1 - \\Phi(z)$.\n\nUse the normal table or your calculator's normal cdf: $\\Phi(2.3216) = 0.98987$.\n\n$$\\text{confidence level} = 2\\Phi(z) - 1 = 2 \\times 0.98987 - 1$$\n\n$2 \\times 0.98987 = 1.97974$, and $1.97974 - 1 = 0.97974$.\n\nAs a percentage this is $97.97\\%$, and to the nearest integer this is $98\\%$. This follows through from your $z$ and earns the last mark only if both M marks were earned.",
+   "**Final answer**\n\n$z = 2.321$ and the confidence level is $98\\%$."
+  ]
+ }
+}

@@ -1,0 +1,44 @@
+{
+ "9709_s24_62_q5_a": {
+  "hints": [
+   "$X$ takes whole numbers only, so $\\text{P}(X < 4)$ means $\\text{P}(X \\leqslant 3)$: add the probabilities of $0, 1, 2$ and $3$ goals. Use $\\text{P}(X = r) = \\text{e}^{-\\lambda}\\dfrac{\\lambda^r}{r!}$ with $\\lambda = 3.1$.",
+   "Write the sum out as $\\text{e}^{-3.1}\\left(1 + 3.1 + \\dfrac{3.1^2}{2!} + \\dfrac{3.1^3}{3!}\\right)$ (the factor $\\text{e}^{-3.1}$ is common to every term), then evaluate it on your calculator to 3 significant figures."
+  ],
+  "walkthrough": [
+   "**Rewrite the question using whole numbers**\n\n$X$ counts goals, so it can only be $0, 1, 2, 3, \\dots$. The values below $4$ are $0, 1, 2, 3$, so\n\n$$\\text{P}(X < 4) = \\text{P}(X \\leqslant 3) = \\text{P}(X = 0) + \\text{P}(X = 1) + \\text{P}(X = 2) + \\text{P}(X = 3)$$\n\nThe Poisson formula for each term is $\\text{P}(X = r) = \\text{e}^{-\\lambda}\\dfrac{\\lambda^r}{r!}$. Here $\\lambda = 3.1$ (the mean number of first-half goals).",
+   "**Write each term (M1)**\n\n$$\\text{P}(X = 0) = \\text{e}^{-3.1}\\frac{3.1^0}{0!} = \\text{e}^{-3.1} \\times 1$$\n\n$$\\text{P}(X = 1) = \\text{e}^{-3.1}\\frac{3.1^1}{1!} = \\text{e}^{-3.1} \\times 3.1$$\n\n$$\\text{P}(X = 2) = \\text{e}^{-3.1}\\frac{3.1^2}{2!} = \\text{e}^{-3.1} \\times 4.805$$\n\n$$\\text{P}(X = 3) = \\text{e}^{-3.1}\\frac{3.1^3}{3!} = \\text{e}^{-3.1} \\times 4.9652\\ldots$$\n\n(For the last two: $3.1^2 = 9.61$ and $\\frac{9.61}{2} = 4.805$; $3.1^3 = 29.791$ and $\\frac{29.791}{6} = 4.9652\\ldots$)\n\nEvery term has the same factor $\\text{e}^{-3.1}$, so we can take it outside a bracket:\n\n$$\\text{P}(X \\leqslant 3) = \\text{e}^{-3.1}\\left(1 + 3.1 + \\frac{3.1^2}{2!} + \\frac{3.1^3}{3!}\\right)$$\n\nWriting this expression earns the **M1**. The scheme must see it, so do not jump straight to the calculator.",
+   "**Calculate (A1)**\n\nAdd the numbers inside the bracket:\n\n$$1 + 3.1 + 4.805 + 4.9652 = 13.8702$$\n\nFind $\\text{e}^{-3.1}$ on your calculator (press $\\text{e}^x$ and type $-3.1$): it shows $0.0450492\\ldots$\n\n$$0.0450492 \\times 13.8702 = 0.62484\\ldots$$\n\nQuick check: the four terms are $0.0450,\\ 0.1397,\\ 0.2165,\\ 0.2237$, and they add to $0.6248$. This earns the **A1** (3 significant figures). A correct answer with no working only earns B1, so always show the sum.",
+   "**Final answer**\n\n$$\\text{P}(X < 4) = 0.625 \\text{ (3 s.f.)}$$"
+  ]
+ },
+ "9709_s24_62_q5_b": {
+  "hints": [
+   "Goals in the two halves are independent Poisson variables, so for the whole match you add the two means, $3.1$ and $2.4$. Name the new distribution and its parameter.",
+   "'At least 5' is the opposite of 'at most 4', so use $\\text{P}(T \\geqslant 5) = 1 - \\text{P}(T \\leqslant 4)$ and write $\\text{P}(T \\leqslant 4)$ as the sum of the probabilities for $0, 1, 2, 3, 4$ goals with $\\text{e}^{-\\lambda}\\dfrac{\\lambda^r}{r!}$.",
+   "Write it as $1 - \\text{e}^{-\\lambda}\\left(1 + \\lambda + \\dfrac{\\lambda^2}{2!} + \\dfrac{\\lambda^3}{3!} + \\dfrac{\\lambda^4}{4!}\\right)$ with your value of $\\lambda$ and evaluate it to 3 significant figures."
+  ],
+  "walkthrough": [
+   "**Combine the two halves (B1)**\n\nLet $T = X + Y$ be the total goals in a match. A useful fact: **the sum of two independent Poisson variables is also Poisson, and its mean is the sum of the two means.** (This is why the question tells us to assume $X$ and $Y$ are independent.)\n\n$$\\lambda = 3.1 + 2.4 = 5.5$$\n\n$$T \\sim \\text{Po}(5.5)$$\n\nStating $\\lambda = 5.5$ earns the **B1**.",
+   "**Choose the easier route**\n\n'At least 5 goals' means $5, 6, 7, 8, \\dots$ forever, an endless list. The opposite, 'at most 4 goals', is only five values: $0, 1, 2, 3, 4$. The probabilities of everything add to $1$, so\n\n$$\\text{P}(T \\geqslant 5) = 1 - \\text{P}(T \\leqslant 4)$$",
+   "**Write the sum (M1)**\n\nWith $\\lambda = 5.5$:\n\n$$\\text{P}(T \\leqslant 4) = \\text{e}^{-5.5}\\left(1 + 5.5 + \\frac{5.5^2}{2!} + \\frac{5.5^3}{3!} + \\frac{5.5^4}{4!}\\right)$$\n\nWork out each term in the bracket:\n\n$$\\frac{5.5^2}{2!} = \\frac{30.25}{2} = 15.125$$\n\n$$\\frac{5.5^3}{3!} = \\frac{166.375}{6} = 27.7292\\ldots$$\n\n$$\\frac{5.5^4}{4!} = \\frac{915.0625}{24} = 38.1276\\ldots$$\n\nSo\n\n$$\\text{P}(T \\geqslant 5) = 1 - \\text{e}^{-5.5}(1 + 5.5 + 15.125 + 27.7292 + 38.1276)$$\n\nThis expression earns the **M1**. Do not forget the $1 -$ at the front: without it you would be finding 'at most 4'. The scheme condones one end error (for example including or leaving out a term), but you should aim to get it exactly right.",
+   "**Calculate (A1)**\n\nAdd the bracket:\n\n$$1 + 5.5 + 15.125 + 27.7292 + 38.1276 = 87.4818$$\n\n$\\text{e}^{-5.5} = 0.0040868\\ldots$ on the calculator.\n\n$$0.0040868 \\times 87.4818 = 0.35752\\ldots$$\n\n$$1 - 0.35752 = 0.64248\\ldots$$\n\nTo 3 significant figures this is $0.642$. The scheme accepts $0.642$ or $0.643$ because rounding the working part way through can move the last digit.",
+   "**Final answer**\n\n$$\\text{P}(\\text{at least 5 goals}) = 0.642 \\text{ (3 s.f.)}$$\n\nThe scheme accepts $0.642$ or $0.643$."
+  ]
+ },
+ "9709_s24_62_q5_c": {
+  "hints": [
+   "The event 'total of 5 goals with exactly 3 in the first half' means 3 goals in the first half **and** the rest in the second half. The halves are independent, so multiply $\\text{P}(X = 3)$ by $\\text{P}(Y = \\,?)$, using the Poisson formula for each ($\\lambda = 3.1$ and $\\lambda = 2.4$).",
+   "Now the denominator: the total number of goals has the Poisson distribution you found in part (b). Write $\\text{P}(T = 5) = \\text{e}^{-\\lambda}\\dfrac{\\lambda^5}{5!}$ with that $\\lambda$.",
+   "This is a conditional probability: $\\text{P}(A \\mid B) = \\dfrac{\\text{P}(A \\cap B)}{\\text{P}(B)}$. Here $B$ is 'total is 5' and $A \\cap B$ is the 'first half 3 and second half the rest' event from your first hint.",
+   "Divide your first-hint probability by $\\text{P}(T = 5)$ and give 3 significant figures."
+  ],
+  "walkthrough": [
+   "**Understand what is being asked**\n\nWe are told the match total is $5$ goals. Among the matches that finish with exactly $5$ goals, what fraction had exactly $3$ goals in the first half?\n\nThis is a **conditional probability**: 'given that'. The formula is\n\n$$\\text{P}(A \\mid B) = \\frac{\\text{P}(A \\text{ and } B)}{\\text{P}(B)}$$\n\nHere $B$ = 'total is $5$ goals' and $A$ = 'exactly $3$ goals in the first half'.",
+   "**The numerator: 3 in the first half and 2 in the second (first M1)**\n\nFor $A$ and $B$ to happen together, the total must be $5$ and the first half must be $3$. So the second half has $5 - 3 = 2$ goals. In other words:\n\n$$\\text{P}(A \\text{ and } B) = \\text{P}(X = 3 \\text{ and } Y = 2)$$\n\nThe two halves are independent, so we multiply:\n\n$$\\text{P}(X = 3)\\times \\text{P}(Y = 2) = \\text{e}^{-3.1}\\frac{3.1^3}{3!} \\times \\text{e}^{-2.4}\\frac{2.4^2}{2!}$$\n\nEach factor separately:\n\n$$\\text{P}(X = 3) = 0.0450492 \\times \\frac{29.791}{6} = 0.0450492 \\times 4.96517 = 0.223677$$\n\n$$\\text{P}(Y = 2) = \\text{e}^{-2.4} \\times \\frac{5.76}{2} = 0.0907180 \\times 2.88 = 0.261268$$\n\n$$0.223677 \\times 0.261268 = 0.058440$$\n\nSeeing this expression earns the first **M1**.",
+   "**The denominator: total 5 (second M1)**\n\nFrom part (b), the total number of goals is $T \\sim \\text{Po}(5.5)$. So\n\n$$\\text{P}(T = 5) = \\text{e}^{-5.5}\\frac{5.5^5}{5!}$$\n\n$$5.5^5 = 5032.84375, \\qquad 5! = 120, \\qquad \\frac{5032.84375}{120} = 41.9404$$\n\n$$\\text{P}(T = 5) = 0.0040868 \\times 41.9404 = 0.17140$$\n\nQuick check: this is a probability, so it must lie between $0$ and $1$, and it does. This is the second **M1**: using $\\lambda = 5.5$ for the total.",
+   "**Put into the conditional probability formula (third M1)**\n\n$$\\text{P}(3 \\text{ in first half} \\mid \\text{total } 5) = \\frac{\\text{P}(X = 3 \\text{ and } Y = 2)}{\\text{P}(T = 5)} = \\frac{0.058440}{0.17140}$$\n\nThis is the third **M1**: numerator is the 'and' probability, denominator is the probability of the condition. A common slip is dividing by $\\text{P}(X = 3)$ instead, which answers a different question.",
+   "**Divide (A1)**\n\n$$\\frac{0.058440}{0.17140} = 0.34095\\ldots \\approx 0.341$$\n\nThis earns the **A1**.",
+   "**Final answer**\n\n$$\\frac{0.05844}{0.17140} = 0.341 \\text{ (3 s.f.)}$$"
+  ]
+ }
+}

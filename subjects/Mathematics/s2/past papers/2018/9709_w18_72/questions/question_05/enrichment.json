@@ -1,0 +1,45 @@
+{
+ "9709_w18_72_q5_i": {
+  "hints": [
+   "The sample mean is $\\bar{x} = \\dfrac{\\Sigma x f}{n}$. Multiply each number of courts by its number of schools, add these up, and divide by the total number of schools, $70$.",
+   "For the variance you also need $\\Sigma x^2 f$: square each number of courts, multiply by its number of schools, and add up.",
+   "The unbiased estimate of the population variance is $s^2 = \\dfrac{1}{n-1}\\left(\\Sigma x^2 f - n\\bar{x}^2\\right)$, or equivalently $\\dfrac{n}{n-1}\\left(\\dfrac{\\Sigma x^2 f}{n} - \\bar{x}^2\\right)$. Put in $n = 70$, your $\\Sigma x^2 f$ and your $\\bar{x}$.",
+   "Check that you divided by $n - 1$ and not by $n$ (dividing by $n$ gives the biased estimate, which loses a mark). Evaluate on your calculator and give 3 significant figures."
+  ],
+  "walkthrough": [
+   "**What the question is asking**\n\nWe only have a sample of $n = 70$ schools out of all schools in South Mowland, so we can only **estimate** the population mean and variance. 'Unbiased' means the estimate is right on average, which for the variance means dividing by $n - 1$.\n\nIn the working below, $x$ is the number of courts and $f$ is the number of schools with that many courts: $2$ schools have $0$ courts, $28$ have $1$, $26$ have $2$, $10$ have $3$ and $4$ have $4$.",
+   "**The estimate of the population mean (this earns the first B1)**\n\nThe sample mean is the total number of courts divided by the number of schools. Total courts: each value of $x$ times its frequency, added together.\n\n$$\\Sigma x f = 0\\times 2 + 1\\times 28 + 2\\times 26 + 3\\times 10 + 4\\times 4$$\n\n$$= 0 + 28 + 52 + 30 + 16 = 126$$\n\n$$\\bar{x} = \\frac{126}{70} = 1.8$$\n\nThe unbiased estimate of the population mean is just the sample mean, so $\\hat{\\mu} = 1.8$.",
+   "**Find $\\Sigma x^2 f$ (this earns the second B1)**\n\nSquare each $x$ first, then multiply by $f$, then add:\n\n$$\\Sigma x^2 f = 0^2\\times 2 + 1^2\\times 28 + 2^2\\times 26 + 3^2\\times 10 + 4^2\\times 4$$\n\n$$= 0 + 28 + 104 + 90 + 64 = 286$$\n\nQuick check: do not square the total $126$. We need the sum of the squares, each multiplied by its frequency.",
+   "**Write the unbiased variance formula (this earns the M1)**\n\n$$s^2 = \\frac{n}{n-1}\\left(\\frac{\\Sigma x^2 f}{n} - \\bar{x}^2\\right)$$\n\nThe bracket is the ordinary (biased) variance of the sample. Multiplying by $\\dfrac{n}{n-1}$ turns it into the unbiased estimate. With $n = 70$, $n - 1 = 69$:\n\n$$s^2 = \\frac{70}{69}\\left(\\frac{286}{70} - 1.8^2\\right)$$",
+   "**Calculate (this earns the A1)**\n\n$$\\frac{286}{70} = 4.085714\\ldots$$\n\n$$1.8^2 = 3.24$$\n\n$$4.085714 - 3.24 = 0.845714\\ldots$$\n\nThis $0.846$ is the **biased** variance (dividing by $70$). Now multiply by $\\dfrac{70}{69} = 1.014493\\ldots$:\n\n$$s^2 = 1.014493 \\times 0.845714 = 0.857971\\ldots \\approx 0.858$$\n\nAnother way to check: $\\dfrac{286 - 70\\times 3.24}{69} = \\dfrac{59.2}{69} = 0.857971\\ldots$, the same.",
+   "**Final answer**\n\nUnbiased estimate of the population mean: $1.8$\n\nUnbiased estimate of the population variance: $0.858$ (that is $\\dfrac{296}{345}$)"
+  ]
+ },
+ "9709_w18_72_q5_ii": {
+  "hints": [
+   "Let $\\mu$ be the population mean number of courts per school in South Mowland. The null hypothesis says it equals North Mowland's mean, $1.9$. The question asks whether South's mean is **less** than North's, so decide whether $\\text{H}_1$ is one-tailed or two-tailed, and write both hypotheses with the word 'population' in them.",
+   "The sample is large ($n = 70$), so by the Central Limit theorem $\\bar{X}$ is approximately normal. Standardise the sample mean: $z = \\dfrac{\\bar{x} - 1.9}{\\sqrt{s^2/70}}$, using your $\\bar{x}$ and your unbiased $s^2$ from (i). Remember the $\\sqrt{70}$ and do not mix a variance with a standard deviation.",
+   "Evaluate this on your calculator, taking the square root of the whole fraction $s^2/70$. Keep the sign: the sample mean is below $1.9$, so think about what sign $z$ should have.",
+   "This is a one-tailed test at the $5\\%$ level, lower tail, so the critical value is $z = -1.645$. Compare your $z$ with $-1.645$ (or compare the size of your $z$ with $1.645$ and check the direction).",
+   "Decide whether your $z$ is inside the critical region. Then write the conclusion in context, about the mean number of basketball courts in South and North Mowland, using wording like 'there is (no) evidence that...' rather than a definite statement."
+  ],
+  "walkthrough": [
+   "**Set up the hypotheses (this earns the B1)**\n\nLet $\\mu$ be the **population** mean number of basketball courts per school in South Mowland.\n\n\n- $\\text{H}_0$ (the null hypothesis, no difference): $\\mu = 1.9$\n\n- $\\text{H}_1$ (what we are testing for): $\\mu < 1.9$\n\nThe question asks whether South's mean is **less than** North's, so the alternative has only one direction: a one-tailed test. Write 'population mean', not just 'mean', or you can lose the mark.",
+   "**Why we can use a normal distribution**\n\nThe sample is large ($n = 70$), so by the **Central Limit theorem** the sample mean $\\bar{X}$ is approximately normal, even though the number of courts is not normal. Under $\\text{H}_0$:\n\n$$\\bar{X} \\sim \\text{N}\\left(1.9, \\frac{s^2}{70}\\right)$$\n\nWe use the unbiased estimate $s^2 = 0.858$ from part (i) in place of the unknown population variance. The variance of a sample mean is the variance divided by $n$.",
+   "**Calculate the test statistic (this earns the M1 and the A1)**\n\nStandardise the sample mean $\\bar{x} = 1.8$ from part (i):\n\n$$z = \\frac{1.8 - 1.9}{\\sqrt{\\dfrac{0.858}{70}}}$$\n\nWork out the bottom line in steps. Be careful: the denominator is a standard deviation, so take the square root of the variance $\\dfrac{0.858}{70}$:\n\n$$\\frac{0.858}{70} = 0.012257\\ldots \\qquad \\sqrt{0.012257} = 0.110710\\ldots$$\n\n$$z = \\frac{-0.1}{0.110710} = -0.9033\\ldots \\approx -0.903$$\n\nThe M1 is for this standardisation (you must have the $70$ in it, and not mix up the variance and the standard deviation). The A1 is for $-0.903$ (the sign may be ignored).",
+   "**Compare with the critical value (this earns the second M1)**\n\nFor a one-tailed test at the $5\\%$ level in the lower tail, the critical $z$-value is $-1.645$ (this is the value of $z$ with $5\\%$ of the curve below it).\n\nWe reject $\\text{H}_0$ only if $z$ is **less than** $-1.645$. Here\n\n$$-0.903 > -1.645$$\n\n(equivalently $0.903 < 1.645$), so $z$ is **not** in the critical region.\n\nAnother way to say this: the probability of getting a result this low or lower is $\\Phi(-0.903) = 0.183$, which is bigger than $0.05$.",
+   "**Conclusion in context (this earns the final A1ft)**\n\nBecause $z$ is not in the critical region, we do **not reject** $\\text{H}_0$. In words:\n\nThere is no evidence at the $5\\%$ level that the mean number of basketball courts per school in South Mowland is less than in North Mowland.\n\nNote the careful wording 'no evidence'. We have not proved the means are equal, only that the sample does not give enough evidence to say South is lower.",
+   "**Final answer**\n\n$z = -0.903$, compared with $-1.645$. Do not reject $\\text{H}_0$: there is no evidence that the mean number of basketball courts per school in South Mowland is less than in North Mowland."
+  ]
+ },
+ "9709_w18_72_q5_iii": {
+  "hints": [
+   "A Type I error is rejecting $\\text{H}_0$ when it is actually true. A Type II error is not rejecting $\\text{H}_0$ when it is actually false. Which of these two describes what your conclusion in part (ii) did?"
+  ],
+  "walkthrough": [
+   "**The two types of error**\n\n\n- **Type I error**: you **reject** $\\text{H}_0$, but $\\text{H}_0$ was actually true.\n\n- **Type II error**: you **do not reject** $\\text{H}_0$, but $\\text{H}_0$ was actually false.\n\nAn error can only be made in the direction of the decision you took.",
+   "**Apply it to part (ii)**\n\nIn part (ii) we did **not** reject $\\text{H}_0$. So the only error possible is a Type II error (that South's mean really is less than North's, but our test missed it). A Type I error needs a rejection, and we made none.",
+   "**Final answer**\n\nType II, because $\\text{H}_0$ was not rejected."
+  ]
+ }
+}

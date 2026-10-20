@@ -1,0 +1,32 @@
+{
+  "9709_m21_62_q1_a": {
+    "hints": [
+      "The best estimate of the population mean is the sample mean: divide $\\Sigma t = 4820$ by the sample size $n = 60$.",
+      "You do not know the population variance, so estimate it without bias: $s^2 = \\dfrac{60}{59}\\left(\\dfrac{\\Sigma t^2}{60} - \\bar{t}^{\\,2}\\right)$ with $\\Sigma t^2 = 392\\,050$. Use $\\frac{60}{59}$, not the plain sample variance.",
+      "Evaluate the bracket first ($\\frac{392\\,050}{60}$ minus the square of your mean), then multiply by $\\frac{60}{59}$. Keep the full calculator value; you will square-root it later.",
+      "A 98% interval leaves 2% outside, so 1% in each tail. You need the $z$ for which the area to its left is 99%: use the inverse normal (or the percentage points table).",
+      "The interval for a mean has the form $\\bar{t} \\pm z \\times \\sqrt{\\dfrac{s^2}{n}}$. Put in your mean, your $z$, your $s^2$ and $n = 60$.",
+      "Work out $\\bar{t} - z\\sqrt{s^2/60}$ and $\\bar{t} + z\\sqrt{s^2/60}$ separately, round each to 3 significant figures, and write them as the two ends of the interval."
+    ],
+    "walkthrough": [
+      "**What we are being asked to do**\n\nA **confidence interval** is a range of values that we are fairly sure (here 98% sure) contains the true average build time of *all* houses of this design. This true average is the **population mean**, written $\\mu$.\n\nWe only have a sample of $n = 60$ houses, so we build the interval around the sample information. We need four things in order: the sample mean, an estimate of how spread out the times are, the $z$-value for 98%, and then the interval itself.",
+      "**Estimate the population mean (this earns the first B1)**\n\nThe sample mean, written $\\bar{t}$, is the total of all the times divided by the number of houses. The best estimate of $\\mu$ is $\\bar{t}$.\n\n$$\\bar{t} = \\frac{\\Sigma t}{n} = \\frac{4820}{60} = 80.3333\\ldots = \\frac{241}{3}$$\n\nKeep the fraction (or the full calculator display) for later; do not round yet.",
+      "**Why we need an estimate of the variance**\n\nThe interval width depends on how spread out the times are, measured by the population variance $\\sigma^2$. We are not told $\\sigma^2$, so we must **estimate** it from the sample.\n\nThe correct estimate is the **unbiased estimate** $s^2$. It divides by $n - 1$ rather than $n$ (because a sample is usually a bit less spread out than the whole population, and this corrects for that):\n\n$$s^2 = \\frac{n}{n-1}\\left(\\frac{\\Sigma t^2}{n} - \\bar{t}^{\\,2}\\right) = \\frac{60}{59}\\left(\\frac{392\\,050}{60} - \\left(\\frac{4820}{60}\\right)^2\\right)$$\n\nCommon slip: using the plain sample variance (without the $\\frac{60}{59}$) gives $80.72\\ldots$ and the mark scheme gives no credit for it (M0 A0).",
+      "**Work out the variance estimate, one piece at a time (M1)**\n\nFirst piece: the mean of the squares.\n\n$$\\frac{392\\,050}{60} = 6534.1666\\ldots$$\n\nSecond piece: the square of the mean.\n\n$$\\left(\\frac{4820}{60}\\right)^2 = 80.3333\\ldots^2 = 6453.4444\\ldots$$\n\nSubtract (this is the plain sample variance).\n\n$$6534.1666\\ldots - 6453.4444\\ldots = 80.7222\\ldots$$\n\nMultiply by $\\frac{60}{59}$ to get the unbiased estimate.\n\n$$s^2 = \\frac{60}{59} \\times 80.7222\\ldots = 82.0904\\ldots$$\n\nThis earns the M1 for the correct structure and the A1 for the value. Quick check: $s^2$ must be a little bigger than $80.72$, and it is. For reference $s = \\sqrt{82.0904} = 9.0604$.",
+      "**Find the $z$-value for 98% (B1)**\n\nA 98% confidence interval means 98% of the probability sits in the middle, leaving $100\\% - 98\\% = 2\\%$ split between the two tails. That is 1% in each tail.\n\nSo we need the $z$ with 99% of the area to its left, that is $\\Phi(z) = 0.99$. On the calculator use inverse normal with area $0.99$, mean $0$, standard deviation $1$; or read the percentage-points table.\n\n$$z = 2.326$$",
+      "**Find the standard error (the spread of the sample mean)**\n\nWe are giving an interval for a *mean of 60 houses*, not for one house. A mean of $n$ values has variance $\\frac{\\sigma^2}{n}$, so we use $\\frac{s^2}{60}$ in place of $\\sigma^2/n$.\n\n$$\\frac{s^2}{60} = \\frac{82.0904\\ldots}{60} = 1.36817\\ldots$$\n\nNow take the square root to get the standard error (the standard deviation of the sample mean).\n\n$$\\sqrt{1.36817\\ldots} = 1.16969\\ldots$$",
+      "**Why we may use the normal $z$-value here**\n\nWe do not know that individual build times are normal. But the sample is large ($n = 60$), so the Central Limit theorem tells us the sample mean is approximately normal. That is why we may use a $z$-value (see part **(b)**).",
+      "**Build the interval (M1)**\n\nThe form is $\\bar{t} \\pm z \\times \\sqrt{\\dfrac{s^2}{n}}$. The size of the margin is:\n\n$$z \\times \\text{standard error} = 2.326 \\times 1.16969\\ldots = 2.7207\\ldots$$\n\nLower end:\n\n$$80.3333\\ldots - 2.7207\\ldots = 77.6126\\ldots$$\n\nUpper end:\n\n$$80.3333\\ldots + 2.7207\\ldots = 83.0540\\ldots$$\n\nRound each end to 3 significant figures: $77.6126 \\to 77.6$ and $83.0540 \\to 83.1$. This earns the final A1.",
+      "**Final answer**\n\nThe 98% confidence interval for the population mean time is $77.6$ to $83.1$ days (3 s.f.)."
+    ]
+  },
+  "9709_m21_62_q1_b": {
+    "hints": [
+      "The question never says the building times are normally distributed. What does the Central Limit theorem let you say about the *sample mean* when $n = 60$ is large?"
+    ],
+    "walkthrough": [
+      "**Why the Central Limit theorem was needed**\n\nThe confidence interval used a $z$-value, and a $z$-value is only correct if the thing we are looking at (the sample mean) is normally distributed.\n\nIf the individual build times were known to be normal, the sample mean would be normal automatically and we would not need the Central Limit theorem. But the question does not tell us the shape of the distribution of build times. It is unknown (it might not be normal).\n\nThe Central Limit theorem says: for a large sample (here $n = 60$), the sample mean is approximately normally distributed whatever the shape of the population. This lets us use the normal $z$-value anyway.",
+      "**Final answer**\n\nIt was necessary because the population distribution of build times is not known (not known to be normal); the Central Limit theorem makes the distribution of the sample mean approximately normal."
+    ]
+  }
+}

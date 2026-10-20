@@ -1,0 +1,44 @@
+{
+ "9709_s25_63_q1_a": {
+  "hints": [
+   "The rate is $23.4$ per hour but you want a 1-minute period: scale the mean to the new period (there are 60 minutes in an hour) and call it $\\lambda$. Customers arrive independently and randomly at a constant rate, so $X \\sim \\text{Po}(\\lambda)$.",
+   "'At least 2' has many outcomes, so use the complement: $\\text{P}(X \\geqslant 2) = 1 - \\text{P}(X = 0) - \\text{P}(X = 1)$.",
+   "Use $\\text{P}(X = r) = \\text{e}^{-\\lambda}\\dfrac{\\lambda^r}{r!}$ for $r = 0$ and $r = 1$, giving $1 - \\text{e}^{-\\lambda}(1 + \\lambda)$. Put your $\\lambda$ in, work it out on the calculator and give 3 significant figures."
+  ],
+  "walkthrough": [
+   "**What kind of problem this is**\n\nCustomers arrive independently, randomly and at a constant average rate. That is exactly the situation the **Poisson distribution** describes. The catch: the rate we are given is per **hour**, but the question asks about a **1-minute** period. A Poisson mean must always match the length of time we are looking at, so first we change the rate.",
+   "**Find the mean for 1 minute (first B1)**\n\nThere are 60 minutes in an hour, so in one minute we expect one sixtieth of the hourly number of customers:\n\n$$\\lambda = \\frac{23.4}{60} = 0.39$$\n\nHere $\\lambda$ (the Greek letter lambda) is the mean of the Poisson distribution. Let $X$ be the number of customers in 1 minute. Then $X \\sim \\text{Po}(0.39)$.\n\nThe B1 is only given if you actually write down $0.39$.",
+   "**Turn \"at least 2\" into a complement (first part of the M1)**\n\n\"At least 2\" means $2, 3, 4, \\ldots$ and so on without end, so adding those up directly is impossible. Instead we use the fact that all probabilities add to 1. Everything that is **not** \"at least 2\" is just $0$ or $1$:\n\n$$\\text{P}(X \\geqslant 2) = 1 - \\text{P}(X = 0) - \\text{P}(X = 1)$$",
+   "**Work out the two probabilities (M1)**\n\nThe Poisson formula is $\\text{P}(X = r) = \\text{e}^{-\\lambda}\\dfrac{\\lambda^r}{r!}$.\n\nFor $r = 0$ (note $0.39^0 = 1$ and $0! = 1$):\n\n$$\\text{P}(X = 0) = \\text{e}^{-0.39} = 0.67706\\ldots$$\n\nFor $r = 1$ (note $1! = 1$):\n\n$$\\text{P}(X = 1) = \\text{e}^{-0.39} \\times 0.39 = 0.67706 \\times 0.39 = 0.26405\\ldots$$\n\nOn the calculator, type $e^{-0.39}$ with the $e^x$ button, or use Poisson pdf with mean $0.39$ and $x = 0$, then $x = 1$.\n\nPutting them into the complement, which is the M1 working:\n\n$$\\text{P}(X \\geqslant 2) = 1 - (0.67706 + 0.26405) = 1 - 0.94111$$",
+   "**Finish (A1)**\n\n$$1 - 0.94111 = 0.05889\\ldots = 0.0589 \\text{ (3 s.f.)}$$\n\nQuick check: customers arrive less than once a minute on average ($0.39$), so having 2 or more in a minute should be rare. A probability of about $0.06$ makes sense.",
+   "**Final answer**\n\n$$\\text{P}(\\text{at least 2 customers in 1 minute}) = 0.0589 \\text{ (3 s.f.)}$$"
+  ]
+ },
+ "9709_s25_63_q1_b_i": {
+  "hints": [
+   "$X$ is the number arriving in 1 hour, so $X \\sim \\text{Po}(23.4)$. When the Poisson mean is large (well above 15), it can be approximated by a **normal** distribution, so write $X \\approx \\text{N}(\\mu, \\sigma^2)$.",
+   "What is special about the mean and the variance of a Poisson distribution? Use that to fill in **both** parameters, remembering that the second slot of $\\text{N}(\\mu, \\sigma^2)$ is the variance, not the standard deviation."
+  ],
+  "walkthrough": [
+   "**Name the exact distribution first**\n\nIn a 1-hour period customers arrive at the rate given in the question, so there is no rescaling this time:\n\n$$X \\sim \\text{Po}(23.4)$$",
+   "**Why a normal approximation is allowed (first B1)**\n\nPoisson probabilities for a large mean are tedious to add up and the shape of the distribution becomes a symmetrical bell shape. As a rule, if the Poisson mean is larger than about $15$, we can approximate it by a normal distribution. Here the mean is $23.4$, which is comfortably large. So the approximating distribution is **normal**, written $\\text{N}(\\mu, \\sigma^2)$.\n\nThe first B1 is for $\\text{N}(23.4, \\ldots)$, meaning the correct mean.",
+   "**Choose the two parameters (second B1)**\n\nA normal distribution needs a mean and a variance. For a Poisson distribution the mean and the variance are **equal**: both are $\\lambda$. Here $\\lambda = 23.4$, so\n\n$$\\text{E}(X) = 23.4 \\qquad \\text{Var}(X) = 23.4$$\n\nThe notation $\\text{N}(\\mu, \\sigma^2)$ has the **variance** in the second place, so we write $23.4$ there (not $\\sqrt{23.4}$).\n\nQuick check: a common slip is to put $\\sqrt{23.4}$ in the second slot. That is the standard deviation, which we will use later in standardising, but it does not go inside the bracket.\n\nNote: you cannot gain these marks later from your part (ii) working, so state the distribution clearly here.",
+   "**Final answer**\n\n$$X \\approx \\text{N}(23.4,\\ 23.4)$$"
+  ]
+ },
+ "9709_s25_63_q1_b_ii": {
+  "hints": [
+   "$X$ only takes whole-number values, so decide which whole numbers $20 < X < 30$ includes. The continuity correction then goes half a unit **beyond** the first and last of them. Standardise both boundaries with $z = \\dfrac{x - 23.4}{\\sqrt{23.4}}$, using the standard deviation (square root of the variance).",
+   "The probability between two values is the area up to the upper boundary minus the area up to the lower boundary: $\\Phi(z_{\\text{upper}}) - \\Phi(z_{\\text{lower}})$.",
+   "Find each $\\Phi$ from the normal table or the calculator's normal cdf, subtract, and give 3 significant figures."
+  ],
+  "walkthrough": [
+   "**Set up using the normal approximation**\n\nWe use $X \\approx \\text{N}(23.4, 23.4)$ from part (i). The mean is $23.4$ and the variance is $23.4$, so the standard deviation is $\\sqrt{23.4} = 4.8374\\ldots$",
+   "**Apply the continuity correction**\n\nThe real $X$ is discrete (it jumps from whole number to whole number), but the normal distribution is continuous. We bridge the gap by treating each whole number as a block stretching half a unit either side.\n\n$20 < X < 30$ means $X = 21, 22, \\ldots, 29$. The block for $21$ starts at $20.5$ and the block for $29$ ends at $29.5$. So:\n\n$$\\text{P}(20 < X < 30) \\approx \\text{P}(20.5 < X < 29.5)$$\n\nThe mark scheme is kind here: you may still score the method marks if you forget the continuity correction, but the final answer would then be inaccurate.",
+   "**Standardise both boundaries (first M1)**\n\nStandardising converts a value $x$ into how many standard deviations it is from the mean: $z = \\dfrac{x - \\mu}{\\sigma}$. You must divide by the **standard deviation** $\\sqrt{23.4}$, not by $23.4$.\n\nLower boundary:\n\n$$z = \\frac{20.5 - 23.4}{\\sqrt{23.4}} = \\frac{-2.9}{4.8374} = -0.5995$$\n\nUpper boundary:\n\n$$z = \\frac{29.5 - 23.4}{\\sqrt{23.4}} = \\frac{6.1}{4.8374} = 1.2610$$",
+   "**Find the area between them (second M1)**\n\n$\\Phi(z)$ is the area under the standard normal curve to the left of $z$. The area **between** two values is the bigger area minus the smaller area:\n\n$$\\text{P}(-0.5995 < Z < 1.2610) = \\Phi(1.2610) - \\Phi(-0.5995)$$\n\nOn the calculator use normal cdf with lower bound $-0.5995$, upper bound $1.2610$, mean $0$, standard deviation $1$. Or find each $\\Phi$ separately:\n\n$$\\Phi(1.2610) = 0.8963 \\qquad \\Phi(-0.5995) = 0.2744$$\n\n(The printed scheme shows $0.8964$ and $0.2743$ because of table rounding; the final answer is the same to 3 s.f.)\n\n$$0.8963 - 0.2744 = 0.6219$$",
+   "**Round (A1)**\n\n$0.6219\\ldots$ rounds to $0.622$ to 3 significant figures.\n\nQuick check: the mean is $23.4$ and the interval $20.5$ to $29.5$ sits around it, about $0.6$ standard deviations below and $1.3$ above. Roughly 60% of the distribution is a sensible figure.",
+   "**Final answer**\n\n$$\\text{P}(20 < X < 30) = 0.622 \\text{ (3 s.f.)}$$"
+  ]
+ }
+}

@@ -1,0 +1,45 @@
+{
+ "9709_w21_62_q5_a": {
+  "hints": [
+   "Errors occur at random at a constant rate, so use a Poisson distribution. Scale the rate to the new length: multiply $0.2$ by $10$ pages to get the mean $\\lambda$.",
+   "'Fewer than $3$' means $0$, $1$ or $2$ errors. Add $\\text{P}(X = 0) + \\text{P}(X = 1) + \\text{P}(X = 2)$, each from $\\text{e}^{-\\lambda}\\dfrac{\\lambda^r}{r!}$, or use the Poisson cumulative function on your calculator with $r = 2$."
+  ],
+  "walkthrough": [
+   "**Choose the distribution**\n\nErrors happen at random, one at a time, at a constant average rate, so the number of errors is Poisson. For a Poisson distribution the mean (written $\\lambda$) must match the length we are looking at, so we scale the rate.\n\nThe rate is $0.2$ per page, and we look at $10$ pages:\n\n$$\\lambda = 0.2 \\times 10 = 2$$\n\nLet $X$ be the number of typing errors in 10 pages. Then $X \\sim \\text{Po}(2)$.",
+   "**What 'fewer than 3' means (the M1 mark)**\n\n$X$ must be a whole number, so 'fewer than 3' means $X = 0, 1$ or $2$. Not $3$. A common slip is to include 3 (that would be 'at most 3').\n\n$$\\text{P}(X < 3) = \\text{P}(X = 0) + \\text{P}(X = 1) + \\text{P}(X = 2)$$\n\nThe Poisson formula is $\\text{P}(X = r) = \\text{e}^{-\\lambda}\\dfrac{\\lambda^r}{r!}$, so with $\\lambda = 2$:\n\n$$\\text{P}(X < 3) = \\text{e}^{-2}\\left(1 + 2 + \\frac{2^2}{2!}\\right)$$\n\nThese are the terms $\\dfrac{2^0}{0!} = 1$, $\\dfrac{2^1}{1!} = 2$ and $\\dfrac{2^2}{2!} = \\dfrac{4}{2} = 2$.",
+   "**Calculate (the A1 mark)**\n\nAdd the bracket: $1 + 2 + 2 = 5$.\n\n$$\\text{P}(X < 3) = 5\\,\\text{e}^{-2}$$\n\nOn your calculator, $\\text{e}^{-2} = 0.135335\\ldots$, so\n\n$$5 \\times 0.135335 = 0.676676\\ldots$$\n\nAs a check, the calculator's Poisson cumulative distribution with mean $2$ and $r = 2$ gives the same value. Quick check: $\\text{e}^{-2}\\times 1 = 0.1353$, $\\text{e}^{-2}\\times 2 = 0.2707$, $\\text{e}^{-2}\\times 2 = 0.2707$, and these add to $0.6767$.",
+   "**Final answer**\n\n$\\text{P}(\\text{fewer than 3 errors in 10 pages}) = 0.677$ (3 significant figures)."
+  ]
+ },
+ "9709_w21_62_q5_b": {
+  "hints": [
+   "Find the Poisson mean for $200$ pages: $0.2 \\times 200$. This mean is large, so approximate $\\text{Po}(\\lambda)$ by a Normal distribution whose mean **and** variance both equal $\\lambda$.",
+   "Standardise with a continuity correction. 'More than $50$' for whole numbers means $51$ or more, so the boundary is half way between $50$ and $51$. Then $z = \\dfrac{\\text{boundary} - \\text{mean}}{\\sqrt{\\text{variance}}}$.",
+   "'More than' asks for the **upper** tail: $\\text{P}(Z > z) = 1 - \\Phi(z)$.",
+   "Work out $z$ to 3 decimal places, then find $\\Phi(z)$ from the table or the calculator's normal cdf, and subtract from $1$. Check that your answer is small, because $50$ is above the mean."
+  ],
+  "walkthrough": [
+   "**Find the Poisson mean and see why we approximate**\n\nLet $X$ be the number of errors in 200 pages. The rate is $0.2$ per page, so\n\n$$\\lambda = 0.2 \\times 200 = 40, \\qquad X \\sim \\text{Po}(40)$$\n\nCalculating $\\text{P}(X > 50)$ exactly would mean adding up very many terms (or $1 - \\text{P}(X \\leqslant 50)$, which has 51 terms). When $\\lambda$ is large (bigger than 15), the Poisson distribution is very close to a Normal distribution, so we use that instead.",
+   "**The approximating Normal distribution (the first M1 mark)**\n\nFor a Poisson distribution, the mean and the variance are equal. So the Normal approximation has the same mean and the same variance:\n\n$$X \\approx \\text{N}(40, 40)$$\n\nThe variance is $40$, so the standard deviation is $\\sqrt{40} = 6.3246\\ldots$ (square root, not $40$ itself).",
+   "**Continuity correction (why and how)**\n\n$X$ is a count, so it can only be $0, 1, 2, \\ldots$, but the Normal distribution is continuous. In the Normal model, each whole number $r$ stands for the interval from $r - 0.5$ to $r + 0.5$.\n\n'More than $50$' for a whole number means $51, 52, 53, \\ldots$ The value $51$ starts at $50.5$. So\n\n$$\\text{P}(X > 50) = \\text{P}(X \\geqslant 51) \\approx \\text{P}(Y > 50.5)$$\n\nwhere $Y \\sim \\text{N}(40, 40)$.",
+   "**Standardise (the second M1 mark)**\n\n$$z = \\frac{50.5 - 40}{\\sqrt{40}}$$\n\nTop: $50.5 - 40 = 10.5$. Bottom: $\\sqrt{40} = 6.3246$.\n\n$$z = \\frac{10.5}{6.3246} = 1.660\\ldots$$\n\nThe mark is given for standardising with a square root, even if the continuity correction is wrong, but do include it.",
+   "**Choose the correct tail (the third M1 mark)**\n\nWe want the probability of being **above** $z = 1.660$. Tables and calculators give the area **below**, $\\Phi(z)$, so we subtract from $1$:\n\n$$\\text{P}(Z > 1.660) = 1 - \\Phi(1.660)$$",
+   "**Evaluate (the A1 mark)**\n\nFrom the normal table, $\\Phi(1.66) = 0.9515$.\n\n$$1 - 0.9515 = 0.0485$$\n\n(A calculator with the unrounded $z$ gives $0.0484$; the scheme accepts either $0.0485$ or $0.0484$.) Quick check: $50$ is a long way above the mean of $40$ (more than 1.5 standard deviations), so a small answer is sensible.",
+   "**Final answer**\n\n$\\text{P}(\\text{more than 50 errors in 200 pages}) \\approx 0.0485$ (3 significant figures; $0.0484$ also accepted)."
+  ]
+ },
+ "9709_w21_62_q5_c": {
+  "hints": [
+   "The two kinds of error occur independently, each as a Poisson process, so the total is also Poisson. Add the two rates, $0.2$ and $0.3$, to get the rate per page, then scale for $20$ pages.",
+   "'Between $8$ and $11$ inclusive' includes both ends: $8, 9, 10, 11$. Write $\\text{P}(X = 8) + \\text{P}(X = 9) + \\text{P}(X = 10) + \\text{P}(X = 11)$ using $\\text{e}^{-\\lambda}\\dfrac{\\lambda^r}{r!}$, or $\\text{P}(X \\leqslant 11) - \\text{P}(X \\leqslant 7)$.",
+   "Work out each of the four terms (or the two cumulative probabilities from your calculator's Poisson cdf) carefully, keeping several decimal places, and then add (or subtract) them."
+  ],
+  "walkthrough": [
+   "**Combine the two Poisson variables (the B1 mark)**\n\nTyping errors and formatting errors are separate random events. When two independent Poisson variables are added, the result is Poisson with the two means added.\n\nMean number of typing errors per page: $0.2$. Mean number of formatting errors per page: $0.3$. Total per page: $0.2 + 0.3 = 0.5$.\n\nFor $20$ pages:\n\n$$\\lambda = 0.5 \\times 20 = 10$$\n\nLet $T$ be the total number of errors in 20 pages. Then $T \\sim \\text{Po}(10)$.",
+   "**Write the probability (the M1 mark)**\n\n'Between 8 and 11 inclusive' includes $8$ and $11$ themselves, so the values are $8, 9, 10, 11$. A common slip is to leave out one end.\n\n$$\\text{P}(8 \\leqslant T \\leqslant 11) = \\text{e}^{-10}\\left(\\frac{10^8}{8!} + \\frac{10^9}{9!} + \\frac{10^{10}}{10!} + \\frac{10^{11}}{11!}\\right)$$",
+   "**Work out each term**\n\n$$\\text{P}(T = 8) = \\text{e}^{-10}\\frac{10^8}{8!} = 0.112599$$\n\n$$\\text{P}(T = 9) = \\text{e}^{-10}\\frac{10^9}{9!} = 0.125110$$\n\n$$\\text{P}(T = 10) = \\text{e}^{-10}\\frac{10^{10}}{10!} = 0.125110$$\n\n$$\\text{P}(T = 11) = \\text{e}^{-10}\\frac{10^{11}}{11!} = 0.113736$$\n\nQuick check: $\\text{P}(T = 9)$ and $\\text{P}(T = 10)$ are equal. That always happens for a Poisson with a whole-number mean, since $\\dfrac{10^{10}}{10!} = \\dfrac{10^9}{9!} \\times \\dfrac{10}{10}$.",
+   "**Add them (the A1 mark)**\n\n$$0.112599 + 0.125110 + 0.125110 + 0.113736 = 0.476555$$\n\nAs a check on your calculator, $\\text{P}(T \\leqslant 11) - \\text{P}(T \\leqslant 7)$ gives the same value.",
+   "**Final answer**\n\n$\\text{P}(8 \\leqslant T \\leqslant 11) = 0.477$ (3 significant figures)."
+  ]
+ }
+}

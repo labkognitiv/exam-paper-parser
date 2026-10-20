@@ -1,0 +1,36 @@
+{
+ "9709_s17_72_q2_i": {
+  "hints": [
+   "Each of the $52\\,460$ words independently either has an error or not, with the same probability $0.000\\,08$. So $X$ is binomial. The mean of a binomial is $np$.",
+   "The variance of a binomial is $npq$, where $q = 1 - p$. Use the same $n$ and $p$ and give both answers to 3 decimal places."
+  ],
+  "walkthrough": [
+   "**Which distribution is $X$?**\n\nEach word either contains an error (probability $0.000\\,08$) or does not. The words are independent, and there are $52\\,460$ of them. A fixed number of independent trials, each with two outcomes and the same probability, is a **binomial** distribution:\n\n$$X \\sim \\text{B}(52\\,460,\\ 0.000\\,08)$$\n\nHere $n = 52\\,460$ is the number of trials and $p = 0.000\\,08$ is the probability of \"success\" (an error in a word).",
+   "**The mean (first B1)**\n\nFor a binomial, $\\text{E}(X) = np$.\n\n$$\\text{E}(X) = 52\\,460 \\times 0.000\\,08 = 4.1968$$\n\nTo 3 decimal places: $4.197$ (the 4th decimal is 8, so we round up).",
+   "**The variance (second B1)**\n\nFor a binomial, $\\text{Var}(X) = npq$, where $q = 1 - p$. First find $q$:\n\n$$q = 1 - 0.000\\,08 = 0.999\\,92$$\n\nNow multiply by $np$ from the last step:\n\n$$\\text{Var}(X) = 4.1968 \\times 0.999\\,92 = 4.196\\,464\\ldots$$\n\nTo 3 decimal places: $4.196$ (the 4th decimal is 4, so we round down).\n\nQuick check: because $q$ is almost 1, the variance should be just under the mean. $4.196$ is just under $4.197$, so this is sensible.",
+   "**Final answer**\n\n$$\\text{E}(X) = 4.197 \\qquad \\text{Var}(X) = 4.196$$"
+  ]
+ },
+ "9709_s17_72_q2_ii": {
+  "hints": [
+   "What property of the mean and variance does a Poisson distribution always have? Compare it with the two values you found in part **(i)**."
+  ],
+  "walkthrough": [
+   "**What is special about a Poisson distribution?**\n\nFor any Poisson distribution the **mean equals the variance**. So, to use Poisson as an approximation for our binomial, the binomial's mean and variance should be about equal.",
+   "**Compare the two answers**\n\nFrom part **(i)**: $\\text{E}(X) = 4.197$ and $\\text{Var}(X) = 4.196$.\n\nThese differ by only $4.197 - 4.196 = 0.001$. That is because $p$ is tiny, so $q = 1 - p$ is almost 1, and $npq$ is almost the same as $np$. (This is also why Poisson works well here: $n$ is large and $p$ is small.)",
+   "**Final answer**\n\nThe mean and variance are almost equal ($\\text{E}(X) \\approx \\text{Var}(X)$), and a Poisson distribution has mean equal to variance, so the Poisson distribution is a suitable approximation."
+  ]
+ },
+ "9709_s17_72_q2_iii": {
+  "hints": [
+   "Use a Poisson distribution whose mean is $\\text{E}(X)$ from part **(i)**. \"Fewer than 5\" means 0, 1, 2, 3 or 4 errors, so write $\\text{P}(X < 5) = \\text{P}(X \\leqslant 4)$ as a sum of five terms.",
+   "Each term is $e^{-\\lambda}\\dfrac{\\lambda^r}{r!}$. Take $e^{-\\lambda}$ out as a common factor and add the terms for $r = 0$ to $4$ (or use the Poisson cumulative distribution function on your calculator)."
+  ],
+  "walkthrough": [
+   "**Set up the Poisson distribution**\n\nThe approximating distribution is Poisson with the same mean as the binomial: $\\lambda = 4.1968$ (we keep the unrounded value).\n\n$$X \\sim \\text{Po}(4.1968)$$\n\n\"Fewer than 5\" means $X$ can be 0, 1, 2, 3 or 4. So:\n\n$$\\text{P}(X < 5) = \\text{P}(X = 0) + \\text{P}(X = 1) + \\text{P}(X = 2) + \\text{P}(X = 3) + \\text{P}(X = 4)$$",
+   "**Write it out with the Poisson formula (M1)**\n\nThe Poisson probability is $\\text{P}(X = r) = e^{-\\lambda}\\dfrac{\\lambda^r}{r!}$. Taking out the common factor $e^{-\\lambda}$:\n\n$$\\text{P}(X < 5) = e^{-4.1968}\\left(1 + 4.1968 + \\frac{4.1968^2}{2!} + \\frac{4.1968^3}{3!} + \\frac{4.1968^4}{4!}\\right)$$\n\nThis line earns the M1. Be careful to include all five terms (the mark scheme allows one end error, but try not to make one).",
+   "**Calculate each term**\n\nFirst the common factor: $e^{-4.1968} = 0.015044$ (calculator: $e^x$ with $x = -4.1968$).\n\nNow each term inside the bracket:\n\n$$\\frac{4.1968^0}{0!} = 1 \\qquad \\frac{4.1968^1}{1!} = 4.1968 \\qquad \\frac{4.1968^2}{2!} = 8.80657$$\n\n$$\\frac{4.1968^3}{3!} = 12.3198 \\qquad \\frac{4.1968^4}{4!} = 12.92593$$\n\nAdd the five terms:\n\n$$1 + 4.1968 + 8.80657 + 12.3198 + 12.92593 = 39.2491$$\n\nMultiply by the common factor:\n\n$$0.015044 \\times 39.2491 = 0.5904\\ldots$$\n\nCheck with the calculator: Poisson cumulative distribution function, mean $4.1968$, $x = 4$, gives $0.59045$. Same answer.",
+   "**Final answer**\n\n$$\\text{P}(X < 5) = 0.590 \\quad (3\\text{ sf})$$\n\nThe mark scheme gives $0.59(0)$ and also allows $0.591$, which you get if you use $\\lambda = 4.197$."
+  ]
+ }
+}

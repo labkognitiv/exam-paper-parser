@@ -1,0 +1,32 @@
+{
+ "9709_w23_62_q1_a": {
+  "hints": [
+   "A Poisson distribution with a large mean is close to a normal one. Both its mean and its variance equal the Poisson parameter, so write $X \\approx \\text{N}(\\mu, \\sigma^2)$ using $\\text{Po}(25)$.",
+   "$X$ only takes whole numbers but the normal is continuous. For whole numbers, $X > 30$ means $X \\geqslant 31$, so the boundary goes halfway between $30$ and $31$ (the continuity correction).",
+   "Standardise your boundary: $z = \\dfrac{(\\text{boundary}) - 25}{\\sqrt{25}}$. The bottom is the standard deviation, not the variance.",
+   "You want the upper tail, so $\\text{P}(X > 30) \\approx 1 - \\Phi(z)$ with your $z$. Use the normal table or your calculator's normal cdf, and give 3 significant figures."
+  ],
+  "walkthrough": [
+   "**Why we may use a normal approximation**\n\n$X \\sim \\text{Po}(25)$ means $X$ counts events that happen at an average rate of $25$. Adding up the Poisson probabilities for $X = 31, 32, 33, \\ldots$ would never end, so the question asks us to use a normal distribution instead. This works well because the mean $25$ is large (a common rule is that the mean should be bigger than about $15$).",
+   "**Choose the normal distribution (B1)**\n\nFor a Poisson distribution the **mean and the variance are equal**. Here both are $25$.\n\nA normal distribution $\\text{N}(\\mu, \\sigma^2)$ has mean $\\mu$ and variance $\\sigma^2$ (the second number is the variance, not the standard deviation). So we use\n\n$$X \\approx \\text{N}(25, 25)$$\n\nThis earns the B1.",
+   "**Continuity correction**\n\nA Poisson variable only takes whole numbers: $0, 1, 2, \\ldots$ but a normal variable can take any value. We must decide which part of the normal curve stands for 'the whole number $31$'. It is the strip from $30.5$ to $31.5$.\n\n$\\text{P}(X > 30)$ means $X = 31, 32, 33, \\ldots$ So the normal area we want starts at the bottom edge of the strip for $31$, which is $30.5$:\n\n$$\\text{P}(X > 30) = \\text{P}(X \\geqslant 31) \\approx \\text{P}(\\text{normal} > 30.5)$$\n\nQuick check: a common slip is to use $30$ or $31$. Because $31$ is included, we start half a unit below it.",
+   "**Standardise (first M1)**\n\nTo use the standard normal table, we change $30.5$ into a $z$-value, which says how many standard deviations $30.5$ is above the mean.\n\nThe standard deviation is $\\sqrt{25} = 5$. Then\n\n$$z = \\frac{30.5 - 25}{\\sqrt{25}} = \\frac{5.5}{5} = 1.1$$\n\nThis earns the first M1. (It is still awarded if the continuity correction is missing or wrong, but we want it right.)",
+   "**Find the upper tail (second M1)**\n\nWe want the probability that the normal variable is **bigger** than $z = 1.1$. The table and calculator give the area to the **left** of $z$, written $\\Phi(z)$. So we subtract from $1$:\n\n$$\\text{P}(X > 30) \\approx 1 - \\Phi(1.1)$$\n\nCalculator: normal cdf with lower bound $-\\infty$ (or $-99$), upper bound $1.1$, mean $0$, standard deviation $1$. It shows $\\Phi(1.1) = 0.86433\\ldots$\n\n$$1 - 0.86433 = 0.13567\\ldots$$\n\nQuick check: $1.1$ is above the mean, so the tail on the right must be less than $0.5$. It is.",
+   "**Final answer**\n\n$$\\text{P}(X > 30) = 0.136 \\text{ (3 s.f.)}$$"
+  ]
+ },
+ "9709_w23_62_q1_b": {
+  "hints": [
+   "For $\\text{B}(n, p)$ with $n$ large ($100$ here) and $p$ small ($p < 0.05$), use $\\text{Po}(\\lambda)$ with $\\lambda = np$. Write the Poisson distribution for $Y$ with $\\lambda$ in terms of $p$.",
+   "$Y < 3$ means $Y = 0, 1$ or $2$. Add the three Poisson probabilities $\\text{e}^{-\\lambda}\\dfrac{\\lambda^r}{r!}$ and take out the common factor $\\text{e}^{-\\lambda}$ using a bracket."
+  ],
+  "walkthrough": [
+   "**Why a Poisson approximation**\n\nThe binomial $\\text{B}(100, p)$ counts successes in $100$ trials. When $n$ is large and $p$ is small, the binomial behaves very like a Poisson distribution with the same mean. This is why the question lets us use it.",
+   "**Find the Poisson parameter (first M1)**\n\nThe mean of $\\text{B}(n, p)$ is $np$. Here that is $100 \\times p = 100p$. So\n\n$$Y \\approx \\text{Po}(100p)$$\n\nBecause the answer must be in terms of $p$, we leave $p$ as a letter.",
+   "**List the values we need**\n\n$Y$ takes whole numbers. $Y < 3$ means $Y = 0$, $Y = 1$ or $Y = 2$ (not $3$). So\n\n$$\\text{P}(Y < 3) = \\text{P}(Y = 0) + \\text{P}(Y = 1) + \\text{P}(Y = 2)$$",
+   "**Use the Poisson formula for each**\n\nFor $\\text{Po}(\\lambda)$: $\\text{P}(Y = r) = \\text{e}^{-\\lambda}\\dfrac{\\lambda^r}{r!}$. With $\\lambda = 100p$:\n\n$$\\text{P}(Y = 0) = \\text{e}^{-100p}\\frac{(100p)^0}{0!} = \\text{e}^{-100p}$$\n\n$$\\text{P}(Y = 1) = \\text{e}^{-100p}\\,(100p)$$\n\n$$\\text{P}(Y = 2) = \\text{e}^{-100p}\\frac{(100p)^2}{2!}$$\n\nQuick check: $0! = 1$ and anything to the power $0$ is $1$, so the first term is just $\\text{e}^{-100p}$.",
+   "**Add and factorise (A1)**\n\nAll three terms share the factor $\\text{e}^{-100p}$, so take it out. The brackets matter: the factor multiplies **all** the terms.\n\n$$\\text{P}(Y < 3) \\approx \\text{e}^{-100p}\\left(1 + 100p + \\frac{(100p)^2}{2!}\\right)$$\n\nThis is a full answer. You can tidy it: $\\dfrac{(100p)^2}{2} = \\dfrac{10000p^2}{2} = 5000p^2$.",
+   "**Final answer**\n\n$$\\text{P}(Y < 3) \\approx \\text{e}^{-100p}\\left(1 + 100p + \\frac{(100p)^2}{2!}\\right) = \\text{e}^{-100p}\\left(1 + 100p + 5000p^2\\right)$$"
+  ]
+ }
+}

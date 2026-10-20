@@ -1,0 +1,45 @@
+{
+ "9709_w19_72_q6_i": {
+  "hints": [
+   "Define the parameter as the population mean number of accidents per month, $\\lambda$ (or $\\mu$). $\\text{H}_0$ says it is still $1.1$. Management want to know if it has *increased*: which inequality goes in $\\text{H}_1$?",
+   "Under $\\text{H}_0$, $X \\sim \\text{Po}(1.1)$ for one month. To test whether $X \\geqslant 5$ is the critical region, start by looking at $\\text{P}(X \\geqslant 4)$ and write it as $1 - \\text{P}(X \\leqslant 3)$, i.e. $1 - \\text{e}^{-1.1}\\left(1 + 1.1 + \\dots\\right)$ up to the term with $3!$.",
+   "Evaluate that expression (calculator Poisson cdf with $\\lambda = 1.1$ at $3$, then subtract from 1). Is it small enough to be in a 1% critical region, i.e. is it at most $0.01$?",
+   "Now do the same for $\\text{P}(X \\geqslant 5)$. Quickest way: take away the single probability $\\text{P}(X = 4) = \\text{e}^{-1.1}\\dfrac{1.1^4}{4!}$ from the value you just found.",
+   "Put the two probabilities next to $0.01$. A critical region at 1% must have probability at most $0.01$, and should be as big as possible. Say what that shows about $X \\geqslant 4$ and $X \\geqslant 5$.",
+   "Look at the observed number of accidents, $6$. Is it inside the critical region $X \\geqslant 5$? Decide whether to reject $\\text{H}_0$ and write the conclusion in context (“there is evidence that...”), not as a definite statement."
+  ],
+  "walkthrough": [
+   "**Define the variable and write the hypotheses**\n\n$X$ is the number of accidents in one month. If nothing has changed, $X \\sim \\text{Po}(1.1)$.\n\nLet $\\lambda$ be the population mean number of accidents per month.\n\n\n- $\\text{H}_0$: $\\lambda = 1.1$ (the mean has not changed)\n\n- $\\text{H}_1$: $\\lambda > 1.1$ (the mean has increased)\n\n$\\text{H}_1$ uses $>$ because management want to know if the mean has **increased**: a one-tailed test, with the critical region at the **high** end. This earns the first B1.",
+   "**What a critical region is**\n\nThe critical region is the set of values of $X$ for which we would reject $\\text{H}_0$. At the 1% level, it is the largest set of high values whose total probability (assuming $\\text{H}_0$ is true) is **at most** $0.01$.\n\nWe are asked to *show* that this set is $X \\geqslant 5$. To do so we show two things: $\\text{P}(X \\geqslant 5) \\leqslant 0.01$ (so 5 is in), and $\\text{P}(X \\geqslant 4) > 0.01$ (so 4 is not).",
+   "**Write $\\text{P}(X \\geqslant 4)$**\n\n$X \\geqslant 4$ has no upper limit, so use the complement: $\\text{P}(X \\geqslant 4) = 1 - \\text{P}(X \\leqslant 3) = 1 - \\left[\\text{P}(0) + \\text{P}(1) + \\text{P}(2) + \\text{P}(3)\\right]$. With $\\text{P}(X = r) = \\text{e}^{-1.1}\\dfrac{1.1^r}{r!}$:\n\n$$\\text{P}(X \\geqslant 4) = 1 - \\text{e}^{-1.1}\\left(1 + 1.1 + \\frac{1.1^2}{2} + \\frac{1.1^3}{3!}\\right)$$\n\nThis is the M1.",
+   "**Calculate $\\text{P}(X \\geqslant 4)$**\n\nCompute each term of the bracket:\n\n$$1.1^2 = 1.21, \\quad \\frac{1.21}{2} = 0.605; \\qquad 1.1^3 = 1.331, \\quad \\frac{1.331}{6} = 0.22183$$\n\n$$1 + 1.1 + 0.605 + 0.22183 = 2.92683$$\n\nOn a calculator, $\\text{e}^{-1.1} = 0.332871$.\n\n$$0.332871 \\times 2.92683 = 0.97426$$\n\n$$\\text{P}(X \\geqslant 4) = 1 - 0.97426 = 0.0257$$\n\nThis earns the A1.",
+   "**Calculate $\\text{P}(X \\geqslant 5)$**\n\n$\\text{P}(X \\geqslant 5)$ is the same thing without the case $X = 4$, so subtract $\\text{P}(X = 4)$:\n\n$$\\text{P}(X = 4) = \\text{e}^{-1.1}\\frac{1.1^4}{4!} = 0.332871 \\times \\frac{1.4641}{24} = 0.332871 \\times 0.061004 = 0.020307$$\n\n$$\\text{P}(X \\geqslant 5) = 0.0257 - 0.0203 = 0.00544$$\n\n(Using the unrounded value $0.025742 - 0.020307 = 0.005435$.) This earns the second B1.",
+   "**Compare with 1%**\n\n$$\\text{P}(X \\geqslant 5) = 0.00544 < 0.01 < 0.0257 = \\text{P}(X \\geqslant 4)$$\n\n\n- $X \\geqslant 5$ has probability below $1\\%$: it is allowed as a critical region.\n\n- Adding $X = 4$ would take the probability to $0.0257$, above $1\\%$: not allowed.\n\nSo the critical region is $X \\geqslant 5$, as required. This earns the M1.",
+   "**Carry out the test**\n\nThe observed number of accidents is $6$. Since $6 \\geqslant 5$, it lies in the critical region, so we reject $\\text{H}_0$.\n\n(Same decision by another route: $\\text{P}(X \\geqslant 6) = 0.000968$, which is less than $0.01$.)\n\nIn context, we must not say the mean has definitely increased, only that the evidence suggests it. This earns the last B1.",
+   "**Final answer**\n\nCritical region is $X \\geqslant 5$, because $\\text{P}(X \\geqslant 5) = 0.00544 < 0.01 < \\text{P}(X \\geqslant 4) = 0.0257$.\n\nSince $6$ is in the critical region, reject $\\text{H}_0$: there is evidence at the 1% level that the mean number of accidents per month has increased."
+  ]
+ },
+ "9709_w19_72_q6_ii": {
+  "hints": [
+   "A Type I error means rejecting $\\text{H}_0$ when $\\text{H}_0$ is actually true. Say what that means for the accidents in this factory, in words.",
+   "The probability of a Type I error is the probability of landing in the critical region when $\\text{H}_0$ is true: it is $\\text{P}(X \\geqslant 5)$ with $\\lambda = 1.1$. You already found this in part (i). (It is not 0.01, because the distribution is discrete.)"
+  ],
+  "walkthrough": [
+   "**Meaning of a Type I error**\n\nA **Type I error** is rejecting $\\text{H}_0$ when $\\text{H}_0$ is in fact true.\n\nHere: concluding that the mean number of accidents per month has increased when it has actually stayed at $1.1$. This earns the first B1 (it must be in context).",
+   "**Probability of a Type I error**\n\nThis is the probability of the observation falling in the critical region while $\\text{H}_0$ is true:\n\n$$\\text{P(Type I error)} = \\text{P}(X \\geqslant 5 \\mid \\lambda = 1.1) = 0.00544$$\n\nThis is the value found in part (i). It is not $0.01$: the critical region is chosen so its probability is *at most* $1\\%$, and because Poisson values are whole numbers, the actual value is smaller. This earns the second B1 (follow-through from part (i)).",
+   "**Final answer**\n\nType I error: concluding that the mean number of accidents has increased when it has not.\n\nProbability of a Type I error $= 0.00544$."
+  ]
+ },
+ "9709_w19_72_q6_iii": {
+  "hints": [
+   "A Type II error means not rejecting $\\text{H}_0$ when it is false. Not rejecting means $X$ is outside the critical region $X \\geqslant 5$: write that as an inequality for $X$ and use the new mean, $X \\sim \\text{Po}(7.0)$.",
+   "Write the probability as a sum $\\text{e}^{-7.0}\\left(1 + 7 + \\dots\\right)$ with terms $\\dfrac{7^r}{r!}$ up to the last allowed value, then add the terms in the bracket and multiply by $\\text{e}^{-7.0}$."
+  ],
+  "walkthrough": [
+   "**What a Type II error is here**\n\nA **Type II error** is *not* rejecting $\\text{H}_0$ when $\\text{H}_0$ is false. Now the true mean is $7.0$ (so $\\text{H}_0$, with mean $1.1$, is false).\n\nWe do not reject $\\text{H}_0$ whenever $X$ is **outside** the critical region $X \\geqslant 5$, i.e. $X \\leqslant 4$. So we need\n\n$$\\text{P}(\\text{Type II error}) = \\text{P}(X \\leqslant 4 \\mid \\lambda = 7.0)$$",
+   "**Write out the probability**\n\nNow $X \\sim \\text{Po}(7.0)$, and $X \\leqslant 4$ means $X = 0, 1, 2, 3, 4$:\n\n$$\\text{P}(X \\leqslant 4) = \\text{e}^{-7.0}\\left(1 + 7 + \\frac{7^2}{2} + \\frac{7^3}{3!} + \\frac{7^4}{4!}\\right)$$\n\nThis is the M1.",
+   "**Calculate**\n\nWork out the terms:\n\n$$\\frac{7^2}{2} = \\frac{49}{2} = 24.5, \\qquad \\frac{7^3}{6} = \\frac{343}{6} = 57.1667, \\qquad \\frac{7^4}{24} = \\frac{2401}{24} = 100.0417$$\n\nAdd: $1 + 7 + 24.5 + 57.1667 + 100.0417 = 189.7083$.\n\nCalculator: $\\text{e}^{-7} = 0.000911882$.\n\n$$0.000911882 \\times 189.7083 = 0.17299$$\n\nSo the probability is $0.173$ to 3 significant figures. This earns the A1.",
+   "**Final answer**\n\n$$\\text{P}(\\text{Type II error}) = 0.173\\quad(3\\text{ sf})$$"
+  ]
+ }
+}
