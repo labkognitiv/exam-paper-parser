@@ -1,0 +1,38 @@
+{
+  "9709_s23_61_q4_a": {
+    "hints": [
+      "A confidence interval for a mean is $\\bar{x} \\pm z\\dfrac{\\sigma}{\\sqrt{n}}$, so its width is twice the part after the $\\pm$. Use $\\sigma^2 = 11.2$ and the width $1.4076$ to write an equation, with half the width on one side.",
+      "For a 94% interval, 3% is left in each tail, so $z$ satisfies $\\Phi(z) = 0.97$. Use the inverse normal on your calculator, or the tables.",
+      "Rearrange your equation for $\\sqrt{n}$, then square to get $n$. A sample size must be a whole number, so round sensibly."
+    ],
+    "walkthrough": [
+      "**Where the width comes from**\n\nA confidence interval for the population mean is $\\bar{x} - z\\dfrac{\\sigma}{\\sqrt{n}}$ to $\\bar{x} + z\\dfrac{\\sigma}{\\sqrt{n}}$. Here $\\sigma$ is the population standard deviation (known, because the variance is given), and $z$ depends on the confidence level.\n\nThe width is the top end minus the bottom end. The $\\bar{x}$ cancels, leaving two lots of $z\\dfrac{\\sigma}{\\sqrt{n}}$:\n\n$$\\text{width} = 2z\\frac{\\sigma}{\\sqrt{n}}$$",
+      "**Write the equation (this earns the M1)**\n\nThe variance is $\\sigma^2 = 11.2$, so $\\dfrac{\\sigma}{\\sqrt{n}} = \\sqrt{\\dfrac{11.2}{n}}$. Half the width is $1.4076 \\div 2 = 0.7038$.\n\n$$z\\sqrt{\\frac{11.2}{n}} = 0.7038$$",
+      "**Find z (this earns the B1)**\n\nA $94\\%$ interval leaves $6\\%$ outside, split equally between the two tails: $3\\%$ in each. So the area to the left of the upper end is $100\\% - 3\\% = 97\\%$:\n\n$$\\Phi(z) = 0.97$$\n\nThe inverse normal on your calculator (or the tables) gives $z = 1.881$ (the scheme accepts $1.881$ or $1.882$).",
+      "**Solve for n (this earns the A1)**\n\n$$1.881 \\times \\sqrt{\\frac{11.2}{n}} = 0.7038$$\n\nDivide both sides by $1.881$ and square both sides:\n\n$$\\frac{11.2}{n} = \\left(\\frac{0.7038}{1.881}\\right)^2 \\quad\\Longrightarrow\\quad n = \\left(\\frac{1.881}{0.7038}\\right)^2 \\times 11.2$$\n\n$\\dfrac{1.881}{0.7038} = 2.67263$; squared this is $7.14298$; times $11.2$:\n\n$$n = 80.0$$\n\nA sample size must be a whole number, so $n = 80$. Quick check: for $n = 80$ the width is $2 \\times 1.881 \\times \\sqrt{11.2/80} = 1.4076$, which matches.",
+      "**Final answer**\n\nHalf the width is $0.7038$ and $z = 1.881$, so $$n = 80$$"
+    ]
+  },
+  "9709_s23_61_q4_b": {
+    "hints": [
+      "The train runs every day throughout the year, so the sample should represent the whole year. What is special about January, February and March?"
+    ],
+    "walkthrough": [
+      "**What makes a sample suitable**\n\nA confidence interval is only trustworthy if the sample is **random** and **representative** of the whole population. Here the population is journeys on every day of the year.",
+      "**Why this sample fails**\n\nAll $50$ journeys come from January, February and March, which is only one season of the year. Journey times may depend on the time of year (for example the weather in winter), so these months are not typical of the whole year. The sample would tend to give a mean that is too high or too low for the full year.\n\nA better sample would choose journeys at random from all $365$ days.",
+      "**Final answer**\n\nThe sample is not typical of the whole year (for example, the weather differs through the year), so it is not representative of all journeys."
+    ]
+  },
+  "9709_s23_61_q4_c": {
+    "hints": [
+      "Each $94\\%$ interval contains the true mean with probability $0.94$, independently of the others. Count the intervals: that makes this a binomial situation with $n = 4$ trials.",
+      "Write $\\text{P}(X = 3) = \\binom{4}{3} \\times 0.94^3 \\times (1 - 0.94)$. The $\\binom{4}{3}$ counts which of the four intervals is the one that misses the true value."
+    ],
+    "walkthrough": [
+      "**Why binomial**\n\nA $94\\%$ confidence interval is built so that there is a $94\\%$ chance it contains the true population mean. For each of the $4$ samples there are two outcomes: the interval contains the true mean (probability $0.94$) or it does not (probability $1 - 0.94 = 0.06$). The samples are random and independent, so if $X$ is the number of intervals that contain the true mean,\n\n$$X \\sim \\text{B}(4,\\ 0.94)$$",
+      "**Exactly 3 contain it (this earns the M1)**\n\n$$\\text{P}(X = 3) = \\binom{4}{3} \\times 0.94^3 \\times 0.06^1$$\n\nThe three intervals that succeed give $0.94^3$, the one that fails gives $0.06$, and $\\binom{4}{3} = 4$ counts the choices of which interval is the one that misses.",
+      "**Calculate (this earns the A1)**\n\n$$0.94^3 = 0.830584$$\n\n$$0.830584 \\times 0.06 = 0.049835$$\n\n$$0.049835 \\times 4 = 0.19934$$",
+      "**Final answer**\n\n$$\\text{P}(X = 3) = 0.199 \\text{ (3 s.f.)}$$"
+    ]
+  }
+}

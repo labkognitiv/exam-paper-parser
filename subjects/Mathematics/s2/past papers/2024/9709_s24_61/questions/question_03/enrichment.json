@@ -1,0 +1,38 @@
+{
+ "9709_s24_61_q3_a": {
+  "hints": [
+   "The population is normal with known standard deviation 5.8, so use a $z$-interval: $\\bar{x} \\pm z \\times \\dfrac{\\sigma}{\\sqrt{n}}$ with $\\bar{x} = 81.5$, $\\sigma = 5.8$ and $n = 20$.",
+   "98% confidence leaves 2% outside the interval, split between **two** tails. Find the $z$ for which the area to its left is $1 - \\text{(one tail)}$, using the inverse normal on your calculator or the percentage points table.",
+   "Work out $z \\times \\dfrac{5.8}{\\sqrt{20}}$, then subtract it from 81.5 for the lower end and add it for the upper end. Give both ends to 3 significant figures, written as an interval."
+  ],
+  "walkthrough": [
+   "**Choose the right interval (this earns the M1)**\n\nJourney times are normally distributed and the population standard deviation is known ($\\sigma = 5.8$), so we use a **$z$-interval** for the population mean:\n\n$$\\bar{x} \\pm z \\times \\frac{\\sigma}{\\sqrt{n}}$$\n\nHere $\\bar{x}$ means the sample mean ($81.5$), $\\sigma$ is the population standard deviation ($5.8$) and $n$ is the sample size ($20$). Substituting:\n\n$$81.5 \\pm z \\times \\frac{5.8}{\\sqrt{20}}$$\n\nThe M1 is for this expression with any $z$.",
+   "**Find the value of z (this earns the B1)**\n\nA 98% confidence interval leaves $100\\% - 98\\% = 2\\%$ outside, and that 2% is split equally between the two tails: 1% in each tail.\n\nSo the area to the **left** of the upper $z$ is $1 - 0.01 = 0.99$, i.e. $\\Phi(z) = 0.99$.\n\nOn a calculator use inverse normal with area $0.99$, mean 0, standard deviation 1. It shows:\n\n$$z = 2.326$$\n\nCommon slips: using $z = 1.96$ (that is for 95%), or using $\\Phi(z) = 0.98$ and forgetting there are two tails.",
+   "**Work out the margin of error**\n\nFirst the standard error $\\dfrac{5.8}{\\sqrt{20}}$:\n\n$$\\sqrt{20} = 4.4721 \\qquad \\frac{5.8}{4.4721} = 1.2969$$\n\nNow multiply by $z$:\n\n$$2.326 \\times 1.2969 = 3.0166$$",
+   "**Find both ends of the interval (this earns the A1)**\n\nLower end: $81.5 - 3.0166 = 78.4834$\n\nUpper end: $81.5 + 3.0166 = 84.5166$\n\nTo 3 significant figures these are $78.5$ and $84.5$. Write the answer as an **interval**, as the scheme requires.",
+   "**Final answer**\n\nThe 98% confidence interval for the population mean journey time is\n\n$$78.5 \\text{ to } 84.5 \\text{ minutes (3 s.f.)}$$"
+  ]
+ },
+ "9709_s24_61_q3_b": {
+  "hints": [
+   "Ask what quantity the confidence interval is built to estimate: the mean of all journey times, or the times of individual journeys? Say whether the statement is true, then give that reason."
+  ],
+  "walkthrough": [
+   "**What a confidence interval is about**\n\nA confidence interval is built from the **sample mean**, so it is an estimate of the **population mean** journey time. It says nothing directly about where individual journeys fall.\n\nIndividual journey times vary a lot from day to day (the standard deviation is 5.8 minutes), far more than the sample mean varies. So a 98% interval for the mean cannot contain 98% of individual journeys.",
+   "**Write the answer so both comments are there (this earns the B1)**\n\nThe statement is **not true**, because the confidence interval is for the **mean** journey time, not for individual journey times.\n\nThe scheme needs both comments: 'not true', and the reason.",
+   "**Final answer**\n\nNot true. The confidence interval is for the mean time, not for individual journey times."
+  ]
+ },
+ "9709_s24_61_q3_c": {
+  "hints": [
+   "This is a conditional probability: $\\text{P}(\\text{both contain } \\mu \\mid \\text{at least one contains } \\mu) = \\dfrac{\\text{P}(\\text{both})}{\\text{P}(\\text{at least one})}$. For the top line, each interval contains the population mean with probability 0.98 and the intervals are independent.",
+   "For the bottom line use the complement: 'at least one' is $1 - \\text{P}(\\text{neither contains } \\mu)$, and an interval misses $\\mu$ with probability $1 - 0.98$. Then divide the top line by the bottom line and give 3 significant figures (the top line alone is not the answer)."
+  ],
+  "walkthrough": [
+   "**Read the question as a conditional probability (this earns the M1)**\n\nEach 98% interval contains the population mean $\\mu$ with probability $0.98$, and the two intervals are independent.\n\nWe are told *at least one* contains $\\mu$ (that is the condition), and we want the probability that *both* do. Conditional probability is\n\n$$\\text{P}(A \\mid B) = \\frac{\\text{P}(A \\cap B)}{\\text{P}(B)}$$\n\nwith $A$ = 'both contain $\\mu$' and $B$ = 'at least one contains $\\mu$'. If both contain $\\mu$, then at least one certainly does, so $A \\cap B$ is just $A$. Therefore\n\n$$\\text{P}(A \\mid B) = \\frac{\\text{P}(\\text{both})}{\\text{P}(\\text{at least one})}$$",
+   "**Top line and bottom line**\n\nTop line, using independence:\n\n$$\\text{P}(\\text{both}) = 0.98 \\times 0.98 = 0.98^2$$\n\nBottom line, using the complement. The probability that one interval misses $\\mu$ is $1 - 0.98 = 0.02$. Both missing, by independence, is $0.02^2$. So\n\n$$\\text{P}(\\text{at least one}) = 1 - 0.02^2$$\n\nPutting them together (M1 needs this quotient):\n\n$$\\text{P}(A \\mid B) = \\frac{0.98^2}{1 - 0.02^2}$$",
+   "**Calculate (this earns the A1)**\n\n$$0.98^2 = 0.9604$$\n\n$$0.02^2 = 0.0004 \\quad \\text{so} \\quad 1 - 0.0004 = 0.9996$$\n\n$$\\frac{0.9604}{0.9996} = 0.96078\\ldots$$\n\nTo 3 significant figures: $0.961$.\n\nCommon slip: stopping at $0.9604$. That is only the top line, and the scheme gives M0 A0 for it.",
+   "**Final answer**\n\n$$\\text{P}(\\text{both contain } \\mu \\mid \\text{at least one contains } \\mu) = 0.961 \\text{ (3 s.f.)}$$"
+  ]
+ }
+}

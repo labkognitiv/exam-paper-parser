@@ -1,0 +1,19 @@
+{
+ "9709_w24_61_q2": {
+  "hints": [
+   "Make one new variable for the difference: three small bags minus one large bag, $S_1 + S_2 + S_3 - L$. Its mean is $3 \\times 16.0 - 51.0$. Check the sign of what you get.",
+   "Variances **add**, even when you subtract the variables. In $\\text{N}(16.0, 0.4)$ and $\\text{N}(51.0, 0.9)$ the second number is the variance, so the new variance is $3 \\times 0.4 + 0.9$.",
+   "You want the new variable to be greater than $0$. Standardise: $z = \\dfrac{0 - \\text{mean}}{\\sqrt{\\text{variance}}}$ with your two values. Take the square root of the variance, not the variance itself.",
+   "The event is the upper tail, so the probability is $\\text{P}(Z > z) = 1 - \\Phi(z)$ with your $z$.",
+   "Use the normal tables or your calculator's normal cdf to find $\\Phi(z)$, subtract it from $1$ and give 3 s.f. A probability lies between $0$ and $1$: sketch which tail you want and check the size is sensible."
+  ],
+  "walkthrough": [
+   "**Turn the question into one variable**\n\nWe want the total mass of 3 small bags to be greater than the mass of 1 large bag. Call the three small bags $S_1$, $S_2$, $S_3$ and the large bag $L$. The event is $S_1 + S_2 + S_3 > L$.\n\nMove $L$ to the other side: $S_1 + S_2 + S_3 - L > 0$. Let $D = S_1 + S_2 + S_3 - L$. Since all the bags are independent and normally distributed, $D$ is also normally distributed. We need its mean and variance, then we want $\\text{P}(D > 0)$.",
+   "**The mean of $D$ (this is the B1)**\n\nEach small bag has mean $16.0$ kg and the large bag has mean $51.0$ kg. Means add and subtract just as the variables do:\n\n$$\\text{E}(D) = 3 \\times 16.0 - 51.0$$\n\n$$\\text{E}(D) = 48.0 - 51.0 = -3$$\n\nThe scheme also accepts the reverse way round, $L - (S_1 + S_2 + S_3)$, which has mean $+3$ and which you then ask to be less than $0$. (The scheme's printed '$S_{1+}S_2$' is a typing slip for $S_1 + S_2$.)",
+   "**The variance of $D$ (this is the first M1)**\n\nIn $\\text{N}(16.0, 0.4)$ and $\\text{N}(51.0, 0.9)$ the second number is the **variance** ($\\sigma^2$), not the standard deviation. So a small bag has variance $0.4$ and the large bag has variance $0.9$.\n\nFor independent variables, variances **add**. This is true even for $-L$, because $\\text{Var}(-L) = (-1)^2 \\text{Var}(L) = \\text{Var}(L)$. A variance can never be negative, so you never subtract variances.\n\nThere are three separate small bags, so we add the small-bag variance three times (we do not multiply the bag by 3, which would give a different, wrong, variance of $3^2 \\times 0.4$):\n\n$$\\text{Var}(D) = 3 \\times 0.4 + 0.9$$\n\n$$\\text{Var}(D) = 1.2 + 0.9 = 2.1$$\n\nSo $D \\sim \\text{N}(-3, 2.1)$.",
+   "**Standardise (this is the second M1)**\n\nTo use the normal tables we convert to the standard normal $Z$: subtract the mean, divide by the **standard deviation** (the square root of the variance).\n\nWe want $\\text{P}(D > 0)$, so the value to standardise is $0$:\n\n$$z = \\frac{0 - (-3)}{\\sqrt{2.1}}$$\n\n$$\\sqrt{2.1} = 1.4491\\ldots$$\n\n$$z = \\frac{3}{1.4491\\ldots} = 2.0702\\ldots$$",
+   "**Find the probability (this is the third M1)**\n\n$D > 0$ means the upper tail, and the tables give the area to the *left*. So the area we want is $1$ minus the area to the left:\n\n$$\\text{P}(D > 0) = \\text{P}(Z > 2.070) = 1 - \\Phi(2.070)$$\n\nUse normal cdf on your calculator (or the table): $\\Phi(2.070) = 0.9808\\ldots$\n\n$$1 - 0.9808\\ldots = 0.0192\\ldots$$\n\nQuick check: $z$ is about $2$, and about $2.3\\%$ of a normal curve lies beyond $2$, so a probability of about $0.02$ is sensible. It is also small because three small bags total about $48$ kg, while one large bag is about $51$ kg.",
+   "**Final answer**\n\nThe probability that 3 small bags have a greater total mass than one large bag is $0.0192$ (3 s.f.)."
+  ]
+ }
+}

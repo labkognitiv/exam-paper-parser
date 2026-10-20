@@ -1,0 +1,41 @@
+{
+  "9709_m21_62_q2_a": {
+    "hints": [
+      "The total area under a probability density function is 1. The graph is a triangle with base $k$ and height $\\frac{1}{2}k$, so write $\\frac{1}{2} \\times \\text{base} \\times \\text{height} = 1$.",
+      "Simplify that to an equation for $k^2$ and solve. $k$ is a length along the $x$-axis, so take the positive root only."
+    ],
+    "walkthrough": [
+      "**Why the area equals 1**\n\nFor any probability density function, the probability that $X$ takes *some* value is 1, and probability is the area under the graph. So the whole area under the graph must be exactly 1.\n\nThe graph is a straight line sloping down from the height $\\frac{1}{2}k$ at $x = 0$ to the height $0$ at $x = k$. Together with the $x$-axis and the $\\text{f}(x)$ axis that makes a right-angled triangle with base $k$ and height $\\frac{1}{2}k$ (the graph lies along the $x$-axis, where $\\text{f}(x) = 0$, outside this range, so it adds no area).",
+      "**Set up and solve (M1, then A1)**\n\nThe area of a triangle is $\\frac{1}{2} \\times \\text{base} \\times \\text{height}$:\n\n$$\\frac{1}{2} \\times k \\times \\frac{1}{2}k = 1$$\n\nMultiply the numbers: $\\frac{1}{2} \\times \\frac{1}{2} = \\frac{1}{4}$, so\n\n$$\\frac{1}{4}k^2 = 1$$\n\nMultiply both sides by 4:\n\n$$k^2 = 4$$\n\nSquare-root both sides: $k = 2$ or $k = -2$. But $k$ is a distance along the positive $x$-axis, so we reject $-2$. The mark scheme says explicitly not to give $\\pm 2$.\n\nQuick check: base $2$, height $\\frac{1}{2} \\times 2 = 1$, area $= \\frac{1}{2} \\times 2 \\times 1 = 1$. Correct.",
+      "**Final answer**\n\n$k = 2$"
+    ]
+  },
+  "9709_m21_62_q2_b": {
+    "hints": [
+      "The graph is a straight line from $(0, \\frac{1}{2}k)$ down to $(k, 0)$. Find its gradient (change in $y$ over change in $x$), then write $y = mx + c$ using your value of $k$.",
+      "$\\text{E}(X) = \\int x\\,\\text{f}(x)\\,\\text{d}x$ over the whole range. Write $\\int_0^2 x\\,\\text{f}(x)\\,\\text{d}x$ and multiply the $x$ into your $\\text{f}(x)$ before integrating.",
+      "Integrate each term (raise the power by 1, divide by the new power), then substitute the limits $2$ and $0$ and subtract."
+    ],
+    "walkthrough": [
+      "**Find the equation of the line (B1)**\n\nFrom part **(a)**, $k = 2$. So the line starts at $(0, \\frac{1}{2}k) = (0, 1)$ and finishes at $(k, 0) = (2, 0)$.\n\nThe gradient is the change in $y$ divided by the change in $x$:\n\n$$m = \\frac{0 - 1}{2 - 0} = -\\frac{1}{2}$$\n\nThe line crosses the $y$-axis at $1$, so $c = 1$. Therefore\n\n$$\\text{f}(x) = -\\frac{1}{2}x + 1 \\qquad 0 \\leqslant x \\leqslant 2$$\n\nQuick check: at $x = 2$ this gives $-1 + 1 = 0$, which matches the graph.",
+      "**Set up the integral for the mean (M1)**\n\nThe expected value of a continuous random variable is found by integrating $x$ times the density function over the range of values:\n\n$$\\text{E}(X) = \\int_0^2 x\\,\\text{f}(x)\\,\\text{d}x$$\n\nMultiply $x$ into the bracket first, term by term:\n\n$$x\\left(-\\frac{1}{2}x + 1\\right) = -\\frac{1}{2}x^2 + x$$\n\nSo\n\n$$\\text{E}(X) = \\int_0^2 \\left(-\\frac{1}{2}x^2 + x\\right)\\text{d}x$$",
+      "**Integrate and substitute the limits (A1)**\n\nTo integrate $x^n$ we get $\\dfrac{x^{n+1}}{n+1}$. For $-\\frac{1}{2}x^2$ that is $-\\frac{1}{2} \\times \\frac{x^3}{3} = -\\frac{x^3}{6}$, and for $x$ that is $\\frac{x^2}{2}$:\n\n$$\\text{E}(X) = \\left[-\\frac{x^3}{6} + \\frac{x^2}{2}\\right]_0^2$$\n\nPut in the upper limit $x = 2$:\n\n$$-\\frac{2^3}{6} + \\frac{2^2}{2} = -\\frac{8}{6} + \\frac{4}{2} = -\\frac{4}{3} + 2 = \\frac{2}{3}$$\n\nPut in the lower limit $x = 0$: every term is $0$. So subtracting $0$ leaves $\\frac{2}{3}$.\n\nQuick check: the density is highest near $x = 0$, so the mean should sit to the left of the middle value $1$. $\\frac{2}{3} = 0.667$ does.",
+      "**Final answer**\n\n$\\text{f}(x) = -\\dfrac{1}{2}x + 1$ for $0 \\leqslant x \\leqslant 2$, and $\\text{E}(X) = \\dfrac{2}{3} = 0.667$ (3 s.f.)."
+    ]
+  },
+  "9709_m21_62_q2_c": {
+    "hints": [
+      "$\\text{P}(p < X < 1)$ is the area under $\\text{f}$ between $x = p$ and $x = 1$. Write that as an integral of your $\\text{f}(x)$ with those limits, set equal to $0.25$.",
+      "Integrate $\\text{f}(x)$, then substitute the upper limit $1$ and the lower limit $p$ (upper minus lower) and put the result equal to $0.25$.",
+      "Expand the brackets, clear the fractions by multiplying through, and collect everything on one side to give a three-term quadratic in $p$ equal to $0$.",
+      "Solve the quadratic with the formula. You are told $p < 1$ (and $\\text{f}$ is zero for $x < 0$, so $p \\geqslant 0$ in practice), so decide which root can be used."
+    ],
+    "walkthrough": [
+      "**Turn the probability into an area (M1)**\n\nFor a continuous variable, a probability is the area under $\\text{f}(x)$. The probability that $X$ lies between $p$ and $1$ is the area between those two $x$-values:\n\n$$\\int_p^1 \\left(-\\frac{1}{2}x + 1\\right)\\text{d}x = 0.25$$",
+      "**Integrate and substitute the limits (M1)**\n\nIntegrate each term: $-\\frac{1}{2}x$ becomes $-\\frac{x^2}{4}$ and $1$ becomes $x$.\n\n$$\\left[-\\frac{x^2}{4} + x\\right]_p^1 = 0.25$$\n\nSubstitute the upper limit $x = 1$ first:\n\n$$-\\frac{1}{4} + 1 = \\frac{3}{4}$$\n\nNow the lower limit $x = p$:\n\n$$-\\frac{p^2}{4} + p$$\n\nUpper minus lower (take care with the minus sign in front of the bracket):\n\n$$\\frac{3}{4} - \\left(-\\frac{p^2}{4} + p\\right) = \\frac{3}{4} + \\frac{p^2}{4} - p$$\n\nSo the equation is\n\n$$\\frac{3}{4} + \\frac{p^2}{4} - p = 0.25$$",
+      "**Rearrange to a quadratic (M1)**\n\nMultiply every term by 4 to remove the fractions ($4 \\times 0.25 = 1$):\n\n$$3 + p^2 - 4p = 1$$\n\nSubtract 1 from both sides and put the terms in the usual order:\n\n$$p^2 - 4p + 2 = 0$$",
+      "**Solve the quadratic and choose the right root (A1)**\n\nUse the quadratic formula $p = \\dfrac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}$ with $a = 1$, $b = -4$, $c = 2$:\n\n$$p = \\frac{4 \\pm \\sqrt{16 - 8}}{2} = \\frac{4 \\pm \\sqrt{8}}{2} = \\frac{4 \\pm 2\\sqrt{2}}{2} = 2 \\pm \\sqrt{2}$$\n\nThe two values are $2 + \\sqrt{2} = 3.414$ and $2 - \\sqrt{2} = 0.586$. The sloping line is only there for $0 \\leqslant x \\leqslant 2$ (the graph is on the $x$-axis, $\\text{f}(x) = 0$, everywhere else) and we need $p < 1$, so $3.414$ is impossible. We keep $p = 2 - \\sqrt{2}$.\n\nQuick check by areas: at $x = 0.586$ the height is $-\\frac{1}{2}(0.586) + 1 = 0.707$ and at $x = 1$ it is $0.5$. The shape from $p$ to $1$ is a trapezium of width $0.414$, area $\\frac{1}{2}(0.707 + 0.5) \\times 0.414 = 0.25$. It checks.",
+      "**Final answer**\n\n$p = 2 - \\sqrt{2} = 0.586$ (3 s.f.)."
+    ]
+  }
+}

@@ -1,0 +1,45 @@
+{
+ "9709_s16_71_q7_a_i": {
+  "hints": [
+   "Defective spoons: $n = 80$, $p = 0.01$, so $n$ is large and $p$ is small. Approximate by a Poisson distribution with mean $np = 80 \\times 0.01$. Do the same for forks, with $n = 60$ and $p = 0.015$.",
+   "'At least 1' is easiest by complement: $\\text{P}(\\text{at least 1}) = 1 - \\text{P}(0) = 1 - \\text{e}^{-\\lambda}$. Do this once for the spoons and once for the forks.",
+   "The spoons and the forks are independent, so multiply the two probabilities. Write the product $(1 - \\text{e}^{-\\lambda}) \\times (1 - \\text{e}^{-\\mu})$ with your two means, then evaluate and give 3 significant figures."
+  ],
+  "walkthrough": [
+   "**Why a Poisson approximation**\n\nThe number of defective spoons among 80 is really binomial, $\\text{B}(80, 0.01)$, and the number of defective forks is $\\text{B}(60, 0.015)$. When $n$ is large and $p$ is small, a binomial is well approximated by a Poisson distribution with the same mean $np$. The question tells us to do this.",
+   "**The two means (M1)**\n\nSpoons: $\\lambda = np = 80 \\times 0.01 = 0.8$. So $S \\sim \\text{Po}(0.8)$, where $S$ is the number of defective spoons.\n\nForks: $\\mu = np = 60 \\times 0.015 = 0.9$. So $F \\sim \\text{Po}(0.9)$, where $F$ is the number of defective forks.\n\nFinding these two means earns the first M1.",
+   "**'At least 1' of each**\n\n'At least 1' covers $1, 2, 3, \\dots$ with no upper end. It is quicker to use the complement: 'at least 1' is everything except 'none'.\n\n$$\\text{P}(S \\geqslant 1) = 1 - \\text{P}(S = 0) = 1 - \\text{e}^{-0.8}$$\n\n$$\\text{P}(F \\geqslant 1) = 1 - \\text{P}(F = 0) = 1 - \\text{e}^{-0.9}$$\n\nHere we used $\\text{P}(X = 0) = \\text{e}^{-\\lambda}\\frac{\\lambda^0}{0!} = \\text{e}^{-\\lambda}$, since $\\lambda^0 = 1$ and $0! = 1$.",
+   "**Multiply (second M1)**\n\nThe spoons and forks are separate, independent items, so 'both happen' is the product:\n\n$$\\text{P} = (1 - \\text{e}^{-0.8}) \\times (1 - \\text{e}^{-0.9})$$\n\nThis earns the second M1.",
+   "**Calculate (A1)**\n\nOn your calculator: $\\text{e}^{-0.8} = 0.44933$, so $1 - 0.44933 = 0.55067$.\n\n$\\text{e}^{-0.9} = 0.40657$, so $1 - 0.40657 = 0.59343$.\n\n$$0.55067 \\times 0.59343 = 0.32678$$\n\nTo 3 significant figures this is $0.327$.",
+   "**Final answer**\n\n$\\text{P}(\\text{at least 1 defective spoon and at least 1 defective fork}) = 0.327$ (3 s.f.)."
+  ]
+ },
+ "9709_s16_71_q7_a_ii": {
+  "hints": [
+   "Now both kinds of item count together. The total number of defective items is the sum of two independent Poisson variables, which is Poisson with mean equal to the sum of the two means: $80 \\times 0.01 + 60 \\times 0.015$.",
+   "'Fewer than 3' means $0$, $1$ or $2$ defective items: $\\text{P}(X < 3) = \\text{P}(0) + \\text{P}(1) + \\text{P}(2)$. Each term is $\\text{e}^{-\\lambda}\\dfrac{\\lambda^r}{r!}$, so factor: $\\text{e}^{-\\lambda}\\left(1 + \\lambda + \\dfrac{\\lambda^2}{2}\\right)$.",
+   "Substitute your $\\lambda$ from the first step, check that you stop at $2$ and not $3$, then evaluate on your calculator and give 3 significant figures."
+  ],
+  "walkthrough": [
+   "**Combine into one Poisson (M1)**\n\nWe now want the total number of defective items, spoons and forks together. If two independent Poisson variables have means $\\lambda_1$ and $\\lambda_2$, their sum is Poisson with mean $\\lambda_1 + \\lambda_2$. From part (i) the spoon mean is $80 \\times 0.01 = 0.8$ and the fork mean is $60 \\times 0.015 = 0.9$, so\n\n$$\\lambda = 0.8 + 0.9 = 1.7$$\n\n(The mark scheme writes the spoon part as $0.02 \\times 40$, which is also $0.8$.) Let $X$ be the total number of defective items, so $X \\sim \\text{Po}(1.7)$. This earns the first M1.",
+   "**'Fewer than 3' (M1)**\n\n'Fewer than 3' means $0$, $1$ or $2$ defective items, not $3$:\n\n$$\\text{P}(X < 3) = \\text{P}(X = 0) + \\text{P}(X = 1) + \\text{P}(X = 2)$$\n\nUsing $\\text{P}(X = r) = \\text{e}^{-\\lambda}\\frac{\\lambda^r}{r!}$ with $\\lambda = 1.7$ and taking out the common factor $\\text{e}^{-1.7}$:\n\n$$\\text{P}(X < 3) = \\text{e}^{-1.7}\\left(1 + 1.7 + \\frac{1.7^2}{2}\\right)$$\n\nThis earns the second M1.",
+   "**Calculate (A1)**\n\n$1.7^2 = 2.89$, so $\\frac{1.7^2}{2} = 1.445$.\n\nThe bracket: $1 + 1.7 + 1.445 = 4.145$.\n\n$\\text{e}^{-1.7} = 0.18268$ on your calculator.\n\n$$0.18268 \\times 4.145 = 0.75722$$\n\nTo 3 significant figures: $0.757$. Common slip: including $\\text{P}(X = 3)$, which would be 'at most 3'.",
+   "**Final answer**\n\n$\\text{P}(\\text{fewer than 3 defective items}) = 0.757$ (3 s.f.)."
+  ]
+ },
+ "9709_s16_71_q7_b": {
+  "hints": [
+   "Write both probabilities with the Poisson formula: $\\text{P}(X = 1) = \\text{e}^{-\\lambda}\\lambda$ and $\\text{P}(X = 2) = \\text{e}^{-\\lambda}\\dfrac{\\lambda^2}{2}$. The second equals $1.5$ times the first, which removes $p$: $\\text{e}^{-\\lambda}\\dfrac{\\lambda^2}{2} = 1.5 \\times \\text{e}^{-\\lambda}\\lambda$.",
+   "Divide both sides by $\\text{e}^{-\\lambda}$ (never zero) and by $\\lambda$ (allowed because $p$ is non-zero, so $\\lambda \\neq 0$). This leaves a simple equation for $\\lambda$.",
+   "Now use $p = \\text{P}(X = 1)$. Substitute your value of $\\lambda$ into $\\text{e}^{-\\lambda}\\lambda$.",
+   "Evaluate $\\text{e}^{-\\lambda}\\lambda$ on your calculator with your $\\lambda$ and give the answer to 3 significant figures."
+  ],
+  "walkthrough": [
+   "**Write the two probabilities (M1)**\n\nFor $X \\sim \\text{Po}(\\lambda)$, $\\text{P}(X = r) = \\text{e}^{-\\lambda}\\frac{\\lambda^r}{r!}$.\n\n$$\\text{P}(X = 1) = \\text{e}^{-\\lambda}\\frac{\\lambda^1}{1!} = \\text{e}^{-\\lambda}\\lambda = p$$\n\n$$\\text{P}(X = 2) = \\text{e}^{-\\lambda}\\frac{\\lambda^2}{2!} = \\text{e}^{-\\lambda}\\frac{\\lambda^2}{2} = 1.5p$$\n\nWe have two equations and two unknowns, $\\lambda$ and $p$. Replace $p$ in the second by the first, so $p$ disappears:\n\n$$\\text{e}^{-\\lambda}\\frac{\\lambda^2}{2} = 1.5 \\times \\text{e}^{-\\lambda}\\lambda$$\n\nSeeing this equation earns the M1.",
+   "**Solve for lambda (A1)**\n\nDivide both sides by $\\text{e}^{-\\lambda}$. This is allowed because $\\text{e}^{-\\lambda}$ is never zero:\n\n$$\\frac{\\lambda^2}{2} = 1.5\\lambda$$\n\nDivide both sides by $\\lambda$. This is allowed because $p$ is non-zero, which means $\\lambda \\neq 0$ (if $\\lambda$ were $0$ then $p$ would be $0$):\n\n$$\\frac{\\lambda}{2} = 1.5$$\n\nMultiply both sides by $2$:\n\n$$\\lambda = 3$$",
+   "**Substitute to find p (M1)**\n\nNow go back to the first equation, $p = \\text{P}(X = 1) = \\text{e}^{-\\lambda}\\lambda$, with $\\lambda = 3$:\n\n$$p = \\text{e}^{-3} \\times 3$$",
+   "**Calculate (A1)**\n\nOn your calculator, $\\text{e}^{-3} = 0.049787$.\n\n$$p = 0.049787 \\times 3 = 0.14936$$\n\nTo 3 significant figures: $0.149$.\n\nQuick check using the second equation: $\\text{P}(X = 2) = \\text{e}^{-3} \\times \\frac{3^2}{2} = 0.049787 \\times 4.5 = 0.2240$, and $1.5 \\times 0.14936 = 0.2240$. Both agree.",
+   "**Final answer**\n\n$\\lambda = 3$ and $p = 0.149$ (3 s.f.)."
+  ]
+ }
+}

@@ -1,0 +1,49 @@
+{
+  "9709_s22_62_q5_a": {
+    "hints": [
+      "For a continuous random variable, $\\text{E}(X) = \\int x\\,\\text{f}(x)\\,\\text{d}x$. Multiply $\\text{f}(x) = \\frac{3}{16}(4x - x^2)$ by $x$ and tidy the bracket.",
+      "Integrate each term by raising its power by one and dividing by the new power. Put the limits $2$ and $4$ on the result.",
+      "Substitute $x = 4$ and $x = 2$ into every term and subtract. Use fractions with denominator $3$ so that nothing is rounded, and finish by multiplying by $\\frac{3}{16}$."
+    ],
+    "walkthrough": [
+      "**What E(X) means**\n\n$\\text{E}(X)$ is the **mean** of $X$. For a continuous variable we find it by multiplying each value $x$ by its density $\\text{f}(x)$ and integrating over all possible values. Here $X$ lives between $2$ and $4$, and $\\text{f}(x) = 0$ elsewhere, so\n\n$$\\text{E}(X) = \\int_2^4 x\\,\\text{f}(x)\\,\\text{d}x$$",
+      "**Multiply by x**\n\n$$x\\,\\text{f}(x) = x \\times \\frac{3}{16}(4x - x^2) = \\frac{3}{16}(4x^2 - x^3)$$\n\nSo\n\n$$\\text{E}(X) = \\frac{3}{16}\\int_2^4 (4x^2 - x^3)\\,\\text{d}x$$\n\nThis earns the first **M1** (an attempt to integrate $x\\,\\text{f}(x)$).",
+      "**Integrate**\n\nRaise each power by $1$ and divide by the new power. $4x^2$ becomes $\\dfrac{4x^3}{3}$ and $x^3$ becomes $\\dfrac{x^4}{4}$:\n\n$$\\text{E}(X) = \\frac{3}{16}\\left[\\frac{4x^3}{3} - \\frac{x^4}{4}\\right]_2^4$$\n\nWith the limits in place this earns the second **M1**.",
+      "**Substitute the upper limit x = 4**\n\n$$\\frac{4 \\times 4^3}{3} - \\frac{4^4}{4} = \\frac{4 \\times 64}{3} - \\frac{256}{4} = \\frac{256}{3} - 64$$\n\nSince $64 = \\dfrac{192}{3}$, this is $\\dfrac{256 - 192}{3} = \\dfrac{64}{3}$.",
+      "**Substitute the lower limit x = 2**\n\n$$\\frac{4 \\times 2^3}{3} - \\frac{2^4}{4} = \\frac{4 \\times 8}{3} - \\frac{16}{4} = \\frac{32}{3} - 4$$\n\nSince $4 = \\dfrac{12}{3}$, this is $\\dfrac{32 - 12}{3} = \\dfrac{20}{3}$.",
+      "**Subtract and multiply by 3/16**\n\nUpper minus lower:\n\n$$\\frac{64}{3} - \\frac{20}{3} = \\frac{44}{3}$$\n\nThen multiply by the $\\dfrac{3}{16}$ outside:\n\n$$\\frac{3}{16} \\times \\frac{44}{3} = \\frac{44}{16} = \\frac{11}{4}$$\n\nThe $3$s cancel and $\\dfrac{44}{16}$ simplifies by dividing top and bottom by $4$. We reached the printed answer, which earns the **A1**.",
+      "**Final answer**\n\n$$\\text{E}(X) = \\frac{3}{16}\\left(\\frac{256}{3} - 64 - \\left(\\frac{32}{3} - 4\\right)\\right) = \\frac{11}{4} \\quad \\text{(as required)}$$"
+    ]
+  },
+  "9709_s22_62_q5_b": {
+    "hints": [
+      "Use $\\text{Var}(X) = \\text{E}(X^2) - [\\text{E}(X)]^2$. For $\\text{E}(X^2)$, integrate $x^2\\,\\text{f}(x)$ from $2$ to $4$, so multiply $\\frac{3}{16}(4x - x^2)$ by $x^2$.",
+      "Integrate $\\frac{3}{16}(4x^3 - x^4)$ term by term (power up by one, divide by the new power) and substitute the limits $4$ and $2$.",
+      "Subtract the square of the mean, $\\left(\\frac{11}{4}\\right)^2$, from your $\\text{E}(X^2)$, using fractions with a common denominator."
+    ],
+    "walkthrough": [
+      "**The variance formula**\n\nThe variance measures spread: $\\text{Var}(X) = \\text{E}(X^2) - [\\text{E}(X)]^2$. We know $\\text{E}(X) = \\dfrac{11}{4}$ from part **(a)**, so we only need $\\text{E}(X^2)$, the mean of $x^2$:\n\n$$\\text{E}(X^2) = \\int_2^4 x^2\\,\\text{f}(x)\\,\\text{d}x$$",
+      "**Multiply f(x) by x²**\n\n$$x^2 \\times \\frac{3}{16}(4x - x^2) = \\frac{3}{16}(4x^3 - x^4)$$\n\n$$\\text{E}(X^2) = \\frac{3}{16}\\int_2^4 (4x^3 - x^4)\\,\\text{d}x$$\n\nThis earns the first **M1**.",
+      "**Integrate**\n\n$4x^3$ becomes $\\dfrac{4x^4}{4} = x^4$, and $x^4$ becomes $\\dfrac{x^5}{5}$:\n\n$$\\text{E}(X^2) = \\frac{3}{16}\\left[x^4 - \\frac{x^5}{5}\\right]_2^4$$",
+      "**Substitute the limits**\n\nAt $x = 4$: $4^4 - \\dfrac{4^5}{5} = 256 - \\dfrac{1024}{5} = \\dfrac{1280 - 1024}{5} = \\dfrac{256}{5}$.\n\nAt $x = 2$: $2^4 - \\dfrac{2^5}{5} = 16 - \\dfrac{32}{5} = \\dfrac{80 - 32}{5} = \\dfrac{48}{5}$.\n\nUpper minus lower: $\\dfrac{256}{5} - \\dfrac{48}{5} = \\dfrac{208}{5}$.\n\n$$\\text{E}(X^2) = \\frac{3}{16} \\times \\frac{208}{5} = \\frac{624}{80} = \\frac{39}{5} = 7.8$$\n\nDividing top and bottom of $\\dfrac{624}{80}$ by $16$ gives $\\dfrac{39}{5}$.",
+      "**Subtract the square of the mean**\n\n$$\\text{Var}(X) = \\frac{39}{5} - \\left(\\frac{11}{4}\\right)^2 = \\frac{39}{5} - \\frac{121}{16}$$\n\nUse the common denominator $80$: $\\dfrac{39}{5} = \\dfrac{624}{80}$ and $\\dfrac{121}{16} = \\dfrac{605}{80}$. This earns the **DM1**.\n\n$$\\text{Var}(X) = \\frac{624 - 605}{80} = \\frac{19}{80}$$\n\n*Quick check:* a variance can't be negative. $\\frac{19}{80} = 0.2375 > 0$. It is also small, which makes sense because $X$ only lives on an interval of length $2$.",
+      "**Final answer**\n\n$$\\text{Var}(X) = \\frac{19}{80} = 0.2375 \\;(= 0.238 \\text{ to 3 s.f.})$$"
+    ]
+  },
+  "9709_s22_62_q5_c": {
+    "hints": [
+      "By definition of the median, half the probability lies below $m$, so $\\text{P}(X < m) = \\frac{1}{2}$. Use this to write $\\text{P}(m < X < 3)$ as $\\text{P}(X < 3)$ minus something simple.",
+      "Find $\\text{P}(X < 3)$ by integrating $\\frac{3}{16}(4x - x^2)$ from the lowest value, $2$, up to $3$.",
+      "Evaluate your integral using fractions with denominator $16$ and subtract $\\frac{1}{2}$."
+    ],
+    "walkthrough": [
+      "**Use the meaning of the median**\n\nThe **median** $m$ splits the distribution in half: $\\text{P}(X < m) = \\dfrac{1}{2}$. So if we know $m < 3$, then the probability between $m$ and $3$ is the probability below $3$ minus the half below $m$:\n\n$$\\text{P}(m < X < 3) = \\text{P}(X < 3) - \\frac{1}{2}$$\n\nThis avoids having to find $m$ at all. (We will check that $m < 3$ at the end.)",
+      "**Find P(X < 3)**\n\n$X$ starts at $2$, so we integrate the density from $2$ to $3$:\n\n$$\\text{P}(X < 3) = \\frac{3}{16}\\int_2^3 (4x - x^2)\\,\\text{d}x$$\n\nThis earns the first **M1**.",
+      "**Integrate**\n\n$4x$ becomes $2x^2$ and $x^2$ becomes $\\dfrac{x^3}{3}$:\n\n$$\\frac{3}{16}\\left[2x^2 - \\frac{x^3}{3}\\right]_2^3$$",
+      "**Substitute the limits**\n\nAt $x = 3$: $2 \\times 9 - \\dfrac{27}{3} = 18 - 9 = 9$.\n\nAt $x = 2$: $2 \\times 4 - \\dfrac{8}{3} = 8 - \\dfrac{8}{3} = \\dfrac{16}{3}$.\n\nUpper minus lower: $9 - \\dfrac{16}{3} = \\dfrac{27}{3} - \\dfrac{16}{3} = \\dfrac{11}{3}$.\n\n$$\\text{P}(X < 3) = \\frac{3}{16} \\times \\frac{11}{3} = \\frac{11}{16}$$",
+      "**Check m is less than 3**\n\n$\\dfrac{11}{16}$ is more than $\\dfrac{1}{2}$, so half of the probability has already built up before $3$. That means the median is below $3$, and our method is valid.",
+      "**Subtract one half**\n\n$$\\text{P}(m < X < 3) = \\frac{11}{16} - \\frac{1}{2} = \\frac{11}{16} - \\frac{8}{16} = \\frac{3}{16}$$\n\nThis earns the second **M1** and the **A1**.",
+      "**Final answer**\n\n$$\\text{P}(m < X < 3) = \\frac{3}{16} = 0.1875$$"
+    ]
+  }
+}

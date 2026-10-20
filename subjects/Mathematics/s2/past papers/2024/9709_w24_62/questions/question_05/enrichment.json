@@ -1,0 +1,49 @@
+{
+ "9709_w24_62_q5_a": {
+  "hints": [
+   "Let $L$ be the number of lemon sweets, $L \\sim \\text{Po}(3.7)$. 'More than 2 but not more than 5' means $L = 3, 4, 5$. Write $\\text{P}(L = 3) + \\text{P}(L = 4) + \\text{P}(L = 5)$ using $\\text{P}(L = r) = \\text{e}^{-3.7}\\dfrac{3.7^r}{r!}$.",
+   "Work out the three terms and add them (or use $\\text{P}(L \\leqslant 5) - \\text{P}(L \\leqslant 2)$ with the Poisson cumulative function). Give 3 significant figures."
+  ],
+  "walkthrough": [
+   "**Which values do we want?**\n\nLet $L$ be the number of lemon sweets, so $L \\sim \\text{Po}(3.7)$. 'More than 2' means 3 or more; 'not more than 5' means 5 or fewer. Together: $L = 3, 4$ or $5$.",
+   "**Write the probability**\n\n$$\\text{P}(2 < L \\leqslant 5) = \\text{P}(L = 3) + \\text{P}(L = 4) + \\text{P}(L = 5)$$\n\nWith $\\text{P}(L = r) = \\text{e}^{-3.7}\\dfrac{3.7^r}{r!}$:\n\n$$= \\text{e}^{-3.7}\\left(\\frac{3.7^3}{3!} + \\frac{3.7^4}{4!} + \\frac{3.7^5}{5!}\\right)$$\n\nThis earns the M1.",
+   "**Calculate the brackets**\n\n$$\\frac{3.7^3}{3!} = \\frac{50.653}{6} = 8.44217$$\n\n$$\\frac{3.7^4}{4!} = \\frac{187.4161}{24} = 7.80900$$\n\n$$\\frac{3.7^5}{5!} = \\frac{693.43957}{120} = 5.77866$$\n\nNow $\\text{e}^{-3.7} = 0.024724$ (calculator), so the three probabilities are",
+   "**Multiply and add**\n\n$$0.024724 \\times 8.44217 = 0.20872$$\n\n$$0.024724 \\times 7.80900 = 0.19307$$\n\n$$0.024724 \\times 5.77866 = 0.14287$$\n\n$$0.20872 + 0.19307 + 0.14287 = 0.54466$$",
+   "**Final answer**\n\n$$\\text{P}(2 < L \\leqslant 5) = 0.545 \\text{ (3 s.f.)}$$"
+  ]
+ },
+ "9709_w24_62_q5_b": {
+  "hints": [
+   "Lemon and orange counts are independent Poisson variables, so their total is also Poisson. Its mean is found by combining the two given means.",
+   "'Less than 4' means 0, 1, 2 or 3. Write $\\text{P}(T \\leqslant 3)$ as four terms $\\text{e}^{-\\lambda}\\dfrac{\\lambda^r}{r!}$ for $r = 0, 1, 2, 3$, using your new $\\lambda$.",
+   "Work out the four terms and add them (or use the Poisson cumulative function at 3). Give 3 significant figures."
+  ],
+  "walkthrough": [
+   "**The total is Poisson too**\n\nLet $L \\sim \\text{Po}(3.7)$ be the lemon sweets and $O \\sim \\text{Po}(2.6)$ the orange sweets. They are independent, so the total $T = L + O$ is also Poisson, and its mean is the sum of the means:\n\n$$\\lambda = 3.7 + 2.6 = 6.3$$\n\nSo $T \\sim \\text{Po}(6.3)$. This earns the B1.",
+   "**Which values do we want?**\n\n'Less than 4' means $T = 0, 1, 2, 3$. So we need $\\text{P}(T \\leqslant 3)$:\n\n$$\\text{P}(T \\leqslant 3) = \\text{e}^{-6.3}\\left(1 + 6.3 + \\frac{6.3^2}{2!} + \\frac{6.3^3}{3!}\\right)$$\n\nThis earns the M1.",
+   "**Calculate the bracket**\n\n$6.3^2 = 39.69$, so $\\dfrac{6.3^2}{2!} = \\dfrac{39.69}{2} = 19.845$.\n\n$6.3^3 = 250.047$, so $\\dfrac{6.3^3}{3!} = \\dfrac{250.047}{6} = 41.6745$.\n\n$$1 + 6.3 + 19.845 + 41.6745 = 68.8195$$",
+   "**Multiply by e to the minus 6.3**\n\nOn a calculator $\\text{e}^{-6.3} = 0.0018363$. Term by term:\n\n$$0.0018363 \\times 1 = 0.0018363$$\n\n$$0.0018363 \\times 6.3 = 0.011569$$\n\n$$0.0018363 \\times 19.845 = 0.036441$$\n\n$$0.0018363 \\times 41.6745 = 0.076527$$\n\nAdd them:\n\n$$0.0018363 + 0.011569 + 0.036441 + 0.076527 = 0.12637$$",
+   "**Final answer**\n\n$$\\text{P}(T < 4) = 0.126 \\text{ (3 s.f.)}$$"
+  ]
+ },
+ "9709_w24_62_q5_c": {
+  "hints": [
+   "Over 10 bags the totals are still Poisson, so multiply each mean by the number of bags. Both means are then large, so approximate each total by a normal distribution with variance equal to its mean: $L \\sim \\text{N}(\\cdot, \\cdot)$ for lemon and $O \\sim \\text{N}(\\cdot, \\cdot)$ for orange.",
+   "'Lemon is less than orange' is the same as $O - L > 0$. The difference of two independent normals is normal; its mean is the mean of $O$ minus the mean of $L$.",
+   "For the variance of $O - L$: the variances of independent variables *add*, even when you subtract the variables.",
+   "Standardise the boundary 0 for $O - L$: $z = \\dfrac{0 - \\text{mean}}{\\sqrt{\\text{variance}}}$, using your values. (A continuity correction, moving the boundary to 0.5, is also allowed.)",
+   "You need $\\text{P}(O - L > 0)$, an upper tail, so write it as $1 - \\Phi(z)$.",
+   "Use the normal distribution function on your calculator to find $\\Phi(z)$ for your $z$, subtract from 1, and give 3 significant figures."
+  ],
+  "walkthrough": [
+   "**Scale up to 10 bags**\n\nOne bag has $\\text{Po}(3.7)$ lemon sweets. For 10 independent bags, add 10 Poisson variables: the mean multiplies by 10. Let $L$ be the total lemon sweets and $O$ the total orange sweets in the 10 bags:\n\n$$L \\sim \\text{Po}(3.7 \\times 10) = \\text{Po}(37) \\qquad O \\sim \\text{Po}(2.6 \\times 10) = \\text{Po}(26)$$",
+   "**Why a normal approximation?**\n\nThe question says to use approximating distributions. When a Poisson mean is large (bigger than about 15), the distribution is close to a normal with the same mean and the same variance, because for a Poisson the variance equals the mean. So\n\n$$L \\sim \\text{N}(37, 37) \\qquad O \\sim \\text{N}(26, 26)$$\n\nThis earns the first B1.",
+   "**Rewrite the question**\n\n'The total lemon is less than the total orange' means $L < O$, which is the same as $O - L > 0$. So we need the distribution of $O - L$.",
+   "**Mean and variance of the difference**\n\nThe difference of two independent normals is normal.\n\nMean: $\\text{E}(O - L) = \\text{E}(O) - \\text{E}(L) = 26 - 37 = -11$.\n\nVariance: for independent variables, $\\text{Var}(O - L) = \\text{Var}(O) + \\text{Var}(L)$. The variances add even though we subtract the variables, because subtracting does not remove any of the spread. So $\\text{Var}(O - L) = 26 + 37 = 63$.\n\n$$O - L \\sim \\text{N}(-11, 63)$$\n\nThe mean and the normal form earn the second B1; the variance $37 + 26$ earns the first M1.",
+   "**Standardise**\n\nWe want $\\text{P}(O - L > 0)$. Standard deviation: $\\sqrt{63} = 7.9373$. Then\n\n$$z = \\frac{0 - (-11)}{\\sqrt{63}} = \\frac{11}{7.9373} = 1.386$$\n\nThis earns the second M1.",
+   "**Take the upper tail**\n\nWe want the area above $z$:\n\n$$\\text{P}(O - L > 0) = 1 - \\Phi(1.386)$$\n\nThis earns the third M1. Calculator: $\\Phi(1.386) = 0.9171$, so\n\n$$1 - 0.9171 = 0.0829$$\n\n(Using $z = 1.386$ from tables gives $0.0828$; both are accepted.)",
+   "**A note on the continuity correction**\n\nThe counts are whole numbers, so $O - L > 0$ really means $O - L \\geqslant 1$, and the boundary on the continuous scale is $0.5$. With that correction:\n\n$$z = \\frac{0.5 - (-11)}{\\sqrt{63}} = \\frac{11.5}{7.9373} = 1.449 \\quad\\Rightarrow\\quad 1 - \\Phi(1.449) = 0.0737$$\n\nThe scheme accepts either route.",
+   "**Final answer**\n\nWithout a continuity correction: $0.0829$ (also accepted: $0.0828$).\n\nWith a continuity correction: $0.0737$ (also accepted: $0.0736$)."
+  ]
+ }
+}

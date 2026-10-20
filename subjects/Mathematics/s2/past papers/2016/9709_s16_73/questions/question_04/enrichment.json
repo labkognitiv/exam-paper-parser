@@ -1,0 +1,41 @@
+{
+ "9709_s16_73_q4_i": {
+  "hints": [
+   "Let $\\lambda$ be the population mean number of sightings per week. State $\\text{H}_0$ using the old rate of 2.5 per week. The naturalist suspects *fewer* sightings, so $\\text{H}_1$ is one-tailed (lower).",
+   "The observation covers 3 weeks, so scale the rate: the mean for 3 weeks is $3 \\times 2.5$. Under $\\text{H}_0$ the number of sightings is Poisson with that mean.",
+   "The critical region is the set of small values with total probability up to 0.05 at most. Start with $\\text{P}(X \\leqslant 2) = \\text{e}^{-\\lambda}\\left(1 + \\lambda + \\dfrac{\\lambda^2}{2}\\right)$ using your 3-week mean.",
+   "Then add one more term, $\\text{e}^{-\\lambda}\\dfrac{\\lambda^3}{3!}$, to get $\\text{P}(X \\leqslant 3)$. Compare both cumulative probabilities with $0.05$ to decide where the critical region stops.",
+   "Look at the observed value 2 sightings: is it inside your critical region? Decide about $\\text{H}_0$ and write the conclusion in context (golden eagle sightings), not as a certainty."
+  ],
+  "walkthrough": [
+   "**What are we testing?**\n\nBefore the drilling, golden eagles were seen at a rate of $2.5$ per week (a Poisson distribution). The naturalist suspects the drilling has reduced sightings, and counts what happens over 3 weeks: 2 sightings.\n\nWe test whether 2 is low enough that it is unlikely to happen by chance if nothing has changed.",
+   "**State the hypotheses**\n\nLet $\\lambda$ be the population mean number of sightings per week. If nothing has changed, $\\lambda$ is still $2.5$. The naturalist thinks it has gone down:\n\n$$\\text{H}_0: \\lambda = 2.5$$\n\n$$\\text{H}_1: \\lambda < 2.5$$\n\nIt is one-tailed (lower) because the question says \"fewer\". This earns the **B1**. (You can equally write them for 3 weeks: $\\lambda = 7.5$ and $\\lambda < 7.5$.)",
+   "**Scale the mean to 3 weeks**\n\nThe data is for 3 weeks, so the distribution must be for 3 weeks too. For a Poisson distribution, the mean scales with time:\n\n$$\\lambda = 3 \\times 2.5 = 7.5$$\n\nUnder $\\text{H}_0$, the number of sightings in 3 weeks is $X \\sim \\text{Po}(7.5)$. (This line carries no mark by itself but everything after depends on it.)",
+   "**Find $\\text{P}(X \\leqslant 2)$**\n\nThe critical region (CR) is the set of values so low that, if $\\text{H}_0$ is true, their total probability is at most $5\\%$. We check the lowest values one at a time, starting at 2. The formula is $\\text{P}(X = r) = \\text{e}^{-7.5}\\dfrac{7.5^r}{r!}$.\n\n$$\\text{P}(X \\leqslant 2) = \\text{e}^{-7.5}\\left(1 + 7.5 + \\frac{7.5^2}{2}\\right)$$\n\nThe bracket: $7.5^2 = 56.25$, and $\\dfrac{56.25}{2} = 28.125$, so $1 + 7.5 + 28.125 = 36.625$.\n\n$\\text{e}^{-7.5} = 0.000553084$, so\n\n$$\\text{P}(X \\leqslant 2) = 0.000553084 \\times 36.625 = 0.0203$$\n\nThis earns the **M1** (calculating $\\text{P}(X \\leqslant 2)$ or $\\text{P}(X \\leqslant 3)$). Your calculator's Poisson cdf with $\\lambda = 7.5$ and upper limit 2 gives the same.",
+   "**Find $\\text{P}(X \\leqslant 3)$**\n\nCheck the next value up, to see whether 3 can also be in the critical region. Add the term for $r = 3$:\n\n$$\\text{P}(X = 3) = \\text{e}^{-7.5} \\times \\frac{7.5^3}{3!} = 0.000553084 \\times \\frac{421.875}{6} = 0.000553084 \\times 70.3125 = 0.0389$$\n\n$$\\text{P}(X \\leqslant 3) = 0.0203 + 0.0389 = 0.0591$$\n\nBoth values together earn the **A1**.",
+   "**State the critical region**\n\nCompare with the significance level $0.05$:\n\n$$\\text{P}(X \\leqslant 2) = 0.0203 < 0.05 \\quad \\text{(inside)}$$\n\n$$\\text{P}(X \\leqslant 3) = 0.0591 > 0.05 \\quad \\text{(too big, so 3 is not inside)}$$\n\nThe critical region is the largest set of low values that stays under $0.05$. So the critical region is **$X \\leqslant 2$**. It must be stated clearly; this earns the **A1**.",
+   "**Carry out the test**\n\nThe observed value is 2 sightings. Since $2 \\leqslant 2$, it lies in the critical region. So we **reject** $\\text{H}_0$.\n\nIn context: there is evidence, at the 5% level, that the number of golden eagle sightings has gone down since the drilling started. This earns the final **A1 ft**.",
+   "**Final answer**\n\nCritical region: $X \\leqslant 2$. The observed value 2 is in the critical region, so reject $\\text{H}_0$: there is evidence that the number of sightings is fewer."
+  ]
+ },
+ "9709_s16_73_q4_ii": {
+  "hints": [
+   "A Type I error is rejecting $\\text{H}_0$ when it is actually true. Which probability from part (i) is the chance of landing in the critical region when $\\text{H}_0$ is true?"
+  ],
+  "walkthrough": [
+   "**What is a Type I error?**\n\nA Type I error means rejecting $\\text{H}_0$ when $\\text{H}_0$ is actually true. Its probability is the chance that the test statistic falls in the critical region when $\\text{H}_0$ is true.",
+   "**Use the critical region**\n\nFrom part (i) the critical region is $X \\leqslant 2$, and under $\\text{H}_0$ we have $X \\sim \\text{Po}(7.5)$. So\n\n$$\\text{P}(\\text{Type I}) = \\text{P}(X \\leqslant 2) = 0.0203$$\n\nA common slip is to write \"5%\". The 5% is the level we *allowed*; because $X$ is discrete the actual probability is smaller.",
+   "**Final answer**\n\n$\\text{P}(\\text{Type I error}) = $ **0.0203** (3 significant figures). This earns the **B1 ft**."
+  ]
+ },
+ "9709_s16_73_q4_iii": {
+  "hints": [
+   "A Type II error means *not* rejecting $\\text{H}_0$ when it is false. What was the decision in part (i)?"
+  ],
+  "walkthrough": [
+   "**What is a Type II error?**\n\nA Type II error happens when we **fail to reject** $\\text{H}_0$ even though $\\text{H}_0$ is false.",
+   "**Look at our decision**\n\nIn part (i) we **rejected** $\\text{H}_0$. A Type II error can only happen when $\\text{H}_0$ is not rejected, so it is impossible here. (Only a Type I error was possible.)",
+   "**Final answer**\n\nThe naturalist could not have made a Type II error because $\\text{H}_0$ was rejected (a Type II error only occurs when $\\text{H}_0$ is not rejected)."
+  ]
+ }
+}

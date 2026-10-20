@@ -1,0 +1,37 @@
+{
+ "9709_s16_73_q7_i": {
+  "hints": [
+   "Let $T$ be the total mass: one empty box plus 20 bags. Means add: write $\\text{E}(T)$ as the box mean plus $20 \\times 1.02$.",
+   "For independent normal variables the variances add (not the standard deviations). The 20 bags contribute $20 \\times 0.03^2$ and the box contributes its own variance.",
+   "Standardise $20.6$ using the mean and the standard deviation of $T$: $z = \\dfrac{20.6 - \\text{E}(T)}{\\sqrt{\\text{Var}(T)}}$. Remember the square root.",
+   "You want the probability of being *less than* $20.6$, which is below the mean, so $z$ is negative. Use symmetry: $\\text{P}(Z < -a) = 1 - \\Phi(a)$.",
+   "Use the normal table or the normal cdf on your calculator for $\\Phi(a)$, subtract it from 1, and give 3 significant figures. Check that the answer is less than 0.5, because $20.6$ is below the mean."
+  ],
+  "walkthrough": [
+   "**Set up the total mass**\n\nLet $T$ be the total mass (kg) of a full box: the empty box plus 20 bags. If $B$ is the empty box mass and $X_1, \\dots, X_{20}$ are the bag masses, then\n\n$$T = B + X_1 + X_2 + \\dots + X_{20}$$\n\nThese masses are independent and normal, so $T$ is also normal. We just need its mean and variance.",
+   "**The mean of $T$**\n\nMeans simply add:\n\n$$\\text{E}(T) = 0.4 + 20 \\times 1.02 = 0.4 + 20.4 = 20.8$$\n\nThis earns the first **B1**.",
+   "**The variance of $T$**\n\nFor independent variables, **variances** add (not standard deviations). Each bag has variance $0.03^2$, and there are 20 bags. The box has variance $0.01^2$.\n\n$$\\text{Var}(T) = 20 \\times 0.03^2 + 0.01^2$$\n\n$$0.03^2 = 0.0009, \\qquad 20 \\times 0.0009 = 0.018, \\qquad 0.01^2 = 0.0001$$\n\n$$\\text{Var}(T) = 0.018 + 0.0001 = 0.0181$$\n\nThis earns the second **B1**. Quick check on a common slip: the 20 bags are 20 *separate* bags, so the variance is $20 \\times 0.03^2$, not $20^2 \\times 0.03^2$.\n\nThe standard deviation is $\\sqrt{0.0181} = 0.1345$.",
+   "**So the distribution of $T$**\n\n$$T \\sim \\text{N}(20.8, 0.0181)$$",
+   "**Standardise**\n\nWe want $\\text{P}(T < 20.6)$. Standardise $20.6$:\n\n$$z = \\frac{20.6 - 20.8}{\\sqrt{0.0181}} = \\frac{-0.2}{0.1345} = -1.487$$\n\nThis earns the first **M1**. The standard deviation must come from combining the variances as above.",
+   "**Find the probability**\n\n$$\\text{P}(T < 20.6) = \\text{P}(Z < -1.487) = 1 - \\Phi(1.487)$$\n\nThis uses the symmetry of the normal curve: the area to the left of $-1.487$ equals the area to the right of $+1.487$. This earns the second **M1**.\n\n$\\Phi(1.487) = 0.9315$, so $1 - 0.9315 = 0.0685$ with the rounded $z$. With the unrounded $z = -1.4866$ the calculator gives $0.06856$. The scheme accepts any answer within its range around this value.",
+   "**Final answer**\n\nThe probability that a full box has total mass less than $20.6$ kg is **0.0686** (3 significant figures). This earns the **A1**."
+  ]
+ },
+ "9709_s16_73_q7_ii": {
+  "hints": [
+   "Let $D = T_1 - T_2$ be the difference between two boxes' masses. The two boxes have the same mean, so find $\\text{E}(D)$. For the variance, remember that variances add even when you subtract, and use $\\text{Var}(T)$ from part (i) twice.",
+   "\"Differ by less than 0.02 kg\" means $-0.02 < D < 0.02$. Standardise the upper limit: $z = \\dfrac{0.02 - \\text{E}(D)}{\\sqrt{\\text{Var}(D)}}$.",
+   "Work out $z$, then use the table or the normal cdf on your calculator to find $\\Phi(z)$.",
+   "The region between $-z$ and $z$ is the area below $z$ minus the area below $-z$, where the area below $-z$ is $1 - \\Phi(z)$.",
+   "Subtract the two areas (equivalently $2\\Phi(z) - 1$) and give 3 significant figures. The answer should be small, since the interval is narrow."
+  ],
+  "walkthrough": [
+   "**Set up the difference**\n\nLet $T_1$ and $T_2$ be the masses of the two full boxes, each $\\text{N}(20.8, 0.0181)$ from part (i). Let $D = T_1 - T_2$. \"They differ in mass by less than 0.02\" means the difference, in either direction, is less than 0.02:\n\n$$\\text{P}(-0.02 < D < 0.02)$$",
+   "**Mean and variance of $D$**\n\nMeans subtract: $\\text{E}(D) = 20.8 - 20.8 = 0$.\n\nVariances **add**, even though we subtract the variables (spread never cancels):\n\n$$\\text{Var}(D) = 0.0181 + 0.0181 = 2 \\times 0.0181 = 0.0362$$\n\nSo $D \\sim \\text{N}(0, 0.0362)$. This earns the **B1 ft**. A common slip is to subtract the variances and get 0.",
+   "**Standardise**\n\nThe standard deviation is $\\sqrt{0.0362} = 0.19026$.\n\n$$z = \\frac{0.02 - 0}{\\sqrt{0.0362}} = \\frac{0.02}{0.19026} = 0.105$$\n\nThis earns the **M1**. By symmetry the lower limit $-0.02$ gives $z = -0.105$.",
+   "**Find $\\Phi(0.105)$**\n\nUse the table or the calculator's normal cdf:\n\n$$\\Phi(0.105) = 0.5418$$\n\nThis earns the **A1** (equivalently $1 - \\Phi(0.105) = 0.4582$).",
+   "**Find the area between $-0.105$ and $0.105$**\n\nThe area to the left of $0.105$ is $0.5418$. The area to the left of $-0.105$ is $1 - 0.5418 = 0.4582$ (by symmetry). The area between is the difference:\n\n$$\\Phi(0.105) - \\left(1 - \\Phi(0.105)\\right) = 0.5418 - 0.4582 = 0.0836$$\n\nThis earns the second **M1**. With the unrounded $z$ the calculator gives $2\\Phi(0.105) - 1 = 0.0837$.",
+   "**Final answer**\n\nThe probability that the two boxes differ in mass by less than $0.02$ kg is **0.0837** (3 significant figures; the scheme also accepts 0.0836, from using the rounded table values $0.5418 - 0.4582$). This earns the final **A1**."
+  ]
+ }
+}

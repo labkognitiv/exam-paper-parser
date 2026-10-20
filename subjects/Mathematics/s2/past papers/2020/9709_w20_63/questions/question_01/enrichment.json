@@ -1,0 +1,40 @@
+{
+ "9709_w20_63_q1_a": {
+  "hints": [
+   "There are $n = 200$ flowers and a tiny chance $p = \\frac{1}{300}$ for each: with a large $n$ and small $p$ you can approximate the binomial by a Poisson. Its mean is $np$.",
+   "'More than 1' means 2 or more, which is a long list. Use the complement: $1 - \\text{P}(X = 0) - \\text{P}(X = 1)$, with $\\text{P}(X = r) = \\text{e}^{-\\lambda}\\dfrac{\\lambda^r}{r!}$ and your $\\lambda$.",
+   "Type $\\text{e}^{-\\lambda}(1 + \\lambda)$ into your calculator with your own $\\lambda$, subtract the result from 1, and give the answer to 3 significant figures."
+  ],
+  "walkthrough": [
+   "**Choose the distribution and why**\n\nLet $X$ be the number of white flowers in the sample of 200. Each flower is white with probability $\\frac{1}{300}$, so exactly $X \\sim \\text{B}\\left(200, \\frac{1}{300}\\right)$. Using the binomial directly would mean adding up many terms, so the question asks for an approximating distribution.\n\nA binomial with a **large** number of trials $n$ and a **small** probability $p$ is well approximated by a Poisson distribution with the same mean. The mean of a binomial is $np$:\n\n$$\\lambda = np = 200 \\times \\frac{1}{300} = \\frac{200}{300} = \\frac{2}{3} = 0.6667 \\text{ (4 d.p.)}$$\n\nSo $X \\approx \\text{Po}\\left(\\frac{2}{3}\\right)$. This line earns the **B1** (the Poisson with the correct mean).",
+   "**Turn 'more than 1' into something easy to calculate**\n\n'More than 1' means $X = 2, 3, 4, \\dots$ with no upper limit. A Poisson has infinitely many possible values, so it is much quicker to use the opposite event: everything except $X = 0$ and $X = 1$.\n\n$$\\text{P}(X > 1) = 1 - \\text{P}(X \\leqslant 1) = 1 - \\left[\\text{P}(X = 0) + \\text{P}(X = 1)\\right]$$\n\nTake care with the end point: 'more than 1' does **not** include 1, so we take away 0 **and** 1.",
+   "**Write the two Poisson probabilities**\n\nFor a Poisson distribution, $\\text{P}(X = r) = \\text{e}^{-\\lambda}\\dfrac{\\lambda^r}{r!}$. With $\\lambda = \\frac{2}{3}$:\n\n$$\\text{P}(X = 0) = \\text{e}^{-\\frac{2}{3}}\\,\\frac{\\left(\\frac{2}{3}\\right)^0}{0!} = \\text{e}^{-\\frac{2}{3}} \\times 1$$\n\n$$\\text{P}(X = 1) = \\text{e}^{-\\frac{2}{3}}\\,\\frac{\\left(\\frac{2}{3}\\right)^1}{1!} = \\text{e}^{-\\frac{2}{3}} \\times \\frac{2}{3}$$\n\nAdding them, the common factor $\\text{e}^{-\\frac{2}{3}}$ comes out:\n\n$$1 - \\text{e}^{-\\frac{2}{3}}\\left(1 + \\frac{2}{3}\\right)$$\n\nThis is the **M1** (one minus the probabilities of 0 and 1).",
+   "**Calculate it step by step**\n\nOn your calculator, $\\text{e}^{-\\frac{2}{3}}$ is $\\text{e}^{\\wedge}(-2 \\div 3)$, which shows $0.513417\\ldots$\n\n$$\\text{P}(X = 0) = 0.513417$$\n\n$$\\text{P}(X = 1) = 0.513417 \\times \\frac{2}{3} = 0.342278$$\n\n$$\\text{P}(X \\leqslant 1) = 0.513417 + 0.342278 = 0.855695$$\n\n$$\\text{P}(X > 1) = 1 - 0.855695 = 0.144305$$\n\nQuick check: the answer must be between 0 and 1, and it is small, which makes sense because on average fewer than one flower in 200 is white.",
+   "**Final answer**\n\n$$\\text{P}(\\text{more than 1 white flower}) = 0.144 \\text{ (3 s.f.)}$$\n\nThis earns the **A1**."
+  ]
+ },
+ "9709_w20_63_q1_b": {
+  "hints": [
+   "The Poisson approximation to $\\text{B}(n, p)$ is only valid under conditions on **both** $n$ and on $p$ (or $np$). Compare your actual $n = 200$ and $p = \\frac{1}{300}$ (or $np$) with those limits, quoting the numbers; 'large' and 'small' alone are not enough."
+  ],
+  "walkthrough": [
+   "**What the question wants**\n\nWe must **justify** (give a reason for) using the Poisson approximation. Examiners want the actual conditions, checked with this question's numbers. Writing only '$n$ is large and $p$ is small' is not accepted: 'large' and 'small' must be given a size.",
+   "**The conditions for a Poisson approximation to $\\text{B}(n, p)$**\n\nThe syllabus conditions are:\n\n- $n$ is greater than 50, **and**\n\n- either $np$ is less than 5, or $p$ is less than 0.1.\n\nNow check them with the numbers of the question: $n = 200$ and $p = \\frac{1}{300}$, so $np = \\frac{2}{3}$ (found in part (a)).\n\n$$n = 200 > 50 \\qquad np = \\frac{2}{3} < 5 \\qquad \\left(\\text{also } p = \\frac{1}{300} < 0.1\\right)$$\n\nAll the conditions hold, so the Poisson approximation is justified. This earns the **B1**.",
+   "**Final answer**\n\nThe approximation is justified because $n = 200 > 50$ and $np = \\frac{2}{3} < 5$ (or equivalently $p = \\frac{1}{300} < 0.1$)."
+  ]
+ },
+ "9709_w20_63_q1_c": {
+  "hints": [
+   "Work out the Poisson mean for each sample ($np$ for the 150 flowers with $p = 0.02$), then add it to the mean from part (a): independent Poisson variables add their means.",
+   "'Less than 4' means $X = 0, 1, 2, 3$: write each as $\\text{e}^{-\\lambda}\\dfrac{\\lambda^r}{r!}$ with your combined $\\lambda$ and add the four probabilities.",
+   "Put $\\text{e}^{-\\lambda}\\left(1 + \\lambda + \\dfrac{\\lambda^2}{2!} + \\dfrac{\\lambda^3}{3!}\\right)$ into your calculator, using your own $\\lambda$, and give the result to 3 significant figures."
+  ],
+  "walkthrough": [
+   "**The mean of the second sample**\n\nLet $Y$ be the number of white flowers among the 150 flowers of the other kind. Then $Y \\sim \\text{B}(150, 0.02)$. Check the conditions again: $n = 150 > 50$ and $np < 5$ (shown next), so we can again approximate by a Poisson with mean $np$:\n\n$$\\lambda_Y = 150 \\times 0.02 = 3$$\n\nSo $Y \\approx \\text{Po}(3)$.",
+   "**Combine the two samples**\n\nThe first sample (part (a)) gave $X \\approx \\text{Po}\\left(\\frac{2}{3}\\right)$. We want the **total** number of white flowers, $X + Y$. A useful fact: the sum of two independent Poisson variables is also Poisson, and its mean is the sum of the two means.\n\n$$\\lambda = \\frac{2}{3} + 3 = \\frac{2}{3} + \\frac{9}{3} = \\frac{11}{3} = 3.6667 \\text{ (4 d.p.)}$$\n\nSo $X + Y \\approx \\text{Po}\\left(\\frac{11}{3}\\right)$. This is the **B1**.",
+   "**Turn 'less than 4' into a list**\n\nLet $T = X + Y$. The values less than 4 are $0, 1, 2, 3$ (4 itself is **not** included):\n\n$$\\text{P}(T < 4) = \\text{P}(T = 0) + \\text{P}(T = 1) + \\text{P}(T = 2) + \\text{P}(T = 3)$$\n\nUsing $\\text{P}(T = r) = \\text{e}^{-\\lambda}\\dfrac{\\lambda^r}{r!}$ with $\\lambda = \\frac{11}{3}$ and taking out the common factor $\\text{e}^{-\\frac{11}{3}}$:\n\n$$\\text{e}^{-\\frac{11}{3}}\\left(1 + \\frac{11}{3} + \\frac{\\left(\\frac{11}{3}\\right)^2}{2!} + \\frac{\\left(\\frac{11}{3}\\right)^3}{3!}\\right)$$\n\nThis is the **M1**. Do not multiply it by anything else.",
+   "**Calculate it**\n\nWork out each bracket term separately:\n\n$$1 = 1$$\n\n$$\\frac{11}{3} = 3.666667$$\n\n$$\\frac{\\left(\\frac{11}{3}\\right)^2}{2!} = \\frac{13.444444}{2} = 6.722222$$\n\n$$\\frac{\\left(\\frac{11}{3}\\right)^3}{3!} = \\frac{49.296296}{6} = 8.216049$$\n\nAdd them: $1 + 3.666667 + 6.722222 + 8.216049 = 19.604938$.\n\nNow $\\text{e}^{-\\frac{11}{3}} = 0.025562$ on the calculator, so\n\n$$\\text{P}(T < 4) = 0.025562 \\times 19.604938 = 0.501132$$",
+   "**Final answer**\n\n$$\\text{P}(\\text{total number of white flowers} < 4) = 0.501 \\text{ (3 s.f.)}$$\n\nThis earns the **A1**."
+  ]
+ }
+}

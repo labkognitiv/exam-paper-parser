@@ -1,0 +1,31 @@
+{
+ "9709_w24_62_q3_a": {
+  "hints": [
+   "$p$ is the probability that an employee uses the canteen. The owner wants to know whether $p$ has *increased* from 0.8, so $\\text{H}_0$ is $p = 0.8$ and $\\text{H}_1$ is one-tailed — decide which way the inequality goes.",
+   "Assume $\\text{H}_0$ is true, so $X \\sim \\text{B}(25, 0.8)$. The observed value is 23, and the result is at least as extreme in the direction of $\\text{H}_1$ when $X \\geqslant 23$. Write $\\text{P}(X \\geqslant 23)$ as three terms, using ${}^{25}\\text{C}_r \\times 0.8^r \\times 0.2^{25 - r}$ for $r = 23, 24, 25$.",
+   "Work out the three terms and add them (or use $1 - \\text{P}(X \\leqslant 22)$ with the binomial cumulative function on your calculator).",
+   "Compare your tail probability with the significance level, 10% $= 0.1$. Is it smaller or larger?",
+   "If your probability is below the significance level you reject $\\text{H}_0$, otherwise you do not. Then state what this says about $p$ in the context of the canteen, using non-definite wording such as 'there is sufficient evidence to suggest'."
+  ],
+  "walkthrough": [
+   "**Set up the hypotheses**\n\nLet $p$ be the probability that a randomly chosen employee uses the canteen. In the past $p$ was 0.8. The owner wants to test whether $p$ has *increased*, so the alternative hypothesis points upwards (one-tailed):\n\n$$\\text{H}_0: p = 0.8 \\qquad \\text{H}_1: p > 0.8$$\n\nThis earns the B1.",
+   "**What distribution do we use?**\n\nIf $\\text{H}_0$ is true, the number of employees using the canteen, $X$, has the distribution\n\n$$X \\sim \\text{B}(25, 0.8)$$\n\nWe then ask: if nothing had changed, how likely is a result as extreme as 23 or more? If that is very unlikely (smaller than 10%), it is evidence that $p$ has increased.",
+   "**Write the probability we need**\n\nBecause $\\text{H}_1$ says $p$ is bigger, 'at least as extreme' means 23 or more out of 25:\n\n$$\\text{P}(X \\geqslant 23) = \\text{P}(X = 23) + \\text{P}(X = 24) + \\text{P}(X = 25)$$\n\nFor a binomial, $\\text{P}(X = r) = {}^{25}\\text{C}_r \\times 0.8^r \\times 0.2^{25 - r}$, so\n\n$$\\text{P}(X \\geqslant 23) = {}^{25}\\text{C}_{23} \\times 0.2^2 \\times 0.8^{23} + {}^{25}\\text{C}_{24} \\times 0.2 \\times 0.8^{24} + 0.8^{25}$$\n\nThis expression earns the M1.",
+   "**Calculate each term**\n\nFirst the combinations: ${}^{25}\\text{C}_{23} = 300$ and ${}^{25}\\text{C}_{24} = 25$ (calculator: nCr button).\n\nNow the powers: $0.8^{23} = 0.0059030$, $0.8^{24} = 0.0047224$ and $0.8^{25} = 0.0037779$.\n\n$$\\text{P}(X = 23) = 300 \\times 0.04 \\times 0.0059030 = 0.070835$$\n\n$$\\text{P}(X = 24) = 25 \\times 0.2 \\times 0.0047224 = 0.023612$$\n\n$$\\text{P}(X = 25) = 0.8^{25} = 0.0037779$$",
+   "**Add them**\n\n$$\\text{P}(X \\geqslant 23) = 0.070835 + 0.023612 + 0.0037779 = 0.098225\\ldots \\approx 0.0982$$\n\nThis earns the A1. (Check on a calculator: binomial cdf with $n = 25$, $p = 0.8$ gives $\\text{P}(X \\leqslant 22)$, and $1 - \\text{P}(X \\leqslant 22)$ is the same.)",
+   "**Compare with the significance level**\n\nThe significance level is 10%, which is $0.1$.\n\n$$0.0982 < 0.1$$\n\nThe probability of getting a result this extreme if $p$ were still 0.8 is below 10%. This earns the M1.",
+   "**Conclusion in context**\n\nSince $0.0982 < 0.1$ we reject $\\text{H}_0$. In words, and not too definitely: there is sufficient evidence, at the 10% level, to suggest that the probability $p$ of an employee using the canteen has increased.",
+   "**Final answer**\n\n$$\\text{P}(X \\geqslant 23) = 0.0982 < 0.1$$\n\nReject $\\text{H}_0$: there is sufficient evidence to suggest that $p$ has increased."
+  ]
+ },
+ "9709_w24_62_q3_b": {
+  "hints": [
+   "Compare the 30 employees in the factory with the largest number of canteen users that $\\text{B}(25, p)$ allows. Does the model make sense?"
+  ],
+  "walkthrough": [
+   "**What does the model say?**\n\n$\\text{B}(25, p)$ means there are exactly 25 'trials', so the number of canteen users $X$ can only be $0, 1, \\ldots, 25$.",
+   "**Compare with the real situation**\n\nThe factory has 30 employees, so in reality up to 30 people could use the canteen. The model can never show 26 to 30 users, so it does not fit the real situation.",
+   "**Final answer**\n\nThe model is not suitable, because it does not allow for more than 25 employees to use the canteen, but there are 30 employees. (The official scheme also accepts the other view, 'suitable', if the reason is given, for example that the owner knows not all employees use the canteen.)"
+  ]
+ }
+}

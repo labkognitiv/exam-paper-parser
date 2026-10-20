@@ -1,0 +1,20 @@
+{
+ "9709_m16_72_q4": {
+  "hints": [
+   "'Large bag is less than twice the small bag' means $X < 2Y$, so $X - 2Y < 0$. Define $D = X - 2Y$. It is normal, because $X$ and $Y$ are independent normals. Start with its mean: $\\text{E}(X) - 2\\,\\text{E}(Y)$ using 5.1 and 2.5.",
+   "Variance of $D$: $\\text{Var}(X) + 2^2 \\times \\text{Var}(Y)$. The 2 is squared, and variances add even though we subtract. Use $0.2^2$ and $0.1^2$.",
+   "Standardise the boundary 0: $z = \\dfrac{0 - \\text{mean of } D}{\\sqrt{\\text{variance of } D}}$. Remember to square root the variance to get the standard deviation.",
+   "You want $\\text{P}(D < 0) = \\Phi(z)$. Your $z$ is negative, so rewrite it using $\\Phi(-a) = 1 - \\Phi(a)$.",
+   "Find $\\Phi$ of the positive value from the table or your calculator, subtract from 1 and round to 3 s.f."
+  ],
+  "walkthrough": [
+   "**Turn the sentence into an inequality**\n\n'The mass of a large bag is less than twice the mass of a small bag' says $X < 2Y$. Move everything to one side so we compare with 0:\n\n$$X < 2Y \\iff X - 2Y < 0$$\n\nDefine $D = X - 2Y$. A combination of independent normal variables is also normal, so $D$ is normal and we only need its mean and variance.",
+   "**Mean of $D$ (first B1)**\n\n$$\\text{E}(D) = \\text{E}(X) - 2\\,\\text{E}(Y) = 5.1 - 2 \\times 2.5 = 5.1 - 5 = 0.1$$",
+   "**Variance of $D$ (second B1)**\n\nFor independent variables, $\\text{Var}(aX + bY) = a^2\\,\\text{Var}(X) + b^2\\,\\text{Var}(Y)$. Two things to notice. First, the multiplier is **squared**, so the 2 becomes 4. Second, the minus sign disappears because $(-2)^2 = 4$: variances always add.\n\n$$\\text{Var}(D) = 0.2^2 + 2^2 \\times 0.1^2 = 0.04 + 4 \\times 0.01 = 0.04 + 0.04 = 0.08$$\n\n$$D \\sim \\text{N}(0.1,\\ 0.08)$$\n\nCommon slip: writing $2Y$ as $Y_1 + Y_2$, which would give variance $2 \\times 0.1^2$. Here it is **one** small bag counted twice, so the variance is $4 \\times 0.1^2$.",
+   "**Standardise (first M1)**\n\nWe want $\\text{P}(D < 0)$. The standard deviation is the square root of the variance: $\\sqrt{0.08} = 0.2828$.\n\n$$z = \\frac{0 - 0.1}{\\sqrt{0.08}} = \\frac{-0.1}{0.2828} = -0.354$$",
+   "**Choose the correct area (second M1)**\n\n$D < 0$ is the area to the left of $z = -0.354$. Tables show positive $z$ only, so use symmetry of the normal curve:\n\n$$\\text{P}(Z < -0.354) = \\Phi(-0.354) = 1 - \\Phi(0.354)$$",
+   "**Evaluate (A1)**\n\nTable or calculator: $\\Phi(0.354) = 0.6383$.\n\n$$1 - 0.6383 = 0.3617$$\n\nTo 3 significant figures this is $0.362$. (If your calculator keeps more digits it shows $0.36184$, which also rounds to $0.362$.)",
+   "**Final answer**\n\nThe probability is $0.362$ (3 s.f.)."
+  ]
+ }
+}

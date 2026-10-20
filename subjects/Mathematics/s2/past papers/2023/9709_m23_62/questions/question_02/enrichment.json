@@ -1,0 +1,62 @@
+{
+ "9709_m23_62_q2_a": {
+  "hints": [
+   "Recall the standard conditions for events to follow a Poisson distribution: how often they happen on average, and how they are spread out in time.",
+   "Think about how one order relates to another, and whether orders can arrive at exactly the same moment. State each in the context of orders at the shop."
+  ],
+  "walkthrough": [
+   "**Why assumptions are needed**\n\nThe Poisson distribution is a model for counting events that happen in a fixed interval of time. It only works well if the events behave in a certain way. The question asks for two of these conditions, and each must be written about **orders**, not just \"events\".",
+   "**The conditions (pick any two)**\n\nAny two of these earn the two B1 marks:\n\n- Orders arrive at a constant mean rate (the word **mean** or **rate** must be there), for example an average of 25.2 per 8-hour day throughout the day.\n\n- Orders arrive at random.\n\n- Orders arrive independently of each other: one order does not make another more or less likely.\n\n- Orders arrive singly: two orders do not arrive at exactly the same moment.",
+   "**Where students lose marks**\n\nWriting \"events occur independently\" without mentioning orders is not in context. If both assumptions are correct but not in context, you get only 1 mark (special case). Mentioning orders, or the 25.2 rate, counts as context.",
+   "**Final answer**\n\nTwo assumptions: orders arrive at a constant mean rate of 25.2 per 8-hour day, and orders arrive independently of each other (or at random, or singly)."
+  ]
+ },
+ "9709_m23_62_q2_b_i": {
+  "hints": [
+   "The rate 25.2 is for 8 hours but you need a 3-hour period: scale the mean by $\\dfrac{3}{8}$.",
+   "\"Between 3 and 5 inclusive\" means $\\text{P}(X = 3) + \\text{P}(X = 4) + \\text{P}(X = 5)$. Use $\\text{P}(X = r) = \\text{e}^{-\\lambda}\\dfrac{\\lambda^r}{r!}$ with your new mean.",
+   "Work out the three probabilities (or use the Poisson probability function on your calculator for $r = 3, 4, 5$), add them, and give 3 s.f."
+  ],
+  "walkthrough": [
+   "**Change the time period (B1)**\n\n$X \\sim \\text{Po}(25.2)$ counts orders in 8 hours. A Poisson mean is proportional to the length of time, so for 3 hours we take $\\frac{3}{8}$ of the mean. Let $Y$ be the number of orders in 3 hours.\n\n$$\\lambda = \\frac{3}{8} \\times 25.2 = \\frac{75.6}{8} = 9.45$$\n\nSo $Y \\sim \\text{Po}(9.45)$. This earns the **B1**.",
+   "**Say which values we need**\n\n\"Between 3 and 5 inclusive\" means 3, 4 and 5 are all included. These are separate outcomes, so we add their probabilities:\n\n$$\\text{P}(3 \\leqslant Y \\leqslant 5) = \\text{P}(Y = 3) + \\text{P}(Y = 4) + \\text{P}(Y = 5)$$",
+   "**The Poisson formula (M1)**\n\nFor $Y \\sim \\text{Po}(9.45)$ the probability of exactly $r$ orders is $\\text{e}^{-9.45}\\dfrac{9.45^r}{r!}$. Take $\\text{e}^{-9.45}$ out as a common factor:\n\n$$\\text{e}^{-9.45}\\left(\\frac{9.45^3}{3!} + \\frac{9.45^4}{4!} + \\frac{9.45^5}{5!}\\right)$$\n\nYou must show this expression (or the three separate terms) to earn the **M1**.",
+   "**Work out each term**\n\n$$\\frac{9.45^3}{3!} = \\frac{843.9\\ldots}{6} = 140.65\\ldots \\qquad \\frac{9.45^4}{4!} = 332.29\\ldots \\qquad \\frac{9.45^5}{5!} = 628.03\\ldots$$\n\nEach probability is that value times $\\text{e}^{-9.45} = 0.0000786\\ldots$:\n\n$$\\text{P}(Y = 3) = 0.01107 \\qquad \\text{P}(Y = 4) = 0.02615 \\qquad \\text{P}(Y = 5) = 0.04942$$\n\nCalculator tip: with the Poisson pdf function (mean 9.45, $x = 3, 4, 5$) you get these directly.",
+   "**Add them (A1)**\n\n$$0.01107 + 0.02615 + 0.04942 = 0.08664\\ldots$$",
+   "**Final answer**\n\n$\\text{P}(3 \\leqslant Y \\leqslant 5) = 0.0866$ (3 s.f.)."
+  ]
+ },
+ "9709_m23_62_q2_b_ii": {
+  "hints": [
+   "Find the mean for one hour (25.2 is for 8 hours), then write the probability of exactly 1 order, $\\text{e}^{-\\lambda}\\lambda$.",
+   "\"At least 2\" is the complement of \"0 or 1\": $1 - \\text{P}(0) - \\text{P}(1)$, using the same one-hour mean.",
+   "The two hours are independent, so for one particular order of the hours multiply $\\text{P}(\\text{exactly } 1) \\times \\text{P}(\\text{at least } 2)$.",
+   "Either hour could be the one with exactly 1 order. Count how many ways that can happen and adjust your product, then give 3 s.f."
+  ],
+  "walkthrough": [
+   "**The mean for one hour (B1 starts here)**\n\n25.2 orders is for 8 hours, so for 1 hour divide by 8. Let $W$ be the number of orders in one hour.\n\n$$\\lambda = \\frac{25.2}{8} = 3.15$$\n\nSo $W \\sim \\text{Po}(3.15)$.",
+   "**Probability of exactly 1 order**\n\nUse $\\text{P}(W = r) = \\text{e}^{-\\lambda}\\dfrac{\\lambda^r}{r!}$ with $r = 1$ (and $1! = 1$):\n\n$$\\text{P}(W = 1) = \\text{e}^{-3.15} \\times 3.15 = 0.04285\\ldots \\times 3.15 = 0.13498\\ldots$$",
+   "**Probability of at least 2 orders**\n\n\"At least 2\" means 2, 3, 4, and so on, which is too many terms to add. It is easier to take away the cases \"0\" and \"1\" from 1:\n\n$$\\text{P}(W \\geqslant 2) = 1 - \\text{P}(W = 0) - \\text{P}(W = 1) = 1 - \\text{e}^{-3.15}(1 + 3.15)$$\n\nWork out the bracket, then multiply, then subtract:\n\n$$\\text{e}^{-3.15}(4.15) = 0.04285\\ldots \\times 4.15 = 0.17783\\ldots$$\n\n$$1 - 0.17783\\ldots = 0.82216\\ldots$$\n\nThe first correct probability written (0.135 or 0.822, or the expression) earns the **B1**.",
+   "**Combine the two hours (M1)**\n\nThe two hours are independent, so for one particular arrangement, say \"exactly 1 in the first hour and at least 2 in the second hour\", we multiply:\n\n$$\\text{P}(W=1) \\times \\text{P}(W \\geqslant 2) = 0.13498\\ldots \\times 0.82216\\ldots = 0.11097\\ldots$$",
+   "**Allow for either order (M1)**\n\nThe question does not say which hour has the single order. It could be the first hour **or** the second hour. These are two different, non-overlapping cases, each with the same probability, so we double:\n\n$$2 \\times 0.11097\\ldots = 0.22195\\ldots$$\n\nForgetting the $\\times 2$ is the most common slip in this question.",
+   "**Final answer**\n\nThe probability is $0.222$ (3 s.f.)."
+  ]
+ },
+ "9709_m23_62_q2_c": {
+  "hints": [
+   "Scale the mean to 36 hours, using the 8-hour rate of 25.2. A Poisson with a large mean is approximately normal with mean and variance both equal to $\\lambda$: $\\text{N}(\\lambda, \\lambda)$.",
+   "Standardise with a continuity correction: \"too many\" means more than 120, so for whole numbers $X \\geqslant 121$. Use the boundary halfway between 120 and 121 in $z = \\dfrac{x - \\mu}{\\sigma}$, where $\\sigma = \\sqrt{\\text{variance}}$.",
+   "\"Too many\" is the upper tail, so the probability is $1 - \\Phi(z)$, not $\\Phi(z)$.",
+   "Find $\\Phi(z)$ for your $z$ from the table or calculator, subtract from 1 and round to 3 s.f."
+  ],
+  "walkthrough": [
+   "**Find the mean for 36 hours**\n\nLet $Y$ be the number of orders in 36 hours. The rate is 25.2 per 8 hours. In 36 hours there are $\\frac{36}{8} = 4.5$ lots of 8 hours, so:\n\n$$\\lambda = 25.2 \\times \\frac{36}{8} = 25.2 \\times 4.5 = 113.4$$\n\nSo $Y \\sim \\text{Po}(113.4)$.",
+   "**Why a normal approximation (B1)**\n\nCalculating $\\text{P}(Y > 120)$ with Poisson would need a huge sum. Since $\\lambda = 113.4$ is large, the Poisson shape is close to a normal curve. A Poisson has mean $=$ variance $= \\lambda$, so:\n\n$$Y \\approx \\text{N}(113.4, 113.4)$$\n\nNotice the second number is the **variance**, so the standard deviation is $\\sqrt{113.4}$. Writing this distribution earns the **B1**.",
+   "**The continuity correction**\n\n$Y$ counts whole orders, but the normal curve is continuous. \"Too many\" means more than 120 orders, so $Y \\geqslant 121$. On a continuous scale the whole number 121 occupies the interval from 120.5 to 121.5, so we start at 120.5:\n\n$$\\text{P}(Y > 120) = \\text{P}(Y \\geqslant 121) \\approx \\text{P}(X > 120.5)$$\n\nwhere $X \\sim \\text{N}(113.4, 113.4)$. (The scheme still gives the M mark if the correction is wrong or missing, but it is worth doing.)",
+   "**Standardise (M1)**\n\nSubtract the mean and divide by the standard deviation:\n\n$$z = \\frac{120.5 - 113.4}{\\sqrt{113.4}} = \\frac{7.1}{10.6489\\ldots} = 0.6667\\ldots$$\n\nCheck that you divided by the **square root** of 113.4, not 113.4 itself.",
+   "**Choose the right tail (M1)**\n\nWe want the probability of being **above** 120.5. $\\Phi(z)$ gives the area to the left of $z$, so the area to the right is:\n\n$$\\text{P}(Z > 0.667) = 1 - \\Phi(0.667)$$\n\nCalculator or table: $\\Phi(0.667) = 0.7475\\ldots$",
+   "**Subtract (A1)**\n\n$$1 - 0.7475\\ldots = 0.2524\\ldots$$",
+   "**Final answer**\n\nThe probability of too many orders in a 36-hour period is $0.252$ (3 s.f.)."
+  ]
+ }
+}

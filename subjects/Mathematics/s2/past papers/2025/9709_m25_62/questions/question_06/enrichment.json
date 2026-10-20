@@ -1,0 +1,41 @@
+{
+ "9709_m25_62_q6_a": {
+  "hints": [
+   "Ask whether students on the sports teams would give views that are typical of **all** the students at the school."
+  ],
+  "walkthrough": [
+   "**What makes a good sample**\n\nA sample should be **representative** of the whole population, here every student at the school. Otherwise the results are biased.\n\nStudents in the sports teams use the sports facilities more than others, and probably think about them differently. A sample taken only from the teams would leave out the views of everyone else.",
+   "**Final answer**\n\nNo, I do not agree. The views of students in the sports teams may be different from the views of other students, so the sample would be biased and not representative of the school."
+  ]
+ },
+ "9709_m25_62_q6_b": {
+  "hints": [
+   "Use the approximate confidence interval for a proportion: $\\hat{p} \\pm z\\sqrt{\\dfrac{\\hat{p}(1 - \\hat{p})}{n}}$, with $\\hat{p} = \\dfrac{45}{60}$ and $n = 60$.",
+   "For 95% confidence, $2.5\\%$ is left in each tail, so $z$ comes from $\\Phi^{-1}(0.975)$, a value you should know.",
+   "Work out the square-root term, multiply by $z$, then subtract and add the result to $\\hat{p}$ to get the two ends. Write the answer as an interval, to 3 significant figures."
+  ],
+  "walkthrough": [
+   "**What we are doing**\n\nIn the sample of $60$ students, $45$ think the facilities are good. We use this sample proportion as an estimate of the proportion in the whole school and build an interval around it, wide enough to be $95\\%$ confident of containing the true proportion.\n\n$\\hat{p}$ means the sample proportion; $n$ is the sample size.",
+   "**The formula (M1)**\n\n$$\\hat{p} \\pm z\\sqrt{\\frac{\\hat{p}(1 - \\hat{p})}{n}}$$\n\nHere $\\hat{p} = \\dfrac{45}{60}$, $1 - \\hat{p} = \\dfrac{15}{60}$ and $n = 60$:\n\n$$\\frac{45}{60} \\pm z\\sqrt{\\frac{\\frac{45}{60} \\times \\frac{15}{60}}{60}}$$",
+   "**The value of $z$ (B1)**\n\nFor a $95\\%$ interval, $95\\%$ of the area is in the middle, so $5\\%$ is split between two tails: $2.5\\%$ each. The cut-off is where the area to the left is $0.975$, which is\n\n$$z = \\Phi^{-1}(0.975) = 1.96$$\n\nThis is a standard value worth remembering.",
+   "**Calculate the interval (A1)**\n\n$\\hat{p} = \\dfrac{45}{60} = 0.75$ and $1 - \\hat{p} = 0.25$.\n\n$0.75 \\times 0.25 = 0.1875$\n\n$\\dfrac{0.1875}{60} = 0.003125$\n\n$\\sqrt{0.003125} = 0.05590$\n\nMultiply by $z$: $1.96 \\times 0.05590 = 0.1096$.\n\nLower end: $0.75 - 0.1096 = 0.6404$. Upper end: $0.75 + 0.1096 = 0.8596$.\n\nRound to 3 significant figures: $0.640$ and $0.860$.",
+   "**Final answer**\n\nThe approximate $95\\%$ confidence interval is $0.640$ to $0.860$ (3 s.f.)."
+  ]
+ },
+ "9709_m25_62_q6_c": {
+  "hints": [
+   "The width of a confidence interval is $2 \\times z \\times \\sqrt{\\dfrac{\\hat{p}(1 - \\hat{p})}{n}}$. With the same sample, only $z$ changes, so the widths are in the ratio of the $z$-values.",
+   "First get the $z$ for 99%: $0.5\\%$ is in each tail, so use the inverse normal at the cumulative area $1 - 0.005$.",
+   "The $z$ for the $x\\%$ interval is half of the 99% value. Find the area to the left of this half-value, $\\Phi(\\ldots)$.",
+   "The middle $x\\%$ is the area to the left of $z$ minus the area to the left of $-z$, which equals $\\Phi(z) - (1 - \\Phi(z))$. Then write it as a percentage."
+  ],
+  "walkthrough": [
+   "**The key idea**\n\nThe width of an approximate confidence interval is $2z\\sqrt{\\dfrac{\\hat{p}(1 - \\hat{p})}{n}}$. Both intervals come from the same sample, so $\\hat{p}$ and $n$ are the same. Everything is the same except $z$.\n\nSo if the $99\\%$ interval is twice as wide as the $x\\%$ interval, then\n\n$$z_{99} = 2 \\times z_x \\quad\\Longrightarrow\\quad z_x = \\frac{z_{99}}{2}$$",
+   "**The $z$ for 99% (first M1)**\n\nA $99\\%$ interval leaves $1\\%$ in the two tails, so $0.5\\%$ each. The cut-off has area $0.995$ to the left:\n\n$$z_{99} = \\Phi^{-1}(0.995) = 2.576$$",
+   "**The $z$ for $x\\%$ and its area (second M1)**\n\nHalve it:\n\n$$z_x = \\frac{2.576}{2} = 1.288$$\n\nNow find the area to the left of $1.288$ using the normal cdf on the calculator (lower bound $-99$, upper bound $1.288$, mean $0$, sd $1$):\n\n$$\\Phi(1.288) = 0.9011$$",
+   "**The central area (third M1)**\n\nThe interval runs from $-1.288$ to $1.288$. The area outside is $1 - 0.9011 = 0.0989$ in the upper tail, and the same in the lower tail. So the area in the middle is the left area minus the lower tail:\n\n$$0.9011 - (1 - 0.9011) = 0.9011 - 0.0989 = 0.8022$$\n\n(This equals $2 \\times 0.9011 - 1$.)",
+   "**Convert to a percentage (A1)**\n\nA central area of $0.8022$ means a $80.22\\%$ interval, so $x = 80.2$. Because this uses a rounded value of $z$, the answer $x = 80$ is also accepted.\n\nQuick check: $x$ must be smaller than $99$ if the interval is narrower. It is.",
+   "**Final answer**\n\nThe central area is between $0.802$ and $0.803$, so $x$ is between $80.2$ and $80.3$; the answer $x = 80$ is also accepted.\n\n$$x = 80.2$$"
+  ]
+ }
+}

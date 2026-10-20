@@ -1,0 +1,20 @@
+{
+ "9709_w17_71_q3": {
+  "hints": [
+   "The sample proportion is $\\hat{p} = \\dfrac{153}{200}$ and the interval is $\\hat{p} \\pm z\\sqrt{\\dfrac{\\hat{p}(1-\\hat{p})}{200}}$. Set one end of the interval (say the upper end, 0.835) equal to this expression, with $z$ unknown.",
+   "Rearrange for $z$: subtract $\\hat{p}$ from 0.835, then divide by the standard error $\\sqrt{\\dfrac{\\hat{p}(1-\\hat{p})}{200}}$.",
+   "The confidence level is the area between $-z$ and $z$ on the standard normal curve. In terms of $\\Phi$ this area is $2\\Phi(z) - 1$.",
+   "That area is a probability: convert it to a percentage and round to the nearest integer."
+  ],
+  "walkthrough": [
+   "**What is a confidence interval for a proportion?**\n\nA confidence interval for a population proportion is built around the sample proportion $\\hat{p}$ (\"p-hat\"), which is the fraction of the sample that voted:\n\n$$\\hat{p} = \\frac{153}{200} = 0.765$$\n\nThe interval has the form $\\hat{p} \\pm z \\times \\text{(standard error)}$, where the standard error is $\\sqrt{\\dfrac{\\hat{p}(1-\\hat{p})}{n}}$ and $n = 200$. The number $z$ depends on the confidence level $\\alpha\\%$, and our job is to work backwards from the interval to find $z$ and then $\\alpha$.",
+   "**Check the centre**\n\nQuick check: the middle of $0.695$ to $0.835$ is $\\dfrac{0.695 + 0.835}{2} = 0.765$, which matches $\\hat{p}$. Good, the interval is built round $\\frac{153}{200}$.",
+   "**Work out the standard error**\n\n$$1 - \\hat{p} = 1 - 0.765 = 0.235$$\n\n$$\\hat{p}(1 - \\hat{p}) = 0.765 \\times 0.235 = 0.179775$$\n\n$$\\text{Var} = \\frac{0.179775}{200} = 0.000898875$$\n\n$$\\text{standard error} = \\sqrt{0.000898875} = 0.02998$$\n\n(The mark scheme prints these same values.)",
+   "**Set up the equation for $z$ (earns M1)**\n\nThe upper end of the interval is $\\hat{p} + z \\times \\text{standard error}$, and the question says it is $0.835$:\n\n$$0.765 + z \\times 0.02998 = 0.835$$",
+   "**Solve for $z$ (earns A1)**\n\nSubtract $0.765$ from both sides: $0.835 - 0.765 = 0.07$. Then divide by $0.02998$:\n\n$$z = \\frac{0.07}{0.02998} = 2.335$$\n\nThe mark scheme allows 2.33 or 2.34 too.",
+   "**Turn $z$ into a confidence level (earns M1)**\n\nA confidence interval covers the middle part of the standard normal curve, from $-z$ to $+z$. The area to the left of $z$ is $\\Phi(z)$. The area in the right-hand tail is $1 - \\Phi(z)$, and the left-hand tail is the same size. So the middle area is\n\n$$1 - 2\\left(1 - \\Phi(z)\\right) = 2\\Phi(z) - 1$$\n\nWith $z = 2.335$, $\\Phi(2.335) = 0.99023$ (normal table or calculator).\n\n$$2 \\times 0.99023 - 1 = 1.98046 - 1 = 0.98046$$\n\nThis line earns the second M1 (any equivalent method is fine).",
+   "**Convert to a percentage (earns A1)**\n\nAs a percentage, $0.98046 = 98.046\\%$. The question asks for the nearest integer, so\n\n$$\\alpha = 98$$\n\nNote: write 98 (or 98.0), not something like 98.04.",
+   "**Final answer**\n\n$$\\alpha = 98$$\n\nSo the interval was a 98% confidence interval."
+  ]
+ }
+}

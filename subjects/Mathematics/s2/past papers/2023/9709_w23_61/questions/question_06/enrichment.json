@@ -1,0 +1,44 @@
+{
+ "9709_w23_61_q6_a": {
+  "hints": [
+   "The distribution is symmetrical on $0$ to $6$, so it is symmetrical about $3$ and $\\text{P}(X < 3) = \\dfrac{1}{2}$. The interval from $a$ to $3$ is made of the two given pieces $p$ and $\\dfrac{13}{10}p$ and lies inside $0$ to $3$. Write 'its probability is at most $\\dfrac{1}{2}$' as an inequality."
+  ],
+  "walkthrough": [
+   "**Use the symmetry**\n\n$X$ takes values from $0$ to $6$ only, and its distribution is symmetrical. So it is symmetrical about the middle value, $3$. The two halves are mirror images, so each has probability half:\n\n$$\\text{P}(0 < X < 3) = \\frac{1}{2}$$",
+   "**Where the interval from a to 3 sits**\n\nWe are given $\\text{P}(a < X < b) = p$ and $\\text{P}(b < X < 3) = \\dfrac{13}{10}p$. The two intervals sit side by side, so together they make the interval from $a$ to $3$:\n\n$$\\text{P}(a < X < 3) = p + \\frac{13}{10}p = \\frac{23}{10}p$$\n\nSince $a \\geqslant 0$, the interval from $a$ to $3$ lies **inside** the interval from $0$ to $3$. A part cannot have more probability than the whole, so",
+   "**Write the inequality (B1) and finish**\n\n$$p + \\frac{13}{10}p \\leqslant \\frac{1}{2}$$\n\n$$\\frac{23}{10}p \\leqslant \\frac{1}{2}$$\n\nMultiply both sides by $\\dfrac{10}{23}$:\n\n$$p \\leqslant \\frac{1}{2} \\times \\frac{10}{23} = \\frac{10}{46} = \\frac{5}{23}$$\n\nThis is the printed result. The scheme accepts an equals sign in the working but needs an inequality in the answer (equality happens only if $a = 0$).",
+   "**Final answer**\n\n$p \\leqslant \\dfrac{5}{23}$, as required."
+  ]
+ },
+ "9709_w23_61_q6_b": {
+  "hints": [
+   "The distribution is symmetrical about $3$, so $\\text{P}(3 < X < 6 - a)$ is the mirror image of $\\text{P}(a < X < 3)$. Split the required interval at $3$: $\\text{P}(b < X < 6 - a) = \\text{P}(b < X < 3) + \\text{P}(3 < X < 6 - a)$.",
+   "$\\text{P}(a < X < 3)$ is the sum of the two given pieces, and its mirror image has the same value. Add the two pieces that make up your required interval."
+  ],
+  "walkthrough": [
+   "**Where is 6 − a?**\n\nThe distribution is symmetrical about $3$. A point at distance $3 - a$ below $3$ has its mirror image at distance $3 - a$ above $3$, which is $3 + (3 - a) = 6 - a$. So $a$ and $6 - a$ are mirror images, and the interval from $3$ to $6 - a$ mirrors the interval from $a$ to $3$.",
+   "**Split the required interval at 3 (M1)**\n\nWe want $\\text{P}(b < X < 6 - a)$. Since $b < 3 < 6 - a$, split it at $3$:\n\n$$\\text{P}(b < X < 6 - a) = \\text{P}(b < X < 3) + \\text{P}(3 < X < 6 - a)$$\n\nThe first piece is given: $\\dfrac{13}{10}p$. This setting up (any correct expression for the probability of a relevant region) earns the M1.",
+   "**Use the mirror image (A1)**\n\nBy symmetry, $\\text{P}(3 < X < 6 - a)$ equals $\\text{P}(a < X < 3)$. From part (a), that is the two given pieces added together:\n\n$$\\text{P}(a < X < 3) = p + \\frac{13}{10}p = \\frac{23}{10}p$$\n\nNow add the two pieces:\n\n$$\\text{P}(b < X < 6 - a) = \\frac{13}{10}p + \\frac{23}{10}p = \\frac{36}{10}p = \\frac{18}{5}p$$\n\nAs a decimal, $\\dfrac{18}{5}p = 3.6p$.",
+   "**Final answer**\n\n$\\text{P}(b < X < 6 - a) = \\dfrac{18}{5}p$ (which is $3.6p$)."
+  ]
+ },
+ "9709_w23_61_q6_c": {
+  "hints": [
+   "With $b = 2$ the interval $a < X < b$ becomes $a < X < 2$, and its probability is $p = \\dfrac{5}{27}$. Write this as $\\displaystyle\\int_a^2 \\text{f}(x)\\,\\text{d}x = \\dfrac{5}{27}$ using the given $\\text{f}$.",
+   "Integrate $6x - x^2$ term by term (add 1 to each power and divide by the new power), then substitute the upper limit $2$ and the lower limit $a$, remembering the factor $\\dfrac{1}{36}$.",
+   "Multiply through to clear the fractions and collect the terms on one side. You should get a cubic with three terms: $a^3$, $a^2$ and a constant.",
+   "Use the factor theorem: try small whole-number factors of the constant term until one gives zero, then divide the cubic by that bracket to leave a quadratic.",
+   "Solve the quadratic (formula). Then check each root against the possible values of $a$: it must lie between $0$ and $b = 2$. Keep only the root that fits."
+  ],
+  "walkthrough": [
+   "**What we are asked**\n\nThe probability density function (pdf) is $\\text{f}(x) = \\dfrac{1}{36}(6x - x^2)$ for $0 \\leqslant x \\leqslant 6$. For a pdf, a probability is an **area under the curve**, found by integrating. We know $b = 2$ and $p = \\dfrac{5}{27}$, and $p$ was defined as $\\text{P}(a < X < b)$.",
+   "**Set up the integral (first M1)**\n\n$$\\text{P}(a < X < 2) = \\int_a^2 \\frac{1}{36}(6x - x^2)\\,\\text{d}x = \\frac{5}{27}$$\n\nThis earns the first M1: integrate with the correct limits and equate to $\\dfrac{5}{27}$. (The scheme also allows other regions, such as integrating from $0$ to $a$ and equating to $\\dfrac{2}{27}$, but this one is the most direct.)",
+   "**Integrate (second M1)**\n\nIntegrate each term: $\\displaystyle\\int 6x\\,\\text{d}x = 3x^2$ and $\\displaystyle\\int x^2\\,\\text{d}x = \\dfrac{x^3}{3}$. So\n\n$$\\frac{1}{36}\\left[3x^2 - \\frac{x^3}{3}\\right]_a^2 = \\frac{5}{27}$$\n\nSubstitute the upper limit $x = 2$ and subtract what you get from the lower limit $x = a$:\n\n$$\\frac{1}{36}\\left[\\left(3(2)^2 - \\frac{2^3}{3}\\right) - \\left(3a^2 - \\frac{a^3}{3}\\right)\\right] = \\frac{5}{27}$$\n\nWork out the upper-limit part: $3 \\times 4 = 12$ and $\\dfrac{2^3}{3} = \\dfrac{8}{3}$, so\n\n$$\\frac{1}{36}\\left(12 - \\frac{8}{3} - 3a^2 + \\frac{a^3}{3}\\right) = \\frac{5}{27}$$\n\nThis earns the second M1 (integrating and substituting the limits to form a cubic in $a$).",
+   "**Rearrange to a cubic (A1)**\n\nFirst tidy the numbers: $12 - \\dfrac{8}{3} = \\dfrac{36}{3} - \\dfrac{8}{3} = \\dfrac{28}{3}$. Then multiply both sides by $36$. On the right, $36 \\times \\dfrac{5}{27} = \\dfrac{180}{27} = \\dfrac{20}{3}$:\n\n$$\\frac{28}{3} - 3a^2 + \\frac{a^3}{3} = \\frac{20}{3}$$\n\nMultiply every term by $3$ to remove the thirds:\n\n$$28 - 9a^2 + a^3 = 20$$\n\nSubtract $20$ from both sides and write in order of powers:\n\n$$a^3 - 9a^2 + 8 = 0$$\n\nThis earns the A1. Any correct three-term cubic is accepted.",
+   "**Factorise the cubic (third M1)**\n\nTry small whole numbers that divide the constant $8$. Test $a = 1$: $1 - 9 + 8 = 0$. It works, so $(a - 1)$ is a factor (factor theorem). Divide the cubic by $(a - 1)$:\n\n$$a^3 - 9a^2 + 8 = (a - 1)(a^2 - 8a - 8)$$\n\nCheck by multiplying out: $(a - 1)(a^2 - 8a - 8) = a^3 - 8a^2 - 8a - a^2 + 8a + 8 = a^3 - 9a^2 + 8$. ✓ This earns the third M1.",
+   "**Solve the quadratic**\n\nThe other roots come from $a^2 - 8a - 8 = 0$. Use the quadratic formula with $a = 1$, $b = -8$, $c = -8$ (the letters in the formula, not the question's $a$ and $b$):\n\n$$a = \\frac{8 \\pm \\sqrt{64 + 32}}{2} = \\frac{8 \\pm \\sqrt{96}}{2} = 4 \\pm \\sqrt{24}$$\n\n$$4 + \\sqrt{24} = 8.90 \\qquad\\text{or}\\qquad 4 - \\sqrt{24} = -0.899$$",
+   "**Reject the roots that do not fit (last A1)**\n\n$a$ is a value of $X$ and has to be below $b = 2$, and $X$ only takes values from $0$ to $6$. So $a$ must lie between $0$ and $2$.\n\n$8.90$ is above 6, and $-0.899$ is below 0. Neither is possible. Only $a = 1$ is between $0$ and $2$.\n\nQuick check: $\\displaystyle\\frac{1}{36}\\left[3x^2 - \\frac{x^3}{3}\\right]_1^2 = \\frac{1}{36}\\left(\\frac{28}{3} - \\frac{8}{3}\\right) = \\frac{1}{36} \\times \\frac{20}{3} = \\frac{5}{27}$. ✓\n\nThis earns the A1 (the scheme gives only B1 for $a = 1$ with no method shown).",
+   "**Final answer**\n\n$a = 1$ (the other two roots, $4 \\pm \\sqrt{24}$, are outside the possible range)."
+  ]
+ }
+}

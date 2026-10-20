@@ -1,0 +1,53 @@
+{
+ "9709_w23_62_q3_a_i": {
+  "hints": [
+   "A test compares the probability of a result **as extreme as, or more extreme than**, the one observed with the significance level. Is $\\text{P}(X = 8)$ that kind of probability?"
+  ],
+  "walkthrough": [
+   "**What the test really compares**\n\nWe reject $\\text{H}_0$ only if what we saw (or something even more in favour of $\\text{H}_1$) would be very unlikely if $\\text{H}_0$ were true. 'Very unlikely' means below the significance level, $0.05$.\n\nSo we need the probability of getting $8$ greens **or more**, because $9$ or $10$ greens would persuade us even more that boys prefer green. That is a tail probability.",
+   "**Why the student is wrong**\n\n$\\text{P}(X = 8) = 0.0439$ is the probability of getting **exactly** $8$ greens. That is not the right probability to compare with $0.05$. He should compare $\\text{P}(X \\geqslant 8)$ with $0.05$.\n\nQuick check: the probability of exactly one value is always smaller than the probability of that value or more, so comparing the exact value with $0.05$ would make us reject too easily.",
+   "**Final answer**\n\nThe student should have found the tail probability $\\text{P}(X \\geqslant 8)$ and compared that with $0.05$, not the probability of exactly $8$."
+  ]
+ },
+ "9709_w23_62_q3_a_ii": {
+  "hints": [
+   "Let $p$ be the probability that a boy chooses green. The null hypothesis is the researcher's belief that the colours are equally likely. The alternative is the magazine's claim that green is more likely, so it is one-tailed.",
+   "If $\\text{H}_0$ is true, $X \\sim \\text{B}(10, 0.5)$. You need the tail $\\text{P}(X \\geqslant 8) = \\text{P}(X = 8) + \\text{P}(X = 9) + \\text{P}(X = 10)$. Part **(a)(i)** gave you $\\text{P}(X = 8)$. For the others use $\\text{P}(X = 9) = {}^{10}\\text{C}_9 \\times 0.5^9 \\times 0.5^1$ and $\\text{P}(X = 10) = 0.5^{10}$.",
+   "Add the three probabilities (or use $1 - \\text{P}(X \\leqslant 7)$ on the calculator's binomial cdf) and give 3 significant figures.",
+   "The test is one-tailed at the 5% level, so compare your tail probability directly with $0.05$ (do not halve it). Is it smaller or larger?",
+   "If it is not smaller than $0.05$ you do not reject $\\text{H}_0$; if it is smaller you reject. Then write the conclusion in context (boys and cube colours) using 'evidence' wording, not a definite statement."
+  ],
+  "walkthrough": [
+   "**Hypotheses (B1)**\n\nFirst say what $p$ means: let $p$ be the probability that a randomly chosen boy aged 1 to 3 chooses the green cube.\n\nThe null hypothesis $\\text{H}_0$ is the researcher's belief, 'equally likely'. The alternative $\\text{H}_1$ is what the magazine claimed: green is **more** likely. That gives a one-tailed test.\n\n$$\\text{H}_0: p = 0.5$$\n\n$$\\text{H}_1: p > 0.5$$",
+   "**Distribution under $\\text{H}_0$**\n\nWe assume $\\text{H}_0$ is true and see how surprising the result is. $X$ is the number of greens out of $10$ boys. It is binomial because there is a fixed number of boys ($10$), each boy either chooses green or not, the boys are chosen at random so they are independent, and $p$ is the same for each.\n\n$$X \\sim \\text{B}(10, 0.5)$$",
+   "**Which probability to find**\n\nWe saw $8$ greens. Results at least this good for $\\text{H}_1$ are $8$, $9$ or $10$ greens (this was the point of part **(a)(i)**). So we find\n\n$$\\text{P}(X \\geqslant 8) = \\text{P}(X = 8) + \\text{P}(X = 9) + \\text{P}(X = 10)$$",
+   "**Calculate the terms (first M1)**\n\nWe are told $\\text{P}(X = 8) = 0.0439$. Now the other two, using $\\text{P}(X = r) = {}^{10}\\text{C}_r\\, 0.5^r\\, 0.5^{10 - r}$.\n\n${}^{10}\\text{C}_9 = 10$ (calculator: $10$ nCr $9$). So\n\n$$\\text{P}(X = 9) = 10 \\times 0.5^9 \\times 0.5 = 10 \\times 0.5^{10} = 10 \\times 0.0009765625 = 0.009765625$$\n\n$$\\text{P}(X = 10) = 0.5^{10} = 0.0009765625$$\n\nThis earns the first M1 (an expression with the binomial terms).",
+   "**Add them (A1)**\n\n$$\\text{P}(X \\geqslant 8) = 0.0439 + 0.009765625 + 0.0009765625 = 0.0546\\ldots$$\n\nUsing the unrounded $\\text{P}(X = 8) = 0.0439453125$ gives $0.0546875$, which is $0.0547$ to 3 s.f. The mark scheme accepts both $0.0546$ and $0.0547$.\n\nQuick check: on the calculator, binomial cdf with $n = 10$, $p = 0.5$, up to $7$ gives $0.9453\\ldots$, and $1 - 0.9453\\ldots = 0.0547$.",
+   "**Compare (second M1)**\n\nThe test is at the 5% level and one-tailed, so we compare the tail probability with $0.05$:\n\n$$0.0547 > 0.05$$\n\nThe result is not unlikely enough, so we do **not** reject $\\text{H}_0$.",
+   "**Conclusion in context (final A1)**\n\nWe state it in context and not definitely (we have not proved anything):\n\nThere is insufficient evidence, at the 5% significance level, to support the magazine's claim that boys aged 1 to 3 prefer green. (Equivalently: there is not enough evidence to reject the researcher's belief that the two colours are equally likely.)",
+   "**Final answer**\n\n$\\text{P}(X \\geqslant 8) = 0.0547$ (3 s.f.), which is greater than $0.05$, so we do not reject $\\text{H}_0$. There is insufficient evidence, at the 5% level, that boys aged 1 to 3 prefer green."
+  ]
+ },
+ "9709_w23_62_q3_b": {
+  "hints": [
+   "A Type I error is rejecting $\\text{H}_0$ when $\\text{H}_0$ is actually true. Look at your decision in part **(a)(ii)**: did the test reject $\\text{H}_0$?"
+  ],
+  "walkthrough": [
+   "**What a Type I error is**\n\nA Type I error happens when we **reject** $\\text{H}_0$ even though $\\text{H}_0$ is true. The key word is 'reject': you cannot make a Type I error unless you rejected.",
+   "**Apply it to this test**\n\nIn part **(a)(ii)** the tail probability was larger than $0.05$, so $\\text{H}_0$ was **not rejected**. With no rejection, a Type I error cannot have happened.",
+   "**Final answer**\n\nA Type I error is only made when $\\text{H}_0$ is rejected, and in this test $\\text{H}_0$ was not rejected, so the claim cannot be true."
+  ]
+ },
+ "9709_w23_62_q3_c": {
+  "hints": [
+   "The probability of a Type I error is $\\text{P}(\\text{reject } \\text{H}_0 \\mid \\text{H}_0 \\text{ true})$, so use $X \\sim \\text{B}(10, 0.5)$ and find the rejection region first: your tail probability for $X \\geqslant 8$ in **(a)(ii)** was too big to reject, so does $X \\geqslant 9$ work?",
+   "Add $\\text{P}(X = 9) = {}^{10}\\text{C}_9 \\times 0.5^9 \\times 0.5$ and $\\text{P}(X = 10) = 0.5^{10}$. Give the result as a fraction or to 3 significant figures."
+  ],
+  "walkthrough": [
+   "**What we are finding**\n\nThe probability of a Type I error is the probability that we reject $\\text{H}_0$ when it is true. So we assume $\\text{H}_0$ is true, $X \\sim \\text{B}(10, 0.5)$, and find the probability that $X$ lands in the rejection (critical) region.",
+   "**Find the rejection region**\n\nThe rejection region is the set of high values of $X$ whose tail probability is at most $0.05$.\n\nFrom part **(a)(ii)**: $\\text{P}(X \\geqslant 8)$ was bigger than $0.05$, so $8$ is **not** in the rejection region.\n\nNext, $\\text{P}(X \\geqslant 9) = \\text{P}(X = 9) + \\text{P}(X = 10) = 0.009765625 + 0.0009765625 = 0.0107\\ldots$, which is below $0.05$. So $9$ and $10$ are in the rejection region: reject when $X \\geqslant 9$.",
+   "**Calculate the probability (M1)**\n\n$$\\text{P}(X = 9) = {}^{10}\\text{C}_9 \\times 0.5 \\times 0.5^9 = 10 \\times 0.5^{10} = \\frac{10}{1024}$$\n\n$$\\text{P}(X = 10) = 0.5^{10} = \\frac{1}{1024}$$\n\nAdding:\n\n$$\\text{P}(\\text{Type I error}) = \\frac{10}{1024} + \\frac{1}{1024} = \\frac{11}{1024} = 0.010742\\ldots$$\n\nNote that this also equals $0.0547 - 0.0439$ from the previous part (the difference is $\\text{P}(X \\geqslant 8) - \\text{P}(X = 8)$), which is where the second accepted value $0.0108$ comes from, due to rounding.",
+   "**Final answer**\n\n$$\\text{P}(\\text{Type I error}) = \\frac{11}{1024} = 0.0107 \\text{ (3 s.f.)}$$\n\n(The mark scheme also accepts $0.0108$, which comes from $0.0547 - 0.0439$ with rounded numbers.)"
+  ]
+ }
+}

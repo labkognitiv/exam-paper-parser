@@ -1,0 +1,49 @@
+{
+ "9709_w20_62_q5_a": {
+  "hints": [
+   "The question already gives a constant average rate. Poisson also needs a condition about how the arrivals relate to each other: do customers affect one another, and can two arrive at exactly the same moment?"
+  ],
+  "walkthrough": [
+   "**What makes a Poisson distribution suitable**\n\nThe Poisson distribution models random events happening in a time interval. The conditions are: events occur at a **constant average rate** (given in the question), events occur **independently** of each other, events occur **singly** (never two at exactly the same instant), and they occur **at random**.\n\nThe question has given us the first condition, so we need to name one of the others, written in context.",
+   "**Final answer**\n\nAny one of these, in context: customers arrive independently of each other (one arrival does not change when the next customer comes), or customers arrive singly, or customers arrive at random."
+  ]
+ },
+ "9709_w20_62_q5_b": {
+  "hints": [
+   "Use the Poisson probability formula $\\text{P}(X = r) = \\text{e}^{-\\lambda}\\dfrac{\\lambda^r}{r!}$ with $\\lambda = 2.3$ and $r = 3$. Write that expression down first.",
+   "Work out $\\text{e}^{-2.3}$, then $2.3^3$, divide by $3! = 3 \\times 2 \\times 1$ and multiply the parts together. (Or use the calculator's Poisson 'pdf' with mean 2.3 at $x = 3$.) Round to 3 significant figures."
+  ],
+  "walkthrough": [
+   "**Choose the formula**\n\nLet $X$ be the number of customers arriving in one minute, with $X \\sim \\text{Po}(2.3)$. We want exactly 3, so we use the Poisson probability formula:\n\n$$\\text{P}(X = r) = \\text{e}^{-\\lambda}\\frac{\\lambda^r}{r!}$$\n\nHere $\\lambda = 2.3$ is the mean number of arrivals per minute and $r = 3$:\n\n$$\\text{P}(X = 3) = \\text{e}^{-2.3} \\times \\frac{2.3^3}{3!}$$\n\nWriting this correct expression earns the M1.",
+   "**Calculate each piece**\n\n$\\text{e}^{-2.3} = 0.100259$ (calculator: $\\text{e}^x$ then $-2.3$).\n\n$2.3^3 = 2.3 \\times 2.3 \\times 2.3 = 5.29 \\times 2.3 = 12.167$.\n\n$3! = 3 \\times 2 \\times 1 = 6$.\n\n$$\\frac{12.167}{6} = 2.02783$$\n\n$$\\text{P}(X = 3) = 0.100259 \\times 2.02783 = 0.203308$$\n\nCheck with the calculator's Poisson pdf (mean $2.3$, $x = 3$): $0.2033$.",
+   "**Final answer**\n\nThe probability that exactly 3 customers arrive in a 1-minute period is $0.203$ (3 s.f.)."
+  ]
+ },
+ "9709_w20_62_q5_c": {
+  "hints": [
+   "The new time period is 2 minutes, but the rate is given per minute. Scale the mean to match the new period and state the new Poisson distribution.",
+   "'More than 3' goes on without end, so use the complement: $1 - \\text{P}(Y \\leqslant 3) = 1 - [\\text{P}(0) + \\text{P}(1) + \\text{P}(2) + \\text{P}(3)]$, with each term $\\text{e}^{-\\lambda}\\dfrac{\\lambda^r}{r!}$ and your new $\\lambda$.",
+   "Work out the four terms (or use cumulative Poisson on the calculator with $x = 3$), add them, subtract from 1 and round to 3 significant figures."
+  ],
+  "walkthrough": [
+   "**Change the time period**\n\nThe mean of 2.3 is for **one** minute. For two minutes the average number of customers doubles, because the rate is constant:\n\n$$\\lambda = 2.3 \\times 2 = 4.6$$\n\nLet $Y$ be the number of customers in 2 minutes, so $Y \\sim \\text{Po}(4.6)$. Stating this earns the B1. (Using $\\text{Po}(2.3)$ again is the classic slip.)",
+   "**Turn 'more than 3' into a calculation**\n\n'More than 3' means $4, 5, 6, \\dots$ and never ends. Use the fact that all probabilities total 1:\n\n$$\\text{P}(Y > 3) = 1 - \\text{P}(Y \\leqslant 3) = 1 - [\\text{P}(0) + \\text{P}(1) + \\text{P}(2) + \\text{P}(3)]$$\n\nWritten out with the Poisson formula (this earns the M1):\n\n$$1 - \\text{e}^{-4.6}\\left(1 + 4.6 + \\frac{4.6^2}{2!} + \\frac{4.6^3}{3!}\\right)$$",
+   "**Calculate each term**\n\n$\\text{e}^{-4.6} = 0.0100518$.\n\n$$\\text{P}(0) = 0.0100518 \\times 1 = 0.0100518$$\n\n$$\\text{P}(1) = 0.0100518 \\times 4.6 = 0.0462384$$\n\n$$\\text{P}(2) = 0.0100518 \\times \\frac{4.6^2}{2} = 0.0100518 \\times \\frac{21.16}{2} = 0.0100518 \\times 10.58 = 0.106348$$\n\n$$\\text{P}(3) = 0.0100518 \\times \\frac{4.6^3}{6} = 0.0100518 \\times \\frac{97.336}{6} = 0.0100518 \\times 16.2227 = 0.163068$$",
+   "**Add and subtract from 1**\n\n$$\\text{P}(Y \\leqslant 3) = 0.0100518 + 0.0462384 + 0.106348 + 0.163068 = 0.325706$$\n\n$$\\text{P}(Y > 3) = 1 - 0.325706 = 0.674294$$\n\nCheck: cumulative Poisson with mean $4.6$ and $x = 3$ gives $0.3257$. Round the final answer to 3 significant figures (the A1 needs a final answer).",
+   "**Final answer**\n\nThe probability that more than 3 customers arrive during a 2-minute period is $0.674$ (3 s.f.)."
+  ]
+ },
+ "9709_w20_62_q5_d": {
+  "hints": [
+   "First find the probability that no customers arrive in a single 1-minute period: $\\text{P}(X = 0)$ for $\\text{Po}(2.3)$, using $\\text{e}^{-\\lambda}\\dfrac{\\lambda^r}{r!}$ with $r = 0$. Call this $p$.",
+   "Each of the 5 periods is a trial that either has 'no customers' (probability $p$) or not, independently. Counting the number of periods with none is binomial with $n = 5$: $\\text{P}(\\text{exactly 2}) = {}^5\\text{C}_2\\, p^2(1 - p)^3$.",
+   "Substitute your unrounded $p$ into ${}^5\\text{C}_2\\, p^2(1 - p)^3$, calculate each part and round to 3 significant figures."
+  ],
+  "walkthrough": [
+   "**Step one: probability of 'no customers' in one minute**\n\nWe first need the chance that a single 1-minute period has nobody arriving. Using $\\text{Po}(2.3)$ and $r = 0$:\n\n$$\\text{P}(X = 0) = \\text{e}^{-2.3} \\times \\frac{2.3^0}{0!} = \\text{e}^{-2.3} \\times 1 = 0.100259$$\n\nBecause $2.3^0 = 1$ and $0! = 1$, the answer is simply $\\text{e}^{-2.3}$. Call this $p = 0.100259$. This earns the first M1 (it must be clear that this is your P(none arrive)).",
+   "**Step two: why a binomial distribution?**\n\nNow look at 5 separate 1-minute periods. For each period there are only two outcomes: 'no customers' (probability $p = 0.100259$) or 'at least one customer' (probability $1 - p = 0.899741$). The periods are independent and $p$ is the same each time. That is a binomial situation. Let $W$ be the number of periods, out of 5, with no customers, so $W \\sim \\text{B}(5, 0.100259)$.",
+   "**Step three: exactly 2 periods**\n\n$$\\text{P}(W = 2) = {}^5\\text{C}_2\\,(\\text{e}^{-2.3})^2\\,(1 - \\text{e}^{-2.3})^3$$\n\nThis earns the second M1. Each part is:\n\n${}^5\\text{C}_2 = \\dfrac{5!}{2!\\,3!} = \\dfrac{120}{2 \\times 6} = 10$ (the number of ways to choose which 2 of the 5 periods are empty).\n\n$(0.100259)^2 = 0.0100518$ (the two empty periods).\n\n$(0.899741)^3 = 0.899741 \\times 0.899741 \\times 0.899741 = 0.728371$ (the three periods with customers).\n\n$$\\text{P}(W = 2) = 10 \\times 0.0100518 \\times 0.728371 = 0.073215$$\n\nCheck: binomial pdf with $n = 5$, $p = 0.100259$, $x = 2$ gives $0.0732$.",
+   "**Final answer**\n\nThe probability is $0.0732$ (3 s.f.). The scheme also accepts $0.0733$, which comes from rounding intermediate values."
+  ]
+ }
+}

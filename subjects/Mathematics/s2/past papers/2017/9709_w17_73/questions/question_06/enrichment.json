@@ -1,0 +1,34 @@
+{
+ "9709_w17_73_q6_i": {
+  "hints": [
+   "Income from field $A$ is $90X$ (millions of dollars). For a multiple of a variable, $\\text{E}(aX) = a\\,\\text{E}(X)$, so combine $90$ with $3.2$.",
+   "For the variance, $\\text{Var}(aX) = a^2\\,\\text{Var}(X)$: the multiplier $90$ is squared. The variance of $X$ is the square of its standard deviation, $0.4^2$.",
+   "Multiply the two squared numbers: $0.4^2 \\times 90^2$. Be careful that you square the $90$, and do not use $0.4$ as if it were the variance."
+  ],
+  "walkthrough": [
+   "**Set up the income**\n\n$X$ is the number of millions of barrels per day from field $A$, and each barrel brings \\$90. So the daily income from $A$ in millions of dollars is $90X$. We need its mean and variance.",
+   "**The mean (earns B1)**\n\nMultiplying a variable by a number multiplies its mean by the same number: $\\text{E}(aX) = a\\,\\text{E}(X)$. Here $\\text{E}(X) = 3.2$ (from $\\text{N}(3.2, 0.4^2)$, the first number is the mean).\n\n$$\\text{E}(90X) = 90 \\times 3.2 = 288$$",
+   "**The variance: the rule (earns M1)**\n\nMultiplying by $a$ multiplies the variance by $a^2$ (not $a$), because variance is in squared units: $\\text{Var}(aX) = a^2\\,\\text{Var}(X)$.\n\nIn $\\text{N}(3.2, 0.4^2)$ the second number is the variance, which is already written as $0.4^2$ (so the standard deviation is 0.4).\n\n$$\\text{Var}(90X) = 90^2 \\times 0.4^2$$",
+   "**The variance: the arithmetic (earns A1)**\n\n$90^2 = 8100$ and $0.4^2 = 0.16$.\n\n$$8100 \\times 0.16 = 1296$$\n\nQuick check: the standard deviation of $90X$ is $90 \\times 0.4 = 36$, and $36^2 = 1296$. It agrees.",
+   "**Final answer**\n\nMean income $= 288$ million dollars; variance $= 1296$."
+  ]
+ },
+ "9709_w17_73_q6_ii": {
+  "hints": [
+   "Let $T = 90X + 95Y$ be the total income. Means add: use your mean from part (i) and add $95 \\times 4.3$ for field $B$.",
+   "$X$ and $Y$ are independent, so the variances add: use your variance from part (i) and add $95^2 \\times 0.6^2$ (square the multiplier).",
+   "A sum of independent normal variables is normal. Standardise the value 670 with $z = \\dfrac{670 - \\text{mean}}{\\sqrt{\\text{variance}}}$. Divide by the standard deviation, not the variance.",
+   "\"At least\" 670 means the upper tail. Sketch the curve: is 670 below or above your mean? Decide whether the area you want is $\\Phi(\\cdot)$ of your $z$ or $1 - \\Phi(\\cdot)$ of it, and use $\\Phi(-z) = 1 - \\Phi(z)$ if your $z$ is negative.",
+   "Evaluate the normal cdf for your positive value with a table or calculator and round to 3 significant figures."
+  ],
+  "walkthrough": [
+   "**Set up the total**\n\nIncome from $A$ is $90X$ and income from $B$ is $95Y$ (each barrel from $B$ brings \\$95). The total daily income is\n\n$$T = 90X + 95Y$$\n\nWe want $\\text{P}(T \\geqslant 670)$. First we need the mean and variance of $T$.",
+   "**Mean of $T$ (earns B1 FT)**\n\nMeans add. We already have $\\text{E}(90X) = 288$ from part (i). For $B$: $\\text{E}(95Y) = 95 \\times 4.3 = 408.5$.\n\n$$\\text{E}(T) = 288 + 408.5 = 696.5$$",
+   "**Variance of $T$ (earns B1 FT)**\n\nFor independent variables the variances add: $\\text{Var}(90X + 95Y) = \\text{Var}(90X) + \\text{Var}(95Y)$. (Variances add even when we subtract variables, because squared units are always positive.) From part (i), $\\text{Var}(90X) = 1296$. For $B$ we square the multiplier: $\\text{Var}(95Y) = 95^2 \\times 0.6^2$.\n\n$$95^2 = 9025, \\qquad 0.6^2 = 0.36, \\qquad 9025 \\times 0.36 = 3249$$\n\n$$\\text{Var}(T) = 1296 + 3249 = 4545$$\n\nSo $T \\sim \\text{N}(696.5, 4545)$. This is normal because it is a sum of independent normal variables.",
+   "**Standardise (earns M1)**\n\nWe standardise with $z = \\dfrac{\\text{value} - \\text{mean}}{\\text{standard deviation}}$. The standard deviation is the square root of the variance: $\\sqrt{4545} = 67.416$. A very common slip is to divide by 4545 itself.\n\n$$z = \\frac{670 - 696.5}{\\sqrt{4545}} = \\frac{-26.5}{67.416} = -0.393$$",
+   "**Choose the area (earns M1)**\n\nWe want $\\text{P}(T \\geqslant 670)$, the area to the right of $z = -0.393$. Sketch the curve: $670$ is a little below the mean $696.5$, so more than half of the area is to the right of it. The answer must be bigger than $0.5$.\n\n$$\\text{P}(Z > -0.393) = 1 - \\Phi(-0.393) = \\Phi(0.393)$$\n\nThe two forms are the same, because the curve is symmetrical: the area to the left of $-0.393$ equals the area to the right of $+0.393$.",
+   "**Calculate (earns A1)**\n\nUsing the normal table or your calculator's normal cdf:\n\n$$\\Phi(0.393) = 0.6528$$\n\nRounded to 3 significant figures this is $0.653$. Quick check: it is above $0.5$, as the sketch predicted.",
+   "**Final answer**\n\n$$\\text{P}(\\text{total income} \\geqslant \\$670 \\text{ million}) = 0.653 \\;(3 \\text{ s.f.})$$"
+  ]
+ }
+}

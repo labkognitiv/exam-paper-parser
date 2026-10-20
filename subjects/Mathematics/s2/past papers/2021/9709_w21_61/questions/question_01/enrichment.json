@@ -1,0 +1,30 @@
+{
+ "9709_w21_61_q1_a": {
+  "hints": [
+   "You are asked about the mean of a sample taken from a normal population. A sample mean of normal values is itself normally distributed, and it is centred on the same value as the population: write $\\bar{H} \\sim \\text{N}(\\ldots, \\ldots)$ and decide what goes in the first slot.",
+   "The spread of a sample mean is smaller than the spread of a single tree. The variance of $\\bar{H}$ is the population variance divided by the sample size: use $\\dfrac{10.24}{25}$ and remember the second number in $\\text{N}(\\mu, \\sigma^2)$ is already a variance."
+  ],
+  "walkthrough": [
+   "**What we are being asked**\n\n$H$ is the height of one tree. $\\bar{H}$ (read 'H bar') is the mean height of a sample of 25 trees. We want the distribution of that sample mean, so we need its type (normal, Poisson, ...), its mean and its variance.",
+   "**The distribution of one tree**\n\nThe question tells us $H \\sim \\text{N}(12.5, 10.24)$. In the notation $\\text{N}(\\mu, \\sigma^2)$ the first number is the mean and the second number is the **variance** (not the standard deviation).\n\n$$\\mu = 12.5 \\qquad \\sigma^2 = 10.24$$",
+   "**Type and mean of $\\bar{H}$ (this earns the first B1)**\n\nIf the individual values are normal, then the mean of a sample of them is also normal. Averaging does not move the centre, so the mean of $\\bar{H}$ is the same as the mean of $H$.\n\n$$\\text{E}(\\bar{H}) = \\mu = 12.5$$\n\nSo we can already write $\\bar{H} \\sim \\text{N}(12.5, \\ldots)$.",
+   "**Variance of $\\bar{H}$ (this earns the second B1)**\n\nAveraging 25 trees smooths out the extreme ones, so the sample mean varies less than a single tree. The rule is: variance of the sample mean $= \\dfrac{\\sigma^2}{n}$, where $n = 25$ is the sample size.\n\n$$\\text{Var}(\\bar{H}) = \\frac{\\sigma^2}{n} = \\frac{10.24}{25}$$$$\\frac{10.24}{25} = 0.4096$$\n\nQuick check: $10.24$ is already $\\sigma^2$, so do not square it again. Dividing the standard deviation $3.2$ by $25$ is also a slip: the standard deviation is divided by $\\sqrt{25}$, the variance by $25$.",
+   "**Final answer**\n\n$$\\bar{H} \\sim \\text{N}(12.5,\\ 0.4096)$$\n\nThe mean is $12.5$ and the variance is $0.4096$ (0.410 to 3 s.f. is also accepted; $\\frac{10.24}{25}$ is condoned)."
+  ]
+ },
+ "9709_w21_61_q1_b": {
+  "hints": [
+   "Use the distribution from part (a), $\\bar{H} \\sim \\text{N}(12.5, \\tfrac{10.24}{25})$. To standardise a normal value use $z = \\dfrac{x - \\mu}{\\sigma}$, with $\\sigma$ the **standard deviation** (square root of the variance). Start with the upper limit: $z = \\dfrac{13 - 12.5}{\\sqrt{10.24/25}}$.",
+   "You want the area between two limits, $12$ and $13$, which sit the same distance either side of the mean $12.5$. The lower limit gives $-z$, so the area is $\\Phi(z) - \\Phi(-z)$, and $\\Phi(-z) = 1 - \\Phi(z)$.",
+   "Find $\\Phi(z)$ for your $z$ (normal table or calculator normal cdf), put it into $\\Phi(z) - \\big(1 - \\Phi(z)\\big)$ and subtract. The answer is a probability, so it must lie between 0 and 1. Give 3 s.f."
+  ],
+  "walkthrough": [
+   "**Choose the distribution**\n\nWe use the answer to part (a): $\\bar{H} \\sim \\text{N}(12.5, 0.4096)$. We want the probability that the sample mean falls between $12$ and $13$.\n\n$$\\text{P}(12 < \\bar{H} < 13)$$",
+   "**Standardise the upper limit (first M1)**\n\nTo use the standard normal table we convert to a $z$-value: $z = \\dfrac{x - \\mu}{\\sigma}$. Here $\\sigma$ is the standard deviation, which is the square root of the variance $0.4096$.\n\n$$\\sigma = \\sqrt{0.4096} = 0.64$$$$z = \\frac{13 - 12.5}{0.64} = \\frac{0.5}{0.64} = 0.78125$$\n\nThe mark scheme rounds this to $0.781$; either is fine.",
+   "**Standardise the lower limit**\n\n$$z = \\frac{12 - 12.5}{0.64} = \\frac{-0.5}{0.64} = -0.78125$$\n\nThe two limits are the same distance from the mean, so the $z$-values are $+0.78125$ and $-0.78125$. The normal curve is symmetrical, which makes the next step easy.",
+   "**Write the area as a difference (second M1)**\n\nThe area between the two $z$-values is the area to the left of the upper one minus the area to the left of the lower one.\n\n$$\\text{P}(-0.78125 < Z < 0.78125) = \\Phi(0.78125) - \\Phi(-0.78125)$$\n\nBy symmetry, $\\Phi(-0.78125) = 1 - \\Phi(0.78125)$, so\n\n$$= \\Phi(0.78125) - \\big(1 - \\Phi(0.78125)\\big) = 2\\Phi(0.78125) - 1$$",
+   "**Look up and calculate**\n\n$\\Phi(0.78125)$: use the normal table or your calculator's normal cdf (lower bound very negative, upper bound $0.78125$) $\\to 0.78267$.\n\n$$2 \\times 0.78267 - 1 = 1.56534 - 1 = 0.56534$$\n\nQuick check: the interval is about $\\pm 0.78$ standard deviations around the mean, and about 57% of a normal distribution lies within that range. That agrees.",
+   "**Final answer**\n\n$$\\text{P}(12 < \\bar{H} < 13) = 0.565 \\text{ (3 s.f.)}$$"
+  ]
+ }
+}

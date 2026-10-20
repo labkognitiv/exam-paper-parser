@@ -1,0 +1,34 @@
+{
+  "9709_w17_72_q4_i": {
+    "hints": [
+      "The area under a probability density function is $1$. Write $\\int_0^a \\dfrac{k}{\\sqrt{x}}\\,\\text{d}x = 1$ (and remember $\\dfrac{1}{\\sqrt{x}} = x^{-1/2}$).",
+      "Integrate $k x^{-1/2}$, then substitute the limits $a$ and $0$. This gives your first equation in $k$ and $a$.",
+      "The mean is $\\text{E}(X) = \\int x\\,\\text{f}(x)\\,\\text{d}x$. Write $\\int_0^a x\\times\\dfrac{k}{\\sqrt{x}}\\,\\text{d}x = 3$ and simplify the integrand to a single power of $x$.",
+      "Integrate that power, substitute the limits $a$ and $0$, and you have a second equation in $k$ and $a$.",
+      "You have two equations and two unknowns. Eliminate $k$: for example, divide the second equation by the first so $k$ cancels, leaving an equation in $a$ only.",
+      "Solve that equation for $a$. $a$ is the upper end of the range of $X$, so it must be positive.",
+      "Substitute your value of $a$ into the first equation to find $k$, and check that it comes to $\\dfrac{1}{6}$, as the question says it should."
+    ],
+    "walkthrough": [
+      "**What we know**\n\nA probability density function (pdf) has two key properties:\n\n- The total area under it is $1$, i.e. $\\int \\text{f}(x)\\,\\text{d}x = 1$ over the whole range.\n\n- The mean is $\\text{E}(X) = \\int x\\,\\text{f}(x)\\,\\text{d}x$.\n\nHere $\\text{f}(x) = \\dfrac{k}{\\sqrt{x}} = kx^{-1/2}$ for $0 < x \\leqslant a$, and $\\text{E}(X) = 3$. We have two unknowns, $k$ and $a$, so we need two equations: one from the total area, one from the mean.",
+      "**Equation 1: total area is 1 (first M1 and first A1)**\n\n$$\\int_0^a kx^{-1/2}\\,\\text{d}x = 1$$\n\nTo integrate a power, add $1$ to the power and divide by the new power: $x^{-1/2}$ becomes $\\dfrac{x^{1/2}}{1/2} = 2x^{1/2}$.\n\n$$\\left[2kx^{1/2}\\right]_0^a = 1$$\n\nSubstitute the limits (the lower limit $0$ gives $0$):\n\n$$2ka^{1/2} - 0 = 1$$\n\n$$2k\\sqrt{a} = 1 \\qquad \\text{(Equation 1)}$$",
+      "**Equation 2: the mean is 3 (second M1 and second A1)**\n\nMultiply $\\text{f}(x)$ by $x$. Since $x \\times x^{-1/2} = x^{1/2}$:\n\n$$\\int_0^a x \\times kx^{-1/2}\\,\\text{d}x = \\int_0^a kx^{1/2}\\,\\text{d}x = 3$$\n\nIntegrate: $x^{1/2}$ becomes $\\dfrac{x^{3/2}}{3/2} = \\dfrac{2}{3}x^{3/2}$.\n\n$$\\left[\\frac{2}{3}kx^{3/2}\\right]_0^a = 3$$\n\n$$\\frac{2}{3}ka^{3/2} = 3 \\qquad \\text{(Equation 2)}$$",
+      "**Eliminate $k$ to find $a$ (third M1 and the A1)**\n\nDivide Equation 2 by Equation 1. The left sides divide and the right sides divide:\n\n$$\\frac{\\frac{2}{3}ka^{3/2}}{2ka^{1/2}} = \\frac{3}{1}$$\n\nOn the left, the $k$ cancels. $\\dfrac{2/3}{2} = \\dfrac{1}{3}$, and $\\dfrac{a^{3/2}}{a^{1/2}} = a^{3/2 - 1/2} = a$:\n\n$$\\frac{a}{3} = 3$$\n\n$$a = 9$$\n\n(The mark scheme eliminates in a slightly different way, which gives $a^2 = 81$ and then $a = 9$. Any correct elimination earns the M1.)\n\n$a$ is a positive upper limit, so $a = 9$.",
+      "**Find $k$ and show it is $\\frac{1}{6}$ (the final A1)**\n\nPut $a = 9$ into Equation 1:\n\n$$2k\\sqrt{9} = 1$$\n\n$$2k \\times 3 = 1$$\n\n$$6k = 1$$\n\n$$k = \\frac{1}{6}$$\n\nQuick check with Equation 2: $9^{3/2} = 27$, so $\\dfrac{2}{3}\\times\\dfrac{1}{6}\\times 27 = \\dfrac{54}{18} = 3$, which is the given mean. It works.",
+      "**Final answer**\n\n$a = 9$ and $k = \\dfrac{1}{6}$ (as required)."
+    ]
+  },
+  "9709_w17_72_q4_ii": {
+    "hints": [
+      "The median $m$ cuts the area in half: $\\int_0^m \\text{f}(x)\\,\\text{d}x = 0.5$. Use $\\text{f}(x) = \\dfrac{1}{6\\sqrt{x}}$, with the unknown $m$ as the upper limit.",
+      "Integrate $\\dfrac{1}{6}x^{-1/2}$ (the integral of $x^{-1/2}$ is $2x^{1/2}$), then substitute the limits $m$ and $0$ to get an equation in $m$.",
+      "Rearrange to find $\\sqrt{m}$, then square to get $m$. Check that $m$ is between $0$ and $a$."
+    ],
+    "walkthrough": [
+      "**What the median means (the M1)**\n\nThe median $m$ is the value that has half of the probability below it, so the area under the pdf from $0$ up to $m$ is $0.5$. We use $k = \\dfrac{1}{6}$ from part (i):\n\n$$\\int_0^m \\frac{1}{6}x^{-1/2}\\,\\text{d}x = 0.5$$",
+      "**Integrate and substitute (the first A1)**\n\n$x^{-1/2}$ integrates to $2x^{1/2}$:\n\n$$\\left[\\frac{1}{6}\\times 2x^{1/2}\\right]_0^m = 0.5$$\n\n$$\\frac{1}{3}m^{1/2} - 0 = 0.5$$\n\n$$\\frac{1}{3}\\sqrt{m} = 0.5$$",
+      "**Solve for $m$ (the second A1)**\n\nMultiply both sides by $3$:\n\n$$\\sqrt{m} = 0.5 \\times 3 = 1.5$$\n\nSquare both sides:\n\n$$m = 1.5^2 = 2.25$$\n\nQuick check: $2.25$ lies between $0$ and $9$, so it is in the range of $X$.",
+      "**Final answer**\n\nThe median of $X$ is $2.25$."
+    ]
+  }
+}

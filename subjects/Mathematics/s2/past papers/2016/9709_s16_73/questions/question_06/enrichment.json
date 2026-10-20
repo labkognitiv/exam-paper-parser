@@ -1,0 +1,50 @@
+{
+ "9709_s16_73_q6_i": {
+  "hints": [
+   "The sum of two independent Poisson variables is also Poisson. What is its mean, from $\\text{Po}(1.6)$ and $\\text{Po}(2.3)$?",
+   "You want exactly 4, so use $\\text{P}(W = r) = \\text{e}^{-\\lambda}\\dfrac{\\lambda^r}{r!}$ with $r = 4$ and your new $\\lambda$.",
+   "Evaluate $\\text{e}^{-\\lambda} \\times \\dfrac{\\lambda^4}{4!}$ on the calculator ($4! = 4 \\times 3 \\times 2 \\times 1$). Give 3 significant figures."
+  ],
+  "walkthrough": [
+   "**Combine the two variables**\n\n$X$ and $Y$ are independent and each is Poisson. A useful fact: the sum of independent Poisson variables is Poisson, with the means added. Let $W = X + Y$. Then\n\n$$\\lambda = 1.6 + 2.3 = 3.9, \\qquad W \\sim \\text{Po}(3.9)$$\n\nThis earns the **B1**.",
+   "**Write the probability**\n\nWe want exactly 4, so use $\\text{P}(W = r) = \\text{e}^{-\\lambda}\\dfrac{\\lambda^r}{r!}$ with $r = 4$:\n\n$$\\text{P}(W = 4) = \\text{e}^{-3.9} \\times \\frac{3.9^4}{4!}$$\n\nThis earns the **M1**.",
+   "**Calculate**\n\n$\\text{e}^{-3.9} = 0.020242$\n\n$3.9^4 = 3.9 \\times 3.9 \\times 3.9 \\times 3.9 = 231.3441$\n\n$4! = 4 \\times 3 \\times 2 \\times 1 = 24$, so $\\dfrac{231.3441}{24} = 9.639338$\n\n$$\\text{P}(W = 4) = 0.020242 \\times 9.639338 = 0.1951$$\n\n(Your calculator's Poisson pdf with $\\lambda = 3.9$, $x = 4$ gives the same.)",
+   "**Final answer**\n\n$\\text{P}(X + Y = 4) = $ **0.195** (3 significant figures). This earns the **A1**. The scheme also gives credit for adding the separate combinations $\\text{P}(X = a)\\,\\text{P}(Y = 4 - a)$ for $a = 0, \\dots, 4$, but the Poisson sum is much quicker."
+  ]
+ },
+ "9709_s16_73_q6_ii": {
+  "hints": [
+   "The sample size is 75, which is large. What does the Central Limit Theorem say about the shape of the distribution of $\\bar{X}$? Its mean equals the mean of $X$.",
+   "The variance of a sample mean is $\\dfrac{\\sigma^2}{n}$. For a Poisson variable, the variance equals the mean, so $\\sigma^2$ is the mean of $X$, and $n = 75$."
+  ],
+  "walkthrough": [
+   "**Which distribution?**\n\nWith a large sample ($n = 75$), the Central Limit Theorem says the sample mean $\\bar{X}$ is approximately **normally** distributed, even though $X$ itself is Poisson.",
+   "**Find the mean and variance**\n\nThe mean of $\\bar{X}$ is the same as the mean of $X$, which is $1.6$.\n\nThe variance of $\\bar{X}$ is $\\dfrac{\\sigma^2}{n}$. For a Poisson variable the variance equals the mean, so $\\sigma^2 = 1.6$. Then\n\n$$\\text{Var}(\\bar{X}) = \\frac{1.6}{75}$$\n\nQuick check: do not use the standard deviation as the second parameter. In $\\text{N}(\\mu, \\sigma^2)$ the second number is the **variance**.",
+   "**Final answer**\n\n$$\\bar{X} \\sim \\text{N}\\left(1.6, \\frac{1.6}{75}\\right)$$\n\napproximately, with mean $1.6$ (first **B1**) and variance $\\dfrac{1.6}{75}$ (second **B1**). Both must be stated."
+  ]
+ },
+ "9709_s16_73_q6_iii": {
+  "hints": [
+   "Standardise $\\bar{x} = 1.7$ with the distribution from part (ii): $z = \\dfrac{1.7 - 1.6}{\\sqrt{1.6/75}}$. Remember the square root, since the denominator is a standard deviation.",
+   "You want the probability that the mean is *more than* 1.7, which is the upper tail: write it as $1 - \\Phi(z)$.",
+   "Evaluate $\\Phi(z)$ using the table or the normal cdf on your calculator, subtract it from 1 and give 3 significant figures."
+  ],
+  "walkthrough": [
+   "**Set up**\n\nFrom part (ii), $\\bar{X} \\sim \\text{N}\\left(1.6, \\dfrac{1.6}{75}\\right)$. We want $\\text{P}(\\bar{X} > 1.7)$.",
+   "**Standardise**\n\nStandardising changes $1.7$ into a $z$-value. The denominator is the standard deviation, the square root of the variance:\n\n$$z = \\frac{1.7 - 1.6}{\\sqrt{\\dfrac{1.6}{75}}}$$\n\nThis earns the first **M1**. Step by step:\n\n$$\\frac{1.6}{75} = 0.021333, \\qquad \\sqrt{0.021333} = 0.14606$$\n\n$$z = \\frac{0.1}{0.14606} = 0.685$$",
+   "**Choose the correct tail**\n\n\"More than 1.7\" is the upper tail, i.e. the area to the right of $z = 0.685$. Normal tables give the area to the *left*, so\n\n$$\\text{P}(\\bar{X} > 1.7) = 1 - \\Phi(0.685)$$\n\nThis earns the second **M1**.",
+   "**Calculate**\n\n$\\Phi(0.685) = 0.7533$ (from the table or the calculator's normal cdf), so\n\n$$1 - 0.7533 = 0.2467$$",
+   "**Final answer**\n\n$\\text{P}(\\bar{X} > 1.7) = $ **0.247** (3 significant figures). This earns the **A1**."
+  ]
+ },
+ "9709_s16_73_q6_iv": {
+  "hints": [
+   "Which distribution does one value of $X$ follow, as stated in the question? Is it a normal distribution? Then decide what that means for the CLT."
+  ],
+  "walkthrough": [
+   "**Check the original distribution**\n\nThe question says $X \\sim \\text{Po}(1.6)$. A Poisson distribution is **not** normal (it is discrete and skewed when the mean is small).",
+   "**Why this matters**\n\nIf $X$ had been normal, then $\\bar{X}$ would be normal for any sample size. Because $X$ is not normal, we needed the Central Limit Theorem to say $\\bar{X}$ is *approximately* normal, thanks to the large sample size of 75.",
+   "**Final answer**\n\nYes, the Central Limit Theorem was needed, because $X$ is not normally distributed (it is Poisson)."
+  ]
+ }
+}

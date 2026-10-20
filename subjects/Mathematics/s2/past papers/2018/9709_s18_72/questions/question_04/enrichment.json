@@ -1,0 +1,45 @@
+{
+ "9709_s18_72_q4_i": {
+  "hints": [
+   "The unbiased estimate of the population mean is the sample mean: add the ten masses and divide by $10$.",
+   "For the unbiased estimate of variance use $s^2 = \\dfrac{1}{n-1}\\left(\\sum x^2 - \\dfrac{(\\sum x)^2}{n}\\right)$ with $n = 10$. First square each mass ($500^2$, $499^2$, and so on) and add them to get $\\sum x^2$.",
+   "Put your $\\sum x^2$ and $\\sum x$ into the formula, subtract, then divide by $9$, **not** by $10$ (dividing by $10$ gives the biased variance, which scores no marks)."
+  ],
+  "walkthrough": [
+   "**What 'unbiased estimate' means**\n\nWe only have a sample of 10 packets, but we want to say something about **all** packets from the machine. An unbiased estimate is a value calculated from the sample that on average is right for the population.\n\nFor the mean, the sample mean $\\bar{x}$ is the unbiased estimate. For the variance, we must divide by $n - 1$ (here $9$), not by $n$. (Dividing by $n$ would give a value that is on average too small.)",
+   "**The unbiased estimate of the mean (this is the B1)**\n\nFirst add the ten masses:\n\n$$\\sum x = 500 + 499 + 496 + 495 + 498 + 490 + 492 + 501 + 494 + 494 = 4959$$\n\nThen divide by the number of packets, $n = 10$:\n\n$$\\bar{x} = \\frac{4959}{10} = 495.9$$",
+   "**Square each mass to get $\\sum x^2$**\n\n$$500^2 = 250000 \\qquad 499^2 = 249001 \\qquad 496^2 = 246016 \\qquad 495^2 = 245025 \\qquad 498^2 = 248004$$\n\n$$490^2 = 240100 \\qquad 492^2 = 242064 \\qquad 501^2 = 251001 \\qquad 494^2 = 244036 \\qquad 494^2 = 244036$$\n\nAdd them up:\n\n$$\\sum x^2 = 2459283$$\n\nCalculator tip: your calculator's statistics mode will give you $\\sum x$ and $\\sum x^2$ if you enter the ten values, which is a good way to check.",
+   "**Put the numbers in the variance formula (this is the M1)**\n\nThe scheme writes the estimate using the mean:\n\n$$s^2 = \\frac{10}{9}\\left(\\frac{\\sum x^2}{10} - \\bar{x}^2\\right) = \\frac{10}{9}\\left(\\frac{2459283}{10} - 495.9^2\\right)$$\n\n$$\\frac{2459283}{10} = 245928.3 \\qquad 495.9^2 = 245916.81$$\n\n$$245928.3 - 245916.81 = 11.49$$\n\nThis $11.49$ is the **biased** variance (it divides by $n$). The scheme says that stopping here scores no marks, so we must now correct it.",
+   "**Convert to the unbiased estimate (this is the A1)**\n\nMultiply by $\\dfrac{10}{9}$ (which is the same as dividing by $9$ instead of $10$):\n\n$$s^2 = \\frac{10}{9} \\times 11.49 = 12.7666\\ldots$$\n\nQuick check, using the other form of the formula: $\\dfrac{1}{9}\\left(2459283 - \\dfrac{4959^2}{10}\\right) = \\dfrac{1}{9}(2459283 - 2459168.1) = \\dfrac{114.9}{9} = 12.7666\\ldots$. Same answer.",
+   "**Final answer**\n\nUnbiased estimate of the population mean: $495.9$ g (the scheme also accepts $496$).\n\nUnbiased estimate of the population variance: $12.8$ (3 s.f.), which is exactly $\\dfrac{383}{30}$."
+  ]
+ },
+ "9709_s18_72_q4_ii": {
+  "hints": [
+   "Write the hypotheses about the **population** mean $\\mu$: $\\text{H}_0$ says the mean is $505$ and $\\text{H}_1$ is one-sided, because the claim is 'less than'. For the test statistic use $z = \\dfrac{\\bar{x} - 505}{3.6/\\sqrt{150}}$ with $\\bar{x} = \\dfrac{75660}{150}$.",
+   "Evaluate the standardisation. The denominator is $\\dfrac{3.6}{\\sqrt{150}}$ because $\\bar{x}$ is a mean of $150$ packets, so be careful not to use $3.6$ alone or $3.6^2$.",
+   "Check the sign: if the sample mean is below $505$, your $z$ should be negative. Write it to 3 s.f.",
+   "The test is at the 2% level with the rejection region in the **lower** tail. Find the critical $z$ with $\\Phi(z) = 0.02$ (by symmetry, use the table value for the matching upper-tail area and put a minus sign on it), or work out $\\Phi$ of your $z$ to compare with $0.02$.",
+   "Is your $z$ further out in the lower tail than the critical value (inside the rejection region), or not? Decide whether to reject $\\text{H}_0$, then write the conclusion about the machine's mean mass in context, using 'evidence' wording."
+  ],
+  "walkthrough": [
+   "**Set up the test (this is the B1)**\n\nWe want to know if the adjusted machine's packets still have a mean mass less than $505$ g. $\\mu$ means the **population mean mass** of packets from this machine after adjustment.\n\n$$\\text{H}_0: \\mu = 505$$\n\n$$\\text{H}_1: \\mu < 505$$\n\n$\\text{H}_1$ is one-tailed (only 'less than'), because the question asks whether the mean is *still less than* 505. The significance level is $2\\%$.",
+   "**Work out the sample mean**\n\nThe total of the $150$ packets is $75\\,660$ g, so the sample mean is the total divided by $150$:\n\n$$\\bar{x} = \\frac{75660}{150} = 504.4$$",
+   "**Choose the distribution of the sample mean**\n\nWe are told the population standard deviation is $\\sigma = 3.6$ g. If $\\text{H}_0$ is true, a sample mean from $n = 150$ packets is (approximately) normal with mean $505$ and standard deviation $\\dfrac{\\sigma}{\\sqrt{n}} = \\dfrac{3.6}{\\sqrt{150}}$:\n\n$$\\bar{X} \\sim \\text{N}\\left(505, \\frac{3.6^2}{150}\\right)$$\n\nNote the $\\sqrt{150}$: because we are looking at a **mean** of 150 packets, its spread is much smaller than the spread of a single packet. Forgetting the $\\sqrt{150}$ is the main slip in this question.",
+   "**Standardise (this is the M1)**\n\nStandardising means asking 'how many standard deviations is $\\bar{x}$ from the mean?':\n\n$$z = \\frac{504.4 - 505}{3.6 \\div \\sqrt{150}}$$\n\nNumerator: $504.4 - 505 = -0.6$.\n\nDenominator: $\\sqrt{150} = 12.2474\\ldots$, and $\\dfrac{3.6}{12.2474\\ldots} = 0.29393\\ldots$.\n\n$$z = \\frac{-0.6}{0.29393\\ldots} = -2.0412\\ldots$$",
+   "**State the test statistic (this is the A1)**\n\n$$z = -2.04 \\text{ (3 s.f.)}$$\n\nThe scheme also accepts $+2.04$, because it is the same distance from the mean. The negative sign makes sense: $504.4$ is below $505$.",
+   "**Compare with the critical value (this is the second M1)**\n\nThe rejection region is in the **lower** tail with $2\\%$ of the area. The critical $z$ satisfies $\\Phi(z) = 0.02$. The normal table gives $\\Phi(2.054) = 0.98$, so by symmetry the critical value is:\n\n$$z_{\\text{crit}} = -2.054$$\n\nWe reject $\\text{H}_0$ only if our $z$ is **less than** (further left than) $-2.054$.\n\nOur $z = -2.04$, and $-2.04 > -2.054$, so $z$ is **not** in the rejection region.\n\nEquivalent method: $\\Phi(-2.04) = 0.0207\\ldots$ (calculator normal cdf, or table: $1 - 0.9793$). Since $0.0207 > 0.02$, the probability is not small enough to reject. (The exact value $\\Phi(-2.0412) = 0.0206$ gives the same decision; the scheme accepts either.)",
+   "**Conclusion (this is the A1 ft)**\n\nWe do **not** reject $\\text{H}_0$. Say it in context and not as a definite fact: there is not enough evidence at the 2% level to say the mean mass has stayed below $505$ g.\n\nCommon slip: a two-tailed test (comparing with $2.326$). The question says 'less than', so it is one-tailed.",
+   "**Final answer**\n\nTest statistic $z = -2.04$, critical value $-2.054$ (or $0.0207 > 0.02$).\n\nDo not reject $\\text{H}_0$: there is no evidence, at the 2% significance level, that the machine's packets have mean mass less than $505$ g."
+  ]
+ },
+ "9709_s18_72_q4_iii": {
+  "hints": [
+   "Look at the size of the sample in part (ii): $150$ packets. What does a large sample let you say about the distribution of the sample mean, even if you do not know how individual packet masses are distributed?"
+  ],
+  "walkthrough": [
+   "**Why we may use the normal distribution**\n\nIn part (ii) we did **not** know that the masses of individual packets follow a normal distribution. We only knew the standard deviation.\n\nBut the sample has $n = 150$ packets, which is large (a common rule is $n > 30$). The Central Limit Theorem says that for a large sample the sample mean $\\bar{X}$ is approximately normally distributed, whatever the shape of the original distribution. That is what lets us use a $z$-test.",
+   "**Final answer**\n\nThe sample is large ($n = 150$), so the sample mean is approximately normally distributed (central limit theorem)."
+  ]
+ }
+}

@@ -1,0 +1,48 @@
+{
+ "9709_s24_63_q5_a": {
+  "hints": [
+   "For any probability density function the total area under the curve is $1$. Integrate $\\text{f}(x) = ax - x^3$ over its range, $0$ to $\\sqrt{2}$, and set it equal to $1$.",
+   "Integrate term by term, treating $a$ as a constant: $\\int ax\\,\\text{d}x$ and $\\int x^3\\,\\text{d}x$ use the rule $\\int x^n\\,\\text{d}x = \\dfrac{x^{n+1}}{n+1}$. Then substitute the limits $\\sqrt{2}$ and $0$.",
+   "Evaluate $(\\sqrt{2})^2$ and $(\\sqrt{2})^4$ (both are whole numbers), simplify to a linear equation in $a$, and solve it to reach the printed value."
+  ],
+  "walkthrough": [
+   "**The idea**\n\nA probability density function $\\text{f}(x)$ describes how probability is spread along the $x$-axis. The probability of all possible outcomes together is $1$, so the **total area under $\\text{f}(x)$ must equal $1$**. Here $\\text{f}(x)$ is non-zero only between $0$ and $\\sqrt{2}$, so we integrate between those limits.",
+   "**Write the equation (the M1 mark)**\n\n$$\\int_0^{\\sqrt{2}} (ax - x^3)\\,\\text{d}x = 1$$",
+   "**Integrate (the first A1 mark)**\n\nUse the rule: add $1$ to the power and divide by the new power. The letter $a$ is just a number, so it stays as a multiplier:\n\n$$\\int ax\\,\\text{d}x = a\\frac{x^2}{2} \\qquad \\int x^3\\,\\text{d}x = \\frac{x^4}{4}$$\n\n$$\\left[a\\frac{x^2}{2} - \\frac{x^4}{4}\\right]_0^{\\sqrt{2}} = 1$$",
+   "**Substitute the limits**\n\nPut in the upper limit $x = \\sqrt{2}$, then subtract what you get at $x = 0$ (which is $0$):\n\n$$(\\sqrt{2})^2 = 2 \\qquad (\\sqrt{2})^4 = \\left((\\sqrt{2})^2\\right)^2 = 2^2 = 4$$\n\n$$a\\times\\frac{2}{2} - \\frac{4}{4} = 1$$\n\n$$a - 1 = 1$$",
+   "**Solve for $a$ (the second A1 mark)**\n\nAdd $1$ to both sides:\n\n$$a = 2$$\n\nThis is a 'show that' question, so the working above must lead clearly to the printed value with no gaps.",
+   "**Final answer**\n\n$$a = 2 \\quad (\\text{shown})$$"
+  ]
+ },
+ "9709_s24_63_q5_b": {
+  "hints": [
+   "The median $m$ is the value with half the probability below it: integrate $\\text{f}(x) = 2x - x^3$ from $0$ to $m$ and set the result equal to $\\dfrac{1}{2}$.",
+   "Integrate to get $\\left[x^2 - \\dfrac{x^4}{4}\\right]_0^m$ and substitute the limits: you get an equation in $m$ with an $m^2$ term and an $m^4$ term.",
+   "Multiply through to clear the fraction and collect everything on one side. The result is a quadratic in $m^2$: solve it with the quadratic formula, letting $u = m^2$.",
+   "You will get two values of $m^2$. The median must lie in the range of $X$, $0 \\leqslant m \\leqslant \\sqrt{2}$, so reject the impossible value, then take the square root of the other (exact form or 3 s.f.)."
+  ],
+  "walkthrough": [
+   "**What the median means**\n\nThe median $m$ is the value that splits the probability in half: $\\text{P}(X \\leqslant m) = \\dfrac{1}{2}$. For a pdf, a probability is an area, so we integrate from the start of the range ($0$) up to $m$ and set the area equal to $\\dfrac{1}{2}$. From part **(a)**, $a = 2$, so $\\text{f}(x) = 2x - x^3$.",
+   "**Write the equation (the M1 mark)**\n\n$$\\int_0^m (2x - x^3)\\,\\text{d}x = \\frac{1}{2}$$",
+   "**Integrate and substitute (the first A1 mark)**\n\n$$\\int (2x - x^3)\\,\\text{d}x = \\frac{2x^2}{2} - \\frac{x^4}{4} = x^2 - \\frac{x^4}{4}$$\n\nSubstitute the upper limit $m$ and the lower limit $0$ (which gives $0$):\n\n$$m^2 - \\frac{m^4}{4} = \\frac{1}{2}$$\n\nThis is the 'correct quartic' mark (any form is fine).",
+   "**Turn it into a quadratic in $m^2$ (the second M1 mark)**\n\nMultiply every term by $4$ to remove the fraction:\n\n$$4m^2 - m^4 = 2$$\n\nMove everything to one side so that the $m^4$ term is positive:\n\n$$m^4 - 4m^2 + 2 = 0$$\n\nNotice that only $m^4$, $m^2$ and a number appear. Write $u = m^2$, so $m^4 = u^2$ and the equation is $u^2 - 4u + 2 = 0$.\n\nUse the quadratic formula $u = \\dfrac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}$ with $a = 1$, $b = -4$, $c = 2$:\n\n$$m^2 = \\frac{4 \\pm \\sqrt{16 - 8}}{2} = \\frac{4 \\pm \\sqrt{8}}{2}$$\n\n$\\sqrt{8} = 2\\sqrt{2}$, so divide each part by $2$:\n\n$$m^2 = 2 \\pm \\sqrt{2}$$",
+   "**Choose the root that makes sense (the final A1 mark)**\n\nThere are two values:\n\n$$2 + \\sqrt{2} = 3.414 \\qquad 2 - \\sqrt{2} = 0.586$$\n\nThe pdf is non-zero only for $0 \\leqslant x \\leqslant \\sqrt{2}$, so $m \\leqslant \\sqrt{2}$, which means $m^2 \\leqslant 2$. The value $3.414$ is bigger than $2$, so it is impossible. Keep $m^2 = 2 - \\sqrt{2}$.\n\nThe median is a positive value in the range, so take the positive square root:\n\n$$m = \\sqrt{2 - \\sqrt{2}} = \\sqrt{0.5858} = 0.7654\\ldots$$\n\nRounded to 3 significant figures: $0.765$.",
+   "**Final answer**\n\n$$m = \\sqrt{2 - \\sqrt{2}} = 0.765 \\text{ (3 s.f.)}$$"
+  ]
+ },
+ "9709_s24_63_q5_c": {
+  "hints": [
+   "The mean of a continuous random variable is $\\text{E}(X) = \\int x\\,\\text{f}(x)\\,\\text{d}x$ over the range, here from $0$ to $\\sqrt{2}$. Multiply $\\text{f}(x) = 2x - x^3$ by $x$ first.",
+   "Multiplying out gives two terms in powers of $x$. Integrate each with $\\int x^n\\,\\text{d}x = \\dfrac{x^{n+1}}{n+1}$, then substitute the limits $\\sqrt{2}$ and $0$.",
+   "Write $(\\sqrt{2})^3$ and $(\\sqrt{2})^5$ each as a whole-number multiple of $\\sqrt{2}$, then combine the two fractions over a common denominator to get an exact value."
+  ],
+  "walkthrough": [
+   "**What we are calculating**\n\n$\\text{E}(X)$ is the mean of $X$. For a continuous variable we multiply each $x$ by its density and integrate: $\\text{E}(X) = \\int x\\,\\text{f}(x)\\,\\text{d}x$ over the whole range. With $a = 2$ we have $\\text{f}(x) = 2x - x^3$.",
+   "**Form $x\\,\\text{f}(x)$ and set up the integral (the M1 mark)**\n\nMultiply each term by $x$:\n\n$$x\\,\\text{f}(x) = x(2x - x^3) = 2x^2 - x^4$$\n\n$$\\text{E}(X) = \\int_0^{\\sqrt{2}} (2x^2 - x^4)\\,\\text{d}x$$",
+   "**Integrate and show the limits (the first A1 mark)**\n\nAdd $1$ to each power and divide by the new power:\n\n$$\\int 2x^2\\,\\text{d}x = \\frac{2x^3}{3} \\qquad \\int x^4\\,\\text{d}x = \\frac{x^5}{5}$$\n\n$$\\text{E}(X) = \\left[\\frac{2x^3}{3} - \\frac{x^5}{5}\\right]_0^{\\sqrt{2}}$$",
+   "**Substitute the limits**\n\nAt $x = 0$ both terms are $0$. At $x = \\sqrt{2}$ we need the powers of $\\sqrt{2}$:\n\n$$(\\sqrt{2})^3 = \\sqrt{2}\\times\\sqrt{2}\\times\\sqrt{2} = 2\\sqrt{2}$$\n\n$$(\\sqrt{2})^5 = (\\sqrt{2})^4\\times\\sqrt{2} = 4\\sqrt{2}$$\n\n$$\\text{E}(X) = \\frac{2\\times 2\\sqrt{2}}{3} - \\frac{4\\sqrt{2}}{5} = \\frac{4\\sqrt{2}}{3} - \\frac{4\\sqrt{2}}{5}$$",
+   "**Combine into one exact term (the second A1 mark)**\n\nUse the common denominator $15$:\n\n$$\\frac{4\\sqrt{2}}{3} = \\frac{20\\sqrt{2}}{15} \\qquad \\frac{4\\sqrt{2}}{5} = \\frac{12\\sqrt{2}}{15}$$\n\n$$\\text{E}(X) = \\frac{20\\sqrt{2} - 12\\sqrt{2}}{15} = \\frac{8\\sqrt{2}}{15}$$\n\nQuick check: as a decimal this is $\\dfrac{8\\times 1.4142}{15} = 0.754$, which lies between $0$ and $\\sqrt{2}$ and close to the median $0.765$, which is sensible.",
+   "**Final answer**\n\n$$\\text{E}(X) = \\frac{8\\sqrt{2}}{15}$$"
+  ]
+ }
+}

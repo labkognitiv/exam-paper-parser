@@ -1,0 +1,17 @@
+{
+ "9709_s18_72_q1": {
+  "hints": [
+   "Independent Poisson variables add: the total is also Poisson, with the three rates added. Add the rates $0.2$, $0.3$, $0.6$ for one minute, then scale to the $4$-minute period.",
+   "The total is a whole number, so 'less than 4' means $X = 0, 1, 2$ or $3$. Write $\\text{P}(X<4) = \\text{P}(0) + \\text{P}(1) + \\text{P}(2) + \\text{P}(3)$, each term $\\text{e}^{-\\lambda}\\dfrac{\\lambda^r}{r!}$ with your $\\lambda$.",
+   "Put your $\\lambda$ into $\\text{e}^{-\\lambda}\\left(1 + \\lambda + \\dfrac{\\lambda^2}{2!} + \\dfrac{\\lambda^3}{3!}\\right)$ and evaluate it on your calculator (or use Poisson cdf up to $3$)."
+  ],
+  "walkthrough": [
+   "**Why the total is Poisson**\n\nEach type of particle is Poisson and the three types are **independent**. A rule from the course: when you add independent Poisson variables, the total is also Poisson, and its mean is the sum of the means.\n\nSo we add the three rates. Let $X$ be the total number of particles in 4 minutes.",
+   "**Find the rate for one minute, then for 4 minutes (this is the B1)**\n\nRate per minute for all three types together:\n\n$$0.2 + 0.3 + 0.6 = 1.1$$\n\nA Poisson mean grows in proportion to the time, so for 4 minutes we multiply by 4:\n\n$$\\lambda = 1.1 \\times 4 = 4.4$$\n\nSo $X \\sim \\text{Po}(4.4)$.",
+   "**Turn 'less than 4' into a list**\n\n$X$ counts particles, so it is a whole number. 'Less than 4' means $X$ can be $0, 1, 2$ or $3$. It does **not** include $4$ (a common slip is to stop at the wrong end).\n\n$$\\text{P}(X<4) = \\text{P}(X=0) + \\text{P}(X=1) + \\text{P}(X=2) + \\text{P}(X=3)$$",
+   "**Write the Poisson formula for each term (this is the M1)**\n\nThe Poisson formula is $\\text{P}(X=r) = \\text{e}^{-\\lambda}\\dfrac{\\lambda^r}{r!}$. With $\\lambda = 4.4$ every term has the same factor $\\text{e}^{-4.4}$, so we take it outside a bracket:\n\n$$\\text{P}(X<4) = \\text{e}^{-4.4}\\left(1 + 4.4 + \\frac{4.4^2}{2!} + \\frac{4.4^3}{3!}\\right)$$\n\nNow each piece inside the bracket:\n\n$$4.4^2 = 19.36, \\qquad \\frac{19.36}{2} = 9.68$$\n\n$$4.4^3 = 85.184, \\qquad \\frac{85.184}{6} = 14.19733\\ldots$$\n\n$$1 + 4.4 + 9.68 + 14.19733\\ldots = 29.27733\\ldots$$",
+   "**Multiply by the factor outside the bracket**\n\nOn your calculator, $\\text{e}^{-4.4}$ is $0.012277\\ldots$ (press the $\\text{e}^x$ key, then $-4.4$).\n\n$$0.012277\\ldots \\times 29.27733\\ldots = 0.35944\\ldots$$\n\nQuick check: you can also use the Poisson cdf on your calculator with $\\lambda = 4.4$ and upper value $3$. It should show the same number.",
+   "**Final answer**\n\n$$\\text{P}(\\text{fewer than 4 particles in 4 minutes}) = 0.359 \\text{ (3 s.f.)}$$"
+  ]
+ }
+}

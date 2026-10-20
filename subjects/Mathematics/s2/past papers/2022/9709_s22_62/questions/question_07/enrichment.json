@@ -1,0 +1,20 @@
+{
+ "9709_s22_62_q7": {
+  "hints": [
+   "The sample size $100$ is large, so the sample mean $\\bar{X}$ is approximately normal (central limit theorem). Its mean equals the mean of $X$, which is $2.90$.",
+   "The variance of $\\bar{X}$ is $\\dfrac{\\sigma^2}{n}$. For a Poisson variable the variance equals the mean, so use $\\sigma^2 = 2.90$ and $n = 100$.",
+   "Standardise the value $2.88$ with $z = \\dfrac{2.88 - \\text{mean}}{\\sqrt{\\text{variance}}}$ using the mean and variance of $\\bar{X}$. Take the square root of the variance of $\\bar{X}$.",
+   "Your $z$ is negative. The area below a negative $z$ equals $1 - \\Phi(|z|)$ by symmetry.",
+   "Evaluate with the calculator and give $3$ significant figures. Sense check: $2.88$ is just below the mean $2.90$, so the answer should be just under one half."
+  ],
+  "walkthrough": [
+   "**What is being asked**\n\n$X \\sim \\text{Po}(2.90)$. We take $100$ values and find their average $\\bar{X}$ (\"$\\bar{X}$\" means the sample mean). We want $\\text{P}(\\bar{X} < 2.88)$.",
+   "**Why a normal distribution**\n\nA single Poisson variable is not normal, but the sample size is large ($n = 100$), so by the **central limit theorem** the sample mean $\\bar{X}$ is approximately normally distributed.\n\nIts mean is the mean of $X$: $\\text{E}(\\bar{X}) = 2.90$.",
+   "**Variance of the sample mean**\n\nFor any variable, $\\text{Var}(\\bar{X}) = \\dfrac{\\sigma^2}{n}$. For a Poisson variable the variance equals the mean, so $\\sigma^2 = 2.90$:\n\n$$\\text{Var}(\\bar{X}) = \\frac{2.90}{100} = 0.029$$\n\n$$\\bar{X} \\approx \\text{N}\\left(2.90, \\frac{2.90}{100}\\right)$$\n\nThe normal distribution earns the first **B1** and the variance the second **B1**.\n\n*Totals method:* the total of the $100$ values is approximately $\\text{N}(290, 290)$, and gives the same answer. We use the mean method here.",
+   "**Standardise**\n\nThe standard deviation is $\\sqrt{0.029} = 0.170294\\ldots$\n\n$$z = \\frac{2.88 - 2.90}{\\sqrt{0.029}} = \\frac{-0.02}{0.170294} = -0.1174\\ldots$$\n\nThis earns the first **M1**. No continuity correction is needed for a mean (the scheme allows one but it is not required).",
+   "**Choose the correct area**\n\nWe want the area to the left of $z = -0.1174$. The normal curve is symmetric, so the area to the left of $-0.1174$ equals the area to the right of $+0.1174$:\n\n$$\\text{P}(\\bar{X} < 2.88) = 1 - \\Phi(0.1174)$$\n\nThis earns the second **M1**.",
+   "**Calculate**\n\nNormal cdf: $\\Phi(0.1174) = 0.54673\\ldots$\n\n$$1 - 0.54673 = 0.45327\\ldots$$\n\nTo $3$ significant figures this is $0.453$, earning the **A1**. It is just below $0.5$, as our sense check predicted.\n\n*Side note:* the scheme also accepts an alternative that uses a continuity correction on the total (boundary $287.5$) and obtains $0.442$.",
+   "**Final answer**\n\n$$\\text{P}(\\bar{X} < 2.88) = 0.453 \\text{ (3 s.f.)}$$"
+  ]
+ }
+}

@@ -1,0 +1,15 @@
+{
+  "9709_s17_73_q1": {
+    "hints": [
+      "The members are numbered up to 654, a three-digit number, so read the table in groups of three digits, carrying on from where 109 and 643 ended.",
+      "A group is only usable if it is a real member number: reject any group above 654, and reject any member who has already been chosen.",
+      "Keep going along the line of digits until you have found three more members; a group such as 0$ab$ is member number $ab$ (leading zero dropped)."
+    ],
+    "walkthrough": [
+      "**Why three digits**\n\nThe members are numbered 1 to 654. The biggest number, 654, has **3 digits**, so we read the random digits in **groups of 3**. Each group is a possible member number.\n\nBecause the secretary is choosing a sample without choosing anyone twice, we will skip a group if it is too big (more than 654) or if it repeats a member already chosen.",
+      "**Write the digits as one long line**\n\nRemove the gaps in the first line of the table so the digits run on:\n\n$$1096\\ 4357\\ 3765\\ 0431\\ 0928\\ 9264 \\;\\longrightarrow\\; 109643573765043109289264$$\n\nNow cut this into groups of three, starting at the left:\n\n$$109 \\mid 643 \\mid 573 \\mid 765 \\mid 043 \\mid 109 \\mid 289 \\mid 264$$\n\nQuick check: the first two groups are 109 and 643, exactly the first two members in the question. So we have started in the right place.",
+      "**Work through the next groups one at a time**\n\nContinue from the third group, asking two questions each time: \"is it 654 or smaller?\" and \"is it new?\"\n\n- $573$: this is below 654 and not used yet, so **member 573 is chosen**. (This earns the first B1.)\n\n- $765$: this is bigger than 654, so there is no such member. **Reject it.**\n\n- $043$: below 654 and new. It is member number 43 (we drop the leading zero), so **member 43 is chosen**. (Second B1.)\n\n- $109$: this is below 654, but it is the first member we already chose. **Reject the repeat.**\n\n- $289$: below 654 and new, so **member 289 is chosen**. (Third B1.)\n\nWe now have the three members we need, so we stop.",
+      "**Final answer**\n\nThe next three members in the sample are:\n\n$$573,\\quad 43,\\quad 289$$\n\n(The mark scheme also accepts 043 for the second one, and it allows a different correct use of the table such as 573, 650, 431.)"
+    ]
+  }
+}

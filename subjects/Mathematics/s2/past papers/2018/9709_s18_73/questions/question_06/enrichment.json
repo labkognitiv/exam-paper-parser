@@ -1,0 +1,34 @@
+{
+ "9709_s18_73_q6_i": {
+  "hints": [
+   "Let $T$ be the total time. Means add and, for independent variables, variances add (not standard deviations): $\\text{E}(T) = 4.5 + 2.3$ and $\\text{Var}(T) = 1.1^2 + 0.7^2$.",
+   "A sum of independent normal variables is normal. Standardise: $z = \\dfrac{8.5 - \\text{E}(T)}{\\sqrt{\\text{Var}(T)}}$ using your mean and the square root of your variance.",
+   "You want $\\text{P}(T < 8.5)$, the area to the **left** of your $z$: use $\\Phi(z)$ from the normal distribution function on your calculator or the table.",
+   "Read off $\\Phi(z)$ for your $z$ and round to 3 significant figures."
+  ],
+  "walkthrough": [
+   "**Set up the total time**\n\nLet $A$ be the time for the first part, so $A \\sim \\text{N}(4.5,\\ 1.1^2)$, and $B$ the time for the second part, so $B \\sim \\text{N}(2.3,\\ 0.7^2)$. Assume they are independent. The total time is $T = A + B$.\n\nRule: the sum of independent normal variables is normal.",
+   "**Mean and variance of $T$**\n\nMeans add:\n\n$$\\text{E}(T) = 4.5 + 2.3 = 6.8$$\n\nVariances add (this is the step students most often get wrong, so remember: add the **variances**, not the standard deviations):\n\n$$\\text{Var}(T) = 1.1^2 + 0.7^2 = 1.21 + 0.49 = 1.7$$\n\nSo $T \\sim \\text{N}(6.8,\\ 1.7)$. This earns the first **M1**.",
+   "**Standardise**\n\nWe want $\\text{P}(T < 8.5)$. Convert to a $z$ value by subtracting the mean and dividing by the standard deviation $\\sqrt{1.7}$:\n\n$$z = \\frac{8.5 - 6.8}{\\sqrt{1.7}} = \\frac{1.7}{1.30384} = 1.304$$\n\nThis earns the second **M1**.",
+   "**Find the probability**\n\n'Less than' means the area to the left of $z$, which is $\\Phi(z)$. On the calculator use normal cdf (or the table):\n\n$$\\text{P}(T < 8.5) = \\Phi(1.304) = 0.9039$$\n\nThis earns the third **M1**.",
+   "**Final answer**\n\nThe probability is **0.904** (3 significant figures). This earns the **A1**. Quick check: $8.5$ is above the mean $6.8$, so the probability should be more than $0.5$. It is."
+  ]
+ },
+ "9709_s18_73_q6_ii": {
+  "hints": [
+   "'First part more than twice the second' means $A > 2B$, which is the same as $A - 2B > 0$. Let $D = A - 2B$ and find $\\text{E}(D) = 4.5 - 2 \\times 2.3$.",
+   "For the variance: $\\text{Var}(aB) = a^2\\text{Var}(B)$, and variances **add** even when you subtract the variables. So $\\text{Var}(D) = 1.1^2 + 2^2 \\times 0.7^2$.",
+   "$D$ is normal. Standardise the value 0 using your mean and standard deviation: $z = \\dfrac{0 - \\text{E}(D)}{\\sqrt{\\text{Var}(D)}}$.",
+   "You want $\\text{P}(D > 0)$, an area to the **right**, so use $1 - \\Phi(z)$ with your $z$.",
+   "Evaluate $1 - \\Phi(z)$ on the calculator and round to 3 significant figures."
+  ],
+  "walkthrough": [
+   "**Turn the words into an inequality**\n\nLet $A$ be the time for the first part and $B$ the time for the second part. 'The first is more than twice the second' means\n\n$$A > 2B \\quad\\Longleftrightarrow\\quad A - 2B > 0$$\n\nSo define $D = A - 2B$ and find $\\text{P}(D > 0)$. Since $D$ is a combination of independent normal variables, $D$ is normal.",
+   "**Mean of $D$**\n\n$$\\text{E}(D) = \\text{E}(A) - 2\\,\\text{E}(B) = 4.5 - 2 \\times 2.3 = 4.5 - 4.6 = -0.1$$\n\nThis earns the first **M1**.",
+   "**Variance of $D$**\n\nTwo rules: multiplying a variable by 2 multiplies its variance by $2^2 = 4$; and, for independent variables, the variance of a difference is the **sum** of the variances (never subtract variances).\n\n$$\\text{Var}(D) = \\text{Var}(A) + 2^2\\,\\text{Var}(B) = 1.1^2 + 4 \\times 0.7^2$$\n\n$$= 1.21 + 4 \\times 0.49 = 1.21 + 1.96 = 3.17$$\n\nSo $D \\sim \\text{N}(-0.1,\\ 3.17)$. This earns the second **M1**.",
+   "**Standardise**\n\nWe want $\\text{P}(D > 0)$:\n\n$$z = \\frac{0 - (-0.1)}{\\sqrt{3.17}} = \\frac{0.1}{1.78045} = 0.0562$$\n\nThis earns the third **M1**. Be careful with the minus signs: subtracting $-0.1$ gives $+0.1$.",
+   "**Find the probability**\n\nWe want the area to the **right** of $z$, so we use one minus the area to the left:\n\n$$\\text{P}(D > 0) = 1 - \\Phi(0.0562) = 1 - 0.5224 = 0.4776$$\n\nThis earns the **M1**. (With the rounded $z = 0.056$ the scheme gets $0.4777$; both round to the same answer.)",
+   "**Final answer**\n\nThe probability is **0.478** (3 significant figures). This earns the **A1**. Quick check: the mean of $D$ is just below $0$, so the probability should be just under $0.5$. It is."
+  ]
+ }
+}

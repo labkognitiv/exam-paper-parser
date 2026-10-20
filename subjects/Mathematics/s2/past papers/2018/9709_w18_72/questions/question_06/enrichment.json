@@ -1,0 +1,38 @@
+{
+ "9709_w18_72_q6_i": {
+  "hints": [
+   "Let $p$ be the probability that Angus's train is late on a day. $\\text{H}_0$ says nothing has changed, $p = 0.15$; the question asks whether it is late **less** often, so choose $\\text{H}_1$ accordingly. Under $\\text{H}_0$ the number of late days is $\\text{B}(60, 0.15)$; check $np$ and $nq$ are big enough, and approximate with $\\text{N}(np, npq)$, writing the mean and variance with $60$, $0.15$ and $0.85$.",
+   "You want $\\text{P}(X \\leqslant 6)$. A discrete value is being approximated by a continuous one, so apply a continuity correction: use $6 + 0.5$. Then standardise: $z = \\dfrac{6 + 0.5 - \\text{mean}}{\\sqrt{\\text{variance}}}$.",
+   "Evaluate $z$ on your calculator. Take the square root of the variance (not the variance itself). The observed number of late days is below the mean, so think about the sign of $z$.",
+   "This is a one-tailed test, lower tail, at the $10\\%$ level. The critical value is $z = -1.282$. Compare your $z$ with $-1.282$ (or find the probability $\\Phi(z)$ and compare it with $0.1$).",
+   "Say whether your $z$ is in the critical region, and whether you reject $\\text{H}_0$. Write the conclusion in the context of Angus's train, using wording like 'there is (no) evidence that...'."
+  ],
+  "walkthrough": [
+   "**Set up the hypotheses and the model (this earns the B1)**\n\nLet $p$ be the probability that Angus's train is late on a day. Before the timetable change $p = 0.15$.\n\n\n- $\\text{H}_0$: $p = 0.15$ (no change)\n\n- $\\text{H}_1$: $p < 0.15$ (late **less** often, so one-tailed, lower tail)\n\nUnder $\\text{H}_0$, the number of late days $X$ out of $60$ is binomial: $X \\sim \\text{B}(60, 0.15)$.",
+   "**Why we can use a normal approximation**\n\nBinomial probabilities for $X \\leqslant 6$ need adding up several terms, so we approximate with a normal distribution. This is allowed when both $np$ and $nq$ are greater than $5$:\n\n$$np = 60 \\times 0.15 = 9 > 5, \\qquad nq = 60 \\times 0.85 = 51 > 5$$\n\nThe approximating normal has mean $np$ and variance $npq$:\n\n$$\\text{mean} = 60 \\times 0.15 = 9$$\n\n$$\\text{variance} = 60 \\times 0.15 \\times 0.85 = 7.65$$\n\nSo $X \\approx \\text{N}(9, 7.65)$. This is the distribution the B1 is for, together with the hypotheses.",
+   "**Continuity correction and standardising (this earns the first M1)**\n\n$X$ is a whole number, but the normal curve is continuous. The binomial value $6$ occupies the interval from $5.5$ to $6.5$ on the normal curve. We want $X \\leqslant 6$, so we take everything up to $6.5$. That is the **continuity correction**: $6 + 0.5$.\n\nStandardise by subtracting the mean and dividing by the standard deviation $\\sqrt{7.65}$:\n\n$$z = \\frac{6.5 - 9}{\\sqrt{7.65}}$$\n\n(The scheme allows the M1 even with a wrong or missing continuity correction.)",
+   "**Calculate $z$ (this earns the A1)**\n\n$$\\sqrt{7.65} = 2.765863\\ldots$$\n\n$$z = \\frac{-2.5}{2.765863} = -0.903877\\ldots \\approx -0.904$$\n\nQuick check: $6$ late days is below the expected $9$, so $z$ should be negative. It is.",
+   "**Compare with the critical value (this earns the second M1)**\n\nFor a one-tailed test at the $10\\%$ level, lower tail, the critical value is $z = -1.282$.\n\nWe reject $\\text{H}_0$ only if $z < -1.282$. Here\n\n$$-0.904 > -1.282$$\n\n(equivalently $0.904 < 1.282$), so $z$ is not in the critical region.\n\nSame decision by probability: $\\Phi(-0.904) = 0.183$, and $0.183 > 0.1$.",
+   "**Conclusion in context (this earns the A1ft)**\n\nWe do not reject $\\text{H}_0$. In words:\n\nThere is no evidence, at the $10\\%$ level, that Angus's train is late less often than before the timetable change.\n\n(If you use the exact binomial instead: $\\text{P}(X \\leqslant 6) = 0.1848 > 0.1$, which gives the same conclusion.)",
+   "**Final answer**\n\n$z = -0.904$, compared with $-1.282$. Do not reject $\\text{H}_0$: there is no evidence that Angus's train is late less often than it was before the timetable change."
+  ]
+ },
+ "9709_w18_72_q6_ii": {
+  "hints": [
+   "Angus's sample gives a sample proportion $\\hat{p} = \\dfrac{6}{60}$. A confidence interval for a proportion is $\\hat{p} \\pm z\\sqrt{\\dfrac{\\hat{p}(1-\\hat{p})}{n}}$. Write the square-root part with $\\hat{p}$ and $n = 60$.",
+   "The upper limit of the interval is $\\hat{p} + z\\sqrt{\\dfrac{\\hat{p}(1-\\hat{p})}{n}}$. Set this equal to the given upper limit, $0.150$.",
+   "Rearrange your equation for $z$: subtract $\\hat{p}$ from $0.150$ and divide by the square-root term. Evaluate on your calculator, keeping at least $3$ decimal places.",
+   "$z$ tells you how much of the normal curve the interval covers. Find $\\Phi(z)$ for your $z$ using your calculator's normal cdf or the table.",
+   "The interval covers the area between $-z$ and $z$, which is $2\\Phi(z) - 1$. Convert this to a percentage to get $\\alpha$, and round to the nearest integer."
+  ],
+  "walkthrough": [
+   "**What the question is asking**\n\nAngus found a confidence interval for the proportion $p$ of days his train is late. We are told only that its upper limit was $0.150$. We have to work out which confidence level $\\alpha\\%$ gives that upper limit.\n\nHis sample: $6$ late days out of $60$, so the sample proportion is\n\n$$\\hat{p} = \\frac{6}{60} = 0.1$$\n\n($\\hat{p}$ is read \"p hat\" and means the proportion in the sample.)",
+   "**The confidence interval formula (this earns the first M1)**\n\n$$\\hat{p} \\pm z\\sqrt{\\frac{\\hat{p}(1-\\hat{p})}{n}}$$\n\nThe square root is the standard deviation of a sample proportion. Put in $\\hat{p} = 0.1$ and $n = 60$:\n\n$$\\sqrt{\\frac{0.1\\times 0.9}{60}} = \\sqrt{\\frac{0.09}{60}} = \\sqrt{0.0015} = 0.038730\\ldots$$",
+   "**Use the upper limit (this earns the second M1)**\n\nThe upper limit is the $+$ end of the interval, and we are told it is $0.150$:\n\n$$0.1 + z \\times 0.038730 = 0.150$$\n\n(The width of the whole interval is $2z \\times 0.038730 = 0.1$ is another way to write this, and the scheme accepts it.)",
+   "**Solve for $z$ (this earns the A1)**\n\nSubtract $0.1$ from both sides:\n\n$$z \\times 0.038730 = 0.050$$\n\nDivide by $0.038730$:\n\n$$z = \\frac{0.05}{0.038730} = 1.290994\\ldots \\approx 1.291$$",
+   "**Find the area (this earns the third M1)**\n\n$z = 1.291$ means the interval goes from $-1.291$ to $+1.291$ standard deviations either side of the middle.\n\n$\\Phi(1.291)$: use the normal table or your calculator's normal cdf $\\to 0.9016$.\n\nThis is the area to the left of $1.291$. The two tails are equal, so the area **between** $-1.291$ and $1.291$ is\n\n$$2\\Phi(1.291) - 1 = 2 \\times 0.9016 - 1 = 0.8032$$\n\nQuick check: for a $95\\%$ interval $z = 1.96$, for $90\\%$ it is $1.645$. Our $z = 1.291$ is smaller, so the confidence level must be lower than $90\\%$. It is.",
+   "**Convert to a percentage (this earns the final A1ft)**\n\n$$\\alpha = 0.8032 \\times 100 = 80.32\\ldots$$\n\nTo the nearest integer, $\\alpha = 80$.",
+   "**Final answer**\n\n$$\\alpha = 80$$"
+  ]
+ }
+}

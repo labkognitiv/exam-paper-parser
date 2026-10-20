@@ -1,0 +1,37 @@
+{
+ "9709_s20_61_q3_a": {
+  "hints": [
+   "The total mass of 6 sacks is a sum of 6 independent $\\text{N}(40, 1.5^2)$ variables. Its mean is $6 \\times 40$ and its variance is $6 \\times 1.5^2$ (add the variances; do not use $6^2$).",
+   "Standardise: $z = \\dfrac{245 - \\text{mean}}{\\sqrt{\\text{variance}}}$, using the mean and variance of the total (take the square root of the variance, not the variance itself).",
+   "'More than 245' is the upper tail, so you need $1 - \\Phi(z)$, where $\\Phi(z)$ is the area below $z$.",
+   "Look up $\\Phi(z)$ in the table or use normal cdf on your calculator, subtract from 1 and give 3 s.f."
+  ],
+  "walkthrough": [
+   "**Set up the total**\n\nLet $T = L_1 + L_2 + L_3 + L_4 + L_5 + L_6$ be the total mass of 6 large sacks. Each $L_i \\sim \\text{N}(40, 1.5^2)$ and they are independent. A sum of independent normal variables is also normal.",
+   "**Mean and variance of the total (earns the first M1)**\n\nMeans add: $\\text{E}(T) = 6 \\times 40 = 240$.\n\nVariances add (not standard deviations): $\\text{Var}(T) = 6 \\times 1.5^2 = 6 \\times 2.25 = 13.5$.\n\n$$T \\sim \\text{N}(240,\\ 13.5)$$\n\nQuick check: do not write $6^2 \\times 1.5^2$. That is for $6L$ (one sack's mass multiplied by 6), which is a different thing from 6 separate sacks.",
+   "**Standardise (earns the second M1)**\n\nWe want $\\text{P}(T > 245)$. Convert 245 to a $z$ value: subtract the mean, divide by the standard deviation $\\sqrt{13.5}$.\n\n$\\sqrt{13.5} = 3.674235\\ldots$\n\n$$z = \\frac{245 - 240}{\\sqrt{13.5}} = \\frac{5}{3.674235} = 1.3608\\ldots \\approx 1.361$$",
+   "**Use the correct tail (earns the third M1)**\n\n'More than 245' means the area to the **right** of $z = 1.361$. The table gives the area to the left, $\\Phi(1.361)$, so we subtract from 1:\n\n$$\\text{P}(T > 245) = \\text{P}(Z > 1.361) = 1 - \\Phi(1.361)$$\n\nOn a calculator, normal cdf with lower bound $1.361$ and upper bound a very large number (e.g. $10^{99}$) gives the same thing directly.",
+   "**Evaluate (earns the A1)**\n\n$\\Phi(1.361) \\approx 0.91324$, so $1 - 0.91324 = 0.08676\\ldots$\n\nThe printed mark scheme rounds this to $0.0867$. Rounding $0.08676$ to 3 s.f. strictly gives $0.0868$; either is within the marking tolerance.",
+   "**Final answer**\n\nThe probability that the total mass of 6 large sacks is more than 245 kg is $0.0867$ (3 s.f., as printed in the mark scheme; the exact value is $0.08676\\ldots$)."
+  ]
+ },
+ "9709_s20_61_q3_b": {
+  "hints": [
+   "'The large sack is less than 4 times the small sack' means $L < 4S$, which you can write as $L - 4S < 0$. Define the single variable $L - 4S$ and find its distribution.",
+   "The mean of $L - 4S$ is $\\text{E}(L) - 4\\,\\text{E}(S)$. Put in $40$ and $12$.",
+   "For the variance, $\\text{Var}(L - 4S) = \\text{Var}(L) + 4^2\\,\\text{Var}(S)$. The variances **add**, even though we subtract, and the $4$ gets squared. Use $1.5^2$ and $0.7^2$.",
+   "Standardise at $0$: $z = \\dfrac{0 - \\text{mean}}{\\sqrt{\\text{variance}}}$. Use the mean and variance you found, and take the square root of the variance.",
+   "You want $\\text{P}(L - 4S < 0)$, which is the area **below** your $z$, so the answer is $\\Phi(z)$ itself (no '$1 -$' needed).",
+   "Use the table or calculator for $\\Phi(z)$ and give 3 s.f. Quick sanity check: the mean of $L - 4S$ is negative, so $0$ is above the mean and your answer should be more than $0.5$."
+  ],
+  "walkthrough": [
+   "**Turn the sentence into a single variable (earns the M1)**\n\nLet $L$ be the mass of a large sack, $L \\sim \\text{N}(40, 1.5^2)$, and $S$ the mass of a small sack, $S \\sim \\text{N}(12, 0.7^2)$, independent.\n\n'$L$ is less than 4 times $S$' means $L < 4S$. Move everything to one side so we compare with $0$:\n\n$$L < 4S \\iff L - 4S < 0$$\n\nDefine $D = L - 4S$. A combination of independent normal variables is normal, so we only need its mean and variance.",
+   "**Mean of $D$ (earns the first B1)**\n\nMeans combine just like the sum: $\\text{E}(D) = \\text{E}(L) - 4\\,\\text{E}(S)$.\n\n$$\\text{E}(D) = 40 - 4 \\times 12 = 40 - 48 = -8$$",
+   "**Variance of $D$ (earns the second B1)**\n\nFor variances, **always add**, even when the variables are subtracted, because subtracting a variable does not make things less spread out. A constant multiplier is **squared**: $\\text{Var}(4S) = 4^2\\,\\text{Var}(S)$.\n\n$$\\text{Var}(D) = \\text{Var}(L) + 4^2\\,\\text{Var}(S) = 1.5^2 + 16 \\times 0.7^2$$\n\n$1.5^2 = 2.25$. $0.7^2 = 0.49$, so $16 \\times 0.49 = 7.84$.\n\n$$\\text{Var}(D) = 2.25 + 7.84 = 10.09$$\n\n$$D \\sim \\text{N}(-8,\\ 10.09)$$",
+   "**Standardise (earns the third M1)**\n\nWe want $\\text{P}(D < 0)$. Subtract the mean and divide by the standard deviation $\\sqrt{10.09} = 3.176476\\ldots$:\n\n$$z = \\frac{0 - (-8)}{\\sqrt{10.09}} = \\frac{8}{3.176476} = 2.5185\\ldots \\approx 2.519$$\n\nBe careful with the double negative: $0 - (-8) = +8$.",
+   "**Choose the tail (earns the fourth M1)**\n\n'$D < 0$' is the area to the **left** of $z$, which is exactly what $\\Phi$ gives:\n\n$$\\text{P}(D < 0) = \\Phi(2.519)$$",
+   "**Evaluate (earns the A1)**\n\nFrom the normal table or your calculator's normal cdf: $\\Phi(2.519) = 0.99411\\ldots$\n\n$$\\text{P}(D < 0) = 0.994 \\text{ (3 s.f.)}$$\n\nSense check: the large sack weighs about $40$ kg and $4$ small sacks weigh about $48$ kg, so it is very likely that $L < 4S$. A probability close to $1$ fits.",
+   "**Final answer**\n\nThe probability that a large sack is lighter than 4 small sacks is $0.994$ (3 s.f.)."
+  ]
+ }
+}

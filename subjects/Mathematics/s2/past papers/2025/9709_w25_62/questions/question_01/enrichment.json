@@ -1,0 +1,43 @@
+{
+  "9709_w25_62_q1_a": {
+    "hints": [
+      "A Poisson count needs the events to happen at a constant average rate (given) and also in a particular way relative to each other: think about whether one donation affects the next, and whether computers arrive in groups. Say it in the context of computers or donations."
+    ],
+    "walkthrough": [
+      "**What the question is asking**\n\nThe Poisson distribution is the model for **counting** how many times something happens in a fixed stretch of time (here, computers donated in a week). The question already tells us the average rate is constant. We are asked for one more condition that must hold for Poisson to be a sensible model.\n\nThe standard conditions are that the events happen **independently** of each other, **singly** (one at a time, not in bunches) and **randomly**. Any one of these, written in context, earns the mark.",
+      "**Put it in context (this earns the B1)**\n\nThe mark scheme insists on the context: you must mention the *computers* or the *donations*. Writing only \"events are independent\" or \"it is independent\" earns nothing, because it does not say what is independent of what.",
+      "**Final answer**\n\nComputers are donated independently of each other (or singly, or randomly)."
+    ]
+  },
+  "9709_w25_62_q1_b": {
+    "hints": [
+      "The rate is 2.4 computers per week and the period is 4 weeks: scale the mean by the number of weeks to get the new Poisson mean.",
+      "\"More than 6 and less than 9\" leaves only certain whole numbers. List them, then use $\\text{P}(X = r) = \\text{e}^{-\\lambda}\\dfrac{\\lambda^r}{r!}$ for each and add.",
+      "Work out each of the two probabilities separately on your calculator, add them, and round to 3 significant figures."
+    ],
+    "walkthrough": [
+      "**Choose the mean for a 4-week period (this earns the B1)**\n\nA Poisson mean grows in proportion to the length of time. The average is 2.4 computers each week, so over 4 weeks the average is 4 times as big. Call this new mean $\\lambda$ (the Greek letter lambda).\n\n$$\\lambda = 2.4 \\times 4 = 9.6$$\n\nSo for a 4-week period, $X \\sim \\text{Po}(9.6)$.",
+      "**Decide which values of $X$ we need**\n\n\"More than 6\" means 7, 8, 9, ... and \"less than 9\" means 8, 7, 6, ... The only whole numbers that are both are 7 and 8. (6 is not *more than* 6, and 9 is not *less than* 9.)\n\n$$\\text{P}(6 < X < 9) = \\text{P}(X = 7) + \\text{P}(X = 8)$$",
+      "**Write the Poisson formula for each (this earns the M1)**\n\nThe Poisson formula is $\\text{P}(X = r) = \\text{e}^{-\\lambda}\\dfrac{\\lambda^r}{r!}$, where $r!$ means $r \\times (r-1) \\times \\dots \\times 1$. Put $\\lambda = 9.6$ in:\n\n$$\\text{P}(X = 7) + \\text{P}(X = 8) = \\text{e}^{-9.6}\\left(\\frac{9.6^7}{7!} + \\frac{9.6^8}{8!}\\right)$$\n\nA common slip is to include 6 or 9 (an \"end error\"); the scheme allows one such slip for the M1 but it will cost you the final accuracy mark.",
+      "**Calculate $\\text{P}(X = 7)$**\n\nFirst the factorial: $7! = 7 \\times 6 \\times 5 \\times 4 \\times 3 \\times 2 \\times 1 = 5040$.\n\nThen the power: $9.6^7 = 7514474.78\\ldots$ (type `9.6^7` into your calculator).\n\n$$\\frac{9.6^7}{7!} = \\frac{7514474.78}{5040} = 1490.97$$\n\n$\\text{e}^{-9.6} = 0.0000677287$ (type `e^(-9.6)`).\n\n$$\\text{P}(X = 7) = 0.0000677287 \\times 1490.97 = 0.10098$$",
+      "**Calculate $\\text{P}(X = 8)$**\n\n$8! = 8 \\times 7! = 8 \\times 5040 = 40320$ and $9.6^8 = 72138957.9\\ldots$\n\n$$\\frac{9.6^8}{8!} = \\frac{72138957.9}{40320} = 1789.16$$\n\n$$\\text{P}(X = 8) = 0.0000677287 \\times 1789.16 = 0.12118$$\n\nQuick check: $\\text{P}(X = 8)$ should be a bit bigger than $\\text{P}(X = 7)$, because 9.6 (the mean) is closer to 8 than to 7. It is.",
+      "**Add them (this earns the final A1)**\n\n$$0.10098 + 0.12118 = 0.22216$$\n\nRounded to 3 significant figures this is 0.222. (Writing just 0.222 with no working earns only the B1 and the A1, not the M1.)",
+      "**Final answer**\n\n$$\\text{P}(6 < X < 9) = 0.222 \\text{ (3 s.f.)}$$"
+    ]
+  },
+  "9709_w25_62_q1_c": {
+    "hints": [
+      "Scale the mean to 20 weeks. When a Poisson mean is this large, the distribution can be approximated by a normal one with mean equal to the Poisson mean and variance equal to the Poisson mean as well: $\\text{Po}(\\lambda) \\approx \\text{N}(\\lambda, \\lambda)$.",
+      "Standardise using $z = \\dfrac{x - \\mu}{\\sigma}$, where $\\sigma$ is the square root of the variance. Poisson counts are whole numbers, so apply a continuity correction: \"more than 50\" means 51 or more, so use the boundary halfway between 50 and 51.",
+      "\"More than\" is the upper tail. Write the probability using $1 - \\Phi(z)$.",
+      "Find $\\Phi(z)$ from the normal table or your calculator, subtract it from 1 and round to 3 significant figures."
+    ],
+    "walkthrough": [
+      "**Find the new mean and choose the approximation (this earns the B1)**\n\nThe average is 2.4 per week, so over 20 weeks the average is $2.4 \\times 20 = 48$. Using the Poisson distribution directly would mean adding up many terms ($X = 51, 52, \\dots$ forever), so we use an approximating distribution.\n\nWhen the Poisson mean is large (48 is big), the shape of the distribution is close to a normal curve. For a Poisson distribution the mean and the variance are the same number, so the normal we use has mean 48 and variance 48.\n\n$$X \\approx \\text{N}(48, 48)$$",
+      "**Apply the continuity correction**\n\nA Poisson count can only be a whole number, but a normal variable is continuous. Each whole number $r$ is stood for by the stretch from $r - 0.5$ to $r + 0.5$ on the normal curve.\n\n\"More than 50\" means 51, 52, ... which starts at 50.5. So we need $\\text{P}(X > 50.5)$ in the normal model. (The scheme ignores a missing or wrong correction for the M1, but you need it for the final accuracy.)",
+      "**Standardise (this earns the first M1)**\n\nStandardising turns our normal variable into the standard normal $Z$, with mean 0 and standard deviation 1: subtract the mean, divide by the standard deviation. The **standard deviation** is the square root of the variance, so $\\sigma = \\sqrt{48}$ (a common slip is to divide by 48).\n\n$$\\sqrt{48} = 6.9282$$\n\n$$z = \\frac{50.5 - 48}{\\sqrt{48}} = \\frac{2.5}{6.9282} = 0.361$$",
+      "**Take the upper tail (this earns the second M1)**\n\nWe want the probability of being **above** 50.5, and normal tables and calculators give the area **below** $z$. So subtract from 1.\n\n$$\\text{P}(X > 50.5) = 1 - \\Phi(0.361)$$\n\n$\\Phi(0.361)$: use the normal table or your calculator's normal cdf with lower limit $-\\infty$ (or $-99$) and upper limit $0.361$. It shows 0.6409 (roughly).\n\n$$1 - 0.6409 = 0.3591$$\n\nQuick check: 50.5 is only a little above the mean 48, so the answer should be a bit less than 0.5. It is.",
+      "**Final answer**\n\n$$\\text{P}(\\text{more than 50 computers}) = 0.359 \\text{ (3 s.f.)}$$"
+    ]
+  }
+}

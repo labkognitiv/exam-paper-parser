@@ -1,0 +1,18 @@
+{
+ "9709_s24_62_q3": {
+  "hints": [
+   "The approximate confidence interval for a proportion is $\\hat{p} \\pm z\\sqrt{\\dfrac{\\hat{p}(1-\\hat{p})}{n}}$, with $\\hat{p} = \\dfrac{18}{50}$ and $n = 50$. Its lower limit is $\\hat{p} - z\\sqrt{\\cdots}$, so set that equal to $0.244$.",
+   "Rearrange for $z$: $z = \\dfrac{\\hat{p} - 0.244}{\\sqrt{\\hat{p}(1-\\hat{p})/n}}$, and work it out on your calculator (about 3 decimal places).",
+   "This $z$ is the point with a tail of area $1 - \\Phi(z)$ above it. Find $\\Phi(z)$, then remember the interval is symmetric, so the same tail is cut off below the lower limit.",
+   "The confidence level is the central area, $1 - 2(1 - \\Phi(z))$. Turn it into a percentage and round to the nearest integer."
+  ],
+  "walkthrough": [
+   "**What we know**\n\nThe sample proportion is the number who have exactly one brother divided by the sample size:\n\n$$\\hat{p} = \\frac{18}{50} = 0.36$$\n\n($\\hat{p}$ is read \"p hat\" and means the proportion found in the sample.) The sample size is $n = 50$.\n\nAn approximate confidence interval for the population proportion $p$ is\n\n$$\\hat{p} \\pm z\\sqrt{\\frac{\\hat{p}(1 - \\hat{p})}{n}}$$\n\nwhere $z$ depends on how confident we want to be. Here we do not know the confidence level $\\alpha\\%$; we have to work backwards from the lower limit.",
+   "**Write the equation for the lower limit (first M1)**\n\nThe lower limit is the version with the minus sign:\n\n$$\\frac{18}{50} - z\\sqrt{\\frac{\\frac{18}{50}\\left(1 - \\frac{18}{50}\\right)}{50}} = 0.244$$\n\nThis is the **M1** for a correct equation. Now simplify the square root a step at a time:\n\n$$1 - 0.36 = 0.64$$\n\n$$0.36 \\times 0.64 = 0.2304$$\n\n$$\\frac{0.2304}{50} = 0.004608$$\n\n$$\\sqrt{0.004608} = 0.067882\\ldots$$\n\nSo the equation is\n\n$$0.36 - 0.067882\\,z = 0.244$$",
+   "**Solve for z (first A1)**\n\nMove $z$ to one side and the numbers to the other:\n\n$$0.067882\\,z = 0.36 - 0.244 = 0.116$$\n\n$$z = \\frac{0.116}{0.067882} = 1.7088\\ldots$$\n\nThe scheme accepts $z = 1.709$ (or $1.708$). That is the **A1**. The lower limit $0.244$ was only given to 3 significant figures, so $z$ cannot be exact, but it is close enough to give the right integer $\\alpha$.",
+   "**Turn z into a confidence level (second M1)**\n\nA confidence interval is *symmetric*: it cuts off an equal small tail at each end. The value $z = 1.709$ has the upper tail above it, and its twin $-1.709$ has the lower tail.\n\nFirst find the area below $z = 1.709$. Use the calculator's normal cdf (or the table):\n\n$$\\Phi(1.709) = 0.95627\\ldots \\approx 0.956$$\n\nSo the area in the upper tail is\n\n$$1 - 0.95627 = 0.04373$$\n\nThe lower tail is the same size, so both tails together are\n\n$$2 \\times 0.04373 = 0.08746$$\n\nand the central area (the confidence level) is\n\n$$1 - 0.08746 = 0.91254$$\n\nThis is the **M1**. The scheme writes it as $1 - 2(1 - 0.956) = 0.912$; the same value with its rounded $0.956$.",
+   "**Convert to a percentage (second A1)**\n\nA confidence level is written as a percentage, so multiply by $100$:\n\n$$0.91254 \\times 100 = 91.254\\ldots\\%$$\n\nRounded to the nearest integer, $\\alpha = 91$. Writing $0.91$ or $91.2$ scores **A0**, since the question asks for an integer.",
+   "**Final answer**\n\n$$\\alpha = 91$$"
+  ]
+ }
+}

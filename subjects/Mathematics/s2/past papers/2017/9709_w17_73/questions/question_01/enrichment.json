@@ -1,0 +1,18 @@
+{
+ "9709_w17_73_q1": {
+  "hints": [
+   "A Poisson variable with a large mean can be approximated by a normal one with the same mean and variance: $X \\approx \\text{N}(31, 31)$. Because $X$ only takes whole numbers, $\\text{P}(X > 40)$ means $X \\geqslant 41$, so put the continuity-corrected boundary halfway between 40 and 41, then standardise using $\\sqrt{31}$.",
+   "You want the upper tail, so write the answer as $1 - \\Phi(z)$, using the $z$ you just found.",
+   "Use the normal table or your calculator's normal cdf to get $\\Phi(z)$, subtract it from 1, and give the result to 3 significant figures."
+  ],
+  "walkthrough": [
+   "**Why a normal approximation**\n\n$X \\sim \\text{Po}(31)$ means $X$ counts how many events happen, with an average of 31. A Poisson with a mean this big (the usual rule is a mean bigger than 15) has a bell-shaped graph, so we can swap it for a normal distribution. The question tells us to do exactly that.",
+   "**Choose the normal distribution**\n\nFor a Poisson, the mean and the variance are both equal to $\\lambda$. Here $\\lambda = 31$, so the normal we use has the same mean and the same variance:\n\n$$X \\approx \\text{N}(31, 31)$$\n\nQuick check: the second number in $\\text{N}(\\mu, \\sigma^2)$ is the variance, so the standard deviation is $\\sqrt{31}$. Do not put 31 where the standard deviation goes.",
+   "**Apply the continuity correction**\n\nA Poisson variable can only be 0, 1, 2, ... (whole numbers), but a normal variable can take any value. To fix this, each whole number $r$ is stretched into the interval from $r - 0.5$ to $r + 0.5$.\n\n$\\text{P}(X > 40)$ means $X = 41, 42, 43, \\ldots$ The number 41 starts at $40.5$. So the boundary is $40.5$:\n\n$$\\text{P}(X > 40) \\approx \\text{P}(Y > 40.5), \\quad Y \\sim \\text{N}(31, 31)$$\n\nQuick check: 40 itself must be left out (the sign is $>$, not $\\geqslant$), so we start halfway between 40 and 41.",
+   "**Standardise**\n\nTo use the normal table we convert to the standard normal $Z \\sim \\text{N}(0,1)$ using $z = \\dfrac{\\text{value} - \\text{mean}}{\\text{standard deviation}}$.\n\n$$z = \\dfrac{40.5 - 31}{\\sqrt{31}}$$\n\nDo it in small pieces. The top: $40.5 - 31 = 9.5$. The bottom: $\\sqrt{31} = 5.5678$ (square root key). Then:\n\n$$z = \\dfrac{9.5}{5.5678} = 1.706$$\n\nThis line earns the first M1 (a correct standardisation). The mark scheme still gives this mark if the continuity correction is missing or wrong, but then you lose the accuracy later.",
+   "**Pick the correct tail**\n\nWe want $\\text{P}(Y > 40.5)$, the area to the right of $z = 1.706$. The table (and the calculator's cdf) gives the area to the left, $\\Phi(z)$. So the area on the right is $1 - \\Phi(1.706)$:\n\n$$\\text{P}(Z > 1.706) = 1 - \\Phi(1.706)$$\n\nThis line earns the second M1: the correct area, in line with your working. Sketch a bell curve with 1.706 on the right-hand side and shade the right tail. It should be small, because 41 or more is much bigger than the usual value of about 31.",
+   "**Calculate**\n\nLook up $\\Phi(1.706)$ in the normal table or with your calculator's normal cdf. It is about $0.9560$.\n\n$$1 - \\Phi(1.706) = 1 - 0.9560 = 0.0440$$\n\nThe mark scheme prints $0.0441$ (it used a rounded table value) and also accepts $0.0440$. Both earn the A1. Note that $0.044$ (only 2 significant figures) does not.",
+   "**Final answer**\n\n$$\\text{P}(X > 40) = 0.0441 \\;(3 \\text{ s.f.})$$\n\nThe mark scheme gives 0.0441; an exact calculator value is 0.0440, and that is accepted too."
+  ]
+ }
+}

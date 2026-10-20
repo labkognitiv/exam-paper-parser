@@ -1,0 +1,43 @@
+{
+ "9709_w24_62_q7_a": {
+  "hints": [
+   "Recall what a Type I error is (rejecting $\\text{H}_0$ when it is actually true) and how its probability relates to the significance level the scientist chose."
+  ],
+  "walkthrough": [
+   "**What is a Type I error?**\n\nA Type I error happens when the test rejects $\\text{H}_0$ even though $\\text{H}_0$ is true.",
+   "**Its probability**\n\nThe significance level of a test is defined as exactly this probability. The scientist uses the 2% level, so the chance of a Type I error is 2%.",
+   "**Final answer**\n\n$\\text{P}(\\text{Type I error}) = 0.02$ (that is, 2%)."
+  ]
+ },
+ "9709_w24_62_q7_b": {
+  "hints": [
+   "Define $\\mu$ as the population mean height of one-year-old trees in her region. She believes they are taller than the usual 2.3 m, so $\\text{H}_0$: $\\mu = 2.3$ and $\\text{H}_1$ is one-tailed — decide the direction.",
+   "The population variance is unknown, so estimate it from the sample: $s^2 = \\dfrac{1}{n-1}\\left(\\sum h^2 - \\dfrac{(\\sum h)^2}{n}\\right)$, using $n = 100$, $\\sum h = 238$ and $\\sum h^2 = 580$.",
+   "Also find the sample mean, $\\bar{x} = \\dfrac{\\sum h}{n}$. Evaluate your $s^2$ (or $s$) from the substitution.",
+   "With $n = 100$ the Central Limit Theorem lets you use a normal test statistic: $z = \\dfrac{\\bar{x} - 2.3}{\\sqrt{s^2/100}}$. Put in your $\\bar{x}$ and $s^2$.",
+   "Evaluate $z$ to 3 significant figures. (Alternatively, find the p-value $\\text{P}(Z > z)$ and compare with 0.02.)",
+   "For a one-tailed test at 2%, the critical value is $\\Phi^{-1}(0.98)$ — find it with the inverse normal on your calculator, then compare it with your $z$.",
+   "If your $z$ is larger than the critical value, reject $\\text{H}_0$; otherwise do not. Then state in context, in non-definite wording ('there is sufficient evidence to suggest…'), what this says about the mean height compared with 2.3 m."
+  ],
+  "walkthrough": [
+   "**Hypotheses**\n\nLet $\\mu$ be the population mean height (in m) of one-year-old trees of this variety in the scientist's region. She believes trees here are taller, so the test is one-tailed:\n\n$$\\text{H}_0: \\mu = 2.3 \\qquad \\text{H}_1: \\mu > 2.3$$\n\nThis earns the B1.",
+   "**Sample mean**\n\nThe sample mean $\\bar{x}$ is the total divided by the number of trees:\n\n$$\\bar{x} = \\frac{\\sum h}{n} = \\frac{238}{100} = 2.38$$",
+   "**Estimate the variance**\n\nWe do not know the population variance, so we estimate it with the unbiased estimate $s^2$, which divides by $n - 1$ (not $n$):\n\n$$s^2 = \\frac{1}{n - 1}\\left(\\sum h^2 - \\frac{(\\sum h)^2}{n}\\right) = \\frac{1}{99}\\left(580 - \\frac{238^2}{100}\\right)$$\n\nThis earns the M1. Now work it out in pieces: $238^2 = 56644$, and $\\dfrac{56644}{100} = 566.44$.\n\n$$s^2 = \\frac{580 - 566.44}{99} = \\frac{13.56}{99} = 0.13697\\ldots \\approx 0.137$$\n\nSo $s = \\sqrt{0.13697} = 0.3701$. Having both $\\bar{x} = 2.38$ and $s^2 = 0.137$ earns the A1. (Dividing by 100 instead of 99 gives 0.1356, which is the common slip.)",
+   "**Why a z-test?**\n\nThe sample is large ($n = 100$), so by the Central Limit Theorem the sample mean $\\overline{X}$ is approximately normal. Under $\\text{H}_0$, $\\overline{X} \\sim \\text{N}\\left(2.3, \\dfrac{s^2}{100}\\right)$. The standard deviation of the sample mean is $\\sqrt{\\dfrac{0.13697}{100}} = \\sqrt{0.0013697} = 0.037009$.",
+   "**Test statistic**\n\n$$z = \\frac{\\bar{x} - \\mu}{\\sqrt{s^2 / n}} = \\frac{2.38 - 2.3}{\\sqrt{0.137 / 100}} = \\frac{0.08}{0.037009} = 2.1616\\ldots$$\n\nThis earns the M1. Rounded: $z = 2.16$ (3 s.f.), earning the A1.",
+   "**Compare with the critical value**\n\nThis is an upper-tail test at the 2% level, so the critical value is the $z$ with $\\Phi(z) = 0.98$:\n\n$$\\Phi^{-1}(0.98) = 2.054$$\n\n$$2.16 > 2.054$$\n\nOur $z$ is in the rejection region. This earns the M1. (Same result by p-value: $\\text{P}(Z > 2.16) = 1 - \\Phi(2.16) = 0.0153$, and $0.0153 < 0.02$.)",
+   "**Conclusion in context**\n\nSince $2.16 > 2.054$, we reject $\\text{H}_0$. There is sufficient evidence, at the 2% level, to suggest that the mean height of one-year-old trees of this variety in her region is greater than 2.3 m. We say 'sufficient evidence to suggest', not 'proved'. This earns the A1FT.",
+   "**Final answer**\n\n$z = 2.16$ (p-value $0.0153$) $> 2.054$ (critical value). Reject $\\text{H}_0$: there is sufficient evidence to suggest that the mean height in her region is greater than 2.3 m."
+  ]
+ },
+ "9709_w24_62_q7_c": {
+  "hints": [
+   "A Type II error is failing to reject $\\text{H}_0$ when $\\text{H}_0$ is false. Compare with the decision the scientist actually reached in part **(b)**."
+  ],
+  "walkthrough": [
+   "**What is a Type II error?**\n\nA Type II error means that the test did not reject $\\text{H}_0$, although $\\text{H}_0$ was actually false.",
+   "**What did the scientist decide?**\n\nIn part **(b)** she rejected $\\text{H}_0$. So she was not in the situation where a Type II error can happen. (If she made any error at all it could only be a Type I error.)",
+   "**Final answer**\n\nThe claim is not possible, because $\\text{H}_0$ was rejected (a Type II error can only occur when $\\text{H}_0$ is not rejected)."
+  ]
+ }
+}

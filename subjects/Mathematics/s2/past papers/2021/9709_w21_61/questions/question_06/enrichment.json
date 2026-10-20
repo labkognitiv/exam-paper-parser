@@ -1,0 +1,34 @@
+{
+ "9709_w21_61_q6_a": {
+  "hints": [
+   "The unbiased estimate of the population mean is the sample mean: $\\dfrac{\\sum t}{n}$ with $\\sum t = 560$ and $n = 40$.",
+   "For the variance, use the unbiased formula that divides by $n - 1$: $s^2 = \\dfrac{1}{n-1}\\left(\\sum t^2 - \\dfrac{(\\sum t)^2}{n}\\right)$, with $\\sum t^2 = 7850$.",
+   "Work out $\\dfrac{560^2}{40}$ first, subtract it from $7850$, then divide by $39$. If you divide by $40$ you get the biased estimate and lose the marks."
+  ],
+  "walkthrough": [
+   "**What 'unbiased estimate' means**\n\nWe only have a sample of 40 races, but we want to estimate the mean $\\mu$ and the variance $\\sigma^2$ of all Tania's races. An 'unbiased' estimate is one that is right on average, not too high or too low.",
+   "**Estimate of $\\mu$ (B1)**\n\nThe unbiased estimate of the population mean is the sample mean.\n\n$$\\hat{\\mu} = \\bar{t} = \\frac{\\sum t}{n} = \\frac{560}{40} = 14$$",
+   "**Estimate of $\\sigma^2$ (M1)**\n\nThe unbiased estimate of the variance divides by $n - 1$, not $n$:\n\n$$s^2 = \\frac{1}{n-1}\\left(\\sum t^2 - \\frac{(\\sum t)^2}{n}\\right) = \\frac{1}{39}\\left(7850 - \\frac{560^2}{40}\\right)$$\n\nWhy $n - 1$: the sample values cluster closer to their own mean than to the true mean, so dividing by $n$ would give an answer that is too small on average. Dividing by $n - 1$ corrects that.",
+   "**Calculate (A1)**\n\nSquare first: $560^2 = 313\\,600$. Divide by $40$: $\\dfrac{313\\,600}{40} = 7840$.\n\n$$7850 - 7840 = 10$$$$s^2 = \\frac{10}{39} = 0.25641\\ldots$$\n\nThe other form from the scheme gives the same thing: $\\dfrac{40}{39}\\left(\\dfrac{7850}{40} - 14^2\\right) = \\dfrac{40}{39}\\left(196.25 - 196\\right) = \\dfrac{40}{39} \\times 0.25 = \\dfrac{10}{39}$.\n\nSlip to avoid: leaving out the $\\dfrac{40}{39}$ (or dividing by $40$) gives $0.25$, which is the biased value, and scores no marks.",
+   "**Final answer**\n\nUnbiased estimate of $\\mu$ is $14$.\n\nUnbiased estimate of $\\sigma^2$ is $\\dfrac{10}{39} = 0.256$ (3 s.f.; the scheme also shows $0.25641$)."
+  ]
+ },
+ "9709_w21_61_q6_b": {
+  "hints": [
+   "'$S$ is at least $0.1$ more than $T$' means $S - T \\geqslant 0.1$. Set up the new variable $S - T$ and find its mean using $14.2$ for $S$ and your estimate of $\\mu$ for $T$: $\\text{E}(S - T) = \\text{E}(S) - \\text{E}(T)$.",
+   "The races are independent, so the variances **add** even though you subtract the variables: $\\text{Var}(S - T) = \\text{Var}(S) + \\text{Var}(T)$, using $0.3$ and your estimate of $\\sigma^2$ from part (a).",
+   "$S - T$ is normal. Standardise the boundary $0.1$ using the mean and variance you just found: $z = \\dfrac{0.1 - \\text{E}(S-T)}{\\sqrt{\\text{Var}(S-T)}}$.",
+   "You want $\\text{P}(S - T > 0.1)$, the **upper** tail, so the probability is $1 - \\Phi(z)$.",
+   "Your $z$ will be negative, so find $\\Phi$ of it with the calculator (or use $1 - \\Phi(z) = \\Phi(-z)$). The answer should be a little over $0.5$, because the boundary is below the mean. Give 3 s.f."
+  ],
+  "walkthrough": [
+   "**Turn the question into one variable**\n\nWe want 'Suki's time at least $0.1$ s more than Tania's', that is $S - T \\geqslant 0.1$. Because $S$ and $T$ are independent and normal, the difference $D = S - T$ is also normal. We need its mean and variance.\n\n$$\\text{P}(D \\geqslant 0.1) = \\text{P}(S - T \\geqslant 0.1)$$",
+   "**Mean of $D$ (first B1 ft)**\n\nFrom part (a), $T$ has mean (estimated) $14$. Suki's mean is $14.2$. The mean of a difference is the difference of the means.\n\n$$\\text{E}(D) = 14.2 - 14 = 0.2$$",
+   "**Variance of $D$ (second B1 ft)**\n\nFor independent variables, $\\text{Var}(aX + bY) = a^2\\,\\text{Var}(X) + b^2\\,\\text{Var}(Y)$. With $a = 1$ and $b = -1$, we get $(-1)^2 = 1$, so the variances **add**. Subtracting variables never subtracts variances.\n\n$$\\text{Var}(D) = 0.3 + \\frac{10}{39} = 0.3 + 0.25641 = 0.55641$$\n\n(The scheme uses $0.256$ and gets $0.55641$ as well, and accepts $\\dfrac{217}{390}$.)\n\n$$D \\sim \\text{N}(0.2,\\ 0.55641)$$",
+   "**Standardise (first M1)**\n\nThe standard deviation is the square root of the variance: $\\sqrt{0.55641} = 0.74593$.\n\n$$z = \\frac{0.1 - 0.2}{0.74593} = \\frac{-0.1}{0.74593} = -0.134$$",
+   "**Choose the correct area (second M1)**\n\nWe want the probability that $D$ is **bigger** than $0.1$, which is the area to the right of $z = -0.134$.\n\n$$\\text{P}(D > 0.1) = 1 - \\Phi(-0.134)$$\n\nBy symmetry of the normal curve, $1 - \\Phi(-0.134) = \\Phi(0.134)$.",
+   "**Evaluate (A1)**\n\n$\\Phi(0.134)$: normal table or calculator normal cdf $\\to 0.5533$.\n\nQuick check: the boundary $0.1$ is slightly below the mean $0.2$, so more than half of the probability is above it. $0.553$ fits.\n\nIf you used the biased variance, you would get $0.554$, which the scheme still accepts for the A1.",
+   "**Final answer**\n\nThe probability that Suki's time is at least $0.1$ s more than Tania's is $0.553$ (3 s.f.)."
+  ]
+ }
+}

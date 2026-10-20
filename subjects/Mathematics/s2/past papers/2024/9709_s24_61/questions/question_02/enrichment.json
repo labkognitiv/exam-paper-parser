@@ -1,0 +1,19 @@
+{
+ "9709_s24_61_q2": {
+  "hints": [
+   "Rewrite the event: $X_1 > 3X_2$ is the same as $X_1 - 3X_2 > 0$. Let $Y = X_1 - 3X_2$ and find $\\text{E}(Y)$ using $\\text{E}(X_1) - 3\\,\\text{E}(X_2)$ with both means equal to 31.2.",
+   "For independent variables, $\\text{Var}(aX_1 + bX_2) = a^2\\,\\text{Var}(X_1) + b^2\\,\\text{Var}(X_2)$. The coefficient is squared (so the $-3$ does not make a subtraction), and $\\text{Var}(X) = 10.4^2$ because the distribution is $\\text{N}(31.2, 10.4^2)$.",
+   "Standardise $Y$ at 0 using your own mean and variance for $Y$, not 31.2 and 10.4: $z = \\dfrac{0 - \\text{E}(Y)}{\\sqrt{\\text{Var}(Y)}}$. Remember the square root, because you were working with a variance.",
+   "You want $\\text{P}(Y > 0)$, which is the upper tail, so write it as $\\text{P}(Z > z) = 1 - \\Phi(z)$.",
+   "Use your calculator's normal cdf (or the table) to find $\\Phi(z)$ for your positive $z$, subtract from 1 and round to 3 significant figures. Because the mean of $Y$ is negative, expect a small probability."
+  ],
+  "walkthrough": [
+   "**Turn the question into a single variable**\n\nThe event $X_1 > 3X_2$ is the same as $X_1 - 3X_2 > 0$ (move $3X_2$ to the left). So define\n\n$$Y = X_1 - 3X_2$$\n\nand we need $\\text{P}(Y > 0)$. A combination of independent normal variables is itself normal, so $Y$ is normal. To describe it we need its mean and its variance.",
+   "**Mean of Y (this earns the first B1)**\n\n$X_1$ and $X_2$ both come from $\\text{N}(31.2, 10.4^2)$, so $\\text{E}(X_1) = \\text{E}(X_2) = 31.2$. The mean of a combination is the same combination of the means:\n\n$$\\text{E}(Y) = \\text{E}(X_1) - 3\\,\\text{E}(X_2) = 31.2 - 3 \\times 31.2$$\n\n$$3 \\times 31.2 = 93.6 \\quad \\text{so} \\quad \\text{E}(Y) = 31.2 - 93.6 = -62.4$$\n\nQuick check: a negative mean makes sense. $3X_2$ is usually much bigger than $X_1$, so $Y > 0$ is unlikely.",
+   "**Variance of Y (this earns the second B1)**\n\nFor **independent** variables, $\\text{Var}(aX_1 + bX_2) = a^2\\,\\text{Var}(X_1) + b^2\\,\\text{Var}(X_2)$. Two things to notice:\n\n- the coefficients are **squared**, so the $-3$ becomes $(-3)^2 = 9$;\n\n- variances **add**, even though there is a minus sign in $Y$ (spreads never cancel).\n\nThe distribution is written $\\text{N}(31.2, 10.4^2)$, so the **variance** is $10.4^2$ (and the standard deviation is $10.4$).\n\n$$10.4^2 = 108.16$$\n\n$$\\text{Var}(Y) = 1^2 \\times 108.16 + 3^2 \\times 108.16 = 108.16 + 973.44 = 1081.6$$\n\nSo $Y \\sim \\text{N}(-62.4,\\ 1081.6)$.",
+   "**Standardise (this earns the first M1)**\n\nTo use the normal tables we convert 0 to a $z$-value: $z = \\dfrac{\\text{value} - \\text{mean}}{\\text{standard deviation}}$. The standard deviation is the square root of the variance:\n\n$$\\sqrt{1081.6} = 32.8877$$\n\n$$z = \\frac{0 - (-62.4)}{\\sqrt{1081.6}} = \\frac{62.4}{32.8877} = 1.897$$\n\nCommon slip: standardising with 31.2 and 10.4 instead of the mean and variance of $Y$. The scheme gives no credit for that.",
+   "**Choose the correct tail (this earns the second M1)**\n\nWe need $\\text{P}(Y > 0)$, the probability of being **above** the value, so we want the upper tail:\n\n$$\\text{P}(Y > 0) = \\text{P}(Z > 1.897) = 1 - \\Phi(1.897)$$\n\nThe calculator's normal cdf (or the table) gives $\\Phi(1.897) = 0.9711$.\n\n$$1 - 0.9711 = 0.0289$$",
+   "**Final answer**\n\n$$\\text{P}(X_1 > 3X_2) = 0.0289 \\text{ (3 s.f.)}$$\n\nQuick check: a small probability, as predicted when we saw the negative mean."
+  ]
+ }
+}

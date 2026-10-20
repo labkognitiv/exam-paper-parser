@@ -1,0 +1,31 @@
+{
+ "9709_m20_62_q4_a": {
+  "hints": [
+   "The Poisson mean is proportional to the length of the period. A year is 365 days and the given rate is for 50 days: scale it as $\\lambda = 0.4 \\times \\dfrac{365}{50}$.",
+   "'Fewer than 3' means 0, 1 or 2 accidents, and not 3: write $\\text{P}(X \\leqslant 2) = \\text{P}(0) + \\text{P}(1) + \\text{P}(2)$.",
+   "Use $\\text{e}^{-\\lambda}\\left(1 + \\lambda + \\dfrac{\\lambda^2}{2}\\right)$ with your $\\lambda$, and give 3 significant figures."
+  ],
+  "walkthrough": [
+   "**Find the mean for a year (this earns the B1)**\n\nA Poisson mean grows in proportion to the length of the period. The mean is 0.4 for every 50 days. A year of 365 days is $\\frac{365}{50} = 7.3$ lots of 50 days, so\n\n$$\\lambda = 0.4 \\times 7.3 = 2.92$$\n\nLet $X$ be the number of accidents in a year. Then $X \\sim \\text{Po}(2.92)$.",
+   "**What 'fewer than 3' means**\n\nFewer than 3 means 0, 1 or 2 accidents. Three itself is not included:\n\n$$\\text{P}(X < 3) = \\text{P}(X \\leqslant 2) = \\text{P}(X = 0) + \\text{P}(X = 1) + \\text{P}(X = 2)$$",
+   "**Calculate each probability (this earns the M1)**\n\nUse $\\text{P}(X = r) = \\text{e}^{-\\lambda}\\dfrac{\\lambda^r}{r!}$ with $\\lambda = 2.92$. It saves time to take out the common factor $\\text{e}^{-2.92}$:\n\n$$\\text{P}(X \\leqslant 2) = \\text{e}^{-2.92}\\left(1 + 2.92 + \\frac{2.92^2}{2}\\right)$$\n\nThe pieces are:\n\n$$\\text{e}^{-2.92} = 0.053934$$\n\n$$\\text{P}(X = 0) = 0.053934, \\quad \\text{P}(X = 1) = 2.92 \\times 0.053934 = 0.157486$$\n\n$$\\text{P}(X = 2) = \\frac{2.92^2}{2} \\times 0.053934 = 4.2632 \\times 0.053934 = 0.229930$$\n\nTake care to stop at 2. If you add one term too many or too few, the scheme allows only one end error for the M1.",
+   "**Add them (this earns the A1)**\n\n$$0.053934 + 0.157486 + 0.229930 = 0.441350$$",
+   "**Final answer**\n\n$$\\text{P}(\\text{fewer than 3 accidents in a year}) = 0.441 \\text{ (3 s.f.)}$$"
+  ]
+ },
+ "9709_m20_62_q4_b": {
+  "hints": [
+   "For a period of $n$ days the mean is $\\lambda = 0.4 \\times \\dfrac{n}{50}$. 'No accidents' is $\\text{P}(X = 0) = \\text{e}^{-\\lambda}$. Write the inequality $\\text{e}^{-\\lambda} > 0.95$.",
+   "Take natural logs of both sides: $\\ln\\left(\\text{e}^{-\\lambda}\\right) = -\\lambda$, so $-\\lambda > \\ln 0.95$. Careful: multiplying by $-1$ reverses the inequality.",
+   "Turn $\\lambda$ back into days using $\\lambda = \\dfrac{0.4n}{50}$, i.e. $n = \\lambda \\times \\dfrac{50}{0.4}$, with the bound on $\\lambda$ you found.",
+   "$n$ is a whole number of days and you want the **largest** one that still satisfies the inequality. Check the whole numbers either side of your bound if you want to be sure."
+  ],
+  "walkthrough": [
+   "**Mean and probability of no accidents (this earns the first M1)**\n\nFor $n$ days the mean is the 50-day rate scaled to $n$ days:\n\n$$\\lambda = 0.4 \\times \\frac{n}{50} = 0.008n$$\n\nNo accidents means $X = 0$, and $\\text{P}(X = 0) = \\text{e}^{-\\lambda}\\dfrac{\\lambda^0}{0!} = \\text{e}^{-\\lambda}$. The question says this must be more than 0.95:\n\n$$\\text{e}^{-\\lambda} > 0.95$$",
+   "**Take logs (this earns the second M1)**\n\nTo undo the $\\text{e}$ we take natural logs of both sides. Since $\\ln$ is increasing, the inequality keeps its direction:\n\n$$\\ln\\left(\\text{e}^{-\\lambda}\\right) > \\ln 0.95 \\quad \\Rightarrow \\quad -\\lambda > \\ln 0.95$$\n\nOn the calculator $\\ln 0.95 = -0.051293$, so\n\n$$-\\lambda > -0.051293$$\n\nNow multiply both sides by $-1$. **Multiplying by a negative reverses the inequality sign:**\n\n$$\\lambda < 0.051293$$\n\nThis makes sense: the fewer accidents we expect, the more likely there are none.",
+   "**Convert back to days (this earns the third M1)**\n\nWe have $\\lambda = \\frac{0.4n}{50}$, so $n = \\lambda \\times \\frac{50}{0.4}$. Note $\\frac{50}{0.4} = 125$.\n\n$$n < 0.051293 \\times \\frac{50}{0.4} = 0.051293 \\times 125 = 6.4116\\ldots$$",
+   "**Choose the largest whole number (this earns the A1)**\n\n$n$ counts days, so it is a whole number, and it must be **less than** 6.41. The largest whole number below 6.41 is 6.\n\nCheck with $n = 6$: $\\lambda = 0.008 \\times 6 = 0.048$ and $\\text{e}^{-0.048} = 0.9531 > 0.95$ (works).\n\nCheck with $n = 7$: $\\lambda = 0.056$ and $\\text{e}^{-0.056} = 0.9455 < 0.95$ (does not work).",
+   "**Final answer**\n\nThe largest possible value is $n = 6$. The scheme accepts $n = 6$ or $n \\leqslant 6$, but not $n < 6$ or $n \\geqslant 6$ as the final answer."
+  ]
+ }
+}

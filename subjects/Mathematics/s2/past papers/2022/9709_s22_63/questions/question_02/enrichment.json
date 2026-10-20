@@ -1,0 +1,36 @@
+{
+ "9709_s22_63_q2_a": {
+  "hints": [
+   "A Type I error is a mistake made when $\\text{H}_0$ is actually true. Say what the test would conclude about the proportion of left-handed students if it wrongly rejected $\\text{H}_0$, and make your sentence mention left-handed students (the context)."
+  ],
+  "walkthrough": [
+   "**What is a Type I error?**\n\nA hypothesis test can go wrong in two ways. A **Type I error** is: rejecting $\\text{H}_0$ when $\\text{H}_0$ is actually true.\n\nHere $\\text{H}_0$ says $p = 0.1$ (10% of students are left-handed) and $\\text{H}_1$ says $p > 0.1$. Rejecting $\\text{H}_0$ means concluding that the proportion is **greater than** 10%. So a Type I error happens when Aliya concludes that more than 10% of students at the college are left-handed, when in fact the proportion is 10% (or not more than 10%).\n\nThe mark scheme wants this in context (the words \"left-handed\" or $p$), not just \"rejecting $\\text{H}_0$ when it is true\".",
+   "**Final answer**\n\nA Type I error is concluding that more than 10% of the students at the college are left-handed when this is not true (the proportion really is 10%)."
+  ]
+ },
+ "9709_s22_63_q2_b": {
+  "hints": [
+   "A Type I error is rejecting $\\text{H}_0$ when it is true, so work with $\\text{H}_0$: $p = 0.1$. The number of left-handed students in the sample is then $X \\sim \\text{B}(20, 0.1)$, and the test rejects when $X \\geqslant 5$.",
+   "The probability you need is $\\text{P}(X \\geqslant 5) = 1 - \\text{P}(X \\leqslant 4)$. Write $\\text{P}(X \\leqslant 4)$ as the sum of $\\text{P}(X = r)$ for the values of $r$ from $0$ up to the largest value not in the rejection region, each of the form $\\binom{20}{r}\\, 0.1^r\\, 0.9^{20-r}$.",
+   "Use your calculator's binomial cdf with $n = 20$, $p = 0.1$ for the sum, then subtract it from 1 and round to 3 significant figures."
+  ],
+  "walkthrough": [
+   "**Set up the distribution**\n\nA Type I error means rejecting $\\text{H}_0$ when $\\text{H}_0$ is true. So we calculate using the value of $p$ from $\\text{H}_0$, which is $p = 0.1$.\n\n$X$ is the number of left-handed students among the 20 chosen. Each student is either left-handed (probability $0.1$) or not, independently, so\n\n$$X \\sim \\text{B}(20, 0.1)$$\n\nAliya rejects $\\text{H}_0$ if at least 5 are left-handed, i.e. if $X \\geqslant 5$. So\n\n$$\\text{P}(\\text{Type I error}) = \\text{P}(X \\geqslant 5)$$",
+   "**Turn \"at least 5\" into \"1 minus the rest\" (M2)**\n\nThe values $X$ can take are $0, 1, 2, \\ldots, 20$. Adding up $5$ up to $20$ is long, so instead take everything and remove the small values $0, 1, 2, 3, 4$:\n\n$$\\text{P}(X \\geqslant 5) = 1 - \\text{P}(X \\leqslant 4)$$\n\nThe scheme says you **must** write the \"$1 -$\"; the method mark cannot be implied.",
+   "**Write out each probability**\n\nBinomial formula: $\\text{P}(X = r) = \\binom{20}{r}\\, 0.1^r\\, 0.9^{20-r}$.\n\n$$\\text{P}(X=0) = 0.9^{20} = 0.121577$$\n\n$$\\text{P}(X=1) = 20 \\times 0.9^{19} \\times 0.1 = 0.270170$$\n\n$$\\text{P}(X=2) = 190 \\times 0.9^{18} \\times 0.1^2 = 0.285180$$\n\n$$\\text{P}(X=3) = 1140 \\times 0.9^{17} \\times 0.1^3 = 0.190120$$\n\n$$\\text{P}(X=4) = 4845 \\times 0.9^{16} \\times 0.1^4 = 0.089779$$\n\n(The numbers $1, 20, 190, 1140, 4845$ are $\\binom{20}{0}, \\binom{20}{1}, \\ldots, \\binom{20}{4}$; on a calculator press 20 nCr 2 and so on.)\n\nAdd them: $0.121577 + 0.270170 + 0.285180 + 0.190120 + 0.089779 = 0.956826$.",
+   "**Subtract from 1 (A1)**\n\n$$\\text{P}(X \\geqslant 5) = 1 - 0.956826 = 0.043174\\ldots$$\n\nShortcut: binomial cdf on a calculator with $n = 20$, $p = 0.1$, upper value $4$ gives $0.9568\\ldots$ directly.\n\nCheck: a Type I error should be a small probability because the test is designed to rarely reject a true $\\text{H}_0$. About 4% looks sensible.",
+   "**Final answer**\n\n$\\text{P}(\\text{Type I error}) = 0.0432$ (3 s.f.)"
+  ]
+ },
+ "9709_s22_63_q2_c": {
+  "hints": [
+   "A Type II error is failing to reject $\\text{H}_0$ when it is actually false. Now use the true value $p = 0.3$: the number of left-handed students is $X \\sim \\text{B}(20, 0.3)$, and $\\text{H}_0$ is not rejected when $X$ is below the rejection region.",
+   "Not rejecting means $X \\leqslant 4$, because the test rejects at 5 or more. Use your calculator's binomial cdf with $n = 20$, $p = 0.3$ (or add $\\binom{20}{r}\\,0.3^r\\,0.7^{20-r}$ for each $r$ from $0$ to the top of the non-rejection region)."
+  ],
+  "walkthrough": [
+   "**What is a Type II error?**\n\nA **Type II error** is **not** rejecting $\\text{H}_0$ when $\\text{H}_0$ is actually false.\n\nWe are told the true value is $p = 0.3$, so $\\text{H}_0$ ($p = 0.1$) is false. The sample is $X \\sim \\text{B}(20, 0.3)$.\n\n$\\text{H}_0$ is not rejected when $X$ is **not** in the rejection region. The rejection region is $X \\geqslant 5$, so not rejecting means $X \\leqslant 4$:\n\n$$\\text{P}(\\text{Type II error}) = \\text{P}(X \\leqslant 4) \\text{ with } X \\sim \\text{B}(20, 0.3)$$\n\nThis earns the M1 (the scheme says the method mark cannot be implied, so show this).",
+   "**Add up the probabilities**\n\nUse $\\text{P}(X = r) = \\binom{20}{r}\\, 0.3^r\\, 0.7^{20-r}$:\n\n$$\\text{P}(X=0) = 0.7^{20} = 0.000798$$\n\n$$\\text{P}(X=1) = 20 \\times 0.7^{19} \\times 0.3 = 0.006839$$\n\n$$\\text{P}(X=2) = 190 \\times 0.7^{18} \\times 0.3^2 = 0.027846$$\n\n$$\\text{P}(X=3) = 1140 \\times 0.7^{17} \\times 0.3^3 = 0.071604$$\n\n$$\\text{P}(X=4) = 4845 \\times 0.7^{16} \\times 0.3^4 = 0.130421$$\n\nTotal: $0.000798 + 0.006839 + 0.027846 + 0.071604 + 0.130421 = 0.237508\\ldots$\n\nOr press binomial cdf with $n = 20$, $p = 0.3$, upper value $4$.",
+   "**Final answer**\n\n$\\text{P}(\\text{Type II error}) = 0.238$ (3 s.f.). (The scheme also accepts $0.237$.)"
+  ]
+ }
+}

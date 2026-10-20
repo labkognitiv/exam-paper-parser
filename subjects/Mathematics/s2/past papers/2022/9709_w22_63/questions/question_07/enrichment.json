@@ -1,0 +1,38 @@
+{
+ "9709_w22_63_q7_a": {
+  "hints": [
+   "Let $\\mu$ be the population mean journey time. $\\text{H}_0$ says the mean is still $32.5$; Laxmi wants to know if it has *decreased*, so $\\text{H}_1$ is one-tailed with \"$<$\". Say what $\\mu$ stands for.",
+   "You test a sample mean of 50 journeys with known $\\sigma = 3.1$, so standardise it: $z = \\dfrac{31.8 - 32.5}{3.1 \\div \\sqrt{50}}$. The $\\sqrt{50}$ is essential because it is a mean of 50 journeys.",
+   "Work out the standard error $3.1 \\div \\sqrt{50}$ first, then divide the difference $31.8 - 32.5$ by it. Expect a negative answer, since $31.8$ is below $32.5$.",
+   "One tail, 8%: find the critical value $z_{\\text{crit}}$ with $\\Phi(z_{\\text{crit}}) = 0.08$ (inverse normal; it is negative) and compare your $z$ with it. Or find $\\Phi(z)$ and compare it with $0.08$.",
+   "If your $z$ is further out in the tail than the critical value (or your probability is below $0.08$) you reject $\\text{H}_0$; otherwise you do not. Write the conclusion in the context of Laxmi's journey time, using \"evidence\" rather than anything definite."
+  ],
+  "walkthrough": [
+   "**What we are testing**\n\nBefore the route change, journey times had mean $32.5$ minutes and standard deviation $3.1$. After the change Laxmi wants to know whether the **mean has gone down**. She has a sample of $n = 50$ journeys with sample mean $\\bar{x} = 31.8$. The sample mean is a bit below $32.5$, but samples vary by chance, so we test whether it is **far enough below** to be convincing.",
+   "**Hypotheses (B1)**\n\nLet $\\mu$ be the population mean journey time (in minutes) after the route change.\n\n$$\\text{H}_0: \\mu = 32.5 \\qquad \\text{H}_1: \\mu < 32.5$$\n\n$\\text{H}_0$ is \"no change\". $\\text{H}_1$ is \"decreased\", so it uses \"$<$\" and the test is **one-tailed**. Write what $\\mu$ means (the scheme does not accept just the word \"mean\"). This earns the B1.",
+   "**Distribution of the sample mean**\n\nIf $\\text{H}_0$ is true, the sample mean of $50$ journeys is approximately normal (the sample is large, $n = 50$), with mean $32.5$ and standard deviation $\\dfrac{\\sigma}{\\sqrt{n}} = \\dfrac{3.1}{\\sqrt{50}}$. The question says to assume the standard deviation $3.1$ is unchanged.",
+   "**Calculate the test statistic (M1, A1)**\n\nStandardise the sample mean: $z = \\dfrac{\\bar{x} - \\mu}{\\sigma/\\sqrt{n}}$.\n\n$\\sqrt{50} = 7.0711$, so the standard error is $\\dfrac{3.1}{7.0711} = 0.43841$.\n\nThe distance from the mean: $31.8 - 32.5 = -0.7$.\n\n$$z = \\frac{31.8 - 32.5}{3.1 \\div \\sqrt{50}} = \\frac{-0.7}{0.43841} = -1.597$$\n\nThe M1 is for the expression with $\\sqrt{50}$ (forgetting it is the common slip); the A1 is for $-1.597$ (the scheme accepts the sign either way if the comparison is consistent).",
+   "**Critical value and comparison (M1)**\n\nThe significance level is 8% and the test is one-tailed with the low tail, so the rejection region is the lowest $8\\%$ of the curve. The critical value $z_{\\text{crit}}$ satisfies $\\Phi(z_{\\text{crit}}) = 0.08$. Calculator: inverse normal of $0.08$ gives about $-1.405$; the scheme uses $-1.406$. Both give the same decision:\n\n$$-1.597 < -1.406$$\n\nOur $z$ is **further into the tail** than the critical value, so it lies in the rejection region.\n\nEquivalent method: the probability of a result this low is $\\Phi(-1.597) = 0.0551$, and $0.0551 < 0.08$. (Another accepted method: critical value for the sample mean $31.88$ and $31.8 < 31.88$.) This earns the M1.",
+   "**Conclusion in context (A1 FT)**\n\nThe test statistic is in the rejection region, so we **reject $\\text{H}_0$**.\n\nIn context, and not too definite: there is evidence at the 8% significance level that Laxmi's mean journey time has decreased.",
+   "**Final answer**\n\n$z = -1.597 < -1.406$ (or $0.0551 < 0.08$): reject $\\text{H}_0$. There is evidence that the population mean journey time has decreased."
+  ]
+ },
+ "9709_w22_63_q7_b": {
+  "hints": [
+   "A Type II error means accepting $\\text{H}_0$ when it is actually false (here the true mean is $31.5$). First find the boundary of the rejection region in terms of the sample mean: set $\\dfrac{a - 32.5}{3.1 \\div \\sqrt{50}}$ equal to the negative critical $z$ for 8%, which you used in (a).",
+   "Solve for $a$: multiply the critical $z$ by $3.1 \\div \\sqrt{50}$ and add $32.5$. Work out $a$, the sample mean below which $\\text{H}_0$ is rejected.",
+   "Now the truth is that the mean is $31.5$, so standardise the same boundary $a$ using that mean: $z = \\dfrac{a - 31.5}{3.1 \\div \\sqrt{50}}$ (still with $\\sqrt{50}$).",
+   "A Type II error means the sample mean lands **above** $a$ (so $\\text{H}_0$ is not rejected). The area above is $1 - \\Phi(z)$.",
+   "Evaluate $1 - \\Phi(z)$ with your calculator's normal cdf and give 3 significant figures."
+  ],
+  "walkthrough": [
+   "**What a Type II error is**\n\nA **Type II error** is failing to reject $\\text{H}_0$ when $\\text{H}_0$ is actually false. Here the mean really is $31.5$ (less than $32.5$), so $\\text{H}_0$ is false. A Type II error happens if the sample mean comes out high enough to be **outside the rejection region**.\n\nTwo stages: (1) find where the rejection region ends, in terms of the sample mean; (2) find the probability of landing outside it when the true mean is $31.5$.",
+   "**Find the boundary of the rejection region (M1)**\n\n$\\text{H}_0$ is rejected when the sample mean $\\bar{X}$ is below a value $a$. At the boundary, standardising with the $\\text{H}_0$ mean $32.5$ gives the critical $z$ for 8% in the lower tail ($-1.406$ as in (a)):\n\n$$\\frac{a - 32.5}{3.1 \\div \\sqrt{50}} = -1.406$$\n\nThis earns the M1 (it must use $32.5$, $\\sqrt{50}$ and a $z$ on the right-hand side).",
+   "**Solve for $a$ (A1)**\n\nThe standard error is $3.1 \\div \\sqrt{50} = 0.43841$. Multiply both sides by it:\n\n$$a - 32.5 = -1.406 \\times 0.43841 = -0.61640$$\n\n$$a = 32.5 - 0.6164 = 31.8836 = 31.88$$\n\n(The scheme gives $31.88$ or $31.9$.) So $\\text{H}_0$ is rejected if the sample mean is below $31.88$, and **not** rejected if it is $31.88$ or more. (Quick check against (a): $\\bar{x} = 31.8 < 31.88$, so rejecting there agrees.)",
+   "**Standardise using the true mean (M1)**\n\nNow suppose the population mean is actually $31.5$. The sample mean is then normal with mean $31.5$ and the same standard error $0.43841$. How far is the boundary $31.88$ from $31.5$ in standard errors?\n\n$$z = \\frac{31.88 - 31.5}{3.1 \\div \\sqrt{50}} = \\frac{0.38}{0.43841} = 0.8668$$\n\nThis earns the M1 (it uses your boundary, the mean $31.5$ and $\\sqrt{50}$).",
+   "**Choose the right area (M1)**\n\nA Type II error is \"sample mean **above** $31.88$\", the right-hand tail beyond $z = 0.8668$:\n\n$$\\text{P}(\\text{Type II error}) = 1 - \\Phi(0.8668)$$",
+   "**Calculate (A1)**\n\n$\\Phi(0.8668)$: use the normal table or the calculator's normal cdf $\\rightarrow 0.8070$.\n\n$$1 - 0.8070 = 0.1930 = 0.193 \\text{ (3 s.f.)}$$\n\nIf you keep unrounded values all the way (critical $z = -1.4051$), you get $0.1905 = 0.191$. The scheme accepts any answer from $0.190$ to $0.193$, so both are fine.",
+   "**Final answer**\n\nThe probability of a Type II error is $0.193$ (3 s.f.; the scheme accepts $0.190$ to $0.193$)."
+  ]
+ }
+}

@@ -1,0 +1,37 @@
+{
+ "9709_s22_63_q4_a": {
+  "hints": [
+   "The total weight is $T = S + R + B$. Means simply add. Work out $\\text{E}(T)$ from the three given means and state that $T$ is normal because it is a sum of independent normal variables.",
+   "Variances of independent variables add for a sum. The second number in $\\text{N}(300, 45)$ is already the variance, so find $\\text{Var}(T)$ from $45$, $25$ and $4$ without squaring anything.",
+   "Standardise: $z = \\dfrac{500 - \\mu_T}{\\sqrt{\\sigma_T^2}}$ using your mean and variance for $T$ — the denominator is the square root of the variance.",
+   "You want $\\text{P}(T > 500)$. Think about which side of the mean 500 is on, and write the probability as a $\\Phi$ of your $z$ (or $1 - \\Phi$), using the symmetry of the normal curve if $z$ is negative.",
+   "Evaluate the $\\Phi$ with your calculator or table and round to 3 s.f. Check: 500 is below the mean, so \"more than 500\" should be more than a half."
+  ],
+  "walkthrough": [
+   "**The total weight and its mean (first B1)**\n\nThe weight of a full box is the sum of three parts: seeds, raisins and the empty box:\n\n$$T = S + R + B$$\n\nA sum of independent normal random variables is also normal. For the mean, just add the means (you can always add means, independent or not):\n\n$$\\text{E}(T) = 300 + 200 + 15 = 515$$\n\nSo $T \\sim \\text{N}(515, \\ldots)$. The mark scheme gives a B1 for stating the mean $515$ early.",
+   "**The variance of the total (second B1)**\n\nIn $\\text{N}(300, 45)$, the second number is the **variance** (not the standard deviation). For **independent** variables the variances add when we add the variables:\n\n$$\\text{Var}(T) = 45 + 25 + 4 = 74$$\n\nSo $T \\sim \\text{N}(515, 74)$.\n\nCommon slip: adding standard deviations, or squaring the 45, 25 or 4. Do neither: they are already variances.",
+   "**Standardise (first M1)**\n\nWe want $\\text{P}(T > 500)$. Standard deviation is the square root of the variance: $\\sqrt{74} = 8.6023$.\n\n$$z = \\frac{500 - 515}{\\sqrt{74}} = \\frac{-15}{8.6023} = -1.7437 \\approx -1.744$$\n\nCommon slip: dividing by $74$ instead of $\\sqrt{74}$ (a standard-deviation / variance mix-up).",
+   "**Choose the tail (second M1)**\n\n$\\text{P}(T > 500) = \\text{P}(Z > -1.744)$: the area to the right of a negative $z$. The normal curve is symmetrical, so this equals the area to the left of $+1.744$:\n\n$$\\text{P}(Z > -1.744) = \\Phi(1.744)$$\n\nSense-check: 500 is below the mean of 515, so most of the area is to its right, so the answer should be bigger than $0.5$.",
+   "**Evaluate (A1)**\n\nUse normal cdf or the table:\n\n$$\\Phi(1.744) = 0.9594\\ldots$$\n\nTo 3 s.f. that is $0.959$ (the scheme accepts $0.960$ too).",
+   "**Final answer**\n\n$\\text{P}(T > 500) = 0.959$ (3 s.f.). The scheme also accepts $0.960$."
+  ]
+ },
+ "9709_s22_63_q4_b": {
+  "hints": [
+   "\"The weight of seeds is less than 1.4 times the weight of raisins\" means $S < 1.4R$. Rearrange so one side is zero: $S - 1.4R < 0$, and define $Y = S - 1.4R$.",
+   "Find $\\text{E}(Y)$ using the means: $\\text{E}(S) - 1.4\\,\\text{E}(R)$, with the numbers from the question.",
+   "For the variance, a multiple comes out squared: $\\text{Var}(1.4R) = 1.4^2\\,\\text{Var}(R)$. Even though $Y$ is a difference, the variances **add**: $\\text{Var}(Y) = \\text{Var}(S) + 1.4^2\\,\\text{Var}(R)$, using 45 and 25.",
+   "Standardise the boundary: $z = \\dfrac{0 - \\text{E}(Y)}{\\sqrt{\\text{Var}(Y)}}$, with the square root of the variance on the bottom.",
+   "You want $\\text{P}(Y < 0)$, the lower tail. The $z$ is negative, so write this as $\\Phi$ of a negative number and use symmetry ($1 - \\Phi$ of the positive value), then evaluate."
+  ],
+  "walkthrough": [
+   "**Turn the words into an inequality**\n\n\"The weight of seeds is less than 1.4 times the weight of raisins\" means $S < 1.4R$. Move everything to one side so we compare with zero:\n\n$$S - 1.4R < 0$$\n\nLet $Y = S - 1.4R$. We want $\\text{P}(Y < 0)$. Since $S$ and $R$ are independent and normal, $Y$ is normal.",
+   "**The mean of $Y$ (first B1)**\n\nMeans follow the same signs:\n\n$$\\text{E}(Y) = \\text{E}(S) - 1.4\\,\\text{E}(R) = 300 - 1.4 \\times 200$$\n\n$$1.4 \\times 200 = 280, \\qquad 300 - 280 = 20$$\n\nSo $\\text{E}(Y) = 20$.",
+   "**The variance of $Y$ (second B1)**\n\nTwo rules:\n\n- A multiplier is **squared** when it comes out of a variance: $\\text{Var}(1.4R) = 1.4^2\\,\\text{Var}(R)$.\n\n- For independent variables, the variances **add**, even when we subtract the variables (a minus sign becomes $(-1)^2 = +1$).\n\n$$\\text{Var}(Y) = \\text{Var}(S) + 1.4^2\\,\\text{Var}(R) = 45 + 1.4^2 \\times 25$$\n\n$$1.4^2 = 1.96, \\qquad 1.96 \\times 25 = 49, \\qquad 45 + 49 = 94$$\n\nSo $Y \\sim \\text{N}(20, 94)$.\n\nCommon slip: using $1.4$ instead of $1.4^2$ gives $45 + 35 = 80$; subtracting variances gives a wrong value too. (The scheme gives special-case credit for $14$ and $105.84$.)",
+   "**Standardise (first M1)**\n\nWe want $\\text{P}(Y < 0)$. Standard deviation $= \\sqrt{94} = 9.6954$.\n\n$$z = \\frac{0 - 20}{\\sqrt{94}} = \\frac{-20}{9.6954} = -2.0628 \\approx -2.063$$",
+   "**Choose the tail (second M1)**\n\n$\\text{P}(Y < 0) = \\Phi(-2.063)$. Tables only list positive $z$, so use symmetry: the area to the left of $-2.063$ is the same as the area to the right of $+2.063$:\n\n$$\\Phi(-2.063) = 1 - \\Phi(2.063)$$\n\nOn your calculator, normal cdf with lower bound $-10^{99}$ and upper bound $-2.063$ gives the answer directly.",
+   "**Evaluate (A1)**\n\n$\\Phi(2.063) = 0.98044$, so\n\n$$1 - 0.98044 = 0.01956\\ldots$$\n\nSense-check: 0 is two standard deviations below the mean of $Y$, so a small probability is expected.",
+   "**Final answer**\n\n$\\text{P}(S < 1.4R) = 0.0196$ (3 s.f.)"
+  ]
+ }
+}

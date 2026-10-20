@@ -1,0 +1,48 @@
+{
+ "9709_s22_63_q7_a_i": {
+  "hints": [
+   "$\\text{f}(x)$ is the pdf of $X$ and is zero outside $0 \\leqslant x \\leqslant a$. So what range of values can $X$ take, and what is the total probability over all possible values?"
+  ],
+  "walkthrough": [
+   "**Where can $X$ be?**\n\n$\\text{f}(x)$ is zero for $x < 0$ and for $x > a$, so $X$ only takes values between $0$ and $a$. So $X$ is never negative.\n\n$\\text{P}(X \\geqslant 0)$ includes every value $X$ can take, so it is the whole probability.",
+   "**Final answer**\n\n$\\text{P}(X \\geqslant 0) = 1$"
+  ]
+ },
+ "9709_s22_63_q7_a_ii": {
+  "hints": [
+   "Look at $\\text{g}(w) = q(a^2 - w^2)$ and compare $\\text{g}(w)$ with $\\text{g}(-w)$. What does the symmetry of the graph about the vertical axis say about the probability on each side of $w = 0$?"
+  ],
+  "walkthrough": [
+   "**Use symmetry**\n\n$\\text{g}(w) = q(a^2 - w^2)$ only involves $w^2$, so $\\text{g}(-w) = \\text{g}(w)$. The graph is symmetrical about the vertical axis ($w = 0$), on the range $-a \\leqslant w \\leqslant a$.\n\nThe total area is $1$, and the two halves are mirror images. So each half has area $\\frac{1}{2}$.",
+   "**Final answer**\n\n$\\text{P}(W \\geqslant 0) = \\dfrac{1}{2}$"
+  ]
+ },
+ "9709_s22_63_q7_a_iii": {
+  "hints": [
+   "The part of $\\text{g}$ for $0 \\leqslant w \\leqslant a$ has the same shape as $\\text{f}$, but its area must be only a half. Compare the constants $p$ and $q$ so that the area is a half rather than 1."
+  ],
+  "walkthrough": [
+   "**Compare the two pdfs**\n\nFor $0 \\leqslant x \\leqslant a$, $\\text{f}(x) = p(a^2 - x^2)$ has total area $1$ (by part (i)).\n\nFor $0 \\leqslant w \\leqslant a$, $\\text{g}(w) = q(a^2 - w^2)$ has the same shape and its area is $\\frac{1}{2}$ (by part (ii)).\n\nThe area is proportional to the constant in front, so the constant for $\\text{g}$ must be half the constant for $\\text{f}$:\n\n$$q = \\frac{1}{2}p$$\n\nCheck by integrating: $\\int_0^a (a^2 - x^2)\\,\\text{d}x = \\frac{2}{3}a^3$. So $p \\times \\frac{2}{3}a^3 = 1$ and $q \\times \\frac{2}{3}a^3 = \\frac{1}{2}$. Dividing the second by the first gives $\\dfrac{q}{p} = \\dfrac{1}{2}$. This agrees.",
+   "**Final answer**\n\n$q = \\dfrac{1}{2}p$"
+  ]
+ },
+ "9709_s22_63_q7_b": {
+  "hints": [
+   "The total probability under a pdf is 1. Write $\\int_0^a p(a^2 - x^2)\\,\\text{d}x = 1$, using the range where $\\text{f}$ is non-zero.",
+   "Take the constant $p$ outside, integrate $a^2 - x^2$ with respect to $x$ (treat $a$ as a constant), and put in the limits $a$ and $0$. Simplify to get one equation linking $p$ and $a$.",
+   "$\\text{E}(X) = \\int x\\,\\text{f}(x)\\,\\text{d}x$ over the range, and this is given as 3. Multiply $x$ into the bracket and write $p\\int_0^a (\\ldots)\\,\\text{d}x = 3$.",
+   "Integrate each term of $a^2x - x^3$ (add 1 to the power and divide by it), then substitute the limits. The result is $p$ multiplied by a single power of $a$.",
+   "You now have two equations containing $p$ and $a$. From the first equation write $p$ in terms of $a$, and substitute it into the second.",
+   "Simplify the powers of $a$ in your equation: the power on top and bottom partly cancel. You are left with an equation in $a$ alone that can be solved in one step."
+  ],
+  "walkthrough": [
+   "**Plan**\n\nWe have two unknowns, $p$ and $a$, so we need two equations:\n\n1. The total probability is 1 (this links $p$ and $a$).\n\n2. $\\text{E}(X) = 3$ (this gives a second link).\n\nThen we solve them together.",
+   "**Equation 1: total probability is 1 (M1)**\n\nThe total area under a pdf is 1, and $\\text{f}$ is non-zero only between $0$ and $a$:\n\n$$p\\int_0^a (a^2 - x^2)\\,\\text{d}x = 1$$",
+   "**Integrate (A1)**\n\nTreat $a$ as a number. The integral of $a^2$ (a constant) is $a^2x$, and the integral of $x^2$ is $\\frac{x^3}{3}$:\n\n$$p\\left[a^2x - \\frac{x^3}{3}\\right]_0^a = 1$$\n\nPut in the top limit $x = a$: $a^2 \\times a - \\frac{a^3}{3} = a^3 - \\frac{a^3}{3} = \\frac{2}{3}a^3$.\n\nPut in the bottom limit $x = 0$: it gives $0$.\n\n$$\\frac{2}{3}a^3 p = 1 \\qquad\\Rightarrow\\qquad p = \\frac{3}{2a^3}$$",
+   "**Equation 2: use $\\text{E}(X) = 3$ (second M1)**\n\nFor a pdf, $\\text{E}(X) = \\int x\\,\\text{f}(x)\\,\\text{d}x$. Multiply $x$ into the bracket: $x \\times (a^2 - x^2) = a^2x - x^3$.\n\n$$p\\int_0^a (a^2x - x^3)\\,\\text{d}x = 3$$\n\n(The scheme also allows writing it with $p = \\frac{3}{2a^3}$ already put in.)",
+   "**Integrate (second A1)**\n\nThe integral of $a^2x$ is $\\frac{a^2x^2}{2}$ and of $x^3$ is $\\frac{x^4}{4}$:\n\n$$p\\left[\\frac{a^2x^2}{2} - \\frac{x^4}{4}\\right]_0^a = 3$$\n\nAt $x = a$: $\\frac{a^4}{2} - \\frac{a^4}{4} = \\frac{2a^4}{4} - \\frac{a^4}{4} = \\frac{a^4}{4}$. At $x = 0$: $0$.\n\n$$p \\times \\frac{a^4}{4} = 3$$",
+   "**Combine the equations (third M1)**\n\nSubstitute $p = \\dfrac{3}{2a^3}$ from Equation 1:\n\n$$\\frac{3}{2a^3} \\times \\frac{a^4}{4} = 3$$\n\nMultiply the fractions: $\\dfrac{3a^4}{8a^3}$. Cancel: $\\dfrac{a^4}{a^3} = a$, so\n\n$$\\frac{3a}{8} = 3$$\n\nMultiply both sides by $8$, giving $3a = 24$; divide by $3$.\n\n$$a = 8$$\n\nCheck: $p = \\dfrac{3}{2 \\times 512} = \\dfrac{3}{1024}$ and $p \\times \\dfrac{a^4}{4} = \\dfrac{3}{1024} \\times \\dfrac{4096}{4} = \\dfrac{3}{1024} \\times 1024 = 3$. This matches.",
+   "**Final answer**\n\n$a = 8$"
+  ]
+ }
+}

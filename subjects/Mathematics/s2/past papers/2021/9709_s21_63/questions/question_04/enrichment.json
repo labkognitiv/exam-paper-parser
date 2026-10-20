@@ -1,0 +1,48 @@
+{
+ "9709_s21_63_q4_a": {
+  "hints": [
+   "The unbiased estimate of the population mean is just the sample mean: $\\bar{m} = \\dfrac{\\Sigma m}{n}$. Put in $4509$ and $90$.",
+   "The unbiased estimate of the population variance divides by $n - 1$, not $n$: $s^2 = \\dfrac{1}{n-1}\\left(\\Sigma m^2 - \\dfrac{(\\Sigma m)^2}{n}\\right)$. Substitute $225\\,950$, $4509$ and $90$.",
+   "Work the bracket out first, then divide by $89$. Keep the exact value (do not round yet), because you need it again in part (b). Do not use the biased version, which divides by $90$."
+  ],
+  "walkthrough": [
+   "**Why 'unbiased'?**\n\nWe have a sample, not the whole population. The sample mean is the best estimate of the population mean as it is. For the variance, dividing by $n$ would give estimates that are on average too small, so we divide by $n - 1$ instead. That is what 'unbiased' means here.",
+   "**Unbiased estimate of the mean (B1)**\n\nAdd up all the masses ($\\Sigma m = 4509$) and divide by the number of sacks ($n = 90$).\n\n$$\\bar{m} = \\frac{4509}{90} = 50.1$$",
+   "**Unbiased estimate of the variance (M1)**\n\nUse the formula\n\n$$s^2 = \\frac{1}{n - 1}\\left(\\Sigma m^2 - \\frac{(\\Sigma m)^2}{n}\\right)$$\n\nSubstitute $n = 90$, $\\Sigma m = 4509$, $\\Sigma m^2 = 225\\,950$. This substitution earns the M1.\n\n$$s^2 = \\frac{1}{89}\\left(225\\,950 - \\frac{4509^2}{90}\\right)$$\n\nWork out the square: $4509^2 = 20\\,331\\,081$.\n\nDivide by 90: $\\dfrac{20\\,331\\,081}{90} = 225\\,900.9$.\n\nSubtract: $225\\,950 - 225\\,900.9 = 49.1$.\n\nDivide by 89:\n\n$$s^2 = \\frac{49.1}{89} = \\frac{491}{890} = 0.552 \\text{ (3 s.f.)}$$\n\nCommon slip: dividing by 90 gives $0.5455$ (that is the biased estimate), which scores M0 A0.",
+   "**Final answer**\n\nUnbiased estimate of the population mean: $50.1$.\n\nUnbiased estimate of the population variance: $\\dfrac{491}{890} = 0.552$ (3 s.f.)"
+  ]
+ },
+ "9709_s21_63_q4_b": {
+  "hints": [
+   "With a large sample ($n = 90$) the sample mean is approximately normal, and the confidence interval has the form $\\bar{m} \\pm z\\sqrt{\\dfrac{s^2}{n}}$. Use the mean and the unbiased variance from part (a) and $n = 90$.",
+   "For a 98% confidence interval, 98% is in the middle, so 1% is in each tail. Find the $z$-value with $0.99$ below it, using your inverse normal or the table.",
+   "Put the numbers in the formula, work out the amount you add and subtract, and calculate both ends. Write the answer as an interval, 'lower to upper', each end to 3 significant figures."
+  ],
+  "walkthrough": [
+   "**Choose the formula and say why**\n\nThe sample is large ($n = 90$), so by the Central Limit theorem the sample mean $\\bar{M}$ is approximately normal, with standard deviation $\\sqrt{\\dfrac{\\sigma^2}{n}}$. We do not know the true variance $\\sigma^2$, so we use our unbiased estimate $s^2 = \\dfrac{491}{890}$ from part (a). The interval has the form\n\n$$\\bar{m} \\pm z\\sqrt{\\frac{s^2}{n}}$$\n\nWriting this form with the numbers from (a) earns the M1.\n\n$$50.1 \\pm z\\sqrt{\\frac{\\frac{491}{890}}{90}}$$",
+   "**Find $z$ for 98% (B1)**\n\nA 98% confidence interval leaves $100\\% - 98\\% = 2\\%$ outside. That is split equally between the two tails: 1% in each. So we need the $z$-value with $0.99$ of the distribution below it (and 1% above).\n\nOn your calculator, inverse normal with area $0.99$:\n\n$$z = 2.326$$\n\n(Table lookup: $\\Phi(2.326) = 0.99$. The scheme accepts 2.326 to 2.329.)",
+   "**Work out the interval (A1)**\n\nFirst the standard error. $\\dfrac{491}{890} = 0.55169$. Divide by 90: $\\dfrac{0.55169}{90} = 0.0061298$. Square root: $\\sqrt{0.0061298} = 0.078293$.\n\nNext the margin: $2.326 \\times 0.078293 = 0.18211$.\n\n$$\\text{Lower} = 50.1 - 0.18211 = 49.918 \\qquad \\text{Upper} = 50.1 + 0.18211 = 50.282$$\n\nRound both ends to 3 significant figures: $49.918 \\to 49.9$ and $50.282 \\to 50.3$.",
+   "**Final answer**\n\nThe 98% confidence interval for the population mean is $49.9$ to $50.3$ (kg, 3 s.f.)"
+  ]
+ },
+ "9709_s21_63_q4_c": {
+  "hints": [
+   "The interval uses the fact that $\\bar{m}$ is normally distributed. Do we know the distribution of the individual sack masses? What does the Central Limit theorem let you do when you do not?"
+  ],
+  "walkthrough": [
+   "**Why the Central Limit theorem?**\n\nTo build a confidence interval with a $z$-value, the sample mean must be (at least approximately) normal. If we knew the masses of single sacks were normal, then the sample mean would be exactly normal and we would not need any theorem.\n\nThe question gives no information about the distribution of the masses of flour in the sacks. The Central Limit theorem says that for a large sample ($n = 90$) the sample mean is approximately normal whatever the population looks like. That is why we needed it.",
+   "**Final answer**\n\nThe distribution of the population of masses is unknown (it is not stated to be normal), so the Central Limit theorem was needed to say the sample mean is approximately normal."
+  ]
+ },
+ "9709_s21_63_q4_d": {
+  "hints": [
+   "A 98% confidence interval contains the true mean for 98% of samples. What fraction of intervals therefore do *not* contain it?",
+   "An interval that misses the true mean can miss in two ways: it is entirely above the mean, or entirely below it. By the symmetry of the normal distribution these two are equally likely, so share the probability of missing between them."
+  ],
+  "walkthrough": [
+   "**What the 98% means**\n\nA 98% confidence interval is built so that 98% of such intervals (from different random samples) contain the true population mean. So the probability that an interval does **not** contain the true mean is\n\n$$1 - 0.98 = 0.02$$\n\nThis earns the M1.",
+   "**Split into 'above' and 'below'**\n\nAn interval that misses the true mean either lies wholly above it (the lower end is above the true mean) or wholly below it (the upper end is below the true mean). The normal distribution is symmetrical, so these two cases are equally likely. Each gets half of the 0.02.\n\n$$\\text{P(wholly above)} = 0.02 \\div 2 = 0.01$$\n\nThis earns the A1.",
+   "**Final answer**\n\nThe probability that the interval is wholly above the true mean is $0.02 \\div 2 = 0.01$."
+  ]
+ }
+}

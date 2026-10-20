@@ -1,0 +1,30 @@
+{
+ "9709_m23_62_q4_a": {
+  "hints": [
+   "A Type I error is rejecting $\\text{H}_0$ when it is actually true. So use $\\lambda = 5.7$ and the council's rule \"fewer than 3\", which for whole numbers means $X \\leqslant 2$.",
+   "Add $\\text{P}(X = 0) + \\text{P}(X = 1) + \\text{P}(X = 2)$ for $\\text{Po}(5.7)$, using $\\text{e}^{-5.7}\\dfrac{5.7^r}{r!}$ for each, and give 3 s.f."
+  ],
+  "walkthrough": [
+   "**What a Type I error is**\n\nIn a hypothesis test, $\\text{H}_0$ is the claim that nothing has changed, here $\\lambda = 5.7$. A **Type I error** means we reject $\\text{H}_0$ even though it is true. The probability of this is the chance that the test says \"decreased\" when $\\lambda$ is still 5.7.",
+   "**The rejection rule**\n\nThe council concludes $\\lambda$ has decreased if there are fewer than 3 accidents. Accidents are whole numbers, so \"fewer than 3\" means 0, 1 or 2. If $\\lambda$ really is 5.7, then $X \\sim \\text{Po}(5.7)$ and:\n\n$$\\text{P(Type I error)} = \\text{P}(X \\leqslant 2)$$",
+   "**Write the sum (M1)**\n\n$$\\text{P}(X \\leqslant 2) = \\text{e}^{-5.7}\\left(1 + 5.7 + \\frac{5.7^2}{2!}\\right)$$\n\nHere $1$ comes from $\\frac{5.7^0}{0!}$ and $5.7$ from $\\frac{5.7^1}{1!}$. You must show this expression for the **M1**.",
+   "**Calculate (A1)**\n\n$$\\frac{5.7^2}{2!} = \\frac{32.49}{2} = 16.245$$\n\n$$1 + 5.7 + 16.245 = 22.945$$\n\n$$\\text{e}^{-5.7} = 0.003346\\ldots$$\n\n$$0.003346\\ldots \\times 22.945 = 0.07677\\ldots$$\n\nCalculator tip: Poisson cumulative distribution with mean 5.7 and upper limit 2 gives the same.",
+   "**Final answer**\n\nThe probability of a Type I error is $0.0768$ (3 s.f.)."
+  ]
+ },
+ "9709_m23_62_q4_b": {
+  "hints": [
+   "A Type II error is not rejecting $\\text{H}_0$ when it is false. With the true mean 0.9, the council fails to conclude \"decreased\" when $X \\geqslant 3$.",
+   "Write $\\text{P}(X \\geqslant 3) = 1 - \\text{P}(X \\leqslant 2)$ for $\\text{Po}(0.9)$, with $\\text{P}(X \\leqslant 2) = \\text{e}^{-0.9}\\left(1 + 0.9 + \\dfrac{0.9^2}{2!}\\right)$.",
+   "Evaluate the bracket and $\\text{e}^{-0.9}$ on your calculator, subtract the product from 1, and round to 3 s.f."
+  ],
+  "walkthrough": [
+   "**What a Type II error is**\n\nA **Type II error** means we do **not** reject $\\text{H}_0$ even though it is false. Here the mean really is now 0.9 (so $\\text{H}_0$: $\\lambda = 5.7$ is false), but the council fails to notice.",
+   "**When does the council fail to notice?**\n\nThe council concludes \"decreased\" only when $X \\leqslant 2$. It fails to conclude this when $X \\geqslant 3$. With the true mean $X \\sim \\text{Po}(0.9)$:\n\n$$\\text{P(Type II error)} = \\text{P}(X \\geqslant 3)$$",
+   "**Use the complement (M1)**\n\n\"3 or more\" has endless terms, so use $1 - \\text{P}(X \\leqslant 2)$, where $\\text{P}(X \\leqslant 2)$ uses 0, 1 and 2:\n\n$$\\text{P}(X \\geqslant 3) = 1 - \\text{e}^{-0.9}\\left(1 + 0.9 + \\frac{0.9^2}{2!}\\right)$$\n\nSeeing the expression for $\\text{P}(X \\leqslant 2)$ earns the **M1**.",
+   "**The correct expression (A1)**\n\n$$\\frac{0.9^2}{2!} = \\frac{0.81}{2} = 0.405$$\n\n$$1 - \\text{e}^{-0.9}(1 + 0.9 + 0.405) = 1 - \\text{e}^{-0.9}(2.305)$$\n\nIn terms of the three separate probabilities, $\\text{P}(0) = 0.4066$, $\\text{P}(1) = 0.3659$ and $\\text{P}(2) = 0.1647$. (The mark scheme prints the middle one with a typing slip, \"3659\".)",
+   "**Calculate (A1)**\n\n$$\\text{e}^{-0.9} = 0.40656\\ldots$$\n\n$$0.40656\\ldots \\times 2.305 = 0.93714\\ldots$$\n\n$$1 - 0.93714\\ldots = 0.06285\\ldots$$\n\nTip: if you add the three rounded probabilities (0.4066 + 0.3659 + 0.1647 = 0.9372) you get 0.0628, one off in the last digit. Keep the full calculator values.",
+   "**Final answer**\n\nThe probability of a Type II error is $0.0629$ (3 s.f.)."
+  ]
+ }
+}

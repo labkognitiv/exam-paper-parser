@@ -1,0 +1,36 @@
+{
+  "9709_m21_62_q5_a": {
+    "hints": [
+      "Let $L$ be a large bottle and $S$ a small one. The mean of the total is the sum of the means: $3 \\times 5.10 + 4 \\times 2.51$ (three separate large bottles and four separate small ones).",
+      "For independent variables, variances add, even though the total is a sum of separate bottles. Use $3 \\times 0.0102 + 4 \\times 0.0036$. The second number in $\\text{N}(\\mu, \\sigma^2)$ is already a variance.",
+      "Standardise the total $T$ at $25.5$: $z = \\dfrac{25.5 - \\text{mean}}{\\sqrt{\\text{variance}}}$. Square-root the variance, not the standard deviation.",
+      "A sum of independent normal variables is normal. 'Less than $25.5$' is the area to the left of your $z$, so the probability is $\\Phi(z)$.",
+      "Read $\\Phi(z)$ from the normal table or use your calculator's normal cdf, and round to 3 s.f."
+    ],
+    "walkthrough": [
+      "**Set up**\n\nLet $L_1, L_2, L_3$ be the volumes of the three large bottles and $S_1, S_2, S_3, S_4$ the volumes of the four small bottles. Let $T$ be the total volume.\n\n$$T = L_1 + L_2 + L_3 + S_1 + S_2 + S_3 + S_4$$\n\nAll the bottles are chosen at random, so they are independent. A sum of independent normal variables is itself normal. So $T$ is normal and we only need its mean and variance.\n\nCommon slip: do **not** write $3L$ (that would treat the three bottles as identical copies and give the wrong variance). They are three different bottles added together.",
+      "**The mean of the total (B1)**\n\nThe mean of a sum is the sum of the means. Each large bottle has mean $5.10$ and each small bottle has mean $2.51$:\n\n$$\\text{E}(T) = 3 \\times 5.10 + 4 \\times 2.51$$\n\n$$3 \\times 5.10 = 15.3 \\qquad 4 \\times 2.51 = 10.04$$\n\n$$\\text{E}(T) = 15.3 + 10.04 = 25.34$$",
+      "**The variance of the total (B1)**\n\nFor independent variables, the variance of a sum is the sum of the variances. In $\\text{N}(5.10, 0.0102)$ the second number is the **variance** (not the standard deviation):\n\n$$\\text{Var}(T) = 3 \\times 0.0102 + 4 \\times 0.0036$$\n\n$$3 \\times 0.0102 = 0.0306 \\qquad 4 \\times 0.0036 = 0.0144$$\n\n$$\\text{Var}(T) = 0.0306 + 0.0144 = 0.045$$\n\nSo $T \\sim \\text{N}(25.34, 0.045)$. The standard deviation is $\\sqrt{0.045} = 0.2121\\ldots$.",
+      "**Standardise (M1)**\n\nTo use the normal table we convert to the standard normal $Z$, which has mean $0$ and standard deviation $1$: subtract the mean and divide by the standard deviation. Notice we divide by $\\sqrt{0.045}$, not by $0.045$ (mixing up standard deviation and variance loses the mark).\n\n$$z = \\frac{25.5 - 25.34}{\\sqrt{0.045}} = \\frac{0.16}{0.2121\\ldots} = 0.7542\\ldots$$",
+      "**Find the probability (M1, then A1)**\n\nWe want the total to be **less than** $25.5$, which is the area to the left of $z$, written $\\Phi(z)$:\n\n$$\\text{P}(T < 25.5) = \\Phi(0.754)$$\n\nOn the calculator use normal cdf with lower bound a very negative number, upper bound $0.754$, mean $0$, standard deviation $1$ (or read the table) $\\to 0.7746\\ldots$\n\nQuick check: the mean total is $25.34$, a little below $25.5$, so the probability should be a little over $0.5$. It is.",
+      "**Final answer**\n\nThe probability that the total volume is less than 25.5 litres is $0.775$ (3 s.f.)."
+    ]
+  },
+  "9709_m21_62_q5_b": {
+    "hints": [
+      "'The large bottle holds at least twice the small one' means $L \\geqslant 2S$, which is the same as $L - 2S \\geqslant 0$. Define $D = L - 2S$ and find its mean as $5.10 - 2 \\times 2.51$.",
+      "For the variance of $D$: the coefficient is squared and variances add even though it is a difference. $\\text{Var}(L - 2S) = \\text{Var}(L) + 2^2\\,\\text{Var}(S)$, with $0.0102$ and $0.0036$.",
+      "Standardise the boundary $0$: $z = \\dfrac{0 - \\text{mean}}{\\sqrt{\\text{variance}}}$. Your $z$ will be negative.",
+      "You want $D$ *greater* than $0$, the right-hand tail: $\\text{P}(Z > z)$. For a negative $z$ use the symmetry $\\text{P}(Z > z) = \\Phi(-z)$.",
+      "Evaluate $\\Phi(-z)$ with the table or your calculator's normal cdf and round to 3 s.f."
+    ],
+    "walkthrough": [
+      "**Turn the words into one inequality**\n\nLet $L$ be the volume in a large bottle and $S$ the volume in a small bottle. 'At least twice' means $L \\geqslant 2S$. Move everything to one side:\n\n$$L - 2S \\geqslant 0$$\n\nLet $D = L - 2S$. It is a combination of two independent normal variables, so $D$ is normal. We want $\\text{P}(D > 0)$. (Being 'at least' or 'more than' makes no difference for a continuous variable.)",
+      "**The mean of $D$ (B1)**\n\n$$\\text{E}(D) = \\text{E}(L) - 2\\,\\text{E}(S) = 5.10 - 2 \\times 2.51$$\n\n$$2 \\times 2.51 = 5.02 \\qquad \\text{E}(D) = 5.10 - 5.02 = 0.08$$",
+      "**The variance of $D$ (B1)**\n\nTwo rules matter here. A constant multiplier gets squared: $\\text{Var}(2S) = 2^2\\,\\text{Var}(S)$. And variances of independent variables **add**, even when we subtract the variables (a difference is just as uncertain as a sum).\n\n$$\\text{Var}(D) = \\text{Var}(L) + 2^2\\,\\text{Var}(S) = 0.0102 + 4 \\times 0.0036$$\n\n$$4 \\times 0.0036 = 0.0144 \\qquad \\text{Var}(D) = 0.0102 + 0.0144 = 0.0246$$\n\nSo $D \\sim \\text{N}(0.08, 0.0246)$. The standard deviation is $\\sqrt{0.0246} = 0.1568\\ldots$.",
+      "**Standardise (M1)**\n\nThe boundary we care about is $D = 0$:\n\n$$z = \\frac{0 - 0.08}{\\sqrt{0.0246}} = \\frac{-0.08}{0.1568\\ldots} = -0.5100\\ldots$$",
+      "**Find the probability (M1, then A1)**\n\nWe want $D$ above $0$, that is $Z$ above $-0.510$. The normal table gives areas to the *left*, so use the symmetry of the normal curve: the area to the right of $-0.510$ equals the area to the left of $+0.510$:\n\n$$\\text{P}(Z > -0.510) = \\Phi(0.510) = 0.6950\\ldots$$\n\nQuick check: the mean of $D$ is positive ($0.08$), so $D > 0$ is more likely than not; the answer should be above $0.5$. It is.",
+      "**Final answer**\n\nThe probability that a large bottle holds at least twice as much as a small bottle is $0.695$ (3 s.f.)."
+    ]
+  }
+}

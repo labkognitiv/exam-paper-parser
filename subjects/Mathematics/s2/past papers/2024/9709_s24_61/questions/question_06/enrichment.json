@@ -1,0 +1,39 @@
+{
+ "9709_s24_61_q6_a": {
+  "hints": [
+   "For any probability density function the total area under the graph is 1. The graph is a quarter of a circle of radius $a$: write down its area.",
+   "Set the quarter-circle area equal to 1, isolate $a^2$, then take the positive square root (because $a$ is a length). Show every step so the printed result appears at the end."
+  ],
+  "walkthrough": [
+   "**Use the fact that the total area is 1 (this earns the M1)**\n\n$\\text{f}$ is a probability density function, so the **total area** under its graph must equal 1 (the total probability).\n\nThe graph is a quarter of a circle with radius $a$ and centre the origin. A full circle has area $\\pi a^2$, so a quarter circle has area $\\tfrac{1}{4}\\pi a^2$. Set it equal to 1:\n\n$$\\tfrac{1}{4}\\pi a^2 = 1$$",
+   "**Rearrange for a (this earns the A1)**\n\nMultiply both sides by 4:\n\n$$\\pi a^2 = 4$$\n\nDivide both sides by $\\pi$:\n\n$$a^2 = \\frac{4}{\\pi}$$\n\n$a$ is a length and so is positive. Take the positive square root:\n\n$$a = \\sqrt{\\frac{4}{\\pi}} = \\frac{\\sqrt{4}}{\\sqrt{\\pi}} = \\frac{2}{\\sqrt{\\pi}}$$\n\nThis is exactly the value we were asked to show.",
+   "**Final answer**\n\n$$a = \\frac{2}{\\sqrt{\\pi}}$$"
+  ]
+ },
+ "9709_s24_61_q6_b": {
+  "hints": [
+   "A circle with centre the origin and radius $a$ has equation $x^2 + y^2 = a^2$. Replace $a$ using the value just found, with $y = \\text{f}(x)$.",
+   "Make $y^2$ the subject and show that line. Then take the square root, choosing the positive root because the graph is above the $x$-axis, to arrive at the printed form of $\\text{f}(x)$."
+  ],
+  "walkthrough": [
+   "**Write the equation of the circle (this earns the M1)**\n\nEvery point $(x, y)$ on a circle with centre $(0, 0)$ and radius $a$ satisfies $x^2 + y^2 = a^2$.\n\nFrom (a), $a = \\dfrac{2}{\\sqrt{\\pi}}$, so $a^2 = \\dfrac{4}{\\pi}$. The curve of $\\text{f}$ is the quarter of this circle in the first quadrant, with $y = \\text{f}(x)$:\n\n$$x^2 + y^2 = \\left(\\frac{2}{\\sqrt{\\pi}}\\right)^2$$",
+   "**Make y the subject (this earns the A1)**\n\n$$\\left(\\frac{2}{\\sqrt{\\pi}}\\right)^2 = \\frac{2^2}{\\left(\\sqrt{\\pi}\\right)^2} = \\frac{4}{\\pi}$$\n\nso\n\n$$x^2 + y^2 = \\frac{4}{\\pi}$$\n\nSubtract $x^2$ from both sides (the scheme wants to see this intermediate step):\n\n$$y^2 = \\frac{4}{\\pi} - x^2$$\n\nOn the graph $y$ is positive (the curve is above the $x$-axis), so take the positive square root:\n\n$$y = \\sqrt{\\frac{4}{\\pi} - x^2}$$",
+   "**Final answer**\n\n$$\\text{f}(x) = \\sqrt{\\frac{4}{\\pi} - x^2}$$"
+  ]
+ },
+ "9709_s24_61_q6_c": {
+  "hints": [
+   "For a continuous random variable $\\text{E}(X) = \\int x\\,\\text{f}(x)\\,\\text{d}x$ taken over the range where $\\text{f}$ is not zero. Here that is from 0 to $a = \\dfrac{2}{\\sqrt{\\pi}}$.",
+   "The integrand is $x\\sqrt{\\dfrac{4}{\\pi} - x^2}$. Note that $x$ is (a multiple of) the derivative of the expression inside the root, so use the reverse chain rule or the substitution $u = \\dfrac{4}{\\pi} - x^2$. The power $\\tfrac{1}{2}$ will become $\\tfrac{3}{2}$.",
+   "Finish the integration with the correct constant, then substitute the limits. At the upper limit $x = \\dfrac{2}{\\sqrt{\\pi}}$ look at what happens to $\\dfrac{4}{\\pi} - x^2$.",
+   "The only term left is a power $\\tfrac{3}{2}$ of $\\dfrac{4}{\\pi}$. Use $\\left(\\dfrac{4}{\\pi}\\right)^{3/2} = \\dfrac{4^{3/2}}{\\pi^{3/2}}$, evaluate $4^{3/2}$, and write $\\pi^{3/2}$ as $\\sqrt{\\pi^3}$ to match the printed form."
+  ],
+  "walkthrough": [
+   "**Set up the integral (this earns the B1)**\n\nThe mean of a continuous random variable is $\\text{E}(X) = \\int x\\,\\text{f}(x)\\,\\text{d}x$ over the values where $\\text{f}(x) \\neq 0$. The graph runs from $x = 0$ to $x = a = \\dfrac{2}{\\sqrt{\\pi}}$, and we use $\\text{f}(x)$ from part (b):\n\n$$\\text{E}(X) = \\int_0^{\\frac{2}{\\sqrt{\\pi}}} x\\sqrt{\\frac{4}{\\pi} - x^2}\\,\\text{d}x$$",
+   "**Spot how to integrate it (this earns the M1)**\n\nThis looks hard, but notice that the derivative of the expression inside the root, $\\dfrac{4}{\\pi} - x^2$, is $-2x$, which is a multiple of the $x$ outside the root. So we can use the reverse of the chain rule.\n\nTo keep the writing short, let $c = \\dfrac{4}{\\pi}$. Guess the answer, differentiate it and see what we get:\n\n$$\\frac{\\text{d}}{\\text{d}x}\\left[\\left(c - x^2\\right)^{3/2}\\right] = \\frac{3}{2}\\left(c - x^2\\right)^{1/2} \\times (-2x) = -3x\\left(c - x^2\\right)^{1/2}$$\n\nThat is $-3$ times what we want to integrate, so we need the factor $-\\tfrac{1}{3}$:\n\n$$\\int x\\sqrt{c - x^2}\\,\\text{d}x = -\\frac{1}{3}\\left(c - x^2\\right)^{3/2}$$\n\nThe M1 is for reaching a constant times $\\left(\\frac{4}{\\pi} - x^2\\right)^{3/2}$.",
+   "**Put in the limits (this earns the first A1)**\n\n$$\\text{E}(X) = -\\frac{1}{3}\\left[\\left(\\frac{4}{\\pi} - x^2\\right)^{3/2}\\right]_0^{\\frac{2}{\\sqrt{\\pi}}}$$\n\nUpper limit, $x = \\dfrac{2}{\\sqrt{\\pi}}$, so $x^2 = \\dfrac{4}{\\pi}$:\n\n$$\\left(\\frac{4}{\\pi} - \\frac{4}{\\pi}\\right)^{3/2} = 0^{3/2} = 0$$\n\nLower limit, $x = 0$:\n\n$$\\left(\\frac{4}{\\pi} - 0\\right)^{3/2} = \\left(\\frac{4}{\\pi}\\right)^{3/2}$$\n\nUpper minus lower:\n\n$$\\text{E}(X) = -\\frac{1}{3}\\left[0 - \\left(\\frac{4}{\\pi}\\right)^{3/2}\\right] = \\frac{1}{3}\\left(\\frac{4}{\\pi}\\right)^{3/2}$$",
+   "**Tidy up to the printed form (this earns the final A1)**\n\nApply the power to the top and bottom separately:\n\n$$\\left(\\frac{4}{\\pi}\\right)^{3/2} = \\frac{4^{3/2}}{\\pi^{3/2}}$$\n\n$4^{3/2} = \\left(\\sqrt{4}\\right)^3 = 2^3 = 8$, and $\\pi^{3/2} = \\sqrt{\\pi^3}$. So\n\n$$\\text{E}(X) = \\frac{1}{3} \\times \\frac{8}{\\sqrt{\\pi^3}} = \\frac{8}{3\\sqrt{\\pi^3}}$$\n\nQuick check: this is about $0.479$, and the quarter-circle is tallest at $x = 0$ with range $0$ to $1.128$, so a mean under the half-way value $0.564$ is sensible.",
+   "**Final answer**\n\n$$\\text{E}(X) = \\frac{8}{3\\sqrt{\\pi^3}}$$"
+  ]
+ }
+}

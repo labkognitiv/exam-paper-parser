@@ -1,0 +1,38 @@
+{
+ "9709_m24_62_q4_a": {
+  "hints": [
+   "'More gasoline than diesel' means $X > Y$, which is $X - Y > 0$. Define a new variable $X - Y$; its mean is $\\text{E}(X) - \\text{E}(Y) = 10\\,700 - 13\\,400$.",
+   "$X$ and $Y$ are independent, so for the difference the variances still **add**: $\\text{Var}(X - Y) = \\text{Var}(X) + \\text{Var}(Y) = 950^2 + 1210^2$.",
+   "Standardise the boundary $0$: $z = \\dfrac{0 - \\text{mean}}{\\sqrt{\\text{variance}}}$, using the mean and variance of $X - Y$.",
+   "You want $X - Y$ to be **above** 0, which is the upper tail, so the probability is $1 - \\Phi(z)$.",
+   "Find $\\Phi(z)$ with your calculator's normal cdf (or the table), subtract it from 1 and round to 3 s.f."
+  ],
+  "walkthrough": [
+   "**Turn the question into one normal variable**\n\nWe want $\\text{P}(X > Y)$. Move everything to one side: $X > Y$ is the same as $X - Y > 0$. Let $D = X - Y$. A combination of independent normal variables is itself normal, so $D$ is normal. We just need its mean and variance.",
+   "**Mean of $D$ (earns the B1)**\n\nThe mean of a difference is the difference of the means:\n\n$$\\text{E}(D) = \\text{E}(X) - \\text{E}(Y) = 10\\,700 - 13\\,400 = -2700$$",
+   "**Variance of $D$ (earns the first M1)**\n\nFor independent variables the variance of $X - Y$ is $\\text{Var}(X) + \\text{Var}(Y)$. The minus sign does **not** become a minus in the variance, because a variance measures spread and spread cannot cancel. This is the most common slip.\n\n$X \\sim \\text{N}(10\\,700, 950^2)$, so $\\text{Var}(X) = 950^2 = 902\\,500$.\n\n$Y \\sim \\text{N}(13\\,400, 1210^2)$, so $\\text{Var}(Y) = 1210^2 = 1\\,464\\,100$.\n\n$$\\text{Var}(D) = 902\\,500 + 1\\,464\\,100 = 2\\,366\\,600$$\n\nSo $D \\sim \\text{N}(-2700, 2\\,366\\,600)$.",
+   "**Standardise (earns the second M1)**\n\nWe want $\\text{P}(D > 0)$. Standardising means subtracting the mean and dividing by the standard deviation (the square root of the variance, **not** the variance itself).\n\nStandard deviation: $$\\sqrt{2\\,366\\,600} = 1538.38\\ldots$$\n\n$$z = \\frac{0 - (-2700)}{1538.38} = \\frac{2700}{1538.38} = 1.755$$",
+   "**Pick the correct tail (earns the third M1)**\n\nThe question asks for $D$ **greater** than 0, so we want the area to the right of $z = 1.755$. Normal tables and calculators give the area to the **left**, so subtract from 1:\n\n$$\\text{P}(D > 0) = 1 - \\Phi(1.755)$$\n\nSense check: the mean of $D$ is $-2700$, well below 0, so a probability near 0.04 (small) is sensible.",
+   "**Calculate (earns the A1)**\n\n$\\Phi(1.755)$: normal cdf from $-\\infty$ up to $1.755$ gives $0.9604$.\n\n$$1 - 0.9604 = 0.0396$$",
+   "**Final answer**\n\nThe probability that more gasoline than diesel is used is $0.0396$ (3 s.f.). The mark scheme also accepts $0.0397$, which comes from reading the table value $0.9603$."
+  ]
+ },
+ "9709_m24_62_q4_b": {
+  "hints": [
+   "Let $T$ be the total cost: $T = 0.80X + 0.85Y$. The mean is $\\text{E}(T) = 0.80\\,\\text{E}(X) + 0.85\\,\\text{E}(Y)$.",
+   "For the variance, the multipliers are **squared**: $\\text{Var}(T) = 0.80^2 \\times 950^2 + 0.85^2 \\times 1210^2$.",
+   "Standardise a boundary of the interval: $z = \\dfrac{22\\,000 - \\text{mean}}{\\text{standard deviation}}$, and then the same with $20\\,000$.",
+   "'Between' two values is the area to the left of the upper $z$ minus the area to the left of the lower $z$: $\\Phi(z_{\\text{upper}}) - \\Phi(z_{\\text{lower}})$.",
+   "Find both $\\Phi$ values with your calculator, subtract, and round to 3 s.f."
+  ],
+  "walkthrough": [
+   "**Set up the total cost**\n\nGasoline costs $\\$0.80$ per litre and diesel $\\$0.85$ per litre, so the total cost is $$T = 0.80X + 0.85Y$$\n\nBecause $X$ and $Y$ are independent and normal, $T$ is normal. We need its mean and variance.",
+   "**Mean of $T$ (earns the B1)**\n\n$$\\text{E}(T) = 0.80 \\times 10\\,700 + 0.85 \\times 13\\,400$$\n\n$0.80 \\times 10\\,700 = 8560$ and $0.85 \\times 13\\,400 = 11\\,390$\n\n$$\\text{E}(T) = 8560 + 11\\,390 = 19\\,950$$",
+   "**Variance of $T$ (earns the first M1)**\n\nWhen a variable is multiplied by a number $a$, its variance is multiplied by $a^2$. So the multipliers are squared:\n\n$$\\text{Var}(T) = 0.80^2 \\times 950^2 + 0.85^2 \\times 1210^2$$\n\n$0.80^2 = 0.64$ and $950^2 = 902\\,500$, so $0.64 \\times 902\\,500 = 577\\,600$.\n\n$0.85^2 = 0.7225$ and $1210^2 = 1\\,464\\,100$, so $0.7225 \\times 1\\,464\\,100 = 1\\,057\\,812.25$.\n\n$$\\text{Var}(T) = 577\\,600 + 1\\,057\\,812.25 = 1\\,635\\,412.25$$\n\nSo $T \\sim \\text{N}(19\\,950, 1\\,635\\,412.25)$. Standard deviation: $\\sqrt{1\\,635\\,412.25} = 1278.83\\ldots$",
+   "**Standardise both boundaries (earns the second M1)**\n\nWe want $\\text{P}(20\\,000 < T < 22\\,000)$, so there are two $z$ values.\n\nUpper: $$z = \\frac{22\\,000 - 19\\,950}{1278.83} = \\frac{2050}{1278.83} = 1.603$$\n\nLower: $$z = \\frac{20\\,000 - 19\\,950}{1278.83} = \\frac{50}{1278.83} = 0.0391$$",
+   "**Area between the boundaries (earns the third M1)**\n\nThe area between two $z$ values is the larger left-area minus the smaller left-area:\n\n$$\\text{P}(0.0391 < Z < 1.603) = \\Phi(1.603) - \\Phi(0.0391)$$\n\n$\\Phi(1.603) = 0.9455$ and $\\Phi(0.0391) = 0.5156$ (normal cdf on the calculator, or the table).",
+   "**Subtract (earns the A1)**\n\n$$0.9455 - 0.5156 = 0.4299$$\n\nRounded to 3 s.f. this is $0.430$.",
+   "**Final answer**\n\nThe probability that the total cost is between $\\$20\\,000$ and $\\$22\\,000$ is $0.430$ (3 s.f.), or $0.43$."
+  ]
+ }
+}

@@ -1,0 +1,40 @@
+{
+ "9709_m16_72_q5_i": {
+  "hints": [
+   "The best (unbiased) estimate of the population mean is the sample mean: $\\bar{x} = \\dfrac{\\sum x}{n} = \\dfrac{14\\,910}{150}$.",
+   "The population variance is not known, so estimate it with the unbiased formula $s^2 = \\dfrac{n}{n-1}\\left(\\dfrac{\\sum x^2}{n} - \\bar{x}^2\\right)$, using $n = 150$, $\\sum x^2 = 1\\,525\\,000$ and your $\\bar{x}$.",
+   "Do the arithmetic in order: first $\\dfrac{1\\,525\\,000}{150}$, then subtract your $\\bar{x}^2$, then multiply by $\\dfrac{150}{149}$. Keep plenty of decimal places.",
+   "For 99% confidence, 0.5% is left in each tail, so you need $z$ with $\\Phi(z) = 0.995$. From the tables, $z = 2.576$.",
+   "The interval is $\\bar{x} \\pm z \\times \\sqrt{\\dfrac{s^2}{n}}$. Divide the variance estimate by 150 first and then square root.",
+   "Work out the two ends, $\\bar{x} - z \\times \\text{(standard error)}$ and $\\bar{x} + z \\times \\text{(standard error)}$, and round each to 3 s.f."
+  ],
+  "walkthrough": [
+   "**What we are doing**\n\nA confidence interval gives a range of values in which we are fairly sure the true population mean $\\mu$ lies. We only have a sample of 150 oranges, so we first estimate the mean and the variance from the sample. The sample is large, so we can use the normal distribution with a $z$-value.\n\nNotation: $\\bar{x}$ is the sample mean, $s^2$ is the unbiased estimate of the population variance, and $\\sum x$ means 'add up all the masses'.",
+   "**Estimate the mean (B1)**\n\n$$\\bar{x} = \\frac{\\sum x}{n} = \\frac{14\\,910}{150} = 99.4$$\n\nQuick check: $150 \\times 99 = 14\\,850$, and the remaining $60$ is $60 \\div 150 = 0.4$, so $99.4$ is right.",
+   "**Estimate the variance, set up the formula (M1)**\n\nTo estimate the population variance we use $n - 1$ rather than $n$ in the denominator. This corrects for the sample being slightly less spread out than the whole population (it makes the estimate unbiased). In the form we use:\n\n$$s^2 = \\frac{n}{n - 1}\\left(\\frac{\\sum x^2}{n} - \\bar{x}^2\\right) = \\frac{150}{149}\\left(\\frac{1\\,525\\,000}{150} - 99.4^2\\right)$$",
+   "**Calculate it (A1)**\n\nTake the pieces one at a time.\n\n$$\\frac{1\\,525\\,000}{150} = 10\\,166.667$$\n\n$$99.4^2 = 9880.36$$\n\n$$10\\,166.667 - 9880.36 = 286.307$$\n\n$$s^2 = \\frac{150}{149} \\times 286.307 = 1.00671 \\times 286.307 = 288.228$$\n\nCommon slip: leaving out $\\frac{150}{149}$ gives $286.307$ (the biased estimate). The scheme allows the method mark but you lose accuracy marks later.",
+   "**Find the $z$-value (second B1)**\n\nA 99% interval leaves $1\\%$ outside, split as $0.5\\%$ in each tail. So we need the value $z$ with $\\Phi(z) = 0.995$. From the percentage points table (or inverse normal on your calculator):\n\n$$z = 2.576$$",
+   "**Build the interval (third M1)**\n\nThe standard deviation of the sample mean is $\\sqrt{s^2 / n}$, because a mean of $n = 150$ values varies less than one value. The interval is $\\bar{x} \\pm z \\times \\sqrt{s^2/n}$.\n\n$$\\frac{s^2}{n} = \\frac{288.228}{150} = 1.92152$$\n\n$$\\sqrt{1.92152} = 1.38619$$\n\n$$z \\times 1.38619 = 2.576 \\times 1.38619 = 3.571$$\n\nSo the interval is $99.4 \\pm 3.571$.",
+   "**The two ends (final A1)**\n\n$$\\text{lower} = 99.4 - 3.571 = 95.829 \\approx 95.8$$\n\n$$\\text{upper} = 99.4 + 3.571 = 102.971 \\approx 103$$",
+   "**Final answer**\n\nThe 99% confidence interval for the population mean is $95.8$ to $103$ (3 s.f.)."
+  ]
+ },
+ "9709_m16_72_q5_ii": {
+  "hints": [
+   "Check whether the supplier's claimed mean of 100 grams lies between the two ends of your confidence interval."
+  ],
+  "walkthrough": [
+   "**Compare the claim with the interval**\n\nThe confidence interval is the set of values for the true mean that the data are consistent with. If a claimed value lies inside it, the data do not contradict the claim.\n\nThe interval is $95.8$ to $103$, and $95.8 < 100 < 103$, so $100$ lies **inside** the interval.",
+   "**Final answer**\n\n$100$ lies within the confidence interval, so the claim that the mean mass is 100 grams should be accepted (the sample gives no reason to reject it)."
+  ]
+ },
+ "9709_m16_72_q5_iii": {
+  "hints": [
+   "Think about what could go wrong if the 150 oranges were picked in a biased way, and what the confidence interval method assumes about the sample."
+  ],
+  "walkthrough": [
+   "**Why randomness matters**\n\nIf the sample is picked by hand, for example only the biggest-looking oranges, then it will not represent all the supplier's oranges and the sample mean will be pushed in one direction. That is called **bias**.\n\nWith a random sample, every orange has the same chance of being chosen, so the sample is representative of the population. The confidence interval formulas assume this: without it we cannot use the sample to draw conclusions about the whole supply.",
+   "**Final answer**\n\nThe sample should be random to avoid bias (so it is representative), which is necessary for the sample to be used for statistical inference about the population."
+  ]
+ }
+}

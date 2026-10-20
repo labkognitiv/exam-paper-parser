@@ -1,0 +1,52 @@
+{
+ "9709_s18_72_q6_i": {
+  "hints": [
+   "Think about how accidents must behave, relative to each other and to when they happen, for a Poisson model to work. State it in terms of accidents on this road, not generally."
+  ],
+  "walkthrough": [
+   "**What a Poisson model needs**\n\nA Poisson distribution models events that happen **randomly**, **independently** of each other, one at a time (singly), and at a constant average rate. We are told the rate is constant. The question asks for one condition that is not already given, written about accidents on this road (in context).\n\nIndependence means one accident does not make another accident more or less likely.",
+   "**Final answer**\n\nAccidents on this road occur independently of each other (or randomly, or singly)."
+  ]
+ },
+ "9709_s18_72_q6_ii": {
+  "hints": [
+   "The rate is $1$ accident every $4.8$ weeks. Scale the mean to the $12$-week period: $\\lambda = \\dfrac{12}{4.8}$.",
+   "For exactly $4$ accidents use $\\text{P}(X = 4) = \\text{e}^{-\\lambda}\\dfrac{\\lambda^4}{4!}$ with your $\\lambda$."
+  ],
+  "walkthrough": [
+   "**Find the rate for 12 weeks (setting up the distribution)**\n\nOne accident every $4.8$ weeks means $\\dfrac{1}{4.8}$ accidents per week on average. Over $12$ weeks the mean number is:\n\n$$\\lambda = \\frac{12}{4.8} = 2.5$$\n\nLet $X$ be the number of accidents in $12$ weeks. Then $X \\sim \\text{Po}(2.5)$.",
+   "**Write the Poisson probability (this is the M1)**\n\nExactly 4 accidents: use $\\text{P}(X = r) = \\text{e}^{-\\lambda}\\dfrac{\\lambda^r}{r!}$ with $r = 4$.\n\n$$\\text{P}(X = 4) = \\text{e}^{-2.5} \\times \\frac{2.5^4}{4!}$$",
+   "**Calculate (this is the A1)**\n\n$$\\text{e}^{-2.5} = 0.082085\\ldots$$\n\n$$2.5^4 = 39.0625 \\qquad 4! = 4 \\times 3 \\times 2 \\times 1 = 24 \\qquad \\frac{39.0625}{24} = 1.627604\\ldots$$\n\n$$0.082085\\ldots \\times 1.627604\\ldots = 0.13360\\ldots$$\n\nQuick check: you can use the Poisson pdf on your calculator with $\\lambda = 2.5$ and $x = 4$. It shows the same value.",
+   "**Final answer**\n\n$$\\text{P}(X = 4) = 0.134 \\text{ (3 s.f.)}$$"
+  ]
+ },
+ "9709_s18_72_q6_iii": {
+  "hints": [
+   "Find the mean for $10$ weeks: $\\lambda = \\dfrac{10}{4.8}$ (keep it as a fraction or store it in your calculator, do not round early).",
+   "'More than 3' means $X \\geqslant 4$, which has no finite list. Use the complement: $\\text{P}(X > 3) = 1 - \\text{P}(X \\leqslant 3) = 1 - \\left[\\text{P}(0) + \\text{P}(1) + \\text{P}(2) + \\text{P}(3)\\right]$.",
+   "Write each term as $\\text{e}^{-\\lambda}\\dfrac{\\lambda^r}{r!}$ for $r = 0, 1, 2, 3$, add them, and subtract from $1$ (or use Poisson cdf at $3$ on your calculator)."
+  ],
+  "walkthrough": [
+   "**Find the rate for 10 weeks (this is the B1)**\n\nThe mean is $\\dfrac{1}{4.8}$ accidents per week, so over $10$ weeks:\n\n$$\\lambda = \\frac{10}{4.8} = \\frac{25}{12} = 2.08333\\ldots$$\n\nLet $X$ be the number of accidents in $10$ weeks, so $X \\sim \\text{Po}\\left(\\dfrac{25}{12}\\right)$. Keep the exact fraction in your calculator to avoid rounding errors.",
+   "**Turn 'more than 3' into something we can calculate**\n\n'More than 3' means $4, 5, 6, \\ldots$ with no end. It is much easier to use the fact that all probabilities add to $1$:\n\n$$\\text{P}(X > 3) = 1 - \\text{P}(X \\leqslant 3) = 1 - \\left[\\text{P}(0) + \\text{P}(1) + \\text{P}(2) + \\text{P}(3)\\right]$$\n\nSlip to avoid: stopping at $\\text{P}(2)$ or including $\\text{P}(4)$ in the bracket (the scheme allows one end error for the M1 but the answer will then be wrong).",
+   "**Write the expression (this is the M1)**\n\nEach term is $\\text{e}^{-\\lambda}\\dfrac{\\lambda^r}{r!}$, so we take out the common factor $\\text{e}^{-25/12}$:\n\n$$1 - \\text{e}^{-\\frac{25}{12}}\\left(1 + \\frac{25}{12} + \\frac{\\left(\\frac{25}{12}\\right)^2}{2!} + \\frac{\\left(\\frac{25}{12}\\right)^3}{3!}\\right)$$",
+   "**Calculate (this is the A1)**\n\n$$\\text{e}^{-25/12} = 0.124514\\ldots$$\n\n$$\\left(\\frac{25}{12}\\right)^2 = 4.340277\\ldots, \\quad \\frac{4.340277\\ldots}{2} = 2.170138\\ldots$$\n\n$$\\left(\\frac{25}{12}\\right)^3 = 9.042245\\ldots, \\quad \\frac{9.042245\\ldots}{6} = 1.507040\\ldots$$\n\n$$1 + 2.083333\\ldots + 2.170138\\ldots + 1.507040\\ldots = 6.760512\\ldots$$\n\n$$0.124514\\ldots \\times 6.760512\\ldots = 0.841781\\ldots$$\n\nThis is $\\text{P}(X \\leqslant 3)$. Quick check: the four terms are $0.1245$, $0.2594$, $0.2702$, $0.1876$, which add to $0.8418$.\n\n$$1 - 0.841781\\ldots = 0.158218\\ldots$$",
+   "**Final answer**\n\n$$\\text{P}(X > 3) = 0.158 \\text{ (3 s.f.)}$$"
+  ]
+ },
+ "9709_s18_72_q6_iv": {
+  "hints": [
+   "Convert $2$ years to a mean number of accidents: $\\lambda = \\dfrac{104\\frac{2}{7}}{4.8}$. This $\\lambda$ is large, so Poisson can be approximated by a normal distribution with mean **and** variance both equal to $\\lambda$: $\\text{N}(\\lambda, \\lambda)$.",
+   "'Fewer than 30' means $X \\leqslant 29$. Going from a discrete distribution to a continuous one, use a continuity correction: put the boundary half a unit above $29$. Standardise with $z = \\dfrac{\\text{boundary} - \\lambda}{\\sqrt{\\lambda}}$.",
+   "You want the lower tail, 'fewer than', so the answer is $\\Phi(z)$ directly. No need for $1 - \\Phi$.",
+   "Evaluate $\\Phi(z)$ with your calculator (normal cdf with a very low lower bound and upper bound $z$), or from the table, and round to 3 s.f."
+  ],
+  "walkthrough": [
+   "**Why use an approximation, and which one (this is the B1)**\n\nCalculating $\\text{P}(X \\leqslant 29)$ exactly would need $30$ Poisson terms. Instead, when the Poisson mean is large (greater than about $15$) it is well approximated by a normal distribution with the same mean and variance. (A Poisson distribution has mean = variance.)\n\nFirst the mean number of accidents in $104\\frac{2}{7}$ weeks:\n\n$$\\lambda = \\frac{104\\frac{2}{7}}{4.8} = \\frac{730/7}{4.8} = \\frac{1825}{84} = 21.7261\\ldots$$\n\nSo $X \\sim \\text{Po}(21.7261\\ldots)$ is approximated by:\n\n$$Y \\sim \\text{N}\\left(\\frac{1825}{84}, \\frac{1825}{84}\\right) = \\text{N}(21.7261\\ldots, 21.7261\\ldots)$$\n\nThe variance is $21.7261\\ldots$ so the standard deviation is $\\sqrt{21.7261\\ldots} = 4.6611\\ldots$.",
+   "**Continuity correction**\n\n$X$ is discrete (whole numbers) but $Y$ is continuous. 'Fewer than 30' means $X \\leqslant 29$. On the continuous scale, the value $29$ covers $28.5$ up to $29.5$, so $X \\leqslant 29$ becomes $Y < 29.5$:\n\n$$\\text{P}(X < 30) = \\text{P}(X \\leqslant 29) \\approx \\text{P}(Y < 29.5)$$",
+   "**Standardise (this is the first M1)**\n\n$$z = \\frac{29.5 - 21.7261\\ldots}{\\sqrt{21.7261\\ldots}} = \\frac{7.7738\\ldots}{4.6611\\ldots} = 1.6678\\ldots$$\n\nThe scheme shows $1.668$, which is the same value rounded to 3 decimal places.",
+   "**Find the area (this is the second M1)**\n\nWe want the probability **below** $z$, which is exactly what $\\Phi$ gives:\n\n$$\\Phi(1.668) = 0.9523\\ldots$$\n\nUse the normal table (look up $1.67$ for a quick check, which gives about $0.9525$) or your calculator's normal cdf for a more accurate value. Check that it makes sense: the value $29.5$ is well above the mean, so most of the probability is below it, and $0.95$ is a big probability.",
+   "**Final answer**\n\n$$\\text{P}(\\text{fewer than 30 accidents}) \\approx 0.952 \\text{ (3 s.f.)}$$"
+  ]
+ }
+}

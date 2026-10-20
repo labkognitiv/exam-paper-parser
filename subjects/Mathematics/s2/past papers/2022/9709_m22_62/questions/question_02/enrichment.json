@@ -1,0 +1,20 @@
+{
+  "9709_m22_62_q2": {
+    "hints": [
+      "Let $X$ be the number of blues in $300$ spins. If $\\text{H}_0$ is true then $X \\sim \\text{B}(300, \\tfrac{1}{5})$. With $n$ this large, approximate by a normal distribution with mean $np$ and variance $npq$ (use $n = 300$, $p = \\tfrac{1}{5}$).",
+      "Standardise using $z = \\dfrac{x - \\mu}{\\sigma}$. Because the binomial is discrete, apply a continuity correction: $45$ blues or fewer means you use $45 + 0.5$ as the boundary. Remember to divide by the standard deviation, which is the square root of the variance.",
+      "Work out $z$ to 3 decimal places. Check its sign: the observed $45$ is below the mean, so $z$ should come out negative.",
+      "The alternative hypothesis is $\\neq$, so this is a two-tailed test at 5%: $2.5\\%$ goes in each tail, and the critical values are $\\pm 1.96$. Compare your $z$ with $-1.96$ (or compare its size with $1.96$).",
+      "Decide whether your $z$ lies in the rejection region, then write the conclusion in the context of the spinner and the probability of blue. Use cautious wording such as \"there is evidence that\", not \"it is proved\"."
+    ],
+    "walkthrough": [
+      "**What we are testing**\n\nLet $X$ be the number of times the spinner lands on blue in $300$ spins. The spinner has five equal sectors, so if it is fair each spin lands on blue with probability $\\tfrac{1}{5}$.\n\n$$\\text{H}_0\\text{: } p = \\tfrac{1}{5} \\qquad \\text{H}_1\\text{: } p \\neq \\tfrac{1}{5}$$\n\nwhere $p$ is the probability that the spinner lands on blue. $\\text{H}_1$ has \"$\\neq$\", so Harry is checking for bias in *either* direction. That makes it a **two-tailed** test.",
+      "**Choose the approximation (B1)**\n\nIf $\\text{H}_0$ is true, $X \\sim \\text{B}(300, \\tfrac{1}{5})$. Finding $\\text{P}(X \\leqslant 45)$ exactly would need $46$ separate binomial terms, so we use the normal approximation. It works well here because $n = 300$ is large and both $np$ and $nq$ are well above $5$.\n\nMean and variance of the approximating normal:\n\n$$\\mu = np = 300 \\times \\tfrac{1}{5} = 60$$\n\n$$\\sigma^2 = npq = 300 \\times \\tfrac{1}{5} \\times \\tfrac{4}{5} = 48$$\n\nSo $X \\approx \\text{N}(60, 48)$. This earns the B1.",
+      "**Continuity correction**\n\nThe binomial takes whole-number values, but the normal is continuous. The whole number $45$ is represented by the interval from $44.5$ to $45.5$ on the normal curve.\n\nWe observed $45$ blues, which is below the mean of $60$, so we are looking at the lower tail: \"$45$ or fewer\" becomes \"less than $45.5$\".",
+      "**Standardise (M1, A1)**\n\n$$z = \\frac{45.5 - 60}{\\sqrt{48}}$$\n\nCalculate the top and the bottom separately:\n\n$$45.5 - 60 = -14.5$$\n\n$$\\sqrt{48} = 6.9282\\ldots$$\n\n$$z = \\frac{-14.5}{6.9282\\ldots} = -2.0929\\ldots = -2.093 \\text{ (3 d.p.)}$$\n\nThe first line earns the M1 (the scheme condones a wrong or missing continuity correction). The value $-2.093$ earns the A1.",
+      "**Compare with the critical value (M1)**\n\nThe test is at the $5\\%$ level and two-tailed, so there is $2.5\\%$ in each tail. The critical $z$-values are $\\pm 1.96$ (because $\\Phi(1.96) = 0.975$).\n\nOur $z = -2.093$ is further from zero than $-1.96$:\n\n$$2.093 > 1.96$$\n\nso it is in the rejection region.\n\nEquivalent check: $\\text{P}(Z < -2.093) = 0.0182$ and $0.0182 < 0.025$. Either comparison earns the M1.",
+      "**Conclusion (A1)**\n\nThe test statistic is in the rejection region, so we reject $\\text{H}_0$. In context, and not too definite:\n\nThere is evidence, at the $5\\%$ significance level, that the probability of the spinner landing on blue is not $\\tfrac{1}{5}$, so the spinner appears to be biased.\n\nAvoid saying \"the spinner is definitely biased\": a test only gives evidence, not proof.",
+      "**Final answer**\n\n$z = -2.093$, which is beyond $-1.96$. Reject $\\text{H}_0$: there is evidence that the probability of landing on blue is not $\\tfrac{1}{5}$ (the spinner appears to be biased)."
+    ]
+  }
+}

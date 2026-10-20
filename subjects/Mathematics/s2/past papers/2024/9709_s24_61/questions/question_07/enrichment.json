@@ -1,0 +1,54 @@
+{
+ "9709_s24_61_q7_a": {
+  "hints": [
+   "Rita suspects $p$ has been **reduced** from 0.3. Write $\\text{H}_0$ as the old value and $\\text{H}_1$ as the one-sided alternative in that direction, naming $p$ as the probability of seeing the bird on a day.",
+   "Under $\\text{H}_0$, $X \\sim \\text{B}(31, 0.3)$. The observed value is 4 and the alternative is 'smaller', so you need $\\text{P}(X \\leqslant 4)$: add the terms for $r = 0, 1, 2, 3, 4$ using $\\binom{31}{r} 0.3^r (1 - 0.3)^{31 - r}$.",
+   "Evaluate each term, or use your calculator's binomial cumulative function with $n = 31$, $p = 0.3$ and $x = 4$, and round to 3 significant figures.",
+   "Compare your probability with the significance level, 0.05. The alternative is one-sided (lower tail), so do not double the probability.",
+   "Decide whether to reject $\\text{H}_0$, then write the conclusion in context (about Rita's suspicion or the probability of seeing this bird), not definite: 'there is sufficient evidence to suggest…'."
+  ],
+  "walkthrough": [
+   "**Write the hypotheses (this earns the B1)**\n\n$p$ is the probability that Rita sees this kind of bird on a randomly chosen day in July. Old data suggest $p = 0.3$. Rita suspects that it has been **reduced**, so the alternative hypothesis only looks downward (one-tailed, lower tail):\n\n$$\\text{H}_0: p = 0.3 \\qquad \\text{H}_1: p < 0.3$$",
+   "**The distribution and the probability we need**\n\nIf $\\text{H}_0$ is true, then $X$, the number of days she sees the bird, is $X \\sim \\text{B}(31, 0.3)$ (31 days in July).\n\nShe saw the bird on 4 days. A result of 4 *or fewer* is as extreme or more extreme in the direction of $\\text{H}_1$, so we calculate the probability\n\n$$\\text{P}(X \\leqslant 4)$$\n\nand compare it with the 5% significance level.",
+   "**Write out the terms (this earns the M1)**\n\nThe binomial formula is $\\text{P}(X = r) = \\binom{31}{r}\\,0.3^r\\,0.7^{31-r}$. We need $r = 0, 1, 2, 3, 4$ (the scheme wants no end errors):\n\n$$\\text{P}(X \\leqslant 4) = 0.7^{31} + 31 \\times 0.7^{30} \\times 0.3 + {}^{31}\\text{C}_2 \\times 0.7^{29} \\times 0.3^2 + {}^{31}\\text{C}_3 \\times 0.7^{28} \\times 0.3^3 + {}^{31}\\text{C}_4 \\times 0.7^{27} \\times 0.3^4$$\n\nThe combinations are $\\binom{31}{2} = \\dfrac{31 \\times 30}{2} = 465$, $\\binom{31}{3} = \\dfrac{31 \\times 30 \\times 29}{6} = 4495$ and $\\binom{31}{4} = 31465$.",
+   "**Evaluate (this earns the A1)**\n\nThe five terms are:\n\n$$\\text{P}(0) = 0.00001578 \\qquad \\text{P}(1) = 0.0002096 \\qquad \\text{P}(2) = 0.0013475$$\n\n$$\\text{P}(3) = 0.0055826 \\qquad \\text{P}(4) = 0.016748$$\n\nAdd them:\n\n$$0.00001578 + 0.0002096 + 0.0013475 + 0.0055826 + 0.016748 = 0.0239034$$\n\nQuick check: calculator binomial cdf with $n = 31$, $p = 0.3$, $x = 4$ gives $0.0239$.\n\n$$\\text{P}(X \\leqslant 4) = 0.0239 \\text{ (3 s.f.)}$$",
+   "**Compare (this earns the second M1)**\n\n$$0.0239 < 0.05$$\n\nThe probability is smaller than the significance level, so the result is inside the rejection region. We compare with $0.05$ directly because the test is one-tailed.",
+   "**Conclusion in context (this earns the A1FT)**\n\nWe reject $\\text{H}_0$. In context, not definite:\n\nThere is sufficient evidence, at the 5% level, to support Rita's suspicion (that the probability of seeing this kind of bird has decreased).",
+   "**Final answer**\n\n$\\text{P}(X \\leqslant 4) = 0.0239 < 0.05$, so reject $\\text{H}_0$. There is sufficient evidence at the 5% level to support Rita's suspicion that the probability of seeing this kind of bird has decreased."
+  ]
+ },
+ "9709_s24_61_q7_b": {
+  "hints": [
+   "A Type I error means rejecting $\\text{H}_0$ when it is true. First find the rejection region: the largest value $c$ for which $\\text{P}(X \\leqslant c)$ is still at most 0.05. You know $\\text{P}(X \\leqslant 4)$ from part (a), so add one more term and check $\\text{P}(X \\leqslant 5)$ against 0.05.",
+   "Once you know which values of $X$ make up the rejection region, the probability of a Type I error is the probability of landing in that region when $p = 0.3$. Which result from part (a) is that?"
+  ],
+  "walkthrough": [
+   "**What a Type I error is**\n\nA Type I error is rejecting $\\text{H}_0$ when $\\text{H}_0$ is actually true. So its probability is the probability that $X$ falls in the **rejection region**, calculated assuming $p = 0.3$.\n\nThe rejection region is the set of lower values $X \\leqslant c$ where $c$ is the largest value with $\\text{P}(X \\leqslant c) \\leqslant 0.05$.",
+   "**Check one value above 4 (this earns the first B1FT)**\n\nFrom (a), $\\text{P}(X \\leqslant 4) = 0.0239 \\leqslant 0.05$, so $4$ is in the region. Does $5$ belong too? Add the term for $X = 5$:\n\n$$\\text{P}(X = 5) = \\binom{31}{5}\\,0.7^{26}\\,0.3^5 = 169911 \\times 0.7^{26} \\times 0.3^5 = 0.03876$$\n\n$$\\text{P}(X \\leqslant 5) = 0.0239 + 0.03876 = 0.0627$$\n\n$$0.0627 > 0.05$$\n\nSo 5 is too big and is **not** in the rejection region. The rejection region is $X \\leqslant 4$.",
+   "**The probability of a Type I error (this earns the second B1FT)**\n\nThe probability is the probability of the rejection region when $\\text{H}_0$ is true, which is the value from part (a):\n\n$$\\text{P}(\\text{Type I error}) = \\text{P}(X \\leqslant 4) = 0.0239$$\n\nNotice that it is smaller than the 5% significance level. This is normal for a discrete distribution, where we cannot hit exactly 5%.",
+   "**Final answer**\n\n$$\\text{P}(\\text{Type I error}) = 0.0239$$"
+  ]
+ },
+ "9709_s24_61_q7_c_i": {
+  "hints": [
+   "$n = 365$ is large and $p = 0.01$ is small, so approximate the binomial with a Poisson distribution whose mean is $np = 365 \\times 0.01$.",
+   "Write $\\text{P}(Y = 4)$ with the Poisson formula $\\text{e}^{-\\lambda}\\dfrac{\\lambda^r}{r!}$ for $r = 4$, using the mean you just found.",
+   "Evaluate this on your calculator (Poisson probability for exactly 4) and round to 3 significant figures."
+  ],
+  "walkthrough": [
+   "**Choose the approximation (this earns the B1)**\n\n$Y \\sim \\text{B}(365, 0.01)$ has $n$ large and $p$ very small, so it is well approximated by a Poisson distribution with the same mean $\\lambda = np$:\n\n$$\\lambda = 365 \\times 0.01 = 3.65$$\n\nSo $Y \\approx \\text{Po}(3.65)$.",
+   "**Write the probability (this earns the M1)**\n\nFor a Poisson distribution, $\\text{P}(Y = r) = \\text{e}^{-\\lambda}\\dfrac{\\lambda^r}{r!}$. With $r = 4$ and $\\lambda = 3.65$:\n\n$$\\text{P}(Y = 4) = \\text{e}^{-3.65} \\times \\frac{3.65^4}{4!}$$",
+   "**Calculate (this earns the A1)**\n\n$$\\text{e}^{-3.65} = 0.025991$$\n\n$$3.65^4 = 177.489 \\qquad 4! = 24 \\qquad \\frac{177.489}{24} = 7.3954$$\n\n$$0.025991 \\times 7.3954 = 0.19221$$\n\nRounded to 3 significant figures: $0.192$.\n\nQuick check: the exact binomial value is $0.193$, very close. Note that the scheme says using the binomial scores only the B1, because the question asked for an approximating distribution.",
+   "**Final answer**\n\n$$\\text{P}(Y = 4) \\approx 0.192 \\text{ (3 s.f.)}$$"
+  ]
+ },
+ "9709_s24_61_q7_c_ii": {
+  "hints": [
+   "State the two conditions for approximating a binomial by a Poisson distribution (a size condition on $n$, and a condition on $np$ or on $p$) and check each with the numbers in this question: $n = 365$, $p = 0.01$. 'n large, p small' on its own is not enough."
+  ],
+  "walkthrough": [
+   "**The conditions for a Poisson approximation**\n\n$\\text{B}(n, p)$ can be approximated by $\\text{Po}(np)$ when $n$ is large ($n > 50$) and either $np$ is small ($np < 5$) or $p$ is small ($p < 0.1$).\n\nCheck them explicitly with the numbers in the question:\n\n- $n = 365 > 50$\n\n- $np = 365 \\times 0.01 = 3.65 < 5$ (also $p = 0.01 < 0.1$)\n\nBoth conditions hold, so the Poisson approximation is justified. The scheme needs both conditions shown with numbers; 'n large, p small' alone is not enough.",
+   "**Final answer**\n\n$n = 365 > 50$ and $np = 3.65 < 5$ (or $p = 0.01 < 0.1$), so the Poisson approximation is suitable."
+  ]
+ }
+}

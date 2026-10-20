@@ -1,0 +1,42 @@
+{
+  "9709_w25_62_q5_a": {
+    "hints": [
+      "For any probability density function, the total area under the curve (the integral of $\\text{f}(x)$ over its whole range) is a fixed value. Write that as an equation using limits 0 and 2.",
+      "Integrate each term of $2x^2 - x^3$: raise the power by one and divide by the new power. Keep $k$ outside.",
+      "Substitute the limits 2 and 0 into the bracket, combine the fractions into a single number, then solve for $k$ and check that it matches the value you are asked to show."
+    ],
+    "walkthrough": [
+      "**Use the fact that the total probability is 1 (this earns the M1)**\n\nA probability density function describes how probability is spread along the $x$-axis. The probability of $X$ being *somewhere* in its range must be 1, so the total area under $\\text{f}(x)$ is 1. The function is non-zero only for $0 \\leqslant x \\leqslant 2$, so we integrate between 0 and 2.\n\n$$k\\int_0^2 \\left(2x^2 - x^3\\right)\\text{d}x = 1$$",
+      "**Integrate (this earns the first A1)**\n\nTo integrate $x^n$, make it $\\dfrac{x^{n+1}}{n+1}$. Term by term:\n\n$$\\int 2x^2\\,\\text{d}x = \\frac{2x^3}{3} \\qquad \\int x^3\\,\\text{d}x = \\frac{x^4}{4}$$\n\n$$k\\left[\\frac{2x^3}{3} - \\frac{x^4}{4}\\right]_0^2 = 1$$",
+      "**Substitute the limits**\n\nPut in $x = 2$, then $x = 0$, and subtract (the value at 0 is 0).\n\nAt $x = 2$: $\\dfrac{2 \\times 2^3}{3} - \\dfrac{2^4}{4} = \\dfrac{2 \\times 8}{3} - \\dfrac{16}{4} = \\dfrac{16}{3} - 4 = \\dfrac{16}{3} - \\dfrac{12}{3} = \\dfrac{4}{3}$\n\nAt $x = 0$: both terms are 0.\n\n$$k \\times \\frac{4}{3} = 1$$",
+      "**Solve for $k$ (this earns the last A1)**\n\nMultiply both sides by $\\dfrac{3}{4}$ (the reciprocal of $\\dfrac{4}{3}$):\n\n$$k = 1 \\times \\frac{3}{4} = \\frac{3}{4}$$\n\nThis is the value we were asked to show, so we are done.",
+      "**Final answer**\n\n$$k = \\frac{3}{4}$$"
+    ]
+  },
+  "9709_w25_62_q5_b_i": {
+    "hints": [
+      "Think about what the word \"median\" means: what fraction of the probability lies below the median?"
+    ],
+    "walkthrough": [
+      "**What the median means**\n\nThe median $m$ is the middle value: half of the distribution lies at or below it and half lies above it. In probability terms, the probability of being at or below $m$ is one half.",
+      "**Final answer**\n\n$$\\text{P}(X \\leqslant m) = 0.5$$"
+    ]
+  },
+  "9709_w25_62_q5_b_ii": {
+    "hints": [
+      "For a continuous random variable, $\\text{E}(X) = \\int x\\,\\text{f}(x)\\,\\text{d}x$ over the range. Multiply $x$ by $\\dfrac{3}{4}(2x^2 - x^3)$ first, then integrate.",
+      "Integrate each term of your $x\\,\\text{f}(x)$ (power up by one, divide by the new power) and substitute the limits 2 and 0. Work with fractions or decimals carefully.",
+      "To find $\\text{P}(X < \\text{E}(X))$ integrate $\\text{f}(x)$ itself, from 0 up to your value of $\\text{E}(X)$.",
+      "Use the antiderivative from part (a), $\\dfrac{3}{4}\\left[\\dfrac{2x^3}{3} - \\dfrac{x^4}{4}\\right]$, and substitute your value of $\\text{E}(X)$ for $x$ (the lower limit contributes 0).",
+      "You want the probability between $\\text{E}(X)$ and the median. Use the answer to part (i): the probability up to $m$, minus the probability up to $\\text{E}(X)$ that you just found."
+    ],
+    "walkthrough": [
+      "**Write the expected value as an integral (this earns the first M1)**\n\nFor a continuous random variable, the mean is $\\text{E}(X) = \\int x\\,\\text{f}(x)\\,\\text{d}x$ over the range where $\\text{f}$ is non-zero. We use $k = \\dfrac{3}{4}$ from part (a). Multiply $x$ into the bracket: $x \\times (2x^2 - x^3) = 2x^3 - x^4$.\n\n$$\\text{E}(X) = \\frac{3}{4}\\int_0^2 \\left(2x^3 - x^4\\right)\\text{d}x$$",
+      "**Integrate and substitute limits (this earns the first A1)**\n\n$$\\int 2x^3\\,\\text{d}x = \\frac{2x^4}{4} = \\frac{x^4}{2} \\qquad \\int x^4\\,\\text{d}x = \\frac{x^5}{5}$$\n\n$$\\text{E}(X) = \\frac{3}{4}\\left[\\frac{2x^4}{4} - \\frac{x^5}{5}\\right]_0^2$$\n\nAt $x = 2$: $\\dfrac{2 \\times 16}{4} - \\dfrac{32}{5} = 8 - 6.4 = 1.6$. At $x = 0$ the bracket is 0.\n\n$$\\text{E}(X) = \\frac{3}{4} \\times 1.6 = 1.2 = \\frac{6}{5}$$",
+      "**Find the probability that $X$ is below its mean (this earns the second M1)**\n\nThe probability that $X$ is below a value is the area under $\\text{f}$ from the start of the range (0) up to that value. Here that value is $\\text{E}(X) = 1.2$.\n\n$$\\text{P}(X < \\text{E}(X)) = \\frac{3}{4}\\int_0^{1.2}\\left(2x^2 - x^3\\right)\\text{d}x$$",
+      "**Evaluate it (this earns the second A1)**\n\nWe use the antiderivative from part (a). Substitute $x = 1.2$ (the value at 0 is 0).\n\n$1.2^3 = 1.728$ so $\\dfrac{2 \\times 1.728}{3} = \\dfrac{3.456}{3} = 1.152$.\n\n$1.2^4 = 2.0736$ so $\\dfrac{2.0736}{4} = 0.5184$.\n\n$$\\text{P}(X < 1.2) = \\frac{3}{4}\\left(1.152 - 0.5184\\right) = \\frac{3}{4} \\times 0.6336 = 0.4752$$\n\nAs a fraction this is $\\dfrac{297}{625}$ (also written $\\dfrac{594}{1250}$).",
+      "**Use the median to finish (this earns the last A1)**\n\nFrom part (i), $\\text{P}(X \\leqslant m) = 0.5$. Since $\\text{P}(X < 1.2) = 0.4752$ is less than 0.5, the mean 1.2 is **below** the median $m$, so the region from $\\text{E}(X)$ to $m$ makes sense. The probability between them is the probability up to $m$ minus the probability up to $\\text{E}(X)$.\n\n$$\\text{P}(\\text{E}(X) \\leqslant X \\leqslant m) = 0.5 - 0.4752 = 0.0248$$\n\nAs a fraction: $0.0248 = \\dfrac{31}{1250}$.\n\nQuick check: the answer is small and positive, which fits two values (the mean 1.2 and the median) that are close together.",
+      "**Final answer**\n\n$$\\text{P}(\\text{E}(X) \\leqslant X \\leqslant m) = 0.0248 = \\frac{31}{1250}$$"
+    ]
+  }
+}

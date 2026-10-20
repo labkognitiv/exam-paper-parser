@@ -1,0 +1,17 @@
+{
+ "9709_s24_61_q1": {
+  "hints": [
+   "The four counts are independent Poisson variables, so the total is Poisson too: add the four means for a 10-second period, then scale up, because 1 minute is a whole number of 10-second periods.",
+   "'More than 3' has no upper limit, so use the complement: $\\text{P}(X > 3) = 1 - \\text{P}(X \\leqslant 3)$, and write out the terms for $r = 0, 1, 2, 3$ using $\\text{P}(X = r) = \\text{e}^{-\\lambda}\\dfrac{\\lambda^r}{r!}$.",
+   "Evaluate the four terms (or use the Poisson cumulative probability function on your calculator), add them, subtract from 1, and round to 3 significant figures."
+  ],
+  "walkthrough": [
+   "**Why a Poisson distribution, and how to combine the four entrances**\n\nEach entrance has a count of passengers that follows a Poisson distribution. The rule to remember: when **independent** Poisson variables are added, the total is also Poisson, and its mean is the sum of the individual means.\n\nLet $T$ be the total number of passengers at all four entrances in a 10-second period. Its mean is:\n\n$$\\lambda_{10\\,\\text{s}} = 0.4 + 0.1 + 0.2 + 0.5 = 1.2$$",
+   "**Change the time period (this earns the B1)**\n\nWe are asked about a **1-minute** period. One minute is 60 seconds, which is $60 \\div 10 = 6$ periods of 10 seconds. A Poisson mean grows in proportion to the time, so multiply by 6:\n\n$$\\lambda = 1.2 \\times 6 = 7.2$$\n\nSo, for 1 minute, $X \\sim \\text{Po}(7.2)$, where $X$ is the number of passengers.\n\nCommon slip: forgetting to scale and still using 1.2.",
+   "**Set up 'more than 3' (this earns the M1)**\n\n'More than 3' means $X = 4, 5, 6, \\ldots$ with no end, so adding those terms is impossible. Instead, use the complement (everything that is not 'more than 3'):\n\n$$\\text{P}(X > 3) = 1 - \\text{P}(X \\leqslant 3) = 1 - \\left[\\text{P}(0) + \\text{P}(1) + \\text{P}(2) + \\text{P}(3)\\right]$$\n\nEach term uses the Poisson formula $\\text{P}(X = r) = \\text{e}^{-\\lambda}\\dfrac{\\lambda^r}{r!}$ with $\\lambda = 7.2$:\n\n$$\\text{P}(X > 3) = 1 - \\text{e}^{-7.2}\\left(1 + 7.2 + \\frac{7.2^2}{2!} + \\frac{7.2^3}{3!}\\right)$$\n\nCommon slip: stopping at $X \\leqslant 2$ or going on to $X \\leqslant 4$. The 'one end error' allowance in the scheme only saves the method mark, not the answer.",
+   "**Work out each term**\n\nFirst, $\\text{e}^{-7.2}$: type $e^x$ and enter $-7.2$, which gives $0.000746586$.\n\nNow the four pieces inside the bracket:\n\n$$\\frac{7.2^0}{0!} = 1$$\n\n$$\\frac{7.2^1}{1!} = 7.2$$\n\n$$\\frac{7.2^2}{2!} = \\frac{51.84}{2} = 25.92$$\n\n$$\\frac{7.2^3}{3!} = \\frac{373.248}{6} = 62.208$$\n\nMultiply each by $\\text{e}^{-7.2} = 0.000746586$:\n\n$$\\text{P}(0) = 0.000747 \\qquad \\text{P}(1) = 0.005375 \\qquad \\text{P}(2) = 0.019352 \\qquad \\text{P}(3) = 0.046444$$\n\nAdd them:\n\n$$0.000747 + 0.005375 + 0.019352 + 0.046444 = 0.071918$$\n\nQuick check: you can get $0.071918$ directly from the calculator's Poisson cumulative probability with mean 7.2 and $x = 3$.",
+   "**Subtract from 1 (this earns the A1)**\n\n$$\\text{P}(X > 3) = 1 - 0.071918 = 0.928082$$\n\nRounded to 3 significant figures this is $0.928$.\n\nQuick check: the mean is 7.2, so seeing more than 3 passengers should be very likely. $0.928$ agrees.",
+   "**Final answer**\n\n$$\\text{P}(X > 3) = 0.928 \\text{ (3 s.f.)}$$"
+  ]
+ }
+}

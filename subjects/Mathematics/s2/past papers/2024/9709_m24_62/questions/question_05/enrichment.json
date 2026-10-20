@@ -1,0 +1,58 @@
+{
+ "9709_m24_62_q5_a": {
+  "hints": [
+   "Poisson rates scale with time. $G$ has mean $0.10$ per day, so for a 2-day period multiply the mean by $2$. Then $\\text{P}(G = 0) = \\text{e}^{-\\lambda}$."
+  ],
+  "walkthrough": [
+   "**Scale the rate to 2 days**\n\n$G \\sim \\text{Po}(0.10)$ describes **one day**. A 2-day period has twice as many chances for a girl to be late, so the mean doubles:\n\n$$\\lambda = 2 \\times 0.10 = 0.20$$\n\nSo for 2 days, $G \\sim \\text{Po}(0.20)$.",
+   "**Probability of none**\n\nThe Poisson formula is $\\text{P}(G = r) = \\text{e}^{-\\lambda}\\dfrac{\\lambda^r}{r!}$. With $r = 0$ we have $\\lambda^0 = 1$ and $0! = 1$, so\n\n$$\\text{P}(G = 0) = \\text{e}^{-0.20} = 0.8187\\ldots$$\n\nOn the calculator, press the $e^x$ button and type $-0.2$.",
+   "**Final answer**\n\n$\\text{P}(\\text{no girls late in 2 days}) = \\text{e}^{-0.2} = 0.819$ (3 s.f.)."
+  ]
+ },
+ "9709_m24_62_q5_b": {
+  "hints": [
+   "The total of two independent Poisson variables is Poisson, with the **means added**: daily mean $0.10 + 0.15$. For 5 days, multiply by $5$.",
+   "'Less than 3' means $0, 1$ or $2$: $\\text{P}(T < 3) = \\text{P}(T \\leqslant 2) = \\text{e}^{-\\lambda}\\left(1 + \\lambda + \\dfrac{\\lambda^2}{2}\\right)$.",
+   "Substitute your $\\lambda$ into the three terms, add them, and round to 3 s.f."
+  ],
+  "walkthrough": [
+   "**Combine boys and girls (earns the B1)**\n\nThe sum of independent Poisson variables is also Poisson, and the means add. For one day, the total number of late students has mean $0.10 + 0.15 = 0.25$.\n\nFor 5 days, multiply by 5:\n\n$$\\lambda = 5 \\times 0.25 = 1.25$$\n\nSo the total $T \\sim \\text{Po}(1.25)$.",
+   "**What 'less than 3' means**\n\n$T$ is a whole number, so $T < 3$ means $T = 0$, $1$ or $2$.\n\n$$\\text{P}(T < 3) = \\text{P}(T=0) + \\text{P}(T=1) + \\text{P}(T=2) = \\text{e}^{-1.25}\\left(1 + 1.25 + \\frac{1.25^2}{2}\\right)$$\n\nThis expression earns the M1.",
+   "**Work out each term**\n\n$\\text{e}^{-1.25} = 0.286505$ (use the $e^x$ button).\n\n$\\text{P}(T=0) = 0.286505 \\times 1 = 0.286505$\n\n$\\text{P}(T=1) = 0.286505 \\times 1.25 = 0.358131$\n\n$\\text{P}(T=2) = 0.286505 \\times \\dfrac{1.25^2}{2} = 0.286505 \\times 0.78125 = 0.223832$",
+   "**Add (earns the A1)**\n\n$$0.286505 + 0.358131 + 0.223832 = 0.868468$$\n\nQuick check: a Poisson cdf on a calculator with mean $1.25$ and upper limit $2$ gives the same.",
+   "**Final answer**\n\n$\\text{P}(\\text{fewer than 3 students late in 5 days}) = 0.868$ (3 s.f.)."
+  ]
+ },
+ "9709_m24_62_q5_c": {
+  "hints": [
+   "Boys and girls are independent, so each pair of outcomes has probability $\\text{P}(G = g) \\times \\text{P}(B = b)$. Here $G \\sim \\text{Po}(0.10)$ and $B \\sim \\text{Po}(0.15)$ for one day.",
+   "Only the values $0, 1, 2$ matter. List every pair with $g > b$: $G = 1$ goes with $B = 0$; then think about which $B$ values go with $G = 2$. Add the probabilities of all the pairs.",
+   "Work out each Poisson probability with $\\text{e}^{-\\lambda}\\dfrac{\\lambda^r}{r!}$, multiply the pairs, add the three products, and round to 3 s.f."
+  ],
+  "walkthrough": [
+   "**List the ways girls can beat boys**\n\nFor one day, $G \\sim \\text{Po}(0.10)$ and $B \\sim \\text{Po}(0.15)$. The question tells us to ignore any value of 3 or more, so only $0$, $1$ and $2$ are possible.\n\nWe want $G > B$. Write every pair $(g, b)$ where $g$ is bigger than $b$:\n\n$G = 1$ and $B = 0$\n\n$G = 2$ and $B = 0$\n\n$G = 2$ and $B = 1$\n\n($G = 0$ cannot be bigger than anything, so it is not on the list.)",
+   "**Individual probabilities**\n\nUsing $\\text{P}(r) = \\text{e}^{-\\lambda}\\dfrac{\\lambda^r}{r!}$:\n\nGirls ($\\lambda = 0.10$): $\\text{e}^{-0.10} = 0.904837$\n\n$\\text{P}(G = 1) = 0.10 \\times 0.904837 = 0.0904837$\n\n$\\text{P}(G = 2) = \\dfrac{0.10^2}{2} \\times 0.904837 = 0.005 \\times 0.904837 = 0.00452419$\n\nBoys ($\\lambda = 0.15$): $\\text{e}^{-0.15} = 0.860708$\n\n$\\text{P}(B = 0) = 0.860708$\n\n$\\text{P}(B = 1) = 0.15 \\times 0.860708 = 0.129106$",
+   "**Multiply the pairs (earns the first M1)**\n\nBoys and girls are independent, so we multiply:\n\n$\\text{P}(B = 0) \\times \\text{P}(G = 1) = 0.860708 \\times 0.0904837 = 0.077880$\n\n$\\text{P}(B = 0) \\times \\text{P}(G = 2) = 0.860708 \\times 0.00452419 = 0.003894$\n\n$\\text{P}(B = 1) \\times \\text{P}(G = 2) = 0.129106 \\times 0.00452419 = 0.000584$",
+   "**Add the three cases (earns the second M1)**\n\nThese cases cannot happen together, so we add them:\n\n$$0.077880 + 0.003894 + 0.000584 = 0.082358$$",
+   "**Final answer**\n\n$\\text{P}(\\text{more girls than boys late}) = 0.0824$ (3 s.f.)."
+  ]
+ },
+ "9709_m24_62_q5_d": {
+  "hints": [
+   "Define the parameter first: $\\lambda$ is the mean number of late students. Under $\\text{H}_0$ it is the old rate you used in part **(b)** (per 5 days, or per day). The teacher claims 'more', so $\\text{H}_1$ has $>$.",
+   "Under $\\text{H}_0$ the 5-day total is Poisson with that mean. Observing $4$ late students in a one-tailed test means you need the probability of $4$ **or more**: $\\text{P}(X \\geqslant 4) = 1 - \\text{P}(X \\leqslant 3)$.",
+   "Work out $\\text{P}(0), \\text{P}(1), \\text{P}(2), \\text{P}(3)$ with $\\text{e}^{-\\lambda}\\dfrac{\\lambda^r}{r!}$, add the four values and subtract from 1. Keep at least 4 decimal places.",
+   "Compare your probability with the significance level of 5% (this is a one-tailed test, so no halving).",
+   "If your probability is smaller than the significance level you reject $\\text{H}_0$. Then say what it means for the teacher's claim, in context and not definite ('there is evidence that...')."
+  ],
+  "walkthrough": [
+   "**Hypotheses (earns the B1)**\n\nBefore the change, the number of late students in 5 days has mean $\\lambda = 5 \\times (0.10 + 0.15) = 1.25$, as in part **(b)**. The teacher claims the average is now **higher**, so we test for an increase.\n\n$$\\text{H}_0: \\lambda = 1.25 \\quad (\\text{mean number of late students in 5 days is unchanged})$$\n\n$$\\text{H}_1: \\lambda > 1.25 \\quad (\\text{mean number of late students in 5 days has increased})$$\n\nThis is a one-tailed test, because the claim only goes one way. Equivalent: per day, $\\lambda = 0.25$ against $\\lambda > 0.25$.",
+   "**Distribution if $\\text{H}_0$ is true**\n\nIf nothing has changed, the number of late students in 5 days, $X$, is Poisson: $X \\sim \\text{Po}(1.25)$. We observed $4$.",
+   "**Which probability do we need? (earns the first M1)**\n\nWe ask: if nothing had changed, how likely is a result **as extreme as 4 or more**? 'More' than before is the upper tail:\n\n$$\\text{P}(X \\geqslant 4) = 1 - \\text{P}(X \\leqslant 3) = 1 - \\text{e}^{-1.25}\\left(1 + 1.25 + \\frac{1.25^2}{2} + \\frac{1.25^3}{3!}\\right)$$\n\nNote we must go up to $r = 3$, and no further. Stopping at 2 is an 'end error' and loses this mark.",
+   "**Work out each term**\n\n$\\text{e}^{-1.25} = 0.286505$\n\n$r = 0$: $0.286505 \\times 1 = 0.286505$\n\n$r = 1$: $0.286505 \\times 1.25 = 0.358131$\n\n$r = 2$: $0.286505 \\times \\dfrac{1.5625}{2} = 0.286505 \\times 0.78125 = 0.223832$\n\n$r = 3$: $1.25^3 = 1.953125$, and $3! = 6$, so $\\dfrac{1.953125}{6} = 0.325521$; then $0.286505 \\times 0.325521 = 0.093263$",
+   "**Add and subtract from 1 (earns the A1)**\n\n$$0.286505 + 0.358131 + 0.223832 + 0.093263 = 0.961731$$\n\n$$\\text{P}(X \\geqslant 4) = 1 - 0.961731 = 0.0383$$",
+   "**Compare (earns the second M1)**\n\nThe significance level is $5\\% = 0.05$. We compare the probability of our result with it:\n\n$$0.0383 < 0.05$$\n\nThe result is less likely than 5%, if $\\text{H}_0$ were true, so it is too unlikely to put down to chance.",
+   "**Final answer**\n\nReject $\\text{H}_0$. There is sufficient evidence, at the 5% significance level, to suggest that the teacher's claim is true, that is, that on average more students arrive late than before the change.\n\nCareful with wording: do not say 'more students are late' or 'the claim is correct' as if it were certain. A test gives evidence, not proof."
+  ]
+ }
+}

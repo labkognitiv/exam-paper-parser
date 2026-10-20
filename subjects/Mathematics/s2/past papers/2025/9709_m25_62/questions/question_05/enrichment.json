@@ -1,0 +1,39 @@
+{
+ "9709_m25_62_q5_a": {
+  "hints": [
+   "The significance level is the probability of rejecting $\\text{H}_0$ when $\\text{H}_0$ is true. Under $\\text{H}_0$, the number of left-handed students in the sample of $35$ is $\\text{B}(35, 0.2)$.",
+   "Amir rejects when $X \\leqslant 3$, so you need $\\text{P}(X = 0) + \\text{P}(X = 1) + \\text{P}(X = 2) + \\text{P}(X = 3)$, each $\\binom{35}{r}\\, 0.2^r\\, (1 - 0.2)^{35 - r}$.",
+   "Add the four terms, then write the total as a probability and as a percentage."
+  ],
+  "walkthrough": [
+   "**What the significance level means**\n\nThe significance level is the probability that the test rejects $\\text{H}_0$ **even though $\\text{H}_0$ is true**. Amir rejects $\\text{H}_0$ if $3$ or fewer of the $35$ students are left-handed. So we need the probability of $3$ or fewer when $p = 0.2$.",
+   "**The distribution (B1)**\n\nLet $X$ be the number of left-handed students in the sample of $35$. Each student is left-handed or not, with the same probability, independently, so under $\\text{H}_0$:\n\n$$X \\sim \\text{B}(35, 0.2)$$",
+   "**Write the probability (M1)**\n\n$$\\text{P}(X \\leqslant 3) = \\text{P}(X = 0) + \\text{P}(X = 1) + \\text{P}(X = 2) + \\text{P}(X = 3)$$\n\nUsing $\\text{P}(X = r) = \\binom{35}{r}\\,0.2^r\\,0.8^{35 - r}$:\n\n$$0.8^{35} + 35 \\times 0.8^{34} \\times 0.2 + \\binom{35}{2}\\,0.8^{33}\\,0.2^2 + \\binom{35}{3}\\,0.8^{32}\\,0.2^3$$\n\nHere $0.8 = 1 - 0.2$. Include all four terms, from $0$ up to $3$; leaving out the $r = 0$ term is a common slip.",
+   "**Calculate each term (A1)**\n\n$\\text{P}(X = 0) = 0.8^{35} = 0.0004056$\n\n$\\text{P}(X = 1) = 35 \\times 0.8^{34} \\times 0.2 = 0.0035494$\n\n$\\text{P}(X = 2) = 595 \\times 0.8^{33} \\times 0.2^2 = 0.015085$ (since $\\binom{35}{2} = \\dfrac{35 \\times 34}{2} = 595$)\n\n$\\text{P}(X = 3) = 6545 \\times 0.8^{32} \\times 0.2^3 = 0.041484$ (since $\\binom{35}{3} = \\dfrac{35 \\times 34 \\times 33}{6} = 6545$)\n\nAdd: $0.0004056 + 0.0035494 + 0.015085 + 0.041484 = 0.060524$.\n\nCheck with the calculator's binomial cdf: $\\text{B}(35, 0.2)$ with $x = 3$ gives the same $0.0605$.\n\n$$\\text{P}(X \\leqslant 3) = 0.0605$$\n\nAs a percentage, the significance level is $6.05\\%$.",
+   "**Final answer**\n\nThe significance level is $0.0605$, that is $6.05\\%$ (also accepted: $6.1\\%$ or $6\\%$; the mark scheme accepts anything from $6.05\\%$ to $14.3\\%$)."
+  ]
+ },
+ "9709_m25_62_q5_b": {
+  "hints": [
+   "A Type I error is rejecting $\\text{H}_0$ when it is true. Compare this with what you found in (a)."
+  ],
+  "walkthrough": [
+   "**Link to part (a)**\n\nA **Type I error** means rejecting $\\text{H}_0$ when $\\text{H}_0$ is actually true. That is exactly the event whose probability we found in (a): the significance level.\n\nSo the probability of a Type I error is the same number as the significance level.",
+   "**Final answer**\n\n$$\\text{P}(\\text{Type I error}) = 0.0605$$"
+  ]
+ },
+ "9709_m25_62_q5_c": {
+  "hints": [
+   "Now the true value is $p = 0.05$, so the number of left-handed students is $\\text{B}(35, 0.05)$.",
+   "A Type II error is **not** rejecting $\\text{H}_0$ when it is false. Amir rejects when $X \\leqslant 3$, so here that is $X \\geqslant 4$, and $\\text{P}(X \\geqslant 4) = 1 - \\text{P}(X \\leqslant 3)$ with each term $\\binom{35}{r}\\, 0.05^r\\, (1 - 0.05)^{35 - r}$.",
+   "Add the four terms for $r = 0, 1, 2, 3$ and subtract the total from $1$."
+  ],
+  "walkthrough": [
+   "**What a Type II error is**\n\nA **Type II error** happens when $\\text{H}_0$ is false but the test does not reject it. Here $\\text{H}_0$ ($p = 0.2$) is false, since the true value is $p = 0.05$. Amir does not reject $\\text{H}_0$ when $4$ or more students are left-handed.",
+   "**The distribution (B1)**\n\nWith the true $p = 0.05$, the number $X$ of left-handed students in the sample of $35$ is\n\n$$X \\sim \\text{B}(35, 0.05)$$",
+   "**Write the probability (M1)**\n\n$$\\text{P}(\\text{Type II}) = \\text{P}(X \\geqslant 4) = 1 - \\text{P}(X \\leqslant 3)$$\n\nUsing $\\text{P}(X = r) = \\binom{35}{r}\\,0.05^r\\,0.95^{35 - r}$ (where $0.95 = 1 - 0.05$):\n\n$$1 - \\left(0.95^{35} + 35 \\times 0.95^{34} \\times 0.05 + \\binom{35}{2}\\,0.95^{33}\\,0.05^2 + \\binom{35}{3}\\,0.95^{32}\\,0.05^3\\right)$$\n\nWe use the complement because adding $\\text{P}(X = 4)$ up to $\\text{P}(X = 35)$ would be $32$ terms, whereas the complement needs only four.",
+   "**Calculate (A1)**\n\n$\\text{P}(X = 0) = 0.95^{35} = 0.1661$\n\n$\\text{P}(X = 1) = 35 \\times 0.95^{34} \\times 0.05 = 0.3059$\n\n$\\text{P}(X = 2) = 595 \\times 0.95^{33} \\times 0.05^2 = 0.2737$\n\n$\\text{P}(X = 3) = 6545 \\times 0.95^{32} \\times 0.05^3 = 0.1585$\n\nAdd: $0.1661 + 0.3059 + 0.2737 + 0.1585 = 0.9042$.\n\n$$1 - 0.9042 = 0.0958$$\n\nCheck with the calculator's binomial cdf: $\\text{B}(35, 0.05)$ with $x = 3$ gives $0.9042$.",
+   "**Final answer**\n\n$$\\text{P}(\\text{Type II error}) = 0.0958 \\text{ (3 s.f.)}$$\n\n(The mark scheme also accepts $0.0957$.)"
+  ]
+ }
+}

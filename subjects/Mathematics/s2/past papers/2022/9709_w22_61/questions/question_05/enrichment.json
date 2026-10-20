@@ -1,0 +1,32 @@
+{
+ "9709_w22_61_q5_a": {
+  "hints": [
+   "A confidence interval for a mean with known standard deviation has the form $\\bar{x} \\pm z \\times \\dfrac{\\sigma}{\\sqrt{n}}$. Here $\\bar{x} = 45$, $\\sigma = 6$ and $n = 200$.",
+   "For 95% confidence, $2.5\\%$ is left in each tail, so use the $z$ with $\\Phi(z) = 0.975$ from the normal table: $z = 1.96$.",
+   "Work out the margin $1.96 \\times \\dfrac{6}{\\sqrt{200}}$ once. Subtract it from $45$ for the lower end and add it to $45$ for the upper end. Quote the interval as \"lower to upper\" to 3 significant figures."
+  ],
+  "walkthrough": [
+   "**What a confidence interval is**\n\nWe only have one sample of 200 stones, so the sample mean $\\bar{x} = 45$ g is just an estimate of the true mean. A **95% confidence interval** is a range around $45$ that is built so that it would contain the true mean in about 95% of samples.\n\nThe standard deviation of the stones, $\\sigma = 6$ g, is known. With a large sample ($n = 200$) the sample mean is approximately normally distributed with standard deviation $\\dfrac{\\sigma}{\\sqrt{n}}$ (it is a mean of 200 stones, so it varies less than a single stone).",
+   "**Write the form (M1)**\n\n$$\\bar{x} \\pm z \\times \\frac{\\sigma}{\\sqrt{n}} = 45 \\pm z \\times \\frac{6}{\\sqrt{200}}$$\n\nWriting this with the numbers earns the M1 (any $z$ is fine for this mark).",
+   "**Find $z$ (B1)**\n\n95% confidence means the middle 95% of the normal curve. That leaves $5\\%$ outside, split equally: $2.5\\%$ in each tail. So the value $z$ must have $0.975$ of the area below it ($95\\% + 2.5\\% = 97.5\\%$):\n\n$$\\Phi(z) = 0.975 \\quad\\Rightarrow\\quad z = 1.96$$\n\n(Calculator: inverse normal of $0.975$; or the percentage points table.) The scheme says this must be seen. This earns the B1.",
+   "**Calculate the interval (A1)**\n\nFirst the standard error: $\\sqrt{200} = 14.142$, so\n\n$$\\frac{6}{\\sqrt{200}} = \\frac{6}{14.142} = 0.42426$$\n\nMultiply by $z$:\n\n$$1.96 \\times 0.42426 = 0.83156$$\n\nLower end: $45 - 0.83156 = 44.168 = 44.2$ (3 s.f.).\n\nUpper end: $45 + 0.83156 = 45.832 = 45.8$ (3 s.f.).\n\nThe scheme says the answer **must be an interval**, not just the two numbers separately.",
+   "**Final answer**\n\nThe 95% confidence interval for the population mean mass of size $A$ stones is $44.2$ to $45.8$ grams (3 s.f.)."
+  ]
+ },
+ "9709_w22_61_q5_b": {
+  "hints": [
+   "A confidence interval is $\\bar{x} \\pm z\\dfrac{\\sigma}{\\sqrt{n}}$, so its width is $2 \\times z \\times \\dfrac{11}{\\sqrt{200}}$. The width is given as $4$ grams, so half the width is $2$: set $z \\times \\dfrac{11}{\\sqrt{200}} = 2$.",
+   "Rearrange for $z$: multiply both sides by $\\dfrac{\\sqrt{200}}{11}$. Work it out and keep at least 3 or 4 significant figures.",
+   "The interval runs from $-z$ to $z$ on the standard normal curve, so the confidence level is the central area $\\Phi(z) - \\left(1 - \\Phi(z)\\right)$. Find $\\Phi(z)$ with your calculator's normal cdf.",
+   "Work out $2\\Phi(z) - 1$. That is a decimal fraction of the whole curve; turn it into the percentage $\\alpha$ (the question wants $\\alpha\\%$, not a decimal) and give 3 significant figures."
+  ],
+  "walkthrough": [
+   "**What the width tells us**\n\nA confidence interval is $\\bar{x} - z\\dfrac{\\sigma}{\\sqrt{n}}$ to $\\bar{x} + z\\dfrac{\\sigma}{\\sqrt{n}}$. The distance from the middle to either end is $z \\times \\dfrac{\\sigma}{\\sqrt{n}}$, so the **width** (end to end) is twice that. The width is $4$, so the distance from the middle to one end is $4 \\div 2 = 2$.\n\nHere $\\sigma = 11$ and $n = 200$. We don't know $z$, because we don't know the confidence level $\\alpha\\%$ yet. The plan: find $z$, then turn $z$ into a percentage.",
+   "**Set up the equation (M1)**\n\n$$z \\times \\frac{11}{\\sqrt{200}} = 2$$\n\n(Using the full width, $2 \\times z \\times \\frac{11}{\\sqrt{200}} = 4$, is the same thing, and the scheme gives the M1 for \"$= 4$\" as well.)",
+   "**Solve for $z$ (A1)**\n\n$\\sqrt{200} = 14.142$, so $\\dfrac{11}{\\sqrt{200}} = \\dfrac{11}{14.142} = 0.77782$.\n\nDivide both sides by $0.77782$:\n\n$$z = \\frac{2}{0.77782} = 2.5713 = 2.571$$\n\n(The scheme accepts 3 s.f. if nothing better is seen.) This earns the A1.",
+   "**Turn $z$ into a confidence level (M1)**\n\nOn the standard normal curve the interval covers everything from $-z$ to $+z$: the **central area**. Look up the area to the left of $z$:\n\n$$\\Phi(2.571) = 0.9949 \\quad\\text{(normal table or calculator normal cdf)}$$\n\nThe area to the right of $z$ is $1 - 0.9949 = 0.0051$, and by symmetry the area to the left of $-z$ is the same. The central area is what is left over:\n\n$$0.9949 - (1 - 0.9949) = 0.9949 - 0.0051 = 0.9898$$\n\nThis earns the second M1.",
+   "**Write it as a percentage (A1)**\n\nA central area of $0.9898$ is a $98.98\\%$ confidence interval, so\n\n$$\\alpha = 99.0 \\text{ (3 s.f.)}$$\n\nThe scheme allows $99$. Warning: a final answer of $0.99$ scores A0 because $\\alpha$ is a percentage.",
+   "**Final answer**\n\n$\\alpha = 99.0$ (3 s.f.)."
+  ]
+ }
+}

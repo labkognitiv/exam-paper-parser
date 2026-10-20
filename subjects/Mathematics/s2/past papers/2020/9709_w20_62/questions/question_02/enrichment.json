@@ -1,0 +1,27 @@
+{
+ "9709_w20_62_q2_a": {
+  "hints": [
+   "Your estimate of the probability of a six is the sample proportion $\\hat{p} = \\dfrac{56}{300}$, and $1 - \\hat{p}$ is the proportion of non-sixes. The interval has the form $\\hat{p} \\pm z\\sqrt{\\dfrac{\\hat{p}(1 - \\hat{p})}{300}}$.",
+   "A 96% interval leaves 4% outside, shared equally between the two tails, so 2% sits above the upper end. Find the $z$-value that has that much probability above it (inverse normal on a calculator, or the percentage-points table).",
+   "Work out the standard error $\\sqrt{\\dfrac{\\hat{p}(1 - \\hat{p})}{300}}$, multiply by your $z$, then take that amount away from $\\hat{p}$ and add it to $\\hat{p}$. Give both ends to 3 significant figures, written as an interval."
+  ],
+  "walkthrough": [
+   "**What we are estimating**\n\nLet $p$ be the true probability that the die shows a six on one throw. We do not know $p$, but the experiment gives an estimate. The sample proportion (the fraction of throws that were sixes) is:\n\n$$\\hat{p} = \\frac{56}{300} = 0.18667$$\n\n($\\hat{p}$ is read 'p hat', the sample estimate of $p$.) The fraction that were **not** sixes is $1 - \\hat{p} = \\dfrac{244}{300} = 0.81333$.",
+   "**Why this formula works**\n\nWith 300 throws the sample is large, so the sample proportion is approximately normally distributed. That gives the confidence interval:\n\n$$\\hat{p} \\pm z \\times \\sqrt{\\frac{\\hat{p}(1 - \\hat{p})}{n}} = \\frac{56}{300} \\pm z \\times \\sqrt{\\frac{\\frac{56}{300} \\times \\frac{244}{300}}{300}}$$\n\nWriting an expression of this form with a $z$-value (not a $t$-value) earns the M1.",
+   "**Find the $z$-value for 96%**\n\nA 96% confidence interval means 96% of the normal curve lies in the middle. That leaves $100\\% - 96\\% = 4\\%$ in the two tails, so $2\\%$ in each tail.\n\nSo we need $z$ with $\\Phi(z) = 1 - 0.02 = 0.98$ (98% of the area to the left of $z$).\n\nCalculator: inverse normal, area $0.98$, mean $0$, standard deviation $1$, which shows $2.0537\\ldots$. To 3 decimal places $z = 2.054$ (a table gives $2.054$ or $2.055$, both accepted). This earns the B1.",
+   "**Calculate the standard error**\n\n$$\\hat{p}(1 - \\hat{p}) = 0.18667 \\times 0.81333 = 0.151822$$\n\n$$\\frac{0.151822}{300} = 0.000506074$$\n\n$$\\sqrt{0.000506074} = 0.022496$$\n\nThis number measures how much a sample proportion typically varies.",
+   "**Calculate the two ends of the interval**\n\nThe margin is $z \\times$ standard error:\n\n$$2.054 \\times 0.022496 = 0.046207$$\n\nLower end: $0.18667 - 0.046207 = 0.14046$. Upper end: $0.18667 + 0.046207 = 0.23287$.\n\nRound each to 3 significant figures: $0.140$ and $0.233$. The answer must be written as an interval (two numbers), otherwise the A1 is lost.",
+   "**Final answer**\n\nThe approximate 96% confidence interval for the probability of a six is $0.140$ to $0.233$ (3 s.f.). The scheme also accepts a lower end of $0.141$."
+  ]
+ },
+ "9709_w20_62_q2_b": {
+  "hints": [
+   "What probability of a six would a fair die have? Compare that value with your interval from part (a): does it lie inside the interval or outside it? Then say what that means for Maroulla's claim, without being definite."
+  ],
+  "walkthrough": [
+   "**What a fair die would give**\n\nIf the die is not biased, all six faces are equally likely, so the probability of a six is $\\dfrac{1}{6} = 0.167$ (3 s.f.).",
+   "**Compare with the interval**\n\nOur 96% confidence interval from part (a) is $0.140$ to $0.233$. The value $0.167$ lies **between** $0.140$ and $0.233$, so $\\frac{1}{6}$ is a believable value for the true probability.\n\nCareful: the interval does not prove the die is fair. It only says the data are consistent with it. That is why the scheme warns against definite statements such as 'the die is not biased'.",
+   "**Final answer**\n\n$\\dfrac{1}{6} = 0.167$ lies within the confidence interval, so there is no reason to believe that the die is biased (the data do not support Maroulla's claim)."
+  ]
+ }
+}

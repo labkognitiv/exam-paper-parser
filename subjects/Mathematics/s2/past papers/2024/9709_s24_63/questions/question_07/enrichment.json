@@ -1,0 +1,51 @@
+{
+ "9709_s24_63_q7_a": {
+  "hints": [
+   "The sum of independent Poisson variables is Poisson, and its mean is the sum of the means: $X + Y \\sim \\text{Po}(1.9 + 2.2)$.",
+   "$X + Y < 4$ means the total is $0, 1, 2$ or $3$ (not $4$). Write each term as $\\text{e}^{-\\lambda}\\dfrac{\\lambda^r}{r!}$ with your $\\lambda$.",
+   "Add the four terms (or use the calculator's Poisson cdf at $3$) and round to 3 significant figures."
+  ],
+  "walkthrough": [
+   "**The distribution of $X + Y$ (the B1 mark)**\n\n$X$ and $Y$ are independent Poisson variables. When you add independent Poisson variables, you get another Poisson variable whose mean is the sum of the means:\n\n$$X + Y \\sim \\text{Po}(\\lambda), \\quad \\lambda = 1.9 + 2.2 = 4.1$$",
+   "**Which values do we need?**\n\n$X + Y < 4$ means the total can be $0, 1, 2$ or $3$. The value $4$ is not included. So\n\n$$\\text{P}(X + Y < 4) = \\text{P}(0) + \\text{P}(1) + \\text{P}(2) + \\text{P}(3)$$",
+   "**Write the expression (the M1 mark)**\n\nUse $\\text{P}(r) = \\text{e}^{-4.1}\\dfrac{4.1^r}{r!}$:\n\n$$\\text{P}(X+Y<4) = \\text{e}^{-4.1}\\left(1 + 4.1 + \\frac{4.1^2}{2!} + \\frac{4.1^3}{3!}\\right)$$\n\nEvaluate each part inside the bracket: $4.1^2 = 16.81$, so $\\dfrac{16.81}{2} = 8.405$; $4.1^3 = 68.921$, so $\\dfrac{68.921}{6} = 11.487$.\n\n$$= \\text{e}^{-4.1}(1 + 4.1 + 8.405 + 11.487)$$\n\nThe expression must be seen written down.",
+   "**Calculate (the A1 mark)**\n\n$\\text{e}^{-4.1} = 0.016573$. The terms are\n\n$$0.016573 + 0.067948 + 0.139293 + 0.190368 = 0.41418$$\n\nTo 3 significant figures: $0.414$. A calculator check: Poisson cdf with $\\lambda = 4.1$ at $x = 3$ gives the same.",
+   "**Final answer**\n\n$$\\text{P}(X + Y < 4) = 0.414 \\text{ (3 s.f.)}$$"
+  ]
+ },
+ "9709_s24_63_q7_b": {
+  "hints": [
+   "This is a conditional probability: $\\text{P}(X = 2 \\mid X + Y < 4) = \\dfrac{\\text{P}(X = 2 \\text{ and } X + Y < 4)}{\\text{P}(X + Y < 4)}$. The bottom line is your answer to part **(a)**.",
+   "For the top, ask which values of $Y$ can go with $X = 2$ so that the total is less than $4$. List them.",
+   "$X$ and $Y$ are independent, so multiply: $\\text{P}(X = 2)$ from $\\text{Po}(1.9)$ times the sum of the $\\text{P}(Y = \\cdot)$ values from $\\text{Po}(2.2)$ that you listed. Write it as $\\text{e}^{-1.9}\\dfrac{1.9^2}{2!}\\times(\\ldots)$.",
+   "Divide the top by your answer to part **(a)** (keep the unrounded value in the calculator) and round to 3 significant figures."
+  ],
+  "walkthrough": [
+   "**Conditional probability**\n\n'Given that $X + Y < 4$' means we are only interested in the cases where the total is below $4$. The rule is\n\n$$\\text{P}(A \\mid B) = \\frac{\\text{P}(A \\text{ and } B)}{\\text{P}(B)}$$\n\nHere $A$ is '$X = 2$' and $B$ is '$X + Y < 4$'. We already have $\\text{P}(B) = 0.414$ from part **(a)**.",
+   "**Which pairs satisfy both conditions? (the first M1 mark)**\n\n$X = 2$ and $X + Y < 4$ means $2 + Y < 4$, so $Y < 2$. The values are $Y = 0$ or $Y = 1$:\n\n$$\\text{P}(X = 2 \\text{ and } X + Y < 4) = \\text{P}(X = 2,\\ Y = 0) + \\text{P}(X = 2,\\ Y = 1)$$",
+   "**Use independence (the second M1 mark)**\n\nBecause $X$ and $Y$ are independent, $\\text{P}(X = 2, Y = y) = \\text{P}(X = 2)\\times\\text{P}(Y = y)$. For $X \\sim \\text{Po}(1.9)$ and $Y \\sim \\text{Po}(2.2)$:\n\n$$\\text{P}(X = 2) = \\text{e}^{-1.9}\\frac{1.9^2}{2!} = 0.26997$$\n\n$$\\text{P}(Y = 0) = \\text{e}^{-2.2} = 0.11080 \\qquad \\text{P}(Y = 1) = \\text{e}^{-2.2}\\times 2.2 = 0.24377$$\n\n$$\\text{P}(\\text{top}) = \\text{e}^{-1.9}\\times\\frac{1.9^2}{2}\\times\\left(\\text{e}^{-2.2} + \\text{e}^{-2.2}\\times 2.2\\right)$$\n\n$$= 0.26997\\times(0.11080 + 0.24377) = 0.26997\\times 0.35457 = 0.0957$$",
+   "**Divide (the third M1 mark)**\n\n$$\\text{P}(X = 2 \\mid X + Y < 4) = \\frac{0.0957}{0.414} = 0.2311\\ldots$$",
+   "**Round (the A1 mark)**\n\nTo 3 significant figures: $0.231$.",
+   "**Final answer**\n\n$$\\text{P}(X = 2 \\mid X + Y < 4) = 0.231 \\text{ (3 s.f.)}$$"
+  ]
+ },
+ "9709_s24_63_q7_c": {
+  "hints": [
+   "For a Poisson variable the mean and the variance are equal. $X + Y \\sim \\text{Po}(1.9 + 2.2)$, so state $\\text{E}(X+Y)$ and $\\text{Var}(X+Y)$ using that one value.",
+   "The sample mean $\\bar{W}$ of $60$ values is a large-sample mean, so by the Central Limit theorem it is approximately normal: $\\bar{W} \\sim \\text{N}\\left(\\mu,\\ \\dfrac{\\sigma^2}{60}\\right)$ with $\\mu$ and $\\sigma^2$ from the previous hint.",
+   "Standardise the value $4.0$: $z = \\dfrac{4.0 - \\mu}{\\sqrt{\\sigma^2 \\div 60}}$. The square root covers the whole of $\\sigma^2 \\div 60$.",
+   "Work out $z$ on the calculator and keep the full calculator value for the next step. It should be negative because $4.0$ is below the mean.",
+   "You want $\\text{P}(\\bar{W} < 4.0) = \\Phi(z)$. With a negative $z$, use $\\Phi(-a) = 1 - \\Phi(a)$ if you are using tables.",
+   "Evaluate $\\Phi(z)$ on the calculator (normal cdf up to $z$) and round to 3 significant figures."
+  ],
+  "walkthrough": [
+   "**Distribution of $X + Y$ (the B1 mark)**\n\nFrom part **(a)**, $X + Y \\sim \\text{Po}(4.1)$. A Poisson distribution has mean and variance equal to $\\lambda$, so\n\n$$\\text{E}(X+Y) = 4.1 \\qquad \\text{Var}(X+Y) = 4.1$$\n\nQuick check: for a Poisson distribution the mean and the variance are the same number, so both are $4.1$.",
+   "**Why the sample mean is normal (the first M1 mark)**\n\nWe take $60$ pairs and average the $60$ values of $X + Y$. The values themselves are Poisson (not normal), but $60$ is a large sample. The **Central Limit theorem** then says the sample mean $\\bar{W}$ of those $60$ values is approximately normal, with the same mean as one value and the variance divided by the sample size:\n\n$$\\bar{W} \\sim \\text{N}\\left(4.1,\\ \\frac{4.1}{60}\\right)$$\n\n$$\\frac{4.1}{60} = 0.068333 \\qquad \\sqrt{0.068333} = 0.26141$$",
+   "**Standardise (the second M1 mark)**\n\nWe want $\\text{P}(\\bar{W} < 4.0)$. Convert $4.0$ to a $z$-value:\n\n$$z = \\frac{4.0 - 4.1}{\\sqrt{4.1 \\div 60}} = \\frac{-0.1}{0.26141}$$\n\nWe are treating the sample mean itself as normal, so no continuity correction is needed in this method. The scheme warns against mixing methods (for example a mean-based standardisation with a total-based correction).",
+   "**Value of $z$ (the first A1 mark)**\n\n$$z = -0.38255\\ldots \\approx -0.383 \\text{ (3 s.f.)}$$",
+   "**Turn into a probability (the third M1 mark)**\n\nThe probability that $\\bar{W}$ is below $4.0$ is the area below $z$ on the standard normal curve:\n\n$$\\text{P}(\\bar{W} < 4.0) = \\Phi(-0.383) = 1 - \\Phi(0.383)$$\n\nThe second form is for the table: $\\Phi(0.383) = 0.6491$ (the table only has positive values; by symmetry, the area below $-0.383$ equals $1 - \\Phi(0.383)$).",
+   "**Calculate (the last A1 mark)**\n\n$$1 - 0.6491 = 0.3509$$\n\nTo 3 significant figures: $0.351$ (the unrounded $z = -0.38255$ gives $0.35103$, the same to 3 s.f.).\n\nAside: a different method (totals, $\\text{N}(246, 246)$ with a continuity correction) gives $0.340$ and is also accepted by the scheme, but only if used consistently.",
+   "**Final answer**\n\n$$\\text{P}(\\bar{W} < 4.0) = 0.351 \\text{ (3 s.f.)}$$"
+  ]
+ }
+}

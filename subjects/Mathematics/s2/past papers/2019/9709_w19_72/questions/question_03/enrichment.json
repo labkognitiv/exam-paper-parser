@@ -1,0 +1,30 @@
+{
+ "9709_w19_72_q3_i": {
+  "hints": [
+   "The best estimate of the population mean $\\mu$ is the sample mean: $\\dfrac{\\Sigma m}{n}$ with the totals given.",
+   "The population variance is unknown, so estimate it with the **unbiased** estimate: $s^2 = \\dfrac{1}{n-1}\\left(\\Sigma m^2 - \\dfrac{(\\Sigma m)^2}{n}\\right)$, using $n = 50$, $\\Sigma m = 25\\,110$ and $\\Sigma m^2 = 12\\,610\\,300$.",
+   "Do the arithmetic carefully: $\\dfrac{\\Sigma m^2}{50}$ and $\\left(\\dfrac{\\Sigma m}{50}\\right)^2$ are large and almost equal, so keep every digit before subtracting, then multiply by $\\dfrac{50}{49}$ (not $\\dfrac{49}{50}$).",
+   "For a 96% interval, 4% is left over, so 2% sits in each tail. Find $z$ with $\\Phi(z) = 0.98$ (inverse normal).",
+   "The interval has the form $\\bar{x} \\pm z \\times \\dfrac{s}{\\sqrt{50}}$, where $s$ is the square root of your variance estimate. The $\\sqrt{50}$ is there because you are dealing with a mean.",
+   "Work out $z \\times \\dfrac{s}{\\sqrt{50}}$ once, then add it to and subtract it from your sample mean to get the two end-points, and round each to 1 decimal place."
+  ],
+  "walkthrough": [
+   "**Estimate of the population mean**\n\nA confidence interval is centred on the best estimate of $\\mu$, which is the sample mean $\\bar{m}$ (the mean of the 50 bags):\n\n$$\\bar{m} = \\frac{\\Sigma m}{n} = \\frac{25\\,110}{50} = 502.2$$\n\nThis earns the first B1.",
+   "**Why we need an estimate of the variance, and why $n - 1$**\n\nThe question does not give the population variance $\\sigma^2$, so we must estimate it from the sample. The sample on its own tends to be a bit too tightly bunched, so we use the **unbiased estimate**, which divides by $n - 1 = 49$ instead of $n = 50$:\n\n$$s^2 = \\frac{n}{n-1}\\left(\\frac{\\Sigma m^2}{n} - \\bar{m}^2\\right) = \\frac{50}{49}\\left(\\frac{12\\,610\\,300}{50} - \\left(\\frac{25\\,110}{50}\\right)^2\\right)$$\n\nThis is the M1.",
+   "**Calculate the variance estimate step by step**\n\nFirst, $\\dfrac{12\\,610\\,300}{50} = 252\\,206$.\n\nNext, $\\left(\\dfrac{25\\,110}{50}\\right)^2 = 502.2^2 = 252\\,204.84$.\n\nSubtract:\n\n$$252\\,206 - 252\\,204.84 = 1.16$$\n\n(Quick check: these two numbers are huge and nearly equal, so a small answer like $1.16$ is expected. Do not round before subtracting.)\n\nMultiply by $\\dfrac{50}{49}$:\n\n$$s^2 = 1.16 \\times \\frac{50}{49} = \\frac{58}{49} = 1.1836\\ldots \\approx 1.18$$\n\nThis earns the A1 (1.18 to 3 sf, or $\\frac{58}{49}$). The standard deviation estimate is $s = \\sqrt{1.1836\\ldots} = 1.0880$.",
+   "**Find the $z$ value for 96% confidence**\n\nA 96% confidence interval leaves $100\\% - 96\\% = 4\\%$ outside, split equally between the two tails: $2\\%$ in each. So $z$ is the value with $98\\%$ of the normal curve below it:\n\n$$\\Phi(z) = 0.98 \\quad\\Rightarrow\\quad z = 2.054$$\n\n(On a calculator, use inverse normal with area $0.98$: it displays $2.0537\\ldots$; a table gives $2.054$.) This earns the B1.",
+   "**Calculate the margin of error**\n\nThe confidence interval is $\\bar{m} \\pm z \\times \\dfrac{s}{\\sqrt{n}}$. The standard error (the standard deviation of a mean of 50 bags) is\n\n$$\\frac{s}{\\sqrt{50}} = \\frac{1.0880}{7.0711} = 0.15386$$\n\n(using $\\sqrt{50} = 7.0711$). Multiply by $z$:\n\n$$2.054 \\times 0.15386 = 0.31603$$\n\nThis is the M1 expression $502.2 \\pm 2.054 \\times \\dfrac{\\sqrt{1.1836}}{\\sqrt{50}}$.",
+   "**Work out the end-points**\n\nLower end: $502.2 - 0.31603 = 501.884$, which is $501.9$ to 1 dp.\n\nUpper end: $502.2 + 0.31603 = 502.516$, which is $502.5$ to 1 dp.\n\nIf you used the biased variance ($1.16$, dividing by $50$) the scheme gives special-case credit, but the correct method divides by $49$.",
+   "**Final answer**\n\nThe 96% confidence interval for $\\mu$ is\n\n$$501.9 \\text{ to } 502.5 \\text{ grams}$$"
+  ]
+ },
+ "9709_w19_72_q3_ii": {
+  "hints": [
+   "Compare the $z$ value needed for 99% with the one needed for 96%. Which is bigger, and what does that do to the width of the interval?"
+  ],
+  "walkthrough": [
+   "**Compare the two intervals**\n\nBoth intervals use the same size of sample (50 bags), so the standard error is the same. The only thing that changes is the $z$ value.\n\nTo be 99% confident of capturing $\\mu$, we need a wider range of values than for 96%. In terms of $z$: for 96% we used $z = 2.054$; for 99% we need $\\Phi(z) = 0.995$, which gives $z = 2.576$. The margin of error is $z \\times$ standard error, so a larger $z$ gives a larger margin.\n\n(You are not asked to calculate this; the explanation is what earns the mark.)",
+   "**Final answer**\n\nThe 99% confidence interval will be **wider**, because a higher confidence level needs a larger $z$ value (we want to be more confident that the interval contains $\\mu$)."
+  ]
+ }
+}

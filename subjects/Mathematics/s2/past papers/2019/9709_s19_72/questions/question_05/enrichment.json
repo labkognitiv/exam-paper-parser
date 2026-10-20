@@ -1,0 +1,51 @@
+{
+  "9709_s19_72_q5_i": {
+    "hints": [
+      "Let $p$ be the true proportion of packets with the offer. $\\text{H}_0$ is the manufacturer's claim; $\\text{H}_1$ is what Jyothi suspects ('less than')."
+    ],
+    "walkthrough": [
+      "**What each hypothesis says**\n\nLet $p$ be the true proportion of all packets that include the free offer. $\\text{H}_0$ is the claim being tested (the manufacturer says $10\\%$); $\\text{H}_1$ is what Jyothi suspects, that the proportion is *less* than $10\\%$.",
+      "**Final answer**\n\n$$\\text{H}_0:\\ p = 0.1 \\qquad\\qquad \\text{H}_1:\\ p < 0.1$$\n\nwhere $p$ is the population proportion of packets that include the offer."
+    ]
+  },
+  "9709_s19_72_q5_ii": {
+    "hints": [
+      "A Type I error means rejecting $\\text{H}_0$ when it is actually true. So assume the claim is true: the number of packets with the offer out of $40$ follows a binomial distribution. State it, with its two parameters.",
+      "Jyothi rejects the claim if the number with the offer is less than $2$. For a whole number that means $0$ or $1$, so you need $\\text{P}(X = 0) + \\text{P}(X = 1)$ using the binomial formula with $n = 40$ and success probability $0.1$.",
+      "Evaluate the two terms with your calculator (or the binomial cdf at $1$) and add them. Give 3 s.f."
+    ],
+    "walkthrough": [
+      "**What a Type I error is**\n\nA Type I error means we **reject $\\text{H}_0$ when $\\text{H}_0$ is true**. So we find the probability that Jyothi rejects the claim *assuming the manufacturer is correct*, i.e. assuming $p = 0.1$.",
+      "**The distribution**\n\nEach of the 40 packets either has the offer or not, independently, with the same probability $0.1$. So if $X$ is the number of packets with the offer, then under $\\text{H}_0$\n\n$$X \\sim \\text{B}(40,\\ 0.1)$$\n\nThis is the **B1**.",
+      "**The rejection region**\n\nJyothi rejects the claim if the number is *less than 2*. $X$ is a whole number, so that means $X = 0$ or $X = 1$, i.e. $X \\leqslant 1$:\n\n$$\\text{P(Type I error)} = \\text{P}(X \\leqslant 1) = \\text{P}(X = 0) + \\text{P}(X = 1)$$",
+      "**Write each term**\n\nThe binomial formula is $\\text{P}(X = r) = {}^{n}\\text{C}_r\\, p^r (1-p)^{n-r}$.\n\n$$\\text{P}(X = 0) = 0.9^{40} \\qquad\\qquad \\text{P}(X = 1) = {}^{40}\\text{C}_1 \\times 0.1 \\times 0.9^{39} = 40 \\times 0.9^{39} \\times 0.1$$\n\nSo the working is\n\n$$0.9^{40} + 40 \\times 0.9^{39} \\times 0.1$$\n\nThis earns the **M1**.",
+      "**Calculate**\n\n$0.9^{40} = 0.014781$\n\n$0.9^{39} = 0.016423$, so $40 \\times 0.016423 \\times 0.1 = 0.065693$\n\n$$0.014781 + 0.065693 = 0.080474\\ldots$$\n\nQuick check: the binomial cdf on your calculator with $n = 40$, $p = 0.1$, $x = 1$ gives the same. This is the **A1**.",
+      "**Final answer**\n\n$$\\text{P(Type I error)} = 0.0805 \\text{ (3 s.f.)}$$"
+    ]
+  },
+  "9709_s19_72_q5_iii": {
+    "hints": [
+      "A $90\\%$ confidence interval leaves $5\\%$ in each tail, so you need the $z$ value with $\\Phi(z) = 0.95$. Write down that $z$.",
+      "The interval is $\\hat{p} \\pm z\\sqrt{\\dfrac{\\hat{p}(1-\\hat{p})}{n}}$ with $\\hat{p} = \\dfrac{6}{80}$ (the sample proportion) and $n = 80$.",
+      "Work out the square root first, multiply by your $z$, then add and subtract from $\\hat{p}$. Write the answer as an interval with both ends, to 3 s.f."
+    ],
+    "walkthrough": [
+      "**The idea**\n\nA confidence interval is a range of values for the true proportion $p$ that is believed, with $90\\%$ confidence, to contain it. The sample size is large (80), so we use a normal approximation. The sample proportion is $\\hat{p}$ (read 'p hat').\n\n$$\\hat{p} = \\frac{6}{80} = 0.075$$",
+      "**Find z**\n\nFor $90\\%$ confidence, $90\\%$ of the area lies in the middle, leaving $10\\%$ in the two tails, $5\\%$ in each. So we need $z$ with $\\Phi(z) = 0.95$. From the normal table (or inverse normal on your calculator):\n\n$$z = 1.645$$\n\nThis is the **B1**.",
+      "**Set up the interval**\n\nThe formula is\n\n$$\\hat{p} \\pm z\\sqrt{\\frac{\\hat{p}(1-\\hat{p})}{n}}$$\n\nWith $\\hat{p} = 0.075$, $1 - \\hat{p} = 0.925$, $n = 80$ and $z = 1.645$:\n\n$$0.075 \\pm 1.645\\sqrt{\\frac{0.075 \\times 0.925}{80}}$$\n\nThis is the **M1**. It must have a $z$ in it. (The scheme prints the fraction under the root in a slightly different way, but the quantity needed is $\\hat{p}(1-\\hat{p})/n$.)",
+      "**Calculate the margin**\n\n$0.075 \\times 0.925 = 0.069375$\n\n$\\dfrac{0.069375}{80} = 0.000867188$\n\n$\\sqrt{0.000867188} = 0.029448$\n\n$1.645 \\times 0.029448 = 0.048442$",
+      "**Both ends**\n\nLower end: $0.075 - 0.048442 = 0.026558 \\approx 0.0266$\n\nUpper end: $0.075 + 0.048442 = 0.123442 \\approx 0.123$\n\nThis is the **A1**. The answer must be given as an interval.",
+      "**Final answer**\n\n$$0.0266 \\text{ to } 0.123 \\text{ (3 s.f.)}$$"
+    ]
+  },
+  "9709_s19_72_q5_iv": {
+    "hints": [
+      "The manufacturer's claim is a proportion of $10\\%$. Check whether $0.1$ lies inside your confidence interval, then state what that means for the claim."
+    ],
+    "walkthrough": [
+      "**Compare the claim with the interval**\n\nThe confidence interval is a set of reasonable values for the true proportion. The manufacturer claims the proportion is $10\\% = 0.1$. Is $0.1$ in the interval $0.0266$ to $0.123$? Yes: $0.0266 < 0.1 < 0.123$.",
+      "**What it means**\n\nBecause $0.1$ is within the interval, the data are consistent with the claim, so there is no reason to doubt it. The mark needs both parts: that $10\\%$ is in the interval, and the conclusion about the claim.",
+      "**Final answer**\n\nThe value $10\\%$ lies within the confidence interval, so there is no reason to question (we accept) the manufacturer's claim."
+    ]
+  }
+}

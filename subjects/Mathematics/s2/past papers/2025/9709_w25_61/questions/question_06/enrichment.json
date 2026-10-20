@@ -1,0 +1,37 @@
+{
+ "9709_w25_61_q6_a": {
+  "hints": [
+   "Call the large bag $L$ and the small bag $S$. For the total $L+S$ of independent normal variables the means add: use the two means printed in the question.",
+   "In $\\text{N}(\\mu,\\sigma^2)$ the second number is the variance, and variances of independent variables add too: $\\text{Var}(L+S)=0.05+0.02$. Write down $L+S\\sim\\text{N}(\\cdot,\\cdot)$.",
+   "Standardise: $z=\\dfrac{3.55-\\text{mean}}{\\sqrt{\\text{variance}}}$ — divide by the square root of the variance, not by the variance itself.",
+   "'More than $3.55$' is an upper-tail area but $\\Phi$ gives the area to the left, so write $\\text{P}(Z>z)=1-\\Phi(z)$.",
+   "Find $\\Phi(z)$ with the table or your calculator's normal cdf, subtract it from $1$, and round to 3 significant figures."
+  ],
+  "walkthrough": [
+   "**Name the variables**\n\nLet $L$ be the mass of a large bag, $L\\sim\\text{N}(2.5,\\,0.05)$, and $S$ the mass of a small bag, $S\\sim\\text{N}(0.8,\\,0.02)$. They are independent.\n\nImportant: in the notation $\\text{N}(\\mu,\\sigma^2)$ the second number is the **variance**, not the standard deviation. So $\\text{Var}(L)=0.05$ and $\\text{Var}(S)=0.02$.\n\nWe want the total mass $T=L+S$, and $\\text{P}(T>3.55)$.",
+   "**The distribution of the total (this earns the two B1 marks)**\n\nA sum of independent normal variables is also normal.\n\nThe means add:\n\n$$\\text{E}(T)=2.5+0.8=3.3$$\n\nThe variances add (not the standard deviations):\n\n$$\\text{Var}(T)=0.05+0.02=0.07$$\n\n$$T\\sim\\text{N}(3.3,\\ 0.07)$$\n\nOne B1 is for the mean $3.3$ and one is for the variance $0.07$.",
+   "**Standardise (this earns the first M1)**\n\nTo use normal tables we convert to the standard normal: $z=\\dfrac{x-\\mu}{\\sigma}$. Here $\\sigma=\\sqrt{\\text{variance}}=\\sqrt{0.07}$.\n\n$$z=\\frac{3.55-3.3}{\\sqrt{0.07}}$$\n\nTop: $3.55-3.3=0.25$. Bottom: $\\sqrt{0.07}=0.26458$.\n\n$$z=\\frac{0.25}{0.26458}=0.945$$\n\nSlip to avoid: dividing by $0.07$ (the variance) instead of $\\sqrt{0.07}$.",
+   "**Choose the right area (this earns the second M1)**\n\nWe want $T$ **more than** $3.55$, which is the area to the right of $z=0.945$. The table and calculator give areas to the left, $\\Phi(z)$, so subtract from $1$:\n\n$$\\text{P}(T>3.55)=\\text{P}(Z>0.945)=1-\\Phi(0.945)$$",
+   "**Evaluate (this earns the A1)**\n\nNormal cdf: $\\Phi(0.945)=0.8277$.\n\n$$1-0.8277=0.1723$$\n\nTo $3$ significant figures this is $0.172$.\n\nQuick check: $3.55$ is a little above the mean $3.3$ (less than one standard deviation above), so we expect a probability a bit below $0.5$. $0.172$ is plausible.",
+   "**Final answer**\n\n$$\\text{P}(L+S>3.55)=0.172$$"
+  ]
+ },
+ "9709_w25_61_q6_b": {
+  "hints": [
+   "'$L$ is less than 3 times $S$' means $L<3S$, that is $D=L-3S<0$. Find $\\text{E}(D)=\\text{E}(L)-3\\,\\text{E}(S)$ using the two printed means.",
+   "For the variance the multiplier is squared and the variances add even though you subtract: $\\text{Var}(D)=\\text{Var}(L)+3^2\\,\\text{Var}(S)$, with the printed variances $0.05$ and $0.02$.",
+   "You want $\\text{P}(D<0)$. Standardise with $z=\\dfrac{0-\\text{E}(D)}{\\sqrt{\\text{Var}(D)}}$, square-rooting the variance.",
+   "Your $z$ is negative, so use symmetry: $\\text{P}(Z<-a)=1-\\Phi(a)$, where $a$ is the positive version of your $z$.",
+   "Find $\\Phi(a)$ with the table or your calculator's normal cdf, subtract it from $1$, and round to 3 significant figures."
+  ],
+  "walkthrough": [
+   "**Turn the statement into one variable**\n\nWe want the probability that the large bag is lighter than $3$ times a small bag: $\\text{P}(L<3S)$.\n\nMove everything to one side so we are comparing with zero. Define\n\n$$D=L-3S$$\n\nThen $L<3S$ is exactly the same as $D<0$, so we need $\\text{P}(D<0)$. $D$ is a combination of independent normal variables, so it is normal.",
+   "**Mean of D (this earns the B1)**\n\nMeans follow the same arithmetic as the variables: $\\text{E}(D)=\\text{E}(L)-3\\,\\text{E}(S)$.\n\n$$\\text{E}(D)=2.5-3\\times0.8=2.5-2.4=0.1$$",
+   "**Variance of D (this earns the first M1)**\n\nThis is where students slip. For independent variables, $\\text{Var}(aX+bY)=a^2\\text{Var}(X)+b^2\\text{Var}(Y)$. The multiplier is **squared**, and the minus sign vanishes because $(-3)^2=9$. So variances always add, even when the variables are subtracted.\n\n$$\\text{Var}(D)=\\text{Var}(L)+3^2\\times\\text{Var}(S)=0.05+9\\times0.02$$\n\n$9\\times0.02=0.18$, and $0.05+0.18=0.23$.\n\n$$D\\sim\\text{N}(0.1,\\ 0.23)$$",
+   "**Standardise (this earns the second M1)**\n\nWe want $\\text{P}(D<0)$, so $x=0$. The standard deviation is $\\sqrt{0.23}=0.47958$ (the scheme requires you use the variance square-rooted).\n\n$$z=\\frac{0-0.1}{\\sqrt{0.23}}=\\frac{-0.1}{0.47958}=-0.2085$$",
+   "**Choose the right area (this earns the third M1)**\n\n$D<0$ is the area to the left of the negative number $z=-0.2085$. By symmetry of the bell curve:\n\n$$\\text{P}(Z<-0.2085)=1-\\Phi(0.2085)$$",
+   "**Evaluate (this earns the A1)**\n\nNormal cdf: $\\Phi(0.2085)=0.5826$.\n\n$$1-0.5826=0.4174$$\n\nTo $3$ significant figures this is $0.417$ (the scheme also allows $0.418$, which is what you get if you round $z$ to $-0.208$ first).\n\nQuick check: $D$ has mean $0.1$, only slightly above $0$, and a spread of about $0.48$. So $D<0$ should be a bit less than a half. $0.417$ fits.",
+   "**Final answer**\n\n$$\\text{P}(L<3S)=0.417\\quad(0.418\\text{ also accepted})$$"
+  ]
+ }
+}

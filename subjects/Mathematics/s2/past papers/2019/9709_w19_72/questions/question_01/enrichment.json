@@ -1,0 +1,40 @@
+{
+ "9709_w19_72_q1_i": {
+  "hints": [
+   "Each component is either faulty or not faulty, with the same chance every time, independently of the others, and you inspect a fixed number of them. Which named distribution describes the number of successes in such a sample?",
+   "Describing it fully means naming the distribution **and** both of its parameters: the number of components in the sample, and the probability that one component is faulty (read it from “1 in 150”)."
+  ],
+  "walkthrough": [
+   "**Decide which distribution fits**\n\nA good way to choose a distribution is to ask what is being counted. Here $X$ counts how many components in the sample are faulty.\n\nCheck these four things:\n\n\n- Each component has only two outcomes: faulty or not faulty.\n\n- The chance of being faulty is the same for every component (1 in 150).\n\n- The components are independent of one another (one faulty component does not make another more likely).\n\n- There is a fixed number of components, 500.\n\nAll four are true, so $X$ has a **binomial** distribution. This earns the first B1.",
+   "**Find the two parameters**\n\nA binomial distribution is written $\\text{B}(n, p)$, where $n$ is the number of trials (here, components inspected) and $p$ is the probability of success on one trial (here, a component being faulty).\n\n\n- $n = 500$, because the sample has 500 components.\n\n- “1 in 150 are faulty” means $p = \\dfrac{1}{150}$. As a decimal, $\\dfrac{1}{150} = 0.006666\\ldots \\approx 0.00667$.\n\nThis earns the second B1. You must give **both** $n$ and $p$ for this mark.",
+   "**Final answer**\n\n$X$ has a binomial distribution:\n\n$$X \\sim \\text{B}\\left(500, \\tfrac{1}{150}\\right), \\qquad p = \\tfrac{1}{150} = 0.00667$$"
+  ]
+ },
+ "9709_w19_72_q1_ii": {
+  "hints": [
+   "The probability $\\frac{1}{150}$ is small and the sample of 500 is large. Which distribution is used to approximate a binomial in that situation? Its mean is found from $np$, so work out $np$ with your numbers.",
+   "The justification must mention two things: the sample size is large, and the mean you found is small (the usual rule is a mean below 5, or $n > 50$). Check both against your own numbers."
+  ],
+  "walkthrough": [
+   "**Which approximation to use**\n\nThere are two common approximations for a binomial $\\text{B}(n, p)$:\n\n\n- **Normal**, when $n$ is large and $p$ is close to $0.5$ (so the shape is roughly symmetrical).\n\n- **Poisson**, when $n$ is large and $p$ is small, so that successes are rare.\n\nHere $p = \\dfrac{1}{150}$ is very small, so faulty components are rare. The Poisson approximation is the right one. This earns the first B1.",
+   "**Find the mean of the Poisson distribution**\n\nThe Poisson distribution is written $\\text{Po}(\\lambda)$, where $\\lambda$ is the mean. We choose $\\lambda$ to be the mean of the binomial, which is $np$:\n\n$$\\lambda = np = 500 \\times \\frac{1}{150} = \\frac{500}{150} = \\frac{10}{3} = 3.33\\ldots$$\n\nQuick check: $\\frac{500}{150}$ cancels by 50 to give $\\frac{10}{3}$, and $10 \\div 3 = 3.333\\ldots$",
+   "**Give the justification**\n\nA justification must say why the approximation is allowed:\n\n\n- $n = 500$ is **large** (the rule allows $n > 50$).\n\n- The mean $np = \\dfrac{10}{3} \\approx 3.3$ is **small**, below $5$.\n\nBoth statements, with the value of the mean, earn the second B1.",
+   "**Final answer**\n\n$X$ can be approximated by $\\text{Po}\\left(\\tfrac{10}{3}\\right)$ (mean $3.3$ or better), because $n$ is large and the mean is less than 5."
+  ]
+ },
+ "9709_w19_72_q1_iii": {
+  "hints": [
+   "Use the Poisson distribution from part (ii) with $\\lambda = np$. “At least 3” means $X \\geqslant 3$, and it is easier to use the complement: $\\text{P}(X \\geqslant 3) = 1 - \\text{P}(X \\leqslant 2)$.",
+   "Write $\\text{P}(X \\leqslant 2) = \\text{P}(X = 0) + \\text{P}(X = 1) + \\text{P}(X = 2)$, using $\\text{P}(X = r) = \\text{e}^{-\\lambda}\\dfrac{\\lambda^r}{r!}$ with your $\\lambda$. You can take $\\text{e}^{-\\lambda}$ out as a common factor.",
+   "Evaluate the bracket $1 + \\lambda + \\dfrac{\\lambda^2}{2}$ and multiply it by $\\text{e}^{-\\lambda}$, then subtract the result from 1. Keep $\\lambda = \\frac{10}{3}$ exact (or at least 3.33) until the end."
+  ],
+  "walkthrough": [
+   "**Set up the probability we need**\n\nWe use the approximating distribution from part (ii): $X \\approx \\text{Po}\\left(\\tfrac{10}{3}\\right)$, so $\\lambda = \\tfrac{10}{3}$.\n\n“At least 3 faulty components” means $X = 3, 4, 5, 6, \\ldots$ with no upper limit. Adding up infinitely many terms is impossible, so use the fact that all the probabilities add up to 1:\n\n$$\\text{P}(X \\geqslant 3) = 1 - \\text{P}(X \\leqslant 2) = 1 - \\left[\\text{P}(X = 0) + \\text{P}(X = 1) + \\text{P}(X = 2)\\right]$$",
+   "**Write each Poisson probability**\n\nThe Poisson formula is $\\text{P}(X = r) = \\text{e}^{-\\lambda}\\dfrac{\\lambda^r}{r!}$. With $\\lambda = \\frac{10}{3}$:\n\n$$\\text{P}(X = 0) = \\text{e}^{-\\frac{10}{3}} \\times 1, \\qquad \\text{P}(X = 1) = \\text{e}^{-\\frac{10}{3}} \\times \\frac{10}{3}, \\qquad \\text{P}(X = 2) = \\text{e}^{-\\frac{10}{3}} \\times \\frac{\\left(\\frac{10}{3}\\right)^2}{2}$$\n\nTaking out the common factor $\\text{e}^{-\\frac{10}{3}}$:\n\n$$\\text{P}(X \\geqslant 3) = 1 - \\text{e}^{-\\frac{10}{3}}\\left(1 + \\frac{10}{3} + \\frac{\\left(\\frac{10}{3}\\right)^2}{2}\\right)$$\n\nThis is the method mark (M1).",
+   "**Calculate the bracket**\n\n$$\\left(\\frac{10}{3}\\right)^2 = \\frac{100}{9} = 11.111\\ldots, \\qquad \\frac{11.111\\ldots}{2} = 5.5555\\ldots$$\n\n$$1 + 3.3333\\ldots + 5.5555\\ldots = 9.8888\\ldots$$",
+   "**Calculate the exponential and multiply**\n\nOn a calculator, $\\text{e}^{-\\frac{10}{3}}$: type e^(−10÷3) and you should see $0.035674$.\n\n$$0.035674 \\times 9.8888\\ldots = 0.35278$$\n\nSo $\\text{P}(X \\leqslant 2) = 0.353$ to 3 significant figures. This earns the first A1 (the printed $1 - 0.353$).",
+   "**Subtract from 1**\n\n$$\\text{P}(X \\geqslant 3) = 1 - 0.35278 = 0.64722$$\n\nRounded to 3 significant figures, this is $0.647$. Note: using the exact binomial instead would give $0.648$, which is why the question insists you use the approximating distribution.",
+   "**Final answer**\n\n$$\\text{P}(\\text{at least 3 faulty components}) = 0.647$$"
+  ]
+ }
+}

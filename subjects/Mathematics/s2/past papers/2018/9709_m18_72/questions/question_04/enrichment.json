@@ -1,0 +1,35 @@
+{
+ "9709_m18_72_q4_i": {
+  "hints": [
+   "The two sales counts are independent Poisson variables. The sum of independent Poissons is also Poisson, with the means added: $0.9 + 1.5$.",
+   "'Less than 4' means the total is $0, 1, 2$ or $3$. Write $\\text{P}(T < 4) = \\text{P}(T = 0) + \\text{P}(T = 1) + \\text{P}(T = 2) + \\text{P}(T = 3)$, each from $\\text{e}^{-\\lambda}\\dfrac{\\lambda^r}{r!}$.",
+   "Take $\\text{e}^{-\\lambda}$ out as a common factor and add the four terms in the bracket, then multiply. Give the answer to 3 significant figures."
+  ],
+  "walkthrough": [
+   "**What the question is asking**\n\nLet $L$ be the number of laptops sold in an hour, $L \\sim \\text{Po}(0.9)$, and $T_b$ the number of tablets, $T_b \\sim \\text{Po}(1.5)$. We want the probability that the total $L + T_b$ is less than 4.",
+   "**The total is also Poisson (earns the B1)**\n\nWhen two independent variables are both Poisson, their sum is Poisson with the two means added:\n\n$$L + T_b \\sim \\text{Po}(0.9 + 1.5) = \\text{Po}(2.4)$$\n\nCall the total $T$, so $T \\sim \\text{Po}(2.4)$.",
+   "**Which values are needed**\n\n'Less than 4' for a whole number means $0, 1, 2$ or $3$. 'Four' itself is not included.\n\n$$\\text{P}(T < 4) = \\text{P}(T = 0) + \\text{P}(T = 1) + \\text{P}(T = 2) + \\text{P}(T = 3)$$",
+   "**Write it with the Poisson formula (earns the M1)**\n\nUse $\\text{P}(T = r) = \\text{e}^{-2.4}\\dfrac{2.4^r}{r!}$. Every term has $\\text{e}^{-2.4}$, so take it out as a common factor:\n\n$$\\text{P}(T < 4) = \\text{e}^{-2.4}\\left(1 + 2.4 + \\frac{2.4^2}{2!} + \\frac{2.4^3}{3!}\\right)$$\n\nWork out the terms one by one:\n\n$$\\frac{2.4^2}{2!} = \\frac{5.76}{2} = 2.88, \\qquad \\frac{2.4^3}{3!} = \\frac{13.824}{6} = 2.304$$\n\nAdd the bracket: $1 + 2.4 + 2.88 + 2.304 = 8.584$.",
+   "**Finish (earns the A1)**\n\nType $\\text{e}^{-2.4}$ into your calculator (the $\\text{e}^x$ button, then $-2.4$). It shows $0.090718\\ldots$\n\n$$0.090718 \\times 8.584 = 0.77872\\ldots$$\n\nRound to 3 significant figures. The answer is $0.779$. (The scheme also accepts working it out by combining laptops and tablets term by term, which gives the same value.)",
+   "**Final answer**\n\n$$\\text{P}(\\text{total} < 4) = 0.779$$"
+  ]
+ },
+ "9709_m18_72_q4_ii": {
+  "hints": [
+   "The manager's claim is about the mean number of laptops sold. Write $\\text{H}_0$ as the usual mean for the period you are testing, and $\\text{H}_1$ as 'fewer than usual', so this is a one-tailed test.",
+   "The sample is a 4-hour period but the rate is given per hour. Scale the mean $0.9$ to 4 hours, then work under $\\text{H}_0$ with $X \\sim \\text{Po}(\\lambda)$.",
+   "The test is for fewer, so you need the lower tail: $\\text{P}(X \\leqslant 1)$, which is $\\text{e}^{-\\lambda}(1 + \\lambda)$ with your $\\lambda$.",
+   "Compare your probability with the significance level, $10\\%$. Is your probability smaller than the level or not?",
+   "State the conclusion in context, as not definite: say whether or not there is evidence that fewer laptops than usual are sold. Your decision (reject or do not reject $\\text{H}_0$) must agree with your comparison."
+  ],
+  "walkthrough": [
+   "**Set up the hypotheses (earns the B1)**\n\nLet $\\lambda$ be the true mean number of laptops sold in a 4-hour period on a sunny Saturday. The usual mean is $0.9$ per hour, so $0.9 \\times 4 = 3.6$ in 4 hours.\n\n$$\\text{H}_0: \\lambda = 3.6$$\n\n$$\\text{H}_1: \\lambda < 3.6$$\n\n(The scheme also accepts writing them as a mean of $0.9$ per hour, or using $\\mu$.) $\\text{H}_1$ uses '$<$' because the manager claims **fewer** laptops are sold, so the test is one-tailed, in the lower tail.",
+   "**The distribution if $\\text{H}_0$ is true**\n\nIf the mean is the usual $3.6$ in 4 hours, then the number of laptops $X$ sold in the 4-hour period has $X \\sim \\text{Po}(3.6)$. We look at how likely the observed result is, or one more extreme, under this distribution.",
+   "**Which probability to find**\n\nOnly $1$ laptop was sold. 'As extreme or more extreme' in the direction of $\\text{H}_1$ means $1$ or fewer: $X = 0$ or $X = 1$.\n\n$$\\text{P}(X \\leqslant 1) = \\text{P}(X = 0) + \\text{P}(X = 1)$$",
+   "**Calculate it (earns the M1 and the A1)**\n\nUse $\\text{P}(X = r) = \\text{e}^{-3.6}\\dfrac{3.6^r}{r!}$. For $r = 0$ and $r = 1$ the terms are $\\text{e}^{-3.6}$ and $\\text{e}^{-3.6} \\times 3.6$:\n\n$$\\text{P}(X \\leqslant 1) = \\text{e}^{-3.6}(1 + 3.6) = \\text{e}^{-3.6} \\times 4.6$$\n\nType $\\text{e}^{-3.6}$ into your calculator $\\to 0.027324\\ldots$\n\n$$0.027324 \\times 4.6 = 0.12569\\ldots \\approx 0.126$$",
+   "**Compare with the significance level (earns the second M1)**\n\nThe significance level is $10\\%$, which is $0.1$. We reject $\\text{H}_0$ only if the probability is **smaller** than this.\n\n$$0.126 > 0.1$$\n\nThe probability is bigger than $0.1$, so the result is not unusual enough. Do not compare with $0.9$ (that is the hourly mean, not a significance level).",
+   "**Conclusion (earns the A1)**\n\nBecause $0.126 > 0.1$, we do not reject $\\text{H}_0$. In the context of the question, and not definite: there is no evidence, at the 10% level, that fewer laptops than usual are sold on sunny Saturdays. Avoid writing 'the manager is wrong' or 'the claim is false', since we have not proved the usual mean is right either.",
+   "**Final answer**\n\n$$\\text{P}(X \\leqslant 1) = 0.126 > 0.1$$\n\nDo not reject $\\text{H}_0$: there is no evidence at the 10% significance level that fewer laptops than usual are sold on sunny Saturdays."
+  ]
+ }
+}

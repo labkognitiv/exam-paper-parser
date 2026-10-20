@@ -1,0 +1,36 @@
+{
+ "9709_s21_61_q7_a": {
+  "hints": [
+   "Let $T$ be the total mass of the 3 large and 6 small sacks. Independent normals add, so $\\text{E}(T)$ is the sum of the means: $3 \\times 55$ plus $6 \\times 27$.",
+   "For the variance, add the variances of the individual sacks: you have 3 large sacks each with variance $3^2$ and 6 small sacks each with variance $2.5^2$. Do not multiply a variance by a squared count.",
+   "The boat is safe when $T \\leqslant 340$ (or $<340$). Standardise: $z = \\dfrac{340 - \\text{E}(T)}{\\sqrt{\\text{Var}(T)}}$ with the values you have found, including the square root.",
+   "The safe event is $T$ below $340$, which corresponds to the area to the **left** of your $z$: write it as $\\text{P}(Z < z) = \\Phi(z)$.",
+   "Evaluate $\\Phi(z)$ with your calculator's normal cdf (or a table) and give 3 significant figures."
+  ],
+  "walkthrough": [
+   "**Set up the total (why we can just add)**\n\nLet $T$ be the total mass, in kg, of the 3 large and 6 small sacks. Each sack is normally distributed and the sacks are chosen independently, so $T$ is also normally distributed. To find which normal, we need its mean and its variance.",
+   "**Mean of $T$ (first B1)**\n\nThe mean of a sum is the sum of the means. Three large sacks each have mean $55$ and six small sacks each have mean $27$:\n\n$$\\text{E}(T) = 3 \\times 55 + 6 \\times 27 = 165 + 162 = 327$$",
+   "**Variance of $T$ (second B1)**\n\nFor independent variables, the **variances** add (not the standard deviations). Large sacks have variance $3^2 = 9$; small sacks have variance $2.5^2 = 6.25$. There are 3 large and 6 small:\n\n$$\\text{Var}(T) = 3 \\times 3^2 + 6 \\times 2.5^2 = 3 \\times 9 + 6 \\times 6.25 = 27 + 37.5 = 64.5$$\n\nSlip to avoid: for three different sacks the variance is $3 \\times 3^2$, not $3^2 \\times 3^2$; that would only be right for three times one sack.\n\nSo $T \\sim \\text{N}(327, 64.5)$.",
+   "**Standardise (first M1)**\n\nThe boat is safe if the total is at most $340$ kg. Convert $340$ to a $z$-value: subtract the mean and divide by the **standard deviation**, which is the square root of the variance.\n\n$$\\sqrt{64.5} = 8.0312$$\n\n$$z = \\frac{340 - 327}{\\sqrt{64.5}} = \\frac{13}{8.0312} = 1.619$$",
+   "**Find the probability (second M1 and A1)**\n\n\"Safe\" means the total is **below** $340$, so we want the area to the left of $z = 1.619$, which is just $\\Phi(1.619)$:\n\n$$\\text{P}(T < 340) = \\text{P}(Z < 1.619) = \\Phi(1.619) = 0.9473$$\n\n(Use the normal table or your calculator's normal cdf with lower limit a very negative number such as $-99$ and upper limit $1.619$.) To 3 significant figures this is $0.947$.",
+   "**Final answer**\n\nThe probability that the boat can carry the load safely is $\\mathbf{0.947}$ (3 s.f.)."
+  ]
+ },
+ "9709_s21_61_q7_b": {
+  "hints": [
+   "Name the masses: $L$ for the large sack and $S_1$, $S_2$ for the two small ones. \"$L$ is greater than $S_1 + S_2$\" means $L - S_1 - S_2 > 0$. Find the mean of this difference using the means $55$ and $27$ (the two small sacks are separate, so use $2 \\times 27$).",
+   "For the variance of a difference of independent variables, the variances still **add**: use $3^2$ for the large sack and $2.5^2$ for each of the two small sacks.",
+   "Standardise the value $0$: $z = \\dfrac{0 - \\text{E}(L - S_1 - S_2)}{\\sqrt{\\text{Var}(L - S_1 - S_2)}}$, remembering the square root.",
+   "You want $\\text{P}(L - S_1 - S_2 > 0)$, the area to the **right** of your $z$. If your $z$ is negative, use symmetry: $\\text{P}(Z > -a) = \\Phi(a)$.",
+   "Evaluate that $\\Phi$ value with your calculator's normal cdf and give 3 significant figures."
+  ],
+  "walkthrough": [
+   "**Turn the words into an inequality**\n\nLet $L$ be the mass of the large sack and $S_1$, $S_2$ the masses of the two small sacks. \"The large sack is heavier than the two small sacks together\" means\n\n$$L > S_1 + S_2 \\quad \\Longleftrightarrow \\quad L - S_1 - S_2 > 0$$\n\nLet $D = L - S_1 - S_2$. Everything is independent and normal, so $D$ is normal, and we need its mean and variance.",
+   "**Mean of $D$ (first B1)**\n\nA mean of a difference is the difference of the means. The two small sacks each have mean $27$, so together $2 \\times 27$:\n\n$$\\text{E}(D) = 55 - 2 \\times 27 = 55 - 54 = 1$$",
+   "**Variance of $D$ (second B1)**\n\nThis is the step students most often get wrong: even when we **subtract** variables, the **variances still add**, because uncertainty never cancels out. The large sack has variance $3^2 = 9$; each small sack has variance $2.5^2 = 6.25$, and there are two of them:\n\n$$\\text{Var}(D) = 3^2 + 2 \\times 2.5^2 = 9 + 2 \\times 6.25 = 9 + 12.5 = 21.5$$\n\nSo $D \\sim \\text{N}(1, 21.5)$.",
+   "**Standardise (first M1)**\n\nWe want $\\text{P}(D > 0)$. Convert $0$ to a $z$-value:\n\n$$\\sqrt{21.5} = 4.6368$$\n\n$$z = \\frac{0 - 1}{\\sqrt{21.5}} = \\frac{-1}{4.6368} = -0.216$$",
+   "**Find the probability (second M1 and A1)**\n\nWe want the area to the **right** of $z = -0.216$. By symmetry of the normal curve, the area to the right of $-0.216$ equals the area to the left of $+0.216$:\n\n$$\\text{P}(D > 0) = \\text{P}(Z > -0.216) = \\Phi(0.216)$$\n\nUsing the calculator's normal cdf (or table), with the rounded $z$ this is about $0.5855$, which gives $0.586$. If you keep the unrounded $z = -0.21567$ in the calculator you get $0.58538$, which gives $0.585$. The mark scheme accepts either $0.586$ or $0.585$.",
+   "**Final answer**\n\nThe probability that the large sack is heavier than two small sacks together is $\\mathbf{0.585}$ (3 s.f.), or $0.586$ if you use the rounded $z$-value."
+  ]
+ }
+}

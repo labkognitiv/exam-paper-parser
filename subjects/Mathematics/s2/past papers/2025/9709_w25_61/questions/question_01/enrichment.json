@@ -1,0 +1,48 @@
+{
+ "9709_w25_61_q1_a": {
+  "hints": [
+   "$2<X<5$ with strict inequalities and a whole-number variable: list exactly which values of $X$ are allowed, then add $\\text{P}(X=r)=\\text{e}^{-3}\\dfrac{3^r}{r!}$ for each of them.",
+   "Take $\\text{e}^{-3}$ outside as a common factor, $\\text{e}^{-3}\\left(\\dfrac{3^{\\cdot}}{\\cdot !}+\\dfrac{3^{\\cdot}}{\\cdot !}\\right)$, fill in your two values of $r$, and evaluate it on your calculator."
+  ],
+  "walkthrough": [
+   "**What the question is asking**\n\n$X$ follows a Poisson distribution with mean $3$. A Poisson variable counts events, so it can only take the whole-number values $0, 1, 2, 3, \\dots$\n\nThe inequality is $2 < X < 5$. Both signs are strict (no 'equals'), so $X$ must be bigger than $2$ and smaller than $5$. The whole numbers that fit are $3$ and $4$. ($2$ is not allowed because $X$ must be bigger than $2$; $5$ is not allowed because $X$ must be smaller than $5$.)\n\nThe two values $3$ and $4$ cannot happen together, so we add their probabilities:\n\n$$\\text{P}(2<X<5)=\\text{P}(X=3)+\\text{P}(X=4)$$",
+   "**The Poisson formula**\n\nFor $X \\sim \\text{Po}(\\lambda)$ the probability of exactly $r$ events is\n\n$$\\text{P}(X=r)=\\text{e}^{-\\lambda}\\,\\frac{\\lambda^r}{r!}$$\n\nHere $\\lambda = 3$. The symbol $r!$ is 'r factorial': multiply all whole numbers from $r$ down to $1$. So $3! = 3\\times2\\times1 = 6$ and $4! = 4\\times3\\times2\\times1 = 24$.",
+   "**Write out the sum (this earns the M1)**\n\n$$\\text{P}(2<X<5)=\\text{e}^{-3}\\frac{3^3}{3!}+\\text{e}^{-3}\\frac{3^4}{4!}=\\text{e}^{-3}\\left(\\frac{3^3}{3!}+\\frac{3^4}{4!}\\right)$$\n\nNow the powers: $3^3 = 3\\times3\\times3 = 27$ and $3^4 = 27\\times3 = 81$. So\n\n$$\\frac{3^3}{3!}=\\frac{27}{6}=4.5 \\qquad\\text{and}\\qquad \\frac{3^4}{4!}=\\frac{81}{24}=3.375$$\n\n$$\\text{P}(2<X<5)=\\text{e}^{-3}(4.5+3.375)$$",
+   "**Work out each probability**\n\nType $\\text{e}^{-3}$ into your calculator (the $e^x$ button, then $-3$). It shows $0.049787\\ldots$\n\n$$\\text{P}(X=3)=0.049787\\times4.5=0.22404$$\n\n$$\\text{P}(X=4)=0.049787\\times3.375=0.16803$$\n\nQuick check: $X=3$ is the most likely value because the mean is $3$, so it should be the larger of the two. It is ($0.224 > 0.168$).",
+   "**Add them (this earns the A1)**\n\n$$0.22404+0.16803=0.39207$$\n\nRound to $3$ significant figures: the first three digits after the leading zero are $3, 9, 2$, and the next digit $0$ is below $5$, so we keep $0.392$.\n\nCommon slips: including $X=2$ or $X=5$ (that would be $\\leqslant$ or $\\geqslant$), or forgetting the minus sign in $\\text{e}^{-3}$.",
+   "**Final answer**\n\n$$\\text{P}(2<X<5)=0.392$$"
+  ]
+ },
+ "9709_w25_61_q1_b": {
+  "hints": [
+   "$X$ and $Y$ are independent Poisson variables, so $X+Y$ is also Poisson. Add the means of $\\text{Po}(3)$ and $\\text{Po}(2)$ to get its parameter $\\lambda$.",
+   "'More than 2' has no upper end, so use the complement: $\\text{P}(X+Y>2)=1-\\text{P}(X+Y\\leqslant2)$, where $X+Y\\leqslant2$ means $0$, $1$ or $2$.",
+   "Write $1-\\text{e}^{-\\lambda}\\left(1+\\lambda+\\dfrac{\\lambda^2}{2!}\\right)$ with your $\\lambda$, then evaluate it on your calculator and round to 3 significant figures."
+  ],
+  "walkthrough": [
+   "**Combine X and Y (this earns the B1)**\n\n$X\\sim\\text{Po}(3)$ and $Y\\sim\\text{Po}(2)$ are independent. A useful fact: the sum of two independent Poisson variables is again a Poisson variable, and its mean is the sum of the two means.\n\n$$\\lambda = 3+2 = 5 \\qquad\\Rightarrow\\qquad X+Y\\sim\\text{Po}(5)$$\n\nWriting 'Po(5)' (or using $\\lambda=5$ in a Poisson formula) is what earns the B1.",
+   "**Choose the easy route: the complement**\n\nWe want $\\text{P}(X+Y>2)$, meaning $X+Y$ is $3, 4, 5, 6, \\dots$ forever. We cannot add infinitely many terms.\n\nInstead use the fact that all the probabilities add up to $1$. Everything that is not '$>2$' is '$\\leqslant2$', which is just $0$, $1$ or $2$:\n\n$$\\text{P}(X+Y>2)=1-\\text{P}(X+Y\\leqslant2)=1-\\left[\\text{P}(0)+\\text{P}(1)+\\text{P}(2)\\right]$$",
+   "**Write each term with the Poisson formula (this earns the M1)**\n\nWith $\\lambda=5$, $\\text{P}(r)=\\text{e}^{-5}\\dfrac{5^r}{r!}$.\n\n$$\\text{P}(0)=\\text{e}^{-5}\\frac{5^0}{0!}=\\text{e}^{-5}\\times\\frac{1}{1}=\\text{e}^{-5}$$\n\n(Remember $5^0=1$ and $0!=1$.)\n\n$$\\text{P}(1)=\\text{e}^{-5}\\frac{5^1}{1!}=5\\,\\text{e}^{-5}$$\n\n$$\\text{P}(2)=\\text{e}^{-5}\\frac{5^2}{2!}=\\text{e}^{-5}\\times\\frac{25}{2}=12.5\\,\\text{e}^{-5}$$\n\n$$\\text{P}(X+Y>2)=1-\\text{e}^{-5}(1+5+12.5)$$",
+   "**Put in numbers**\n\nCalculator: $\\text{e}^{-5}=0.0067379$ (to 7 decimal places).\n\n$$\\text{P}(0)=0.0067379$$\n\n$$\\text{P}(1)=5\\times0.0067379=0.0336897$$\n\n$$\\text{P}(2)=12.5\\times0.0067379=0.0842243$$\n\nAdd the three: $0.0067379+0.0336897=0.0404276$, then $0.0404276+0.0842243=0.1246519$.",
+   "**Subtract from 1 (this earns the A1)**\n\n$$1-0.1246519=0.8753481$$\n\nRounded to $3$ significant figures this is $0.875$.\n\nQuick check: $X+Y$ has mean $5$, so being above $2$ should be very likely. $0.875$ is large, which fits.",
+   "**Final answer**\n\n$$\\text{P}(X+Y>2)=0.875$$"
+  ]
+ },
+ "9709_w25_61_q1_c": {
+  "hints": [
+   "$T$ is a sum of Poisson variables, so its mean is $100\\times3+150\\times2$, and for a Poisson the variance equals the mean. The mean is large, so approximate with a normal distribution $\\text{N}(\\mu,\\sigma^2)$ using those two values.",
+   "$T$ takes whole numbers only, so $T<560$ means $T\\leqslant559$: apply a continuity correction of half a unit above that last whole number, then standardise with $z=\\dfrac{x-\\mu}{\\sigma}$ where $\\sigma$ is the square root of the variance.",
+   "Your $z$ will be negative, and tables only give areas to the left of positive values, so use symmetry: $\\text{P}(Z<-a)=1-\\Phi(a)$.",
+   "Find $\\Phi(a)$ from the table or your calculator's normal cdf, subtract it from $1$, and round to 3 significant figures."
+  ],
+  "walkthrough": [
+   "**Find the distribution of T**\n\n$T$ is the total of $100$ values of $X$ and $150$ values of $Y$. Each $X$ is $\\text{Po}(3)$ and each $Y$ is $\\text{Po}(2)$, all independent.\n\nAdding independent Poisson variables adds their means:\n\n$$100\\text{ values of }X:\\quad 100\\times3=300 \\qquad 150\\text{ values of }Y:\\quad 150\\times2=300$$\n\n$$T\\sim\\text{Po}(300+300)=\\text{Po}(600)$$",
+   "**Why we use a normal approximation (this earns the B1)**\n\nA Poisson probability with mean $600$ would need us to add up hundreds of terms with huge numbers like $600^{559}$. That is impractical.\n\nBut when the Poisson mean $\\lambda$ is large (a standard rule is $\\lambda>15$), the distribution is nearly bell-shaped, so we can use a normal distribution with the same mean and the same variance. For a Poisson, the variance equals the mean (that is the quick check: mean $=600$, so variance $=600$).\n\n$$T\\approx\\text{N}(600,\\,600)$$\n\nCareful: in $\\text{N}(\\mu,\\sigma^2)$ the second number is the **variance**, so $\\sigma^2=600$ and $\\sigma=\\sqrt{600}$.",
+   "**The continuity correction**\n\n$T$ is a count, so it only takes whole-number values, but the normal distribution is continuous. We turn each whole number into a block of width $1$: for example '$T=559$' becomes the interval from $558.5$ to $559.5$.\n\n'$T<560$' means $T\\leqslant559$ because $560$ itself is not allowed. The block for $559$ ends at $559.5$, so\n\n$$\\text{P}(T<560)=\\text{P}(T\\leqslant559)\\approx\\text{P}(T<559.5)$$",
+   "**Standardise (this earns the first M1)**\n\nTo use the normal table we convert to the standard normal $Z$ using $z=\\dfrac{x-\\mu}{\\sigma}$, with $\\mu=600$ and $\\sigma=\\sqrt{600}$.\n\n$$z=\\frac{559.5-600}{\\sqrt{600}}$$\n\nTop line: $559.5-600=-40.5$. Bottom line: calculator $\\sqrt{600}=24.4949$.\n\n$$z=\\frac{-40.5}{24.4949}=-1.653$$\n\nThe scheme insists on the square root in the denominator; dividing by $600$ is the classic slip.",
+   "**Choose the correct area (this earns the second M1)**\n\nWe want the probability that $Z$ is **less than** $-1.653$, the area in the far left tail. Tables only give areas for positive $z$, so use the symmetry of the bell curve: the area to the left of $-1.653$ equals the area to the right of $+1.653$.\n\n$$\\text{P}(Z<-1.653)=1-\\Phi(1.653)$$",
+   "**Evaluate (this earns the A1)**\n\n$\\Phi(1.653)$ means the area to the left of $1.653$. Use the normal cdf on the calculator (or a table, where $\\Phi(1.65)=0.9505$ is close). The calculator shows $0.9508$.\n\n$$1-0.9508=0.0492$$\n\nIf you keep the unrounded $z=-1.6534\\ldots$ in your calculator you get $0.0491$ instead. The mark scheme accepts both.",
+   "**Final answer**\n\n$$\\text{P}(T<560)\\approx0.0492\\quad(0.0491\\text{ is also accepted})$$"
+  ]
+ }
+}

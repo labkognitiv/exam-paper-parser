@@ -1,0 +1,20 @@
+{
+ "9709_s24_63_q4": {
+  "hints": [
+   "Let $p$ be the proportion of voters who support the Today Party now. The null hypothesis says nothing has changed from last year's $24\\%$; the question asks about a **decrease**, which decides the sign in $\\text{H}_1$ (one-tailed).",
+   "Under $\\text{H}_0$, $X \\sim \\text{B}(25, 0.24)$. You saw $2$ supporters, and support is claimed to have *decreased*, so the test probability is the lower tail: $\\text{P}(X \\leqslant 2) = \\text{P}(0) + \\text{P}(1) + \\text{P}(2)$, each term $\\binom{25}{r}\\,0.24^r\\,0.76^{25-r}$.",
+   "Evaluate the sum (calculator: binomial cdf with $n = 25$, $p = 0.24$, $x = 2$) and write your probability to 3 significant figures.",
+   "This is a one-tailed test at the $5\\%$ level, so compare your probability directly with $0.05$ (do not halve it).",
+   "Decide whether $\\text{H}_0$ is rejected from that comparison, then write the conclusion in the context of the Today Party. Use 'evidence' wording, not a definite statement."
+  ],
+  "walkthrough": [
+   "**Set up the test**\n\nEach voter either supports the Today Party or does not, the voters are chosen independently, and there are $25$ of them. So the number $X$ who support the party is binomial. The instruction says **not** to use a normal approximation, so we use the binomial exactly.\n\nA test compares a claim ($\\text{H}_0$, the null hypothesis) with an alternative ($\\text{H}_1$).",
+   "**Hypotheses (the B1 mark)**\n\nLet $p$ be the proportion of voters in Menham who support the Today Party now. Last year it was $24\\%$, so\n\n$$\\text{H}_0: p = 0.24$$\n\nThe student wants to know if support has **decreased**, which means smaller than $0.24$, so the alternative is one-tailed:\n\n$$\\text{H}_1: p < 0.24$$",
+   "**Distribution under $\\text{H}_0$ and the test probability (the M1 mark)**\n\nIf $\\text{H}_0$ is true, $X \\sim \\text{B}(25, 0.24)$. The sample result is $X = 2$. Because we suspect a **decrease**, 'as extreme or more extreme' means $2$ **or fewer**:\n\n$$\\text{P}(X \\leqslant 2) = \\text{P}(X = 0) + \\text{P}(X = 1) + \\text{P}(X = 2)$$\n\nUse $\\text{P}(X = r) = \\binom{25}{r}\\,0.24^r\\,0.76^{25-r}$, noting $1 - 0.24 = 0.76$:\n\n$$\\text{P}(X \\leqslant 2) = 0.76^{25} + 25\\times 0.76^{24}\\times 0.24 + {}^{25}\\text{C}_2\\times 0.76^{23}\\times 0.24^2$$\n\nThe mark scheme needs this expression to be seen, with no end errors (including all three terms).",
+   "**Calculate the probability (the first A1 mark)**\n\nWork out each term:\n\n$$0.76^{25} = 0.0010479$$\n\n$$25\\times 0.76^{24}\\times 0.24 = 0.0082733$$\n\n$${}^{25}\\text{C}_2 = \\frac{25\\times 24}{2} = 300 \\quad\\Rightarrow\\quad 300\\times 0.76^{23}\\times 0.24^2 = 0.0313514$$\n\nAdd them:\n\n$$0.0010479 + 0.0082733 + 0.0313514 = 0.0407$$\n\nCalculator check: binomial cdf with $n = 25$, $p = 0.24$, $x = 2$ gives $0.0407$.",
+   "**Compare with the significance level (the second M1 mark)**\n\nThe test is at the $5\\%$ level and one-tailed (the whole $5\\%$ sits in the lower tail), so we compare directly with $0.05$:\n\n$$0.0407 < 0.05$$\n\nOur result is less likely than the $5\\%$ cut-off, so it is unusual if $\\text{H}_0$ were true.",
+   "**Conclusion in context (the second A1 mark)**\n\nSince $0.0407 < 0.05$, we reject $\\text{H}_0$. The conclusion must be in context and **not definite**, because a test only gives evidence, not proof:\n\nThere is sufficient evidence, at the $5\\%$ significance level, to suggest that support for the Today Party has decreased.\n\nCommon slips: writing $\\text{H}_1: p \\neq 0.24$ and comparing with $0.025$ (that is a two-tailed test, not what the question asks), or stating 'support has definitely decreased'.",
+   "**Final answer**\n\n$$\\text{P}(X \\leqslant 2) = 0.0407 < 0.05$$\n\nReject $\\text{H}_0$: there is sufficient evidence to suggest that support for the Today Party has decreased."
+  ]
+ }
+}

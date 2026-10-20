@@ -1,0 +1,30 @@
+{
+ "9709_w22_62_q5_a": {
+  "hints": [
+   "First find the mean and variance of a single $X \\sim \\text{B}(10, 0.2)$: $\\mu = np$ and $\\sigma^2 = npq$ with $n = 10$, $p = 0.2$.",
+   "The sample has $160$ values, which is large, so by the central limit theorem the sample mean $\\bar{X}$ is approximately normal. Its mean equals the population mean, and its variance is $\\dfrac{\\sigma^2}{n}$ with $n = 160$.",
+   "Put the pieces together as $\\text{N}(\\text{mean}, \\text{variance})$. The second parameter is the variance, not the standard deviation, so do not take a square root."
+  ],
+  "walkthrough": [
+   "**Find the mean and variance of one value of $X$**\n\nFor a binomial $\\text{B}(n, p)$ the mean is $np$ and the variance is $npq$ where $q = 1 - p$. Here $n = 10$, $p = 0.2$, $q = 0.8$:\n\n$$\\mu = 10 \\times 0.2 = 2$$\n\n$$\\sigma^2 = 10 \\times 0.2 \\times 0.8 = 1.6$$\n\n(The mark scheme shows these as working; they carry no mark of their own.)",
+   "**The mean of the sample mean (B1)**\n\nTake many samples of $160$ values and average each. The average of all those sample means is the population mean:\n\n$$\\text{E}(\\bar{X}) = \\mu = 2$$\n\nThis earns the first B1.",
+   "**The variance of the sample mean (B1)**\n\nAveraging reduces the spread. The variance of $\\bar{X}$ is the population variance divided by the sample size:\n\n$$\\text{Var}(\\bar{X}) = \\frac{\\sigma^2}{n} = \\frac{1.6}{160} = 0.01$$\n\nThis earns the second B1. (The standard deviation is $\\sqrt{0.01} = 0.1$; the scheme accepts that if you clearly say it is the standard deviation.)",
+   "**The type of distribution (B1)**\n\nThe original $X$ is binomial, but the sample size $160$ is large. The **central limit theorem** says the sample mean is then approximately **normal**. This earns the third B1.\n\nPutting it together:\n\n$$\\bar{X} \\sim \\text{N}(2, 0.01)$$",
+   "**Final answer**\n\n$\\bar{X}$ is approximately normal, $\\bar{X} \\sim \\text{N}(2,\\ 0.01)$, that is mean $2$ and variance $\\frac{1.6}{160} = 0.01$."
+  ]
+ },
+ "9709_w22_62_q5_b": {
+  "hints": [
+   "Standardise with your mean and variance from (a): $z = \\dfrac{1.8 - \\mu}{\\sigma}$ where $\\sigma$ is the square root of the variance. A continuity correction is optional here; if you use it, remember $\\bar{X}$ moves in steps of $\\dfrac{1}{160}$, and \"less than $1.8$\" means moving down by half a step.",
+   "Work out $z$ (it should be negative because $1.8$ is below the mean), and write $\\text{P}(\\bar{X} < 1.8) = \\text{P}(Z < z) = \\Phi(z)$. Since $z$ is negative, rewrite it as $1 - \\Phi(\\text{the positive value})$.",
+   "Look up $\\Phi$ of the positive value in the table or use normal cdf on your calculator, subtract from $1$ and give the answer to $3$ s.f."
+  ],
+  "walkthrough": [
+   "**Why the continuity correction**\n\n$\\bar{X}$ is the total of $160$ whole numbers divided by $160$, so it can only take values $\\frac{0}{160}, \\frac{1}{160}, \\frac{2}{160}, \\ldots$ — steps of $\\frac{1}{160}$. Being a discrete quantity modelled by a continuous normal curve, each value stands for an interval half a step either side. \"$\\bar{X} < 1.8$\" (that is, the total is at most $287$) becomes $\\bar{X} < 1.8 - \\frac{1}{320}$, where $\\frac{1}{320}$ is half of $\\frac{1}{160}$:\n\n$$1.8 - \\frac{1}{320} = 1.8 - 0.003125 = 1.796875$$\n\nThe scheme also allows you to skip this correction (see the end).",
+   "**Standardise (M1)**\n\nUsing $\\bar{X} \\sim \\text{N}(2, 0.01)$, so the standard deviation is $\\sqrt{0.01} = 0.1$:\n\n$$z = \\frac{1.8 - \\frac{1}{320} - 2}{\\sqrt{0.01}} = \\frac{1.796875 - 2}{0.1} = \\frac{-0.203125}{0.1} = -2.03125 \\approx -2.03$$\n\nThis earns the first M1. (Without the continuity correction: $z = \\frac{1.8 - 2}{0.1} = -2$.)",
+   "**Find the area (M1)**\n\nWe want the area to the *left* of $z = -2.03$:\n\n$$\\text{P}(Z < -2.03) = \\Phi(-2.03)$$\n\nThe table only lists positive $z$. By symmetry of the normal curve the left tail beyond $-2.03$ has the same area as the right tail beyond $+2.03$:\n\n$$\\Phi(-2.03) = 1 - \\Phi(2.03)$$\n\nThis earns the second M1.",
+   "**Calculate (A1)**\n\nTable (or calculator normal cdf): $\\Phi(2.03) = 0.9788$. Then\n\n$$1 - 0.9788 = 0.0212$$\n\nThis earns the A1. (Using the unrounded $z = -2.03125$ gives $0.0211$; the scheme's value is $0.0212$.)\n\nWithout the continuity correction, $z = -2$, $\\Phi(2) = 0.9772$, and $1 - 0.9772 = 0.0228$. The scheme accepts that too.",
+   "**Final answer**\n\n$\\text{P}(\\bar{X} < 1.8) = 0.0212$ (with the continuity correction), or $0.0228$ (without it). Both are accepted."
+  ]
+ }
+}

@@ -1,0 +1,33 @@
+{
+  "9709_s18_71_q4_i": {
+    "hints": [
+      "A large cup is $1.5 \\times$ a small cup, so its mean is the small-cup mean multiplied by $1.5$.",
+      "The second number in $\\text{N}(103.4, 10.2)$ is the variance. When you multiply a variable by $a$ the variance is multiplied by $a^2$, so use $1.5^2 \\times 10.2$.",
+      "The standard deviation is the square root of the variance you just found; give it to 3 s.f."
+    ],
+    "walkthrough": [
+      "**Read the notation**\n\n$\\text{N}(103.4, 10.2)$ means mean $103.4$ and **variance** $10.2$ (not standard deviation). Let $S$ be a small cup's volume and $L = 1.5S$ a large cup's volume.",
+      "**Mean of a large cup (B1)**\n\nMultiplying every value by $1.5$ multiplies the mean by $1.5$:\n\n$$\\text{E}(L) = 1.5 \\times 103.4 = 155.1$$",
+      "**Variance of a large cup (M1)**\n\nVariance measures squared spread, so multiplying by $1.5$ multiplies the variance by $1.5^2$ (a very common slip is to use $1.5$):\n\n$$1.5^2 = 2.25$$\n\n$$\\text{Var}(L) = 2.25 \\times 10.2 = 22.95$$\n\nThis is the **M1**.",
+      "**Standard deviation (A1)**\n\nStandard deviation is the square root of variance:\n\n$$\\text{sd}(L) = \\sqrt{22.95} = 4.7906\\ldots$$\n\nQuick check using the other route: $\\sqrt{10.2} = 3.1937\\ldots$ and $1.5 \\times 3.1937 = 4.7906$. The same, good.",
+      "**Final answer**\n\nMean $= 155.1$ ml and standard deviation $= 4.79$ ml (3 s.f.)."
+    ]
+  },
+  "9709_s18_71_q4_ii": {
+    "hints": [
+      "Let $T$ = small + large (two different, independent cups). Means add: $103.4$ plus your large-cup mean. Variances add (not standard deviations): $10.2$ plus your large-cup variance.",
+      "Standardise with $z = \\dfrac{250 - \\text{mean of } T}{\\sqrt{\\text{variance of } T}}$ and keep the square root of the variance, not the variance itself.",
+      "You want $\\text{P}(T > 250)$, so the area above $z$. Since $250$ is below the mean of $T$, expect a probability greater than $0.5$; write it as $1 - \\Phi(z)$ and use the symmetry of the curve for a negative $z$.",
+      "Look up $\\Phi$ of the positive value (tables or calculator) and give the answer to 3 s.f."
+    ],
+    "walkthrough": [
+      "**What $T$ is**\n\nLet $T = S + L$, the total volume of one randomly chosen small cup and one randomly chosen large cup. These are **two different cups**, picked independently. Do not write $T = 2.5S$: that would mean using the same cup twice.",
+      "**Mean and variance of $T$ (B1)**\n\nFor independent variables, means add and variances add:\n\n$$\\text{E}(T) = 103.4 + 155.1 = 258.5$$\n\n$$\\text{Var}(T) = 10.2 + 22.95 = 33.15$$\n\nQuick check: always add variances, never standard deviations, and never subtract even for a difference. Both are needed for the **B1**; the scheme accepts the standard deviation in place of the variance.",
+      "**Why the normal distribution**\n\nA sum of independent normal variables is normal, so $T \\sim \\text{N}(258.5, 33.15)$.",
+      "**Standardise (M1)**\n\n$$\\sqrt{33.15} = 5.7576\\ldots$$\n\n$$z = \\frac{250 - 258.5}{\\sqrt{33.15}} = \\frac{-8.5}{5.7576\\ldots} = -1.4763\\ldots$$\n\nThe scheme shows $-1.476$. The **M1** needs the square root of the variance (no mixing up standard deviation and variance).",
+      "**Choose the right area (M1)**\n\nWe want the total to be **greater than** $250$, that is the area to the right of $z = -1.476$. The curve is symmetrical, so this equals the area to the left of $+1.476$:\n\n$$\\text{P}(Z > -1.476) = \\Phi(1.476)$$\n\nThis is the second **M1**, an area consistent with your working. Quick check: $250$ is below the mean $258.5$, so the probability should be bigger than $0.5$.",
+      "**Look it up (A1)**\n\nNormal table or calculator normal cdf: $\\Phi(1.476) = 0.93003\\ldots$\n\n$$\\text{P}(T > 250) = 0.930 \\text{ (3 s.f.)}$$\n\nThe scheme also allows $0.93$.",
+      "**Final answer**\n\n$\\text{P}(\\text{total volume} > 250 \\text{ ml}) = 0.930$ (3 s.f.)."
+    ]
+  }
+}

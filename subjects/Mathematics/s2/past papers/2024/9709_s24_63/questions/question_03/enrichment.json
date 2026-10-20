@@ -1,0 +1,21 @@
+{
+ "9709_s24_63_q3": {
+  "hints": [
+   "Let $L$ be the total mass of $5$ large bags and $S$ the total of $10$ small bags. You want $\\text{P}(L > S) = \\text{P}(L - S > 0)$, and a difference of independent normals is normal. Its mean is $5\\times 50 - 10\\times 26$.",
+   "In $\\text{N}(50, 2.4)$ the second number is the variance. Variances of independent variables **add**, even for a difference: $\\text{Var}(L - S) = 5\\times 2.4 + 10\\times 1.8$ (not $5^2$ or $10^2$ times).",
+   "Standardise the value $0$: $z = \\dfrac{0 - \\text{mean}}{\\sqrt{\\text{variance}}}$ with your mean and variance. Use the square root of the variance on the bottom.",
+   "You want $\\text{P}(L - S > 0)$, the **upper** tail, so the answer is $1 - \\Phi(z)$ with your $z$. Sketch the bell curve to check which side you want.",
+   "Find $\\Phi(z)$ from the normal table or the calculator's normal cdf, subtract it from $1$, and round to 3 significant figures."
+  ],
+  "walkthrough": [
+   "**Set up the question**\n\nLet $L$ be the **total** mass of $5$ large bags and $S$ the **total** mass of $10$ small bags. We want $\\text{P}(L > S)$. Moving $S$ to the left gives the same event as $L - S > 0$, so we work with the difference $D = L - S$ and ask for $\\text{P}(D > 0)$.\n\nA sum or difference of independent normal variables is itself normal, so $D$ is normal. We only need its mean and variance.",
+   "**Read the distributions carefully**\n\nIn $\\text{N}(\\mu, \\sigma^2)$ the second number is the **variance**. So one large bag has mean $50$ and variance $2.4$, and one small bag has mean $26$ and variance $1.8$.",
+   "**Mean of the difference (first B1)**\n\nThe total of $5$ large bags has mean $5\\times 50 = 250$. The total of $10$ small bags has mean $10\\times 26 = 260$. The mean of a difference is the difference of the means:\n\n$$\\text{E}(D) = 5\\times 50 - 10\\times 26 = 250 - 260 = -10$$",
+   "**Variance of the difference (second B1)**\n\nThe total of $5$ large bags has variance $5\\times 2.4 = 12$ (five separate bags, each adding its own spread). The total of $10$ small bags has variance $10\\times 1.8 = 18$.\n\nFor independent variables, variances **add**, even when we subtract the variables. Subtracting one total does not remove the variability of the other.\n\n$$\\text{Var}(D) = 5\\times 2.4 + 10\\times 1.8 = 12 + 18 = 30$$\n\nQuick check: do not use $5^2\\times 2.4$. Five different bags are not the same as one bag multiplied by $5$.\n\nSo $D \\sim \\text{N}(-10, 30)$.",
+   "**Standardise (the first M1)**\n\nTo use normal tables we convert the boundary $0$ into a $z$-value, using the standard deviation $\\sqrt{30}$:\n\n$$z = \\frac{0 - (-10)}{\\sqrt{30}} = \\frac{10}{\\sqrt{30}}$$\n\n$$\\sqrt{30} = 5.4772 \\quad\\Rightarrow\\quad z = \\frac{10}{5.4772} = 1.826$$",
+   "**Choose the correct tail (the second M1)**\n\nWe want $\\text{P}(D > 0)$, which is the area **above** $z = 1.826$ on the standard normal curve. Normal tables give the area below, so\n\n$$\\text{P}(D > 0) = \\text{P}(Z > 1.826) = 1 - \\Phi(1.826)$$",
+   "**Evaluate (the A1 mark)**\n\nCalculator: normal cdf of $Z$ up to $1.826$ gives $\\Phi(1.826) = 0.9661$. Then\n\n$$1 - 0.9661 = 0.0339$$\n\nThe scheme accepts $0.0339$ or $0.034$.",
+   "**Final answer**\n\n$$\\text{P}(\\text{total of 5 large} > \\text{total of 10 small}) = 0.0339 \\text{ (3 s.f.; } 0.034 \\text{ is also accepted)}$$"
+  ]
+ }
+}

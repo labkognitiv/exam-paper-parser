@@ -1,0 +1,36 @@
+{
+  "9709_s23_62_q3_a": {
+    "hints": [
+      "The unbiased estimate of the population mean $\\mu$ is the sample mean: $\\dfrac{\\sum x}{n}$, with $\\sum x = 1625$ and $n = 500$.",
+      "The unbiased estimate of the variance is $s^2 = \\dfrac{1}{n-1}\\left(\\sum x^2 - \\dfrac{(\\sum x)^2}{n}\\right)$. Substitute $\\sum x^2 = 5663.5$, $\\sum x = 1625$ and $n = 500$.",
+      "Work out the bracket first, then divide by $n - 1$, not by $n$. Dividing by $n$ would give the biased version."
+    ],
+    "walkthrough": [
+      "**What 'unbiased estimate' means**\n\nWe only have a sample of 500 babies, not all babies in country $A$. An unbiased estimate is a value worked out from the sample that is correct on average. We use $\\bar{x}$ (the sample mean) as the estimate of $\\mu$, and $s^2$ as the estimate of $\\sigma^2$.",
+      "**Estimate of $\\mu$ (this is the B1)**\n\n$$\\bar{x} = \\frac{\\sum x}{n} = \\frac{1625}{500} = 3.25$$",
+      "**Choose the variance formula (this is the M1)**\n\nThe unbiased estimate of the variance divides by $n - 1$ (not $n$). The formula is:\n\n$$s^2 = \\frac{1}{n-1}\\left(\\sum x^2 - \\frac{(\\sum x)^2}{n}\\right) = \\frac{1}{499}\\left(5663.5 - \\frac{1625^2}{500}\\right)$$\n\nAnother form the scheme accepts is $\\dfrac{500}{499}\\left(\\dfrac{5663.5}{500} - 3.25^2\\right)$. Both give the same answer.",
+      "**Work out the bracket**\n\n$$1625^2 = 2\\,640\\,625$$\n\n$$\\frac{2\\,640\\,625}{500} = 5281.25$$\n\n$$5663.5 - 5281.25 = 382.25$$",
+      "**Divide by $n - 1$ (this is the A1)**\n\n$$s^2 = \\frac{382.25}{499} = 0.766032\\ldots$$\n\nCommon slip: dividing by $500$ gives $0.7645$. That is the biased variance and scores M0A0.",
+      "**Final answer**\n\nUnbiased estimate of $\\mu$ is $3.25$. Unbiased estimate of $\\sigma^2$ is $0.766$ (3 s.f.), which is $\\dfrac{1529}{1996}$ as a fraction."
+    ]
+  },
+  "9709_s23_62_q3_b": {
+    "hints": [
+      "The researcher wants to know whether the mean in country $B$ is *different* from the value you estimated in part (a). State $\\text{H}_0$ and $\\text{H}_1$ about the population mean $\\mu$, remembering that 'different' means a two-tailed test.",
+      "For a sample of 60, the sample mean $\\bar{X}$ has variance $\\dfrac{\\sigma^2}{60}$. Standardise the sample mean $2.95$: $z = \\dfrac{2.95 - \\mu}{\\sqrt{\\sigma^2 \\div 60}}$, with $\\mu$ and $\\sigma^2$ from part (a). Note the $\\sqrt{60}$ is needed.",
+      "Evaluate this fraction on your calculator and keep the sign of your $z$.",
+      "At the 1% level with a two-tailed test there is $0.5\\%$ in each tail, so look up the critical value from $\\Phi(z) = 0.995$. Compare your $z$ with $\\pm$ this value.",
+      "State whether you reject $\\text{H}_0$. Then write the conclusion in the context of newborn babies' mass in the two countries, using words like 'there is evidence that', not a definite statement."
+    ],
+    "walkthrough": [
+      "**What the test is about**\n\nWe use the numbers from part (a) as if they are the true values for country $A$: $\\mu = 3.25$ and $\\sigma^2 = 0.766$. We also assume country $B$ has the same variance. The researcher takes 60 babies in country $B$ and wants to know if their mean mass, $2.95$ kg, is far enough from $3.25$ kg to say the country $B$ mean is different.",
+      "**State the hypotheses (this is the B1)**\n\n$\\text{H}_0$ is the starting assumption: nothing is different. $\\text{H}_1$ is what we are looking for evidence of. Here $\\mu$ means the population mean mass of newborn babies in country $B$.\n\n$$\\text{H}_0: \\mu = 3.25$$\n\n$$\\text{H}_1: \\mu \\neq 3.25$$\n\nThe question asks if the mean is *different* (it does not say higher or lower), so $\\text{H}_1$ has $\\neq$ and the test is two-tailed. The scheme says writing just 'mean' is not enough, so say 'population mean' or use $\\mu$.",
+      "**What happens to a sample mean**\n\nIf $\\text{H}_0$ is true, a single baby's mass has mean $3.25$ and variance $0.766$. The mean of a sample of $n = 60$ babies has the same mean but a smaller variance (averaging reduces spread):\n\n$$\\bar{X} \\sim \\text{N}\\left(3.25, \\frac{0.766}{60}\\right)$$\n\nBecause the sample is large ($n = 60$), the sample mean is approximately normal whatever the shape of the baby masses.",
+      "**Standardise the sample mean (this is the M1)**\n\nStandardise by subtracting the mean and dividing by the standard deviation of $\\bar{X}$, which is $\\sqrt{\\dfrac{0.766}{60}}$ (this is where the $\\sqrt{60}$ comes in):\n\n$$z = \\frac{2.95 - 3.25}{\\sqrt{0.766 \\div 60}}$$",
+      "**Work out $z$ (this is the A1)**\n\nTop line:\n\n$$2.95 - 3.25 = -0.3$$\n\nBottom line:\n\n$$0.766 \\div 60 = 0.012767\\ldots \\qquad \\sqrt{0.012767} = 0.112992\\ldots$$\n\nDivide (keep the minus sign):\n\n$$z = \\frac{-0.3}{0.112992} = -2.655$$\n\nThe scheme will also accept $\\text{P}(\\bar{X} < 2.95) = 0.0039$ (or $0.00396$ or $0.00397$) here.\n\nSlip to avoid: using the biased variance $0.7645$ from part (a) gives $z = -2.658$ instead. The scheme has a special rule that still gives this A1, but you should use your unbiased $0.766$.",
+      "**Compare with the critical value (this is the second M1)**\n\nThe significance level is 1%, and the test is two-tailed, so $0.5\\%$ is in each tail. The critical $z$ values come from $\\Phi(z) = 0.995$:\n\n$$z = \\pm 2.576$$\n\nOur value is $-2.655$. Is it beyond $-2.576$?\n\n$$-2.655 < -2.576$$\n\nYes, it lies further out in the tail, so it is in the rejection region.\n\n(Another valid comparison: the tail probability is $0.0039$, and we compare it with $0.005$. Or the two-tail value $0.0079 < 0.01$.)",
+      "**Conclusion in context (this is the final A1)**\n\nBecause $z$ is in the rejection region, we reject $\\text{H}_0$.\n\nNow say what this means, and do not be definite (we have evidence, not proof). Mention mass and the countries:\n\nThere is evidence that the mean mass of newborn babies in country $B$ is different from that in country $A$.\n\nSlips to avoid: writing 'the mean mass is not different' is a definite statement and loses the mark. Using a one-tail critical value of $2.326$ gets the M1 but loses the final A1.",
+      "**Final answer**\n\n$z = -2.655$, which is less than $-2.576$, so reject $\\text{H}_0$. There is evidence, at the 1% significance level, that the mean mass of newborn babies in country $B$ is different from that in country $A$."
+    ]
+  }
+}

@@ -1,0 +1,28 @@
+{
+ "9709_w25_61_q4_a": {
+  "hints": [
+   "The width of the interval is $2z\\dfrac{\\sigma}{\\sqrt{n}}$, and the $90\\%$ interval uses $z=1.645$. Set the $\\alpha\\%$ width equal to $1.414$ times the $90\\%$ width; the $\\sigma$ and $\\sqrt{n}$ cancel, so solve for $z$.",
+   "The confidence level is the central area $\\text{P}(-z<Z<z)$ for the $z$ you found. Use symmetry to write it as $2\\Phi(z)-1$.",
+   "Evaluate $\\Phi(z)$ with your calculator, substitute into $2\\Phi(z)-1$, and convert the decimal to a percentage."
+  ],
+  "walkthrough": [
+   "**How a confidence interval is built**\n\nThe masses are normally distributed with known standard deviation $\\sigma$, and the sample has $n$ animals. A confidence interval for the population mean is\n\n$$\\bar{x}\\pm z\\,\\frac{\\sigma}{\\sqrt{n}}$$\n\nThe interval goes from $\\bar{x}-z\\frac{\\sigma}{\\sqrt{n}}$ to $\\bar{x}+z\\frac{\\sigma}{\\sqrt{n}}$, so its **width** is the distance between the ends:\n\n$$\\text{width}=2\\,z\\,\\frac{\\sigma}{\\sqrt{n}}$$\n\nHere $z$ depends on the confidence level: for a confidence level of $c$, there is $\\frac{1-c}{2}$ in each tail, and $z$ is the value with $\\Phi(z)=\\frac{1+c}{2}$.",
+   "**The 90% interval**\n\nFor $90\\%$, $10\\%$ is split between two tails, so $5\\%$ in each tail, and $\\Phi(z)=0.95$. The table gives $z=1.645$.\n\n$$\\text{width}_{90}=2\\times1.645\\times\\frac{\\sigma}{\\sqrt{n}}$$",
+   "**Form the equation (this earns the first M1)**\n\nThe $\\alpha\\%$ interval uses the same sample (same $\\sigma$ and same $n$), but a different $z$ (call it $z$). Its width is $1.414$ times the width of the $90\\%$ one:\n\n$$2\\,z\\,\\frac{\\sigma}{\\sqrt{n}}=1.414\\times2\\times1.645\\times\\frac{\\sigma}{\\sqrt{n}}$$\n\nThe $2$, the $\\sigma$ and the $\\sqrt{n}$ appear on both sides, so divide both sides by $2\\frac{\\sigma}{\\sqrt{n}}$. They disappear:\n\n$$z=1.414\\times1.645$$\n\nMultiply: $1.645\\times1=1.645$; $1.645\\times0.4=0.658$; $1.645\\times0.014=0.02303$. Add: $1.645+0.658+0.02303=2.32603$.\n\n$$z=2.326$$",
+   "**From z to the confidence level (this earns the second M1)**\n\nThe confidence level is the probability that a standard normal $Z$ lies between $-2.326$ and $+2.326$:\n\n$$\\text{P}(-2.326<Z<2.326)=\\Phi(2.326)-\\Phi(-2.326)$$\n\nBy symmetry $\\Phi(-2.326)=1-\\Phi(2.326)$, so\n\n$$\\Phi(2.326)-\\left(1-\\Phi(2.326)\\right)=2\\Phi(2.326)-1$$",
+   "**Evaluate (this earns the A1)**\n\nCalculator normal cdf (or the table at about $2.33$): $\\Phi(2.326)=0.9900$.\n\n$$2\\times0.9900-1=1.98-1=0.98$$\n\nAs a percentage, $0.98=98\\%$. Check with common sense: the $z$ for $90\\%$ is $1.645$, and for $98\\%$ it is $2.326$, and a larger $z$ gives a wider interval, so this is right.\n\nSo $\\alpha=98$.",
+   "**Final answer**\n\n$$\\alpha=98$$"
+  ]
+ },
+ "9709_w25_61_q4_b": {
+  "hints": [
+   "Let $A$ be '90% interval contains $\\mu$' and $B$ be 'the $\\alpha\\%$ interval contains $\\mu$'. The 90% interval sits inside the wider one, so think about what $A\\cap B$ is, then use $\\text{P}(A\\mid B)=\\dfrac{\\text{P}(A\\cap B)}{\\text{P}(B)}$ with the confidence levels as probabilities."
+  ],
+  "walkthrough": [
+   "**Name the two events**\n\nLet $A$ be the event 'the $90\\%$ interval contains the population mean $\\mu$' and $B$ the event 'the $98\\%$ interval contains $\\mu$'. We want $\\text{P}(A\\mid B)$, the probability of $A$ given that $B$ has happened.\n\nBy the meaning of a confidence level, $\\text{P}(A)=0.90$ and $\\text{P}(B)=0.98$ (using $\\alpha=98$ from part (a)).",
+   "**The two events are nested**\n\nBoth intervals are centred on the same sample mean $\\bar{x}$, and the $90\\%$ interval is narrower. So if the narrow $90\\%$ interval contains $\\mu$, the wider $98\\%$ interval must contain it too. In other words $A$ happening forces $B$ to happen.\n\nTherefore '$A$ and $B$ both happen' is exactly the same as '$A$ happens':\n\n$$\\text{P}(A\\cap B)=\\text{P}(A)=0.90$$",
+   "**Conditional probability**\n\nThe formula is $\\text{P}(A\\mid B)=\\dfrac{\\text{P}(A\\cap B)}{\\text{P}(B)}$.\n\n$$\\text{P}(A\\mid B)=\\frac{0.90}{0.98}=\\frac{90}{98}=\\frac{45}{49}$$\n\nDivide: $45\\div49=0.91837\\ldots$ which is $0.918$ to $3$ significant figures. It is less than $1$, as any probability must be, and fairly big, which fits because the $98\\%$ interval already catches $\\mu$ almost every time.",
+   "**Final answer**\n\n$$\\text{P}(A\\mid B)=\\frac{45}{49}=0.918\\text{ (3 s.f.)}$$"
+  ]
+ }
+}

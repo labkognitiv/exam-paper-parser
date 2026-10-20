@@ -1,0 +1,39 @@
+{
+ "9709_s20_61_q4_a": {
+  "hints": [
+   "Use $\\text{Var}(X) = \\text{E}(X^2) - [\\text{E}(X)]^2$. The five sides are equally likely, so each has probability $\\frac{1}{5}$. Write $\\text{E}(X^2)$ as $\\dfrac{1^2 + 2^2 + 3^2 + 4^2 + 5^2}{5}$ and subtract the square of the mean."
+  ],
+  "walkthrough": [
+   "**The formula and why**\n\nThe variance is the average of the squares minus the square of the average:\n\n$$\\text{Var}(X) = \\text{E}(X^2) - [\\text{E}(X)]^2$$\n\nThe spinner is fair, so each score $1, 2, 3, 4, 5$ has probability $\\dfrac{1}{5}$.",
+   "**Mean**\n\n$$\\text{E}(X) = \\frac{1 + 2 + 3 + 4 + 5}{5} = \\frac{15}{5} = 3$$",
+   "**Mean of the squares**\n\n$$\\text{E}(X^2) = \\frac{1^2 + 2^2 + 3^2 + 4^2 + 5^2}{5} = \\frac{1 + 4 + 9 + 16 + 25}{5} = \\frac{55}{5} = 11$$",
+   "**Variance (earns the B1)**\n\n$$\\text{Var}(X) = 11 - 3^2 = 11 - 9 = 2$$",
+   "**Final answer**\n\n$\\text{Var}(X) = 2$, as required."
+  ]
+ },
+ "9709_s20_61_q4_b": {
+  "hints": [
+   "A Type I error means rejecting $\\text{H}_0$ when it is true. So assume the spinner is fair (mean score $3$, variance $2$ from part (a)). With $n = 40$ spins the sample mean is approximately normal by the Central Limit Theorem, with the variance divided by $40$: $\\bar{X} \\sim \\text{N}\\left(3, \\dfrac{2}{40}\\right)$.",
+   "Standardise the cut-off: $z = \\dfrac{2.6 - 3}{\\sqrt{2/40}}$. Note that you divide by the square root of $\\dfrac{2}{40}$, not by $\\sqrt{2}$.",
+   "The probability you want is $\\text{P}(\\bar{X} < 2.6)$, the area below a **negative** $z$. Use the symmetry of the normal curve: $\\Phi(-z) = 1 - \\Phi(z)$.",
+   "Find the value with your calculator's normal cdf (or the table) and give your answer to 3 s.f."
+  ],
+  "walkthrough": [
+   "**What a Type I error is**\n\nA **Type I error** is rejecting $\\text{H}_0$ when $\\text{H}_0$ is actually true. Fiona's rule is: conclude 'biased' if the mean score of 40 spins is below $2.6$. If the spinner is really **fair**, the chance that this rule wrongly says 'biased' is the probability of a Type I error.\n\nSo we assume $\\text{H}_0$: the spinner is fair (mean score $3$, variance $2$ from part (a)), and find $\\text{P}(\\bar{X} < 2.6)$.",
+   "**Distribution of the sample mean (earns the first M1)**\n\nWith $n = 40$ spins, the Central Limit Theorem says the sample mean $\\bar{X}$ is approximately normal. Its mean is the same as $X$'s mean, and its variance is $\\dfrac{\\text{Var}(X)}{n}$:\n\n$$\\bar{X} \\approx \\text{N}\\left(3,\\ \\frac{2}{40}\\right) = \\text{N}(3,\\ 0.05)$$\n\n(The printed mark scheme writes $\\text{N}(3, 2)$ for the single-spin distribution; the sample mean uses $\\dfrac{2}{40}$, as its next line shows.)",
+   "**Standardise (earns the second M1)**\n\nThe standard deviation of $\\bar{X}$ is $\\sqrt{\\dfrac{2}{40}} = \\sqrt{0.05} = 0.223607\\ldots$\n\n$$z = \\frac{2.6 - 3}{\\sqrt{\\dfrac{2}{40}}} = \\frac{-0.4}{0.223607} = -1.7888\\ldots \\approx -1.789$$",
+   "**Turn it into a probability (earns the third M1)**\n\nWe need the area to the left of $z = -1.789$. Tables only list positive $z$, so use the symmetry of the normal curve: the area below $-1.789$ equals the area above $+1.789$.\n\n$$\\text{P}(\\bar{X} < 2.6) = \\Phi(-1.789) = 1 - \\Phi(1.789)$$\n\n$\\Phi(1.789) \\approx 0.9632$, so $1 - 0.9632 = 0.0368$.",
+   "**Final answer**\n\nThe probability of a Type I error is $0.0368$ (3 s.f.). (The mark scheme accepts $0.0367$ to $0.0368$.)"
+  ]
+ },
+ "9709_s20_61_q4_c": {
+  "hints": [
+   "A Type II error is the opposite slip to a Type I error: it is about $\\text{H}_0$ being accepted when it should have been rejected. Say what Fiona would conclude, and what is true about her spinner in that case."
+  ],
+  "walkthrough": [
+   "**What the two errors mean**\n\nA **Type I error** is rejecting $\\text{H}_0$ when it is true. A **Type II error** is the reverse: **not** rejecting $\\text{H}_0$ when it is actually false.\n\nHere $\\text{H}_0$ says the spinner is not biased (expected score $3$), and $\\text{H}_1$ says the expected score is less than $3$.",
+   "**Apply it to Fiona's spinner (earns the B1)**\n\nFiona does not reject $\\text{H}_0$ if the mean score of the 40 spins is $2.6$ or more. A Type II error happens when she gets such a mean score, so concludes the spinner is not biased, but the spinner really is biased (expected score below $3$).",
+   "**Final answer**\n\nA Type II error is concluding that the spinner is unbiased (not biased towards lower scores) when in fact it is biased so that the expected score is less than $3$."
+  ]
+ }
+}

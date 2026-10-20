@@ -1,0 +1,27 @@
+{
+  "9709_m22_62_q1_a": {
+    "hints": [
+      "The unbiased estimate of the population mean is the sample mean: add up all 12 lengths, then divide by $n = 12$.",
+      "For the variance you need $\\sum x$ and $\\sum x^2$ (square each of the 12 lengths first, then add). The unbiased estimate is $s^2 = \\dfrac{1}{n-1}\\left(\\sum x^2 - \\dfrac{(\\sum x)^2}{n}\\right)$ with $n = 12$, so you divide by $11$, not $12$.",
+      "Substitute your two totals into the formula. Square $\\sum x$ before dividing by $12$, subtract from $\\sum x^2$, then divide by $11$. Give the variance to 3 significant figures."
+    ],
+    "walkthrough": [
+      "**What we are asked for**\n\nThe 12 rods are only a sample from everything the machine makes. We want estimates of the *population* mean $\\mu$ (the true average length) and the population variance $\\sigma^2$ (how spread out the lengths really are).\n\n\"Unbiased\" means the estimate is right on average. The sample mean is an unbiased estimate of $\\mu$. For the variance we must divide by $n - 1$ rather than $n$ (we will do this in a moment).",
+      "**Add up the 12 lengths**\n\nWe need $\\sum x$, the total of all the lengths. Add them one at a time:\n\n$$200 + 201 = 401$$\n\n$$401 + 198 = 599$$\n\n$$599 + 202 = 801$$\n\n$$801 + 200 = 1001$$\n\n$$1001 + 199 = 1200$$\n\n$$1200 + 199 = 1399$$\n\n$$1399 + 201 = 1600$$\n\n$$1600 + 197 = 1797$$\n\n$$1797 + 202 = 1999$$\n\n$$1999 + 200 = 2199$$\n\n$$2199 + 199 = 2398$$\n\nSo $\\sum x = 2398$.",
+      "**The mean estimate (B1)**\n\nThe estimate of the population mean is the sample mean, $\\bar{x}$ (the total divided by the number of rods):\n\n$$\\bar{x} = \\frac{\\sum x}{n} = \\frac{2398}{12} = 199.8333\\ldots = \\frac{1199}{6}$$\n\nThis earns the B1. The scheme accepts it in any form, so $199.83$ (or $199.8$) is fine too.",
+      "**Square each length and add**\n\nFor the variance we also need $\\sum x^2$: square every length, then add.\n\n$$200^2 = 40000,\\quad 201^2 = 40401,\\quad 198^2 = 39204,\\quad 202^2 = 40804$$\n\n$$200^2 = 40000,\\quad 199^2 = 39601,\\quad 199^2 = 39601,\\quad 201^2 = 40401$$\n\n$$197^2 = 38809,\\quad 202^2 = 40804,\\quad 200^2 = 40000,\\quad 199^2 = 39601$$\n\nAdding all twelve squares gives\n\n$$\\sum x^2 = 479226$$\n\nTip: your calculator's statistics mode will give $\\sum x$ and $\\sum x^2$ directly, which is a good way to check your adding.",
+      "**The unbiased variance estimate (M1)**\n\nThe formula for the unbiased estimate of the population variance is\n\n$$s^2 = \\frac{1}{n-1}\\left(\\sum x^2 - \\frac{(\\sum x)^2}{n}\\right)$$\n\nWhy $n - 1$? A sample is usually less spread out than the whole population, so dividing by $n$ would give an estimate that is too small. Dividing by $n - 1$ corrects this.\n\nSubstitute $n = 12$, $\\sum x = 2398$ and $\\sum x^2 = 479226$ (this line earns the M1):\n\n$$s^2 = \\frac{1}{11}\\left(479226 - \\frac{2398^2}{12}\\right)$$\n\nNow one calculation at a time:\n\n$$2398^2 = 5750404$$\n\n$$\\frac{5750404}{12} = 479200.3333\\ldots$$\n\n$$479226 - 479200.3333\\ldots = 25.6667\\ldots$$\n\n$$s^2 = \\frac{25.6667\\ldots}{11} = 2.3333\\ldots = \\frac{7}{3}$$\n\nCommon slip: dividing by $12$ instead of $11$ gives $2.14$, which loses the marks.",
+      "**A quick check**\n\nSubtract $200$ from every length. The new values are $0, 1, -2, 2, 0, -1, -1, 1, -3, 2, 0, -1$. They add up to $-2$ and their squares add up to $26$. Then\n\n$$s^2 = \\frac{1}{11}\\left(26 - \\frac{(-2)^2}{12}\\right) = \\frac{1}{11}\\left(26 - 0.3333\\ldots\\right) = \\frac{25.6667\\ldots}{11} = 2.3333\\ldots$$\n\nSame answer, so we can trust it.",
+      "**Final answer**\n\nUnbiased estimate of the population mean: $\\dfrac{1199}{6} = 199.83$ mm (3 s.f.).\n\nUnbiased estimate of the population variance: $\\dfrac{7}{3} = 2.33$ mm$^2$ (3 s.f.). This earns the A1."
+    ]
+  },
+  "9709_m22_62_q1_b": {
+    "hints": [
+      "Look at how many rods were measured. Is $12$ rods a lot or a little for describing everything a machine makes?"
+    ],
+    "walkthrough": [
+      "**Think about the sample size**\n\nAn estimate is only as good as the sample it comes from. The more rods we measure, the closer the sample mean and variance tend to be to the true population values. With only 12 rods, a couple of unusual rods could change the estimates a lot.",
+      "**Final answer**\n\nThe sample is small (only 12 rods), so the estimates may not be reliable.\n\nMark scheme warning: saying only \"not representative\" does not score unless you explain why. Pointing to the small sample is the safe answer."
+    ]
+  }
+}

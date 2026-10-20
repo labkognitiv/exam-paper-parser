@@ -1,0 +1,29 @@
+{
+ "9709_w22_62_q3_a": {
+  "hints": [
+   "The number of cyclists in the sample is binomial, $\\text{B}(200, 0.016)$. With $n$ large and $p$ small, a suitable approximating distribution is the Poisson. Name it.",
+   "A Poisson approximation to a binomial uses the mean $np$. Put in $n = 200$ and $p = 0.016$ (the $1.6\\%$ as a decimal) to get the Poisson parameter.",
+   "\"More than $3$\" means $4$ or more, which is a long list. Use the complement: $\\text{P}(X > 3) = 1 - \\text{P}(X \\leqslant 3)$, and $\\text{P}(X \\leqslant 3) = \\text{P}(0) + \\text{P}(1) + \\text{P}(2) + \\text{P}(3)$, each from $\\text{e}^{-\\lambda}\\dfrac{\\lambda^r}{r!}$.",
+   "Work out the four terms for $r = 0, 1, 2, 3$ (or use Poisson cdf on your calculator), add them, and subtract from $1$. Give $3$ significant figures."
+  ],
+  "walkthrough": [
+   "**Which distribution?**\n\nLet $X$ be the number of adults in the sample of $200$ who ride a bicycle. Exactly, $X \\sim \\text{B}(200, 0.016)$. But $n = 200$ is big, so working with binomial terms is heavy. Because $n$ is large and $p = 0.016$ is small, we are allowed to approximate by a **Poisson** distribution. This earns the first B1.",
+   "**The mean (second B1)**\n\nThe Poisson distribution with the same mean as the binomial has parameter $\\lambda = np$:\n\n$$\\lambda = 200 \\times 0.016 = 3.2$$\n\nSo $X \\approx \\text{Po}(3.2)$. This earns the second B1.",
+   "**Write the probability we need (M1)**\n\nWe want $\\text{P}(X > 3)$. \"More than $3$\" means $4, 5, 6, \\ldots$ with no end. It is much easier to use the total probability $1$ and take away the part we do not want:\n\n$$\\text{P}(X > 3) = 1 - \\text{P}(X \\leqslant 3) = 1 - \\left[\\text{P}(X = 0) + \\text{P}(X = 1) + \\text{P}(X = 2) + \\text{P}(X = 3)\\right]$$\n\nUsing $\\text{P}(X = r) = \\text{e}^{-3.2}\\dfrac{3.2^r}{r!}$:\n\n$$\\text{P}(X > 3) = 1 - \\text{e}^{-3.2}\\left(1 + 3.2 + \\frac{3.2^2}{2} + \\frac{3.2^3}{3!}\\right)$$\n\nThis expression earns the M1. (The scheme allows one end error, e.g. stopping at $r = 2$ or going on to $r = 4$.)",
+   "**Calculate each term (A1)**\n\nInside the bracket:\n\n$$\\frac{3.2^2}{2} = \\frac{10.24}{2} = 5.12 \\qquad \\frac{3.2^3}{3!} = \\frac{32.768}{6} = 5.4613\\ldots$$\n\n$$1 + 3.2 + 5.12 + 5.4613\\ldots = 14.7813\\ldots$$\n\nAnd $\\text{e}^{-3.2} = 0.040762\\ldots$ (calculator: $e^x$ with $x = -3.2$). Multiply:\n\n$$0.040762\\ldots \\times 14.7813\\ldots = 0.60252\\ldots$$\n\n(Check with separate terms: $0.04076 + 0.1304 + 0.2087 + 0.2226 = 0.6025$.)\n\nSubtract from $1$:\n\n$$1 - 0.60252\\ldots = 0.39748\\ldots = 0.397 \\text{ (3 s.f.)}$$\n\nThis earns the A1. The scheme accepts $0.397$ or $0.398$. (Using the exact binomial gives $0.398$, which only earns a special-case B1, since the question asked for an approximation.)",
+   "**Final answer**\n\n$\\text{P}(\\text{more than } 3 \\text{ ride a bicycle}) = 0.397$ (the scheme accepts $0.397$ or $0.398$)."
+  ]
+ },
+ "9709_w22_62_q3_b": {
+  "hints": [
+   "The exact distribution is binomial with $n = 200$. Poisson is a good approximation when $n$ is large. Compare $n = 200$ with the usual cut-off: $n > 50$.",
+   "The other condition is that $p$ is small, or equivalently $np$ is small. Check $np = 200 \\times 0.016$ against $5$, or $p = 0.016$ against $0.1$."
+  ],
+  "walkthrough": [
+   "**What \"justify\" means**\n\nWe must say *why* the Poisson approximation to the binomial $\\text{B}(200, 0.016)$ is allowed. There are standard conditions to quote. Each condition needs the question's numbers put against the limit.",
+   "**Condition on $n$ (B1)**\n\nThe sample size must be large. Here $n = 200$, and $200 > 50$. This earns the first B1.",
+   "**Condition on $p$ or $np$ (B1)**\n\nThe approximation works when the chance of success is small. Either of these shows it:\n\n$$np = 200 \\times 0.016 = 3.2 < 5$$\n\nor\n\n$$p = 0.016 < 0.1$$\n\nThis earns the second B1. (Writing just \"$n$ is large and $p$ is small\" with no numbers earns only one mark.)",
+   "**Final answer**\n\nThe distribution is binomial with $n = 200 > 50$ (large), and $np = 3.2 < 5$ (or $p = 0.016 < 0.1$, small), so a Poisson approximation is suitable."
+  ]
+ }
+}

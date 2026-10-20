@@ -1,0 +1,17 @@
+{
+ "9709_m20_62_q1": {
+  "hints": [
+   "The errors are random and rare, and there are very many letters, so a binomial with a huge $n$ and tiny $p$ is awkward. Use the Poisson distribution with the same mean. The rate is 1 per $30\\,000$ letters and the booklet has $12\\,500$ letters: scale the rate to get the mean $\\lambda$.",
+   "'At least 2' has no upper end, so use the complement: $\\text{P}(X \\geqslant 2) = 1 - \\text{P}(X \\leqslant 1) = 1 - \\text{P}(X = 0) - \\text{P}(X = 1)$.",
+   "Use $\\text{P}(X = r) = \\text{e}^{-\\lambda}\\dfrac{\\lambda^r}{r!}$ for $r = 0$ and $r = 1$ with your $\\lambda$, add the two, and subtract from 1. Give 3 significant figures."
+  ],
+  "walkthrough": [
+   "**Why a Poisson distribution?**\n\nEach letter is either printed correctly or not. So the exact model is a binomial: $12\\,500$ letters, each wrong with probability $\\frac{1}{30\\,000}$. That is a very large $n$ with a very small $p$, and binomial sums with numbers like that are awkward.\n\nWhen $n$ is large and $p$ is small, a Poisson distribution with the **same mean** is an excellent approximation. The question also says errors occur randomly, which is the Poisson idea. So we use the Poisson distribution.",
+   "**Find the mean $\\lambda$ (this earns the B1)**\n\nThe average is 1 incorrect letter for every $30\\,000$ letters. The booklet has $12\\,500$ letters, so we scale the rate to the booklet size:\n\n$$\\lambda = 12\\,500 \\times \\frac{1}{30\\,000} = \\frac{12\\,500}{30\\,000}$$\n\nDivide top and bottom by 2500:\n\n$$\\lambda = \\frac{5}{12} = 0.41666\\ldots$$\n\nLet $X$ be the number of errors in the booklet. Then $X \\sim \\text{Po}\\left(\\frac{5}{12}\\right)$.",
+   "**Turn 'at least 2' into something we can calculate (the M1 starts here)**\n\n'At least 2 errors' means 2, 3, 4, 5, ... and it never stops. Adding all of those is impossible. It is much easier to use the opposite: the only outcomes that are *not* 'at least 2' are 0 errors and 1 error.\n\n$$\\text{P}(X \\geqslant 2) = 1 - \\text{P}(X \\leqslant 1) = 1 - \\text{P}(X = 0) - \\text{P}(X = 1)$$",
+   "**Work out $\\text{P}(X = 0)$ and $\\text{P}(X = 1)$**\n\nThe Poisson formula is $\\text{P}(X = r) = \\text{e}^{-\\lambda}\\dfrac{\\lambda^r}{r!}$. Here $\\lambda = \\frac{5}{12}$.\n\nFor $r = 0$: anything to the power 0 is 1, and $0! = 1$, so $\\text{P}(X = 0) = \\text{e}^{-5/12}$. On the calculator type $e^{(-5 \\div 12)}$ and it shows:\n\n$$\\text{P}(X = 0) = \\text{e}^{-5/12} = 0.659241\\ldots$$\n\nFor $r = 1$: $\\lambda^1 = \\lambda$ and $1! = 1$, so $\\text{P}(X = 1) = \\text{e}^{-5/12} \\times \\frac{5}{12}$:\n\n$$\\text{P}(X = 1) = 0.659241 \\times 0.416667 = 0.274684\\ldots$$",
+   "**Add, then subtract from 1**\n\n$$\\text{P}(X \\leqslant 1) = 0.659241 + 0.274684 = 0.933924$$\n\n$$\\text{P}(X \\geqslant 2) = 1 - 0.933924 = 0.066076\\ldots$$\n\nThis is the same as writing $1 - \\text{e}^{-5/12}\\left(1 + \\frac{5}{12}\\right)$ in one go, which is the form the mark scheme shows for the M1.\n\nQuick check: the mean is only about 0.42 errors, so two or more errors should be unlikely. An answer of about 0.07 makes sense.",
+   "**Final answer**\n\n$$\\text{P}(\\text{at least 2 errors}) = 0.0661 \\text{ (3 s.f.)}$$\n\nThe scheme accepts 0.0661 or 0.0662. Common slip: using a binomial instead gets only a special-case B1, so make sure you use the Poisson approximation."
+  ]
+ }
+}

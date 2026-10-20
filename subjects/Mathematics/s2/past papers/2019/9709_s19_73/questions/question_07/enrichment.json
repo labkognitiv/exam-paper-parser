@@ -1,0 +1,44 @@
+{
+  "9709_s19_73_q7_i": {
+    "hints": [
+      "The number of missed morning appointments is binomial with $n = 70$ and $p = 0.04$. With $n$ large and $p$ small, approximate it by a Poisson distribution whose mean is $np$.",
+      "'At least 3' means $1 - \\text{P}(X \\leqslant 2)$. Write the three terms $\\text{P}(X = r) = \\text{e}^{-\\lambda}\\dfrac{\\lambda^r}{r!}$ for $r = 0, 1, 2$ with your $\\lambda$.",
+      "Evaluate the three terms (or Poisson cdf at 2 on your calculator), add them, subtract from 1 and round to 3 significant figures."
+    ],
+    "walkthrough": [
+      "**Choose the approximating distribution (first M1 mark)**\n\nLet $X$ be the number of missed morning appointments. Exactly, $X \\sim \\text{B}(70, 0.04)$: 70 independent appointments, each missed with probability $0.04$.\n\nThe question asks for approximating distributions. When $n$ is large and $p$ is small, a binomial is well approximated by a Poisson with the same mean. Here $n = 70$ is large and $p = 0.04$ is small.\n\n$$\\lambda = np = 70 \\times 0.04 = 2.8$$\n\nSo we use $X \\sim \\text{Po}(2.8)$.",
+      "**Turn 'at least 3' into something we can calculate (second M1 mark)**\n\n'At least 3' means $3, 4, 5, \\ldots$ with no upper limit. It is easier to use the complement:\n\n$$\\text{P}(X \\geqslant 3) = 1 - \\text{P}(X \\leqslant 2) = 1 - \\left[\\text{P}(0) + \\text{P}(1) + \\text{P}(2)\\right]$$\n\nWith the Poisson formula $\\text{P}(X = r) = \\text{e}^{-2.8}\\frac{2.8^r}{r!}$:\n\n$$1 - \\text{e}^{-2.8}\\left(1 + 2.8 + \\frac{2.8^2}{2}\\right)$$",
+      "**Evaluate (A1 mark)**\n\nCalculate $\\text{e}^{-2.8} = 0.060810\\ldots$ and the three pieces:\n\n$$\\text{P}(0) = 0.060810$$\n\n$$\\text{P}(1) = 0.060810 \\times 2.8 = 0.170268$$\n\n$$\\text{P}(2) = 0.060810 \\times \\frac{2.8^2}{2} = 0.060810 \\times 3.92 = 0.238375$$\n\nAdd them: $0.060810 + 0.170268 + 0.238375 = 0.469453$. Then subtract from $1$:\n\n$$1 - 0.469453 = 0.530547$$\n\nTo 3 significant figures this is $0.531$. (Your calculator's Poisson cdf with $\\lambda = 2.8$ at $2$ gives the same $0.469$.)\n\nThe scheme gives a special-case mark for those who used the binomial directly (answer $0.534$), but the question asked for an approximation.",
+      "**Final answer**\n\nThe probability of at least 3 missed morning appointments is $0.531$ (3 significant figures)."
+    ]
+  },
+  "9709_s19_73_q7_ii": {
+    "hints": [
+      "Treat the morning (70 appointments, $p = 0.04$) and the afternoon (60 appointments, $p = 0.05$) each as a Poisson with mean $np$. The two are independent, so think about what happens to the means when you add independent Poisson variables.",
+      "For exactly 6 missed appointments use $\\text{P}(X = 6) = \\text{e}^{-\\lambda}\\dfrac{\\lambda^6}{6!}$ with the combined $\\lambda$.",
+      "Work out $\\text{e}^{-\\lambda}$, $\\lambda^6$ and $6!$ carefully (or use the Poisson pdf on your calculator), then round to 3 significant figures."
+    ],
+    "walkthrough": [
+      "**Two Poisson distributions (first M1 mark)**\n\nMorning: $70$ appointments, each missed with probability $0.04$, approximated by Poisson with mean $70 \\times 0.04 = 2.8$.\n\nAfternoon: $60$ appointments, each missed with probability $0.05$, approximated by Poisson with mean $60 \\times 0.05 = 3$.\n\nThese are independent. The **sum of independent Poisson variables is Poisson**, and the means add:\n\n$$\\lambda = 2.8 + 3 = 5.8$$\n\nSo the total number of missed appointments in a day is $Y \\sim \\text{Po}(5.8)$.",
+      "**Write down the probability (second M1 mark)**\n\nFor exactly 6, use $\\text{P}(Y = r) = \\text{e}^{-\\lambda}\\frac{\\lambda^r}{r!}$ with $r = 6$:\n\n$$\\text{P}(Y = 6) = \\text{e}^{-5.8} \\times \\frac{5.8^6}{6!}$$",
+      "**Evaluate (A1 mark)**\n\nWork out each piece:\n\n$$\\text{e}^{-5.8} = 0.0030276\\ldots$$\n\n$$5.8^6 = 38068.69\\ldots, \\qquad 6! = 6 \\times 5 \\times 4 \\times 3 \\times 2 \\times 1 = 720$$\n\n$$\\frac{5.8^6}{6!} = \\frac{38068.69}{720} = 52.873\\ldots$$\n\nMultiply:\n\n$$0.0030276 \\times 52.873 = 0.16008\\ldots$$\n\nTo 3 significant figures: $0.160$.",
+      "**Final answer**\n\nThe probability of exactly 6 missed appointments in a day is $0.160$ (3 significant figures, i.e. $0.16$)."
+    ]
+  },
+  "9709_s19_73_q7_iii": {
+    "hints": [
+      "Ten days of independent days: the means add again. When the Poisson mean is large, a Poisson variable is approximated by a normal with mean and variance both equal to $\\lambda$.",
+      "The normal is continuous but the count is discrete: 'more than 50' means $X \\geqslant 51$, so use a continuity correction at the half-way point. Standardise with $z = \\dfrac{\\text{boundary} - \\lambda}{\\sqrt{\\lambda}}$.",
+      "Your $z$ is negative. 'More than' means the area to the **right** of $z$, so sketch it and decide how to express that using $\\Phi$ of a positive value.",
+      "Look up $\\Phi$ of the positive value on your calculator (or the table) and round to 3 significant figures. Check your answer is sensible: the boundary is below the mean, so the probability should be more than one half."
+    ],
+    "walkthrough": [
+      "**Find the Poisson distribution for 10 days**\n\nFrom part (ii), one day has $\\text{Po}(5.8)$ missed appointments. Ten independent days add their means:\n\n$$\\lambda = 10 \\times 5.8 = 58$$\n\nSo the total $W \\sim \\text{Po}(58)$ over 10 days.",
+      "**Why a normal approximation (first M1 mark)**\n\n$\\lambda = 58$ is large (more than $15$), and a Poisson distribution with a large mean looks like a bell curve. So we approximate with a normal having the same mean and the same variance. For a Poisson, mean and variance are equal:\n\n$$W \\approx V \\sim \\text{N}(58, 58)$$\n\nQuick check: Poisson mean and variance are both $\\lambda$, so the variance is $58$ too.",
+      "**Continuity correction (second M1 mark)**\n\n$W$ takes whole numbers but $V$ is continuous. 'More than 50' means $W \\geqslant 51$. On the continuous scale the whole number $51$ occupies $50.5$ to $51.5$, so the boundary is $50.5$:\n\n$$\\text{P}(W > 50) = \\text{P}(W \\geqslant 51) \\approx \\text{P}(V > 50.5)$$\n\nStandardise with $\\mu = 58$ and $\\sigma = \\sqrt{58} = 7.6158\\ldots$:\n\n$$z = \\frac{50.5 - 58}{\\sqrt{58}} = \\frac{-7.5}{7.6158\\ldots} = -0.985$$",
+      "**Use $\\Phi$ correctly (third M1 mark)**\n\nWe want the area to the right of $-0.985$. By symmetry this equals the area to the left of $+0.985$:\n\n$$\\text{P}(Z > -0.985) = \\Phi(0.985)$$\n\nCommon slip: forgetting the continuity correction or using the wrong tail. Sketching the curve helps.",
+      "**Evaluate (A1 mark)**\n\nUse the normal cdf on your calculator or the table:\n\n$$\\Phi(0.985) = 0.8377\\ldots$$\n\nTo 3 significant figures: $0.838$.\n\nQuick check: $50.5$ is below the mean of $58$, so the probability of being above it should be more than $0.5$. It is.\n\n(The mark scheme also accepts $0.843$ if you use the binomial variances for the normal, $\\text{N}(58, 55.38)$.)",
+      "**Final answer**\n\nThe probability of more than 50 missed appointments in a 10-day period is $0.838$ (3 significant figures)."
+    ]
+  }
+}

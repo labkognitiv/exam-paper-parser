@@ -1,0 +1,50 @@
+{
+ "9709_w23_62_q7_a": {
+  "hints": [
+   "$2 \\leqslant X < 4$ for a whole-number variable means $X = 2$ or $X = 3$. For $\\text{Po}(2.4)$ each probability is $\\text{P}(X = r) = \\text{e}^{-2.4}\\dfrac{2.4^r}{r!}$. Write both.",
+   "Add the two probabilities and give the answer to 3 significant figures."
+  ],
+  "walkthrough": [
+   "**Which values of $X$**\n\nA Poisson variable takes whole numbers. $2 \\leqslant X < 4$ means $X$ is at least $2$ (so $2$ is included) and less than $4$ ($4$ is **not** included). So $X = 2$ or $X = 3$.\n\n$$\\text{P}(2 \\leqslant X < 4) = \\text{P}(X = 2) + \\text{P}(X = 3)$$",
+   "**Poisson formula for each (M1)**\n\nFor $\\text{Po}(\\lambda)$: $\\text{P}(X = r) = \\text{e}^{-\\lambda}\\dfrac{\\lambda^r}{r!}$ with $\\lambda = 2.4$.\n\n$$\\text{P}(X = 2) = \\text{e}^{-2.4} \\times \\frac{2.4^2}{2!} = \\text{e}^{-2.4} \\times \\frac{5.76}{2} = \\text{e}^{-2.4} \\times 2.88$$\n\n$$\\text{P}(X = 3) = \\text{e}^{-2.4} \\times \\frac{2.4^3}{3!} = \\text{e}^{-2.4} \\times \\frac{13.824}{6} = \\text{e}^{-2.4} \\times 2.304$$\n\n(Remember $2! = 2 \\times 1 = 2$ and $3! = 3 \\times 2 \\times 1 = 6$.)",
+   "**Evaluate and add (A1)**\n\nCalculator: $\\text{e}^{-2.4} = 0.090717\\ldots$\n\n$$\\text{P}(X = 2) = 0.090717\\ldots \\times 2.88 = 0.26127\\ldots$$\n\n$$\\text{P}(X = 3) = 0.090717\\ldots \\times 2.304 = 0.20901\\ldots$$\n\n$$\\text{P}(2 \\leqslant X < 4) = 0.26127\\ldots + 0.20901\\ldots = 0.47028\\ldots$$",
+   "**Final answer**\n\n$$\\text{P}(2 \\leqslant X < 4) = 0.470 \\text{ (3 s.f.)}$$"
+  ]
+ },
+ "9709_w23_62_q7_b": {
+  "hints": [
+   "First find the probability that **one** value is greater than $1$. 'More than $1$' is awkward to add up, so use the complement: $\\text{P}(X > 1) = 1 - \\text{P}(X \\leqslant 1) = 1 - \\text{P}(X = 0) - \\text{P}(X = 1)$ with $\\lambda = 2.4$.",
+   "The two values are independent, so the probability that **both** are greater than $1$ is the product of the two probabilities. The two are equal, so square your answer to the first step.",
+   "Evaluate with the calculator ($\\text{e}^{-2.4}$ and so on), square, and give 3 significant figures."
+  ],
+  "walkthrough": [
+   "**One value greater than 1 (first M1)**\n\n'Greater than $1$' means $2, 3, 4, \\ldots$ which never ends. It is easier to use the complement: everything except $0$ and $1$.\n\n$$\\text{P}(X > 1) = 1 - \\text{P}(X \\leqslant 1) = 1 - \\text{P}(X = 0) - \\text{P}(X = 1)$$\n\nWith $\\lambda = 2.4$:\n\n$$\\text{P}(X = 0) = \\text{e}^{-2.4} \\frac{2.4^0}{0!} = \\text{e}^{-2.4} \\qquad \\text{P}(X = 1) = \\text{e}^{-2.4} \\times 2.4$$\n\n$$\\text{P}(X > 1) = 1 - \\text{e}^{-2.4}(1 + 2.4) = 1 - \\text{e}^{-2.4} \\times 3.4$$\n\nQuick check: $0!$ and $2.4^0$ are both $1$.",
+   "**Evaluate**\n\n$\\text{e}^{-2.4} = 0.090717\\ldots$, so $\\text{e}^{-2.4} \\times 3.4 = 0.30844\\ldots$\n\n$$\\text{P}(X > 1) = 1 - 0.30844\\ldots = 0.69155\\ldots$$",
+   "**Both values (second M1)**\n\nThe two chosen values are independent, so we multiply the probabilities of each event:\n\n$$\\text{P}(\\text{both} > 1) = 0.69155\\ldots \\times 0.69155\\ldots = 0.69155\\ldots^2$$\n\nQuick check: the slip is to use $\\text{Po}(4.8)$, doubling the mean. That would be the sum of the two values, not 'both'.",
+   "**Square (A1)**\n\n$$0.69155\\ldots^2 = 0.47825\\ldots$$",
+   "**Final answer**\n\n$$\\text{P}(\\text{both values} > 1) = 0.478 \\text{ (3 s.f.)}$$"
+  ]
+ },
+ "9709_w23_62_q7_c_i": {
+  "hints": [
+   "Write $\\text{P}(X = r)$ and $\\text{P}(X = r + 1)$ with the Poisson formula for $\\lambda = 2.4$, and put them in the inequality $\\text{P}(X = r) < \\text{P}(X = r + 1)$.",
+   "Both sides share $\\text{e}^{-2.4}$, a power of $2.4$ and a factorial. Cancel the common factors: use $2.4^{r+1} = 2.4 \\times 2.4^r$ and $(r+1)! = (r+1) \\times r!$ to reduce the inequality to one in $r$ only.",
+   "Remember $r$ is a whole number that is not negative. List the values of $r$ that satisfy your inequality."
+  ],
+  "walkthrough": [
+   "**Write both probabilities (M1)**\n\nWith $\\text{P}(X = r) = \\text{e}^{-2.4}\\dfrac{2.4^r}{r!}$, the condition is\n\n$$\\text{e}^{-2.4} \\times \\frac{2.4^r}{r!} < \\text{e}^{-2.4} \\times \\frac{2.4^{r+1}}{(r+1)!}$$",
+   "**Cancel common factors (first A1)**\n\nWrite $2.4^{r+1} = 2.4 \\times 2.4^r$ (adding powers) and $(r+1)! = (r+1) \\times r!$ (since, for example, $5! = 5 \\times 4!$).\n\n$$\\text{e}^{-2.4} \\times \\frac{2.4^r}{r!} < \\text{e}^{-2.4} \\times \\frac{2.4 \\times 2.4^r}{(r+1) \\times r!}$$\n\nThe factor $\\text{e}^{-2.4} \\dfrac{2.4^r}{r!}$ is positive and appears on both sides, so we can divide both sides by it without flipping the inequality:\n\n$$1 < \\frac{2.4}{r+1}$$\n\nMultiply both sides by $r + 1$ (positive):\n\n$$r + 1 < 2.4 \\quad\\Rightarrow\\quad r < 1.4$$",
+   "**List the values (second A1)**\n\n$r$ is a whole number and cannot be negative (we cannot have $P(X = -1)$), so $r = 0$ or $r = 1$.\n\nCheck with the probabilities: $\\text{P}(0) = 0.0907$, $\\text{P}(1) = 0.218$, $\\text{P}(2) = 0.261$, $\\text{P}(3) = 0.209$. $\\text{P}(0) < \\text{P}(1)$ yes, $\\text{P}(1) < \\text{P}(2)$ yes, $\\text{P}(2) < \\text{P}(3)$ no. This agrees.",
+   "**Final answer**\n\n$$r = 0, 1$$"
+  ]
+ },
+ "9709_w23_62_q7_c_ii": {
+  "hints": [
+   "For the values of $r$ in your set the probabilities keep rising from one value to the next. Think about where the rising stops and what that means for the largest probability."
+  ],
+  "walkthrough": [
+   "**Use part (i)**\n\nPart **(i)** says $\\text{P}(X = r) < \\text{P}(X = r+1)$ exactly when $r = 0$ or $r = 1$. So $\\text{P}(0) < \\text{P}(1)$ and $\\text{P}(1) < \\text{P}(2)$: the probabilities go up to $r = 2$.\n\nFor $r = 2$ (and all larger $r$) the inequality is not true, so $\\text{P}(2)$ is not smaller than $\\text{P}(3)$, and the probabilities do not rise any more.",
+   "**Final answer**\n\n$\\text{P}(X = r)$ is greatest at $r = 2$."
+  ]
+ }
+}

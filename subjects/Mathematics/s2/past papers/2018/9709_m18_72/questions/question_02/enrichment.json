@@ -1,0 +1,20 @@
+{
+ "9709_m18_72_q2": {
+  "hints": [
+   "The mean $4.1$ is for 10 minutes, but you need 4 hours. Work out how many 10-minute periods there are in 4 hours, and multiply the mean by that number.",
+   "Poisson variables with a large mean are approximately normal, with the variance equal to the mean. Write $X \\sim \\text{N}(\\lambda, \\lambda)$ using the $\\lambda$ you found.",
+   "$X$ is discrete and the normal is continuous, so use a continuity correction. 'More than 90' means $X \\geqslant 91$, so the boundary lies halfway between 90 and 91. Standardise: $z = \\dfrac{\\text{boundary} - \\lambda}{\\sqrt{\\lambda}}$. Divide by the standard deviation, not the variance.",
+   "You want the area above this boundary. Decide whether your $z$ is negative or positive, then pick $\\Phi(z)$ or $1 - \\Phi(z)$ so the area matches the 'more than' direction.",
+   "Look up the probability for your $z$ and write it to 3 significant figures."
+  ],
+  "walkthrough": [
+   "**What the question is asking**\n\nThe number of calls in 10 minutes is $\\text{Po}(4.1)$. We want the probability of **more than 90** calls in 4 hours. The question says 'use an approximating distribution', which means we should switch to a normal distribution, because a Poisson with a large mean is hard to add up by hand.",
+   "**Scale the mean to 4 hours (earns the first B1)**\n\nThe Poisson mean is proportional to the length of time. First count the number of 10-minute periods in 4 hours.\n\n$$4 \\text{ hours} = 4 \\times 60 = 240 \\text{ minutes}, \\qquad \\frac{240}{10} = 24 \\text{ periods}$$\n\n$$\\lambda = 4.1 \\times 24 = 98.4$$\n\nSo the number of calls in 4 hours, call it $Y$, is $\\text{Po}(98.4)$.",
+   "**Why we can use a normal approximation (earns the second B1)**\n\nFor a Poisson distribution with a large mean (here $98.4$, well above $15$), the shape is close to a bell curve. A Poisson has **mean = variance**, so the approximating normal has the same mean and the same variance:\n\n$$Y \\sim \\text{N}(98.4,\\ 98.4)$$\n\nCareful: the second number in $\\text{N}(\\mu, \\sigma^2)$ is the **variance**, and here it is $98.4$. The standard deviation is $\\sqrt{98.4} = 9.9197\\ldots$",
+   "**Continuity correction**\n\n$Y$ counts whole calls ($91, 92, \\ldots$), but the normal curve is continuous. 'More than 90' means $Y \\geqslant 91$, so on the continuous scale we start halfway between 90 and 91, at $90.5$.\n\n$$\\text{P}(Y > 90) = \\text{P}(Y \\geqslant 91) \\approx \\text{P}(X_N > 90.5)$$\n\nwhere $X_N$ is the normal variable.",
+   "**Standardise (earns the first M1)**\n\n$$z = \\frac{90.5 - 98.4}{\\sqrt{98.4}} = \\frac{-7.9}{9.9197} = -0.7964\\ldots \\approx -0.796$$\n\nThe scheme allows this mark even with the wrong or no continuity correction, but you must divide by $\\sqrt{98.4}$ and not by $98.4$ itself.",
+   "**Find the area (earns the second M1)**\n\nWe want the area **above** $z = -0.796$. By symmetry of the normal curve, the area above $-0.796$ equals the area below $+0.796$, so $\\text{P}(Z > -0.796) = \\Phi(0.796)$.\n\n$\\Phi(0.796)$: use the normal table or your calculator's normal cdf $\\to 0.7870$.\n\nQuick check: $90.5$ is below the mean $98.4$, so the probability of being above it should be more than $0.5$. It is.",
+   "**Final answer**\n\n$$\\text{P}(\\text{more than 90 calls in 4 hours}) \\approx 0.787$$"
+  ]
+ }
+}

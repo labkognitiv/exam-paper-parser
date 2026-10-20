@@ -1,0 +1,32 @@
+{
+ "9709_m18_72_q3_i": {
+  "hints": [
+   "$H_A$ is the sum of 5 heights, each with mean $1.2$. The mean of a sum is the sum of the means, so $\\text{E}(H_A) = 5 \\times 1.2$.",
+   "The 5 plants are chosen at random, so they are independent and their variances add. The variance of one height is the square of its standard deviation: $0.03^2$. Add 5 of these.",
+   "Work out $5 \\times 0.03^2$, taking care to square $0.03$ first, and then multiply by 5."
+  ],
+  "walkthrough": [
+   "**Say what $H_A$ is**\n\n$H_A = A_1 + A_2 + A_3 + A_4 + A_5$, where each $A_i$ is the height of one plant. Each $A_i$ has mean $1.2$ and standard deviation $0.03$.",
+   "**The mean (earns the B1)**\n\nThe mean of a sum is the sum of the means. We are adding 5 variables with the same mean:\n\n$$\\text{E}(H_A) = 5 \\times 1.2 = 6$$",
+   "**The variance: set it up (earns the M1)**\n\nThe plants are picked at random, so the heights are independent. For independent variables, variances add. This is why the standard deviation is not used directly: we need the **variance**, which is the square of the standard deviation.\n\n$$\\text{Var}(A_i) = 0.03^2 = 0.0009$$\n\n$$\\text{Var}(H_A) = 5 \\times 0.03^2$$",
+   "**The variance: calculate (earns the A1)**\n\n$$5 \\times 0.0009 = 0.0045$$\n\nAs a fraction, $0.0045 = \\dfrac{45}{10000} = \\dfrac{9}{2000}$. Quick check: a common slip is to write $(5 \\times 0.03)^2 = 0.0225$. That squares the 5 as well, and it is wrong, because the 5 counts how many variances we add, not a multiplier of the variable.",
+   "**Final answer**\n\n$$\\text{E}(H_A) = 6, \\qquad \\text{Var}(H_A) = 0.0045 \\ \\left(\\text{or } \\tfrac{9}{2000}\\right)$$"
+  ]
+ },
+ "9709_m18_72_q3_ii": {
+  "hints": [
+   "For $H_A - 2H_B$, take the mean of each separately: $\\text{E}(H_A) - 2\\,\\text{E}(H_B)$, where $\\text{E}(H_B)$ is found like part (i) from the mean $0.6$ of 5 plants.",
+   "For the variance of $H_A - 2H_B$ you need $\\text{Var}(H_B)$ first. It is found like part (i), from $0.02^2$ and 5 plants.",
+   "A constant multiplier is squared in a variance: $\\text{Var}(2H_B) = 2^2 \\,\\text{Var}(H_B)$. And a minus sign becomes a plus when the variables are independent, so $\\text{Var}(H_A - 2H_B) = \\text{Var}(H_A) + 2^2\\,\\text{Var}(H_B)$.",
+   "Substitute $\\text{Var}(H_A)$ from part (i) and your $\\text{Var}(H_B)$, then add. Give the answer to 3 significant figures."
+  ],
+  "walkthrough": [
+   "**Find the mean and variance of $H_B$**\n\n$H_B$ is the sum of the heights of 5 plants of type $B$, each with mean $0.6$ and standard deviation $0.02$. It works exactly like part (i).\n\n$$\\text{E}(H_B) = 5 \\times 0.6 = 3$$\n\n$$\\text{Var}(H_B) = 5 \\times 0.02^2 = 5 \\times 0.0004 = 0.002$$",
+   "**The mean of $H_A - 2H_B$ (earns the B1)**\n\nFor any constants, $\\text{E}(aX - bY) = a\\,\\text{E}(X) - b\\,\\text{E}(Y)$. Use $\\text{E}(H_A) = 6$ from part (i):\n\n$$\\text{E}(H_A - 2H_B) = 6 - 2 \\times 3 = 6 - 6 = 0$$",
+   "**Why the variance is different**\n\nVariances behave differently from means. For independent variables:\n\n$$\\text{Var}(aX - bY) = a^2\\,\\text{Var}(X) + b^2\\,\\text{Var}(Y)$$\n\nTwo things to notice. The multiplier is **squared** ($2^2 = 4$), and the **minus becomes a plus**. Subtracting a variable still adds uncertainty, so a variance can never go down by subtracting. The scheme's guidance lists the slips: subtracting the variances, using $2$ instead of $2^2$, or using $5^2$.",
+   "**Set it up (earns the first mark of the M2)**\n\nThe two groups of plants are independent. Use $\\text{Var}(H_A) = 0.0045$ from part (i).\n\n$$\\text{Var}(H_A - 2H_B) = \\text{Var}(H_A) + 2^2\\,\\text{Var}(H_B) = 0.0045 + 4 \\times 5 \\times 0.02^2$$\n\nThis is the same as $0.0045 + 4 \\times 0.002$.",
+   "**Calculate (earns the second mark of the M2 and the A1)**\n\n$$4 \\times 0.002 = 0.008$$\n\n$$0.0045 + 0.008 = 0.0125$$\n\nAs a fraction, $0.0125 = \\dfrac{1}{80}$.",
+   "**Final answer**\n\n$$\\text{E}(H_A - 2H_B) = 0, \\qquad \\text{Var}(H_A - 2H_B) = 0.0125 \\ \\left(\\text{or } \\tfrac{1}{80}\\right)$$"
+  ]
+ }
+}

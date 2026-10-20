@@ -1,0 +1,27 @@
+{
+ "9709_m24_62_q3_a": {
+  "hints": [
+   "A rare event (1 in $10\\,000$) among a large number of tickets ($6000$): the binomial can be approximated by a Poisson distribution. Its mean is $np = 6000 \\times \\dfrac{1}{10\\,000}$.",
+   "'At least 3' is awkward to add up directly, so use the complement: $\\text{P}(X \\geqslant 3) = 1 - \\text{P}(X \\leqslant 2) = 1 - \\left[\\text{P}(0) + \\text{P}(1) + \\text{P}(2)\\right]$, with $\\text{P}(r) = \\text{e}^{-\\lambda}\\dfrac{\\lambda^r}{r!}$.",
+   "Substitute your mean into the three terms $r = 0, 1, 2$, add them, subtract from 1, and give 3 s.f."
+  ],
+  "walkthrough": [
+   "**Choose the distribution**\n\nEach ticket either wins or it does not, with a tiny winning chance. The exact distribution is binomial with $n = 6000$ and $p = \\dfrac{1}{10\\,000}$, but that is heavy to calculate. When $n$ is large and $p$ is small, a **Poisson** distribution is a good approximation, with the same mean.",
+   "**Find the Poisson mean (earns the B1)**\n\nFor the binomial, the mean is $np$:\n\n$$\\lambda = 6000 \\times \\frac{1}{10\\,000} = 0.6$$\n\nSo $X \\sim \\text{Po}(0.6)$, where $X$ is the number of prize-winning tickets.",
+   "**Turn 'at least 3' into something easier**\n\n'At least 3' means $3, 4, 5, \\ldots$ with no upper limit. Instead we find what is left over:\n\n$$\\text{P}(X \\geqslant 3) = 1 - \\text{P}(X \\leqslant 2) = 1 - \\left[\\text{P}(X=0) + \\text{P}(X=1) + \\text{P}(X=2)\\right]$$\n\nWritten with the Poisson formula $\\text{P}(X = r) = \\text{e}^{-\\lambda}\\dfrac{\\lambda^r}{r!}$, this is the expression that earns the M1:\n\n$$1 - \\text{e}^{-0.6}\\left(1 + 0.6 + \\frac{0.6^2}{2}\\right)$$",
+   "**Work out each term**\n\nFirst $\\text{e}^{-0.6}$ (the $e^x$ button, then $-0.6$): $$\\text{e}^{-0.6} = 0.548812$$\n\n$\\text{P}(X = 0) = 0.548812 \\times 1 = 0.548812$\n\n$\\text{P}(X = 1) = 0.548812 \\times 0.6 = 0.329287$\n\n$\\text{P}(X = 2) = 0.548812 \\times \\dfrac{0.6^2}{2} = 0.548812 \\times 0.18 = 0.098786$",
+   "**Add and subtract from 1 (earns the A1)**\n\n$$0.548812 + 0.329287 + 0.098786 = 0.976885$$\n\n$$1 - 0.976885 = 0.023115$$\n\nQuick check: a calculator's Poisson cdf with mean $0.6$ and upper limit $2$ gives $0.976885$, the same.",
+   "**Final answer**\n\n$\\text{P}(\\text{at least 3 prize-winning tickets}) = 0.0231$ (3 s.f.)."
+  ]
+ },
+ "9709_m24_62_q3_b": {
+  "hints": [
+   "The Poisson approximation to a binomial needs conditions on both $n$ and on $np$ (or $p$). Check them using $n = 6000$ and your value of $np$, and quote the numbers."
+  ],
+  "walkthrough": [
+   "**Why we must check**\n\nA Poisson distribution is only a good stand-in for a binomial $\\text{B}(n, p)$ when $n$ is large and $p$ is small. In the syllabus this is made exact: $n > 50$ and $np < 5$ (or $p < 0.1$).",
+   "**Check with this question's numbers**\n\n$n = 6000$, and $6000 > 50$, so $n$ is large enough.\n\n$np = 6000 \\times \\dfrac{1}{10\\,000} = 0.6$, and $0.6 < 5$, so the mean is small enough. (Also $p = \\dfrac{1}{10\\,000}$ is much smaller than $0.1$.)\n\nSaying only '$n$ is large and $p$ is small' is not enough: the values must be stated.",
+   "**Final answer**\n\nThe approximation is justified because $n = 6000 > 50$ and $np = 0.6 < 5$ (or $p = \\dfrac{1}{10000} < 0.1$)."
+  ]
+ }
+}

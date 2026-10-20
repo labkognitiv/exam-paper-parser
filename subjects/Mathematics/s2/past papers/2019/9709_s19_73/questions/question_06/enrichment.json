@@ -1,0 +1,44 @@
+{
+  "9709_s19_73_q6_i": {
+    "hints": [
+      "For a probability density function the total area under the curve must equal 1 (and $\\text{f}(x)$ must never be negative). The function is non-zero only for $0 \\leqslant x \\leqslant a$, so integrate $\\dfrac{3x^2}{a^3}$ from $0$ to $a$.",
+      "$a$ is a constant, so take $\\dfrac{3}{a^3}$ outside the integral. Integrate $x^2$ with the power rule, then substitute the limits $a$ and $0$.",
+      "Simplify the result, noting what happens to the $a^3$. Compare with the value required for a pdf and write a short conclusion, mentioning why $\\text{f}(x) \\geqslant 0$ for positive $a$."
+    ],
+    "walkthrough": [
+      "**What must be true for a pdf**\n\nA function f is a probability density function if two things hold:\n\n1. $\\text{f}(x) \\geqslant 0$ for every $x$.\n\n2. The total area under the curve is $1$, i.e. $\\displaystyle\\int_{-\\infty}^{\\infty} \\text{f}(x)\\,dx = 1$.\n\nFor $a > 0$, $a^3 > 0$ and $x^2 \\geqslant 0$, so $\\frac{3x^2}{a^3} \\geqslant 0$. The first condition holds, and f is $0$ elsewhere, so it is never negative.",
+      "**Set up the integral (M1 mark)**\n\nf is zero outside $0 \\leqslant x \\leqslant a$, so those parts add no area. We only integrate between $0$ and $a$. Since $a$ is a constant, $\\frac{3}{a^3}$ can be taken outside:\n\n$$\\int_0^a \\frac{3x^2}{a^3}\\,dx = \\frac{3}{a^3}\\int_0^a x^2\\,dx$$",
+      "**Integrate and substitute the limits (first A1 mark)**\n\nPower rule: $\\int x^2\\,dx = \\frac{x^3}{3}$. So\n\n$$\\frac{3}{a^3}\\left[\\frac{x^3}{3}\\right]_0^a = \\frac{3}{a^3}\\left(\\frac{a^3}{3} - \\frac{0^3}{3}\\right) = \\frac{3a^3}{3a^3}$$",
+      "**Simplify and conclude (second A1 mark)**\n\nThe top and bottom are identical, so they cancel:\n\n$$\\frac{3a^3}{3a^3} = 1$$\n\nThe answer is $1$ whatever positive value $a$ takes, because $a^3$ cancels. We must say this to earn the final mark.",
+      "**Final answer**\n\n$\\displaystyle\\int_0^a \\frac{3x^2}{a^3}\\,dx = 1$ for every $a > 0$, and $\\text{f}(x) \\geqslant 0$, so f is a probability density function for all positive values of $a$."
+    ]
+  },
+  "9709_s19_73_q6_ii": {
+    "hints": [
+      "The median is the value with half of the probability below it. Set the integral of $\\text{f}(x)$ from $0$ to $2$ equal to one half.",
+      "Integrate $x^2$ to get $\\dfrac{x^3}{3}$, substitute the limits $2$ and $0$, and multiply by $\\dfrac{3}{a^3}$.",
+      "Rearrange the equation to find $a^3$, take the cube root, and show that it rounds to the printed value to 3 significant figures."
+    ],
+    "walkthrough": [
+      "**What the median means (M1 mark)**\n\nThe median $m$ is the value that splits the probability in half: $\\text{P}(X \\leqslant m) = \\frac{1}{2}$. Here $m = 2$, so the area under f from $0$ to $2$ is one half:\n\n$$\\int_0^2 \\frac{3x^2}{a^3}\\,dx = 0.5$$\n\nTake the constant outside:\n\n$$\\frac{3}{a^3}\\int_0^2 x^2\\,dx = 0.5$$",
+      "**Integrate (first A1 mark)**\n\n$$\\frac{3}{a^3}\\left[\\frac{x^3}{3}\\right]_0^2 = \\frac{3}{a^3}\\left(\\frac{2^3}{3} - 0\\right) = \\frac{3}{a^3} \\times \\frac{8}{3}$$\n\nSo the equation becomes\n\n$$\\frac{3}{a^3} \\times \\frac{8}{3} = 0.5$$",
+      "**Solve for $a$ (second A1 mark)**\n\nThe $3$ on the top and the $3$ on the bottom cancel:\n\n$$\\frac{8}{a^3} = 0.5$$\n\nMultiply both sides by $a^3$, then divide by $0.5$:\n\n$$8 = 0.5\\,a^3 \\quad\\Longrightarrow\\quad a^3 = \\frac{8}{0.5} = 16$$\n\nTake the cube root (use the $\\sqrt[3]{\\;}$ key or raise to the power $\\frac{1}{3}$):\n\n$$a = \\sqrt[3]{16} = 2.5198\\ldots$$\n\nRounded to 3 significant figures this is $2.52$. We have reached the printed answer by working, not by assuming it.\n\nThe mark scheme also allows checking the other way: put $a = 2.52$ into the integral and show it gives about $0.5$ (it gives $0.499\\ldots$).",
+      "**Final answer**\n\n$a^3 = 16$, so $a = \\sqrt[3]{16} = 2.5198\\ldots = 2.52$ to 3 significant figures, as required."
+    ]
+  },
+  "9709_s19_73_q6_iii": {
+    "hints": [
+      "The mean of a continuous variable is $\\text{E}(X) = \\int x\\,\\text{f}(x)\\,dx$ over the range where f is non-zero. Use the value of $a^3$ you found in part (ii) to replace $\\dfrac{3}{a^3}$ by a number.",
+      "Multiply out $x \\times \\dfrac{3x^2}{a^3}$, integrate the power of $x$ you get, and substitute the limits $0$ and $a$ (your value from (ii)).",
+      "Work out the fourth power of $a$ (keep the full calculator value), divide by 4, multiply by the constant in front and round to 3 significant figures."
+    ],
+    "walkthrough": [
+      "**The formula (M1 mark)**\n\nFor a continuous random variable with pdf f, the expected value (mean) is\n\n$$\\text{E}(X) = \\int x\\,\\text{f}(x)\\,dx$$\n\nintegrated over the range where f is not zero, here $0$ to $a$.",
+      "**Use part (ii) to simplify**\n\nFrom part (ii), $a^3 = 16$, so $\\frac{3}{a^3} = \\frac{3}{16}$. Then $\\text{f}(x) = \\frac{3x^2}{16}$ for $0 \\leqslant x \\leqslant a$, where $a = 2.52$ (more precisely $2.5198\\ldots$).\n\nMultiply by $x$ inside the integral:\n\n$$x \\times \\frac{3x^2}{16} = \\frac{3x^3}{16}$$",
+      "**Set up and integrate**\n\n$$\\text{E}(X) = \\frac{3}{16}\\int_0^{2.52} x^3\\,dx = \\frac{3}{16}\\left[\\frac{x^4}{4}\\right]_0^{2.52}$$\n\nPower rule: $\\int x^3\\,dx = \\frac{x^4}{4}$.",
+      "**Substitute the limits (first A1 mark)**\n\nThe lower limit gives $\\frac{0^4}{4} = 0$, so only the upper limit matters. Use $a$ at full calculator accuracy (stored from part (ii)): $a^4 = 16a = 40.317\\ldots$\n\n$$\\text{E}(X) = \\frac{3}{16} \\times \\frac{40.317}{4}$$\n\nDivide: $\\frac{40.317}{4} = 10.079\\ldots$\n\n(If you use the rounded $2.52$ instead, $2.52^4 = 40.328$ and you reach the same 3 significant figure answer.)",
+      "**Evaluate (second A1 mark)**\n\n$$\\frac{3}{16} \\times 10.079 = 0.1875 \\times 10.079 = 1.8899\\ldots$$\n\nQuick check: the mean must lie between $0$ and $a = 2.52$, and since f is largest near $x = a$ the mean should be nearer $a$ than $0$. $1.89$ passes.",
+      "**Final answer**\n\n$\\text{E}(X) = 1.89$ (3 significant figures)."
+    ]
+  }
+}

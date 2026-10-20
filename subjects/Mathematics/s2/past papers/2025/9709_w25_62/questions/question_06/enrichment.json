@@ -1,0 +1,48 @@
+{
+  "9709_w25_62_q6_a": {
+    "hints": [
+      "The standard deviation 26 comes from the past, before the change in management. What do you need to assume about it for the new weeks if you want to use it in your test?",
+      "The test is about the population mean $\\mu$. The null hypothesis says nothing has changed (use the old mean from the question); the alternative says the mean has \"decreased\", so it is one-tailed.",
+      "Standardise the sample mean: $z = \\dfrac{\\bar{x} - \\mu}{\\sigma/\\sqrt{n}}$ with the sample mean from the question, the old mean, $\\sigma = 26$ and $n = 35$. Note the $\\sqrt{35}$: it is a mean of 35 weeks.",
+      "Work out $z$ on the calculator. The sample mean is below the hypothesised mean, so keep the sign. Quote it to at least 3 significant figures.",
+      "For a one-tailed 2% test at the lower end, the critical value is the $z$-value that has 0.02 of the area below it (inverse normal). Compare your $z$ with it, or find $\\Phi(z)$ and compare with 0.02.",
+      "Decide whether to reject $\\text{H}_0$, then write the conclusion in context about the mean weekly profit, using \"evidence\" rather than a definite statement."
+    ],
+    "walkthrough": [
+      "**State the assumption (this earns the first B1)**\n\nThe distribution of weekly profit is normal. The standard deviation, 26, was measured in the past. To use it for the new weeks we must **assume it has not changed** after the change in management (this is what the question means by \"a necessary assumption\").",
+      "**State the hypotheses (this earns the second B1)**\n\nLet $\\mu$ be the population mean weekly profit now (in dollars). The null hypothesis $\\text{H}_0$ is \"no change\" (the old mean); the alternative $\\text{H}_1$ reflects the claim we are testing, that the mean has **decreased**. It is a one-tailed test with the lower tail.\n\n$$\\text{H}_0: \\mu = 736 \\qquad \\text{H}_1: \\mu < 736$$",
+      "**Say what we know about the sample mean if $\\text{H}_0$ is true**\n\nThe weekly profit is normal, so the mean of 35 weeks, $\\bar{X}$, is normal too, with the same mean and with standard deviation $\\dfrac{\\sigma}{\\sqrt{n}}$ (called the standard error).\n\n$$\\bar{X} \\sim \\text{N}\\left(736, \\frac{26^2}{35}\\right)$$\n\nStandard error: $\\sqrt{35} = 5.9161$, so $\\dfrac{26}{\\sqrt{35}} = \\dfrac{26}{5.9161} = 4.3948$.",
+      "**Standardise (this earns the first M1)**\n\nStandardising means subtract the mean and divide by the standard deviation. The sample mean found was $\\bar{x} = 725$.\n\n$$z = \\frac{725 - 736}{\\dfrac{26}{\\sqrt{35}}} = \\frac{-11}{4.3948}$$",
+      "**Calculate $z$ (this earns the first A1)**\n\n$$z = \\frac{-11}{4.3948} = -2.503$$\n\nThe negative sign tells us that 725 is below the old mean. (The scheme accepts $\\pm 2.503$ and a 3 s.f. value.)",
+      "**Compare (this earns the second M1)**\n\nThe test is at the 2% significance level and one-tailed (lower), so the critical value is the $z$ with 0.02 of the area below it. On the calculator use inverse normal with area 0.02: it gives $-2.054$.\n\n$$-2.503 < -2.054$$\n\nSo our $z$ is further into the lower tail than the critical value, i.e. in the critical region.\n\nAnother way: $\\text{P}(Z < -2.503) = \\Phi(-2.503) = 0.0062$, and $0.0062 < 0.02$, giving the same decision.\n\nSlip to avoid: using 2.326 (that is the value for 1% in one tail, i.e. a 2% two-tailed test).",
+      "**Conclusion in context (this earns the final A1)**\n\nThe result falls in the critical region, so we reject $\\text{H}_0$. Write it in the language of the problem and not as a definite fact:\n\nThere is sufficient evidence, at the 2% level, that the mean weekly profit has decreased.",
+      "**Final answer**\n\n$z = -2.503$, which is less than $-2.054$ (or $0.0062 < 0.02$): reject $\\text{H}_0$. There is sufficient evidence that the mean weekly profit has decreased."
+    ]
+  },
+  "9709_w25_62_q6_b": {
+    "hints": [
+      "A Type I error means rejecting $\\text{H}_0$ when it is actually true. How does the probability of doing that relate to the significance level of the test?"
+    ],
+    "walkthrough": [
+      "**What a Type I error is**\n\nA **Type I error** happens when we reject $\\text{H}_0$ even though $\\text{H}_0$ is true. We set the significance level so that this will happen by chance with a known probability: the significance level **is** the probability of a Type I error.",
+      "**Final answer**\n\nThe test is at the 2% significance level, so $\\text{P}(\\text{Type I error}) = 0.02$."
+    ]
+  },
+  "9709_w25_62_q6_c": {
+    "hints": [
+      "A Type II error means not rejecting $\\text{H}_0$ when it is false (here the true mean is 718). First find the boundary of the rejection region in terms of the sample mean, assuming the mean is the old one. Use the $z$-value with 0.02 below it.",
+      "Set $\\dfrac{a - 736}{26/\\sqrt{35}}$ equal to that negative critical $z$-value and solve for $a$, the critical sample mean.",
+      "Now the true mean is 718. Standardise the same boundary $a$ with the true mean in place of 736 (the standard deviation of the sample mean stays $26/\\sqrt{35}$).",
+      "Not rejecting $\\text{H}_0$ means the sample mean lands **above** $a$. Which tail of the distribution with mean 718 does that correspond to?",
+      "Write the probability as $1 - \\Phi(z)$ using your $z$ from standardising, and read $\\Phi$ from tables or your calculator."
+    ],
+    "walkthrough": [
+      "**What is a Type II error?**\n\nA Type II error means we **fail to reject $\\text{H}_0$ although it is false**. Here the true mean is now 718, so $\\text{H}_0$ (mean 736) is false. We want the probability that the sample mean still looks \"normal enough\" under $\\text{H}_0$ to avoid rejection.\n\nSo the plan: (1) find the critical value of the sample mean from the test, (2) find the probability that a sample mean is above it when the true mean is 718.",
+      "**Find the critical sample mean (this earns the M1)**\n\nFrom part (a), we reject $\\text{H}_0$ when the sample mean $\\bar{x}$ is small enough, that is below some boundary $a$ with $z = -2.054$ (inverse normal for area 0.02). Standardising under $\\text{H}_0$ (mean 736):\n\n$$\\frac{a - 736}{\\dfrac{26}{\\sqrt{35}}} = -2.054$$",
+      "**Solve for $a$ (this earns the first A1)**\n\nWith $\\dfrac{26}{\\sqrt{35}} = 4.3948$, multiply both sides by 4.3948 and then add 736.\n\n$$a - 736 = -2.054 \\times 4.3948 = -9.0269$$\n\n$$a = 736 - 9.0269 = 726.973$$\n\nSo we reject $\\text{H}_0$ if $\\bar{x} < 726.973$, and **do not reject** if $\\bar{x} > 726.973$. (The exact value from the calculator is 726.974, which gives the same answer to the accuracy asked; the scheme accepts 727 or better.)",
+      "**Standardise with the true mean (this earns the second M1)**\n\nNow suppose the true mean is 718. Then $\\bar{X} \\sim \\text{N}\\left(718, \\dfrac{26^2}{35}\\right)$. Standardise the boundary using 718 as the mean:\n\n$$z = \\frac{726.973 - 718}{\\dfrac{26}{\\sqrt{35}}} = \\frac{8.973}{4.3948} = 2.042$$",
+      "**Take the right tail (this earns the third M1)**\n\nA Type II error happens when $\\bar{x} > 726.973$, which is the **upper** tail beyond $z = 2.042$.\n\n$$\\text{P}(\\text{Type II error}) = \\text{P}(Z > 2.042) = 1 - \\Phi(2.042)$$\n\n$\\Phi(2.042)$: use the normal table or your calculator's normal cdf. It shows 0.97942.\n\n$$1 - 0.97942 = 0.02058$$",
+      "**Final answer**\n\n$$\\text{P}(\\text{Type II error}) = 0.0206$$\n\n(The mark scheme accepts any value from 0.0203 to 0.0207.) Slip to avoid: standardising $736 - 718$ or $725 - 718$ instead of the critical value $726.973 - 718$ scores at most 2 of the 5 marks."
+    ]
+  }
+}

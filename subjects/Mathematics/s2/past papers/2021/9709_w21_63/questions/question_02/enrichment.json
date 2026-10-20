@@ -1,0 +1,18 @@
+{
+ "9709_w21_63_q2": {
+  "hints": [
+   "The Poisson mean $45.2$ is large, so the Poisson probabilities are awkward to add up. A large-mean Poisson is approximated by a normal distribution that keeps the mean and has its variance equal to the mean too: $\\text{N}(\\ldots, \\ldots)$.",
+   "Poisson is discrete and normal is continuous, so apply a continuity correction. 'More than 60' means $X \\geqslant 61$, so the boundary on the continuous scale is half a unit below $61$. Standardise it: $z = \\dfrac{\\text{boundary} - 45.2}{\\sqrt{45.2}}$.",
+   "You want the **upper** tail ('more than'), so the probability you need is $1 - \\Phi(z)$.",
+   "Find $\\Phi(z)$ with a table or the calculator's normal cdf, then subtract it from 1. Expect a small probability (the mean is $45.2$ and $60$ is well above it). Give 3 s.f."
+  ],
+  "walkthrough": [
+   "**Why use an approximation**\n\nWe want $\\text{P}(X > 60)$ where $X \\sim \\text{Po}(45.2)$. Working that out exactly would mean adding up the probabilities for $61, 62, 63, \\ldots$ for ever (or using $1 - \\text{P}(X \\leqslant 60)$ with 61 terms). For a Poisson with a large mean (a mean over about 15), the shape is very close to a bell curve, so we use a normal distribution instead.",
+   "**Choose the normal distribution (B1)**\n\nFor a Poisson variable the mean and the variance are equal. So the normal approximation takes mean $= 45.2$ and variance $= 45.2$.\n\n$$X \\approx Y \\sim \\text{N}(45.2,\\ 45.2)$$\n\nTake care: the second number is the variance, so the standard deviation is $\\sqrt{45.2}$.",
+   "**Continuity correction**\n\n$X$ only takes whole numbers; $Y$ takes any value. 'More than 60 enquiries' means $X = 61, 62, 63, \\ldots$, i.e. $X \\geqslant 61$. On a continuous scale the value 61 occupies the interval from $60.5$ to $61.5$. So 'at least 61' starts at $60.5$.\n\n$$\\text{P}(X > 60) = \\text{P}(X \\geqslant 61) \\approx \\text{P}(Y > 60.5)$$",
+   "**Standardise (first M1)**\n\n$$z = \\frac{60.5 - 45.2}{\\sqrt{45.2}}$$$$60.5 - 45.2 = 15.3 \\qquad \\sqrt{45.2} = 6.7231$$$$z = \\frac{15.3}{6.7231} = 2.276$$\n\nThe scheme still gives the method mark if the continuity correction is wrong or missing, but then the answer will not be exact enough, so do include it.",
+   "**Use the upper tail (second M1)**\n\nThe table or calculator gives the area to the **left** of $z$, $\\Phi(z)$. We want the area to the **right**, so subtract from 1.\n\n$$\\text{P}(Y > 60.5) = 1 - \\Phi(2.276)$$\n\n$\\Phi(2.276)$: normal table or calculator normal cdf $\\to 0.98857$.\n\n$$1 - 0.98857 = 0.01143$$\n\nQuick check: $z$ above 2 means we are in the far right tail, so about 1% is sensible.",
+   "**Final answer**\n\nThe probability that the desk cannot deal with all the enquiries is $0.0114$ (3 s.f.)."
+  ]
+ }
+}

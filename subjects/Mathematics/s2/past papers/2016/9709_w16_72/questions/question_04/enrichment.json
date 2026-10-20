@@ -1,0 +1,32 @@
+{
+ "9709_w16_72_q4_i": {
+  "hints": [
+   "The total over 4 weeks is $X_1 + X_2 + X_3 + X_4$, four independent weekly amounts, which is **not** the same as $4X$. For the mean, the means add: use the given mean $1520$ four times.",
+   "For independent variables the **variances** add: $\\text{Var} = 53^2 + 53^2 + 53^2 + 53^2$. The standard deviation is the square root of that variance. Careful: it is not $4 \\times 53$."
+  ],
+  "walkthrough": [
+   "**What the total is**\n\nIn each week the farmer sells an amount of milk $X$ litres. Over 4 weeks we add four separate weekly amounts: $X_1 + X_2 + X_3 + X_4$. Each is independent and has the distribution $\\text{N}(1520, 53^2)$. (This is **not** $4X$, which would be one week's amount multiplied by 4, as if all four weeks were identical.)",
+   "**Mean of the total (B1)**\n\nThe mean of a sum is the sum of the means:\n\n$$\\text{E}(X_1 + X_2 + X_3 + X_4) = 1520 + 1520 + 1520 + 1520 = 4 \\times 1520 = 6080$$",
+   "**Standard deviation of the total (B1)**\n\nFor *independent* variables, **variances** add (standard deviations do not). The variance of one week is $53^2$:\n\n$$\\text{Var}(\\text{total}) = 53^2 + 53^2 + 53^2 + 53^2 = 4 \\times 53^2 = 4 \\times 2809 = 11236$$\n\nNow take the square root to get the standard deviation:\n\n$$\\text{sd} = \\sqrt{11236} = 106$$\n\nQuick check: $\\sqrt{4 \\times 53^2} = 2 \\times 53 = 106$. Common slip: giving $4 \\times 53 = 212$, which wrongly adds standard deviations.",
+   "**Final answer**\n\nMean $= 6080$ litres and standard deviation $= 106$ litres."
+  ]
+ },
+ "9709_w16_72_q4_ii": {
+  "hints": [
+   "For the mean of a linear combination, $\\text{E}(21Y - 2X) = 21\\,\\text{E}(Y) - 2\\,\\text{E}(X)$. Use $\\text{E}(Y) = 175$ and $\\text{E}(X) = 1520$.",
+   "For the variance of independent variables, **square** the multipliers and **add** (even when the combination has a minus sign): $\\text{Var}(21Y - 2X) = 21^2\\,\\text{Var}(Y) + 2^2\\,\\text{Var}(X)$. The variances are $12^2$ and $53^2$.",
+   "The profit $21Y - 2X$ is normal. 'Profit positive' means it is greater than 0. Standardise: $z = \\dfrac{0 - \\text{mean}}{\\sqrt{\\text{variance}}}$. Use the square root of the variance, not the variance.",
+   "Your $z$ will be negative. You want $\\text{P}(\\text{profit} > 0) = \\text{P}(Z > z) = 1 - \\Phi(z)$, and by symmetry $1 - \\Phi(-a) = \\Phi(a)$.",
+   "Find $\\Phi$ of the positive value from a normal table or your calculator's normal cdf and round to 3 s.f. Sense check: the mean profit is positive, so the probability should be bigger than $0.5$."
+  ],
+  "walkthrough": [
+   "**What we are modelling**\n\nLet $P = 21Y - 2X$ be the weekly profit in cents. Cheese gives $21$ cents profit per kg, milk loses $2$ cents per litre, so a loss on milk counts as minus. $X$ and $Y$ are independent and normal, so any combination $aY + bX$ is also **normal**. We only need its mean and variance.",
+   "**Mean of the profit (B1)**\n\nMeans follow the multipliers exactly:\n\n$$\\text{E}(21Y - 2X) = 21\\,\\text{E}(Y) - 2\\,\\text{E}(X) = 21 \\times 175 - 2 \\times 1520$$\n\n$$21 \\times 175 = 3675 \\qquad 2 \\times 1520 = 3040$$\n\n$$\\text{E}(P) = 3675 - 3040 = 635$$",
+   "**Variance of the profit (B1)**\n\nFor independent variables $\\text{Var}(aY + bX) = a^2\\,\\text{Var}(Y) + b^2\\,\\text{Var}(X)$. The multipliers are **squared**, so the minus sign disappears, and the variances are **added**. This is a very common place to slip: variances never subtract.\n\nThe variances are $12^2 = 144$ and $53^2 = 2809$ (the question gives standard deviations $12$ and $53$ inside $\\text{N}(\\mu, \\sigma^2)$).\n\n$$\\text{Var}(P) = 21^2 \\times 12^2 + 2^2 \\times 53^2 = 441 \\times 144 + 4 \\times 2809$$\n\n$$441 \\times 144 = 63504 \\qquad 4 \\times 2809 = 11236$$\n\n$$\\text{Var}(P) = 63504 + 11236 = 74740$$\n\nSo $P \\sim \\text{N}(635, 74740)$, and its standard deviation is $\\sqrt{74740} = 273.39\\ldots$, about $273$.",
+   "**Standardise (first M1)**\n\nWe want $\\text{P}(P > 0)$, the probability of a profit. Convert $0$ to a $z$-value: subtract the mean and divide by the standard deviation.\n\n$$z = \\frac{0 - 635}{\\sqrt{74740}} = \\frac{-635}{273.386\\ldots} = -2.323$$\n\nThe boundary $0$ is *below* the mean $635$, so $z$ is negative. Check this makes sense.",
+   "**Choose the correct area (second M1)**\n\nProfit is positive means $P$ is **above** $0$, which is the area to the right of $z = -2.323$. Tables give areas to the left, so\n\n$$\\text{P}(Z > -2.323) = 1 - \\Phi(-2.323)$$\n\nBy symmetry of the bell curve, $\\Phi(-2.323) = 1 - \\Phi(2.323)$. Substituting gives\n\n$$1 - \\Phi(-2.323) = 1 - (1 - \\Phi(2.323)) = \\Phi(2.323)$$",
+   "**Evaluate (A1)**\n\nNormal table or calculator: $\\Phi(2.323) = 0.9899$ (to 4 d.p.).\n\nTo 3 significant figures this is $0.990$. Sense check: the mean profit ($635$) is more than two standard deviations above zero, so being positive is very likely, and $0.99$ agrees.",
+   "**Final answer**\n\n$\\text{P}(\\text{profit is positive}) = 0.990$ (3 s.f.)."
+  ]
+ }
+}

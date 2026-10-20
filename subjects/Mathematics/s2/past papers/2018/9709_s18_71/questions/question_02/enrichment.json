@@ -1,0 +1,27 @@
+{
+  "9709_s18_71_q2_i": {
+    "hints": [
+      "Treat the sample proportion $\\hat{p} = \\dfrac{20}{100}$ as the centre of the interval, then add and subtract $z\\sqrt{\\dfrac{\\hat{p}(1-\\hat{p})}{n}}$ with $n = 100$.",
+      "A 94% interval leaves 6% in the tails, so 3% in each tail: find the $z$ for which $\\Phi(z) = 0.97$ using the percentage-points table or inverse normal.",
+      "Work out the standard error first, multiply by your $z$, then add it to and subtract it from $\\hat{p}$ to get the two ends of the interval (3 s.f.)."
+    ],
+    "walkthrough": [
+      "**What we are doing and why**\n\nWe threw the die $n = 100$ times and got a 2 on 20 throws. The true chance of a 2 is some unknown $p$. We want a range of values for $p$ that we are 94% confident contains it: a **confidence interval**.\n\nIt is only *approximate* because we use the normal distribution to describe the sample proportion, which is fine when $n$ is large.",
+      "**The sample proportion**\n\nThe proportion of 2s in our sample is called $\\hat{p}$ (\"p hat\"):\n\n$$\\hat{p} = \\frac{20}{100} = 0.2$$",
+      "**The formula (M1)**\n\nThe interval is centre $\\pm$ $z \\times$ standard error:\n\n$$\\hat{p} \\pm z \\times \\sqrt{\\frac{\\hat{p}(1-\\hat{p})}{n}} = \\frac{20}{100} \\pm z \\times \\sqrt{\\frac{0.2 \\times (1-0.2)}{100}}$$\n\nWriting this down, with any $z$, earns the **M1**.",
+      "**Find $z$ for 94% (B1)**\n\n94% in the middle leaves $100\\% - 94\\% = 6\\%$ outside, which is $3\\%$ in each tail. So the area to the left of the upper end is $100\\% - 3\\% = 97\\%$:\n\n$$\\Phi(z) = 0.97$$\n\nOn the calculator use inverse normal (area $0.97$, mean $0$, standard deviation $1$) or the percentage-points table. It gives $z = 1.8808\\ldots$, and the mark scheme accepts $1.881$ or $1.882$. This is the **B1**.",
+      "**The standard error**\n\nDo it in small steps:\n\n$$0.2 \\times (1 - 0.2) = 0.2 \\times 0.8 = 0.16$$\n\n$$\\frac{0.16}{100} = 0.0016$$\n\n$$\\sqrt{0.0016} = 0.04$$",
+      "**Margin and endpoints (A1)**\n\nMargin $= z \\times 0.04 = 1.881 \\times 0.04 = 0.07524$.\n\n$$\\text{lower end} = 0.2 - 0.07524 = 0.12476 \\approx 0.125$$\n\n$$\\text{upper end} = 0.2 + 0.07524 = 0.27524 \\approx 0.275$$\n\nCheck: the interval is centred on $0.2$, as it should be.",
+      "**Final answer**\n\nThe approximate 94% confidence interval for $p$ is $0.125$ to $0.275$ (3 s.f.)."
+    ]
+  },
+  "9709_s18_71_q2_ii": {
+    "hints": [
+      "A fair six-sided die gives a 2 with probability $\\dfrac{1}{6}$: check where this value lies compared with the two ends of your interval, then say what that means about bias for the score 2."
+    ],
+    "walkthrough": [
+      "**What the interval tells us**\n\nIf the die were fair, the probability of a 2 would be $\\dfrac{1}{6}$. Write it as a decimal to compare: $\\dfrac{1}{6} = 0.1666\\ldots$\n\nOur interval from part **(i)** is $0.125$ to $0.275$. Since $0.125 < 0.1666\\ldots < 0.275$, the value $\\dfrac{1}{6}$ lies **inside** the interval.\n\nSo $\\dfrac{1}{6}$ is a believable value for $p$. We need both statements for the **B1**: that $\\dfrac{1}{6}$ is within the interval, and what that means.",
+      "**Final answer**\n\n$\\dfrac{1}{6}$ is within the interval, so there is no evidence that the die is biased concerning the score 2."
+    ]
+  }
+}

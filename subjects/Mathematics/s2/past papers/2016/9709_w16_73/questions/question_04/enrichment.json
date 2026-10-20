@@ -1,0 +1,20 @@
+{
+  "9709_w16_73_q4": {
+    "hints": [
+      "Read the table: the sample mean is 11.8, the claimed mean is 11, and $\\sigma = 1.6$ is known. Write the test statistic $z = \\dfrac{\\bar{x} - \\mu}{\\sigma/\\sqrt{n}}$ with these numbers, leaving $n$ as the unknown.",
+      "\"Significant at 5%\" (one-tailed, since the test is for a mean *greater* than 11) is decided by comparing $z$ with 1.645. Set your expression equal to 1.645 and solve for $n$: get $\\sqrt{n}$ on its own, then square.",
+      "\"Not significant at 2.5%\" is decided by comparing $z$ with 1.96. Set your expression equal to 1.96 and solve for $n$ the same way.",
+      "Significant at 5% means $z$ is **bigger** than 1.645; not significant at 2.5% means $z$ is **smaller** than 1.96. As $n$ grows, $z$ grows, so decide which of your two $n$ values is the lower limit and which the upper.",
+      "$n$ is a sample size, so it must be a whole number. List the whole numbers that lie between your two limits, and check the ones next to the limits."
+    ],
+    "walkthrough": [
+      "**Read the figure**\n\nThe torn table tells us three things: the sample mean is $\\bar{x} = 11.8$ hours; the result **is** significant at the 5% level; the result is **not** significant at the 2.5% level. The sample size $n$ is torn off, which is what we must find. The test is $\\text{H}_0: \\mu = 11$ against $\\text{H}_1: \\mu > 11$, a one-tailed test with known $\\sigma = 1.6$.",
+      "**Write the test statistic in terms of $n$ (M1)**\n\nFor a sample mean from a normal population with known standard deviation:\n\n$$z = \\frac{\\bar{x} - \\mu}{\\sigma/\\sqrt{n}} = \\frac{11.8 - 11}{1.6/\\sqrt{n}}$$\n\nSimplify: $11.8 - 11 = 0.8$, so\n\n$$z = \\frac{0.8\\sqrt{n}}{1.6} = \\frac{\\sqrt{n}}{2}$$\n\nNote it is $\\sqrt{n}$, not $n$, in the denominator because we are working with a sample **mean**.",
+      "**What \"significant at 5%\" means**\n\nFor a one-tailed test at 5% the critical $z$-value is $1.645$. The result is significant when our $z$ is at least that big:\n\n$$\\frac{11.8 - 11}{1.6/\\sqrt{n}} > 1.645$$\n\nTo find the boundary value of $n$, solve with an equals sign:\n\n$$\\frac{\\sqrt{n}}{2} = 1.645 \\quad\\Rightarrow\\quad \\sqrt{n} = 1.645 \\times 2 = 3.29 \\quad\\Rightarrow\\quad n = 3.29^2 = 10.8241$$\n\nSo $n \\approx 10.8$ is the boundary (first B1; the scheme also allows 11).",
+      "**What \"not significant at 2.5%\" means**\n\nFor a one-tailed test at 2.5% the critical value is $1.96$. Not significant means our $z$ is below that:\n\n$$\\frac{11.8 - 11}{1.6/\\sqrt{n}} < 1.96$$\n\nBoundary:\n\n$$\\frac{\\sqrt{n}}{2} = 1.96 \\quad\\Rightarrow\\quad \\sqrt{n} = 3.92 \\quad\\Rightarrow\\quad n = 3.92^2 = 15.3664$$\n\nSo $n \\approx 15.4$ is the second boundary (second B1; the scheme allows 15).",
+      "**Put the two conditions together (first A1)**\n\n$z = \\sqrt{n}/2$ gets bigger when $n$ gets bigger. We need $z > 1.645$, so $n$ must be above the first boundary. We need $z < 1.96$, so $n$ must be below the second boundary:\n\n$$10.8241 < n < 15.3664$$",
+      "**Pick whole numbers (second A1)**\n\nA sample size is a whole number, so $n$ can be $11, 12, 13, 14, 15$. Quick check at the ends:\n\n$n = 11$: $z = \\sqrt{11}/2 = 1.658$, bigger than $1.645$ (significant at 5%) and smaller than $1.96$. Good.\n\n$n = 15$: $z = \\sqrt{15}/2 = 1.936$, smaller than $1.96$. Good.\n\n$n = 10$: $z = 1.581$, below $1.645$, so not significant at 5%. Not allowed.\n\n$n = 16$: $z = 2$, above $1.96$, so significant at 2.5%. Not allowed.\n\nThe scheme wants the list of values, not just \"$11 \\leqslant n \\leqslant 15$\".",
+      "**Final answer**\n\nThe possible values of $n$ are $11, 12, 13, 14, 15$."
+    ]
+  }
+}

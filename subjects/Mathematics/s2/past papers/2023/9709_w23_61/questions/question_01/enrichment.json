@@ -1,0 +1,17 @@
+{
+ "9709_w23_61_q1": {
+  "hints": [
+   "You are asked about the mean of 36 values, not one value. A sample mean has its own normal distribution: same mean as $X$, but variance $\\dfrac{400}{36}$, so standard deviation $\\dfrac{\\sqrt{400}}{\\sqrt{36}}$.",
+   "Standardise the sample mean: $z = \\dfrac{405 - 410}{\\sqrt{400}/\\sqrt{36}}$. The $\\sqrt{36}$ must be there, because this is a mean of 36 values.",
+   "Your $z$ will be negative and tables only list positive $z$. Use the symmetry $\\Phi(-z) = 1 - \\Phi(z)$, then look up the positive value."
+  ],
+  "walkthrough": [
+   "**What is being asked**\n\nThe question is about the **mean of a sample of 36 values**, not about a single value of $X$. We write $\\bar{X}$ (say 'X-bar') for the mean of the 36 values. We need $\\text{P}(\\bar{X} < 405)$.\n\nA single value has a wide spread. An average of 36 values is much more tightly bunched round the same centre. So the distribution of $\\bar{X}$ is narrower than that of $X$.",
+   "**The distribution of the sample mean**\n\nIf $X \\sim \\text{N}(\\mu, \\sigma^2)$ and we take a sample of $n$ values, then $\\bar{X} \\sim \\text{N}\\left(\\mu, \\dfrac{\\sigma^2}{n}\\right)$. The mean stays the same; the variance is divided by $n$.\n\nHere $\\mu = 410$, $\\sigma^2 = 400$ and $n = 36$. So the variance of $\\bar{X}$ is\n\n$$\\frac{400}{36} = 11.111\\ldots$$\n\nThe standard deviation is the square root of the variance, which is $\\dfrac{\\sqrt{400}}{\\sqrt{36}}$:\n\n$$\\frac{\\sqrt{400}}{\\sqrt{36}} = \\frac{20}{6} = 3.333\\ldots$$\n\nQuick check: the standard deviation of $X$ is $\\sqrt{400} = 20$. Dividing by $\\sqrt{36} = 6$ (not by 36) gives $\\dfrac{20}{6}$.",
+   "**Standardise (first M1)**\n\nTo use the normal tables we convert to the standard normal $Z$, which has mean 0 and standard deviation 1. The rule is $z = \\dfrac{\\text{value} - \\text{mean}}{\\text{standard deviation}}$. The value is $405$:\n\n$$z = \\frac{405 - 410}{\\frac{20}{6}} = \\frac{-5}{3.3333\\ldots}$$\n\n$$z = -1.5$$\n\nThis line earns the first M1. The scheme says you must have the $\\sqrt{36}$ in the standard deviation. If you divide by $20$ only, you have standardised a single value, not a mean, and the mark is lost.",
+   "**Turn the negative z into a table value (second M1)**\n\nWe want $\\text{P}(Z < -1.5)$, the area to the left of $-1.5$. Normal tables only show areas for positive $z$. The normal curve is symmetrical about 0, so the area to the left of $-1.5$ equals the area to the right of $+1.5$:\n\n$$\\text{P}(Z < -1.5) = 1 - \\Phi(1.5)$$\n\nThis line earns the second M1.",
+   "**Look up and subtract (A1)**\n\nUse the normal table, or your calculator's normal cdf, for $\\Phi(1.5)$, the area to the left of $1.5$:\n\n$$\\Phi(1.5) = 0.9332$$\n\nNow subtract from 1:\n\n$$1 - 0.9332 = 0.0668$$\n\nQuick check: the sample mean 405 is below the centre 410, so the probability should be less than 0.5. It is, and it is small because 405 is $1.5$ standard deviations below the centre.",
+   "**Final answer**\n\nThe probability that the mean of the sample of 36 values is less than 405 is $0.0668$ (3 significant figures)."
+  ]
+ }
+}

@@ -1,0 +1,31 @@
+{
+ "9709_s21_61_q5_a": {
+  "hints": [
+   "There are $10\\,000$ people and each has a very small chance $\\frac{1}{75\\,000}$: a large $n$ and a tiny $p$. That is when the binomial is well approximated by a Poisson distribution with mean $\\lambda = np$.",
+   "\"At least 1\" is everything except none: $\\text{P}(X \\geqslant 1) = 1 - \\text{P}(X = 0)$, and for a Poisson variable $\\text{P}(X = 0) = \\text{e}^{-\\lambda}$.",
+   "Put your $\\lambda$ into $1 - \\text{e}^{-\\lambda}$, evaluate it on a calculator and give 3 significant figures."
+  ],
+  "walkthrough": [
+   "**Choose the approximating distribution (first M1)**\n\nLet $X$ be the number of people with the disorder in the sample. Exactly, $X \\sim \\text{B}\\left(10\\,000, \\frac{1}{75\\,000}\\right)$, but that is awkward to calculate. When $n$ is large and $p$ is very small, a Poisson distribution with the same mean is an excellent approximation.\n\nThe mean is $np$:\n\n$$\\lambda = 10\\,000 \\times \\frac{1}{75\\,000} = \\frac{10\\,000}{75\\,000} = \\frac{2}{15} = 0.1333\\ldots$$\n\nSo $X \\approx \\text{Po}\\left(\\frac{2}{15}\\right)$. We are not using a normal approximation here: the mean is far too small for that (using it scores M0).",
+   "**Set up \"at least 1\" (second M1)**\n\n\"At least 1\" means $1, 2, 3, \\dots$ with no upper end. It is much quicker to use the opposite event, \"none at all\":\n\n$$\\text{P}(X \\geqslant 1) = 1 - \\text{P}(X = 0)$$\n\nFor a Poisson variable $\\text{P}(X = r) = \\text{e}^{-\\lambda}\\dfrac{\\lambda^r}{r!}$. With $r = 0$, we have $\\lambda^0 = 1$ and $0! = 1$, so $\\text{P}(X = 0) = \\text{e}^{-\\lambda}$. Therefore\n\n$$\\text{P}(X \\geqslant 1) = 1 - \\text{e}^{-\\frac{2}{15}}$$",
+   "**Evaluate (A1)**\n\nOn the calculator, $\\text{e}^{-2/15} = 0.875173\\ldots$ (type e to the power minus two-fifteenths). Then\n\n$$1 - 0.875173 = 0.124827$$\n\nQuick check: using the exact binomial gives $0.1248$ too, which shows the approximation is very good.",
+   "**Final answer**\n\nThe probability that at least 1 of the $10\\,000$ people has the disorder is $\\mathbf{0.125}$ (3 s.f.)."
+  ]
+ },
+ "9709_s21_61_q5_b": {
+  "hints": [
+   "For a sample of $n$ people the Poisson mean scales in the same way as in part (a): write $\\lambda$ in terms of $n$ using the $75\\,000$ from the question.",
+   "\"No-one has the disorder\" is $\\text{P}(X = 0) = \\text{e}^{-\\lambda}$. Write the inequality: this must be greater than $0.9$.",
+   "To get $n$ out of the power, take natural logs of both sides: $\\ln\\left(\\text{e}^{-\\lambda}\\right) = -\\lambda$, and you need $\\ln 0.9$ on the other side.",
+   "Rearrange for $n$, watching the inequality sign when you multiply or divide by a negative number. Then, since $n$ must be a whole number, choose the largest integer that still satisfies the inequality."
+  ],
+  "walkthrough": [
+   "**Mean in terms of $n$ (B1)**\n\nAs in part (a), we use a Poisson approximation. In (a) the mean was the sample size divided by $75\\,000$, so for a sample of $n$ people:\n\n$$\\lambda = \\frac{n}{75\\,000}$$",
+   "**Write the inequality (first M1)**\n\n\"No-one has the disorder\" means $X = 0$, and for a Poisson variable that has probability $\\text{e}^{-\\lambda}$. The question says this probability is more than $0.9$:\n\n$$\\text{e}^{-\\frac{n}{75\\,000}} > 0.9$$",
+   "**Take logarithms (second M1)**\n\nTo bring $n$ down from the exponent we take natural logs of both sides. This is allowed because $\\ln$ is an increasing function, so the inequality keeps its direction. Remember $\\ln\\left(\\text{e}^{a}\\right) = a$:\n\n$$-\\frac{n}{75\\,000} > \\ln 0.9$$\n\nOn the calculator, $\\ln 0.9 = -0.105361\\ldots$ (a negative number, because $0.9 < 1$). So\n\n$$-\\frac{n}{75\\,000} > -0.105361$$",
+   "**Solve for $n$ (careful with the sign)**\n\nMultiply both sides by $-75\\,000$. **Multiplying by a negative number reverses the inequality**, so $>$ becomes $<$:\n\n$$n < 75\\,000 \\times 0.105361 = 7902.04$$\n\nCommon slip: forgetting to reverse the sign and writing $n > 7902.04$.",
+   "**Choose the integer (A1)**\n\n$n$ is a number of people, so it must be a whole number, and it must be **less than** $7902.04$. The largest whole number below $7902.04$ is $7902$. (Rounding to the nearest number would give the same here, but do not round up in general: $7903$ would break the inequality.)\n\nNote: if you used the exact binomial instead of the Poisson approximation, you would get $7901$ (this is one of the scheme's alternative methods). The main method, using the Poisson approximation from part (a), gives $7902$.",
+   "**Final answer**\n\nThe largest possible value of $n$ is $\\mathbf{7902}$."
+  ]
+ }
+}

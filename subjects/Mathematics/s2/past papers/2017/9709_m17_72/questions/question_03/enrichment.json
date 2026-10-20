@@ -1,0 +1,28 @@
+{
+ "9709_m17_72_q3_i": {
+  "hints": [
+   "The sample has 75 snakes, which is large, so $\\bar{X} \\sim \\text{N}\\left(52, \\dfrac{6.1^2}{75}\\right)$. Standardise the upper value: $z = \\dfrac{53 - 52}{6.1 \\div \\sqrt{75}}$.",
+   "Standardise the lower value in the same way: $z = \\dfrac{51 - 52}{6.1 \\div \\sqrt{75}}$. Remember the standard deviation of a sample mean is $\\dfrac{\\sigma}{\\sqrt{n}}$.",
+   "The probability between the two values is $\\Phi(\\text{upper } z) - \\Phi(\\text{lower } z)$. Write it down with your two $z$-values.",
+   "Evaluate the difference with your calculator or the normal table (remember $\\Phi(-z) = 1 - \\Phi(z)$) and give the answer to 3 significant figures."
+  ],
+  "walkthrough": [
+   "**Which distribution do we use?**\n\n$X$ is the length of one snake. We are asked about $\\bar{X}$, the **mean length of a sample of 75 snakes**. The sample is large, so by the Central Limit theorem $\\bar{X}$ is approximately normal, with\n\n$$\\text{mean} = 52, \\qquad \\text{standard deviation} = \\frac{\\sigma}{\\sqrt{n}} = \\frac{6.1}{\\sqrt{75}}$$\n\nWe divide by $\\sqrt{75}$ because averages of many snakes vary much less than a single snake.",
+   "**Find the standard deviation of $\\bar{X}$**\n\n$$\\sqrt{75} = 8.6603\\ldots$$\n\n$$\\frac{6.1}{8.6603} = 0.70437\\ldots$$",
+   "**Standardise the upper value (this earns the first M1)**\n\nStandardising means $z = \\dfrac{\\text{value} - \\text{mean}}{\\text{standard deviation}}$. For 53:\n\n$$z = \\frac{53 - 52}{6.1 \\div \\sqrt{75}} = \\frac{1}{0.70437} = 1.4197\\ldots \\approx 1.420$$",
+   "**Standardise the lower value (this earns the second M1)**\n\nFor 51:\n\n$$z = \\frac{51 - 52}{6.1 \\div \\sqrt{75}} = \\frac{-1}{0.70437} = -1.4197\\ldots \\approx -1.420$$\n\nQuick check: 51 and 53 are the same distance either side of the mean 52, so the two $z$-values are the same size with opposite signs.",
+   "**Write the probability as a difference (this earns the third M1)**\n\nWe want the area *between* the two $z$-values, so take the area up to the larger one and remove the area up to the smaller one:\n\n$$\\text{P}(51 < \\bar{X} < 53) = \\Phi(1.420) - \\Phi(-1.420)$$",
+   "**Calculate (this earns the A1)**\n\nFrom the normal table (or a calculator's normal cdf):\n\n$$\\Phi(1.420) = 0.9222$$\n\nFor the negative one, use the symmetry of the normal curve: $\\Phi(-1.420) = 1 - \\Phi(1.420)$.\n\n$$\\Phi(-1.420) = 1 - 0.9222 = 0.0778$$\n\n$$0.9222 - 0.0778 = 0.8444$$\n\nTo 3 significant figures this is $0.844$.",
+   "**Final answer**\n\n$$\\text{P}(51 < \\bar{X} < 53) = 0.844$$"
+  ]
+ },
+ "9709_m17_72_q3_ii": {
+  "hints": [
+   "Look at what the question says about the distribution of the snake lengths $X$: only a mean and a standard deviation. Does it say $X$ is normal?"
+  ],
+  "walkthrough": [
+   "**Why the Central Limit theorem was needed**\n\nTo use normal-distribution tables we need $\\bar{X}$ to be normal. If we were told that the snake lengths $X$ themselves are normally distributed, then $\\bar{X}$ would be exactly normal. But the question only gives the mean and standard deviation of $X$, not its shape.\n\nThe Central Limit theorem says that for a large sample (here 75) the sample mean is *approximately* normal whatever the shape of $X$. That is what let us use the normal table.",
+   "**Final answer**\n\nIt was necessary because we are not told that $X$ is normally distributed; the Central Limit theorem lets us assume $\\bar{X}$ is approximately normal."
+  ]
+ }
+}

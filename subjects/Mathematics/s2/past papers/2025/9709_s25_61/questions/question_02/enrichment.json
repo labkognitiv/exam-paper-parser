@@ -1,0 +1,32 @@
+{
+ "9709_s25_61_q2_a": {
+  "hints": [
+   "The sample mean $\\bar{X}$ has the same mean as $X$. Find $\\text{E}(X)$ for $\\text{B}\\left(8, \\tfrac34\\right)$ using $np$, and say that $\\bar{X}$ is Normal with this mean.",
+   "Find the variance of one value of $X$ with $\\text{Var}(X) = np(1-p)$, using $n = 8$ and $p = \\tfrac34$.",
+   "Standardise the sample mean: $z = \\dfrac{6.2 - \\mu}{\\sqrt{\\sigma^2 / n}}$. Note the $n$: it is a mean of 100 values, so divide the variance by 100 before the square root.",
+   "Evaluate the fraction on your calculator. Square-root the whole of $\\sigma^2/100$ (not just $\\sigma^2$) in the denominator.",
+   "You want $\\text{P}(\\bar{X} > 6.2)$, the **upper** tail. Write it as $1 - \\Phi(z)$ with your $z$.",
+   "Find $\\Phi(z)$ from the table or your calculator's normal cdf, subtract it from 1 and round to 3 s.f."
+  ],
+  "walkthrough": [
+   "**Why a Normal distribution is used here**\n\n$X \\sim \\text{B}\\left(8, \\tfrac34\\right)$ takes only the values $0, 1, \\dots, 8$. We are not asked about one value of $X$, but about the **mean of 100 values**, $\\bar{X}$ (read \"X-bar\"). The Central Limit Theorem says that for a large sample (here 100) the sample mean is approximately Normal, whatever the original distribution looked like. So $\\bar{X}$ is Normal, and we need its mean and variance.",
+   "**Mean of $\\bar{X}$ (this earns the B1)**\n\nThe mean of a sample mean is the mean of the original variable. For a binomial, $\\text{E}(X) = np$:\n\n$$\\text{E}(X) = 8 \\times \\frac34 = 6$$\n\nSo $\\bar{X}$ is $\\text{N}(6, \\dots)$ and we still need the variance.",
+   "**Variance of one value of $X$ (this earns the first M1)**\n\nFor a binomial, $\\text{Var}(X) = np(1-p)$:\n\n$$\\text{Var}(X) = 8 \\times \\frac34 \\times \\left(1 - \\frac34\\right) = 8 \\times \\frac34 \\times \\frac14$$\n\n$$8 \\times \\frac34 = 6 \\qquad 6 \\times \\frac14 = \\frac{6}{4} = 1.5$$\n\nSo $\\sigma^2 = 1.5$.",
+   "**Variance of the sample mean**\n\nWhen you average $n$ independent values, the variance is divided by $n$. Here $n = 100$:\n\n$$\\text{Var}(\\bar{X}) = \\frac{\\sigma^2}{n} = \\frac{1.5}{100} = 0.015$$\n\nSo $\\bar{X} \\sim \\text{N}(6, 0.015)$, and its standard deviation is $\\sqrt{0.015} = 0.12247$.\n\nQuick check: the standard deviation of a mean is much smaller than that of a single value ($\\sqrt{1.5} = 1.22$). Averaging 100 values squeezes the spread.",
+   "**Standardise (this earns the second M1)**\n\nWe turn $\\bar{X} = 6.2$ into a $z$-value: subtract the mean and divide by the standard deviation **of the mean**. The scheme insists on the $\\sqrt{100}$ being present, i.e. dividing by $\\sqrt{\\frac{1.5}{100}}$ and not by $\\sqrt{1.5}$.\n\n$$z = \\frac{6.2 - 6}{\\sqrt{\\frac{1.5}{100}}} = \\frac{0.2}{\\sqrt{0.015}} = \\frac{0.2}{0.12247}$$\n\n$$z = 1.633 \\text{ (3 d.p.)}$$\n\nThis is the A1. The question says no continuity correction is needed, so we do not use one. (If you did use the correct one, $\\frac{1}{2n} = 0.005$, you would get $z = 1.674$ and the scheme accepts $0.0471$.)",
+   "**Choose the correct tail (this earns the third M1)**\n\nWe want $\\text{P}(\\bar{X} > 6.2)$, which is the area to the **right** of $z = 1.633$. The table and calculator give the area to the **left**, $\\Phi(z)$, so we subtract from 1:\n\n$$\\text{P}(\\bar{X} > 6.2) = 1 - \\Phi(1.633)$$",
+   "**Read the table**\n\n$\\Phi(1.633)$: use the normal table (it shows $\\Phi(1.63) = 0.9484$ and $\\Phi(1.64) = 0.9495$, so $\\Phi(1.633)$ lies between them) or your calculator's normal cdf for the area below $1.633$. It gives $0.9488$.\n\n$$1 - 0.9488 = 0.0512$$\n\nQuick check: $z = 1.633$ is a little under $1.645$, where the upper tail is exactly $0.05$. So an answer slightly above $0.05$ makes sense.",
+   "**Final answer**\n\n$$\\text{P}(\\bar{X} > 6.2) = 0.0512 \\text{ (3 s.f.)}$$\n\nThe scheme accepts $0.0512$ or $0.0513$; the difference is only table rounding (the exact value is $0.05123$)."
+  ]
+ },
+ "9709_s25_61_q2_b": {
+  "hints": [
+   "Ask what shape the **original** variable $X$ has. The Central Limit Theorem is the tool that lets you ignore that shape for a mean of many values."
+  ],
+  "walkthrough": [
+   "**What the Central Limit Theorem does**\n\nIn part (a) we treated $\\bar{X}$ as Normal. That is only allowed if $X$ itself is Normal, **or** the sample is large and we use the Central Limit Theorem (CLT). The CLT says: the mean of a large sample is approximately Normal, even if the original variable is not.",
+   "**Is $X$ Normal?**\n\nNo. $X \\sim \\text{B}\\left(8, \\tfrac34\\right)$ is a binomial distribution. It is discrete, takes only the values $0$ to $8$, and is not Normal. So we needed the CLT to say $\\bar{X}$ is approximately Normal (it works because the sample size, 100, is large).",
+   "**Final answer**\n\nThe CLT was needed because the population distribution of $X$ is binomial, not Normal (it is the sample of 100 that makes $\\bar{X}$ approximately Normal)."
+  ]
+ }
+}

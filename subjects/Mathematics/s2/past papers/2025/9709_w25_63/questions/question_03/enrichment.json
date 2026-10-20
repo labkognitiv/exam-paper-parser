@@ -1,0 +1,31 @@
+{
+ "9709_w25_63_q3_a": {
+  "hints": [
+   "$X$ is binomial with a very large $n$ and a very small $p$, so approximate it by a Poisson distribution with mean $np=14\\,500\\times0.0001$.",
+   "$X<4$ means $X\\leqslant3$: write $\\text{P}(X\\leqslant3)=\\text{e}^{-\\lambda}\\left(1+\\lambda+\\dfrac{\\lambda^2}{2!}+\\dfrac{\\lambda^3}{3!}\\right)$ with your $\\lambda$.",
+   "Evaluate the four terms in the bracket, add them, and multiply by $\\text{e}^{-\\lambda}$. Give 3 significant figures."
+  ],
+  "walkthrough": [
+   "**Choose the approximating distribution (this earns the B1)**\n\nEach character is either incorrect or correct, independently, with probability $p=0.0001$ of being incorrect. So exactly, $X\\sim\\text{B}(14\\,500,\\,0.0001)$.\n\nWorking with the binomial formula for $14\\,500$ trials is awkward. When $n$ is **large** and $p$ is **small**, the binomial is very close to a Poisson distribution with the same mean. The mean of the binomial is $np$:\n\n$$\\lambda=np=14\\,500\\times0.0001=1.45$$\n\nSo we use $X\\approx\\text{Po}(1.45)$. (Check: $14\\,500\\times0.0001$ is $14\\,500$ divided by $10\\,000$, which is $1.45$.)",
+   "**Turn the inequality into whole numbers (this earns the M1)**\n\n$X<4$ means $X$ is smaller than $4$ and, as a count, can be $0,1,2$ or $3$. We add the four probabilities:\n\n$$\\text{P}(X<4)=\\text{P}(0)+\\text{P}(1)+\\text{P}(2)+\\text{P}(3)$$\n\nWith $\\text{P}(r)=\\text{e}^{-1.45}\\dfrac{1.45^r}{r!}$ we can take $\\text{e}^{-1.45}$ outside a bracket:\n\n$$\\text{P}(X<4)=\\text{e}^{-1.45}\\left(1+1.45+\\frac{1.45^2}{2!}+\\frac{1.45^3}{3!}\\right)$$\n\nCommon slips: stopping at $X=2$, or adding $X=4$ as well (that would be $\\leqslant4$).",
+   "**Evaluate each term inside the bracket**\n\n$r=0$: $\\dfrac{1.45^0}{0!}=1$.\n\n$r=1$: $\\dfrac{1.45^1}{1!}=1.45$.\n\n$r=2$: $1.45^2=1.45\\times1.45=2.1025$, then $\\dfrac{2.1025}{2!}=\\dfrac{2.1025}{2}=1.05125$.\n\n$r=3$: $1.45^3=2.1025\\times1.45=3.048625$, then $\\dfrac{3.048625}{3!}=\\dfrac{3.048625}{6}=0.5081042$.\n\nAdd them up:\n\n$$1+1.45+1.05125+0.5081042=4.0093542$$",
+   "**Multiply by e^(-1.45) (this earns the A1)**\n\nCalculator: $\\text{e}^{-1.45}=0.2345703$.\n\n$$\\text{P}(X<4)=0.2345703\\times4.0093542=0.94048$$\n\nTo 3 significant figures this is $0.940$. (The scheme also allows $0.941$, which appears if you round $0.9405$ a second time.)\n\nThe probability is very high. That makes sense: on average we expect only $1.45$ errors, so having fewer than $4$ is very likely.",
+   "**Final answer**\n\n$$\\text{P}(X<4)\\approx0.940\\quad(0.941\\text{ also accepted})$$"
+  ]
+ },
+ "9709_w25_63_q3_b": {
+  "hints": [
+   "For a Poisson variable $\\text{P}(X=0)=\\text{e}^{-\\lambda}$. With a new $p$ and the same $14\\,500$ characters the mean is $\\lambda=14\\,500p$, so write down the new $\\text{P}(X=0)$ and the old one (using your $\\lambda$ from part (a)).",
+   "The new $\\text{P}(X=0)$ must be double the old one: form the equation $\\text{e}^{-14\\,500p}=2\\times\\text{e}^{-\\lambda_{\\text{old}}}$ and take natural logs of both sides.",
+   "Use $\\ln\\left(\\text{e}^{k}\\right)=k$ and $\\ln(ab)=\\ln a+\\ln b$, then divide both sides by $-14\\,500$ to isolate $p$."
+  ],
+  "walkthrough": [
+   "**P(X = 0) for any p (this earns the B1FT)**\n\nFor a Poisson variable with mean $\\lambda$, $\\text{P}(X=0)=\\text{e}^{-\\lambda}\\dfrac{\\lambda^0}{0!}=\\text{e}^{-\\lambda}$ because $\\lambda^0=1$ and $0!=1$.\n\nIf the new error rate is $p$, the mean for $14\\,500$ characters is $\\lambda=14\\,500p$, so\n\n$$\\text{P}(X=0)=\\text{e}^{-14\\,500p}$$",
+   "**The value we are aiming for**\n\nWith the old $p=0.0001$ we had $\\lambda=1.45$, so $\\text{P}(X=0)=\\text{e}^{-1.45}=0.23457$.\n\nThe management wants the new probability to be **double** this:\n\n$$2\\text{e}^{-1.45}=2\\times0.23457=0.46914$$\n\nThis makes sense: fewer errors per data set means a bigger chance of having none at all.",
+   "**Write the equation (this earns the M1)**\n\nNew probability equals double the old probability:\n\n$$\\text{e}^{-14\\,500p}=2\\text{e}^{-1.45}$$\n\nPutting the $2$ on the wrong side still earns this M1, but the final answer would be wrong, so be careful.",
+   "**Solve for p using logarithms**\n\nThe unknown $p$ is in the power, so take the natural logarithm of both sides. The key fact is $\\ln\\left(\\text{e}^{k}\\right)=k$.\n\n$$\\ln\\left(\\text{e}^{-14\\,500p}\\right)=\\ln\\left(2\\text{e}^{-1.45}\\right)$$\n\nLeft side: $-14\\,500p$. Right side: $\\ln(2\\times\\text{e}^{-1.45})=\\ln2+\\ln\\text{e}^{-1.45}=\\ln2-1.45$ (logs turn multiplication into addition).\n\n$$-14\\,500p=\\ln2-1.45$$\n\n$\\ln2=0.693147$, so\n\n$$-14\\,500p=0.693147-1.45=-0.756853$$",
+   "**Divide to find p (this earns the A1)**\n\nDivide both sides by $-14\\,500$. The two negatives cancel, so $p$ is positive:\n\n$$p=\\frac{0.756853}{14\\,500}=0.0000522$$\n\nQuick check: the new $p$ is smaller than the old $p=0.0001$, which is what management wanted (they wished to decrease it). Also $14\\,500\\times0.0000522=0.757$, which matches the $0.757$ we had.",
+   "**Final answer**\n\n$$p=0.0000522\\quad(=5.22\\times10^{-5})\\text{ to 3 significant figures}$$"
+  ]
+ }
+}

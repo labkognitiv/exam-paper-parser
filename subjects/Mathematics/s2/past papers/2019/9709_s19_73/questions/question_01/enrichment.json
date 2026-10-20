@@ -1,0 +1,18 @@
+{
+  "9709_s19_73_q1": {
+    "hints": [
+      "The sample proportion is $\\hat{p} = \\dfrac{60}{100}$. The interval has the form $\\hat{p} \\pm z\\sqrt{\\dfrac{\\hat{p}(1-\\hat{p})}{n}}$ with $n = 100$: write it out with this question's numbers.",
+      "A 98% interval leaves 2% outside, split equally between the two tails. Work out how much area lies to the left of the upper critical value, then use the inverse normal (or the percentage points table) to find $z$.",
+      "Work out $\\hat{p} - z\\sqrt{\\cdots}$ and $\\hat{p} + z\\sqrt{\\cdots}$ separately, then give the answer as an interval to 3 significant figures."
+    ],
+    "walkthrough": [
+      "**What we are estimating**\n\n$p$ is the true probability that the coin shows heads on one throw. We do not know it, so we estimate it from the sample: the coin was thrown $n = 100$ times and showed heads 60 times.\n\nThe **sample proportion** is written $\\hat{p}$ (say 'p-hat'). It is the number of heads divided by the number of throws:\n\n$$\\hat{p} = \\frac{60}{100} = 0.6$$\n\nBecause $n = 100$ is large, $\\hat{p}$ is approximately normally distributed. That is why we can build an *approximate* confidence interval using a $z$ value.",
+      "**The formula**\n\nAn approximate confidence interval for $p$ is\n\n$$\\hat{p} \\pm z\\sqrt{\\frac{\\hat{p}(1-\\hat{p})}{n}}$$\n\nThe square root part is the **standard error**: it measures how much $\\hat{p}$ typically wobbles from sample to sample.",
+      "**Work out the standard error**\n\nTake it one piece at a time. First $1 - \\hat{p}$:\n\n$$1 - 0.6 = 0.4$$\n\nMultiply the two proportions:\n\n$$0.6 \\times 0.4 = 0.24$$\n\nDivide by $n = 100$:\n\n$$\\frac{0.24}{100} = 0.0024$$\n\nSquare root (calculator $\\sqrt{\\;}$ key):\n\n$$\\sqrt{0.0024} = 0.048989\\ldots$$\n\nKeep this long value in your calculator memory so you do not round too early.",
+      "**Find the value of $z$ (B1 mark)**\n\nA 98% confidence interval means 98% of the area is in the middle. That leaves $100\\% - 98\\% = 2\\%$ in the two tails, so $1\\%$ in each tail.\n\nSo the upper critical value $z$ has $99\\%$ of the area to its left, i.e. $\\Phi(z) = 0.99$.\n\nOn your calculator use inverse normal (area $0.99$, mean $0$, standard deviation $1$), or look up $0.99$ in the percentage points table:\n\n$$z = 2.326$$\n\nThis earns the B1 mark.",
+      "**Write the interval (M1 mark)**\n\nSubstitute everything into the formula. This line earns the M1 mark:\n\n$$0.6 \\pm 2.326\\sqrt{\\frac{0.4 \\times 0.6}{100}}$$\n\nWork out the 'plus or minus' amount:\n\n$$2.326 \\times 0.048989 = 0.11395\\ldots$$",
+      "**Lower and upper ends (A1 mark)**\n\n$$\\text{lower} = 0.6 - 0.11395 = 0.48605\\ldots$$\n\n$$\\text{upper} = 0.6 + 0.11395 = 0.71395\\ldots$$\n\nRound each to 3 significant figures: $0.486$ and $0.714$.\n\nQuick check: the interval is centred on $\\hat{p} = 0.6$, and $0.6$ is exactly halfway between $0.486$ and $0.714$. Good.\n\nThe A1 mark needs the answer written as an **interval**, not just a '$\\pm$' value.",
+      "**Final answer**\n\nAn approximate 98% confidence interval for $p$ is\n\n$$0.486 < p < 0.714$$"
+    ]
+  }
+}

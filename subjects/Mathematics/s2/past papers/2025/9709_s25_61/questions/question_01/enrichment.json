@@ -1,0 +1,17 @@
+{
+ "9709_s25_61_q1": {
+  "hints": [
+   "$X$ is exactly $\\text{B}(400, 0.01)$, but $n$ is large and $p$ is small. Approximate it by a Poisson distribution whose mean is $np$ (the mean of the binomial). Find that mean.",
+   "$X \\leqslant 3$ means $X = 0, 1, 2$ or $3$. Write each probability with $\\text{P}(X = r) = \\text{e}^{-\\lambda}\\dfrac{\\lambda^r}{r!}$, using your $\\lambda$.",
+   "Work out the four terms (or use your calculator's Poisson cumulative probability up to $r = 3$) and add them up."
+  ],
+  "walkthrough": [
+   "**Choose the approximating distribution**\n\nThe number of houses with a wind turbine, $X$, is exactly binomial: $X \\sim \\text{B}(400, 0.01)$, because there are $n = 400$ houses and each one independently has a turbine with probability $p = 0.01$.\n\nWorking with $400$ is heavy, and the question asks for an approximation. When $n$ is **large** and $p$ is **small** (here $n = 400$ and $p = 0.01$), the binomial is very close to a **Poisson** distribution. So we use a Poisson distribution.",
+   "**Find the Poisson mean (this earns the B1)**\n\nA Poisson distribution is described by one number, its mean $\\lambda$. We keep the mean of the binomial, which is $np$:\n\n$$\\lambda = np = 400 \\times 0.01 = 4$$\n\nSo $X \\approx \\text{Po}(4)$.",
+   "**Write down what we need**\n\n$X \\leqslant 3$ means $X$ is $0$, $1$, $2$ or $3$. These cannot happen together, so we add their probabilities:\n\n$$\\text{P}(X \\leqslant 3) = \\text{P}(X=0) + \\text{P}(X=1) + \\text{P}(X=2) + \\text{P}(X=3)$$\n\nFor a Poisson variable, $\\text{P}(X = r) = \\text{e}^{-\\lambda}\\dfrac{\\lambda^r}{r!}$, where $r! = r \\times (r-1) \\times \\dots \\times 1$ (and $0! = 1$). With $\\lambda = 4$:\n\n$$\\text{P}(X \\leqslant 3) = \\text{e}^{-4}\\left(1 + 4 + \\frac{4^2}{2!} + \\frac{4^3}{3!}\\right)$$\n\nThis line is the M1: the correct sum of four Poisson terms (the scheme allows any $\\lambda$, and one end error).",
+   "**Work out the bracket**\n\nTake the terms one at a time:\n\n$$\\frac{4^0}{0!} = 1 \\qquad \\frac{4^1}{1!} = 4 \\qquad \\frac{4^2}{2!} = \\frac{16}{2} = 8 \\qquad \\frac{4^3}{3!} = \\frac{64}{6} = 10.6667$$\n\nAdd them: $1 + 4 + 8 + 10.6667 = 23.6667$.\n\nQuick check: $\\text{e}^{-4}$ is a small number, about $0.0183$ (type $\\text{e}^{-4}$ into your calculator). The answer will be $0.0183 \\times 23.67$.",
+   "**Multiply by $\\text{e}^{-4}$**\n\n$$\\text{P}(X \\leqslant 3) = 0.0183156 \\times 23.6667 = 0.4335$$\n\nEquivalently, term by term: $0.018316 + 0.073263 + 0.146525 + 0.195367 = 0.43347$. Both routes agree.\n\nCalculator shortcut: Poisson cumulative distribution with mean $4$ and upper value $3$ gives the same number.",
+   "**Final answer**\n\n$$\\text{P}(X \\leqslant 3) \\approx 0.433 \\text{ (3 s.f.)}$$\n\nCommon slip (the scheme warns about it): using the exact binomial $\\text{B}(400, 0.01)$ gives $0.432$, which is not what the question asks for."
+  ]
+ }
+}

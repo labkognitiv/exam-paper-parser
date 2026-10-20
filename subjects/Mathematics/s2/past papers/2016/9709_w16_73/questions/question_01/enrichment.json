@@ -1,0 +1,16 @@
+{
+  "9709_w16_73_q1": {
+    "hints": [
+      "Read the inequality carefully: $X < 3$ is strict, so list exactly which whole numbers $X$ is allowed to take. Is 3 one of them?",
+      "For a Poisson variable, $\\text{P}(X = r) = \\text{e}^{-\\lambda}\\dfrac{\\lambda^r}{r!}$. Here $\\lambda = 3.5$. Write one term for each allowed value of $r$ and add them.",
+      "You can take $\\text{e}^{-3.5}$ out as a common factor: $\\text{e}^{-3.5}\\left(\\ldots + \\ldots + \\dfrac{3.5^2}{2!}\\right)$. Work it out on your calculator and round to 3 significant figures."
+    ],
+    "walkthrough": [
+      "**What are we being asked?**\n\n$X$ follows a Poisson distribution with mean $3.5$, written $\\text{Po}(3.5)$. The symbol $<$ means \"strictly less than\", so $X$ must be smaller than 3. $X$ counts things, so it can only be a whole number. That means $X$ can be $0$, $1$ or $2$ (but not $3$).\n\n$$\\text{P}(X < 3) = \\text{P}(X = 0) + \\text{P}(X = 1) + \\text{P}(X = 2)$$",
+      "**The Poisson formula**\n\nFor $X \\sim \\text{Po}(\\lambda)$, the probability of exactly $r$ events is\n\n$$\\text{P}(X = r) = \\text{e}^{-\\lambda}\\,\\frac{\\lambda^r}{r!}$$\n\nHere $\\lambda = 3.5$. Remember $0! = 1$ and $2! = 2 \\times 1 = 2$. This is the method the first M mark is for.",
+      "**Work out each term**\n\nFirst the common part. On your calculator press $e^x$ and type $-3.5$:\n\n$$\\text{e}^{-3.5} = 0.0301974\\ldots$$\n\nNow each term:\n\n$$\\text{P}(X = 0) = \\text{e}^{-3.5} \\times \\frac{3.5^0}{0!} = 0.0301974 \\times 1 = 0.0301974$$\n\n$$\\text{P}(X = 1) = \\text{e}^{-3.5} \\times \\frac{3.5^1}{1!} = 0.0301974 \\times 3.5 = 0.105691$$\n\n$$\\text{P}(X = 2) = \\text{e}^{-3.5} \\times \\frac{3.5^2}{2!} = 0.0301974 \\times \\frac{12.25}{2} = 0.0301974 \\times 6.125 = 0.184959$$",
+      "**Add them up**\n\n$$0.0301974 + 0.105691 + 0.184959 = 0.320847$$\n\nQuick check using the common factor: $1 + 3.5 + 6.125 = 10.625$, and $0.0301974 \\times 10.625 = 0.320847$. Same answer, good.\n\nCommon slip: adding $\\text{P}(X = 3)$ as well, which would answer $\\text{P}(X \\leqslant 3)$ instead. Another way: on a calculator, Poisson cumulative distribution with $\\lambda = 3.5$ and upper value $2$ gives the same number.",
+      "**Final answer**\n\n$$\\text{P}(X < 3) = 0.321 \\text{ (3 s.f.)}$$"
+    ]
+  }
+}

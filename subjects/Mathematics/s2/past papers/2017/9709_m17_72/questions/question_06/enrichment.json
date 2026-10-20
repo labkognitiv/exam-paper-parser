@@ -1,0 +1,36 @@
+{
+ "9709_m17_72_q6_i": {
+  "hints": [
+   "To add variances the individual cartons must have a particular relationship with one another. What must be true about the 8 sugar cartons and 3 flour cartons?",
+   "Let $T$ be the total load. Its mean is $8 \\times 78.8 + 3 \\times 62.0$. Its variance is $8 \\times 12.6^2 + 3 \\times 10.0^2$: these are 8 and 3 *separate* cartons, so add the variances that many times, not $8^2$ and $3^2$ times.",
+   "Standardise the limit: $z = \\dfrac{900 - \\text{E}(T)}{\\sqrt{\\text{Var}(T)}}$, using your two answers.",
+   "\"Exceeds 900 kg\" is the upper tail, so the probability is $1 - \\Phi(z)$ for your $z$.",
+   "Find $\\Phi(z)$ from the table or calculator, subtract it from 1, and convert the probability to a percentage (3 significant figures)."
+  ],
+  "walkthrough": [
+   "**State the assumption (this earns the first B1)**\n\nTo add variances of several quantities, the quantities must be **independent**. Here: the masses of the individual cartons are independent of each other (the cartons are randomly chosen).\n\nWithout this, we could not combine the cartons into one normal distribution.",
+   "**Mean and variance of the total load (this earns the second B1)**\n\nLet $T$ be the total mass of 8 cartons of sugar and 3 cartons of flour. The total of independent normal quantities is also normal.\n\nThe mean of a sum is the sum of the means: 8 sugar cartons each with mean 78.8, plus 3 flour cartons each with mean 62.0:\n\n$$\\text{E}(T) = 8 \\times 78.8 + 3 \\times 62.0 = 630.4 + 186 = 816.4$$\n\nFor variances, square each standard deviation first: sugar $12.6^2 = 158.76$, flour $10.0^2 = 100$. Variances of independent quantities add, and each carton adds its own variance:\n\n$$\\text{Var}(T) = 8 \\times 158.76 + 3 \\times 100 = 1270.08 + 300 = 1570.08$$\n\nCommon slip: writing $8S$ (one carton multiplied by 8) which would give $8^2 \\times 158.76$. We have 8 *different* cartons, so we add 8 copies of the variance.\n\nSo $T \\sim \\text{N}(816.4,\\ 1570.08)$.",
+   "**Standardise (this earns the first M1)**\n\nWe want $\\text{P}(T > 900)$. First turn 900 into a $z$-value: $z = \\dfrac{\\text{value} - \\text{mean}}{\\text{standard deviation}}$.\n\n$$\\sqrt{1570.08} = 39.624\\ldots$$\n\n$$900 - 816.4 = 83.6$$\n\n$$z = \\frac{83.6}{39.624} = 2.1098\\ldots \\approx 2.110$$",
+   "**Choose the right tail (this earns the second M1)**\n\nThe normal table gives the area to the *left* of $z$. We want the load to be *more than* 900, which is the area to the right, so subtract from 1:\n\n$$\\text{P}(T > 900) = 1 - \\Phi(2.110)$$",
+   "**Calculate and convert to a percentage (this earns the A1)**\n\nFrom the table, $\\Phi(2.110) = 0.9826$. Then\n\n$$1 - 0.9826 = 0.0174$$\n\nA probability becomes a percentage by multiplying by 100:\n\n$$0.0174 \\times 100 = 1.74\\%$$\n\nThe question asks for a percentage, so give it as a percentage.",
+   "**Final answer**\n\nAssumption: the masses of the cartons are independent of each other.\n\n$$\\text{P}(T > 900) = 0.0174, \\quad \\text{so } 1.74\\%$$ of standard loads exceed the maximum safe load."
+  ]
+ },
+ "9709_m17_72_q6_ii": {
+  "hints": [
+   "Let $S$ be the sugar mass and $F$ the flour mass. \"Sugar is lighter than flour\" means $S < F$. Rewrite it as a difference compared with 0, for example $\\text{P}(F - S > 0)$.",
+   "Find the mean and variance of $F - S$. The mean is $62.0 - 78.8$. For the variance, even though you are subtracting, the variances *add*: $10.0^2 + 12.6^2$.",
+   "Standardise the 0: $z = \\dfrac{0 - \\text{mean}}{\\sqrt{\\text{variance}}}$, using the mean and variance you found.",
+   "You want $F - S > 0$, which is the upper tail, so write $1 - \\Phi(z)$ with your $z$.",
+   "Look up $\\Phi(z)$ for your $z$ and subtract from 1; give 3 significant figures."
+  ],
+  "walkthrough": [
+   "**Turn the comparison into a difference (this earns the first M1)**\n\nLet $S$ be the mass of a sugar carton and $F$ the mass of a flour carton. \"Sugar has a smaller mass than flour\" means $S < F$. Subtract $S$ from both sides:\n\n$$F - S > 0$$\n\nso we need $\\text{P}(F - S > 0)$. (Using $S - F < 0$ is equally correct.)\n\n$F - S$ is a single normal quantity, which is easier to handle than two.",
+   "**Find the mean and variance of $F - S$ (this earns the B1)**\n\nThe mean of a difference is the difference of the means:\n\n$$\\text{E}(F - S) = 62.0 - 78.8 = -16.8$$\n\nThe variance of a difference is the *sum* of the variances. Reason: subtracting does not reduce the spread, because a difference is uncertain in both pieces. Square each standard deviation:\n\n$$\\text{Var}(F - S) = 10.0^2 + 12.6^2 = 100 + 158.76 = 258.76$$\n\nCommon slip: subtracting the variances. Never do that.\n\nSo $F - S \\sim \\text{N}(-16.8,\\ 258.76)$.",
+   "**Standardise (this earns the second M1)**\n\n$$\\sqrt{258.76} = 16.086\\ldots$$\n\nThe value we compare is 0, and the mean is $-16.8$:\n\n$$z = \\frac{0 - (-16.8)}{\\sqrt{258.76}} = \\frac{16.8}{16.086} = 1.0444\\ldots \\approx 1.044$$",
+   "**Choose the tail (this earns the third M1)**\n\nWe want $F - S$ *greater than* 0, the upper tail, so\n\n$$\\text{P}(F - S > 0) = 1 - \\Phi(1.044)$$",
+   "**Calculate (this earns the A1)**\n\nFrom the table, $\\Phi(1.044) = 0.8517$ (a calculator gives $0.8518$ for the unrounded $z$; either way the answer is the same to 3 significant figures).\n\n$$1 - 0.8517 = 0.1483 \\approx 0.148$$",
+   "**Final answer**\n\n$$\\text{P}(\\text{sugar carton lighter than flour carton}) = 1 - 0.8517 = 0.148$$"
+  ]
+ }
+}

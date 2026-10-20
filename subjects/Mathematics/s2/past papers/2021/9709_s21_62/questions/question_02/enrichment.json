@@ -1,0 +1,40 @@
+{
+ "9709_s21_62_q2_a": {
+  "hints": [
+   "For a binomial $\\text{B}(n, p)$ the variance is $npq$, with $q = 1 - p$. Write it with $n = 400$ and $p = 0.01$ to get $\\text{Var}(X)$.",
+   "The rule for a linear change is $\\text{Var}(aX + b) = a^2\\,\\text{Var}(X)$: the constant $b$ adds nothing to the spread, and $a$ is squared. Here $a = 4$.",
+   "Multiply your $\\text{Var}(X)$ by $4^2$, not by 4, and do not use the $+2$."
+  ],
+  "walkthrough": [
+   "**Variance of $X$ itself**\n\n$X \\sim \\text{B}(400, 0.01)$. For a binomial $\\text{B}(n, p)$ the variance is $npq$, where $q = 1 - p$.\n\n$$q = 1 - 0.01 = 0.99$$\n\n$$\\text{Var}(X) = 400 \\times 0.01 \\times 0.99$$\n\n$$400 \\times 0.01 = 4 \\qquad 4 \\times 0.99 = 3.96$$\n\nSo $\\text{Var}(X) = 3.96$. This earns the first M1.",
+   "**How a linear change affects variance**\n\nVariance measures spread. Adding 2 to every value slides all the values along but does not change how spread out they are, so the $+2$ has **no effect**. Multiplying by 4 stretches the spread, and because variance is measured in squared units, the factor 4 is **squared**.\n\n$$\\text{Var}(4X + 2) = 4^2\\,\\text{Var}(X) = 16\\,\\text{Var}(X)$$\n\nCommon slip: writing $4\\,\\text{Var}(X)$, or $4\\,\\text{Var}(X) + 2$. This is the second M1.",
+   "**Calculate**\n\n$$\\text{Var}(4X + 2) = 16 \\times 3.96$$\n\n$$16 \\times 3.96 = 63.36$$\n\nThis earns the A1. (The scheme also accepts 63.4.)",
+   "**Final answer**\n\n$\\text{Var}(4X + 2) = 63.36$"
+  ]
+ },
+ "9709_s21_62_q2_b_i": {
+  "hints": [
+   "Look at $n = 400$ and $p = 0.01$. Decide whether a Poisson or a normal approximation suits a binomial like this, and work out its parameter(s) from $n$ and $p$.",
+   "Justify by quoting the conditions with the question's values: $n$ is larger than 50, and either $np$ is less than 5 or $p$ is less than 0.1. Check each one with 400, your $np$ and 0.01."
+  ],
+  "walkthrough": [
+   "**Which approximation fits?**\n\nThere are two usual approximations for a binomial $\\text{B}(n, p)$: a Poisson, or a normal. Which one to use depends on the numbers.\n\nA normal approximation is used when $np$ and $nq$ are both greater than 5. Here $np = 400 \\times 0.01 = 4$, which is below 5, and $p = 0.01$ is very small, so successes are rare and the binomial is very lopsided. That is exactly when a **Poisson** approximation is used.",
+   "**Find the parameter (B1)**\n\nA Poisson distribution has one parameter, its mean $\\lambda$. We make it match the binomial mean $np$:\n\n$$\\lambda = np = 400 \\times 0.01 = 4$$\n\nSo $X$ is approximately $\\text{Po}(4)$.",
+   "**Justify the choice (B1)**\n\nThe syllabus conditions for approximating a binomial by a Poisson are: $n$ larger than 50 and either $np$ less than 5 or $p$ less than 0.1.\n\n$$n = 400 > 50$$\n\n$$np = 4 < 5 \\quad \\text{(or } p = 0.01 < 0.1\\text{)}$$\n\nYou must quote the actual values, not only say 'n is large and p is small'.",
+   "**Final answer**\n\n$X$ is approximately $\\text{Po}(4)$, because $n = 400 > 50$ and $np = 4 < 5$ (also $p = 0.01 < 0.1$)."
+  ]
+ },
+ "9709_s21_62_q2_b_ii": {
+  "hints": [
+   "With your Poisson mean, $\\text{P}(2 \\leqslant X \\leqslant 5) = \\text{P}(X = 2) + \\text{P}(X = 3) + \\text{P}(X = 4) + \\text{P}(X = 5)$, each term being $\\text{e}^{-\\lambda}\\dfrac{\\lambda^r}{r!}$.",
+   "Take $\\text{e}^{-\\lambda}$ out as a common factor, add the four terms $\\dfrac{\\lambda^r}{r!}$ for $r = 2, 3, 4, 5$, and check that both end values 2 and 5 are included. Then multiply and give 3 significant figures."
+  ],
+  "walkthrough": [
+   "**Write the probability as a sum**\n\nWe use $X \\sim \\text{Po}(4)$ from part (i). The inequality $2 \\leqslant X \\leqslant 5$ includes both ends, so $X$ can be 2, 3, 4 or 5:\n\n$$\\text{P}(2 \\leqslant X \\leqslant 5) = \\text{P}(2) + \\text{P}(3) + \\text{P}(4) + \\text{P}(5)$$\n\nQuick check: a common slip is to leave out 5 or to include 1. The scheme allows one end error for the M1, but it will cost the A1.",
+   "**Use the Poisson formula (M1)**\n\nFor a Poisson, $\\text{P}(X = r) = \\text{e}^{-\\lambda}\\dfrac{\\lambda^r}{r!}$. All four terms share $\\text{e}^{-4}$, so factor it out:\n\n$$\\text{P}(2 \\leqslant X \\leqslant 5) = \\text{e}^{-4}\\left(\\frac{4^2}{2!} + \\frac{4^3}{3!} + \\frac{4^4}{4!} + \\frac{4^5}{5!}\\right)$$",
+   "**Work each term out**\n\n$$\\frac{4^2}{2!} = \\frac{16}{2} = 8$$\n\n$$\\frac{4^3}{3!} = \\frac{64}{6} = 10.6667$$\n\n$$\\frac{4^4}{4!} = \\frac{256}{24} = 10.6667$$\n\n$$\\frac{4^5}{5!} = \\frac{1024}{120} = 8.5333$$\n\nAdd them: $8 + 10.6667 + 10.6667 + 8.5333 = 37.8667$.",
+   "**Multiply by $\\text{e}^{-4}$**\n\n$$\\text{e}^{-4} = 0.018316$$\n\n$$0.018316 \\times 37.8667 = 0.69355\\ldots$$\n\nTo 3 significant figures this is $0.694$ (the A1). Check on your calculator with Poisson cdf: $\\text{P}(X \\leqslant 5) - \\text{P}(X \\leqslant 1)$ gives the same value.",
+   "**Final answer**\n\n$\\text{P}(2 \\leqslant X \\leqslant 5) = 0.694$ (3 s.f.)"
+  ]
+ }
+}

@@ -1,0 +1,26 @@
+{
+ "9709_w18_73_q1_i": {
+  "hints": [
+   "A confidence interval for a mean with known population standard deviation has the form $\\bar{x} \\pm z \\times \\dfrac{\\sigma}{\\sqrt{n}}$. Here $\\bar{x} = 176$, $\\sigma = 7.2$ and $n = 200$.",
+   "A 97.5% interval leaves 2.5% outside it, split equally between the two tails. Find the $z$ that has that much area above it on one side (use the inverse normal on your calculator or the percentage-points table).",
+   "Work out $\\dfrac{7.2}{\\sqrt{200}}$, multiply by your $z$, then subtract from and add to 176 to get the two ends. Give them to 3 significant figures."
+  ],
+  "walkthrough": [
+   "**What we are asked to find**\n\nA confidence interval is a range of values that we are fairly sure contains the true population mean. Here the population is all adult males, and we want the range for their mean height.\n\nThe symbols: $\\bar{x}$ is the sample mean (176 cm), $\\sigma$ is the population standard deviation (7.2 cm) and $n$ is the sample size (200).",
+   "**Why this formula and why the standard error**\n\nThe sample mean $\\bar{X}$ varies from sample to sample. For a large sample it is (approximately) normal with mean $\\mu$ and standard deviation $\\dfrac{\\sigma}{\\sqrt{n}}$, which is called the standard error. The $\\sqrt{n}$ is there because a mean of 200 men varies much less than one man does.\n\nSo the interval is\n\n$$\\bar{x} \\pm z \\times \\frac{\\sigma}{\\sqrt{n}} = 176 \\pm z \\times \\frac{7.2}{\\sqrt{200}}$$\n\nThis line, with $z$ left as a letter, earns the **M1**. Be sure it is $z$ (not a $t$ value) and that you divide by $\\sqrt{200}$, not by 200.",
+   "**Finding z for 97.5%**\n\nA 97.5% confidence interval means 97.5% of the area is in the middle. That leaves $100\\% - 97.5\\% = 2.5\\%$ in the two tails together, so $\\dfrac{2.5\\%}{2} = 1.25\\%$ in each tail.\n\nThe area to the left of the upper end of the interval is therefore $100\\% - 1.25\\% = 98.75\\%$, that is $0.9875$.\n\nSo we need $z$ with $\\Phi(z) = 0.9875$. On the calculator use inverse normal with area $0.9875$, mean 0, standard deviation 1. It shows $2.2414\\ldots$\n\nUsing the normal table instead: $\\Phi(2.24) = 0.9875$, so $z = 2.24$.\n\n$$z = 2.24$$\n\nThis earns the **B1**. The scheme also allows 2.241 and 2.242.",
+   "**The standard error**\n\nNow work out the standard error step by step.\n\n$$\\sqrt{200} = 14.1421\\ldots$$\n\n$$\\frac{7.2}{14.1421\\ldots} = 0.50912\\ldots$$",
+   "**The margin of error and the two ends**\n\nMultiply the standard error by $z$ to get how far the interval extends each side of 176:\n\n$$2.24 \\times 0.50912\\ldots = 1.1404\\ldots$$\n\nSubtract and add this to the sample mean:\n\n$$176 - 1.1404\\ldots = 174.8596\\ldots$$\n\n$$176 + 1.1404\\ldots = 177.1404\\ldots$$\n\nRound both to 3 significant figures: $174.8596\\ldots \\to 175$ and $177.1404\\ldots \\to 177$. This earns the **A1**.",
+   "**Final answer**\n\nThe 97.5% confidence interval for the mean height of adult males is\n\n$$175 \\text{ cm to } 177 \\text{ cm (3 s.f.)}$$"
+  ]
+ },
+ "9709_w18_73_q1_ii": {
+  "hints": [
+   "The formula treats the 200 males as a fair picture of all adult males. Think about how they must have been chosen from the whole population; the condition is about the sample, not about the shape of the population."
+  ],
+  "walkthrough": [
+   "**Why a condition is needed**\n\nThe confidence interval uses the idea that the sample mean has a normal distribution with standard deviation $\\dfrac{\\sigma}{\\sqrt{n}}$. That only holds if the sample is a fair representation of the population, and the 200 observations are independent of each other.\n\nWe do **not** need the heights themselves to be normally distributed, because $n = 200$ is large enough for the Central Limit Theorem to make $\\bar{X}$ approximately normal anyway. So the condition that is really needed is about how the sample was chosen.\n\nA sample chosen at random gives every adult male the same chance of being picked, with the picks independent. That is what makes the sample mean behave as the formula says. This earns the **B1**; the scheme wants both words, *random* and *sample*.",
+   "**Final answer**\n\nThe sample of 200 adult males must be a **random sample**."
+  ]
+ }
+}

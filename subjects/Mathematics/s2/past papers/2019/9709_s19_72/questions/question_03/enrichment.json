@@ -1,0 +1,36 @@
+{
+  "9709_s19_72_q3_i": {
+    "hints": [
+      "An unbiased estimate of the population mean is just the sample mean: divide $\\sum t = 92.5$ by $n = 50$.",
+      "Unbiased variance estimate: $s^2 = \\dfrac{n}{n-1}\\left(\\dfrac{\\sum t^2}{n} - \\bar{t}^{\\,2}\\right)$ — put in $\\sum t^2 = 175.25$, $n = 50$ and your mean.",
+      "Work out the bracket first, then multiply by $\\dfrac{50}{49}$. Leaving out that factor gives a biased estimate and loses the marks. Give 3 s.f."
+    ],
+    "walkthrough": [
+      "**Why 'unbiased'**\n\nWe only have a sample of 50 days, not every journey, so we use the sample to *estimate* the population mean $\\mu$ and variance $\\sigma^2$. 'Unbiased' means the estimate is right on average. For the mean this is simply the sample mean; for the variance we must divide by $n - 1$ rather than $n$.",
+      "**The mean estimate**\n\n$\\bar{t}$ is the sample mean: add up all the times and divide by the number of days.\n\n$$\\bar{t} = \\frac{\\sum t}{n} = \\frac{92.5}{50} = 1.85$$\n\nThis is the **B1**: the estimate of $\\mu$ is 1.85 hours.",
+      "**The variance estimate: set up**\n\nThe formula is\n\n$$s^2 = \\frac{n}{n-1}\\left(\\frac{\\sum t^2}{n} - \\bar{t}^{\\,2}\\right)$$\n\nSubstituting $n = 50$, $\\sum t^2 = 175.25$ and $\\bar{t} = 1.85$:\n\n$$s^2 = \\frac{50}{49}\\left(\\frac{175.25}{50} - 1.85^2\\right)$$\n\nThis is the **M1**.",
+      "**The variance estimate: arithmetic**\n\nOne step at a time:\n\n$$\\frac{175.25}{50} = 3.505 \\qquad 1.85^2 = 3.4225$$\n\n$$3.505 - 3.4225 = 0.0825$$\n\n$$s^2 = \\frac{50}{49} \\times 0.0825 = \\frac{4.125}{49} = 0.0841836\\ldots$$\n\nQuick check using totals: $\\sum (t-\\bar{t})^2 = 175.25 - \\dfrac{92.5^2}{50} = 175.25 - 171.125 = 4.125$, and $4.125 \\div 49$ gives the same value. As a fraction it is $\\dfrac{33}{392}$.",
+      "**Slips to avoid**\n\nIf the factor $\\dfrac{50}{49}$ is forgotten you get $0.0825$ (or a standard deviation of $0.287$), and the scheme gives **M0 A0**. The scheme also accepts finding the standard deviation first. (The printed guidance shows $\\frac{175.25}{150}$ for that alternative; this is a misprint for $\\frac{175.25}{50}$.)",
+      "**Final answer**\n\nUnbiased estimate of the mean: $1.85$ (hours).\n\nUnbiased estimate of the variance: $0.0842$ (3 s.f.), which is $\\dfrac{33}{392}$."
+    ]
+  },
+  "9709_s19_72_q3_ii": {
+    "hints": [
+      "State $\\text{H}_0$ and $\\text{H}_1$ about the population mean $\\mu$. The claim is that journeys take *less than* $1.9$ hours, so choose a one-tailed alternative.",
+      "Standardise the sample mean: $z = \\dfrac{\\bar{t} - 1.9}{\\sqrt{s^2/n}}$, using your mean and variance estimate from part **(i)** and $n = 50$ — it is a mean of 50 journeys, so divide the variance by 50.",
+      "Put the numbers into your calculator carefully (square root of the whole fraction) and keep the sign: the sample mean is below $1.9$.",
+      "Compare your $z$ with the 5% one-tailed critical value (negative, since the alternative is 'less than'), or compare $\\Phi(z)$ with $0.05$.",
+      "Decide whether your $z$ is inside the rejection region. Then write a conclusion in context about the mean journey time: 'there is (no) evidence that...', not a definite statement."
+    ],
+    "walkthrough": [
+      "**Say what we are testing**\n\nThe claim is that the true average journey time is *less than* 1.9 hours. We test whether our sample gives enough evidence for that. Let $\\mu$ be the population mean journey time in hours.",
+      "**Hypotheses**\n\n$\\text{H}_0$ is the 'nothing special' position; $\\text{H}_1$ is what we look for evidence of:\n\n$$\\text{H}_0:\\ \\mu = 1.9 \\qquad\\qquad \\text{H}_1:\\ \\mu < 1.9$$\n\nThis earns the **B1**. It is a one-tailed test because the claim says 'less than'. Writing just 'mean' without naming the population (or using $\\mu$) loses the mark.",
+      "**Which distribution do we use?**\n\nThe sample is large ($n = 50$), so by the Central Limit Theorem the sample mean $\\bar{t}$ is approximately normal. Under $\\text{H}_0$ it has mean $1.9$ and variance $\\dfrac{\\sigma^2}{n}$. We do not know $\\sigma^2$, so we use our estimate $s^2 = 0.0842$ from part **(i)**.",
+      "**The test statistic: set up**\n\n$z$ tells us how many standard deviations our sample mean is from the $\\text{H}_0$ mean:\n\n$$z = \\frac{\\bar{t} - \\mu}{\\sqrt{s^2 / n}} = \\frac{1.85 - 1.9}{\\sqrt{\\dfrac{0.0842}{50}}}$$\n\nThis is the **M1**. Note the $\\sqrt{50}$ (inside the root, as $\\frac{0.0842}{50}$) because we are dealing with a mean of 50 values.",
+      "**The test statistic: arithmetic**\n\nTop: $1.85 - 1.9 = -0.05$.\n\nBottom: $\\dfrac{0.0841837}{50} = 0.00168367$, then $\\sqrt{0.00168367} = 0.0410326$.\n\n$$z = \\frac{-0.05}{0.0410326} = -1.2185\\ldots$$\n\nUse the unrounded variance $0.0841837\\ldots$ on your calculator to avoid a rounding drift. So $z = -1.22$ (3 s.f.), the **A1**. The scheme also accepts the totals method $\\dfrac{92.5 - 95}{\\sqrt{50 \\times s^2}}$, which gives the same $z$.",
+      "**Compare with the critical value**\n\nFor a one-tailed test at 5% in the lower tail, the critical value of $z$ is $-1.645$ (from the normal table, where $\\Phi(1.645) = 0.95$). We reject $\\text{H}_0$ only if $z < -1.645$.\n\nOur $z = -1.22$ is **not** less than $-1.645$, so it is not in the rejection region. This is the **M1**.\n\nAlternative: $\\Phi(-1.22) \\approx 0.111$ (the probability of a sample mean this low if $\\text{H}_0$ is true), and $0.111 > 0.05$, so again we do not reject $\\text{H}_0$.",
+      "**Conclusion in context**\n\nWe do not reject $\\text{H}_0$. This is the final **A1**: the sample does not give enough evidence to say the journey takes less than 1.9 hours on average. Say 'evidence', not 'proof', and do not say the claim is false; we only say we have no evidence for it.\n\nA slip to avoid: using a two-tailed test (critical value $1.96$) because it scores at most 3 of the 5 marks.",
+      "**Final answer**\n\n$z = -1.22$, critical value $-1.645$. Since $-1.22 > -1.645$, do not reject $\\text{H}_0$: there is no evidence at the 5% level that the mean journey time is less than 1.9 hours."
+    ]
+  }
+}

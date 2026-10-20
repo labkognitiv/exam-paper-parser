@@ -1,0 +1,33 @@
+{
+ "9709_s19_71_q3_i": {
+  "hints": [
+   "Let $p$ be the probability of a six on one throw. $\\text{H}_0$ is the fair-die value of $p$. Sumitra suspects *fewer* sixes than a fair die, so $\\text{H}_1$ points that way.",
+   "Under $\\text{H}_0$ the number of sixes is $X \\sim \\text{B}(30, \\tfrac{1}{6})$. She saw 2 sixes, and 'as extreme or more extreme' in the direction of $\\text{H}_1$ means 2 or fewer. Write $\\text{P}(X \\leqslant 2) = \\text{P}(0) + \\text{P}(1) + \\text{P}(2)$ using $\\binom{30}{r}\\left(\\tfrac{1}{6}\\right)^r\\left(\\tfrac{5}{6}\\right)^{30-r}$.",
+   "Evaluate the three terms and add them, or use binomial cumulative probability on your calculator with $n = 30$, $p = \\tfrac{1}{6}$, $x = 2$.",
+   "The significance level is 5%. Compare your probability with 0.05.",
+   "If your probability is larger than 0.05, the result is not unusual enough to reject $\\text{H}_0$; if smaller, it is. Write the conclusion in context about whether the die is biased, in non-definite wording."
+  ],
+  "walkthrough": [
+   "**Why a binomial distribution**\n\nWe count the number of sixes in 30 throws. Each throw is independent, has two outcomes (six or not a six) and, if the die is fair, the same probability $\\tfrac{1}{6}$ of a six. That is a binomial situation. Let $X$ be the number of sixes in 30 throws.",
+   "**Hypotheses (this earns the B1)**\n\nLet $p$ be the probability that the die shows a six on one throw.\n\n$$\\text{H}_0: p = \\frac{1}{6}$$\n\n$$\\text{H}_1: p < \\frac{1}{6}$$\n\n$\\text{H}_0$ says the die is fair. Sumitra thinks it shows a six *less often*, so $\\text{H}_1$ has '$<$'. This is a one-tailed test, and we look at the lower end.",
+   "**What probability do we need?**\n\nIf $\\text{H}_0$ is true, $X \\sim \\text{B}\\left(30, \\tfrac{1}{6}\\right)$. She got 2 sixes. We ask: if the die is fair, how likely is a result as low as this *or lower*? That is $\\text{P}(X \\leqslant 2)$. If this is very small (below 5%) we have grounds to doubt the die is fair.",
+   "**Set up the sum (this earns the M1)**\n\n$$\\text{P}(X \\leqslant 2) = \\text{P}(X=0) + \\text{P}(X=1) + \\text{P}(X=2)$$\n\nUsing $\\text{P}(X=r) = \\binom{30}{r}\\left(\\tfrac{1}{6}\\right)^r\\left(\\tfrac{5}{6}\\right)^{30-r}$:\n\n$$= \\left(\\tfrac{5}{6}\\right)^{30} + 30\\left(\\tfrac{1}{6}\\right)\\left(\\tfrac{5}{6}\\right)^{29} + {}^{30}\\text{C}_2\\left(\\tfrac{1}{6}\\right)^2\\left(\\tfrac{5}{6}\\right)^{28}$$\n\nHere ${}^{30}\\text{C}_2 = \\dfrac{30 \\times 29}{2} = 435$.",
+   "**Calculate (this earns the A1)**\n\nTerm by term:\n\n$\\text{P}(X=0) = \\left(\\tfrac{5}{6}\\right)^{30} = 0.0042127\\ldots$\n\n$\\text{P}(X=1) = 30 \\times \\tfrac{1}{6} \\times \\left(\\tfrac{5}{6}\\right)^{29} = 5 \\times 0.0050553 = 0.025276\\ldots$\n\n$\\text{P}(X=2) = 435 \\times \\tfrac{1}{36} \\times \\left(\\tfrac{5}{6}\\right)^{28} = 0.073301\\ldots$\n\nAdd them:\n\n$$0.0042127 + 0.025276 + 0.073301 = 0.10279\\ldots = 0.103 \\text{ (3 s.f.)}$$\n\nCalculator check: binomial cumulative with $n=30$, $p=\\tfrac{1}{6}$, $x=2$ shows $0.1028$.",
+   "**Compare with the significance level (this earns the second M1)**\n\nThe significance level is 5% $= 0.05$.\n\n$$0.103 > 0.05$$\n\nThe probability is bigger than 0.05, so this result is not unusual enough for us to reject $\\text{H}_0$.",
+   "**Conclusion (this earns the A1ft)**\n\nWe do not reject $\\text{H}_0$. In context: there is no evidence, at the 5% significance level, that the die is biased so that it shows a six less often.\n\nNote the wording: we have not *proved* the die is fair, only that these results give no convincing evidence against it.",
+   "**Final answer**\n\n$\\text{P}(X \\leqslant 2) = 0.103 > 0.05$, so do not reject $\\text{H}_0$: there is no evidence at the 5% level that the die is biased."
+  ]
+ },
+ "9709_s19_71_q3_ii": {
+  "hints": [
+   "A Type I error means rejecting $\\text{H}_0$ when it is actually true, so work with $\\text{B}(30, \\tfrac{1}{6})$. First find the critical region: the values of $X$ for which $\\text{P}(X \\leqslant c)$ is below 0.05. You know from part (i) that $c = 2$ is not small enough, so test the next value down.",
+   "The probability of a Type I error is the probability that $X$ falls in the critical region under $\\text{H}_0$. Write the sum of the binomial terms for the values in the region and evaluate it. It is *not* simply 0.05, because the binomial is discrete."
+  ],
+  "walkthrough": [
+   "**What a Type I error is**\n\nA Type I error means rejecting $\\text{H}_0$ when $\\text{H}_0$ is actually true. Here that means: the die is fair, but she throws so few sixes that she wrongly decides it is biased. So we work with the fair-die distribution $X \\sim \\text{B}\\left(30, \\tfrac{1}{6}\\right)$.",
+   "**Find the critical region**\n\nThe critical region is the set of results that make her reject $\\text{H}_0$ at the 5% level, i.e. the values $0, 1, \\ldots, c$ where $\\text{P}(X \\leqslant c) < 0.05$ (we need a probability below 0.05, as in part (i)).\n\nFrom part (i): $\\text{P}(X \\leqslant 2) = 0.103$, which is more than 0.05, so 2 is **not** in the region.\n\nTry $c = 1$ (this earns the M1):\n\n$$\\text{P}(X \\leqslant 1) = \\left(\\tfrac{5}{6}\\right)^{30} + 30\\left(\\tfrac{1}{6}\\right)\\left(\\tfrac{5}{6}\\right)^{29}$$\n\n$$= 0.0042127 + 0.025276 = 0.029489\\ldots$$\n\nThis is less than 0.05, so the critical region is $X = 0$ or $X = 1$.",
+   "**The probability of a Type I error (this earns the A1)**\n\nIt is the probability that $X$ lands in the critical region when $\\text{H}_0$ is true:\n\n$$\\text{P}(\\text{Type I error}) = \\text{P}(X \\leqslant 1) = 0.0295 \\text{ (3 s.f.)}$$\n\nWhy not 0.05? The binomial takes whole-number values only, so we cannot choose a region with probability exactly 5%. The actual significance level is the largest probability below 5% that the region allows.",
+   "**Final answer**\n\n$\\text{P}(\\text{Type I error}) = 0.0295$ (3 s.f.)."
+  ]
+ }
+}
